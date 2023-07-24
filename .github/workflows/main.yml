@@ -1,0 +1,46 @@
+name: Publish Package to npmjs
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.17.3'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm install -g typescript@4.9.5
+      - name: Compile projects
+        run: |
+          echo "PUB_VERSION: $PUB_VERSION"
+          chmod +x .github/workflows/build.sh
+          .github/workflows/build.sh
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUB_VERSION: ${{ vars.PUB_VERSION }}
+      - name: Publish package for core
+        run: |
+          echo 'Publishing core to npmjs'
+          cd ./build/core
+          npm publish --access public
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package for services
+        run: |
+          echo 'Published services to npmjs'
+          cd ./build/services
+          for service in `ls .`
+          do
+            cd "./$service"
+            npm publish --access public
+            cd ..
+          done 
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
