@@ -14,7 +14,7 @@
   "author": "HuaweiCloud_SDK",
   "license": "Apache-2.0",
   "dependencies": {
-    "@huaweicloud/huaweicloud-sdk-core": "^PRODUCT_VERSION"
+    "@huaweicloudtest/huaweicloud-sdk-core": "^PRODUCT_VERSION"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
