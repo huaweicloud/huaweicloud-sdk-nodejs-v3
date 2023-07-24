@@ -5,7 +5,7 @@ on:
       dry_run:
         description: 'dry run for npm publish'
         required: true
-        default: true
+        default: false
         type: boolean
       ignore_publish_failed:
         description: 'ignore publish failed, not exit'
