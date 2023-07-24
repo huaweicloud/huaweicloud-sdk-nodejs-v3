@@ -1,5 +1,5 @@
 {
-  "name": "@huaweicloudtest/huaweicloud-sdk-PRODUCT",
+  "name": "@huaweicloud/huaweicloud-sdk-PRODUCT",
   "version": "PRODUCT_VERSION",
   "description": "Huaweicloud SDK for PRODUCT",
   "main": "huaweicloud-sdk-PRODUCT.js",
@@ -14,7 +14,7 @@
   "author": "HuaweiCloud_SDK",
   "license": "Apache-2.0",
   "dependencies": {
-    "@huaweicloudtest/huaweicloud-sdk-core": "^PRODUCT_VERSION"
+    "@huaweicloud/huaweicloud-sdk-core": "^PRODUCT_VERSION"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
