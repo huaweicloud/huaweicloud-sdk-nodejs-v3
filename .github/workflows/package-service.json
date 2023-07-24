@@ -1,5 +1,5 @@
 {
-  "name": "@huaweicloudtest/huaweicloud-sdk-PRODUCT",
+  "name": "@huaweicloud/huaweicloud-sdk-PRODUCT",
   "version": "PRODUCT_VERSION",
   "description": "Huaweicloud SDK for PRODUCT",
   "main": "huaweicloud-sdk-PRODUCT.js",
