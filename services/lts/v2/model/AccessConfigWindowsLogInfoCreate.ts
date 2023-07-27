@@ -5,10 +5,7 @@ export class AccessConfigWindowsLogInfoCreate {
     public categorys?: Array<AccessConfigWindowsLogInfoCreateCategorysEnum> | Array<string>;
     private 'time_offset'?: AccessConfigTimeOffsetCreate;
     private 'event_level'?: Array<AccessConfigWindowsLogInfoCreateEventLevelEnum> | Array<string>;
-    public constructor(categorys?: Array<string>, timeOffset?: AccessConfigTimeOffsetCreate, eventLevel?: Array<string>) { 
-        this['categorys'] = categorys;
-        this['time_offset'] = timeOffset;
-        this['event_level'] = eventLevel;
+    public constructor() { 
     }
     public withCategorys(categorys: Array<AccessConfigWindowsLogInfoCreateCategorysEnum> | Array<string>): AccessConfigWindowsLogInfoCreate {
         this['categorys'] = categorys;

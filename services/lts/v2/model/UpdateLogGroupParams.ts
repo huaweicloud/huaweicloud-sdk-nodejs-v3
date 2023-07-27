@@ -1,7 +1,9 @@
+import { TagsBody } from './TagsBody';
 
 
 export class UpdateLogGroupParams {
     private 'ttl_in_days'?: number;
+    public tags?: Array<TagsBody>;
     public constructor(ttlInDays?: number) { 
         this['ttl_in_days'] = ttlInDays;
     }
@@ -14,5 +16,9 @@ export class UpdateLogGroupParams {
     }
     public get ttlInDays(): number | undefined {
         return this['ttl_in_days'];
+    }
+    public withTags(tags: Array<TagsBody>): UpdateLogGroupParams {
+        this['tags'] = tags;
+        return this;
     }
 }

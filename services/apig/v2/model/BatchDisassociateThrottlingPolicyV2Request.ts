@@ -1,0 +1,30 @@
+import { ThrottleBindingBatchDelete } from './ThrottleBindingBatchDelete';
+
+
+export class BatchDisassociateThrottlingPolicyV2Request {
+    private 'instance_id'?: string;
+    public action?: string;
+    public body?: ThrottleBindingBatchDelete;
+    public constructor(instanceId?: string, action?: string) { 
+        this['instance_id'] = instanceId;
+        this['action'] = action;
+    }
+    public withInstanceId(instanceId: string): BatchDisassociateThrottlingPolicyV2Request {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withAction(action: string): BatchDisassociateThrottlingPolicyV2Request {
+        this['action'] = action;
+        return this;
+    }
+    public withBody(body: ThrottleBindingBatchDelete): BatchDisassociateThrottlingPolicyV2Request {
+        this['body'] = body;
+        return this;
+    }
+}

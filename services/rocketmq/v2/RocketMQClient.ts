@@ -502,7 +502,7 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {string} [engine] 消息引擎：reliability。
+     * @param {'reliability'} [engine] 消息引擎。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
      * @param {'CREATING' | 'RUNNING' | 'FAULTY' | 'RESTARTING' | 'RESIZING' | 'RESIZING FAILED' | 'FROZEN'} [status] 实例状态，详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。
@@ -891,7 +891,7 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 消费验证
-     * @param {string} engine engine
+     * @param {'reliability'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {ResendReq} validateConsumedMessageRequestBody 请求消息。
      * @param {*} [options] Override http request option.

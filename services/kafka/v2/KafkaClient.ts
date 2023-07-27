@@ -397,7 +397,7 @@ export class KafkaClient {
      *
      * @summary 创建关闭实例转储节点的订单
      * @param {string} instanceId 实例ID。
-     * @param {ConnectorOrderRequestBody} [connectorOrderRequestBody] 请求消息。
+     * @param {ConnectorOrderRequestBody} [createDeleteConnectorOrderRequestBody] 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -479,7 +479,7 @@ export class KafkaClient {
      *
      * @summary 创建消费组
      * @param {string} instanceId 实例ID。
-     * @param {CreateGroupReq} createGroupRequestBody 请求消息。
+     * @param {CreateGroupReq} createKafkaConsumerGroupRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -514,7 +514,7 @@ export class KafkaClient {
     }
 
     /**
-     * [创建按需计费类型的Kafka实例。](tag:hc,hk,hws,hws_hk,ctc,sbc,hk_sbc,cmcc,hws_eu)[创建kafka实例。](tag:otc,ocb,hws_ocb)
+     * [创建按需计费类型的Kafka实例。](tag:sbc,hk_sbc,cmcc)[创建kafka实例。](tag:otc)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2190,7 +2190,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * [创建按需计费类型的Kafka实例。](tag:hc,hk,hws,hws_hk,ctc,sbc,hk_sbc,cmcc,hws_eu)[创建kafka实例。](tag:otc,ocb,hws_ocb)
+         * [创建按需计费类型的Kafka实例。](tag:sbc,hk_sbc,cmcc)[创建kafka实例。](tag:otc)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

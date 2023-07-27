@@ -4,8 +4,11 @@ export class VnicResp {
     private 'private_ip_address'?: string;
     private 'device_id'?: string;
     private 'device_owner'?: string;
+    public vtep?: string;
+    public vni?: string;
     private 'vpc_id'?: string;
     private 'port_id'?: string;
+    private 'port_profile'?: string;
     public mac?: string;
     private 'instance_id'?: string;
     private 'instance_type'?: string;
@@ -41,6 +44,14 @@ export class VnicResp {
     public get deviceOwner(): string | undefined {
         return this['device_owner'];
     }
+    public withVtep(vtep: string): VnicResp {
+        this['vtep'] = vtep;
+        return this;
+    }
+    public withVni(vni: string): VnicResp {
+        this['vni'] = vni;
+        return this;
+    }
     public withVpcId(vpcId: string): VnicResp {
         this['vpc_id'] = vpcId;
         return this;
@@ -60,6 +71,16 @@ export class VnicResp {
     }
     public get portId(): string | undefined {
         return this['port_id'];
+    }
+    public withPortProfile(portProfile: string): VnicResp {
+        this['port_profile'] = portProfile;
+        return this;
+    }
+    public set portProfile(portProfile: string  | undefined) {
+        this['port_profile'] = portProfile;
+    }
+    public get portProfile(): string | undefined {
+        return this['port_profile'];
     }
     public withMac(mac: string): VnicResp {
         this['mac'] = mac;

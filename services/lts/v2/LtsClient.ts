@@ -253,6 +253,9 @@ import { UpdateKeywordsAlarmRuleResponse } from './model/UpdateKeywordsAlarmRule
 import { UpdateLogGroupParams } from './model/UpdateLogGroupParams';
 import { UpdateLogGroupRequest } from './model/UpdateLogGroupRequest';
 import { UpdateLogGroupResponse } from './model/UpdateLogGroupResponse';
+import { UpdateLogStreamParams } from './model/UpdateLogStreamParams';
+import { UpdateLogStreamRequest } from './model/UpdateLogStreamRequest';
+import { UpdateLogStreamResponse } from './model/UpdateLogStreamResponse';
 import { UpdateNotificationTemplateRequest } from './model/UpdateNotificationTemplateRequest';
 import { UpdateNotificationTemplateResponse } from './model/UpdateNotificationTemplateResponse';
 import { UpdateSqlAlarmRuleRequest } from './model/UpdateSqlAlarmRuleRequest';
@@ -1487,6 +1490,28 @@ export class LtsClient {
      */
     public updateLogGroup(updateLogGroupRequest?: UpdateLogGroupRequest): Promise<UpdateLogGroupResponse> {
         const options = ParamCreater().updateLogGroup(updateLogGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改指定日志流下的日志存储时长。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改日志流
+     * @param {string} logGroupId 日志组ID，获取方式请参见：获取帐号ID、项目ID、日志组ID、日志流ID。  缺省值：None 最小长度：36 最大长度：36
+     * @param {string} logStreamId 日志流ID，获取方式请参见：获取帐号ID、项目ID、日志组ID、日志流ID。  缺省值：None 最小长度：36 最大长度：36
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。  缺省值：None 最小长度：30 最大长度：30
+     * @param {UpdateLogStreamParams} updateLogStreamRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogStream(updateLogStreamRequest?: UpdateLogStreamRequest): Promise<UpdateLogStreamResponse> {
+        const options = ParamCreater().updateLogStream(updateLogStreamRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4657,6 +4682,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'log_group_id': logGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改指定日志流下的日志存储时长。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogStream(updateLogStreamRequest?: UpdateLogStreamRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/groups/{log_group_id}/streams_ttl/{log_stream_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let logGroupId;
+            
+            let logStreamId;
+            
+            let contentType;
+
+            if (updateLogStreamRequest !== null && updateLogStreamRequest !== undefined) {
+                if (updateLogStreamRequest instanceof UpdateLogStreamRequest) {
+                    logGroupId = updateLogStreamRequest.logGroupId;
+                    logStreamId = updateLogStreamRequest.logStreamId;
+                    contentType = updateLogStreamRequest.contentType;
+                    body = updateLogStreamRequest.body
+                } else {
+                    logGroupId = updateLogStreamRequest['log_group_id'];
+                    logStreamId = updateLogStreamRequest['log_stream_id'];
+                    contentType = updateLogStreamRequest['Content-Type'];
+                    body = updateLogStreamRequest['body'];
+                }
+            }
+
+        
+            if (logGroupId === null || logGroupId === undefined) {
+            throw new RequiredError('logGroupId','Required parameter logGroupId was null or undefined when calling updateLogStream.');
+            }
+            if (logStreamId === null || logStreamId === undefined) {
+            throw new RequiredError('logStreamId','Required parameter logStreamId was null or undefined when calling updateLogStream.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'log_group_id': logGroupId,'log_stream_id': logStreamId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

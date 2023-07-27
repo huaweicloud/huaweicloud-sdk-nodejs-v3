@@ -57,6 +57,10 @@ import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
+import { DownloadBackupErrorResponse } from './model/DownloadBackupErrorResponse';
+import { DownloadBackupRequest } from './model/DownloadBackupRequest';
+import { DownloadBackupResponse } from './model/DownloadBackupResponse';
+import { DownloadObject } from './model/DownloadObject';
 import { EpsQuotasOption } from './model/EpsQuotasOption';
 import { Flavor } from './model/Flavor';
 import { FlavorErrorResponse } from './model/FlavorErrorResponse';
@@ -593,6 +597,26 @@ export class GaussDBforopenGaussClient {
      */
     public deleteManualBackup(deleteManualBackupRequest?: DeleteManualBackupRequest): Promise<DeleteManualBackupResponse> {
         const options = ParamCreater().deleteManualBackup(deleteManualBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取备份下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取备份下载链接
+     * @param {string} backupId 备份ID。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadBackup(downloadBackupRequest?: DownloadBackupRequest): Promise<DownloadBackupResponse> {
+        const options = ParamCreater().downloadBackup(downloadBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2576,6 +2600,53 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取备份下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadBackup(downloadBackupRequest?: DownloadBackupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/backup-files",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let backupId;
+            
+            let xLanguage;
+
+            if (downloadBackupRequest !== null && downloadBackupRequest !== undefined) {
+                if (downloadBackupRequest instanceof DownloadBackupRequest) {
+                    backupId = downloadBackupRequest.backupId;
+                    xLanguage = downloadBackupRequest.xLanguage;
+                } else {
+                    backupId = downloadBackupRequest['backup_id'];
+                    xLanguage = downloadBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+                throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling downloadBackup.');
+            }
+            if (backupId !== null && backupId !== undefined) {
+                localVarQueryParameter['backup_id'] = backupId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

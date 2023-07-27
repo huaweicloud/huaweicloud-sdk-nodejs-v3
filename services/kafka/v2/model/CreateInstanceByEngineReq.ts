@@ -26,6 +26,8 @@ export class CreateInstanceByEngineReq {
     private 'kafka_security_protocol'?: string;
     private 'sasl_enabled_mechanisms'?: Array<CreateInstanceByEngineReqSaslEnabledMechanismsEnum> | Array<string>;
     private 'retention_policy'?: CreateInstanceByEngineReqRetentionPolicyEnum | string;
+    private 'disk_encrypted_enable'?: boolean;
+    private 'disk_encrypted_key'?: string;
     private 'connector_enable'?: boolean;
     private 'enable_auto_topic'?: boolean;
     private 'storage_spec_code'?: CreateInstanceByEngineReqStorageSpecCodeEnum | string;
@@ -252,6 +254,26 @@ export class CreateInstanceByEngineReq {
     }
     public get retentionPolicy(): CreateInstanceByEngineReqRetentionPolicyEnum | string | undefined {
         return this['retention_policy'];
+    }
+    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreateInstanceByEngineReq {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+        return this;
+    }
+    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+    }
+    public get diskEncryptedEnable(): boolean | undefined {
+        return this['disk_encrypted_enable'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): CreateInstanceByEngineReq {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
     }
     public withConnectorEnable(connectorEnable: boolean): CreateInstanceByEngineReq {
         this['connector_enable'] = connectorEnable;

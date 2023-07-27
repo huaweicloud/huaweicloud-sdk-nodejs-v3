@@ -3,7 +3,9 @@
 export class AccessConfigFormatSingleCreate {
     public mode?: AccessConfigFormatSingleCreateModeEnum | string;
     public value?: string;
-    public constructor() { 
+    public constructor(mode?: string, value?: string) { 
+        this['mode'] = mode;
+        this['value'] = value;
     }
     public withMode(mode: AccessConfigFormatSingleCreateModeEnum | string): AccessConfigFormatSingleCreate {
         this['mode'] = mode;

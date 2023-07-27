@@ -22,9 +22,7 @@ export class AccessConfigDeatilCreate {
     public includeK8sLabels?: { [key: string]: string; };
     public excludeK8sLabels?: { [key: string]: string; };
     public logK8s?: { [key: string]: string; };
-    public constructor(paths?: Array<string>, format?: AccessConfigFormatCreate) { 
-        this['paths'] = paths;
-        this['format'] = format;
+    public constructor() { 
     }
     public withPaths(paths: Array<string>): AccessConfigDeatilCreate {
         this['paths'] = paths;

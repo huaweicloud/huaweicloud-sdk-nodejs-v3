@@ -1,8 +1,10 @@
+import { TagsBody } from './TagsBody';
 
 
 export class CreateLogGroupParams {
     private 'log_group_name'?: string;
     private 'ttl_in_days'?: number;
+    public tags?: Array<TagsBody>;
     public constructor(logGroupName?: string, ttlInDays?: number) { 
         this['log_group_name'] = logGroupName;
         this['ttl_in_days'] = ttlInDays;
@@ -26,5 +28,9 @@ export class CreateLogGroupParams {
     }
     public get ttlInDays(): number | undefined {
         return this['ttl_in_days'];
+    }
+    public withTags(tags: Array<TagsBody>): CreateLogGroupParams {
+        this['tags'] = tags;
+        return this;
     }
 }

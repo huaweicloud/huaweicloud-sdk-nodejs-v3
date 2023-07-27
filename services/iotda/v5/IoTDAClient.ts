@@ -21,6 +21,9 @@ import { AddProduct } from './model/AddProduct';
 import { AddQueueRequest } from './model/AddQueueRequest';
 import { AddQueueResponse } from './model/AddQueueResponse';
 import { AddRuleReq } from './model/AddRuleReq';
+import { AddTunnelDto } from './model/AddTunnelDto';
+import { AddTunnelRequest } from './model/AddTunnelRequest';
+import { AddTunnelResponse } from './model/AddTunnelResponse';
 import { AmqpForwarding } from './model/AmqpForwarding';
 import { ApplicationDTO } from './model/ApplicationDTO';
 import { AsyncDeviceCommandRequest } from './model/AsyncDeviceCommandRequest';
@@ -40,9 +43,12 @@ import { ChangeRuleStatusResponse } from './model/ChangeRuleStatusResponse';
 import { ChannelDetail } from './model/ChannelDetail';
 import { CheckCertificateRequest } from './model/CheckCertificateRequest';
 import { CheckCertificateResponse } from './model/CheckCertificateResponse';
+import { CloseDeviceTunnelRequest } from './model/CloseDeviceTunnelRequest';
+import { CloseDeviceTunnelResponse } from './model/CloseDeviceTunnelResponse';
 import { Cmd } from './model/Cmd';
 import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
+import { ConnectState } from './model/ConnectState';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
 import { CreateAccessCodeResponse } from './model/CreateAccessCodeResponse';
@@ -82,6 +88,8 @@ import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
 import { DeleteDeviceGroupResponse } from './model/DeleteDeviceGroupResponse';
 import { DeleteDeviceRequest } from './model/DeleteDeviceRequest';
 import { DeleteDeviceResponse } from './model/DeleteDeviceResponse';
+import { DeleteDeviceTunnelRequest } from './model/DeleteDeviceTunnelRequest';
+import { DeleteDeviceTunnelResponse } from './model/DeleteDeviceTunnelResponse';
 import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
 import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
@@ -127,6 +135,8 @@ import { ListDeviceGroupsRequest } from './model/ListDeviceGroupsRequest';
 import { ListDeviceGroupsResponse } from './model/ListDeviceGroupsResponse';
 import { ListDeviceMessagesRequest } from './model/ListDeviceMessagesRequest';
 import { ListDeviceMessagesResponse } from './model/ListDeviceMessagesResponse';
+import { ListDeviceTunnelsRequest } from './model/ListDeviceTunnelsRequest';
+import { ListDeviceTunnelsResponse } from './model/ListDeviceTunnelsResponse';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
 import { ListOtaPackageInfoRequest } from './model/ListOtaPackageInfoRequest';
@@ -203,6 +213,8 @@ import { ShowDeviceRequest } from './model/ShowDeviceRequest';
 import { ShowDeviceResponse } from './model/ShowDeviceResponse';
 import { ShowDeviceShadowRequest } from './model/ShowDeviceShadowRequest';
 import { ShowDeviceShadowResponse } from './model/ShowDeviceShadowResponse';
+import { ShowDeviceTunnelRequest } from './model/ShowDeviceTunnelRequest';
+import { ShowDeviceTunnelResponse } from './model/ShowDeviceTunnelResponse';
 import { ShowDevicesInGroupRequest } from './model/ShowDevicesInGroupRequest';
 import { ShowDevicesInGroupResponse } from './model/ShowDevicesInGroupResponse';
 import { ShowOtaPackageRequest } from './model/ShowOtaPackageRequest';
@@ -230,6 +242,7 @@ import { TaskDetail } from './model/TaskDetail';
 import { TaskPolicy } from './model/TaskPolicy';
 import { TaskProgress } from './model/TaskProgress';
 import { TimeRange } from './model/TimeRange';
+import { TunnelInfo } from './model/TunnelInfo';
 import { UnbindTagsDTO } from './model/UnbindTagsDTO';
 import { UnfreezeDeviceRequest } from './model/UnfreezeDeviceRequest';
 import { UnfreezeDeviceResponse } from './model/UnfreezeDeviceResponse';
@@ -2064,6 +2077,106 @@ export class IoTDAClient {
      */
     public untagDevice(untagDeviceRequest?: UntagDeviceRequest): Promise<UntagDeviceResponse> {
         const options = ParamCreater().untagDevice(untagDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建设备隧道接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建设备隧道
+     * @param {AddTunnelDto} addTunnelRequestBody 创建隧道请求体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addTunnel(addTunnelRequest?: AddTunnelRequest): Promise<AddTunnelResponse> {
+        const options = ParamCreater().addTunnel(addTunnelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭设备隧道接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭设备隧道
+     * @param {string} tunnelId 隧道ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public closeDeviceTunnel(closeDeviceTunnelRequest?: CloseDeviceTunnelRequest): Promise<CloseDeviceTunnelResponse> {
+        const options = ParamCreater().closeDeviceTunnel(closeDeviceTunnelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除设备隧道接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除设备隧道
+     * @param {string} tunnelId 隧道ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDeviceTunnel(deleteDeviceTunnelRequest?: DeleteDeviceTunnelRequest): Promise<DeleteDeviceTunnelResponse> {
+        const options = ParamCreater().deleteDeviceTunnel(deleteDeviceTunnelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询设备所有隧道接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备所有隧道
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {string} [deviceId] **参数说明**：设备ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDeviceTunnels(listDeviceTunnelsRequest?: ListDeviceTunnelsRequest): Promise<ListDeviceTunnelsResponse> {
+        const options = ParamCreater().listDeviceTunnels(listDeviceTunnelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询设备隧道信息接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备隧道
+     * @param {string} tunnelId 隧道ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeviceTunnel(showDeviceTunnelRequest?: ShowDeviceTunnelRequest): Promise<ShowDeviceTunnelResponse> {
+        const options = ParamCreater().showDeviceTunnel(showDeviceTunnelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6361,6 +6474,227 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建设备隧道接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addTunnel(addTunnelRequest?: AddTunnelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/tunnels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addTunnelRequest !== null && addTunnelRequest !== undefined) {
+                if (addTunnelRequest instanceof AddTunnelRequest) {
+                    body = addTunnelRequest.body
+                    instanceId = addTunnelRequest.instanceId;
+                } else {
+                    body = addTunnelRequest['body'];
+                    instanceId = addTunnelRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭设备隧道接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        closeDeviceTunnel(closeDeviceTunnelRequest?: CloseDeviceTunnelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/tunnels/{tunnel_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tunnelId;
+            
+            let instanceId;
+
+            if (closeDeviceTunnelRequest !== null && closeDeviceTunnelRequest !== undefined) {
+                if (closeDeviceTunnelRequest instanceof CloseDeviceTunnelRequest) {
+                    tunnelId = closeDeviceTunnelRequest.tunnelId;
+                    instanceId = closeDeviceTunnelRequest.instanceId;
+                } else {
+                    tunnelId = closeDeviceTunnelRequest['tunnel_id'];
+                    instanceId = closeDeviceTunnelRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (tunnelId === null || tunnelId === undefined) {
+            throw new RequiredError('tunnelId','Required parameter tunnelId was null or undefined when calling closeDeviceTunnel.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'tunnel_id': tunnelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除设备隧道接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDeviceTunnel(deleteDeviceTunnelRequest?: DeleteDeviceTunnelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/tunnels/{tunnel_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tunnelId;
+            
+            let instanceId;
+
+            if (deleteDeviceTunnelRequest !== null && deleteDeviceTunnelRequest !== undefined) {
+                if (deleteDeviceTunnelRequest instanceof DeleteDeviceTunnelRequest) {
+                    tunnelId = deleteDeviceTunnelRequest.tunnelId;
+                    instanceId = deleteDeviceTunnelRequest.instanceId;
+                } else {
+                    tunnelId = deleteDeviceTunnelRequest['tunnel_id'];
+                    instanceId = deleteDeviceTunnelRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (tunnelId === null || tunnelId === undefined) {
+            throw new RequiredError('tunnelId','Required parameter tunnelId was null or undefined when calling deleteDeviceTunnel.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'tunnel_id': tunnelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询设备所有隧道接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDeviceTunnels(listDeviceTunnelsRequest?: ListDeviceTunnelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/tunnels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let deviceId;
+
+            if (listDeviceTunnelsRequest !== null && listDeviceTunnelsRequest !== undefined) {
+                if (listDeviceTunnelsRequest instanceof ListDeviceTunnelsRequest) {
+                    instanceId = listDeviceTunnelsRequest.instanceId;
+                    deviceId = listDeviceTunnelsRequest.deviceId;
+                } else {
+                    instanceId = listDeviceTunnelsRequest['Instance-Id'];
+                    deviceId = listDeviceTunnelsRequest['device_id'];
+                }
+            }
+
+        
+            if (deviceId !== null && deviceId !== undefined) {
+                localVarQueryParameter['device_id'] = deviceId;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询设备隧道信息接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeviceTunnel(showDeviceTunnelRequest?: ShowDeviceTunnelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/tunnels/{tunnel_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tunnelId;
+            
+            let instanceId;
+
+            if (showDeviceTunnelRequest !== null && showDeviceTunnelRequest !== undefined) {
+                if (showDeviceTunnelRequest instanceof ShowDeviceTunnelRequest) {
+                    tunnelId = showDeviceTunnelRequest.tunnelId;
+                    instanceId = showDeviceTunnelRequest.instanceId;
+                } else {
+                    tunnelId = showDeviceTunnelRequest['tunnel_id'];
+                    instanceId = showDeviceTunnelRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (tunnelId === null || tunnelId === undefined) {
+            throw new RequiredError('tunnelId','Required parameter tunnelId was null or undefined when calling showDeviceTunnel.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'tunnel_id': tunnelId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

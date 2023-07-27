@@ -7,10 +7,8 @@ export class AggregateComplianceDetailRequest {
     private 'policy_assignment_name'?: string;
     private 'resource_name'?: string;
     private 'resource_id'?: string;
-    public constructor(aggregatorId?: string, accountId?: string, policyAssignmentName?: string) { 
+    public constructor(aggregatorId?: string) { 
         this['aggregator_id'] = aggregatorId;
-        this['account_id'] = accountId;
-        this['policy_assignment_name'] = policyAssignmentName;
     }
     public withAggregatorId(aggregatorId: string): AggregateComplianceDetailRequest {
         this['aggregator_id'] = aggregatorId;

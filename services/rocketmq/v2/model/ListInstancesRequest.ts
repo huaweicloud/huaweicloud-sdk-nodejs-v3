@@ -1,7 +1,7 @@
 
 
 export class ListInstancesRequest {
-    public engine?: string;
+    public engine?: ListInstancesRequestEngineEnum | string;
     public name?: string;
     private 'instance_id'?: string;
     public status?: ListInstancesRequestStatusEnum | string;
@@ -12,7 +12,7 @@ export class ListInstancesRequest {
     public offset?: number;
     public constructor() { 
     }
-    public withEngine(engine: string): ListInstancesRequest {
+    public withEngine(engine: ListInstancesRequestEngineEnum | string): ListInstancesRequest {
         this['engine'] = engine;
         return this;
     }
@@ -74,6 +74,13 @@ export class ListInstancesRequest {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstancesRequestEngineEnum {
+    RELIABILITY = 'reliability'
+}
 /**
     * @export
     * @enum {string}

@@ -1367,7 +1367,7 @@ export class WafClient {
      *
      * @summary 查询全部防护域名列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。默认值为0，表示默认企业项目。  缺省值：0
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 域名名称

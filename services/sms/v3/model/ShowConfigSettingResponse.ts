@@ -1,10 +1,11 @@
+import { ConfigBody } from './ConfigBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowConfigSettingResponse extends SdkResponse {
     private 'task_id'?: string;
     private 'migrate_type'?: string;
-    public configurations?: string;
+    public configurations?: Array<ConfigBody>;
     public constructor() { 
         super();
     }
@@ -28,7 +29,7 @@ export class ShowConfigSettingResponse extends SdkResponse {
     public get migrateType(): string | undefined {
         return this['migrate_type'];
     }
-    public withConfigurations(configurations: string): ShowConfigSettingResponse {
+    public withConfigurations(configurations: Array<ConfigBody>): ShowConfigSettingResponse {
         this['configurations'] = configurations;
         return this;
     }
