@@ -58,7 +58,8 @@ export class ListStorageTypesRequest {
 export enum ListStorageTypesRequestDatabaseNameEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }
 /**
     * @export

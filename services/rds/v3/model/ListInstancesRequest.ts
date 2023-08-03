@@ -114,5 +114,6 @@ export enum ListInstancesRequestTypeEnum {
 export enum ListInstancesRequestDatastoreTypeEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }

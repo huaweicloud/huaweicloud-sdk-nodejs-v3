@@ -531,7 +531,7 @@ export class RocketMQClient {
      * @summary 查询消息轨迹
      * @param {'reliability'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
-     * @param {string} [msgId] 消息ID。
+     * @param {string} msgId 消息ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -555,6 +555,7 @@ export class RocketMQClient {
      * @param {string} topic 主题名称。
      * @param {string} [limit] 查询数量。
      * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} [key] 消息的key
      * @param {string} [startTime] 开始时间（不通过msg_id精确查询消息时，此参数必填）。
      * @param {string} [endTime] 结束时间（不通过msg_id精确查询消息时，此参数必填）。
      * @param {string} [msgId] 消息ID。
@@ -1981,6 +1982,9 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listMessageTrace.');
             }
+            if (msgId === null || msgId === undefined) {
+                throw new RequiredError('msgId','Required parameter msgId was null or undefined when calling listMessageTrace.');
+            }
             if (msgId !== null && msgId !== undefined) {
                 localVarQueryParameter['msg_id'] = msgId;
             }
@@ -2018,6 +2022,8 @@ export const ParamCreater = function () {
             
             let offset;
             
+            let key;
+            
             let startTime;
             
             let endTime;
@@ -2031,6 +2037,7 @@ export const ParamCreater = function () {
                     topic = listMessagesRequest.topic;
                     limit = listMessagesRequest.limit;
                     offset = listMessagesRequest.offset;
+                    key = listMessagesRequest.key;
                     startTime = listMessagesRequest.startTime;
                     endTime = listMessagesRequest.endTime;
                     msgId = listMessagesRequest.msgId;
@@ -2040,6 +2047,7 @@ export const ParamCreater = function () {
                     topic = listMessagesRequest['topic'];
                     limit = listMessagesRequest['limit'];
                     offset = listMessagesRequest['offset'];
+                    key = listMessagesRequest['key'];
                     startTime = listMessagesRequest['start_time'];
                     endTime = listMessagesRequest['end_time'];
                     msgId = listMessagesRequest['msg_id'];
@@ -2064,6 +2072,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (key !== null && key !== undefined) {
+                localVarQueryParameter['key'] = key;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;

@@ -1,16 +1,19 @@
 import { CacheRules } from './CacheRules';
-import { CacheUrlParameterFilter } from './CacheUrlParameterFilter';
+import { CacheUrlParameterFilterGetBody } from './CacheUrlParameterFilterGetBody';
 import { CommonRemoteAuth } from './CommonRemoteAuth';
 import { Compress } from './Compress';
 import { ErrorCodeCache } from './ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './FlexibleOrigins';
 import { ForceRedirectConfig } from './ForceRedirectConfig';
+import { HstsQuery } from './HstsQuery';
 import { HttpGetBody } from './HttpGetBody';
 import { HttpResponseHeader } from './HttpResponseHeader';
 import { IpFilter } from './IpFilter';
+import { IpFrequencyLimitQuery } from './IpFrequencyLimitQuery';
 import { OriginRequestHeader } from './OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './OriginRequestUrlRewrite';
+import { Quic } from './Quic';
 import { RefererConfig } from './RefererConfig';
 import { RequestLimitRules } from './RequestLimitRules';
 import { SourcesConfig } from './SourcesConfig';
@@ -23,6 +26,7 @@ import { WebSocketSeek } from './WebSocketSeek';
 export class ConfigsGetBody {
     private 'business_type'?: string;
     private 'service_area'?: string;
+    public remark?: string;
     private 'origin_request_header'?: Array<OriginRequestHeader>;
     private 'http_response_header'?: Array<HttpResponseHeader>;
     private 'url_auth'?: UrlAuthGetBody;
@@ -35,7 +39,7 @@ export class ConfigsGetBody {
     public referer?: RefererConfig;
     private 'force_redirect'?: ForceRedirectConfig;
     public compress?: Compress;
-    private 'cache_url_parameter_filter'?: CacheUrlParameterFilter;
+    private 'cache_url_parameter_filter'?: CacheUrlParameterFilterGetBody;
     private 'ipv6_accelerate'?: number;
     private 'error_code_cache'?: Array<ErrorCodeCache>;
     private 'origin_range_status'?: string;
@@ -48,6 +52,9 @@ export class ConfigsGetBody {
     public websocket?: WebSocketSeek;
     private 'video_seek'?: VideoSeek;
     private 'request_limit_rules'?: Array<RequestLimitRules>;
+    private 'ip_frequency_limit'?: IpFrequencyLimitQuery;
+    public hsts?: HstsQuery;
+    public quic?: Quic;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules>;
     public constructor() { 
     }
@@ -70,6 +77,10 @@ export class ConfigsGetBody {
     }
     public get serviceArea(): string | undefined {
         return this['service_area'];
+    }
+    public withRemark(remark: string): ConfigsGetBody {
+        this['remark'] = remark;
+        return this;
     }
     public withOriginRequestHeader(originRequestHeader: Array<OriginRequestHeader>): ConfigsGetBody {
         this['origin_request_header'] = originRequestHeader;
@@ -167,14 +178,14 @@ export class ConfigsGetBody {
         this['compress'] = compress;
         return this;
     }
-    public withCacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilter): ConfigsGetBody {
+    public withCacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilterGetBody): ConfigsGetBody {
         this['cache_url_parameter_filter'] = cacheUrlParameterFilter;
         return this;
     }
-    public set cacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilter  | undefined) {
+    public set cacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilterGetBody  | undefined) {
         this['cache_url_parameter_filter'] = cacheUrlParameterFilter;
     }
-    public get cacheUrlParameterFilter(): CacheUrlParameterFilter | undefined {
+    public get cacheUrlParameterFilter(): CacheUrlParameterFilterGetBody | undefined {
         return this['cache_url_parameter_filter'];
     }
     public withIpv6Accelerate(ipv6Accelerate: number): ConfigsGetBody {
@@ -290,6 +301,24 @@ export class ConfigsGetBody {
     }
     public get requestLimitRules(): Array<RequestLimitRules> | undefined {
         return this['request_limit_rules'];
+    }
+    public withIpFrequencyLimit(ipFrequencyLimit: IpFrequencyLimitQuery): ConfigsGetBody {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+        return this;
+    }
+    public set ipFrequencyLimit(ipFrequencyLimit: IpFrequencyLimitQuery  | undefined) {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+    }
+    public get ipFrequencyLimit(): IpFrequencyLimitQuery | undefined {
+        return this['ip_frequency_limit'];
+    }
+    public withHsts(hsts: HstsQuery): ConfigsGetBody {
+        this['hsts'] = hsts;
+        return this;
+    }
+    public withQuic(quic: Quic): ConfigsGetBody {
+        this['quic'] = quic;
+        return this;
     }
     public withErrorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules>): ConfigsGetBody {
         this['error_code_redirect_rules'] = errorCodeRedirectRules;

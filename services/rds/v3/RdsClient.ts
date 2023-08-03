@@ -134,8 +134,8 @@ import { DssPoolInfo } from './model/DssPoolInfo';
 import { EnableConfigurationRequest } from './model/EnableConfigurationRequest';
 import { EnableConfigurationResponse } from './model/EnableConfigurationResponse';
 import { EngineFlavorData } from './model/EngineFlavorData';
-import { EnlargeVolume } from './model/EnlargeVolume';
 import { EnlargeVolumeObject } from './model/EnlargeVolumeObject';
+import { EnlargeVolumeRequestBody } from './model/EnlargeVolumeRequestBody';
 import { ErrorLog } from './model/ErrorLog';
 import { ErrorLogItem } from './model/ErrorLogItem';
 import { ErrorResponse } from './model/ErrorResponse';
@@ -1011,7 +1011,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据库引擎的版本
-     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
+     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer' | 'MariaDB'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1145,7 +1145,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据库规格
-     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
+     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer' | 'MariaDB'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
      * @param {string} [xLanguage] 语言
      * @param {string} [versionName] 数据库版本号，获取方法请参见5.1查询数据库引擎的版本。（可输入小版本号）
      * @param {string} [specCode] 规格编码
@@ -1216,7 +1216,7 @@ export class RdsClient {
      * @param {string} [id] 实例ID。  “\\*”为系统保留字符，如果id是以“\\*”起始，表示按照\\*后面的值模糊匹配，否则，按照id精确匹配查询。不能只传入“\\*”。
      * @param {string} [name] 实例名称。  “\\*”为系统保留字符，如果name是以“\\*”起始，表示按照\\*后面的值模糊匹配，否则，按照name精确匹配查询。不能只传入“\\*”。
      * @param {'Single' | 'Ha' | 'Replica'} [type] 按照实例类型查询。取值Single、Ha、Replica，分别对应于单实例、主备实例和只读实例。
-     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer'} [datastoreType] 数据库类型，区分大小写。  - MySQL - PostgreSQL - SQLServer
+     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer' | 'MariaDB'} [datastoreType] 数据库类型，区分大小写。 - MySQL - PostgreSQL - SQLServer - MariaDB
      * @param {string} [vpcId] 虚拟私有云ID。
      * @param {string} [subnetId] 子网ID。
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
@@ -1632,7 +1632,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据库磁盘类型
-     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
+     * @param {'MySQL' | 'PostgreSQL' | 'SQLServer' | 'MariaDB'} databaseName 数据库引擎。支持的引擎如下，不区分大小写： MySQL PostgreSQL SQLServer
      * @param {string} versionName 数据库版本号。
      * @param {string} [xLanguage] 语言
      * @param {'ha' | 'single' | 'replica'} [haMode] 主备模式： single：单机模式。 ha：主备模式。 replica：只读模式。
@@ -2250,7 +2250,7 @@ export class RdsClient {
      *
      * @summary 扩容数据库实例的磁盘空间
      * @param {string} instanceId 实例ID。
-     * @param {EnlargeVolume} enlargeVolumeRequestBody 请求体。
+     * @param {EnlargeVolumeRequestBody} enlargeVolumeRequestBody 请求体。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

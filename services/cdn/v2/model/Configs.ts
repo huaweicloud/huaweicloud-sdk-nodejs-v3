@@ -6,11 +6,14 @@ import { ErrorCodeCache } from './ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './FlexibleOrigins';
 import { ForceRedirectConfig } from './ForceRedirectConfig';
+import { Hsts } from './Hsts';
 import { HttpPutBody } from './HttpPutBody';
 import { HttpResponseHeader } from './HttpResponseHeader';
 import { IpFilter } from './IpFilter';
+import { IpFrequencyLimit } from './IpFrequencyLimit';
 import { OriginRequestHeader } from './OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './OriginRequestUrlRewrite';
+import { Quic } from './Quic';
 import { RefererConfig } from './RefererConfig';
 import { RequestLimitRules } from './RequestLimitRules';
 import { SourcesConfig } from './SourcesConfig';
@@ -23,6 +26,7 @@ import { WebSocketSeek } from './WebSocketSeek';
 export class Configs {
     private 'business_type'?: string;
     private 'service_area'?: string;
+    public remark?: string;
     private 'origin_request_header'?: Array<OriginRequestHeader>;
     private 'http_response_header'?: Array<HttpResponseHeader>;
     private 'url_auth'?: UrlAuth;
@@ -48,6 +52,9 @@ export class Configs {
     public websocket?: WebSocketSeek;
     private 'video_seek'?: VideoSeek;
     private 'request_limit_rules'?: Array<RequestLimitRules>;
+    private 'ip_frequency_limit'?: IpFrequencyLimit;
+    public hsts?: Hsts;
+    public quic?: Quic;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules>;
     public constructor() { 
     }
@@ -70,6 +77,10 @@ export class Configs {
     }
     public get serviceArea(): string | undefined {
         return this['service_area'];
+    }
+    public withRemark(remark: string): Configs {
+        this['remark'] = remark;
+        return this;
     }
     public withOriginRequestHeader(originRequestHeader: Array<OriginRequestHeader>): Configs {
         this['origin_request_header'] = originRequestHeader;
@@ -290,6 +301,24 @@ export class Configs {
     }
     public get requestLimitRules(): Array<RequestLimitRules> | undefined {
         return this['request_limit_rules'];
+    }
+    public withIpFrequencyLimit(ipFrequencyLimit: IpFrequencyLimit): Configs {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+        return this;
+    }
+    public set ipFrequencyLimit(ipFrequencyLimit: IpFrequencyLimit  | undefined) {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+    }
+    public get ipFrequencyLimit(): IpFrequencyLimit | undefined {
+        return this['ip_frequency_limit'];
+    }
+    public withHsts(hsts: Hsts): Configs {
+        this['hsts'] = hsts;
+        return this;
+    }
+    public withQuic(quic: Quic): Configs {
+        this['quic'] = quic;
+        return this;
     }
     public withErrorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules>): Configs {
         this['error_code_redirect_rules'] = errorCodeRedirectRules;

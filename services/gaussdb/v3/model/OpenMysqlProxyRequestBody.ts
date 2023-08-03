@@ -6,6 +6,7 @@ export class OpenMysqlProxyRequestBody {
     private 'node_num'?: number;
     private 'proxy_name'?: string;
     private 'proxy_mode'?: OpenMysqlProxyRequestBodyProxyModeEnum | string;
+    private 'route_mode'?: number;
     private 'nodes_read_weight'?: Array<NodesWeight>;
     public constructor(flavorRef?: string, nodeNum?: number) { 
         this['flavor_ref'] = flavorRef;
@@ -50,6 +51,16 @@ export class OpenMysqlProxyRequestBody {
     }
     public get proxyMode(): OpenMysqlProxyRequestBodyProxyModeEnum | string | undefined {
         return this['proxy_mode'];
+    }
+    public withRouteMode(routeMode: number): OpenMysqlProxyRequestBody {
+        this['route_mode'] = routeMode;
+        return this;
+    }
+    public set routeMode(routeMode: number  | undefined) {
+        this['route_mode'] = routeMode;
+    }
+    public get routeMode(): number | undefined {
+        return this['route_mode'];
     }
     public withNodesReadWeight(nodesReadWeight: Array<NodesWeight>): OpenMysqlProxyRequestBody {
         this['nodes_read_weight'] = nodesReadWeight;

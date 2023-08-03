@@ -37,6 +37,7 @@ export class ListInstanceResponse {
     private 'charge_info'?: OpenGaussChargeInfoListResponse;
     private 'time_zone'?: string;
     public tags?: Array<object>;
+    private 'backup_used_space'?: string;
     public constructor(id?: string, name?: string, status?: string, privateIps?: Array<string>, publicIps?: Array<string>, port?: number, type?: string, ha?: ListHa, region?: string, datastore?: ListDatastore, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, flavorRef?: string, flavorInfo?: ListFlavorInfo, volume?: ListVolume, switchStrategy?: string, backupStrategy?: OpenGaussBackupStrategyForListResponse, maintenanceWindow?: string, nodes?: Array<object>, enterpriseProjectId?: string, instanceMode?: string, diskEncryptionId?: string, chargeInfo?: OpenGaussChargeInfoListResponse, timeZone?: string, tags?: Array<object>) { 
         this['id'] = id;
         this['name'] = name;
@@ -289,5 +290,15 @@ export class ListInstanceResponse {
     public withTags(tags: Array<object>): ListInstanceResponse {
         this['tags'] = tags;
         return this;
+    }
+    public withBackupUsedSpace(backupUsedSpace: string): ListInstanceResponse {
+        this['backup_used_space'] = backupUsedSpace;
+        return this;
+    }
+    public set backupUsedSpace(backupUsedSpace: string  | undefined) {
+        this['backup_used_space'] = backupUsedSpace;
+    }
+    public get backupUsedSpace(): string | undefined {
+        return this['backup_used_space'];
     }
 }

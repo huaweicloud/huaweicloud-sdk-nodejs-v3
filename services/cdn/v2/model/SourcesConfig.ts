@@ -10,6 +10,10 @@ export class SourcesConfig {
     private 'https_port'?: number;
     private 'host_name'?: string;
     private 'obs_bucket_type'?: string;
+    private 'bucket_access_key'?: string;
+    private 'bucket_secret_key'?: string;
+    private 'bucket_region'?: string;
+    private 'bucket_name'?: string;
     public constructor(originType?: string, originAddr?: string, priority?: number) { 
         this['origin_type'] = originType;
         this['origin_addr'] = originAddr;
@@ -92,5 +96,45 @@ export class SourcesConfig {
     }
     public get obsBucketType(): string | undefined {
         return this['obs_bucket_type'];
+    }
+    public withBucketAccessKey(bucketAccessKey: string): SourcesConfig {
+        this['bucket_access_key'] = bucketAccessKey;
+        return this;
+    }
+    public set bucketAccessKey(bucketAccessKey: string  | undefined) {
+        this['bucket_access_key'] = bucketAccessKey;
+    }
+    public get bucketAccessKey(): string | undefined {
+        return this['bucket_access_key'];
+    }
+    public withBucketSecretKey(bucketSecretKey: string): SourcesConfig {
+        this['bucket_secret_key'] = bucketSecretKey;
+        return this;
+    }
+    public set bucketSecretKey(bucketSecretKey: string  | undefined) {
+        this['bucket_secret_key'] = bucketSecretKey;
+    }
+    public get bucketSecretKey(): string | undefined {
+        return this['bucket_secret_key'];
+    }
+    public withBucketRegion(bucketRegion: string): SourcesConfig {
+        this['bucket_region'] = bucketRegion;
+        return this;
+    }
+    public set bucketRegion(bucketRegion: string  | undefined) {
+        this['bucket_region'] = bucketRegion;
+    }
+    public get bucketRegion(): string | undefined {
+        return this['bucket_region'];
+    }
+    public withBucketName(bucketName: string): SourcesConfig {
+        this['bucket_name'] = bucketName;
+        return this;
+    }
+    public set bucketName(bucketName: string  | undefined) {
+        this['bucket_name'] = bucketName;
+    }
+    public get bucketName(): string | undefined {
+        return this['bucket_name'];
     }
 }

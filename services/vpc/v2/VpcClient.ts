@@ -840,6 +840,7 @@ export class VpcClient {
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {Array<string>} [fixedIps] 按照fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询
      * @param {string} [enterpriseProjectId] 功能说明：企业项目ID，用于基于企业项目的权限管理。  取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。  若需要查询当前用户所有企业项目绑定的端口，请传参all_granted_eps。
+     * @param {boolean} [enableEfi] 功能说明：是否使能efi，使能则表示端口支持vRoCE能力，默认为false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3746,6 +3747,8 @@ export const ParamCreater = function () {
             let fixedIps;
             
             let enterpriseProjectId;
+            
+            let enableEfi;
 
             if (listPortsRequest !== null && listPortsRequest !== undefined) {
                 if (listPortsRequest instanceof ListPortsRequest) {
@@ -3762,6 +3765,7 @@ export const ParamCreater = function () {
                     marker = listPortsRequest.marker;
                     fixedIps = listPortsRequest.fixedIps;
                     enterpriseProjectId = listPortsRequest.enterpriseProjectId;
+                    enableEfi = listPortsRequest.enableEfi;
                 } else {
                     name = listPortsRequest['name'];
                     id = listPortsRequest['id'];
@@ -3776,6 +3780,7 @@ export const ParamCreater = function () {
                     marker = listPortsRequest['marker'];
                     fixedIps = listPortsRequest['fixed_ips'];
                     enterpriseProjectId = listPortsRequest['enterprise_project_id'];
+                    enableEfi = listPortsRequest['enable_efi'];
                 }
             }
 
@@ -3818,6 +3823,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (enableEfi !== null && enableEfi !== undefined) {
+                localVarQueryParameter['enable_efi'] = enableEfi;
             }
 
             options.queryParams = localVarQueryParameter;

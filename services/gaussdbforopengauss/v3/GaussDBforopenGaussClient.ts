@@ -748,6 +748,8 @@ export class GaussDBforopenGaussClient {
      * @param {string} [xLanguage] 语言
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100
+     * @param {'ALL' | 'CN' | 'DN' | 'CM' | 'GTM' | 'ETCD'} [componentType] 组件类型，过滤拿到需要的组件类型的组件信息，默认为ALL，传参数会查询对应组件信息。 枚举值：   \&quot;ALL\&quot;: 查询所有组件类型。   \&quot;CN\&quot;: 查询CN组件类型。   \&quot;DN\&quot;: 查询DN组件类型。   \&quot;CM\&quot;: 查询CMS组件类型。   \&quot;GTM\&quot;: 查询GTM组件类型。   \&quot;ETCD\&quot;: 查询ETCD组件类型。
+     * @param {string} [availabilityZoneId] 主组件所在可用区编号，筛选符合条件的组件，默认为ALL，查询实例所有可用区上的节点的组件信息。 当调用接口传入可用区编号时：   相对于DN组件，会查询出的DN分片中的主组件在该可用区上的这个分片的所有副本的组件信息。   相对于CN组件，CN组件没有主备关系，会查询出该可用区上的CN组件信息。   相对于其他组件，会查询该可用区上有没有某个组件类型的主组件，有则会返回该组件类型的所有组件信息，没有则不返回该组件类型的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2997,6 +2999,10 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let componentType;
+            
+            let availabilityZoneId;
 
             if (listComponentInfosRequest !== null && listComponentInfosRequest !== undefined) {
                 if (listComponentInfosRequest instanceof ListComponentInfosRequest) {
@@ -3004,11 +3010,15 @@ export const ParamCreater = function () {
                     xLanguage = listComponentInfosRequest.xLanguage;
                     offset = listComponentInfosRequest.offset;
                     limit = listComponentInfosRequest.limit;
+                    componentType = listComponentInfosRequest.componentType;
+                    availabilityZoneId = listComponentInfosRequest.availabilityZoneId;
                 } else {
                     instanceId = listComponentInfosRequest['instance_id'];
                     xLanguage = listComponentInfosRequest['X-Language'];
                     offset = listComponentInfosRequest['offset'];
                     limit = listComponentInfosRequest['limit'];
+                    componentType = listComponentInfosRequest['component_type'];
+                    availabilityZoneId = listComponentInfosRequest['availability_zone_id'];
                 }
             }
 
@@ -3021,6 +3031,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (componentType !== null && componentType !== undefined) {
+                localVarQueryParameter['component_type'] = componentType;
+            }
+            if (availabilityZoneId !== null && availabilityZoneId !== undefined) {
+                localVarQueryParameter['availability_zone_id'] = availabilityZoneId;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

@@ -24,5 +24,6 @@ export class ParaGroupDatastore {
 export enum ParaGroupDatastoreTypeEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }

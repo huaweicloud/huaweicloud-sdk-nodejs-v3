@@ -4,9 +4,10 @@ export class ListMessageTraceRequest {
     public engine?: ListMessageTraceRequestEngineEnum | string;
     private 'instance_id'?: string;
     private 'msg_id'?: string;
-    public constructor(engine?: string, instanceId?: string) { 
+    public constructor(engine?: string, instanceId?: string, msgId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
+        this['msg_id'] = msgId;
     }
     public withEngine(engine: ListMessageTraceRequestEngineEnum | string): ListMessageTraceRequest {
         this['engine'] = engine;

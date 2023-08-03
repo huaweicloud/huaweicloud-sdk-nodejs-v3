@@ -20,6 +20,8 @@ export class MysqlProxyV3 {
     private 'transaction_split'?: string;
     private 'connection_pool_type'?: string;
     private 'switch_connection_pool_type_enabled'?: boolean;
+    private 'route_mode'?: number;
+    private 'balance_route_mode_enabled'?: boolean;
     public constructor() { 
     }
     public withPoolId(poolId: string): MysqlProxyV3 {
@@ -147,5 +149,25 @@ export class MysqlProxyV3 {
     }
     public get switchConnectionPoolTypeEnabled(): boolean | undefined {
         return this['switch_connection_pool_type_enabled'];
+    }
+    public withRouteMode(routeMode: number): MysqlProxyV3 {
+        this['route_mode'] = routeMode;
+        return this;
+    }
+    public set routeMode(routeMode: number  | undefined) {
+        this['route_mode'] = routeMode;
+    }
+    public get routeMode(): number | undefined {
+        return this['route_mode'];
+    }
+    public withBalanceRouteModeEnabled(balanceRouteModeEnabled: boolean): MysqlProxyV3 {
+        this['balance_route_mode_enabled'] = balanceRouteModeEnabled;
+        return this;
+    }
+    public set balanceRouteModeEnabled(balanceRouteModeEnabled: boolean  | undefined) {
+        this['balance_route_mode_enabled'] = balanceRouteModeEnabled;
+    }
+    public get balanceRouteModeEnabled(): boolean | undefined {
+        return this['balance_route_mode_enabled'];
     }
 }

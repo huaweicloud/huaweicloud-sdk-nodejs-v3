@@ -9,13 +9,9 @@ export class CacheRules {
     private 'follow_origin'?: string;
     private 'url_parameter_type'?: string;
     private 'url_parameter_value'?: string;
-    public constructor(matchType?: string, ttl?: number, ttlUnit?: string, priority?: number, followOrigin?: string, urlParameterType?: string) { 
-        this['match_type'] = matchType;
-        this['ttl'] = ttl;
+    public constructor(ttlUnit?: string, priority?: number) { 
         this['ttl_unit'] = ttlUnit;
         this['priority'] = priority;
-        this['follow_origin'] = followOrigin;
-        this['url_parameter_type'] = urlParameterType;
     }
     public withMatchType(matchType: string): CacheRules {
         this['match_type'] = matchType;

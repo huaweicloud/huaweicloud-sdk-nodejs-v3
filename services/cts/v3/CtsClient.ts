@@ -122,7 +122,7 @@ export class CtsClient {
      *
      * @summary 删除追踪器
      * @param {string} [trackerName] 标识追踪器名称。 在不传入该字段的情况下，将删除当前租户所有的数据类追踪器。
-     * @param {'data'} [trackerType] 标识追踪器类型。 目前仅支持数据类追踪器（data）的删除，默认值为\&quot;data\&quot;。
+     * @param {'data' | 'system'} [trackerType] 标识追踪器类型。 默认值为\&quot;data\&quot;。传入\&quot;system\&quot;时，配合tracker_name参数可删除管理类追踪器。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

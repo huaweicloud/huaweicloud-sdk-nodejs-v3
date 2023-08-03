@@ -32,5 +32,6 @@ export class DeleteTrackerRequest {
     * @enum {string}
     */
 export enum DeleteTrackerRequestTrackerTypeEnum {
-    DATA = 'data'
+    DATA = 'data',
+    SYSTEM = 'system'
 }

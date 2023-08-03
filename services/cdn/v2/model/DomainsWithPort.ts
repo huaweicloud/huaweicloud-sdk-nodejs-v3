@@ -1,4 +1,4 @@
-import { SourcesConfig } from './SourcesConfig';
+import { SourcesDomainConfig } from './SourcesDomainConfig';
 
 
 export class DomainsWithPort {
@@ -7,7 +7,7 @@ export class DomainsWithPort {
     private 'business_type'?: string;
     private 'domain_status'?: string;
     public cname?: string;
-    public sources?: Array<SourcesConfig>;
+    public sources?: Array<SourcesDomainConfig>;
     private 'https_status'?: number;
     private 'create_time'?: number;
     private 'update_time'?: number;
@@ -54,7 +54,7 @@ export class DomainsWithPort {
         this['cname'] = cname;
         return this;
     }
-    public withSources(sources: Array<SourcesConfig>): DomainsWithPort {
+    public withSources(sources: Array<SourcesDomainConfig>): DomainsWithPort {
         this['sources'] = sources;
         return this;
     }

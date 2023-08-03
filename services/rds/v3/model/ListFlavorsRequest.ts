@@ -57,5 +57,6 @@ export class ListFlavorsRequest {
 export enum ListFlavorsRequestDatabaseNameEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }

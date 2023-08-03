@@ -14,6 +14,7 @@ export class ListPortsRequest {
     public marker?: string;
     private 'fixed_ips'?: Array<string>;
     private 'enterprise_project_id'?: string;
+    private 'enable_efi'?: boolean;
     public constructor() { 
     }
     public withName(name: string): ListPortsRequest {
@@ -115,6 +116,16 @@ export class ListPortsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withEnableEfi(enableEfi: boolean): ListPortsRequest {
+        this['enable_efi'] = enableEfi;
+        return this;
+    }
+    public set enableEfi(enableEfi: boolean  | undefined) {
+        this['enable_efi'] = enableEfi;
+    }
+    public get enableEfi(): boolean | undefined {
+        return this['enable_efi'];
     }
 }
 

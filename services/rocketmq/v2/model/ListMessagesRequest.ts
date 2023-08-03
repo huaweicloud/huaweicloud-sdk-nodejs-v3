@@ -6,6 +6,7 @@ export class ListMessagesRequest {
     public topic?: string;
     public limit?: string;
     public offset?: string;
+    public key?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'msg_id'?: string;
@@ -38,6 +39,10 @@ export class ListMessagesRequest {
     }
     public withOffset(offset: string): ListMessagesRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withKey(key: string): ListMessagesRequest {
+        this['key'] = key;
         return this;
     }
     public withStartTime(startTime: string): ListMessagesRequest {

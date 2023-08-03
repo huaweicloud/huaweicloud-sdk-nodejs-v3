@@ -35,5 +35,6 @@ export class ListDatastoresRequest {
 export enum ListDatastoresRequestDatabaseNameEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }

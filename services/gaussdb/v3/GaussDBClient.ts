@@ -127,10 +127,14 @@ import { LtsLogSlowDetail } from './model/LtsLogSlowDetail';
 import { LtsLogSlowQueryRequest } from './model/LtsLogSlowQueryRequest';
 import { ModifyAliasRequest } from './model/ModifyAliasRequest';
 import { ModifyBindEipRequest } from './model/ModifyBindEipRequest';
+import { ModifyGaussMySqlProxyRouteModeRequest } from './model/ModifyGaussMySqlProxyRouteModeRequest';
+import { ModifyGaussMySqlProxyRouteModeRequestBody } from './model/ModifyGaussMySqlProxyRouteModeRequestBody';
+import { ModifyGaussMySqlProxyRouteModeResponse } from './model/ModifyGaussMySqlProxyRouteModeResponse';
 import { ModifyInternalIpRequest } from './model/ModifyInternalIpRequest';
 import { ModifyOpsWindow } from './model/ModifyOpsWindow';
 import { ModifyPortRequest } from './model/ModifyPortRequest';
 import { ModifyProxyConsistRequest } from './model/ModifyProxyConsistRequest';
+import { ModifyProxyRouteWeightReadonlyNode } from './model/ModifyProxyRouteWeightReadonlyNode';
 import { ModifyProxyWeightReadonlyNode } from './model/ModifyProxyWeightReadonlyNode';
 import { ModifySecurityGroupRequest } from './model/ModifySecurityGroupRequest';
 import { MysqlBackupPolicy } from './model/MysqlBackupPolicy';
@@ -1128,6 +1132,28 @@ export class GaussDBClient {
     }
 
     /**
+     * 设置读写分离路由模式。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置读写分离路由模式
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {ModifyGaussMySqlProxyRouteModeRequestBody} modifyGaussMySqlProxyRouteModeRequestBody 请求体
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyGaussMySqlProxyRouteMode(modifyGaussMySqlProxyRouteModeRequest?: ModifyGaussMySqlProxyRouteModeRequest): Promise<ModifyGaussMySqlProxyRouteModeResponse> {
+        const options = ParamCreater().modifyGaussMySqlProxyRouteMode(modifyGaussMySqlProxyRouteModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改云数据库 GaussDB(for MySQL)实例数据库用户密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1924,7 +1950,7 @@ export class GaussDBClient {
     }
 
     /**
-     * 更改数据库代理连接池类型
+     * 更改数据库代理连接池类型。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4187,6 +4213,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置读写分离路由模式。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyGaussMySqlProxyRouteMode(modifyGaussMySqlProxyRouteModeRequest?: ModifyGaussMySqlProxyRouteModeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/route-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (modifyGaussMySqlProxyRouteModeRequest !== null && modifyGaussMySqlProxyRouteModeRequest !== undefined) {
+                if (modifyGaussMySqlProxyRouteModeRequest instanceof ModifyGaussMySqlProxyRouteModeRequest) {
+                    instanceId = modifyGaussMySqlProxyRouteModeRequest.instanceId;
+                    proxyId = modifyGaussMySqlProxyRouteModeRequest.proxyId;
+                    body = modifyGaussMySqlProxyRouteModeRequest.body
+                    xLanguage = modifyGaussMySqlProxyRouteModeRequest.xLanguage;
+                } else {
+                    instanceId = modifyGaussMySqlProxyRouteModeRequest['instance_id'];
+                    proxyId = modifyGaussMySqlProxyRouteModeRequest['proxy_id'];
+                    body = modifyGaussMySqlProxyRouteModeRequest['body'];
+                    xLanguage = modifyGaussMySqlProxyRouteModeRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyGaussMySqlProxyRouteMode.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling modifyGaussMySqlProxyRouteMode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改云数据库 GaussDB(for MySQL)实例数据库用户密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6151,7 +6237,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更改数据库代理连接池类型
+         * 更改数据库代理连接池类型。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

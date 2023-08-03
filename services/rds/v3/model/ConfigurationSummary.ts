@@ -77,5 +77,6 @@ export class ConfigurationSummary {
 export enum ConfigurationSummaryDatastoreNameEnum {
     MYSQL = 'mysql',
     POSTGRESQL = 'postgresql',
-    SQLSERVER = 'sqlserver'
+    SQLSERVER = 'sqlserver',
+    MARIADB = 'mariadb'
 }

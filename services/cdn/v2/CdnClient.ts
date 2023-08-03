@@ -12,6 +12,7 @@ import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
 import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
+import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterGetBody';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';
@@ -31,15 +32,22 @@ import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './model/FlexibleOrigins';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
+import { Hsts } from './model/Hsts';
+import { HstsQuery } from './model/HstsQuery';
 import { HttpGetBody } from './model/HttpGetBody';
 import { HttpPutBody } from './model/HttpPutBody';
 import { HttpResponseHeader } from './model/HttpResponseHeader';
+import { InheritConfig } from './model/InheritConfig';
+import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
+import { IpFrequencyLimit } from './model/IpFrequencyLimit';
+import { IpFrequencyLimitQuery } from './model/IpFrequencyLimitQuery';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
+import { Quic } from './model/Quic';
 import { RefererConfig } from './model/RefererConfig';
 import { RemoteAuthRuleVo } from './model/RemoteAuthRuleVo';
 import { RequestLimitRules } from './model/RequestLimitRules';
@@ -64,6 +72,7 @@ import { ShowTopUrlRequest } from './model/ShowTopUrlRequest';
 import { ShowTopUrlResponse } from './model/ShowTopUrlResponse';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
+import { SourcesDomainConfig } from './model/SourcesDomainConfig';
 import { TopUrlSummary } from './model/TopUrlSummary';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
 import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
@@ -322,8 +331,7 @@ export class CdnClient {
     }
 
     /**
-     * 查询域名配置接口，
-     * 支持查询回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+     * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -496,8 +504,7 @@ export class CdnClient {
     }
 
     /**
-     * 修改域名配置接口，
-     * 支持修改回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+     * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1133,8 +1140,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询域名配置接口，
-         * 支持查询回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+         * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1629,8 +1635,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改域名配置接口，
-         * 支持修改回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+         * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

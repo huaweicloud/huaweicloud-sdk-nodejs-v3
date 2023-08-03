@@ -1,10 +1,10 @@
-import { EnlargeVolume } from './EnlargeVolume';
+import { EnlargeVolumeRequestBody } from './EnlargeVolumeRequestBody';
 
 
 export class StartInstanceEnlargeVolumeActionRequest {
     private 'X-Language'?: StartInstanceEnlargeVolumeActionRequestXLanguageEnum | string;
     private 'instance_id'?: string;
-    public body?: EnlargeVolume;
+    public body?: EnlargeVolumeRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -28,7 +28,7 @@ export class StartInstanceEnlargeVolumeActionRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: EnlargeVolume): StartInstanceEnlargeVolumeActionRequest {
+    public withBody(body: EnlargeVolumeRequestBody): StartInstanceEnlargeVolumeActionRequest {
         this['body'] = body;
         return this;
     }

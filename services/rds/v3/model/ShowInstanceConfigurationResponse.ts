@@ -58,5 +58,6 @@ export class ShowInstanceConfigurationResponse extends SdkResponse {
 export enum ShowInstanceConfigurationResponseDatastoreNameEnum {
     MYSQL = 'mysql',
     POSTGRESQL = 'postgresql',
-    SQLSERVER = 'sqlserver'
+    SQLSERVER = 'sqlserver',
+    MARIADB = 'mariadb'
 }

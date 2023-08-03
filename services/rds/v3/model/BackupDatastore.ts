@@ -24,5 +24,6 @@ export class BackupDatastore {
 export enum BackupDatastoreTypeEnum {
     MYSQL = 'MySQL',
     POSTGRESQL = 'PostgreSQL',
-    SQLSERVER = 'SQLServer'
+    SQLSERVER = 'SQLServer',
+    MARIADB = 'MariaDB'
 }

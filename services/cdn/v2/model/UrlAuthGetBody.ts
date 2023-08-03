@@ -1,3 +1,4 @@
+import { InheritConfigQuery } from './InheritConfigQuery';
 
 
 export class UrlAuthGetBody {
@@ -6,6 +7,7 @@ export class UrlAuthGetBody {
     private 'expire_time'?: number;
     private 'sign_method'?: string;
     private 'match_type'?: string;
+    private 'inherit_config'?: InheritConfigQuery;
     public key?: string;
     private 'backup_key'?: string;
     private 'sign_arg'?: string;
@@ -50,6 +52,16 @@ export class UrlAuthGetBody {
     }
     public get matchType(): string | undefined {
         return this['match_type'];
+    }
+    public withInheritConfig(inheritConfig: InheritConfigQuery): UrlAuthGetBody {
+        this['inherit_config'] = inheritConfig;
+        return this;
+    }
+    public set inheritConfig(inheritConfig: InheritConfigQuery  | undefined) {
+        this['inherit_config'] = inheritConfig;
+    }
+    public get inheritConfig(): InheritConfigQuery | undefined {
+        return this['inherit_config'];
     }
     public withKey(key: string): UrlAuthGetBody {
         this['key'] = key;

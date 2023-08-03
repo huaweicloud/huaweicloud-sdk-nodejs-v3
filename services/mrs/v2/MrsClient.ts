@@ -19,8 +19,15 @@ import { Config } from './model/Config';
 import { CreateClusterReqV2 } from './model/CreateClusterReqV2';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
+import { CreateDataConnectorRequest } from './model/CreateDataConnectorRequest';
+import { CreateDataConnectorResponse } from './model/CreateDataConnectorResponse';
 import { CreateExecuteJobRequest } from './model/CreateExecuteJobRequest';
 import { CreateExecuteJobResponse } from './model/CreateExecuteJobResponse';
+import { DataConnector } from './model/DataConnector';
+import { DataConnectorDetail } from './model/DataConnectorDetail';
+import { DataConnectorReq } from './model/DataConnectorReq';
+import { DeleteDataConnectorRequest } from './model/DeleteDataConnectorRequest';
+import { DeleteDataConnectorResponse } from './model/DeleteDataConnectorResponse';
 import { ExecuteSqlRequest } from './model/ExecuteSqlRequest';
 import { ExecuteSqlResponse } from './model/ExecuteSqlResponse';
 import { FileStatusV2 } from './model/FileStatusV2';
@@ -28,6 +35,8 @@ import { JobBatchDelete } from './model/JobBatchDelete';
 import { JobExecution } from './model/JobExecution';
 import { JobQueryBean } from './model/JobQueryBean';
 import { JobSubmitResult } from './model/JobSubmitResult';
+import { ListDataConnectorRequest } from './model/ListDataConnectorRequest';
+import { ListDataConnectorResponse } from './model/ListDataConnectorResponse';
 import { NodeGroupV2 } from './model/NodeGroupV2';
 import { ResourcesPlan } from './model/ResourcesPlan';
 import { Rule } from './model/Rule';
@@ -60,6 +69,8 @@ import { UpdateAgencyMappingResponse } from './model/UpdateAgencyMappingResponse
 import { UpdateClusterNameRequest } from './model/UpdateClusterNameRequest';
 import { UpdateClusterNameResponse } from './model/UpdateClusterNameResponse';
 import { UpdateClusterReq } from './model/UpdateClusterReq';
+import { UpdateDataConnectorRequest } from './model/UpdateDataConnectorRequest';
+import { UpdateDataConnectorResponse } from './model/UpdateDataConnectorResponse';
 import { Volume } from './model/Volume';
 
 export class MrsClient {
@@ -331,6 +342,88 @@ export class MrsClient {
      */
     public updateClusterName(updateClusterNameRequest?: UpdateClusterNameRequest): Promise<UpdateClusterNameResponse> {
         const options = ParamCreater().updateClusterName(updateClusterNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据连接
+     * @param {DataConnectorReq} createDataConnectorRequestBody 创建数据连接请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDataConnector(createDataConnectorRequest?: CreateDataConnectorRequest): Promise<CreateDataConnectorResponse> {
+        const options = ParamCreater().createDataConnector(createDataConnectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据连接
+     * @param {string} connectorId 数据连接id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDataConnector(deleteDataConnectorRequest?: DeleteDataConnectorRequest): Promise<DeleteDataConnectorResponse> {
+        const options = ParamCreater().deleteDataConnector(deleteDataConnectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据连接列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据连接列表
+     * @param {string} [connectorId] 连接id
+     * @param {string} [sourceType] 数据源类别
+     * @param {string} [connectorName] 数据连接名称
+     * @param {number} [limit] 每页返回的资源个数
+     * @param {number} [offset] 分页查询起始偏移量
+     * @param {boolean} [available] 数据连接是否有效
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataConnector(listDataConnectorRequest?: ListDataConnectorRequest): Promise<ListDataConnectorResponse> {
+        const options = ParamCreater().listDataConnector(listDataConnectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新数据连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新数据连接
+     * @param {string} connectorId 数据连接id
+     * @param {DataConnectorReq} updateDataConnectorRequestBody 创建数据连接请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDataConnector(updateDataConnectorRequest?: UpdateDataConnectorRequest): Promise<UpdateDataConnectorResponse> {
+        const options = ParamCreater().updateDataConnector(updateDataConnectorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1024,6 +1117,199 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDataConnector(createDataConnectorRequest?: CreateDataConnectorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/data-connectors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDataConnectorRequest !== null && createDataConnectorRequest !== undefined) {
+                if (createDataConnectorRequest instanceof CreateDataConnectorRequest) {
+                    body = createDataConnectorRequest.body
+                } else {
+                    body = createDataConnectorRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDataConnector(deleteDataConnectorRequest?: DeleteDataConnectorRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/data-connectors/{connector_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectorId;
+
+            if (deleteDataConnectorRequest !== null && deleteDataConnectorRequest !== undefined) {
+                if (deleteDataConnectorRequest instanceof DeleteDataConnectorRequest) {
+                    connectorId = deleteDataConnectorRequest.connectorId;
+                } else {
+                    connectorId = deleteDataConnectorRequest['connector_id'];
+                }
+            }
+
+        
+            if (connectorId === null || connectorId === undefined) {
+            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling deleteDataConnector.');
+            }
+
+            options.pathParams = { 'connector_id': connectorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据连接列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataConnector(listDataConnectorRequest?: ListDataConnectorRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/data-connectors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectorId;
+            
+            let sourceType;
+            
+            let connectorName;
+            
+            let limit;
+            
+            let offset;
+            
+            let available;
+
+            if (listDataConnectorRequest !== null && listDataConnectorRequest !== undefined) {
+                if (listDataConnectorRequest instanceof ListDataConnectorRequest) {
+                    connectorId = listDataConnectorRequest.connectorId;
+                    sourceType = listDataConnectorRequest.sourceType;
+                    connectorName = listDataConnectorRequest.connectorName;
+                    limit = listDataConnectorRequest.limit;
+                    offset = listDataConnectorRequest.offset;
+                    available = listDataConnectorRequest.available;
+                } else {
+                    connectorId = listDataConnectorRequest['connector_id'];
+                    sourceType = listDataConnectorRequest['source_type'];
+                    connectorName = listDataConnectorRequest['connector_name'];
+                    limit = listDataConnectorRequest['limit'];
+                    offset = listDataConnectorRequest['offset'];
+                    available = listDataConnectorRequest['available'];
+                }
+            }
+
+        
+            if (connectorId !== null && connectorId !== undefined) {
+                localVarQueryParameter['connector_id'] = connectorId;
+            }
+            if (sourceType !== null && sourceType !== undefined) {
+                localVarQueryParameter['source_type'] = sourceType;
+            }
+            if (connectorName !== null && connectorName !== undefined) {
+                localVarQueryParameter['connector_name'] = connectorName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (available !== null && available !== undefined) {
+                localVarQueryParameter['available'] = available;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新数据连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDataConnector(updateDataConnectorRequest?: UpdateDataConnectorRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/data-connectors/{connector_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectorId;
+
+            if (updateDataConnectorRequest !== null && updateDataConnectorRequest !== undefined) {
+                if (updateDataConnectorRequest instanceof UpdateDataConnectorRequest) {
+                    connectorId = updateDataConnectorRequest.connectorId;
+                    body = updateDataConnectorRequest.body
+                } else {
+                    connectorId = updateDataConnectorRequest['connector_id'];
+                    body = updateDataConnectorRequest['body'];
+                }
+            }
+
+        
+            if (connectorId === null || connectorId === undefined) {
+            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling updateDataConnector.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connector_id': connectorId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

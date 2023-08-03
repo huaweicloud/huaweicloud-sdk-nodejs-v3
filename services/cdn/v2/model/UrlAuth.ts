@@ -1,3 +1,4 @@
+import { InheritConfig } from './InheritConfig';
 
 
 export class UrlAuth {
@@ -6,6 +7,7 @@ export class UrlAuth {
     private 'expire_time'?: number;
     private 'sign_method'?: string;
     private 'match_type'?: string;
+    private 'inherit_config'?: InheritConfig;
     public key?: string;
     private 'backup_key'?: string;
     private 'sign_arg'?: string;
@@ -53,6 +55,16 @@ export class UrlAuth {
     }
     public get matchType(): string | undefined {
         return this['match_type'];
+    }
+    public withInheritConfig(inheritConfig: InheritConfig): UrlAuth {
+        this['inherit_config'] = inheritConfig;
+        return this;
+    }
+    public set inheritConfig(inheritConfig: InheritConfig  | undefined) {
+        this['inherit_config'] = inheritConfig;
+    }
+    public get inheritConfig(): InheritConfig | undefined {
+        return this['inherit_config'];
     }
     public withKey(key: string): UrlAuth {
         this['key'] = key;

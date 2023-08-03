@@ -19,15 +19,26 @@ import { AggregationAuthorizationResp } from './model/AggregationAuthorizationRe
 import { ChannelConfigBody } from './model/ChannelConfigBody';
 import { CollectAllResourcesSummaryRequest } from './model/CollectAllResourcesSummaryRequest';
 import { CollectAllResourcesSummaryResponse } from './model/CollectAllResourcesSummaryResponse';
+import { CollectConformancePackComplianceSummaryRequest } from './model/CollectConformancePackComplianceSummaryRequest';
+import { CollectConformancePackComplianceSummaryResponse } from './model/CollectConformancePackComplianceSummaryResponse';
 import { Compliance } from './model/Compliance';
 import { ConfigurationAggregatorRequest } from './model/ConfigurationAggregatorRequest';
 import { ConfigurationAggregatorResp } from './model/ConfigurationAggregatorResp';
+import { ConformancePack } from './model/ConformancePack';
+import { ConformancePackCompliance } from './model/ConformancePackCompliance';
+import { ConformancePackComplianceDetail } from './model/ConformancePackComplianceDetail';
+import { ConformancePackComplianceSummary } from './model/ConformancePackComplianceSummary';
+import { ConformancePackRequestBody } from './model/ConformancePackRequestBody';
+import { ConformancePackScore } from './model/ConformancePackScore';
+import { ConformancePackTemplate } from './model/ConformancePackTemplate';
 import { CountAllResourcesRequest } from './model/CountAllResourcesRequest';
 import { CountAllResourcesResponse } from './model/CountAllResourcesResponse';
 import { CreateAggregationAuthorizationRequest } from './model/CreateAggregationAuthorizationRequest';
 import { CreateAggregationAuthorizationResponse } from './model/CreateAggregationAuthorizationResponse';
 import { CreateConfigurationAggregatorRequest } from './model/CreateConfigurationAggregatorRequest';
 import { CreateConfigurationAggregatorResponse } from './model/CreateConfigurationAggregatorResponse';
+import { CreateConformancePackRequest } from './model/CreateConformancePackRequest';
+import { CreateConformancePackResponse } from './model/CreateConformancePackResponse';
 import { CreateOrganizationPolicyAssignmentRequest } from './model/CreateOrganizationPolicyAssignmentRequest';
 import { CreateOrganizationPolicyAssignmentResponse } from './model/CreateOrganizationPolicyAssignmentResponse';
 import { CreatePolicyAssignmentsRequest } from './model/CreatePolicyAssignmentsRequest';
@@ -41,6 +52,8 @@ import { DeleteAggregationAuthorizationRequest } from './model/DeleteAggregation
 import { DeleteAggregationAuthorizationResponse } from './model/DeleteAggregationAuthorizationResponse';
 import { DeleteConfigurationAggregatorRequest } from './model/DeleteConfigurationAggregatorRequest';
 import { DeleteConfigurationAggregatorResponse } from './model/DeleteConfigurationAggregatorResponse';
+import { DeleteConformancePackRequest } from './model/DeleteConformancePackRequest';
+import { DeleteConformancePackResponse } from './model/DeleteConformancePackResponse';
 import { DeleteOrganizationPolicyAssignmentRequest } from './model/DeleteOrganizationPolicyAssignmentRequest';
 import { DeleteOrganizationPolicyAssignmentResponse } from './model/DeleteOrganizationPolicyAssignmentResponse';
 import { DeletePendingAggregationRequestRequest } from './model/DeletePendingAggregationRequestRequest';
@@ -67,10 +80,20 @@ import { ListAllResourcesRequest } from './model/ListAllResourcesRequest';
 import { ListAllResourcesResponse } from './model/ListAllResourcesResponse';
 import { ListAllTagsRequest } from './model/ListAllTagsRequest';
 import { ListAllTagsResponse } from './model/ListAllTagsResponse';
+import { ListBuiltInConformancePackTemplatesRequest } from './model/ListBuiltInConformancePackTemplatesRequest';
+import { ListBuiltInConformancePackTemplatesResponse } from './model/ListBuiltInConformancePackTemplatesResponse';
 import { ListBuiltInPolicyDefinitionsRequest } from './model/ListBuiltInPolicyDefinitionsRequest';
 import { ListBuiltInPolicyDefinitionsResponse } from './model/ListBuiltInPolicyDefinitionsResponse';
 import { ListConfigurationAggregatorsRequest } from './model/ListConfigurationAggregatorsRequest';
 import { ListConfigurationAggregatorsResponse } from './model/ListConfigurationAggregatorsResponse';
+import { ListConformancePackComplianceByPackIdRequest } from './model/ListConformancePackComplianceByPackIdRequest';
+import { ListConformancePackComplianceByPackIdResponse } from './model/ListConformancePackComplianceByPackIdResponse';
+import { ListConformancePackComplianceDetailsByPackIdRequest } from './model/ListConformancePackComplianceDetailsByPackIdRequest';
+import { ListConformancePackComplianceDetailsByPackIdResponse } from './model/ListConformancePackComplianceDetailsByPackIdResponse';
+import { ListConformancePackComplianceScoresRequest } from './model/ListConformancePackComplianceScoresRequest';
+import { ListConformancePackComplianceScoresResponse } from './model/ListConformancePackComplianceScoresResponse';
+import { ListConformancePacksRequest } from './model/ListConformancePacksRequest';
+import { ListConformancePacksResponse } from './model/ListConformancePacksResponse';
 import { ListOrganizationPolicyAssignmentsRequest } from './model/ListOrganizationPolicyAssignmentsRequest';
 import { ListOrganizationPolicyAssignmentsResponse } from './model/ListOrganizationPolicyAssignmentsResponse';
 import { ListPendingAggregationRequestsRequest } from './model/ListPendingAggregationRequestsRequest';
@@ -142,12 +165,16 @@ import { ShowAggregatePolicyStateComplianceSummaryRequest } from './model/ShowAg
 import { ShowAggregatePolicyStateComplianceSummaryResponse } from './model/ShowAggregatePolicyStateComplianceSummaryResponse';
 import { ShowAggregateResourceConfigRequest } from './model/ShowAggregateResourceConfigRequest';
 import { ShowAggregateResourceConfigResponse } from './model/ShowAggregateResourceConfigResponse';
+import { ShowBuiltInConformancePackTemplateRequest } from './model/ShowBuiltInConformancePackTemplateRequest';
+import { ShowBuiltInConformancePackTemplateResponse } from './model/ShowBuiltInConformancePackTemplateResponse';
 import { ShowBuiltInPolicyDefinitionRequest } from './model/ShowBuiltInPolicyDefinitionRequest';
 import { ShowBuiltInPolicyDefinitionResponse } from './model/ShowBuiltInPolicyDefinitionResponse';
 import { ShowConfigurationAggregatorRequest } from './model/ShowConfigurationAggregatorRequest';
 import { ShowConfigurationAggregatorResponse } from './model/ShowConfigurationAggregatorResponse';
 import { ShowConfigurationAggregatorSourcesStatusRequest } from './model/ShowConfigurationAggregatorSourcesStatusRequest';
 import { ShowConfigurationAggregatorSourcesStatusResponse } from './model/ShowConfigurationAggregatorSourcesStatusResponse';
+import { ShowConformancePackRequest } from './model/ShowConformancePackRequest';
+import { ShowConformancePackResponse } from './model/ShowConformancePackResponse';
 import { ShowEvaluationStateByAssignmentIdRequest } from './model/ShowEvaluationStateByAssignmentIdRequest';
 import { ShowEvaluationStateByAssignmentIdResponse } from './model/ShowEvaluationStateByAssignmentIdResponse';
 import { ShowOrganizationPolicyAssignmentDetailedStatusRequest } from './model/ShowOrganizationPolicyAssignmentDetailedStatusRequest';
@@ -175,6 +202,7 @@ import { ShowTrackerConfigResponse } from './model/ShowTrackerConfigResponse';
 import { StoredQuery } from './model/StoredQuery';
 import { StoredQueryRequestBody } from './model/StoredQueryRequestBody';
 import { TagDetail } from './model/TagDetail';
+import { TemplateParameterDefinition } from './model/TemplateParameterDefinition';
 import { TrackerConfigBody } from './model/TrackerConfigBody';
 import { TrackerOBSChannelConfigBody } from './model/TrackerOBSChannelConfigBody';
 import { TrackerSMNChannelConfigBody } from './model/TrackerSMNChannelConfigBody';
@@ -186,6 +214,7 @@ import { UpdatePolicyStateRequest } from './model/UpdatePolicyStateRequest';
 import { UpdatePolicyStateResponse } from './model/UpdatePolicyStateResponse';
 import { UpdateStoredQueryRequest } from './model/UpdateStoredQueryRequest';
 import { UpdateStoredQueryResponse } from './model/UpdateStoredQueryResponse';
+import { VarsStructure } from './model/VarsStructure';
 
 export class ConfigClient {
     public static newBuilder(): ClientBuilder<ConfigClient> {
@@ -573,6 +602,212 @@ export class ConfigClient {
      */
     public updateConfigurationAggregator(updateConfigurationAggregatorRequest?: UpdateConfigurationAggregatorRequest): Promise<UpdateConfigurationAggregatorResponse> {
         const options = ParamCreater().updateConfigurationAggregator(updateConfigurationAggregatorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举用户的合规规则包的合规结果概览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举合规规则包的结果概览
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [conformancePackName] 合规规则包名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectConformancePackComplianceSummary(collectConformancePackComplianceSummaryRequest?: CollectConformancePackComplianceSummaryRequest): Promise<CollectConformancePackComplianceSummaryResponse> {
+        const options = ParamCreater().collectConformancePackComplianceSummary(collectConformancePackComplianceSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建新的合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建合规规则包
+     * @param {ConformancePackRequestBody} conformancePackRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConformancePack(createConformancePackRequest?: CreateConformancePackRequest): Promise<CreateConformancePackResponse> {
+        const options = ParamCreater().createConformancePack(createConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除用户的合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除合规规则包
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConformancePack(deleteConformancePackRequest?: DeleteConformancePackRequest): Promise<DeleteConformancePackResponse> {
+        const options = ParamCreater().deleteConformancePack(deleteConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举预定义的合规规则包的模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举预定义合规规则包模板
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [templateKey] 预定义合规包模板名称。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBuiltInConformancePackTemplates(listBuiltInConformancePackTemplatesRequest?: ListBuiltInConformancePackTemplatesRequest): Promise<ListBuiltInConformancePackTemplatesResponse> {
+        const options = ParamCreater().listBuiltInConformancePackTemplates(listBuiltInConformancePackTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举合规规则包的合规规则评估结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举合规规则包的评估结果
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [policyAssignmentName] 合规规则名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConformancePackComplianceByPackId(listConformancePackComplianceByPackIdRequest?: ListConformancePackComplianceByPackIdRequest): Promise<ListConformancePackComplianceByPackIdResponse> {
+        const options = ParamCreater().listConformancePackComplianceByPackId(listConformancePackComplianceByPackIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举合规规则包的合规规则评估结果详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举合规规则包的评估结果详情
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [policyAssignmentName] 合规规则名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConformancePackComplianceDetailsByPackId(listConformancePackComplianceDetailsByPackIdRequest?: ListConformancePackComplianceDetailsByPackIdRequest): Promise<ListConformancePackComplianceDetailsByPackIdResponse> {
+        const options = ParamCreater().listConformancePackComplianceDetailsByPackId(listConformancePackComplianceDetailsByPackIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举用户的合规规则包分数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举合规规则包分数
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [conformancePackName] 合规规则包名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConformancePackComplianceScores(listConformancePackComplianceScoresRequest?: ListConformancePackComplianceScoresRequest): Promise<ListConformancePackComplianceScoresResponse> {
+        const options = ParamCreater().listConformancePackComplianceScores(listConformancePackComplianceScoresRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举用户的合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举合规规则包
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [conformancePackName] 合规规则包名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConformancePacks(listConformancePacksRequest?: ListConformancePacksRequest): Promise<ListConformancePacksResponse> {
+        const options = ParamCreater().listConformancePacks(listConformancePacksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID获取单个预定义合规规则包模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看预定义合规规则包模板
+     * @param {string} templateId 合规规则包模板ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，默认为\&quot;zh-cn\&quot;中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBuiltInConformancePackTemplate(showBuiltInConformancePackTemplateRequest?: ShowBuiltInConformancePackTemplateRequest): Promise<ShowBuiltInConformancePackTemplateResponse> {
+        const options = ParamCreater().showBuiltInConformancePackTemplate(showBuiltInConformancePackTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID获取单个合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看合规规则包
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConformancePack(showConformancePackRequest?: ShowConformancePackRequest): Promise<ShowConformancePackResponse> {
+        const options = ParamCreater().showConformancePack(showConformancePackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2273,6 +2508,491 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'aggregator_id': aggregatorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举用户的合规规则包的合规结果概览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectConformancePackComplianceSummary(collectConformancePackComplianceSummaryRequest?: CollectConformancePackComplianceSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/compliance/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let conformancePackName;
+
+            if (collectConformancePackComplianceSummaryRequest !== null && collectConformancePackComplianceSummaryRequest !== undefined) {
+                if (collectConformancePackComplianceSummaryRequest instanceof CollectConformancePackComplianceSummaryRequest) {
+                    limit = collectConformancePackComplianceSummaryRequest.limit;
+                    marker = collectConformancePackComplianceSummaryRequest.marker;
+                    conformancePackName = collectConformancePackComplianceSummaryRequest.conformancePackName;
+                } else {
+                    limit = collectConformancePackComplianceSummaryRequest['limit'];
+                    marker = collectConformancePackComplianceSummaryRequest['marker'];
+                    conformancePackName = collectConformancePackComplianceSummaryRequest['conformance_pack_name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建新的合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConformancePack(createConformancePackRequest?: CreateConformancePackRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createConformancePackRequest !== null && createConformancePackRequest !== undefined) {
+                if (createConformancePackRequest instanceof CreateConformancePackRequest) {
+                    body = createConformancePackRequest.body
+                } else {
+                    body = createConformancePackRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除用户的合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConformancePack(deleteConformancePackRequest?: DeleteConformancePackRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let conformancePackId;
+
+            if (deleteConformancePackRequest !== null && deleteConformancePackRequest !== undefined) {
+                if (deleteConformancePackRequest instanceof DeleteConformancePackRequest) {
+                    conformancePackId = deleteConformancePackRequest.conformancePackId;
+                } else {
+                    conformancePackId = deleteConformancePackRequest['conformance_pack_id'];
+                }
+            }
+
+        
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling deleteConformancePack.');
+            }
+
+            options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举预定义的合规规则包的模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBuiltInConformancePackTemplates(listBuiltInConformancePackTemplatesRequest?: ListBuiltInConformancePackTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/conformance-packs/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let templateKey;
+            
+            let xLanguage;
+
+            if (listBuiltInConformancePackTemplatesRequest !== null && listBuiltInConformancePackTemplatesRequest !== undefined) {
+                if (listBuiltInConformancePackTemplatesRequest instanceof ListBuiltInConformancePackTemplatesRequest) {
+                    limit = listBuiltInConformancePackTemplatesRequest.limit;
+                    marker = listBuiltInConformancePackTemplatesRequest.marker;
+                    templateKey = listBuiltInConformancePackTemplatesRequest.templateKey;
+                    xLanguage = listBuiltInConformancePackTemplatesRequest.xLanguage;
+                } else {
+                    limit = listBuiltInConformancePackTemplatesRequest['limit'];
+                    marker = listBuiltInConformancePackTemplatesRequest['marker'];
+                    templateKey = listBuiltInConformancePackTemplatesRequest['template_key'];
+                    xLanguage = listBuiltInConformancePackTemplatesRequest['X-Language'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (templateKey !== null && templateKey !== undefined) {
+                localVarQueryParameter['template_key'] = templateKey;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举合规规则包的合规规则评估结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConformancePackComplianceByPackId(listConformancePackComplianceByPackIdRequest?: ListConformancePackComplianceByPackIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}/compliance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let conformancePackId;
+            
+            let limit;
+            
+            let marker;
+            
+            let policyAssignmentName;
+
+            if (listConformancePackComplianceByPackIdRequest !== null && listConformancePackComplianceByPackIdRequest !== undefined) {
+                if (listConformancePackComplianceByPackIdRequest instanceof ListConformancePackComplianceByPackIdRequest) {
+                    conformancePackId = listConformancePackComplianceByPackIdRequest.conformancePackId;
+                    limit = listConformancePackComplianceByPackIdRequest.limit;
+                    marker = listConformancePackComplianceByPackIdRequest.marker;
+                    policyAssignmentName = listConformancePackComplianceByPackIdRequest.policyAssignmentName;
+                } else {
+                    conformancePackId = listConformancePackComplianceByPackIdRequest['conformance_pack_id'];
+                    limit = listConformancePackComplianceByPackIdRequest['limit'];
+                    marker = listConformancePackComplianceByPackIdRequest['marker'];
+                    policyAssignmentName = listConformancePackComplianceByPackIdRequest['policy_assignment_name'];
+                }
+            }
+
+        
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling listConformancePackComplianceByPackId.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (policyAssignmentName !== null && policyAssignmentName !== undefined) {
+                localVarQueryParameter['policy_assignment_name'] = policyAssignmentName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举合规规则包的合规规则评估结果详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConformancePackComplianceDetailsByPackId(listConformancePackComplianceDetailsByPackIdRequest?: ListConformancePackComplianceDetailsByPackIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}/compliance/details",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let conformancePackId;
+            
+            let limit;
+            
+            let marker;
+            
+            let policyAssignmentName;
+
+            if (listConformancePackComplianceDetailsByPackIdRequest !== null && listConformancePackComplianceDetailsByPackIdRequest !== undefined) {
+                if (listConformancePackComplianceDetailsByPackIdRequest instanceof ListConformancePackComplianceDetailsByPackIdRequest) {
+                    conformancePackId = listConformancePackComplianceDetailsByPackIdRequest.conformancePackId;
+                    limit = listConformancePackComplianceDetailsByPackIdRequest.limit;
+                    marker = listConformancePackComplianceDetailsByPackIdRequest.marker;
+                    policyAssignmentName = listConformancePackComplianceDetailsByPackIdRequest.policyAssignmentName;
+                } else {
+                    conformancePackId = listConformancePackComplianceDetailsByPackIdRequest['conformance_pack_id'];
+                    limit = listConformancePackComplianceDetailsByPackIdRequest['limit'];
+                    marker = listConformancePackComplianceDetailsByPackIdRequest['marker'];
+                    policyAssignmentName = listConformancePackComplianceDetailsByPackIdRequest['policy_assignment_name'];
+                }
+            }
+
+        
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling listConformancePackComplianceDetailsByPackId.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (policyAssignmentName !== null && policyAssignmentName !== undefined) {
+                localVarQueryParameter['policy_assignment_name'] = policyAssignmentName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举用户的合规规则包分数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConformancePackComplianceScores(listConformancePackComplianceScoresRequest?: ListConformancePackComplianceScoresRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/scores",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let conformancePackName;
+
+            if (listConformancePackComplianceScoresRequest !== null && listConformancePackComplianceScoresRequest !== undefined) {
+                if (listConformancePackComplianceScoresRequest instanceof ListConformancePackComplianceScoresRequest) {
+                    limit = listConformancePackComplianceScoresRequest.limit;
+                    marker = listConformancePackComplianceScoresRequest.marker;
+                    conformancePackName = listConformancePackComplianceScoresRequest.conformancePackName;
+                } else {
+                    limit = listConformancePackComplianceScoresRequest['limit'];
+                    marker = listConformancePackComplianceScoresRequest['marker'];
+                    conformancePackName = listConformancePackComplianceScoresRequest['conformance_pack_name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举用户的合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConformancePacks(listConformancePacksRequest?: ListConformancePacksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let conformancePackName;
+
+            if (listConformancePacksRequest !== null && listConformancePacksRequest !== undefined) {
+                if (listConformancePacksRequest instanceof ListConformancePacksRequest) {
+                    limit = listConformancePacksRequest.limit;
+                    marker = listConformancePacksRequest.marker;
+                    conformancePackName = listConformancePacksRequest.conformancePackName;
+                } else {
+                    limit = listConformancePacksRequest['limit'];
+                    marker = listConformancePacksRequest['marker'];
+                    conformancePackName = listConformancePacksRequest['conformance_pack_name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID获取单个预定义合规规则包模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBuiltInConformancePackTemplate(showBuiltInConformancePackTemplateRequest?: ShowBuiltInConformancePackTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/conformance-packs/templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+            
+            let xLanguage;
+
+            if (showBuiltInConformancePackTemplateRequest !== null && showBuiltInConformancePackTemplateRequest !== undefined) {
+                if (showBuiltInConformancePackTemplateRequest instanceof ShowBuiltInConformancePackTemplateRequest) {
+                    templateId = showBuiltInConformancePackTemplateRequest.templateId;
+                    xLanguage = showBuiltInConformancePackTemplateRequest.xLanguage;
+                } else {
+                    templateId = showBuiltInConformancePackTemplateRequest['template_id'];
+                    xLanguage = showBuiltInConformancePackTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showBuiltInConformancePackTemplate.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID获取单个合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConformancePack(showConformancePackRequest?: ShowConformancePackRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let conformancePackId;
+
+            if (showConformancePackRequest !== null && showConformancePackRequest !== undefined) {
+                if (showConformancePackRequest instanceof ShowConformancePackRequest) {
+                    conformancePackId = showConformancePackRequest.conformancePackId;
+                } else {
+                    conformancePackId = showConformancePackRequest['conformance_pack_id'];
+                }
+            }
+
+        
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling showConformancePack.');
+            }
+
+            options.pathParams = { 'conformance_pack_id': conformancePackId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -2,6 +2,9 @@
 
 export class ChargeInfo {
     private 'charge_mode'?: string;
+    private 'period_type'?: string;
+    private 'period_num'?: number;
+    private 'is_auto_pay'?: boolean;
     public constructor(chargeMode?: string) { 
         this['charge_mode'] = chargeMode;
     }
@@ -14,5 +17,35 @@ export class ChargeInfo {
     }
     public get chargeMode(): string | undefined {
         return this['charge_mode'];
+    }
+    public withPeriodType(periodType: string): ChargeInfo {
+        this['period_type'] = periodType;
+        return this;
+    }
+    public set periodType(periodType: string  | undefined) {
+        this['period_type'] = periodType;
+    }
+    public get periodType(): string | undefined {
+        return this['period_type'];
+    }
+    public withPeriodNum(periodNum: number): ChargeInfo {
+        this['period_num'] = periodNum;
+        return this;
+    }
+    public set periodNum(periodNum: number  | undefined) {
+        this['period_num'] = periodNum;
+    }
+    public get periodNum(): number | undefined {
+        return this['period_num'];
+    }
+    public withIsAutoPay(isAutoPay: boolean): ChargeInfo {
+        this['is_auto_pay'] = isAutoPay;
+        return this;
+    }
+    public set isAutoPay(isAutoPay: boolean  | undefined) {
+        this['is_auto_pay'] = isAutoPay;
+    }
+    public get isAutoPay(): boolean | undefined {
+        return this['is_auto_pay'];
     }
 }

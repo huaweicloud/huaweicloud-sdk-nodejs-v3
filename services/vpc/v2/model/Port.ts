@@ -28,7 +28,8 @@ export class Port {
     private 'instance_type'?: string;
     private 'port_security_enabled'?: boolean;
     private 'zone_id'?: string;
-    public constructor(id?: string, name?: string, networkId?: string, adminStateUp?: boolean, macAddress?: string, fixedIps?: Array<FixedIp>, deviceId?: string, deviceOwner?: string, tenantId?: string, status?: string, securityGroups?: Array<string>, allowedAddressPairs?: Array<AllowedAddressPair>, extraDhcpOpts?: Array<ExtraDhcpOpt>, bindingVnicType?: string, dnsAssignment?: Array<DnsAssignMent>, dnsName?: string, bindingVifDetails?: BindingVifDetails, bindingProfile?: object, instanceId?: string, instanceType?: string, portSecurityEnabled?: boolean, zoneId?: string) { 
+    private 'enable_efi'?: boolean;
+    public constructor(id?: string, name?: string, networkId?: string, adminStateUp?: boolean, macAddress?: string, fixedIps?: Array<FixedIp>, deviceId?: string, deviceOwner?: string, tenantId?: string, status?: string, securityGroups?: Array<string>, allowedAddressPairs?: Array<AllowedAddressPair>, extraDhcpOpts?: Array<ExtraDhcpOpt>, bindingVnicType?: string, dnsAssignment?: Array<DnsAssignMent>, dnsName?: string, bindingVifDetails?: BindingVifDetails, bindingProfile?: object, instanceId?: string, instanceType?: string, portSecurityEnabled?: boolean, zoneId?: string, enableEfi?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['network_id'] = networkId;
@@ -51,6 +52,7 @@ export class Port {
         this['instance_type'] = instanceType;
         this['port_security_enabled'] = portSecurityEnabled;
         this['zone_id'] = zoneId;
+        this['enable_efi'] = enableEfi;
     }
     public withId(id: string): Port {
         this['id'] = id;
@@ -253,6 +255,16 @@ export class Port {
     }
     public get zoneId(): string | undefined {
         return this['zone_id'];
+    }
+    public withEnableEfi(enableEfi: boolean): Port {
+        this['enable_efi'] = enableEfi;
+        return this;
+    }
+    public set enableEfi(enableEfi: boolean  | undefined) {
+        this['enable_efi'] = enableEfi;
+    }
+    public get enableEfi(): boolean | undefined {
+        return this['enable_efi'];
     }
 }
 
