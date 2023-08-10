@@ -1,6 +1,6 @@
 import { MysqlBackupStrategy } from './MysqlBackupStrategy';
 import { MysqlChargeInfo } from './MysqlChargeInfo';
-import { MysqlDatastore } from './MysqlDatastore';
+import { MysqlDatastoreInReq } from './MysqlDatastoreInReq';
 import { MysqlRestorePoint } from './MysqlRestorePoint';
 import { MysqlTags } from './MysqlTags';
 import { MysqlVolume } from './MysqlVolume';
@@ -10,7 +10,7 @@ export class MysqlInstanceRequest {
     private 'charge_info'?: MysqlChargeInfo;
     public region?: string;
     public name?: string;
-    public datastore?: MysqlDatastore;
+    public datastore?: MysqlDatastoreInReq;
     public mode?: string;
     private 'flavor_ref'?: string;
     private 'vpc_id'?: string;
@@ -29,7 +29,7 @@ export class MysqlInstanceRequest {
     private 'enterprise_project_id'?: string;
     private 'dedicated_resource_id'?: string;
     private 'restore_point'?: MysqlRestorePoint;
-    public constructor(region?: string, name?: string, datastore?: MysqlDatastore, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, availabilityZoneMode?: string, slaveCount?: number) { 
+    public constructor(region?: string, name?: string, datastore?: MysqlDatastoreInReq, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, availabilityZoneMode?: string, slaveCount?: number) { 
         this['region'] = region;
         this['name'] = name;
         this['datastore'] = datastore;
@@ -59,7 +59,7 @@ export class MysqlInstanceRequest {
         this['name'] = name;
         return this;
     }
-    public withDatastore(datastore: MysqlDatastore): MysqlInstanceRequest {
+    public withDatastore(datastore: MysqlDatastoreInReq): MysqlInstanceRequest {
         this['datastore'] = datastore;
         return this;
     }

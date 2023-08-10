@@ -76,6 +76,7 @@ export * from './model/MyanmarDriverLicenseResult';
 export * from './model/MyanmarIdcardConfidence';
 export * from './model/MyanmarIdcardRequestBody';
 export * from './model/MyanmarIdcardResult';
+export * from './model/MyanmarIdcardTranslationInfo';
 export * from './model/PassportRequestBody';
 export * from './model/PassportResult';
 export * from './model/PcrTestRecordConfidence';

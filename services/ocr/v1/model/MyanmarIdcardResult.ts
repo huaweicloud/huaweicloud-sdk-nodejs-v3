@@ -1,4 +1,5 @@
 import { MyanmarIdcardConfidence } from './MyanmarIdcardConfidence';
+import { MyanmarIdcardTranslationInfo } from './MyanmarIdcardTranslationInfo';
 
 
 export class MyanmarIdcardResult {
@@ -20,6 +21,7 @@ export class MyanmarIdcardResult {
     private 'portrait_image'?: string;
     private 'portrait_location'?: Array<Array<number>>;
     private 'idcard_type'?: string;
+    private 'translation_info'?: MyanmarIdcardTranslationInfo;
     public constructor() { 
     }
     public withSide(side: string): MyanmarIdcardResult {
@@ -159,5 +161,15 @@ export class MyanmarIdcardResult {
     }
     public get idcardType(): string | undefined {
         return this['idcard_type'];
+    }
+    public withTranslationInfo(translationInfo: MyanmarIdcardTranslationInfo): MyanmarIdcardResult {
+        this['translation_info'] = translationInfo;
+        return this;
+    }
+    public set translationInfo(translationInfo: MyanmarIdcardTranslationInfo  | undefined) {
+        this['translation_info'] = translationInfo;
+    }
+    public get translationInfo(): MyanmarIdcardTranslationInfo | undefined {
+        return this['translation_info'];
     }
 }

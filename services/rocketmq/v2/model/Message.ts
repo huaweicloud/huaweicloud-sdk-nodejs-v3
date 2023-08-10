@@ -7,15 +7,15 @@ export class Message {
     public topic?: string;
     private 'store_timestamp'?: number;
     private 'born_timestamp'?: number;
-    private 'reconsume_times'?: string;
+    private 'reconsume_times'?: number;
     public body?: string;
     private 'body_crc'?: number;
     private 'store_size'?: number;
     private 'property_list'?: Array<MessagePropertyList>;
     private 'born_host'?: string;
     private 'store_host'?: string;
-    private 'queue_id'?: string;
-    private 'queue_offset'?: string;
+    private 'queue_id'?: number;
+    private 'queue_offset'?: number;
     public constructor() { 
     }
     public withMsgId(msgId: string): Message {
@@ -62,14 +62,14 @@ export class Message {
     public get bornTimestamp(): number | undefined {
         return this['born_timestamp'];
     }
-    public withReconsumeTimes(reconsumeTimes: string): Message {
+    public withReconsumeTimes(reconsumeTimes: number): Message {
         this['reconsume_times'] = reconsumeTimes;
         return this;
     }
-    public set reconsumeTimes(reconsumeTimes: string  | undefined) {
+    public set reconsumeTimes(reconsumeTimes: number  | undefined) {
         this['reconsume_times'] = reconsumeTimes;
     }
-    public get reconsumeTimes(): string | undefined {
+    public get reconsumeTimes(): number | undefined {
         return this['reconsume_times'];
     }
     public withBody(body: string): Message {
@@ -126,24 +126,24 @@ export class Message {
     public get storeHost(): string | undefined {
         return this['store_host'];
     }
-    public withQueueId(queueId: string): Message {
+    public withQueueId(queueId: number): Message {
         this['queue_id'] = queueId;
         return this;
     }
-    public set queueId(queueId: string  | undefined) {
+    public set queueId(queueId: number  | undefined) {
         this['queue_id'] = queueId;
     }
-    public get queueId(): string | undefined {
+    public get queueId(): number | undefined {
         return this['queue_id'];
     }
-    public withQueueOffset(queueOffset: string): Message {
+    public withQueueOffset(queueOffset: number): Message {
         this['queue_offset'] = queueOffset;
         return this;
     }
-    public set queueOffset(queueOffset: string  | undefined) {
+    public set queueOffset(queueOffset: number  | undefined) {
         this['queue_offset'] = queueOffset;
     }
-    public get queueOffset(): string | undefined {
+    public get queueOffset(): number | undefined {
         return this['queue_offset'];
     }
 }

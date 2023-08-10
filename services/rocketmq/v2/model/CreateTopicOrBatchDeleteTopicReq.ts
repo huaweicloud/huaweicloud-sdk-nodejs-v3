@@ -7,6 +7,7 @@ export class CreateTopicOrBatchDeleteTopicReq {
     public brokers?: Array<string>;
     private 'queue_num'?: number;
     public permission?: CreateTopicOrBatchDeleteTopicReqPermissionEnum | string;
+    private 'message_type'?: CreateTopicOrBatchDeleteTopicReqMessageTypeEnum | string;
     public topics?: Array<string>;
     public constructor() { 
     }
@@ -32,6 +33,16 @@ export class CreateTopicOrBatchDeleteTopicReq {
         this['permission'] = permission;
         return this;
     }
+    public withMessageType(messageType: CreateTopicOrBatchDeleteTopicReqMessageTypeEnum | string): CreateTopicOrBatchDeleteTopicReq {
+        this['message_type'] = messageType;
+        return this;
+    }
+    public set messageType(messageType: CreateTopicOrBatchDeleteTopicReqMessageTypeEnum | string  | undefined) {
+        this['message_type'] = messageType;
+    }
+    public get messageType(): CreateTopicOrBatchDeleteTopicReqMessageTypeEnum | string | undefined {
+        return this['message_type'];
+    }
     public withTopics(topics: Array<string>): CreateTopicOrBatchDeleteTopicReq {
         this['topics'] = topics;
         return this;
@@ -46,4 +57,14 @@ export enum CreateTopicOrBatchDeleteTopicReqPermissionEnum {
     SUB = 'sub',
     PUB = 'pub',
     ALL = 'all'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTopicOrBatchDeleteTopicReqMessageTypeEnum {
+    NORMAL = 'NORMAL',
+    FIFO = 'FIFO',
+    DELAY = 'DELAY',
+    TRANSACTION = 'TRANSACTION'
 }

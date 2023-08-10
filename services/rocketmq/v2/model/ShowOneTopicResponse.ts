@@ -8,6 +8,7 @@ export class ShowOneTopicResponse extends SdkResponse {
     private 'total_write_queue_num'?: number;
     public permission?: ShowOneTopicResponsePermissionEnum | string;
     public brokers?: Array<TopicBrokers>;
+    private 'message_type'?: ShowOneTopicResponseMessageTypeEnum | string;
     public constructor() { 
         super();
     }
@@ -43,6 +44,16 @@ export class ShowOneTopicResponse extends SdkResponse {
         this['brokers'] = brokers;
         return this;
     }
+    public withMessageType(messageType: ShowOneTopicResponseMessageTypeEnum | string): ShowOneTopicResponse {
+        this['message_type'] = messageType;
+        return this;
+    }
+    public set messageType(messageType: ShowOneTopicResponseMessageTypeEnum | string  | undefined) {
+        this['message_type'] = messageType;
+    }
+    public get messageType(): ShowOneTopicResponseMessageTypeEnum | string | undefined {
+        return this['message_type'];
+    }
 }
 
 /**
@@ -53,4 +64,14 @@ export enum ShowOneTopicResponsePermissionEnum {
     SUB = 'sub',
     PUB = 'pub',
     ALL = 'all'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowOneTopicResponseMessageTypeEnum {
+    NORMAL = 'NORMAL',
+    FIFO = 'FIFO',
+    DELAY = 'DELAY',
+    TRANSACTION = 'TRANSACTION'
 }

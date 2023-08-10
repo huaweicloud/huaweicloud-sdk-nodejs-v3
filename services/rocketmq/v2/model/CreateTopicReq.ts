@@ -5,6 +5,7 @@ export class CreateTopicReq {
     public brokers?: Array<string>;
     private 'queue_num'?: number;
     public permission?: CreateTopicReqPermissionEnum | string;
+    private 'message_type'?: CreateTopicReqMessageTypeEnum | string;
     public constructor() { 
     }
     public withName(name: string): CreateTopicReq {
@@ -29,6 +30,16 @@ export class CreateTopicReq {
         this['permission'] = permission;
         return this;
     }
+    public withMessageType(messageType: CreateTopicReqMessageTypeEnum | string): CreateTopicReq {
+        this['message_type'] = messageType;
+        return this;
+    }
+    public set messageType(messageType: CreateTopicReqMessageTypeEnum | string  | undefined) {
+        this['message_type'] = messageType;
+    }
+    public get messageType(): CreateTopicReqMessageTypeEnum | string | undefined {
+        return this['message_type'];
+    }
 }
 
 /**
@@ -39,4 +50,14 @@ export enum CreateTopicReqPermissionEnum {
     SUB = 'sub',
     PUB = 'pub',
     ALL = 'all'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTopicReqMessageTypeEnum {
+    NORMAL = 'NORMAL',
+    FIFO = 'FIFO',
+    DELAY = 'DELAY',
+    TRANSACTION = 'TRANSACTION'
 }

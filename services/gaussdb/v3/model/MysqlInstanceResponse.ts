@@ -1,13 +1,13 @@
 import { MysqlBackupStrategy } from './MysqlBackupStrategy';
 import { MysqlChargeInfo } from './MysqlChargeInfo';
-import { MysqlDatastore } from './MysqlDatastore';
+import { MysqlDatastoreInRes } from './MysqlDatastoreInRes';
 
 
 export class MysqlInstanceResponse {
     public id?: string;
     public name?: string;
     public status?: string;
-    public datastore?: MysqlDatastore;
+    public datastore?: MysqlDatastoreInRes;
     public mode?: string;
     private 'configuration_id'?: string;
     public port?: string;
@@ -37,7 +37,7 @@ export class MysqlInstanceResponse {
         this['status'] = status;
         return this;
     }
-    public withDatastore(datastore: MysqlDatastore): MysqlInstanceResponse {
+    public withDatastore(datastore: MysqlDatastoreInRes): MysqlInstanceResponse {
         this['datastore'] = datastore;
         return this;
     }

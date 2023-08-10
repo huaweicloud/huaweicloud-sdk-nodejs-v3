@@ -10,7 +10,8 @@ export class ListPrivateZonesRequest {
     public status?: string;
     private 'search_mode'?: string;
     private 'enterprise_project_id'?: string;
-    public constructor() { 
+    public constructor(type?: string) { 
+        this['type'] = type;
     }
     public withType(type: string): ListPrivateZonesRequest {
         this['type'] = type;

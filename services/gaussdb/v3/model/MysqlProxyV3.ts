@@ -22,6 +22,7 @@ export class MysqlProxyV3 {
     private 'switch_connection_pool_type_enabled'?: boolean;
     private 'route_mode'?: number;
     private 'balance_route_mode_enabled'?: boolean;
+    private 'consistence_mode'?: string;
     public constructor() { 
     }
     public withPoolId(poolId: string): MysqlProxyV3 {
@@ -169,5 +170,15 @@ export class MysqlProxyV3 {
     }
     public get balanceRouteModeEnabled(): boolean | undefined {
         return this['balance_route_mode_enabled'];
+    }
+    public withConsistenceMode(consistenceMode: string): MysqlProxyV3 {
+        this['consistence_mode'] = consistenceMode;
+        return this;
+    }
+    public set consistenceMode(consistenceMode: string  | undefined) {
+        this['consistence_mode'] = consistenceMode;
+    }
+    public get consistenceMode(): string | undefined {
+        return this['consistence_mode'];
     }
 }

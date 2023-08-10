@@ -6,6 +6,7 @@ import { AddDatabasePermissionRequest } from './model/AddDatabasePermissionReque
 import { AddDatabasePermissionResponse } from './model/AddDatabasePermissionResponse';
 import { ApplyConfigurationRequestBody } from './model/ApplyConfigurationRequestBody';
 import { Backup } from './model/Backup';
+import { BackupEncryptRequest } from './model/BackupEncryptRequest';
 import { BackupPolicy } from './model/BackupPolicy';
 import { Backups } from './model/Backups';
 import { BatchOperateInstanceTagRequestBody } from './model/BatchOperateInstanceTagRequestBody';
@@ -76,6 +77,8 @@ import { DeleteSqlFilterRuleRequest } from './model/DeleteSqlFilterRuleRequest';
 import { DeleteSqlFilterRuleResponse } from './model/DeleteSqlFilterRuleResponse';
 import { DeleteTaskRecordRequest } from './model/DeleteTaskRecordRequest';
 import { DeleteTaskRecordResponse } from './model/DeleteTaskRecordResponse';
+import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
+import { DescribeBackupEncryptStatusResponse } from './model/DescribeBackupEncryptStatusResponse';
 import { EnlargeProxyRequest } from './model/EnlargeProxyRequest';
 import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlInstanceVolumeRequest';
 import { ExpandGaussMySqlInstanceVolumeResponse } from './model/ExpandGaussMySqlInstanceVolumeResponse';
@@ -126,6 +129,8 @@ import { LtsLogErrorQueryRequest } from './model/LtsLogErrorQueryRequest';
 import { LtsLogSlowDetail } from './model/LtsLogSlowDetail';
 import { LtsLogSlowQueryRequest } from './model/LtsLogSlowQueryRequest';
 import { ModifyAliasRequest } from './model/ModifyAliasRequest';
+import { ModifyBackupEncryptStatusRequest } from './model/ModifyBackupEncryptStatusRequest';
+import { ModifyBackupEncryptStatusResponse } from './model/ModifyBackupEncryptStatusResponse';
 import { ModifyBindEipRequest } from './model/ModifyBindEipRequest';
 import { ModifyGaussMySqlProxyRouteModeRequest } from './model/ModifyGaussMySqlProxyRouteModeRequest';
 import { ModifyGaussMySqlProxyRouteModeRequestBody } from './model/ModifyGaussMySqlProxyRouteModeRequestBody';
@@ -143,7 +148,9 @@ import { MysqlChangeSpecificationRequest } from './model/MysqlChangeSpecificatio
 import { MysqlChargeInfo } from './model/MysqlChargeInfo';
 import { MysqlCreateBackupRequest } from './model/MysqlCreateBackupRequest';
 import { MysqlCreateReadonlyNodeRequest } from './model/MysqlCreateReadonlyNodeRequest';
-import { MysqlDatastore } from './model/MysqlDatastore';
+import { MysqlDatastoreInBackup } from './model/MysqlDatastoreInBackup';
+import { MysqlDatastoreInReq } from './model/MysqlDatastoreInReq';
+import { MysqlDatastoreInRes } from './model/MysqlDatastoreInRes';
 import { MysqlDatastoreWithKernelVersion } from './model/MysqlDatastoreWithKernelVersion';
 import { MysqlEngineVersionInfo } from './model/MysqlEngineVersionInfo';
 import { MysqlExtendInstanceVolumeRequest } from './model/MysqlExtendInstanceVolumeRequest';
@@ -294,6 +301,9 @@ import { UpdateInstanceMonitorRequest } from './model/UpdateInstanceMonitorReque
 import { UpdateInstanceMonitorResponse } from './model/UpdateInstanceMonitorResponse';
 import { UpdateProxyConnectionPoolTypeRequest } from './model/UpdateProxyConnectionPoolTypeRequest';
 import { UpdateProxyConnectionPoolTypeResponse } from './model/UpdateProxyConnectionPoolTypeResponse';
+import { UpdateProxyPortRequest } from './model/UpdateProxyPortRequest';
+import { UpdateProxyPortRequestBody } from './model/UpdateProxyPortRequestBody';
+import { UpdateProxyPortResponse } from './model/UpdateProxyPortResponse';
 import { UpdateProxySessionConsistenceRequest } from './model/UpdateProxySessionConsistenceRequest';
 import { UpdateProxySessionConsistenceResponse } from './model/UpdateProxySessionConsistenceResponse';
 import { UpdateSqlFilterControlRequest } from './model/UpdateSqlFilterControlRequest';
@@ -774,6 +784,26 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询实例是否开启备份加密功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例是否开启备份加密功能
+     * @param {string} instanceId 租户在某一project下的实例ID。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public describeBackupEncryptStatus(describeBackupEncryptStatusRequest?: DescribeBackupEncryptStatusRequest): Promise<DescribeBackupEncryptStatusResponse> {
+        const options = ParamCreater().describeBackupEncryptStatus(describeBackupEncryptStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 包周期存储扩容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1124,6 +1154,27 @@ export class GaussDBClient {
      */
     public listScheduleJobs(listScheduleJobsRequest?: ListScheduleJobsRequest): Promise<ListScheduleJobsResponse> {
         const options = ParamCreater().listScheduleJobs(listScheduleJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 打开或关闭备份加密。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 打开或关闭备份加密
+     * @param {string} instanceId 租户在某一project下的实例ID。
+     * @param {BackupEncryptRequest} modifyBackupEncryptStatusRequestBody 打开或关闭备份加密的请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyBackupEncryptStatus(modifyBackupEncryptStatusRequest?: ModifyBackupEncryptStatusRequest): Promise<ModifyBackupEncryptStatusResponse> {
+        const options = ParamCreater().modifyBackupEncryptStatus(modifyBackupEncryptStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1964,6 +2015,28 @@ export class GaussDBClient {
      */
     public updateProxyConnectionPoolType(updateProxyConnectionPoolTypeRequest?: UpdateProxyConnectionPoolTypeRequest): Promise<UpdateProxyConnectionPoolTypeResponse> {
         const options = ParamCreater().updateProxyConnectionPoolType(updateProxyConnectionPoolTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改读写分离端口号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改读写分离端口号
+     * @param {string} instanceId 租户在某一project下的实例ID。
+     * @param {string} proxyId 租户在某一实下的数据库代理ID。
+     * @param {UpdateProxyPortRequestBody} updateProxyPortRequestBody 请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProxyPort(updateProxyPortRequest?: UpdateProxyPortRequest): Promise<UpdateProxyPortResponse> {
+        const options = ParamCreater().updateProxyPort(updateProxyPortRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3233,6 +3306,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例是否开启备份加密功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        describeBackupEncryptStatus(describeBackupEncryptStatusRequest?: DescribeBackupEncryptStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/encryption",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (describeBackupEncryptStatusRequest !== null && describeBackupEncryptStatusRequest !== undefined) {
+                if (describeBackupEncryptStatusRequest instanceof DescribeBackupEncryptStatusRequest) {
+                    instanceId = describeBackupEncryptStatusRequest.instanceId;
+                    xLanguage = describeBackupEncryptStatusRequest.xLanguage;
+                } else {
+                    instanceId = describeBackupEncryptStatusRequest['instance_id'];
+                    xLanguage = describeBackupEncryptStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling describeBackupEncryptStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 包周期存储扩容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4208,6 +4325,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 打开或关闭备份加密。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyBackupEncryptStatus(modifyBackupEncryptStatusRequest?: ModifyBackupEncryptStatusRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/encryption",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (modifyBackupEncryptStatusRequest !== null && modifyBackupEncryptStatusRequest !== undefined) {
+                if (modifyBackupEncryptStatusRequest instanceof ModifyBackupEncryptStatusRequest) {
+                    instanceId = modifyBackupEncryptStatusRequest.instanceId;
+                    body = modifyBackupEncryptStatusRequest.body
+                    xLanguage = modifyBackupEncryptStatusRequest.xLanguage;
+                } else {
+                    instanceId = modifyBackupEncryptStatusRequest['instance_id'];
+                    body = modifyBackupEncryptStatusRequest['body'];
+                    xLanguage = modifyBackupEncryptStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyBackupEncryptStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6281,6 +6451,66 @@ export const ParamCreater = function () {
             }
             if (proxyId === null || proxyId === undefined) {
             throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateProxyConnectionPoolType.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改读写分离端口号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProxyPort(updateProxyPortRequest?: UpdateProxyPortRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/port",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (updateProxyPortRequest !== null && updateProxyPortRequest !== undefined) {
+                if (updateProxyPortRequest instanceof UpdateProxyPortRequest) {
+                    instanceId = updateProxyPortRequest.instanceId;
+                    proxyId = updateProxyPortRequest.proxyId;
+                    body = updateProxyPortRequest.body
+                    xLanguage = updateProxyPortRequest.xLanguage;
+                } else {
+                    instanceId = updateProxyPortRequest['instance_id'];
+                    proxyId = updateProxyPortRequest['proxy_id'];
+                    body = updateProxyPortRequest['body'];
+                    xLanguage = updateProxyPortRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateProxyPort.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateProxyPort.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

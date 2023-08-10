@@ -50,6 +50,8 @@ export class ShowInstanceResp {
     private 'broker_address'?: string;
     private 'public_namesrv_address'?: string;
     private 'public_broker_address'?: string;
+    private 'grpc_address'?: string;
+    private 'public_grpc_address'?: string;
     public tags?: Array<TagEntity>;
     private 'total_storage_space'?: number;
     private 'resource_spec_code'?: string;
@@ -498,6 +500,26 @@ export class ShowInstanceResp {
     }
     public get publicBrokerAddress(): string | undefined {
         return this['public_broker_address'];
+    }
+    public withGrpcAddress(grpcAddress: string): ShowInstanceResp {
+        this['grpc_address'] = grpcAddress;
+        return this;
+    }
+    public set grpcAddress(grpcAddress: string  | undefined) {
+        this['grpc_address'] = grpcAddress;
+    }
+    public get grpcAddress(): string | undefined {
+        return this['grpc_address'];
+    }
+    public withPublicGrpcAddress(publicGrpcAddress: string): ShowInstanceResp {
+        this['public_grpc_address'] = publicGrpcAddress;
+        return this;
+    }
+    public set publicGrpcAddress(publicGrpcAddress: string  | undefined) {
+        this['public_grpc_address'] = publicGrpcAddress;
+    }
+    public get publicGrpcAddress(): string | undefined {
+        return this['public_grpc_address'];
     }
     public withTags(tags: Array<TagEntity>): ShowInstanceResp {
         this['tags'] = tags;

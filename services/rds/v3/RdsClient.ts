@@ -91,6 +91,10 @@ import { CreateSqlserverDatabaseRequest } from './model/CreateSqlserverDatabaseR
 import { CreateSqlserverDatabaseResponse } from './model/CreateSqlserverDatabaseResponse';
 import { CreateSqlserverDbUserRequest } from './model/CreateSqlserverDbUserRequest';
 import { CreateSqlserverDbUserResponse } from './model/CreateSqlserverDbUserResponse';
+import { CreateXelLogDownloadRequest } from './model/CreateXelLogDownloadRequest';
+import { CreateXelLogDownloadRequestBody } from './model/CreateXelLogDownloadRequestBody';
+import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadResponse';
+import { CreateXelLogDownloadResult } from './model/CreateXelLogDownloadResult';
 import { CustomerModifyAutoEnlargePolicyReq } from './model/CustomerModifyAutoEnlargePolicyReq';
 import { CustomerUpgradeDatabaseVersionReq } from './model/CustomerUpgradeDatabaseVersionReq';
 import { DBSInstanceHostInfoResult } from './model/DBSInstanceHostInfoResult';
@@ -258,6 +262,9 @@ import { ListSslCertDownloadLinkRequest } from './model/ListSslCertDownloadLinkR
 import { ListSslCertDownloadLinkResponse } from './model/ListSslCertDownloadLinkResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
+import { ListXellogFilesRequest } from './model/ListXellogFilesRequest';
+import { ListXellogFilesResponse } from './model/ListXellogFilesResponse';
 import { MasterInstance } from './model/MasterInstance';
 import { MigrateFollowerRequest } from './model/MigrateFollowerRequest';
 import { MigrateFollowerResponse } from './model/MigrateFollowerResponse';
@@ -790,6 +797,27 @@ export class RdsClient {
      */
     public createRestoreInstance(createRestoreInstanceRequest?: CreateRestoreInstanceRequest): Promise<CreateRestoreInstanceResponse> {
         const options = ParamCreater().createRestoreInstance(createRestoreInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取扩展日志下载信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取扩展日志下载信息
+     * @param {string} instanceId 实例ID。
+     * @param {CreateXelLogDownloadRequestBody} createXelLogDownloadRequestBody 请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createXelLogDownload(createXelLogDownloadRequest?: CreateXelLogDownloadRequest): Promise<CreateXelLogDownloadResponse> {
+        const options = ParamCreater().createXelLogDownload(createXelLogDownloadRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1641,6 +1669,29 @@ export class RdsClient {
      */
     public listStorageTypes(listStorageTypesRequest?: ListStorageTypesRequest): Promise<ListStorageTypesResponse> {
         const options = ParamCreater().listStorageTypes(listStorageTypesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询扩展日志文件列表。
+     * 查询扩展日志文件列表，可以调用接口/v3/{project_id}/instances/{instance_id}/xellog-download 获取扩展日志下载链接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询扩展日志文件列表
+     * @param {string} instanceId 实例ID。
+     * @param {string} [xLanguage] 语言
+     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。取值范围[1, 100]。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listXellogFiles(listXellogFilesRequest?: ListXellogFilesRequest): Promise<ListXellogFilesResponse> {
+        const options = ParamCreater().listXellogFiles(listXellogFilesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4533,6 +4584,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取扩展日志下载信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createXelLogDownload(createXelLogDownloadRequest?: CreateXelLogDownloadRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/xellog-download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createXelLogDownloadRequest !== null && createXelLogDownloadRequest !== undefined) {
+                if (createXelLogDownloadRequest instanceof CreateXelLogDownloadRequest) {
+                    instanceId = createXelLogDownloadRequest.instanceId;
+                    body = createXelLogDownloadRequest.body
+                    xLanguage = createXelLogDownloadRequest.xLanguage;
+                } else {
+                    instanceId = createXelLogDownloadRequest['instance_id'];
+                    body = createXelLogDownloadRequest['body'];
+                    xLanguage = createXelLogDownloadRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createXelLogDownload.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6858,6 +6962,66 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询扩展日志文件列表。
+         * 查询扩展日志文件列表，可以调用接口/v3/{project_id}/instances/{instance_id}/xellog-download 获取扩展日志下载链接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listXellogFiles(listXellogFilesRequest?: ListXellogFilesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/xellog-files",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listXellogFilesRequest !== null && listXellogFilesRequest !== undefined) {
+                if (listXellogFilesRequest instanceof ListXellogFilesRequest) {
+                    instanceId = listXellogFilesRequest.instanceId;
+                    xLanguage = listXellogFilesRequest.xLanguage;
+                    offset = listXellogFilesRequest.offset;
+                    limit = listXellogFilesRequest.limit;
+                } else {
+                    instanceId = listXellogFilesRequest['instance_id'];
+                    xLanguage = listXellogFilesRequest['X-Language'];
+                    offset = listXellogFilesRequest['offset'];
+                    limit = listXellogFilesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listXellogFiles.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

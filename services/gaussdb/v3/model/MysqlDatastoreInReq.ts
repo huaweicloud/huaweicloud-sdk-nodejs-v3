@@ -1,6 +1,6 @@
 
 
-export class MysqlDatastore {
+export class MysqlDatastoreInReq {
     public type?: string;
     public version?: string;
     private 'kernel_version'?: string;
@@ -8,15 +8,15 @@ export class MysqlDatastore {
         this['type'] = type;
         this['version'] = version;
     }
-    public withType(type: string): MysqlDatastore {
+    public withType(type: string): MysqlDatastoreInReq {
         this['type'] = type;
         return this;
     }
-    public withVersion(version: string): MysqlDatastore {
+    public withVersion(version: string): MysqlDatastoreInReq {
         this['version'] = version;
         return this;
     }
-    public withKernelVersion(kernelVersion: string): MysqlDatastore {
+    public withKernelVersion(kernelVersion: string): MysqlDatastoreInReq {
         this['kernel_version'] = kernelVersion;
         return this;
     }

@@ -1,4 +1,4 @@
-import { MysqlDatastore } from './MysqlDatastore';
+import { MysqlDatastoreInBackup } from './MysqlDatastoreInBackup';
 
 
 export class Backups {
@@ -10,7 +10,7 @@ export class Backups {
     private 'take_up_time'?: number;
     public type?: BackupsTypeEnum | string;
     public size?: number;
-    public datastore?: MysqlDatastore;
+    public datastore?: MysqlDatastoreInBackup;
     private 'instance_id'?: string;
     private 'backup_level'?: BackupsBackupLevelEnum | string;
     public description?: string;
@@ -66,7 +66,7 @@ export class Backups {
         this['size'] = size;
         return this;
     }
-    public withDatastore(datastore: MysqlDatastore): Backups {
+    public withDatastore(datastore: MysqlDatastoreInBackup): Backups {
         this['datastore'] = datastore;
         return this;
     }

@@ -7,6 +7,7 @@ export class Topic {
     private 'total_write_queue_num'?: number;
     public permission?: TopicPermissionEnum | string;
     public brokers?: Array<TopicBrokers>;
+    private 'message_type'?: TopicMessageTypeEnum | string;
     public constructor() { 
     }
     public withName(name: string): Topic {
@@ -41,6 +42,16 @@ export class Topic {
         this['brokers'] = brokers;
         return this;
     }
+    public withMessageType(messageType: TopicMessageTypeEnum | string): Topic {
+        this['message_type'] = messageType;
+        return this;
+    }
+    public set messageType(messageType: TopicMessageTypeEnum | string  | undefined) {
+        this['message_type'] = messageType;
+    }
+    public get messageType(): TopicMessageTypeEnum | string | undefined {
+        return this['message_type'];
+    }
 }
 
 /**
@@ -51,4 +62,14 @@ export enum TopicPermissionEnum {
     SUB = 'sub',
     PUB = 'pub',
     ALL = 'all'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TopicMessageTypeEnum {
+    NORMAL = 'NORMAL',
+    FIFO = 'FIFO',
+    DELAY = 'DELAY',
+    TRANSACTION = 'TRANSACTION'
 }

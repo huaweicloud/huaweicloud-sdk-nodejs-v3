@@ -8,6 +8,7 @@ export class MyanmarIdcardRequestBody {
     private 'return_portrait_image'?: boolean;
     private 'return_portrait_location'?: boolean;
     private 'return_idcard_type'?: boolean;
+    private 'return_translation'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): MyanmarIdcardRequestBody {
@@ -67,5 +68,15 @@ export class MyanmarIdcardRequestBody {
     }
     public get returnIdcardType(): boolean | undefined {
         return this['return_idcard_type'];
+    }
+    public withReturnTranslation(returnTranslation: boolean): MyanmarIdcardRequestBody {
+        this['return_translation'] = returnTranslation;
+        return this;
+    }
+    public set returnTranslation(returnTranslation: boolean  | undefined) {
+        this['return_translation'] = returnTranslation;
+    }
+    public get returnTranslation(): boolean | undefined {
+        return this['return_translation'];
     }
 }
