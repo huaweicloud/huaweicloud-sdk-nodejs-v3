@@ -74,7 +74,8 @@ export class ApiPolicyHttpBase {
     */
 export enum ApiPolicyHttpBaseReqProtocolEnum {
     HTTP = 'HTTP',
-    HTTPS = 'HTTPS'
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export

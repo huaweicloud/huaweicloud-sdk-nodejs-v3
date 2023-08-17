@@ -499,7 +499,7 @@ export class LiveClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询流监控数据接口
+     * @summary 查询推流监控数据接口
      * @param {string} publishDomain 推流域名。 
      * @param {string} app 应用名。 
      * @param {string} stream 流名。 

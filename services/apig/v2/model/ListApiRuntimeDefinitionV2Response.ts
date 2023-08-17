@@ -326,7 +326,8 @@ export enum ListApiRuntimeDefinitionV2ResponseTypeEnum {
 export enum ListApiRuntimeDefinitionV2ResponseReqProtocolEnum {
     HTTP = 'HTTP',
     HTTPS = 'HTTPS',
-    BOTH = 'BOTH'
+    BOTH = 'BOTH',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export
@@ -367,7 +368,8 @@ export enum ListApiRuntimeDefinitionV2ResponseMatchModeEnum {
 export enum ListApiRuntimeDefinitionV2ResponseBackendTypeEnum {
     HTTP = 'HTTP',
     FUNCTION = 'FUNCTION',
-    MOCK = 'MOCK'
+    MOCK = 'MOCK',
+    GRPC = 'GRPC'
 }
 /**
     * @export

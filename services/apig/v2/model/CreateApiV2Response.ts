@@ -482,7 +482,8 @@ export enum CreateApiV2ResponseTypeEnum {
 export enum CreateApiV2ResponseReqProtocolEnum {
     HTTP = 'HTTP',
     HTTPS = 'HTTPS',
-    BOTH = 'BOTH'
+    BOTH = 'BOTH',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export
@@ -523,7 +524,8 @@ export enum CreateApiV2ResponseMatchModeEnum {
 export enum CreateApiV2ResponseBackendTypeEnum {
     HTTP = 'HTTP',
     FUNCTION = 'FUNCTION',
-    MOCK = 'MOCK'
+    MOCK = 'MOCK',
+    GRPC = 'GRPC'
 }
 /**
     * @export

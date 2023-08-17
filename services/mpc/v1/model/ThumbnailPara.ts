@@ -6,6 +6,7 @@ export class ThumbnailPara {
     private 'start_time'?: number;
     public duration?: number;
     public dots?: Array<number>;
+    private 'dots_ms'?: Array<number>;
     private 'output_filename'?: string;
     public format?: number;
     public width?: number;
@@ -38,6 +39,16 @@ export class ThumbnailPara {
     public withDots(dots: Array<number>): ThumbnailPara {
         this['dots'] = dots;
         return this;
+    }
+    public withDotsMs(dotsMs: Array<number>): ThumbnailPara {
+        this['dots_ms'] = dotsMs;
+        return this;
+    }
+    public set dotsMs(dotsMs: Array<number>  | undefined) {
+        this['dots_ms'] = dotsMs;
+    }
+    public get dotsMs(): Array<number> | undefined {
+        return this['dots_ms'];
     }
     public withOutputFilename(outputFilename: string): ThumbnailPara {
         this['output_filename'] = outputFilename;
@@ -80,5 +91,6 @@ export class ThumbnailPara {
 export enum ThumbnailParaTypeEnum {
     PERCENT = 'PERCENT',
     TIME = 'TIME',
-    DOTS = 'DOTS'
+    DOTS = 'DOTS',
+    DOTS_MS = 'DOTS_MS'
 }

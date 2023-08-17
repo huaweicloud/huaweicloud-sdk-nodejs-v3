@@ -208,8 +208,7 @@ export enum CreatePostPaidInstanceReqEngineEnum {
     * @enum {string}
     */
 export enum CreatePostPaidInstanceReqEngineVersionEnum {
-    E_4_8_0 = '4.8.0',
-    E_5_X = '5.x'
+    E_4_8_0 = '4.8.0'
 }
 /**
     * @export

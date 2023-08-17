@@ -5,6 +5,8 @@ import { PostPaidServerDataVolumeMetadata } from './PostPaidServerDataVolumeMeta
 export class PostPaidServerDataVolume {
     public volumetype?: PostPaidServerDataVolumeVolumetypeEnum | string;
     public size?: number;
+    public iops?: number;
+    public throughput?: number;
     public shareable?: boolean;
     public multiattach?: boolean;
     private 'hw:passthrough'?: boolean;
@@ -24,6 +26,14 @@ export class PostPaidServerDataVolume {
     }
     public withSize(size: number): PostPaidServerDataVolume {
         this['size'] = size;
+        return this;
+    }
+    public withIops(iops: number): PostPaidServerDataVolume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): PostPaidServerDataVolume {
+        this['throughput'] = throughput;
         return this;
     }
     public withShareable(shareable: boolean): PostPaidServerDataVolume {
@@ -105,7 +115,9 @@ export enum PostPaidServerDataVolumeVolumetypeEnum {
     GPSSD = 'GPSSD',
     CO_P1 = 'co-p1',
     UH_L1 = 'uh-l1',
-    ESSD = 'ESSD'
+    ESSD = 'ESSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

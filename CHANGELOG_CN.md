@@ -1,3 +1,234 @@
+# 3.1.51 2023-08-17
+
+### HuaweiCloud SDK DC
+
+- _新增特性_
+  - 支持云专线服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK AOS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **UpdateStack**
+    - 请求参数变更
+      - `+ agencies.agency_urn`
+  - **GetStackMetadata**
+    - 响应参数变更
+      - `+ agencies.agency_urn`
+  - **CreateStack**
+    - 请求参数变更
+      - `+ agencies.agency_urn`
+
+### HuaweiCloud SDK APIG
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListApiRuntimeDefinitionV2**
+    - 响应参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+  - **ShowDetailsOfApiV2**
+    - 响应参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+  - **UpdateApiV2**
+    - 请求参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+    - 响应参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+  - **ListApiVersionDetailV2**
+    - 响应参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+  - **CreateApiV2**
+    - 请求参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+    - 响应参数变更
+      - `+ req_protocol: enum value [GRPCS]`
+      - `+ backend_type: enum value [GRPC]`
+      - `+ policy_https.req_protocol: enum value [GRPCS]`
+      - `+ backend_api.req_protocol: enum value [GRPCS]`
+  - **ListApisV2**
+    - 响应参数变更
+      - `+ apis.req_protocol: enum value [GRPCS]`
+      - `+ apis.backend_type: enum value [GRPC]`
+      - `+ apis.backend_api.req_protocol: enum value [GRPCS]`
+
+### HuaweiCloud SDK CloudRTC
+
+- _新增特性_
+  - 支持接口`ListRtcAbnormalEvent`、`ListRtcEvent`、`ListObsBuckets`、`ListObsBucketObjects`、`UpdateObsBucketAuthority`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 支持接口`ShowNodesInformation`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowInstance**
+    - 响应参数变更
+      - `+ cloud_service_type_code`
+      - `+ inquery_spec_code`
+      - `+ cloud_resource_type_code`
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateServers**
+    - 请求参数变更
+      - `+ server.root_volume.iops`
+      - `+ server.root_volume.throughput`
+      - `+ server.root_volume.volumetype: enum value [GPSSD2,ESSD2]`
+      - `+ server.data_volumes.iops`
+      - `+ server.data_volumes.throughput`
+      - `+ server.data_volumes.volumetype: enum value [GPSSD2,ESSD2]`
+  - **CreatePostPaidServers**
+    - 请求参数变更
+      - `+ server.data_volumes.iops`
+      - `+ server.data_volumes.throughput`
+      - `+ server.data_volumes.volumetype: enum value [GPSSD2,ESSD2]`
+      - `+ server.root_volume.iops`
+      - `+ server.root_volume.throughput`
+      - `+ server.root_volume.volumetype: enum value [GPSSD2,ESSD2]`
+
+### HuaweiCloud SDK GaussDB
+
+- _新增特性_
+  - 支持接口`ModifyGaussMysqlDns`、`CreateGaussMysqlDns`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowGaussMySqlInstanceInfo**
+    - 响应参数变更
+      - `+ instance.private_dns_names`
+  - **ListGaussMySqlInstanceDetailInfo**
+    - 响应参数变更
+      - `+ instances.private_dns_names`
+
+### HuaweiCloud SDK Kafka
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchRestartOrDeleteInstances**
+    - 请求参数变更
+      - `+ allFailure`
+      - `- all_failure`
+  - **CreateInstanceByEngine**
+    - 请求参数变更
+      - `- engine_version: enum value [2.3.0]`
+  - **CreatePostPaidInstance**
+    - 请求参数变更
+      - `- engine_version: enum value [2.3.0]`
+
+### HuaweiCloud SDK Live
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSnapshotConfigs**
+    - 响应参数变更
+      - `* body: object<LiveSnapshotConfig> -> list<LiveSnapshotConfig>`
+
+### HuaweiCloud SDK MPC
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateThumbnailsTask**
+    - 请求参数变更
+      - `+ thumbnail_para.dots_ms`
+      - `+ thumbnail_para.type: enum value [DOTS_MS]`
+  - **CreateTranscodingTask**
+    - 请求参数变更
+      - `+ thumbnail.params.dots_ms`
+      - `+ thumbnail.params.type: enum value [DOTS_MS]`
+
+### HuaweiCloud SDK RabbitMQ
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchRestartOrDeleteInstances**
+    - 请求参数变更
+      - `+ allFailure`
+      - `- all_failure`
+  - **CreatePostPaidInstanceByEngine**
+    - 请求参数变更
+      - `- engine_version: enum value [3.7.17]`
+  - **CreatePostPaidInstance**
+    - 请求参数变更
+      - `- engine_version: enum value [3.7.17]`
+
+### HuaweiCloud SDK RocketMQ
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchDeleteInstances**
+    - 请求参数变更
+      - `+ allFailure`
+      - `- all_failure`
+  - **CreatePostPaidInstance**
+    - 请求参数变更
+      - `- engine_version: enum value [5.x]`
+
+### HuaweiCloud SDK VPC
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateSecurityGroupRule**
+    - 请求参数变更
+      - `+ security_group_rule.remote_address_group_id`
+  - **NeutronCreateSecurityGroupRule**
+    - 请求参数变更
+      - `+ security_group_rule.remote_address_group_id`
+
 # 3.1.50 2023-08-10
 
 ### HuaweiCloud SDK CES

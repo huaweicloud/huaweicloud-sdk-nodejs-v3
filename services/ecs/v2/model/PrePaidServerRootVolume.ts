@@ -5,6 +5,8 @@ import { PrePaidServerRootVolumeMetadata } from './PrePaidServerRootVolumeMetada
 export class PrePaidServerRootVolume {
     public volumetype?: PrePaidServerRootVolumeVolumetypeEnum | string;
     public size?: number;
+    public iops?: number;
+    public throughput?: number;
     public extendparam?: PrePaidServerRootVolumeExtendParam;
     public metadata?: PrePaidServerRootVolumeMetadata;
     private 'cluster_type'?: PrePaidServerRootVolumeClusterTypeEnum | string;
@@ -19,6 +21,14 @@ export class PrePaidServerRootVolume {
     }
     public withSize(size: number): PrePaidServerRootVolume {
         this['size'] = size;
+        return this;
+    }
+    public withIops(iops: number): PrePaidServerRootVolume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): PrePaidServerRootVolume {
+        this['throughput'] = throughput;
         return this;
     }
     public withExtendparam(extendparam: PrePaidServerRootVolumeExtendParam): PrePaidServerRootVolume {
@@ -72,7 +82,9 @@ export enum PrePaidServerRootVolumeVolumetypeEnum {
     GPSSD = 'GPSSD',
     CO_P1 = 'co-p1',
     UH_L1 = 'uh-l1',
-    ESSD = 'ESSD'
+    ESSD = 'ESSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

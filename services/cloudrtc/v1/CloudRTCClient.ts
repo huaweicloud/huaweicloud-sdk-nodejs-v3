@@ -6,10 +6,14 @@ import { AbnormalEvent } from './model/AbnormalEvent';
 import { AbnormalEventDimensionValue } from './model/AbnormalEventDimensionValue';
 import { ListRtcAbnormalEventDimensionRequest } from './model/ListRtcAbnormalEventDimensionRequest';
 import { ListRtcAbnormalEventDimensionResponse } from './model/ListRtcAbnormalEventDimensionResponse';
+import { ListRtcAbnormalEventRequest } from './model/ListRtcAbnormalEventRequest';
+import { ListRtcAbnormalEventResponse } from './model/ListRtcAbnormalEventResponse';
 import { ListRtcAbnormalEventsRequest } from './model/ListRtcAbnormalEventsRequest';
 import { ListRtcAbnormalEventsResponse } from './model/ListRtcAbnormalEventsResponse';
 import { ListRtcClientQosDetailsRequest } from './model/ListRtcClientQosDetailsRequest';
 import { ListRtcClientQosDetailsResponse } from './model/ListRtcClientQosDetailsResponse';
+import { ListRtcEventRequest } from './model/ListRtcEventRequest';
+import { ListRtcEventResponse } from './model/ListRtcEventResponse';
 import { ListRtcHistoryQualityRequest } from './model/ListRtcHistoryQualityRequest';
 import { ListRtcHistoryQualityResponse } from './model/ListRtcHistoryQualityResponse';
 import { ListRtcHistoryScaleRequest } from './model/ListRtcHistoryScaleRequest';
@@ -29,6 +33,7 @@ import { ListRtcRoomListResponse } from './model/ListRtcRoomListResponse';
 import { ListRtcUserListRequest } from './model/ListRtcUserListRequest';
 import { ListRtcUserListResponse } from './model/ListRtcUserListResponse';
 import { QosQualityData } from './model/QosQualityData';
+import { RTCCause } from './model/RTCCause';
 import { RealtimeScaleDimensionValue } from './model/RealtimeScaleDimensionValue';
 import { RtcHistoryQualityTimeValue } from './model/RtcHistoryQualityTimeValue';
 import { RtcHistoryScaleTimeValue } from './model/RtcHistoryScaleTimeValue';
@@ -53,6 +58,50 @@ export class CloudRTCClient {
         return __dirname;
     }
 
+
+    /**
+     * 查询指定APP下通话的异常明细数据。可查询5天内的数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户异常体验事件接口
+     * @param {string} appId 应用id
+     * @param {string} startTime 起始时间。UTC时间，格式：yyyy-mm-ddThh:mm:ssZ，如2020-04-23T06:00:00Z。查询起止时间不超过1个小时，每次查询单个用户时，支持跨天查询，最长1天。 
+     * @param {string} endTime 结束时间。UTC时间，格式：yyyy-mm-ddThh:mm:ssZ，如2020-04-23T06:00:00Z。查询起止时间不超过1个小时，每次查询单个用户时，支持跨天查询，最长1天。 
+     * @param {string} [roomId] 房间id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRtcAbnormalEvent(listRtcAbnormalEventRequest?: ListRtcAbnormalEventRequest): Promise<ListRtcAbnormalEventResponse> {
+        const options = ParamCreater().listRtcAbnormalEvent(listRtcAbnormalEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定APP下通话的异常明细数据。可查询5天内的数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询详情事件接口
+     * @param {string} appId 应用id
+     * @param {string} startTime 起始时间。UTC时间，格式：yyyy-mm-ddThh:mm:ssZ，如2020-04-23T06:00:00Z。查询起止时间不超过1个小时，每次查询单个用户时，支持跨天查询，最长1天。 
+     * @param {string} endTime 结束时间。UTC时间，格式：yyyy-mm-ddThh:mm:ssZ，如2020-04-23T06:00:00Z。查询起止时间不超过1个小时，每次查询单个用户时，支持跨天查询，最长1天。 
+     * @param {string} [roomId] 房间id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRtcEvent(listRtcEventRequest?: ListRtcEventRequest): Promise<ListRtcEventResponse> {
+        const options = ParamCreater().listRtcEvent(listRtcEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 查询指定APP下指定时间内的通话异常明细数据分布情况。
@@ -401,6 +450,140 @@ export class CloudRTCClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 查询指定APP下通话的异常明细数据。可查询5天内的数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRtcAbnormalEvent(listRtcAbnormalEventRequest?: ListRtcAbnormalEventRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/rtc/client/abnormalevent",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let appId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let roomId;
+
+            if (listRtcAbnormalEventRequest !== null && listRtcAbnormalEventRequest !== undefined) {
+                if (listRtcAbnormalEventRequest instanceof ListRtcAbnormalEventRequest) {
+                    appId = listRtcAbnormalEventRequest.appId;
+                    startTime = listRtcAbnormalEventRequest.startTime;
+                    endTime = listRtcAbnormalEventRequest.endTime;
+                    roomId = listRtcAbnormalEventRequest.roomId;
+                } else {
+                    appId = listRtcAbnormalEventRequest['app_id'];
+                    startTime = listRtcAbnormalEventRequest['start_time'];
+                    endTime = listRtcAbnormalEventRequest['end_time'];
+                    roomId = listRtcAbnormalEventRequest['room_id'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling listRtcAbnormalEvent.');
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listRtcAbnormalEvent.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listRtcAbnormalEvent.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (roomId !== null && roomId !== undefined) {
+                localVarQueryParameter['room_id'] = roomId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定APP下通话的异常明细数据。可查询5天内的数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRtcEvent(listRtcEventRequest?: ListRtcEventRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/rtc/client/event",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let appId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let roomId;
+
+            if (listRtcEventRequest !== null && listRtcEventRequest !== undefined) {
+                if (listRtcEventRequest instanceof ListRtcEventRequest) {
+                    appId = listRtcEventRequest.appId;
+                    startTime = listRtcEventRequest.startTime;
+                    endTime = listRtcEventRequest.endTime;
+                    roomId = listRtcEventRequest.roomId;
+                } else {
+                    appId = listRtcEventRequest['app_id'];
+                    startTime = listRtcEventRequest['start_time'];
+                    endTime = listRtcEventRequest['end_time'];
+                    roomId = listRtcEventRequest['room_id'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling listRtcEvent.');
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listRtcEvent.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listRtcEvent.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (roomId !== null && roomId !== undefined) {
+                localVarQueryParameter['room_id'] = roomId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 查询指定APP下指定时间内的通话异常明细数据分布情况。

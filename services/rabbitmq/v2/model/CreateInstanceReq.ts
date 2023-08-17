@@ -243,8 +243,7 @@ export enum CreateInstanceReqEngineEnum {
     * @enum {string}
     */
 export enum CreateInstanceReqEngineVersionEnum {
-    E_3_8_35 = '3.8.35',
-    E_3_7_17 = '3.7.17'
+    E_3_8_35 = '3.8.35'
 }
 /**
     * @export

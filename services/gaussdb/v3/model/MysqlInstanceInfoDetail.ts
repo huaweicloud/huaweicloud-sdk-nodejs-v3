@@ -21,6 +21,7 @@ export class MysqlInstanceInfoDetail {
     public created?: string;
     public updated?: string;
     private 'private_write_ips'?: Array<string>;
+    private 'private_dns_names'?: Array<string>;
     private 'public_ips'?: string;
     private 'db_user_name'?: string;
     private 'vpc_id'?: string;
@@ -127,6 +128,16 @@ export class MysqlInstanceInfoDetail {
     }
     public get privateWriteIps(): Array<string> | undefined {
         return this['private_write_ips'];
+    }
+    public withPrivateDnsNames(privateDnsNames: Array<string>): MysqlInstanceInfoDetail {
+        this['private_dns_names'] = privateDnsNames;
+        return this;
+    }
+    public set privateDnsNames(privateDnsNames: Array<string>  | undefined) {
+        this['private_dns_names'] = privateDnsNames;
+    }
+    public get privateDnsNames(): Array<string> | undefined {
+        return this['private_dns_names'];
     }
     public withPublicIps(publicIps: string): MysqlInstanceInfoDetail {
         this['public_ips'] = publicIps;

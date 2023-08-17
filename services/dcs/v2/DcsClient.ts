@@ -203,6 +203,8 @@ import { ShowMigrationTaskRequest } from './model/ShowMigrationTaskRequest';
 import { ShowMigrationTaskResponse } from './model/ShowMigrationTaskResponse';
 import { ShowMigrationTaskStatsRequest } from './model/ShowMigrationTaskStatsRequest';
 import { ShowMigrationTaskStatsResponse } from './model/ShowMigrationTaskStatsResponse';
+import { ShowNodesInformationRequest } from './model/ShowNodesInformationRequest';
+import { ShowNodesInformationResponse } from './model/ShowNodesInformationResponse';
 import { ShowQuotaOfTenantRequest } from './model/ShowQuotaOfTenantRequest';
 import { ShowQuotaOfTenantResponse } from './model/ShowQuotaOfTenantResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
@@ -1497,6 +1499,27 @@ export class DcsClient {
      */
     public showMigrationTaskStats(showMigrationTaskStatsRequest?: ShowMigrationTaskStatsRequest): Promise<ShowMigrationTaskStatsResponse> {
         const options = ParamCreater().showMigrationTaskStats(showMigrationTaskStatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的节点信息。
+     * 仅支持Redis4.0和Redis5.0实例查询。
+     * 创建中实例不返回节点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例节点信息
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNodesInformation(showNodesInformationRequest?: ShowNodesInformationRequest): Promise<ShowNodesInformationResponse> {
+        const options = ParamCreater().showNodesInformation(showNodesInformationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4599,6 +4622,45 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的节点信息。
+         * 仅支持Redis4.0和Redis5.0实例查询。
+         * 创建中实例不返回节点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNodesInformation(showNodesInformationRequest?: ShowNodesInformationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/logical-nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showNodesInformationRequest !== null && showNodesInformationRequest !== undefined) {
+                if (showNodesInformationRequest instanceof ShowNodesInformationRequest) {
+                    instanceId = showNodesInformationRequest.instanceId;
+                } else {
+                    instanceId = showNodesInformationRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showNodesInformation.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -160,7 +160,8 @@ export enum ApiPolicyHttpRespEffectModeEnum {
     */
 export enum ApiPolicyHttpRespReqProtocolEnum {
     HTTP = 'HTTP',
-    HTTPS = 'HTTPS'
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export

@@ -65,6 +65,9 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'replica_count'?: number;
     private 'sharding_count'?: number;
     private 'bandwidth_info'?: BandwidthInfo;
+    private 'cloud_service_type_code'?: string;
+    private 'cloud_resource_type_code'?: string;
+    private 'inquery_spec_code'?: string;
     public constructor() { 
         super();
     }
@@ -593,6 +596,36 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get bandwidthInfo(): BandwidthInfo | undefined {
         return this['bandwidth_info'];
+    }
+    public withCloudServiceTypeCode(cloudServiceTypeCode: string): ShowInstanceResponse {
+        this['cloud_service_type_code'] = cloudServiceTypeCode;
+        return this;
+    }
+    public set cloudServiceTypeCode(cloudServiceTypeCode: string  | undefined) {
+        this['cloud_service_type_code'] = cloudServiceTypeCode;
+    }
+    public get cloudServiceTypeCode(): string | undefined {
+        return this['cloud_service_type_code'];
+    }
+    public withCloudResourceTypeCode(cloudResourceTypeCode: string): ShowInstanceResponse {
+        this['cloud_resource_type_code'] = cloudResourceTypeCode;
+        return this;
+    }
+    public set cloudResourceTypeCode(cloudResourceTypeCode: string  | undefined) {
+        this['cloud_resource_type_code'] = cloudResourceTypeCode;
+    }
+    public get cloudResourceTypeCode(): string | undefined {
+        return this['cloud_resource_type_code'];
+    }
+    public withInquerySpecCode(inquerySpecCode: string): ShowInstanceResponse {
+        this['inquery_spec_code'] = inquerySpecCode;
+        return this;
+    }
+    public set inquerySpecCode(inquerySpecCode: string  | undefined) {
+        this['inquery_spec_code'] = inquerySpecCode;
+    }
+    public get inquerySpecCode(): string | undefined {
+        return this['inquery_spec_code'];
     }
 }
 

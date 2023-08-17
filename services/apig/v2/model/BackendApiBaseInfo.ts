@@ -107,7 +107,8 @@ export class BackendApiBaseInfo {
     */
 export enum BackendApiBaseInfoReqProtocolEnum {
     HTTP = 'HTTP',
-    HTTPS = 'HTTPS'
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export

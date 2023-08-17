@@ -5,6 +5,8 @@ import { PostPaidServerRootVolumeMetadata } from './PostPaidServerRootVolumeMeta
 export class PostPaidServerRootVolume {
     public volumetype?: PostPaidServerRootVolumeVolumetypeEnum | string;
     public size?: number;
+    public iops?: number;
+    public throughput?: number;
     private 'hw:passthrough'?: boolean;
     private 'cluster_type'?: PostPaidServerRootVolumeClusterTypeEnum | string;
     private 'cluster_id'?: string;
@@ -19,6 +21,14 @@ export class PostPaidServerRootVolume {
     }
     public withSize(size: number): PostPaidServerRootVolume {
         this['size'] = size;
+        return this;
+    }
+    public withIops(iops: number): PostPaidServerRootVolume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): PostPaidServerRootVolume {
+        this['throughput'] = throughput;
         return this;
     }
     public withHwPassthrough(hwPassthrough: boolean): PostPaidServerRootVolume {
@@ -72,7 +82,9 @@ export enum PostPaidServerRootVolumeVolumetypeEnum {
     GPSSD = 'GPSSD',
     CO_P1 = 'co-p1',
     UH_L1 = 'uh-l1',
-    ESSD = 'ESSD'
+    ESSD = 'ESSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

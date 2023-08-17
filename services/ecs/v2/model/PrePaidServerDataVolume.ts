@@ -5,6 +5,8 @@ import { PrePaidServerDataVolumeMetadata } from './PrePaidServerDataVolumeMetada
 export class PrePaidServerDataVolume {
     public volumetype?: PrePaidServerDataVolumeVolumetypeEnum | string;
     public size?: number;
+    public iops?: number;
+    public throughput?: number;
     public shareable?: boolean;
     public multiattach?: boolean;
     private 'hw:passthrough'?: boolean;
@@ -24,6 +26,14 @@ export class PrePaidServerDataVolume {
     }
     public withSize(size: number): PrePaidServerDataVolume {
         this['size'] = size;
+        return this;
+    }
+    public withIops(iops: number): PrePaidServerDataVolume {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): PrePaidServerDataVolume {
+        this['throughput'] = throughput;
         return this;
     }
     public withShareable(shareable: boolean): PrePaidServerDataVolume {
@@ -105,7 +115,9 @@ export enum PrePaidServerDataVolumeVolumetypeEnum {
     GPSSD = 'GPSSD',
     CO_P1 = 'co-p1',
     UH_L1 = 'uh-l1',
-    ESSD = 'ESSD'
+    ESSD = 'ESSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

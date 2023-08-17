@@ -364,7 +364,6 @@ export enum CreateInstanceByEngineReqEngineEnum {
     */
 export enum CreateInstanceByEngineReqEngineVersionEnum {
     E_1_1_0 = '1.1.0',
-    E_2_3_0 = '2.3.0',
     E_2_7 = '2.7'
 }
 /**

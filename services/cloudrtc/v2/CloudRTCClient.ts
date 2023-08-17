@@ -28,6 +28,10 @@ import { HLSRecordConfig } from './model/HLSRecordConfig';
 import { IndividualStreamJobReq } from './model/IndividualStreamJobReq';
 import { ListAppsRequest } from './model/ListAppsRequest';
 import { ListAppsResponse } from './model/ListAppsResponse';
+import { ListObsBucketObjectsRequest } from './model/ListObsBucketObjectsRequest';
+import { ListObsBucketObjectsResponse } from './model/ListObsBucketObjectsResponse';
+import { ListObsBucketsRequest } from './model/ListObsBucketsRequest';
+import { ListObsBucketsResponse } from './model/ListObsBucketsResponse';
 import { ListRecordRulesRequest } from './model/ListRecordRulesRequest';
 import { ListRecordRulesResponse } from './model/ListRecordRulesResponse';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
@@ -35,6 +39,9 @@ import { MixJobReq } from './model/MixJobReq';
 import { MixLayoutPane } from './model/MixLayoutPane';
 import { MixParam } from './model/MixParam';
 import { MixUserBackgroundImage } from './model/MixUserBackgroundImage';
+import { ObsAuthorityConfig } from './model/ObsAuthorityConfig';
+import { ObsBucket } from './model/ObsBucket';
+import { ObsObject } from './model/ObsObject';
 import { RecordObsFileAddr } from './model/RecordObsFileAddr';
 import { RecordParam } from './model/RecordParam';
 import { RecordRule } from './model/RecordRule';
@@ -75,6 +82,8 @@ import { UpdateMixJobReq } from './model/UpdateMixJobReq';
 import { UpdateMixJobRequest } from './model/UpdateMixJobRequest';
 import { UpdateMixJobResponse } from './model/UpdateMixJobResponse';
 import { UpdateMixParam } from './model/UpdateMixParam';
+import { UpdateObsBucketAuthorityRequest } from './model/UpdateObsBucketAuthorityRequest';
+import { UpdateObsBucketAuthorityResponse } from './model/UpdateObsBucketAuthorityResponse';
 import { UpdateRecordCallbackRequest } from './model/UpdateRecordCallbackRequest';
 import { UpdateRecordCallbackResponse } from './model/UpdateRecordCallbackResponse';
 import { UpdateRecordRuleRequest } from './model/UpdateRecordRuleRequest';
@@ -742,6 +751,65 @@ export class CloudRTCClient {
      */
     public updateUrlAuth(updateUrlAuthRequest?: UpdateUrlAuthRequest): Promise<UpdateUrlAuthResponse> {
         const options = ParamCreater().updateUrlAuth(updateUrlAuthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询OBS桶下对象列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询OBS桶下对象列表
+     * @param {string} bucket 要查询的桶名
+     * @param {'folders' | 'objects'} type 查询类似，取值“folders”“objects”前者为查询目录，后者为查询对象
+     * @param {'cn-north-4' | 'cn-north-1' | 'cn-north-5' | 'cn-north-6' | 'cn-south-1' | 'cn-east-2'} location 查询bucket所在的region
+     * @param {string} [prefix] 对象名前缀，可以理解为文件夹路径
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listObsBucketObjects(listObsBucketObjectsRequest?: ListObsBucketObjectsRequest): Promise<ListObsBucketObjectsResponse> {
+        const options = ParamCreater().listObsBucketObjects(listObsBucketObjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询OBS桶列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询OBS桶列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listObsBuckets(listObsBucketsRequest?: ListObsBucketsRequest): Promise<ListObsBucketsResponse> {
+        const options = ParamCreater().listObsBuckets();
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * OBS桶授权及取消授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary OBS桶授权及取消授权
+     * @param {ObsAuthorityConfig} opsUpdateOBSBucketAuthorityRequestBody 授权参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateObsBucketAuthority(updateObsBucketAuthorityRequest?: UpdateObsBucketAuthorityRequest): Promise<UpdateObsBucketAuthorityResponse> {
+        const options = ParamCreater().updateObsBucketAuthority(updateObsBucketAuthorityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-Id'];
@@ -2545,6 +2613,132 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询OBS桶下对象列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listObsBucketObjects(listObsBucketObjectsRequest?: ListObsBucketObjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rtc-ops/buckets/objects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let bucket;
+            
+            let type;
+            
+            let location;
+            
+            let prefix;
+
+            if (listObsBucketObjectsRequest !== null && listObsBucketObjectsRequest !== undefined) {
+                if (listObsBucketObjectsRequest instanceof ListObsBucketObjectsRequest) {
+                    bucket = listObsBucketObjectsRequest.bucket;
+                    type = listObsBucketObjectsRequest.type;
+                    location = listObsBucketObjectsRequest.location;
+                    prefix = listObsBucketObjectsRequest.prefix;
+                } else {
+                    bucket = listObsBucketObjectsRequest['bucket'];
+                    type = listObsBucketObjectsRequest['type'];
+                    location = listObsBucketObjectsRequest['location'];
+                    prefix = listObsBucketObjectsRequest['prefix'];
+                }
+            }
+
+        
+            if (bucket === null || bucket === undefined) {
+                throw new RequiredError('bucket','Required parameter bucket was null or undefined when calling listObsBucketObjects.');
+            }
+            if (bucket !== null && bucket !== undefined) {
+                localVarQueryParameter['bucket'] = bucket;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listObsBucketObjects.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (location === null || location === undefined) {
+                throw new RequiredError('location','Required parameter location was null or undefined when calling listObsBucketObjects.');
+            }
+            if (location !== null && location !== undefined) {
+                localVarQueryParameter['location'] = location;
+            }
+            if (prefix !== null && prefix !== undefined) {
+                localVarQueryParameter['prefix'] = prefix;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询OBS桶列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listObsBuckets() {
+            const options = {
+                method: "GET",
+                url: "/v2/rtc-ops/buckets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * OBS桶授权及取消授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateObsBucketAuthority(updateObsBucketAuthorityRequest?: UpdateObsBucketAuthorityRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/rtc-ops/buckets/authentication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateObsBucketAuthorityRequest !== null && updateObsBucketAuthorityRequest !== undefined) {
+                if (updateObsBucketAuthorityRequest instanceof UpdateObsBucketAuthorityRequest) {
+                    body = updateObsBucketAuthorityRequest.body
+                } else {
+                    body = updateObsBucketAuthorityRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

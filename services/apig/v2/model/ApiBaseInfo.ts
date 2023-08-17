@@ -240,7 +240,8 @@ export enum ApiBaseInfoTypeEnum {
 export enum ApiBaseInfoReqProtocolEnum {
     HTTP = 'HTTP',
     HTTPS = 'HTTPS',
-    BOTH = 'BOTH'
+    BOTH = 'BOTH',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export
@@ -281,7 +282,8 @@ export enum ApiBaseInfoMatchModeEnum {
 export enum ApiBaseInfoBackendTypeEnum {
     HTTP = 'HTTP',
     FUNCTION = 'FUNCTION',
-    MOCK = 'MOCK'
+    MOCK = 'MOCK',
+    GRPC = 'GRPC'
 }
 /**
     * @export

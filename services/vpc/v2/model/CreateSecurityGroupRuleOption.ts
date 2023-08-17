@@ -10,6 +10,7 @@ export class CreateSecurityGroupRuleOption {
     private 'port_range_max'?: number;
     private 'remote_ip_prefix'?: string;
     private 'remote_group_id'?: string;
+    private 'remote_address_group_id'?: string;
     public constructor(securityGroupId?: string, direction?: string) { 
         this['security_group_id'] = securityGroupId;
         this['direction'] = direction;
@@ -79,5 +80,15 @@ export class CreateSecurityGroupRuleOption {
     }
     public get remoteGroupId(): string | undefined {
         return this['remote_group_id'];
+    }
+    public withRemoteAddressGroupId(remoteAddressGroupId: string): CreateSecurityGroupRuleOption {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+        return this;
+    }
+    public set remoteAddressGroupId(remoteAddressGroupId: string  | undefined) {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+    }
+    public get remoteAddressGroupId(): string | undefined {
+        return this['remote_address_group_id'];
     }
 }

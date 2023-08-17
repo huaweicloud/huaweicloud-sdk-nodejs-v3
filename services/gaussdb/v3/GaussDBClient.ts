@@ -28,6 +28,7 @@ import { CreateConfigurationRequestBody } from './model/CreateConfigurationReque
 import { CreateDatabaseList } from './model/CreateDatabaseList';
 import { CreateDatabaseUserList } from './model/CreateDatabaseUserList';
 import { CreateDatabaseUserRequest } from './model/CreateDatabaseUserRequest';
+import { CreateDnsNameReq } from './model/CreateDnsNameReq';
 import { CreateGaussMySqlBackupRequest } from './model/CreateGaussMySqlBackupRequest';
 import { CreateGaussMySqlBackupResponse } from './model/CreateGaussMySqlBackupResponse';
 import { CreateGaussMySqlConfigurationRequest } from './model/CreateGaussMySqlConfigurationRequest';
@@ -44,6 +45,8 @@ import { CreateGaussMySqlProxyRequest } from './model/CreateGaussMySqlProxyReque
 import { CreateGaussMySqlProxyResponse } from './model/CreateGaussMySqlProxyResponse';
 import { CreateGaussMySqlReadonlyNodeRequest } from './model/CreateGaussMySqlReadonlyNodeRequest';
 import { CreateGaussMySqlReadonlyNodeResponse } from './model/CreateGaussMySqlReadonlyNodeResponse';
+import { CreateGaussMysqlDnsRequest } from './model/CreateGaussMysqlDnsRequest';
+import { CreateGaussMysqlDnsResponse } from './model/CreateGaussMysqlDnsResponse';
 import { DatabasePermission } from './model/DatabasePermission';
 import { DatastoreResult } from './model/DatastoreResult';
 import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
@@ -132,9 +135,12 @@ import { ModifyAliasRequest } from './model/ModifyAliasRequest';
 import { ModifyBackupEncryptStatusRequest } from './model/ModifyBackupEncryptStatusRequest';
 import { ModifyBackupEncryptStatusResponse } from './model/ModifyBackupEncryptStatusResponse';
 import { ModifyBindEipRequest } from './model/ModifyBindEipRequest';
+import { ModifyDnsNameReq } from './model/ModifyDnsNameReq';
 import { ModifyGaussMySqlProxyRouteModeRequest } from './model/ModifyGaussMySqlProxyRouteModeRequest';
 import { ModifyGaussMySqlProxyRouteModeRequestBody } from './model/ModifyGaussMySqlProxyRouteModeRequestBody';
 import { ModifyGaussMySqlProxyRouteModeResponse } from './model/ModifyGaussMySqlProxyRouteModeResponse';
+import { ModifyGaussMysqlDnsRequest } from './model/ModifyGaussMysqlDnsRequest';
+import { ModifyGaussMysqlDnsResponse } from './model/ModifyGaussMysqlDnsResponse';
 import { ModifyInternalIpRequest } from './model/ModifyInternalIpRequest';
 import { ModifyOpsWindow } from './model/ModifyOpsWindow';
 import { ModifyPortRequest } from './model/ModifyPortRequest';
@@ -591,6 +597,27 @@ export class GaussDBClient {
      */
     public createGaussMySqlReadonlyNode(createGaussMySqlReadonlyNodeRequest?: CreateGaussMySqlReadonlyNodeRequest): Promise<CreateGaussMySqlReadonlyNodeResponse> {
         const options = ParamCreater().createGaussMySqlReadonlyNode(createGaussMySqlReadonlyNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 申请内网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 申请内网域名
+     * @param {string} instanceId 实例ID。
+     * @param {CreateDnsNameReq} createGaussMysqlDnsRequestBody 请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGaussMysqlDns(createGaussMysqlDnsRequest?: CreateGaussMysqlDnsRequest): Promise<CreateGaussMysqlDnsResponse> {
+        const options = ParamCreater().createGaussMysqlDns(createGaussMysqlDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1197,6 +1224,27 @@ export class GaussDBClient {
      */
     public modifyGaussMySqlProxyRouteMode(modifyGaussMySqlProxyRouteModeRequest?: ModifyGaussMySqlProxyRouteModeRequest): Promise<ModifyGaussMySqlProxyRouteModeResponse> {
         const options = ParamCreater().modifyGaussMySqlProxyRouteMode(modifyGaussMySqlProxyRouteModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改内网域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改内网域名
+     * @param {string} instanceId 实例ID。
+     * @param {ModifyDnsNameReq} modifyGaussMysqlDnsRequestBody 请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyGaussMysqlDns(modifyGaussMysqlDnsRequest?: ModifyGaussMysqlDnsRequest): Promise<ModifyGaussMysqlDnsResponse> {
+        const options = ParamCreater().modifyGaussMysqlDns(modifyGaussMysqlDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2870,6 +2918,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 申请内网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGaussMysqlDns(createGaussMysqlDnsRequest?: CreateGaussMysqlDnsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/dns",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createGaussMysqlDnsRequest !== null && createGaussMysqlDnsRequest !== undefined) {
+                if (createGaussMysqlDnsRequest instanceof CreateGaussMysqlDnsRequest) {
+                    instanceId = createGaussMysqlDnsRequest.instanceId;
+                    body = createGaussMysqlDnsRequest.body
+                    xLanguage = createGaussMysqlDnsRequest.xLanguage;
+                } else {
+                    instanceId = createGaussMysqlDnsRequest['instance_id'];
+                    body = createGaussMysqlDnsRequest['body'];
+                    xLanguage = createGaussMysqlDnsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createGaussMysqlDns.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除云数据库 GaussDB(for MySQL)实例数据库用户的数据库权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4438,6 +4539,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改内网域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyGaussMysqlDns(modifyGaussMysqlDnsRequest?: ModifyGaussMysqlDnsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/dns",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (modifyGaussMysqlDnsRequest !== null && modifyGaussMysqlDnsRequest !== undefined) {
+                if (modifyGaussMysqlDnsRequest instanceof ModifyGaussMysqlDnsRequest) {
+                    instanceId = modifyGaussMysqlDnsRequest.instanceId;
+                    body = modifyGaussMysqlDnsRequest.body
+                    xLanguage = modifyGaussMysqlDnsRequest.xLanguage;
+                } else {
+                    instanceId = modifyGaussMysqlDnsRequest['instance_id'];
+                    body = modifyGaussMysqlDnsRequest['body'];
+                    xLanguage = modifyGaussMysqlDnsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyGaussMysqlDns.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

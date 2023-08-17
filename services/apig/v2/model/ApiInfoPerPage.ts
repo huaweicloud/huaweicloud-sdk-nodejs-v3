@@ -408,7 +408,8 @@ export enum ApiInfoPerPageTypeEnum {
 export enum ApiInfoPerPageReqProtocolEnum {
     HTTP = 'HTTP',
     HTTPS = 'HTTPS',
-    BOTH = 'BOTH'
+    BOTH = 'BOTH',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export
@@ -449,7 +450,8 @@ export enum ApiInfoPerPageMatchModeEnum {
 export enum ApiInfoPerPageBackendTypeEnum {
     HTTP = 'HTTP',
     FUNCTION = 'FUNCTION',
-    MOCK = 'MOCK'
+    MOCK = 'MOCK',
+    GRPC = 'GRPC'
 }
 /**
     * @export

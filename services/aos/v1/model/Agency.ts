@@ -3,9 +3,9 @@
 export class Agency {
     private 'provider_name'?: string;
     private 'agency_name'?: string;
-    public constructor(providerName?: string, agencyName?: string) { 
+    private 'agency_urn'?: string;
+    public constructor(providerName?: string) { 
         this['provider_name'] = providerName;
-        this['agency_name'] = agencyName;
     }
     public withProviderName(providerName: string): Agency {
         this['provider_name'] = providerName;
@@ -26,5 +26,15 @@ export class Agency {
     }
     public get agencyName(): string | undefined {
         return this['agency_name'];
+    }
+    public withAgencyUrn(agencyUrn: string): Agency {
+        this['agency_urn'] = agencyUrn;
+        return this;
+    }
+    public set agencyUrn(agencyUrn: string  | undefined) {
+        this['agency_urn'] = agencyUrn;
+    }
+    public get agencyUrn(): string | undefined {
+        return this['agency_urn'];
     }
 }

@@ -16,7 +16,7 @@ export class NeutronSecurityGroupRule {
     private 'project_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(description?: string, direction?: string, ethertype?: string, id?: string, portRangeMax?: number, portRangeMin?: number, protocol?: string, remoteGroupId?: string, remoteIpPrefix?: string, securityGroupId?: string, tenantId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date) { 
+    public constructor(description?: string, direction?: string, ethertype?: string, id?: string, portRangeMax?: number, portRangeMin?: number, protocol?: string, remoteGroupId?: string, remoteIpPrefix?: string, remoteAddressGroupId?: string, securityGroupId?: string, tenantId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date) { 
         this['description'] = description;
         this['direction'] = direction;
         this['ethertype'] = ethertype;
@@ -26,6 +26,7 @@ export class NeutronSecurityGroupRule {
         this['protocol'] = protocol;
         this['remote_group_id'] = remoteGroupId;
         this['remote_ip_prefix'] = remoteIpPrefix;
+        this['remote_address_group_id'] = remoteAddressGroupId;
         this['security_group_id'] = securityGroupId;
         this['tenant_id'] = tenantId;
         this['project_id'] = projectId;

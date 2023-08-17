@@ -201,6 +201,8 @@ export * from './model/ShowMigrationTaskRequest';
 export * from './model/ShowMigrationTaskResponse';
 export * from './model/ShowMigrationTaskStatsRequest';
 export * from './model/ShowMigrationTaskStatsResponse';
+export * from './model/ShowNodesInformationRequest';
+export * from './model/ShowNodesInformationResponse';
 export * from './model/ShowQuotaOfTenantRequest';
 export * from './model/ShowQuotaOfTenantResponse';
 export * from './model/ShowTagsRequest';
