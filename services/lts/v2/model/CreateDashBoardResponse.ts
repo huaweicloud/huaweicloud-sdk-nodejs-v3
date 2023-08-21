@@ -6,10 +6,10 @@ export class CreateDashBoardResponse extends SdkResponse {
     public filters?: Array<string>;
     private 'group_name'?: string;
     public id?: string;
-    private 'last_update_time'?: string;
+    private 'last_update_time'?: number;
     private 'project_id'?: string;
     public title?: string;
-    public useSystemTemplate?: string;
+    public useSystemTemplate?: boolean;
     public constructor() { 
         super();
     }
@@ -35,14 +35,14 @@ export class CreateDashBoardResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withLastUpdateTime(lastUpdateTime: string): CreateDashBoardResponse {
+    public withLastUpdateTime(lastUpdateTime: number): CreateDashBoardResponse {
         this['last_update_time'] = lastUpdateTime;
         return this;
     }
-    public set lastUpdateTime(lastUpdateTime: string  | undefined) {
+    public set lastUpdateTime(lastUpdateTime: number  | undefined) {
         this['last_update_time'] = lastUpdateTime;
     }
-    public get lastUpdateTime(): string | undefined {
+    public get lastUpdateTime(): number | undefined {
         return this['last_update_time'];
     }
     public withProjectId(projectId: string): CreateDashBoardResponse {
@@ -59,7 +59,7 @@ export class CreateDashBoardResponse extends SdkResponse {
         this['title'] = title;
         return this;
     }
-    public withUseSystemTemplate(useSystemTemplate: string): CreateDashBoardResponse {
+    public withUseSystemTemplate(useSystemTemplate: boolean): CreateDashBoardResponse {
         this['useSystemTemplate'] = useSystemTemplate;
         return this;
     }

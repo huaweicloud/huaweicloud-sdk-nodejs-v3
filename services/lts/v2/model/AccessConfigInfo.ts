@@ -15,6 +15,7 @@ export class AccessConfigInfo {
     private 'access_config_tag'?: Array<AccessConfigTag>;
     private 'log_split'?: boolean;
     private 'binary_collect'?: boolean;
+    private 'cluster_id'?: string;
     public constructor() { 
     }
     public withAccessConfigId(accessConfigId: string): AccessConfigInfo {
@@ -116,6 +117,16 @@ export class AccessConfigInfo {
     }
     public get binaryCollect(): boolean | undefined {
         return this['binary_collect'];
+    }
+    public withClusterId(clusterId: string): AccessConfigInfo {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
 }
 

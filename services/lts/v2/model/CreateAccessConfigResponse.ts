@@ -16,6 +16,7 @@ export class CreateAccessConfigResponse extends SdkResponse {
     private 'access_config_tag'?: Array<AccessConfigTag>;
     private 'log_split'?: boolean;
     private 'binary_collect'?: boolean;
+    private 'cluster_id'?: string;
     public constructor() { 
         super();
     }
@@ -118,6 +119,16 @@ export class CreateAccessConfigResponse extends SdkResponse {
     }
     public get binaryCollect(): boolean | undefined {
         return this['binary_collect'];
+    }
+    public withClusterId(clusterId: string): CreateAccessConfigResponse {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
 }
 

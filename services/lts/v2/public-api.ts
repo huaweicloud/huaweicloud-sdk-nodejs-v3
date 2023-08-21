@@ -85,6 +85,8 @@ export * from './model/DeleteActiveAlarmsRequestBody';
 export * from './model/DeleteActiveAlarmsResponse';
 export * from './model/DeleteAomMappingRulesRequest';
 export * from './model/DeleteAomMappingRulesResponse';
+export * from './model/DeleteDashboardRequest';
+export * from './model/DeleteDashboardResponse';
 export * from './model/DeleteHostGroupRequest';
 export * from './model/DeleteHostGroupRequestBody';
 export * from './model/DeleteHostGroupResponse';

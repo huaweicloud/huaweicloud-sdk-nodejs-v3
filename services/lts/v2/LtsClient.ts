@@ -87,6 +87,8 @@ import { DeleteActiveAlarmsRequestBody } from './model/DeleteActiveAlarmsRequest
 import { DeleteActiveAlarmsResponse } from './model/DeleteActiveAlarmsResponse';
 import { DeleteAomMappingRulesRequest } from './model/DeleteAomMappingRulesRequest';
 import { DeleteAomMappingRulesResponse } from './model/DeleteAomMappingRulesResponse';
+import { DeleteDashboardRequest } from './model/DeleteDashboardRequest';
+import { DeleteDashboardResponse } from './model/DeleteDashboardResponse';
 import { DeleteHostGroupRequest } from './model/DeleteHostGroupRequest';
 import { DeleteHostGroupRequestBody } from './model/DeleteHostGroupRequestBody';
 import { DeleteHostGroupResponse } from './model/DeleteHostGroupResponse';
@@ -622,6 +624,27 @@ export class LtsClient {
      */
     public deleteActiveAlarms(deleteActiveAlarmsRequest?: DeleteActiveAlarmsRequest): Promise<DeleteActiveAlarmsResponse> {
         const options = ParamCreater().deleteActiveAlarms(deleteActiveAlarmsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除仪表盘
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除仪表盘
+     * @param {string} id 仪表盘id
+     * @param {boolean} isDeleteCharts 是否删除图表
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。  最小长度：30  最大长度：30
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDashboard(deleteDashboardRequest?: DeleteDashboardRequest): Promise<DeleteDashboardResponse> {
+        const options = ParamCreater().deleteDashboard(deleteDashboardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2585,6 +2608,63 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除仪表盘
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDashboard(deleteDashboardRequest?: DeleteDashboardRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/dashboard",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let isDeleteCharts;
+            
+            let contentType;
+
+            if (deleteDashboardRequest !== null && deleteDashboardRequest !== undefined) {
+                if (deleteDashboardRequest instanceof DeleteDashboardRequest) {
+                    id = deleteDashboardRequest.id;
+                    isDeleteCharts = deleteDashboardRequest.isDeleteCharts;
+                    contentType = deleteDashboardRequest.contentType;
+                } else {
+                    id = deleteDashboardRequest['id'];
+                    isDeleteCharts = deleteDashboardRequest['is_delete_charts'];
+                    contentType = deleteDashboardRequest['Content-Type'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteDashboard.');
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (isDeleteCharts === null || isDeleteCharts === undefined) {
+                throw new RequiredError('isDeleteCharts','Required parameter isDeleteCharts was null or undefined when calling deleteDashboard.');
+            }
+            if (isDeleteCharts !== null && isDeleteCharts !== undefined) {
+                localVarQueryParameter['is_delete_charts'] = isDeleteCharts;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

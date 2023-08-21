@@ -13,6 +13,7 @@ export class CreateAccessConfigRequestBody {
     private 'access_config_tag'?: Array<AccessConfigTag>;
     private 'binary_collect'?: boolean;
     private 'log_split'?: boolean;
+    private 'cluster_id'?: string;
     public constructor(accessConfigName?: string, accessConfigType?: string, accessConfigDetail?: AccessConfigDeatilCreate, logInfo?: AccessConfigBaseLogInfoCreate) { 
         this['access_config_name'] = accessConfigName;
         this['access_config_type'] = accessConfigType;
@@ -98,6 +99,16 @@ export class CreateAccessConfigRequestBody {
     }
     public get logSplit(): boolean | undefined {
         return this['log_split'];
+    }
+    public withClusterId(clusterId: string): CreateAccessConfigRequestBody {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
     }
 }
 
