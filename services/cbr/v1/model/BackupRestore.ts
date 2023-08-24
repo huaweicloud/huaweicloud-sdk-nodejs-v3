@@ -1,4 +1,5 @@
 import { BackupRestoreServerMapping } from './BackupRestoreServerMapping';
+import { RestoreDetails } from './RestoreDetails';
 
 
 export class BackupRestore {
@@ -7,6 +8,7 @@ export class BackupRestore {
     private 'server_id'?: string;
     private 'volume_id'?: string;
     private 'resource_id'?: string;
+    public details?: RestoreDetails;
     public constructor() { 
     }
     public withMappings(mappings: Array<BackupRestoreServerMapping>): BackupRestore {
@@ -52,5 +54,9 @@ export class BackupRestore {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
+    }
+    public withDetails(details: RestoreDetails): BackupRestore {
+        this['details'] = details;
+        return this;
     }
 }

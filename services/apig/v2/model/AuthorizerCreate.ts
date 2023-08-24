@@ -7,6 +7,7 @@ export class AuthorizerCreate {
     public type?: AuthorizerCreateTypeEnum | string;
     private 'authorizer_type'?: AuthorizerCreateAuthorizerTypeEnum | string;
     private 'authorizer_uri'?: string;
+    private 'network_type'?: AuthorizerCreateNetworkTypeEnum | string;
     private 'authorizer_version'?: string;
     private 'authorizer_alias_uri'?: string;
     public identities?: Array<Identity>;
@@ -47,6 +48,16 @@ export class AuthorizerCreate {
     }
     public get authorizerUri(): string | undefined {
         return this['authorizer_uri'];
+    }
+    public withNetworkType(networkType: AuthorizerCreateNetworkTypeEnum | string): AuthorizerCreate {
+        this['network_type'] = networkType;
+        return this;
+    }
+    public set networkType(networkType: AuthorizerCreateNetworkTypeEnum | string  | undefined) {
+        this['network_type'] = networkType;
+    }
+    public get networkType(): AuthorizerCreateNetworkTypeEnum | string | undefined {
+        return this['network_type'];
     }
     public withAuthorizerVersion(authorizerVersion: string): AuthorizerCreate {
         this['authorizer_version'] = authorizerVersion;
@@ -122,4 +133,12 @@ export enum AuthorizerCreateTypeEnum {
     */
 export enum AuthorizerCreateAuthorizerTypeEnum {
     FUNC = 'FUNC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AuthorizerCreateNetworkTypeEnum {
+    V1 = 'V1',
+    V2 = 'V2'
 }

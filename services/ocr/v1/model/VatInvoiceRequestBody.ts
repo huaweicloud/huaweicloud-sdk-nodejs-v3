@@ -5,6 +5,7 @@ export class VatInvoiceRequestBody {
     public url?: string;
     private 'advanced_mode'?: boolean;
     private 'return_text_location'?: boolean;
+    private 'page_num'?: number;
     public constructor() { 
     }
     public withImage(image: string): VatInvoiceRequestBody {
@@ -34,5 +35,15 @@ export class VatInvoiceRequestBody {
     }
     public get returnTextLocation(): boolean | undefined {
         return this['return_text_location'];
+    }
+    public withPageNum(pageNum: number): VatInvoiceRequestBody {
+        this['page_num'] = pageNum;
+        return this;
+    }
+    public set pageNum(pageNum: number  | undefined) {
+        this['page_num'] = pageNum;
+    }
+    public get pageNum(): number | undefined {
+        return this['page_num'];
     }
 }

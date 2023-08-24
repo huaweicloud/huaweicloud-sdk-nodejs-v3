@@ -11,6 +11,7 @@ export class AclBindApiInfo {
     private 'group_name'?: string;
     private 'bind_time'?: Date;
     private 'publish_id'?: string;
+    private 'req_method'?: AclBindApiInfoReqMethodEnum | string;
     public constructor() { 
     }
     public withApiId(apiId: string): AclBindApiInfo {
@@ -113,4 +114,29 @@ export class AclBindApiInfo {
     public get publishId(): string | undefined {
         return this['publish_id'];
     }
+    public withReqMethod(reqMethod: AclBindApiInfoReqMethodEnum | string): AclBindApiInfo {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: AclBindApiInfoReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): AclBindApiInfoReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AclBindApiInfoReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
 }

@@ -14,6 +14,7 @@ export class ApiForSign {
     private 'req_uri'?: string;
     public type?: number;
     private 'signature_name'?: string;
+    private 'req_method'?: ApiForSignReqMethodEnum | string;
     public constructor() { 
     }
     public withAuthType(authType: string): ApiForSign {
@@ -112,4 +113,29 @@ export class ApiForSign {
     public get signatureName(): string | undefined {
         return this['signature_name'];
     }
+    public withReqMethod(reqMethod: ApiForSignReqMethodEnum | string): ApiForSign {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: ApiForSignReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): ApiForSignReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForSignReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
 }

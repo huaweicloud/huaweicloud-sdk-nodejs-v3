@@ -161,6 +161,7 @@ import { ResourceExtraInfoIncludeVolumes } from './model/ResourceExtraInfoInclud
 import { ResourceResp } from './model/ResourceResp';
 import { RestoreBackupRequest } from './model/RestoreBackupRequest';
 import { RestoreBackupResponse } from './model/RestoreBackupResponse';
+import { RestoreDetails } from './model/RestoreDetails';
 import { SelfLinksInfo } from './model/SelfLinksInfo';
 import { SetVaultResourceRequest } from './model/SetVaultResourceRequest';
 import { SetVaultResourceResponse } from './model/SetVaultResourceResponse';
@@ -918,7 +919,7 @@ export class CbrClient {
      * @param {string} [id] 存储库ID
      * @param {string} [policyId] 策略ID
      * @param {string} [status] 状态
-     * @param {string} [resourceIds] 资源id
+     * @param {string} [resourceIds] 资源id，支持多资源，以英文逗号分割
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

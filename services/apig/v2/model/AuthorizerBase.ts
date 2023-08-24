@@ -6,6 +6,7 @@ export class AuthorizerBase {
     public type?: AuthorizerBaseTypeEnum | string;
     private 'authorizer_type'?: AuthorizerBaseAuthorizerTypeEnum | string;
     private 'authorizer_uri'?: string;
+    private 'network_type'?: AuthorizerBaseNetworkTypeEnum | string;
     private 'authorizer_version'?: string;
     private 'authorizer_alias_uri'?: string;
     public identities?: Array<Identity>;
@@ -46,6 +47,16 @@ export class AuthorizerBase {
     }
     public get authorizerUri(): string | undefined {
         return this['authorizer_uri'];
+    }
+    public withNetworkType(networkType: AuthorizerBaseNetworkTypeEnum | string): AuthorizerBase {
+        this['network_type'] = networkType;
+        return this;
+    }
+    public set networkType(networkType: AuthorizerBaseNetworkTypeEnum | string  | undefined) {
+        this['network_type'] = networkType;
+    }
+    public get networkType(): AuthorizerBaseNetworkTypeEnum | string | undefined {
+        return this['network_type'];
     }
     public withAuthorizerVersion(authorizerVersion: string): AuthorizerBase {
         this['authorizer_version'] = authorizerVersion;
@@ -121,4 +132,12 @@ export enum AuthorizerBaseTypeEnum {
     */
 export enum AuthorizerBaseAuthorizerTypeEnum {
     FUNC = 'FUNC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AuthorizerBaseNetworkTypeEnum {
+    V1 = 'V1',
+    V2 = 'V2'
 }

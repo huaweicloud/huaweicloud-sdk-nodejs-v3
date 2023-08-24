@@ -13,6 +13,7 @@ export class UnbindApiForAcl {
     private 'acl_name'?: string;
     private 'req_uri'?: string;
     private 'auth_type'?: string;
+    private 'req_method'?: UnbindApiForAclReqMethodEnum | string;
     public constructor() { 
     }
     public withId(id: string): UnbindApiForAcl {
@@ -111,4 +112,29 @@ export class UnbindApiForAcl {
     public get authType(): string | undefined {
         return this['auth_type'];
     }
+    public withReqMethod(reqMethod: UnbindApiForAclReqMethodEnum | string): UnbindApiForAcl {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: UnbindApiForAclReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): UnbindApiForAclReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UnbindApiForAclReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
 }

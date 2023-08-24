@@ -1,3 +1,4 @@
+import { CbcOperationLock } from './CbcOperationLock';
 
 
 export class RespInstanceBase {
@@ -14,6 +15,7 @@ export class RespInstanceBase {
     private 'charging_mode'?: RespInstanceBaseChargingModeEnum | number;
     private 'cbc_metadata'?: string;
     private 'loadbalancer_provider'?: RespInstanceBaseLoadbalancerProviderEnum | string;
+    private 'cbc_operation_locks'?: Array<CbcOperationLock>;
     public constructor() { 
     }
     public withId(id: string): RespInstanceBase {
@@ -122,6 +124,16 @@ export class RespInstanceBase {
     public get loadbalancerProvider(): RespInstanceBaseLoadbalancerProviderEnum | string | undefined {
         return this['loadbalancer_provider'];
     }
+    public withCbcOperationLocks(cbcOperationLocks: Array<CbcOperationLock>): RespInstanceBase {
+        this['cbc_operation_locks'] = cbcOperationLocks;
+        return this;
+    }
+    public set cbcOperationLocks(cbcOperationLocks: Array<CbcOperationLock>  | undefined) {
+        this['cbc_operation_locks'] = cbcOperationLocks;
+    }
+    public get cbcOperationLocks(): Array<CbcOperationLock> | undefined {
+        return this['cbc_operation_locks'];
+    }
 }
 
 /**
@@ -162,7 +174,10 @@ export enum RespInstanceBaseStatusEnum {
     RESTARTING = 'Restarting',
     RESTARTFAIL = 'RestartFail',
     UNHEALTHY = 'Unhealthy',
-    RESTARTTIMEOUT = 'RestartTimeout'
+    RESTARTTIMEOUT = 'RestartTimeout',
+    RESIZING = 'Resizing',
+    RESIZEFAILED = 'ResizeFailed',
+    RESIZETIMEOUT = 'ResizeTimeout'
 }
 /**
     * @export
@@ -202,7 +217,10 @@ export enum RespInstanceBaseInstanceStatusEnum {
     NUMBER_38 = 38,
     NUMBER_39 = 39,
     NUMBER_40 = 40,
-    NUMBER_41 = 41
+    NUMBER_41 = 41,
+    NUMBER_42 = 42,
+    NUMBER_43 = 43,
+    NUMBER_44 = 44
 }
 /**
     * @export
@@ -216,7 +234,14 @@ export enum RespInstanceBaseSpecEnum {
     BASIC_IPV6 = 'BASIC_IPV6',
     PROFESSIONAL_IPV6 = 'PROFESSIONAL_IPV6',
     ENTERPRISE_IPV6 = 'ENTERPRISE_IPV6',
-    PLATINUM_IPV6 = 'PLATINUM_IPV6'
+    PLATINUM_IPV6 = 'PLATINUM_IPV6',
+    PLATINUM_X2 = 'PLATINUM_X2',
+    PLATINUM_X3 = 'PLATINUM_X3',
+    PLATINUM_X4 = 'PLATINUM_X4',
+    PLATINUM_X5 = 'PLATINUM_X5',
+    PLATINUM_X6 = 'PLATINUM_X6',
+    PLATINUM_X7 = 'PLATINUM_X7',
+    PLATINUM_X8 = 'PLATINUM_X8'
 }
 /**
     * @export

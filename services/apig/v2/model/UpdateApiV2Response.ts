@@ -534,6 +534,6 @@ export enum UpdateApiV2ResponseBackendTypeEnum {
 export enum UpdateApiV2ResponseContentTypeEnum {
     APPLICATION_JSON = 'application/json',
     APPLICATION_XML = 'application/xml',
-    MULTIPART_FORM_DATE = 'multipart/form-date',
+    MULTIPART_FORM_DATA = 'multipart/form-data',
     TEXT_PLAIN = 'text/plain'
 }

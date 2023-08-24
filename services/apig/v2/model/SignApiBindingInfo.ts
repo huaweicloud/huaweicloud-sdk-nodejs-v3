@@ -14,6 +14,7 @@ export class SignApiBindingInfo {
     private 'api_remark'?: string;
     private 'sign_id'?: string;
     private 'sign_name'?: string;
+    private 'req_method'?: SignApiBindingInfoReqMethodEnum | string;
     private 'sign_key'?: string;
     private 'sign_secret'?: string;
     private 'sign_type'?: SignApiBindingInfoSignTypeEnum | string;
@@ -133,6 +134,16 @@ export class SignApiBindingInfo {
     public get signName(): string | undefined {
         return this['sign_name'];
     }
+    public withReqMethod(reqMethod: SignApiBindingInfoReqMethodEnum | string): SignApiBindingInfo {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: SignApiBindingInfoReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): SignApiBindingInfoReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
     public withSignKey(signKey: string): SignApiBindingInfo {
         this['sign_key'] = signKey;
         return this;
@@ -165,6 +176,20 @@ export class SignApiBindingInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SignApiBindingInfoReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
+}
 /**
     * @export
     * @enum {string}

@@ -1,5 +1,7 @@
 export * from './ErClient';
 
+export * from './model/AcceptAttachmentRequest';
+export * from './model/AcceptAttachmentResponse';
 export * from './model/AssociateRouteTableRequest';
 export * from './model/AssociateRouteTableResponse';
 export * from './model/Association';
@@ -88,6 +90,8 @@ export * from './model/PageInfo';
 export * from './model/Propagation';
 export * from './model/PropagationRequestBody';
 export * from './model/Quota';
+export * from './model/RejectAttachmentRequest';
+export * from './model/RejectAttachmentResponse';
 export * from './model/Route';
 export * from './model/RouteAttachment';
 export * from './model/RouteTable';

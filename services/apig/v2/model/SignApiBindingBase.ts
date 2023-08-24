@@ -13,6 +13,7 @@ export class SignApiBindingBase {
     private 'api_remark'?: string;
     private 'sign_id'?: string;
     private 'sign_name'?: string;
+    private 'req_method'?: SignApiBindingBaseReqMethodEnum | string;
     public constructor() { 
     }
     public withPublishId(publishId: string): SignApiBindingBase {
@@ -129,4 +130,29 @@ export class SignApiBindingBase {
     public get signName(): string | undefined {
         return this['sign_name'];
     }
+    public withReqMethod(reqMethod: SignApiBindingBaseReqMethodEnum | string): SignApiBindingBase {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: SignApiBindingBaseReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): SignApiBindingBaseReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SignApiBindingBaseReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
 }

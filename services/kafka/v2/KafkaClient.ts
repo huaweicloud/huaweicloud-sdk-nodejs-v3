@@ -1182,8 +1182,8 @@ export class KafkaClient {
      * @param {boolean} [asc] 是否按照时间排序。
      * @param {string} [startTime] 开始时间。  Unix毫秒时间戳。  查询消息偏移量时，为必选参数。
      * @param {string} [endTime] 结束时间。  Unix毫秒时间戳。  查询消息偏移量时，为必选参数。
-     * @param {string} [limit] 分页大小。取值范围为0~50。
-     * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} [limit] 每一页显示的message数量。
+     * @param {string} [offset] 页数。
      * @param {boolean} [download] 是否下载。
      * @param {string} [messageOffset] 消息偏移量。  **查询消息内容时，为必选参数。**  若start_time、end_time参数不为空，该参数无效。
      * @param {string} [partition] 分区。  **查询消息内容时，为必选参数。**  若start_time、end_time参数不为空，该参数无效。

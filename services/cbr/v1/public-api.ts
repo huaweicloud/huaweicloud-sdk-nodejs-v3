@@ -159,6 +159,7 @@ export * from './model/ResourceExtraInfoIncludeVolumes';
 export * from './model/ResourceResp';
 export * from './model/RestoreBackupRequest';
 export * from './model/RestoreBackupResponse';
+export * from './model/RestoreDetails';
 export * from './model/SelfLinksInfo';
 export * from './model/SetVaultResourceRequest';
 export * from './model/SetVaultResourceResponse';

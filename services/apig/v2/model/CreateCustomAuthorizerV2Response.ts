@@ -8,6 +8,7 @@ export class CreateCustomAuthorizerV2Response extends SdkResponse {
     public type?: CreateCustomAuthorizerV2ResponseTypeEnum | string;
     private 'authorizer_type'?: CreateCustomAuthorizerV2ResponseAuthorizerTypeEnum | string;
     private 'authorizer_uri'?: string;
+    private 'network_type'?: CreateCustomAuthorizerV2ResponseNetworkTypeEnum | string;
     private 'authorizer_version'?: string;
     private 'authorizer_alias_uri'?: string;
     public identities?: Array<Identity>;
@@ -53,6 +54,16 @@ export class CreateCustomAuthorizerV2Response extends SdkResponse {
     }
     public get authorizerUri(): string | undefined {
         return this['authorizer_uri'];
+    }
+    public withNetworkType(networkType: CreateCustomAuthorizerV2ResponseNetworkTypeEnum | string): CreateCustomAuthorizerV2Response {
+        this['network_type'] = networkType;
+        return this;
+    }
+    public set networkType(networkType: CreateCustomAuthorizerV2ResponseNetworkTypeEnum | string  | undefined) {
+        this['network_type'] = networkType;
+    }
+    public get networkType(): CreateCustomAuthorizerV2ResponseNetworkTypeEnum | string | undefined {
+        return this['network_type'];
     }
     public withAuthorizerVersion(authorizerVersion: string): CreateCustomAuthorizerV2Response {
         this['authorizer_version'] = authorizerVersion;
@@ -162,4 +173,12 @@ export enum CreateCustomAuthorizerV2ResponseTypeEnum {
     */
 export enum CreateCustomAuthorizerV2ResponseAuthorizerTypeEnum {
     FUNC = 'FUNC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCustomAuthorizerV2ResponseNetworkTypeEnum {
+    V1 = 'V1',
+    V2 = 'V2'
 }

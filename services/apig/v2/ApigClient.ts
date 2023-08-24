@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
+import { AcceptOrRejectEndpointConnectionsRequest } from './model/AcceptOrRejectEndpointConnectionsRequest';
+import { AcceptOrRejectEndpointConnectionsResponse } from './model/AcceptOrRejectEndpointConnectionsResponse';
 import { AclApiBindingCreate } from './model/AclApiBindingCreate';
 import { AclApiBindingInfo } from './model/AclApiBindingInfo';
 import { AclBatchDelete } from './model/AclBatchDelete';
@@ -12,6 +14,8 @@ import { AclBindingBatchDelete } from './model/AclBindingBatchDelete';
 import { AclBindingBatchFailure } from './model/AclBindingBatchFailure';
 import { AddEipV2Request } from './model/AddEipV2Request';
 import { AddEipV2Response } from './model/AddEipV2Response';
+import { AddEndpointPermissionsRequest } from './model/AddEndpointPermissionsRequest';
+import { AddEndpointPermissionsResponse } from './model/AddEndpointPermissionsResponse';
 import { AddEngressEipV2Request } from './model/AddEngressEipV2Request';
 import { AddEngressEipV2Response } from './model/AddEngressEipV2Response';
 import { AddIngressEipV2Request } from './model/AddIngressEipV2Request';
@@ -125,6 +129,7 @@ import { BatchPublishOrOfflineApiV2Request } from './model/BatchPublishOrOffline
 import { BatchPublishOrOfflineApiV2Response } from './model/BatchPublishOrOfflineApiV2Response';
 import { CancelingAuthorizationV2Request } from './model/CancelingAuthorizationV2Request';
 import { CancelingAuthorizationV2Response } from './model/CancelingAuthorizationV2Response';
+import { CbcOperationLock } from './model/CbcOperationLock';
 import { CertBase } from './model/CertBase';
 import { CertForm } from './model/CertForm';
 import { CertificateForm } from './model/CertificateForm';
@@ -134,6 +139,7 @@ import { CheckAppV2Request } from './model/CheckAppV2Request';
 import { CheckAppV2Response } from './model/CheckAppV2Response';
 import { CoditionResp } from './model/CoditionResp';
 import { Config } from './model/Config';
+import { ConnectionActionReq } from './model/ConnectionActionReq';
 import { CreateAclStrategyV2Request } from './model/CreateAclStrategyV2Request';
 import { CreateAclStrategyV2Response } from './model/CreateAclStrategyV2Response';
 import { CreateAnAppV2Request } from './model/CreateAnAppV2Request';
@@ -200,6 +206,8 @@ import { DeleteCertificateV2Request } from './model/DeleteCertificateV2Request';
 import { DeleteCertificateV2Response } from './model/DeleteCertificateV2Response';
 import { DeleteCustomAuthorizerV2Request } from './model/DeleteCustomAuthorizerV2Request';
 import { DeleteCustomAuthorizerV2Response } from './model/DeleteCustomAuthorizerV2Response';
+import { DeleteEndpointPermissionsRequest } from './model/DeleteEndpointPermissionsRequest';
+import { DeleteEndpointPermissionsResponse } from './model/DeleteEndpointPermissionsResponse';
 import { DeleteEnvironmentV2Request } from './model/DeleteEnvironmentV2Request';
 import { DeleteEnvironmentV2Response } from './model/DeleteEnvironmentV2Response';
 import { DeleteEnvironmentVariableV2Request } from './model/DeleteEnvironmentVariableV2Request';
@@ -235,6 +243,9 @@ import { DisassociateRequestThrottlingPolicyV2Response } from './model/Disassoci
 import { DisassociateSignatureKeyV2Request } from './model/DisassociateSignatureKeyV2Request';
 import { DisassociateSignatureKeyV2Response } from './model/DisassociateSignatureKeyV2Response';
 import { EipBindReq } from './model/EipBindReq';
+import { EndpointConnection } from './model/EndpointConnection';
+import { EndpointPermission } from './model/EndpointPermission';
+import { EndpointPermissionList } from './model/EndpointPermissionList';
 import { EndpointService } from './model/EndpointService';
 import { EnvCreate } from './model/EnvCreate';
 import { EnvInfo } from './model/EnvInfo';
@@ -318,6 +329,10 @@ import { ListCertificatesV2Request } from './model/ListCertificatesV2Request';
 import { ListCertificatesV2Response } from './model/ListCertificatesV2Response';
 import { ListCustomAuthorizersV2Request } from './model/ListCustomAuthorizersV2Request';
 import { ListCustomAuthorizersV2Response } from './model/ListCustomAuthorizersV2Response';
+import { ListEndpointConnectionsRequest } from './model/ListEndpointConnectionsRequest';
+import { ListEndpointConnectionsResponse } from './model/ListEndpointConnectionsResponse';
+import { ListEndpointPermissionsRequest } from './model/ListEndpointPermissionsRequest';
+import { ListEndpointPermissionsResponse } from './model/ListEndpointPermissionsResponse';
 import { ListEnvironmentVariablesV2Request } from './model/ListEnvironmentVariablesV2Request';
 import { ListEnvironmentVariablesV2Response } from './model/ListEnvironmentVariablesV2Response';
 import { ListEnvironmentsV2Request } from './model/ListEnvironmentsV2Request';
@@ -549,6 +564,26 @@ export class ApigClient {
 
 
     /**
+     * 接受或拒绝实例节点连接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 接受或拒绝终端节点连接
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {ConnectionActionReq} acceptOrRejectEndpointConnectionsRequestBody 接受或拒绝终端节点连接请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public acceptOrRejectEndpointConnections(acceptOrRejectEndpointConnectionsRequest?: AcceptOrRejectEndpointConnectionsRequest): Promise<AcceptOrRejectEndpointConnectionsResponse> {
+        const options = ParamCreater().acceptOrRejectEndpointConnections(acceptOrRejectEndpointConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['x-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 实例更新或绑定EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -564,6 +599,26 @@ export class ApigClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加实例终端节点连接白名单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加实例终端节点连接白名单
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {EndpointPermissionList} addEndpointPermissionsRequestBody 添加实例终端节点服务的白名单请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addEndpointPermissions(addEndpointPermissionsRequest?: AddEndpointPermissionsRequest): Promise<AddEndpointPermissionsResponse> {
+        const options = ParamCreater().addEndpointPermissions(addEndpointPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['x-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -999,6 +1054,26 @@ export class ApigClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除实例终端节点连接白名单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除实例终端节点连接白名单
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {EndpointPermissionList} deleteEndpointPermissionsRequestBody 删除实例终端节点服务的白名单请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteEndpointPermissions(deleteEndpointPermissionsRequest?: DeleteEndpointPermissionsRequest): Promise<DeleteEndpointPermissionsResponse> {
+        const options = ParamCreater().deleteEndpointPermissions(deleteEndpointPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['x-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1523,6 +1598,52 @@ export class ApigClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例终端节点连接列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例终端节点连接列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [id] 终端节点的ID，唯一标识
+     * @param {number} [markerId] 终端节点的报文标识
+     * @param {'pendingAcceptance' | 'accepted' | 'rejected' | 'failed'} [status] 终端节点的连接状态 - pendingAcceptance 待接受 - accepted 已接受 - rejected 已拒绝 - failed 失败
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpointConnections(listEndpointConnectionsRequest?: ListEndpointConnectionsRequest): Promise<ListEndpointConnectionsResponse> {
+        const options = ParamCreater().listEndpointConnections(listEndpointConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['x-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前实例终端节点服务的白名单列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的终端节点服务的白名单列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [permission] 权限帐号ID，格式为“iam:domain::domain_id”，支持模糊搜索
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpointPermissions(listEndpointPermissionsRequest?: ListEndpointPermissionsRequest): Promise<ListEndpointPermissionsResponse> {
+        const options = ParamCreater().listEndpointPermissions(listEndpointPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['x-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3166,7 +3287,7 @@ export class ApigClient {
      * @summary 修改API
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} apiId API的编号
-     * @param {ApiCreate} updateApiV2RequestBody 修改API的请求体
+     * @param {ApiCreate} updateApiV2RequestBody 修改API的请求体，修改api时字段group_id不会生效，仅采用默认值
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4336,6 +4457,52 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 接受或拒绝实例节点连接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        acceptOrRejectEndpointConnections(acceptOrRejectEndpointConnectionsRequest?: AcceptOrRejectEndpointConnectionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/vpc-endpoint/connections/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (acceptOrRejectEndpointConnectionsRequest !== null && acceptOrRejectEndpointConnectionsRequest !== undefined) {
+                if (acceptOrRejectEndpointConnectionsRequest instanceof AcceptOrRejectEndpointConnectionsRequest) {
+                    instanceId = acceptOrRejectEndpointConnectionsRequest.instanceId;
+                    body = acceptOrRejectEndpointConnectionsRequest.body
+                } else {
+                    instanceId = acceptOrRejectEndpointConnectionsRequest['instance_id'];
+                    body = acceptOrRejectEndpointConnectionsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling acceptOrRejectEndpointConnections.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实例更新或绑定EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4374,6 +4541,52 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加实例终端节点连接白名单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addEndpointPermissions(addEndpointPermissionsRequest?: AddEndpointPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/vpc-endpoint/permissions/batch-add",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addEndpointPermissionsRequest !== null && addEndpointPermissionsRequest !== undefined) {
+                if (addEndpointPermissionsRequest instanceof AddEndpointPermissionsRequest) {
+                    instanceId = addEndpointPermissionsRequest.instanceId;
+                    body = addEndpointPermissionsRequest.body
+                } else {
+                    instanceId = addEndpointPermissionsRequest['instance_id'];
+                    body = addEndpointPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addEndpointPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
@@ -5339,6 +5552,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'authorizer_id': authorizerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除实例终端节点连接白名单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteEndpointPermissions(deleteEndpointPermissionsRequest?: DeleteEndpointPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/vpc-endpoint/permissions/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteEndpointPermissionsRequest !== null && deleteEndpointPermissionsRequest !== undefined) {
+                if (deleteEndpointPermissionsRequest instanceof DeleteEndpointPermissionsRequest) {
+                    instanceId = deleteEndpointPermissionsRequest.instanceId;
+                    body = deleteEndpointPermissionsRequest.body
+                } else {
+                    instanceId = deleteEndpointPermissionsRequest['instance_id'];
+                    body = deleteEndpointPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteEndpointPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6635,6 +6894,138 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例终端节点连接列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpointConnections(listEndpointConnectionsRequest?: ListEndpointConnectionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/vpc-endpoint/connections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let id;
+            
+            let markerId;
+            
+            let status;
+
+            if (listEndpointConnectionsRequest !== null && listEndpointConnectionsRequest !== undefined) {
+                if (listEndpointConnectionsRequest instanceof ListEndpointConnectionsRequest) {
+                    instanceId = listEndpointConnectionsRequest.instanceId;
+                    offset = listEndpointConnectionsRequest.offset;
+                    limit = listEndpointConnectionsRequest.limit;
+                    id = listEndpointConnectionsRequest.id;
+                    markerId = listEndpointConnectionsRequest.markerId;
+                    status = listEndpointConnectionsRequest.status;
+                } else {
+                    instanceId = listEndpointConnectionsRequest['instance_id'];
+                    offset = listEndpointConnectionsRequest['offset'];
+                    limit = listEndpointConnectionsRequest['limit'];
+                    id = listEndpointConnectionsRequest['id'];
+                    markerId = listEndpointConnectionsRequest['marker_id'];
+                    status = listEndpointConnectionsRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listEndpointConnections.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (markerId !== null && markerId !== undefined) {
+                localVarQueryParameter['marker_id'] = markerId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前实例终端节点服务的白名单列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpointPermissions(listEndpointPermissionsRequest?: ListEndpointPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/vpc-endpoint/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let permission;
+
+            if (listEndpointPermissionsRequest !== null && listEndpointPermissionsRequest !== undefined) {
+                if (listEndpointPermissionsRequest instanceof ListEndpointPermissionsRequest) {
+                    instanceId = listEndpointPermissionsRequest.instanceId;
+                    offset = listEndpointPermissionsRequest.offset;
+                    limit = listEndpointPermissionsRequest.limit;
+                    permission = listEndpointPermissionsRequest.permission;
+                } else {
+                    instanceId = listEndpointPermissionsRequest['instance_id'];
+                    offset = listEndpointPermissionsRequest['offset'];
+                    limit = listEndpointPermissionsRequest['limit'];
+                    permission = listEndpointPermissionsRequest['permission'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listEndpointPermissions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (permission !== null && permission !== undefined) {
+                localVarQueryParameter['permission'] = permission;
             }
 
             options.queryParams = localVarQueryParameter;

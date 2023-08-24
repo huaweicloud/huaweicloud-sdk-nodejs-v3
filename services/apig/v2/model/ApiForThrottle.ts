@@ -15,6 +15,7 @@ export class ApiForThrottle {
     private 'group_id'?: string;
     public name?: string;
     public id?: string;
+    private 'req_method'?: ApiForThrottleReqMethodEnum | string;
     public constructor() { 
     }
     public withAuthType(authType: string): ApiForThrottle {
@@ -133,4 +134,29 @@ export class ApiForThrottle {
         this['id'] = id;
         return this;
     }
+    public withReqMethod(reqMethod: ApiForThrottleReqMethodEnum | string): ApiForThrottle {
+        this['req_method'] = reqMethod;
+        return this;
+    }
+    public set reqMethod(reqMethod: ApiForThrottleReqMethodEnum | string  | undefined) {
+        this['req_method'] = reqMethod;
+    }
+    public get reqMethod(): ApiForThrottleReqMethodEnum | string | undefined {
+        return this['req_method'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForThrottleReqMethodEnum {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    ANY = 'ANY'
 }

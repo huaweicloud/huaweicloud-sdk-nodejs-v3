@@ -1,10 +1,10 @@
-import { GlanceShowImageResponseBody } from './GlanceShowImageResponseBody';
+import { GlanceShowImageListResponseBody } from './GlanceShowImageListResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GlanceListImagesResponse extends SdkResponse {
     public first?: string;
-    public images?: Array<GlanceShowImageResponseBody>;
+    public images?: Array<GlanceShowImageListResponseBody>;
     public schema?: string;
     public next?: string;
     public constructor() { 
@@ -14,7 +14,7 @@ export class GlanceListImagesResponse extends SdkResponse {
         this['first'] = first;
         return this;
     }
-    public withImages(images: Array<GlanceShowImageResponseBody>): GlanceListImagesResponse {
+    public withImages(images: Array<GlanceShowImageListResponseBody>): GlanceListImagesResponse {
         this['images'] = images;
         return this;
     }

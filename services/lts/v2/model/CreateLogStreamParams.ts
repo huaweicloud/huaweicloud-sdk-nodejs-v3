@@ -4,7 +4,7 @@ import { TagsBody } from './TagsBody';
 export class CreateLogStreamParams {
     private 'log_stream_name'?: string;
     private 'ttl_in_days'?: number;
-    public tags?: TagsBody;
+    public tags?: Array<TagsBody>;
     public constructor(logStreamName?: string) { 
         this['log_stream_name'] = logStreamName;
     }
@@ -28,7 +28,7 @@ export class CreateLogStreamParams {
     public get ttlInDays(): number | undefined {
         return this['ttl_in_days'];
     }
-    public withTags(tags: TagsBody): CreateLogStreamParams {
+    public withTags(tags: Array<TagsBody>): CreateLogStreamParams {
         this['tags'] = tags;
         return this;
     }

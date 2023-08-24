@@ -3,10 +3,16 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddExtendCidrOption } from './model/AddExtendCidrOption';
+import { AddFirewallRulesRequest } from './model/AddFirewallRulesRequest';
+import { AddFirewallRulesRequestBody } from './model/AddFirewallRulesRequestBody';
+import { AddFirewallRulesResponse } from './model/AddFirewallRulesResponse';
 import { AddVpcExtendCidrRequest } from './model/AddVpcExtendCidrRequest';
 import { AddVpcExtendCidrRequestBody } from './model/AddVpcExtendCidrRequestBody';
 import { AddVpcExtendCidrResponse } from './model/AddVpcExtendCidrResponse';
 import { AddressGroup } from './model/AddressGroup';
+import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
+import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
+import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
 import { BatchCreateSubNetworkInterfaceOption } from './model/BatchCreateSubNetworkInterfaceOption';
 import { BatchCreateSubNetworkInterfaceRequest } from './model/BatchCreateSubNetworkInterfaceRequest';
 import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSubNetworkInterfaceRequestBody';
@@ -16,6 +22,10 @@ import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
 import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
 import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
 import { CreateAddressGroupResponse } from './model/CreateAddressGroupResponse';
+import { CreateFirewallOption } from './model/CreateFirewallOption';
+import { CreateFirewallRequest } from './model/CreateFirewallRequest';
+import { CreateFirewallRequestBody } from './model/CreateFirewallRequestBody';
+import { CreateFirewallResponse } from './model/CreateFirewallResponse';
 import { CreateSecurityGroupOption } from './model/CreateSecurityGroupOption';
 import { CreateSecurityGroupRequest } from './model/CreateSecurityGroupRequest';
 import { CreateSecurityGroupRequestBody } from './model/CreateSecurityGroupRequestBody';
@@ -34,6 +44,8 @@ import { CreateVpcRequestBody } from './model/CreateVpcRequestBody';
 import { CreateVpcResponse } from './model/CreateVpcResponse';
 import { DeleteAddressGroupRequest } from './model/DeleteAddressGroupRequest';
 import { DeleteAddressGroupResponse } from './model/DeleteAddressGroupResponse';
+import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
+import { DeleteFirewallResponse } from './model/DeleteFirewallResponse';
 import { DeleteIpAddressGroupForceRequest } from './model/DeleteIpAddressGroupForceRequest';
 import { DeleteIpAddressGroupForceResponse } from './model/DeleteIpAddressGroupForceResponse';
 import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
@@ -44,8 +56,23 @@ import { DeleteSubNetworkInterfaceRequest } from './model/DeleteSubNetworkInterf
 import { DeleteSubNetworkInterfaceResponse } from './model/DeleteSubNetworkInterfaceResponse';
 import { DeleteVpcRequest } from './model/DeleteVpcRequest';
 import { DeleteVpcResponse } from './model/DeleteVpcResponse';
+import { DisassociateSubnetFirewallRequest } from './model/DisassociateSubnetFirewallRequest';
+import { DisassociateSubnetFirewallRequestBody } from './model/DisassociateSubnetFirewallRequestBody';
+import { DisassociateSubnetFirewallResponse } from './model/DisassociateSubnetFirewallResponse';
+import { FirewallAssociation } from './model/FirewallAssociation';
+import { FirewallDetail } from './model/FirewallDetail';
+import { FirewallInsertRuleItemOption } from './model/FirewallInsertRuleItemOption';
+import { FirewallInsertRuleOption } from './model/FirewallInsertRuleOption';
+import { FirewallRemoveRuleItemOption } from './model/FirewallRemoveRuleItemOption';
+import { FirewallRemoveRuleOption } from './model/FirewallRemoveRuleOption';
+import { FirewallRuleDetail } from './model/FirewallRuleDetail';
+import { FirewallUpdateRuleItemOption } from './model/FirewallUpdateRuleItemOption';
+import { FirewallUpdateRuleOption } from './model/FirewallUpdateRuleOption';
 import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
 import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
+import { ListFirewallDetail } from './model/ListFirewallDetail';
+import { ListFirewallRequest } from './model/ListFirewallRequest';
+import { ListFirewallResponse } from './model/ListFirewallResponse';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
@@ -60,6 +87,9 @@ import { MigrateSubNetworkInterfaceRequestBody } from './model/MigrateSubNetwork
 import { MigrateSubNetworkInterfaceResponse } from './model/MigrateSubNetworkInterfaceResponse';
 import { PageInfo } from './model/PageInfo';
 import { RemoveExtendCidrOption } from './model/RemoveExtendCidrOption';
+import { RemoveFirewallRulesRequest } from './model/RemoveFirewallRulesRequest';
+import { RemoveFirewallRulesRequestBody } from './model/RemoveFirewallRulesRequestBody';
+import { RemoveFirewallRulesResponse } from './model/RemoveFirewallRulesResponse';
 import { RemoveVpcExtendCidrRequest } from './model/RemoveVpcExtendCidrRequest';
 import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrRequestBody';
 import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
@@ -69,6 +99,8 @@ import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
 import { ShowAddressGroupRequest } from './model/ShowAddressGroupRequest';
 import { ShowAddressGroupResponse } from './model/ShowAddressGroupResponse';
+import { ShowFirewallRequest } from './model/ShowFirewallRequest';
+import { ShowFirewallResponse } from './model/ShowFirewallResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -85,6 +117,13 @@ import { UpdateAddressGroupOption } from './model/UpdateAddressGroupOption';
 import { UpdateAddressGroupRequest } from './model/UpdateAddressGroupRequest';
 import { UpdateAddressGroupRequestBody } from './model/UpdateAddressGroupRequestBody';
 import { UpdateAddressGroupResponse } from './model/UpdateAddressGroupResponse';
+import { UpdateFirewallOption } from './model/UpdateFirewallOption';
+import { UpdateFirewallRequest } from './model/UpdateFirewallRequest';
+import { UpdateFirewallRequestBody } from './model/UpdateFirewallRequestBody';
+import { UpdateFirewallResponse } from './model/UpdateFirewallResponse';
+import { UpdateFirewallRulesRequest } from './model/UpdateFirewallRulesRequest';
+import { UpdateFirewallRulesRequestBody } from './model/UpdateFirewallRulesRequestBody';
+import { UpdateFirewallRulesResponse } from './model/UpdateFirewallRulesResponse';
 import { UpdateSecurityGroupOption } from './model/UpdateSecurityGroupOption';
 import { UpdateSecurityGroupRequest } from './model/UpdateSecurityGroupRequest';
 import { UpdateSecurityGroupRequestBody } from './model/UpdateSecurityGroupRequestBody';
@@ -453,6 +492,208 @@ export class VpcClient {
      */
     public updateSubNetworkInterface(updateSubNetworkInterfaceRequest?: UpdateSubNetworkInterfaceRequest): Promise<UpdateSubNetworkInterfaceResponse> {
         const options = ParamCreater().updateSubNetworkInterface(updateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网络ACL插入规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 网络ACL插入规则
+     * @param {string} firewallId 网络ACL的唯一标识
+     * @param {AddFirewallRulesRequestBody} addFirewallRulesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addFirewallRules(addFirewallRulesRequest?: AddFirewallRulesRequest): Promise<AddFirewallRulesResponse> {
+        const options = ParamCreater().addFirewallRules(addFirewallRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网络ACL绑定子网
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 网络ACL绑定子网
+     * @param {string} firewallId 网络ACL唯一标识
+     * @param {AssociateSubnetFirewallRequestBody} associateSubnetFirewallRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateSubnetFirewall(associateSubnetFirewallRequest?: AssociateSubnetFirewallRequest): Promise<AssociateSubnetFirewallResponse> {
+        const options = ParamCreater().associateSubnetFirewall(associateSubnetFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建网络ACL
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建网络ACL
+     * @param {CreateFirewallRequestBody} createFirewallRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFirewall(createFirewallRequest?: CreateFirewallRequest): Promise<CreateFirewallResponse> {
+        const options = ParamCreater().createFirewall(createFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除网络ACL
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除网络ACL
+     * @param {string} firewallId 网络ACL唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFirewall(deleteFirewallRequest?: DeleteFirewallRequest): Promise<DeleteFirewallResponse> {
+        const options = ParamCreater().deleteFirewall(deleteFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网络ACL解绑子网
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 网络ACL解绑子网
+     * @param {string} firewallId 网络ACL唯一标识
+     * @param {DisassociateSubnetFirewallRequestBody} disassociateSubnetFirewallRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateSubnetFirewall(disassociateSubnetFirewallRequest?: DisassociateSubnetFirewallRequest): Promise<DisassociateSubnetFirewallResponse> {
+        const options = ParamCreater().disassociateSubnetFirewall(disassociateSubnetFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询网络ACL列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网络ACL列表
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0~2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {Array<string>} [id] ACL唯一标识，填写后接口按照id进行过滤，支持多id同时过滤
+     * @param {Array<string>} [name] ACL名称，填写后按照名称进行过滤，支持多名称同时过滤
+     * @param {'ACTIVE' | 'INACTIVE'} [status] ACL的状态
+     * @param {boolean} [adminStateUp] ACL是否启用
+     * @param {Array<string>} [enterpriseProjectId] 功能说明：企业项目ID。可以使用该字段过滤某个企业项目下的ACL。  取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。若需要查询当前用户所有企业项目绑定的ACL，请传参all_granted_eps。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFirewall(listFirewallRequest?: ListFirewallRequest): Promise<ListFirewallResponse> {
+        const options = ParamCreater().listFirewall(listFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网络ACL移除规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 网络ACL移除规则
+     * @param {string} firewallId 网络ACL唯一标识
+     * @param {RemoveFirewallRulesRequestBody} removeFirewallRulesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeFirewallRules(removeFirewallRulesRequest?: RemoveFirewallRulesRequest): Promise<RemoveFirewallRulesResponse> {
+        const options = ParamCreater().removeFirewallRules(removeFirewallRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询网络ACL详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网络ACL详情
+     * @param {string} firewallId 网络ACL的唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFirewall(showFirewallRequest?: ShowFirewallRequest): Promise<ShowFirewallResponse> {
+        const options = ParamCreater().showFirewall(showFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新网络ACL
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新网络ACL
+     * @param {string} firewallId 网络ACL的唯一标识
+     * @param {UpdateFirewallRequestBody} updateFirewallRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFirewall(updateFirewallRequest?: UpdateFirewallRequest): Promise<UpdateFirewallResponse> {
+        const options = ParamCreater().updateFirewall(updateFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网络ACL更新规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 网络ACL更新规则
+     * @param {string} firewallId 网络ACL唯一标识
+     * @param {UpdateFirewallRulesRequestBody} updateFirewallRulesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFirewallRules(updateFirewallRulesRequest?: UpdateFirewallRulesRequest): Promise<UpdateFirewallRulesResponse> {
+        const options = ParamCreater().updateFirewallRules(updateFirewallRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1512,6 +1753,473 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网络ACL插入规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addFirewallRules(addFirewallRulesRequest?: AddFirewallRulesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}/insert-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (addFirewallRulesRequest !== null && addFirewallRulesRequest !== undefined) {
+                if (addFirewallRulesRequest instanceof AddFirewallRulesRequest) {
+                    firewallId = addFirewallRulesRequest.firewallId;
+                    body = addFirewallRulesRequest.body
+                } else {
+                    firewallId = addFirewallRulesRequest['firewall_id'];
+                    body = addFirewallRulesRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling addFirewallRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网络ACL绑定子网
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateSubnetFirewall(associateSubnetFirewallRequest?: AssociateSubnetFirewallRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}/associate-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (associateSubnetFirewallRequest !== null && associateSubnetFirewallRequest !== undefined) {
+                if (associateSubnetFirewallRequest instanceof AssociateSubnetFirewallRequest) {
+                    firewallId = associateSubnetFirewallRequest.firewallId;
+                    body = associateSubnetFirewallRequest.body
+                } else {
+                    firewallId = associateSubnetFirewallRequest['firewall_id'];
+                    body = associateSubnetFirewallRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling associateSubnetFirewall.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建网络ACL
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFirewall(createFirewallRequest?: CreateFirewallRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/firewalls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createFirewallRequest !== null && createFirewallRequest !== undefined) {
+                if (createFirewallRequest instanceof CreateFirewallRequest) {
+                    body = createFirewallRequest.body
+                } else {
+                    body = createFirewallRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除网络ACL
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFirewall(deleteFirewallRequest?: DeleteFirewallRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let firewallId;
+
+            if (deleteFirewallRequest !== null && deleteFirewallRequest !== undefined) {
+                if (deleteFirewallRequest instanceof DeleteFirewallRequest) {
+                    firewallId = deleteFirewallRequest.firewallId;
+                } else {
+                    firewallId = deleteFirewallRequest['firewall_id'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling deleteFirewall.');
+            }
+
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网络ACL解绑子网
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateSubnetFirewall(disassociateSubnetFirewallRequest?: DisassociateSubnetFirewallRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}/disassociate-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (disassociateSubnetFirewallRequest !== null && disassociateSubnetFirewallRequest !== undefined) {
+                if (disassociateSubnetFirewallRequest instanceof DisassociateSubnetFirewallRequest) {
+                    firewallId = disassociateSubnetFirewallRequest.firewallId;
+                    body = disassociateSubnetFirewallRequest.body
+                } else {
+                    firewallId = disassociateSubnetFirewallRequest['firewall_id'];
+                    body = disassociateSubnetFirewallRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling disassociateSubnetFirewall.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询网络ACL列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFirewall(listFirewallRequest?: ListFirewallRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/firewalls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+            
+            let adminStateUp;
+            
+            let enterpriseProjectId;
+
+            if (listFirewallRequest !== null && listFirewallRequest !== undefined) {
+                if (listFirewallRequest instanceof ListFirewallRequest) {
+                    limit = listFirewallRequest.limit;
+                    marker = listFirewallRequest.marker;
+                    id = listFirewallRequest.id;
+                    name = listFirewallRequest.name;
+                    status = listFirewallRequest.status;
+                    adminStateUp = listFirewallRequest.adminStateUp;
+                    enterpriseProjectId = listFirewallRequest.enterpriseProjectId;
+                } else {
+                    limit = listFirewallRequest['limit'];
+                    marker = listFirewallRequest['marker'];
+                    id = listFirewallRequest['id'];
+                    name = listFirewallRequest['name'];
+                    status = listFirewallRequest['status'];
+                    adminStateUp = listFirewallRequest['admin_state_up'];
+                    enterpriseProjectId = listFirewallRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网络ACL移除规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeFirewallRules(removeFirewallRulesRequest?: RemoveFirewallRulesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}/remove-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (removeFirewallRulesRequest !== null && removeFirewallRulesRequest !== undefined) {
+                if (removeFirewallRulesRequest instanceof RemoveFirewallRulesRequest) {
+                    firewallId = removeFirewallRulesRequest.firewallId;
+                    body = removeFirewallRulesRequest.body
+                } else {
+                    firewallId = removeFirewallRulesRequest['firewall_id'];
+                    body = removeFirewallRulesRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling removeFirewallRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询网络ACL详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFirewall(showFirewallRequest?: ShowFirewallRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let firewallId;
+
+            if (showFirewallRequest !== null && showFirewallRequest !== undefined) {
+                if (showFirewallRequest instanceof ShowFirewallRequest) {
+                    firewallId = showFirewallRequest.firewallId;
+                } else {
+                    firewallId = showFirewallRequest['firewall_id'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling showFirewall.');
+            }
+
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新网络ACL
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFirewall(updateFirewallRequest?: UpdateFirewallRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (updateFirewallRequest !== null && updateFirewallRequest !== undefined) {
+                if (updateFirewallRequest instanceof UpdateFirewallRequest) {
+                    firewallId = updateFirewallRequest.firewallId;
+                    body = updateFirewallRequest.body
+                } else {
+                    firewallId = updateFirewallRequest['firewall_id'];
+                    body = updateFirewallRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling updateFirewall.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网络ACL更新规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFirewallRules(updateFirewallRulesRequest?: UpdateFirewallRulesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/firewalls/{firewall_id}/update-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (updateFirewallRulesRequest !== null && updateFirewallRulesRequest !== undefined) {
+                if (updateFirewallRulesRequest instanceof UpdateFirewallRulesRequest) {
+                    firewallId = updateFirewallRulesRequest.firewallId;
+                    body = updateFirewallRulesRequest.body
+                } else {
+                    firewallId = updateFirewallRulesRequest['firewall_id'];
+                    body = updateFirewallRulesRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling updateFirewallRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -65,13 +65,13 @@ import { GlanceListImageSchemasRequest } from './model/GlanceListImageSchemasReq
 import { GlanceListImageSchemasResponse } from './model/GlanceListImageSchemasResponse';
 import { GlanceListImagesRequest } from './model/GlanceListImagesRequest';
 import { GlanceListImagesResponse } from './model/GlanceListImagesResponse';
+import { GlanceShowImageListResponseBody } from './model/GlanceShowImageListResponseBody';
 import { GlanceShowImageMemberRequest } from './model/GlanceShowImageMemberRequest';
 import { GlanceShowImageMemberResponse } from './model/GlanceShowImageMemberResponse';
 import { GlanceShowImageMemberSchemasRequest } from './model/GlanceShowImageMemberSchemasRequest';
 import { GlanceShowImageMemberSchemasResponse } from './model/GlanceShowImageMemberSchemasResponse';
 import { GlanceShowImageRequest } from './model/GlanceShowImageRequest';
 import { GlanceShowImageResponse } from './model/GlanceShowImageResponse';
-import { GlanceShowImageResponseBody } from './model/GlanceShowImageResponseBody';
 import { GlanceShowImageSchemasRequest } from './model/GlanceShowImageSchemasRequest';
 import { GlanceShowImageSchemasResponse } from './model/GlanceShowImageSchemasResponse';
 import { GlanceUpdateImageMemberRequest } from './model/GlanceUpdateImageMemberRequest';

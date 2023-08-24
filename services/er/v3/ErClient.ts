@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AcceptAttachmentRequest } from './model/AcceptAttachmentRequest';
+import { AcceptAttachmentResponse } from './model/AcceptAttachmentResponse';
 import { AssociateRouteTableRequest } from './model/AssociateRouteTableRequest';
 import { AssociateRouteTableResponse } from './model/AssociateRouteTableResponse';
 import { Association } from './model/Association';
@@ -90,6 +92,8 @@ import { PageInfo } from './model/PageInfo';
 import { Propagation } from './model/Propagation';
 import { PropagationRequestBody } from './model/PropagationRequestBody';
 import { Quota } from './model/Quota';
+import { RejectAttachmentRequest } from './model/RejectAttachmentRequest';
+import { RejectAttachmentResponse } from './model/RejectAttachmentResponse';
 import { Route } from './model/Route';
 import { RouteAttachment } from './model/RouteAttachment';
 import { RouteTable } from './model/RouteTable';
@@ -223,6 +227,26 @@ export class ErClient {
     }
 
     /**
+     * 接受共享连接创建
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 接受共享连接创建
+     * @param {string} erId 企业路由器实例ID
+     * @param {string} attachmentId 连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public acceptAttachment(acceptAttachmentRequest?: AcceptAttachmentRequest): Promise<AcceptAttachmentResponse> {
+        const options = ParamCreater().acceptAttachment(acceptAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询企业路由器实例下的连接列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -241,6 +265,26 @@ export class ErClient {
      */
     public listAttachments(listAttachmentsRequest?: ListAttachmentsRequest): Promise<ListAttachmentsResponse> {
         const options = ParamCreater().listAttachments(listAttachmentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 拒绝共享连接创建
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 拒绝共享连接创建
+     * @param {string} erId 企业路由器实例ID
+     * @param {string} attachmentId 连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rejectAttachment(rejectAttachmentRequest?: RejectAttachmentRequest): Promise<RejectAttachmentResponse> {
+        const options = ParamCreater().rejectAttachment(rejectAttachmentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1335,6 +1379,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 接受共享连接创建
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        acceptAttachment(acceptAttachmentRequest?: AcceptAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/enterprise-router/{er_id}/attachments/{attachment_id}/accept",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let erId;
+            
+            let attachmentId;
+
+            if (acceptAttachmentRequest !== null && acceptAttachmentRequest !== undefined) {
+                if (acceptAttachmentRequest instanceof AcceptAttachmentRequest) {
+                    erId = acceptAttachmentRequest.erId;
+                    attachmentId = acceptAttachmentRequest.attachmentId;
+                } else {
+                    erId = acceptAttachmentRequest['er_id'];
+                    attachmentId = acceptAttachmentRequest['attachment_id'];
+                }
+            }
+
+        
+            if (erId === null || erId === undefined) {
+            throw new RequiredError('erId','Required parameter erId was null or undefined when calling acceptAttachment.');
+            }
+            if (attachmentId === null || attachmentId === undefined) {
+            throw new RequiredError('attachmentId','Required parameter attachmentId was null or undefined when calling acceptAttachment.');
+            }
+
+            options.pathParams = { 'er_id': erId,'attachment_id': attachmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询企业路由器实例下的连接列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1417,6 +1505,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'er_id': erId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 拒绝共享连接创建
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rejectAttachment(rejectAttachmentRequest?: RejectAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/enterprise-router/{er_id}/attachments/{attachment_id}/reject",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let erId;
+            
+            let attachmentId;
+
+            if (rejectAttachmentRequest !== null && rejectAttachmentRequest !== undefined) {
+                if (rejectAttachmentRequest instanceof RejectAttachmentRequest) {
+                    erId = rejectAttachmentRequest.erId;
+                    attachmentId = rejectAttachmentRequest.attachmentId;
+                } else {
+                    erId = rejectAttachmentRequest['er_id'];
+                    attachmentId = rejectAttachmentRequest['attachment_id'];
+                }
+            }
+
+        
+            if (erId === null || erId === undefined) {
+            throw new RequiredError('erId','Required parameter erId was null or undefined when calling rejectAttachment.');
+            }
+            if (attachmentId === null || attachmentId === undefined) {
+            throw new RequiredError('attachmentId','Required parameter attachmentId was null or undefined when calling rejectAttachment.');
+            }
+
+            options.pathParams = { 'er_id': erId,'attachment_id': attachmentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

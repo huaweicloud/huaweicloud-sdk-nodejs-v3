@@ -4,6 +4,9 @@ import { ItemList } from './ItemList';
 export class VatInvoiceResult {
     public title?: string;
     public type?: string;
+    private 'invoice_tag'?: string;
+    private 'sum_amount'?: string;
+    private 'sum_tax'?: string;
     private 'serial_number'?: string;
     public attribution?: string;
     private 'supervision_seal'?: Array<string>;
@@ -44,6 +47,36 @@ export class VatInvoiceResult {
     public withType(type: string): VatInvoiceResult {
         this['type'] = type;
         return this;
+    }
+    public withInvoiceTag(invoiceTag: string): VatInvoiceResult {
+        this['invoice_tag'] = invoiceTag;
+        return this;
+    }
+    public set invoiceTag(invoiceTag: string  | undefined) {
+        this['invoice_tag'] = invoiceTag;
+    }
+    public get invoiceTag(): string | undefined {
+        return this['invoice_tag'];
+    }
+    public withSumAmount(sumAmount: string): VatInvoiceResult {
+        this['sum_amount'] = sumAmount;
+        return this;
+    }
+    public set sumAmount(sumAmount: string  | undefined) {
+        this['sum_amount'] = sumAmount;
+    }
+    public get sumAmount(): string | undefined {
+        return this['sum_amount'];
+    }
+    public withSumTax(sumTax: string): VatInvoiceResult {
+        this['sum_tax'] = sumTax;
+        return this;
+    }
+    public set sumTax(sumTax: string  | undefined) {
+        this['sum_tax'] = sumTax;
+    }
+    public get sumTax(): string | undefined {
+        return this['sum_tax'];
     }
     public withSerialNumber(serialNumber: string): VatInvoiceResult {
         this['serial_number'] = serialNumber;
