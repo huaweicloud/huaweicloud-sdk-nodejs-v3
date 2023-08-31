@@ -1,12 +1,12 @@
-import { Resource } from './Resource';
+import { ResourceQuotas } from './ResourceQuotas';
 
 
 export class Quotas {
-    public resources?: Array<Resource>;
-    public constructor(resources?: Array<Resource>) { 
+    public resources?: Array<ResourceQuotas>;
+    public constructor(resources?: Array<ResourceQuotas>) { 
         this['resources'] = resources;
     }
-    public withResources(resources: Array<Resource>): Quotas {
+    public withResources(resources: Array<ResourceQuotas>): Quotas {
         this['resources'] = resources;
         return this;
     }

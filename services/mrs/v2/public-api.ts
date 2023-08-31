@@ -50,6 +50,8 @@ export * from './model/ShowHdfsFileListRequest';
 export * from './model/ShowHdfsFileListResponse';
 export * from './model/ShowJobExeListNewRequest';
 export * from './model/ShowJobExeListNewResponse';
+export * from './model/ShowMrsVersionListRequest';
+export * from './model/ShowMrsVersionListResponse';
 export * from './model/ShowSingleJobExeRequest';
 export * from './model/ShowSingleJobExeResponse';
 export * from './model/ShowSqlResultRequest';

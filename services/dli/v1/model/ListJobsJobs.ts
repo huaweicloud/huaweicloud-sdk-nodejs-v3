@@ -21,6 +21,8 @@ export class ListJobsJobs {
     public tags?: Array<TmsTagEntity>;
     public message?: string;
     private 'end_time'?: number;
+    private 'cpu_cost'?: string;
+    private 'output_byte'?: string;
     public constructor(jobId?: string, jobType?: string, queueName?: string, owner?: string, startTime?: number, status?: string, inputSize?: number, resultCount?: number, detail?: string, statement?: string) { 
         this['job_id'] = jobId;
         this['job_type'] = jobType;
@@ -180,6 +182,26 @@ export class ListJobsJobs {
     }
     public get endTime(): number | undefined {
         return this['end_time'];
+    }
+    public withCpuCost(cpuCost: string): ListJobsJobs {
+        this['cpu_cost'] = cpuCost;
+        return this;
+    }
+    public set cpuCost(cpuCost: string  | undefined) {
+        this['cpu_cost'] = cpuCost;
+    }
+    public get cpuCost(): string | undefined {
+        return this['cpu_cost'];
+    }
+    public withOutputByte(outputByte: string): ListJobsJobs {
+        this['output_byte'] = outputByte;
+        return this;
+    }
+    public set outputByte(outputByte: string  | undefined) {
+        this['output_byte'] = outputByte;
+    }
+    public get outputByte(): string | undefined {
+        return this['output_byte'];
     }
 }
 

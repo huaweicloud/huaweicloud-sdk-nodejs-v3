@@ -41,6 +41,7 @@ export * from './model/ExpandGraphReqExpand';
 export * from './model/ExportGraph2Request';
 export * from './model/ExportGraph2Response';
 export * from './model/ExportGraphReq';
+export * from './model/ExportGraphReqPaginate';
 export * from './model/ImportGraph2Request';
 export * from './model/ImportGraph2Response';
 export * from './model/ImportGraphReq';

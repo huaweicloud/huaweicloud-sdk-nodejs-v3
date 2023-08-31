@@ -1,13 +1,17 @@
 import { InstanceStatistics } from './InstanceStatistics';
+import { Resource } from './Resource';
 
 
 export class ResourceGroupInfo {
     private 'group_name'?: string;
+    public type?: string;
+    private 'relation_ids'?: Array<string>;
     private 'group_id'?: string;
     private 'create_time'?: number;
     private 'instance_statistics'?: InstanceStatistics;
     public status?: string;
     private 'enterprise_project_id'?: string;
+    public resources?: Array<Resource>;
     public constructor() { 
     }
     public withGroupName(groupName: string): ResourceGroupInfo {
@@ -19,6 +23,20 @@ export class ResourceGroupInfo {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withType(type: string): ResourceGroupInfo {
+        this['type'] = type;
+        return this;
+    }
+    public withRelationIds(relationIds: Array<string>): ResourceGroupInfo {
+        this['relation_ids'] = relationIds;
+        return this;
+    }
+    public set relationIds(relationIds: Array<string>  | undefined) {
+        this['relation_ids'] = relationIds;
+    }
+    public get relationIds(): Array<string> | undefined {
+        return this['relation_ids'];
     }
     public withGroupId(groupId: string): ResourceGroupInfo {
         this['group_id'] = groupId;
@@ -63,5 +81,9 @@ export class ResourceGroupInfo {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withResources(resources: Array<Resource>): ResourceGroupInfo {
+        this['resources'] = resources;
+        return this;
     }
 }

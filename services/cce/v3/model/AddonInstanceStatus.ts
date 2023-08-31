@@ -7,6 +7,8 @@ export class AddonInstanceStatus {
     public message?: string;
     public targetVersions?: Array<string>;
     public currentVersion?: Versions;
+    public isRollbackable?: boolean;
+    public previousVersion?: string;
     public constructor(status?: string, reason?: string, message?: string, currentVersion?: Versions) { 
         this['status'] = status;
         this['Reason'] = reason;
@@ -39,6 +41,14 @@ export class AddonInstanceStatus {
         this['currentVersion'] = currentVersion;
         return this;
     }
+    public withIsRollbackable(isRollbackable: boolean): AddonInstanceStatus {
+        this['isRollbackable'] = isRollbackable;
+        return this;
+    }
+    public withPreviousVersion(previousVersion: string): AddonInstanceStatus {
+        this['previousVersion'] = previousVersion;
+        return this;
+    }
 }
 
 /**
@@ -56,5 +66,6 @@ export enum AddonInstanceStatusStatusEnum {
     DELETESUCCESS = 'deleteSuccess',
     DELETEFAILED = 'deleteFailed',
     AVAILABLE = 'available',
-    ROLLBACKING = 'rollbacking'
+    ROLLBACKING = 'rollbacking',
+    ROLLBACKFAILED = 'rollbackFailed'
 }

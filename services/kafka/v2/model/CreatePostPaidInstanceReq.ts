@@ -5,7 +5,7 @@ export class CreatePostPaidInstanceReq {
     public name?: string;
     public description?: string;
     public engine?: CreatePostPaidInstanceReqEngineEnum | string;
-    private 'engine_version'?: CreatePostPaidInstanceReqEngineVersionEnum | string;
+    private 'engine_version'?: string;
     public specification?: CreatePostPaidInstanceReqSpecificationEnum | string;
     private 'broker_num'?: number;
     private 'storage_space'?: number;
@@ -59,14 +59,14 @@ export class CreatePostPaidInstanceReq {
         this['engine'] = engine;
         return this;
     }
-    public withEngineVersion(engineVersion: CreatePostPaidInstanceReqEngineVersionEnum | string): CreatePostPaidInstanceReq {
+    public withEngineVersion(engineVersion: string): CreatePostPaidInstanceReq {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: CreatePostPaidInstanceReqEngineVersionEnum | string  | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion(): CreatePostPaidInstanceReqEngineVersionEnum | string | undefined {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withSpecification(specification: CreatePostPaidInstanceReqSpecificationEnum | string): CreatePostPaidInstanceReq {
@@ -349,14 +349,6 @@ export class CreatePostPaidInstanceReq {
     */
 export enum CreatePostPaidInstanceReqEngineEnum {
     KAFKA = 'kafka'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreatePostPaidInstanceReqEngineVersionEnum {
-    E_1_1_0 = '1.1.0',
-    E_2_7 = '2.7'
 }
 /**
     * @export

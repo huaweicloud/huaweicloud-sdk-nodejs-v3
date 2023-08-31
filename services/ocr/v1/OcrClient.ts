@@ -152,6 +152,8 @@ import { RecognizeQualificationCertificateRequest } from './model/RecognizeQuali
 import { RecognizeQualificationCertificateResponse } from './model/RecognizeQualificationCertificateResponse';
 import { RecognizeQuotaInvoiceRequest } from './model/RecognizeQuotaInvoiceRequest';
 import { RecognizeQuotaInvoiceResponse } from './model/RecognizeQuotaInvoiceResponse';
+import { RecognizeSmartDocumentRecognizerRequest } from './model/RecognizeSmartDocumentRecognizerRequest';
+import { RecognizeSmartDocumentRecognizerResponse } from './model/RecognizeSmartDocumentRecognizerResponse';
 import { RecognizeTaxiInvoiceRequest } from './model/RecognizeTaxiInvoiceRequest';
 import { RecognizeTaxiInvoiceResponse } from './model/RecognizeTaxiInvoiceResponse';
 import { RecognizeThailandIdcardRequest } from './model/RecognizeThailandIdcardRequest';
@@ -174,6 +176,18 @@ import { RecognizeWaybillElectronicRequest } from './model/RecognizeWaybillElect
 import { RecognizeWaybillElectronicResponse } from './model/RecognizeWaybillElectronicResponse';
 import { RecognizeWebImageRequest } from './model/RecognizeWebImageRequest';
 import { RecognizeWebImageResponse } from './model/RecognizeWebImageResponse';
+import { SmartDocumentRecognizerKVBlock } from './model/SmartDocumentRecognizerKVBlock';
+import { SmartDocumentRecognizerKVWordsBlock } from './model/SmartDocumentRecognizerKVWordsBlock';
+import { SmartDocumentRecognizerKvResult } from './model/SmartDocumentRecognizerKvResult';
+import { SmartDocumentRecognizerLayoutBlock } from './model/SmartDocumentRecognizerLayoutBlock';
+import { SmartDocumentRecognizerLayoutResult } from './model/SmartDocumentRecognizerLayoutResult';
+import { SmartDocumentRecognizerOcrResult } from './model/SmartDocumentRecognizerOcrResult';
+import { SmartDocumentRecognizerRequestBody } from './model/SmartDocumentRecognizerRequestBody';
+import { SmartDocumentRecognizerResult } from './model/SmartDocumentRecognizerResult';
+import { SmartDocumentRecognizerTableBlock } from './model/SmartDocumentRecognizerTableBlock';
+import { SmartDocumentRecognizerTableResult } from './model/SmartDocumentRecognizerTableResult';
+import { SmartDocumentRecognizerTableWordsBlock } from './model/SmartDocumentRecognizerTableWordsBlock';
+import { SmartDocumentRecognizerWordsBlockList } from './model/SmartDocumentRecognizerWordsBlockList';
 import { TaxiInvoiceRequestBody } from './model/TaxiInvoiceRequestBody';
 import { TaxiInvoiceResult } from './model/TaxiInvoiceResult';
 import { ThailandIdcardConfidence } from './model/ThailandIdcardConfidence';
@@ -845,6 +859,26 @@ export class OcrClient {
      */
     public recognizeQuotaInvoice(recognizeQuotaInvoiceRequest?: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
         const options = ParamCreater().recognizeQuotaInvoice(recognizeQuotaInvoiceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对证件、票据、表单等任意版式文档进行键值对提取、文字识别、以及表格识别等任务，实现进阶高效的自动化结构化返回。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 智能文档解析
+     * @param {SmartDocumentRecognizerRequestBody} recognizeSmartDocumentRecognizerRequestBody This is a smart-document-recognizer Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeSmartDocumentRecognizer(recognizeSmartDocumentRecognizerRequest?: RecognizeSmartDocumentRecognizerRequest): Promise<RecognizeSmartDocumentRecognizerResponse> {
+        const options = ParamCreater().recognizeSmartDocumentRecognizer(recognizeSmartDocumentRecognizerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2436,6 +2470,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeQuotaInvoiceRequest['body'];
                     enterpriseProjectId = recognizeQuotaInvoiceRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对证件、票据、表单等任意版式文档进行键值对提取、文字识别、以及表格识别等任务，实现进阶高效的自动化结构化返回。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeSmartDocumentRecognizer(recognizeSmartDocumentRecognizerRequest?: RecognizeSmartDocumentRecognizerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/smart-document-recognizer",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeSmartDocumentRecognizerRequest !== null && recognizeSmartDocumentRecognizerRequest !== undefined) {
+                if (recognizeSmartDocumentRecognizerRequest instanceof RecognizeSmartDocumentRecognizerRequest) {
+                    body = recognizeSmartDocumentRecognizerRequest.body
+                    enterpriseProjectId = recognizeSmartDocumentRecognizerRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeSmartDocumentRecognizerRequest['body'];
+                    enterpriseProjectId = recognizeSmartDocumentRecognizerRequest['Enterprise-Project-Id'];
                 }
             }
 

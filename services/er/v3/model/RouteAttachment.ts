@@ -4,7 +4,6 @@ export class RouteAttachment {
     private 'resource_id'?: string;
     private 'resource_type'?: string;
     private 'attachment_id'?: string;
-    public priority?: number;
     public constructor(resourceId?: string, resourceType?: string, attachmentId?: string) { 
         this['resource_id'] = resourceId;
         this['resource_type'] = resourceType;
@@ -39,9 +38,5 @@ export class RouteAttachment {
     }
     public get attachmentId(): string | undefined {
         return this['attachment_id'];
-    }
-    public withPriority(priority: number): RouteAttachment {
-        this['priority'] = priority;
-        return this;
     }
 }

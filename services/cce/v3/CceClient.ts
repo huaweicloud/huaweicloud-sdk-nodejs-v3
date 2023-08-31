@@ -9,6 +9,7 @@ import { AddNodeList } from './model/AddNodeList';
 import { AddNodeRequest } from './model/AddNodeRequest';
 import { AddNodeResponse } from './model/AddNodeResponse';
 import { AddonInstance } from './model/AddonInstance';
+import { AddonInstanceRollbackRequest } from './model/AddonInstanceRollbackRequest';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
 import { AddonMetadata } from './model/AddonMetadata';
 import { AddonTemplate } from './model/AddonTemplate';
@@ -16,6 +17,12 @@ import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
 import { AwakeClusterRequest } from './model/AwakeClusterRequest';
 import { AwakeClusterResponse } from './model/AwakeClusterResponse';
+import { BatchCreateClusterTagsRequest } from './model/BatchCreateClusterTagsRequest';
+import { BatchCreateClusterTagsRequestBody } from './model/BatchCreateClusterTagsRequestBody';
+import { BatchCreateClusterTagsResponse } from './model/BatchCreateClusterTagsResponse';
+import { BatchDeleteClusterTagsRequest } from './model/BatchDeleteClusterTagsRequest';
+import { BatchDeleteClusterTagsRequestBody } from './model/BatchDeleteClusterTagsRequestBody';
+import { BatchDeleteClusterTagsResponse } from './model/BatchDeleteClusterTagsResponse';
 import { CertDuration } from './model/CertDuration';
 import { Cluster } from './model/Cluster';
 import { ClusterCert } from './model/ClusterCert';
@@ -156,10 +163,17 @@ import { ResetNode } from './model/ResetNode';
 import { ResetNodeList } from './model/ResetNodeList';
 import { ResetNodeRequest } from './model/ResetNodeRequest';
 import { ResetNodeResponse } from './model/ResetNodeResponse';
+import { ResizeClusterRequest } from './model/ResizeClusterRequest';
+import { ResizeClusterRequestBody } from './model/ResizeClusterRequestBody';
+import { ResizeClusterRequestExtendParam } from './model/ResizeClusterRequestExtendParam';
+import { ResizeClusterResponse } from './model/ResizeClusterResponse';
+import { ResourceDeleteTag } from './model/ResourceDeleteTag';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceTag } from './model/ResourceTag';
 import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
 import { RetryUpgradeClusterTaskResponse } from './model/RetryUpgradeClusterTaskResponse';
+import { RollbackAddonInstanceRequest } from './model/RollbackAddonInstanceRequest';
+import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResponse';
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
 import { SecurityID } from './model/SecurityID';
@@ -270,6 +284,51 @@ export class CceClient {
      */
     public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<AwakeClusterResponse> {
         const options = ParamCreater().awakeCluster(awakeClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量添加指定集群的资源标签。
+     * &gt; - 每个集群支持最多20个资源标签。
+     * &gt; - 此接口为幂等接口：创建时，如果创建的标签已经存在（key/value均相同视为重复），默认处理成功；key相同，value不同时会覆盖原有标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加指定集群的资源标签
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {BatchCreateClusterTagsRequestBody} batchCreateClusterTagsRequestBody 批量添加指定集群资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateClusterTags(batchCreateClusterTagsRequest?: BatchCreateClusterTagsRequest): Promise<BatchCreateClusterTagsResponse> {
+        const options = ParamCreater().batchCreateClusterTags(batchCreateClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量删除指定集群的资源标签。
+     * &gt; - 此接口为幂等接口：删除时，如果删除的标签key不存在，默认处理成功。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定集群的资源标签
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {BatchDeleteClusterTagsRequestBody} batchDeleteClusterTagsRequestBody 批量删除指定集群资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteClusterTags(batchDeleteClusterTagsRequest?: BatchDeleteClusterTagsRequest): Promise<BatchDeleteClusterTagsResponse> {
+        const options = ParamCreater().batchDeleteClusterTags(batchDeleteClusterTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -778,6 +837,30 @@ export class CceClient {
     }
 
     /**
+     * 该API用于变更一个指定集群的规格。
+     * 
+     * &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * &gt;   - 使用限制请参考：[[变更集群规格](https://support.huaweicloud.com/usermanual-cce/cce_10_0403.html)。](tag:hws)[[变更集群规格](https://support.huaweicloud.com/intl/zh-cn/usermanual-cce/cce_10_0403.html)](tag:hws_hk)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更集群规格
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {ResizeClusterRequestBody} resizeClusterRequestBody 变更集群规格的结构体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeCluster(resizeClusterRequest?: ResizeClusterRequest): Promise<ResizeClusterResponse> {
+        const options = ParamCreater().resizeCluster(resizeClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重新执行失败的集群升级任务。
      * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
      * &gt; - 当前集群升级相关接口受限开放。
@@ -791,6 +874,26 @@ export class CceClient {
      */
     public retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest): Promise<RetryUpgradeClusterTaskResponse> {
         const options = ParamCreater().retryUpgradeClusterTask(retryUpgradeClusterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将插件实例回滚到升级前的版本。只有在当前插件实例版本支持回滚到升级前的版本（status.isRollbackable为true），且插件实例状态为running（运行中）、available（可用）、abnormal（不可用）、upgradeFailed（升级失败）、rollbackFailed（回滚失败）时支持回滚。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 回滚AddonInstance
+     * @param {string} id 插件实例ID
+     * @param {AddonInstanceRollbackRequest} addonInstanceRollbackRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rollbackAddonInstance(rollbackAddonInstanceRequest?: RollbackAddonInstanceRequest): Promise<RollbackAddonInstanceResponse> {
+        const options = ParamCreater().rollbackAddonInstance(rollbackAddonInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1224,6 +1327,115 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量添加指定集群的资源标签。
+         * &gt; - 每个集群支持最多20个资源标签。
+         * &gt; - 此接口为幂等接口：创建时，如果创建的标签已经存在（key/value均相同视为重复），默认处理成功；key相同，value不同时会覆盖原有标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateClusterTags(batchCreateClusterTagsRequest?: BatchCreateClusterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchCreateClusterTagsRequest !== null && batchCreateClusterTagsRequest !== undefined) {
+                if (batchCreateClusterTagsRequest instanceof BatchCreateClusterTagsRequest) {
+                    clusterId = batchCreateClusterTagsRequest.clusterId;
+                    contentType = batchCreateClusterTagsRequest.contentType;
+                    body = batchCreateClusterTagsRequest.body
+                } else {
+                    clusterId = batchCreateClusterTagsRequest['cluster_id'];
+                    contentType = batchCreateClusterTagsRequest['Content-Type'];
+                    body = batchCreateClusterTagsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchCreateClusterTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量删除指定集群的资源标签。
+         * &gt; - 此接口为幂等接口：删除时，如果删除的标签key不存在，默认处理成功。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteClusterTags(batchDeleteClusterTagsRequest?: BatchDeleteClusterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchDeleteClusterTagsRequest !== null && batchDeleteClusterTagsRequest !== undefined) {
+                if (batchDeleteClusterTagsRequest instanceof BatchDeleteClusterTagsRequest) {
+                    clusterId = batchDeleteClusterTagsRequest.clusterId;
+                    contentType = batchDeleteClusterTagsRequest.contentType;
+                    body = batchDeleteClusterTagsRequest.body
+                } else {
+                    clusterId = batchDeleteClusterTagsRequest['cluster_id'];
+                    contentType = batchDeleteClusterTagsRequest['Content-Type'];
+                    body = batchDeleteClusterTagsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchDeleteClusterTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2451,6 +2663,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于变更一个指定集群的规格。
+         * 
+         * &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * &gt;   - 使用限制请参考：[[变更集群规格](https://support.huaweicloud.com/usermanual-cce/cce_10_0403.html)。](tag:hws)[[变更集群规格](https://support.huaweicloud.com/intl/zh-cn/usermanual-cce/cce_10_0403.html)](tag:hws_hk)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeCluster(resizeClusterRequest?: ResizeClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/resize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (resizeClusterRequest !== null && resizeClusterRequest !== undefined) {
+                if (resizeClusterRequest instanceof ResizeClusterRequest) {
+                    clusterId = resizeClusterRequest.clusterId;
+                    contentType = resizeClusterRequest.contentType;
+                    body = resizeClusterRequest.body
+                } else {
+                    clusterId = resizeClusterRequest['cluster_id'];
+                    contentType = resizeClusterRequest['Content-Type'];
+                    body = resizeClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resizeCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重新执行失败的集群升级任务。
          * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
          * &gt; - 当前集群升级相关接口受限开放。
@@ -2485,6 +2753,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将插件实例回滚到升级前的版本。只有在当前插件实例版本支持回滚到升级前的版本（status.isRollbackable为true），且插件实例状态为running（运行中）、available（可用）、abnormal（不可用）、upgradeFailed（升级失败）、rollbackFailed（回滚失败）时支持回滚。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rollbackAddonInstance(rollbackAddonInstanceRequest?: RollbackAddonInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/addons/{id}/operation/rollback",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (rollbackAddonInstanceRequest !== null && rollbackAddonInstanceRequest !== undefined) {
+                if (rollbackAddonInstanceRequest instanceof RollbackAddonInstanceRequest) {
+                    id = rollbackAddonInstanceRequest.id;
+                    body = rollbackAddonInstanceRequest.body
+                } else {
+                    id = rollbackAddonInstanceRequest['id'];
+                    body = rollbackAddonInstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling rollbackAddonInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

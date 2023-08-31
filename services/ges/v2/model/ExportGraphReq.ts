@@ -1,3 +1,4 @@
+import { ExportGraphReqPaginate } from './ExportGraphReqPaginate';
 
 
 export class ExportGraphReq {
@@ -5,6 +6,7 @@ export class ExportGraphReq {
     private 'edge_set_name'?: string;
     private 'vertex_set_name'?: string;
     private 'schema_name'?: string;
+    public paginate?: ExportGraphReqPaginate;
     public constructor(graphExportPath?: string, edgeSetName?: string, vertexSetName?: string, schemaName?: string) { 
         this['graph_export_path'] = graphExportPath;
         this['edge_set_name'] = edgeSetName;
@@ -50,5 +52,9 @@ export class ExportGraphReq {
     }
     public get schemaName(): string | undefined {
         return this['schema_name'];
+    }
+    public withPaginate(paginate: ExportGraphReqPaginate): ExportGraphReq {
+        this['paginate'] = paginate;
+        return this;
     }
 }

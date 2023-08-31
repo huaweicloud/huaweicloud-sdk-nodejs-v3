@@ -6,7 +6,7 @@ export class CreateInstanceByEngineReq {
     public name?: string;
     public description?: string;
     public engine?: CreateInstanceByEngineReqEngineEnum | string;
-    private 'engine_version'?: CreateInstanceByEngineReqEngineVersionEnum | string;
+    private 'engine_version'?: string;
     private 'broker_num'?: number;
     private 'storage_space'?: number;
     private 'access_user'?: string;
@@ -61,14 +61,14 @@ export class CreateInstanceByEngineReq {
         this['engine'] = engine;
         return this;
     }
-    public withEngineVersion(engineVersion: CreateInstanceByEngineReqEngineVersionEnum | string): CreateInstanceByEngineReq {
+    public withEngineVersion(engineVersion: string): CreateInstanceByEngineReq {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: CreateInstanceByEngineReqEngineVersionEnum | string  | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion(): CreateInstanceByEngineReqEngineVersionEnum | string | undefined {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withBrokerNum(brokerNum: number): CreateInstanceByEngineReq {
@@ -357,14 +357,6 @@ export class CreateInstanceByEngineReq {
     */
 export enum CreateInstanceByEngineReqEngineEnum {
     KAFKA = 'kafka'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceByEngineReqEngineVersionEnum {
-    E_1_1_0 = '1.1.0',
-    E_2_7 = '2.7'
 }
 /**
     * @export

@@ -4,6 +4,7 @@ import { FaceQuality } from './FaceQuality';
 
 
 export class Attributes {
+    public gender?: string;
     public dress?: Dress;
     public glass?: string;
     public hat?: string;
@@ -15,7 +16,8 @@ export class Attributes {
     public hair?: string;
     public expression?: AttributesExpression;
     private 'face_angle'?: number;
-    public constructor(dress?: Dress, glass?: string, hat?: string, age?: number, mask?: string, beard?: string, phototype?: string, quality?: FaceQuality, hair?: string, expression?: AttributesExpression, faceAngle?: number) { 
+    public constructor(gender?: string, dress?: Dress, glass?: string, hat?: string, age?: number, mask?: string, beard?: string, phototype?: string, quality?: FaceQuality, hair?: string, expression?: AttributesExpression, faceAngle?: number) { 
+        this['gender'] = gender;
         this['dress'] = dress;
         this['glass'] = glass;
         this['hat'] = hat;
@@ -27,6 +29,10 @@ export class Attributes {
         this['hair'] = hair;
         this['expression'] = expression;
         this['face_angle'] = faceAngle;
+    }
+    public withGender(gender: string): Attributes {
+        this['gender'] = gender;
+        return this;
     }
     public withDress(dress: Dress): Attributes {
         this['dress'] = dress;

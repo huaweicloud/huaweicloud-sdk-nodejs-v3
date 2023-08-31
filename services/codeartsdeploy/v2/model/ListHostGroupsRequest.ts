@@ -9,7 +9,8 @@ export class ListHostGroupsRequest {
     public name?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: ListHostGroupsRequestSortDirEnum | string;
-    public constructor(regionName?: string) { 
+    public constructor(projectId?: string, regionName?: string) { 
+        this['project_id'] = projectId;
         this['region_name'] = regionName;
     }
     public withProjectId(projectId: string): ListHostGroupsRequest {

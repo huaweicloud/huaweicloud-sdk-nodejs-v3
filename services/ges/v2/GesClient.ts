@@ -43,6 +43,7 @@ import { ExpandGraphReqExpand } from './model/ExpandGraphReqExpand';
 import { ExportGraph2Request } from './model/ExportGraph2Request';
 import { ExportGraph2Response } from './model/ExportGraph2Response';
 import { ExportGraphReq } from './model/ExportGraphReq';
+import { ExportGraphReqPaginate } from './model/ExportGraphReqPaginate';
 import { ImportGraph2Request } from './model/ImportGraph2Request';
 import { ImportGraph2Response } from './model/ImportGraph2Response';
 import { ImportGraphReq } from './model/ImportGraphReq';

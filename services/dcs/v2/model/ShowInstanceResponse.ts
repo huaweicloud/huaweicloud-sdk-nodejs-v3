@@ -26,6 +26,7 @@ export class ShowInstanceResponse extends SdkResponse {
     public ip?: string;
     private 'instance_backup_policy'?: InstanceBackupPolicy;
     private 'az_codes'?: Array<string>;
+    private 'available_zones'?: Array<string>;
     private 'access_user'?: string;
     private 'instance_id'?: string;
     public port?: number;
@@ -236,6 +237,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get azCodes(): Array<string> | undefined {
         return this['az_codes'];
+    }
+    public withAvailableZones(availableZones: Array<string>): ShowInstanceResponse {
+        this['available_zones'] = availableZones;
+        return this;
+    }
+    public set availableZones(availableZones: Array<string>  | undefined) {
+        this['available_zones'] = availableZones;
+    }
+    public get availableZones(): Array<string> | undefined {
+        return this['available_zones'];
     }
     public withAccessUser(accessUser: string): ShowInstanceResponse {
         this['access_user'] = accessUser;

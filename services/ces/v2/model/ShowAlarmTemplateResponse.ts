@@ -9,7 +9,6 @@ export class ShowAlarmTemplateResponse extends SdkResponse {
     private 'template_type'?: TemplateType;
     private 'create_time'?: Date;
     private 'template_description'?: string;
-    private 'association_alarm_total'?: number;
     public policies?: Array<AlarmTemplatePolicies>;
     public constructor() { 
         super();
@@ -63,16 +62,6 @@ export class ShowAlarmTemplateResponse extends SdkResponse {
     }
     public get templateDescription(): string | undefined {
         return this['template_description'];
-    }
-    public withAssociationAlarmTotal(associationAlarmTotal: number): ShowAlarmTemplateResponse {
-        this['association_alarm_total'] = associationAlarmTotal;
-        return this;
-    }
-    public set associationAlarmTotal(associationAlarmTotal: number  | undefined) {
-        this['association_alarm_total'] = associationAlarmTotal;
-    }
-    public get associationAlarmTotal(): number | undefined {
-        return this['association_alarm_total'];
     }
     public withPolicies(policies: Array<AlarmTemplatePolicies>): ShowAlarmTemplateResponse {
         this['policies'] = policies;

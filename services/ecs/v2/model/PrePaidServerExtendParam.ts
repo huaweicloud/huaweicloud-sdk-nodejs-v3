@@ -14,6 +14,7 @@ export class PrePaidServerExtendParam {
     public diskPrior?: string;
     private 'spot_duration_hours'?: number;
     private 'interruption_policy'?: PrePaidServerExtendParamInterruptionPolicyEnum | string;
+    private 'CB_CSBS_BACKUP'?: string;
     private 'spot_duration_count'?: number;
     public constructor() { 
     }
@@ -92,6 +93,16 @@ export class PrePaidServerExtendParam {
     }
     public get interruptionPolicy(): PrePaidServerExtendParamInterruptionPolicyEnum | string | undefined {
         return this['interruption_policy'];
+    }
+    public withCbCsbsBackup(cbCsbsBackup: string): PrePaidServerExtendParam {
+        this['CB_CSBS_BACKUP'] = cbCsbsBackup;
+        return this;
+    }
+    public set cbCsbsBackup(cbCsbsBackup: string  | undefined) {
+        this['CB_CSBS_BACKUP'] = cbCsbsBackup;
+    }
+    public get cbCsbsBackup(): string | undefined {
+        return this['CB_CSBS_BACKUP'];
     }
     public withSpotDurationCount(spotDurationCount: number): PrePaidServerExtendParam {
         this['spot_duration_count'] = spotDurationCount;

@@ -17,8 +17,9 @@ import { AlarmTemplateID } from './model/AlarmTemplateID';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
-import { AssociationAlarmTotal } from './model/AssociationAlarmTotal';
-import { AssociationResourceGroup } from './model/AssociationResourceGroup';
+import { BaseWidgetInfo } from './model/BaseWidgetInfo';
+import { BaseWidgetInfoLocation } from './model/BaseWidgetInfoLocation';
+import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
 import { BatchCreateResourcesRequest } from './model/BatchCreateResourcesRequest';
 import { BatchCreateResourcesResponse } from './model/BatchCreateResourcesResponse';
 import { BatchDeleteAlarmRulesRequest } from './model/BatchDeleteAlarmRulesRequest';
@@ -27,6 +28,8 @@ import { BatchDeleteAlarmTemplatesRequest } from './model/BatchDeleteAlarmTempla
 import { BatchDeleteAlarmTemplatesRequestBody } from './model/BatchDeleteAlarmTemplatesRequestBody';
 import { BatchDeleteAlarmTemplatesResponse } from './model/BatchDeleteAlarmTemplatesResponse';
 import { BatchDeleteAlarmsRequestBody } from './model/BatchDeleteAlarmsRequestBody';
+import { BatchDeleteDashboardRequestBody } from './model/BatchDeleteDashboardRequestBody';
+import { BatchDeleteDashboardRespInfo } from './model/BatchDeleteDashboardRespInfo';
 import { BatchDeleteResourceGroupsRequest } from './model/BatchDeleteResourceGroupsRequest';
 import { BatchDeleteResourceGroupsRequestBody } from './model/BatchDeleteResourceGroupsRequestBody';
 import { BatchDeleteResourceGroupsResponse } from './model/BatchDeleteResourceGroupsResponse';
@@ -35,6 +38,9 @@ import { BatchDeleteResourcesResponse } from './model/BatchDeleteResourcesRespon
 import { BatchEnableAlarmRulesRequest } from './model/BatchEnableAlarmRulesRequest';
 import { BatchEnableAlarmRulesResponse } from './model/BatchEnableAlarmRulesResponse';
 import { BatchEnableAlarmsRequestBody } from './model/BatchEnableAlarmsRequestBody';
+import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
+import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
+import { BatchUpdateWidgetsResponse } from './model/BatchUpdateWidgetsResponse';
 import { ComparisonOperator } from './model/ComparisonOperator';
 import { Count } from './model/Count';
 import { CreateAlarmRulesRequest } from './model/CreateAlarmRulesRequest';
@@ -42,21 +48,35 @@ import { CreateAlarmRulesResponse } from './model/CreateAlarmRulesResponse';
 import { CreateAlarmTemplateRequest } from './model/CreateAlarmTemplateRequest';
 import { CreateAlarmTemplateRequestBody } from './model/CreateAlarmTemplateRequestBody';
 import { CreateAlarmTemplateResponse } from './model/CreateAlarmTemplateResponse';
+import { CreateDashboardRequestBody } from './model/CreateDashboardRequestBody';
+import { CreateDashboardWidgetsRequest } from './model/CreateDashboardWidgetsRequest';
+import { CreateDashboardWidgetsResponse } from './model/CreateDashboardWidgetsResponse';
+import { CreateOneDashboardRequest } from './model/CreateOneDashboardRequest';
+import { CreateOneDashboardResponse } from './model/CreateOneDashboardResponse';
 import { CreateResourceGroupRequest } from './model/CreateResourceGroupRequest';
 import { CreateResourceGroupRequestBody } from './model/CreateResourceGroupRequestBody';
 import { CreateResourceGroupResponse } from './model/CreateResourceGroupResponse';
 import { CreateTime } from './model/CreateTime';
+import { DashBoardIdItem } from './model/DashBoardIdItem';
+import { DashBoardInfo } from './model/DashBoardInfo';
+import { DashBoardNameItem } from './model/DashBoardNameItem';
 import { DataPointInfo } from './model/DataPointInfo';
 import { DeleteAlarmRuleResourcesRequest } from './model/DeleteAlarmRuleResourcesRequest';
 import { DeleteAlarmRuleResourcesResponse } from './model/DeleteAlarmRuleResourcesResponse';
+import { DeleteDashboardsRequest } from './model/DeleteDashboardsRequest';
+import { DeleteDashboardsResponse } from './model/DeleteDashboardsResponse';
+import { DeleteOneWidgetRequest } from './model/DeleteOneWidgetRequest';
+import { DeleteOneWidgetResponse } from './model/DeleteOneWidgetResponse';
 import { Dimension } from './model/Dimension';
 import { Dimension2 } from './model/Dimension2';
+import { DimensionInfo } from './model/DimensionInfo';
 import { DimensionName } from './model/DimensionName';
+import { EnterpriseIdItem } from './model/EnterpriseIdItem';
 import { EnterpriseProjectID } from './model/EnterpriseProjectID';
+import { ExtraInfo } from './model/ExtraInfo';
 import { Filter } from './model/Filter';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
-import { GroupID } from './model/GroupID';
-import { GroupName } from './model/GroupName';
+import { IsFavoriteItem } from './model/IsFavoriteItem';
 import { Level } from './model/Level';
 import { ListAgentDimensionInfoRequest } from './model/ListAgentDimensionInfoRequest';
 import { ListAgentDimensionInfoResponse } from './model/ListAgentDimensionInfoResponse';
@@ -74,12 +94,18 @@ import { ListAlarmTemplateAssociationAlarmsResponse } from './model/ListAlarmTem
 import { ListAlarmTemplatesRequest } from './model/ListAlarmTemplatesRequest';
 import { ListAlarmTemplatesResponse } from './model/ListAlarmTemplatesResponse';
 import { ListAssociationAlarmsResponseAlarms } from './model/ListAssociationAlarmsResponseAlarms';
+import { ListDashboardInfosRequest } from './model/ListDashboardInfosRequest';
+import { ListDashboardInfosResponse } from './model/ListDashboardInfosResponse';
+import { ListDashboardWidgetsRequest } from './model/ListDashboardWidgetsRequest';
+import { ListDashboardWidgetsResponse } from './model/ListDashboardWidgetsResponse';
+import { ListPolicy } from './model/ListPolicy';
 import { ListResourceGroupsRequest } from './model/ListResourceGroupsRequest';
 import { ListResourceGroupsResponse } from './model/ListResourceGroupsResponse';
 import { ListResourceGroupsServicesResourcesRequest } from './model/ListResourceGroupsServicesResourcesRequest';
 import { ListResourceGroupsServicesResourcesResponse } from './model/ListResourceGroupsServicesResourcesResponse';
 import { Metric } from './model/Metric';
 import { MetricDimension } from './model/MetricDimension';
+import { MetricExtraInfo } from './model/MetricExtraInfo';
 import { MetricName } from './model/MetricName';
 import { Namespace } from './model/Namespace';
 import { NamespaceAllowedEmpty } from './model/NamespaceAllowedEmpty';
@@ -91,8 +117,6 @@ import { OneResourceGroupResp } from './model/OneResourceGroupResp';
 import { Policies } from './model/Policies';
 import { PoliciesReqV2 } from './model/PoliciesReqV2';
 import { Policy } from './model/Policy';
-import { PolicyStatistics } from './model/PolicyStatistics';
-import { PolicyTotal } from './model/PolicyTotal';
 import { PostAlarmsReqV2 } from './model/PostAlarmsReqV2';
 import { PutResourceGroupReq } from './model/PutResourceGroupReq';
 import { Resource } from './model/Resource';
@@ -106,20 +130,32 @@ import { ShowAlarmTemplateRequest } from './model/ShowAlarmTemplateRequest';
 import { ShowAlarmTemplateResponse } from './model/ShowAlarmTemplateResponse';
 import { ShowResourceGroupRequest } from './model/ShowResourceGroupRequest';
 import { ShowResourceGroupResponse } from './model/ShowResourceGroupResponse';
-import { TemplateApplicationType } from './model/TemplateApplicationType';
+import { ShowWidgetRequest } from './model/ShowWidgetRequest';
+import { ShowWidgetResponse } from './model/ShowWidgetResponse';
 import { TemplateDescription } from './model/TemplateDescription';
 import { TemplateID } from './model/TemplateID';
 import { TemplateName } from './model/TemplateName';
 import { TemplateType } from './model/TemplateType';
 import { Unit } from './model/Unit';
+import { UnitItem } from './model/UnitItem';
 import { UpdateAlarmRulePoliciesRequest } from './model/UpdateAlarmRulePoliciesRequest';
 import { UpdateAlarmRulePoliciesResponse } from './model/UpdateAlarmRulePoliciesResponse';
 import { UpdateAlarmTemplateRequest } from './model/UpdateAlarmTemplateRequest';
 import { UpdateAlarmTemplateRequestBody } from './model/UpdateAlarmTemplateRequestBody';
 import { UpdateAlarmTemplateResponse } from './model/UpdateAlarmTemplateResponse';
+import { UpdateDashboardRequest } from './model/UpdateDashboardRequest';
+import { UpdateDashboardRequestBody } from './model/UpdateDashboardRequestBody';
+import { UpdateDashboardResponse } from './model/UpdateDashboardResponse';
+import { UpdatePolicy } from './model/UpdatePolicy';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
 import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse';
+import { UpdateWidgetInfo } from './model/UpdateWidgetInfo';
 import { Value } from './model/Value';
+import { WidgetDisplayMode } from './model/WidgetDisplayMode';
+import { WidgetIdItem } from './model/WidgetIdItem';
+import { WidgetInfo } from './model/WidgetInfo';
+import { WidgetInfoWithId } from './model/WidgetInfoWithId';
+import { WidgetMetric } from './model/WidgetMetric';
 
 export class CesClient {
     public static newBuilder(): ClientBuilder<CesClient> {
@@ -273,6 +309,25 @@ export class CesClient {
     }
 
     /**
+     * 批量更新监控视图
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新监控视图
+     * @param {Array<UpdateWidgetInfo>} batchUpdateWidgetsRequestBody 批量更新监控视图请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateWidgets(batchUpdateWidgetsRequest?: BatchUpdateWidgetsRequest): Promise<BatchUpdateWidgetsResponse> {
+        const options = ParamCreater().batchUpdateWidgets(batchUpdateWidgetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -303,6 +358,45 @@ export class CesClient {
      */
     public createAlarmTemplate(createAlarmTemplateRequest?: CreateAlarmTemplateRequest): Promise<CreateAlarmTemplateResponse> {
         const options = ParamCreater().createAlarmTemplate(createAlarmTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建/复制/批量创建监控视图到指定的监控面板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建/复制/批量创建监控视图到指定的监控面板
+     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控面板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDashboardWidgets(createDashboardWidgetsRequest?: CreateDashboardWidgetsRequest): Promise<CreateDashboardWidgetsResponse> {
+        const options = ParamCreater().createDashboardWidgets(createDashboardWidgetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建/复制监控面板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建/复制监控面板
+     * @param {CreateDashboardRequestBody} createOneDashboardRequestBody 创建监控面板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOneDashboard(createOneDashboardRequest?: CreateOneDashboardRequest): Promise<CreateOneDashboardResponse> {
+        const options = ParamCreater().createOneDashboard(createOneDashboardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -342,6 +436,44 @@ export class CesClient {
      */
     public deleteAlarmRuleResources(deleteAlarmRuleResourcesRequest?: DeleteAlarmRuleResourcesRequest): Promise<DeleteAlarmRuleResourcesResponse> {
         const options = ParamCreater().deleteAlarmRuleResources(deleteAlarmRuleResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除监控面板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除监控面板
+     * @param {BatchDeleteDashboardRequestBody} [deleteDashboardsRequestBody] 批量删除监控面板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDashboards(deleteDashboardsRequest?: DeleteDashboardsRequest): Promise<DeleteDashboardsResponse> {
+        const options = ParamCreater().deleteDashboards(deleteDashboardsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定监控视图
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定监控视图
+     * @param {string} widgetId 监控视图id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOneWidget(deleteOneWidgetRequest?: DeleteOneWidgetRequest): Promise<DeleteOneWidgetResponse> {
+        const options = ParamCreater().deleteOneWidget(deleteOneWidgetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -513,6 +645,47 @@ export class CesClient {
     }
 
     /**
+     * 查询监控面板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询监控面板列表
+     * @param {string} [enterpriseId] 企业项目Id
+     * @param {boolean} [isFavorite] 指定企业项目下监控面板是否收藏，true:收藏，false:未收藏，填此参数时，enterprise_id必填
+     * @param {string} [dashboardName] 监控面板名称
+     * @param {string} [dashboardId] 监控面板id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDashboardInfos(listDashboardInfosRequest?: ListDashboardInfosRequest): Promise<ListDashboardInfosResponse> {
+        const options = ParamCreater().listDashboardInfos(listDashboardInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定监控面板下的监控视图列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定监控面板下的监控视图列表
+     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDashboardWidgets(listDashboardWidgetsRequest?: ListDashboardWidgetsRequest): Promise<ListDashboardWidgetsResponse> {
+        const options = ParamCreater().listDashboardWidgets(listDashboardWidgetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询资源分组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -600,6 +773,25 @@ export class CesClient {
     }
 
     /**
+     * 查询指定监控视图信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定监控视图信息
+     * @param {string} widgetId 监控视图id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWidget(showWidgetRequest?: ShowWidgetRequest): Promise<ShowWidgetResponse> {
+        const options = ParamCreater().showWidget(showWidgetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改告警规则策略(全量修改)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -632,6 +824,26 @@ export class CesClient {
      */
     public updateAlarmTemplate(updateAlarmTemplateRequest?: UpdateAlarmTemplateRequest): Promise<UpdateAlarmTemplateResponse> {
         const options = ParamCreater().updateAlarmTemplate(updateAlarmTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改监控面板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改监控面板
+     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {UpdateDashboardRequestBody} updateDashboardRequestBody 修改监控面板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDashboard(updateDashboardRequest?: UpdateDashboardRequest): Promise<UpdateDashboardResponse> {
+        const options = ParamCreater().updateDashboard(updateDashboardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -954,6 +1166,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量更新监控视图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateWidgets(batchUpdateWidgetsRequest?: BatchUpdateWidgetsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/widgets/batch-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateWidgetsRequest !== null && batchUpdateWidgetsRequest !== undefined) {
+                if (batchUpdateWidgetsRequest instanceof BatchUpdateWidgetsRequest) {
+                    body = batchUpdateWidgetsRequest.body
+                } else {
+                    body = batchUpdateWidgetsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1015,6 +1265,87 @@ export const ParamCreater = function () {
                     body = createAlarmTemplateRequest.body
                 } else {
                     body = createAlarmTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建/复制/批量创建监控视图到指定的监控面板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDashboardWidgets(createDashboardWidgetsRequest?: CreateDashboardWidgetsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/dashboards/{dashboard_id}/widgets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let dashboardId;
+
+            if (createDashboardWidgetsRequest !== null && createDashboardWidgetsRequest !== undefined) {
+                if (createDashboardWidgetsRequest instanceof CreateDashboardWidgetsRequest) {
+                    dashboardId = createDashboardWidgetsRequest.dashboardId;
+                    body = createDashboardWidgetsRequest.body
+                } else {
+                    dashboardId = createDashboardWidgetsRequest['dashboard_id'];
+                    body = createDashboardWidgetsRequest['body'];
+                }
+            }
+
+        
+            if (dashboardId === null || dashboardId === undefined) {
+            throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling createDashboardWidgets.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建/复制监控面板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOneDashboard(createOneDashboardRequest?: CreateOneDashboardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/dashboards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createOneDashboardRequest !== null && createOneDashboardRequest !== undefined) {
+                if (createOneDashboardRequest instanceof CreateOneDashboardRequest) {
+                    body = createOneDashboardRequest.body
+                } else {
+                    body = createOneDashboardRequest['body'];
                 }
             }
 
@@ -1109,6 +1440,78 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'alarm_id': alarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除监控面板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDashboards(deleteDashboardsRequest?: DeleteDashboardsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/dashboards/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteDashboardsRequest !== null && deleteDashboardsRequest !== undefined) {
+                if (deleteDashboardsRequest instanceof DeleteDashboardsRequest) {
+                    body = deleteDashboardsRequest.body
+                } else {
+                    body = deleteDashboardsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定监控视图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOneWidget(deleteOneWidgetRequest?: DeleteOneWidgetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/widgets/{widget_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let widgetId;
+
+            if (deleteOneWidgetRequest !== null && deleteOneWidgetRequest !== undefined) {
+                if (deleteOneWidgetRequest instanceof DeleteOneWidgetRequest) {
+                    widgetId = deleteOneWidgetRequest.widgetId;
+                } else {
+                    widgetId = deleteOneWidgetRequest['widget_id'];
+                }
+            }
+
+        
+            if (widgetId === null || widgetId === undefined) {
+            throw new RequiredError('widgetId','Required parameter widgetId was null or undefined when calling deleteOneWidget.');
+            }
+
+            options.pathParams = { 'widget_id': widgetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1590,6 +1993,101 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询监控面板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDashboardInfos(listDashboardInfosRequest?: ListDashboardInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/dashboards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseId;
+            
+            let isFavorite;
+            
+            let dashboardName;
+            
+            let dashboardId;
+
+            if (listDashboardInfosRequest !== null && listDashboardInfosRequest !== undefined) {
+                if (listDashboardInfosRequest instanceof ListDashboardInfosRequest) {
+                    enterpriseId = listDashboardInfosRequest.enterpriseId;
+                    isFavorite = listDashboardInfosRequest.isFavorite;
+                    dashboardName = listDashboardInfosRequest.dashboardName;
+                    dashboardId = listDashboardInfosRequest.dashboardId;
+                } else {
+                    enterpriseId = listDashboardInfosRequest['enterprise_id'];
+                    isFavorite = listDashboardInfosRequest['is_favorite'];
+                    dashboardName = listDashboardInfosRequest['dashboard_name'];
+                    dashboardId = listDashboardInfosRequest['dashboard_id'];
+                }
+            }
+
+        
+            if (enterpriseId !== null && enterpriseId !== undefined) {
+                localVarQueryParameter['enterprise_id'] = enterpriseId;
+            }
+            if (isFavorite !== null && isFavorite !== undefined) {
+                localVarQueryParameter['is_favorite'] = isFavorite;
+            }
+            if (dashboardName !== null && dashboardName !== undefined) {
+                localVarQueryParameter['dashboard_name'] = dashboardName;
+            }
+            if (dashboardId !== null && dashboardId !== undefined) {
+                localVarQueryParameter['dashboard_id'] = dashboardId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定监控面板下的监控视图列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDashboardWidgets(listDashboardWidgetsRequest?: ListDashboardWidgetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/dashboards/{dashboard_id}/widgets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let dashboardId;
+
+            if (listDashboardWidgetsRequest !== null && listDashboardWidgetsRequest !== undefined) {
+                if (listDashboardWidgetsRequest instanceof ListDashboardWidgetsRequest) {
+                    dashboardId = listDashboardWidgetsRequest.dashboardId;
+                } else {
+                    dashboardId = listDashboardWidgetsRequest['dashboard_id'];
+                }
+            }
+
+        
+            if (dashboardId === null || dashboardId === undefined) {
+            throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling listDashboardWidgets.');
+            }
+
+            options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询资源分组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1816,6 +2314,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定监控视图信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWidget(showWidgetRequest?: ShowWidgetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/widgets/{widget_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let widgetId;
+
+            if (showWidgetRequest !== null && showWidgetRequest !== undefined) {
+                if (showWidgetRequest instanceof ShowWidgetRequest) {
+                    widgetId = showWidgetRequest.widgetId;
+                } else {
+                    widgetId = showWidgetRequest['widget_id'];
+                }
+            }
+
+        
+            if (widgetId === null || widgetId === undefined) {
+            throw new RequiredError('widgetId','Required parameter widgetId was null or undefined when calling showWidget.');
+            }
+
+            options.pathParams = { 'widget_id': widgetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改告警规则策略(全量修改)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1903,6 +2438,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改监控面板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDashboard(updateDashboardRequest?: UpdateDashboardRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/dashboards/{dashboard_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let dashboardId;
+
+            if (updateDashboardRequest !== null && updateDashboardRequest !== undefined) {
+                if (updateDashboardRequest instanceof UpdateDashboardRequest) {
+                    dashboardId = updateDashboardRequest.dashboardId;
+                    body = updateDashboardRequest.body
+                } else {
+                    dashboardId = updateDashboardRequest['dashboard_id'];
+                    body = updateDashboardRequest['body'];
+                }
+            }
+
+        
+            if (dashboardId === null || dashboardId === undefined) {
+            throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling updateDashboard.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'dashboard_id': dashboardId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

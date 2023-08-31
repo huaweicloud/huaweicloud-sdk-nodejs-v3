@@ -52,6 +52,8 @@ import { ShowHdfsFileListRequest } from './model/ShowHdfsFileListRequest';
 import { ShowHdfsFileListResponse } from './model/ShowHdfsFileListResponse';
 import { ShowJobExeListNewRequest } from './model/ShowJobExeListNewRequest';
 import { ShowJobExeListNewResponse } from './model/ShowJobExeListNewResponse';
+import { ShowMrsVersionListRequest } from './model/ShowMrsVersionListRequest';
+import { ShowMrsVersionListResponse } from './model/ShowMrsVersionListResponse';
 import { ShowSingleJobExeRequest } from './model/ShowSingleJobExeRequest';
 import { ShowSingleJobExeResponse } from './model/ShowSingleJobExeResponse';
 import { ShowSqlResultRequest } from './model/ShowSqlResultRequest';
@@ -508,6 +510,24 @@ export class MrsClient {
      */
     public showSqlResult(showSqlResultRequest?: ShowSqlResultRequest): Promise<ShowSqlResultResponse> {
         const options = ParamCreater().showSqlResult(showSqlResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 展示MRS版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 展示MRS版本列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMrsVersionList(showMrsVersionListRequest?: ShowMrsVersionListRequest): Promise<ShowMrsVersionListResponse> {
+        const options = ParamCreater().showMrsVersionList();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1520,6 +1540,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'sql_id': sqlId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 展示MRS版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMrsVersionList() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/metadata/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

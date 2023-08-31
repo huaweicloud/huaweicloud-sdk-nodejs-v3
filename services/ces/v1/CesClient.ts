@@ -70,6 +70,7 @@ import { Quotas } from './model/Quotas';
 import { Resource } from './model/Resource';
 import { ResourceGroup } from './model/ResourceGroup';
 import { ResourceGroupInfo } from './model/ResourceGroupInfo';
+import { ResourceQuotas } from './model/ResourceQuotas';
 import { ShowAlarmRequest } from './model/ShowAlarmRequest';
 import { ShowAlarmResponse } from './model/ShowAlarmResponse';
 import { ShowEventDataRequest } from './model/ShowEventDataRequest';

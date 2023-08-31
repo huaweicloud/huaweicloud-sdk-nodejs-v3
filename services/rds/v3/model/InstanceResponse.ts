@@ -14,6 +14,7 @@ export class InstanceResponse {
     private 'enable_ssl'?: boolean;
     private 'private_ips'?: Array<string>;
     private 'private_dns_names'?: Array<string>;
+    private 'public_dns_names'?: Array<string>;
     private 'public_ips'?: Array<string>;
     public type?: string;
     public created?: string;
@@ -116,6 +117,16 @@ export class InstanceResponse {
     }
     public get privateDnsNames(): Array<string> | undefined {
         return this['private_dns_names'];
+    }
+    public withPublicDnsNames(publicDnsNames: Array<string>): InstanceResponse {
+        this['public_dns_names'] = publicDnsNames;
+        return this;
+    }
+    public set publicDnsNames(publicDnsNames: Array<string>  | undefined) {
+        this['public_dns_names'] = publicDnsNames;
+    }
+    public get publicDnsNames(): Array<string> | undefined {
+        return this['public_dns_names'];
     }
     public withPublicIps(publicIps: Array<string>): InstanceResponse {
         this['public_ips'] = publicIps;

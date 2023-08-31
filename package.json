@@ -1,6 +1,6 @@
 {
   "name": "huaweicloud-sdk-nodejs-v3",
-  "version": "3.1.53",
+  "version": "3.1.54",
   "description": "Core code for Huaweicloud SDK for Node.js",
   "main": "index.js",
   "scripts": {

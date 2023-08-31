@@ -7,7 +7,6 @@ export class EffectiveRoute {
     private 'next_hops'?: Array<RouteAttachment>;
     private 'is_blackhole'?: boolean;
     private 'route_type'?: string;
-    private 'address_group_id'?: string;
     public constructor() { 
     }
     public withRouteId(routeId: string): EffectiveRoute {
@@ -53,15 +52,5 @@ export class EffectiveRoute {
     }
     public get routeType(): string | undefined {
         return this['route_type'];
-    }
-    public withAddressGroupId(addressGroupId: string): EffectiveRoute {
-        this['address_group_id'] = addressGroupId;
-        return this;
-    }
-    public set addressGroupId(addressGroupId: string  | undefined) {
-        this['address_group_id'] = addressGroupId;
-    }
-    public get addressGroupId(): string | undefined {
-        return this['address_group_id'];
     }
 }

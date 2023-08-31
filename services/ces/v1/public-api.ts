@@ -68,6 +68,7 @@ export * from './model/Quotas';
 export * from './model/Resource';
 export * from './model/ResourceGroup';
 export * from './model/ResourceGroupInfo';
+export * from './model/ResourceQuotas';
 export * from './model/ShowAlarmRequest';
 export * from './model/ShowAlarmResponse';
 export * from './model/ShowEventDataRequest';

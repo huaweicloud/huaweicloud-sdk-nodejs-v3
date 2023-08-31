@@ -1,12 +1,12 @@
-import { Policy } from './Policy';
+import { UpdatePolicy } from './UpdatePolicy';
 
 
 export class PoliciesReqV2 {
-    public policies?: Array<Policy>;
-    public constructor(policies?: Array<Policy>) { 
+    public policies?: Array<UpdatePolicy>;
+    public constructor(policies?: Array<UpdatePolicy>) { 
         this['policies'] = policies;
     }
-    public withPolicies(policies: Array<Policy>): PoliciesReqV2 {
+    public withPolicies(policies: Array<UpdatePolicy>): PoliciesReqV2 {
         this['policies'] = policies;
         return this;
     }

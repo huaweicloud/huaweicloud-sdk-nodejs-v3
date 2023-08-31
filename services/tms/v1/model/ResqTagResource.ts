@@ -5,6 +5,7 @@ export class ResqTagResource {
     private 'project_id'?: string;
     private 'resource_types'?: Array<string>;
     public tags?: Array<Tag>;
+    private 'without_any_tag'?: boolean;
     public offset?: number;
     public limit?: number;
     public constructor(resourceTypes?: Array<string>, tags?: Array<Tag>) { 
@@ -34,6 +35,16 @@ export class ResqTagResource {
     public withTags(tags: Array<Tag>): ResqTagResource {
         this['tags'] = tags;
         return this;
+    }
+    public withWithoutAnyTag(withoutAnyTag: boolean): ResqTagResource {
+        this['without_any_tag'] = withoutAnyTag;
+        return this;
+    }
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
+        this['without_any_tag'] = withoutAnyTag;
+    }
+    public get withoutAnyTag(): boolean | undefined {
+        return this['without_any_tag'];
     }
     public withOffset(offset: number): ResqTagResource {
         this['offset'] = offset;
