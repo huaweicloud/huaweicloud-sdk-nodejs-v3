@@ -5,6 +5,7 @@ export class LbaasListenersResult {
     private 'pool_id'?: string;
     private 'protocol_port'?: number;
     public weight?: number;
+    private 'protocol_version'?: LbaasListenersResultProtocolVersionEnum | string;
     public constructor() { 
     }
     public withListenerId(listenerId: string): LbaasListenersResult {
@@ -41,4 +42,23 @@ export class LbaasListenersResult {
         this['weight'] = weight;
         return this;
     }
+    public withProtocolVersion(protocolVersion: LbaasListenersResultProtocolVersionEnum | string): LbaasListenersResult {
+        this['protocol_version'] = protocolVersion;
+        return this;
+    }
+    public set protocolVersion(protocolVersion: LbaasListenersResultProtocolVersionEnum | string  | undefined) {
+        this['protocol_version'] = protocolVersion;
+    }
+    public get protocolVersion(): LbaasListenersResultProtocolVersionEnum | string | undefined {
+        return this['protocol_version'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LbaasListenersResultProtocolVersionEnum {
+    IPV4 = 'IPV4',
+    IPV6 = 'IPV6'
 }

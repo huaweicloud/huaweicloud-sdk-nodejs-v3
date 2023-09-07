@@ -8,7 +8,7 @@ export class ScalingActivityLogList {
     private 'instance_removed_list'?: string;
     private 'instance_deleted_list'?: string;
     private 'instance_added_list'?: string;
-    private 'scaling_value'?: string;
+    private 'scaling_value'?: number;
     public description?: string;
     private 'instance_value'?: number;
     private 'desire_value'?: number;
@@ -72,14 +72,14 @@ export class ScalingActivityLogList {
     public get instanceAddedList(): string | undefined {
         return this['instance_added_list'];
     }
-    public withScalingValue(scalingValue: string): ScalingActivityLogList {
+    public withScalingValue(scalingValue: number): ScalingActivityLogList {
         this['scaling_value'] = scalingValue;
         return this;
     }
-    public set scalingValue(scalingValue: string  | undefined) {
+    public set scalingValue(scalingValue: number  | undefined) {
         this['scaling_value'] = scalingValue;
     }
-    public get scalingValue(): string | undefined {
+    public get scalingValue(): number | undefined {
         return this['scaling_value'];
     }
     public withDescription(description: string): ScalingActivityLogList {

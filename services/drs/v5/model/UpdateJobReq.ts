@@ -29,5 +29,7 @@ export enum UpdateJobReqTypeEnum {
     NETWORK = 'network',
     POLICY = 'policy',
     DB_OBJECT = 'db_object',
-    PRECHECK = 'precheck'
+    PRECHECK = 'precheck',
+    RE_CREATE = 're_create',
+    EXPIRED_DAYS = 'expired_days'
 }

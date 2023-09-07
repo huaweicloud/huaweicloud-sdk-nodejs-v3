@@ -1,5 +1,4 @@
 import { EventInfoDetail } from './EventInfoDetail';
-import { MetricsDimension } from './MetricsDimension';
 import { TotalMetaData } from './TotalMetaData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -11,7 +10,6 @@ export class ListEventDetailResponse extends SdkResponse {
     private 'event_sources'?: Array<string>;
     private 'event_info'?: Array<EventInfoDetail>;
     private 'meta_data'?: TotalMetaData;
-    public dimensions?: MetricsDimension;
     public constructor() { 
         super();
     }
@@ -74,10 +72,6 @@ export class ListEventDetailResponse extends SdkResponse {
     }
     public get metaData(): TotalMetaData | undefined {
         return this['meta_data'];
-    }
-    public withDimensions(dimensions: MetricsDimension): ListEventDetailResponse {
-        this['dimensions'] = dimensions;
-        return this;
     }
 }
 

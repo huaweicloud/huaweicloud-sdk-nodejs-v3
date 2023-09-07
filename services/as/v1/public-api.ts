@@ -175,6 +175,7 @@ export * from './model/ScalingV1PolicyDetail';
 export * from './model/ScalingV2PolicyDetail';
 export * from './model/ScheduledPolicy';
 export * from './model/ScheduledTaskDetail';
+export * from './model/ScheduledTaskPolicy';
 export * from './model/SecurityGroup';
 export * from './model/SecurityGroups';
 export * from './model/SecurityGroupsResult';

@@ -2,7 +2,7 @@
 
 export class ShowUpdateObjectSavingStatusRequest {
     private 'job_id'?: string;
-    private 'X-Language'?: string;
+    private 'X-Language'?: ShowUpdateObjectSavingStatusRequestXLanguageEnum | string;
     private 'query_id'?: string;
     public constructor(jobId?: string, queryId?: string) { 
         this['job_id'] = jobId;
@@ -18,14 +18,14 @@ export class ShowUpdateObjectSavingStatusRequest {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withXLanguage(xLanguage: string): ShowUpdateObjectSavingStatusRequest {
+    public withXLanguage(xLanguage: ShowUpdateObjectSavingStatusRequestXLanguageEnum | string): ShowUpdateObjectSavingStatusRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ShowUpdateObjectSavingStatusRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ShowUpdateObjectSavingStatusRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withQueryId(queryId: string): ShowUpdateObjectSavingStatusRequest {
@@ -38,4 +38,13 @@ export class ShowUpdateObjectSavingStatusRequest {
     public get queryId(): string | undefined {
         return this['query_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowUpdateObjectSavingStatusRequestXLanguageEnum {
+    EN_US = 'en-us',
+    ZH_CN = 'zh-cn'
 }

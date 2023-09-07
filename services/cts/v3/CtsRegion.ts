@@ -25,6 +25,7 @@ export class CtsRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://cts.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://cts.la-north-2.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://cts.na-mexico-1.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://cts.eu-west-101.myhuaweicloud.eu"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -46,7 +47,8 @@ export class CtsRegion {
         "la-south-2":CtsRegion.LA_SOUTH_2,
         "sa-brazil-1":CtsRegion.SA_BRAZIL_1,
         "la-north-2":CtsRegion.LA_NORTH_2,
-        "na-mexico-1":CtsRegion.NA_MEXICO_1
+        "na-mexico-1":CtsRegion.NA_MEXICO_1,
+        "eu-west-101":CtsRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

@@ -1,12 +1,12 @@
 import { IntegerRange } from './IntegerRange';
-import { ScheduledPolicy } from './ScheduledPolicy';
+import { ScheduledTaskPolicy } from './ScheduledTaskPolicy';
 
 
 export class ScheduledTaskDetail {
     private 'task_id'?: string;
     private 'scaling_group_id'?: string;
     public name?: string;
-    private 'scheduled_policy'?: ScheduledPolicy;
+    private 'scheduled_policy'?: ScheduledTaskPolicy;
     private 'instance_number'?: IntegerRange;
     private 'create_time'?: string;
     private 'tenant_id'?: string;
@@ -38,14 +38,14 @@ export class ScheduledTaskDetail {
         this['name'] = name;
         return this;
     }
-    public withScheduledPolicy(scheduledPolicy: ScheduledPolicy): ScheduledTaskDetail {
+    public withScheduledPolicy(scheduledPolicy: ScheduledTaskPolicy): ScheduledTaskDetail {
         this['scheduled_policy'] = scheduledPolicy;
         return this;
     }
-    public set scheduledPolicy(scheduledPolicy: ScheduledPolicy  | undefined) {
+    public set scheduledPolicy(scheduledPolicy: ScheduledTaskPolicy  | undefined) {
         this['scheduled_policy'] = scheduledPolicy;
     }
-    public get scheduledPolicy(): ScheduledPolicy | undefined {
+    public get scheduledPolicy(): ScheduledTaskPolicy | undefined {
         return this['scheduled_policy'];
     }
     public withInstanceNumber(instanceNumber: IntegerRange): ScheduledTaskDetail {

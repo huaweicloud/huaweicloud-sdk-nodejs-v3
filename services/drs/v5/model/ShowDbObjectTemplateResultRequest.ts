@@ -48,5 +48,6 @@ export enum ShowDbObjectTemplateResultRequestXLanguageEnum {
     */
 export enum ShowDbObjectTemplateResultRequestTypeEnum {
     DETAIL = 'detail',
-    SYNCHRONIZED = 'synchronized'
+    SYNCHRONIZED = 'synchronized',
+    CHANGE = 'change'
 }

@@ -3,7 +3,7 @@ import { QueryUserSelectedObjectInfoReq } from './QueryUserSelectedObjectInfoReq
 
 export class ShowObjectMappingRequest {
     private 'job_id'?: string;
-    private 'X-Language'?: string;
+    private 'X-Language'?: ShowObjectMappingRequestXLanguageEnum | string;
     public body?: QueryUserSelectedObjectInfoReq;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
@@ -18,18 +18,27 @@ export class ShowObjectMappingRequest {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withXLanguage(xLanguage: string): ShowObjectMappingRequest {
+    public withXLanguage(xLanguage: ShowObjectMappingRequestXLanguageEnum | string): ShowObjectMappingRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ShowObjectMappingRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ShowObjectMappingRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: QueryUserSelectedObjectInfoReq): ShowObjectMappingRequest {
         this['body'] = body;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowObjectMappingRequestXLanguageEnum {
+    EN_US = 'en-us',
+    ZH_CN = 'zh-cn'
 }

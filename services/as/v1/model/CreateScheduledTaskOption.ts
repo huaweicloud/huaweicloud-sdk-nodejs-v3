@@ -1,12 +1,12 @@
 import { IntegerRange } from './IntegerRange';
-import { ScheduledPolicy } from './ScheduledPolicy';
+import { ScheduledTaskPolicy } from './ScheduledTaskPolicy';
 
 
 export class CreateScheduledTaskOption {
     public name?: string;
-    private 'scheduled_policy'?: ScheduledPolicy;
+    private 'scheduled_policy'?: ScheduledTaskPolicy;
     private 'instance_number'?: IntegerRange;
-    public constructor(name?: string, scheduledPolicy?: ScheduledPolicy, instanceNumber?: IntegerRange) { 
+    public constructor(name?: string, scheduledPolicy?: ScheduledTaskPolicy, instanceNumber?: IntegerRange) { 
         this['name'] = name;
         this['scheduled_policy'] = scheduledPolicy;
         this['instance_number'] = instanceNumber;
@@ -15,14 +15,14 @@ export class CreateScheduledTaskOption {
         this['name'] = name;
         return this;
     }
-    public withScheduledPolicy(scheduledPolicy: ScheduledPolicy): CreateScheduledTaskOption {
+    public withScheduledPolicy(scheduledPolicy: ScheduledTaskPolicy): CreateScheduledTaskOption {
         this['scheduled_policy'] = scheduledPolicy;
         return this;
     }
-    public set scheduledPolicy(scheduledPolicy: ScheduledPolicy  | undefined) {
+    public set scheduledPolicy(scheduledPolicy: ScheduledTaskPolicy  | undefined) {
         this['scheduled_policy'] = scheduledPolicy;
     }
-    public get scheduledPolicy(): ScheduledPolicy | undefined {
+    public get scheduledPolicy(): ScheduledTaskPolicy | undefined {
         return this['scheduled_policy'];
     }
     public withInstanceNumber(instanceNumber: IntegerRange): CreateScheduledTaskOption {

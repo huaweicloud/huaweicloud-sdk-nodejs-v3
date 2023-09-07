@@ -2,7 +2,7 @@
 
 export class ShowDbObjectCollectionStatusRequest {
     private 'job_id'?: string;
-    private 'X-Language'?: string;
+    private 'X-Language'?: ShowDbObjectCollectionStatusRequestXLanguageEnum | string;
     private 'query_id'?: string;
     public constructor(jobId?: string, queryId?: string) { 
         this['job_id'] = jobId;
@@ -18,14 +18,14 @@ export class ShowDbObjectCollectionStatusRequest {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withXLanguage(xLanguage: string): ShowDbObjectCollectionStatusRequest {
+    public withXLanguage(xLanguage: ShowDbObjectCollectionStatusRequestXLanguageEnum | string): ShowDbObjectCollectionStatusRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ShowDbObjectCollectionStatusRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ShowDbObjectCollectionStatusRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withQueryId(queryId: string): ShowDbObjectCollectionStatusRequest {
@@ -38,4 +38,13 @@ export class ShowDbObjectCollectionStatusRequest {
     public get queryId(): string | undefined {
         return this['query_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowDbObjectCollectionStatusRequestXLanguageEnum {
+    EN_US = 'en-us',
+    ZH_CN = 'zh-cn'
 }

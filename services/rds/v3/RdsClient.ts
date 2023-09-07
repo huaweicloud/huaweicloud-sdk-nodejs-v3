@@ -143,6 +143,7 @@ import { EnlargeVolumeRequestBody } from './model/EnlargeVolumeRequestBody';
 import { ErrorLog } from './model/ErrorLog';
 import { ErrorLogItem } from './model/ErrorLogItem';
 import { ErrorResponse } from './model/ErrorResponse';
+import { ErrorRsp } from './model/ErrorRsp';
 import { ErrorlogForLtsRequest } from './model/ErrorlogForLtsRequest';
 import { ExtensionRequest } from './model/ExtensionRequest';
 import { ExtensionsResponse } from './model/ExtensionsResponse';
@@ -165,6 +166,7 @@ import { InstanceDrRelation } from './model/InstanceDrRelation';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
 import { InstanceRestartRequsetBody } from './model/InstanceRestartRequsetBody';
+import { InstanceState } from './model/InstanceState';
 import { LDatastore } from './model/LDatastore';
 import { LinksInfoResponse } from './model/LinksInfoResponse';
 import { ListApiVersionNewRequest } from './model/ListApiVersionNewRequest';
@@ -207,7 +209,11 @@ import { ListInstanceParamHistoriesRequest } from './model/ListInstanceParamHist
 import { ListInstanceParamHistoriesResponse } from './model/ListInstanceParamHistoriesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
+import { ListInstancesRecommendationRequest } from './model/ListInstancesRecommendationRequest';
+import { ListInstancesRecommendationResponse } from './model/ListInstancesRecommendationResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
+import { ListInstancesResourceMetricsRequest } from './model/ListInstancesResourceMetricsRequest';
+import { ListInstancesResourceMetricsResponse } from './model/ListInstancesResourceMetricsResponse';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesSupportFastRestoreRequest } from './model/ListInstancesSupportFastRestoreRequest';
 import { ListInstancesSupportFastRestoreRequestBody } from './model/ListInstancesSupportFastRestoreRequestBody';
@@ -303,6 +309,8 @@ import { ProxyReadonlyInstances } from './model/ProxyReadonlyInstances';
 import { PwdResetRequest } from './model/PwdResetRequest';
 import { Quotas } from './model/Quotas';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
+import { RecommendFlavor } from './model/RecommendFlavor';
+import { RecommendedProduct } from './model/RecommendedProduct';
 import { RecycleInstsanceV3 } from './model/RecycleInstsanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
@@ -311,6 +319,7 @@ import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
 import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
+import { ResourceMonitoringInfo } from './model/ResourceMonitoringInfo';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
@@ -499,6 +508,7 @@ import { UserForCreation } from './model/UserForCreation';
 import { UserForList } from './model/UserForList';
 import { UserWithPrivilege } from './model/UserWithPrivilege';
 import { Volume } from './model/Volume';
+import { VolumeFlavor } from './model/VolumeFlavor';
 
 export class RdsClient {
     public static newBuilder(): ClientBuilder<RdsClient> {
@@ -1255,6 +1265,49 @@ export class RdsClient {
      */
     public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
         const options = ParamCreater().listInstances(listInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询购买推荐
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询购买推荐
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesRecommendation(listInstancesRecommendationRequest?: ListInstancesRecommendationRequest): Promise<ListInstancesRecommendationResponse> {
+        const options = ParamCreater().listInstancesRecommendation(listInstancesRecommendationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询监控大盘列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询监控大盘列表
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎类型
+     * @param {string} [searchField] 搜索字段
+     * @param {string} [offset] 索引位置，偏移量
+     * @param {string} [limit] 查询数据条数
+     * @param {'DESC' | 'ASC'} [order] 排序方式
+     * @param {'instance_name' | 'status' | 'type' | 'cpu_usage' | 'memory_usage' | 'disk_usage' | 'tps' | 'qps' | 'iops' | 'active_connections' | 'slow_sql'} [sortField] 排序字段
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesResourceMetrics(listInstancesResourceMetricsRequest?: ListInstancesResourceMetricsRequest): Promise<ListInstancesResourceMetricsResponse> {
+        const options = ParamCreater().listInstancesResourceMetrics(listInstancesResourceMetricsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5833,6 +5886,121 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询购买推荐
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesRecommendation(listInstancesRecommendationRequest?: ListInstancesRecommendationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/product-recommendation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+
+            if (listInstancesRecommendationRequest !== null && listInstancesRecommendationRequest !== undefined) {
+                if (listInstancesRecommendationRequest instanceof ListInstancesRecommendationRequest) {
+                    engine = listInstancesRecommendationRequest.engine;
+                } else {
+                    engine = listInstancesRecommendationRequest['engine'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstancesRecommendation.');
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询监控大盘列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesResourceMetrics(listInstancesResourceMetricsRequest?: ListInstancesResourceMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/resource-monitoring",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let searchField;
+            
+            let offset;
+            
+            let limit;
+            
+            let order;
+            
+            let sortField;
+
+            if (listInstancesResourceMetricsRequest !== null && listInstancesResourceMetricsRequest !== undefined) {
+                if (listInstancesResourceMetricsRequest instanceof ListInstancesResourceMetricsRequest) {
+                    engine = listInstancesResourceMetricsRequest.engine;
+                    searchField = listInstancesResourceMetricsRequest.searchField;
+                    offset = listInstancesResourceMetricsRequest.offset;
+                    limit = listInstancesResourceMetricsRequest.limit;
+                    order = listInstancesResourceMetricsRequest.order;
+                    sortField = listInstancesResourceMetricsRequest.sortField;
+                } else {
+                    engine = listInstancesResourceMetricsRequest['engine'];
+                    searchField = listInstancesResourceMetricsRequest['search_field'];
+                    offset = listInstancesResourceMetricsRequest['offset'];
+                    limit = listInstancesResourceMetricsRequest['limit'];
+                    order = listInstancesResourceMetricsRequest['order'];
+                    sortField = listInstancesResourceMetricsRequest['sort_field'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstancesResourceMetrics.');
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+            if (searchField !== null && searchField !== undefined) {
+                localVarQueryParameter['search_field'] = searchField;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
             }
 
             options.queryParams = localVarQueryParameter;

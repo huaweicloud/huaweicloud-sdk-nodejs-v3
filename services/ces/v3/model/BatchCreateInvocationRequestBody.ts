@@ -7,8 +7,7 @@ export class BatchCreateInvocationRequestBody {
     private 'invocation_ids'?: Array<string>;
     private 'version_type'?: BatchCreateInvocationRequestBodyVersionTypeEnum | string;
     public origin?: BatchCreateInvocationRequestBodyOriginEnum | string;
-    public constructor(instanceIds?: Array<string>, invocationType?: string) { 
-        this['instance_ids'] = instanceIds;
+    public constructor(invocationType?: string) { 
         this['invocation_type'] = invocationType;
     }
     public withInstanceIds(instanceIds: Array<string>): BatchCreateInvocationRequestBody {

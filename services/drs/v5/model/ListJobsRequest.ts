@@ -12,6 +12,8 @@ export class ListJobsRequest {
     public limit?: number;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
+    private 'instance_ids'?: Array<string>;
+    private 'instance_ip'?: string;
     public constructor(jobType?: string) { 
         this['job_type'] = jobType;
     }
@@ -100,6 +102,26 @@ export class ListJobsRequest {
     }
     public get sortDir(): string | undefined {
         return this['sort_dir'];
+    }
+    public withInstanceIds(instanceIds: Array<string>): ListJobsRequest {
+        this['instance_ids'] = instanceIds;
+        return this;
+    }
+    public set instanceIds(instanceIds: Array<string>  | undefined) {
+        this['instance_ids'] = instanceIds;
+    }
+    public get instanceIds(): Array<string> | undefined {
+        return this['instance_ids'];
+    }
+    public withInstanceIp(instanceIp: string): ListJobsRequest {
+        this['instance_ip'] = instanceIp;
+        return this;
+    }
+    public set instanceIp(instanceIp: string  | undefined) {
+        this['instance_ip'] = instanceIp;
+    }
+    public get instanceIp(): string | undefined {
+        return this['instance_ip'];
     }
 }
 

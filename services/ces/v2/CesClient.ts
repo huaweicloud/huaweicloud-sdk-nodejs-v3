@@ -366,13 +366,13 @@ export class CesClient {
     }
 
     /**
-     * 创建/复制/批量创建监控视图到指定的监控面板
+     * 创建/复制/批量创建监控视图到指定的监控看板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建/复制/批量创建监控视图到指定的监控面板
-     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
-     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控面板请求体
+     * @summary 创建/复制/批量创建监控视图到指定的监控看板
+     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -386,12 +386,12 @@ export class CesClient {
     }
 
     /**
-     * 创建/复制监控面板
+     * 创建/复制监控看板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建/复制监控面板
-     * @param {CreateDashboardRequestBody} createOneDashboardRequestBody 创建监控面板请求体
+     * @summary 创建/复制监控看板
+     * @param {CreateDashboardRequestBody} createOneDashboardRequestBody 创建监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -444,12 +444,12 @@ export class CesClient {
     }
 
     /**
-     * 批量删除监控面板
+     * 批量删除监控看板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除监控面板
-     * @param {BatchDeleteDashboardRequestBody} [deleteDashboardsRequestBody] 批量删除监控面板请求体
+     * @summary 批量删除监控看板
+     * @param {BatchDeleteDashboardRequestBody} [deleteDashboardsRequestBody] 批量删除监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -645,15 +645,15 @@ export class CesClient {
     }
 
     /**
-     * 查询监控面板列表
+     * 查询监控看板列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询监控面板列表
+     * @summary 查询监控看板列表
      * @param {string} [enterpriseId] 企业项目Id
-     * @param {boolean} [isFavorite] 指定企业项目下监控面板是否收藏，true:收藏，false:未收藏，填此参数时，enterprise_id必填
-     * @param {string} [dashboardName] 监控面板名称
-     * @param {string} [dashboardId] 监控面板id
+     * @param {boolean} [isFavorite] 指定企业项目下监控看板是否收藏，true:收藏，false:未收藏，填此参数时，enterprise_id必填
+     * @param {string} [dashboardName] 监控看板名称
+     * @param {string} [dashboardId] 监控看板id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -667,12 +667,12 @@ export class CesClient {
     }
 
     /**
-     * 查询指定监控面板下的监控视图列表
+     * 查询指定监控看板下的监控视图列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定监控面板下的监控视图列表
-     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @summary 查询指定监控看板下的监控视图列表
+     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -832,13 +832,13 @@ export class CesClient {
     }
 
     /**
-     * 修改监控面板
+     * 修改监控看板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改监控面板
-     * @param {string} dashboardId 监控面板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
-     * @param {UpdateDashboardRequestBody} updateDashboardRequestBody 修改监控面板请求体
+     * @summary 修改监控看板
+     * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
+     * @param {UpdateDashboardRequestBody} updateDashboardRequestBody 修改监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1280,7 +1280,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建/复制/批量创建监控视图到指定的监控面板
+         * 创建/复制/批量创建监控视图到指定的监控看板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1323,7 +1323,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建/复制监控面板
+         * 创建/复制监控看板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1445,7 +1445,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除监控面板
+         * 批量删除监控看板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1993,7 +1993,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询监控面板列表
+         * 查询监控看板列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2051,7 +2051,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定监控面板下的监控视图列表
+         * 查询指定监控看板下的监控视图列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2443,7 +2443,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改监控面板
+         * 修改监控看板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

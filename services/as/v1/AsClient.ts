@@ -177,6 +177,7 @@ import { ScalingV1PolicyDetail } from './model/ScalingV1PolicyDetail';
 import { ScalingV2PolicyDetail } from './model/ScalingV2PolicyDetail';
 import { ScheduledPolicy } from './model/ScheduledPolicy';
 import { ScheduledTaskDetail } from './model/ScheduledTaskDetail';
+import { ScheduledTaskPolicy } from './model/ScheduledTaskPolicy';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroups } from './model/SecurityGroups';
 import { SecurityGroupsResult } from './model/SecurityGroupsResult';

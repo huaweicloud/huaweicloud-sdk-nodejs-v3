@@ -12,7 +12,7 @@ export class ScalingActivityLogV2 {
     private 'instance_added_list'?: Array<ScalingInstance>;
     private 'instance_failed_list'?: Array<ScalingInstance>;
     private 'instance_standby_list'?: Array<ScalingInstance>;
-    private 'scaling_value'?: string;
+    private 'scaling_value'?: number;
     public description?: string;
     private 'instance_value'?: number;
     private 'desire_value'?: number;
@@ -101,14 +101,14 @@ export class ScalingActivityLogV2 {
     public get instanceStandbyList(): Array<ScalingInstance> | undefined {
         return this['instance_standby_list'];
     }
-    public withScalingValue(scalingValue: string): ScalingActivityLogV2 {
+    public withScalingValue(scalingValue: number): ScalingActivityLogV2 {
         this['scaling_value'] = scalingValue;
         return this;
     }
-    public set scalingValue(scalingValue: string  | undefined) {
+    public set scalingValue(scalingValue: number  | undefined) {
         this['scaling_value'] = scalingValue;
     }
-    public get scalingValue(): string | undefined {
+    public get scalingValue(): number | undefined {
         return this['scaling_value'];
     }
     public withDescription(description: string): ScalingActivityLogV2 {

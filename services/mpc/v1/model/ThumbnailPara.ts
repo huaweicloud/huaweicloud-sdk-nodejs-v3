@@ -89,7 +89,6 @@ export class ThumbnailPara {
     * @enum {string}
     */
 export enum ThumbnailParaTypeEnum {
-    PERCENT = 'PERCENT',
     TIME = 'TIME',
     DOTS = 'DOTS',
     DOTS_MS = 'DOTS_MS'
