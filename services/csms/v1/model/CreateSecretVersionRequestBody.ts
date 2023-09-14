@@ -4,6 +4,7 @@ export class CreateSecretVersionRequestBody {
     private 'secret_binary'?: string;
     private 'secret_string'?: string;
     private 'version_stages'?: Array<string>;
+    private 'expire_time'?: number;
     public constructor() { 
     }
     public withSecretBinary(secretBinary: string): CreateSecretVersionRequestBody {
@@ -35,5 +36,15 @@ export class CreateSecretVersionRequestBody {
     }
     public get versionStages(): Array<string> | undefined {
         return this['version_stages'];
+    }
+    public withExpireTime(expireTime: number): CreateSecretVersionRequestBody {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): number | undefined {
+        return this['expire_time'];
     }
 }

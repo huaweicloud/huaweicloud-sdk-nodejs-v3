@@ -75,6 +75,8 @@ import { ShowAlarmRequest } from './model/ShowAlarmRequest';
 import { ShowAlarmResponse } from './model/ShowAlarmResponse';
 import { ShowEventDataRequest } from './model/ShowEventDataRequest';
 import { ShowEventDataResponse } from './model/ShowEventDataResponse';
+import { ShowEventItem } from './model/ShowEventItem';
+import { ShowEventItemDetail } from './model/ShowEventItemDetail';
 import { ShowMetricDataRequest } from './model/ShowMetricDataRequest';
 import { ShowMetricDataResponse } from './model/ShowMetricDataResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';

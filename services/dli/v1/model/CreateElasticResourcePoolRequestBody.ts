@@ -10,10 +10,9 @@ export class CreateElasticResourcePoolRequestBody {
     private 'min_cu'?: number;
     private 'enterprise_project_id'?: string;
     public tags?: Array<TmsTag>;
-    public constructor(elasticResourcePoolName?: string, maxCu?: number, chargingMode?: number, minCu?: number) { 
+    public constructor(elasticResourcePoolName?: string, maxCu?: number, minCu?: number) { 
         this['elastic_resource_pool_name'] = elasticResourcePoolName;
         this['max_cu'] = maxCu;
-        this['charging_mode'] = chargingMode;
         this['min_cu'] = minCu;
     }
     public withElasticResourcePoolName(elasticResourcePoolName: string): CreateElasticResourcePoolRequestBody {

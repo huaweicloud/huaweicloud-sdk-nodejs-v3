@@ -2,7 +2,6 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-import { AccessConfigBaseLogInfo } from './model/AccessConfigBaseLogInfo';
 import { AccessConfigBaseLogInfoCreate } from './model/AccessConfigBaseLogInfoCreate';
 import { AccessConfigDeatilCreate } from './model/AccessConfigDeatilCreate';
 import { AccessConfigFormatCreate } from './model/AccessConfigFormatCreate';
@@ -23,7 +22,6 @@ import { AomMappingRuleResp } from './model/AomMappingRuleResp';
 import { AomMappingfilesInfo } from './model/AomMappingfilesInfo';
 import { BriefStructTemplateModel } from './model/BriefStructTemplateModel';
 import { ChangeAlarmRuleStatus } from './model/ChangeAlarmRuleStatus';
-import { ChartConfig } from './model/ChartConfig';
 import { CreateAccessConfigRequest } from './model/CreateAccessConfigRequest';
 import { CreateAccessConfigRequestBody } from './model/CreateAccessConfigRequestBody';
 import { CreateAccessConfigResponse } from './model/CreateAccessConfigResponse';
@@ -113,7 +111,6 @@ import { DeleteTransferRequest } from './model/DeleteTransferRequest';
 import { DeleteTransferResponse } from './model/DeleteTransferResponse';
 import { DeletefavoriteRequest } from './model/DeletefavoriteRequest';
 import { DeletefavoriteResponse } from './model/DeletefavoriteResponse';
-import { DemoField } from './model/DemoField';
 import { DisableLogCollectionRequest } from './model/DisableLogCollectionRequest';
 import { DisableLogCollectionResponse } from './model/DisableLogCollectionResponse';
 import { EnableLogCollectionRequest } from './model/EnableLogCollectionRequest';
@@ -188,7 +185,7 @@ import { ListTransfersRequest } from './model/ListTransfersRequest';
 import { ListTransfersResponse } from './model/ListTransfersResponse';
 import { LogContents } from './model/LogContents';
 import { LogGroup } from './model/LogGroup';
-import { LogStream } from './model/LogStream';
+import { LogStreamResBody } from './model/LogStreamResBody';
 import { LtsStructTemplateInfo } from './model/LtsStructTemplateInfo';
 import { Metadata } from './model/Metadata';
 import { NotificationTemplate } from './model/NotificationTemplate';
@@ -219,20 +216,16 @@ import { ShowStructTemplateRule } from './model/ShowStructTemplateRule';
 import { ShowStructTemplateclusterInfo } from './model/ShowStructTemplateclusterInfo';
 import { Sort } from './model/Sort';
 import { SqlAlarmRuleRespList } from './model/SqlAlarmRuleRespList';
-import { SqlNotificationSaveRule } from './model/SqlNotificationSaveRule';
 import { SqlRequest } from './model/SqlRequest';
 import { StructConfig } from './model/StructConfig';
 import { StructFieldInfo } from './model/StructFieldInfo';
 import { StructFieldInfoReturn } from './model/StructFieldInfoReturn';
 import { StructLogContents } from './model/StructLogContents';
-import { StructTemplate } from './model/StructTemplate';
 import { StructTemplateModel } from './model/StructTemplateModel';
 import { SubTemplate } from './model/SubTemplate';
 import { TagField } from './model/TagField';
-import { TagFieldNew } from './model/TagFieldNew';
 import { TagFieldsInfo } from './model/TagFieldsInfo';
 import { TagsBody } from './model/TagsBody';
-import { TemplateRule } from './model/TemplateRule';
 import { TimeRange } from './model/TimeRange';
 import { TimelineTrafficStatisticsRequestBody } from './model/TimelineTrafficStatisticsRequestBody';
 import { Topics } from './model/Topics';
@@ -1106,9 +1099,8 @@ export class LtsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定日志组下的所有日志流
-     * @param {string} logGroupId 租户想查询的日志流所在的日志组的groupid，一般为36位字符串。 
+     * @param {string} logGroupId 租户想查询的日志流所在的日志组的groupid，一般为36位字符串。
      * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
-     * @param {string} [tag] 按条件搜索，内容设置为日志流的tag键值对，比如k1&#x3D;v1； 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3727,23 +3719,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             
             let logGroupId;
             
             let contentType;
-            
-            let tag;
 
             if (listLogStreamRequest !== null && listLogStreamRequest !== undefined) {
                 if (listLogStreamRequest instanceof ListLogStreamRequest) {
                     logGroupId = listLogStreamRequest.logGroupId;
                     contentType = listLogStreamRequest.contentType;
-                    tag = listLogStreamRequest.tag;
                 } else {
                     logGroupId = listLogStreamRequest['log_group_id'];
                     contentType = listLogStreamRequest['Content-Type'];
-                    tag = listLogStreamRequest['tag'];
                 }
             }
 
@@ -3751,14 +3739,10 @@ export const ParamCreater = function () {
             if (logGroupId === null || logGroupId === undefined) {
             throw new RequiredError('logGroupId','Required parameter logGroupId was null or undefined when calling listLogStream.');
             }
-            if (tag !== null && tag !== undefined) {
-                localVarQueryParameter['tag'] = tag;
-            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'log_group_id': logGroupId, };
             options.headers = localVarHeaderParameter;
             return options;

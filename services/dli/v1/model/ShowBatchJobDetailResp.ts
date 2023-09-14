@@ -14,6 +14,7 @@ export class ShowBatchJobDetailResp {
     public kind?: string;
     public queue?: string;
     public image?: string;
+    private 'req_body'?: string;
     private 'update_time'?: number;
     public duration?: number;
     public constructor() { 
@@ -87,6 +88,16 @@ export class ShowBatchJobDetailResp {
     public withImage(image: string): ShowBatchJobDetailResp {
         this['image'] = image;
         return this;
+    }
+    public withReqBody(reqBody: string): ShowBatchJobDetailResp {
+        this['req_body'] = reqBody;
+        return this;
+    }
+    public set reqBody(reqBody: string  | undefined) {
+        this['req_body'] = reqBody;
+    }
+    public get reqBody(): string | undefined {
+        return this['req_body'];
     }
     public withUpdateTime(updateTime: number): ShowBatchJobDetailResp {
         this['update_time'] = updateTime;

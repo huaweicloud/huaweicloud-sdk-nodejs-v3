@@ -15,6 +15,7 @@ export class ShowBatchInfoResponse extends SdkResponse {
     public kind?: string;
     public queue?: string;
     public image?: string;
+    private 'req_body'?: string;
     private 'update_time'?: number;
     public feature?: string;
     private 'spark_version'?: string;
@@ -90,6 +91,16 @@ export class ShowBatchInfoResponse extends SdkResponse {
     public withImage(image: string): ShowBatchInfoResponse {
         this['image'] = image;
         return this;
+    }
+    public withReqBody(reqBody: string): ShowBatchInfoResponse {
+        this['req_body'] = reqBody;
+        return this;
+    }
+    public set reqBody(reqBody: string  | undefined) {
+        this['req_body'] = reqBody;
+    }
+    public get reqBody(): string | undefined {
+        return this['req_body'];
     }
     public withUpdateTime(updateTime: number): ShowBatchInfoResponse {
         this['update_time'] = updateTime;

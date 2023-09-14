@@ -6,6 +6,11 @@ import { AssociateKeypairRequest } from './model/AssociateKeypairRequest';
 import { AssociateKeypairRequestBody } from './model/AssociateKeypairRequestBody';
 import { AssociateKeypairResponse } from './model/AssociateKeypairResponse';
 import { Auth } from './model/Auth';
+import { BatchAssociateKeypairRequest } from './model/BatchAssociateKeypairRequest';
+import { BatchAssociateKeypairRequestBody } from './model/BatchAssociateKeypairRequestBody';
+import { BatchAssociateKeypairResponse } from './model/BatchAssociateKeypairResponse';
+import { ClearPrivateKeyRequest } from './model/ClearPrivateKeyRequest';
+import { ClearPrivateKeyResponse } from './model/ClearPrivateKeyResponse';
 import { CreateKeypairAction } from './model/CreateKeypairAction';
 import { CreateKeypairRequest } from './model/CreateKeypairRequest';
 import { CreateKeypairRequestBody } from './model/CreateKeypairRequestBody';
@@ -23,9 +28,19 @@ import { DisassociateKeypairRequestBody } from './model/DisassociateKeypairReque
 import { DisassociateKeypairResponse } from './model/DisassociateKeypairResponse';
 import { EcsServerInfo } from './model/EcsServerInfo';
 import { Encryption } from './model/Encryption';
+import { ExportPrivateKeyKeypairBean } from './model/ExportPrivateKeyKeypairBean';
+import { ExportPrivateKeyRequest } from './model/ExportPrivateKeyRequest';
+import { ExportPrivateKeyRequestBody } from './model/ExportPrivateKeyRequestBody';
+import { ExportPrivateKeyResponse } from './model/ExportPrivateKeyResponse';
 import { FailedTasks } from './model/FailedTasks';
+import { ImportPrivateKeyKeypairBean } from './model/ImportPrivateKeyKeypairBean';
+import { ImportPrivateKeyProtection } from './model/ImportPrivateKeyProtection';
+import { ImportPrivateKeyRequest } from './model/ImportPrivateKeyRequest';
+import { ImportPrivateKeyRequestBody } from './model/ImportPrivateKeyRequestBody';
+import { ImportPrivateKeyResponse } from './model/ImportPrivateKeyResponse';
 import { KeyProtection } from './model/KeyProtection';
 import { Keypair } from './model/Keypair';
+import { KeypairBean } from './model/KeypairBean';
 import { KeypairDetail } from './model/KeypairDetail';
 import { Keypairs } from './model/Keypairs';
 import { ListFailedTaskRequest } from './model/ListFailedTaskRequest';
@@ -40,6 +55,7 @@ import { ListRunningTaskRequest } from './model/ListRunningTaskRequest';
 import { ListRunningTaskResponse } from './model/ListRunningTaskResponse';
 import { PageInfo } from './model/PageInfo';
 import { RunningTasks } from './model/RunningTasks';
+import { TaskResponseBody } from './model/TaskResponseBody';
 import { UpdateKeypairDescriptionReq } from './model/UpdateKeypairDescriptionReq';
 import { UpdateKeypairDescriptionRequest } from './model/UpdateKeypairDescriptionRequest';
 import { UpdateKeypairDescriptionRequestBody } from './model/UpdateKeypairDescriptionRequestBody';
@@ -72,6 +88,44 @@ export class KpsClient {
      */
     public associateKeypair(associateKeypairRequest?: AssociateKeypairRequest): Promise<AssociateKeypairResponse> {
         const options = ParamCreater().associateKeypair(associateKeypairRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 给指定的虚拟机批量绑定新的SSH密钥对。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量绑定SSH密钥对
+     * @param {BatchAssociateKeypairRequestBody} batchAssociateKeypairRequestBody 批量绑定密钥对消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchAssociateKeypair(batchAssociateKeypairRequest?: BatchAssociateKeypairRequest): Promise<BatchAssociateKeypairResponse> {
+        const options = ParamCreater().batchAssociateKeypair(batchAssociateKeypairRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 清除SSH密钥对私钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清除私钥
+     * @param {string} keypairName 密钥对名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public clearPrivateKey(clearPrivateKeyRequest?: ClearPrivateKeyRequest): Promise<ClearPrivateKeyResponse> {
+        const options = ParamCreater().clearPrivateKey(clearPrivateKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -174,13 +228,51 @@ export class KpsClient {
     }
 
     /**
+     * 导出指定密钥对的私钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出私钥
+     * @param {ExportPrivateKeyRequestBody} exportPrivateKeyRequestBody 导出私钥消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportPrivateKey(exportPrivateKeyRequest?: ExportPrivateKeyRequest): Promise<ExportPrivateKeyResponse> {
+        const options = ParamCreater().exportPrivateKey(exportPrivateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入私钥到指定密钥对。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入私钥
+     * @param {ImportPrivateKeyRequestBody} importPrivateKeyRequestBody 导入私钥消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importPrivateKey(importPrivateKeyRequest?: ImportPrivateKeyRequest): Promise<ImportPrivateKeyResponse> {
+        const options = ParamCreater().importPrivateKey(importPrivateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询绑定、解绑等操作失败的任务信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询失败的任务信息
-     * @param {string} [limit] 每页返回的个数。 默认值：50。 
-     * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0 
+     * @param {number} [limit] 每页显示的条目数量。默认值1000。
+     * @param {number} [offset] 失败的任务信息列表的偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -329,6 +421,81 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 给指定的虚拟机批量绑定新的SSH密钥对。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchAssociateKeypair(batchAssociateKeypairRequest?: BatchAssociateKeypairRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/keypairs/batch-associate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchAssociateKeypairRequest !== null && batchAssociateKeypairRequest !== undefined) {
+                if (batchAssociateKeypairRequest instanceof BatchAssociateKeypairRequest) {
+                    body = batchAssociateKeypairRequest.body
+                } else {
+                    body = batchAssociateKeypairRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 清除SSH密钥对私钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        clearPrivateKey(clearPrivateKeyRequest?: ClearPrivateKeyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/keypairs/{keypair_name}/private-key",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let keypairName;
+
+            if (clearPrivateKeyRequest !== null && clearPrivateKeyRequest !== undefined) {
+                if (clearPrivateKeyRequest instanceof ClearPrivateKeyRequest) {
+                    keypairName = clearPrivateKeyRequest.keypairName;
+                } else {
+                    keypairName = clearPrivateKeyRequest['keypair_name'];
+                }
+            }
+
+        
+            if (keypairName === null || keypairName === undefined) {
+            throw new RequiredError('keypairName','Required parameter keypairName was null or undefined when calling clearPrivateKey.');
+            }
+
+            options.pathParams = { 'keypair_name': keypairName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -490,6 +657,82 @@ export const ParamCreater = function () {
                     body = disassociateKeypairRequest.body
                 } else {
                     body = disassociateKeypairRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出指定密钥对的私钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportPrivateKey(exportPrivateKeyRequest?: ExportPrivateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/keypairs/private-key/export",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (exportPrivateKeyRequest !== null && exportPrivateKeyRequest !== undefined) {
+                if (exportPrivateKeyRequest instanceof ExportPrivateKeyRequest) {
+                    body = exportPrivateKeyRequest.body
+                } else {
+                    body = exportPrivateKeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入私钥到指定密钥对。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importPrivateKey(importPrivateKeyRequest?: ImportPrivateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/keypairs/private-key/import",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (importPrivateKeyRequest !== null && importPrivateKeyRequest !== undefined) {
+                if (importPrivateKeyRequest instanceof ImportPrivateKeyRequest) {
+                    body = importPrivateKeyRequest.body
+                } else {
+                    body = importPrivateKeyRequest['body'];
                 }
             }
 

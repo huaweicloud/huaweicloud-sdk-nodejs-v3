@@ -5,6 +5,7 @@ export class EcsServerInfo {
     public id?: string;
     public auth?: Auth;
     private 'disable_password'?: boolean;
+    public port?: number;
     public constructor(id?: string) { 
         this['id'] = id;
     }
@@ -25,5 +26,9 @@ export class EcsServerInfo {
     }
     public get disablePassword(): boolean | undefined {
         return this['disable_password'];
+    }
+    public withPort(port: number): EcsServerInfo {
+        this['port'] = port;
+        return this;
     }
 }

@@ -124,6 +124,8 @@ export * from './model/DeleteRecordingsRequest';
 export * from './model/DeleteRecordingsResponse';
 export * from './model/DeleteResourceRequest';
 export * from './model/DeleteResourceResponse';
+export * from './model/DeleteTokenRequest';
+export * from './model/DeleteTokenResponse';
 export * from './model/DeleteVisionActiveCodeRequest';
 export * from './model/DeleteVisionActiveCodeResponse';
 export * from './model/DeleteWebHookConfigRequest';

@@ -3,7 +3,9 @@
 export class Encryption {
     public type?: EncryptionTypeEnum | string;
     private 'kms_key_name'?: string;
-    public constructor() { 
+    public constructor(type?: string, kmsKeyName?: string) { 
+        this['type'] = type;
+        this['kms_key_name'] = kmsKeyName;
     }
     public withType(type: EncryptionTypeEnum | string): Encryption {
         this['type'] = type;

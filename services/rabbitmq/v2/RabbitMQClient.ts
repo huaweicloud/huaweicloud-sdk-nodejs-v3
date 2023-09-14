@@ -61,6 +61,7 @@ import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineIn
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
 import { ShowInstanceExtendProductInfoRequest } from './model/ShowInstanceExtendProductInfoRequest';
 import { ShowInstanceExtendProductInfoRespHourly } from './model/ShowInstanceExtendProductInfoRespHourly';
+import { ShowInstanceExtendProductInfoRespMonthly } from './model/ShowInstanceExtendProductInfoRespMonthly';
 import { ShowInstanceExtendProductInfoResponse } from './model/ShowInstanceExtendProductInfoResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResp } from './model/ShowInstanceResp';

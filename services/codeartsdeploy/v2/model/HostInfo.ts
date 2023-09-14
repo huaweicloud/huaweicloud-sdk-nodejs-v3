@@ -1,5 +1,5 @@
 import { HostAuthorizationBody } from './HostAuthorizationBody';
-import { PermissionHostDetail } from './PermissionHostDetail';
+import { PermissionHostDetailNew } from './PermissionHostDetailNew';
 
 
 export class HostInfo {
@@ -8,7 +8,7 @@ export class HostInfo {
     public os?: string;
     public port?: number;
     public authorization?: HostAuthorizationBody;
-    public permission?: PermissionHostDetail;
+    public permission?: PermissionHostDetailNew;
     private 'host_name'?: string;
     private 'as_proxy'?: boolean;
     private 'group_id'?: string;
@@ -45,7 +45,7 @@ export class HostInfo {
         this['authorization'] = authorization;
         return this;
     }
-    public withPermission(permission: PermissionHostDetail): HostInfo {
+    public withPermission(permission: PermissionHostDetailNew): HostInfo {
         this['permission'] = permission;
         return this;
     }

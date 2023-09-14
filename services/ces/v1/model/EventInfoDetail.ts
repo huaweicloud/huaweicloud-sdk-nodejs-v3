@@ -1,14 +1,14 @@
-import { EventItem } from './EventItem';
-import { EventItemDetail } from './EventItemDetail';
+import { ShowEventItem } from './ShowEventItem';
+import { ShowEventItemDetail } from './ShowEventItemDetail';
 
 
 export class EventInfoDetail {
     private 'event_name'?: string;
     private 'event_source'?: string;
     public time?: number;
-    public detail?: EventItemDetail;
+    public detail?: ShowEventItemDetail;
     private 'event_id'?: string;
-    public constructor(eventName?: string, eventSource?: string, time?: number, detail?: EventItemDetail) { 
+    public constructor(eventName?: string, eventSource?: string, time?: number, detail?: ShowEventItemDetail) { 
         this['event_name'] = eventName;
         this['event_source'] = eventSource;
         this['time'] = time;
@@ -38,7 +38,7 @@ export class EventInfoDetail {
         this['time'] = time;
         return this;
     }
-    public withDetail(detail: EventItemDetail): EventInfoDetail {
+    public withDetail(detail: ShowEventItemDetail): EventInfoDetail {
         this['detail'] = detail;
         return this;
     }

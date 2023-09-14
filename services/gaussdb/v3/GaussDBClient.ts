@@ -87,6 +87,7 @@ import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlI
 import { ExpandGaussMySqlInstanceVolumeResponse } from './model/ExpandGaussMySqlInstanceVolumeResponse';
 import { ExpandGaussMySqlProxyRequest } from './model/ExpandGaussMySqlProxyRequest';
 import { ExpandGaussMySqlProxyResponse } from './model/ExpandGaussMySqlProxyResponse';
+import { FileInfo } from './model/FileInfo';
 import { GaussMySqlDatabaseInfo } from './model/GaussMySqlDatabaseInfo';
 import { GaussMySqlDatabaseUser } from './model/GaussMySqlDatabaseUser';
 import { GetJobEntitiesInfoDetail } from './model/GetJobEntitiesInfoDetail';
@@ -97,6 +98,8 @@ import { GrantDatabasePermissionRequestBody } from './model/GrantDatabasePermiss
 import { InstanceTagItem } from './model/InstanceTagItem';
 import { InvokeGaussMySqlInstanceSwitchOverRequest } from './model/InvokeGaussMySqlInstanceSwitchOverRequest';
 import { InvokeGaussMySqlInstanceSwitchOverResponse } from './model/InvokeGaussMySqlInstanceSwitchOverResponse';
+import { ListAuditLogDownloadLinkRequest } from './model/ListAuditLogDownloadLinkRequest';
+import { ListAuditLogDownloadLinkResponse } from './model/ListAuditLogDownloadLinkResponse';
 import { ListDeleteDatabaseUserRequest } from './model/ListDeleteDatabaseUserRequest';
 import { ListGaussMySqlConfigurationsRequest } from './model/ListGaussMySqlConfigurationsRequest';
 import { ListGaussMySqlConfigurationsResponse } from './model/ListGaussMySqlConfigurationsResponse';
@@ -185,6 +188,7 @@ import { MysqlUpdateBackupPolicyRequest } from './model/MysqlUpdateBackupPolicyR
 import { MysqlUpdateInstanceNameRequest } from './model/MysqlUpdateInstanceNameRequest';
 import { MysqlVolume } from './model/MysqlVolume';
 import { MysqlVolumeInfo } from './model/MysqlVolumeInfo';
+import { MysqlVolumeResp } from './model/MysqlVolumeResp';
 import { NodeSqlFilterRule } from './model/NodeSqlFilterRule';
 import { NodeSqlFilterRuleInfo } from './model/NodeSqlFilterRuleInfo';
 import { NodeSqlFilterRulePattern } from './model/NodeSqlFilterRulePattern';
@@ -887,6 +891,31 @@ export class GaussDBClient {
      */
     public invokeGaussMySqlInstanceSwitchOver(invokeGaussMySqlInstanceSwitchOverRequest?: InvokeGaussMySqlInstanceSwitchOverRequest): Promise<InvokeGaussMySqlInstanceSwitchOverResponse> {
         const options = ParamCreater().invokeGaussMySqlInstanceSwitchOver(invokeGaussMySqlInstanceSwitchOverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取全量SQL的临时下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取全量SQL的临时下载链接
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} startTime 开始时间，不得早于实例创建时间。格式为“yyyy-mm-ddThh:mm:ssZ”。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。
+     * @param {string} endTime 结束时间，不得晚于当前时间。格式为“yyyy-mm-ddThh:mm:ssZ”。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [nodeId] 节点ID。 - 若输入，则只获取该节点的全量SQL下载链接。 - 若不输入，则获取该实例所有节点的全量SQL下载链接。
+     * @param {string} [lastFileName] 上次查询的最后一个文件的文件名。 - 若输入，则从该文件名以后按字典顺序开始查询。 - 若不输入，则从第一个文件开始查询。
+     * @param {number} [limit] 一次查询返回的文件数量。  默认值为10，取值范围：1~50之间的整数值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAuditLogDownloadLink(listAuditLogDownloadLinkRequest?: ListAuditLogDownloadLinkRequest): Promise<ListAuditLogDownloadLinkResponse> {
+        const options = ParamCreater().listAuditLogDownloadLink(listAuditLogDownloadLinkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3605,6 +3634,92 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取全量SQL的临时下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAuditLogDownloadLink(listAuditLogDownloadLinkRequest?: ListAuditLogDownloadLinkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instance/{instance_id}/auditlog/download-link",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let xLanguage;
+            
+            let nodeId;
+            
+            let lastFileName;
+            
+            let limit;
+
+            if (listAuditLogDownloadLinkRequest !== null && listAuditLogDownloadLinkRequest !== undefined) {
+                if (listAuditLogDownloadLinkRequest instanceof ListAuditLogDownloadLinkRequest) {
+                    instanceId = listAuditLogDownloadLinkRequest.instanceId;
+                    startTime = listAuditLogDownloadLinkRequest.startTime;
+                    endTime = listAuditLogDownloadLinkRequest.endTime;
+                    xLanguage = listAuditLogDownloadLinkRequest.xLanguage;
+                    nodeId = listAuditLogDownloadLinkRequest.nodeId;
+                    lastFileName = listAuditLogDownloadLinkRequest.lastFileName;
+                    limit = listAuditLogDownloadLinkRequest.limit;
+                } else {
+                    instanceId = listAuditLogDownloadLinkRequest['instance_id'];
+                    startTime = listAuditLogDownloadLinkRequest['start_time'];
+                    endTime = listAuditLogDownloadLinkRequest['end_time'];
+                    xLanguage = listAuditLogDownloadLinkRequest['X-Language'];
+                    nodeId = listAuditLogDownloadLinkRequest['node_id'];
+                    lastFileName = listAuditLogDownloadLinkRequest['last_file_name'];
+                    limit = listAuditLogDownloadLinkRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAuditLogDownloadLink.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listAuditLogDownloadLink.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listAuditLogDownloadLink.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (lastFileName !== null && lastFileName !== undefined) {
+                localVarQueryParameter['last_file_name'] = lastFileName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

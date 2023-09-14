@@ -1,6 +1,7 @@
 import { MysqlBackupStrategy } from './MysqlBackupStrategy';
 import { MysqlChargeInfo } from './MysqlChargeInfo';
 import { MysqlDatastoreInRes } from './MysqlDatastoreInRes';
+import { MysqlVolumeResp } from './MysqlVolumeResp';
 
 
 export class MysqlInstanceResponse {
@@ -21,6 +22,7 @@ export class MysqlInstanceResponse {
     private 'subnet_id'?: string;
     private 'flavor_ref'?: string;
     private 'charge_info'?: MysqlChargeInfo;
+    public volume?: MysqlVolumeResp;
     public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -152,5 +154,9 @@ export class MysqlInstanceResponse {
     }
     public get chargeInfo(): MysqlChargeInfo | undefined {
         return this['charge_info'];
+    }
+    public withVolume(volume: MysqlVolumeResp): MysqlInstanceResponse {
+        this['volume'] = volume;
+        return this;
     }
 }

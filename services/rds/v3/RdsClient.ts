@@ -97,6 +97,7 @@ import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadRespon
 import { CreateXelLogDownloadResult } from './model/CreateXelLogDownloadResult';
 import { CustomerModifyAutoEnlargePolicyReq } from './model/CustomerModifyAutoEnlargePolicyReq';
 import { CustomerUpgradeDatabaseVersionReq } from './model/CustomerUpgradeDatabaseVersionReq';
+import { CustomerUpgradeDatabaseVersionReqNew } from './model/CustomerUpgradeDatabaseVersionReqNew';
 import { DBSInstanceHostInfoResult } from './model/DBSInstanceHostInfoResult';
 import { DataIpRequest } from './model/DataIpRequest';
 import { DatabaseForCreation } from './model/DatabaseForCreation';
@@ -323,12 +324,17 @@ import { ResourceMonitoringInfo } from './model/ResourceMonitoringInfo';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
+import { RestoreDatabasesInfoNew } from './model/RestoreDatabasesInfoNew';
 import { RestoreExistInstanceRequest } from './model/RestoreExistInstanceRequest';
 import { RestoreExistInstanceResponse } from './model/RestoreExistInstanceResponse';
 import { RestoreExistingInstanceRequestBody } from './model/RestoreExistingInstanceRequestBody';
 import { RestoreExistingInstanceRequestBodySource } from './model/RestoreExistingInstanceRequestBodySource';
 import { RestorePoint } from './model/RestorePoint';
 import { RestoreTableInfo } from './model/RestoreTableInfo';
+import { RestoreTableInfoNew } from './model/RestoreTableInfoNew';
+import { RestoreTablesNewRequest } from './model/RestoreTablesNewRequest';
+import { RestoreTablesNewRequestBody } from './model/RestoreTablesNewRequestBody';
+import { RestoreTablesNewResponse } from './model/RestoreTablesNewResponse';
 import { RestoreTablesRequest } from './model/RestoreTablesRequest';
 import { RestoreTablesRequestBody } from './model/RestoreTablesRequestBody';
 import { RestoreTablesResponse } from './model/RestoreTablesResponse';
@@ -502,6 +508,8 @@ import { UpdatePostgresqlParameterValueResponse } from './model/UpdatePostgresql
 import { UpdateRdsInstanceAliasRequest } from './model/UpdateRdsInstanceAliasRequest';
 import { UpdateReadWeightRequest } from './model/UpdateReadWeightRequest';
 import { UpdateReadWeightResponse } from './model/UpdateReadWeightResponse';
+import { UpgradeDbVersionNewRequest } from './model/UpgradeDbVersionNewRequest';
+import { UpgradeDbVersionNewResponse } from './model/UpgradeDbVersionNewResponse';
 import { UpgradeDbVersionRequest } from './model/UpgradeDbVersionRequest';
 import { UpgradeDbVersionResponse } from './model/UpgradeDbVersionResponse';
 import { UserForCreation } from './model/UserForCreation';
@@ -1815,6 +1823,27 @@ export class RdsClient {
     }
 
     /**
+     * 表级时间点恢复(MySQL)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表级时间点恢复(MySQL)
+     * @param {string} instanceId 实例ID。
+     * @param {RestoreTablesNewRequestBody} restoreTablesNewRequestBody 请求体。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreTablesNew(restoreTablesNewRequest?: RestoreTablesNewRequest): Promise<RestoreTablesNewResponse> {
+        const options = ParamCreater().restoreTablesNew(restoreTablesNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 恢复到已有实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2694,6 +2723,27 @@ export class RdsClient {
      */
     public upgradeDbVersion(upgradeDbVersionRequest?: UpgradeDbVersionRequest): Promise<UpgradeDbVersionResponse> {
         const options = ParamCreater().upgradeDbVersion(upgradeDbVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对实例进行小版本升级。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 升级内核小版本
+     * @param {string} instanceId 实例ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {CustomerUpgradeDatabaseVersionReqNew} [upgradeDbVersionNewRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeDbVersionNew(upgradeDbVersionNewRequest?: UpgradeDbVersionNewRequest): Promise<UpgradeDbVersionNewResponse> {
+        const options = ParamCreater().upgradeDbVersionNew(upgradeDbVersionNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7346,6 +7396,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 表级时间点恢复(MySQL)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreTablesNew(restoreTablesNewRequest?: RestoreTablesNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.1/{project_id}/instances/{instance_id}/restore/tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (restoreTablesNewRequest !== null && restoreTablesNewRequest !== undefined) {
+                if (restoreTablesNewRequest instanceof RestoreTablesNewRequest) {
+                    instanceId = restoreTablesNewRequest.instanceId;
+                    body = restoreTablesNewRequest.body
+                    xLanguage = restoreTablesNewRequest.xLanguage;
+                } else {
+                    instanceId = restoreTablesNewRequest['instance_id'];
+                    body = restoreTablesNewRequest['body'];
+                    xLanguage = restoreTablesNewRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restoreTablesNew.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 恢复到已有实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9448,6 +9551,56 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbVersion.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对实例进行小版本升级。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeDbVersionNew(upgradeDbVersionNewRequest?: UpgradeDbVersionNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (upgradeDbVersionNewRequest !== null && upgradeDbVersionNewRequest !== undefined) {
+                if (upgradeDbVersionNewRequest instanceof UpgradeDbVersionNewRequest) {
+                    instanceId = upgradeDbVersionNewRequest.instanceId;
+                    xLanguage = upgradeDbVersionNewRequest.xLanguage;
+                    body = upgradeDbVersionNewRequest.body
+                } else {
+                    instanceId = upgradeDbVersionNewRequest['instance_id'];
+                    xLanguage = upgradeDbVersionNewRequest['X-Language'];
+                    body = upgradeDbVersionNewRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbVersionNew.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

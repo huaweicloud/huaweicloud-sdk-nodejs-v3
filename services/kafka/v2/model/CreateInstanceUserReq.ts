@@ -2,6 +2,7 @@
 
 export class CreateInstanceUserReq {
     private 'user_name'?: string;
+    private 'user_desc'?: string;
     private 'user_passwd'?: string;
     public constructor() { 
     }
@@ -14,6 +15,16 @@ export class CreateInstanceUserReq {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserDesc(userDesc: string): CreateInstanceUserReq {
+        this['user_desc'] = userDesc;
+        return this;
+    }
+    public set userDesc(userDesc: string  | undefined) {
+        this['user_desc'] = userDesc;
+    }
+    public get userDesc(): string | undefined {
+        return this['user_desc'];
     }
     public withUserPasswd(userPasswd: string): CreateInstanceUserReq {
         this['user_passwd'] = userPasswd;

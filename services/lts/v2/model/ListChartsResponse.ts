@@ -1,4 +1,3 @@
-import { ChartConfig } from './ChartConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -11,7 +10,7 @@ export class ListChartsResponse extends SdkResponse {
     private 'log_group_name'?: string;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
-    public config?: ChartConfig;
+    public config?: object;
     public constructor() { 
         super();
     }
@@ -71,7 +70,7 @@ export class ListChartsResponse extends SdkResponse {
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
     }
-    public withConfig(config: ChartConfig): ListChartsResponse {
+    public withConfig(config: object): ListChartsResponse {
         this['config'] = config;
         return this;
     }

@@ -35,6 +35,7 @@ export * from './model/CreateBareMetalServersRequest';
 export * from './model/CreateBareMetalServersResponse';
 export * from './model/CreateBaremetalServersBody';
 export * from './model/CreateSchedulerHints';
+export * from './model/CreateServerNicAllowedAddressPairs';
 export * from './model/CreateServers';
 export * from './model/DataVolumes';
 export * from './model/DeleteServerNicsReq';

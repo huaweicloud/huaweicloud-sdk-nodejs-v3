@@ -1,13 +1,13 @@
 
 
 export class UpdateFuncSnapshotRequest {
-    public action?: string;
+    public action?: UpdateFuncSnapshotRequestActionEnum | string;
     private 'function_urn'?: string;
     public constructor(action?: string, functionUrn?: string) { 
         this['action'] = action;
         this['function_urn'] = functionUrn;
     }
-    public withAction(action: string): UpdateFuncSnapshotRequest {
+    public withAction(action: UpdateFuncSnapshotRequestActionEnum | string): UpdateFuncSnapshotRequest {
         this['action'] = action;
         return this;
     }
@@ -21,4 +21,13 @@ export class UpdateFuncSnapshotRequest {
     public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateFuncSnapshotRequestActionEnum {
+    ENABLE = 'enable',
+    DISABLE = 'disable'
 }

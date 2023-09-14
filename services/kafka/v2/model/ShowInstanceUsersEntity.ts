@@ -2,6 +2,7 @@
 
 export class ShowInstanceUsersEntity {
     private 'user_name'?: string;
+    private 'user_desc'?: string;
     public role?: string;
     private 'default_app'?: boolean;
     private 'created_time'?: number;
@@ -16,6 +17,16 @@ export class ShowInstanceUsersEntity {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserDesc(userDesc: string): ShowInstanceUsersEntity {
+        this['user_desc'] = userDesc;
+        return this;
+    }
+    public set userDesc(userDesc: string  | undefined) {
+        this['user_desc'] = userDesc;
+    }
+    public get userDesc(): string | undefined {
+        return this['user_desc'];
     }
     public withRole(role: string): ShowInstanceUsersEntity {
         this['role'] = role;

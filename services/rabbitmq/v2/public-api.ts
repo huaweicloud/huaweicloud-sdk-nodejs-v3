@@ -59,6 +59,7 @@ export * from './model/ShowEngineInstanceExtendProductInfoRequest';
 export * from './model/ShowEngineInstanceExtendProductInfoResponse';
 export * from './model/ShowInstanceExtendProductInfoRequest';
 export * from './model/ShowInstanceExtendProductInfoRespHourly';
+export * from './model/ShowInstanceExtendProductInfoRespMonthly';
 export * from './model/ShowInstanceExtendProductInfoResponse';
 export * from './model/ShowInstanceRequest';
 export * from './model/ShowInstanceResp';

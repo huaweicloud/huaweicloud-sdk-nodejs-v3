@@ -1,5 +1,5 @@
 import { HostAuthorizationBody } from './HostAuthorizationBody';
-import { PermissionHostDetail } from './PermissionHostDetail';
+import { PermissionHostDetailNew } from './PermissionHostDetailNew';
 
 
 export class HostInfoDetail {
@@ -8,13 +8,13 @@ export class HostInfoDetail {
     public os?: string;
     public port?: number;
     public authorization?: HostAuthorizationBody;
-    public permission?: PermissionHostDetail;
+    public permission?: PermissionHostDetailNew;
     private 'group_id'?: string;
     private 'host_name'?: string;
     private 'as_proxy'?: boolean;
     private 'proxy_host_id'?: string;
     private 'owner_name'?: string;
-    private 'proxy_host'?: string;
+    private 'proxy_host'?: HostInfoDetail;
     private 'connection_status'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -50,7 +50,7 @@ export class HostInfoDetail {
         this['authorization'] = authorization;
         return this;
     }
-    public withPermission(permission: PermissionHostDetail): HostInfoDetail {
+    public withPermission(permission: PermissionHostDetailNew): HostInfoDetail {
         this['permission'] = permission;
         return this;
     }
@@ -104,14 +104,14 @@ export class HostInfoDetail {
     public get ownerName(): string | undefined {
         return this['owner_name'];
     }
-    public withProxyHost(proxyHost: string): HostInfoDetail {
+    public withProxyHost(proxyHost: HostInfoDetail): HostInfoDetail {
         this['proxy_host'] = proxyHost;
         return this;
     }
-    public set proxyHost(proxyHost: string  | undefined) {
+    public set proxyHost(proxyHost: HostInfoDetail  | undefined) {
         this['proxy_host'] = proxyHost;
     }
-    public get proxyHost(): string | undefined {
+    public get proxyHost(): HostInfoDetail | undefined {
         return this['proxy_host'];
     }
     public withConnectionStatus(connectionStatus: string): HostInfoDetail {

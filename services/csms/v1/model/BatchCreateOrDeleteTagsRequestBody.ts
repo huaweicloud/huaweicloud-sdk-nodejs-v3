@@ -5,7 +5,9 @@ export class BatchCreateOrDeleteTagsRequestBody {
     public tags?: Array<TagItem>;
     public action?: string;
     public sequence?: string;
-    public constructor() { 
+    public constructor(tags?: Array<TagItem>, action?: string) { 
+        this['tags'] = tags;
+        this['action'] = action;
     }
     public withTags(tags: Array<TagItem>): BatchCreateOrDeleteTagsRequestBody {
         this['tags'] = tags;

@@ -85,7 +85,7 @@ export class ModerationClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建音频内容审核作业
-     * @param {AudioCreateRequest} runTextModerationRequestBody 音频内容审核请求体
+     * @param {AudioCreateRequest} runCreateAudioModerationJobRequestBody 音频内容审核请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

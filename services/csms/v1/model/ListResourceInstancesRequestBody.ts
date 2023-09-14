@@ -1,5 +1,5 @@
 import { Tag } from './Tag';
-import { TagItem } from './TagItem';
+import { TagMatches } from './TagMatches';
 
 
 export class ListResourceInstancesRequestBody {
@@ -7,9 +7,10 @@ export class ListResourceInstancesRequestBody {
     public offset?: string;
     public action?: string;
     public tags?: Array<Tag>;
-    public matches?: Array<TagItem>;
+    public matches?: Array<TagMatches>;
     public sequence?: string;
-    public constructor() { 
+    public constructor(action?: string) { 
+        this['action'] = action;
     }
     public withLimit(limit: string): ListResourceInstancesRequestBody {
         this['limit'] = limit;
@@ -27,7 +28,7 @@ export class ListResourceInstancesRequestBody {
         this['tags'] = tags;
         return this;
     }
-    public withMatches(matches: Array<TagItem>): ListResourceInstancesRequestBody {
+    public withMatches(matches: Array<TagMatches>): ListResourceInstancesRequestBody {
         this['matches'] = matches;
         return this;
     }

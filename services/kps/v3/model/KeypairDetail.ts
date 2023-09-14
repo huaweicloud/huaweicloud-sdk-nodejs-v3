@@ -15,6 +15,8 @@ export class KeypairDetail {
     private 'delete_time'?: number;
     private 'update_time'?: number;
     private 'frozen_state'?: number;
+    private 'key_id'?: string;
+    public algorithm?: string;
     public constructor() { 
     }
     public withName(name: string): KeypairDetail {
@@ -114,6 +116,20 @@ export class KeypairDetail {
     }
     public get frozenState(): number | undefined {
         return this['frozen_state'];
+    }
+    public withKeyId(keyId: string): KeypairDetail {
+        this['key_id'] = keyId;
+        return this;
+    }
+    public set keyId(keyId: string  | undefined) {
+        this['key_id'] = keyId;
+    }
+    public get keyId(): string | undefined {
+        return this['key_id'];
+    }
+    public withAlgorithm(algorithm: string): KeypairDetail {
+        this['algorithm'] = algorithm;
+        return this;
     }
 }
 

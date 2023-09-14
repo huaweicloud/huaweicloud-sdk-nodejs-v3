@@ -3,17 +3,26 @@ import { AudioInputBody } from './AudioInputBody';
 
 export class AudioCreateRequest {
     public data?: AudioInputBody;
+    private 'biz_type'?: string;
     private 'event_type'?: AudioCreateRequestEventTypeEnum | string;
     public categories?: Array<AudioCreateRequestCategoriesEnum> | Array<string>;
     public callback?: string;
-    public constructor(data?: AudioInputBody, eventType?: string, categories?: Array<string>) { 
+    public constructor(data?: AudioInputBody) { 
         this['data'] = data;
-        this['event_type'] = eventType;
-        this['categories'] = categories;
     }
     public withData(data: AudioInputBody): AudioCreateRequest {
         this['data'] = data;
         return this;
+    }
+    public withBizType(bizType: string): AudioCreateRequest {
+        this['biz_type'] = bizType;
+        return this;
+    }
+    public set bizType(bizType: string  | undefined) {
+        this['biz_type'] = bizType;
+    }
+    public get bizType(): string | undefined {
+        return this['biz_type'];
     }
     public withEventType(eventType: AudioCreateRequestEventTypeEnum | string): AudioCreateRequest {
         this['event_type'] = eventType;

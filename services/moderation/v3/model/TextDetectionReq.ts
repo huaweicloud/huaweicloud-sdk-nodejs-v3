@@ -6,8 +6,8 @@ export class TextDetectionReq {
     private 'glossary_names'?: Array<string>;
     public data?: TextDetectionDataReq;
     private 'white_glossary_names'?: Array<string>;
-    public constructor(eventType?: string, data?: TextDetectionDataReq) { 
-        this['event_type'] = eventType;
+    private 'biz_type'?: string;
+    public constructor(data?: TextDetectionDataReq) { 
         this['data'] = data;
     }
     public withEventType(eventType: string): TextDetectionReq {
@@ -43,5 +43,15 @@ export class TextDetectionReq {
     }
     public get whiteGlossaryNames(): Array<string> | undefined {
         return this['white_glossary_names'];
+    }
+    public withBizType(bizType: string): TextDetectionReq {
+        this['biz_type'] = bizType;
+        return this;
+    }
+    public set bizType(bizType: string  | undefined) {
+        this['biz_type'] = bizType;
+    }
+    public get bizType(): string | undefined {
+        return this['biz_type'];
     }
 }

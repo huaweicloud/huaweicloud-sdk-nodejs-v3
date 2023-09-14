@@ -37,6 +37,7 @@ import { CreateBareMetalServersRequest } from './model/CreateBareMetalServersReq
 import { CreateBareMetalServersResponse } from './model/CreateBareMetalServersResponse';
 import { CreateBaremetalServersBody } from './model/CreateBaremetalServersBody';
 import { CreateSchedulerHints } from './model/CreateSchedulerHints';
+import { CreateServerNicAllowedAddressPairs } from './model/CreateServerNicAllowedAddressPairs';
 import { CreateServers } from './model/CreateServers';
 import { DataVolumes } from './model/DataVolumes';
 import { DeleteServerNicsReq } from './model/DeleteServerNicsReq';

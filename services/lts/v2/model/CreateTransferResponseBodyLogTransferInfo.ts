@@ -1,16 +1,15 @@
 import { CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer } from './CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer';
-import { TransferDetail } from './TransferDetail';
 
 
 export class CreateTransferResponseBodyLogTransferInfo {
     private 'log_agency_transfer'?: CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer;
     private 'log_create_time'?: number;
     private 'log_storage_format'?: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string;
-    private 'log_transfer_detail'?: TransferDetail;
+    private 'log_transfer_detail'?: object;
     private 'log_transfer_mode'?: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string;
     private 'log_transfer_status'?: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | string;
     private 'log_transfer_type'?: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | string;
-    public constructor(logCreateTime?: number, logStorageFormat?: string, logTransferDetail?: TransferDetail, logTransferMode?: string, logTransferStatus?: string, logTransferType?: string) { 
+    public constructor(logCreateTime?: number, logStorageFormat?: string, logTransferDetail?: object, logTransferMode?: string, logTransferStatus?: string, logTransferType?: string) { 
         this['log_create_time'] = logCreateTime;
         this['log_storage_format'] = logStorageFormat;
         this['log_transfer_detail'] = logTransferDetail;
@@ -48,14 +47,14 @@ export class CreateTransferResponseBodyLogTransferInfo {
     public get logStorageFormat(): CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string | undefined {
         return this['log_storage_format'];
     }
-    public withLogTransferDetail(logTransferDetail: TransferDetail): CreateTransferResponseBodyLogTransferInfo {
+    public withLogTransferDetail(logTransferDetail: object): CreateTransferResponseBodyLogTransferInfo {
         this['log_transfer_detail'] = logTransferDetail;
         return this;
     }
-    public set logTransferDetail(logTransferDetail: TransferDetail  | undefined) {
+    public set logTransferDetail(logTransferDetail: object  | undefined) {
         this['log_transfer_detail'] = logTransferDetail;
     }
-    public get logTransferDetail(): TransferDetail | undefined {
+    public get logTransferDetail(): object | undefined {
         return this['log_transfer_detail'];
     }
     public withLogTransferMode(logTransferMode: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string): CreateTransferResponseBodyLogTransferInfo {

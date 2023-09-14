@@ -2,12 +2,12 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListStructuredLogsWithTimeRangeResponse extends SdkResponse {
-    public body?: { [key: string]: Array<object>; };
+    public context?: Array<string>;
     public constructor() { 
         super();
     }
-    public withBody(body: { [key: string]: Array<object>; }): ListStructuredLogsWithTimeRangeResponse {
-        this['body'] = body;
+    public withContext(context: Array<string>): ListStructuredLogsWithTimeRangeResponse {
+        this['context'] = context;
         return this;
     }
 }

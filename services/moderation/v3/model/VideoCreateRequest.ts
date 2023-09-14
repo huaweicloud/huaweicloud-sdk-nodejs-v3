@@ -3,18 +3,27 @@ import { VideoCreateRequestData } from './VideoCreateRequestData';
 
 export class VideoCreateRequest {
     public data?: VideoCreateRequestData;
+    private 'biz_type'?: string;
     private 'event_type'?: VideoCreateRequestEventTypeEnum | string;
     private 'image_categories'?: Array<VideoCreateRequestImageCategoriesEnum> | Array<string>;
     private 'audio_categories'?: Array<VideoCreateRequestAudioCategoriesEnum> | Array<string>;
     public callback?: string;
-    public constructor(data?: VideoCreateRequestData, eventType?: string, imageCategories?: Array<string>) { 
+    public constructor(data?: VideoCreateRequestData) { 
         this['data'] = data;
-        this['event_type'] = eventType;
-        this['image_categories'] = imageCategories;
     }
     public withData(data: VideoCreateRequestData): VideoCreateRequest {
         this['data'] = data;
         return this;
+    }
+    public withBizType(bizType: string): VideoCreateRequest {
+        this['biz_type'] = bizType;
+        return this;
+    }
+    public set bizType(bizType: string  | undefined) {
+        this['biz_type'] = bizType;
+    }
+    public get bizType(): string | undefined {
+        return this['biz_type'];
     }
     public withEventType(eventType: VideoCreateRequestEventTypeEnum | string): VideoCreateRequest {
         this['event_type'] = eventType;

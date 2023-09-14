@@ -4,7 +4,8 @@ import { Encryption } from './Encryption';
 export class KeyProtection {
     private 'private_key'?: string;
     public encryption?: Encryption;
-    public constructor() { 
+    public constructor(encryption?: Encryption) { 
+        this['encryption'] = encryption;
     }
     public withPrivateKey(privateKey: string): KeyProtection {
         this['private_key'] = privateKey;

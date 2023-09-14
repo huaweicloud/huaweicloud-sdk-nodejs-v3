@@ -1,3 +1,4 @@
+import { TaskV2Info } from './TaskV2Info';
 
 
 export class AppDetailInfo {
@@ -23,7 +24,7 @@ export class AppDetailInfo {
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'permission_level'?: string;
-    private 'arrange_infos'?: object;
+    private 'arrange_infos'?: Array<TaskV2Info>;
     public constructor() { 
     }
     public withId(id: string): AppDetailInfo {
@@ -222,14 +223,14 @@ export class AppDetailInfo {
     public get permissionLevel(): string | undefined {
         return this['permission_level'];
     }
-    public withArrangeInfos(arrangeInfos: object): AppDetailInfo {
+    public withArrangeInfos(arrangeInfos: Array<TaskV2Info>): AppDetailInfo {
         this['arrange_infos'] = arrangeInfos;
         return this;
     }
-    public set arrangeInfos(arrangeInfos: object  | undefined) {
+    public set arrangeInfos(arrangeInfos: Array<TaskV2Info>  | undefined) {
         this['arrange_infos'] = arrangeInfos;
     }
-    public get arrangeInfos(): object | undefined {
+    public get arrangeInfos(): Array<TaskV2Info> | undefined {
         return this['arrange_infos'];
     }
 }

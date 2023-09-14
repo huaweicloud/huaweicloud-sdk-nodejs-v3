@@ -1,4 +1,3 @@
-import { Frequency } from './Frequency';
 import { SqlRequest } from './SqlRequest';
 import { Topics } from './Topics';
 
@@ -8,7 +7,7 @@ export class SqlAlarmRuleRespList {
     private 'sql_alarm_rule_id'?: string;
     private 'sql_alarm_rule_description'?: string;
     private 'sql_requests'?: Array<SqlRequest>;
-    public frequency?: Frequency;
+    public frequency?: object;
     private 'condition_expression'?: string;
     public topics?: Array<Topics>;
     private 'sql_alarm_level'?: SqlAlarmRuleRespListSqlAlarmLevelEnum | string;
@@ -22,7 +21,7 @@ export class SqlAlarmRuleRespList {
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(sqlAlarmRuleName?: string, sqlAlarmRuleId?: string, sqlAlarmRuleDescription?: string, sqlRequests?: Array<SqlRequest>, frequency?: Frequency, conditionExpression?: string, topics?: Array<Topics>, sqlAlarmLevel?: string, sqlAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number) { 
+    public constructor(sqlAlarmRuleName?: string, sqlAlarmRuleId?: string, sqlAlarmRuleDescription?: string, sqlRequests?: Array<SqlRequest>, frequency?: object, conditionExpression?: string, topics?: Array<Topics>, sqlAlarmLevel?: string, sqlAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_alarm_rule_id'] = sqlAlarmRuleId;
         this['sql_alarm_rule_description'] = sqlAlarmRuleDescription;
@@ -76,7 +75,7 @@ export class SqlAlarmRuleRespList {
     public get sqlRequests(): Array<SqlRequest> | undefined {
         return this['sql_requests'];
     }
-    public withFrequency(frequency: Frequency): SqlAlarmRuleRespList {
+    public withFrequency(frequency: object): SqlAlarmRuleRespList {
         this['frequency'] = frequency;
         return this;
     }

@@ -1,8 +1,10 @@
+import { CreateServerNicAllowedAddressPairs } from './CreateServerNicAllowedAddressPairs';
 
 
 export class Nics {
     private 'subnet_id'?: string;
     private 'ip_address'?: string;
+    private 'allowed_address_pairs'?: Array<CreateServerNicAllowedAddressPairs>;
     public constructor(subnetId?: string) { 
         this['subnet_id'] = subnetId;
     }
@@ -25,5 +27,15 @@ export class Nics {
     }
     public get ipAddress(): string | undefined {
         return this['ip_address'];
+    }
+    public withAllowedAddressPairs(allowedAddressPairs: Array<CreateServerNicAllowedAddressPairs>): Nics {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+        return this;
+    }
+    public set allowedAddressPairs(allowedAddressPairs: Array<CreateServerNicAllowedAddressPairs>  | undefined) {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+    }
+    public get allowedAddressPairs(): Array<CreateServerNicAllowedAddressPairs> | undefined {
+        return this['allowed_address_pairs'];
     }
 }

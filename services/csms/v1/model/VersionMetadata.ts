@@ -3,6 +3,7 @@
 export class VersionMetadata {
     public id?: string;
     private 'create_time'?: number;
+    private 'expire_time'?: number;
     private 'kms_key_id'?: string;
     private 'secret_name'?: string;
     private 'version_stages'?: Array<string>;
@@ -21,6 +22,16 @@ export class VersionMetadata {
     }
     public get createTime(): number | undefined {
         return this['create_time'];
+    }
+    public withExpireTime(expireTime: number): VersionMetadata {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): number | undefined {
+        return this['expire_time'];
     }
     public withKmsKeyId(kmsKeyId: string): VersionMetadata {
         this['kms_key_id'] = kmsKeyId;

@@ -211,6 +211,8 @@ import { TopicEntityTopicOtherConfigs } from './model/TopicEntityTopicOtherConfi
 import { UpdateInstanceAutoCreateTopicReq } from './model/UpdateInstanceAutoCreateTopicReq';
 import { UpdateInstanceAutoCreateTopicRequest } from './model/UpdateInstanceAutoCreateTopicRequest';
 import { UpdateInstanceAutoCreateTopicResponse } from './model/UpdateInstanceAutoCreateTopicResponse';
+import { UpdateInstanceConsumerGroupRequest } from './model/UpdateInstanceConsumerGroupRequest';
+import { UpdateInstanceConsumerGroupResponse } from './model/UpdateInstanceConsumerGroupResponse';
 import { UpdateInstanceCrossVpcIpReq } from './model/UpdateInstanceCrossVpcIpReq';
 import { UpdateInstanceCrossVpcIpRequest } from './model/UpdateInstanceCrossVpcIpRequest';
 import { UpdateInstanceCrossVpcIpRespResults } from './model/UpdateInstanceCrossVpcIpRespResults';
@@ -222,6 +224,8 @@ import { UpdateInstanceTopicReq } from './model/UpdateInstanceTopicReq';
 import { UpdateInstanceTopicReqTopics } from './model/UpdateInstanceTopicReqTopics';
 import { UpdateInstanceTopicRequest } from './model/UpdateInstanceTopicRequest';
 import { UpdateInstanceTopicResponse } from './model/UpdateInstanceTopicResponse';
+import { UpdateInstanceUserRequest } from './model/UpdateInstanceUserRequest';
+import { UpdateInstanceUserResponse } from './model/UpdateInstanceUserResponse';
 import { UpdateSinkTaskQuotaReq } from './model/UpdateSinkTaskQuotaReq';
 import { UpdateSinkTaskQuotaRequest } from './model/UpdateSinkTaskQuotaRequest';
 import { UpdateSinkTaskQuotaResponse } from './model/UpdateSinkTaskQuotaResponse';
@@ -230,6 +234,7 @@ import { UpdateTopicAccessPolicyRequest } from './model/UpdateTopicAccessPolicyR
 import { UpdateTopicAccessPolicyResponse } from './model/UpdateTopicAccessPolicyResponse';
 import { UpdateTopicReplicaRequest } from './model/UpdateTopicReplicaRequest';
 import { UpdateTopicReplicaResponse } from './model/UpdateTopicReplicaResponse';
+import { UpdateUserReq } from './model/UpdateUserReq';
 
 export class KafkaClient {
     public static newBuilder(): ClientBuilder<KafkaClient> {
@@ -1187,6 +1192,7 @@ export class KafkaClient {
      * @param {boolean} [download] 是否下载。
      * @param {string} [messageOffset] 消息偏移量。  **查询消息内容时，为必选参数。**  若start_time、end_time参数不为空，该参数无效。
      * @param {string} [partition] 分区。  **查询消息内容时，为必选参数。**  若start_time、end_time参数不为空，该参数无效。
+     * @param {string} [keyword] 关键词。 取值范围为0~50。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1490,6 +1496,28 @@ export class KafkaClient {
     }
 
     /**
+     * 编辑消费组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑消费组
+     * @param {string} engine 消息中间件类型。
+     * @param {string} instanceId 实例ID。
+     * @param {string} group 消费者组。
+     * @param {CreateGroupReq} updateInstanceConsumerGroupRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceConsumerGroup(updateInstanceConsumerGroupRequest?: UpdateInstanceConsumerGroupRequest): Promise<UpdateInstanceConsumerGroupResponse> {
+        const options = ParamCreater().updateInstanceConsumerGroup(updateInstanceConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改实例跨VPC访问的内网IP。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1522,6 +1550,28 @@ export class KafkaClient {
      */
     public updateInstanceTopic(updateInstanceTopicRequest?: UpdateInstanceTopicRequest): Promise<UpdateInstanceTopicResponse> {
         const options = ParamCreater().updateInstanceTopic(updateInstanceTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改用户参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改用户参数
+     * @param {string} engine 消息中间件。
+     * @param {string} instanceId 实例ID。
+     * @param {string} userName 用户名称。
+     * @param {UpdateUserReq} updateInstanceUserRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceUser(updateInstanceUserRequest?: UpdateInstanceUserRequest): Promise<UpdateInstanceUserResponse> {
+        const options = ParamCreater().updateInstanceUser(updateInstanceUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3733,6 +3783,8 @@ export const ParamCreater = function () {
             let messageOffset;
             
             let partition;
+            
+            let keyword;
 
             if (showInstanceMessagesRequest !== null && showInstanceMessagesRequest !== undefined) {
                 if (showInstanceMessagesRequest instanceof ShowInstanceMessagesRequest) {
@@ -3746,6 +3798,7 @@ export const ParamCreater = function () {
                     download = showInstanceMessagesRequest.download;
                     messageOffset = showInstanceMessagesRequest.messageOffset;
                     partition = showInstanceMessagesRequest.partition;
+                    keyword = showInstanceMessagesRequest.keyword;
                 } else {
                     instanceId = showInstanceMessagesRequest['instance_id'];
                     topic = showInstanceMessagesRequest['topic'];
@@ -3757,6 +3810,7 @@ export const ParamCreater = function () {
                     download = showInstanceMessagesRequest['download'];
                     messageOffset = showInstanceMessagesRequest['message_offset'];
                     partition = showInstanceMessagesRequest['partition'];
+                    keyword = showInstanceMessagesRequest['keyword'];
                 }
             }
 
@@ -3793,6 +3847,9 @@ export const ParamCreater = function () {
             }
             if (partition !== null && partition !== undefined) {
                 localVarQueryParameter['partition'] = partition;
+            }
+            if (keyword !== null && keyword !== undefined) {
+                localVarQueryParameter['keyword'] = keyword;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4457,6 +4514,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 编辑消费组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceConsumerGroup(updateInstanceConsumerGroupRequest?: UpdateInstanceConsumerGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/groups/{group}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let group;
+
+            if (updateInstanceConsumerGroupRequest !== null && updateInstanceConsumerGroupRequest !== undefined) {
+                if (updateInstanceConsumerGroupRequest instanceof UpdateInstanceConsumerGroupRequest) {
+                    engine = updateInstanceConsumerGroupRequest.engine;
+                    instanceId = updateInstanceConsumerGroupRequest.instanceId;
+                    group = updateInstanceConsumerGroupRequest.group;
+                    body = updateInstanceConsumerGroupRequest.body
+                } else {
+                    engine = updateInstanceConsumerGroupRequest['engine'];
+                    instanceId = updateInstanceConsumerGroupRequest['instance_id'];
+                    group = updateInstanceConsumerGroupRequest['group'];
+                    body = updateInstanceConsumerGroupRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling updateInstanceConsumerGroup.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceConsumerGroup.');
+            }
+            if (group === null || group === undefined) {
+            throw new RequiredError('group','Required parameter group was null or undefined when calling updateInstanceConsumerGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改实例跨VPC访问的内网IP。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4544,6 +4661,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改用户参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceUser(updateInstanceUserRequest?: UpdateInstanceUserRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/users/{user_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let userName;
+
+            if (updateInstanceUserRequest !== null && updateInstanceUserRequest !== undefined) {
+                if (updateInstanceUserRequest instanceof UpdateInstanceUserRequest) {
+                    engine = updateInstanceUserRequest.engine;
+                    instanceId = updateInstanceUserRequest.instanceId;
+                    userName = updateInstanceUserRequest.userName;
+                    body = updateInstanceUserRequest.body
+                } else {
+                    engine = updateInstanceUserRequest['engine'];
+                    instanceId = updateInstanceUserRequest['instance_id'];
+                    userName = updateInstanceUserRequest['user_name'];
+                    body = updateInstanceUserRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling updateInstanceUser.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceUser.');
+            }
+            if (userName === null || userName === undefined) {
+            throw new RequiredError('userName','Required parameter userName was null or undefined when calling updateInstanceUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId,'user_name': userName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

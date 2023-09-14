@@ -19,6 +19,7 @@ export class FlavorsItems {
     private 'is_dec'?: boolean;
     public attrs?: Array<AttrsObject>;
     private 'flavors_available_zones'?: Array<FlavorAzObject>;
+    private 'replica_count'?: number;
     public constructor() { 
     }
     public withSpecCode(specCode: string): FlavorsItems {
@@ -162,5 +163,15 @@ export class FlavorsItems {
     }
     public get flavorsAvailableZones(): Array<FlavorAzObject> | undefined {
         return this['flavors_available_zones'];
+    }
+    public withReplicaCount(replicaCount: number): FlavorsItems {
+        this['replica_count'] = replicaCount;
+        return this;
+    }
+    public set replicaCount(replicaCount: number  | undefined) {
+        this['replica_count'] = replicaCount;
+    }
+    public get replicaCount(): number | undefined {
+        return this['replica_count'];
     }
 }

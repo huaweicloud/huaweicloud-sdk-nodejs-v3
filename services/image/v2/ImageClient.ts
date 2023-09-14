@@ -5,19 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { BoundingBox } from './model/BoundingBox';
 import { CelebrityRecognitionReq } from './model/CelebrityRecognitionReq';
 import { CelebrityRecognitionResultBody } from './model/CelebrityRecognitionResultBody';
-import { CreateImageHighresolutionMattingTaskRequest } from './model/CreateImageHighresolutionMattingTaskRequest';
-import { CreateImageHighresolutionMattingTaskResponse } from './model/CreateImageHighresolutionMattingTaskResponse';
-import { CreateVideoTaggingMediaTaskRequest } from './model/CreateVideoTaggingMediaTaskRequest';
-import { CreateVideoTaggingMediaTaskRequestBody } from './model/CreateVideoTaggingMediaTaskRequestBody';
-import { CreateVideoTaggingMediaTaskResponse } from './model/CreateVideoTaggingMediaTaskResponse';
-import { ImageDescriptionReq } from './model/ImageDescriptionReq';
-import { ImageDescriptionResponseResult } from './model/ImageDescriptionResponseResult';
-import { ImageHighresolutionMattingConfig } from './model/ImageHighresolutionMattingConfig';
-import { ImageHighresolutionMattingConfigCommon } from './model/ImageHighresolutionMattingConfigCommon';
-import { ImageHighresolutionMattingInference } from './model/ImageHighresolutionMattingInference';
-import { ImageHighresolutionMattingInput } from './model/ImageHighresolutionMattingInput';
-import { ImageHighresolutionMattingInputData } from './model/ImageHighresolutionMattingInputData';
-import { ImageHighresolutionMattingRequestBody } from './model/ImageHighresolutionMattingRequestBody';
 import { ImageMainObjectDetectionInstance } from './model/ImageMainObjectDetectionInstance';
 import { ImageMainObjectDetectionReq } from './model/ImageMainObjectDetectionReq';
 import { ImageMediaTaggingDetInstance } from './model/ImageMediaTaggingDetInstance';
@@ -31,8 +18,6 @@ import { ImageMediaTaggingItemBodyI18nTag } from './model/ImageMediaTaggingItemB
 import { ImageMediaTaggingItemBodyI18nType } from './model/ImageMediaTaggingItemBodyI18nType';
 import { ImageMediaTaggingReq } from './model/ImageMediaTaggingReq';
 import { ImageMediaTaggingResponseResult } from './model/ImageMediaTaggingResponseResult';
-import { ImageSuperResolutionReq } from './model/ImageSuperResolutionReq';
-import { ImageSuperResolutionResponseResult } from './model/ImageSuperResolutionResponseResult';
 import { ImageTaggingBoundingBox } from './model/ImageTaggingBoundingBox';
 import { ImageTaggingInstance } from './model/ImageTaggingInstance';
 import { ImageTaggingItemBody } from './model/ImageTaggingItemBody';
@@ -45,32 +30,16 @@ import { RecaptureDetectResponseResult } from './model/RecaptureDetectResponseRe
 import { RecaptureDetectResponseResultDetail } from './model/RecaptureDetectResponseResultDetail';
 import { RunCelebrityRecognitionRequest } from './model/RunCelebrityRecognitionRequest';
 import { RunCelebrityRecognitionResponse } from './model/RunCelebrityRecognitionResponse';
-import { RunImageDescriptionRequest } from './model/RunImageDescriptionRequest';
-import { RunImageDescriptionResponse } from './model/RunImageDescriptionResponse';
 import { RunImageMainObjectDetectionRequest } from './model/RunImageMainObjectDetectionRequest';
 import { RunImageMainObjectDetectionResponse } from './model/RunImageMainObjectDetectionResponse';
 import { RunImageMediaTaggingDetRequest } from './model/RunImageMediaTaggingDetRequest';
 import { RunImageMediaTaggingDetResponse } from './model/RunImageMediaTaggingDetResponse';
 import { RunImageMediaTaggingRequest } from './model/RunImageMediaTaggingRequest';
 import { RunImageMediaTaggingResponse } from './model/RunImageMediaTaggingResponse';
-import { RunImageSuperResolutionRequest } from './model/RunImageSuperResolutionRequest';
-import { RunImageSuperResolutionResponse } from './model/RunImageSuperResolutionResponse';
 import { RunImageTaggingRequest } from './model/RunImageTaggingRequest';
 import { RunImageTaggingResponse } from './model/RunImageTaggingResponse';
 import { RunRecaptureDetectRequest } from './model/RunRecaptureDetectRequest';
 import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
-import { ShowImageHighresolutionMattingTaskRequest } from './model/ShowImageHighresolutionMattingTaskRequest';
-import { ShowImageHighresolutionMattingTaskResponse } from './model/ShowImageHighresolutionMattingTaskResponse';
-import { ShowVideoTaggingMediaTaskRequest } from './model/ShowVideoTaggingMediaTaskRequest';
-import { ShowVideoTaggingMediaTaskResponse } from './model/ShowVideoTaggingMediaTaskResponse';
-import { TaskCallback } from './model/TaskCallback';
-import { TaskOutput } from './model/TaskOutput';
-import { TaskOutputObs } from './model/TaskOutputObs';
-import { VideoTaggingMediaTaskInput } from './model/VideoTaggingMediaTaskInput';
-import { VideoTaggingMediaTaskInputData } from './model/VideoTaggingMediaTaskInputData';
-import { VideoTaggingTaskConfig } from './model/VideoTaggingTaskConfig';
-import { VideoTaggingTaskConfigCommon } from './model/VideoTaggingTaskConfigCommon';
-import { VideoTagginginference } from './model/VideoTagginginference';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
@@ -88,44 +57,6 @@ export class ImageClient {
 
 
     /**
-     * 创建图像高清抠图任务，将输入的高清图像中的商品主体从原图中扣取出来，输出商品主体图片或者蒙版。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建图像高清抠图任务
-     * @param {ImageHighresolutionMattingRequestBody} createImageHighresolutionMattingTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createImageHighresolutionMattingTask(createImageHighresolutionMattingTaskRequest?: CreateImageHighresolutionMattingTaskRequest): Promise<CreateImageHighresolutionMattingTaskResponse> {
-        const options = ParamCreater().createImageHighresolutionMattingTask(createImageHighresolutionMattingTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建视频标签任务，输入一段视频，通过AI模型分析视频中的信息，输出视频所包含的媒资标签、名人标签、logo标签、语音标签、OCR标签等信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建视频标签任务
-     * @param {CreateVideoTaggingMediaTaskRequestBody} createVideoTaggingMediaTaskRequestBody 创建任务请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest?: CreateVideoTaggingMediaTaskRequest): Promise<CreateVideoTaggingMediaTaskResponse> {
-        const options = ParamCreater().createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 分析并识别图片中包含的政治人物、明星及网红人物，返回人物信息及人脸坐标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -137,25 +68,6 @@ export class ImageClient {
      */
     public runCelebrityRecognition(runCelebrityRecognitionRequest?: RunCelebrityRecognitionRequest): Promise<RunCelebrityRecognitionResponse> {
         const options = ParamCreater().runCelebrityRecognition(runCelebrityRecognitionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 图像描述
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 图像描述
-     * @param {ImageDescriptionReq} runImageDescriptionRequestBody 图像描述接口请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runImageDescription(runImageDescriptionRequest?: RunImageDescriptionRequest): Promise<RunImageDescriptionResponse> {
-        const options = ParamCreater().runImageDescription(runImageDescriptionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -221,25 +133,6 @@ export class ImageClient {
     }
 
     /**
-     * 图像数据，base64编码，输入图像范围200px ~ 1080px，支持JPG/PNG/BMP/JPEG/WEBP格式
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 图像超分
-     * @param {ImageSuperResolutionReq} runImageSuperResolutionRequestBody 图像超分接口请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runImageSuperResolution(runImageSuperResolutionRequest?: RunImageSuperResolutionRequest): Promise<RunImageSuperResolutionResponse> {
-        const options = ParamCreater().runImageSuperResolution(runImageSuperResolutionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应置信度。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -276,124 +169,10 @@ export class ImageClient {
 
         return this.hcClient.sendRequest(options);
     }
-
-    /**
-     * 查询图像高清抠图任务，返回参数配置以及任务状态信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询图像高清抠图任务
-     * @param {string} taskId 任务id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showImageHighresolutionMattingTask(showImageHighresolutionMattingTaskRequest?: ShowImageHighresolutionMattingTaskRequest): Promise<ShowImageHighresolutionMattingTaskResponse> {
-        const options = ParamCreater().showImageHighresolutionMattingTask(showImageHighresolutionMattingTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询视频标签任务详情，返回参数配置以及任务状态信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询视频标签任务
-     * @param {string} taskId 任务id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest?: ShowVideoTaggingMediaTaskRequest): Promise<ShowVideoTaggingMediaTaskResponse> {
-        const options = ParamCreater().showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
 }
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * 创建图像高清抠图任务，将输入的高清图像中的商品主体从原图中扣取出来，输出商品主体图片或者蒙版。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createImageHighresolutionMattingTask(createImageHighresolutionMattingTaskRequest?: CreateImageHighresolutionMattingTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/image-highresolution-matting/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createImageHighresolutionMattingTaskRequest !== null && createImageHighresolutionMattingTaskRequest !== undefined) {
-                if (createImageHighresolutionMattingTaskRequest instanceof CreateImageHighresolutionMattingTaskRequest) {
-                    body = createImageHighresolutionMattingTaskRequest.body
-                } else {
-                    body = createImageHighresolutionMattingTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建视频标签任务，输入一段视频，通过AI模型分析视频中的信息，输出视频所包含的媒资标签、名人标签、logo标签、语音标签、OCR标签等信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest?: CreateVideoTaggingMediaTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-tagging-media/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createVideoTaggingMediaTaskRequest !== null && createVideoTaggingMediaTaskRequest !== undefined) {
-                if (createVideoTaggingMediaTaskRequest instanceof CreateVideoTaggingMediaTaskRequest) {
-                    body = createVideoTaggingMediaTaskRequest.body
-                } else {
-                    body = createVideoTaggingMediaTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 分析并识别图片中包含的政治人物、明星及网红人物，返回人物信息及人脸坐标。
@@ -419,44 +198,6 @@ export const ParamCreater = function () {
                     body = runCelebrityRecognitionRequest.body
                 } else {
                     body = runCelebrityRecognitionRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 图像描述
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runImageDescription(runImageDescriptionRequest?: RunImageDescriptionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/description",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (runImageDescriptionRequest !== null && runImageDescriptionRequest !== undefined) {
-                if (runImageDescriptionRequest instanceof RunImageDescriptionRequest) {
-                    body = runImageDescriptionRequest.body
-                } else {
-                    body = runImageDescriptionRequest['body'];
                 }
             }
 
@@ -586,44 +327,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 图像数据，base64编码，输入图像范围200px ~ 1080px，支持JPG/PNG/BMP/JPEG/WEBP格式
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runImageSuperResolution(runImageSuperResolutionRequest?: RunImageSuperResolutionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/image-super-resolution",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (runImageSuperResolutionRequest !== null && runImageSuperResolutionRequest !== undefined) {
-                if (runImageSuperResolutionRequest instanceof RunImageSuperResolutionRequest) {
-                    body = runImageSuperResolutionRequest.body
-                } else {
-                    body = runImageSuperResolutionRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应置信度。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -695,80 +398,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询图像高清抠图任务，返回参数配置以及任务状态信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showImageHighresolutionMattingTask(showImageHighresolutionMattingTaskRequest?: ShowImageHighresolutionMattingTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/image-highresolution-matting/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showImageHighresolutionMattingTaskRequest !== null && showImageHighresolutionMattingTaskRequest !== undefined) {
-                if (showImageHighresolutionMattingTaskRequest instanceof ShowImageHighresolutionMattingTaskRequest) {
-                    taskId = showImageHighresolutionMattingTaskRequest.taskId;
-                } else {
-                    taskId = showImageHighresolutionMattingTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showImageHighresolutionMattingTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询视频标签任务详情，返回参数配置以及任务状态信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest?: ShowVideoTaggingMediaTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-tagging-media/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoTaggingMediaTaskRequest !== null && showVideoTaggingMediaTaskRequest !== undefined) {
-                if (showVideoTaggingMediaTaskRequest instanceof ShowVideoTaggingMediaTaskRequest) {
-                    taskId = showVideoTaggingMediaTaskRequest.taskId;
-                } else {
-                    taskId = showVideoTaggingMediaTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoTaggingMediaTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

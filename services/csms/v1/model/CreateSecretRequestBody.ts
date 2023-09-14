@@ -6,6 +6,12 @@ export class CreateSecretRequestBody {
     public description?: string;
     private 'secret_binary'?: string;
     private 'secret_string'?: string;
+    private 'secret_type'?: string;
+    private 'auto_rotation'?: boolean;
+    private 'rotation_period'?: string;
+    private 'rotation_config'?: string;
+    private 'event_subscriptions'?: Array<string>;
+    private 'enterprise_project_id'?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -46,5 +52,65 @@ export class CreateSecretRequestBody {
     }
     public get secretString(): string | undefined {
         return this['secret_string'];
+    }
+    public withSecretType(secretType: string): CreateSecretRequestBody {
+        this['secret_type'] = secretType;
+        return this;
+    }
+    public set secretType(secretType: string  | undefined) {
+        this['secret_type'] = secretType;
+    }
+    public get secretType(): string | undefined {
+        return this['secret_type'];
+    }
+    public withAutoRotation(autoRotation: boolean): CreateSecretRequestBody {
+        this['auto_rotation'] = autoRotation;
+        return this;
+    }
+    public set autoRotation(autoRotation: boolean  | undefined) {
+        this['auto_rotation'] = autoRotation;
+    }
+    public get autoRotation(): boolean | undefined {
+        return this['auto_rotation'];
+    }
+    public withRotationPeriod(rotationPeriod: string): CreateSecretRequestBody {
+        this['rotation_period'] = rotationPeriod;
+        return this;
+    }
+    public set rotationPeriod(rotationPeriod: string  | undefined) {
+        this['rotation_period'] = rotationPeriod;
+    }
+    public get rotationPeriod(): string | undefined {
+        return this['rotation_period'];
+    }
+    public withRotationConfig(rotationConfig: string): CreateSecretRequestBody {
+        this['rotation_config'] = rotationConfig;
+        return this;
+    }
+    public set rotationConfig(rotationConfig: string  | undefined) {
+        this['rotation_config'] = rotationConfig;
+    }
+    public get rotationConfig(): string | undefined {
+        return this['rotation_config'];
+    }
+    public withEventSubscriptions(eventSubscriptions: Array<string>): CreateSecretRequestBody {
+        this['event_subscriptions'] = eventSubscriptions;
+        return this;
+    }
+    public set eventSubscriptions(eventSubscriptions: Array<string>  | undefined) {
+        this['event_subscriptions'] = eventSubscriptions;
+    }
+    public get eventSubscriptions(): Array<string> | undefined {
+        return this['event_subscriptions'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CreateSecretRequestBody {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

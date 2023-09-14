@@ -126,6 +126,8 @@ import { DeleteRecordingsRequest } from './model/DeleteRecordingsRequest';
 import { DeleteRecordingsResponse } from './model/DeleteRecordingsResponse';
 import { DeleteResourceRequest } from './model/DeleteResourceRequest';
 import { DeleteResourceResponse } from './model/DeleteResourceResponse';
+import { DeleteTokenRequest } from './model/DeleteTokenRequest';
+import { DeleteTokenResponse } from './model/DeleteTokenResponse';
 import { DeleteVisionActiveCodeRequest } from './model/DeleteVisionActiveCodeRequest';
 import { DeleteVisionActiveCodeResponse } from './model/DeleteVisionActiveCodeResponse';
 import { DeleteWebHookConfigRequest } from './model/DeleteWebHookConfigRequest';
@@ -1579,6 +1581,26 @@ export class MeetingClient {
      */
     public deleteResource(deleteResourceRequest?: DeleteResourceRequest): Promise<DeleteResourceResponse> {
         const options = ParamCreater().deleteResource(deleteResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口提供注销功能。服务器收到请求后，删除该Token。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 注销登录
+     * @param {string} [xRequestID] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {string} [acceptLanguage] 语言参数，默认为中文zh-CN，英文为en-US。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteToken(deleteTokenRequest?: DeleteTokenRequest): Promise<DeleteTokenResponse> {
+        const options = ParamCreater().deleteToken(deleteTokenRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7190,6 +7212,49 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'corp_id': corpId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口提供注销功能。服务器收到请求后，删除该Token。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteToken(deleteTokenRequest?: DeleteTokenRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/usg/acs/token",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xRequestID;
+            
+            let acceptLanguage;
+
+            if (deleteTokenRequest !== null && deleteTokenRequest !== undefined) {
+                if (deleteTokenRequest instanceof DeleteTokenRequest) {
+                    xRequestID = deleteTokenRequest.xRequestID;
+                    acceptLanguage = deleteTokenRequest.acceptLanguage;
+                } else {
+                    xRequestID = deleteTokenRequest['X-Request-ID'];
+                    acceptLanguage = deleteTokenRequest['Accept-Language'];
+                }
+            }
+
+        
+            if (xRequestID !== undefined && xRequestID !== null) {
+                localVarHeaderParameter['X-Request-ID'] = String(xRequestID);
+            }
+            if (acceptLanguage !== undefined && acceptLanguage !== null) {
+                localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },

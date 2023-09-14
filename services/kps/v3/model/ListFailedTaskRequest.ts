@@ -1,15 +1,15 @@
 
 
 export class ListFailedTaskRequest {
-    public limit?: string;
-    public offset?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor() { 
     }
-    public withLimit(limit: string): ListFailedTaskRequest {
+    public withLimit(limit: number): ListFailedTaskRequest {
         this['limit'] = limit;
         return this;
     }
-    public withOffset(offset: string): ListFailedTaskRequest {
+    public withOffset(offset: number): ListFailedTaskRequest {
         this['offset'] = offset;
         return this;
     }

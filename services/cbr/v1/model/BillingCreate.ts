@@ -13,9 +13,6 @@ export class BillingCreate {
     private 'is_auto_pay'?: boolean;
     private 'console_url'?: string;
     private 'is_multi_az'?: boolean;
-    private 'promotion_info'?: string;
-    private 'purchase_mode'?: string;
-    private 'order_id'?: string;
     public constructor(consistentLevel?: string, objectType?: string, protectType?: string, size?: number) { 
         this['consistent_level'] = consistentLevel;
         this['object_type'] = objectType;
@@ -135,36 +132,6 @@ export class BillingCreate {
     }
     public get isMultiAz(): boolean | undefined {
         return this['is_multi_az'];
-    }
-    public withPromotionInfo(promotionInfo: string): BillingCreate {
-        this['promotion_info'] = promotionInfo;
-        return this;
-    }
-    public set promotionInfo(promotionInfo: string  | undefined) {
-        this['promotion_info'] = promotionInfo;
-    }
-    public get promotionInfo(): string | undefined {
-        return this['promotion_info'];
-    }
-    public withPurchaseMode(purchaseMode: string): BillingCreate {
-        this['purchase_mode'] = purchaseMode;
-        return this;
-    }
-    public set purchaseMode(purchaseMode: string  | undefined) {
-        this['purchase_mode'] = purchaseMode;
-    }
-    public get purchaseMode(): string | undefined {
-        return this['purchase_mode'];
-    }
-    public withOrderId(orderId: string): BillingCreate {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
 }
 

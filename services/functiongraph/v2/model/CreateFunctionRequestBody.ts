@@ -1,3 +1,4 @@
+import { CustomImage } from './CustomImage';
 import { FuncCode } from './FuncCode';
 import { FuncLogConfig } from './FuncLogConfig';
 import { FuncVpc } from './FuncVpc';
@@ -17,6 +18,7 @@ export class CreateFunctionRequestBody {
     private 'code_type'?: CreateFunctionRequestBodyCodeTypeEnum | string;
     private 'code_url'?: string;
     private 'code_filename'?: string;
+    private 'custom_image'?: CustomImage;
     private 'user_data'?: string;
     public xrole?: string;
     private 'app_xrole'?: string;
@@ -138,6 +140,16 @@ export class CreateFunctionRequestBody {
     }
     public get codeFilename(): string | undefined {
         return this['code_filename'];
+    }
+    public withCustomImage(customImage: CustomImage): CreateFunctionRequestBody {
+        this['custom_image'] = customImage;
+        return this;
+    }
+    public set customImage(customImage: CustomImage  | undefined) {
+        this['custom_image'] = customImage;
+    }
+    public get customImage(): CustomImage | undefined {
+        return this['custom_image'];
     }
     public withUserData(userData: string): CreateFunctionRequestBody {
         this['user_data'] = userData;
@@ -265,7 +277,8 @@ export enum CreateFunctionRequestBodyCodeTypeEnum {
     INLINE = 'inline',
     ZIP = 'zip',
     OBS = 'obs',
-    JAR = 'jar'
+    JAR = 'jar',
+    CUSTOM_IMAGE_SWR = 'Custom-Image-Swr'
 }
 /**
     * @export

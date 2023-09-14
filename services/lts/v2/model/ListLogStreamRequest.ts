@@ -2,7 +2,6 @@
 
 export class ListLogStreamRequest {
     private 'log_group_id'?: string;
-    public tag?: string;
     private 'Content-Type'?: string;
     public constructor(logGroupId?: string, contentType?: string) { 
         this['log_group_id'] = logGroupId;
@@ -17,10 +16,6 @@ export class ListLogStreamRequest {
     }
     public get logGroupId(): string | undefined {
         return this['log_group_id'];
-    }
-    public withTag(tag: string): ListLogStreamRequest {
-        this['tag'] = tag;
-        return this;
     }
     public withContentType(contentType: string): ListLogStreamRequest {
         this['Content-Type'] = contentType;

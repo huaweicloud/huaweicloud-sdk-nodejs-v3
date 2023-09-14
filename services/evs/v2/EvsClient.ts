@@ -63,6 +63,10 @@ import { ListVolumesRequest } from './model/ListVolumesRequest';
 import { ListVolumesResponse } from './model/ListVolumesResponse';
 import { Match } from './model/Match';
 import { MediaTypes } from './model/MediaTypes';
+import { ModifyVolumeQoSOption } from './model/ModifyVolumeQoSOption';
+import { ModifyVolumeQoSRequest } from './model/ModifyVolumeQoSRequest';
+import { ModifyVolumeQoSRequestBody } from './model/ModifyVolumeQoSRequestBody';
+import { ModifyVolumeQoSResponse } from './model/ModifyVolumeQoSResponse';
 import { OsExtend } from './model/OsExtend';
 import { QuotaDetail } from './model/QuotaDetail';
 import { QuotaDetailBackupGigabytes } from './model/QuotaDetailBackupGigabytes';
@@ -516,6 +520,26 @@ export class EvsClient {
      */
     public listVolumesByTags(listVolumesByTagsRequest?: ListVolumesByTagsRequest): Promise<ListVolumesByTagsResponse> {
         const options = ParamCreater().listVolumesByTags(listVolumesByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 调整云硬盘的iops或者吞吐量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改云硬盘QoS
+     * @param {string} volumeId 云硬盘ID。
+     * @param {ModifyVolumeQoSRequestBody} modifyVolumeQoSRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyVolumeQoS(modifyVolumeQoSRequest?: ModifyVolumeQoSRequest): Promise<ModifyVolumeQoSResponse> {
+        const options = ParamCreater().modifyVolumeQoS(modifyVolumeQoSRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1587,6 +1611,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 调整云硬盘的iops或者吞吐量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyVolumeQoS(modifyVolumeQoSRequest?: ModifyVolumeQoSRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/cloudvolumes/{volume_id}/qos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let volumeId;
+
+            if (modifyVolumeQoSRequest !== null && modifyVolumeQoSRequest !== undefined) {
+                if (modifyVolumeQoSRequest instanceof ModifyVolumeQoSRequest) {
+                    volumeId = modifyVolumeQoSRequest.volumeId;
+                    body = modifyVolumeQoSRequest.body
+                } else {
+                    volumeId = modifyVolumeQoSRequest['volume_id'];
+                    body = modifyVolumeQoSRequest['body'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling modifyVolumeQoS.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'volume_id': volumeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

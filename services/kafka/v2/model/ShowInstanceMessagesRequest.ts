@@ -11,6 +11,7 @@ export class ShowInstanceMessagesRequest {
     public download?: boolean;
     private 'message_offset'?: string;
     public partition?: string;
+    public keyword?: string;
     public constructor(instanceId?: string, topic?: string) { 
         this['instance_id'] = instanceId;
         this['topic'] = topic;
@@ -77,6 +78,10 @@ export class ShowInstanceMessagesRequest {
     }
     public withPartition(partition: string): ShowInstanceMessagesRequest {
         this['partition'] = partition;
+        return this;
+    }
+    public withKeyword(keyword: string): ShowInstanceMessagesRequest {
+        this['keyword'] = keyword;
         return this;
     }
 }

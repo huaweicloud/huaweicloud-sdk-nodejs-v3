@@ -7,9 +7,8 @@ export class ImageDetectionReq {
     private 'image_text_config'?: ImgTextConfig;
     public url?: string;
     public image?: string;
-    public constructor(eventType?: string, categories?: Array<string>) { 
-        this['event_type'] = eventType;
-        this['categories'] = categories;
+    private 'biz_type'?: string;
+    public constructor() { 
     }
     public withEventType(eventType: string): ImageDetectionReq {
         this['event_type'] = eventType;
@@ -42,5 +41,15 @@ export class ImageDetectionReq {
     public withImage(image: string): ImageDetectionReq {
         this['image'] = image;
         return this;
+    }
+    public withBizType(bizType: string): ImageDetectionReq {
+        this['biz_type'] = bizType;
+        return this;
+    }
+    public set bizType(bizType: string  | undefined) {
+        this['biz_type'] = bizType;
+    }
+    public get bizType(): string | undefined {
+        return this['biz_type'];
     }
 }

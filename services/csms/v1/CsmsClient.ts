@@ -6,6 +6,9 @@ import { ActionResources } from './model/ActionResources';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
 import { BatchCreateOrDeleteTagsRequestBody } from './model/BatchCreateOrDeleteTagsRequestBody';
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
+import { CreateSecretEventRequest } from './model/CreateSecretEventRequest';
+import { CreateSecretEventRequestBody } from './model/CreateSecretEventRequestBody';
+import { CreateSecretEventResponse } from './model/CreateSecretEventResponse';
 import { CreateSecretRequest } from './model/CreateSecretRequest';
 import { CreateSecretRequestBody } from './model/CreateSecretRequestBody';
 import { CreateSecretResponse } from './model/CreateSecretResponse';
@@ -15,6 +18,8 @@ import { CreateSecretTagResponse } from './model/CreateSecretTagResponse';
 import { CreateSecretVersionRequest } from './model/CreateSecretVersionRequest';
 import { CreateSecretVersionRequestBody } from './model/CreateSecretVersionRequestBody';
 import { CreateSecretVersionResponse } from './model/CreateSecretVersionResponse';
+import { DeleteSecretEventRequest } from './model/DeleteSecretEventRequest';
+import { DeleteSecretEventResponse } from './model/DeleteSecretEventResponse';
 import { DeleteSecretForScheduleRequest } from './model/DeleteSecretForScheduleRequest';
 import { DeleteSecretForScheduleRequestBody } from './model/DeleteSecretForScheduleRequestBody';
 import { DeleteSecretForScheduleResponse } from './model/DeleteSecretForScheduleResponse';
@@ -26,21 +31,30 @@ import { DeleteSecretTagRequest } from './model/DeleteSecretTagRequest';
 import { DeleteSecretTagResponse } from './model/DeleteSecretTagResponse';
 import { DownloadSecretBlobRequest } from './model/DownloadSecretBlobRequest';
 import { DownloadSecretBlobResponse } from './model/DownloadSecretBlobResponse';
+import { Event } from './model/Event';
+import { ListNotificationRecordsRequest } from './model/ListNotificationRecordsRequest';
+import { ListNotificationRecordsResponse } from './model/ListNotificationRecordsResponse';
 import { ListProjectSecretsTagsRequest } from './model/ListProjectSecretsTagsRequest';
 import { ListProjectSecretsTagsResponse } from './model/ListProjectSecretsTagsResponse';
 import { ListResourceInstancesRequest } from './model/ListResourceInstancesRequest';
 import { ListResourceInstancesRequestBody } from './model/ListResourceInstancesRequestBody';
 import { ListResourceInstancesResponse } from './model/ListResourceInstancesResponse';
+import { ListSecretEventsRequest } from './model/ListSecretEventsRequest';
+import { ListSecretEventsResponse } from './model/ListSecretEventsResponse';
 import { ListSecretTagsRequest } from './model/ListSecretTagsRequest';
 import { ListSecretTagsResponse } from './model/ListSecretTagsResponse';
 import { ListSecretVersionsRequest } from './model/ListSecretVersionsRequest';
 import { ListSecretVersionsResponse } from './model/ListSecretVersionsResponse';
 import { ListSecretsRequest } from './model/ListSecretsRequest';
 import { ListSecretsResponse } from './model/ListSecretsResponse';
+import { Notification } from './model/Notification';
 import { PageInfo } from './model/PageInfo';
+import { Record } from './model/Record';
 import { RestoreSecretRequest } from './model/RestoreSecretRequest';
 import { RestoreSecretResponse } from './model/RestoreSecretResponse';
 import { Secret } from './model/Secret';
+import { ShowSecretEventRequest } from './model/ShowSecretEventRequest';
+import { ShowSecretEventResponse } from './model/ShowSecretEventResponse';
 import { ShowSecretRequest } from './model/ShowSecretRequest';
 import { ShowSecretResponse } from './model/ShowSecretResponse';
 import { ShowSecretStageRequest } from './model/ShowSecretStageRequest';
@@ -48,14 +62,23 @@ import { ShowSecretStageResponse } from './model/ShowSecretStageResponse';
 import { ShowSecretVersionRequest } from './model/ShowSecretVersionRequest';
 import { ShowSecretVersionResponse } from './model/ShowSecretVersionResponse';
 import { Stage } from './model/Stage';
+import { SysTag } from './model/SysTag';
 import { Tag } from './model/Tag';
 import { TagItem } from './model/TagItem';
+import { TagMatches } from './model/TagMatches';
+import { TagResponse } from './model/TagResponse';
+import { UpdateSecretEventRequest } from './model/UpdateSecretEventRequest';
+import { UpdateSecretEventRequestBody } from './model/UpdateSecretEventRequestBody';
+import { UpdateSecretEventResponse } from './model/UpdateSecretEventResponse';
 import { UpdateSecretRequest } from './model/UpdateSecretRequest';
 import { UpdateSecretRequestBody } from './model/UpdateSecretRequestBody';
 import { UpdateSecretResponse } from './model/UpdateSecretResponse';
 import { UpdateSecretStageRequest } from './model/UpdateSecretStageRequest';
 import { UpdateSecretStageRequestBody } from './model/UpdateSecretStageRequestBody';
 import { UpdateSecretStageResponse } from './model/UpdateSecretStageResponse';
+import { UpdateVersionRequest } from './model/UpdateVersionRequest';
+import { UpdateVersionRequestBody } from './model/UpdateVersionRequestBody';
+import { UpdateVersionResponse } from './model/UpdateVersionResponse';
 import { UploadSecretBlobRequest } from './model/UploadSecretBlobRequest';
 import { UploadSecretBlobRequestBody } from './model/UploadSecretBlobRequestBody';
 import { UploadSecretBlobResponse } from './model/UploadSecretBlobResponse';
@@ -121,7 +144,26 @@ export class CsmsClient {
     }
 
     /**
-     * - 功能介绍：添加凭据标签。
+     * 创建事件，事件可配置在一个或多个凭据对象上。当事件为启用状态且包含的基础事件类型在凭据对象上触发时，云服务会将对应的事件通知发送至事件指定的通知主题上。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建事件
+     * @param {CreateSecretEventRequestBody} createSecretEventRequestBody 创建凭据事件通知请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecretEvent(createSecretEventRequest?: CreateSecretEventRequest): Promise<CreateSecretEventResponse> {
+        const options = ParamCreater().createSecretEvent(createSecretEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加凭据标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -180,6 +222,25 @@ export class CsmsClient {
     }
 
     /**
+     * 立即删除指定的事件，且无法恢复。如事件存在凭据引用，则无法删除，请先解除关联。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 立即删除事件
+     * @param {string} eventName 事件通知的名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecretEvent(deleteSecretEventRequest?: DeleteSecretEventRequest): Promise<DeleteSecretEventResponse> {
+        const options = ParamCreater().deleteSecretEvent(deleteSecretEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 指定延迟删除时间，创建删除凭据的定时任务，可设置7~30天的的延迟删除时间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -220,7 +281,7 @@ export class CsmsClient {
     }
 
     /**
-     * - 功能介绍：删除凭据标签。
+     * 删除凭据标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -259,7 +320,25 @@ export class CsmsClient {
     }
 
     /**
-     * - 功能介绍：查询用户在指定项目下的所有凭据标签集合。
+     * 查询三个月内所有已触发的事件通知记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已触发的事件通知记录
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationRecords(listNotificationRecordsRequest?: ListNotificationRecordsRequest): Promise<ListNotificationRecordsResponse> {
+        const options = ParamCreater().listNotificationRecords();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户在指定项目下的所有凭据标签集合。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -277,7 +356,7 @@ export class CsmsClient {
     }
 
     /**
-     * - 功能介绍：查询凭据实例。通过标签过滤，筛选用户凭据,返回凭据列表。
+     * 查询凭据实例。通过标签过滤，筛选用户凭据，返回凭据列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -297,7 +376,27 @@ export class CsmsClient {
     }
 
     /**
-     * - 功能介绍：查询凭据标签。
+     * 查询当前用户在本项目下创建的所有事件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询事件列表
+     * @param {string} [limit] 每页返回的个数。  默认值：50。
+     * @param {string} [marker] 分页查询起始的资源id，为空时为查询第一页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecretEvents(listSecretEventsRequest?: ListSecretEventsRequest): Promise<ListSecretEventsResponse> {
+        const options = ParamCreater().listSecretEvents(listSecretEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询凭据标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -342,8 +441,9 @@ export class CsmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询凭据列表
-     * @param {string} [limit] 每页返回的个数。  默认值：50。 
-     * @param {string} [marker] 分页查询起始的凭据名称，为空时为查询第一页 
+     * @param {string} [limit] 每页返回的个数。  默认值：50。
+     * @param {string} [marker] 分页查询起始的凭据名称，为空时为查询第一页
+     * @param {string} [eventName] 指定事件名称时，仅返回关联该事件的凭据
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -387,6 +487,25 @@ export class CsmsClient {
      */
     public showSecret(showSecretRequest?: ShowSecretRequest): Promise<ShowSecretResponse> {
         const options = ParamCreater().showSecret(showSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定事件的信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询事件
+     * @param {string} eventName 事件通知的名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecretEvent(showSecretEventRequest?: ShowSecretEventRequest): Promise<ShowSecretEventResponse> {
+        const options = ParamCreater().showSecretEvent(showSecretEventRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -456,19 +575,60 @@ export class CsmsClient {
     }
 
     /**
+     * 更新指定事件的元数据信息。支持更新的元数据包含事件启用状态、基础类型列表、通知主题。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新事件
+     * @param {string} eventName 事件通知名称。
+     * @param {UpdateSecretEventRequestBody} updateSecretEventRequestBody 更新事件通知的请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecretEvent(updateSecretEventRequest?: UpdateSecretEventRequest): Promise<UpdateSecretEventResponse> {
+        const options = ParamCreater().updateSecretEvent(updateSecretEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新凭据的版本状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新凭据的版本状态
      * @param {string} secretName 凭据名称。
-     * @param {string} stageName 凭据版本状态的名称。满足 \&#39;^[a-zA-Z0-9._-]{1,64}$\&#39;
+     * @param {string} stageName 凭据版本状态的名称。满足 \&#39;^[a-zA-Z0-9_-]{1,64}$\&#39;
      * @param {UpdateSecretStageRequestBody} updateSecretStageRequestBody 创建凭据版本状态请求消息体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateSecretStage(updateSecretStageRequest?: UpdateSecretStageRequest): Promise<UpdateSecretStageResponse> {
         const options = ParamCreater().updateSecretStage(updateSecretStageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当前支持更新指定凭据版本的有效期，只能更新ENABLED状态的凭据。在关联订阅的事件包含“版本过期”基础事件类型时，每次更新版本有效期后仅会触发一次事件通知。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新凭据版本
+     * @param {string} secretName 凭据名称。
+     * @param {string} versionId 凭据的版本标识符。
+     * @param {UpdateVersionRequestBody} updateVersionRequestBody 更新凭据版本有效期请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVersion(updateVersionRequest?: UpdateVersionRequest): Promise<UpdateVersionResponse> {
+        const options = ParamCreater().updateVersion(updateVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -588,7 +748,45 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 功能介绍：添加凭据标签。
+         * 创建事件，事件可配置在一个或多个凭据对象上。当事件为启用状态且包含的基础事件类型在凭据对象上触发时，云服务会将对应的事件通知发送至事件指定的通知主题上。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecretEvent(createSecretEventRequest?: CreateSecretEventRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/csms/events",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSecretEventRequest !== null && createSecretEventRequest !== undefined) {
+                if (createSecretEventRequest instanceof CreateSecretEventRequest) {
+                    body = createSecretEventRequest.body
+                } else {
+                    body = createSecretEventRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加凭据标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -717,6 +915,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 立即删除指定的事件，且无法恢复。如事件存在凭据引用，则无法删除，请先解除关联。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecretEvent(deleteSecretEventRequest?: DeleteSecretEventRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/csms/events/{event_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let eventName;
+
+            if (deleteSecretEventRequest !== null && deleteSecretEventRequest !== undefined) {
+                if (deleteSecretEventRequest instanceof DeleteSecretEventRequest) {
+                    eventName = deleteSecretEventRequest.eventName;
+                } else {
+                    eventName = deleteSecretEventRequest['event_name'];
+                }
+            }
+
+        
+            if (eventName === null || eventName === undefined) {
+            throw new RequiredError('eventName','Required parameter eventName was null or undefined when calling deleteSecretEvent.');
+            }
+
+            options.pathParams = { 'event_name': eventName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 指定延迟删除时间，创建删除凭据的定时任务，可设置7~30天的的延迟删除时间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -807,7 +1042,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 功能介绍：删除凭据标签。
+         * 删除凭据标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -888,7 +1123,28 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 功能介绍：查询用户在指定项目下的所有凭据标签集合。
+         * 查询三个月内所有已触发的事件通知记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationRecords() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/csms/notification-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户在指定项目下的所有凭据标签集合。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -909,7 +1165,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 功能介绍：查询凭据实例。通过标签过滤，筛选用户凭据,返回凭据列表。
+         * 查询凭据实例。通过标签过滤，筛选用户凭据，返回凭据列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -955,7 +1211,51 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 功能介绍：查询凭据标签。
+         * 查询当前用户在本项目下创建的所有事件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecretEvents(listSecretEventsRequest?: ListSecretEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/csms/events",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSecretEventsRequest !== null && listSecretEventsRequest !== undefined) {
+                if (listSecretEventsRequest instanceof ListSecretEventsRequest) {
+                    limit = listSecretEventsRequest.limit;
+                    marker = listSecretEventsRequest.marker;
+                } else {
+                    limit = listSecretEventsRequest['limit'];
+                    marker = listSecretEventsRequest['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询凭据标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1063,14 +1363,18 @@ export const ParamCreater = function () {
             let limit;
             
             let marker;
+            
+            let eventName;
 
             if (listSecretsRequest !== null && listSecretsRequest !== undefined) {
                 if (listSecretsRequest instanceof ListSecretsRequest) {
                     limit = listSecretsRequest.limit;
                     marker = listSecretsRequest.marker;
+                    eventName = listSecretsRequest.eventName;
                 } else {
                     limit = listSecretsRequest['limit'];
                     marker = listSecretsRequest['marker'];
+                    eventName = listSecretsRequest['event_name'];
                 }
             }
 
@@ -1080,6 +1384,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (eventName !== null && eventName !== undefined) {
+                localVarQueryParameter['event_name'] = eventName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1157,6 +1464,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'secret_name': secretName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定事件的信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecretEvent(showSecretEventRequest?: ShowSecretEventRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/csms/events/{event_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let eventName;
+
+            if (showSecretEventRequest !== null && showSecretEventRequest !== undefined) {
+                if (showSecretEventRequest instanceof ShowSecretEventRequest) {
+                    eventName = showSecretEventRequest.eventName;
+                } else {
+                    eventName = showSecretEventRequest['event_name'];
+                }
+            }
+
+        
+            if (eventName === null || eventName === undefined) {
+            throw new RequiredError('eventName','Required parameter eventName was null or undefined when calling showSecretEvent.');
+            }
+
+            options.pathParams = { 'event_name': eventName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1297,6 +1641,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新指定事件的元数据信息。支持更新的元数据包含事件启用状态、基础类型列表、通知主题。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecretEvent(updateSecretEventRequest?: UpdateSecretEventRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/csms/events/{event_name}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let eventName;
+
+            if (updateSecretEventRequest !== null && updateSecretEventRequest !== undefined) {
+                if (updateSecretEventRequest instanceof UpdateSecretEventRequest) {
+                    eventName = updateSecretEventRequest.eventName;
+                    body = updateSecretEventRequest.body
+                } else {
+                    eventName = updateSecretEventRequest['event_name'];
+                    body = updateSecretEventRequest['body'];
+                }
+            }
+
+        
+            if (eventName === null || eventName === undefined) {
+            throw new RequiredError('eventName','Required parameter eventName was null or undefined when calling updateSecretEvent.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'event_name': eventName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新凭据的版本状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1345,6 +1735,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_name': secretName,'stage_name': stageName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当前支持更新指定凭据版本的有效期，只能更新ENABLED状态的凭据。在关联订阅的事件包含“版本过期”基础事件类型时，每次更新版本有效期后仅会触发一次事件通知。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVersion(updateVersionRequest?: UpdateVersionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/secrets/{secret_name}/versions/{version_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let secretName;
+            
+            let versionId;
+
+            if (updateVersionRequest !== null && updateVersionRequest !== undefined) {
+                if (updateVersionRequest instanceof UpdateVersionRequest) {
+                    secretName = updateVersionRequest.secretName;
+                    versionId = updateVersionRequest.versionId;
+                    body = updateVersionRequest.body
+                } else {
+                    secretName = updateVersionRequest['secret_name'];
+                    versionId = updateVersionRequest['version_id'];
+                    body = updateVersionRequest['body'];
+                }
+            }
+
+        
+            if (secretName === null || secretName === undefined) {
+            throw new RequiredError('secretName','Required parameter secretName was null or undefined when calling updateVersion.');
+            }
+            if (versionId === null || versionId === undefined) {
+            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling updateVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'secret_name': secretName,'version_id': versionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

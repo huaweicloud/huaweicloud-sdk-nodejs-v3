@@ -73,6 +73,8 @@ export * from './model/ShowAlarmRequest';
 export * from './model/ShowAlarmResponse';
 export * from './model/ShowEventDataRequest';
 export * from './model/ShowEventDataResponse';
+export * from './model/ShowEventItem';
+export * from './model/ShowEventItemDetail';
 export * from './model/ShowMetricDataRequest';
 export * from './model/ShowMetricDataResponse';
 export * from './model/ShowQuotasRequest';
