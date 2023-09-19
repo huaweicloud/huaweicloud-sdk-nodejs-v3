@@ -4,55 +4,107 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
+import { AnimationConfig } from './model/AnimationConfig';
 import { AnimationItem } from './model/AnimationItem';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
+import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
+import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
+import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
+import { BusinessCardImageUrl } from './model/BusinessCardImageUrl';
+import { BusinessCardTextConfig } from './model/BusinessCardTextConfig';
+import { Cancel2DDigitalHumanVideoRequest } from './model/Cancel2DDigitalHumanVideoRequest';
+import { Cancel2DDigitalHumanVideoResponse } from './model/Cancel2DDigitalHumanVideoResponse';
+import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalHumanVideoRequest';
+import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { ComponentInfo } from './model/ComponentInfo';
 import { ConfirmFileUploadRequest } from './model/ConfirmFileUploadRequest';
 import { ConfirmFileUploadRequestBody } from './model/ConfirmFileUploadRequestBody';
 import { ConfirmFileUploadResponse } from './model/ConfirmFileUploadResponse';
 import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
+import { ControlSmartLiveReq } from './model/ControlSmartLiveReq';
+import { Create2DDigitalHumanVideoReq } from './model/Create2DDigitalHumanVideoReq';
+import { Create2DDigitalHumanVideoRequest } from './model/Create2DDigitalHumanVideoRequest';
+import { Create2DDigitalHumanVideoResponse } from './model/Create2DDigitalHumanVideoResponse';
 import { CreateDigitalAssetRequest } from './model/CreateDigitalAssetRequest';
 import { CreateDigitalAssetRequestBody } from './model/CreateDigitalAssetRequestBody';
 import { CreateDigitalAssetResponse } from './model/CreateDigitalAssetResponse';
+import { CreateDigitalHumanBusinessCardReq } from './model/CreateDigitalHumanBusinessCardReq';
+import { CreateDigitalHumanBusinessCardRequest } from './model/CreateDigitalHumanBusinessCardRequest';
+import { CreateDigitalHumanBusinessCardResponse } from './model/CreateDigitalHumanBusinessCardResponse';
 import { CreateFileRequest } from './model/CreateFileRequest';
 import { CreateFileResponse } from './model/CreateFileResponse';
+import { CreatePhotoDigitalHumanVideoReq } from './model/CreatePhotoDigitalHumanVideoReq';
+import { CreatePhotoDigitalHumanVideoRequest } from './model/CreatePhotoDigitalHumanVideoRequest';
+import { CreatePhotoDigitalHumanVideoResponse } from './model/CreatePhotoDigitalHumanVideoResponse';
 import { CreatePictureModelingByUrlJobRequest } from './model/CreatePictureModelingByUrlJobRequest';
 import { CreatePictureModelingByUrlJobResponse } from './model/CreatePictureModelingByUrlJobResponse';
 import { CreatePictureModelingJobRequest } from './model/CreatePictureModelingJobRequest';
 import { CreatePictureModelingJobRequestBody } from './model/CreatePictureModelingJobRequestBody';
 import { CreatePictureModelingJobResponse } from './model/CreatePictureModelingJobResponse';
+import { CreateSmartLiveRoomReq } from './model/CreateSmartLiveRoomReq';
+import { CreateSmartLiveRoomRequest } from './model/CreateSmartLiveRoomRequest';
+import { CreateSmartLiveRoomResponse } from './model/CreateSmartLiveRoomResponse';
 import { CreateStyleRequestBody } from './model/CreateStyleRequestBody';
 import { CreateTTSAReq } from './model/CreateTTSAReq';
 import { CreateTtsaRequest } from './model/CreateTtsaRequest';
 import { CreateTtsaResponse } from './model/CreateTtsaResponse';
 import { CreateVideoMotionCaptureJobRequest } from './model/CreateVideoMotionCaptureJobRequest';
 import { CreateVideoMotionCaptureJobResponse } from './model/CreateVideoMotionCaptureJobResponse';
+import { CreateVideoScriptsReq } from './model/CreateVideoScriptsReq';
+import { CreateVideoScriptsRequest } from './model/CreateVideoScriptsRequest';
+import { CreateVideoScriptsResponse } from './model/CreateVideoScriptsResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
+import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
+import { DeleteDigitalHumanBusinessCardResponse } from './model/DeleteDigitalHumanBusinessCardResponse';
 import { DeleteFileRequest } from './model/DeleteFileRequest';
 import { DeleteFileResponse } from './model/DeleteFileResponse';
+import { DeleteSmartLiveRoomRequest } from './model/DeleteSmartLiveRoomRequest';
+import { DeleteSmartLiveRoomResponse } from './model/DeleteSmartLiveRoomResponse';
+import { DeleteVideoScriptRequest } from './model/DeleteVideoScriptRequest';
+import { DeleteVideoScriptResponse } from './model/DeleteVideoScriptResponse';
 import { DigitalAssetInfo } from './model/DigitalAssetInfo';
 import { DigitalAssetSummary } from './model/DigitalAssetSummary';
+import { DigitalHumanBusinessCardJobInfo } from './model/DigitalHumanBusinessCardJobInfo';
 import { DigitalHumanModelingJobInfo } from './model/DigitalHumanModelingJobInfo';
+import { DigitalHumanVideo } from './model/DigitalHumanVideo';
+import { EmotionConfig } from './model/EmotionConfig';
 import { EngineAssetInfo } from './model/EngineAssetInfo';
 import { ErrorResponse } from './model/ErrorResponse';
+import { ExecuteSmartLiveCommandRequest } from './model/ExecuteSmartLiveCommandRequest';
+import { ExecuteSmartLiveCommandResponse } from './model/ExecuteSmartLiveCommandResponse';
 import { ExecuteVideoMotionCaptureCommandRequest } from './model/ExecuteVideoMotionCaptureCommandRequest';
 import { ExecuteVideoMotionCaptureCommandResponse } from './model/ExecuteVideoMotionCaptureCommandResponse';
 import { ExternalVoiceAssetMeta } from './model/ExternalVoiceAssetMeta';
 import { FilesCreateReq } from './model/FilesCreateReq';
+import { HitCondition } from './model/HitCondition';
+import { HitConditionTag } from './model/HitConditionTag';
 import { HuaweiEIVoiceAssetMeta } from './model/HuaweiEIVoiceAssetMeta';
 import { HumanModel2DAssetMeta } from './model/HumanModel2DAssetMeta';
 import { HumanModelAssetMeta } from './model/HumanModelAssetMeta';
 import { HumanModelMetaProperties } from './model/HumanModelMetaProperties';
+import { HumanPosition2D } from './model/HumanPosition2D';
+import { HumanSize2D } from './model/HumanSize2D';
+import { ImageLayerConfig } from './model/ImageLayerConfig';
 import { InputInfo } from './model/InputInfo';
+import { InteractionRuleInfo } from './model/InteractionRuleInfo';
+import { LayerConfig } from './model/LayerConfig';
+import { LayerPositionConfig } from './model/LayerPositionConfig';
+import { LayerSizeConfig } from './model/LayerSizeConfig';
 import { ListAssetSummaryRequest } from './model/ListAssetSummaryRequest';
 import { ListAssetSummaryResponse } from './model/ListAssetSummaryResponse';
 import { ListAssetSummarysReq } from './model/ListAssetSummarysReq';
 import { ListAssetsRequest } from './model/ListAssetsRequest';
 import { ListAssetsResponse } from './model/ListAssetsResponse';
+import { ListDigitalHumanBusinessCardRequest } from './model/ListDigitalHumanBusinessCardRequest';
+import { ListDigitalHumanBusinessCardResponse } from './model/ListDigitalHumanBusinessCardResponse';
 import { ListPictureModelingJobsRequest } from './model/ListPictureModelingJobsRequest';
 import { ListPictureModelingJobsResponse } from './model/ListPictureModelingJobsResponse';
+import { ListSmartLiveRequest } from './model/ListSmartLiveRequest';
+import { ListSmartLiveResponse } from './model/ListSmartLiveResponse';
+import { ListSmartLiveRoomsRequest } from './model/ListSmartLiveRoomsRequest';
+import { ListSmartLiveRoomsResponse } from './model/ListSmartLiveRoomsResponse';
 import { ListStylesRequest } from './model/ListStylesRequest';
 import { ListStylesResponse } from './model/ListStylesResponse';
 import { ListTtsaDataRequest } from './model/ListTtsaDataRequest';
@@ -61,26 +113,63 @@ import { ListTtsaJobsRequest } from './model/ListTtsaJobsRequest';
 import { ListTtsaJobsResponse } from './model/ListTtsaJobsResponse';
 import { ListVideoMotionCaptureJobsRequest } from './model/ListVideoMotionCaptureJobsRequest';
 import { ListVideoMotionCaptureJobsResponse } from './model/ListVideoMotionCaptureJobsResponse';
+import { ListVideoScriptsRequest } from './model/ListVideoScriptsRequest';
+import { ListVideoScriptsResponse } from './model/ListVideoScriptsResponse';
+import { LiveAudioConfig } from './model/LiveAudioConfig';
+import { LiveEvent } from './model/LiveEvent';
+import { LiveEventReportRequest } from './model/LiveEventReportRequest';
+import { LiveEventReportResponse } from './model/LiveEventReportResponse';
+import { LiveShootScriptItem } from './model/LiveShootScriptItem';
+import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
 import { MaterialAssetMeta } from './model/MaterialAssetMeta';
 import { MaterialComponentInfo } from './model/MaterialComponentInfo';
+import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
+import { OutputAssetConfig } from './model/OutputAssetConfig';
+import { OutputAssetInfo } from './model/OutputAssetInfo';
 import { OutputInfo } from './model/OutputInfo';
 import { PPTAssetMeta } from './model/PPTAssetMeta';
 import { PPTPageInfo } from './model/PPTPageInfo';
+import { PhotoVideoConfig } from './model/PhotoVideoConfig';
 import { PictureModelingByUrlReq } from './model/PictureModelingByUrlReq';
 import { PictureModelingInfo } from './model/PictureModelingInfo';
+import { PlayPolicy } from './model/PlayPolicy';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
+import { ReportLiveEventReq } from './model/ReportLiveEventReq';
 import { RestoreAssetRequest } from './model/RestoreAssetRequest';
 import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { SceneAssetMeta } from './model/SceneAssetMeta';
 import { SceneComponentInfo } from './model/SceneComponentInfo';
+import { ShootScript } from './model/ShootScript';
+import { ShootScriptAudioFileItem } from './model/ShootScriptAudioFileItem';
+import { ShootScriptAudioFiles } from './model/ShootScriptAudioFiles';
+import { ShootScriptItem } from './model/ShootScriptItem';
+import { Show2DDigitalHumanVideoRequest } from './model/Show2DDigitalHumanVideoRequest';
+import { Show2DDigitalHumanVideoResponse } from './model/Show2DDigitalHumanVideoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
+import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
+import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
+import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHumanVideoRequest';
+import { ShowPhotoDigitalHumanVideoResponse } from './model/ShowPhotoDigitalHumanVideoResponse';
 import { ShowPictureModelingJobRequest } from './model/ShowPictureModelingJobRequest';
 import { ShowPictureModelingJobResponse } from './model/ShowPictureModelingJobResponse';
+import { ShowSmartLiveRequest } from './model/ShowSmartLiveRequest';
+import { ShowSmartLiveResponse } from './model/ShowSmartLiveResponse';
+import { ShowSmartLiveRoomRequest } from './model/ShowSmartLiveRoomRequest';
+import { ShowSmartLiveRoomResponse } from './model/ShowSmartLiveRoomResponse';
 import { ShowVideoMotionCaptureJobRequest } from './model/ShowVideoMotionCaptureJobRequest';
 import { ShowVideoMotionCaptureJobResponse } from './model/ShowVideoMotionCaptureJobResponse';
+import { ShowVideoScriptRequest } from './model/ShowVideoScriptRequest';
+import { ShowVideoScriptResponse } from './model/ShowVideoScriptResponse';
+import { SmartLiveJob } from './model/SmartLiveJob';
+import { SmartLiveRoomBaseInfo } from './model/SmartLiveRoomBaseInfo';
+import { StartSmartLiveReq } from './model/StartSmartLiveReq';
+import { StartSmartLiveRequest } from './model/StartSmartLiveRequest';
+import { StartSmartLiveResponse } from './model/StartSmartLiveResponse';
+import { StopSmartLiveRequest } from './model/StopSmartLiveRequest';
+import { StopSmartLiveResponse } from './model/StopSmartLiveResponse';
 import { StopVideoMotionCaptureJobRequest } from './model/StopVideoMotionCaptureJobRequest';
 import { StopVideoMotionCaptureJobResponse } from './model/StopVideoMotionCaptureJobResponse';
 import { StyleAssetItem } from './model/StyleAssetItem';
@@ -94,11 +183,25 @@ import { StyleExtraMetaModellingAlgorithm } from './model/StyleExtraMetaModellin
 import { StyleInfo } from './model/StyleInfo';
 import { SystemProperty } from './model/SystemProperty';
 import { TTSAJob } from './model/TTSAJob';
+import { TextConfig } from './model/TextConfig';
+import { TextLayerConfig } from './model/TextLayerConfig';
+import { TriggerProcess } from './model/TriggerProcess';
 import { UpdateDigitalAssetRequest } from './model/UpdateDigitalAssetRequest';
 import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequestBody';
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
+import { UpdateDigitalHumanBusinessCardRequest } from './model/UpdateDigitalHumanBusinessCardRequest';
+import { UpdateDigitalHumanBusinessCardResponse } from './model/UpdateDigitalHumanBusinessCardResponse';
+import { UpdateSmartLiveRoomRequest } from './model/UpdateSmartLiveRoomRequest';
+import { UpdateSmartLiveRoomResponse } from './model/UpdateSmartLiveRoomResponse';
+import { UpdateVideoScriptRequest } from './model/UpdateVideoScriptRequest';
+import { UpdateVideoScriptResponse } from './model/UpdateVideoScriptResponse';
+import { UpdateVideoScriptsReq } from './model/UpdateVideoScriptsReq';
+import { VideoConfig } from './model/VideoConfig';
+import { VideoLayerConfig } from './model/VideoLayerConfig';
 import { VideoMotionCaptureInfo } from './model/VideoMotionCaptureInfo';
 import { VideoMotionCaptureJobReq } from './model/VideoMotionCaptureJobReq';
+import { VideoScriptBaseInfo } from './model/VideoScriptBaseInfo';
+import { VoiceConfig } from './model/VoiceConfig';
 import { VoiceModelAssetMeta } from './model/VoiceModelAssetMeta';
 import { XimalayaVoiceAssetMeta } from './model/XimalayaVoiceAssetMeta';
 
@@ -134,7 +237,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createDigitalAsset(createDigitalAssetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -157,7 +260,7 @@ export class MetaStudioClient {
         const options = ParamCreater().deleteAsset(deleteAssetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -178,7 +281,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listAssetSummary(listAssetSummaryRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -218,7 +321,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listAssets(listAssetsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -240,7 +343,7 @@ export class MetaStudioClient {
         const options = ParamCreater().restoreAsset(restoreAssetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -262,7 +365,7 @@ export class MetaStudioClient {
         const options = ParamCreater().showAsset(showAssetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -285,7 +388,270 @@ export class MetaStudioClient {
         const options = ParamCreater().updateDigitalAsset(updateDigitalAssetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于数字人名片制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数字人名片制作
+     * @param {CreateDigitalHumanBusinessCardReq} createDigitalHumanBusinessCardRequestBody 数字人名片制作创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDigitalHumanBusinessCard(createDigitalHumanBusinessCardRequest?: CreateDigitalHumanBusinessCardRequest): Promise<CreateDigitalHumanBusinessCardResponse> {
+        const options = ParamCreater().createDigitalHumanBusinessCard(createDigitalHumanBusinessCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除数字人名片制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数字人名片制作任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDigitalHumanBusinessCard(deleteDigitalHumanBusinessCardRequest?: DeleteDigitalHumanBusinessCardRequest): Promise<DeleteDigitalHumanBusinessCardResponse> {
+        const options = ParamCreater().deleteDigitalHumanBusinessCard(deleteDigitalHumanBusinessCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人名片制作任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人名片制作任务列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [videoAssetName] 输出的视频资产名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDigitalHumanBusinessCard(listDigitalHumanBusinessCardRequest?: ListDigitalHumanBusinessCardRequest): Promise<ListDigitalHumanBusinessCardResponse> {
+        const options = ParamCreater().listDigitalHumanBusinessCard(listDigitalHumanBusinessCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人名片制作任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人名片制作任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDigitalHumanBusinessCard(showDigitalHumanBusinessCardRequest?: ShowDigitalHumanBusinessCardRequest): Promise<ShowDigitalHumanBusinessCardResponse> {
+        const options = ParamCreater().showDigitalHumanBusinessCard(showDigitalHumanBusinessCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新数字人名片制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新数字人名片制作
+     * @param {string} jobId 任务ID。
+     * @param {CreateDigitalHumanBusinessCardReq} updateDigitalHumanBusinessCardRequestBody 数字人名片制作创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDigitalHumanBusinessCard(updateDigitalHumanBusinessCardRequest?: UpdateDigitalHumanBusinessCardRequest): Promise<UpdateDigitalHumanBusinessCardResponse> {
+        const options = ParamCreater().updateDigitalHumanBusinessCard(updateDigitalHumanBusinessCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于取消等待中的分身数字人视频制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消等待中的分身数字人视频制作任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancel2DDigitalHumanVideo(cancel2DDigitalHumanVideoRequest?: Cancel2DDigitalHumanVideoRequest): Promise<Cancel2DDigitalHumanVideoResponse> {
+        const options = ParamCreater().cancel2DDigitalHumanVideo(cancel2DDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建分身数字人视频制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分身数字人视频制作任务
+     * @param {Create2DDigitalHumanVideoReq} create2DDigitalHumanVideoRequestBody 视频制作创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public create2DDigitalHumanVideo(create2DDigitalHumanVideoRequest?: Create2DDigitalHumanVideoRequest): Promise<Create2DDigitalHumanVideoResponse> {
+        const options = ParamCreater().create2DDigitalHumanVideo(create2DDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询分身数字人视频制作任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分身数字人视频制作任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {boolean} [showScript] 是否需要返回剧本参数配置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public show2DDigitalHumanVideo(show2DDigitalHumanVideoRequest?: Show2DDigitalHumanVideoRequest): Promise<Show2DDigitalHumanVideoResponse> {
+        const options = ParamCreater().show2DDigitalHumanVideo(show2DDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于取消等待中的照片分身数字人视频制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消等待中的照片分身数字人视频制作任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelPhotoDigitalHumanVideo(cancelPhotoDigitalHumanVideoRequest?: CancelPhotoDigitalHumanVideoRequest): Promise<CancelPhotoDigitalHumanVideoResponse> {
+        const options = ParamCreater().cancelPhotoDigitalHumanVideo(cancelPhotoDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建照片分身数字人视频制作任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建照片分身数字人视频制作任务
+     * @param {CreatePhotoDigitalHumanVideoReq} createPhotoDigitalHumanVideoRequestBody 视频制作创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPhotoDigitalHumanVideo(createPhotoDigitalHumanVideoRequest?: CreatePhotoDigitalHumanVideoRequest): Promise<CreatePhotoDigitalHumanVideoResponse> {
+        const options = ParamCreater().createPhotoDigitalHumanVideo(createPhotoDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询照片分身数字人视频制作任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询照片分身数字人视频制作任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {boolean} [showScript] 是否需要返回剧本参数配置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPhotoDigitalHumanVideo(showPhotoDigitalHumanVideoRequest?: ShowPhotoDigitalHumanVideoRequest): Promise<ShowPhotoDigitalHumanVideoResponse> {
+        const options = ParamCreater().showPhotoDigitalHumanVideo(showPhotoDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -308,7 +674,7 @@ export class MetaStudioClient {
         const options = ParamCreater().confirmFileUpload(confirmFileUploadRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -330,7 +696,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createFile(createFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -352,7 +718,7 @@ export class MetaStudioClient {
         const options = ParamCreater().deleteFile(deleteFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -368,6 +734,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xUserPrivilege] 测试用户判断。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -375,7 +742,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createPictureModelingByUrlJob(createPictureModelingByUrlJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -402,7 +769,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createPictureModelingJob(createPictureModelingJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -431,7 +798,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listPictureModelingJobs(listPictureModelingJobsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -454,7 +821,285 @@ export class MetaStudioClient {
         const options = ParamCreater().showPictureModelingJob(showPictureModelingJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于控制数字人直播过程。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 控制数字人直播过程
+     * @param {string} roomId 剧本ID。
+     * @param {string} jobId 任务ID。
+     * @param {ControlSmartLiveReq} executeSmartLiveCommandRequestBody 控制数字人直播请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeSmartLiveCommand(executeSmartLiveCommandRequest?: ExecuteSmartLiveCommandRequest): Promise<ExecuteSmartLiveCommandResponse> {
+        const options = ParamCreater().executeSmartLiveCommand(executeSmartLiveCommandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人智能直播任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人智能直播任务列表
+     * @param {string} roomId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartLive(listSmartLiveRequest?: ListSmartLiveRequest): Promise<ListSmartLiveResponse> {
+        const options = ParamCreater().listSmartLive(listSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于上报直播间事件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上报直播间事件
+     * @param {string} roomId 剧本ID。
+     * @param {string} jobId 任务ID。
+     * @param {ReportLiveEventReq} liveEventReportRequestBody 上报直播间事件请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [authKey] 鉴权Key。通过HmacSHA256生成的鉴权key
+     * @param {number} [expiresTime] 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
+     * @param {boolean} [refreshUrl] 是否刷新URL
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public liveEventReport(liveEventReportRequest?: LiveEventReportRequest): Promise<LiveEventReportResponse> {
+        const options = ParamCreater().liveEventReport(liveEventReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人智能直播任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人智能直播任务详情
+     * @param {string} roomId 剧本ID。
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSmartLive(showSmartLiveRequest?: ShowSmartLiveRequest): Promise<ShowSmartLiveResponse> {
+        const options = ParamCreater().showSmartLive(showSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于启动数字人智能直播任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动数字人智能直播任务
+     * @param {string} roomId 剧本ID。
+     * @param {StartSmartLiveReq} startSmartLiveRequestBody 数字人智能直播任务创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startSmartLive(startSmartLiveRequest?: StartSmartLiveRequest): Promise<StartSmartLiveResponse> {
+        const options = ParamCreater().startSmartLive(startSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于结束数字人智能直播任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 结束数字人智能直播任务
+     * @param {string} roomId 剧本ID。
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopSmartLive(stopSmartLiveRequest?: StopSmartLiveRequest): Promise<StopSmartLiveResponse> {
+        const options = ParamCreater().stopSmartLive(stopSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建智能直播间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建智能直播间
+     * @param {CreateSmartLiveRoomReq} createSmartLiveRoomRequestBody 创建智能直播间请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSmartLiveRoom(createSmartLiveRoomRequest?: CreateSmartLiveRoomRequest): Promise<CreateSmartLiveRoomResponse> {
+        const options = ParamCreater().createSmartLiveRoom(createSmartLiveRoomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除智能直播间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除智能直播间
+     * @param {string} roomId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSmartLiveRoom(deleteSmartLiveRoomRequest?: DeleteSmartLiveRoomRequest): Promise<DeleteSmartLiveRoomResponse> {
+        const options = ParamCreater().deleteSmartLiveRoom(deleteSmartLiveRoomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于智能直播间列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询智能直播间列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [roomName] 按直播间名称模糊查询。
+     * @param {string} [dhId] 按数字人形象ID查询。
+     * @param {string} [modelName] 按形象名称模糊查询。
+     * @param {string} [liveState] 当前直播间直播状态。 WAITING，PROCESSING，SUCCESS，FAILED对应直播任务状态 NULL 对应没有直播任务 可多个状态查询，使用英文逗号分隔。
+     * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
+     * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartLiveRooms(listSmartLiveRoomsRequest?: ListSmartLiveRoomsRequest): Promise<ListSmartLiveRoomsResponse> {
+        const options = ParamCreater().listSmartLiveRooms(listSmartLiveRoomsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询智能直播剧本详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询智能直播剧本详情
+     * @param {string} roomId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSmartLiveRoom(showSmartLiveRoomRequest?: ShowSmartLiveRoomRequest): Promise<ShowSmartLiveRoomResponse> {
+        const options = ParamCreater().showSmartLiveRoom(showSmartLiveRoomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于智能直播间信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新智能直播间信息
+     * @param {string} roomId 剧本ID。
+     * @param {CreateSmartLiveRoomReq} updateSmartLiveRoomRequestBody 更新智能直播间请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSmartLiveRoom(updateSmartLiveRoomRequest?: UpdateSmartLiveRoomRequest): Promise<UpdateSmartLiveRoomResponse> {
+        const options = ParamCreater().updateSmartLiveRoom(updateSmartLiveRoomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -483,7 +1128,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listStyles(listStylesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -507,7 +1152,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createTtsa(createTtsaRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -530,7 +1175,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listTtsaData(listTtsaDataRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -554,7 +1199,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listTtsaJobs(listTtsaJobsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -578,7 +1223,7 @@ export class MetaStudioClient {
         const options = ParamCreater().createVideoMotionCaptureJob(createVideoMotionCaptureJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -602,7 +1247,7 @@ export class MetaStudioClient {
         const options = ParamCreater().executeVideoMotionCaptureCommand(executeVideoMotionCaptureCommandRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -626,7 +1271,7 @@ export class MetaStudioClient {
         const options = ParamCreater().listVideoMotionCaptureJobs(listVideoMotionCaptureJobsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -649,7 +1294,7 @@ export class MetaStudioClient {
         const options = ParamCreater().showVideoMotionCaptureJob(showVideoMotionCaptureJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -672,7 +1317,124 @@ export class MetaStudioClient {
         const options = ParamCreater().stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建视频制作剧本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建视频制作剧本
+     * @param {CreateVideoScriptsReq} createVideoScriptsRequestBody 创建视频制作脚本请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVideoScripts(createVideoScriptsRequest?: CreateVideoScriptsRequest): Promise<CreateVideoScriptsResponse> {
+        const options = ParamCreater().createVideoScripts(createVideoScriptsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除视频制作剧本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除视频制作剧本
+     * @param {string} scriptId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVideoScript(deleteVideoScriptRequest?: DeleteVideoScriptRequest): Promise<DeleteVideoScriptResponse> {
+        const options = ParamCreater().deleteVideoScript(deleteVideoScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询视频制作剧本列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询视频制作剧本列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVideoScripts(listVideoScriptsRequest?: ListVideoScriptsRequest): Promise<ListVideoScriptsResponse> {
+        const options = ParamCreater().listVideoScripts(listVideoScriptsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询视频制作剧本详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询视频制作剧本详情
+     * @param {string} scriptId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVideoScript(showVideoScriptRequest?: ShowVideoScriptRequest): Promise<ShowVideoScriptResponse> {
+        const options = ParamCreater().showVideoScript(showVideoScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新视频制作剧本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新视频制作剧本
+     * @param {string} scriptId 剧本ID。
+     * @param {UpdateVideoScriptsReq} updateVideoScriptRequestBody 更新数字人请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVideoScript(updateVideoScriptRequest?: UpdateVideoScriptRequest): Promise<UpdateVideoScriptResponse> {
+        const options = ParamCreater().updateVideoScript(updateVideoScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1226,6 +1988,798 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于数字人名片制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDigitalHumanBusinessCard(createDigitalHumanBusinessCardRequest?: CreateDigitalHumanBusinessCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-business-cards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createDigitalHumanBusinessCardRequest !== null && createDigitalHumanBusinessCardRequest !== undefined) {
+                if (createDigitalHumanBusinessCardRequest instanceof CreateDigitalHumanBusinessCardRequest) {
+                    body = createDigitalHumanBusinessCardRequest.body
+                    authorization = createDigitalHumanBusinessCardRequest.authorization;
+                    xSdkDate = createDigitalHumanBusinessCardRequest.xSdkDate;
+                    xProjectId = createDigitalHumanBusinessCardRequest.xProjectId;
+                    xAppUserId = createDigitalHumanBusinessCardRequest.xAppUserId;
+                } else {
+                    body = createDigitalHumanBusinessCardRequest['body'];
+                    authorization = createDigitalHumanBusinessCardRequest['Authorization'];
+                    xSdkDate = createDigitalHumanBusinessCardRequest['X-Sdk-Date'];
+                    xProjectId = createDigitalHumanBusinessCardRequest['X-Project-Id'];
+                    xAppUserId = createDigitalHumanBusinessCardRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除数字人名片制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDigitalHumanBusinessCard(deleteDigitalHumanBusinessCardRequest?: DeleteDigitalHumanBusinessCardRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-business-cards/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteDigitalHumanBusinessCardRequest !== null && deleteDigitalHumanBusinessCardRequest !== undefined) {
+                if (deleteDigitalHumanBusinessCardRequest instanceof DeleteDigitalHumanBusinessCardRequest) {
+                    jobId = deleteDigitalHumanBusinessCardRequest.jobId;
+                    authorization = deleteDigitalHumanBusinessCardRequest.authorization;
+                    xSdkDate = deleteDigitalHumanBusinessCardRequest.xSdkDate;
+                    xProjectId = deleteDigitalHumanBusinessCardRequest.xProjectId;
+                    xAppUserId = deleteDigitalHumanBusinessCardRequest.xAppUserId;
+                } else {
+                    jobId = deleteDigitalHumanBusinessCardRequest['job_id'];
+                    authorization = deleteDigitalHumanBusinessCardRequest['Authorization'];
+                    xSdkDate = deleteDigitalHumanBusinessCardRequest['X-Sdk-Date'];
+                    xProjectId = deleteDigitalHumanBusinessCardRequest['X-Project-Id'];
+                    xAppUserId = deleteDigitalHumanBusinessCardRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteDigitalHumanBusinessCard.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询数字人名片制作任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDigitalHumanBusinessCard(listDigitalHumanBusinessCardRequest?: ListDigitalHumanBusinessCardRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-business-cards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let state;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let createUntil;
+            
+            let createSince;
+            
+            let videoAssetName;
+
+            if (listDigitalHumanBusinessCardRequest !== null && listDigitalHumanBusinessCardRequest !== undefined) {
+                if (listDigitalHumanBusinessCardRequest instanceof ListDigitalHumanBusinessCardRequest) {
+                    authorization = listDigitalHumanBusinessCardRequest.authorization;
+                    xSdkDate = listDigitalHumanBusinessCardRequest.xSdkDate;
+                    xProjectId = listDigitalHumanBusinessCardRequest.xProjectId;
+                    xAppUserId = listDigitalHumanBusinessCardRequest.xAppUserId;
+                    offset = listDigitalHumanBusinessCardRequest.offset;
+                    limit = listDigitalHumanBusinessCardRequest.limit;
+                    state = listDigitalHumanBusinessCardRequest.state;
+                    sortKey = listDigitalHumanBusinessCardRequest.sortKey;
+                    sortDir = listDigitalHumanBusinessCardRequest.sortDir;
+                    createUntil = listDigitalHumanBusinessCardRequest.createUntil;
+                    createSince = listDigitalHumanBusinessCardRequest.createSince;
+                    videoAssetName = listDigitalHumanBusinessCardRequest.videoAssetName;
+                } else {
+                    authorization = listDigitalHumanBusinessCardRequest['Authorization'];
+                    xSdkDate = listDigitalHumanBusinessCardRequest['X-Sdk-Date'];
+                    xProjectId = listDigitalHumanBusinessCardRequest['X-Project-Id'];
+                    xAppUserId = listDigitalHumanBusinessCardRequest['X-App-UserId'];
+                    offset = listDigitalHumanBusinessCardRequest['offset'];
+                    limit = listDigitalHumanBusinessCardRequest['limit'];
+                    state = listDigitalHumanBusinessCardRequest['state'];
+                    sortKey = listDigitalHumanBusinessCardRequest['sort_key'];
+                    sortDir = listDigitalHumanBusinessCardRequest['sort_dir'];
+                    createUntil = listDigitalHumanBusinessCardRequest['create_until'];
+                    createSince = listDigitalHumanBusinessCardRequest['create_since'];
+                    videoAssetName = listDigitalHumanBusinessCardRequest['video_asset_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (videoAssetName !== null && videoAssetName !== undefined) {
+                localVarQueryParameter['video_asset_name'] = videoAssetName;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询数字人名片制作任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDigitalHumanBusinessCard(showDigitalHumanBusinessCardRequest?: ShowDigitalHumanBusinessCardRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-business-cards/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showDigitalHumanBusinessCardRequest !== null && showDigitalHumanBusinessCardRequest !== undefined) {
+                if (showDigitalHumanBusinessCardRequest instanceof ShowDigitalHumanBusinessCardRequest) {
+                    jobId = showDigitalHumanBusinessCardRequest.jobId;
+                    authorization = showDigitalHumanBusinessCardRequest.authorization;
+                    xSdkDate = showDigitalHumanBusinessCardRequest.xSdkDate;
+                    xProjectId = showDigitalHumanBusinessCardRequest.xProjectId;
+                    xAppUserId = showDigitalHumanBusinessCardRequest.xAppUserId;
+                } else {
+                    jobId = showDigitalHumanBusinessCardRequest['job_id'];
+                    authorization = showDigitalHumanBusinessCardRequest['Authorization'];
+                    xSdkDate = showDigitalHumanBusinessCardRequest['X-Sdk-Date'];
+                    xProjectId = showDigitalHumanBusinessCardRequest['X-Project-Id'];
+                    xAppUserId = showDigitalHumanBusinessCardRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showDigitalHumanBusinessCard.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新数字人名片制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDigitalHumanBusinessCard(updateDigitalHumanBusinessCardRequest?: UpdateDigitalHumanBusinessCardRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-business-cards/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateDigitalHumanBusinessCardRequest !== null && updateDigitalHumanBusinessCardRequest !== undefined) {
+                if (updateDigitalHumanBusinessCardRequest instanceof UpdateDigitalHumanBusinessCardRequest) {
+                    jobId = updateDigitalHumanBusinessCardRequest.jobId;
+                    body = updateDigitalHumanBusinessCardRequest.body
+                    authorization = updateDigitalHumanBusinessCardRequest.authorization;
+                    xSdkDate = updateDigitalHumanBusinessCardRequest.xSdkDate;
+                    xProjectId = updateDigitalHumanBusinessCardRequest.xProjectId;
+                    xAppUserId = updateDigitalHumanBusinessCardRequest.xAppUserId;
+                } else {
+                    jobId = updateDigitalHumanBusinessCardRequest['job_id'];
+                    body = updateDigitalHumanBusinessCardRequest['body'];
+                    authorization = updateDigitalHumanBusinessCardRequest['Authorization'];
+                    xSdkDate = updateDigitalHumanBusinessCardRequest['X-Sdk-Date'];
+                    xProjectId = updateDigitalHumanBusinessCardRequest['X-Project-Id'];
+                    xAppUserId = updateDigitalHumanBusinessCardRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateDigitalHumanBusinessCard.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于取消等待中的分身数字人视频制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancel2DDigitalHumanVideo(cancel2DDigitalHumanVideoRequest?: Cancel2DDigitalHumanVideoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/2d-digital-human-videos/{job_id}/cancel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (cancel2DDigitalHumanVideoRequest !== null && cancel2DDigitalHumanVideoRequest !== undefined) {
+                if (cancel2DDigitalHumanVideoRequest instanceof Cancel2DDigitalHumanVideoRequest) {
+                    jobId = cancel2DDigitalHumanVideoRequest.jobId;
+                    authorization = cancel2DDigitalHumanVideoRequest.authorization;
+                    xSdkDate = cancel2DDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = cancel2DDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = cancel2DDigitalHumanVideoRequest.xAppUserId;
+                } else {
+                    jobId = cancel2DDigitalHumanVideoRequest['job_id'];
+                    authorization = cancel2DDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = cancel2DDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = cancel2DDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = cancel2DDigitalHumanVideoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling cancel2DDigitalHumanVideo.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建分身数字人视频制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        create2DDigitalHumanVideo(create2DDigitalHumanVideoRequest?: Create2DDigitalHumanVideoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/2d-digital-human-videos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (create2DDigitalHumanVideoRequest !== null && create2DDigitalHumanVideoRequest !== undefined) {
+                if (create2DDigitalHumanVideoRequest instanceof Create2DDigitalHumanVideoRequest) {
+                    body = create2DDigitalHumanVideoRequest.body
+                    authorization = create2DDigitalHumanVideoRequest.authorization;
+                    xSdkDate = create2DDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = create2DDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = create2DDigitalHumanVideoRequest.xAppUserId;
+                } else {
+                    body = create2DDigitalHumanVideoRequest['body'];
+                    authorization = create2DDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = create2DDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = create2DDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = create2DDigitalHumanVideoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询分身数字人视频制作任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        show2DDigitalHumanVideo(show2DDigitalHumanVideoRequest?: Show2DDigitalHumanVideoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/2d-digital-human-videos/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let showScript;
+
+            if (show2DDigitalHumanVideoRequest !== null && show2DDigitalHumanVideoRequest !== undefined) {
+                if (show2DDigitalHumanVideoRequest instanceof Show2DDigitalHumanVideoRequest) {
+                    jobId = show2DDigitalHumanVideoRequest.jobId;
+                    authorization = show2DDigitalHumanVideoRequest.authorization;
+                    xSdkDate = show2DDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = show2DDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = show2DDigitalHumanVideoRequest.xAppUserId;
+                    showScript = show2DDigitalHumanVideoRequest.showScript;
+                } else {
+                    jobId = show2DDigitalHumanVideoRequest['job_id'];
+                    authorization = show2DDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = show2DDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = show2DDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = show2DDigitalHumanVideoRequest['X-App-UserId'];
+                    showScript = show2DDigitalHumanVideoRequest['show_script'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling show2DDigitalHumanVideo.');
+            }
+            if (showScript !== null && showScript !== undefined) {
+                localVarQueryParameter['show_script'] = showScript;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于取消等待中的照片分身数字人视频制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelPhotoDigitalHumanVideo(cancelPhotoDigitalHumanVideoRequest?: CancelPhotoDigitalHumanVideoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/photo-digital-human-videos/{job_id}/cancel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (cancelPhotoDigitalHumanVideoRequest !== null && cancelPhotoDigitalHumanVideoRequest !== undefined) {
+                if (cancelPhotoDigitalHumanVideoRequest instanceof CancelPhotoDigitalHumanVideoRequest) {
+                    jobId = cancelPhotoDigitalHumanVideoRequest.jobId;
+                    authorization = cancelPhotoDigitalHumanVideoRequest.authorization;
+                    xSdkDate = cancelPhotoDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = cancelPhotoDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = cancelPhotoDigitalHumanVideoRequest.xAppUserId;
+                } else {
+                    jobId = cancelPhotoDigitalHumanVideoRequest['job_id'];
+                    authorization = cancelPhotoDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = cancelPhotoDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = cancelPhotoDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = cancelPhotoDigitalHumanVideoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling cancelPhotoDigitalHumanVideo.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建照片分身数字人视频制作任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPhotoDigitalHumanVideo(createPhotoDigitalHumanVideoRequest?: CreatePhotoDigitalHumanVideoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/photo-digital-human-videos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createPhotoDigitalHumanVideoRequest !== null && createPhotoDigitalHumanVideoRequest !== undefined) {
+                if (createPhotoDigitalHumanVideoRequest instanceof CreatePhotoDigitalHumanVideoRequest) {
+                    body = createPhotoDigitalHumanVideoRequest.body
+                    authorization = createPhotoDigitalHumanVideoRequest.authorization;
+                    xSdkDate = createPhotoDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = createPhotoDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = createPhotoDigitalHumanVideoRequest.xAppUserId;
+                } else {
+                    body = createPhotoDigitalHumanVideoRequest['body'];
+                    authorization = createPhotoDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = createPhotoDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = createPhotoDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = createPhotoDigitalHumanVideoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询照片分身数字人视频制作任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPhotoDigitalHumanVideo(showPhotoDigitalHumanVideoRequest?: ShowPhotoDigitalHumanVideoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/photo-digital-human-videos/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let showScript;
+
+            if (showPhotoDigitalHumanVideoRequest !== null && showPhotoDigitalHumanVideoRequest !== undefined) {
+                if (showPhotoDigitalHumanVideoRequest instanceof ShowPhotoDigitalHumanVideoRequest) {
+                    jobId = showPhotoDigitalHumanVideoRequest.jobId;
+                    authorization = showPhotoDigitalHumanVideoRequest.authorization;
+                    xSdkDate = showPhotoDigitalHumanVideoRequest.xSdkDate;
+                    xProjectId = showPhotoDigitalHumanVideoRequest.xProjectId;
+                    xAppUserId = showPhotoDigitalHumanVideoRequest.xAppUserId;
+                    showScript = showPhotoDigitalHumanVideoRequest.showScript;
+                } else {
+                    jobId = showPhotoDigitalHumanVideoRequest['job_id'];
+                    authorization = showPhotoDigitalHumanVideoRequest['Authorization'];
+                    xSdkDate = showPhotoDigitalHumanVideoRequest['X-Sdk-Date'];
+                    xProjectId = showPhotoDigitalHumanVideoRequest['X-Project-Id'];
+                    xAppUserId = showPhotoDigitalHumanVideoRequest['X-App-UserId'];
+                    showScript = showPhotoDigitalHumanVideoRequest['show_script'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showPhotoDigitalHumanVideo.');
+            }
+            if (showScript !== null && showScript !== undefined) {
+                localVarQueryParameter['show_script'] = showScript;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 资产文件上传完毕后，通过该接口确认上传完成。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1435,6 +2989,8 @@ export const ParamCreater = function () {
             let xProjectId;
             
             let xAppUserId;
+            
+            let xUserPrivilege;
 
             if (createPictureModelingByUrlJobRequest !== null && createPictureModelingByUrlJobRequest !== undefined) {
                 if (createPictureModelingByUrlJobRequest instanceof CreatePictureModelingByUrlJobRequest) {
@@ -1443,12 +2999,14 @@ export const ParamCreater = function () {
                     xSdkDate = createPictureModelingByUrlJobRequest.xSdkDate;
                     xProjectId = createPictureModelingByUrlJobRequest.xProjectId;
                     xAppUserId = createPictureModelingByUrlJobRequest.xAppUserId;
+                    xUserPrivilege = createPictureModelingByUrlJobRequest.xUserPrivilege;
                 } else {
                     body = createPictureModelingByUrlJobRequest['body'];
                     authorization = createPictureModelingByUrlJobRequest['Authorization'];
                     xSdkDate = createPictureModelingByUrlJobRequest['X-Sdk-Date'];
                     xProjectId = createPictureModelingByUrlJobRequest['X-Project-Id'];
                     xAppUserId = createPictureModelingByUrlJobRequest['X-App-UserId'];
+                    xUserPrivilege = createPictureModelingByUrlJobRequest['X-User-Privilege'];
                 }
             }
 
@@ -1467,6 +3025,9 @@ export const ParamCreater = function () {
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            if (xUserPrivilege !== undefined && xUserPrivilege !== null) {
+                localVarHeaderParameter['X-User-Privilege'] = String(xUserPrivilege);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1748,6 +3309,907 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于控制数字人直播过程。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeSmartLiveCommand(executeSmartLiveCommandRequest?: ExecuteSmartLiveCommandRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs/{job_id}/command",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roomId;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (executeSmartLiveCommandRequest !== null && executeSmartLiveCommandRequest !== undefined) {
+                if (executeSmartLiveCommandRequest instanceof ExecuteSmartLiveCommandRequest) {
+                    roomId = executeSmartLiveCommandRequest.roomId;
+                    jobId = executeSmartLiveCommandRequest.jobId;
+                    body = executeSmartLiveCommandRequest.body
+                    authorization = executeSmartLiveCommandRequest.authorization;
+                    xSdkDate = executeSmartLiveCommandRequest.xSdkDate;
+                    xProjectId = executeSmartLiveCommandRequest.xProjectId;
+                    xAppUserId = executeSmartLiveCommandRequest.xAppUserId;
+                } else {
+                    roomId = executeSmartLiveCommandRequest['room_id'];
+                    jobId = executeSmartLiveCommandRequest['job_id'];
+                    body = executeSmartLiveCommandRequest['body'];
+                    authorization = executeSmartLiveCommandRequest['Authorization'];
+                    xSdkDate = executeSmartLiveCommandRequest['X-Sdk-Date'];
+                    xProjectId = executeSmartLiveCommandRequest['X-Project-Id'];
+                    xAppUserId = executeSmartLiveCommandRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling executeSmartLiveCommand.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling executeSmartLiveCommand.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询数字人智能直播任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartLive(listSmartLiveRequest?: ListSmartLiveRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let state;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let createUntil;
+            
+            let createSince;
+
+            if (listSmartLiveRequest !== null && listSmartLiveRequest !== undefined) {
+                if (listSmartLiveRequest instanceof ListSmartLiveRequest) {
+                    roomId = listSmartLiveRequest.roomId;
+                    authorization = listSmartLiveRequest.authorization;
+                    xSdkDate = listSmartLiveRequest.xSdkDate;
+                    xProjectId = listSmartLiveRequest.xProjectId;
+                    xAppUserId = listSmartLiveRequest.xAppUserId;
+                    offset = listSmartLiveRequest.offset;
+                    limit = listSmartLiveRequest.limit;
+                    state = listSmartLiveRequest.state;
+                    sortKey = listSmartLiveRequest.sortKey;
+                    sortDir = listSmartLiveRequest.sortDir;
+                    createUntil = listSmartLiveRequest.createUntil;
+                    createSince = listSmartLiveRequest.createSince;
+                } else {
+                    roomId = listSmartLiveRequest['room_id'];
+                    authorization = listSmartLiveRequest['Authorization'];
+                    xSdkDate = listSmartLiveRequest['X-Sdk-Date'];
+                    xProjectId = listSmartLiveRequest['X-Project-Id'];
+                    xAppUserId = listSmartLiveRequest['X-App-UserId'];
+                    offset = listSmartLiveRequest['offset'];
+                    limit = listSmartLiveRequest['limit'];
+                    state = listSmartLiveRequest['state'];
+                    sortKey = listSmartLiveRequest['sort_key'];
+                    sortDir = listSmartLiveRequest['sort_dir'];
+                    createUntil = listSmartLiveRequest['create_until'];
+                    createSince = listSmartLiveRequest['create_since'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling listSmartLive.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'room_id': roomId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于上报直播间事件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        liveEventReport(liveEventReportRequest?: LiveEventReportRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs/{job_id}/live-event-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let roomId;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let authKey;
+            
+            let expiresTime;
+            
+            let refreshUrl;
+
+            if (liveEventReportRequest !== null && liveEventReportRequest !== undefined) {
+                if (liveEventReportRequest instanceof LiveEventReportRequest) {
+                    roomId = liveEventReportRequest.roomId;
+                    jobId = liveEventReportRequest.jobId;
+                    body = liveEventReportRequest.body
+                    authorization = liveEventReportRequest.authorization;
+                    xSdkDate = liveEventReportRequest.xSdkDate;
+                    xProjectId = liveEventReportRequest.xProjectId;
+                    xAppUserId = liveEventReportRequest.xAppUserId;
+                    authKey = liveEventReportRequest.authKey;
+                    expiresTime = liveEventReportRequest.expiresTime;
+                    refreshUrl = liveEventReportRequest.refreshUrl;
+                } else {
+                    roomId = liveEventReportRequest['room_id'];
+                    jobId = liveEventReportRequest['job_id'];
+                    body = liveEventReportRequest['body'];
+                    authorization = liveEventReportRequest['Authorization'];
+                    xSdkDate = liveEventReportRequest['X-Sdk-Date'];
+                    xProjectId = liveEventReportRequest['X-Project-Id'];
+                    xAppUserId = liveEventReportRequest['X-App-UserId'];
+                    authKey = liveEventReportRequest['auth_key'];
+                    expiresTime = liveEventReportRequest['expires_time'];
+                    refreshUrl = liveEventReportRequest['refresh_url'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling liveEventReport.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling liveEventReport.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authKey !== null && authKey !== undefined) {
+                localVarQueryParameter['auth_key'] = authKey;
+            }
+            if (expiresTime !== null && expiresTime !== undefined) {
+                localVarQueryParameter['expires_time'] = expiresTime;
+            }
+            if (refreshUrl !== null && refreshUrl !== undefined) {
+                localVarQueryParameter['refresh_url'] = refreshUrl;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询数字人智能直播任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSmartLive(showSmartLiveRequest?: ShowSmartLiveRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roomId;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showSmartLiveRequest !== null && showSmartLiveRequest !== undefined) {
+                if (showSmartLiveRequest instanceof ShowSmartLiveRequest) {
+                    roomId = showSmartLiveRequest.roomId;
+                    jobId = showSmartLiveRequest.jobId;
+                    authorization = showSmartLiveRequest.authorization;
+                    xSdkDate = showSmartLiveRequest.xSdkDate;
+                    xProjectId = showSmartLiveRequest.xProjectId;
+                    xAppUserId = showSmartLiveRequest.xAppUserId;
+                } else {
+                    roomId = showSmartLiveRequest['room_id'];
+                    jobId = showSmartLiveRequest['job_id'];
+                    authorization = showSmartLiveRequest['Authorization'];
+                    xSdkDate = showSmartLiveRequest['X-Sdk-Date'];
+                    xProjectId = showSmartLiveRequest['X-Project-Id'];
+                    xAppUserId = showSmartLiveRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling showSmartLive.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showSmartLive.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于启动数字人智能直播任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startSmartLive(startSmartLiveRequest?: StartSmartLiveRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (startSmartLiveRequest !== null && startSmartLiveRequest !== undefined) {
+                if (startSmartLiveRequest instanceof StartSmartLiveRequest) {
+                    roomId = startSmartLiveRequest.roomId;
+                    body = startSmartLiveRequest.body
+                    authorization = startSmartLiveRequest.authorization;
+                    xSdkDate = startSmartLiveRequest.xSdkDate;
+                    xProjectId = startSmartLiveRequest.xProjectId;
+                    xAppUserId = startSmartLiveRequest.xAppUserId;
+                } else {
+                    roomId = startSmartLiveRequest['room_id'];
+                    body = startSmartLiveRequest['body'];
+                    authorization = startSmartLiveRequest['Authorization'];
+                    xSdkDate = startSmartLiveRequest['X-Sdk-Date'];
+                    xProjectId = startSmartLiveRequest['X-Project-Id'];
+                    xAppUserId = startSmartLiveRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling startSmartLive.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'room_id': roomId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于结束数字人智能直播任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopSmartLive(stopSmartLiveRequest?: StopSmartLiveRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}/smart-live-jobs/{job_id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roomId;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (stopSmartLiveRequest !== null && stopSmartLiveRequest !== undefined) {
+                if (stopSmartLiveRequest instanceof StopSmartLiveRequest) {
+                    roomId = stopSmartLiveRequest.roomId;
+                    jobId = stopSmartLiveRequest.jobId;
+                    authorization = stopSmartLiveRequest.authorization;
+                    xSdkDate = stopSmartLiveRequest.xSdkDate;
+                    xProjectId = stopSmartLiveRequest.xProjectId;
+                    xAppUserId = stopSmartLiveRequest.xAppUserId;
+                } else {
+                    roomId = stopSmartLiveRequest['room_id'];
+                    jobId = stopSmartLiveRequest['job_id'];
+                    authorization = stopSmartLiveRequest['Authorization'];
+                    xSdkDate = stopSmartLiveRequest['X-Sdk-Date'];
+                    xProjectId = stopSmartLiveRequest['X-Project-Id'];
+                    xAppUserId = stopSmartLiveRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling stopSmartLive.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling stopSmartLive.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'room_id': roomId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建智能直播间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSmartLiveRoom(createSmartLiveRoomRequest?: CreateSmartLiveRoomRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/smart-live-rooms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createSmartLiveRoomRequest !== null && createSmartLiveRoomRequest !== undefined) {
+                if (createSmartLiveRoomRequest instanceof CreateSmartLiveRoomRequest) {
+                    body = createSmartLiveRoomRequest.body
+                    authorization = createSmartLiveRoomRequest.authorization;
+                    xSdkDate = createSmartLiveRoomRequest.xSdkDate;
+                    xProjectId = createSmartLiveRoomRequest.xProjectId;
+                    xAppUserId = createSmartLiveRoomRequest.xAppUserId;
+                } else {
+                    body = createSmartLiveRoomRequest['body'];
+                    authorization = createSmartLiveRoomRequest['Authorization'];
+                    xSdkDate = createSmartLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = createSmartLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = createSmartLiveRoomRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除智能直播间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSmartLiveRoom(deleteSmartLiveRoomRequest?: DeleteSmartLiveRoomRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteSmartLiveRoomRequest !== null && deleteSmartLiveRoomRequest !== undefined) {
+                if (deleteSmartLiveRoomRequest instanceof DeleteSmartLiveRoomRequest) {
+                    roomId = deleteSmartLiveRoomRequest.roomId;
+                    authorization = deleteSmartLiveRoomRequest.authorization;
+                    xSdkDate = deleteSmartLiveRoomRequest.xSdkDate;
+                    xProjectId = deleteSmartLiveRoomRequest.xProjectId;
+                    xAppUserId = deleteSmartLiveRoomRequest.xAppUserId;
+                } else {
+                    roomId = deleteSmartLiveRoomRequest['room_id'];
+                    authorization = deleteSmartLiveRoomRequest['Authorization'];
+                    xSdkDate = deleteSmartLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = deleteSmartLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = deleteSmartLiveRoomRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling deleteSmartLiveRoom.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'room_id': roomId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于智能直播间列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartLiveRooms(listSmartLiveRoomsRequest?: ListSmartLiveRoomsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-rooms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let roomName;
+            
+            let dhId;
+            
+            let modelName;
+            
+            let liveState;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listSmartLiveRoomsRequest !== null && listSmartLiveRoomsRequest !== undefined) {
+                if (listSmartLiveRoomsRequest instanceof ListSmartLiveRoomsRequest) {
+                    authorization = listSmartLiveRoomsRequest.authorization;
+                    xSdkDate = listSmartLiveRoomsRequest.xSdkDate;
+                    xProjectId = listSmartLiveRoomsRequest.xProjectId;
+                    xAppUserId = listSmartLiveRoomsRequest.xAppUserId;
+                    offset = listSmartLiveRoomsRequest.offset;
+                    limit = listSmartLiveRoomsRequest.limit;
+                    roomName = listSmartLiveRoomsRequest.roomName;
+                    dhId = listSmartLiveRoomsRequest.dhId;
+                    modelName = listSmartLiveRoomsRequest.modelName;
+                    liveState = listSmartLiveRoomsRequest.liveState;
+                    startTime = listSmartLiveRoomsRequest.startTime;
+                    endTime = listSmartLiveRoomsRequest.endTime;
+                } else {
+                    authorization = listSmartLiveRoomsRequest['Authorization'];
+                    xSdkDate = listSmartLiveRoomsRequest['X-Sdk-Date'];
+                    xProjectId = listSmartLiveRoomsRequest['X-Project-Id'];
+                    xAppUserId = listSmartLiveRoomsRequest['X-App-UserId'];
+                    offset = listSmartLiveRoomsRequest['offset'];
+                    limit = listSmartLiveRoomsRequest['limit'];
+                    roomName = listSmartLiveRoomsRequest['room_name'];
+                    dhId = listSmartLiveRoomsRequest['dh_id'];
+                    modelName = listSmartLiveRoomsRequest['model_name'];
+                    liveState = listSmartLiveRoomsRequest['live_state'];
+                    startTime = listSmartLiveRoomsRequest['start_time'];
+                    endTime = listSmartLiveRoomsRequest['end_time'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (roomName !== null && roomName !== undefined) {
+                localVarQueryParameter['room_name'] = roomName;
+            }
+            if (dhId !== null && dhId !== undefined) {
+                localVarQueryParameter['dh_id'] = dhId;
+            }
+            if (modelName !== null && modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+            if (liveState !== null && liveState !== undefined) {
+                localVarQueryParameter['live_state'] = liveState;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询智能直播剧本详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSmartLiveRoom(showSmartLiveRoomRequest?: ShowSmartLiveRoomRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showSmartLiveRoomRequest !== null && showSmartLiveRoomRequest !== undefined) {
+                if (showSmartLiveRoomRequest instanceof ShowSmartLiveRoomRequest) {
+                    roomId = showSmartLiveRoomRequest.roomId;
+                    authorization = showSmartLiveRoomRequest.authorization;
+                    xSdkDate = showSmartLiveRoomRequest.xSdkDate;
+                    xProjectId = showSmartLiveRoomRequest.xProjectId;
+                    xAppUserId = showSmartLiveRoomRequest.xAppUserId;
+                } else {
+                    roomId = showSmartLiveRoomRequest['room_id'];
+                    authorization = showSmartLiveRoomRequest['Authorization'];
+                    xSdkDate = showSmartLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = showSmartLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = showSmartLiveRoomRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling showSmartLiveRoom.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'room_id': roomId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于智能直播间信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSmartLiveRoom(updateSmartLiveRoomRequest?: UpdateSmartLiveRoomRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/smart-live-rooms/{room_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roomId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateSmartLiveRoomRequest !== null && updateSmartLiveRoomRequest !== undefined) {
+                if (updateSmartLiveRoomRequest instanceof UpdateSmartLiveRoomRequest) {
+                    roomId = updateSmartLiveRoomRequest.roomId;
+                    body = updateSmartLiveRoomRequest.body
+                    authorization = updateSmartLiveRoomRequest.authorization;
+                    xSdkDate = updateSmartLiveRoomRequest.xSdkDate;
+                    xProjectId = updateSmartLiveRoomRequest.xProjectId;
+                    xAppUserId = updateSmartLiveRoomRequest.xAppUserId;
+                } else {
+                    roomId = updateSmartLiveRoomRequest['room_id'];
+                    body = updateSmartLiveRoomRequest['body'];
+                    authorization = updateSmartLiveRoomRequest['Authorization'];
+                    xSdkDate = updateSmartLiveRoomRequest['X-Sdk-Date'];
+                    xProjectId = updateSmartLiveRoomRequest['X-Project-Id'];
+                    xAppUserId = updateSmartLiveRoomRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (roomId === null || roomId === undefined) {
+            throw new RequiredError('roomId','Required parameter roomId was null or undefined when calling updateSmartLiveRoom.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'room_id': roomId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2415,6 +4877,348 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建视频制作剧本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVideoScripts(createVideoScriptsRequest?: CreateVideoScriptsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-video-scripts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createVideoScriptsRequest !== null && createVideoScriptsRequest !== undefined) {
+                if (createVideoScriptsRequest instanceof CreateVideoScriptsRequest) {
+                    body = createVideoScriptsRequest.body
+                    authorization = createVideoScriptsRequest.authorization;
+                    xSdkDate = createVideoScriptsRequest.xSdkDate;
+                    xProjectId = createVideoScriptsRequest.xProjectId;
+                    xAppUserId = createVideoScriptsRequest.xAppUserId;
+                } else {
+                    body = createVideoScriptsRequest['body'];
+                    authorization = createVideoScriptsRequest['Authorization'];
+                    xSdkDate = createVideoScriptsRequest['X-Sdk-Date'];
+                    xProjectId = createVideoScriptsRequest['X-Project-Id'];
+                    xAppUserId = createVideoScriptsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除视频制作剧本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVideoScript(deleteVideoScriptRequest?: DeleteVideoScriptRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-video-scripts/{script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scriptId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteVideoScriptRequest !== null && deleteVideoScriptRequest !== undefined) {
+                if (deleteVideoScriptRequest instanceof DeleteVideoScriptRequest) {
+                    scriptId = deleteVideoScriptRequest.scriptId;
+                    authorization = deleteVideoScriptRequest.authorization;
+                    xSdkDate = deleteVideoScriptRequest.xSdkDate;
+                    xProjectId = deleteVideoScriptRequest.xProjectId;
+                    xAppUserId = deleteVideoScriptRequest.xAppUserId;
+                } else {
+                    scriptId = deleteVideoScriptRequest['script_id'];
+                    authorization = deleteVideoScriptRequest['Authorization'];
+                    xSdkDate = deleteVideoScriptRequest['X-Sdk-Date'];
+                    xProjectId = deleteVideoScriptRequest['X-Project-Id'];
+                    xAppUserId = deleteVideoScriptRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (scriptId === null || scriptId === undefined) {
+            throw new RequiredError('scriptId','Required parameter scriptId was null or undefined when calling deleteVideoScript.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'script_id': scriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询视频制作剧本列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVideoScripts(listVideoScriptsRequest?: ListVideoScriptsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-video-scripts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listVideoScriptsRequest !== null && listVideoScriptsRequest !== undefined) {
+                if (listVideoScriptsRequest instanceof ListVideoScriptsRequest) {
+                    authorization = listVideoScriptsRequest.authorization;
+                    xSdkDate = listVideoScriptsRequest.xSdkDate;
+                    xProjectId = listVideoScriptsRequest.xProjectId;
+                    xAppUserId = listVideoScriptsRequest.xAppUserId;
+                    offset = listVideoScriptsRequest.offset;
+                    limit = listVideoScriptsRequest.limit;
+                } else {
+                    authorization = listVideoScriptsRequest['Authorization'];
+                    xSdkDate = listVideoScriptsRequest['X-Sdk-Date'];
+                    xProjectId = listVideoScriptsRequest['X-Project-Id'];
+                    xAppUserId = listVideoScriptsRequest['X-App-UserId'];
+                    offset = listVideoScriptsRequest['offset'];
+                    limit = listVideoScriptsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询视频制作剧本详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVideoScript(showVideoScriptRequest?: ShowVideoScriptRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-video-scripts/{script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scriptId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showVideoScriptRequest !== null && showVideoScriptRequest !== undefined) {
+                if (showVideoScriptRequest instanceof ShowVideoScriptRequest) {
+                    scriptId = showVideoScriptRequest.scriptId;
+                    authorization = showVideoScriptRequest.authorization;
+                    xSdkDate = showVideoScriptRequest.xSdkDate;
+                    xProjectId = showVideoScriptRequest.xProjectId;
+                    xAppUserId = showVideoScriptRequest.xAppUserId;
+                } else {
+                    scriptId = showVideoScriptRequest['script_id'];
+                    authorization = showVideoScriptRequest['Authorization'];
+                    xSdkDate = showVideoScriptRequest['X-Sdk-Date'];
+                    xProjectId = showVideoScriptRequest['X-Project-Id'];
+                    xAppUserId = showVideoScriptRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (scriptId === null || scriptId === undefined) {
+            throw new RequiredError('scriptId','Required parameter scriptId was null or undefined when calling showVideoScript.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'script_id': scriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新视频制作剧本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVideoScript(updateVideoScriptRequest?: UpdateVideoScriptRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-video-scripts/{script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let scriptId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateVideoScriptRequest !== null && updateVideoScriptRequest !== undefined) {
+                if (updateVideoScriptRequest instanceof UpdateVideoScriptRequest) {
+                    scriptId = updateVideoScriptRequest.scriptId;
+                    body = updateVideoScriptRequest.body
+                    authorization = updateVideoScriptRequest.authorization;
+                    xSdkDate = updateVideoScriptRequest.xSdkDate;
+                    xProjectId = updateVideoScriptRequest.xProjectId;
+                    xAppUserId = updateVideoScriptRequest.xAppUserId;
+                } else {
+                    scriptId = updateVideoScriptRequest['script_id'];
+                    body = updateVideoScriptRequest['body'];
+                    authorization = updateVideoScriptRequest['Authorization'];
+                    xSdkDate = updateVideoScriptRequest['X-Sdk-Date'];
+                    xProjectId = updateVideoScriptRequest['X-Project-Id'];
+                    xAppUserId = updateVideoScriptRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (scriptId === null || scriptId === undefined) {
+            throw new RequiredError('scriptId','Required parameter scriptId was null or undefined when calling updateVideoScript.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'script_id': scriptId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

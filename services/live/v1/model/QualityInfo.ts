@@ -13,6 +13,8 @@ export class QualityInfo {
     public protocol?: QualityInfoProtocolEnum | string;
     public iFrameInterval?: number;
     public gop?: number;
+    private 'bitrate_adaptive'?: QualityInfoBitrateAdaptiveEnum | string;
+    private 'i_frame_policy'?: QualityInfoIFramePolicyEnum | string;
     public constructor(quality?: string, bitrate?: number) { 
         this['quality'] = quality;
         this['bitrate'] = bitrate;
@@ -77,6 +79,26 @@ export class QualityInfo {
         this['gop'] = gop;
         return this;
     }
+    public withBitrateAdaptive(bitrateAdaptive: QualityInfoBitrateAdaptiveEnum | string): QualityInfo {
+        this['bitrate_adaptive'] = bitrateAdaptive;
+        return this;
+    }
+    public set bitrateAdaptive(bitrateAdaptive: QualityInfoBitrateAdaptiveEnum | string  | undefined) {
+        this['bitrate_adaptive'] = bitrateAdaptive;
+    }
+    public get bitrateAdaptive(): QualityInfoBitrateAdaptiveEnum | string | undefined {
+        return this['bitrate_adaptive'];
+    }
+    public withIFramePolicy(iFramePolicy: QualityInfoIFramePolicyEnum | string): QualityInfo {
+        this['i_frame_policy'] = iFramePolicy;
+        return this;
+    }
+    public set iFramePolicy(iFramePolicy: QualityInfoIFramePolicyEnum | string  | undefined) {
+        this['i_frame_policy'] = iFramePolicy;
+    }
+    public get iFramePolicy(): QualityInfoIFramePolicyEnum | string | undefined {
+        return this['i_frame_policy'];
+    }
 }
 
 /**
@@ -111,4 +133,20 @@ export enum QualityInfoProtocolEnum {
     RTMP = 'RTMP',
     HLS = 'HLS',
     DASH = 'DASH'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QualityInfoBitrateAdaptiveEnum {
+    MINIMUM = 'minimum',
+    ADAPTIVE = 'adaptive'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QualityInfoIFramePolicyEnum {
+    AUTO = 'auto',
+    STRICTSYNC = 'strictSync'
 }

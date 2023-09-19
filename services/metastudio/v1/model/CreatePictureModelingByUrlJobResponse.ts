@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreatePictureModelingByUrlJobResponse extends SdkResponse {
     private 'job_id'?: string;
     private 'model_asset_id'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -26,5 +27,15 @@ export class CreatePictureModelingByUrlJobResponse extends SdkResponse {
     }
     public get modelAssetId(): string | undefined {
         return this['model_asset_id'];
+    }
+    public withXRequestId(xRequestId: string): CreatePictureModelingByUrlJobResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

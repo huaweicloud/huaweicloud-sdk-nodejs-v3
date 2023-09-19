@@ -9,6 +9,7 @@ import { ApplyConfigurationRequest } from './model/ApplyConfigurationRequest';
 import { ApplyConfigurationRequestBody } from './model/ApplyConfigurationRequestBody';
 import { ApplyConfigurationResponse } from './model/ApplyConfigurationResponse';
 import { ApplyHistoryRsp } from './model/ApplyHistoryRsp';
+import { AvailabilityZoneDetail } from './model/AvailabilityZoneDetail';
 import { Backup } from './model/Backup';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupStrategyOption } from './model/BackupStrategyOption';
@@ -924,7 +925,7 @@ export class GaussDBforNoSQLClient {
      * @summary 查询实例列表和详情
      * @param {string} [id] 实例ID。 如果id以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的id精确匹配查询。
      * @param {string} [name] 实例名称。 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。
-     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GaussDB(for Cassandra)集群实例类型。   - 取值为“Sharding”，表示GaussDB(for Mongo)集群实例类型。   - 取值为“ReplicaSet”，表示GaussDB(for Mongo)副本集实例类型。   - 取值为“InfluxdbCluster”，表示GaussDB(for Influx)集群实例类型。
+     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GaussDB(for Cassandra)、GaussDB(for Influx)、GaussDB(for Redis)集群实例类型。   - 取值为“Sharding”，表示GaussDB(for Mongo)集群实例类型。   - 取值为“ReplicaSet”，表示GaussDB(for Mongo)副本集实例类型。   - 取值为“InfluxdbCluster”，表示GaussDB(for Influx)集群实例类型。   - 取值为“InfluxdbSingle”，表示GaussDB(for Influx)单节点实例类型。   - 取值为“RedisReplica”，表示GaussDB(for Redis)性能版实例类型。   - 取值为“Replication”，表示GaussDB(for Redis)主备版实例类型。
      * @param {string} [datastoreType] 数据库类型。   - 取值为“cassandra”，表示查询GaussDB(for Cassandra)数据库实例。   - 取值为“mongodb”，表示查询GaussDB(for Mongo)数据库实例。   - 取值为“influxdb”，表示查询GaussDB(for Influx)数据库实例。   - 取值为“redis”，表示查询GaussDB(for Redis)数据库实例。   - 如果不传该参数，表示查询所有数据库实例。
      * @param {string} [vpcId] 虚拟私有云ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，在虚拟私有云的详情页面查找VPC ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询VPC列表。
      * @param {string} [subnetId] 子网的网络ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，单击VPC下的子网，进入子网详情页面，查找网络ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询子网列表。

@@ -120,6 +120,7 @@ export * from './model/TagEntity';
 export * from './model/TagMultyValueEntity';
 export * from './model/Topic';
 export * from './model/TopicBrokers';
+export * from './model/UpdateConsumerGroup';
 export * from './model/UpdateConsumerGroupRequest';
 export * from './model/UpdateConsumerGroupResponse';
 export * from './model/UpdateInstanceReq';

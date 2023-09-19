@@ -91,6 +91,8 @@ export * from './model/ImportFunctionResponse';
 export * from './model/InvokeFunctionRequest';
 export * from './model/InvokeFunctionResponse';
 export * from './model/KvItem';
+export * from './model/ListActiveAsyncInvocationsRequest';
+export * from './model/ListActiveAsyncInvocationsResponse';
 export * from './model/ListAsyncInvocationsRequest';
 export * from './model/ListAsyncInvocationsResponse';
 export * from './model/ListDependenciesRequest';

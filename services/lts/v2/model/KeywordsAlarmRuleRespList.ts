@@ -1,3 +1,4 @@
+import { Frequency } from './Frequency';
 import { KeywordsRequest } from './KeywordsRequest';
 import { Topics } from './Topics';
 
@@ -9,7 +10,7 @@ export class KeywordsAlarmRuleRespList {
     private 'keywords_alarm_rule_description'?: string;
     private 'condition_expression'?: string;
     private 'keywords_requests'?: Array<KeywordsRequest>;
-    public frequency?: object;
+    public frequency?: Frequency;
     private 'keywords_alarm_level'?: KeywordsAlarmRuleRespListKeywordsAlarmLevelEnum | string;
     private 'keywords_alarm_send'?: boolean;
     private 'domain_id'?: string;
@@ -22,7 +23,7 @@ export class KeywordsAlarmRuleRespList {
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(projectId?: string, keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: object, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number, topics?: Array<Topics>) { 
+    public constructor(projectId?: string, keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number, topics?: Array<Topics>) { 
         this['projectId'] = projectId;
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
@@ -91,7 +92,7 @@ export class KeywordsAlarmRuleRespList {
     public get keywordsRequests(): Array<KeywordsRequest> | undefined {
         return this['keywords_requests'];
     }
-    public withFrequency(frequency: object): KeywordsAlarmRuleRespList {
+    public withFrequency(frequency: Frequency): KeywordsAlarmRuleRespList {
         this['frequency'] = frequency;
         return this;
     }

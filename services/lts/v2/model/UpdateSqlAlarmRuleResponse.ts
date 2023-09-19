@@ -1,3 +1,4 @@
+import { Frequency } from './Frequency';
 import { SqlRequest } from './SqlRequest';
 import { Topics } from './Topics';
 
@@ -12,7 +13,7 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     private 'sql_alarm_rule_id'?: string;
     private 'sql_alarm_rule_description'?: string;
     private 'sql_requests'?: Array<SqlRequest>;
-    public frequency?: object;
+    public frequency?: Frequency;
     private 'condition_expression'?: string;
     private 'sql_alarm_level'?: UpdateSqlAlarmRuleResponseSqlAlarmLevelEnum | string;
     private 'sql_alarm_send'?: boolean;
@@ -79,7 +80,7 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public get sqlRequests(): Array<SqlRequest> | undefined {
         return this['sql_requests'];
     }
-    public withFrequency(frequency: object): UpdateSqlAlarmRuleResponse {
+    public withFrequency(frequency: Frequency): UpdateSqlAlarmRuleResponse {
         this['frequency'] = frequency;
         return this;
     }

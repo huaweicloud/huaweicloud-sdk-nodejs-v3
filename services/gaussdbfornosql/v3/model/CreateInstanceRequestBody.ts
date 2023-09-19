@@ -1,3 +1,4 @@
+import { AvailabilityZoneDetail } from './AvailabilityZoneDetail';
 import { BackupStrategyOption } from './BackupStrategyOption';
 import { ChargeInfoOption } from './ChargeInfoOption';
 import { CreateInstanceFlavorOption } from './CreateInstanceFlavorOption';
@@ -24,6 +25,7 @@ export class CreateInstanceRequestBody {
     private 'charge_info'?: ChargeInfoOption;
     private 'restore_info'?: RestoreInfo;
     public port?: string;
+    private 'availability_zone_detail'?: AvailabilityZoneDetail;
     public constructor(name?: string, datastore?: DatastoreOption, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, password?: string, mode?: string, flavor?: Array<CreateInstanceFlavorOption>) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -173,5 +175,15 @@ export class CreateInstanceRequestBody {
     public withPort(port: string): CreateInstanceRequestBody {
         this['port'] = port;
         return this;
+    }
+    public withAvailabilityZoneDetail(availabilityZoneDetail: AvailabilityZoneDetail): CreateInstanceRequestBody {
+        this['availability_zone_detail'] = availabilityZoneDetail;
+        return this;
+    }
+    public set availabilityZoneDetail(availabilityZoneDetail: AvailabilityZoneDetail  | undefined) {
+        this['availability_zone_detail'] = availabilityZoneDetail;
+    }
+    public get availabilityZoneDetail(): AvailabilityZoneDetail | undefined {
+        return this['availability_zone_detail'];
     }
 }

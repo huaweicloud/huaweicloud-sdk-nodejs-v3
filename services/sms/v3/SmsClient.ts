@@ -16,6 +16,8 @@ import { ConfigBody } from './model/ConfigBody';
 import { ConfigurationRequestBody } from './model/ConfigurationRequestBody';
 import { CreateMigprojectRequest } from './model/CreateMigprojectRequest';
 import { CreateMigprojectResponse } from './model/CreateMigprojectResponse';
+import { CreatePrivacyAgreementsRequest } from './model/CreatePrivacyAgreementsRequest';
+import { CreatePrivacyAgreementsResponse } from './model/CreatePrivacyAgreementsResponse';
 import { CreateTaskRequest } from './model/CreateTaskRequest';
 import { CreateTaskResponse } from './model/CreateTaskResponse';
 import { CreateTemplateReq } from './model/CreateTemplateReq';
@@ -97,6 +99,8 @@ import { ShowOverviewRequest } from './model/ShowOverviewRequest';
 import { ShowOverviewResponse } from './model/ShowOverviewResponse';
 import { ShowPassphraseRequest } from './model/ShowPassphraseRequest';
 import { ShowPassphraseResponse } from './model/ShowPassphraseResponse';
+import { ShowPrivacyAgreementsRequest } from './model/ShowPrivacyAgreementsRequest';
+import { ShowPrivacyAgreementsResponse } from './model/ShowPrivacyAgreementsResponse';
 import { ShowServerRequest } from './model/ShowServerRequest';
 import { ShowServerResponse } from './model/ShowServerResponse';
 import { ShowSha256Request } from './model/ShowSha256Request';
@@ -236,6 +240,24 @@ export class SmsClient {
      */
     public createMigproject(createMigprojectRequest?: CreateMigprojectRequest): Promise<CreateMigprojectResponse> {
         const options = ParamCreater().createMigproject(createMigprojectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同意隐私协议接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同意隐私协议
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivacyAgreements(createPrivacyAgreementsRequest?: CreatePrivacyAgreementsRequest): Promise<CreatePrivacyAgreementsResponse> {
+        const options = ParamCreater().createPrivacyAgreements();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -666,6 +688,24 @@ export class SmsClient {
     }
 
     /**
+     * 查询用户是否同意隐私协议接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户是否同意隐私协议
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivacyAgreements(showPrivacyAgreementsRequest?: ShowPrivacyAgreementsRequest): Promise<ShowPrivacyAgreementsResponse> {
+        const options = ParamCreater().showPrivacyAgreements();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 迁移Agent将源端服务器信息上报到主机迁移服务后，主机迁移服务会对迁移的可行性进行检测，该接口返回源端服务器的基本信息和检查结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -685,12 +725,12 @@ export class SmsClient {
     }
 
     /**
-     * 计算sha256
+     * 计算sha256，加密字段值为uuid。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计算sha256
-     * @param {string} key 关键字
+     * @param {string} key 关键字，加密字段值为uuid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1263,6 +1303,27 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同意隐私协议接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivacyAgreements() {
+            const options = {
+                method: "POST",
+                url: "/v3/privacy-agreements",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2204,6 +2265,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询用户是否同意隐私协议接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivacyAgreements() {
+            const options = {
+                method: "GET",
+                url: "/v3/privacy-agreements",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 迁移Agent将源端服务器信息上报到主机迁移服务后，主机迁移服务会对迁移的可行性进行检测，该接口返回源端服务器的基本信息和检查结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2241,7 +2323,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 计算sha256
+         * 计算sha256，加密字段值为uuid。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

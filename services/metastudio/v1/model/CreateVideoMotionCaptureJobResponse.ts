@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateVideoMotionCaptureJobResponse extends SdkResponse {
     private 'job_id'?: string;
     private 'rtc_room_info'?: RTCRoomInfoList;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -27,5 +28,15 @@ export class CreateVideoMotionCaptureJobResponse extends SdkResponse {
     }
     public get rtcRoomInfo(): RTCRoomInfoList | undefined {
         return this['rtc_room_info'];
+    }
+    public withXRequestId(xRequestId: string): CreateVideoMotionCaptureJobResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

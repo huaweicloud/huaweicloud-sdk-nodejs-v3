@@ -16,6 +16,7 @@ export class ShowAssetResponse extends SdkResponse {
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
     public files?: Array<AssetFileInfo>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -116,6 +117,16 @@ export class ShowAssetResponse extends SdkResponse {
     public withFiles(files: Array<AssetFileInfo>): ShowAssetResponse {
         this['files'] = files;
         return this;
+    }
+    public withXRequestId(xRequestId: string): ShowAssetResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }
 

@@ -7,6 +7,7 @@ export * from './model/ApplyConfigurationRequest';
 export * from './model/ApplyConfigurationRequestBody';
 export * from './model/ApplyConfigurationResponse';
 export * from './model/ApplyHistoryRsp';
+export * from './model/AvailabilityZoneDetail';
 export * from './model/Backup';
 export * from './model/BackupPolicy';
 export * from './model/BackupStrategyOption';

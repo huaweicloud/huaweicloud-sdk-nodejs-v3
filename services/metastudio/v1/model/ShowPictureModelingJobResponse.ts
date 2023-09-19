@@ -13,6 +13,7 @@ export class ShowPictureModelingJobResponse extends SdkResponse {
     public name?: string;
     private 'style_id'?: string;
     private 'model_cover_url'?: string;
+    private 'X-Request-Id'?: string;
     public constructor(jobId?: string, state?: string) { 
         super();
         this['job_id'] = jobId;
@@ -95,6 +96,16 @@ export class ShowPictureModelingJobResponse extends SdkResponse {
     }
     public get modelCoverUrl(): string | undefined {
         return this['model_cover_url'];
+    }
+    public withXRequestId(xRequestId: string): ShowPictureModelingJobResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }
 

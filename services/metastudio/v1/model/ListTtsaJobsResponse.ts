@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListTtsaJobsResponse extends SdkResponse {
     public total?: number;
     private 'ttsa_jobs'?: Array<TTSAJob>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -21,5 +22,15 @@ export class ListTtsaJobsResponse extends SdkResponse {
     }
     public get ttsaJobs(): Array<TTSAJob> | undefined {
         return this['ttsa_jobs'];
+    }
+    public withXRequestId(xRequestId: string): ListTtsaJobsResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

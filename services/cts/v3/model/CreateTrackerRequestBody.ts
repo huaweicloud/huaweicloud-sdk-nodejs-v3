@@ -1,10 +1,13 @@
 import { DataBucket } from './DataBucket';
+import { ManagementEventSelector } from './ManagementEventSelector';
 import { TrackerObsInfo } from './TrackerObsInfo';
 
 
 export class CreateTrackerRequestBody {
     private 'tracker_type'?: CreateTrackerRequestBodyTrackerTypeEnum | string;
     private 'tracker_name'?: string;
+    private 'is_organization_tracker'?: boolean;
+    private 'management_event_selector'?: ManagementEventSelector;
     private 'is_lts_enabled'?: boolean;
     private 'obs_info'?: TrackerObsInfo;
     private 'is_support_trace_files_encryption'?: boolean;
@@ -34,6 +37,26 @@ export class CreateTrackerRequestBody {
     }
     public get trackerName(): string | undefined {
         return this['tracker_name'];
+    }
+    public withIsOrganizationTracker(isOrganizationTracker: boolean): CreateTrackerRequestBody {
+        this['is_organization_tracker'] = isOrganizationTracker;
+        return this;
+    }
+    public set isOrganizationTracker(isOrganizationTracker: boolean  | undefined) {
+        this['is_organization_tracker'] = isOrganizationTracker;
+    }
+    public get isOrganizationTracker(): boolean | undefined {
+        return this['is_organization_tracker'];
+    }
+    public withManagementEventSelector(managementEventSelector: ManagementEventSelector): CreateTrackerRequestBody {
+        this['management_event_selector'] = managementEventSelector;
+        return this;
+    }
+    public set managementEventSelector(managementEventSelector: ManagementEventSelector  | undefined) {
+        this['management_event_selector'] = managementEventSelector;
+    }
+    public get managementEventSelector(): ManagementEventSelector | undefined {
+        return this['management_event_selector'];
     }
     public withIsLtsEnabled(isLtsEnabled: boolean): CreateTrackerRequestBody {
         this['is_lts_enabled'] = isLtsEnabled;

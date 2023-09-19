@@ -1,4 +1,6 @@
+import { Frequency } from './Frequency';
 import { KeywordsRequest } from './KeywordsRequest';
+import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 
 
 export class UpdateKeywordsAlarmRuleRequestBody {
@@ -6,17 +8,17 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     private 'keywords_alarm_rule_name'?: string;
     private 'keywords_alarm_rule_description'?: string;
     private 'keywords_requests'?: Array<KeywordsRequest>;
-    public frequency?: object;
+    public frequency?: Frequency;
     private 'keywords_alarm_level'?: UpdateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string;
     private 'keywords_alarm_send'?: boolean;
     private 'keywords_alarm_send_code'?: UpdateKeywordsAlarmRuleRequestBodyKeywordsAlarmSendCodeEnum | number;
     private 'domain_id'?: string;
-    private 'notification_save_rule'?: object;
+    private 'notification_save_rule'?: SqlNotificationSaveRule;
     private 'trigger_condition_count'?: number;
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: object, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, keywordsAlarmSendCode?: number, domainId?: string) { 
+    public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, keywordsAlarmSendCode?: number, domainId?: string) { 
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_requests'] = keywordsRequests;
@@ -66,7 +68,7 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     public get keywordsRequests(): Array<KeywordsRequest> | undefined {
         return this['keywords_requests'];
     }
-    public withFrequency(frequency: object): UpdateKeywordsAlarmRuleRequestBody {
+    public withFrequency(frequency: Frequency): UpdateKeywordsAlarmRuleRequestBody {
         this['frequency'] = frequency;
         return this;
     }
@@ -110,14 +112,14 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withNotificationSaveRule(notificationSaveRule: object): UpdateKeywordsAlarmRuleRequestBody {
+    public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): UpdateKeywordsAlarmRuleRequestBody {
         this['notification_save_rule'] = notificationSaveRule;
         return this;
     }
-    public set notificationSaveRule(notificationSaveRule: object  | undefined) {
+    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule  | undefined) {
         this['notification_save_rule'] = notificationSaveRule;
     }
-    public get notificationSaveRule(): object | undefined {
+    public get notificationSaveRule(): SqlNotificationSaveRule | undefined {
         return this['notification_save_rule'];
     }
     public withTriggerConditionCount(triggerConditionCount: number): UpdateKeywordsAlarmRuleRequestBody {

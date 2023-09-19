@@ -27,7 +27,7 @@ export class CreateServers {
     private 'data_volumes'?: Array<DataVolumes>;
     public extendparam?: ExtendParam;
     public schedulerHints?: CreateSchedulerHints;
-    private 'server_tags'?: Array<SystemTags>;
+    private 'server_tags'?: { [key: string]: Array<SystemTags>; };
     public constructor(imageRef?: string, flavorRef?: string, name?: string, metadata?: MetaDataInfo, nics?: Array<Nics>, availabilityZone?: string, vpcid?: string, extendparam?: ExtendParam) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -142,14 +142,14 @@ export class CreateServers {
         this['schedulerHints'] = schedulerHints;
         return this;
     }
-    public withServerTags(serverTags: Array<SystemTags>): CreateServers {
+    public withServerTags(serverTags: { [key: string]: Array<SystemTags>; }): CreateServers {
         this['server_tags'] = serverTags;
         return this;
     }
-    public set serverTags(serverTags: Array<SystemTags>  | undefined) {
+    public set serverTags(serverTags: { [key: string]: Array<SystemTags>; }  | undefined) {
         this['server_tags'] = serverTags;
     }
-    public get serverTags(): Array<SystemTags> | undefined {
+    public get serverTags(): { [key: string]: Array<SystemTags>; } | undefined {
         return this['server_tags'];
     }
 }

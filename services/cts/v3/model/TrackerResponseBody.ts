@@ -1,5 +1,6 @@
 import { DataBucketQuery } from './DataBucketQuery';
 import { Lts } from './Lts';
+import { ManagementEventSelector } from './ManagementEventSelector';
 import { ObsInfo } from './ObsInfo';
 
 
@@ -8,6 +9,8 @@ export class TrackerResponseBody {
     private 'create_time'?: number;
     private 'kms_id'?: string;
     private 'is_support_validate'?: boolean;
+    private 'is_organization_tracker'?: boolean;
+    private 'management_event_selector'?: ManagementEventSelector;
     public lts?: Lts;
     private 'tracker_type'?: TrackerResponseBodyTrackerTypeEnum | string;
     private 'domain_id'?: string;
@@ -55,6 +58,26 @@ export class TrackerResponseBody {
     }
     public get isSupportValidate(): boolean | undefined {
         return this['is_support_validate'];
+    }
+    public withIsOrganizationTracker(isOrganizationTracker: boolean): TrackerResponseBody {
+        this['is_organization_tracker'] = isOrganizationTracker;
+        return this;
+    }
+    public set isOrganizationTracker(isOrganizationTracker: boolean  | undefined) {
+        this['is_organization_tracker'] = isOrganizationTracker;
+    }
+    public get isOrganizationTracker(): boolean | undefined {
+        return this['is_organization_tracker'];
+    }
+    public withManagementEventSelector(managementEventSelector: ManagementEventSelector): TrackerResponseBody {
+        this['management_event_selector'] = managementEventSelector;
+        return this;
+    }
+    public set managementEventSelector(managementEventSelector: ManagementEventSelector  | undefined) {
+        this['management_event_selector'] = managementEventSelector;
+    }
+    public get managementEventSelector(): ManagementEventSelector | undefined {
+        return this['management_event_selector'];
     }
     public withLts(lts: Lts): TrackerResponseBody {
         this['lts'] = lts;

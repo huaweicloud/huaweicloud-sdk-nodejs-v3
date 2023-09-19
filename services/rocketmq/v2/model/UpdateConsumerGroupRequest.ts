@@ -1,10 +1,10 @@
-import { ConsumerGroup } from './ConsumerGroup';
+import { UpdateConsumerGroup } from './UpdateConsumerGroup';
 
 
 export class UpdateConsumerGroupRequest {
     private 'instance_id'?: string;
     public group?: string;
-    public body?: ConsumerGroup;
+    public body?: UpdateConsumerGroup;
     public constructor(instanceId?: string, group?: string) { 
         this['instance_id'] = instanceId;
         this['group'] = group;
@@ -23,7 +23,7 @@ export class UpdateConsumerGroupRequest {
         this['group'] = group;
         return this;
     }
-    public withBody(body: ConsumerGroup): UpdateConsumerGroupRequest {
+    public withBody(body: UpdateConsumerGroup): UpdateConsumerGroupRequest {
         this['body'] = body;
         return this;
     }

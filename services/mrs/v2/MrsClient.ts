@@ -30,6 +30,9 @@ import { DeleteDataConnectorRequest } from './model/DeleteDataConnectorRequest';
 import { DeleteDataConnectorResponse } from './model/DeleteDataConnectorResponse';
 import { ExecuteSqlRequest } from './model/ExecuteSqlRequest';
 import { ExecuteSqlResponse } from './model/ExecuteSqlResponse';
+import { ExpandClusterRequest } from './model/ExpandClusterRequest';
+import { ExpandClusterResponse } from './model/ExpandClusterResponse';
+import { ExpandParam } from './model/ExpandParam';
 import { FileStatusV2 } from './model/FileStatusV2';
 import { JobBatchDelete } from './model/JobBatchDelete';
 import { JobExecution } from './model/JobExecution';
@@ -60,6 +63,9 @@ import { ShowSqlResultRequest } from './model/ShowSqlResultRequest';
 import { ShowSqlResultResponse } from './model/ShowSqlResultResponse';
 import { ShowSqlResultWithJobRequest } from './model/ShowSqlResultWithJobRequest';
 import { ShowSqlResultWithJobResponse } from './model/ShowSqlResultWithJobResponse';
+import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
+import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
+import { ShrinkParam } from './model/ShrinkParam';
 import { SqlExecutionReq } from './model/SqlExecutionReq';
 import { StepConfig } from './model/StepConfig';
 import { StopJobRequest } from './model/StopJobRequest';
@@ -344,6 +350,46 @@ export class MrsClient {
      */
     public updateClusterName(updateClusterNameRequest?: UpdateClusterNameRequest): Promise<UpdateClusterNameResponse> {
         const options = ParamCreater().updateClusterName(updateClusterNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对MRS集群进行扩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 扩容集群
+     * @param {string} clusterId 集群ID
+     * @param {ExpandParam} expandClusterRequestBody 扩容请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public expandCluster(expandClusterRequest?: ExpandClusterRequest): Promise<ExpandClusterResponse> {
+        const options = ParamCreater().expandCluster(expandClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对MRS集群进行缩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 缩容集群
+     * @param {string} clusterId 集群ID
+     * @param {ShrinkParam} shrinkClusterRequestBody 缩容请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public shrinkCluster(shrinkClusterRequest?: ShrinkClusterRequest): Promise<ShrinkClusterResponse> {
+        const options = ParamCreater().shrinkCluster(shrinkClusterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1129,6 +1175,98 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对MRS集群进行扩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        expandCluster(expandClusterRequest?: ExpandClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/expand",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (expandClusterRequest !== null && expandClusterRequest !== undefined) {
+                if (expandClusterRequest instanceof ExpandClusterRequest) {
+                    clusterId = expandClusterRequest.clusterId;
+                    body = expandClusterRequest.body
+                } else {
+                    clusterId = expandClusterRequest['cluster_id'];
+                    body = expandClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling expandCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对MRS集群进行缩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        shrinkCluster(shrinkClusterRequest?: ShrinkClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/shrink",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (shrinkClusterRequest !== null && shrinkClusterRequest !== undefined) {
+                if (shrinkClusterRequest instanceof ShrinkClusterRequest) {
+                    clusterId = shrinkClusterRequest.clusterId;
+                    body = shrinkClusterRequest.body
+                } else {
+                    clusterId = shrinkClusterRequest['cluster_id'];
+                    body = shrinkClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling shrinkCluster.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

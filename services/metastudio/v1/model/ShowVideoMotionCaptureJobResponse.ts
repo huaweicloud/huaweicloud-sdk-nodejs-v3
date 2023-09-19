@@ -12,6 +12,7 @@ export class ShowVideoMotionCaptureJobResponse extends SdkResponse {
     public state?: ShowVideoMotionCaptureJobResponseStateEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -78,6 +79,16 @@ export class ShowVideoMotionCaptureJobResponse extends SdkResponse {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withXRequestId(xRequestId: string): ShowVideoMotionCaptureJobResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }
 

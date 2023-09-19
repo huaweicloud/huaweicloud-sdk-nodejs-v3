@@ -9,6 +9,7 @@ export class ListTtsaDataResponse extends SdkResponse {
     public blendshapes?: Array<string>;
     public animations?: Array<AnimationItem>;
     public motions?: Array<MotionItem>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -31,5 +32,15 @@ export class ListTtsaDataResponse extends SdkResponse {
     public withMotions(motions: Array<MotionItem>): ListTtsaDataResponse {
         this['motions'] = motions;
         return this;
+    }
+    public withXRequestId(xRequestId: string): ListTtsaDataResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

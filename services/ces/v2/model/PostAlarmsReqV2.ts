@@ -20,11 +20,10 @@ export class PostAlarmsReqV2 {
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
     private 'alarm_template_id'?: string;
-    public constructor(name?: string, namespace?: string, resources?: Array<Array<Dimension>>, policies?: Array<Policy>, type?: AlarmType, enabled?: boolean, notificationEnabled?: boolean) { 
+    public constructor(name?: string, namespace?: string, resources?: Array<Array<Dimension>>, type?: AlarmType, enabled?: boolean, notificationEnabled?: boolean) { 
         this['name'] = name;
         this['namespace'] = namespace;
         this['resources'] = resources;
-        this['policies'] = policies;
         this['type'] = type;
         this['enabled'] = enabled;
         this['notification_enabled'] = notificationEnabled;

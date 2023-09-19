@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AcceptanceBillRequestBody } from './model/AcceptanceBillRequestBody';
+import { AcceptanceBillResult } from './model/AcceptanceBillResult';
 import { AutoClassificationRequestBody } from './model/AutoClassificationRequestBody';
 import { AutoClassificationResult } from './model/AutoClassificationResult';
 import { AutoClassificationResultStatus } from './model/AutoClassificationResultStatus';
@@ -92,6 +94,10 @@ import { QualificationCertificateResult } from './model/QualificationCertificate
 import { QualificationConfidence } from './model/QualificationConfidence';
 import { QuotaInvoiceRequestBody } from './model/QuotaInvoiceRequestBody';
 import { QuotaInvoiceResult } from './model/QuotaInvoiceResult';
+import { RealEstateCertificateRequestBody } from './model/RealEstateCertificateRequestBody';
+import { RealEstateCertificateResult } from './model/RealEstateCertificateResult';
+import { RecognizeAcceptanceBillRequest } from './model/RecognizeAcceptanceBillRequest';
+import { RecognizeAcceptanceBillResponse } from './model/RecognizeAcceptanceBillResponse';
 import { RecognizeAutoClassificationRequest } from './model/RecognizeAutoClassificationRequest';
 import { RecognizeAutoClassificationResponse } from './model/RecognizeAutoClassificationResponse';
 import { RecognizeBankcardRequest } from './model/RecognizeBankcardRequest';
@@ -152,6 +158,8 @@ import { RecognizeQualificationCertificateRequest } from './model/RecognizeQuali
 import { RecognizeQualificationCertificateResponse } from './model/RecognizeQualificationCertificateResponse';
 import { RecognizeQuotaInvoiceRequest } from './model/RecognizeQuotaInvoiceRequest';
 import { RecognizeQuotaInvoiceResponse } from './model/RecognizeQuotaInvoiceResponse';
+import { RecognizeRealEstateCertificateRequest } from './model/RecognizeRealEstateCertificateRequest';
+import { RecognizeRealEstateCertificateResponse } from './model/RecognizeRealEstateCertificateResponse';
 import { RecognizeSmartDocumentRecognizerRequest } from './model/RecognizeSmartDocumentRecognizerRequest';
 import { RecognizeSmartDocumentRecognizerResponse } from './model/RecognizeSmartDocumentRecognizerResponse';
 import { RecognizeTaxiInvoiceRequest } from './model/RecognizeTaxiInvoiceRequest';
@@ -168,8 +176,12 @@ import { RecognizeTransportationLicenseRequest } from './model/RecognizeTranspor
 import { RecognizeTransportationLicenseResponse } from './model/RecognizeTransportationLicenseResponse';
 import { RecognizeVatInvoiceRequest } from './model/RecognizeVatInvoiceRequest';
 import { RecognizeVatInvoiceResponse } from './model/RecognizeVatInvoiceResponse';
+import { RecognizeVehicleCertificateRequest } from './model/RecognizeVehicleCertificateRequest';
+import { RecognizeVehicleCertificateResponse } from './model/RecognizeVehicleCertificateResponse';
 import { RecognizeVehicleLicenseRequest } from './model/RecognizeVehicleLicenseRequest';
 import { RecognizeVehicleLicenseResponse } from './model/RecognizeVehicleLicenseResponse';
+import { RecognizeVietnamIdCardRequest } from './model/RecognizeVietnamIdCardRequest';
+import { RecognizeVietnamIdCardResponse } from './model/RecognizeVietnamIdCardResponse';
 import { RecognizeVinRequest } from './model/RecognizeVinRequest';
 import { RecognizeVinResponse } from './model/RecognizeVinResponse';
 import { RecognizeWaybillElectronicRequest } from './model/RecognizeWaybillElectronicRequest';
@@ -204,8 +216,12 @@ import { TransportationLicenseResult } from './model/TransportationLicenseResult
 import { VINResult } from './model/VINResult';
 import { VatInvoiceRequestBody } from './model/VatInvoiceRequestBody';
 import { VatInvoiceResult } from './model/VatInvoiceResult';
+import { VehicleCertificateRequestBody } from './model/VehicleCertificateRequestBody';
+import { VehicleCertificateResult } from './model/VehicleCertificateResult';
 import { VehicleLicenseRequestBody } from './model/VehicleLicenseRequestBody';
 import { VehicleLicenseResult } from './model/VehicleLicenseResult';
+import { VietnamIdCardRequestBody } from './model/VietnamIdCardRequestBody';
+import { VietnamIdCardResult } from './model/VietnamIdCardResult';
 import { VinRequestBody } from './model/VinRequestBody';
 import { WaybillElectronicRequestBody } from './model/WaybillElectronicRequestBody';
 import { WaybillElectronicResult } from './model/WaybillElectronicResult';
@@ -232,6 +248,26 @@ export class OcrClient {
         return __dirname;
     }
 
+
+    /**
+     * 识别电子承兑汇票识别中的关键字段, 并以json格式返回结构化结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 电子承兑汇票识别
+     * @param {AcceptanceBillRequestBody} recognizeAcceptanceBillRequestBody This is a Acceptance Bill Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeAcceptanceBill(recognizeAcceptanceBillRequest?: RecognizeAcceptanceBillRequest): Promise<RecognizeAcceptanceBillResponse> {
+        const options = ParamCreater().recognizeAcceptanceBill(recognizeAcceptanceBillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 检测定位图片上指定要识别的票证（票据、证件或其他文字载体），并对其进行结构化识别。接口以列表形式返回图片上要识别票证的位置坐标、结构化识别的内容以及对应的类别。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section3)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
@@ -867,6 +903,27 @@ export class OcrClient {
     }
 
     /**
+     * 识别不动产证中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+     * 说明： 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 不动产证识别
+     * @param {RealEstateCertificateRequestBody} recognizeRealEstateCertificateRequestBody This is a real estate certificate Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeRealEstateCertificate(recognizeRealEstateCertificateRequest?: RecognizeRealEstateCertificateRequest): Promise<RecognizeRealEstateCertificateResponse> {
+        const options = ParamCreater().recognizeRealEstateCertificate(recognizeRealEstateCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 对证件、票据、表单等任意版式文档进行键值对提取、文字识别、以及表格识别等任务，实现进阶高效的自动化结构化返回。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1039,6 +1096,26 @@ export class OcrClient {
     }
 
     /**
+     * 识别车辆合格证中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 车辆合格证识别
+     * @param {VehicleCertificateRequestBody} recognizeVehicleCertificateRequestBody This is a vehicle certificate Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeVehicleCertificate(recognizeVehicleCertificateRequest?: RecognizeVehicleCertificateRequest): Promise<RecognizeVehicleCertificateResponse> {
+        const options = ParamCreater().recognizeVehicleCertificate(recognizeVehicleCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 识别用户上传的行驶证图片（或者用户提供的华为云上OBS的行驶证图片文件的URL）中主页和副页的文字内容，并将识别的结果返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section7)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
      * 说明：
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
@@ -1053,6 +1130,26 @@ export class OcrClient {
      */
     public recognizeVehicleLicense(recognizeVehicleLicenseRequest?: RecognizeVehicleLicenseRequest): Promise<RecognizeVehicleLicenseResponse> {
         const options = ParamCreater().recognizeVehicleLicense(recognizeVehicleLicenseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别越南身份证中的文字信息，并将识别的结构化结果返回给用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 越南身份证识别
+     * @param {VietnamIdCardRequestBody} recognizeVietnamIdCardRequestBody This is a vietnam id card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeVietnamIdCard(recognizeVietnamIdCardRequest?: RecognizeVietnamIdCardRequest): Promise<RecognizeVietnamIdCardResponse> {
+        const options = ParamCreater().recognizeVietnamIdCard(recognizeVietnamIdCardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1143,6 +1240,51 @@ export class OcrClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 识别电子承兑汇票识别中的关键字段, 并以json格式返回结构化结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeAcceptanceBill(recognizeAcceptanceBillRequest?: RecognizeAcceptanceBillRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/acceptance-bill",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeAcceptanceBillRequest !== null && recognizeAcceptanceBillRequest !== undefined) {
+                if (recognizeAcceptanceBillRequest instanceof RecognizeAcceptanceBillRequest) {
+                    body = recognizeAcceptanceBillRequest.body
+                    enterpriseProjectId = recognizeAcceptanceBillRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeAcceptanceBillRequest['body'];
+                    enterpriseProjectId = recognizeAcceptanceBillRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 检测定位图片上指定要识别的票证（票据、证件或其他文字载体），并对其进行结构化识别。接口以列表形式返回图片上要识别票证的位置坐标、结构化识别的内容以及对应的类别。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section3)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
@@ -2488,6 +2630,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 识别不动产证中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+         * 说明： 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeRealEstateCertificate(recognizeRealEstateCertificateRequest?: RecognizeRealEstateCertificateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/real-estate-certificate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeRealEstateCertificateRequest !== null && recognizeRealEstateCertificateRequest !== undefined) {
+                if (recognizeRealEstateCertificateRequest instanceof RecognizeRealEstateCertificateRequest) {
+                    body = recognizeRealEstateCertificateRequest.body
+                    enterpriseProjectId = recognizeRealEstateCertificateRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeRealEstateCertificateRequest['body'];
+                    enterpriseProjectId = recognizeRealEstateCertificateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 对证件、票据、表单等任意版式文档进行键值对提取、文字识别、以及表格识别等任务，实现进阶高效的自动化结构化返回。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2860,6 +3048,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 识别车辆合格证中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeVehicleCertificate(recognizeVehicleCertificateRequest?: RecognizeVehicleCertificateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/vehicle-certificate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeVehicleCertificateRequest !== null && recognizeVehicleCertificateRequest !== undefined) {
+                if (recognizeVehicleCertificateRequest instanceof RecognizeVehicleCertificateRequest) {
+                    body = recognizeVehicleCertificateRequest.body
+                    enterpriseProjectId = recognizeVehicleCertificateRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeVehicleCertificateRequest['body'];
+                    enterpriseProjectId = recognizeVehicleCertificateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 识别用户上传的行驶证图片（或者用户提供的华为云上OBS的行驶证图片文件的URL）中主页和副页的文字内容，并将识别的结果返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section7)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
          * 说明：
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
@@ -2889,6 +3122,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeVehicleLicenseRequest['body'];
                     enterpriseProjectId = recognizeVehicleLicenseRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别越南身份证中的文字信息，并将识别的结构化结果返回给用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeVietnamIdCard(recognizeVietnamIdCardRequest?: RecognizeVietnamIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/vietnam-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeVietnamIdCardRequest !== null && recognizeVietnamIdCardRequest !== undefined) {
+                if (recognizeVietnamIdCardRequest instanceof RecognizeVietnamIdCardRequest) {
+                    body = recognizeVietnamIdCardRequest.body
+                    enterpriseProjectId = recognizeVietnamIdCardRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeVietnamIdCardRequest['body'];
+                    enterpriseProjectId = recognizeVietnamIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 

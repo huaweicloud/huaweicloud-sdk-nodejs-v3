@@ -26,6 +26,7 @@ import { ListTracesResponse } from './model/ListTracesResponse';
 import { ListTrackersRequest } from './model/ListTrackersRequest';
 import { ListTrackersResponse } from './model/ListTrackersResponse';
 import { Lts } from './model/Lts';
+import { ManagementEventSelector } from './model/ManagementEventSelector';
 import { MetaData } from './model/MetaData';
 import { NotificationUsers } from './model/NotificationUsers';
 import { NotificationsResponseBody } from './model/NotificationsResponseBody';

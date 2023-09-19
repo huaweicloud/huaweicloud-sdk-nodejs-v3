@@ -93,6 +93,8 @@ import { ImportFunctionResponse } from './model/ImportFunctionResponse';
 import { InvokeFunctionRequest } from './model/InvokeFunctionRequest';
 import { InvokeFunctionResponse } from './model/InvokeFunctionResponse';
 import { KvItem } from './model/KvItem';
+import { ListActiveAsyncInvocationsRequest } from './model/ListActiveAsyncInvocationsRequest';
+import { ListActiveAsyncInvocationsResponse } from './model/ListActiveAsyncInvocationsResponse';
 import { ListAsyncInvocationsRequest } from './model/ListAsyncInvocationsRequest';
 import { ListAsyncInvocationsResponse } from './model/ListAsyncInvocationsResponse';
 import { ListDependenciesRequest } from './model/ListDependenciesRequest';
@@ -866,6 +868,31 @@ export class FunctionGraphClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Cff-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取函数异步调用活跃请求列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取函数活跃异步调用请求列表
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} [requests] 需要查询的异步请求ID, 多个请求id使用\&#39;,\&#39;分割， 最大支持10个请求id查询。如果不指定，默认查询所有异步调用记录
+     * @param {string} [marker] 本次查询起始位置，默认值0
+     * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
+     * @param {string} [status] 本次查询指定的异步调用状态，支持5种状态，如果不指定，则查询所有状态的调用记录 WAIT: 等待 RUNNING: 执行中 SUCCESS: 执行成功 FAIL: 执行失败 DISCARD: 请求丢弃
+     * @param {Date} [queryBeginTime] 搜索起始时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间前1小时
+     * @param {Date} [queryEndTime] 搜索结束时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listActiveAsyncInvocations(listActiveAsyncInvocationsRequest?: ListActiveAsyncInvocationsRequest): Promise<ListActiveAsyncInvocationsResponse> {
+        const options = ParamCreater().listActiveAsyncInvocations(listActiveAsyncInvocationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3262,6 +3289,86 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数异步调用活跃请求列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listActiveAsyncInvocations(listActiveAsyncInvocationsRequest?: ListActiveAsyncInvocationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/active-async-invocations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let functionUrn;
+            
+            let requests;
+            
+            let marker;
+            
+            let limit;
+            
+            let status;
+            
+            let queryBeginTime;
+            
+            let queryEndTime;
+
+            if (listActiveAsyncInvocationsRequest !== null && listActiveAsyncInvocationsRequest !== undefined) {
+                if (listActiveAsyncInvocationsRequest instanceof ListActiveAsyncInvocationsRequest) {
+                    functionUrn = listActiveAsyncInvocationsRequest.functionUrn;
+                    requests = listActiveAsyncInvocationsRequest.requests;
+                    marker = listActiveAsyncInvocationsRequest.marker;
+                    limit = listActiveAsyncInvocationsRequest.limit;
+                    status = listActiveAsyncInvocationsRequest.status;
+                    queryBeginTime = listActiveAsyncInvocationsRequest.queryBeginTime;
+                    queryEndTime = listActiveAsyncInvocationsRequest.queryEndTime;
+                } else {
+                    functionUrn = listActiveAsyncInvocationsRequest['function_urn'];
+                    requests = listActiveAsyncInvocationsRequest['requests'];
+                    marker = listActiveAsyncInvocationsRequest['marker'];
+                    limit = listActiveAsyncInvocationsRequest['limit'];
+                    status = listActiveAsyncInvocationsRequest['status'];
+                    queryBeginTime = listActiveAsyncInvocationsRequest['query_begin_time'];
+                    queryEndTime = listActiveAsyncInvocationsRequest['query_end_time'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listActiveAsyncInvocations.');
+            }
+            if (requests !== null && requests !== undefined) {
+                localVarQueryParameter['requests'] = requests;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (queryBeginTime !== null && queryBeginTime !== undefined) {
+                localVarQueryParameter['query_begin_time'] = queryBeginTime;
+            }
+            if (queryEndTime !== null && queryEndTime !== undefined) {
+                localVarQueryParameter['query_end_time'] = queryEndTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
             options.headers = localVarHeaderParameter;
             return options;

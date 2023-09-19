@@ -24,6 +24,7 @@ export * from './model/ListTracesResponse';
 export * from './model/ListTrackersRequest';
 export * from './model/ListTrackersResponse';
 export * from './model/Lts';
+export * from './model/ManagementEventSelector';
 export * from './model/MetaData';
 export * from './model/NotificationUsers';
 export * from './model/NotificationsResponseBody';

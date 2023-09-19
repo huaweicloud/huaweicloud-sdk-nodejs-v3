@@ -122,6 +122,7 @@ import { TagEntity } from './model/TagEntity';
 import { TagMultyValueEntity } from './model/TagMultyValueEntity';
 import { Topic } from './model/Topic';
 import { TopicBrokers } from './model/TopicBrokers';
+import { UpdateConsumerGroup } from './model/UpdateConsumerGroup';
 import { UpdateConsumerGroupRequest } from './model/UpdateConsumerGroupRequest';
 import { UpdateConsumerGroupResponse } from './model/UpdateConsumerGroupResponse';
 import { UpdateInstanceReq } from './model/UpdateInstanceReq';
@@ -832,7 +833,7 @@ export class RocketMQClient {
      * @summary 修改消费组
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费组名称。
-     * @param {ConsumerGroup} updateConsumerGroupRequestBody 请求消息。
+     * @param {UpdateConsumerGroup} updateConsumerGroupRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

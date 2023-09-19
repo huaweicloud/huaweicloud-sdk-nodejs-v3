@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessConfigBaseLogInfo } from './model/AccessConfigBaseLogInfo';
 import { AccessConfigBaseLogInfoCreate } from './model/AccessConfigBaseLogInfoCreate';
 import { AccessConfigDeatilCreate } from './model/AccessConfigDeatilCreate';
 import { AccessConfigFormatCreate } from './model/AccessConfigFormatCreate';
@@ -22,6 +23,7 @@ import { AomMappingRuleResp } from './model/AomMappingRuleResp';
 import { AomMappingfilesInfo } from './model/AomMappingfilesInfo';
 import { BriefStructTemplateModel } from './model/BriefStructTemplateModel';
 import { ChangeAlarmRuleStatus } from './model/ChangeAlarmRuleStatus';
+import { ChartConfig } from './model/ChartConfig';
 import { CreateAccessConfigRequest } from './model/CreateAccessConfigRequest';
 import { CreateAccessConfigRequestBody } from './model/CreateAccessConfigRequestBody';
 import { CreateAccessConfigResponse } from './model/CreateAccessConfigResponse';
@@ -111,6 +113,7 @@ import { DeleteTransferRequest } from './model/DeleteTransferRequest';
 import { DeleteTransferResponse } from './model/DeleteTransferResponse';
 import { DeletefavoriteRequest } from './model/DeletefavoriteRequest';
 import { DeletefavoriteResponse } from './model/DeletefavoriteResponse';
+import { DemoField } from './model/DemoField';
 import { DisableLogCollectionRequest } from './model/DisableLogCollectionRequest';
 import { DisableLogCollectionResponse } from './model/DisableLogCollectionResponse';
 import { EnableLogCollectionRequest } from './model/EnableLogCollectionRequest';
@@ -185,8 +188,12 @@ import { ListTransfersRequest } from './model/ListTransfersRequest';
 import { ListTransfersResponse } from './model/ListTransfersResponse';
 import { LogContents } from './model/LogContents';
 import { LogGroup } from './model/LogGroup';
+import { LogMappingConfig } from './model/LogMappingConfig';
+import { LogMappingStreamInfo } from './model/LogMappingStreamInfo';
 import { LogStreamResBody } from './model/LogStreamResBody';
 import { LtsStructTemplateInfo } from './model/LtsStructTemplateInfo';
+import { MemberGroupandStreamLogStreams } from './model/MemberGroupandStreamLogStreams';
+import { MemberGroupandStreamResults } from './model/MemberGroupandStreamResults';
 import { Metadata } from './model/Metadata';
 import { NotificationTemplate } from './model/NotificationTemplate';
 import { PageInfo } from './model/PageInfo';
@@ -204,10 +211,16 @@ import { Resulits } from './model/Resulits';
 import { ResultsTopnBody } from './model/ResultsTopnBody';
 import { Rule } from './model/Rule';
 import { SearchCriteriasBody } from './model/SearchCriteriasBody';
+import { ShowAdminConfigRequest } from './model/ShowAdminConfigRequest';
+import { ShowAdminConfigResponse } from './model/ShowAdminConfigResponse';
 import { ShowAomMappingRuleRequest } from './model/ShowAomMappingRuleRequest';
 import { ShowAomMappingRuleResponse } from './model/ShowAomMappingRuleResponse';
 import { ShowAomMappingRulesRequest } from './model/ShowAomMappingRulesRequest';
 import { ShowAomMappingRulesResponse } from './model/ShowAomMappingRulesResponse';
+import { ShowLogConvergeConfigRequest } from './model/ShowLogConvergeConfigRequest';
+import { ShowLogConvergeConfigResponse } from './model/ShowLogConvergeConfigResponse';
+import { ShowMemberGroupAndStreamRequest } from './model/ShowMemberGroupAndStreamRequest';
+import { ShowMemberGroupAndStreamResponse } from './model/ShowMemberGroupAndStreamResponse';
 import { ShowNotificationTemplateRequest } from './model/ShowNotificationTemplateRequest';
 import { ShowNotificationTemplateResponse } from './model/ShowNotificationTemplateResponse';
 import { ShowStructTemplateRequest } from './model/ShowStructTemplateRequest';
@@ -216,16 +229,20 @@ import { ShowStructTemplateRule } from './model/ShowStructTemplateRule';
 import { ShowStructTemplateclusterInfo } from './model/ShowStructTemplateclusterInfo';
 import { Sort } from './model/Sort';
 import { SqlAlarmRuleRespList } from './model/SqlAlarmRuleRespList';
+import { SqlNotificationSaveRule } from './model/SqlNotificationSaveRule';
 import { SqlRequest } from './model/SqlRequest';
 import { StructConfig } from './model/StructConfig';
 import { StructFieldInfo } from './model/StructFieldInfo';
 import { StructFieldInfoReturn } from './model/StructFieldInfoReturn';
 import { StructLogContents } from './model/StructLogContents';
+import { StructTemplate } from './model/StructTemplate';
 import { StructTemplateModel } from './model/StructTemplateModel';
 import { SubTemplate } from './model/SubTemplate';
 import { TagField } from './model/TagField';
+import { TagFieldNew } from './model/TagFieldNew';
 import { TagFieldsInfo } from './model/TagFieldsInfo';
 import { TagsBody } from './model/TagsBody';
+import { TemplateRule } from './model/TemplateRule';
 import { TimeRange } from './model/TimeRange';
 import { TimelineTrafficStatisticsRequestBody } from './model/TimelineTrafficStatisticsRequestBody';
 import { Topics } from './model/Topics';
@@ -245,6 +262,8 @@ import { UpdateHostGroupResponse } from './model/UpdateHostGroupResponse';
 import { UpdateKeywordsAlarmRuleRequest } from './model/UpdateKeywordsAlarmRuleRequest';
 import { UpdateKeywordsAlarmRuleRequestBody } from './model/UpdateKeywordsAlarmRuleRequestBody';
 import { UpdateKeywordsAlarmRuleResponse } from './model/UpdateKeywordsAlarmRuleResponse';
+import { UpdateLogConvergeConfigRequest } from './model/UpdateLogConvergeConfigRequest';
+import { UpdateLogConvergeConfigResponse } from './model/UpdateLogConvergeConfigResponse';
 import { UpdateLogGroupParams } from './model/UpdateLogGroupParams';
 import { UpdateLogGroupRequest } from './model/UpdateLogGroupRequest';
 import { UpdateLogGroupResponse } from './model/UpdateLogGroupResponse';
@@ -260,10 +279,13 @@ import { UpdateStructConfigRequest } from './model/UpdateStructConfigRequest';
 import { UpdateStructConfigResponse } from './model/UpdateStructConfigResponse';
 import { UpdateStructTemplateRequest } from './model/UpdateStructTemplateRequest';
 import { UpdateStructTemplateResponse } from './model/UpdateStructTemplateResponse';
+import { UpdateSwitchRequest } from './model/UpdateSwitchRequest';
+import { UpdateSwitchResponse } from './model/UpdateSwitchResponse';
 import { UpdateTransferRequest } from './model/UpdateTransferRequest';
 import { UpdateTransferRequestBody } from './model/UpdateTransferRequestBody';
 import { UpdateTransferRequestBodyLogTransferInfo } from './model/UpdateTransferRequestBodyLogTransferInfo';
 import { UpdateTransferResponse } from './model/UpdateTransferResponse';
+import { UpdatelogConvergeConfig } from './model/UpdatelogConvergeConfig';
 
 export class LtsClient {
     public static newBuilder(): ClientBuilder<LtsClient> {
@@ -1702,6 +1724,105 @@ export class LtsClient {
      */
     public updateAomMappingRules(updateAomMappingRulesRequest?: UpdateAomMappingRulesRequest): Promise<UpdateAomMappingRulesResponse> {
         const options = ParamCreater().updateAomMappingRules(updateAomMappingRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只能由管理员或者委托管理员调用    获取日志汇聚开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取日志汇聚开关
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;utf8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAdminConfig(showAdminConfigRequest?: ShowAdminConfigRequest): Promise<ShowAdminConfigResponse> {
+        const options = ParamCreater().showAdminConfig(showAdminConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只能由组织管理员或者委托管理员调用    获取组织成员汇聚配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取组织成员汇聚配置
+     * @param {string} memberAccountId 成员帐户ID
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLogConvergeConfig(showLogConvergeConfigRequest?: ShowLogConvergeConfigRequest): Promise<ShowLogConvergeConfigResponse> {
+        const options = ParamCreater().showLogConvergeConfig(showLogConvergeConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只能由管理员或者委托管理员调用，获取组织成员日志组日志流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取组织成员日志组日志流
+     * @param {string} memberAccountId 成员账号ID
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMemberGroupAndStream(showMemberGroupAndStreamRequest?: ShowMemberGroupAndStreamRequest): Promise<ShowMemberGroupAndStreamResponse> {
+        const options = ParamCreater().showMemberGroupAndStream(showMemberGroupAndStreamRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只能由管理员或者委托管理员 ,更新汇聚配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新汇聚配置
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {UpdatelogConvergeConfig} updateBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogConvergeConfig(updateLogConvergeConfigRequest?: UpdateLogConvergeConfigRequest): Promise<UpdateLogConvergeConfigResponse> {
+        const options = ParamCreater().updateLogConvergeConfig(updateLogConvergeConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只能由管理员或者委托管理员调用     修改日志汇聚开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改日志汇聚开关
+     * @param {string} logConvergeSwitch 开关参数
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;utf8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSwitch(updateSwitchRequest?: UpdateSwitchRequest): Promise<UpdateSwitchResponse> {
+        const options = ParamCreater().updateSwitch(updateSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5172,6 +5293,222 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只能由管理员或者委托管理员调用    获取日志汇聚开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAdminConfig(showAdminConfigRequest?: ShowAdminConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/lts/log-converge-config/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (showAdminConfigRequest !== null && showAdminConfigRequest !== undefined) {
+                if (showAdminConfigRequest instanceof ShowAdminConfigRequest) {
+                    contentType = showAdminConfigRequest.contentType;
+                } else {
+                    contentType = showAdminConfigRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只能由组织管理员或者委托管理员调用    获取组织成员汇聚配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLogConvergeConfig(showLogConvergeConfigRequest?: ShowLogConvergeConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/lts/log-converge-config/{member_account_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let memberAccountId;
+            
+            let contentType;
+
+            if (showLogConvergeConfigRequest !== null && showLogConvergeConfigRequest !== undefined) {
+                if (showLogConvergeConfigRequest instanceof ShowLogConvergeConfigRequest) {
+                    memberAccountId = showLogConvergeConfigRequest.memberAccountId;
+                    contentType = showLogConvergeConfigRequest.contentType;
+                } else {
+                    memberAccountId = showLogConvergeConfigRequest['member_account_id'];
+                    contentType = showLogConvergeConfigRequest['Content-Type'];
+                }
+            }
+
+        
+            if (memberAccountId === null || memberAccountId === undefined) {
+            throw new RequiredError('memberAccountId','Required parameter memberAccountId was null or undefined when calling showLogConvergeConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'member_account_id': memberAccountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只能由管理员或者委托管理员调用，获取组织成员日志组日志流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMemberGroupAndStream(showMemberGroupAndStreamRequest?: ShowMemberGroupAndStreamRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/lts/{member_account_id}/all-streams",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let memberAccountId;
+            
+            let contentType;
+
+            if (showMemberGroupAndStreamRequest !== null && showMemberGroupAndStreamRequest !== undefined) {
+                if (showMemberGroupAndStreamRequest instanceof ShowMemberGroupAndStreamRequest) {
+                    memberAccountId = showMemberGroupAndStreamRequest.memberAccountId;
+                    contentType = showMemberGroupAndStreamRequest.contentType;
+                } else {
+                    memberAccountId = showMemberGroupAndStreamRequest['member_account_id'];
+                    contentType = showMemberGroupAndStreamRequest['Content-Type'];
+                }
+            }
+
+        
+            if (memberAccountId === null || memberAccountId === undefined) {
+            throw new RequiredError('memberAccountId','Required parameter memberAccountId was null or undefined when calling showMemberGroupAndStream.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'member_account_id': memberAccountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只能由管理员或者委托管理员 ,更新汇聚配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogConvergeConfig(updateLogConvergeConfigRequest?: UpdateLogConvergeConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/lts/log-converge-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (updateLogConvergeConfigRequest !== null && updateLogConvergeConfigRequest !== undefined) {
+                if (updateLogConvergeConfigRequest instanceof UpdateLogConvergeConfigRequest) {
+                    contentType = updateLogConvergeConfigRequest.contentType;
+                    body = updateLogConvergeConfigRequest.body
+                } else {
+                    contentType = updateLogConvergeConfigRequest['Content-Type'];
+                    body = updateLogConvergeConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只能由管理员或者委托管理员调用     修改日志汇聚开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSwitch(updateSwitchRequest?: UpdateSwitchRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/lts/log-converge-config/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let logConvergeSwitch;
+            
+            let contentType;
+
+            if (updateSwitchRequest !== null && updateSwitchRequest !== undefined) {
+                if (updateSwitchRequest instanceof UpdateSwitchRequest) {
+                    logConvergeSwitch = updateSwitchRequest.logConvergeSwitch;
+                    contentType = updateSwitchRequest.contentType;
+                } else {
+                    logConvergeSwitch = updateSwitchRequest['log_converge_switch'];
+                    contentType = updateSwitchRequest['Content-Type'];
+                }
+            }
+
+        
+            if (logConvergeSwitch === null || logConvergeSwitch === undefined) {
+                throw new RequiredError('logConvergeSwitch','Required parameter logConvergeSwitch was null or undefined when calling updateSwitch.');
+            }
+            if (logConvergeSwitch !== null && logConvergeSwitch !== undefined) {
+                localVarQueryParameter['log_converge_switch'] = logConvergeSwitch;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
