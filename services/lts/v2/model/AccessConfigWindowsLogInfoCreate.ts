@@ -1,24 +1,27 @@
-import { AccessConfigTimeOffsetCreate } from './AccessConfigTimeOffsetCreate';
+import { AccessConfigTimeOffset } from './AccessConfigTimeOffset';
 
 
 export class AccessConfigWindowsLogInfoCreate {
     public categorys?: Array<AccessConfigWindowsLogInfoCreateCategorysEnum> | Array<string>;
-    private 'time_offset'?: AccessConfigTimeOffsetCreate;
+    private 'time_offset'?: AccessConfigTimeOffset;
     private 'event_level'?: Array<AccessConfigWindowsLogInfoCreateEventLevelEnum> | Array<string>;
-    public constructor() { 
+    public constructor(categorys?: Array<string>, timeOffset?: AccessConfigTimeOffset, eventLevel?: Array<string>) { 
+        this['categorys'] = categorys;
+        this['time_offset'] = timeOffset;
+        this['event_level'] = eventLevel;
     }
     public withCategorys(categorys: Array<AccessConfigWindowsLogInfoCreateCategorysEnum> | Array<string>): AccessConfigWindowsLogInfoCreate {
         this['categorys'] = categorys;
         return this;
     }
-    public withTimeOffset(timeOffset: AccessConfigTimeOffsetCreate): AccessConfigWindowsLogInfoCreate {
+    public withTimeOffset(timeOffset: AccessConfigTimeOffset): AccessConfigWindowsLogInfoCreate {
         this['time_offset'] = timeOffset;
         return this;
     }
-    public set timeOffset(timeOffset: AccessConfigTimeOffsetCreate  | undefined) {
+    public set timeOffset(timeOffset: AccessConfigTimeOffset  | undefined) {
         this['time_offset'] = timeOffset;
     }
-    public get timeOffset(): AccessConfigTimeOffsetCreate | undefined {
+    public get timeOffset(): AccessConfigTimeOffset | undefined {
         return this['time_offset'];
     }
     public withEventLevel(eventLevel: Array<AccessConfigWindowsLogInfoCreateEventLevelEnum> | Array<string>): AccessConfigWindowsLogInfoCreate {

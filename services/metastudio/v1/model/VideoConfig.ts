@@ -97,8 +97,7 @@ export enum VideoConfigClipModeEnum {
     */
 export enum VideoConfigCodecEnum {
     H264 = 'H264',
-    VP8 = 'VP8',
-    VP9 = 'VP9'
+    VP8 = 'VP8'
 }
 /**
     * @export

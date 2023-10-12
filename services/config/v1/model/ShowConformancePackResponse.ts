@@ -13,6 +13,7 @@ export class ShowConformancePackResponse extends SdkResponse {
     public status?: ShowConformancePackResponseStatusEnum | string;
     private 'error_message'?: string;
     private 'vars_structure'?: Array<VarsStructure>;
+    private 'created_by'?: string;
     public constructor() { 
         super();
     }
@@ -97,6 +98,16 @@ export class ShowConformancePackResponse extends SdkResponse {
     }
     public get varsStructure(): Array<VarsStructure> | undefined {
         return this['vars_structure'];
+    }
+    public withCreatedBy(createdBy: string): ShowConformancePackResponse {
+        this['created_by'] = createdBy;
+        return this;
+    }
+    public set createdBy(createdBy: string  | undefined) {
+        this['created_by'] = createdBy;
+    }
+    public get createdBy(): string | undefined {
+        return this['created_by'];
     }
 }
 

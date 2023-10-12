@@ -23,6 +23,8 @@ export class MrsRegion {
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://mrs.na-mexico-1.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://mrs.cn-north-9.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://mrs.cn-southwest-2.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://mrs.tr-west-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://mrs.ap-southeast-4.myhuaweicloud.cn"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -42,7 +44,9 @@ export class MrsRegion {
         "la-north-2":MrsRegion.LA_NORTH_2,
         "na-mexico-1":MrsRegion.NA_MEXICO_1,
         "cn-north-9":MrsRegion.CN_NORTH_9,
-        "cn-southwest-2":MrsRegion.CN_SOUTHWEST_2
+        "cn-southwest-2":MrsRegion.CN_SOUTHWEST_2,
+        "tr-west-1":MrsRegion.TR_WEST_1,
+        "ap-southeast-4":MrsRegion.AP_SOUTHEAST_4
     };
   
     public static valueOf(regionId: string) {

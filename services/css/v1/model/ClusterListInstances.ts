@@ -10,6 +10,7 @@ export class ClusterListInstances {
     public azCode?: string;
     public ip?: string;
     public volume?: ClusterVolumeRsp;
+    public resourceId?: string;
     public constructor() { 
     }
     public withStatus(status: string): ClusterListInstances {
@@ -42,6 +43,10 @@ export class ClusterListInstances {
     }
     public withVolume(volume: ClusterVolumeRsp): ClusterListInstances {
         this['volume'] = volume;
+        return this;
+    }
+    public withResourceId(resourceId: string): ClusterListInstances {
+        this['resourceId'] = resourceId;
         return this;
     }
 }

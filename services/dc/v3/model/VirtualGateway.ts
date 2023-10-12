@@ -7,7 +7,7 @@ export class VirtualGateway {
     private 'tenant_id'?: string;
     public name?: string;
     public description?: string;
-    public type?: VirtualGatewayTypeEnum | string;
+    public type?: string;
     private 'local_ep_group'?: Array<string>;
     private 'local_ep_group_ipv6'?: Array<string>;
     private 'admin_state_up'?: boolean;
@@ -49,7 +49,7 @@ export class VirtualGateway {
         this['description'] = description;
         return this;
     }
-    public withType(type: VirtualGatewayTypeEnum | string): VirtualGateway {
+    public withType(type: string): VirtualGateway {
         this['type'] = type;
         return this;
     }
@@ -111,12 +111,4 @@ export class VirtualGateway {
         this['tags'] = tags;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VirtualGatewayTypeEnum {
-    DEFAULT = 'default'
 }

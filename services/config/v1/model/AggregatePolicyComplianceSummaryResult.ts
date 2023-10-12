@@ -5,6 +5,7 @@ export class AggregatePolicyComplianceSummaryResult {
     private 'resource_details'?: PolicyComplianceSummaryUnit;
     private 'assignment_details'?: PolicyComplianceSummaryUnit;
     private 'group_name'?: string;
+    private 'group_account_name'?: string;
     public constructor() { 
     }
     public withResourceDetails(resourceDetails: PolicyComplianceSummaryUnit): AggregatePolicyComplianceSummaryResult {
@@ -36,5 +37,15 @@ export class AggregatePolicyComplianceSummaryResult {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withGroupAccountName(groupAccountName: string): AggregatePolicyComplianceSummaryResult {
+        this['group_account_name'] = groupAccountName;
+        return this;
+    }
+    public set groupAccountName(groupAccountName: string  | undefined) {
+        this['group_account_name'] = groupAccountName;
+    }
+    public get groupAccountName(): string | undefined {
+        return this['group_account_name'];
     }
 }

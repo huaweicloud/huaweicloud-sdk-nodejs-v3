@@ -255,7 +255,7 @@ export enum CreateVirtualInterfaceTypeEnum {
 export enum CreateVirtualInterfaceServiceTypeEnum {
     VPC = 'vpc',
     VGW = 'VGW',
-    GDWW = 'GDWW',
+    GDGW = 'GDGW',
     LGW = 'LGW'
 }
 /**

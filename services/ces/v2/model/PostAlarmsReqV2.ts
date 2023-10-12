@@ -10,6 +10,7 @@ export class PostAlarmsReqV2 {
     public namespace?: string;
     private 'resource_group_id'?: string;
     public resources?: Array<Array<Dimension>>;
+    private 'alarm_template_id'?: string;
     public policies?: Array<Policy>;
     public type?: AlarmType;
     private 'alarm_notifications'?: Array<Notification>;
@@ -19,7 +20,6 @@ export class PostAlarmsReqV2 {
     private 'enterprise_project_id'?: string;
     public enabled?: boolean;
     private 'notification_enabled'?: boolean;
-    private 'alarm_template_id'?: string;
     public constructor(name?: string, namespace?: string, resources?: Array<Array<Dimension>>, type?: AlarmType, enabled?: boolean, notificationEnabled?: boolean) { 
         this['name'] = name;
         this['namespace'] = namespace;
@@ -53,6 +53,16 @@ export class PostAlarmsReqV2 {
     public withResources(resources: Array<Array<Dimension>>): PostAlarmsReqV2 {
         this['resources'] = resources;
         return this;
+    }
+    public withAlarmTemplateId(alarmTemplateId: string): PostAlarmsReqV2 {
+        this['alarm_template_id'] = alarmTemplateId;
+        return this;
+    }
+    public set alarmTemplateId(alarmTemplateId: string  | undefined) {
+        this['alarm_template_id'] = alarmTemplateId;
+    }
+    public get alarmTemplateId(): string | undefined {
+        return this['alarm_template_id'];
     }
     public withPolicies(policies: Array<Policy>): PostAlarmsReqV2 {
         this['policies'] = policies;
@@ -125,15 +135,5 @@ export class PostAlarmsReqV2 {
     }
     public get notificationEnabled(): boolean | undefined {
         return this['notification_enabled'];
-    }
-    public withAlarmTemplateId(alarmTemplateId: string): PostAlarmsReqV2 {
-        this['alarm_template_id'] = alarmTemplateId;
-        return this;
-    }
-    public set alarmTemplateId(alarmTemplateId: string  | undefined) {
-        this['alarm_template_id'] = alarmTemplateId;
-    }
-    public get alarmTemplateId(): string | undefined {
-        return this['alarm_template_id'];
     }
 }

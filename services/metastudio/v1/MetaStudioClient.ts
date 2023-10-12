@@ -34,6 +34,9 @@ import { CreateDigitalHumanBusinessCardRequest } from './model/CreateDigitalHuma
 import { CreateDigitalHumanBusinessCardResponse } from './model/CreateDigitalHumanBusinessCardResponse';
 import { CreateFileRequest } from './model/CreateFileRequest';
 import { CreateFileResponse } from './model/CreateFileResponse';
+import { CreatePhotoDetectionReq } from './model/CreatePhotoDetectionReq';
+import { CreatePhotoDetectionRequest } from './model/CreatePhotoDetectionRequest';
+import { CreatePhotoDetectionResponse } from './model/CreatePhotoDetectionResponse';
 import { CreatePhotoDigitalHumanVideoReq } from './model/CreatePhotoDigitalHumanVideoReq';
 import { CreatePhotoDigitalHumanVideoRequest } from './model/CreatePhotoDigitalHumanVideoRequest';
 import { CreatePhotoDigitalHumanVideoResponse } from './model/CreatePhotoDigitalHumanVideoResponse';
@@ -151,6 +154,8 @@ import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
+import { ShowPhotoDetectionRequest } from './model/ShowPhotoDetectionRequest';
+import { ShowPhotoDetectionResponse } from './model/ShowPhotoDetectionResponse';
 import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHumanVideoRequest';
 import { ShowPhotoDigitalHumanVideoResponse } from './model/ShowPhotoDigitalHumanVideoResponse';
 import { ShowPictureModelingJobRequest } from './model/ShowPictureModelingJobRequest';
@@ -610,6 +615,29 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用于创建照片检测任务，检测照片是否满足制作照片数字人的要求。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建照片检测任务
+     * @param {CreatePhotoDetectionReq} createPhotoDetectionRequestBody 照片检测创建请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPhotoDetection(createPhotoDetectionRequest?: CreatePhotoDetectionRequest): Promise<CreatePhotoDetectionResponse> {
+        const options = ParamCreater().createPhotoDetection(createPhotoDetectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建照片分身数字人视频制作任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -625,6 +653,29 @@ export class MetaStudioClient {
      */
     public createPhotoDigitalHumanVideo(createPhotoDigitalHumanVideoRequest?: CreatePhotoDigitalHumanVideoRequest): Promise<CreatePhotoDigitalHumanVideoResponse> {
         const options = ParamCreater().createPhotoDigitalHumanVideo(createPhotoDigitalHumanVideoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询照片检测任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询照片检测任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPhotoDetection(showPhotoDetectionRequest?: ShowPhotoDetectionRequest): Promise<ShowPhotoDetectionResponse> {
+        const options = ParamCreater().showPhotoDetection(showPhotoDetectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2641,6 +2692,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建照片检测任务，检测照片是否满足制作照片数字人的要求。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPhotoDetection(createPhotoDetectionRequest?: CreatePhotoDetectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/photo-detection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createPhotoDetectionRequest !== null && createPhotoDetectionRequest !== undefined) {
+                if (createPhotoDetectionRequest instanceof CreatePhotoDetectionRequest) {
+                    body = createPhotoDetectionRequest.body
+                    authorization = createPhotoDetectionRequest.authorization;
+                    xSdkDate = createPhotoDetectionRequest.xSdkDate;
+                    xProjectId = createPhotoDetectionRequest.xProjectId;
+                    xAppUserId = createPhotoDetectionRequest.xAppUserId;
+                } else {
+                    body = createPhotoDetectionRequest['body'];
+                    authorization = createPhotoDetectionRequest['Authorization'];
+                    xSdkDate = createPhotoDetectionRequest['X-Sdk-Date'];
+                    xProjectId = createPhotoDetectionRequest['X-Project-Id'];
+                    xAppUserId = createPhotoDetectionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建照片分身数字人视频制作任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2702,6 +2819,71 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询照片检测任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPhotoDetection(showPhotoDetectionRequest?: ShowPhotoDetectionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/photo-detection/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showPhotoDetectionRequest !== null && showPhotoDetectionRequest !== undefined) {
+                if (showPhotoDetectionRequest instanceof ShowPhotoDetectionRequest) {
+                    jobId = showPhotoDetectionRequest.jobId;
+                    authorization = showPhotoDetectionRequest.authorization;
+                    xSdkDate = showPhotoDetectionRequest.xSdkDate;
+                    xProjectId = showPhotoDetectionRequest.xProjectId;
+                    xAppUserId = showPhotoDetectionRequest.xAppUserId;
+                } else {
+                    jobId = showPhotoDetectionRequest['job_id'];
+                    authorization = showPhotoDetectionRequest['Authorization'];
+                    xSdkDate = showPhotoDetectionRequest['X-Sdk-Date'];
+                    xProjectId = showPhotoDetectionRequest['X-Project-Id'];
+                    xAppUserId = showPhotoDetectionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showPhotoDetection.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

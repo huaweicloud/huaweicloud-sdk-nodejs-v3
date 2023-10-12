@@ -3,6 +3,18 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { BaseUser } from './model/BaseUser';
+import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
+import { BatchCreateResourceTagsRequestBody } from './model/BatchCreateResourceTagsRequestBody';
+import { BatchCreateResourceTagsResponse } from './model/BatchCreateResourceTagsResponse';
+import { BatchDeleteResourceTagsRequest } from './model/BatchDeleteResourceTagsRequest';
+import { BatchDeleteResourceTagsRequestBody } from './model/BatchDeleteResourceTagsRequestBody';
+import { BatchDeleteResourceTagsResponse } from './model/BatchDeleteResourceTagsResponse';
+import { Bucket } from './model/Bucket';
+import { CheckBucketRequest } from './model/CheckBucketRequest';
+import { CheckBucketResponse } from './model/CheckBucketResponse';
+import { CheckObsBucketsRequest } from './model/CheckObsBucketsRequest';
+import { CheckObsBucketsRequestBody } from './model/CheckObsBucketsRequestBody';
+import { CheckObsBucketsResponse } from './model/CheckObsBucketsResponse';
 import { CreateNotificationRequest } from './model/CreateNotificationRequest';
 import { CreateNotificationRequestBody } from './model/CreateNotificationRequestBody';
 import { CreateNotificationResponse } from './model/CreateNotificationResponse';
@@ -19,12 +31,19 @@ import { DeleteTrackerResponse } from './model/DeleteTrackerResponse';
 import { Filter } from './model/Filter';
 import { ListNotificationsRequest } from './model/ListNotificationsRequest';
 import { ListNotificationsResponse } from './model/ListNotificationsResponse';
+import { ListOperation } from './model/ListOperation';
+import { ListOperationsRequest } from './model/ListOperationsRequest';
+import { ListOperationsResponse } from './model/ListOperationsResponse';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
+import { ListTraceResourcesRequest } from './model/ListTraceResourcesRequest';
+import { ListTraceResourcesResponse } from './model/ListTraceResourcesResponse';
 import { ListTracesRequest } from './model/ListTracesRequest';
 import { ListTracesResponse } from './model/ListTracesResponse';
 import { ListTrackersRequest } from './model/ListTrackersRequest';
 import { ListTrackersResponse } from './model/ListTrackersResponse';
+import { ListUserResourcesRequest } from './model/ListUserResourcesRequest';
+import { ListUserResourcesResponse } from './model/ListUserResourcesResponse';
 import { Lts } from './model/Lts';
 import { ManagementEventSelector } from './model/ManagementEventSelector';
 import { MetaData } from './model/MetaData';
@@ -32,6 +51,8 @@ import { NotificationUsers } from './model/NotificationUsers';
 import { NotificationsResponseBody } from './model/NotificationsResponseBody';
 import { ObsInfo } from './model/ObsInfo';
 import { Operations } from './model/Operations';
+import { Tags } from './model/Tags';
+import { TraceResource } from './model/TraceResource';
 import { Traces } from './model/Traces';
 import { TrackerObsInfo } from './model/TrackerObsInfo';
 import { TrackerResponseBody } from './model/TrackerResponseBody';
@@ -42,6 +63,7 @@ import { UpdateTrackerRequest } from './model/UpdateTrackerRequest';
 import { UpdateTrackerRequestBody } from './model/UpdateTrackerRequestBody';
 import { UpdateTrackerResponse } from './model/UpdateTrackerResponse';
 import { UserInfo } from './model/UserInfo';
+import { UserResource } from './model/UserResource';
 
 export class CtsClient {
     public static newBuilder(): ClientBuilder<CtsClient> {
@@ -57,6 +79,68 @@ export class CtsClient {
         return __dirname;
     }
 
+
+    /**
+     * 批量添加CTS资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加CTS资源标签
+     * @param {string} resourceId 资源ID。
+     * @param {'cts-tracker'} resourceType CTS服务的资源类型，目前仅支持cts-tracker。
+     * @param {BatchCreateResourceTagsRequestBody} batchCreateResourceTagsRequestBody This a create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateResourceTags(batchCreateResourceTagsRequest?: BatchCreateResourceTagsRequest): Promise<BatchCreateResourceTagsResponse> {
+        const options = ParamCreater().batchCreateResourceTags(batchCreateResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除CTS资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除CTS资源标签
+     * @param {string} resourceId 资源ID。
+     * @param {'cts-tracker'} resourceType CTS服务的资源类型，目前仅支持cts-tracker。
+     * @param {BatchDeleteResourceTagsRequestBody} batchDeleteResourceTagsRequestBody This a create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteResourceTags(batchDeleteResourceTagsRequest?: BatchDeleteResourceTagsRequest): Promise<BatchDeleteResourceTagsResponse> {
+        const options = ParamCreater().batchDeleteResourceTags(batchDeleteResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检查已经配置OBS桶是否可以成功转储。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查已经配置OBS桶是否可以成功转储
+     * @param {string} domainId 账户id，参见《云审计服务API参考》“获取账号ID和项目ID”章节。
+     * @param {CheckObsBucketsRequestBody} checkObsBucketsRequestBody 检查obs状态请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkObsBuckets(checkObsBucketsRequest?: CheckObsBucketsRequest): Promise<CheckObsBucketsResponse> {
+        const options = ParamCreater().checkObsBuckets(checkObsBucketsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 配置关键操作通知，可在发生特定操作时，使用预先创建好的SMN主题，向用户手机、邮箱发送消息，也可直接发送http/https消息。常用于实时感知高危操作、触发特定操作或对接用户自有审计分析系统。
@@ -157,6 +241,26 @@ export class CtsClient {
     }
 
     /**
+     * 查询云服务的全量操作列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云服务的全量操作列表
+     * @param {string} [serviceType] 事件对应的云服务类型。
+     * @param {string} [resourceType] 事件对应的资源类型。传入该参数时，service_type必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOperations(listOperationsRequest?: ListOperationsRequest): Promise<ListOperationsResponse> {
+        const options = ParamCreater().listOperations(listOperationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户追踪器配额信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -167,6 +271,25 @@ export class CtsClient {
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询事件的资源类型列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询事件的资源类型列表
+     * @param {string} domainId 账户id，参见《云审计服务API参考》“获取账号ID和项目ID”章节。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTraceResources(listTraceResourcesRequest?: ListTraceResourcesRequest): Promise<ListTraceResourcesResponse> {
+        const options = ParamCreater().listTraceResources(listTraceResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -227,6 +350,24 @@ export class CtsClient {
     }
 
     /**
+     * 查询30天事件的操作用户列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询30天事件的操作用户列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserResources(listUserResourcesRequest?: ListUserResourcesRequest): Promise<ListUserResourcesResponse> {
+        const options = ParamCreater().listUserResources();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 云审计服务支持修改已创建关键操作通知配置项，通过notification_id的字段匹配修改对象，notification_id必须已经存在。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -267,6 +408,158 @@ export class CtsClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 批量添加CTS资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateResourceTags(batchCreateResourceTagsRequest?: BatchCreateResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+            
+            let resourceType;
+
+            if (batchCreateResourceTagsRequest !== null && batchCreateResourceTagsRequest !== undefined) {
+                if (batchCreateResourceTagsRequest instanceof BatchCreateResourceTagsRequest) {
+                    resourceId = batchCreateResourceTagsRequest.resourceId;
+                    resourceType = batchCreateResourceTagsRequest.resourceType;
+                    body = batchCreateResourceTagsRequest.body
+                } else {
+                    resourceId = batchCreateResourceTagsRequest['resource_id'];
+                    resourceType = batchCreateResourceTagsRequest['resource_type'];
+                    body = batchCreateResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateResourceTags.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchCreateResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除CTS资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteResourceTags(batchDeleteResourceTagsRequest?: BatchDeleteResourceTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+            
+            let resourceType;
+
+            if (batchDeleteResourceTagsRequest !== null && batchDeleteResourceTagsRequest !== undefined) {
+                if (batchDeleteResourceTagsRequest instanceof BatchDeleteResourceTagsRequest) {
+                    resourceId = batchDeleteResourceTagsRequest.resourceId;
+                    resourceType = batchDeleteResourceTagsRequest.resourceType;
+                    body = batchDeleteResourceTagsRequest.body
+                } else {
+                    resourceId = batchDeleteResourceTagsRequest['resource_id'];
+                    resourceType = batchDeleteResourceTagsRequest['resource_type'];
+                    body = batchDeleteResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchDeleteResourceTags.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchDeleteResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检查已经配置OBS桶是否可以成功转储。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkObsBuckets(checkObsBucketsRequest?: CheckObsBucketsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/checkbucket",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (checkObsBucketsRequest !== null && checkObsBucketsRequest !== undefined) {
+                if (checkObsBucketsRequest instanceof CheckObsBucketsRequest) {
+                    domainId = checkObsBucketsRequest.domainId;
+                    body = checkObsBucketsRequest.body
+                } else {
+                    domainId = checkObsBucketsRequest['domain_id'];
+                    body = checkObsBucketsRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling checkObsBuckets.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 配置关键操作通知，可在发生特定操作时，使用预先创建好的SMN主题，向用户手机、邮箱发送消息，也可直接发送http/https消息。常用于实时感知高危操作、触发特定操作或对接用户自有审计分析系统。
@@ -475,6 +768,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云服务的全量操作列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOperations(listOperationsRequest?: ListOperationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/operations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serviceType;
+            
+            let resourceType;
+
+            if (listOperationsRequest !== null && listOperationsRequest !== undefined) {
+                if (listOperationsRequest instanceof ListOperationsRequest) {
+                    serviceType = listOperationsRequest.serviceType;
+                    resourceType = listOperationsRequest.resourceType;
+                } else {
+                    serviceType = listOperationsRequest['service_type'];
+                    resourceType = listOperationsRequest['resource_type'];
+                }
+            }
+
+        
+            if (serviceType !== null && serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户追踪器配额信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -491,6 +828,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询事件的资源类型列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTraceResources(listTraceResourcesRequest?: ListTraceResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+
+            if (listTraceResourcesRequest !== null && listTraceResourcesRequest !== undefined) {
+                if (listTraceResourcesRequest instanceof ListTraceResourcesRequest) {
+                    domainId = listTraceResourcesRequest.domainId;
+                } else {
+                    domainId = listTraceResourcesRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listTraceResources.');
+            }
+
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -666,6 +1040,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询30天事件的操作用户列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserResources() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/user-resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

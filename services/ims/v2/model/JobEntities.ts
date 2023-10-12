@@ -6,6 +6,11 @@ export class JobEntities {
     private 'image_id'?: string;
     private 'current_task'?: string;
     private 'image_name'?: string;
+    private 'addition_error_code'?: string;
+    private 'addition_error_msg'?: string;
+    private 'error_code'?: string;
+    public error?: string;
+    private 'alarm_code'?: string;
     private 'process_percent'?: number;
     public results?: Array<JobEntitiesResult>;
     private 'sub_jobs_result'?: Array<SubJobResult>;
@@ -41,6 +46,50 @@ export class JobEntities {
     }
     public get imageName(): string | undefined {
         return this['image_name'];
+    }
+    public withAdditionErrorCode(additionErrorCode: string): JobEntities {
+        this['addition_error_code'] = additionErrorCode;
+        return this;
+    }
+    public set additionErrorCode(additionErrorCode: string  | undefined) {
+        this['addition_error_code'] = additionErrorCode;
+    }
+    public get additionErrorCode(): string | undefined {
+        return this['addition_error_code'];
+    }
+    public withAdditionErrorMsg(additionErrorMsg: string): JobEntities {
+        this['addition_error_msg'] = additionErrorMsg;
+        return this;
+    }
+    public set additionErrorMsg(additionErrorMsg: string  | undefined) {
+        this['addition_error_msg'] = additionErrorMsg;
+    }
+    public get additionErrorMsg(): string | undefined {
+        return this['addition_error_msg'];
+    }
+    public withErrorCode(errorCode: string): JobEntities {
+        this['error_code'] = errorCode;
+        return this;
+    }
+    public set errorCode(errorCode: string  | undefined) {
+        this['error_code'] = errorCode;
+    }
+    public get errorCode(): string | undefined {
+        return this['error_code'];
+    }
+    public withError(error: string): JobEntities {
+        this['error'] = error;
+        return this;
+    }
+    public withAlarmCode(alarmCode: string): JobEntities {
+        this['alarm_code'] = alarmCode;
+        return this;
+    }
+    public set alarmCode(alarmCode: string  | undefined) {
+        this['alarm_code'] = alarmCode;
+    }
+    public get alarmCode(): string | undefined {
+        return this['alarm_code'];
     }
     public withProcessPercent(processPercent: number): JobEntities {
         this['process_percent'] = processPercent;

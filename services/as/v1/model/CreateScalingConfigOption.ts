@@ -4,6 +4,7 @@ import { InstanceConfig } from './InstanceConfig';
 export class CreateScalingConfigOption {
     private 'scaling_configuration_name'?: string;
     private 'instance_config'?: InstanceConfig;
+    private 'source_scaling_configuration_id'?: string;
     public constructor(scalingConfigurationName?: string, instanceConfig?: InstanceConfig) { 
         this['scaling_configuration_name'] = scalingConfigurationName;
         this['instance_config'] = instanceConfig;
@@ -27,5 +28,15 @@ export class CreateScalingConfigOption {
     }
     public get instanceConfig(): InstanceConfig | undefined {
         return this['instance_config'];
+    }
+    public withSourceScalingConfigurationId(sourceScalingConfigurationId: string): CreateScalingConfigOption {
+        this['source_scaling_configuration_id'] = sourceScalingConfigurationId;
+        return this;
+    }
+    public set sourceScalingConfigurationId(sourceScalingConfigurationId: string  | undefined) {
+        this['source_scaling_configuration_id'] = sourceScalingConfigurationId;
+    }
+    public get sourceScalingConfigurationId(): string | undefined {
+        return this['source_scaling_configuration_id'];
     }
 }

@@ -9,6 +9,7 @@ export class Urls {
     private 'modify_time'?: number;
     private 'create_time'?: number;
     private 'file_type'?: string;
+    public mode?: string;
     public constructor() { 
     }
     public withId(id: number): Urls {
@@ -66,5 +67,9 @@ export class Urls {
     }
     public get fileType(): string | undefined {
         return this['file_type'];
+    }
+    public withMode(mode: string): Urls {
+        this['mode'] = mode;
+        return this;
     }
 }

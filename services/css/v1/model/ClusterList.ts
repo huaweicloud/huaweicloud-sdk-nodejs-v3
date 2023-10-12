@@ -32,6 +32,7 @@ export class ClusterList {
     public tags?: Array<ClusterListTags>;
     public failedReason?: ClusterListFailedReasons;
     public period?: boolean;
+    public bandwidthResourceId?: string;
     public constructor() { 
     }
     public withDatastore(datastore: ClusterListDatastore): ClusterList {
@@ -132,6 +133,10 @@ export class ClusterList {
     }
     public withPeriod(period: boolean): ClusterList {
         this['period'] = period;
+        return this;
+    }
+    public withBandwidthResourceId(bandwidthResourceId: string): ClusterList {
+        this['bandwidthResourceId'] = bandwidthResourceId;
         return this;
     }
 }

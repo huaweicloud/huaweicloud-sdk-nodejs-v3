@@ -653,7 +653,8 @@ export class CdnClient {
      * @param {number} [endDate] 查询结束时间，相对于UTC 1970-01-01到当前时间相隔的毫秒数。
      * @param {string} [orderField] 用来排序的字段，支持的字段有“task_type”，“total”，“processing”， “succeed”，“failed”，“create_time”。order_field和order_type必须同时传值，否则使用默认值\&quot;create_time\&quot; 和 \&quot;desc\&quot;。
      * @param {string} [orderType] desc 或者asc。默认值desc。
-     * @param {'file' | 'directory'} [fileType] 默认是文件file。file：文件,directory：目录。
+     * @param {'file' | 'directory'} [fileType] file：文件,directory：目录。
+     * @param {'refresh' | 'preheating'} [taskType] 任务类型，refresh：刷新任务；preheating：预热任务
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2396,6 +2397,8 @@ export const ParamCreater = function () {
             let orderType;
             
             let fileType;
+            
+            let taskType;
 
             if (showHistoryTasksRequest !== null && showHistoryTasksRequest !== undefined) {
                 if (showHistoryTasksRequest instanceof ShowHistoryTasksRequest) {
@@ -2408,6 +2411,7 @@ export const ParamCreater = function () {
                     orderField = showHistoryTasksRequest.orderField;
                     orderType = showHistoryTasksRequest.orderType;
                     fileType = showHistoryTasksRequest.fileType;
+                    taskType = showHistoryTasksRequest.taskType;
                 } else {
                     enterpriseProjectId = showHistoryTasksRequest['enterprise_project_id'];
                     pageSize = showHistoryTasksRequest['page_size'];
@@ -2418,6 +2422,7 @@ export const ParamCreater = function () {
                     orderField = showHistoryTasksRequest['order_field'];
                     orderType = showHistoryTasksRequest['order_type'];
                     fileType = showHistoryTasksRequest['file_type'];
+                    taskType = showHistoryTasksRequest['task_type'];
                 }
             }
 
@@ -2448,6 +2453,9 @@ export const ParamCreater = function () {
             }
             if (fileType !== null && fileType !== undefined) {
                 localVarQueryParameter['file_type'] = fileType;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
             }
 
             options.queryParams = localVarQueryParameter;

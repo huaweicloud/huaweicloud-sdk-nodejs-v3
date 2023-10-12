@@ -3,6 +3,7 @@ import { ShowClusterVolumeRsp } from './ShowClusterVolumeRsp';
 
 export class ClusterDetailInstances {
     public status?: string;
+    public resourceId?: string;
     public type?: string;
     public id?: string;
     public name?: string;
@@ -14,6 +15,10 @@ export class ClusterDetailInstances {
     }
     public withStatus(status: string): ClusterDetailInstances {
         this['status'] = status;
+        return this;
+    }
+    public withResourceId(resourceId: string): ClusterDetailInstances {
+        this['resourceId'] = resourceId;
         return this;
     }
     public withType(type: string): ClusterDetailInstances {

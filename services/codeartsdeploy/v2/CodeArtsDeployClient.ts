@@ -6,6 +6,7 @@ import { AppBaseResponse } from './model/AppBaseResponse';
 import { AppComponentDao } from './model/AppComponentDao';
 import { AppDetailInfo } from './model/AppDetailInfo';
 import { AppExecutionInfo } from './model/AppExecutionInfo';
+import { ConfigInfo } from './model/ConfigInfo';
 import { ConfigInfoDO } from './model/ConfigInfoDO';
 import { CreateAppRequest } from './model/CreateAppRequest';
 import { CreateAppRequestBody } from './model/CreateAppRequestBody';
@@ -95,6 +96,8 @@ import { ShowDeploymentHostDetailRequest } from './model/ShowDeploymentHostDetai
 import { ShowDeploymentHostDetailResponse } from './model/ShowDeploymentHostDetailResponse';
 import { ShowEnvironmentDetailRequest } from './model/ShowEnvironmentDetailRequest';
 import { ShowEnvironmentDetailResponse } from './model/ShowEnvironmentDetailResponse';
+import { ShowExecutionParamsRequest } from './model/ShowExecutionParamsRequest';
+import { ShowExecutionParamsResponse } from './model/ShowExecutionParamsResponse';
 import { ShowHostClusterDetailRequest } from './model/ShowHostClusterDetailRequest';
 import { ShowHostClusterDetailResponse } from './model/ShowHostClusterDetailResponse';
 import { ShowHostDetailRequest } from './model/ShowHostDetailRequest';
@@ -215,7 +218,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 查询项目下应用列表
+     * 查询项目下应用列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -235,7 +238,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 根据开始时间和结束时间查询项目下指定应用的历史部署记录列表
+     * 根据开始时间和结束时间查询项目下指定应用的历史部署记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -320,6 +323,26 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 查询部署记录的执行参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询部署记录的执行参数
+     * @param {string} taskId 任务id
+     * @param {string} [recordId] 执行记录id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showExecutionParams(showExecutionParamsRequest?: ShowExecutionParamsRequest): Promise<ShowExecutionParamsResponse> {
+        const options = ParamCreater().showExecutionParams(showExecutionParamsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据部署任务id部署应用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -341,7 +364,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 应用下创建环境
+     * 应用下创建环境。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -362,7 +385,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 删除应用下的环境
+     * 删除应用下的环境。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -383,7 +406,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 环境下删除主机
+     * 环境下删除主机。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -405,7 +428,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 环境下导入主机
+     * 环境下导入主机。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -427,7 +450,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 查询应用下环境列表
+     * 查询应用下环境列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -452,7 +475,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 查询环境详情
+     * 查询环境详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -766,7 +789,7 @@ export class CodeArtsDeployClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询主机集群
+     * @summary 查询主机集群详情
      * @param {string} groupId 主机集群id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -785,7 +808,7 @@ export class CodeArtsDeployClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询主机集群
+     * @summary 查询主机集群详情
      * @param {string} groupId 主机集群id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -821,7 +844,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 获取指定应用的应用部署成功率
+     * 获取指定应用的应用部署成功率。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -841,7 +864,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 获取指定项目的应用部署成功率
+     * 获取指定项目的应用部署成功率。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1044,7 +1067,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询项目下应用列表
+         * 查询项目下应用列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1089,7 +1112,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据开始时间和结束时间查询项目下指定应用的历史部署记录列表
+         * 根据开始时间和结束时间查询项目下指定应用的历史部署记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1320,6 +1343,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询部署记录的执行参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showExecutionParams(showExecutionParamsRequest?: ShowExecutionParamsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/history/tasks/{task_id}/params",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let recordId;
+
+            if (showExecutionParamsRequest !== null && showExecutionParamsRequest !== undefined) {
+                if (showExecutionParamsRequest instanceof ShowExecutionParamsRequest) {
+                    taskId = showExecutionParamsRequest.taskId;
+                    recordId = showExecutionParamsRequest.recordId;
+                } else {
+                    taskId = showExecutionParamsRequest['task_id'];
+                    recordId = showExecutionParamsRequest['record_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showExecutionParams.');
+            }
+            if (recordId !== null && recordId !== undefined) {
+                localVarQueryParameter['record_id'] = recordId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据部署任务id部署应用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1373,7 +1441,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用下创建环境
+         * 应用下创建环境。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1426,7 +1494,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除应用下的环境
+         * 删除应用下的环境。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1477,7 +1545,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 环境下删除主机
+         * 环境下删除主机。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1535,7 +1603,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 环境下导入主机
+         * 环境下导入主机。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1595,7 +1663,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询应用下环境列表
+         * 查询应用下环境列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1678,7 +1746,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询环境详情
+         * 查询环境详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2650,7 +2718,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定应用的应用部署成功率
+         * 获取指定应用的应用部署成功率。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2696,7 +2764,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定项目的应用部署成功率
+         * 获取指定项目的应用部署成功率。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

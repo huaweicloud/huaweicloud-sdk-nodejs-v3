@@ -1,3 +1,479 @@
+# 3.1.58 2023-10-12
+
+### HuaweiCloud SDK AOS
+
+- _Features_
+  - Support the following interfaces：
+    - `ListStackSets`
+    - `CreateStackSet`
+    - `ShowStackSetTemplate`
+    - `ListStackSetOperations`
+    - `ShowStackSetMetadata`
+    - `ListStackInstances`
+    - `CreateStackInstance`
+    - `DeleteStackInstance`
+    - `DeployStackSet`
+    - `DeleteStackSet`
+    - `UpdateStackSet`
+    - `ShowStackSetOperationMetadata`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK AS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateScalingConfig**
+    - changes of request param
+      - `+ source_scaling_configuration_id`
+
+### HuaweiCloud SDK BMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateBareMetalServers**
+    - changes of request param
+      - `* server.server_tags: map<string, list<SystemTags>> -> list<SystemTags>`
+
+### HuaweiCloud SDK CDN
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowHistoryTasks**
+    - changes of request param
+      - `+ task_type`
+  - **ShowUrlTaskInfo**
+    - changes of response param
+      - `+ result.mode`
+
+### HuaweiCloud SDK CES
+
+- _Features_
+  - Support the following interfaces：
+    - `BatchUpdateNotificationMasks`
+    - `BatchUpdateNotificationMaskTime`
+    - `UpdateNotificationMasks`
+    - `BatchDeleteNotificationMasks`
+    - `ListNotificationMasks`
+    - `ListNotificationMaskResources`
+    - `ListOneClickAlarms`
+    - `CreateOneClickAlarm`
+    - `ListOneClickAlarmRules`
+    - `BatchUpdateOneClickAlarmsEnabledState`
+    - `BatchDeleteOneClickAlarms`
+    - `UpdateOneClickAlarmNotifications`
+    - `BatchUpdateOneClickAlarmPoliciesEnabledState`
+    - `UpdateAlarmNotifications`
+    - `ListCesTargetProjectTags`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListAlarmHistories**
+    - changes of response param
+      - `+ alarm_histories.condition.suppress_duration: enum value [86400]`
+  - **ListAgentInvocations**
+    - changes of request param
+      - `- instance_name`
+      - `+ invocation_type: enum value [RETRY]`
+    - changes of response param
+      - `+ invocations.invocation_type: enum value [RETRY]`
+  - **ListAgentStatus**
+    - changes of response param
+      - `+ agent_status.extensions.version`
+
+### HuaweiCloud SDK CodeArtsDeploy
+
+- _Features_
+  - Support the interface `ShowExecutionParams`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListAllApp**
+    - changes of request param
+      - `+ states`
+      - `+ group_id`
+
+### HuaweiCloud SDK Config
+
+- _Features_
+  - Support the following interfaces：
+    - `ListOrganizationConformancePacks`
+    - `CreateOrganizationConformancePack`
+    - `ShowOrganizationConformancePack`
+    - `DeleteOrganizationConformancePack`
+    - `ListOrganizationConformancePackStatuses`
+    - `ShowOrganizationConformancePackDetailedStatuses`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowConfigurationAggregatorSourcesStatus**
+    - changes of response param
+      - `+ aggregated_source_statuses.source_name`
+  - **ShowConformancePack**
+    - changes of response param
+      - `+ created_by`
+  - **CreateConformancePack**
+    - changes of response param
+      - `+ created_by`
+  - **ListConformancePacks**
+    - changes of response param
+      - `+ created_by`
+      - `+ value.created_by`
+  - **ShowAggregatePolicyStateComplianceSummary**
+    - changes of response param
+      - `+ results.group_account_name`
+  - **ListAggregateComplianceByPolicyAssignment**
+    - changes of response param
+      - `+ aggregate_policy_assignments.account_name`
+
+### HuaweiCloud SDK CSS
+
+- _Features_
+  - Support the following interfaces：
+    - `DeleteConfig`
+    - `StopHotPipeline`
+    - `ListCerts`
+    - `ListElbs`
+    - `EnableOrDisableElb`
+    - `ShowElbDetail`
+    - `CreateElbListener`
+    - `UpdateEsListener`
+    - `ListElbCerts`
+    - `ListAiOps`
+    - `CreateAiOps`
+    - `DeleteAiOps`
+    - `ListSmnTopics`
+    - `UpgradeCore`
+    - `ListImages`
+    - `UpgradeDetail`
+    - `RetryUpgradeTask`
+    - `UpdateAzByInstanceType`
+- _Bug Fix_
+  - None
+- _Change_
+  - **UpdateShrinkNodes**
+    - changes of request param
+      - `+ migrate_data`
+  - **CreateCnf**
+    - changes of request param
+      - `+ sensitive_words`
+  - **UpdateCnf**
+    - changes of request param
+      - `+ sensitive_words`
+  - **ShowClusterDetail**
+    - changes of response param
+      - `+ bandwidthResourceId`
+      - `+ instances.resourceId`
+      - `+ instances.volume.resourceIds`
+      - `+ publicKibanaResp.bandwidthResourceId`
+  - **ListClustersDetails**
+    - changes of response param
+      - `+ clusters.bandwidthResourceId`
+      - `+ clusters.instances.resourceId`
+      - `+ clusters.instances.volume.resourceIds`
+      - `+ clusters.publicKibanaResp.bandwidthResourceId`
+
+### HuaweiCloud SDK CTS
+
+- _Features_
+  - Support the following interfaces：
+    - `ListOperations`
+    - `BatchCreateResourceTags`
+    - `BatchDeleteResourceTags`
+    - `ListUserResources`
+    - `CheckObsBuckets`
+    - `ListTraceResources`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK DC
+
+- _Features_
+  - Support the following interfaces：
+    - `UpdateVifPeer`
+    - `DeleteVifPeer`
+    - `CreateVifPeer`
+    - `ShowQuotas`
+    - `ListSwitchoverTestRecords`
+    - `SwitchoverTest`
+- _Bug Fix_
+  - None
+- _Change_
+  - **DeleteResourceTag**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+  - **ListProjectTags**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+  - **ShowResourceTag**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+  - **CreateResourceTag**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+  - **BatchCreateResourceTags**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+  - **ShowDirectConnect**
+    - changes of request param
+      - `- limit`
+      - `- marker`
+    - changes of response param
+      - `- direct_connect.type: enum value [onestop_standard,onestop_hosted]`
+      - `- direct_connect.charge_mode: enum value [port]`
+  - **UpdateDirectConnect**
+    - changes of response param
+      - `- direct_connect.type: enum value [onestop_standard,onestop_hosted]`
+      - `- direct_connect.charge_mode: enum value [port]`
+  - **ListDirectConnects**
+    - changes of response param
+      - `- direct_connects.type: enum value [onestop_standard,onestop_hosted]`
+      - `- direct_connects.charge_mode: enum value [port]`
+  - **ShowVirtualGateway**
+    - changes of response param
+      - `- virtual_gateway.type: enum value [default]`
+  - **UpdateVirtualGateway**
+    - changes of response param
+      - `- virtual_gateway.type: enum value [default]`
+  - **ListVirtualGateways**
+    - changes of request param
+      - `+ enterprise_project_id`
+    - changes of response param
+      - `- virtual_gateways.type: enum value [default]`
+  - **CreateVirtualGateway**
+    - changes of response param
+      - `- virtual_gateway.type: enum value [default]`
+  - **ShowVirtualInterface**
+    - changes of response param
+      - `+ virtual_interface.service_type: enum value [GDGW]`
+      - `- virtual_interface.service_type: enum value [vpc,GDWW]`
+  - **UpdateVirtualInterface**
+    - changes of response param
+      - `+ virtual_interface.service_type: enum value [GDGW]`
+      - `- virtual_interface.service_type: enum value [vpc,GDWW]`
+  - **ListVirtualInterfaces**
+    - changes of response param
+      - `+ virtual_interfaces.service_type: enum value [GDGW]`
+      - `- virtual_interfaces.service_type: enum value [vpc,GDWW]`
+  - **CreateVirtualInterface**
+    - changes of request param
+      - `+ virtual_interface.service_type: enum value [GDGW]`
+      - `- virtual_interface.service_type: enum value [GDWW]`
+    - changes of response param
+      - `+ virtual_interface.service_type: enum value [GDGW]`
+      - `- virtual_interface.service_type: enum value [vpc,GDWW]`
+  - **ListTagResourceInstances**
+    - changes of request param
+      - `+ resource_type: enum value [dc-lag]`
+
+### HuaweiCloud SDK DWS
+
+- _Features_
+  - Support the following interfaces：
+    - `SaveClusterDescriptionInfo`
+    - `ExecuteDatabaseOmUserAction`
+    - `ShowInstance`
+    - `ShowDatabaseOmUserStatus`
+    - `ListConfigurationsAuditRecords`
+    - `ShowClusterRedistribution`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ReinstallServerWithoutCloudInit**
+    - changes of request param
+      - `+ os-reinstall.metadata.BYOL`
+  - **ListFlavors**
+    - changes of response param
+      - `+ flavors.os_extra_specs.quota:vif_max_num`
+      - `+ flavors.os_extra_specs.quota:sub_network_interface_max_num`
+  - **ListResizeFlavors**
+    - changes of response param
+      - `+ flavors.extra_specs.quota:vif_max_num`
+      - `+ flavors.extra_specs.quota:sub_network_interface_max_num`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interfaces `ShowFunctionUrl`, `UpdateFunctionUrl`, `CreateFunctionUrl`, `DeleteFunctionUrl`
+  - **ListAsyncInvocations**
+    - changes of response param
+      - `+ next_marker`
+      - `+ count`
+  - **ListActiveAsyncInvocations**
+    - changes of response param
+      - `+ next_marker`
+      - `+ count`
+
+### HuaweiCloud SDK GaussDBforopenGauss
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListInstances**
+    - changes of response param
+      - `+ instances.datastore.complete_version`
+      - `+ instances.datastore.hotfix_versions`
+  - **ListInstancesDetails**
+    - changes of response param
+      - `+ instances.datastore.complete_version`
+      - `+ instances.datastore.hotfix_versions`
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowJob**
+    - changes of response param
+      - `+ entities.addition_error_code`
+      - `+ entities.addition_error_msg`
+      - `+ entities.error_code`
+      - `+ entities.error`
+      - `+ entities.alarm_code`
+
+### HuaweiCloud SDK MetaStudio
+
+- _Features_
+  - Support the interfaces `CreatePhotoDetection`, `ShowPhotoDetection`
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateSmartLiveRoom**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+  - **ShowSmartLiveRoom**
+    - changes of response param
+      - `- video_config.codec: enum value [VP9]`
+  - **UpdateSmartLiveRoom**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+    - changes of response param
+      - `- video_config.codec: enum value [VP9]`
+  - **StartSmartLive**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+  - **Create2DDigitalHumanVideo**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+  - **Show2DDigitalHumanVideo**
+    - changes of response param
+      - `- video_config.codec: enum value [VP9]`
+  - **CreateVideoScripts**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+  - **ShowVideoScript**
+    - changes of response param
+      - `- video_config.codec: enum value [VP9]`
+  - **UpdateVideoScript**
+    - changes of request param
+      - `- video_config.codec: enum value [VP9]`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the interface `RecognizeColombiaIdCard`
+- _Bug Fix_
+  - None
+- _Change_
+  - **RecognizeVehicleLicense**
+    - changes of response param
+      - `+ result.energy_type`
+      - `+ result.front`
+      - `+ result.back`
+  - **RecognizeWebImage**
+    - changes of request param
+      - `+ detect_text_direction`
+
+### HuaweiCloud SDK RDS
+
+- _Features_
+  - Support the following interfaces：
+    - `ListPostgresqlHbaInfo`
+    - `ModifyPostgresqlHbaConf`
+    - `AddPostgresqlHbaConf`
+    - `DeletePostgresqlHbaConf`
+    - `ListPostgresqlHbaInfoHistory`
+- _Bug Fix_
+  - None
+- _Change_
+  - **UpgradeDbVersionNew**
+    - changes of request param
+      - `+ is_delayed`
+      - `- delay`
+
+### HuaweiCloud SDK SMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowCertKey**
+    - changes of request param
+      - `+ enable_ca_cert`
+    - changes of response param
+      - `+ target_mgmt_private_key`
+      - `+ target_data_cert`
+      - `+ target_data_private_key`
+      - `+ target_mgmt_cert`
+      - `+ ca`
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - Support the following interfaces：
+    - `ListTrafficMirrorSessions`
+    - `CreateTrafficMirrorSession`
+    - `ShowTrafficMirrorSession`
+    - `UpdateTrafficMirrorSession`
+    - `DeleteTrafficMirrorSession`
+    - `RemoveSourcesFromTrafficMirrorSession`
+    - `AddSourcesToTrafficMirrorSession`
+    - `ListTrafficMirrorFilters`
+    - `CreateTrafficMirrorFilter`
+    - `ShowTrafficMirrorFilter`
+    - `UpdateTrafficMirrorFilter`
+    - `DeleteTrafficMirrorFilter`
+    - `ListTrafficMirrorFilterRules`
+    - `CreateTrafficMirrorFilterRule`
+    - `ShowTrafficMirrorFilterRule`
+    - `UpdateTrafficMirrorFilterRule`
+    - `DeleteTrafficMirrorFilterRule`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.1.57 2023-09-19
 
 ### HuaweiCloud SDK BMS

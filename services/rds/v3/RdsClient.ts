@@ -4,6 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ADDomainInfo } from './model/ADDomainInfo';
 import { AddMsdtcRequestBody } from './model/AddMsdtcRequestBody';
+import { AddPostgresqlHbaConfRequest } from './model/AddPostgresqlHbaConfRequest';
+import { AddPostgresqlHbaConfResponse } from './model/AddPostgresqlHbaConfResponse';
 import { AllowDbPrivilegeRequest } from './model/AllowDbPrivilegeRequest';
 import { AllowDbPrivilegeResponse } from './model/AllowDbPrivilegeResponse';
 import { AllowDbUserPrivilegeRequest } from './model/AllowDbUserPrivilegeRequest';
@@ -125,6 +127,8 @@ import { DeletePostgresqlDbUserRequest } from './model/DeletePostgresqlDbUserReq
 import { DeletePostgresqlDbUserResponse } from './model/DeletePostgresqlDbUserResponse';
 import { DeletePostgresqlExtensionRequest } from './model/DeletePostgresqlExtensionRequest';
 import { DeletePostgresqlExtensionResponse } from './model/DeletePostgresqlExtensionResponse';
+import { DeletePostgresqlHbaConfRequest } from './model/DeletePostgresqlHbaConfRequest';
+import { DeletePostgresqlHbaConfResponse } from './model/DeletePostgresqlHbaConfResponse';
 import { DeleteSqlserverDatabaseExRequest } from './model/DeleteSqlserverDatabaseExRequest';
 import { DeleteSqlserverDatabaseExResponse } from './model/DeleteSqlserverDatabaseExResponse';
 import { DeleteSqlserverDatabaseRequest } from './model/DeleteSqlserverDatabaseRequest';
@@ -239,6 +243,10 @@ import { ListPostgresqlDbUserPaginatedRequest } from './model/ListPostgresqlDbUs
 import { ListPostgresqlDbUserPaginatedResponse } from './model/ListPostgresqlDbUserPaginatedResponse';
 import { ListPostgresqlExtensionRequest } from './model/ListPostgresqlExtensionRequest';
 import { ListPostgresqlExtensionResponse } from './model/ListPostgresqlExtensionResponse';
+import { ListPostgresqlHbaInfoHistoryRequest } from './model/ListPostgresqlHbaInfoHistoryRequest';
+import { ListPostgresqlHbaInfoHistoryResponse } from './model/ListPostgresqlHbaInfoHistoryResponse';
+import { ListPostgresqlHbaInfoRequest } from './model/ListPostgresqlHbaInfoRequest';
+import { ListPostgresqlHbaInfoResponse } from './model/ListPostgresqlHbaInfoResponse';
 import { ListPredefinedTagRequest } from './model/ListPredefinedTagRequest';
 import { ListPredefinedTagResponse } from './model/ListPredefinedTagResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
@@ -281,6 +289,8 @@ import { ModifyCollationRequestBody } from './model/ModifyCollationRequestBody';
 import { ModifyCollationResponse } from './model/ModifyCollationResponse';
 import { ModifyDnsNameRequestBody } from './model/ModifyDnsNameRequestBody';
 import { ModifyParamRequest } from './model/ModifyParamRequest';
+import { ModifyPostgresqlHbaConfRequest } from './model/ModifyPostgresqlHbaConfRequest';
+import { ModifyPostgresqlHbaConfResponse } from './model/ModifyPostgresqlHbaConfResponse';
 import { ModifyProxyWeightRequest } from './model/ModifyProxyWeightRequest';
 import { MsdtcHostOption } from './model/MsdtcHostOption';
 import { MysqlReadOnlySwitch } from './model/MysqlReadOnlySwitch';
@@ -299,6 +309,8 @@ import { PostgresqlDatabaseForCreation } from './model/PostgresqlDatabaseForCrea
 import { PostgresqlDatabaseForListSchema } from './model/PostgresqlDatabaseForListSchema';
 import { PostgresqlDatabaseSchemaReq } from './model/PostgresqlDatabaseSchemaReq';
 import { PostgresqlGrantRequest } from './model/PostgresqlGrantRequest';
+import { PostgresqlHbaConf } from './model/PostgresqlHbaConf';
+import { PostgresqlHbaHistory } from './model/PostgresqlHbaHistory';
 import { PostgresqlListDatabase } from './model/PostgresqlListDatabase';
 import { PostgresqlUserForCreation } from './model/PostgresqlUserForCreation';
 import { PostgresqlUserForList } from './model/PostgresqlUserForList';
@@ -532,6 +544,26 @@ export class RdsClient {
         return __dirname;
     }
 
+
+    /**
+     * 以传入配置全量覆盖当前pg_hba.conf文件内容，入参为空时用默认配置覆盖当前文件内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在pg_hba.conf文件最后新增单个或多个配置
+     * @param {string} instanceId 实例id
+     * @param {Array<PostgresqlHbaConf>} [addPostgresqlHbaConfRequestBody] 修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addPostgresqlHbaConf(addPostgresqlHbaConfRequest?: AddPostgresqlHbaConfRequest): Promise<AddPostgresqlHbaConfResponse> {
+        const options = ParamCreater().addPostgresqlHbaConf(addPostgresqlHbaConfRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 应用参数模板。
@@ -914,6 +946,26 @@ export class RdsClient {
      */
     public deleteManualBackup(deleteManualBackupRequest?: DeleteManualBackupRequest): Promise<DeleteManualBackupResponse> {
         const options = ParamCreater().deleteManualBackup(deleteManualBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除pg_hba.conf文件的单个或多个配置，以priority做唯一标识
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除pg_hba.conf文件的单个或多个配置
+     * @param {string} instanceId 实例id
+     * @param {Array<PostgresqlHbaConf>} [deletePostgresqlHbaConfRequestBody] 修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePostgresqlHbaConf(deletePostgresqlHbaConfRequest?: DeletePostgresqlHbaConfRequest): Promise<DeletePostgresqlHbaConfResponse> {
+        const options = ParamCreater().deletePostgresqlHbaConf(deletePostgresqlHbaConfRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1458,6 +1510,46 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例的pg_hba.conf文件配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的pg_hba.conf文件配置
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPostgresqlHbaInfo(listPostgresqlHbaInfoRequest?: ListPostgresqlHbaInfoRequest): Promise<ListPostgresqlHbaInfoResponse> {
+        const options = ParamCreater().listPostgresqlHbaInfo(listPostgresqlHbaInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的pg_hba.conf文件修改历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的pg_hba.conf文件修改历史
+     * @param {string} instanceId 实例id
+     * @param {Date} [startTime] 开始时间,不传默认当天0点（UTC时区）
+     * @param {Date} [endTime] 结束时间,不传默认当前时间（UTC时区）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPostgresqlHbaInfoHistory(listPostgresqlHbaInfoHistoryRequest?: ListPostgresqlHbaInfoHistoryRequest): Promise<ListPostgresqlHbaInfoHistoryResponse> {
+        const options = ParamCreater().listPostgresqlHbaInfoHistory(listPostgresqlHbaInfoHistoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询预定义标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1774,6 +1866,26 @@ export class RdsClient {
      */
     public migrateFollower(migrateFollowerRequest?: MigrateFollowerRequest): Promise<MigrateFollowerResponse> {
         const options = ParamCreater().migrateFollower(migrateFollowerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改/新增pg_hba.conf文件的单个或多个配置，以priority做唯一标识，priority不存在的新增，存在的修改
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改pg_hba.conf文件的单个或多个配置
+     * @param {string} instanceId 实例id
+     * @param {Array<PostgresqlHbaConf>} [modifyPostgresqlHbaConfRequestBody] 修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyPostgresqlHbaConf(modifyPostgresqlHbaConfRequest?: ModifyPostgresqlHbaConfRequest): Promise<ModifyPostgresqlHbaConfResponse> {
+        const options = ParamCreater().modifyPostgresqlHbaConf(modifyPostgresqlHbaConfRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3988,6 +4100,49 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 以传入配置全量覆盖当前pg_hba.conf文件内容，入参为空时用默认配置覆盖当前文件内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addPostgresqlHbaConf(addPostgresqlHbaConfRequest?: AddPostgresqlHbaConfRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/hba-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addPostgresqlHbaConfRequest !== null && addPostgresqlHbaConfRequest !== undefined) {
+                if (addPostgresqlHbaConfRequest instanceof AddPostgresqlHbaConfRequest) {
+                    instanceId = addPostgresqlHbaConfRequest.instanceId;
+                    body = addPostgresqlHbaConfRequest.body
+                } else {
+                    instanceId = addPostgresqlHbaConfRequest['instance_id'];
+                    body = addPostgresqlHbaConfRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addPostgresqlHbaConf.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4906,6 +5061,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除pg_hba.conf文件的单个或多个配置，以priority做唯一标识
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePostgresqlHbaConf(deletePostgresqlHbaConfRequest?: DeletePostgresqlHbaConfRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/hba-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deletePostgresqlHbaConfRequest !== null && deletePostgresqlHbaConfRequest !== undefined) {
+                if (deletePostgresqlHbaConfRequest instanceof DeletePostgresqlHbaConfRequest) {
+                    instanceId = deletePostgresqlHbaConfRequest.instanceId;
+                    body = deletePostgresqlHbaConfRequest.body
+                } else {
+                    instanceId = deletePostgresqlHbaConfRequest['instance_id'];
+                    body = deletePostgresqlHbaConfRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deletePostgresqlHbaConf.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6412,6 +6610,95 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例的pg_hba.conf文件配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPostgresqlHbaInfo(listPostgresqlHbaInfoRequest?: ListPostgresqlHbaInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/hba-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listPostgresqlHbaInfoRequest !== null && listPostgresqlHbaInfoRequest !== undefined) {
+                if (listPostgresqlHbaInfoRequest instanceof ListPostgresqlHbaInfoRequest) {
+                    instanceId = listPostgresqlHbaInfoRequest.instanceId;
+                } else {
+                    instanceId = listPostgresqlHbaInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listPostgresqlHbaInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的pg_hba.conf文件修改历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPostgresqlHbaInfoHistory(listPostgresqlHbaInfoHistoryRequest?: ListPostgresqlHbaInfoHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/hba-info/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listPostgresqlHbaInfoHistoryRequest !== null && listPostgresqlHbaInfoHistoryRequest !== undefined) {
+                if (listPostgresqlHbaInfoHistoryRequest instanceof ListPostgresqlHbaInfoHistoryRequest) {
+                    instanceId = listPostgresqlHbaInfoHistoryRequest.instanceId;
+                    startTime = listPostgresqlHbaInfoHistoryRequest.startTime;
+                    endTime = listPostgresqlHbaInfoHistoryRequest.endTime;
+                } else {
+                    instanceId = listPostgresqlHbaInfoHistoryRequest['instance_id'];
+                    startTime = listPostgresqlHbaInfoHistoryRequest['start_time'];
+                    endTime = listPostgresqlHbaInfoHistoryRequest['end_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listPostgresqlHbaInfoHistory.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询预定义标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7288,6 +7575,49 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改/新增pg_hba.conf文件的单个或多个配置，以priority做唯一标识，priority不存在的新增，存在的修改
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyPostgresqlHbaConf(modifyPostgresqlHbaConfRequest?: ModifyPostgresqlHbaConfRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/hba-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (modifyPostgresqlHbaConfRequest !== null && modifyPostgresqlHbaConfRequest !== undefined) {
+                if (modifyPostgresqlHbaConfRequest instanceof ModifyPostgresqlHbaConfRequest) {
+                    instanceId = modifyPostgresqlHbaConfRequest.instanceId;
+                    body = modifyPostgresqlHbaConfRequest.body
+                } else {
+                    instanceId = modifyPostgresqlHbaConfRequest['instance_id'];
+                    body = modifyPostgresqlHbaConfRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyPostgresqlHbaConf.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

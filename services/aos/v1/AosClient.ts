@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AdministrationAgencyNamePrimitiveTypeHolder } from './model/AdministrationAgencyNamePrimitiveTypeHolder';
+import { AdministrationAgencyUrnPrimitiveTypeHolder } from './model/AdministrationAgencyUrnPrimitiveTypeHolder';
 import { AgenciesPrimitiveTypeHolder } from './model/AgenciesPrimitiveTypeHolder';
 import { Agency } from './model/Agency';
 import { ApplyExecutionPlanRequest } from './model/ApplyExecutionPlanRequest';
@@ -18,16 +20,27 @@ import { ContinueRollbackStackResponse } from './model/ContinueRollbackStackResp
 import { CreateExecutionPlanRequest } from './model/CreateExecutionPlanRequest';
 import { CreateExecutionPlanRequestBody } from './model/CreateExecutionPlanRequestBody';
 import { CreateExecutionPlanResponse } from './model/CreateExecutionPlanResponse';
+import { CreateStackInstanceRequest } from './model/CreateStackInstanceRequest';
+import { CreateStackInstanceRequestBody } from './model/CreateStackInstanceRequestBody';
+import { CreateStackInstanceResponse } from './model/CreateStackInstanceResponse';
 import { CreateStackRequest } from './model/CreateStackRequest';
 import { CreateStackRequestBody } from './model/CreateStackRequestBody';
 import { CreateStackResponse } from './model/CreateStackResponse';
+import { CreateStackSetRequest } from './model/CreateStackSetRequest';
+import { CreateStackSetRequestBody } from './model/CreateStackSetRequestBody';
+import { CreateStackSetResponse } from './model/CreateStackSetResponse';
 import { DeleteExecutionPlanRequest } from './model/DeleteExecutionPlanRequest';
 import { DeleteExecutionPlanResponse } from './model/DeleteExecutionPlanResponse';
 import { DeleteStackEnhancedRequest } from './model/DeleteStackEnhancedRequest';
 import { DeleteStackEnhancedRequestBody } from './model/DeleteStackEnhancedRequestBody';
 import { DeleteStackEnhancedResponse } from './model/DeleteStackEnhancedResponse';
+import { DeleteStackInstanceRequest } from './model/DeleteStackInstanceRequest';
+import { DeleteStackInstanceRequestBody } from './model/DeleteStackInstanceRequestBody';
+import { DeleteStackInstanceResponse } from './model/DeleteStackInstanceResponse';
 import { DeleteStackRequest } from './model/DeleteStackRequest';
 import { DeleteStackResponse } from './model/DeleteStackResponse';
+import { DeleteStackSetRequest } from './model/DeleteStackSetRequest';
+import { DeleteStackSetResponse } from './model/DeleteStackSetResponse';
 import { DeleteTemplateRequest } from './model/DeleteTemplateRequest';
 import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DeleteTemplateVersionRequest } from './model/DeleteTemplateVersionRequest';
@@ -35,7 +48,12 @@ import { DeleteTemplateVersionResponse } from './model/DeleteTemplateVersionResp
 import { DeployStackRequest } from './model/DeployStackRequest';
 import { DeployStackRequestBody } from './model/DeployStackRequestBody';
 import { DeployStackResponse } from './model/DeployStackResponse';
+import { DeployStackSetRequest } from './model/DeployStackSetRequest';
+import { DeployStackSetRequestBody } from './model/DeployStackSetRequestBody';
+import { DeployStackSetResponse } from './model/DeployStackSetResponse';
 import { DeploymentIdPrimitiveTypeHolder } from './model/DeploymentIdPrimitiveTypeHolder';
+import { DeploymentTargetsPrimitiveTypeHolder } from './model/DeploymentTargetsPrimitiveTypeHolder';
+import { DeploymentTargetsPrimitiveTypeHolderDeploymentTargets } from './model/DeploymentTargetsPrimitiveTypeHolderDeploymentTargets';
 import { EnableAutoRollbackPrimitiveTypeHolder } from './model/EnableAutoRollbackPrimitiveTypeHolder';
 import { EnableDeletionProtectionPrimitiveTypeHolder } from './model/EnableDeletionProtectionPrimitiveTypeHolder';
 import { EncryptionStructure } from './model/EncryptionStructure';
@@ -59,30 +77,46 @@ import { GetStackMetadataResponse } from './model/GetStackMetadataResponse';
 import { GetStackTemplateRequest } from './model/GetStackTemplateRequest';
 import { GetStackTemplateResponse } from './model/GetStackTemplateResponse';
 import { IndexPrimitiveTypeHolder } from './model/IndexPrimitiveTypeHolder';
+import { InitialStackDescriptionPrimitiveTypeHolder } from './model/InitialStackDescriptionPrimitiveTypeHolder';
 import { ItemsResponse } from './model/ItemsResponse';
 import { KmsStructure } from './model/KmsStructure';
 import { ListExecutionPlansRequest } from './model/ListExecutionPlansRequest';
 import { ListExecutionPlansResponse } from './model/ListExecutionPlansResponse';
 import { ListStackEventsRequest } from './model/ListStackEventsRequest';
 import { ListStackEventsResponse } from './model/ListStackEventsResponse';
+import { ListStackInstancesRequest } from './model/ListStackInstancesRequest';
+import { ListStackInstancesResponse } from './model/ListStackInstancesResponse';
 import { ListStackOutputsRequest } from './model/ListStackOutputsRequest';
 import { ListStackOutputsResponse } from './model/ListStackOutputsResponse';
 import { ListStackResourcesRequest } from './model/ListStackResourcesRequest';
 import { ListStackResourcesResponse } from './model/ListStackResourcesResponse';
+import { ListStackSetOperationsRequest } from './model/ListStackSetOperationsRequest';
+import { ListStackSetOperationsResponse } from './model/ListStackSetOperationsResponse';
+import { ListStackSetsRequest } from './model/ListStackSetsRequest';
+import { ListStackSetsResponse } from './model/ListStackSetsResponse';
 import { ListStacksRequest } from './model/ListStacksRequest';
 import { ListStacksResponse } from './model/ListStacksResponse';
 import { ListTemplateVersionsRequest } from './model/ListTemplateVersionsRequest';
 import { ListTemplateVersionsResponse } from './model/ListTemplateVersionsResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
+import { ManagedAgencyNamePrimitiveTypeHolder } from './model/ManagedAgencyNamePrimitiveTypeHolder';
+import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveTypeHolder';
 import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesRequest';
 import { ParseTemplateVariablesRequestBody } from './model/ParseTemplateVariablesRequestBody';
 import { ParseTemplateVariablesResponse } from './model/ParseTemplateVariablesResponse';
+import { PermissionModelPrimitiveTypeHolder } from './model/PermissionModelPrimitiveTypeHolder';
 import { ResourceAttribute } from './model/ResourceAttribute';
 import { ResourceNamePrimitiveTypeHolder } from './model/ResourceNamePrimitiveTypeHolder';
 import { ResourcePriceResponse } from './model/ResourcePriceResponse';
 import { ResourceTypePrimitiveTypeHolder } from './model/ResourceTypePrimitiveTypeHolder';
 import { RetainAllResourcesTypeHolder } from './model/RetainAllResourcesTypeHolder';
+import { ShowStackSetMetadataRequest } from './model/ShowStackSetMetadataRequest';
+import { ShowStackSetMetadataResponse } from './model/ShowStackSetMetadataResponse';
+import { ShowStackSetOperationMetadataRequest } from './model/ShowStackSetOperationMetadataRequest';
+import { ShowStackSetOperationMetadataResponse } from './model/ShowStackSetOperationMetadataResponse';
+import { ShowStackSetTemplateRequest } from './model/ShowStackSetTemplateRequest';
+import { ShowStackSetTemplateResponse } from './model/ShowStackSetTemplateResponse';
 import { ShowTemplateMetadataRequest } from './model/ShowTemplateMetadataRequest';
 import { ShowTemplateMetadataResponse } from './model/ShowTemplateMetadataResponse';
 import { ShowTemplateVersionContentRequest } from './model/ShowTemplateVersionContentRequest';
@@ -93,9 +127,27 @@ import { Stack } from './model/Stack';
 import { StackDescriptionPrimitiveTypeHolder } from './model/StackDescriptionPrimitiveTypeHolder';
 import { StackEvent } from './model/StackEvent';
 import { StackIdPrimitiveTypeHolder } from './model/StackIdPrimitiveTypeHolder';
+import { StackInstance } from './model/StackInstance';
+import { StackInstanceStatusMessagePrimitiveTypeHolder } from './model/StackInstanceStatusMessagePrimitiveTypeHolder';
+import { StackInstanceStatusPrimitiveTypeHolder } from './model/StackInstanceStatusPrimitiveTypeHolder';
 import { StackNamePrimitiveTypeHolder } from './model/StackNamePrimitiveTypeHolder';
 import { StackOutput } from './model/StackOutput';
 import { StackResource } from './model/StackResource';
+import { StackSet } from './model/StackSet';
+import { StackSetCreateTimePrimitiveTypeHolder } from './model/StackSetCreateTimePrimitiveTypeHolder';
+import { StackSetDescriptionPrimitiveTypeHolder } from './model/StackSetDescriptionPrimitiveTypeHolder';
+import { StackSetIdPrimitiveTypeHolder } from './model/StackSetIdPrimitiveTypeHolder';
+import { StackSetNamePrimitiveTypeHolder } from './model/StackSetNamePrimitiveTypeHolder';
+import { StackSetOperation } from './model/StackSetOperation';
+import { StackSetOperationActionPrimitiveTypeHolder } from './model/StackSetOperationActionPrimitiveTypeHolder';
+import { StackSetOperationCreateTimePrimitiveTypeHolder } from './model/StackSetOperationCreateTimePrimitiveTypeHolder';
+import { StackSetOperationIdPrimitiveTypeHolder } from './model/StackSetOperationIdPrimitiveTypeHolder';
+import { StackSetOperationStatusMessagePrimitiveTypeHolder } from './model/StackSetOperationStatusMessagePrimitiveTypeHolder';
+import { StackSetOperationStatusPrimitiveTypeHolder } from './model/StackSetOperationStatusPrimitiveTypeHolder';
+import { StackSetOperationUpdateTimePrimitiveTypeHolder } from './model/StackSetOperationUpdateTimePrimitiveTypeHolder';
+import { StackSetStatusPrimitiveTypeHolder } from './model/StackSetStatusPrimitiveTypeHolder';
+import { StackSetUpdateTimePrimitiveTypeHolder } from './model/StackSetUpdateTimePrimitiveTypeHolder';
+import { StackSetVarsURIContentPrimitiveTypeHolder } from './model/StackSetVarsURIContentPrimitiveTypeHolder';
 import { StackStatusMessagePrimitiveTypeHolder } from './model/StackStatusMessagePrimitiveTypeHolder';
 import { StackStatusPrimitiveTypeHolder } from './model/StackStatusPrimitiveTypeHolder';
 import { Template } from './model/Template';
@@ -105,9 +157,14 @@ import { TemplateVersion } from './model/TemplateVersion';
 import { UpdateStackRequest } from './model/UpdateStackRequest';
 import { UpdateStackRequestBody } from './model/UpdateStackRequestBody';
 import { UpdateStackResponse } from './model/UpdateStackResponse';
+import { UpdateStackSetRequest } from './model/UpdateStackSetRequest';
+import { UpdateStackSetRequestBody } from './model/UpdateStackSetRequestBody';
+import { UpdateStackSetResponse } from './model/UpdateStackSetResponse';
 import { UpdateTemplateMetadataRequest } from './model/UpdateTemplateMetadataRequest';
 import { UpdateTemplateMetadataRequestBody } from './model/UpdateTemplateMetadataRequestBody';
 import { UpdateTemplateMetadataResponse } from './model/UpdateTemplateMetadataResponse';
+import { VarOverridesPrimitiveTypeHolder } from './model/VarOverridesPrimitiveTypeHolder';
+import { VarOverridesPrimitiveTypeHolderVarOverrides } from './model/VarOverridesPrimitiveTypeHolderVarOverrides';
 import { VariableResponse } from './model/VariableResponse';
 import { VariableValidationResponse } from './model/VariableValidationResponse';
 import { VarsBodyPrimitiveTypeHolder } from './model/VarsBodyPrimitiveTypeHolder';
@@ -182,7 +239,7 @@ export class AosClient {
      * 执行计划不会做过多深层的检查和校验，如用户是否有权限生成、修改资源等
      * 
      * **注意：**
-     *   * 若指定资源栈不存在，则返回404
+     *   * 创建执行计划时，指定的资源栈必须存在。若指定的资源栈不存在，则返回404，用户可通过调用创建资源栈（CreateStack）API来创建资源栈。
      *   * 若请求中不含有template_body和template_uri，则返回400
      *   * 若资源栈进行了某次部署操作，则在该次部署操作前生成的执行计划将全部失效
      *   * 执行计划只代表生成时刻的结果，若执行计划生成后，用户手动修改资源状态，则执行计划不会自动更新
@@ -516,20 +573,22 @@ export class AosClient {
     }
 
     /**
+     * 条件删除资源栈（DeleteStackEnhanced）
+     * 
      * 此API用于删除某个资源栈，可以选择是否保留资源。
      * **请谨慎操作，删除资源栈将默认删除与该资源栈相关的所有数据，如：执行计划、资源栈事件、资源栈输出、资源等。**
      * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。
      * 
      * * 此API会触发删除资源栈，并以最终一致性删除数据，用户可以调用GetStackMetadata或ListStacks跟踪资源栈删除情况。当删除完成后，被删除资源栈将不会在上述API中返回。
      * * 如果资源栈状态处于非终态（状态以&#x60;IN_PROGRESS&#x60;结尾）状态时，则不允许删除。包括但不限于以下状态：
-     *  * 正在部署（DEPLOYMENT_IN_PROGRESS）
-     *  * 正在删除（DELETION_IN_PROGRESS）
-     *  * 正在回滚（ROLLBACK_IN_PROGRESS）
+     *   * 正在部署（DEPLOYMENT_IN_PROGRESS）
+     *   * 正在删除（DELETION_IN_PROGRESS）
+     *   * 正在回滚（ROLLBACK_IN_PROGRESS）
      * 
      * * 如果资源栈开启了删除保护，则不允许删除。用户可调用GetStackMetadata，查看返回中的&#x60;enable_deletion_protection&#x60;字段判断删除保护是否开启。用户可通过调用UpdateStack关闭删除保护。
      * * 如果资源栈删除失败，可以根据StackEvents提示信息修复当前模板中的错误后，部署成功后再次删除资源栈。有以下两种方式触发部署：
-     *  * 调用CreateExecutionPlan创建执行计划，执行计划创建成功后调用ApplyExecutionPlan部署资源栈。
-     *  * 调用DeployStack部署资源栈。
+     *   * 调用CreateExecutionPlan创建执行计划，执行计划创建成功后调用ApplyExecutionPlan部署资源栈。
+     *   * 调用DeployStack部署资源栈。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -795,6 +854,8 @@ export class AosClient {
     }
 
     /**
+     * 更新资源栈（UpdateStack）
+     * 
      * 更新资源栈的属性，该API可以根据用户给予的信息对资源栈的属性进行更新，可以更新资源栈的“description”、“enable_deletion_protection”、\&quot;enable_auto_rollback\&quot;、\&quot;agencies\&quot;四个属性中的一个或多个
      * 
      * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈属性进行更新
@@ -825,6 +886,341 @@ export class AosClient {
      */
     public updateStack(updateStackRequest?: UpdateStackRequest): Promise<UpdateStackResponse> {
         const options = ParamCreater().updateStack(updateStackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建资源栈实例（CreateStackInstance）
+     * 
+     * 此API用于在指定资源栈集下生成多个资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+     * 
+     * 此API可以通过var_overrides参数，指定创建资源栈实例的参数值，进行参数覆盖。若var_overrides参数未给与，则默认使用当前资源栈集中记录的参数进行部署，详见：var_overrides参数描述。
+     * 
+     * 通过DeployStackSet API更新资源栈集参数后，资源栈实例中已经被覆盖的参数不会被更新，仍然保留覆盖值。
+     * 
+     * 用户只能覆盖已经在资源栈集中记录的参数，如果用户想要增加可以覆盖的参数，需要先通过DeployStackSet API更新资源栈集记录的参数集合。
+     * 
+     * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源栈实例
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {CreateStackInstanceRequestBody} createStackInstanceRequestBody CreateStackInstance API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createStackInstance(createStackInstanceRequest?: CreateStackInstanceRequest): Promise<CreateStackInstanceResponse> {
+        const options = ParamCreater().createStackInstance(createStackInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建资源栈集（CreateStackSet）
+     * 
+     * 此API为同步API，用于生成一个空资源栈集，即不包含任何一个资源栈实例，并返回资源栈集ID（stack_set_id）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源栈集
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {CreateStackSetRequestBody} createStackSetRequestBody CreateStackSet API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createStackSet(createStackSetRequest?: CreateStackSetRequest): Promise<CreateStackSetResponse> {
+        const options = ParamCreater().createStackSet(createStackSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除资源栈实例（DeleteStackInstance）
+     * 
+     * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+     * 
+     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。
+     * 
+     * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源栈实例
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {DeleteStackInstanceRequestBody} deleteStackInstanceRequestBody DeleteStackInstance API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStackInstance(deleteStackInstanceRequest?: DeleteStackInstanceRequest): Promise<DeleteStackInstanceResponse> {
+        const options = ParamCreater().deleteStackInstance(deleteStackInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除资源栈集（DeleteStackSet）
+     * 
+     * **请谨慎操作，删除资源栈集将会删除与该资源栈集相关的所有数据，如：资源栈集操作、资源栈集操作事件等。**
+     * 
+     * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错
+     *   * 资源栈集下没有资源栈实例
+     *   * 资源栈集状态处于空闲（&#x60;IDLE&#x60;）状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源栈集
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStackSet(deleteStackSetRequest?: DeleteStackSetRequest): Promise<DeleteStackSetResponse> {
+        const options = ParamCreater().deleteStackSet(deleteStackSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 部署资源栈集（DeployStackSet）
+     * 
+     * 此API用于部署一个已有的资源栈集，并返回资源栈集操作ID（stack_set_operation_id）
+     * 
+     * * 用户可以使用此API更新资源栈集的模板、参数并进行部署。
+     * 
+     * * 此API会直接触发资源栈实例部署。用户既可以部署资源栈集下所有的资源栈实例，也可以部署指定资源栈实例。
+     * 
+     * * 此API为全量API，即用户每次部署都需要给予所想要使用的template、vars的全量
+     * 
+     * * 当触发的部署失败时，资源栈集不会自动回滚模板和参数，但部署失败的资源栈会根据资源栈的回滚配置决定是否进行回滚，已经部署成功的资源栈不会触发回滚。
+     * 
+     * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 部署资源栈集
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {DeployStackSetRequestBody} deployStackSetRequestBody DeployStackSet API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deployStackSet(deployStackSetRequest?: DeployStackSetRequest): Promise<DeployStackSetResponse> {
+        const options = ParamCreater().deployStackSet(deployStackSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举资源栈实例（ListStackInstances）
+     * 
+     * 此API用于列举指定资源栈集下指定局点（region）或指定成员账户（stack_domain_id）或全部资源栈实例
+     * 
+     * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账户（stack_domain_id）下的资源栈实例
+     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * * 若指定资源栈集下没有任何资源栈实例，则返回空list
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源栈实例
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStackInstances(listStackInstancesRequest?: ListStackInstancesRequest): Promise<ListStackInstancesResponse> {
+        const options = ParamCreater().listStackInstances(listStackInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举资源栈集操作（ListStackSetOperations）
+     * 
+     * 列举指定资源栈集下所有的资源栈集的操作。
+     * 
+     * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
+     * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * 若指定资源栈集下没有任何资源栈集操作，则返回空list。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源栈集操作
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStackSetOperations(listStackSetOperationsRequest?: ListStackSetOperationsRequest): Promise<ListStackSetOperationsResponse> {
+        const options = ParamCreater().listStackSetOperations(listStackSetOperationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举资源栈集（ListStackSets）
+     * 
+     * 此API用于列举当前用户（domain）当前局点（region）下全部资源栈集。
+     * 
+     * * 可以使用filter作为过滤器，过滤出指定权限模型（permission_model）下的资源栈集。
+     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
+     * * 如果没有任何资源栈集，则返回空list
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源栈集
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStackSets(listStackSetsRequest?: ListStackSetsRequest): Promise<ListStackSetsResponse> {
+        const options = ParamCreater().listStackSets(listStackSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源栈集元数据（ShowStackSetMetadata）
+     * 
+     * * 用户可以使用此API获取资源栈集的元数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源栈集元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStackSetMetadata(showStackSetMetadataRequest?: ShowStackSetMetadataRequest): Promise<ShowStackSetMetadataResponse> {
+        const options = ParamCreater().showStackSetMetadata(showStackSetMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源栈集操作元数据（ShowStackSetOperationMetadata）
+     * 
+     * 此API用于获取指定资源栈集操作的元数据，包括资源栈集操作ID、资源栈集ID、资源栈集名称、资源栈集操作状态、创建时间、更新时间、部署目标等信息。
+     * 
+     * 具体信息见ShowStackSetOperationMetadataResponseBody。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源栈集操作的元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} stackSetOperationId 资源栈集操作（stack_set_operation）的唯一Id。  此Id由资源编排服务在生成资源栈集操作的时候生成，为UUID。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStackSetOperationMetadata(showStackSetOperationMetadataRequest?: ShowStackSetOperationMetadataRequest): Promise<ShowStackSetOperationMetadataResponse> {
+        const options = ParamCreater().showStackSetOperationMetadata(showStackSetOperationMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源栈集模板（ShowStackSetTemplate）
+     * 
+     * 此API用于获取指定资源栈集的模板。
+     * 
+     * 如果获取成功，则以临时重定向形式返回模板下载链接（OBS Pre Signed地址，有效期为5分钟），大多数的客户端会进行自动重定向并下载模板；
+     * 若未进行自动重定向，请参考HTTP的重定向规则获取模板下载链接，手动下载模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源栈集模板
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStackSetTemplate(showStackSetTemplateRequest?: ShowStackSetTemplateRequest): Promise<ShowStackSetTemplateResponse> {
+        const options = ParamCreater().showStackSetTemplate(showStackSetTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['Location'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新资源栈集（UpdateStackSet）
+     * 
+     * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;五个属性中的一个或多个。
+     * 
+     * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈集属性进行更新。
+     * 
+     * 注：
+     *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
+     *   * 只有在permission_model&#x3D;self_managed时，才可更新administration_agency_name和managed_agency_name。
+     *   * permission_model目前只支持更新SELF_MANAGED
+     *   * 若资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源栈集
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {UpdateStackSetRequestBody} updateStackSetRequestBody UpdateStackSet API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStackSet(updateStackSetRequest?: UpdateStackSetRequest): Promise<UpdateStackSetResponse> {
+        const options = ParamCreater().updateStackSet(updateStackSetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1186,7 +1582,7 @@ export const ParamCreater = function () {
          * 执行计划不会做过多深层的检查和校验，如用户是否有权限生成、修改资源等
          * 
          * **注意：**
-         *   * 若指定资源栈不存在，则返回404
+         *   * 创建执行计划时，指定的资源栈必须存在。若指定的资源栈不存在，则返回404，用户可通过调用创建资源栈（CreateStack）API来创建资源栈。
          *   * 若请求中不含有template_body和template_uri，则返回400
          *   * 若资源栈进行了某次部署操作，则在该次部署操作前生成的执行计划将全部失效
          *   * 执行计划只代表生成时刻的结果，若执行计划生成后，用户手动修改资源状态，则执行计划不会自动更新
@@ -1930,20 +2326,22 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 条件删除资源栈（DeleteStackEnhanced）
+         * 
          * 此API用于删除某个资源栈，可以选择是否保留资源。
          * **请谨慎操作，删除资源栈将默认删除与该资源栈相关的所有数据，如：执行计划、资源栈事件、资源栈输出、资源等。**
          * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。
          * 
          * * 此API会触发删除资源栈，并以最终一致性删除数据，用户可以调用GetStackMetadata或ListStacks跟踪资源栈删除情况。当删除完成后，被删除资源栈将不会在上述API中返回。
          * * 如果资源栈状态处于非终态（状态以&#x60;IN_PROGRESS&#x60;结尾）状态时，则不允许删除。包括但不限于以下状态：
-         *  * 正在部署（DEPLOYMENT_IN_PROGRESS）
-         *  * 正在删除（DELETION_IN_PROGRESS）
-         *  * 正在回滚（ROLLBACK_IN_PROGRESS）
+         *   * 正在部署（DEPLOYMENT_IN_PROGRESS）
+         *   * 正在删除（DELETION_IN_PROGRESS）
+         *   * 正在回滚（ROLLBACK_IN_PROGRESS）
          * 
          * * 如果资源栈开启了删除保护，则不允许删除。用户可调用GetStackMetadata，查看返回中的&#x60;enable_deletion_protection&#x60;字段判断删除保护是否开启。用户可通过调用UpdateStack关闭删除保护。
          * * 如果资源栈删除失败，可以根据StackEvents提示信息修复当前模板中的错误后，部署成功后再次删除资源栈。有以下两种方式触发部署：
-         *  * 调用CreateExecutionPlan创建执行计划，执行计划创建成功后调用ApplyExecutionPlan部署资源栈。
-         *  * 调用DeployStack部署资源栈。
+         *   * 调用CreateExecutionPlan创建执行计划，执行计划创建成功后调用ApplyExecutionPlan部署资源栈。
+         *   * 调用DeployStack部署资源栈。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2509,6 +2907,8 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新资源栈（UpdateStack）
+         * 
          * 更新资源栈的属性，该API可以根据用户给予的信息对资源栈的属性进行更新，可以更新资源栈的“description”、“enable_deletion_protection”、\&quot;enable_auto_rollback\&quot;、\&quot;agencies\&quot;四个属性中的一个或多个
          * 
          * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈属性进行更新
@@ -2580,6 +2980,758 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建资源栈实例（CreateStackInstance）
+         * 
+         * 此API用于在指定资源栈集下生成多个资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+         * 
+         * 此API可以通过var_overrides参数，指定创建资源栈实例的参数值，进行参数覆盖。若var_overrides参数未给与，则默认使用当前资源栈集中记录的参数进行部署，详见：var_overrides参数描述。
+         * 
+         * 通过DeployStackSet API更新资源栈集参数后，资源栈实例中已经被覆盖的参数不会被更新，仍然保留覆盖值。
+         * 
+         * 用户只能覆盖已经在资源栈集中记录的参数，如果用户想要增加可以覆盖的参数，需要先通过DeployStackSet API更新资源栈集记录的参数集合。
+         * 
+         * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createStackInstance(createStackInstanceRequest?: CreateStackInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (createStackInstanceRequest !== null && createStackInstanceRequest !== undefined) {
+                if (createStackInstanceRequest instanceof CreateStackInstanceRequest) {
+                    clientRequestId = createStackInstanceRequest.clientRequestId;
+                    stackSetName = createStackInstanceRequest.stackSetName;
+                    body = createStackInstanceRequest.body
+                } else {
+                    clientRequestId = createStackInstanceRequest['Client-Request-Id'];
+                    stackSetName = createStackInstanceRequest['stack_set_name'];
+                    body = createStackInstanceRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling createStackInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建资源栈集（CreateStackSet）
+         * 
+         * 此API为同步API，用于生成一个空资源栈集，即不包含任何一个资源栈实例，并返回资源栈集ID（stack_set_id）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createStackSet(createStackSetRequest?: CreateStackSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/stack-sets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+
+            if (createStackSetRequest !== null && createStackSetRequest !== undefined) {
+                if (createStackSetRequest instanceof CreateStackSetRequest) {
+                    clientRequestId = createStackSetRequest.clientRequestId;
+                    body = createStackSetRequest.body
+                } else {
+                    clientRequestId = createStackSetRequest['Client-Request-Id'];
+                    body = createStackSetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除资源栈实例（DeleteStackInstance）
+         * 
+         * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+         * 
+         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。
+         * 
+         * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStackInstance(deleteStackInstanceRequest?: DeleteStackInstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (deleteStackInstanceRequest !== null && deleteStackInstanceRequest !== undefined) {
+                if (deleteStackInstanceRequest instanceof DeleteStackInstanceRequest) {
+                    clientRequestId = deleteStackInstanceRequest.clientRequestId;
+                    stackSetName = deleteStackInstanceRequest.stackSetName;
+                    body = deleteStackInstanceRequest.body
+                } else {
+                    clientRequestId = deleteStackInstanceRequest['Client-Request-Id'];
+                    stackSetName = deleteStackInstanceRequest['stack_set_name'];
+                    body = deleteStackInstanceRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling deleteStackInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除资源栈集（DeleteStackSet）
+         * 
+         * **请谨慎操作，删除资源栈集将会删除与该资源栈集相关的所有数据，如：资源栈集操作、资源栈集操作事件等。**
+         * 
+         * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错
+         *   * 资源栈集下没有资源栈实例
+         *   * 资源栈集状态处于空闲（&#x60;IDLE&#x60;）状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStackSet(deleteStackSetRequest?: DeleteStackSetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/stack-sets/{stack_set_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetId;
+
+            if (deleteStackSetRequest !== null && deleteStackSetRequest !== undefined) {
+                if (deleteStackSetRequest instanceof DeleteStackSetRequest) {
+                    clientRequestId = deleteStackSetRequest.clientRequestId;
+                    stackSetName = deleteStackSetRequest.stackSetName;
+                    stackSetId = deleteStackSetRequest.stackSetId;
+                } else {
+                    clientRequestId = deleteStackSetRequest['Client-Request-Id'];
+                    stackSetName = deleteStackSetRequest['stack_set_name'];
+                    stackSetId = deleteStackSetRequest['stack_set_id'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling deleteStackSet.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 部署资源栈集（DeployStackSet）
+         * 
+         * 此API用于部署一个已有的资源栈集，并返回资源栈集操作ID（stack_set_operation_id）
+         * 
+         * * 用户可以使用此API更新资源栈集的模板、参数并进行部署。
+         * 
+         * * 此API会直接触发资源栈实例部署。用户既可以部署资源栈集下所有的资源栈实例，也可以部署指定资源栈实例。
+         * 
+         * * 此API为全量API，即用户每次部署都需要给予所想要使用的template、vars的全量
+         * 
+         * * 当触发的部署失败时，资源栈集不会自动回滚模板和参数，但部署失败的资源栈会根据资源栈的回滚配置决定是否进行回滚，已经部署成功的资源栈不会触发回滚。
+         * 
+         * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deployStackSet(deployStackSetRequest?: DeployStackSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/stack-sets/{stack_set_name}/deployments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (deployStackSetRequest !== null && deployStackSetRequest !== undefined) {
+                if (deployStackSetRequest instanceof DeployStackSetRequest) {
+                    clientRequestId = deployStackSetRequest.clientRequestId;
+                    stackSetName = deployStackSetRequest.stackSetName;
+                    body = deployStackSetRequest.body
+                } else {
+                    clientRequestId = deployStackSetRequest['Client-Request-Id'];
+                    stackSetName = deployStackSetRequest['stack_set_name'];
+                    body = deployStackSetRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling deployStackSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举资源栈实例（ListStackInstances）
+         * 
+         * 此API用于列举指定资源栈集下指定局点（region）或指定成员账户（stack_domain_id）或全部资源栈实例
+         * 
+         * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账户（stack_domain_id）下的资源栈实例
+         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * * 若指定资源栈集下没有任何资源栈实例，则返回空list
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStackInstances(listStackInstancesRequest?: ListStackInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetId;
+            
+            let filter;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listStackInstancesRequest !== null && listStackInstancesRequest !== undefined) {
+                if (listStackInstancesRequest instanceof ListStackInstancesRequest) {
+                    clientRequestId = listStackInstancesRequest.clientRequestId;
+                    stackSetName = listStackInstancesRequest.stackSetName;
+                    stackSetId = listStackInstancesRequest.stackSetId;
+                    filter = listStackInstancesRequest.filter;
+                    sortKey = listStackInstancesRequest.sortKey;
+                    sortDir = listStackInstancesRequest.sortDir;
+                } else {
+                    clientRequestId = listStackInstancesRequest['Client-Request-Id'];
+                    stackSetName = listStackInstancesRequest['stack_set_name'];
+                    stackSetId = listStackInstancesRequest['stack_set_id'];
+                    filter = listStackInstancesRequest['filter'];
+                    sortKey = listStackInstancesRequest['sort_key'];
+                    sortDir = listStackInstancesRequest['sort_dir'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling listStackInstances.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举资源栈集操作（ListStackSetOperations）
+         * 
+         * 列举指定资源栈集下所有的资源栈集的操作。
+         * 
+         * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
+         * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * 若指定资源栈集下没有任何资源栈集操作，则返回空list。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStackSetOperations(listStackSetOperationsRequest?: ListStackSetOperationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/operations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetId;
+            
+            let filter;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listStackSetOperationsRequest !== null && listStackSetOperationsRequest !== undefined) {
+                if (listStackSetOperationsRequest instanceof ListStackSetOperationsRequest) {
+                    clientRequestId = listStackSetOperationsRequest.clientRequestId;
+                    stackSetName = listStackSetOperationsRequest.stackSetName;
+                    stackSetId = listStackSetOperationsRequest.stackSetId;
+                    filter = listStackSetOperationsRequest.filter;
+                    sortKey = listStackSetOperationsRequest.sortKey;
+                    sortDir = listStackSetOperationsRequest.sortDir;
+                } else {
+                    clientRequestId = listStackSetOperationsRequest['Client-Request-Id'];
+                    stackSetName = listStackSetOperationsRequest['stack_set_name'];
+                    stackSetId = listStackSetOperationsRequest['stack_set_id'];
+                    filter = listStackSetOperationsRequest['filter'];
+                    sortKey = listStackSetOperationsRequest['sort_key'];
+                    sortDir = listStackSetOperationsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling listStackSetOperations.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举资源栈集（ListStackSets）
+         * 
+         * 此API用于列举当前用户（domain）当前局点（region）下全部资源栈集。
+         * 
+         * * 可以使用filter作为过滤器，过滤出指定权限模型（permission_model）下的资源栈集。
+         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
+         * * 如果没有任何资源栈集，则返回空list
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStackSets(listStackSetsRequest?: ListStackSetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let filter;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listStackSetsRequest !== null && listStackSetsRequest !== undefined) {
+                if (listStackSetsRequest instanceof ListStackSetsRequest) {
+                    clientRequestId = listStackSetsRequest.clientRequestId;
+                    filter = listStackSetsRequest.filter;
+                    sortKey = listStackSetsRequest.sortKey;
+                    sortDir = listStackSetsRequest.sortDir;
+                } else {
+                    clientRequestId = listStackSetsRequest['Client-Request-Id'];
+                    filter = listStackSetsRequest['filter'];
+                    sortKey = listStackSetsRequest['sort_key'];
+                    sortDir = listStackSetsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资源栈集元数据（ShowStackSetMetadata）
+         * 
+         * * 用户可以使用此API获取资源栈集的元数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStackSetMetadata(showStackSetMetadataRequest?: ShowStackSetMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetId;
+
+            if (showStackSetMetadataRequest !== null && showStackSetMetadataRequest !== undefined) {
+                if (showStackSetMetadataRequest instanceof ShowStackSetMetadataRequest) {
+                    clientRequestId = showStackSetMetadataRequest.clientRequestId;
+                    stackSetName = showStackSetMetadataRequest.stackSetName;
+                    stackSetId = showStackSetMetadataRequest.stackSetId;
+                } else {
+                    clientRequestId = showStackSetMetadataRequest['Client-Request-Id'];
+                    stackSetName = showStackSetMetadataRequest['stack_set_name'];
+                    stackSetId = showStackSetMetadataRequest['stack_set_id'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling showStackSetMetadata.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资源栈集操作元数据（ShowStackSetOperationMetadata）
+         * 
+         * 此API用于获取指定资源栈集操作的元数据，包括资源栈集操作ID、资源栈集ID、资源栈集名称、资源栈集操作状态、创建时间、更新时间、部署目标等信息。
+         * 
+         * 具体信息见ShowStackSetOperationMetadataResponseBody。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStackSetOperationMetadata(showStackSetOperationMetadataRequest?: ShowStackSetOperationMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/operations/{stack_set_operation_id}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetOperationId;
+            
+            let stackSetId;
+
+            if (showStackSetOperationMetadataRequest !== null && showStackSetOperationMetadataRequest !== undefined) {
+                if (showStackSetOperationMetadataRequest instanceof ShowStackSetOperationMetadataRequest) {
+                    clientRequestId = showStackSetOperationMetadataRequest.clientRequestId;
+                    stackSetName = showStackSetOperationMetadataRequest.stackSetName;
+                    stackSetOperationId = showStackSetOperationMetadataRequest.stackSetOperationId;
+                    stackSetId = showStackSetOperationMetadataRequest.stackSetId;
+                } else {
+                    clientRequestId = showStackSetOperationMetadataRequest['Client-Request-Id'];
+                    stackSetName = showStackSetOperationMetadataRequest['stack_set_name'];
+                    stackSetOperationId = showStackSetOperationMetadataRequest['stack_set_operation_id'];
+                    stackSetId = showStackSetOperationMetadataRequest['stack_set_id'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling showStackSetOperationMetadata.');
+            }
+            if (stackSetOperationId === null || stackSetOperationId === undefined) {
+            throw new RequiredError('stackSetOperationId','Required parameter stackSetOperationId was null or undefined when calling showStackSetOperationMetadata.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName,'stack_set_operation_id': stackSetOperationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资源栈集模板（ShowStackSetTemplate）
+         * 
+         * 此API用于获取指定资源栈集的模板。
+         * 
+         * 如果获取成功，则以临时重定向形式返回模板下载链接（OBS Pre Signed地址，有效期为5分钟），大多数的客户端会进行自动重定向并下载模板；
+         * 若未进行自动重定向，请参考HTTP的重定向规则获取模板下载链接，手动下载模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStackSetTemplate(showStackSetTemplateRequest?: ShowStackSetTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackSetId;
+
+            if (showStackSetTemplateRequest !== null && showStackSetTemplateRequest !== undefined) {
+                if (showStackSetTemplateRequest instanceof ShowStackSetTemplateRequest) {
+                    clientRequestId = showStackSetTemplateRequest.clientRequestId;
+                    stackSetName = showStackSetTemplateRequest.stackSetName;
+                    stackSetId = showStackSetTemplateRequest.stackSetId;
+                } else {
+                    clientRequestId = showStackSetTemplateRequest['Client-Request-Id'];
+                    stackSetName = showStackSetTemplateRequest['stack_set_name'];
+                    stackSetId = showStackSetTemplateRequest['stack_set_id'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling showStackSetTemplate.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新资源栈集（UpdateStackSet）
+         * 
+         * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;五个属性中的一个或多个。
+         * 
+         * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈集属性进行更新。
+         * 
+         * 注：
+         *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
+         *   * 只有在permission_model&#x3D;self_managed时，才可更新administration_agency_name和managed_agency_name。
+         *   * permission_model目前只支持更新SELF_MANAGED
+         *   * 若资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStackSet(updateStackSetRequest?: UpdateStackSetRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/stack-sets/{stack_set_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (updateStackSetRequest !== null && updateStackSetRequest !== undefined) {
+                if (updateStackSetRequest instanceof UpdateStackSetRequest) {
+                    clientRequestId = updateStackSetRequest.clientRequestId;
+                    stackSetName = updateStackSetRequest.stackSetName;
+                    body = updateStackSetRequest.body
+                } else {
+                    clientRequestId = updateStackSetRequest['Client-Request-Id'];
+                    stackSetName = updateStackSetRequest['stack_set_name'];
+                    body = updateStackSetRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling updateStackSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'stack_set_name': stackSetName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

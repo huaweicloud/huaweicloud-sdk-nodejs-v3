@@ -2,7 +2,6 @@
 
 export class ListAgentInvocationsRequest {
     private 'instance_id'?: string;
-    private 'instance_name'?: string;
     private 'instance_type'?: ListAgentInvocationsRequestInstanceTypeEnum | string;
     private 'invocation_id'?: string;
     private 'invocation_type'?: ListAgentInvocationsRequestInvocationTypeEnum | string;
@@ -20,16 +19,6 @@ export class ListAgentInvocationsRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
-    }
-    public withInstanceName(instanceName: string): ListAgentInvocationsRequest {
-        this['instance_name'] = instanceName;
-        return this;
-    }
-    public set instanceName(instanceName: string  | undefined) {
-        this['instance_name'] = instanceName;
-    }
-    public get instanceName(): string | undefined {
-        return this['instance_name'];
     }
     public withInstanceType(instanceType: ListAgentInvocationsRequestInstanceTypeEnum | string): ListAgentInvocationsRequest {
         this['instance_type'] = instanceType;
@@ -96,7 +85,8 @@ export enum ListAgentInvocationsRequestInstanceTypeEnum {
 export enum ListAgentInvocationsRequestInvocationTypeEnum {
     INSTALL = 'INSTALL',
     UPDATE = 'UPDATE',
-    ROLLBACK = 'ROLLBACK'
+    ROLLBACK = 'ROLLBACK',
+    RETRY = 'RETRY'
 }
 /**
     * @export

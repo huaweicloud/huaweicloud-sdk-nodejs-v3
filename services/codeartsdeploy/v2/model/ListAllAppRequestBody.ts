@@ -6,8 +6,12 @@ export class ListAllAppRequestBody {
     public size?: number;
     private 'sort_name'?: ListAllAppRequestBodySortNameEnum | string;
     private 'sort_by'?: string;
-    public constructor(projectId?: string) { 
+    public states?: Array<ListAllAppRequestBodyStatesEnum> | Array<string>;
+    private 'group_id'?: string;
+    public constructor(projectId?: string, page?: number, size?: number) { 
         this['project_id'] = projectId;
+        this['page'] = page;
+        this['size'] = size;
     }
     public withProjectId(projectId: string): ListAllAppRequestBody {
         this['project_id'] = projectId;
@@ -47,6 +51,20 @@ export class ListAllAppRequestBody {
     public get sortBy(): string | undefined {
         return this['sort_by'];
     }
+    public withStates(states: Array<ListAllAppRequestBodyStatesEnum> | Array<string>): ListAllAppRequestBody {
+        this['states'] = states;
+        return this;
+    }
+    public withGroupId(groupId: string): ListAllAppRequestBody {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
 }
 
 /**
@@ -56,4 +74,18 @@ export class ListAllAppRequestBody {
 export enum ListAllAppRequestBodySortNameEnum {
     NAME = 'name',
     STARTTIME = 'startTime'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAllAppRequestBodyStatesEnum {
+    ABORT = 'abort',
+    FAILED = 'failed',
+    NOT_STARTED = 'not_started',
+    PENDING = 'pending',
+    RUNNING = 'running',
+    SUCCEEDED = 'succeeded',
+    TIMEOUT = 'timeout',
+    NOT_EXECUTED = 'not_executed'
 }

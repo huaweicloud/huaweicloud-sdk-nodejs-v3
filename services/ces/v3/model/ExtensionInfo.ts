@@ -3,6 +3,7 @@
 export class ExtensionInfo {
     public name?: string;
     public status?: ExtensionInfoStatusEnum | string;
+    public version?: string;
     public constructor() { 
     }
     public withName(name: string): ExtensionInfo {
@@ -11,6 +12,10 @@ export class ExtensionInfo {
     }
     public withStatus(status: ExtensionInfoStatusEnum | string): ExtensionInfo {
         this['status'] = status;
+        return this;
+    }
+    public withVersion(version: string): ExtensionInfo {
+        this['version'] = version;
         return this;
     }
 }

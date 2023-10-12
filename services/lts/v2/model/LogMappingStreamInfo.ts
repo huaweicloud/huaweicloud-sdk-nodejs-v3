@@ -6,7 +6,10 @@ export class LogMappingStreamInfo {
     private 'target_log_stream_name'?: string;
     private 'target_log_stream_eps_id'?: string;
     private 'target_log_stream_ttl'?: number;
-    public constructor() { 
+    public constructor(sourceLogStreamId?: string, targetLogStreamName?: string, targetLogStreamTtl?: number) { 
+        this['source_log_stream_id'] = sourceLogStreamId;
+        this['target_log_stream_name'] = targetLogStreamName;
+        this['target_log_stream_ttl'] = targetLogStreamTtl;
     }
     public withSourceLogStreamId(sourceLogStreamId: string): LogMappingStreamInfo {
         this['source_log_stream_id'] = sourceLogStreamId;

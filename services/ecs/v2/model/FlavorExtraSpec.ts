@@ -33,6 +33,8 @@ export class FlavorExtraSpec {
     private 'info:gpu:name'?: string;
     private 'info:cpu:name'?: string;
     private 'quota:gpu'?: string;
+    private 'quota:vif_max_num'?: string;
+    private 'quota:sub_network_interface_max_num'?: string;
     private 'ecs:instance_architecture'?: string;
     public constructor() { 
     }
@@ -355,6 +357,26 @@ export class FlavorExtraSpec {
     }
     public get quotaGpu(): string | undefined {
         return this['quota:gpu'];
+    }
+    public withQuotaVifMaxNum(quotaVifMaxNum: string): FlavorExtraSpec {
+        this['quota:vif_max_num'] = quotaVifMaxNum;
+        return this;
+    }
+    public set quotaVifMaxNum(quotaVifMaxNum: string  | undefined) {
+        this['quota:vif_max_num'] = quotaVifMaxNum;
+    }
+    public get quotaVifMaxNum(): string | undefined {
+        return this['quota:vif_max_num'];
+    }
+    public withQuotaSubNetworkInterfaceMaxNum(quotaSubNetworkInterfaceMaxNum: string): FlavorExtraSpec {
+        this['quota:sub_network_interface_max_num'] = quotaSubNetworkInterfaceMaxNum;
+        return this;
+    }
+    public set quotaSubNetworkInterfaceMaxNum(quotaSubNetworkInterfaceMaxNum: string  | undefined) {
+        this['quota:sub_network_interface_max_num'] = quotaSubNetworkInterfaceMaxNum;
+    }
+    public get quotaSubNetworkInterfaceMaxNum(): string | undefined {
+        return this['quota:sub_network_interface_max_num'];
     }
     public withEcsInstanceArchitecture(ecsInstanceArchitecture: string): FlavorExtraSpec {
         this['ecs:instance_architecture'] = ecsInstanceArchitecture;

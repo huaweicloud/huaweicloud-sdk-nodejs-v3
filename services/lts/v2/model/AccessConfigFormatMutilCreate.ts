@@ -3,9 +3,7 @@
 export class AccessConfigFormatMutilCreate {
     public mode?: AccessConfigFormatMutilCreateModeEnum | string;
     public value?: string;
-    public constructor(mode?: string, value?: string) { 
-        this['mode'] = mode;
-        this['value'] = value;
+    public constructor() { 
     }
     public withMode(mode: AccessConfigFormatMutilCreateModeEnum | string): AccessConfigFormatMutilCreate {
         this['mode'] = mode;

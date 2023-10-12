@@ -42,17 +42,25 @@ import { Cluster } from './model/Cluster';
 import { ClusterCheckBody } from './model/ClusterCheckBody';
 import { ClusterCheckRequestBody } from './model/ClusterCheckRequestBody';
 import { ClusterConfiguration } from './model/ClusterConfiguration';
+import { ClusterDescriptionInfo } from './model/ClusterDescriptionInfo';
 import { ClusterDetail } from './model/ClusterDetail';
 import { ClusterDisasterRecovery } from './model/ClusterDisasterRecovery';
 import { ClusterElbInfo } from './model/ClusterElbInfo';
+import { ClusterFlavorResp } from './model/ClusterFlavorResp';
 import { ClusterInfo } from './model/ClusterInfo';
 import { ClusterRecoveryProgress } from './model/ClusterRecoveryProgress';
 import { ClusterShrinkReq } from './model/ClusterShrinkReq';
 import { ClusterSnapshots } from './model/ClusterSnapshots';
+import { CompatibleConfigurationResp } from './model/CompatibleConfigurationResp';
+import { CompatibleDataStoreResp } from './model/CompatibleDataStoreResp';
+import { CompatibleFaultResp } from './model/CompatibleFaultResp';
+import { CompatibleInstanceVolumeResp } from './model/CompatibleInstanceVolumeResp';
+import { CompatibleReplicasResp } from './model/CompatibleReplicasResp';
 import { ConfigurationParameter } from './model/ConfigurationParameter';
 import { ConfigurationParameterUnit } from './model/ConfigurationParameterUnit';
 import { ConfigurationParameterValue } from './model/ConfigurationParameterValue';
 import { ConfigurationParameterValues } from './model/ConfigurationParameterValues';
+import { ConfigurationRecordResp } from './model/ConfigurationRecordResp';
 import { CoordinatorNode } from './model/CoordinatorNode';
 import { CopySnapshotRequest } from './model/CopySnapshotRequest';
 import { CopySnapshotResponse } from './model/CopySnapshotResponse';
@@ -84,6 +92,8 @@ import { CreateSnapshotRequestBody } from './model/CreateSnapshotRequestBody';
 import { CreateSnapshotResponse } from './model/CreateSnapshotResponse';
 import { CreateWorkloadPlanRequest } from './model/CreateWorkloadPlanRequest';
 import { CreateWorkloadPlanResponse } from './model/CreateWorkloadPlanResponse';
+import { DatabaseOmUserActionReq } from './model/DatabaseOmUserActionReq';
+import { DatabaseOmUserInfo } from './model/DatabaseOmUserInfo';
 import { DatabasePermissionReq } from './model/DatabasePermissionReq';
 import { DatabaseUser } from './model/DatabaseUser';
 import { DatabaseUserInfoReq } from './model/DatabaseUserInfoReq';
@@ -126,6 +136,8 @@ import { EventSpecResponse } from './model/EventSpecResponse';
 import { EventSubRequest } from './model/EventSubRequest';
 import { EventSubUpdateRequest } from './model/EventSubUpdateRequest';
 import { EventSubscriptionResponse } from './model/EventSubscriptionResponse';
+import { ExecuteDatabaseOmUserActionRequest } from './model/ExecuteDatabaseOmUserActionRequest';
+import { ExecuteDatabaseOmUserActionResponse } from './model/ExecuteDatabaseOmUserActionResponse';
 import { ExecuteRedistributionClusterRequest } from './model/ExecuteRedistributionClusterRequest';
 import { ExecuteRedistributionClusterResponse } from './model/ExecuteRedistributionClusterResponse';
 import { ExpandInstanceStorage } from './model/ExpandInstanceStorage';
@@ -139,6 +151,7 @@ import { Grant } from './model/Grant';
 import { HostOverviewResponse } from './model/HostOverviewResponse';
 import { IndicatorInfo } from './model/IndicatorInfo';
 import { LinkCopyReq } from './model/LinkCopyReq';
+import { LinkResp } from './model/LinkResp';
 import { ListAlarmConfigsRequest } from './model/ListAlarmConfigsRequest';
 import { ListAlarmConfigsResponse } from './model/ListAlarmConfigsResponse';
 import { ListAlarmDetailRequest } from './model/ListAlarmDetailRequest';
@@ -171,6 +184,8 @@ import { ListClusterWorkloadRequest } from './model/ListClusterWorkloadRequest';
 import { ListClusterWorkloadResponse } from './model/ListClusterWorkloadResponse';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
+import { ListConfigurationsAuditRecordsRequest } from './model/ListConfigurationsAuditRecordsRequest';
+import { ListConfigurationsAuditRecordsResponse } from './model/ListConfigurationsAuditRecordsResponse';
 import { ListDataSourceRequest } from './model/ListDataSourceRequest';
 import { ListDataSourceResponse } from './model/ListDataSourceResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
@@ -237,8 +252,13 @@ import { PublicEndpoints } from './model/PublicEndpoints';
 import { PublicIp } from './model/PublicIp';
 import { QuotasQuotas } from './model/QuotasQuotas';
 import { QuotasResource } from './model/QuotasResource';
+import { RdsRedisInfo } from './model/RdsRedisInfo';
 import { ReconfigureExtDataSourceAction } from './model/ReconfigureExtDataSourceAction';
 import { ReconfigureExtDataSourceActionReq } from './model/ReconfigureExtDataSourceActionReq';
+import { RedisConf } from './model/RedisConf';
+import { RedisProgress } from './model/RedisProgress';
+import { RedisTable } from './model/RedisTable';
+import { RedisTableDetail } from './model/RedisTableDetail';
 import { RedistributionReq } from './model/RedistributionReq';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordRequestBody } from './model/ResetPasswordRequestBody';
@@ -260,15 +280,24 @@ import { RestoreDisasterResponse } from './model/RestoreDisasterResponse';
 import { RestorePoint } from './model/RestorePoint';
 import { Revoke } from './model/Revoke';
 import { RoleAuthority } from './model/RoleAuthority';
+import { SaveClusterDescriptionInfoRequest } from './model/SaveClusterDescriptionInfoRequest';
+import { SaveClusterDescriptionInfoResponse } from './model/SaveClusterDescriptionInfoResponse';
 import { ScaleOut } from './model/ScaleOut';
+import { ScheduleConf } from './model/ScheduleConf';
+import { ShowClusterRedistributionRequest } from './model/ShowClusterRedistributionRequest';
+import { ShowClusterRedistributionResponse } from './model/ShowClusterRedistributionResponse';
 import { ShowDatabaseAuthorityRequest } from './model/ShowDatabaseAuthorityRequest';
 import { ShowDatabaseAuthorityResponse } from './model/ShowDatabaseAuthorityResponse';
+import { ShowDatabaseOmUserStatusRequest } from './model/ShowDatabaseOmUserStatusRequest';
+import { ShowDatabaseOmUserStatusResponse } from './model/ShowDatabaseOmUserStatusResponse';
 import { ShowDatabaseUserRequest } from './model/ShowDatabaseUserRequest';
 import { ShowDatabaseUserResponse } from './model/ShowDatabaseUserResponse';
 import { ShowDisasterDetailRequest } from './model/ShowDisasterDetailRequest';
 import { ShowDisasterDetailResponse } from './model/ShowDisasterDetailResponse';
 import { ShowDisasterProgressRequest } from './model/ShowDisasterProgressRequest';
 import { ShowDisasterProgressResponse } from './model/ShowDisasterProgressResponse';
+import { ShowInstanceRequest } from './model/ShowInstanceRequest';
+import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
 import { Snapshot } from './model/Snapshot';
@@ -1000,6 +1029,26 @@ export class DwsClient {
     }
 
     /**
+     * 进行数据库运维账户操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行运维用户操作
+     * @param {string} clusterId 集群ID
+     * @param {DatabaseOmUserActionReq} executeDatabaseOmUserActionRequestBody 操作类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeDatabaseOmUserAction(executeDatabaseOmUserActionRequest?: ExecuteDatabaseOmUserActionRequest): Promise<ExecuteDatabaseOmUserActionResponse> {
+        const options = ParamCreater().executeDatabaseOmUserAction(executeDatabaseOmUserActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 下发重分布
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1353,6 +1402,30 @@ export class DwsClient {
      */
     public listClusters(listClustersRequest?: ListClustersRequest): Promise<ListClustersResponse> {
         const options = ParamCreater().listClusters();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询参数修改审计记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数修改审计记录
+     * @param {string} clusterId 集群ID
+     * @param {number} [actionTime] 任务时间
+     * @param {string} [filterBy] 过滤配置信息
+     * @param {string} [filter] 过滤条件
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigurationsAuditRecords(listConfigurationsAuditRecordsRequest?: ListConfigurationsAuditRecordsRequest): Promise<ListConfigurationsAuditRecordsResponse> {
+        const options = ParamCreater().listConfigurationsAuditRecords(listConfigurationsAuditRecordsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1931,6 +2004,51 @@ export class DwsClient {
     }
 
     /**
+     * 保存集群描述信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 保存集群描述信息
+     * @param {string} clusterId 集群ID
+     * @param {ClusterDescriptionInfo} saveClusterDescriptionInfoRequestBody body请求体
+     * @param {string} [namespace] 命名空间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveClusterDescriptionInfo(saveClusterDescriptionInfoRequest?: SaveClusterDescriptionInfoRequest): Promise<SaveClusterDescriptionInfoResponse> {
+        const options = ParamCreater().saveClusterDescriptionInfo(saveClusterDescriptionInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询重分布详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询重分布详情
+     * @param {string} clusterId 集群ID
+     * @param {number} [limit] 分页查询，每页大小
+     * @param {number} [offset] 分页查询，偏移
+     * @param {string} [dbName] 数据库名称
+     * @param {string} [tableName] 表名称
+     * @param {string} [type] 类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterRedistribution(showClusterRedistributionRequest?: ShowClusterRedistributionRequest): Promise<ShowClusterRedistributionResponse> {
+        const options = ParamCreater().showClusterRedistribution(showClusterRedistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库对象权限
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1947,6 +2065,25 @@ export class DwsClient {
      */
     public showDatabaseAuthority(showDatabaseAuthorityRequest?: ShowDatabaseAuthorityRequest): Promise<ShowDatabaseAuthorityResponse> {
         const options = ParamCreater().showDatabaseAuthority(showDatabaseAuthorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获得数据库运维账户状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获得集群运维账户状态
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDatabaseOmUserStatus(showDatabaseOmUserStatusRequest?: ShowDatabaseOmUserStatusRequest): Promise<ShowDatabaseOmUserStatusResponse> {
+        const options = ParamCreater().showDatabaseOmUserStatus(showDatabaseOmUserStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2005,6 +2142,25 @@ export class DwsClient {
      */
     public showDisasterProgress(showDisasterProgressRequest?: ShowDisasterProgressRequest): Promise<ShowDisasterProgressResponse> {
         const options = ParamCreater().showDisasterProgress(showDisasterProgressRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单个实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单个实例
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
+        const options = ParamCreater().showInstance(showInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3750,6 +3906,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 进行数据库运维账户操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeDatabaseOmUserAction(executeDatabaseOmUserActionRequest?: ExecuteDatabaseOmUserActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/om-user/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (executeDatabaseOmUserActionRequest !== null && executeDatabaseOmUserActionRequest !== undefined) {
+                if (executeDatabaseOmUserActionRequest instanceof ExecuteDatabaseOmUserActionRequest) {
+                    clusterId = executeDatabaseOmUserActionRequest.clusterId;
+                    body = executeDatabaseOmUserActionRequest.body
+                } else {
+                    clusterId = executeDatabaseOmUserActionRequest['cluster_id'];
+                    body = executeDatabaseOmUserActionRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling executeDatabaseOmUserAction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 下发重分布
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4531,6 +4733,79 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询参数修改审计记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigurationsAuditRecords(listConfigurationsAuditRecordsRequest?: ListConfigurationsAuditRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/configurations/audit-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let actionTime;
+            
+            let filterBy;
+            
+            let filter;
+            
+            let limit;
+            
+            let offset;
+
+            if (listConfigurationsAuditRecordsRequest !== null && listConfigurationsAuditRecordsRequest !== undefined) {
+                if (listConfigurationsAuditRecordsRequest instanceof ListConfigurationsAuditRecordsRequest) {
+                    clusterId = listConfigurationsAuditRecordsRequest.clusterId;
+                    actionTime = listConfigurationsAuditRecordsRequest.actionTime;
+                    filterBy = listConfigurationsAuditRecordsRequest.filterBy;
+                    filter = listConfigurationsAuditRecordsRequest.filter;
+                    limit = listConfigurationsAuditRecordsRequest.limit;
+                    offset = listConfigurationsAuditRecordsRequest.offset;
+                } else {
+                    clusterId = listConfigurationsAuditRecordsRequest['cluster_id'];
+                    actionTime = listConfigurationsAuditRecordsRequest['action_time'];
+                    filterBy = listConfigurationsAuditRecordsRequest['filter_by'];
+                    filter = listConfigurationsAuditRecordsRequest['filter'];
+                    limit = listConfigurationsAuditRecordsRequest['limit'];
+                    offset = listConfigurationsAuditRecordsRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listConfigurationsAuditRecords.');
+            }
+            if (actionTime !== null && actionTime !== undefined) {
+                localVarQueryParameter['action_time'] = actionTime;
+            }
+            if (filterBy !== null && filterBy !== undefined) {
+                localVarQueryParameter['filter_by'] = filterBy;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5705,6 +5980,133 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 保存集群描述信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveClusterDescriptionInfo(saveClusterDescriptionInfoRequest?: SaveClusterDescriptionInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/description",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let clusterId;
+            
+            let namespace;
+
+            if (saveClusterDescriptionInfoRequest !== null && saveClusterDescriptionInfoRequest !== undefined) {
+                if (saveClusterDescriptionInfoRequest instanceof SaveClusterDescriptionInfoRequest) {
+                    clusterId = saveClusterDescriptionInfoRequest.clusterId;
+                    body = saveClusterDescriptionInfoRequest.body
+                    namespace = saveClusterDescriptionInfoRequest.namespace;
+                } else {
+                    clusterId = saveClusterDescriptionInfoRequest['cluster_id'];
+                    body = saveClusterDescriptionInfoRequest['body'];
+                    namespace = saveClusterDescriptionInfoRequest['namespace'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling saveClusterDescriptionInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询重分布详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterRedistribution(showClusterRedistributionRequest?: ShowClusterRedistributionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/redistribution",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let limit;
+            
+            let offset;
+            
+            let dbName;
+            
+            let tableName;
+            
+            let type;
+
+            if (showClusterRedistributionRequest !== null && showClusterRedistributionRequest !== undefined) {
+                if (showClusterRedistributionRequest instanceof ShowClusterRedistributionRequest) {
+                    clusterId = showClusterRedistributionRequest.clusterId;
+                    limit = showClusterRedistributionRequest.limit;
+                    offset = showClusterRedistributionRequest.offset;
+                    dbName = showClusterRedistributionRequest.dbName;
+                    tableName = showClusterRedistributionRequest.tableName;
+                    type = showClusterRedistributionRequest.type;
+                } else {
+                    clusterId = showClusterRedistributionRequest['cluster_id'];
+                    limit = showClusterRedistributionRequest['limit'];
+                    offset = showClusterRedistributionRequest['offset'];
+                    dbName = showClusterRedistributionRequest['db_name'];
+                    tableName = showClusterRedistributionRequest['table_name'];
+                    type = showClusterRedistributionRequest['type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterRedistribution.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库对象权限
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5781,6 +6183,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获得数据库运维账户状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDatabaseOmUserStatus(showDatabaseOmUserStatusRequest?: ShowDatabaseOmUserStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/om-user/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showDatabaseOmUserStatusRequest !== null && showDatabaseOmUserStatusRequest !== undefined) {
+                if (showDatabaseOmUserStatusRequest instanceof ShowDatabaseOmUserStatusRequest) {
+                    clusterId = showDatabaseOmUserStatusRequest.clusterId;
+                } else {
+                    clusterId = showDatabaseOmUserStatusRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showDatabaseOmUserStatus.');
+            }
+
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5900,6 +6339,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'disaster_recovery_id': disasterRecoveryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单个实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstance(showInstanceRequest?: ShowInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceRequest !== null && showInstanceRequest !== undefined) {
+                if (showInstanceRequest instanceof ShowInstanceRequest) {
+                    instanceId = showInstanceRequest.instanceId;
+                } else {
+                    instanceId = showInstanceRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstance.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

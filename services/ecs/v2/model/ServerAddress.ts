@@ -2,6 +2,7 @@
 
 export class ServerAddress {
     public version?: string;
+    public primary?: boolean;
     public addr?: string;
     private 'OS-EXT-IPS:type'?: ServerAddressOSEXTIPSTypeEnum | string;
     private 'OS-EXT-IPS-MAC:mac_addr'?: string;
@@ -12,6 +13,10 @@ export class ServerAddress {
     }
     public withVersion(version: string): ServerAddress {
         this['version'] = version;
+        return this;
+    }
+    public withPrimary(primary: boolean): ServerAddress {
+        this['primary'] = primary;
         return this;
     }
     public withAddr(addr: string): ServerAddress {

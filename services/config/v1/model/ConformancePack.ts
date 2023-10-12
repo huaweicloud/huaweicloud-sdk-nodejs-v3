@@ -12,6 +12,7 @@ export class ConformancePack {
     public status?: ConformancePackStatusEnum | string;
     private 'error_message'?: string;
     private 'vars_structure'?: Array<VarsStructure>;
+    private 'created_by'?: string;
     public constructor() { 
     }
     public withId(id: string): ConformancePack {
@@ -95,6 +96,16 @@ export class ConformancePack {
     }
     public get varsStructure(): Array<VarsStructure> | undefined {
         return this['vars_structure'];
+    }
+    public withCreatedBy(createdBy: string): ConformancePack {
+        this['created_by'] = createdBy;
+        return this;
+    }
+    public set createdBy(createdBy: string  | undefined) {
+        this['created_by'] = createdBy;
+    }
+    public get createdBy(): string | undefined {
+        return this['created_by'];
     }
 }
 

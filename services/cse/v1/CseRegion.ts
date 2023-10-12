@@ -22,6 +22,8 @@ export class CseRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://cse.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://cse.la-south-2.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://cse.la-north-2.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://cse.me-east-1.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://cse.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -40,7 +42,9 @@ export class CseRegion {
         "cn-north-9":CseRegion.CN_NORTH_9,
         "sa-brazil-1":CseRegion.SA_BRAZIL_1,
         "la-south-2":CseRegion.LA_SOUTH_2,
-        "la-north-2":CseRegion.LA_NORTH_2
+        "la-north-2":CseRegion.LA_NORTH_2,
+        "me-east-1":CseRegion.ME_EAST_1,
+        "tr-west-1":CseRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

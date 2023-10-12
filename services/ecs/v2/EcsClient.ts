@@ -1767,13 +1767,13 @@ export class EcsClient {
     }
 
     /**
-     * 修改按需服务器，设置定时销毁时间。如果设置的销毁时间为空，表示取消销毁时间。
+     * 修改按需服务器，设置定时删除时间。如果设置的定时删除时间为空，表示取消定时删除。
      * 
      * 该接口支持企业项目细粒度权限的校验，具体细粒度请参见 ecs:cloudServers:put。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改云服务器销毁时间
+     * @summary 修改云服务器定时删除时间
      * @param {string} serverId 云服务器ID。
      * @param {UpdateServerAutoTerminateTimeRequestBody} updateServerAutoTerminateTimeRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -4956,7 +4956,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改按需服务器，设置定时销毁时间。如果设置的销毁时间为空，表示取消销毁时间。
+         * 修改按需服务器，设置定时删除时间。如果设置的定时删除时间为空，表示取消定时删除。
          * 
          * 该接口支持企业项目细粒度权限的校验，具体细粒度请参见 ecs:cloudServers:put。
          * 

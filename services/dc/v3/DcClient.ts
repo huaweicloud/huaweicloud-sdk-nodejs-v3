@@ -12,6 +12,12 @@ import { CreateHostedDirectConnectResponse } from './model/CreateHostedDirectCon
 import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
 import { CreateResourceTagRequestBody } from './model/CreateResourceTagRequestBody';
 import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
+import { CreateSwitchoverTest } from './model/CreateSwitchoverTest';
+import { CreateSwitchoverTestRequestBody } from './model/CreateSwitchoverTestRequestBody';
+import { CreateVifPeer } from './model/CreateVifPeer';
+import { CreateVifPeerRequest } from './model/CreateVifPeerRequest';
+import { CreateVifPeerRequestBody } from './model/CreateVifPeerRequestBody';
+import { CreateVifPeerResponse } from './model/CreateVifPeerResponse';
 import { CreateVirtualGateway } from './model/CreateVirtualGateway';
 import { CreateVirtualGatewayRequest } from './model/CreateVirtualGatewayRequest';
 import { CreateVirtualGatewayRequestBody } from './model/CreateVirtualGatewayRequestBody';
@@ -26,18 +32,23 @@ import { DeleteHostedDirectConnectRequest } from './model/DeleteHostedDirectConn
 import { DeleteHostedDirectConnectResponse } from './model/DeleteHostedDirectConnectResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
+import { DeleteVifPeerRequest } from './model/DeleteVifPeerRequest';
+import { DeleteVifPeerResponse } from './model/DeleteVifPeerResponse';
 import { DeleteVirtualGatewayRequest } from './model/DeleteVirtualGatewayRequest';
 import { DeleteVirtualGatewayResponse } from './model/DeleteVirtualGatewayResponse';
 import { DeleteVirtualInterfaceRequest } from './model/DeleteVirtualInterfaceRequest';
 import { DeleteVirtualInterfaceResponse } from './model/DeleteVirtualInterfaceResponse';
 import { DirectConnect } from './model/DirectConnect';
 import { HostedDirectConnect } from './model/HostedDirectConnect';
+import { Info } from './model/Info';
 import { ListDirectConnectsRequest } from './model/ListDirectConnectsRequest';
 import { ListDirectConnectsResponse } from './model/ListDirectConnectsResponse';
 import { ListHostedDirectConnectsRequest } from './model/ListHostedDirectConnectsRequest';
 import { ListHostedDirectConnectsResponse } from './model/ListHostedDirectConnectsResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListSwitchoverTestRecordsRequest } from './model/ListSwitchoverTestRecordsRequest';
+import { ListSwitchoverTestRecordsResponse } from './model/ListSwitchoverTestRecordsResponse';
 import { ListTagResourceInstancesRequest } from './model/ListTagResourceInstancesRequest';
 import { ListTagResourceInstancesRequestBody } from './model/ListTagResourceInstancesRequestBody';
 import { ListTagResourceInstancesResponse } from './model/ListTagResourceInstancesResponse';
@@ -52,12 +63,18 @@ import { ShowDirectConnectRequest } from './model/ShowDirectConnectRequest';
 import { ShowDirectConnectResponse } from './model/ShowDirectConnectResponse';
 import { ShowHostedDirectConnectRequest } from './model/ShowHostedDirectConnectRequest';
 import { ShowHostedDirectConnectResponse } from './model/ShowHostedDirectConnectResponse';
+import { ShowQuotasRequest } from './model/ShowQuotasRequest';
+import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowQuotasResponseBodyQuotas } from './model/ShowQuotasResponseBodyQuotas';
 import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
 import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
 import { ShowVirtualGatewayRequest } from './model/ShowVirtualGatewayRequest';
 import { ShowVirtualGatewayResponse } from './model/ShowVirtualGatewayResponse';
 import { ShowVirtualInterfaceRequest } from './model/ShowVirtualInterfaceRequest';
 import { ShowVirtualInterfaceResponse } from './model/ShowVirtualInterfaceResponse';
+import { SwitchoverTestRecord } from './model/SwitchoverTestRecord';
+import { SwitchoverTestRequest } from './model/SwitchoverTestRequest';
+import { SwitchoverTestResponse } from './model/SwitchoverTestResponse';
 import { Tag } from './model/Tag';
 import { Tags } from './model/Tags';
 import { TenantIdDef } from './model/TenantIdDef';
@@ -69,6 +86,10 @@ import { UpdateHostedDirectConnect } from './model/UpdateHostedDirectConnect';
 import { UpdateHostedDirectConnectRequest } from './model/UpdateHostedDirectConnectRequest';
 import { UpdateHostedDirectConnectRequestBody } from './model/UpdateHostedDirectConnectRequestBody';
 import { UpdateHostedDirectConnectResponse } from './model/UpdateHostedDirectConnectResponse';
+import { UpdateVifPeer } from './model/UpdateVifPeer';
+import { UpdateVifPeerRequest } from './model/UpdateVifPeerRequest';
+import { UpdateVifPeerRequestBody } from './model/UpdateVifPeerRequestBody';
+import { UpdateVifPeerResponse } from './model/UpdateVifPeerResponse';
 import { UpdateVirtualGateway } from './model/UpdateVirtualGateway';
 import { UpdateVirtualGatewayRequest } from './model/UpdateVirtualGatewayRequest';
 import { UpdateVirtualGatewayRequestBody } from './model/UpdateVirtualGatewayRequestBody';
@@ -167,7 +188,7 @@ export class DcClient {
      * @param {string} [sortKey] 排序字段。
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
      * @param {Array<string>} [hostingId] 根椐运营专线ID过滤托管专线列表
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤中心网络列表。
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
      * @param {Array<string>} [id] 根据资源ID过滤实例
      * @param {Array<string>} [name] 根据名字过滤查询，可查询多个名字。
      * @param {*} [options] Override http request option.
@@ -215,8 +236,6 @@ export class DcClient {
      *
      * @summary 查询物理连接详情
      * @param {string} directConnectId 物理专线连接ID。
-     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
-     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [fields] 显示字段列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -276,7 +295,7 @@ export class DcClient {
     }
 
     /**
-     * 合作伙伴创建托管专线.
+     * 合作伙伴更新托管专线.
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -296,6 +315,25 @@ export class DcClient {
     }
 
     /**
+     * 查询租户各类资源的使用情况，如Directconnect的使用量，虚拟接口的使用量等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配额
+     * @param {Array<string>} [type] 支持过滤的配额类型： - [physicalConnect:  物理连接direct_connect实例的配额和使用量](tag:hws) - [virtualInterface: 虚拟接口virtual-interface的配额和使用量](tag:hws) - [connectGateway: 连接网关（用于关联GEIP）的配额和使用量](tag:hws) - [geip: 每租户可以关联GEIP的配额和使用量](tag:hws) - [globalDcGateway 专线全球接入网关的配额和使用量](tag:hws) - [peerLinkPerGdgw: 接入网关的关联连接的配额和使用量](tag:hws)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
+        const options = ParamCreater().showQuotas(showQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 为指定实例批量添加或删除标签
      * - 标签管理服务需要使用该接口批量管理实例的标签。
      * - 一个资源上最多有10个标签。
@@ -304,7 +342,7 @@ export class DcClient {
      *
      * @summary 批量添加删除资源标签
      * @param {string} resourceId 资源实例ID
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {BatchOperateResourceTagsRequestBody} batchCreateResourceTagsRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -327,7 +365,7 @@ export class DcClient {
      *
      * @summary 添加资源标签
      * @param {string} resourceId 资源实例ID
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {CreateResourceTagRequestBody} createResourceTagRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -349,7 +387,7 @@ export class DcClient {
      * @summary 删除资源标签
      * @param {string} key 标签key。
      * @param {string} resourceId 资源实例ID
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -369,7 +407,7 @@ export class DcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -388,7 +426,7 @@ export class DcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通过标签查询资源实例
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {ListTagResourceInstancesRequestBody} listTagResourceInstancesRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -408,7 +446,7 @@ export class DcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif' | 'dc-lag'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
+     * @param {'dc-directconnect' | 'dc-vgw' | 'dc-vif'} resourceType - 专线服务资源类型，包括dc-directconnect/dc-vgw/dc-vif - dc-directconnect: 专线物理连接 - dc-vgw： 虚拟网关 - dc-vif： 虚拟接口
      * @param {string} resourceId 资源实例ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -472,6 +510,7 @@ export class DcClient {
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
      * @param {string} [sortKey] 排序字段。
      * @param {Array<string>} [id] 根据资源ID过滤实例
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
      * @param {Array<string>} [vpcId] 通过VPC-ID过虑虚拟网关实例
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -526,6 +565,25 @@ export class DcClient {
     }
 
     /**
+     * 每个虚拟接口可支持两个对等体，IPv4和IPv6对等体，在创建虚拟接口时默认创建IPv4对等体， 本接口一般用于增加ipv6对等体。创建虚拟接口对接体之后，可以通过虚拟接口查询配置结果 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建虚拟接口对等体
+     * @param {CreateVifPeerRequestBody} [createVifPeerRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVifPeer(createVifPeerRequest?: CreateVifPeerRequest): Promise<CreateVifPeerResponse> {
+        const options = ParamCreater().createVifPeer(createVifPeerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 虚拟接口配置物理专线上与客户互联的IP和路由等相关信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -537,6 +595,25 @@ export class DcClient {
      */
     public createVirtualInterface(createVirtualInterfaceRequest?: CreateVirtualInterfaceRequest): Promise<CreateVirtualInterfaceResponse> {
         const options = ParamCreater().createVirtualInterface(createVirtualInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除虚拟接口对等体信息,虚拟接口到少要含一个对等体,最后一个对等体不能删除 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除虚拟接口对应的对等体
+     * @param {string} vifPeerId 虚拟接口对等体ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVifPeer(deleteVifPeerRequest?: DeleteVifPeerRequest): Promise<DeleteVifPeerResponse> {
+        const options = ParamCreater().deleteVifPeer(deleteVifPeerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -564,6 +641,30 @@ export class DcClient {
     }
 
     /**
+     * 查询倒换测试记录列表，只展示operate_status为COMPELTE的记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟接口倒换测试记录列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {Array<string>} [fields] 显示字段列表
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<string>} [resourceId] 通过RESOURCE-ID过虑倒换测试记录信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSwitchoverTestRecords(listSwitchoverTestRecordsRequest?: ListSwitchoverTestRecordsRequest): Promise<ListSwitchoverTestRecordsResponse> {
+        const options = ParamCreater().listSwitchoverTestRecords(listSwitchoverTestRecordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户所有的虚拟接口列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -574,7 +675,7 @@ export class DcClient {
      * @param {Array<string>} [fields] 显示字段列表
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
      * @param {string} [sortKey] 排序字段。
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤中心网络列表。
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤资源实例
      * @param {Array<string>} [id] 根据资源ID过滤实例
      * @param {Array<string>} [status] 根椐资源状态过淲实例
      * @param {Array<string>} [directConnectId] 根椐物理专线ID过滤查询实例信息
@@ -604,6 +705,45 @@ export class DcClient {
      */
     public showVirtualInterface(showVirtualInterfaceRequest?: ShowVirtualInterfaceRequest): Promise<ShowVirtualInterfaceResponse> {
         const options = ParamCreater().showVirtualInterface(showVirtualInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 客户双专线接入，需要支持双线自动倒换，方便进行功能测试。 虚拟接口进行倒换测试会导致接口关闭，业务流量中断。 对于虚拟接口，支持“关闭接口”和“开放接口”两种操作。 1、关闭接口：下发shutdown命令，关闭接口； 2、开放接口：下发undo_shutdown命令，使能接口。 倒换测试选择shutdown时，虚拟接口的状态为ADMIN_SHUTDOWN，此状态不允许虚拟接口的其他操作。 倒换测试选择undo_shutdown时，虚拟接口的状态为ACTIVE。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行虚拟接口倒换测试
+     * @param {CreateSwitchoverTestRequestBody} createSwitchoverTestRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchoverTest(switchoverTestRequest?: SwitchoverTestRequest): Promise<SwitchoverTestResponse> {
+        const options = ParamCreater().switchoverTest(switchoverTestRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新虚拟接口对等体信息,包括远端子网，名字和描述等。 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新虚拟接口对等体
+     * @param {string} vifPeerId 虚拟接口对等体ID
+     * @param {UpdateVifPeerRequestBody} [updateVifPeerRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVifPeer(updateVifPeerRequest?: UpdateVifPeerRequest): Promise<UpdateVifPeerResponse> {
+        const options = ParamCreater().updateVifPeer(updateVifPeerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -943,22 +1083,14 @@ export const ParamCreater = function () {
             
             let directConnectId;
             
-            let limit;
-            
-            let marker;
-            
             let fields;
 
             if (showDirectConnectRequest !== null && showDirectConnectRequest !== undefined) {
                 if (showDirectConnectRequest instanceof ShowDirectConnectRequest) {
                     directConnectId = showDirectConnectRequest.directConnectId;
-                    limit = showDirectConnectRequest.limit;
-                    marker = showDirectConnectRequest.marker;
                     fields = showDirectConnectRequest.fields;
                 } else {
                     directConnectId = showDirectConnectRequest['direct_connect_id'];
-                    limit = showDirectConnectRequest['limit'];
-                    marker = showDirectConnectRequest['marker'];
                     fields = showDirectConnectRequest['fields'];
                 }
             }
@@ -966,12 +1098,6 @@ export const ParamCreater = function () {
         
             if (directConnectId === null || directConnectId === undefined) {
             throw new RequiredError('directConnectId','Required parameter directConnectId was null or undefined when calling showDirectConnect.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
             }
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -1107,7 +1233,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 合作伙伴创建托管专线.
+         * 合作伙伴更新托管专线.
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1145,6 +1271,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'hosted_connect_id': hostedConnectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户各类资源的使用情况，如Directconnect的使用量，虚拟接口的使用量等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuotas(showQuotasRequest?: ShowQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+
+            if (showQuotasRequest !== null && showQuotasRequest !== undefined) {
+                if (showQuotasRequest instanceof ShowQuotasRequest) {
+                    type = showQuotasRequest.type;
+                } else {
+                    type = showQuotasRequest['type'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1539,6 +1702,8 @@ export const ParamCreater = function () {
             
             let id;
             
+            let enterpriseProjectId;
+            
             let vpcId;
 
             if (listVirtualGatewaysRequest !== null && listVirtualGatewaysRequest !== undefined) {
@@ -1549,6 +1714,7 @@ export const ParamCreater = function () {
                     sortDir = listVirtualGatewaysRequest.sortDir;
                     sortKey = listVirtualGatewaysRequest.sortKey;
                     id = listVirtualGatewaysRequest.id;
+                    enterpriseProjectId = listVirtualGatewaysRequest.enterpriseProjectId;
                     vpcId = listVirtualGatewaysRequest.vpcId;
                 } else {
                     limit = listVirtualGatewaysRequest['limit'];
@@ -1557,6 +1723,7 @@ export const ParamCreater = function () {
                     sortDir = listVirtualGatewaysRequest['sort_dir'];
                     sortKey = listVirtualGatewaysRequest['sort_key'];
                     id = listVirtualGatewaysRequest['id'];
+                    enterpriseProjectId = listVirtualGatewaysRequest['enterprise_project_id'];
                     vpcId = listVirtualGatewaysRequest['vpc_id'];
                 }
             }
@@ -1579,6 +1746,9 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (vpcId !== null && vpcId !== undefined) {
                 localVarQueryParameter['vpc_id'] = vpcId;
@@ -1678,6 +1848,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 每个虚拟接口可支持两个对等体，IPv4和IPv6对等体，在创建虚拟接口时默认创建IPv4对等体， 本接口一般用于增加ipv6对等体。创建虚拟接口对接体之后，可以通过虚拟接口查询配置结果 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVifPeer(createVifPeerRequest?: CreateVifPeerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/vif-peers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVifPeerRequest !== null && createVifPeerRequest !== undefined) {
+                if (createVifPeerRequest instanceof CreateVifPeerRequest) {
+                    body = createVifPeerRequest.body
+                } else {
+                    body = createVifPeerRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 虚拟接口配置物理专线上与客户互联的IP和路由等相关信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1716,6 +1921,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除虚拟接口对等体信息,虚拟接口到少要含一个对等体,最后一个对等体不能删除 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVifPeer(deleteVifPeerRequest?: DeleteVifPeerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/dcaas/vif-peers/{vif_peer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vifPeerId;
+
+            if (deleteVifPeerRequest !== null && deleteVifPeerRequest !== undefined) {
+                if (deleteVifPeerRequest instanceof DeleteVifPeerRequest) {
+                    vifPeerId = deleteVifPeerRequest.vifPeerId;
+                } else {
+                    vifPeerId = deleteVifPeerRequest['vif_peer_id'];
+                }
+            }
+
+        
+            if (vifPeerId === null || vifPeerId === undefined) {
+            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling deleteVifPeer.');
+            }
+
+            options.pathParams = { 'vif_peer_id': vifPeerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除虚拟接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1748,6 +1990,78 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'virtual_interface_id': virtualInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询倒换测试记录列表，只展示operate_status为COMPELTE的记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSwitchoverTestRecords(listSwitchoverTestRecordsRequest?: ListSwitchoverTestRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/switchover-test",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let fields;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let resourceId;
+
+            if (listSwitchoverTestRecordsRequest !== null && listSwitchoverTestRecordsRequest !== undefined) {
+                if (listSwitchoverTestRecordsRequest instanceof ListSwitchoverTestRecordsRequest) {
+                    limit = listSwitchoverTestRecordsRequest.limit;
+                    marker = listSwitchoverTestRecordsRequest.marker;
+                    fields = listSwitchoverTestRecordsRequest.fields;
+                    sortDir = listSwitchoverTestRecordsRequest.sortDir;
+                    sortKey = listSwitchoverTestRecordsRequest.sortKey;
+                    resourceId = listSwitchoverTestRecordsRequest.resourceId;
+                } else {
+                    limit = listSwitchoverTestRecordsRequest['limit'];
+                    marker = listSwitchoverTestRecordsRequest['marker'];
+                    fields = listSwitchoverTestRecordsRequest['fields'];
+                    sortDir = listSwitchoverTestRecordsRequest['sort_dir'];
+                    sortKey = listSwitchoverTestRecordsRequest['sort_key'];
+                    resourceId = listSwitchoverTestRecordsRequest['resource_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1893,6 +2207,87 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'virtual_interface_id': virtualInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 客户双专线接入，需要支持双线自动倒换，方便进行功能测试。 虚拟接口进行倒换测试会导致接口关闭，业务流量中断。 对于虚拟接口，支持“关闭接口”和“开放接口”两种操作。 1、关闭接口：下发shutdown命令，关闭接口； 2、开放接口：下发undo_shutdown命令，使能接口。 倒换测试选择shutdown时，虚拟接口的状态为ADMIN_SHUTDOWN，此状态不允许虚拟接口的其他操作。 倒换测试选择undo_shutdown时，虚拟接口的状态为ACTIVE。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchoverTest(switchoverTestRequest?: SwitchoverTestRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/switchover-test",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (switchoverTestRequest !== null && switchoverTestRequest !== undefined) {
+                if (switchoverTestRequest instanceof SwitchoverTestRequest) {
+                    body = switchoverTestRequest.body
+                } else {
+                    body = switchoverTestRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新虚拟接口对等体信息,包括远端子网，名字和描述等。 本接口只在支持Ipv6的区域开放，如需要使用请联系客服
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVifPeer(updateVifPeerRequest?: UpdateVifPeerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/vif-peers/{vif_peer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vifPeerId;
+
+            if (updateVifPeerRequest !== null && updateVifPeerRequest !== undefined) {
+                if (updateVifPeerRequest instanceof UpdateVifPeerRequest) {
+                    vifPeerId = updateVifPeerRequest.vifPeerId;
+                    body = updateVifPeerRequest.body
+                } else {
+                    vifPeerId = updateVifPeerRequest['vif_peer_id'];
+                    body = updateVifPeerRequest['body'];
+                }
+            }
+
+        
+            if (vifPeerId === null || vifPeerId === undefined) {
+            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling updateVifPeer.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vif_peer_id': vifPeerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

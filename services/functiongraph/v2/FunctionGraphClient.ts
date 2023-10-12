@@ -14,7 +14,6 @@ import { BatchDeleteWorkflowsResponse } from './model/BatchDeleteWorkflowsRespon
 import { CancelAsyncInvocationRequest } from './model/CancelAsyncInvocationRequest';
 import { CancelAsyncInvocationRequestBody } from './model/CancelAsyncInvocationRequestBody';
 import { CancelAsyncInvocationResponse } from './model/CancelAsyncInvocationResponse';
-import { CorsConfig } from './model/CorsConfig';
 import { CreateDependencyRequest } from './model/CreateDependencyRequest';
 import { CreateDependencyRequestBody } from './model/CreateDependencyRequestBody';
 import { CreateDependencyResponse } from './model/CreateDependencyResponse';
@@ -29,8 +28,6 @@ import { CreateFunctionResponse } from './model/CreateFunctionResponse';
 import { CreateFunctionTriggerRequest } from './model/CreateFunctionTriggerRequest';
 import { CreateFunctionTriggerRequestBody } from './model/CreateFunctionTriggerRequestBody';
 import { CreateFunctionTriggerResponse } from './model/CreateFunctionTriggerResponse';
-import { CreateFunctionUrlRequest } from './model/CreateFunctionUrlRequest';
-import { CreateFunctionUrlResponse } from './model/CreateFunctionUrlResponse';
 import { CreateFunctionVersionRequest } from './model/CreateFunctionVersionRequest';
 import { CreateFunctionVersionRequestBody } from './model/CreateFunctionVersionRequestBody';
 import { CreateFunctionVersionResponse } from './model/CreateFunctionVersionResponse';
@@ -58,8 +55,6 @@ import { DeleteFunctionRequest } from './model/DeleteFunctionRequest';
 import { DeleteFunctionResponse } from './model/DeleteFunctionResponse';
 import { DeleteFunctionTriggerRequest } from './model/DeleteFunctionTriggerRequest';
 import { DeleteFunctionTriggerResponse } from './model/DeleteFunctionTriggerResponse';
-import { DeleteFunctionUrlRequest } from './model/DeleteFunctionUrlRequest';
-import { DeleteFunctionUrlResponse } from './model/DeleteFunctionUrlResponse';
 import { DeleteTagsRequest } from './model/DeleteTagsRequest';
 import { DeleteTagsResponse } from './model/DeleteTagsResponse';
 import { DeleteVersionAliasRequest } from './model/DeleteVersionAliasRequest';
@@ -86,7 +81,6 @@ import { Function } from './model/Function';
 import { FunctionAsyncConfig } from './model/FunctionAsyncConfig';
 import { FunctionMetric } from './model/FunctionMetric';
 import { FunctionRef } from './model/FunctionRef';
-import { FunctionUrlRequestBody } from './model/FunctionUrlRequestBody';
 import { ImportFunctionRequest } from './model/ImportFunctionRequest';
 import { ImportFunctionRequestBody } from './model/ImportFunctionRequestBody';
 import { ImportFunctionResponse } from './model/ImportFunctionResponse';
@@ -174,8 +168,6 @@ import { ShowFunctionConfigRequest } from './model/ShowFunctionConfigRequest';
 import { ShowFunctionConfigResponse } from './model/ShowFunctionConfigResponse';
 import { ShowFunctionTriggerRequest } from './model/ShowFunctionTriggerRequest';
 import { ShowFunctionTriggerResponse } from './model/ShowFunctionTriggerResponse';
-import { ShowFunctionUrlRequest } from './model/ShowFunctionUrlRequest';
-import { ShowFunctionUrlResponse } from './model/ShowFunctionUrlResponse';
 import { ShowLtsLogDetailsRequest } from './model/ShowLtsLogDetailsRequest';
 import { ShowLtsLogDetailsResponse } from './model/ShowLtsLogDetailsResponse';
 import { ShowProjectTagsListRequest } from './model/ShowProjectTagsListRequest';
@@ -234,8 +226,6 @@ import { UpdateFunctionReservedInstancesCountRequest } from './model/UpdateFunct
 import { UpdateFunctionReservedInstancesCountRequestBody } from './model/UpdateFunctionReservedInstancesCountRequestBody';
 import { UpdateFunctionReservedInstancesCountResponse } from './model/UpdateFunctionReservedInstancesCountResponse';
 import { UpdateFunctionTagsRequestBody } from './model/UpdateFunctionTagsRequestBody';
-import { UpdateFunctionUrlRequest } from './model/UpdateFunctionUrlRequest';
-import { UpdateFunctionUrlResponse } from './model/UpdateFunctionUrlResponse';
 import { UpdateTracingRequest } from './model/UpdateTracingRequest';
 import { UpdateTracingRequestBody } from './model/UpdateTracingRequestBody';
 import { UpdateTracingResponse } from './model/UpdateTracingResponse';
@@ -472,26 +462,6 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 创建函数URL
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建函数URL
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {FunctionUrlRequestBody} createFunctionUrlRequestBody 创建函数URL请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createFunctionUrl(createFunctionUrlRequest?: CreateFunctionUrlRequest): Promise<CreateFunctionUrlResponse> {
-        const options = ParamCreater().createFunctionUrl(createFunctionUrlRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 发布函数版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -704,25 +674,6 @@ export class FunctionGraphClient {
      */
     public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<DeleteFunctionTriggerResponse> {
         const options = ParamCreater().deleteFunctionTrigger(deleteFunctionTriggerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除函数URL
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除函数URL
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteFunctionUrl(deleteFunctionUrlRequest?: DeleteFunctionUrlRequest): Promise<DeleteFunctionUrlResponse> {
-        const options = ParamCreater().deleteFunctionUrl(deleteFunctionUrlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1440,25 +1391,6 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 获取指定函数的URL
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取指定函数的URL
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showFunctionUrl(showFunctionUrlRequest?: ShowFunctionUrlRequest): Promise<ShowFunctionUrlResponse> {
-        const options = ParamCreater().showFunctionUrl(showFunctionUrlRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 获取指定函数的lts日志组日志流配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1880,26 +1812,6 @@ export class FunctionGraphClient {
      */
     public updateFunctionReservedInstancesCount(updateFunctionReservedInstancesCountRequest?: UpdateFunctionReservedInstancesCountRequest): Promise<UpdateFunctionReservedInstancesCountResponse> {
         const options = ParamCreater().updateFunctionReservedInstancesCount(updateFunctionReservedInstancesCountRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 更新函数URL
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新函数URL
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {FunctionUrlRequestBody} updateFunctionUrlRequestBody 更新函数URL请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateFunctionUrl(updateFunctionUrlRequest?: UpdateFunctionUrlRequest): Promise<UpdateFunctionUrlResponse> {
-        const options = ParamCreater().updateFunctionUrl(updateFunctionUrlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2419,52 +2331,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建函数URL
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createFunctionUrl(createFunctionUrlRequest?: CreateFunctionUrlRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/function-url",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let functionUrn;
-
-            if (createFunctionUrlRequest !== null && createFunctionUrlRequest !== undefined) {
-                if (createFunctionUrlRequest instanceof CreateFunctionUrlRequest) {
-                    functionUrn = createFunctionUrlRequest.functionUrn;
-                    body = createFunctionUrlRequest.body
-                } else {
-                    functionUrn = createFunctionUrlRequest['function_urn'];
-                    body = createFunctionUrlRequest['body'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionUrl.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 发布函数版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2934,43 +2800,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除函数URL
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteFunctionUrl(deleteFunctionUrlRequest?: DeleteFunctionUrlRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/function-url",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let functionUrn;
-
-            if (deleteFunctionUrlRequest !== null && deleteFunctionUrlRequest !== undefined) {
-                if (deleteFunctionUrlRequest instanceof DeleteFunctionUrlRequest) {
-                    functionUrn = deleteFunctionUrlRequest.functionUrn;
-                } else {
-                    functionUrn = deleteFunctionUrlRequest['function_urn'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionUrl.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4642,43 +4471,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定函数的URL
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showFunctionUrl(showFunctionUrlRequest?: ShowFunctionUrlRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/function-url",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let functionUrn;
-
-            if (showFunctionUrlRequest !== null && showFunctionUrlRequest !== undefined) {
-                if (showFunctionUrlRequest instanceof ShowFunctionUrlRequest) {
-                    functionUrn = showFunctionUrlRequest.functionUrn;
-                } else {
-                    functionUrn = showFunctionUrlRequest['function_urn'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionUrl.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取指定函数的lts日志组日志流配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5681,52 +5473,6 @@ export const ParamCreater = function () {
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionReservedInstancesCount.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新函数URL
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateFunctionUrl(updateFunctionUrlRequest?: UpdateFunctionUrlRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/function-url",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let functionUrn;
-
-            if (updateFunctionUrlRequest !== null && updateFunctionUrlRequest !== undefined) {
-                if (updateFunctionUrlRequest instanceof UpdateFunctionUrlRequest) {
-                    functionUrn = updateFunctionUrlRequest.functionUrn;
-                    body = updateFunctionUrlRequest.body
-                } else {
-                    functionUrn = updateFunctionUrlRequest['function_urn'];
-                    body = updateFunctionUrlRequest['body'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionUrl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

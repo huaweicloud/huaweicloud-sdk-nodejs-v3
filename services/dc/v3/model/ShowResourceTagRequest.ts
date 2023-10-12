@@ -36,6 +36,5 @@ export class ShowResourceTagRequest {
 export enum ShowResourceTagRequestResourceTypeEnum {
     DC_DIRECTCONNECT = 'dc-directconnect',
     DC_VGW = 'dc-vgw',
-    DC_VIF = 'dc-vif',
-    DC_LAG = 'dc-lag'
+    DC_VIF = 'dc-vif'
 }

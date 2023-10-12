@@ -304,9 +304,7 @@ export enum DirectConnectPortTypeEnum {
 export enum DirectConnectTypeEnum {
     STANDARD = 'standard',
     HOSTING = 'hosting',
-    HOSTED = 'hosted',
-    ONESTOP_STANDARD = 'onestop_standard',
-    ONESTOP_HOSTED = 'onestop_hosted'
+    HOSTED = 'hosted'
 }
 /**
     * @export
@@ -315,8 +313,7 @@ export enum DirectConnectTypeEnum {
 export enum DirectConnectChargeModeEnum {
     PREPAYMENT = 'prepayment',
     BANDWIDTH = 'bandwidth',
-    TRAFFIC = 'traffic',
-    PORT = 'port'
+    TRAFFIC = 'traffic'
 }
 /**
     * @export

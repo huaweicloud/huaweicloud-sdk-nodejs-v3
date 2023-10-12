@@ -1,3 +1,5 @@
+import { VehicleLicenseFront } from './VehicleLicenseFront';
+import { VehicleLicenseback } from './VehicleLicenseback';
 
 
 export class VehicleLicenseResult {
@@ -23,6 +25,9 @@ export class VehicleLicenseResult {
     private 'inspection_record'?: string;
     private 'code_number'?: string;
     private 'text_location'?: object;
+    private 'energy_type'?: string;
+    public front?: VehicleLicenseFront;
+    public back?: VehicleLicenseback;
     public constructor() { 
     }
     public withModelNumber(modelNumber: string): VehicleLicenseResult {
@@ -208,5 +213,23 @@ export class VehicleLicenseResult {
     }
     public get textLocation(): object | undefined {
         return this['text_location'];
+    }
+    public withEnergyType(energyType: string): VehicleLicenseResult {
+        this['energy_type'] = energyType;
+        return this;
+    }
+    public set energyType(energyType: string  | undefined) {
+        this['energy_type'] = energyType;
+    }
+    public get energyType(): string | undefined {
+        return this['energy_type'];
+    }
+    public withFront(front: VehicleLicenseFront): VehicleLicenseResult {
+        this['front'] = front;
+        return this;
+    }
+    public withBack(back: VehicleLicenseback): VehicleLicenseResult {
+        this['back'] = back;
+        return this;
     }
 }

@@ -34,6 +34,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public tags?: Array<ClusterDetailTags>;
     public failedReason?: ClusterDetailFailedReasons;
     public period?: boolean;
+    public bandwidthResourceId?: string;
     public constructor() { 
         super();
     }
@@ -139,6 +140,10 @@ export class ShowClusterDetailResponse extends SdkResponse {
     }
     public withPeriod(period: boolean): ShowClusterDetailResponse {
         this['period'] = period;
+        return this;
+    }
+    public withBandwidthResourceId(bandwidthResourceId: string): ShowClusterDetailResponse {
+        this['bandwidthResourceId'] = bandwidthResourceId;
         return this;
     }
 }

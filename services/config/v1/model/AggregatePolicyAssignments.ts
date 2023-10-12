@@ -6,6 +6,7 @@ export class AggregatePolicyAssignments {
     private 'policy_assignment_name'?: string;
     public compliance?: Compliance;
     private 'account_id'?: string;
+    private 'account_name'?: string;
     public constructor() { 
     }
     public withPolicyAssignmentId(policyAssignmentId: string): AggregatePolicyAssignments {
@@ -41,5 +42,15 @@ export class AggregatePolicyAssignments {
     }
     public get accountId(): string | undefined {
         return this['account_id'];
+    }
+    public withAccountName(accountName: string): AggregatePolicyAssignments {
+        this['account_name'] = accountName;
+        return this;
+    }
+    public set accountName(accountName: string  | undefined) {
+        this['account_name'] = accountName;
+    }
+    public get accountName(): string | undefined {
+        return this['account_name'];
     }
 }

@@ -10,6 +10,7 @@ export class ShowHistoryTasksRequest {
     private 'order_field'?: string;
     private 'order_type'?: string;
     private 'file_type'?: ShowHistoryTasksRequestFileTypeEnum | string;
+    private 'task_type'?: ShowHistoryTasksRequestTaskTypeEnum | string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowHistoryTasksRequest {
@@ -96,6 +97,16 @@ export class ShowHistoryTasksRequest {
     public get fileType(): ShowHistoryTasksRequestFileTypeEnum | string | undefined {
         return this['file_type'];
     }
+    public withTaskType(taskType: ShowHistoryTasksRequestTaskTypeEnum | string): ShowHistoryTasksRequest {
+        this['task_type'] = taskType;
+        return this;
+    }
+    public set taskType(taskType: ShowHistoryTasksRequestTaskTypeEnum | string  | undefined) {
+        this['task_type'] = taskType;
+    }
+    public get taskType(): ShowHistoryTasksRequestTaskTypeEnum | string | undefined {
+        return this['task_type'];
+    }
 }
 
 /**
@@ -113,4 +124,12 @@ export enum ShowHistoryTasksRequestStatusEnum {
 export enum ShowHistoryTasksRequestFileTypeEnum {
     FILE = 'file',
     DIRECTORY = 'directory'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowHistoryTasksRequestTaskTypeEnum {
+    REFRESH = 'refresh',
+    PREHEATING = 'preheating'
 }

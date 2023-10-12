@@ -1,11 +1,11 @@
-import { AccessConfigDeatilCreate } from './AccessConfigDeatilCreate';
+import { AccessConfigDeatilUpdate } from './AccessConfigDeatilUpdate';
 import { AccessConfigHostGroupIdList } from './AccessConfigHostGroupIdList';
 import { AccessConfigTag } from './AccessConfigTag';
 
 
 export class UpdateAccessConfigRequestBody {
     private 'access_config_id'?: string;
-    private 'access_config_detail'?: AccessConfigDeatilCreate;
+    private 'access_config_detail'?: AccessConfigDeatilUpdate;
     private 'host_group_info'?: AccessConfigHostGroupIdList;
     private 'access_config_tag'?: Array<AccessConfigTag>;
     private 'log_split'?: boolean;
@@ -24,14 +24,14 @@ export class UpdateAccessConfigRequestBody {
     public get accessConfigId(): string | undefined {
         return this['access_config_id'];
     }
-    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate): UpdateAccessConfigRequestBody {
+    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatilUpdate): UpdateAccessConfigRequestBody {
         this['access_config_detail'] = accessConfigDetail;
         return this;
     }
-    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate  | undefined) {
+    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatilUpdate  | undefined) {
         this['access_config_detail'] = accessConfigDetail;
     }
-    public get accessConfigDetail(): AccessConfigDeatilCreate | undefined {
+    public get accessConfigDetail(): AccessConfigDeatilUpdate | undefined {
         return this['access_config_detail'];
     }
     public withHostGroupInfo(hostGroupInfo: AccessConfigHostGroupIdList): UpdateAccessConfigRequestBody {

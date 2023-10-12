@@ -75,10 +75,9 @@ export class CesClient {
      *
      * @summary 查询Agent任务列表
      * @param {string} [instanceId] 主机id
-     * @param {string} [instanceName] 主机名称
      * @param {'ECS' | 'BMS'} [instanceType] 主机类型，ECS弹性云服务器，BMS裸金属服务器
      * @param {string} [invocationId] 任务id
-     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK'} [invocationType] 任务类型，INSTALL 安装，UPDATE 升级，ROLLBACK 回退
+     * @param {'INSTALL' | 'UPDATE' | 'ROLLBACK' | 'RETRY'} [invocationType] 任务类型，INSTALL 安装，UPDATE 升级，ROLLBACK 回退，RETRY 重试
      * @param {'telescope'} [invocationTarget] 任务对象，目前仅支持telescope
      * @param {number} [offset] 分页偏移量
      * @param {number} [limit] 分页大小
@@ -190,8 +189,6 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let instanceName;
-            
             let instanceType;
             
             let invocationId;
@@ -207,7 +204,6 @@ export const ParamCreater = function () {
             if (listAgentInvocationsRequest !== null && listAgentInvocationsRequest !== undefined) {
                 if (listAgentInvocationsRequest instanceof ListAgentInvocationsRequest) {
                     instanceId = listAgentInvocationsRequest.instanceId;
-                    instanceName = listAgentInvocationsRequest.instanceName;
                     instanceType = listAgentInvocationsRequest.instanceType;
                     invocationId = listAgentInvocationsRequest.invocationId;
                     invocationType = listAgentInvocationsRequest.invocationType;
@@ -216,7 +212,6 @@ export const ParamCreater = function () {
                     limit = listAgentInvocationsRequest.limit;
                 } else {
                     instanceId = listAgentInvocationsRequest['instance_id'];
-                    instanceName = listAgentInvocationsRequest['instance_name'];
                     instanceType = listAgentInvocationsRequest['instance_type'];
                     invocationId = listAgentInvocationsRequest['invocation_id'];
                     invocationType = listAgentInvocationsRequest['invocation_type'];
@@ -229,9 +224,6 @@ export const ParamCreater = function () {
         
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
-            }
-            if (instanceName !== null && instanceName !== undefined) {
-                localVarQueryParameter['instance_name'] = instanceName;
             }
             if (instanceType !== null && instanceType !== undefined) {
                 localVarQueryParameter['instance_type'] = instanceType;

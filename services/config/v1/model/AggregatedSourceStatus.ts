@@ -6,6 +6,7 @@ export class AggregatedSourceStatus {
     private 'last_update_status'?: string;
     private 'last_update_time'?: string;
     private 'source_id'?: string;
+    private 'source_name'?: string;
     private 'source_type'?: string;
     public constructor() { 
     }
@@ -58,6 +59,16 @@ export class AggregatedSourceStatus {
     }
     public get sourceId(): string | undefined {
         return this['source_id'];
+    }
+    public withSourceName(sourceName: string): AggregatedSourceStatus {
+        this['source_name'] = sourceName;
+        return this;
+    }
+    public set sourceName(sourceName: string  | undefined) {
+        this['source_name'] = sourceName;
+    }
+    public get sourceName(): string | undefined {
+        return this['source_name'];
     }
     public withSourceType(sourceType: string): AggregatedSourceStatus {
         this['source_type'] = sourceType;

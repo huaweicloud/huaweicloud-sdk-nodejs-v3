@@ -8,6 +8,9 @@ export class ResultsTopnBody {
     private 'log_group_name'?: string;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
+    private 'basic_transfer'?: number;
+    private 'senior_transfer'?: number;
+    private 'is_agency_transfer'?: boolean;
     public constructor(indexTraffic?: number, storage?: number, writeTraffic?: number, logGroupId?: string, logGroupName?: string) { 
         this['index_traffic'] = indexTraffic;
         this['storage'] = storage;
@@ -78,5 +81,35 @@ export class ResultsTopnBody {
     }
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
+    }
+    public withBasicTransfer(basicTransfer: number): ResultsTopnBody {
+        this['basic_transfer'] = basicTransfer;
+        return this;
+    }
+    public set basicTransfer(basicTransfer: number  | undefined) {
+        this['basic_transfer'] = basicTransfer;
+    }
+    public get basicTransfer(): number | undefined {
+        return this['basic_transfer'];
+    }
+    public withSeniorTransfer(seniorTransfer: number): ResultsTopnBody {
+        this['senior_transfer'] = seniorTransfer;
+        return this;
+    }
+    public set seniorTransfer(seniorTransfer: number  | undefined) {
+        this['senior_transfer'] = seniorTransfer;
+    }
+    public get seniorTransfer(): number | undefined {
+        return this['senior_transfer'];
+    }
+    public withIsAgencyTransfer(isAgencyTransfer: boolean): ResultsTopnBody {
+        this['is_agency_transfer'] = isAgencyTransfer;
+        return this;
+    }
+    public set isAgencyTransfer(isAgencyTransfer: boolean  | undefined) {
+        this['is_agency_transfer'] = isAgencyTransfer;
+    }
+    public get isAgencyTransfer(): boolean | undefined {
+        return this['is_agency_transfer'];
     }
 }

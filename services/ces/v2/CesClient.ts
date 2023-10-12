@@ -13,6 +13,7 @@ import { AlarmHistoryItemV2 } from './model/AlarmHistoryItemV2';
 import { AlarmID } from './model/AlarmID';
 import { AlarmLevel } from './model/AlarmLevel';
 import { AlarmName } from './model/AlarmName';
+import { AlarmPolicyID } from './model/AlarmPolicyID';
 import { AlarmTemplateID } from './model/AlarmTemplateID';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
@@ -30,14 +31,31 @@ import { BatchDeleteAlarmTemplatesResponse } from './model/BatchDeleteAlarmTempl
 import { BatchDeleteAlarmsRequestBody } from './model/BatchDeleteAlarmsRequestBody';
 import { BatchDeleteDashboardRequestBody } from './model/BatchDeleteDashboardRequestBody';
 import { BatchDeleteDashboardRespInfo } from './model/BatchDeleteDashboardRespInfo';
+import { BatchDeleteNotificationMasksRequest } from './model/BatchDeleteNotificationMasksRequest';
+import { BatchDeleteNotificationMasksRequestBody } from './model/BatchDeleteNotificationMasksRequestBody';
+import { BatchDeleteNotificationMasksResponse } from './model/BatchDeleteNotificationMasksResponse';
+import { BatchDeleteOneClickAlarmsRequest } from './model/BatchDeleteOneClickAlarmsRequest';
+import { BatchDeleteOneClickAlarmsRequestBody } from './model/BatchDeleteOneClickAlarmsRequestBody';
+import { BatchDeleteOneClickAlarmsResponse } from './model/BatchDeleteOneClickAlarmsResponse';
 import { BatchDeleteResourceGroupsRequest } from './model/BatchDeleteResourceGroupsRequest';
 import { BatchDeleteResourceGroupsRequestBody } from './model/BatchDeleteResourceGroupsRequestBody';
 import { BatchDeleteResourceGroupsResponse } from './model/BatchDeleteResourceGroupsResponse';
 import { BatchDeleteResourcesRequest } from './model/BatchDeleteResourcesRequest';
 import { BatchDeleteResourcesResponse } from './model/BatchDeleteResourcesResponse';
+import { BatchEnableAlarmPoliciesRequestBody } from './model/BatchEnableAlarmPoliciesRequestBody';
 import { BatchEnableAlarmRulesRequest } from './model/BatchEnableAlarmRulesRequest';
 import { BatchEnableAlarmRulesResponse } from './model/BatchEnableAlarmRulesResponse';
 import { BatchEnableAlarmsRequestBody } from './model/BatchEnableAlarmsRequestBody';
+import { BatchUpdateNotificationMaskTimeRequest } from './model/BatchUpdateNotificationMaskTimeRequest';
+import { BatchUpdateNotificationMaskTimeRequestBody } from './model/BatchUpdateNotificationMaskTimeRequestBody';
+import { BatchUpdateNotificationMaskTimeResponse } from './model/BatchUpdateNotificationMaskTimeResponse';
+import { BatchUpdateNotificationMasksRequest } from './model/BatchUpdateNotificationMasksRequest';
+import { BatchUpdateNotificationMasksRequestBody } from './model/BatchUpdateNotificationMasksRequestBody';
+import { BatchUpdateNotificationMasksResponse } from './model/BatchUpdateNotificationMasksResponse';
+import { BatchUpdateOneClickAlarmPoliciesEnabledStateRequest } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateRequest';
+import { BatchUpdateOneClickAlarmPoliciesEnabledStateResponse } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateResponse';
+import { BatchUpdateOneClickAlarmsEnabledStateRequest } from './model/BatchUpdateOneClickAlarmsEnabledStateRequest';
+import { BatchUpdateOneClickAlarmsEnabledStateResponse } from './model/BatchUpdateOneClickAlarmsEnabledStateResponse';
 import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
 import { BatchUpdateWidgetsResponse } from './model/BatchUpdateWidgetsResponse';
@@ -51,6 +69,8 @@ import { CreateAlarmTemplateResponse } from './model/CreateAlarmTemplateResponse
 import { CreateDashboardRequestBody } from './model/CreateDashboardRequestBody';
 import { CreateDashboardWidgetsRequest } from './model/CreateDashboardWidgetsRequest';
 import { CreateDashboardWidgetsResponse } from './model/CreateDashboardWidgetsResponse';
+import { CreateOneClickAlarmRequest } from './model/CreateOneClickAlarmRequest';
+import { CreateOneClickAlarmResponse } from './model/CreateOneClickAlarmResponse';
 import { CreateOneDashboardRequest } from './model/CreateOneDashboardRequest';
 import { CreateOneDashboardResponse } from './model/CreateOneDashboardResponse';
 import { CreateResourceGroupRequest } from './model/CreateResourceGroupRequest';
@@ -71,8 +91,14 @@ import { Dimension } from './model/Dimension';
 import { Dimension2 } from './model/Dimension2';
 import { DimensionInfo } from './model/DimensionInfo';
 import { DimensionName } from './model/DimensionName';
+import { DimensionNames } from './model/DimensionNames';
+import { EnableOneClickAlarmRequestBody } from './model/EnableOneClickAlarmRequestBody';
+import { Enabled } from './model/Enabled';
+import { EndDate } from './model/EndDate';
+import { EndTime } from './model/EndTime';
 import { EnterpriseIdItem } from './model/EnterpriseIdItem';
 import { EnterpriseProjectID } from './model/EnterpriseProjectID';
+import { EventDimensionName } from './model/EventDimensionName';
 import { ExtraInfo } from './model/ExtraInfo';
 import { Filter } from './model/Filter';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
@@ -93,18 +119,37 @@ import { ListAlarmTemplateAssociationAlarmsRequest } from './model/ListAlarmTemp
 import { ListAlarmTemplateAssociationAlarmsResponse } from './model/ListAlarmTemplateAssociationAlarmsResponse';
 import { ListAlarmTemplatesRequest } from './model/ListAlarmTemplatesRequest';
 import { ListAlarmTemplatesResponse } from './model/ListAlarmTemplatesResponse';
+import { ListAlarmsRespAlarms } from './model/ListAlarmsRespAlarms';
 import { ListAssociationAlarmsResponseAlarms } from './model/ListAssociationAlarmsResponseAlarms';
+import { ListCesTargetProjectTagsRequest } from './model/ListCesTargetProjectTagsRequest';
+import { ListCesTargetProjectTagsResponse } from './model/ListCesTargetProjectTagsResponse';
 import { ListDashboardInfosRequest } from './model/ListDashboardInfosRequest';
 import { ListDashboardInfosResponse } from './model/ListDashboardInfosResponse';
 import { ListDashboardWidgetsRequest } from './model/ListDashboardWidgetsRequest';
 import { ListDashboardWidgetsResponse } from './model/ListDashboardWidgetsResponse';
+import { ListNotificationMaskRequestBody } from './model/ListNotificationMaskRequestBody';
+import { ListNotificationMaskResourcesRequest } from './model/ListNotificationMaskResourcesRequest';
+import { ListNotificationMaskResourcesResponse } from './model/ListNotificationMaskResourcesResponse';
+import { ListNotificationMaskRespNotificationMasks } from './model/ListNotificationMaskRespNotificationMasks';
+import { ListNotificationMasksRequest } from './model/ListNotificationMasksRequest';
+import { ListNotificationMasksResponse } from './model/ListNotificationMasksResponse';
+import { ListOneClickAlarmRulesRequest } from './model/ListOneClickAlarmRulesRequest';
+import { ListOneClickAlarmRulesResponse } from './model/ListOneClickAlarmRulesResponse';
+import { ListOneClickAlarmsRequest } from './model/ListOneClickAlarmsRequest';
+import { ListOneClickAlarmsRespOneClickAlarms } from './model/ListOneClickAlarmsRespOneClickAlarms';
+import { ListOneClickAlarmsResponse } from './model/ListOneClickAlarmsResponse';
 import { ListPolicy } from './model/ListPolicy';
+import { ListRelationType } from './model/ListRelationType';
 import { ListResourceGroupsRequest } from './model/ListResourceGroupsRequest';
 import { ListResourceGroupsResponse } from './model/ListResourceGroupsResponse';
 import { ListResourceGroupsServicesResourcesRequest } from './model/ListResourceGroupsServicesResourcesRequest';
 import { ListResourceGroupsServicesResourcesResponse } from './model/ListResourceGroupsServicesResourcesResponse';
+import { MaskName } from './model/MaskName';
+import { MaskStatus } from './model/MaskStatus';
+import { MaskType } from './model/MaskType';
 import { Metric } from './model/Metric';
 import { MetricDimension } from './model/MetricDimension';
+import { MetricDimensionName } from './model/MetricDimensionName';
 import { MetricExtraInfo } from './model/MetricExtraInfo';
 import { MetricName } from './model/MetricName';
 import { Namespace } from './model/Namespace';
@@ -113,13 +158,23 @@ import { Notification } from './model/Notification';
 import { NotificationBeginTime } from './model/NotificationBeginTime';
 import { NotificationEnabled } from './model/NotificationEnabled';
 import { NotificationEndTime } from './model/NotificationEndTime';
+import { NotificationMaskID } from './model/NotificationMaskID';
+import { OneClickAlarmDescription } from './model/OneClickAlarmDescription';
+import { OneClickAlarmID } from './model/OneClickAlarmID';
+import { OneClickAlarmPolicy } from './model/OneClickAlarmPolicy';
 import { OneResourceGroupResp } from './model/OneResourceGroupResp';
+import { Period } from './model/Period';
 import { Policies } from './model/Policies';
+import { PoliciesInListResp } from './model/PoliciesInListResp';
 import { PoliciesReqV2 } from './model/PoliciesReqV2';
 import { Policy } from './model/Policy';
 import { PostAlarmsReqV2 } from './model/PostAlarmsReqV2';
+import { PutAlarmNotificationReq } from './model/PutAlarmNotificationReq';
 import { PutResourceGroupReq } from './model/PutResourceGroupReq';
+import { RelationID } from './model/RelationID';
+import { RelationType } from './model/RelationType';
 import { Resource } from './model/Resource';
+import { ResourceCategory } from './model/ResourceCategory';
 import { ResourceGroupID } from './model/ResourceGroupID';
 import { ResourceGroupTagRelation } from './model/ResourceGroupTagRelation';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
@@ -132,12 +187,18 @@ import { ShowResourceGroupRequest } from './model/ShowResourceGroupRequest';
 import { ShowResourceGroupResponse } from './model/ShowResourceGroupResponse';
 import { ShowWidgetRequest } from './model/ShowWidgetRequest';
 import { ShowWidgetResponse } from './model/ShowWidgetResponse';
+import { StartDate } from './model/StartDate';
+import { StartTime } from './model/StartTime';
+import { SuppressDuration } from './model/SuppressDuration';
+import { Tag } from './model/Tag';
 import { TemplateDescription } from './model/TemplateDescription';
 import { TemplateID } from './model/TemplateID';
 import { TemplateName } from './model/TemplateName';
 import { TemplateType } from './model/TemplateType';
 import { Unit } from './model/Unit';
 import { UnitItem } from './model/UnitItem';
+import { UpdateAlarmNotificationsRequest } from './model/UpdateAlarmNotificationsRequest';
+import { UpdateAlarmNotificationsResponse } from './model/UpdateAlarmNotificationsResponse';
 import { UpdateAlarmRulePoliciesRequest } from './model/UpdateAlarmRulePoliciesRequest';
 import { UpdateAlarmRulePoliciesResponse } from './model/UpdateAlarmRulePoliciesResponse';
 import { UpdateAlarmTemplateRequest } from './model/UpdateAlarmTemplateRequest';
@@ -146,6 +207,11 @@ import { UpdateAlarmTemplateResponse } from './model/UpdateAlarmTemplateResponse
 import { UpdateDashboardRequest } from './model/UpdateDashboardRequest';
 import { UpdateDashboardRequestBody } from './model/UpdateDashboardRequestBody';
 import { UpdateDashboardResponse } from './model/UpdateDashboardResponse';
+import { UpdateNotificationMasksRequest } from './model/UpdateNotificationMasksRequest';
+import { UpdateNotificationMasksRequestBody } from './model/UpdateNotificationMasksRequestBody';
+import { UpdateNotificationMasksResponse } from './model/UpdateNotificationMasksResponse';
+import { UpdateOneClickAlarmNotificationsRequest } from './model/UpdateOneClickAlarmNotificationsRequest';
+import { UpdateOneClickAlarmNotificationsResponse } from './model/UpdateOneClickAlarmNotificationsResponse';
 import { UpdatePolicy } from './model/UpdatePolicy';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
 import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse';
@@ -251,6 +317,44 @@ export class CesClient {
     }
 
     /**
+     * 批量删除告警通知屏蔽规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除告警通知屏蔽规则
+     * @param {BatchDeleteNotificationMasksRequestBody} batchDeleteNotificationMasksRequestBody 批量删除通知屏蔽规则请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteNotificationMasks(batchDeleteNotificationMasksRequest?: BatchDeleteNotificationMasksRequest): Promise<BatchDeleteNotificationMasksResponse> {
+        const options = ParamCreater().batchDeleteNotificationMasks(batchDeleteNotificationMasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除一键告警
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除一键告警
+     * @param {BatchDeleteOneClickAlarmsRequestBody} batchDeleteOneClickAlarmsRequestBody 批量停用一键告警请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteOneClickAlarms(batchDeleteOneClickAlarmsRequest?: BatchDeleteOneClickAlarmsRequest): Promise<BatchDeleteOneClickAlarmsResponse> {
+        const options = ParamCreater().batchDeleteOneClickAlarms(batchDeleteOneClickAlarmsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除资源分组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -301,6 +405,85 @@ export class CesClient {
      */
     public batchEnableAlarmRules(batchEnableAlarmRulesRequest?: BatchEnableAlarmRulesRequest): Promise<BatchEnableAlarmRulesResponse> {
         const options = ParamCreater().batchEnableAlarmRules(batchEnableAlarmRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量修改告警通知屏蔽规则的屏蔽时间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改告警通知屏蔽规则的屏蔽时间
+     * @param {BatchUpdateNotificationMaskTimeRequestBody} batchUpdateNotificationMaskTimeRequestBody 批量修改告警通知屏蔽规则的屏蔽时间请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateNotificationMaskTime(batchUpdateNotificationMaskTimeRequest?: BatchUpdateNotificationMaskTimeRequest): Promise<BatchUpdateNotificationMaskTimeResponse> {
+        const options = ParamCreater().batchUpdateNotificationMaskTime(batchUpdateNotificationMaskTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量设置告警通知屏蔽规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置告警通知屏蔽规则
+     * @param {BatchUpdateNotificationMasksRequestBody} batchUpdateNotificationMasksRequestBody 批量设置通知屏蔽规则请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateNotificationMasks(batchUpdateNotificationMasksRequest?: BatchUpdateNotificationMasksRequest): Promise<BatchUpdateNotificationMasksResponse> {
+        const options = ParamCreater().batchUpdateNotificationMasks(batchUpdateNotificationMasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量修改一键告警关联告警规则策略的启用状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改一键告警关联告警规则策略的启用状态
+     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {string} alarmId 告警规则ID
+     * @param {BatchEnableAlarmPoliciesRequestBody} batchUpdateOneClickAlarmPoliciesEnabledStateRequestBody 批量启停告警规则策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateOneClickAlarmPoliciesEnabledState(batchUpdateOneClickAlarmPoliciesEnabledStateRequest?: BatchUpdateOneClickAlarmPoliciesEnabledStateRequest): Promise<BatchUpdateOneClickAlarmPoliciesEnabledStateResponse> {
+        const options = ParamCreater().batchUpdateOneClickAlarmPoliciesEnabledState(batchUpdateOneClickAlarmPoliciesEnabledStateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量修改一键告警关联告警规则的启用状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改一键告警关联告警规则的启用状态
+     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {BatchEnableAlarmsRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateOneClickAlarmsEnabledState(batchUpdateOneClickAlarmsEnabledStateRequest?: BatchUpdateOneClickAlarmsEnabledStateRequest): Promise<BatchUpdateOneClickAlarmsEnabledStateResponse> {
+        const options = ParamCreater().batchUpdateOneClickAlarmsEnabledState(batchUpdateOneClickAlarmsEnabledStateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -378,6 +561,25 @@ export class CesClient {
      */
     public createDashboardWidgets(createDashboardWidgetsRequest?: CreateDashboardWidgetsRequest): Promise<CreateDashboardWidgetsResponse> {
         const options = ParamCreater().createDashboardWidgets(createDashboardWidgetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建一键告警
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建一键告警
+     * @param {EnableOneClickAlarmRequestBody} createOneClickAlarmRequestBody 启用一键告警请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOneClickAlarm(createOneClickAlarmRequest?: CreateOneClickAlarmRequest): Promise<CreateOneClickAlarmResponse> {
+        const options = ParamCreater().createOneClickAlarm(createOneClickAlarmRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -645,6 +847,25 @@ export class CesClient {
     }
 
     /**
+     * 查询CES指定项目指定资源类型标签列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CES指定项目指定资源类型标签列表
+     * @param {'CES-alarm'} resourceType 资源类型。CES-alarm：告警规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCesTargetProjectTags(listCesTargetProjectTagsRequest?: ListCesTargetProjectTagsRequest): Promise<ListCesTargetProjectTagsResponse> {
+        const options = ParamCreater().listCesTargetProjectTags(listCesTargetProjectTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询监控看板列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -678,6 +899,85 @@ export class CesClient {
      */
     public listDashboardWidgets(listDashboardWidgetsRequest?: ListDashboardWidgetsRequest): Promise<ListDashboardWidgetsResponse> {
         const options = ParamCreater().listDashboardWidgets(listDashboardWidgetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警通知屏蔽资源列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警通知屏蔽资源列表
+     * @param {string} notificationMaskId 屏蔽规则ID
+     * @param {number} [offset] 分页偏移量
+     * @param {number} [limit] 分页大小
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationMaskResources(listNotificationMaskResourcesRequest?: ListNotificationMaskResourcesRequest): Promise<ListNotificationMaskResourcesResponse> {
+        const options = ParamCreater().listNotificationMaskResources(listNotificationMaskResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量查询指定类型的通知屏蔽规则，目前最多支持100个通知屏蔽规则的批量查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警通知屏蔽列表
+     * @param {ListNotificationMaskRequestBody} listNotificationMasksRequestBody 批量查询通知屏蔽规则，请求参数。
+     * @param {number} [offset] 分页偏移量
+     * @param {number} [limit] 分页大小
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationMasks(listNotificationMasksRequest?: ListNotificationMasksRequest): Promise<ListNotificationMasksResponse> {
+        const options = ParamCreater().listNotificationMasks(listNotificationMasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询一键告警关联告警规则列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询一键告警关联告警规则列表
+     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOneClickAlarmRules(listOneClickAlarmRulesRequest?: ListOneClickAlarmRulesRequest): Promise<ListOneClickAlarmRulesResponse> {
+        const options = ParamCreater().listOneClickAlarmRules(listOneClickAlarmRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询一键告警列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询一键告警列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOneClickAlarms(listOneClickAlarmsRequest?: ListOneClickAlarmsRequest): Promise<ListOneClickAlarmsResponse> {
+        const options = ParamCreater().listOneClickAlarms();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -792,6 +1092,26 @@ export class CesClient {
     }
 
     /**
+     * 修改告警规则告警通知信息，告警策略&amp;资源请使用对应接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改告警规则告警通知信息
+     * @param {string} alarmId 告警规则ID
+     * @param {PutAlarmNotificationReq} updateAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAlarmNotifications(updateAlarmNotificationsRequest?: UpdateAlarmNotificationsRequest): Promise<UpdateAlarmNotificationsResponse> {
+        const options = ParamCreater().updateAlarmNotifications(updateAlarmNotificationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改告警规则策略(全量修改)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -844,6 +1164,46 @@ export class CesClient {
      */
     public updateDashboard(updateDashboardRequest?: UpdateDashboardRequest): Promise<UpdateDashboardResponse> {
         const options = ParamCreater().updateDashboard(updateDashboardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改告警通知屏蔽规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改告警通知屏蔽规则
+     * @param {string} notificationMaskId 屏蔽规则ID
+     * @param {UpdateNotificationMasksRequestBody} updateNotificationMasksRequestBody 修改通知屏蔽规则请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNotificationMasks(updateNotificationMasksRequest?: UpdateNotificationMasksRequest): Promise<UpdateNotificationMasksResponse> {
+        const options = ParamCreater().updateNotificationMasks(updateNotificationMasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量修改开启状态的一键告警关联告警规则的告警通知
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改开启状态的一键告警关联告警规则的告警通知
+     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {PutAlarmNotificationReq} updateOneClickAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOneClickAlarmNotifications(updateOneClickAlarmNotificationsRequest?: UpdateOneClickAlarmNotificationsRequest): Promise<UpdateOneClickAlarmNotificationsResponse> {
+        const options = ParamCreater().updateOneClickAlarmNotifications(updateOneClickAlarmNotificationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1044,6 +1404,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除告警通知屏蔽规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteNotificationMasks(batchDeleteNotificationMasksRequest?: BatchDeleteNotificationMasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notification-masks/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteNotificationMasksRequest !== null && batchDeleteNotificationMasksRequest !== undefined) {
+                if (batchDeleteNotificationMasksRequest instanceof BatchDeleteNotificationMasksRequest) {
+                    body = batchDeleteNotificationMasksRequest.body
+                } else {
+                    body = batchDeleteNotificationMasksRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除一键告警
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteOneClickAlarms(batchDeleteOneClickAlarmsRequest?: BatchDeleteOneClickAlarmsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/one-click-alarms/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteOneClickAlarmsRequest !== null && batchDeleteOneClickAlarmsRequest !== undefined) {
+                if (batchDeleteOneClickAlarmsRequest instanceof BatchDeleteOneClickAlarmsRequest) {
+                    body = batchDeleteOneClickAlarmsRequest.body
+                } else {
+                    body = batchDeleteOneClickAlarmsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除资源分组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1161,6 +1597,181 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量修改告警通知屏蔽规则的屏蔽时间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateNotificationMaskTime(batchUpdateNotificationMaskTimeRequest?: BatchUpdateNotificationMaskTimeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notification-masks/batch-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateNotificationMaskTimeRequest !== null && batchUpdateNotificationMaskTimeRequest !== undefined) {
+                if (batchUpdateNotificationMaskTimeRequest instanceof BatchUpdateNotificationMaskTimeRequest) {
+                    body = batchUpdateNotificationMaskTimeRequest.body
+                } else {
+                    body = batchUpdateNotificationMaskTimeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量设置告警通知屏蔽规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateNotificationMasks(batchUpdateNotificationMasksRequest?: BatchUpdateNotificationMasksRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notification-masks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateNotificationMasksRequest !== null && batchUpdateNotificationMasksRequest !== undefined) {
+                if (batchUpdateNotificationMasksRequest instanceof BatchUpdateNotificationMasksRequest) {
+                    body = batchUpdateNotificationMasksRequest.body
+                } else {
+                    body = batchUpdateNotificationMasksRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量修改一键告警关联告警规则策略的启用状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateOneClickAlarmPoliciesEnabledState(batchUpdateOneClickAlarmPoliciesEnabledStateRequest?: BatchUpdateOneClickAlarmPoliciesEnabledStateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/one-click-alarms/{one_click_alarm_id}/alarms/{alarm_id}/policies/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let oneClickAlarmId;
+            
+            let alarmId;
+
+            if (batchUpdateOneClickAlarmPoliciesEnabledStateRequest !== null && batchUpdateOneClickAlarmPoliciesEnabledStateRequest !== undefined) {
+                if (batchUpdateOneClickAlarmPoliciesEnabledStateRequest instanceof BatchUpdateOneClickAlarmPoliciesEnabledStateRequest) {
+                    oneClickAlarmId = batchUpdateOneClickAlarmPoliciesEnabledStateRequest.oneClickAlarmId;
+                    alarmId = batchUpdateOneClickAlarmPoliciesEnabledStateRequest.alarmId;
+                    body = batchUpdateOneClickAlarmPoliciesEnabledStateRequest.body
+                } else {
+                    oneClickAlarmId = batchUpdateOneClickAlarmPoliciesEnabledStateRequest['one_click_alarm_id'];
+                    alarmId = batchUpdateOneClickAlarmPoliciesEnabledStateRequest['alarm_id'];
+                    body = batchUpdateOneClickAlarmPoliciesEnabledStateRequest['body'];
+                }
+            }
+
+        
+            if (oneClickAlarmId === null || oneClickAlarmId === undefined) {
+            throw new RequiredError('oneClickAlarmId','Required parameter oneClickAlarmId was null or undefined when calling batchUpdateOneClickAlarmPoliciesEnabledState.');
+            }
+            if (alarmId === null || alarmId === undefined) {
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling batchUpdateOneClickAlarmPoliciesEnabledState.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'one_click_alarm_id': oneClickAlarmId,'alarm_id': alarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量修改一键告警关联告警规则的启用状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateOneClickAlarmsEnabledState(batchUpdateOneClickAlarmsEnabledStateRequest?: BatchUpdateOneClickAlarmsEnabledStateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/one-click-alarms/{one_click_alarm_id}/alarm-rules/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let oneClickAlarmId;
+
+            if (batchUpdateOneClickAlarmsEnabledStateRequest !== null && batchUpdateOneClickAlarmsEnabledStateRequest !== undefined) {
+                if (batchUpdateOneClickAlarmsEnabledStateRequest instanceof BatchUpdateOneClickAlarmsEnabledStateRequest) {
+                    oneClickAlarmId = batchUpdateOneClickAlarmsEnabledStateRequest.oneClickAlarmId;
+                    body = batchUpdateOneClickAlarmsEnabledStateRequest.body
+                } else {
+                    oneClickAlarmId = batchUpdateOneClickAlarmsEnabledStateRequest['one_click_alarm_id'];
+                    body = batchUpdateOneClickAlarmsEnabledStateRequest['body'];
+                }
+            }
+
+        
+            if (oneClickAlarmId === null || oneClickAlarmId === undefined) {
+            throw new RequiredError('oneClickAlarmId','Required parameter oneClickAlarmId was null or undefined when calling batchUpdateOneClickAlarmsEnabledState.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'one_click_alarm_id': oneClickAlarmId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1318,6 +1929,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建一键告警
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOneClickAlarm(createOneClickAlarmRequest?: CreateOneClickAlarmRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/one-click-alarms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createOneClickAlarmRequest !== null && createOneClickAlarmRequest !== undefined) {
+                if (createOneClickAlarmRequest instanceof CreateOneClickAlarmRequest) {
+                    body = createOneClickAlarmRequest.body
+                } else {
+                    body = createOneClickAlarmRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1993,6 +2642,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询CES指定项目指定资源类型标签列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCesTargetProjectTags(listCesTargetProjectTagsRequest?: ListCesTargetProjectTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+
+            if (listCesTargetProjectTagsRequest !== null && listCesTargetProjectTagsRequest !== undefined) {
+                if (listCesTargetProjectTagsRequest instanceof ListCesTargetProjectTagsRequest) {
+                    resourceType = listCesTargetProjectTagsRequest.resourceType;
+                } else {
+                    resourceType = listCesTargetProjectTagsRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listCesTargetProjectTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询监控看板列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2083,6 +2769,169 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询告警通知屏蔽资源列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationMaskResources(listNotificationMaskResourcesRequest?: ListNotificationMaskResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notification-masks/{notification_mask_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let notificationMaskId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listNotificationMaskResourcesRequest !== null && listNotificationMaskResourcesRequest !== undefined) {
+                if (listNotificationMaskResourcesRequest instanceof ListNotificationMaskResourcesRequest) {
+                    notificationMaskId = listNotificationMaskResourcesRequest.notificationMaskId;
+                    offset = listNotificationMaskResourcesRequest.offset;
+                    limit = listNotificationMaskResourcesRequest.limit;
+                } else {
+                    notificationMaskId = listNotificationMaskResourcesRequest['notification_mask_id'];
+                    offset = listNotificationMaskResourcesRequest['offset'];
+                    limit = listNotificationMaskResourcesRequest['limit'];
+                }
+            }
+
+        
+            if (notificationMaskId === null || notificationMaskId === undefined) {
+            throw new RequiredError('notificationMaskId','Required parameter notificationMaskId was null or undefined when calling listNotificationMaskResources.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'notification_mask_id': notificationMaskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询指定类型的通知屏蔽规则，目前最多支持100个通知屏蔽规则的批量查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationMasks(listNotificationMasksRequest?: ListNotificationMasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notification-masks/batch-query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listNotificationMasksRequest !== null && listNotificationMasksRequest !== undefined) {
+                if (listNotificationMasksRequest instanceof ListNotificationMasksRequest) {
+                    body = listNotificationMasksRequest.body
+                    offset = listNotificationMasksRequest.offset;
+                    limit = listNotificationMasksRequest.limit;
+                } else {
+                    body = listNotificationMasksRequest['body'];
+                    offset = listNotificationMasksRequest['offset'];
+                    limit = listNotificationMasksRequest['limit'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询一键告警关联告警规则列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOneClickAlarmRules(listOneClickAlarmRulesRequest?: ListOneClickAlarmRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/one-click-alarms/{one_click_alarm_id}/alarms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let oneClickAlarmId;
+
+            if (listOneClickAlarmRulesRequest !== null && listOneClickAlarmRulesRequest !== undefined) {
+                if (listOneClickAlarmRulesRequest instanceof ListOneClickAlarmRulesRequest) {
+                    oneClickAlarmId = listOneClickAlarmRulesRequest.oneClickAlarmId;
+                } else {
+                    oneClickAlarmId = listOneClickAlarmRulesRequest['one_click_alarm_id'];
+                }
+            }
+
+        
+            if (oneClickAlarmId === null || oneClickAlarmId === undefined) {
+            throw new RequiredError('oneClickAlarmId','Required parameter oneClickAlarmId was null or undefined when calling listOneClickAlarmRules.');
+            }
+
+            options.pathParams = { 'one_click_alarm_id': oneClickAlarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询一键告警列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOneClickAlarms() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/one-click-alarms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2351,6 +3200,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改告警规则告警通知信息，告警策略&amp;资源请使用对应接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAlarmNotifications(updateAlarmNotificationsRequest?: UpdateAlarmNotificationsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/alarms/{alarm_id}/notifications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let alarmId;
+
+            if (updateAlarmNotificationsRequest !== null && updateAlarmNotificationsRequest !== undefined) {
+                if (updateAlarmNotificationsRequest instanceof UpdateAlarmNotificationsRequest) {
+                    alarmId = updateAlarmNotificationsRequest.alarmId;
+                    body = updateAlarmNotificationsRequest.body
+                } else {
+                    alarmId = updateAlarmNotificationsRequest['alarm_id'];
+                    body = updateAlarmNotificationsRequest['body'];
+                }
+            }
+
+        
+            if (alarmId === null || alarmId === undefined) {
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling updateAlarmNotifications.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'alarm_id': alarmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改告警规则策略(全量修改)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2484,6 +3379,98 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改告警通知屏蔽规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNotificationMasks(updateNotificationMasksRequest?: UpdateNotificationMasksRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notification-masks/{notification_mask_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let notificationMaskId;
+
+            if (updateNotificationMasksRequest !== null && updateNotificationMasksRequest !== undefined) {
+                if (updateNotificationMasksRequest instanceof UpdateNotificationMasksRequest) {
+                    notificationMaskId = updateNotificationMasksRequest.notificationMaskId;
+                    body = updateNotificationMasksRequest.body
+                } else {
+                    notificationMaskId = updateNotificationMasksRequest['notification_mask_id'];
+                    body = updateNotificationMasksRequest['body'];
+                }
+            }
+
+        
+            if (notificationMaskId === null || notificationMaskId === undefined) {
+            throw new RequiredError('notificationMaskId','Required parameter notificationMaskId was null or undefined when calling updateNotificationMasks.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'notification_mask_id': notificationMaskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量修改开启状态的一键告警关联告警规则的告警通知
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOneClickAlarmNotifications(updateOneClickAlarmNotificationsRequest?: UpdateOneClickAlarmNotificationsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/one-click-alarms/{one_click_alarm_id}/notifications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let oneClickAlarmId;
+
+            if (updateOneClickAlarmNotificationsRequest !== null && updateOneClickAlarmNotificationsRequest !== undefined) {
+                if (updateOneClickAlarmNotificationsRequest instanceof UpdateOneClickAlarmNotificationsRequest) {
+                    oneClickAlarmId = updateOneClickAlarmNotificationsRequest.oneClickAlarmId;
+                    body = updateOneClickAlarmNotificationsRequest.body
+                } else {
+                    oneClickAlarmId = updateOneClickAlarmNotificationsRequest['one_click_alarm_id'];
+                    body = updateOneClickAlarmNotificationsRequest['body'];
+                }
+            }
+
+        
+            if (oneClickAlarmId === null || oneClickAlarmId === undefined) {
+            throw new RequiredError('oneClickAlarmId','Required parameter oneClickAlarmId was null or undefined when calling updateOneClickAlarmNotifications.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'one_click_alarm_id': oneClickAlarmId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -83,5 +83,6 @@ export enum AlarmConditionSuppressDurationEnum {
     NUMBER_3600 = 3600,
     NUMBER_10800 = 10800,
     NUMBER_21600 = 21600,
-    NUMBER_43200 = 43200
+    NUMBER_43200 = 43200,
+    NUMBER_86400 = 86400
 }

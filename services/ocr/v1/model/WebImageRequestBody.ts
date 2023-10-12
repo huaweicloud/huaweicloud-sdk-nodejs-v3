@@ -6,6 +6,7 @@ export class WebImageRequestBody {
     private 'detect_direction'?: boolean;
     private 'extract_type'?: Array<string>;
     private 'detect_font'?: boolean;
+    private 'detect_text_direction'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): WebImageRequestBody {
@@ -45,5 +46,15 @@ export class WebImageRequestBody {
     }
     public get detectFont(): boolean | undefined {
         return this['detect_font'];
+    }
+    public withDetectTextDirection(detectTextDirection: boolean): WebImageRequestBody {
+        this['detect_text_direction'] = detectTextDirection;
+        return this;
+    }
+    public set detectTextDirection(detectTextDirection: boolean  | undefined) {
+        this['detect_text_direction'] = detectTextDirection;
+    }
+    public get detectTextDirection(): boolean | undefined {
+        return this['detect_text_direction'];
     }
 }

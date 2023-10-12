@@ -8,7 +8,8 @@ export class CreateHostedDirectConnect {
     public vlan?: number;
     private 'resource_tenant_id'?: string;
     private 'peer_location'?: string;
-    public constructor(hostingId?: string, vlan?: number, resourceTenantId?: string) { 
+    public constructor(bandwidth?: number, hostingId?: string, vlan?: number, resourceTenantId?: string) { 
+        this['bandwidth'] = bandwidth;
         this['hosting_id'] = hostingId;
         this['vlan'] = vlan;
         this['resource_tenant_id'] = resourceTenantId;

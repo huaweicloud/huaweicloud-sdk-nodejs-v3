@@ -5,6 +5,7 @@ export class PublicKibanaRespBody {
     public eipSize?: number;
     public elbWhiteListResp?: KibanaElbWhiteListResp;
     public publicKibanaIp?: string;
+    public bandwidthResourceId?: string;
     public constructor() { 
     }
     public withEipSize(eipSize: number): PublicKibanaRespBody {
@@ -17,6 +18,10 @@ export class PublicKibanaRespBody {
     }
     public withPublicKibanaIp(publicKibanaIp: string): PublicKibanaRespBody {
         this['publicKibanaIp'] = publicKibanaIp;
+        return this;
+    }
+    public withBandwidthResourceId(bandwidthResourceId: string): PublicKibanaRespBody {
+        this['bandwidthResourceId'] = bandwidthResourceId;
         return this;
     }
 }

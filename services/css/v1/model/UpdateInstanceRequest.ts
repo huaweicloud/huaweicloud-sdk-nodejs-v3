@@ -1,8 +1,10 @@
+import { UpdateInstanceRequestBody } from './UpdateInstanceRequestBody';
 
 
 export class UpdateInstanceRequest {
     private 'cluster_id'?: string;
     private 'instance_id'?: string;
+    public body?: UpdateInstanceRequestBody;
     public constructor(clusterId?: string, instanceId?: string) { 
         this['cluster_id'] = clusterId;
         this['instance_id'] = instanceId;
@@ -26,5 +28,9 @@ export class UpdateInstanceRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: UpdateInstanceRequestBody): UpdateInstanceRequest {
+        this['body'] = body;
+        return this;
     }
 }

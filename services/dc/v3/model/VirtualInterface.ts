@@ -218,9 +218,8 @@ export class VirtualInterface {
     * @enum {string}
     */
 export enum VirtualInterfaceServiceTypeEnum {
-    VPC = 'vpc',
     VGW = 'VGW',
-    GDWW = 'GDWW',
+    GDGW = 'GDGW',
     LGW = 'LGW'
 }
 /**

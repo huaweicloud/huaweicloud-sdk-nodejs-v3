@@ -39,6 +39,8 @@ import { CreateConfigurationAggregatorRequest } from './model/CreateConfiguratio
 import { CreateConfigurationAggregatorResponse } from './model/CreateConfigurationAggregatorResponse';
 import { CreateConformancePackRequest } from './model/CreateConformancePackRequest';
 import { CreateConformancePackResponse } from './model/CreateConformancePackResponse';
+import { CreateOrganizationConformancePackRequest } from './model/CreateOrganizationConformancePackRequest';
+import { CreateOrganizationConformancePackResponse } from './model/CreateOrganizationConformancePackResponse';
 import { CreateOrganizationPolicyAssignmentRequest } from './model/CreateOrganizationPolicyAssignmentRequest';
 import { CreateOrganizationPolicyAssignmentResponse } from './model/CreateOrganizationPolicyAssignmentResponse';
 import { CreatePolicyAssignmentsRequest } from './model/CreatePolicyAssignmentsRequest';
@@ -54,6 +56,8 @@ import { DeleteConfigurationAggregatorRequest } from './model/DeleteConfiguratio
 import { DeleteConfigurationAggregatorResponse } from './model/DeleteConfigurationAggregatorResponse';
 import { DeleteConformancePackRequest } from './model/DeleteConformancePackRequest';
 import { DeleteConformancePackResponse } from './model/DeleteConformancePackResponse';
+import { DeleteOrganizationConformancePackRequest } from './model/DeleteOrganizationConformancePackRequest';
+import { DeleteOrganizationConformancePackResponse } from './model/DeleteOrganizationConformancePackResponse';
 import { DeleteOrganizationPolicyAssignmentRequest } from './model/DeleteOrganizationPolicyAssignmentRequest';
 import { DeleteOrganizationPolicyAssignmentResponse } from './model/DeleteOrganizationPolicyAssignmentResponse';
 import { DeletePendingAggregationRequestRequest } from './model/DeletePendingAggregationRequestRequest';
@@ -94,6 +98,10 @@ import { ListConformancePackComplianceScoresRequest } from './model/ListConforma
 import { ListConformancePackComplianceScoresResponse } from './model/ListConformancePackComplianceScoresResponse';
 import { ListConformancePacksRequest } from './model/ListConformancePacksRequest';
 import { ListConformancePacksResponse } from './model/ListConformancePacksResponse';
+import { ListOrganizationConformancePackStatusesRequest } from './model/ListOrganizationConformancePackStatusesRequest';
+import { ListOrganizationConformancePackStatusesResponse } from './model/ListOrganizationConformancePackStatusesResponse';
+import { ListOrganizationConformancePacksRequest } from './model/ListOrganizationConformancePacksRequest';
+import { ListOrganizationConformancePacksResponse } from './model/ListOrganizationConformancePacksResponse';
 import { ListOrganizationPolicyAssignmentsRequest } from './model/ListOrganizationPolicyAssignmentsRequest';
 import { ListOrganizationPolicyAssignmentsResponse } from './model/ListOrganizationPolicyAssignmentsResponse';
 import { ListPendingAggregationRequestsRequest } from './model/ListPendingAggregationRequestsRequest';
@@ -117,6 +125,10 @@ import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListStoredQueriesRequest } from './model/ListStoredQueriesRequest';
 import { ListStoredQueriesResponse } from './model/ListStoredQueriesResponse';
 import { ManagedPolicyAssignmentMetadata } from './model/ManagedPolicyAssignmentMetadata';
+import { OrgConformancePackDetailedStatus } from './model/OrgConformancePackDetailedStatus';
+import { OrgConformancePackRequestBody } from './model/OrgConformancePackRequestBody';
+import { OrgConformancePackResponse } from './model/OrgConformancePackResponse';
+import { OrgConformancePackStatus } from './model/OrgConformancePackStatus';
 import { OrganizationPolicyAssignmentDetailedStatusResponse } from './model/OrganizationPolicyAssignmentDetailedStatusResponse';
 import { OrganizationPolicyAssignmentRequest } from './model/OrganizationPolicyAssignmentRequest';
 import { OrganizationPolicyAssignmentResponse } from './model/OrganizationPolicyAssignmentResponse';
@@ -177,6 +189,10 @@ import { ShowConformancePackRequest } from './model/ShowConformancePackRequest';
 import { ShowConformancePackResponse } from './model/ShowConformancePackResponse';
 import { ShowEvaluationStateByAssignmentIdRequest } from './model/ShowEvaluationStateByAssignmentIdRequest';
 import { ShowEvaluationStateByAssignmentIdResponse } from './model/ShowEvaluationStateByAssignmentIdResponse';
+import { ShowOrganizationConformancePackDetailedStatusesRequest } from './model/ShowOrganizationConformancePackDetailedStatusesRequest';
+import { ShowOrganizationConformancePackDetailedStatusesResponse } from './model/ShowOrganizationConformancePackDetailedStatusesResponse';
+import { ShowOrganizationConformancePackRequest } from './model/ShowOrganizationConformancePackRequest';
+import { ShowOrganizationConformancePackResponse } from './model/ShowOrganizationConformancePackResponse';
 import { ShowOrganizationPolicyAssignmentDetailedStatusRequest } from './model/ShowOrganizationPolicyAssignmentDetailedStatusRequest';
 import { ShowOrganizationPolicyAssignmentDetailedStatusResponse } from './model/ShowOrganizationPolicyAssignmentDetailedStatusResponse';
 import { ShowOrganizationPolicyAssignmentRequest } from './model/ShowOrganizationPolicyAssignmentRequest';
@@ -650,6 +666,26 @@ export class ConfigClient {
     }
 
     /**
+     * 创建新的组织合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建组织合规规则包
+     * @param {string} organizationId 组织ID。
+     * @param {OrgConformancePackRequestBody} orgConformancePackRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrganizationConformancePack(createOrganizationConformancePackRequest?: CreateOrganizationConformancePackRequest): Promise<CreateOrganizationConformancePackResponse> {
+        const options = ParamCreater().createOrganizationConformancePack(createOrganizationConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除用户的合规规则包。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -661,6 +697,26 @@ export class ConfigClient {
      */
     public deleteConformancePack(deleteConformancePackRequest?: DeleteConformancePackRequest): Promise<DeleteConformancePackResponse> {
         const options = ParamCreater().deleteConformancePack(deleteConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除用户的组织合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除组织合规规则包
+     * @param {string} organizationId 组织ID。
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOrganizationConformancePack(deleteOrganizationConformancePackRequest?: DeleteOrganizationConformancePackRequest): Promise<DeleteOrganizationConformancePackResponse> {
+        const options = ParamCreater().deleteOrganizationConformancePack(deleteOrganizationConformancePackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -777,6 +833,50 @@ export class ConfigClient {
     }
 
     /**
+     * 列举用户的组织合规规则包部署状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看组织合规规则包部署状态
+     * @param {string} organizationId 组织ID。
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [conformancePackName] 合规规则包名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrganizationConformancePackStatuses(listOrganizationConformancePackStatusesRequest?: ListOrganizationConformancePackStatusesRequest): Promise<ListOrganizationConformancePackStatusesResponse> {
+        const options = ParamCreater().listOrganizationConformancePackStatuses(listOrganizationConformancePackStatusesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举用户的组织合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举组织合规规则包
+     * @param {string} organizationId 组织ID。
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [conformancePackName] 合规规则包名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrganizationConformancePacks(listOrganizationConformancePacksRequest?: ListOrganizationConformancePacksRequest): Promise<ListOrganizationConformancePacksResponse> {
+        const options = ParamCreater().listOrganizationConformancePacks(listOrganizationConformancePacksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据ID获取单个预定义合规规则包模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -808,6 +908,49 @@ export class ConfigClient {
      */
     public showConformancePack(showConformancePackRequest?: ShowConformancePackRequest): Promise<ShowConformancePackResponse> {
         const options = ParamCreater().showConformancePack(showConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ID获取单个组织合规规则包详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看组织合规规则包
+     * @param {string} organizationId 组织ID。
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOrganizationConformancePack(showOrganizationConformancePackRequest?: ShowOrganizationConformancePackRequest): Promise<ShowOrganizationConformancePackResponse> {
+        const options = ParamCreater().showOrganizationConformancePack(showOrganizationConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看指定组织合规规则包在成员账户中的部署状态详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看组织合规规则包部署详细状态
+     * @param {string} organizationId 组织ID。
+     * @param {string} conformancePackName 合规规则包名称。
+     * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED'} [state] 部署状态，区分大小写
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOrganizationConformancePackDetailedStatuses(showOrganizationConformancePackDetailedStatusesRequest?: ShowOrganizationConformancePackDetailedStatusesRequest): Promise<ShowOrganizationConformancePackDetailedStatusesResponse> {
+        const options = ParamCreater().showOrganizationConformancePackDetailedStatuses(showOrganizationConformancePackDetailedStatusesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2602,6 +2745,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建新的组织合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrganizationConformancePack(createOrganizationConformancePackRequest?: CreateOrganizationConformancePackRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let organizationId;
+
+            if (createOrganizationConformancePackRequest !== null && createOrganizationConformancePackRequest !== undefined) {
+                if (createOrganizationConformancePackRequest instanceof CreateOrganizationConformancePackRequest) {
+                    organizationId = createOrganizationConformancePackRequest.organizationId;
+                    body = createOrganizationConformancePackRequest.body
+                } else {
+                    organizationId = createOrganizationConformancePackRequest['organization_id'];
+                    body = createOrganizationConformancePackRequest['body'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling createOrganizationConformancePack.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'organization_id': organizationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除用户的合规规则包。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2634,6 +2823,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除用户的组织合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOrganizationConformancePack(deleteOrganizationConformancePackRequest?: DeleteOrganizationConformancePackRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let organizationId;
+            
+            let conformancePackId;
+
+            if (deleteOrganizationConformancePackRequest !== null && deleteOrganizationConformancePackRequest !== undefined) {
+                if (deleteOrganizationConformancePackRequest instanceof DeleteOrganizationConformancePackRequest) {
+                    organizationId = deleteOrganizationConformancePackRequest.organizationId;
+                    conformancePackId = deleteOrganizationConformancePackRequest.conformancePackId;
+                } else {
+                    organizationId = deleteOrganizationConformancePackRequest['organization_id'];
+                    conformancePackId = deleteOrganizationConformancePackRequest['conformance_pack_id'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling deleteOrganizationConformancePack.');
+            }
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling deleteOrganizationConformancePack.');
+            }
+
+            options.pathParams = { 'organization_id': organizationId,'conformance_pack_id': conformancePackId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2917,6 +3150,124 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 列举用户的组织合规规则包部署状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrganizationConformancePackStatuses(listOrganizationConformancePackStatusesRequest?: ListOrganizationConformancePackStatusesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs/statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let organizationId;
+            
+            let limit;
+            
+            let marker;
+            
+            let conformancePackName;
+
+            if (listOrganizationConformancePackStatusesRequest !== null && listOrganizationConformancePackStatusesRequest !== undefined) {
+                if (listOrganizationConformancePackStatusesRequest instanceof ListOrganizationConformancePackStatusesRequest) {
+                    organizationId = listOrganizationConformancePackStatusesRequest.organizationId;
+                    limit = listOrganizationConformancePackStatusesRequest.limit;
+                    marker = listOrganizationConformancePackStatusesRequest.marker;
+                    conformancePackName = listOrganizationConformancePackStatusesRequest.conformancePackName;
+                } else {
+                    organizationId = listOrganizationConformancePackStatusesRequest['organization_id'];
+                    limit = listOrganizationConformancePackStatusesRequest['limit'];
+                    marker = listOrganizationConformancePackStatusesRequest['marker'];
+                    conformancePackName = listOrganizationConformancePackStatusesRequest['conformance_pack_name'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling listOrganizationConformancePackStatuses.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'organization_id': organizationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举用户的组织合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrganizationConformancePacks(listOrganizationConformancePacksRequest?: ListOrganizationConformancePacksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let organizationId;
+            
+            let limit;
+            
+            let marker;
+            
+            let conformancePackName;
+
+            if (listOrganizationConformancePacksRequest !== null && listOrganizationConformancePacksRequest !== undefined) {
+                if (listOrganizationConformancePacksRequest instanceof ListOrganizationConformancePacksRequest) {
+                    organizationId = listOrganizationConformancePacksRequest.organizationId;
+                    limit = listOrganizationConformancePacksRequest.limit;
+                    marker = listOrganizationConformancePacksRequest.marker;
+                    conformancePackName = listOrganizationConformancePacksRequest.conformancePackName;
+                } else {
+                    organizationId = listOrganizationConformancePacksRequest['organization_id'];
+                    limit = listOrganizationConformancePacksRequest['limit'];
+                    marker = listOrganizationConformancePacksRequest['marker'];
+                    conformancePackName = listOrganizationConformancePacksRequest['conformance_pack_name'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling listOrganizationConformancePacks.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'organization_id': organizationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据ID获取单个预定义合规规则包模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2993,6 +3344,119 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ID获取单个组织合规规则包详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOrganizationConformancePack(showOrganizationConformancePackRequest?: ShowOrganizationConformancePackRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let organizationId;
+            
+            let conformancePackId;
+
+            if (showOrganizationConformancePackRequest !== null && showOrganizationConformancePackRequest !== undefined) {
+                if (showOrganizationConformancePackRequest instanceof ShowOrganizationConformancePackRequest) {
+                    organizationId = showOrganizationConformancePackRequest.organizationId;
+                    conformancePackId = showOrganizationConformancePackRequest.conformancePackId;
+                } else {
+                    organizationId = showOrganizationConformancePackRequest['organization_id'];
+                    conformancePackId = showOrganizationConformancePackRequest['conformance_pack_id'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling showOrganizationConformancePack.');
+            }
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling showOrganizationConformancePack.');
+            }
+
+            options.pathParams = { 'organization_id': organizationId,'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看指定组织合规规则包在成员账户中的部署状态详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOrganizationConformancePackDetailedStatuses(showOrganizationConformancePackDetailedStatusesRequest?: ShowOrganizationConformancePackDetailedStatusesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs/detailed-statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let organizationId;
+            
+            let conformancePackName;
+            
+            let state;
+            
+            let limit;
+            
+            let marker;
+
+            if (showOrganizationConformancePackDetailedStatusesRequest !== null && showOrganizationConformancePackDetailedStatusesRequest !== undefined) {
+                if (showOrganizationConformancePackDetailedStatusesRequest instanceof ShowOrganizationConformancePackDetailedStatusesRequest) {
+                    organizationId = showOrganizationConformancePackDetailedStatusesRequest.organizationId;
+                    conformancePackName = showOrganizationConformancePackDetailedStatusesRequest.conformancePackName;
+                    state = showOrganizationConformancePackDetailedStatusesRequest.state;
+                    limit = showOrganizationConformancePackDetailedStatusesRequest.limit;
+                    marker = showOrganizationConformancePackDetailedStatusesRequest.marker;
+                } else {
+                    organizationId = showOrganizationConformancePackDetailedStatusesRequest['organization_id'];
+                    conformancePackName = showOrganizationConformancePackDetailedStatusesRequest['conformance_pack_name'];
+                    state = showOrganizationConformancePackDetailedStatusesRequest['state'];
+                    limit = showOrganizationConformancePackDetailedStatusesRequest['limit'];
+                    marker = showOrganizationConformancePackDetailedStatusesRequest['marker'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling showOrganizationConformancePackDetailedStatuses.');
+            }
+            if (conformancePackName === null || conformancePackName === undefined) {
+                throw new RequiredError('conformancePackName','Required parameter conformancePackName was null or undefined when calling showOrganizationConformancePackDetailedStatuses.');
+            }
+            if (conformancePackName !== null && conformancePackName !== undefined) {
+                localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'organization_id': organizationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

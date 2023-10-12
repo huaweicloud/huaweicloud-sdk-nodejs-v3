@@ -20,6 +20,8 @@ import { CharListIem } from './model/CharListIem';
 import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
+import { ColombiaIdCardRequestBody } from './model/ColombiaIdCardRequestBody';
+import { ColombiaIdCardResult } from './model/ColombiaIdCardResult';
 import { CustomTemplateRequestBody } from './model/CustomTemplateRequestBody';
 import { DriverLicenseBack } from './model/DriverLicenseBack';
 import { DriverLicenseFront } from './model/DriverLicenseFront';
@@ -110,6 +112,8 @@ import { RecognizeCambodianIdCardRequest } from './model/RecognizeCambodianIdCar
 import { RecognizeCambodianIdCardResponse } from './model/RecognizeCambodianIdCardResponse';
 import { RecognizeChileIdCardRequest } from './model/RecognizeChileIdCardRequest';
 import { RecognizeChileIdCardResponse } from './model/RecognizeChileIdCardResponse';
+import { RecognizeColombiaIdCardRequest } from './model/RecognizeColombiaIdCardRequest';
+import { RecognizeColombiaIdCardResponse } from './model/RecognizeColombiaIdCardResponse';
 import { RecognizeCustomTemplateRequest } from './model/RecognizeCustomTemplateRequest';
 import { RecognizeCustomTemplateResponse } from './model/RecognizeCustomTemplateResponse';
 import { RecognizeDriverLicenseRequest } from './model/RecognizeDriverLicenseRequest';
@@ -218,8 +222,10 @@ import { VatInvoiceRequestBody } from './model/VatInvoiceRequestBody';
 import { VatInvoiceResult } from './model/VatInvoiceResult';
 import { VehicleCertificateRequestBody } from './model/VehicleCertificateRequestBody';
 import { VehicleCertificateResult } from './model/VehicleCertificateResult';
+import { VehicleLicenseFront } from './model/VehicleLicenseFront';
 import { VehicleLicenseRequestBody } from './model/VehicleLicenseRequestBody';
 import { VehicleLicenseResult } from './model/VehicleLicenseResult';
+import { VehicleLicenseback } from './model/VehicleLicenseback';
 import { VietnamIdCardRequestBody } from './model/VietnamIdCardRequestBody';
 import { VietnamIdCardResult } from './model/VietnamIdCardResult';
 import { VinRequestBody } from './model/VinRequestBody';
@@ -250,11 +256,11 @@ export class OcrClient {
 
 
     /**
-     * 识别电子承兑汇票识别中的关键字段, 并以json格式返回结构化结果
+     * 识别承兑汇票中的关键信息, 并以json格式返回结构化结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 电子承兑汇票识别
+     * @summary 承兑汇票识别
      * @param {AcceptanceBillRequestBody} recognizeAcceptanceBillRequestBody This is a Acceptance Bill Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 
      * @param {*} [options] Override http request option.
@@ -390,6 +396,26 @@ export class OcrClient {
      */
     public recognizeChileIdCard(recognizeChileIdCardRequest?: RecognizeChileIdCardRequest): Promise<RecognizeChileIdCardResponse> {
         const options = ParamCreater().recognizeChileIdCard(recognizeChileIdCardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别哥伦比亚身份证中的文字信息，并将识别的结构化结果返回给用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 哥伦比亚身份证识别
+     * @param {ColombiaIdCardRequestBody} recognizeColombiaIdCardRequestBody This is a colombia id card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeColombiaIdCard(recognizeColombiaIdCardRequest?: RecognizeColombiaIdCardRequest): Promise<RecognizeColombiaIdCardResponse> {
+        const options = ParamCreater().recognizeColombiaIdCard(recognizeColombiaIdCardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1158,7 +1184,7 @@ export class OcrClient {
     }
 
     /**
-     * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
+     * 识别用户上传的电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1242,7 +1268,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 识别电子承兑汇票识别中的关键字段, 并以json格式返回结构化结果
+         * 识别承兑汇票中的关键信息, 并以json格式返回结构化结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1547,6 +1573,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeChileIdCardRequest['body'];
                     enterpriseProjectId = recognizeChileIdCardRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别哥伦比亚身份证中的文字信息，并将识别的结构化结果返回给用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeColombiaIdCard(recognizeColombiaIdCardRequest?: RecognizeColombiaIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/colombia-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeColombiaIdCardRequest !== null && recognizeColombiaIdCardRequest !== undefined) {
+                if (recognizeColombiaIdCardRequest instanceof RecognizeColombiaIdCardRequest) {
+                    body = recognizeColombiaIdCardRequest.body
+                    enterpriseProjectId = recognizeColombiaIdCardRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeColombiaIdCardRequest['body'];
+                    enterpriseProjectId = recognizeColombiaIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -3185,7 +3256,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
+         * 识别用户上传的电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

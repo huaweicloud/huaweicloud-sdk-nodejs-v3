@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AIOpsRiskInfo } from './model/AIOpsRiskInfo';
 import { Actions } from './model/Actions';
 import { AddFavoriteReq } from './model/AddFavoriteReq';
 import { AddFavoriteReqTemplate } from './model/AddFavoriteReqTemplate';
@@ -16,6 +17,7 @@ import { BindPublicReq } from './model/BindPublicReq';
 import { BindPublicReqEip } from './model/BindPublicReqEip';
 import { BindPublicReqEipBandWidth } from './model/BindPublicReqEipBandWidth';
 import { BindPublicReqEipReq } from './model/BindPublicReqEipReq';
+import { CertificatesResource } from './model/CertificatesResource';
 import { ChangeModeReq } from './model/ChangeModeReq';
 import { ChangeModeRequest } from './model/ChangeModeRequest';
 import { ChangeModeResponse } from './model/ChangeModeResponse';
@@ -37,6 +39,10 @@ import { ClusterVolumeRsp } from './model/ClusterVolumeRsp';
 import { ConfigListRsp } from './model/ConfigListRsp';
 import { Confs } from './model/Confs';
 import { Connections } from './model/Connections';
+import { CreateAiOpsRequest } from './model/CreateAiOpsRequest';
+import { CreateAiOpsRequestBody } from './model/CreateAiOpsRequestBody';
+import { CreateAiOpsRequestBodyAlarm } from './model/CreateAiOpsRequestBodyAlarm';
+import { CreateAiOpsResponse } from './model/CreateAiOpsResponse';
 import { CreateAutoCreatePolicyRequest } from './model/CreateAutoCreatePolicyRequest';
 import { CreateAutoCreatePolicyResponse } from './model/CreateAutoCreatePolicyResponse';
 import { CreateBindPublicRequest } from './model/CreateBindPublicRequest';
@@ -57,6 +63,9 @@ import { CreateClustersTagsResponse } from './model/CreateClustersTagsResponse';
 import { CreateCnfReq } from './model/CreateCnfReq';
 import { CreateCnfRequest } from './model/CreateCnfRequest';
 import { CreateCnfResponse } from './model/CreateCnfResponse';
+import { CreateElbListenerRequest } from './model/CreateElbListenerRequest';
+import { CreateElbListenerResponse } from './model/CreateElbListenerResponse';
+import { CreateEsListenerRequestBody } from './model/CreateEsListenerRequestBody';
 import { CreateLoadIkThesaurusRequest } from './model/CreateLoadIkThesaurusRequest';
 import { CreateLoadIkThesaurusResponse } from './model/CreateLoadIkThesaurusResponse';
 import { CreateLogBackupRequest } from './model/CreateLogBackupRequest';
@@ -64,7 +73,12 @@ import { CreateLogBackupResponse } from './model/CreateLogBackupResponse';
 import { CreateSnapshotReq } from './model/CreateSnapshotReq';
 import { CreateSnapshotRequest } from './model/CreateSnapshotRequest';
 import { CreateSnapshotResponse } from './model/CreateSnapshotResponse';
+import { CurrentNodeDetail } from './model/CurrentNodeDetail';
+import { CustomCertsResource } from './model/CustomCertsResource';
 import { CustomTemplates } from './model/CustomTemplates';
+import { DefaultCertsResource } from './model/DefaultCertsResource';
+import { DeleteAiOpsRequest } from './model/DeleteAiOpsRequest';
+import { DeleteAiOpsResponse } from './model/DeleteAiOpsResponse';
 import { DeleteClusterRequest } from './model/DeleteClusterRequest';
 import { DeleteClusterResponse } from './model/DeleteClusterResponse';
 import { DeleteClustersTagsRequest } from './model/DeleteClustersTagsRequest';
@@ -72,6 +86,8 @@ import { DeleteClustersTagsResponse } from './model/DeleteClustersTagsResponse';
 import { DeleteConfReq } from './model/DeleteConfReq';
 import { DeleteConfRequest } from './model/DeleteConfRequest';
 import { DeleteConfResponse } from './model/DeleteConfResponse';
+import { DeleteConfigRequest } from './model/DeleteConfigRequest';
+import { DeleteConfigResponse } from './model/DeleteConfigResponse';
 import { DeleteIkThesaurusRequest } from './model/DeleteIkThesaurusRequest';
 import { DeleteIkThesaurusResponse } from './model/DeleteIkThesaurusResponse';
 import { DeleteSnapshotRequest } from './model/DeleteSnapshotRequest';
@@ -82,28 +98,54 @@ import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
 import { DownloadCertRequest } from './model/DownloadCertRequest';
 import { DownloadCertResponse } from './model/DownloadCertResponse';
 import { ElbWhiteListResp } from './model/ElbWhiteListResp';
+import { EnableOrDisableElbRequest } from './model/EnableOrDisableElbRequest';
+import { EnableOrDisableElbResponse } from './model/EnableOrDisableElbResponse';
+import { EsHealthIpgroupResource } from './model/EsHealthIpgroupResource';
+import { EsHealthmonitorsResource } from './model/EsHealthmonitorsResource';
+import { EsIpgroupResource } from './model/EsIpgroupResource';
+import { EsListenerRequest } from './model/EsListenerRequest';
+import { EsListenerResponse } from './model/EsListenerResponse';
+import { EsListenersResource } from './model/EsListenersResource';
+import { EsLoadBalancerResource } from './model/EsLoadBalancerResource';
+import { EsPublicipsResource } from './model/EsPublicipsResource';
 import { EsflavorsVersionsFlavorsResp } from './model/EsflavorsVersionsFlavorsResp';
 import { EsflavorsVersionsResp } from './model/EsflavorsVersionsResp';
 import { ExtendClusterGrowReq } from './model/ExtendClusterGrowReq';
 import { ExtendClusterReq } from './model/ExtendClusterReq';
 import { GetLogBackupReq } from './model/GetLogBackupReq';
+import { GetTargetImageIdDetail } from './model/GetTargetImageIdDetail';
+import { GetUpgradeDetailInfo } from './model/GetUpgradeDetailInfo';
 import { IndependentBodyReq } from './model/IndependentBodyReq';
 import { IndependentReq } from './model/IndependentReq';
 import { KibanaElbWhiteListResp } from './model/KibanaElbWhiteListResp';
 import { ListActionsRequest } from './model/ListActionsRequest';
 import { ListActionsResponse } from './model/ListActionsResponse';
+import { ListAiOpsRequest } from './model/ListAiOpsRequest';
+import { ListAiOpsRequestBodyAiopsList } from './model/ListAiOpsRequestBodyAiopsList';
+import { ListAiOpsRequestBodySummary } from './model/ListAiOpsRequestBodySummary';
+import { ListAiOpsResponse } from './model/ListAiOpsResponse';
+import { ListCertsRequest } from './model/ListCertsRequest';
+import { ListCertsResponse } from './model/ListCertsResponse';
 import { ListClustersDetailsRequest } from './model/ListClustersDetailsRequest';
 import { ListClustersDetailsResponse } from './model/ListClustersDetailsResponse';
 import { ListClustersTagsRequest } from './model/ListClustersTagsRequest';
 import { ListClustersTagsResponse } from './model/ListClustersTagsResponse';
 import { ListConfsRequest } from './model/ListConfsRequest';
 import { ListConfsResponse } from './model/ListConfsResponse';
+import { ListElbCertsRequest } from './model/ListElbCertsRequest';
+import { ListElbCertsResponse } from './model/ListElbCertsResponse';
+import { ListElbsRequest } from './model/ListElbsRequest';
+import { ListElbsResponse } from './model/ListElbsResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { ListImagesRequest } from './model/ListImagesRequest';
+import { ListImagesResponse } from './model/ListImagesResponse';
 import { ListLogsJobRequest } from './model/ListLogsJobRequest';
 import { ListLogsJobResponse } from './model/ListLogsJobResponse';
 import { ListPipelinesRequest } from './model/ListPipelinesRequest';
 import { ListPipelinesResponse } from './model/ListPipelinesResponse';
+import { ListSmnTopicsRequest } from './model/ListSmnTopicsRequest';
+import { ListSmnTopicsResponse } from './model/ListSmnTopicsResponse';
 import { ListSnapshotBackupsDatastoreResp } from './model/ListSnapshotBackupsDatastoreResp';
 import { ListSnapshotBackupsResp } from './model/ListSnapshotBackupsResp';
 import { ListSnapshotsRequest } from './model/ListSnapshotsRequest';
@@ -115,6 +157,7 @@ import { ListYmlsJobResponse } from './model/ListYmlsJobResponse';
 import { ListYmlsRequest } from './model/ListYmlsRequest';
 import { ListYmlsResponse } from './model/ListYmlsResponse';
 import { LoadCustomThesaurusReq } from './model/LoadCustomThesaurusReq';
+import { LoadbalancersResource } from './model/LoadbalancersResource';
 import { LogConfiguration } from './model/LogConfiguration';
 import { LogList } from './model/LogList';
 import { PayInfoBody } from './model/PayInfoBody';
@@ -130,6 +173,8 @@ import { RestoreSnapshotReq } from './model/RestoreSnapshotReq';
 import { RestoreSnapshotRequest } from './model/RestoreSnapshotRequest';
 import { RestoreSnapshotResponse } from './model/RestoreSnapshotResponse';
 import { Result } from './model/Result';
+import { RetryUpgradeTaskRequest } from './model/RetryUpgradeTaskRequest';
+import { RetryUpgradeTaskResponse } from './model/RetryUpgradeTaskResponse';
 import { RoleExtendGrowReq } from './model/RoleExtendGrowReq';
 import { RoleExtendReq } from './model/RoleExtendReq';
 import { SetRDSBackupCnfReq } from './model/SetRDSBackupCnfReq';
@@ -142,6 +187,8 @@ import { ShowClusterDetailResponse } from './model/ShowClusterDetailResponse';
 import { ShowClusterTagRequest } from './model/ShowClusterTagRequest';
 import { ShowClusterTagResponse } from './model/ShowClusterTagResponse';
 import { ShowClusterVolumeRsp } from './model/ShowClusterVolumeRsp';
+import { ShowElbDetailRequest } from './model/ShowElbDetailRequest';
+import { ShowElbDetailResponse } from './model/ShowElbDetailResponse';
 import { ShowGetConfDetailRequest } from './model/ShowGetConfDetailRequest';
 import { ShowGetConfDetailResponse } from './model/ShowGetConfDetailResponse';
 import { ShowGetLogSettingRequest } from './model/ShowGetLogSettingRequest';
@@ -180,6 +227,9 @@ import { StartPublicWhitelistResponse } from './model/StartPublicWhitelistRespon
 import { StartVpecpReq } from './model/StartVpecpReq';
 import { StartVpecpRequest } from './model/StartVpecpRequest';
 import { StartVpecpResponse } from './model/StartVpecpResponse';
+import { StopHotPipelineRequest } from './model/StopHotPipelineRequest';
+import { StopHotPipelineRequestBody } from './model/StopHotPipelineRequestBody';
+import { StopHotPipelineResponse } from './model/StopHotPipelineResponse';
 import { StopLogAutoBackupPolicyRequest } from './model/StopLogAutoBackupPolicyRequest';
 import { StopLogAutoBackupPolicyResponse } from './model/StopLogAutoBackupPolicyResponse';
 import { StopLogsRequest } from './model/StopLogsRequest';
@@ -202,6 +252,9 @@ import { UnBindPublicReq } from './model/UnBindPublicReq';
 import { UnBindPublicReqEipReq } from './model/UnBindPublicReqEipReq';
 import { UpdateAlterKibanaRequest } from './model/UpdateAlterKibanaRequest';
 import { UpdateAlterKibanaResponse } from './model/UpdateAlterKibanaResponse';
+import { UpdateAzByInstanceTypeReq } from './model/UpdateAzByInstanceTypeReq';
+import { UpdateAzByInstanceTypeRequest } from './model/UpdateAzByInstanceTypeRequest';
+import { UpdateAzByInstanceTypeResponse } from './model/UpdateAzByInstanceTypeResponse';
 import { UpdateBatchClustersTagsRequest } from './model/UpdateBatchClustersTagsRequest';
 import { UpdateBatchClustersTagsResponse } from './model/UpdateBatchClustersTagsResponse';
 import { UpdateCloseKibanaRequest } from './model/UpdateCloseKibanaRequest';
@@ -211,6 +264,10 @@ import { UpdateClusterNameRequest } from './model/UpdateClusterNameRequest';
 import { UpdateClusterNameResponse } from './model/UpdateClusterNameResponse';
 import { UpdateCnfRequest } from './model/UpdateCnfRequest';
 import { UpdateCnfResponse } from './model/UpdateCnfResponse';
+import { UpdateEsElbRequestBody } from './model/UpdateEsElbRequestBody';
+import { UpdateEsListenerRequest } from './model/UpdateEsListenerRequest';
+import { UpdateEsListenerRequestBody } from './model/UpdateEsListenerRequestBody';
+import { UpdateEsListenerResponse } from './model/UpdateEsListenerResponse';
 import { UpdateExtendClusterRequest } from './model/UpdateExtendClusterRequest';
 import { UpdateExtendClusterResponse } from './model/UpdateExtendClusterResponse';
 import { UpdateExtendInstanceStorageRequest } from './model/UpdateExtendInstanceStorageRequest';
@@ -222,6 +279,7 @@ import { UpdateFlavorReq } from './model/UpdateFlavorReq';
 import { UpdateFlavorRequest } from './model/UpdateFlavorRequest';
 import { UpdateFlavorResponse } from './model/UpdateFlavorResponse';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
+import { UpdateInstanceRequestBody } from './model/UpdateInstanceRequestBody';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateLogSettingReq } from './model/UpdateLogSettingReq';
 import { UpdateLogSettingRequest } from './model/UpdateLogSettingRequest';
@@ -255,6 +313,11 @@ import { UpdateYmlsReqEdit } from './model/UpdateYmlsReqEdit';
 import { UpdateYmlsReqEditModify } from './model/UpdateYmlsReqEditModify';
 import { UpdateYmlsRequest } from './model/UpdateYmlsRequest';
 import { UpdateYmlsResponse } from './model/UpdateYmlsResponse';
+import { UpgradeCoreRequest } from './model/UpgradeCoreRequest';
+import { UpgradeCoreResponse } from './model/UpgradeCoreResponse';
+import { UpgradeDetailRequest } from './model/UpgradeDetailRequest';
+import { UpgradeDetailResponse } from './model/UpgradeDetailResponse';
+import { UpgradingTheKernelBody } from './model/UpgradingTheKernelBody';
 
 export class CssClient {
     public static newBuilder(): ClientBuilder<CssClient> {
@@ -325,6 +388,26 @@ export class CssClient {
      */
     public changeSecurityGroup(changeSecurityGroupRequest?: ChangeSecurityGroupRequest): Promise<ChangeSecurityGroupResponse> {
         const options = ParamCreater().changeSecurityGroup(changeSecurityGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建一个集群检测任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建一次集群检测任务
+     * @param {string} clusterId 指定待操作的集群ID。
+     * @param {CreateAiOpsRequestBody} createAiOpsRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAiOps(createAiOpsRequest?: CreateAiOpsRequest): Promise<CreateAiOpsResponse> {
+        const options = ParamCreater().createAiOps(createAiOpsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -413,6 +496,26 @@ export class CssClient {
     }
 
     /**
+     * 该接口用于es监听器配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary es监听器配置。
+     * @param {string} clusterId 指定待更改集群名称的集群ID。
+     * @param {CreateEsListenerRequestBody} createEsListenerRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createElbListener(createElbListenerRequest?: CreateElbListenerRequest): Promise<CreateElbListenerResponse> {
+        const options = ParamCreater().createElbListener(createElbListenerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于加载存放于OBS的自定义词库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -472,6 +575,26 @@ export class CssClient {
     }
 
     /**
+     * 该接口用于删除一个检测任务记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除一个检测任务记录
+     * @param {string} clusterId 指定待删除的集群ID。
+     * @param {string} aiopsId 指定检测任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAiOps(deleteAiOpsRequest?: DeleteAiOpsRequest): Promise<DeleteAiOpsResponse> {
+        const options = ParamCreater().deleteAiOps(deleteAiOpsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 此接口用于删除集群。集群删除将释放此集群的所有资源，包括客户数据。如果需要保留客户集群数据，建议在删除集群前先创建快照。
      * 
      * &gt;此接口亦可用于包年/包月集群退订。公安冻结的集群不能删除。
@@ -500,7 +623,7 @@ export class CssClient {
      * @summary 删除集群标签
      * @param {string} clusterId 指定删除标签的集群ID。
      * @param {string} resourceType 资源类型，当前固定值为“css-cluster”，表示是集群类型。
-     * @param {string} key 需要删除的标签名。
+     * @param {string} key 需要删除的标签名。如果标签名为中文需要经过url编码再调用该接口。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -571,6 +694,47 @@ export class CssClient {
     }
 
     /**
+     * 该接口打开或关闭es负载均衡器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 打开或关闭es负载均衡器
+     * @param {string} clusterId 指定待更改的集群ID。
+     * @param {UpdateEsElbRequestBody} [updateEsElbRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableOrDisableElb(enableOrDisableElbRequest?: EnableOrDisableElbRequest): Promise<EnableOrDisableElbResponse> {
+        const options = ParamCreater().enableOrDisableElb(enableOrDisableElbRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取智能运维任务列表及详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取智能运维任务列表及详情
+     * @param {string} clusterId 指定待查询的集群ID。
+     * @param {number} [limit] 分页参数，列表当前分页的数量限制。
+     * @param {number} [start] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiOps(listAiOpsRequest?: ListAiOpsRequest): Promise<ListAiOpsResponse> {
+        const options = ParamCreater().listAiOps(listAiOpsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询并显示集群列表以及集群的状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -610,6 +774,44 @@ export class CssClient {
     }
 
     /**
+     * 该接口用于查询证书列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询证书列表
+     * @param {string} clusterId 指定待查询的集群ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listElbCerts(listElbCertsRequest?: ListElbCertsRequest): Promise<ListElbCertsResponse> {
+        const options = ParamCreater().listElbCerts(listElbCertsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 展示查询集群支持的elbv3负载均衡器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群支持的elbv3负载均衡器
+     * @param {string} clusterId 指定待查询的集群ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listElbs(listElbsRequest?: ListElbsRequest): Promise<ListElbsResponse> {
+        const options = ParamCreater().listElbs(listElbsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询并显示支持的实例规格对应的ID。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -620,6 +822,26 @@ export class CssClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取当前集群的可升级目标镜像ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取目标镜像ID
+     * @param {string} clusterId 待升级的集群的ID。
+     * @param {string} upgradeType 升级目标版本类型： - same：相同版本。 - cross： 跨版本。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImages(listImagesRequest?: ListImagesRequest): Promise<ListImagesResponse> {
+        const options = ParamCreater().listImages(listImagesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -641,6 +863,25 @@ export class CssClient {
      */
     public listLogsJob(listLogsJobRequest?: ListLogsJobRequest): Promise<ListLogsJobResponse> {
         const options = ParamCreater().listLogsJob(listLogsJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取智能运维告警可用的SMN主题。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取智能运维告警可用的SMN主题
+     * @param {string} domainId 指定待查询的集群ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmnTopics(listSmnTopicsRequest?: ListSmnTopicsRequest): Promise<ListSmnTopicsResponse> {
+        const options = ParamCreater().listSmnTopics(listSmnTopicsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -768,6 +1009,27 @@ export class CssClient {
     }
 
     /**
+     * 由于升级过程时间较长，可能由于网络等原因导致升级失败，可以通过该接口重试该任务或终止该任务的影响。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试升级失败任务
+     * @param {string} clusterId 待重试的集群ID。
+     * @param {string} actionId 待重试的任务ID。
+     * @param {string} [retryMode] 当该参数不为空时，终止该任务的影响。当前仅支持abort。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryUpgradeTask(retryUpgradeTaskRequest?: RetryUpgradeTaskRequest): Promise<RetryUpgradeTaskResponse> {
+        const options = ParamCreater().retryUpgradeTask(retryUpgradeTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询自动创建快照策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -818,6 +1080,25 @@ export class CssClient {
      */
     public showClusterTag(showClusterTagRequest?: ShowClusterTagRequest): Promise<ShowClusterTagResponse> {
         const options = ParamCreater().showClusterTag(showClusterTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取该esELB的信息，以及页面需要展示健康检查状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取该esELB的信息，以及页面需要展示健康检查状态
+     * @param {string} clusterId 指定待查询的集群ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showElbDetail(showElbDetailRequest?: ShowElbDetailRequest): Promise<ShowElbDetailResponse> {
+        const options = ParamCreater().showElbDetail(showElbDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1108,6 +1389,27 @@ export class CssClient {
     }
 
     /**
+     * 该接口通过指定节点类型切换AZ。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换集群实例AZ
+     * @param {string} clusterId 待切换AZ的集群ID。
+     * @param {'all' | 'ess' | 'ess-cold' | 'ess-client' | 'ess-master'} instType 待切换AZ的节点类型。支持: - all：所有节点类型。 - ess： 数据节点。 - ess-cold: 冷数据节点。 - ess-client: Client节点。 - ess-master: Master节点。
+     * @param {UpdateAzByInstanceTypeReq} updateAzByInstanceTypeReq 切换集群可用区请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAzByInstanceType(updateAzByInstanceTypeRequest?: UpdateAzByInstanceTypeRequest): Promise<UpdateAzByInstanceTypeResponse> {
+        const options = ParamCreater().updateAzByInstanceType(updateAzByInstanceTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于对集群批量添加或删除标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1141,6 +1443,27 @@ export class CssClient {
      */
     public updateClusterName(updateClusterNameRequest?: UpdateClusterNameRequest): Promise<UpdateClusterNameResponse> {
         const options = ParamCreater().updateClusterName(updateClusterNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新es监听器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新es监听器
+     * @param {string} clusterId 指定待操作的集群ID。
+     * @param {string} listenerId 指定待操作得监听器ID。
+     * @param {UpdateEsListenerRequestBody} updateEsListenerRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEsListener(updateEsListenerRequest?: UpdateEsListenerRequest): Promise<UpdateEsListenerResponse> {
+        const options = ParamCreater().updateEsListener(updateEsListenerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1243,6 +1566,7 @@ export class CssClient {
      * @summary 节点替换
      * @param {string} clusterId 指定替换集群ID。
      * @param {string} instanceId 指定替换节点ID。
+     * @param {UpdateInstanceRequestBody} updateInstanceRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1458,6 +1782,49 @@ export class CssClient {
     }
 
     /**
+     * 该接口用于将低版本的ES升级到高版本或同版本ES。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群内核升级
+     * @param {string} clusterId 指定待升级的集群ID。
+     * @param {string} instType 指定待升级的节点类型，当前仅支持all。
+     * @param {UpgradingTheKernelBody} upgradingTheKernelBody 集群升级请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeCore(upgradeCoreRequest?: UpgradeCoreRequest): Promise<UpgradeCoreResponse> {
+        const options = ParamCreater().upgradeCore(upgradeCoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 由于升级过程时间较长，该接口可以展示当前升级（切换AZ）节点的各个阶段信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取升级详情信息
+     * @param {string} clusterId 待升级的集群的ID。
+     * @param {number} [start] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
+     * @param {number} [limit] 查询返回终端节点服务的连接列表限制每页个数，即每页返回的个数。
+     * @param {string} [actionMode] 查询升级行为。 - 查询集群版本升级详情：不填写该参数。 - 查询切换AZ详情：当前仅支持AZ_MIGRATION。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeDetail(upgradeDetailRequest?: UpgradeDetailRequest): Promise<UpgradeDetailResponse> {
+        const options = ParamCreater().upgradeDetail(upgradeDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于开启Kibana公网访问。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1617,6 +1984,26 @@ export class CssClient {
     }
 
     /**
+     * 删除配置文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除配置文件V2
+     * @param {string} clusterId 指定删除配置文件的集群ID。
+     * @param {DeleteConfReq} deleteConfReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConfig(deleteConfigRequest?: DeleteConfigRequest): Promise<DeleteConfigResponse> {
+        const options = ParamCreater().deleteConfig(deleteConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于删除自定义模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1647,6 +2034,28 @@ export class CssClient {
      */
     public listActions(listActionsRequest?: ListActionsRequest): Promise<ListActionsResponse> {
         const options = ParamCreater().listActions(listActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询证书列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询证书列表
+     * @param {string} clusterId 指定待查询的集群ID。
+     * @param {string} [start] 指定查询起始值，默认值为1，即从第1个证书开始查询。
+     * @param {string} [limit] 指定查询个数，默认值为10，即一次查询10个证书信息。
+     * @param {string} [certsType] 证书类型。defaultCerts为默认证书类型，不指定查询证书类型默认查找自定义证书列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCerts(listCertsRequest?: ListCertsRequest): Promise<ListCertsResponse> {
+        const options = ParamCreater().listCerts(listCertsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1764,6 +2173,26 @@ export class CssClient {
      */
     public startPipeline(startPipelineRequest?: StartPipelineRequest): Promise<StartPipelineResponse> {
         const options = ParamCreater().startPipeline(startPipelineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于热停止pipeline迁移数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 热停止pipeline迁移数据。
+     * @param {string} clusterId 指定待操作的集群ID。
+     * @param {StopHotPipelineRequestBody} stopHotPipelineRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopHotPipeline(stopHotPipelineRequest?: StopHotPipelineRequest): Promise<StopHotPipelineResponse> {
+        const options = ParamCreater().stopHotPipeline(stopHotPipelineRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1960,6 +2389,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建一个集群检测任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAiOps(createAiOpsRequest?: CreateAiOpsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createAiOpsRequest !== null && createAiOpsRequest !== undefined) {
+                if (createAiOpsRequest instanceof CreateAiOpsRequest) {
+                    clusterId = createAiOpsRequest.clusterId;
+                    body = createAiOpsRequest.body
+                } else {
+                    clusterId = createAiOpsRequest['cluster_id'];
+                    body = createAiOpsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAiOps.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于设置自动创建快照，默认一天创建一个快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2143,6 +2618,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于es监听器配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createElbListener(createElbListenerRequest?: CreateElbListenerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/es-listeners",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createElbListenerRequest !== null && createElbListenerRequest !== undefined) {
+                if (createElbListenerRequest instanceof CreateElbListenerRequest) {
+                    clusterId = createElbListenerRequest.clusterId;
+                    body = createElbListenerRequest.body
+                } else {
+                    clusterId = createElbListenerRequest['cluster_id'];
+                    body = createElbListenerRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createElbListener.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于加载存放于OBS的自定义词库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2267,6 +2788,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除一个检测任务记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAiOps(deleteAiOpsRequest?: DeleteAiOpsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops/{aiops_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let aiopsId;
+
+            if (deleteAiOpsRequest !== null && deleteAiOpsRequest !== undefined) {
+                if (deleteAiOpsRequest instanceof DeleteAiOpsRequest) {
+                    clusterId = deleteAiOpsRequest.clusterId;
+                    aiopsId = deleteAiOpsRequest.aiopsId;
+                } else {
+                    clusterId = deleteAiOpsRequest['cluster_id'];
+                    aiopsId = deleteAiOpsRequest['aiops_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteAiOps.');
+            }
+            if (aiopsId === null || aiopsId === undefined) {
+            throw new RequiredError('aiopsId','Required parameter aiopsId was null or undefined when calling deleteAiOps.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'aiops_id': aiopsId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2464,6 +3029,101 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口打开或关闭es负载均衡器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableOrDisableElb(enableOrDisableElbRequest?: EnableOrDisableElbRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/loadbalancers/es-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (enableOrDisableElbRequest !== null && enableOrDisableElbRequest !== undefined) {
+                if (enableOrDisableElbRequest instanceof EnableOrDisableElbRequest) {
+                    clusterId = enableOrDisableElbRequest.clusterId;
+                    body = enableOrDisableElbRequest.body
+                } else {
+                    clusterId = enableOrDisableElbRequest['cluster_id'];
+                    body = enableOrDisableElbRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling enableOrDisableElb.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取智能运维任务列表及详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiOps(listAiOpsRequest?: ListAiOpsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let limit;
+            
+            let start;
+
+            if (listAiOpsRequest !== null && listAiOpsRequest !== undefined) {
+                if (listAiOpsRequest instanceof ListAiOpsRequest) {
+                    clusterId = listAiOpsRequest.clusterId;
+                    limit = listAiOpsRequest.limit;
+                    start = listAiOpsRequest.start;
+                } else {
+                    clusterId = listAiOpsRequest['cluster_id'];
+                    limit = listAiOpsRequest['limit'];
+                    start = listAiOpsRequest['start'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAiOps.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询并显示集群列表以及集群的状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2545,6 +3205,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询证书列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listElbCerts(listElbCertsRequest?: ListElbCertsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/elb/certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listElbCertsRequest !== null && listElbCertsRequest !== undefined) {
+                if (listElbCertsRequest instanceof ListElbCertsRequest) {
+                    clusterId = listElbCertsRequest.clusterId;
+                } else {
+                    clusterId = listElbCertsRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listElbCerts.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 展示查询集群支持的elbv3负载均衡器
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listElbs(listElbsRequest?: ListElbsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/loadbalancers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listElbsRequest !== null && listElbsRequest !== undefined) {
+                if (listElbsRequest instanceof ListElbsRequest) {
+                    clusterId = listElbsRequest.clusterId;
+                } else {
+                    clusterId = listElbsRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listElbs.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询并显示支持的实例规格对应的ID。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2561,6 +3295,50 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取当前集群的可升级目标镜像ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImages(listImagesRequest?: ListImagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/target/{upgrade_type}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let upgradeType;
+
+            if (listImagesRequest !== null && listImagesRequest !== undefined) {
+                if (listImagesRequest instanceof ListImagesRequest) {
+                    clusterId = listImagesRequest.clusterId;
+                    upgradeType = listImagesRequest.upgradeType;
+                } else {
+                    clusterId = listImagesRequest['cluster_id'];
+                    upgradeType = listImagesRequest['upgrade_type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listImages.');
+            }
+            if (upgradeType === null || upgradeType === undefined) {
+            throw new RequiredError('upgradeType','Required parameter upgradeType was null or undefined when calling listImages.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_type': upgradeType, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2613,6 +3391,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取智能运维告警可用的SMN主题。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmnTopics(listSmnTopicsRequest?: ListSmnTopicsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/domains/{domain_id}/ai-ops/smn-topics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+
+            if (listSmnTopicsRequest !== null && listSmnTopicsRequest !== undefined) {
+                if (listSmnTopicsRequest instanceof ListSmnTopicsRequest) {
+                    domainId = listSmnTopicsRequest.domainId;
+                } else {
+                    domainId = listSmnTopicsRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listSmnTopics.');
+            }
+
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2880,6 +3695,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 由于升级过程时间较长，可能由于网络等原因导致升级失败，可以通过该接口重试该任务或终止该任务的影响。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryUpgradeTask(retryUpgradeTaskRequest?: RetryUpgradeTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/upgrade/{action_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let actionId;
+            
+            let retryMode;
+
+            if (retryUpgradeTaskRequest !== null && retryUpgradeTaskRequest !== undefined) {
+                if (retryUpgradeTaskRequest instanceof RetryUpgradeTaskRequest) {
+                    clusterId = retryUpgradeTaskRequest.clusterId;
+                    actionId = retryUpgradeTaskRequest.actionId;
+                    retryMode = retryUpgradeTaskRequest.retryMode;
+                } else {
+                    clusterId = retryUpgradeTaskRequest['cluster_id'];
+                    actionId = retryUpgradeTaskRequest['action_id'];
+                    retryMode = retryUpgradeTaskRequest['retry_mode'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling retryUpgradeTask.');
+            }
+            if (actionId === null || actionId === undefined) {
+            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling retryUpgradeTask.');
+            }
+            if (retryMode !== null && retryMode !== undefined) {
+                localVarQueryParameter['retry_mode'] = retryMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'action_id': actionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询自动创建快照策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2993,6 +3860,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取该esELB的信息，以及页面需要展示健康检查状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showElbDetail(showElbDetailRequest?: ShowElbDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/es-listeners",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showElbDetailRequest !== null && showElbDetailRequest !== undefined) {
+                if (showElbDetailRequest instanceof ShowElbDetailRequest) {
+                    clusterId = showElbDetailRequest.clusterId;
+                } else {
+                    clusterId = showElbDetailRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showElbDetail.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3585,6 +4489,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口通过指定节点类型切换AZ。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAzByInstanceType(updateAzByInstanceTypeRequest?: UpdateAzByInstanceTypeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/inst-type/{inst_type}/azmigrate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let instType;
+
+            if (updateAzByInstanceTypeRequest !== null && updateAzByInstanceTypeRequest !== undefined) {
+                if (updateAzByInstanceTypeRequest instanceof UpdateAzByInstanceTypeRequest) {
+                    clusterId = updateAzByInstanceTypeRequest.clusterId;
+                    instType = updateAzByInstanceTypeRequest.instType;
+                    body = updateAzByInstanceTypeRequest.body
+                } else {
+                    clusterId = updateAzByInstanceTypeRequest['cluster_id'];
+                    instType = updateAzByInstanceTypeRequest['inst_type'];
+                    body = updateAzByInstanceTypeRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAzByInstanceType.');
+            }
+            if (instType === null || instType === undefined) {
+            throw new RequiredError('instType','Required parameter instType was null or undefined when calling updateAzByInstanceType.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'inst_type': instType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于对集群批量添加或删除标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3679,6 +4636,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新es监听器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEsListener(updateEsListenerRequest?: UpdateEsListenerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/es-listeners/{listener_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let listenerId;
+
+            if (updateEsListenerRequest !== null && updateEsListenerRequest !== undefined) {
+                if (updateEsListenerRequest instanceof UpdateEsListenerRequest) {
+                    clusterId = updateEsListenerRequest.clusterId;
+                    listenerId = updateEsListenerRequest.listenerId;
+                    body = updateEsListenerRequest.body
+                } else {
+                    clusterId = updateEsListenerRequest['cluster_id'];
+                    listenerId = updateEsListenerRequest['listener_id'];
+                    body = updateEsListenerRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateEsListener.');
+            }
+            if (listenerId === null || listenerId === undefined) {
+            throw new RequiredError('listenerId','Required parameter listenerId was null or undefined when calling updateEsListener.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'listener_id': listenerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3892,10 +4902,12 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let clusterId;
             
@@ -3905,9 +4917,11 @@ export const ParamCreater = function () {
                 if (updateInstanceRequest instanceof UpdateInstanceRequest) {
                     clusterId = updateInstanceRequest.clusterId;
                     instanceId = updateInstanceRequest.instanceId;
+                    body = updateInstanceRequest.body
                 } else {
                     clusterId = updateInstanceRequest['cluster_id'];
                     instanceId = updateInstanceRequest['instance_id'];
+                    body = updateInstanceRequest['body'];
                 }
             }
 
@@ -3918,7 +4932,12 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstance.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4387,6 +5406,118 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于将低版本的ES升级到高版本或同版本ES。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeCore(upgradeCoreRequest?: UpgradeCoreRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/inst-type/{inst_type}/image/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let instType;
+
+            if (upgradeCoreRequest !== null && upgradeCoreRequest !== undefined) {
+                if (upgradeCoreRequest instanceof UpgradeCoreRequest) {
+                    clusterId = upgradeCoreRequest.clusterId;
+                    instType = upgradeCoreRequest.instType;
+                    body = upgradeCoreRequest.body
+                } else {
+                    clusterId = upgradeCoreRequest['cluster_id'];
+                    instType = upgradeCoreRequest['inst_type'];
+                    body = upgradeCoreRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeCore.');
+            }
+            if (instType === null || instType === undefined) {
+            throw new RequiredError('instType','Required parameter instType was null or undefined when calling upgradeCore.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'inst_type': instType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 由于升级过程时间较长，该接口可以展示当前升级（切换AZ）节点的各个阶段信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeDetail(upgradeDetailRequest?: UpgradeDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/upgrade/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let start;
+            
+            let limit;
+            
+            let actionMode;
+
+            if (upgradeDetailRequest !== null && upgradeDetailRequest !== undefined) {
+                if (upgradeDetailRequest instanceof UpgradeDetailRequest) {
+                    clusterId = upgradeDetailRequest.clusterId;
+                    start = upgradeDetailRequest.start;
+                    limit = upgradeDetailRequest.limit;
+                    actionMode = upgradeDetailRequest.actionMode;
+                } else {
+                    clusterId = upgradeDetailRequest['cluster_id'];
+                    start = upgradeDetailRequest['start'];
+                    limit = upgradeDetailRequest['limit'];
+                    actionMode = upgradeDetailRequest['action_mode'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeDetail.');
+            }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (actionMode !== null && actionMode !== undefined) {
+                localVarQueryParameter['action_mode'] = actionMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于开启Kibana公网访问。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4746,6 +5877,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除配置文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConfig(deleteConfigRequest?: DeleteConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/{project_id}/clusters/{cluster_id}/lgsconf/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (deleteConfigRequest !== null && deleteConfigRequest !== undefined) {
+                if (deleteConfigRequest instanceof DeleteConfigRequest) {
+                    clusterId = deleteConfigRequest.clusterId;
+                    body = deleteConfigRequest.body
+                } else {
+                    clusterId = deleteConfigRequest['cluster_id'];
+                    body = deleteConfigRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于删除自定义模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4815,6 +5992,65 @@ export const ParamCreater = function () {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listActions.');
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询证书列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCerts(listCertsRequest?: ListCertsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/certs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let start;
+            
+            let limit;
+            
+            let certsType;
+
+            if (listCertsRequest !== null && listCertsRequest !== undefined) {
+                if (listCertsRequest instanceof ListCertsRequest) {
+                    clusterId = listCertsRequest.clusterId;
+                    start = listCertsRequest.start;
+                    limit = listCertsRequest.limit;
+                    certsType = listCertsRequest.certsType;
+                } else {
+                    clusterId = listCertsRequest['cluster_id'];
+                    start = listCertsRequest['start'];
+                    limit = listCertsRequest['limit'];
+                    certsType = listCertsRequest['certsType'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listCerts.');
+            }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (certsType !== null && certsType !== undefined) {
+                localVarQueryParameter['certsType'] = certsType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5059,6 +6295,52 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startPipeline.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于热停止pipeline迁移数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopHotPipeline(stopHotPipelineRequest?: StopHotPipelineRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/lgsconf/hot-stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (stopHotPipelineRequest !== null && stopHotPipelineRequest !== undefined) {
+                if (stopHotPipelineRequest instanceof StopHotPipelineRequest) {
+                    clusterId = stopHotPipelineRequest.clusterId;
+                    body = stopHotPipelineRequest.body
+                } else {
+                    clusterId = stopHotPipelineRequest['cluster_id'];
+                    body = stopHotPipelineRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling stopHotPipeline.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

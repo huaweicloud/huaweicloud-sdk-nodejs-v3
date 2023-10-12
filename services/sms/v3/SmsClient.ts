@@ -580,6 +580,7 @@ export class SmsClient {
      *
      * @summary 获取SSL目的端证书和私钥
      * @param {string} taskId 迁移任务ID
+     * @param {boolean} [enableCaCert] 是否生成ca证书
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2065,15 +2066,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let taskId;
+            
+            let enableCaCert;
 
             if (showCertKeyRequest !== null && showCertKeyRequest !== undefined) {
                 if (showCertKeyRequest instanceof ShowCertKeyRequest) {
                     taskId = showCertKeyRequest.taskId;
+                    enableCaCert = showCertKeyRequest.enableCaCert;
                 } else {
                     taskId = showCertKeyRequest['task_id'];
+                    enableCaCert = showCertKeyRequest['enable_ca_cert'];
                 }
             }
 
@@ -2081,7 +2086,11 @@ export const ParamCreater = function () {
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showCertKey.');
             }
+            if (enableCaCert !== null && enableCaCert !== undefined) {
+                localVarQueryParameter['enable_ca_cert'] = enableCaCert;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;

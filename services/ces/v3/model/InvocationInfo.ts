@@ -163,7 +163,8 @@ export enum InvocationInfoInstanceTypeEnum {
 export enum InvocationInfoInvocationTypeEnum {
     INSTALL = 'INSTALL',
     UPDATE = 'UPDATE',
-    ROLLBACK = 'ROLLBACK'
+    ROLLBACK = 'ROLLBACK',
+    RETRY = 'RETRY'
 }
 /**
     * @export
