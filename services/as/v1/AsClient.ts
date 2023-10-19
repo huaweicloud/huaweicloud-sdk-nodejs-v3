@@ -254,15 +254,7 @@ export class AsClient {
     }
 
     /**
-     * 批量移出伸缩组中的实例或批量添加伸缩组外的实例。批量对伸缩组中的实例设置或取消其实例保护属性。批量将伸缩组中的实例转入或移出备用状态。
-     * 说明：
-     * - 单次最多批量操作实例个数为10。批量添加后实例数不能大于伸缩组的最大实例数，批量移出后实例数不能小于伸缩组的最小实例数。
-     * - 当伸缩组处于INSERVICE状态且没有伸缩活动时，才能添加实例。
-     * - 当伸缩组没有伸缩活动时，才能移出实例。
-     * - 向伸缩组中添加实例时，必须保证实例所在的可用区包含于伸缩组的可用区内。
-     * - 实例处于INSERVICE状态时才可以进行移出、设置或取消实例保护属性等操作。
-     * - 当伸缩组发生自动缩容活动时，设置了实例保护的实例不会被移出伸缩组。
-     * - 批量移出弹性伸缩组中的实例时，若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器相同，会解绑定实例和监听器。若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器不同，会保留实例和监听器的绑定关系。
+     * 批量移出伸缩组中的实例或批量添加伸缩组外的实例。批量对伸缩组中的实例设置或取消其实例保护属性。批量将伸缩组中的实例转入或移出备用状态。说明：- 单次最多批量操作实例个数为10。批量添加后实例数不能大于伸缩组的最大实例数，批量移出后实例数不能小于伸缩组的最小实例数。- 当伸缩组处于INSERVICE状态且没有伸缩活动时，才能添加实例。- 当伸缩组没有伸缩活动时，才能移出实例。- 向伸缩组中添加实例时，必须保证实例所在的可用区包含于伸缩组的可用区内。- 实例处于INSERVICE状态时才可以进行移出、设置或取消实例保护属性等操作。- 当伸缩组发生自动缩容活动时，设置了实例保护的实例不会被移出伸缩组。- 批量移出弹性伸缩组中的实例时，若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器相同，会解绑定实例和监听器。若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器不同，会保留实例和监听器的绑定关系。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -936,7 +928,7 @@ export class AsClient {
      * @param {'INSERVICE' | 'PAUSED' | 'ERROR' | 'DELETING'} [scalingGroupStatus] 伸缩组状态，取值如下：  - INSERVICE：正常状态 - PAUSED：停用状态 - ERROR：异常状态 - DELETING：删除中 - FREEZED：已冻结
      * @param {number} [startNumber] 查询的起始行号，默认为0。最小值为0，最大值没有限制。
      * @param {number} [limit] 查询的记录条数，默认为20。取值范围为：0~100。
-     * @param {string} [enterpriseProjectId] 企业项目ID，当传入all_granted_eps时表示查询该用户所有授权的企业项目下的伸缩组列表，如何获取企业项目ID，请参考[查询企业项目列表](https://support.huaweicloud.com/api-em/zh-cn_topic_0121230880.html)。  说明： 华为云帐号和拥有全局权限的IAM用户可以查询该用户所有伸缩组列表。  授予部分企业项目的IAM用户，如果拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应的伸缩组列表。
+     * @param {string} [enterpriseProjectId] 企业项目ID，当传入all_granted_eps时表示查询该用户所有授权的企业项目下的伸缩组列表，如何获取企业项目ID，请参考[查询企业项目列表](https://support.huaweicloud.com/api-em/zh-cn_topic_0121230880.html)。说明：华为云帐号和拥有全局权限的IAM用户可以查询该用户所有伸缩组列表。授予部分企业项目的IAM用户，如果拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应的伸缩组列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1429,7 +1421,7 @@ export class AsClient {
      * @param {number} [limit] 查询记录数，默认20，最大100。
      * @param {'POLICY_NAME' | 'TRIGGER_CONDITION' | 'CREATE_TIME'} [sortBy] 排序方法POLICY_NAME：根据策略名称排序;TRIGGER_CONDITION：根据触发条件排序，如升序下，告警策略最先，其余根据最近一次触发时间升序排列;CREATE_TIME：根据策略的创建时间排序。
      * @param {'ASC' | 'DESC'} [order] 排序顺序ASC：升序；DESC：降序
-     * @param {string} [enterpriseProjectId] 企业项目ID。  当scaling_resource_type指定为：SCALING_GROUP 传入all_granted_eps时：  华为云帐号和拥有全局权限的IAM用户可以查询该用户所有的伸缩组对应的伸缩策略。 授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的伸缩组对应的伸缩策略。 说明： 如果授予部分企业项目的IAM用户拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应伸缩组的伸缩策略列表。  当scaling_resource_type指定为：BANDWIDTH 传入all_granted_eps时:  华为云帐号和拥有全局权限的IAM用户可以查询该用户所有带宽对应的伸缩策略。 授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的带宽对应的伸缩策略，带宽在all_granted_eps场景下返回策略请参见[《EIP接口参口》查询带宽列表](https://support.huaweicloud.com/api-eip/eip_apiBandwidth_0002.html)。 不指定scaling_resource_type 当传入all_granted_eps时：  华为云帐号和拥有全局权限的IAM用户可以查询该用户所有的伸缩组和带宽对应的伸缩策略。 授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的伸缩组和带宽对应的伸缩策略。 说明： 如果授予部分企业项目的IAM用户拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应伸缩组的伸缩策略列表；带宽在all_granted_eps场景下返回策略请参见[《EIP接口参口》查询带宽列表](https://support.huaweicloud.com/api-eip/eip_apiBandwidth_0002.html)。
+     * @param {string} [enterpriseProjectId] 企业项目ID。当scaling_resource_type指定为：SCALING_GROUP传入all_granted_eps时：华为云帐号和拥有全局权限的IAM用户可以查询该用户所有的伸缩组对应的伸缩策略。授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的伸缩组对应的伸缩策略。说明：如果授予部分企业项目的IAM用户拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应伸缩组的伸缩策略列表。当scaling_resource_type指定为：BANDWIDTH传入all_granted_eps时:华为云帐号和拥有全局权限的IAM用户可以查询该用户所有带宽对应的伸缩策略。授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的带宽对应的伸缩策略，带宽在all_granted_eps场景下返回策略请参见[《EIP接口参口》查询带宽列表](https://support.huaweicloud.com/api-eip/eip_apiBandwidth_0002.html)。不指定scaling_resource_type当传入all_granted_eps时：华为云帐号和拥有全局权限的IAM用户可以查询该用户所有的伸缩组和带宽对应的伸缩策略。授予部分企业项目的IAM用户，可以查询该用户所有授权企业项目下的伸缩组和带宽对应的伸缩策略。说明：如果授予部分企业项目的IAM用户拥有超过100个企业项目，则只能返回有权限的前100个企业项目对应伸缩组的伸缩策略列表；带宽在all_granted_eps场景下返回策略请参见[《EIP接口参口》查询带宽列表](https://support.huaweicloud.com/api-eip/eip_apiBandwidth_0002.html)。
      * @param {string} [alarmId] 告警ID，即告警规则的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1557,15 +1549,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量移出伸缩组中的实例或批量添加伸缩组外的实例。批量对伸缩组中的实例设置或取消其实例保护属性。批量将伸缩组中的实例转入或移出备用状态。
-         * 说明：
-         * - 单次最多批量操作实例个数为10。批量添加后实例数不能大于伸缩组的最大实例数，批量移出后实例数不能小于伸缩组的最小实例数。
-         * - 当伸缩组处于INSERVICE状态且没有伸缩活动时，才能添加实例。
-         * - 当伸缩组没有伸缩活动时，才能移出实例。
-         * - 向伸缩组中添加实例时，必须保证实例所在的可用区包含于伸缩组的可用区内。
-         * - 实例处于INSERVICE状态时才可以进行移出、设置或取消实例保护属性等操作。
-         * - 当伸缩组发生自动缩容活动时，设置了实例保护的实例不会被移出伸缩组。
-         * - 批量移出弹性伸缩组中的实例时，若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器相同，会解绑定实例和监听器。若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器不同，会保留实例和监听器的绑定关系。
+         * 批量移出伸缩组中的实例或批量添加伸缩组外的实例。批量对伸缩组中的实例设置或取消其实例保护属性。批量将伸缩组中的实例转入或移出备用状态。说明：- 单次最多批量操作实例个数为10。批量添加后实例数不能大于伸缩组的最大实例数，批量移出后实例数不能小于伸缩组的最小实例数。- 当伸缩组处于INSERVICE状态且没有伸缩活动时，才能添加实例。- 当伸缩组没有伸缩活动时，才能移出实例。- 向伸缩组中添加实例时，必须保证实例所在的可用区包含于伸缩组的可用区内。- 实例处于INSERVICE状态时才可以进行移出、设置或取消实例保护属性等操作。- 当伸缩组发生自动缩容活动时，设置了实例保护的实例不会被移出伸缩组。- 批量移出弹性伸缩组中的实例时，若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器相同，会解绑定实例和监听器。若该实例加入伸缩组时绑定的监听器和伸缩组本身的监听器不同，会保留实例和监听器的绑定关系。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -710,7 +710,7 @@ export class CbrClient {
      * @param {string} [limit] 每页显示条目数，正整数
      * @param {number} [offset] 偏移值,正整数
      * @param {string} [status] 状态
-     * @param {string} [agentId] 客户端ID
+     * @param {Array<string>} [agentId] 客户端ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -916,7 +916,7 @@ export class CbrClient {
      * @param {'backup' | 'replication'} [protectType] 保护类型
      * @param {string} [objectType] 对象类型：云服务器（server），云硬盘（disk），文件系统（turbo），云桌面（workspace），VMware（vmware），关系型数据库（rds），文件（file）。
      * @param {string} [enterpriseProjectId] 企业项目id或all_granted_eps，all_granted_eps表示查询用户有权限的所有企业项目id
-     * @param {string} [id] 存储库ID
+     * @param {Array<string>} [id] 存储库ID
      * @param {string} [policyId] 策略ID
      * @param {string} [status] 状态
      * @param {string} [resourceIds] 资源id，支持多资源，以英文逗号分割

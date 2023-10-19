@@ -4,7 +4,7 @@ export class ListAgentRequest {
     public limit?: string;
     public offset?: number;
     public status?: string;
-    private 'agent_id'?: string;
+    private 'agent_id'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: string): ListAgentRequest {
@@ -19,14 +19,14 @@ export class ListAgentRequest {
         this['status'] = status;
         return this;
     }
-    public withAgentId(agentId: string): ListAgentRequest {
+    public withAgentId(agentId: Array<string>): ListAgentRequest {
         this['agent_id'] = agentId;
         return this;
     }
-    public set agentId(agentId: string  | undefined) {
+    public set agentId(agentId: Array<string>  | undefined) {
         this['agent_id'] = agentId;
     }
-    public get agentId(): string | undefined {
+    public get agentId(): Array<string> | undefined {
         return this['agent_id'];
     }
 }

@@ -22,6 +22,8 @@ export class ListAttackLogsRequest {
     public level?: string;
     public source?: string;
     private 'enterprise_project_id'?: string;
+    private 'dst_host'?: string;
+    private 'log_type'?: ListAttackLogsRequestLogTypeEnum | string;
     public constructor(projectId?: string, startTime?: number, endTime?: number, limit?: number, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
@@ -191,6 +193,26 @@ export class ListAttackLogsRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withDstHost(dstHost: string): ListAttackLogsRequest {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
+    }
+    public withLogType(logType: ListAttackLogsRequestLogTypeEnum | string): ListAttackLogsRequest {
+        this['log_type'] = logType;
+        return this;
+    }
+    public set logType(logType: ListAttackLogsRequestLogTypeEnum | string  | undefined) {
+        this['log_type'] = logType;
+    }
+    public get logType(): ListAttackLogsRequestLogTypeEnum | string | undefined {
+        return this['log_type'];
+    }
 }
 
 /**
@@ -218,4 +240,13 @@ export enum ListAttackLogsRequestActionEnum {
 export enum ListAttackLogsRequestDirectionEnum {
     E_0 = '0',
     E_1 = '1'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAttackLogsRequestLogTypeEnum {
+    INTERNET = 'internet',
+    NAT = 'nat',
+    VPC = 'vpc'
 }

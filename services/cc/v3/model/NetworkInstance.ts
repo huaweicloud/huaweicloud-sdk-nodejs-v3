@@ -1,3 +1,14 @@
+import { CloudConnectionId } from './CloudConnectionId';
+import { CreatedAt } from './CreatedAt';
+import { Description } from './Description';
+import { DomainId } from './DomainId';
+import { InstanceDomainId } from './InstanceDomainId';
+import { InstanceId } from './InstanceId';
+import { Name } from './Name';
+import { ProjectId } from './ProjectId';
+import { RegionId } from './RegionId';
+import { UUIDIdentifier } from './UUIDIdentifier';
+import { UpdatedAt } from './UpdatedAt';
 
 
 export class NetworkInstance {
@@ -5,17 +16,26 @@ export class NetworkInstance {
     public name?: string;
     public description?: string;
     private 'domain_id'?: string;
-    public status?: NetworkInstanceStatusEnum | string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public type?: NetworkInstanceTypeEnum | string;
     private 'cloud_connection_id'?: string;
     private 'instance_id'?: string;
     private 'instance_domain_id'?: string;
     private 'region_id'?: string;
     private 'project_id'?: string;
+    public status?: NetworkInstanceStatusEnum | string;
+    public type?: NetworkInstanceTypeEnum | string;
     public cidrs?: Array<string>;
-    public constructor() { 
+    public constructor(id?: string, name?: string, domainId?: string, createdAt?: Date, updatedAt?: Date, cloudConnectionId?: string, instanceId?: string, regionId?: string, projectId?: string) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['domain_id'] = domainId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
+        this['cloud_connection_id'] = cloudConnectionId;
+        this['instance_id'] = instanceId;
+        this['region_id'] = regionId;
+        this['project_id'] = projectId;
     }
     public withId(id: string): NetworkInstance {
         this['id'] = id;
@@ -39,10 +59,6 @@ export class NetworkInstance {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withStatus(status: NetworkInstanceStatusEnum | string): NetworkInstance {
-        this['status'] = status;
-        return this;
-    }
     public withCreatedAt(createdAt: Date): NetworkInstance {
         this['created_at'] = createdAt;
         return this;
@@ -62,10 +78,6 @@ export class NetworkInstance {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
-    }
-    public withType(type: NetworkInstanceTypeEnum | string): NetworkInstance {
-        this['type'] = type;
-        return this;
     }
     public withCloudConnectionId(cloudConnectionId: string): NetworkInstance {
         this['cloud_connection_id'] = cloudConnectionId;
@@ -116,6 +128,14 @@ export class NetworkInstance {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withStatus(status: NetworkInstanceStatusEnum | string): NetworkInstance {
+        this['status'] = status;
+        return this;
+    }
+    public withType(type: NetworkInstanceTypeEnum | string): NetworkInstance {
+        this['type'] = type;
+        return this;
     }
     public withCidrs(cidrs: Array<string>): NetworkInstance {
         this['cidrs'] = cidrs;

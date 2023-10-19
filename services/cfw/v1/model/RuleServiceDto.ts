@@ -1,3 +1,5 @@
+import { AddressGroupVO } from './AddressGroupVO';
+import { ServiceItem } from './ServiceItem';
 
 
 export class RuleServiceDto {
@@ -7,6 +9,9 @@ export class RuleServiceDto {
     private 'dest_port'?: string;
     private 'service_set_id'?: string;
     private 'service_set_name'?: string;
+    private 'custom_service'?: Array<ServiceItem>;
+    private 'service_group'?: Array<string>;
+    private 'service_group_names'?: Array<AddressGroupVO>;
     public constructor(type?: number) { 
         this['type'] = type;
     }
@@ -57,5 +62,35 @@ export class RuleServiceDto {
     }
     public get serviceSetName(): string | undefined {
         return this['service_set_name'];
+    }
+    public withCustomService(customService: Array<ServiceItem>): RuleServiceDto {
+        this['custom_service'] = customService;
+        return this;
+    }
+    public set customService(customService: Array<ServiceItem>  | undefined) {
+        this['custom_service'] = customService;
+    }
+    public get customService(): Array<ServiceItem> | undefined {
+        return this['custom_service'];
+    }
+    public withServiceGroup(serviceGroup: Array<string>): RuleServiceDto {
+        this['service_group'] = serviceGroup;
+        return this;
+    }
+    public set serviceGroup(serviceGroup: Array<string>  | undefined) {
+        this['service_group'] = serviceGroup;
+    }
+    public get serviceGroup(): Array<string> | undefined {
+        return this['service_group'];
+    }
+    public withServiceGroupNames(serviceGroupNames: Array<AddressGroupVO>): RuleServiceDto {
+        this['service_group_names'] = serviceGroupNames;
+        return this;
+    }
+    public set serviceGroupNames(serviceGroupNames: Array<AddressGroupVO>  | undefined) {
+        this['service_group_names'] = serviceGroupNames;
+    }
+    public get serviceGroupNames(): Array<AddressGroupVO> | undefined {
+        return this['service_group_names'];
     }
 }

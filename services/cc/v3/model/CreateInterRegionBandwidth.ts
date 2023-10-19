@@ -1,3 +1,5 @@
+import { BandwidthPackageId } from './BandwidthPackageId';
+import { CloudConnectionId } from './CloudConnectionId';
 
 
 export class CreateInterRegionBandwidth {

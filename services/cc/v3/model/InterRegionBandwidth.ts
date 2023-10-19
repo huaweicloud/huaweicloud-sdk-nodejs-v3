@@ -1,4 +1,12 @@
+import { BandwidthPackageId } from './BandwidthPackageId';
+import { CloudConnectionId } from './CloudConnectionId';
+import { CreatedAt } from './CreatedAt';
+import { Description } from './Description';
+import { DomainId } from './DomainId';
 import { InterRegion } from './InterRegion';
+import { Name } from './Name';
+import { UUIDIdentifier } from './UUIDIdentifier';
+import { UpdatedAt } from './UpdatedAt';
 
 
 export class InterRegionBandwidth {
@@ -6,13 +14,20 @@ export class InterRegionBandwidth {
     public name?: string;
     public description?: string;
     private 'domain_id'?: string;
-    private 'bandwidth_package_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'cloud_connection_id'?: string;
+    private 'bandwidth_package_id'?: string;
     private 'inter_regions'?: Array<InterRegion>;
     public bandwidth?: number;
-    public constructor() { 
+    public constructor(id?: string, name?: string, domainId?: string, createdAt?: Date, updatedAt?: Date, cloudConnectionId?: string, bandwidthPackageId?: string) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['domain_id'] = domainId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
+        this['cloud_connection_id'] = cloudConnectionId;
+        this['bandwidth_package_id'] = bandwidthPackageId;
     }
     public withId(id: string): InterRegionBandwidth {
         this['id'] = id;
@@ -35,16 +50,6 @@ export class InterRegionBandwidth {
     }
     public get domainId(): string | undefined {
         return this['domain_id'];
-    }
-    public withBandwidthPackageId(bandwidthPackageId: string): InterRegionBandwidth {
-        this['bandwidth_package_id'] = bandwidthPackageId;
-        return this;
-    }
-    public set bandwidthPackageId(bandwidthPackageId: string  | undefined) {
-        this['bandwidth_package_id'] = bandwidthPackageId;
-    }
-    public get bandwidthPackageId(): string | undefined {
-        return this['bandwidth_package_id'];
     }
     public withCreatedAt(createdAt: Date): InterRegionBandwidth {
         this['created_at'] = createdAt;
@@ -75,6 +80,16 @@ export class InterRegionBandwidth {
     }
     public get cloudConnectionId(): string | undefined {
         return this['cloud_connection_id'];
+    }
+    public withBandwidthPackageId(bandwidthPackageId: string): InterRegionBandwidth {
+        this['bandwidth_package_id'] = bandwidthPackageId;
+        return this;
+    }
+    public set bandwidthPackageId(bandwidthPackageId: string  | undefined) {
+        this['bandwidth_package_id'] = bandwidthPackageId;
+    }
+    public get bandwidthPackageId(): string | undefined {
+        return this['bandwidth_package_id'];
     }
     public withInterRegions(interRegions: Array<InterRegion>): InterRegionBandwidth {
         this['inter_regions'] = interRegions;

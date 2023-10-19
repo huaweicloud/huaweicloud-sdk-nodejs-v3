@@ -79,7 +79,7 @@ export class IvsClient {
         const options = ParamCreater().detectExtentionByIdCardImage(detectExtentionByIdCardImageRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -99,7 +99,7 @@ export class IvsClient {
         const options = ParamCreater().detectExtentionByNameAndId(detectExtentionByNameAndIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -119,7 +119,7 @@ export class IvsClient {
         const options = ParamCreater().detectStandardByIdCardImage(detectStandardByIdCardImageRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -139,7 +139,7 @@ export class IvsClient {
         const options = ParamCreater().detectStandardByNameAndId(detectStandardByNameAndIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -159,7 +159,7 @@ export class IvsClient {
         const options = ParamCreater().detectStandardByVideoAndIdCardImage(detectStandardByVideoAndIdCardImageRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -179,7 +179,7 @@ export class IvsClient {
         const options = ParamCreater().detectStandardByVideoAndNameAndId(detectStandardByVideoAndNameAndIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }

@@ -5,6 +5,8 @@ export class ListGaussMySqlDatabaseRequest {
     private 'instance_id'?: string;
     public offset?: number;
     public limit?: number;
+    public name?: string;
+    public charset?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -34,6 +36,14 @@ export class ListGaussMySqlDatabaseRequest {
     }
     public withLimit(limit: number): ListGaussMySqlDatabaseRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withName(name: string): ListGaussMySqlDatabaseRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withCharset(charset: string): ListGaussMySqlDatabaseRequest {
+        this['charset'] = charset;
         return this;
     }
 }

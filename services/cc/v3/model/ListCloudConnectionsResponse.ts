@@ -1,24 +1,27 @@
 import { CloudConnection } from './CloudConnection';
+import { ListResponseBody } from './ListResponseBody';
 import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCloudConnectionsResponse extends SdkResponse {
-    private 'cloud_connections'?: Array<CloudConnection>;
-    private 'page_info'?: PageInfo;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'page_info'?: PageInfo;
+    private 'cloud_connections'?: Array<CloudConnection>;
+    public constructor(requestId?: string, cloudConnections?: Array<CloudConnection>) { 
         super();
-    }
-    public withCloudConnections(cloudConnections: Array<CloudConnection>): ListCloudConnectionsResponse {
+        this['request_id'] = requestId;
         this['cloud_connections'] = cloudConnections;
+    }
+    public withRequestId(requestId: string): ListCloudConnectionsResponse {
+        this['request_id'] = requestId;
         return this;
     }
-    public set cloudConnections(cloudConnections: Array<CloudConnection>  | undefined) {
-        this['cloud_connections'] = cloudConnections;
+    public set requestId(requestId: string  | undefined) {
+        this['request_id'] = requestId;
     }
-    public get cloudConnections(): Array<CloudConnection> | undefined {
-        return this['cloud_connections'];
+    public get requestId(): string | undefined {
+        return this['request_id'];
     }
     public withPageInfo(pageInfo: PageInfo): ListCloudConnectionsResponse {
         this['page_info'] = pageInfo;
@@ -30,14 +33,14 @@ export class ListCloudConnectionsResponse extends SdkResponse {
     public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
-    public withRequestId(requestId: string): ListCloudConnectionsResponse {
-        this['request_id'] = requestId;
+    public withCloudConnections(cloudConnections: Array<CloudConnection>): ListCloudConnectionsResponse {
+        this['cloud_connections'] = cloudConnections;
         return this;
     }
-    public set requestId(requestId: string  | undefined) {
-        this['request_id'] = requestId;
+    public set cloudConnections(cloudConnections: Array<CloudConnection>  | undefined) {
+        this['cloud_connections'] = cloudConnections;
     }
-    public get requestId(): string | undefined {
-        return this['request_id'];
+    public get cloudConnections(): Array<CloudConnection> | undefined {
+        return this['cloud_connections'];
     }
 }

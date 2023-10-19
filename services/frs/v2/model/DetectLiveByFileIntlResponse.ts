@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class DetectLiveByFileIntlResponse extends SdkResponse {
     private 'video-result'?: LiveDetectRespVideoresult;
     private 'warning-list'?: Array<WarningList>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -28,5 +29,15 @@ export class DetectLiveByFileIntlResponse extends SdkResponse {
     }
     public get warningList(): Array<WarningList> | undefined {
         return this['warning-list'];
+    }
+    public withXRequestId(xRequestId: string): DetectLiveByFileIntlResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

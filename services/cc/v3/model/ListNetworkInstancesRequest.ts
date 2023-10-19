@@ -6,9 +6,9 @@ export class ListNetworkInstancesRequest {
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
+    private 'cloud_connection_id'?: Array<string>;
     public status?: Array<ListNetworkInstancesRequestStatusEnum> | Array<string>;
     public type?: Array<string>;
-    private 'cloud_connection_id'?: Array<string>;
     private 'instance_id'?: Array<string>;
     private 'region_id'?: Array<string>;
     public constructor() { 
@@ -33,14 +33,6 @@ export class ListNetworkInstancesRequest {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: Array<ListNetworkInstancesRequestStatusEnum> | Array<string>): ListNetworkInstancesRequest {
-        this['status'] = status;
-        return this;
-    }
-    public withType(type: Array<string>): ListNetworkInstancesRequest {
-        this['type'] = type;
-        return this;
-    }
     public withCloudConnectionId(cloudConnectionId: Array<string>): ListNetworkInstancesRequest {
         this['cloud_connection_id'] = cloudConnectionId;
         return this;
@@ -50,6 +42,14 @@ export class ListNetworkInstancesRequest {
     }
     public get cloudConnectionId(): Array<string> | undefined {
         return this['cloud_connection_id'];
+    }
+    public withStatus(status: Array<ListNetworkInstancesRequestStatusEnum> | Array<string>): ListNetworkInstancesRequest {
+        this['status'] = status;
+        return this;
+    }
+    public withType(type: Array<string>): ListNetworkInstancesRequest {
+        this['type'] = type;
+        return this;
     }
     public withInstanceId(instanceId: Array<string>): ListNetworkInstancesRequest {
         this['instance_id'] = instanceId;

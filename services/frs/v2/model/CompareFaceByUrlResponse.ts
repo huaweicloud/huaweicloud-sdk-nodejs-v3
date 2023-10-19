@@ -6,6 +6,7 @@ export class CompareFaceByUrlResponse extends SdkResponse {
     private 'image1_face'?: CompareFace;
     private 'image2_face'?: CompareFace;
     public similarity?: number;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -32,5 +33,15 @@ export class CompareFaceByUrlResponse extends SdkResponse {
     public withSimilarity(similarity: number): CompareFaceByUrlResponse {
         this['similarity'] = similarity;
         return this;
+    }
+    public withXRequestId(xRequestId: string): CompareFaceByUrlResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

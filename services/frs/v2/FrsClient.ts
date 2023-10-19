@@ -144,7 +144,7 @@ export class FrsClient {
         const options = ParamCreater().addFacesByBase64(addFacesByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -168,7 +168,7 @@ export class FrsClient {
         const options = ParamCreater().addFacesByFile(addFacesByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -189,7 +189,7 @@ export class FrsClient {
         const options = ParamCreater().addFacesByUrl(addFacesByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -210,7 +210,7 @@ export class FrsClient {
         const options = ParamCreater().batchDeleteFaces(batchDeleteFacesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -230,7 +230,7 @@ export class FrsClient {
         const options = ParamCreater().compareFaceByBase64(compareFaceByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -251,7 +251,7 @@ export class FrsClient {
         const options = ParamCreater().compareFaceByFile(compareFaceByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -271,7 +271,7 @@ export class FrsClient {
         const options = ParamCreater().compareFaceByUrl(compareFaceByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -291,7 +291,7 @@ export class FrsClient {
         const options = ParamCreater().createFaceSet(createFaceSetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -312,7 +312,7 @@ export class FrsClient {
         const options = ParamCreater().deleteFaceByExternalImageId(deleteFaceByExternalImageIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -333,7 +333,7 @@ export class FrsClient {
         const options = ParamCreater().deleteFaceByFaceId(deleteFaceByFaceIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -353,7 +353,7 @@ export class FrsClient {
         const options = ParamCreater().deleteFaceSet(deleteFaceSetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -373,7 +373,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByBase64(detectFaceByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -393,7 +393,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByBase64Intl(detectFaceByBase64IntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -414,7 +414,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByFile(detectFaceByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -434,7 +434,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByFileIntl(detectFaceByFileIntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -454,7 +454,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByUrl(detectFaceByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -474,7 +474,7 @@ export class FrsClient {
         const options = ParamCreater().detectFaceByUrlIntl(detectFaceByUrlIntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -494,7 +494,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByBase64(detectLiveByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -514,7 +514,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByBase64Intl(detectLiveByBase64IntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -537,7 +537,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByFile(detectLiveByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -560,7 +560,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByFileIntl(detectLiveByFileIntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -580,7 +580,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByUrl(detectLiveByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -600,7 +600,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveByUrlIntl(detectLiveByUrlIntlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -620,7 +620,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveFaceByBase64(detectLiveFaceByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -640,7 +640,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveFaceByFile(detectLiveFaceByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -660,7 +660,7 @@ export class FrsClient {
         const options = ParamCreater().detectLiveFaceByUrl(detectLiveFaceByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -682,7 +682,7 @@ export class FrsClient {
         const options = ParamCreater().searchFaceByBase64(searchFaceByBase64Request);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -704,7 +704,7 @@ export class FrsClient {
         const options = ParamCreater().searchFaceByFaceId(searchFaceByFaceIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -731,7 +731,7 @@ export class FrsClient {
         const options = ParamCreater().searchFaceByFile(searchFaceByFileRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -753,7 +753,7 @@ export class FrsClient {
         const options = ParamCreater().searchFaceByUrl(searchFaceByUrlRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -772,7 +772,7 @@ export class FrsClient {
         const options = ParamCreater().showAllFaceSets(showAllFaceSetsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -792,7 +792,7 @@ export class FrsClient {
         const options = ParamCreater().showFaceSet(showFaceSetRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -813,7 +813,7 @@ export class FrsClient {
         const options = ParamCreater().showFacesByFaceId(showFacesByFaceIdRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -835,7 +835,7 @@ export class FrsClient {
         const options = ParamCreater().showFacesByLimit(showFacesByLimitRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -856,7 +856,7 @@ export class FrsClient {
         const options = ParamCreater().updateFace(updateFaceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }

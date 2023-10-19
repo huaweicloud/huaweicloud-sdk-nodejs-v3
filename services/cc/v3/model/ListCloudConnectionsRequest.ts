@@ -6,8 +6,8 @@ export class ListCloudConnectionsRequest {
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    public status?: Array<ListCloudConnectionsRequestStatusEnum> | Array<string>;
     private 'enterprise_project_id'?: Array<string>;
+    public status?: Array<ListCloudConnectionsRequestStatusEnum> | Array<string>;
     public type?: Array<string>;
     private 'used_scene'?: Array<string>;
     public constructor() { 
@@ -32,10 +32,6 @@ export class ListCloudConnectionsRequest {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: Array<ListCloudConnectionsRequestStatusEnum> | Array<string>): ListCloudConnectionsRequest {
-        this['status'] = status;
-        return this;
-    }
     public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListCloudConnectionsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -45,6 +41,10 @@ export class ListCloudConnectionsRequest {
     }
     public get enterpriseProjectId(): Array<string> | undefined {
         return this['enterprise_project_id'];
+    }
+    public withStatus(status: Array<ListCloudConnectionsRequestStatusEnum> | Array<string>): ListCloudConnectionsRequest {
+        this['status'] = status;
+        return this;
     }
     public withType(type: Array<string>): ListCloudConnectionsRequest {
         this['type'] = type;

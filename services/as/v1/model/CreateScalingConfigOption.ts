@@ -5,9 +5,7 @@ export class CreateScalingConfigOption {
     private 'scaling_configuration_name'?: string;
     private 'instance_config'?: InstanceConfig;
     private 'source_scaling_configuration_id'?: string;
-    public constructor(scalingConfigurationName?: string, instanceConfig?: InstanceConfig) { 
-        this['scaling_configuration_name'] = scalingConfigurationName;
-        this['instance_config'] = instanceConfig;
+    public constructor() { 
     }
     public withScalingConfigurationName(scalingConfigurationName: string): CreateScalingConfigOption {
         this['scaling_configuration_name'] = scalingConfigurationName;

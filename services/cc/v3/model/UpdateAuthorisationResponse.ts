@@ -1,16 +1,15 @@
 import { Authorisation } from './Authorisation';
+import { RequestId } from './RequestId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateAuthorisationResponse extends SdkResponse {
-    public authorisation?: Authorisation;
     private 'request_id'?: string;
-    public constructor() { 
+    public authorisation?: Authorisation;
+    public constructor(requestId?: string, authorisation?: Authorisation) { 
         super();
-    }
-    public withAuthorisation(authorisation: Authorisation): UpdateAuthorisationResponse {
+        this['request_id'] = requestId;
         this['authorisation'] = authorisation;
-        return this;
     }
     public withRequestId(requestId: string): UpdateAuthorisationResponse {
         this['request_id'] = requestId;
@@ -21,5 +20,9 @@ export class UpdateAuthorisationResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withAuthorisation(authorisation: Authorisation): UpdateAuthorisationResponse {
+        this['authorisation'] = authorisation;
+        return this;
     }
 }

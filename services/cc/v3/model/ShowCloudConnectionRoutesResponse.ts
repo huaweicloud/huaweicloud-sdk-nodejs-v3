@@ -1,22 +1,15 @@
 import { CloudConnectionRoute } from './CloudConnectionRoute';
+import { RequestId } from './RequestId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCloudConnectionRoutesResponse extends SdkResponse {
-    private 'cloud_connection_route'?: CloudConnectionRoute;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'cloud_connection_route'?: CloudConnectionRoute;
+    public constructor(requestId?: string, cloudConnectionRoute?: CloudConnectionRoute) { 
         super();
-    }
-    public withCloudConnectionRoute(cloudConnectionRoute: CloudConnectionRoute): ShowCloudConnectionRoutesResponse {
+        this['request_id'] = requestId;
         this['cloud_connection_route'] = cloudConnectionRoute;
-        return this;
-    }
-    public set cloudConnectionRoute(cloudConnectionRoute: CloudConnectionRoute  | undefined) {
-        this['cloud_connection_route'] = cloudConnectionRoute;
-    }
-    public get cloudConnectionRoute(): CloudConnectionRoute | undefined {
-        return this['cloud_connection_route'];
     }
     public withRequestId(requestId: string): ShowCloudConnectionRoutesResponse {
         this['request_id'] = requestId;
@@ -27,5 +20,15 @@ export class ShowCloudConnectionRoutesResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withCloudConnectionRoute(cloudConnectionRoute: CloudConnectionRoute): ShowCloudConnectionRoutesResponse {
+        this['cloud_connection_route'] = cloudConnectionRoute;
+        return this;
+    }
+    public set cloudConnectionRoute(cloudConnectionRoute: CloudConnectionRoute  | undefined) {
+        this['cloud_connection_route'] = cloudConnectionRoute;
+    }
+    public get cloudConnectionRoute(): CloudConnectionRoute | undefined {
+        return this['cloud_connection_route'];
     }
 }

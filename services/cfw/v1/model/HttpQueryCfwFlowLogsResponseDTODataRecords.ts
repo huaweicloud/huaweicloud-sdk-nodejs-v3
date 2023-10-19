@@ -13,6 +13,7 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     public app?: string;
     private 'dst_port'?: string;
     public protocol?: string;
+    private 'dst_host'?: string;
     public constructor() { 
     }
     public withBytes(bytes: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
@@ -104,6 +105,16 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     public withProtocol(protocol: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['protocol'] = protocol;
         return this;
+    }
+    public withDstHost(dstHost: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
     }
 }
 

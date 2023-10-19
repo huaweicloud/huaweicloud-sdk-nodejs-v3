@@ -4,6 +4,7 @@ export class Features {
     private 'support_acl'?: boolean;
     private 'support_transparent_client_ip'?: boolean;
     private 'support_ssl'?: boolean;
+    private 'support_audit_log'?: boolean;
     public constructor() { 
     }
     public withSupportAcl(supportAcl: boolean): Features {
@@ -35,5 +36,15 @@ export class Features {
     }
     public get supportSsl(): boolean | undefined {
         return this['support_ssl'];
+    }
+    public withSupportAuditLog(supportAuditLog: boolean): Features {
+        this['support_audit_log'] = supportAuditLog;
+        return this;
+    }
+    public set supportAuditLog(supportAuditLog: boolean  | undefined) {
+        this['support_audit_log'] = supportAuditLog;
+    }
+    public get supportAuditLog(): boolean | undefined {
+        return this['support_audit_log'];
     }
 }

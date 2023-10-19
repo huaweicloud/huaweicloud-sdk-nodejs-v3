@@ -1,3 +1,5 @@
+import { ProjectId } from './ProjectId';
+import { UUIDIdentifier } from './UUIDIdentifier';
 
 
 export class InterRegion {
@@ -5,7 +7,9 @@ export class InterRegion {
     private 'project_id'?: string;
     private 'local_region_id'?: string;
     private 'remote_region_id'?: string;
-    public constructor() { 
+    public constructor(id?: string, projectId?: string) { 
+        this['id'] = id;
+        this['project_id'] = projectId;
     }
     public withId(id: string): InterRegion {
         this['id'] = id;

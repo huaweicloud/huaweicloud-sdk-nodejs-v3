@@ -1,21 +1,28 @@
+import { CloudConnectionId } from './CloudConnectionId';
+import { Description } from './Description';
+import { InstanceDomainId } from './InstanceDomainId';
+import { InstanceId } from './InstanceId';
+import { NonRequiredName } from './NonRequiredName';
+import { ProjectId } from './ProjectId';
+import { RegionId } from './RegionId';
 
 
 export class CreateNetworkInstance {
     public name?: string;
     public description?: string;
-    public type?: CreateNetworkInstanceTypeEnum | string;
     private 'instance_id'?: string;
     private 'instance_domain_id'?: string;
     private 'project_id'?: string;
     private 'region_id'?: string;
     private 'cloud_connection_id'?: string;
+    public type?: CreateNetworkInstanceTypeEnum | string;
     public cidrs?: Array<string>;
-    public constructor(type?: string, instanceId?: string, projectId?: string, regionId?: string, cloudConnectionId?: string, cidrs?: Array<string>) { 
-        this['type'] = type;
+    public constructor(instanceId?: string, projectId?: string, regionId?: string, cloudConnectionId?: string, type?: string, cidrs?: Array<string>) { 
         this['instance_id'] = instanceId;
         this['project_id'] = projectId;
         this['region_id'] = regionId;
         this['cloud_connection_id'] = cloudConnectionId;
+        this['type'] = type;
         this['cidrs'] = cidrs;
     }
     public withName(name: string): CreateNetworkInstance {
@@ -24,10 +31,6 @@ export class CreateNetworkInstance {
     }
     public withDescription(description: string): CreateNetworkInstance {
         this['description'] = description;
-        return this;
-    }
-    public withType(type: CreateNetworkInstanceTypeEnum | string): CreateNetworkInstance {
-        this['type'] = type;
         return this;
     }
     public withInstanceId(instanceId: string): CreateNetworkInstance {
@@ -79,6 +82,10 @@ export class CreateNetworkInstance {
     }
     public get cloudConnectionId(): string | undefined {
         return this['cloud_connection_id'];
+    }
+    public withType(type: CreateNetworkInstanceTypeEnum | string): CreateNetworkInstance {
+        this['type'] = type;
+        return this;
     }
     public withCidrs(cidrs: Array<string>): CreateNetworkInstance {
         this['cidrs'] = cidrs;

@@ -1,3 +1,5 @@
+import { ResourceId } from './ResourceId';
+import { ResourceType } from './ResourceType';
 
 
 export class AssociateBandwidthPackage {

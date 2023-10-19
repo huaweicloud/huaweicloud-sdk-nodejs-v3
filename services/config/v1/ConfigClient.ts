@@ -936,7 +936,7 @@ export class ConfigClient {
     }
 
     /**
-     * 查看指定组织合规规则包在成员账户中的部署状态详情。
+     * 查看指定组织合规规则包在成员帐号中的部署状态详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3393,7 +3393,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定组织合规规则包在成员账户中的部署状态详情。
+         * 查看指定组织合规规则包在成员帐号中的部署状态详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,3 +1,5 @@
+import { Description } from './Description';
+import { NonRequiredName } from './NonRequiredName';
 
 
 export class UpdateBandwidthPackage {

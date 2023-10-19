@@ -1,24 +1,27 @@
 import { CloudConnectionRoute } from './CloudConnectionRoute';
+import { ListResponseBody } from './ListResponseBody';
 import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCloudConnectionRoutesResponse extends SdkResponse {
-    private 'cloud_connection_routes'?: Array<CloudConnectionRoute>;
-    private 'page_info'?: PageInfo;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'page_info'?: PageInfo;
+    private 'cloud_connection_routes'?: Array<CloudConnectionRoute>;
+    public constructor(requestId?: string, cloudConnectionRoutes?: Array<CloudConnectionRoute>) { 
         super();
-    }
-    public withCloudConnectionRoutes(cloudConnectionRoutes: Array<CloudConnectionRoute>): ListCloudConnectionRoutesResponse {
+        this['request_id'] = requestId;
         this['cloud_connection_routes'] = cloudConnectionRoutes;
+    }
+    public withRequestId(requestId: string): ListCloudConnectionRoutesResponse {
+        this['request_id'] = requestId;
         return this;
     }
-    public set cloudConnectionRoutes(cloudConnectionRoutes: Array<CloudConnectionRoute>  | undefined) {
-        this['cloud_connection_routes'] = cloudConnectionRoutes;
+    public set requestId(requestId: string  | undefined) {
+        this['request_id'] = requestId;
     }
-    public get cloudConnectionRoutes(): Array<CloudConnectionRoute> | undefined {
-        return this['cloud_connection_routes'];
+    public get requestId(): string | undefined {
+        return this['request_id'];
     }
     public withPageInfo(pageInfo: PageInfo): ListCloudConnectionRoutesResponse {
         this['page_info'] = pageInfo;
@@ -30,14 +33,14 @@ export class ListCloudConnectionRoutesResponse extends SdkResponse {
     public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
-    public withRequestId(requestId: string): ListCloudConnectionRoutesResponse {
-        this['request_id'] = requestId;
+    public withCloudConnectionRoutes(cloudConnectionRoutes: Array<CloudConnectionRoute>): ListCloudConnectionRoutesResponse {
+        this['cloud_connection_routes'] = cloudConnectionRoutes;
         return this;
     }
-    public set requestId(requestId: string  | undefined) {
-        this['request_id'] = requestId;
+    public set cloudConnectionRoutes(cloudConnectionRoutes: Array<CloudConnectionRoute>  | undefined) {
+        this['cloud_connection_routes'] = cloudConnectionRoutes;
     }
-    public get requestId(): string | undefined {
-        return this['request_id'];
+    public get cloudConnectionRoutes(): Array<CloudConnectionRoute> | undefined {
+        return this['cloud_connection_routes'];
     }
 }

@@ -16,6 +16,8 @@ export class GetEastWestFirewallResponseBody {
     public total?: number;
     public offset?: number;
     public limit?: number;
+    public mode?: string;
+    private 'ew_vpc_route_limit'?: number;
     public constructor() { 
     }
     public withObjectId(objectId: string): GetEastWestFirewallResponseBody {
@@ -97,5 +99,19 @@ export class GetEastWestFirewallResponseBody {
     public withLimit(limit: number): GetEastWestFirewallResponseBody {
         this['limit'] = limit;
         return this;
+    }
+    public withMode(mode: string): GetEastWestFirewallResponseBody {
+        this['mode'] = mode;
+        return this;
+    }
+    public withEwVpcRouteLimit(ewVpcRouteLimit: number): GetEastWestFirewallResponseBody {
+        this['ew_vpc_route_limit'] = ewVpcRouteLimit;
+        return this;
+    }
+    public set ewVpcRouteLimit(ewVpcRouteLimit: number  | undefined) {
+        this['ew_vpc_route_limit'] = ewVpcRouteLimit;
+    }
+    public get ewVpcRouteLimit(): number | undefined {
+        return this['ew_vpc_route_limit'];
     }
 }

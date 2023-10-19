@@ -1,15 +1,27 @@
+import { CloudConnectionId } from './CloudConnectionId';
+import { DomainId } from './DomainId';
+import { InstanceId } from './InstanceId';
+import { ProjectId } from './ProjectId';
+import { RegionId } from './RegionId';
+import { UUIDIdentifier } from './UUIDIdentifier';
 
 
 export class CloudConnectionRoute {
     public id?: string;
     private 'cloud_connection_id'?: string;
     private 'domain_id'?: string;
-    private 'project_id'?: string;
     private 'instance_id'?: string;
-    public type?: CloudConnectionRouteTypeEnum | string;
+    private 'project_id'?: string;
     private 'region_id'?: string;
+    public type?: CloudConnectionRouteTypeEnum | string;
     public destination?: string;
-    public constructor() { 
+    public constructor(id?: string, cloudConnectionId?: string, domainId?: string, instanceId?: string, projectId?: string, regionId?: string) { 
+        this['id'] = id;
+        this['cloud_connection_id'] = cloudConnectionId;
+        this['domain_id'] = domainId;
+        this['instance_id'] = instanceId;
+        this['project_id'] = projectId;
+        this['region_id'] = regionId;
     }
     public withId(id: string): CloudConnectionRoute {
         this['id'] = id;
@@ -35,16 +47,6 @@ export class CloudConnectionRoute {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withProjectId(projectId: string): CloudConnectionRoute {
-        this['project_id'] = projectId;
-        return this;
-    }
-    public set projectId(projectId: string  | undefined) {
-        this['project_id'] = projectId;
-    }
-    public get projectId(): string | undefined {
-        return this['project_id'];
-    }
     public withInstanceId(instanceId: string): CloudConnectionRoute {
         this['instance_id'] = instanceId;
         return this;
@@ -55,9 +57,15 @@ export class CloudConnectionRoute {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withType(type: CloudConnectionRouteTypeEnum | string): CloudConnectionRoute {
-        this['type'] = type;
+    public withProjectId(projectId: string): CloudConnectionRoute {
+        this['project_id'] = projectId;
         return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withRegionId(regionId: string): CloudConnectionRoute {
         this['region_id'] = regionId;
@@ -68,6 +76,10 @@ export class CloudConnectionRoute {
     }
     public get regionId(): string | undefined {
         return this['region_id'];
+    }
+    public withType(type: CloudConnectionRouteTypeEnum | string): CloudConnectionRoute {
+        this['type'] = type;
+        return this;
     }
     public withDestination(destination: string): CloudConnectionRoute {
         this['destination'] = destination;

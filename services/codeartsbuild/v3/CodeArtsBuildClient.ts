@@ -3,12 +3,22 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { BuildStep } from './model/BuildStep';
+import { DeleteBuildJobRequest } from './model/DeleteBuildJobRequest';
+import { DeleteBuildJobResponse } from './model/DeleteBuildJobResponse';
+import { DeleteBuildJobResponseBodyResult } from './model/DeleteBuildJobResponseBodyResult';
+import { DisableBuildJobRequest } from './model/DisableBuildJobRequest';
+import { DisableBuildJobResponse } from './model/DisableBuildJobResponse';
 import { DownloadKeystoreRequest } from './model/DownloadKeystoreRequest';
 import { DownloadKeystoreResponse } from './model/DownloadKeystoreResponse';
+import { DownloadLogByRecordIdRequest } from './model/DownloadLogByRecordIdRequest';
+import { DownloadLogByRecordIdResponse } from './model/DownloadLogByRecordIdResponse';
 import { HistoryRecord } from './model/HistoryRecord';
 import { HistoryRecord1 } from './model/HistoryRecord1';
 import { Job } from './model/Job';
 import { ParameterItem } from './model/ParameterItem';
+import { RecordInfoResult } from './model/RecordInfoResult';
+import { ResumeBuildJobRequest } from './model/ResumeBuildJobRequest';
+import { ResumeBuildJobResponse } from './model/ResumeBuildJobResponse';
 import { RunJobRequest } from './model/RunJobRequest';
 import { RunJobRequestBody } from './model/RunJobRequestBody';
 import { RunJobResponse } from './model/RunJobResponse';
@@ -27,6 +37,10 @@ import { ShowListHistoryRequest } from './model/ShowListHistoryRequest';
 import { ShowListHistoryResponse } from './model/ShowListHistoryResponse';
 import { ShowListPeriodHistoryRequest } from './model/ShowListPeriodHistoryRequest';
 import { ShowListPeriodHistoryResponse } from './model/ShowListPeriodHistoryResponse';
+import { ShowRecordInfoRequest } from './model/ShowRecordInfoRequest';
+import { ShowRecordInfoResponse } from './model/ShowRecordInfoResponse';
+import { StopBuildJobRequest } from './model/StopBuildJobRequest';
+import { StopBuildJobResponse } from './model/StopBuildJobResponse';
 
 export class CodeArtsBuildClient {
     public static newBuilder(): ClientBuilder<CodeArtsBuildClient> {
@@ -44,6 +58,44 @@ export class CodeArtsBuildClient {
 
 
     /**
+     * 删除构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除构建任务
+     * @param {string} jobId 构建的任务ID [获取项目下构建任务列表](https://support.huaweicloud.com/api-codeci/ShowJobListByProjectId.html)； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBuildJob(deleteBuildJobRequest?: DeleteBuildJobRequest): Promise<DeleteBuildJobResponse> {
+        const options = ParamCreater().deleteBuildJob(deleteBuildJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用构建任务
+     * @param {string} jobId 构建的任务ID [获取项目下构建任务列表](https://support.huaweicloud.com/api-codeci/ShowJobListByProjectId.html)； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableBuildJob(disableBuildJobRequest?: DisableBuildJobRequest): Promise<DisableBuildJobResponse> {
+        const options = ParamCreater().disableBuildJob(disableBuildJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 下载指定租户下的KeyStore文件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -56,6 +108,44 @@ export class CodeArtsBuildClient {
      */
     public downloadKeystore(downloadKeystoreRequest?: DownloadKeystoreRequest): Promise<DownloadKeystoreResponse> {
         const options = ParamCreater().downloadKeystore(downloadKeystoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载构建日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载构建日志
+     * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadLogByRecordId(downloadLogByRecordIdRequest?: DownloadLogByRecordIdRequest): Promise<DownloadLogByRecordIdResponse> {
+        const options = ParamCreater().downloadLogByRecordId(downloadLogByRecordIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 恢复构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复构建任务
+     * @param {string} jobId 构建的任务ID [获取项目下构建任务列表](https://support.huaweicloud.com/api-codeci/ShowJobListByProjectId.html)； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumeBuildJob(resumeBuildJobRequest?: ResumeBuildJobRequest): Promise<ResumeBuildJobResponse> {
+        const options = ParamCreater().resumeBuildJob(resumeBuildJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -227,10 +317,124 @@ export class CodeArtsBuildClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 获取构建记录信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取构建记录信息
+     * @param {string} jobId 构建的任务ID [获取项目下构建任务列表](https://support.huaweicloud.com/api-codeci/ShowJobListByProjectId.html)； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecordInfo(showRecordInfoRequest?: ShowRecordInfoRequest): Promise<ShowRecordInfoResponse> {
+        const options = ParamCreater().showRecordInfo(showRecordInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止构建任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止构建任务
+     * @param {string} jobId 构建的任务ID [获取项目下构建任务列表](https://support.huaweicloud.com/api-codeci/ShowJobListByProjectId.html)； 编辑构建任务时，浏览器URL末尾的32位数字、字母组合的字符串。
+     * @param {number} buildNo 构建任务的构建编号，从1开始，每次构建递增1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBuildJob(stopBuildJobRequest?: StopBuildJobRequest): Promise<StopBuildJobResponse> {
+        const options = ParamCreater().stopBuildJob(stopBuildJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 删除构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBuildJob(deleteBuildJobRequest?: DeleteBuildJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/jobs/{job_id}/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (deleteBuildJobRequest !== null && deleteBuildJobRequest !== undefined) {
+                if (deleteBuildJobRequest instanceof DeleteBuildJobRequest) {
+                    jobId = deleteBuildJobRequest.jobId;
+                } else {
+                    jobId = deleteBuildJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteBuildJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableBuildJob(disableBuildJobRequest?: DisableBuildJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/jobs/{job_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (disableBuildJobRequest !== null && disableBuildJobRequest !== undefined) {
+                if (disableBuildJobRequest instanceof DisableBuildJobRequest) {
+                    jobId = disableBuildJobRequest.jobId;
+                } else {
+                    jobId = disableBuildJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling disableBuildJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 下载指定租户下的KeyStore文件
@@ -278,6 +482,80 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载构建日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadLogByRecordId(downloadLogByRecordIdRequest?: DownloadLogByRecordIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{record_id}/download-log",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let recordId;
+
+            if (downloadLogByRecordIdRequest !== null && downloadLogByRecordIdRequest !== undefined) {
+                if (downloadLogByRecordIdRequest instanceof DownloadLogByRecordIdRequest) {
+                    recordId = downloadLogByRecordIdRequest.recordId;
+                } else {
+                    recordId = downloadLogByRecordIdRequest['record_id'];
+                }
+            }
+
+        
+            if (recordId === null || recordId === undefined) {
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling downloadLogByRecordId.');
+            }
+
+            options.pathParams = { 'record_id': recordId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 恢复构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumeBuildJob(resumeBuildJobRequest?: ResumeBuildJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/jobs/{job_id}/recover",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (resumeBuildJobRequest !== null && resumeBuildJobRequest !== undefined) {
+                if (resumeBuildJobRequest instanceof ResumeBuildJobRequest) {
+                    jobId = resumeBuildJobRequest.jobId;
+                } else {
+                    jobId = resumeBuildJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling resumeBuildJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -707,6 +985,94 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取构建记录信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecordInfo(showRecordInfoRequest?: ShowRecordInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/jobs/{job_id}/{build_no}/record-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (showRecordInfoRequest !== null && showRecordInfoRequest !== undefined) {
+                if (showRecordInfoRequest instanceof ShowRecordInfoRequest) {
+                    jobId = showRecordInfoRequest.jobId;
+                    buildNo = showRecordInfoRequest.buildNo;
+                } else {
+                    jobId = showRecordInfoRequest['job_id'];
+                    buildNo = showRecordInfoRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showRecordInfo.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling showRecordInfo.');
+            }
+
+            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止构建任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBuildJob(stopBuildJobRequest?: StopBuildJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/jobs/{job_id}/{build_no}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let buildNo;
+
+            if (stopBuildJobRequest !== null && stopBuildJobRequest !== undefined) {
+                if (stopBuildJobRequest instanceof StopBuildJobRequest) {
+                    jobId = stopBuildJobRequest.jobId;
+                    buildNo = stopBuildJobRequest.buildNo;
+                } else {
+                    jobId = stopBuildJobRequest['job_id'];
+                    buildNo = stopBuildJobRequest['build_no'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling stopBuildJob.');
+            }
+            if (buildNo === null || buildNo === undefined) {
+            throw new RequiredError('buildNo','Required parameter buildNo was null or undefined when calling stopBuildJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId,'build_no': buildNo, };
             options.headers = localVarHeaderParameter;
             return options;
         },

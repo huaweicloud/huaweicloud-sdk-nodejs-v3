@@ -26,6 +26,7 @@ export class ApigRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://apig.tr-west-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://apig.cn-north-2.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://apig.eu-west-101.myhuaweicloud.eu"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://apig.ae-ad-1.g42cloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -48,7 +49,8 @@ export class ApigRegion {
         "ap-southeast-4":ApigRegion.AP_SOUTHEAST_4,
         "tr-west-1":ApigRegion.TR_WEST_1,
         "cn-north-2":ApigRegion.CN_NORTH_2,
-        "eu-west-101":ApigRegion.EU_WEST_101
+        "eu-west-101":ApigRegion.EU_WEST_101,
+        "ae-ad-1":ApigRegion.AE_AD_1
     };
   
     public static valueOf(regionId: string) {

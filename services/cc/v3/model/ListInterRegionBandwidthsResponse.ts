@@ -1,24 +1,27 @@
 import { InterRegionBandwidth } from './InterRegionBandwidth';
+import { ListResponseBody } from './ListResponseBody';
 import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListInterRegionBandwidthsResponse extends SdkResponse {
-    private 'inter_region_bandwidths'?: Array<InterRegionBandwidth>;
-    private 'page_info'?: PageInfo;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'page_info'?: PageInfo;
+    private 'inter_region_bandwidths'?: Array<InterRegionBandwidth>;
+    public constructor(requestId?: string, interRegionBandwidths?: Array<InterRegionBandwidth>) { 
         super();
-    }
-    public withInterRegionBandwidths(interRegionBandwidths: Array<InterRegionBandwidth>): ListInterRegionBandwidthsResponse {
+        this['request_id'] = requestId;
         this['inter_region_bandwidths'] = interRegionBandwidths;
+    }
+    public withRequestId(requestId: string): ListInterRegionBandwidthsResponse {
+        this['request_id'] = requestId;
         return this;
     }
-    public set interRegionBandwidths(interRegionBandwidths: Array<InterRegionBandwidth>  | undefined) {
-        this['inter_region_bandwidths'] = interRegionBandwidths;
+    public set requestId(requestId: string  | undefined) {
+        this['request_id'] = requestId;
     }
-    public get interRegionBandwidths(): Array<InterRegionBandwidth> | undefined {
-        return this['inter_region_bandwidths'];
+    public get requestId(): string | undefined {
+        return this['request_id'];
     }
     public withPageInfo(pageInfo: PageInfo): ListInterRegionBandwidthsResponse {
         this['page_info'] = pageInfo;
@@ -30,14 +33,14 @@ export class ListInterRegionBandwidthsResponse extends SdkResponse {
     public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
-    public withRequestId(requestId: string): ListInterRegionBandwidthsResponse {
-        this['request_id'] = requestId;
+    public withInterRegionBandwidths(interRegionBandwidths: Array<InterRegionBandwidth>): ListInterRegionBandwidthsResponse {
+        this['inter_region_bandwidths'] = interRegionBandwidths;
         return this;
     }
-    public set requestId(requestId: string  | undefined) {
-        this['request_id'] = requestId;
+    public set interRegionBandwidths(interRegionBandwidths: Array<InterRegionBandwidth>  | undefined) {
+        this['inter_region_bandwidths'] = interRegionBandwidths;
     }
-    public get requestId(): string | undefined {
-        return this['request_id'];
+    public get interRegionBandwidths(): Array<InterRegionBandwidth> | undefined {
+        return this['inter_region_bandwidths'];
     }
 }

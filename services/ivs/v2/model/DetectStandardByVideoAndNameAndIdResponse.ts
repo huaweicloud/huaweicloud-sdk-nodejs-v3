@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class DetectStandardByVideoAndNameAndIdResponse extends SdkResponse {
     public meta?: Meta;
     public result?: IvsStandardByVideoAndNameAndIdResponseBodyResult;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -16,5 +17,15 @@ export class DetectStandardByVideoAndNameAndIdResponse extends SdkResponse {
     public withResult(result: IvsStandardByVideoAndNameAndIdResponseBodyResult): DetectStandardByVideoAndNameAndIdResponse {
         this['result'] = result;
         return this;
+    }
+    public withXRequestId(xRequestId: string): DetectStandardByVideoAndNameAndIdResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

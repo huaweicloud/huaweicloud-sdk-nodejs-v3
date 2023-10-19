@@ -2,6 +2,10 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AclAccountModifyPasswordBody } from './model/AclAccountModifyPasswordBody';
+import { AclAccountResetPasswordBody } from './model/AclAccountResetPasswordBody';
+import { AclAccountResp } from './model/AclAccountResp';
+import { AclAccountRoleModifyBody } from './model/AclAccountRoleModifyBody';
 import { AttrsObject } from './model/AttrsObject';
 import { AutoscanConfigRequest } from './model/AutoscanConfigRequest';
 import { AvailableZones } from './model/AvailableZones';
@@ -36,10 +40,16 @@ import { ConfigMigrationInstanceBody } from './model/ConfigMigrationInstanceBody
 import { ConfigTemplatesListInfo } from './model/ConfigTemplatesListInfo';
 import { CopyInstanceRequest } from './model/CopyInstanceRequest';
 import { CopyInstanceResponse } from './model/CopyInstanceResponse';
+import { CreateAclAccountRequest } from './model/CreateAclAccountRequest';
+import { CreateAclAccountRequestBody } from './model/CreateAclAccountRequestBody';
+import { CreateAclAccountResponse } from './model/CreateAclAccountResponse';
 import { CreateAutoExpireScanTaskRequest } from './model/CreateAutoExpireScanTaskRequest';
 import { CreateAutoExpireScanTaskResponse } from './model/CreateAutoExpireScanTaskResponse';
 import { CreateBigkeyScanTaskRequest } from './model/CreateBigkeyScanTaskRequest';
 import { CreateBigkeyScanTaskResponse } from './model/CreateBigkeyScanTaskResponse';
+import { CreateConnectivityTestRequest } from './model/CreateConnectivityTestRequest';
+import { CreateConnectivityTestRequestBody } from './model/CreateConnectivityTestRequestBody';
+import { CreateConnectivityTestResponse } from './model/CreateConnectivityTestResponse';
 import { CreateCustomTemplateBody } from './model/CreateCustomTemplateBody';
 import { CreateCustomTemplateRequest } from './model/CreateCustomTemplateRequest';
 import { CreateCustomTemplateResponse } from './model/CreateCustomTemplateResponse';
@@ -62,12 +72,16 @@ import { CreateRedislogDownloadLinkRequest } from './model/CreateRedislogDownloa
 import { CreateRedislogDownloadLinkResponse } from './model/CreateRedislogDownloadLinkResponse';
 import { CreateRedislogRequest } from './model/CreateRedislogRequest';
 import { CreateRedislogResponse } from './model/CreateRedislogResponse';
+import { DeleteAclAccountRequest } from './model/DeleteAclAccountRequest';
+import { DeleteAclAccountResponse } from './model/DeleteAclAccountResponse';
 import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
 import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
 import { DeleteBackupFileRequest } from './model/DeleteBackupFileRequest';
 import { DeleteBackupFileResponse } from './model/DeleteBackupFileResponse';
 import { DeleteBigkeyScanTaskRequest } from './model/DeleteBigkeyScanTaskRequest';
 import { DeleteBigkeyScanTaskResponse } from './model/DeleteBigkeyScanTaskResponse';
+import { DeleteConfigTemplateRequest } from './model/DeleteConfigTemplateRequest';
+import { DeleteConfigTemplateResponse } from './model/DeleteConfigTemplateResponse';
 import { DeleteHotkeyScanTaskRequest } from './model/DeleteHotkeyScanTaskRequest';
 import { DeleteHotkeyScanTaskResponse } from './model/DeleteHotkeyScanTaskResponse';
 import { DeleteIpFromDomainNameRequest } from './model/DeleteIpFromDomainNameRequest';
@@ -105,6 +119,8 @@ import { InstanceStatistic } from './model/InstanceStatistic';
 import { Instances } from './model/Instances';
 import { InstancesMonitoredObject } from './model/InstancesMonitoredObject';
 import { LinksItem } from './model/LinksItem';
+import { ListAclAccountsRequest } from './model/ListAclAccountsRequest';
+import { ListAclAccountsResponse } from './model/ListAclAccountsResponse';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListBackgroundTaskRequest } from './model/ListBackgroundTaskRequest';
@@ -166,6 +182,8 @@ import { QueryTenantQuotaRespQuotas } from './model/QueryTenantQuotaRespQuotas';
 import { RecordsResponse } from './model/RecordsResponse';
 import { RedisConfig } from './model/RedisConfig';
 import { RenameCommandResp } from './model/RenameCommandResp';
+import { ResetAclAccountPassWordRequest } from './model/ResetAclAccountPassWordRequest';
+import { ResetAclAccountPassWordResponse } from './model/ResetAclAccountPassWordResponse';
 import { ResetInstancePasswordBody } from './model/ResetInstancePasswordBody';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
@@ -187,6 +205,8 @@ import { ShowBigkeyAutoscanConfigRequest } from './model/ShowBigkeyAutoscanConfi
 import { ShowBigkeyAutoscanConfigResponse } from './model/ShowBigkeyAutoscanConfigResponse';
 import { ShowBigkeyScanTaskDetailsRequest } from './model/ShowBigkeyScanTaskDetailsRequest';
 import { ShowBigkeyScanTaskDetailsResponse } from './model/ShowBigkeyScanTaskDetailsResponse';
+import { ShowConfigTemplateRequest } from './model/ShowConfigTemplateRequest';
+import { ShowConfigTemplateResponse } from './model/ShowConfigTemplateResponse';
 import { ShowDiagnosisTaskDetailsRequest } from './model/ShowDiagnosisTaskDetailsRequest';
 import { ShowDiagnosisTaskDetailsResponse } from './model/ShowDiagnosisTaskDetailsResponse';
 import { ShowHotkeyAutoscanConfigRequest } from './model/ShowHotkeyAutoscanConfigRequest';
@@ -207,6 +227,8 @@ import { ShowNodesInformationRequest } from './model/ShowNodesInformationRequest
 import { ShowNodesInformationResponse } from './model/ShowNodesInformationResponse';
 import { ShowQuotaOfTenantRequest } from './model/ShowQuotaOfTenantRequest';
 import { ShowQuotaOfTenantResponse } from './model/ShowQuotaOfTenantResponse';
+import { ShowReplicationStatesRequest } from './model/ShowReplicationStatesRequest';
+import { ShowReplicationStatesResponse } from './model/ShowReplicationStatesResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
 import { ShowTagsResponse } from './model/ShowTagsResponse';
 import { SingleBackgroundTask } from './model/SingleBackgroundTask';
@@ -220,10 +242,20 @@ import { StopMigrationTaskSyncRequest } from './model/StopMigrationTaskSyncReque
 import { StopMigrationTaskSyncResponse } from './model/StopMigrationTaskSyncResponse';
 import { Tag } from './model/Tag';
 import { TargetInstanceBody } from './model/TargetInstanceBody';
+import { UpdateAclAccountPassWordRequest } from './model/UpdateAclAccountPassWordRequest';
+import { UpdateAclAccountPassWordResponse } from './model/UpdateAclAccountPassWordResponse';
+import { UpdateAclAccountRemarkRequest } from './model/UpdateAclAccountRemarkRequest';
+import { UpdateAclAccountRemarkRequestBody } from './model/UpdateAclAccountRemarkRequestBody';
+import { UpdateAclAccountRemarkResponse } from './model/UpdateAclAccountRemarkResponse';
+import { UpdateAclAccountRoleRequest } from './model/UpdateAclAccountRoleRequest';
+import { UpdateAclAccountRoleResponse } from './model/UpdateAclAccountRoleResponse';
 import { UpdateBigkeyAutoscanConfigRequest } from './model/UpdateBigkeyAutoscanConfigRequest';
 import { UpdateBigkeyAutoscanConfigResponse } from './model/UpdateBigkeyAutoscanConfigResponse';
+import { UpdateConfigTemplateRequest } from './model/UpdateConfigTemplateRequest';
+import { UpdateConfigTemplateResponse } from './model/UpdateConfigTemplateResponse';
 import { UpdateConfigurationsRequest } from './model/UpdateConfigurationsRequest';
 import { UpdateConfigurationsResponse } from './model/UpdateConfigurationsResponse';
+import { UpdateCustomTemplateBody } from './model/UpdateCustomTemplateBody';
 import { UpdateHotkeyAutoScanConfigRequest } from './model/UpdateHotkeyAutoScanConfigRequest';
 import { UpdateHotkeyAutoScanConfigResponse } from './model/UpdateHotkeyAutoScanConfigResponse';
 import { UpdateInstanceBandwidthRequest } from './model/UpdateInstanceBandwidthRequest';
@@ -375,6 +407,28 @@ export class DcsClient {
     }
 
     /**
+     * \&quot;为redis4.0/5.0实例（Cluster集群实例除外）创建权限访问账号，包含读写和只读权限。
+     * 如果实例默认账号已开启免密访问，您创建的普通账号不能使用，如需使用普通账号请先关闭默认账号的免密访问。
+     * 单机、主备实例默认账号的密码不能带有冒号(:)，否则无法创建普通账号。\&quot;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建ACL账号
+     * @param {string} instanceId 实例ID。
+     * @param {CreateAclAccountRequestBody} createAclAccountRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAclAccount(createAclAccountRequest?: CreateAclAccountRequest): Promise<CreateAclAccountResponse> {
+        const options = ParamCreater().createAclAccount(createAclAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建过期key扫描任务（Redis 3.0 不支持过期key扫描）。
      * 过期key扫描会对键空间进行Redis的scan扫描，释放内存中已过期但是由于惰性删除机制而没有释放的内存空间。
      * 过期key扫描在主节点上执行，会对实例性能有一定的影响，建议不要在业务高峰期进行。
@@ -407,6 +461,26 @@ export class DcsClient {
      */
     public createBigkeyScanTask(createBigkeyScanTaskRequest?: CreateBigkeyScanTaskRequest): Promise<CreateBigkeyScanTaskResponse> {
         const options = ParamCreater().createBigkeyScanTask(createBigkeyScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建备份导入页面实例连接测试
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建备份导入页面实例连接测试
+     * @param {string} instanceId 实例ID
+     * @param {CreateConnectivityTestRequestBody} [createConnectivityTestRequestBody] 备份导入页面实例连接测试请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConnectivityTest(createConnectivityTestRequest?: CreateConnectivityTestRequest): Promise<CreateConnectivityTestResponse> {
+        const options = ParamCreater().createConnectivityTest(createConnectivityTestRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -539,7 +613,7 @@ export class DcsClient {
      * @summary 采集Redis运行日志
      * @param {string} instanceId 实例ID。
      * @param {string} logType 返回日志的类型，当前仅支持Redis运行日志，类型为run
-     * @param {number} [queryTime] 日期偏移量，表示从过去的n天开始查询，例如：传入0则表示查询今天的日志，传入7则表示查询过去7天的日志。最大支持0-7。
+     * @param {0 | 1 | 3 | 7} [queryTime] 日期偏移量，表示从过去的n天开始查询，例如：传入0则表示查询今天的日志，传入7则表示查询过去7天的日志。当前支持0，1，3，7。
      * @param {string} [replicationId] 副本ID，可以从分片与副本中查询对应节点的副本ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -566,6 +640,26 @@ export class DcsClient {
      */
     public createRedislogDownloadLink(createRedislogDownloadLinkRequest?: CreateRedislogDownloadLinkRequest): Promise<CreateRedislogDownloadLinkResponse> {
         const options = ParamCreater().createRedislogDownloadLink(createRedislogDownloadLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除所创建的ACL普通账号
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除ACL账号
+     * @param {string} instanceId 实例ID。
+     * @param {string} accountId ACL账号ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAclAccount(deleteAclAccountRequest?: DeleteAclAccountRequest): Promise<DeleteAclAccountResponse> {
+        const options = ParamCreater().deleteAclAccount(deleteAclAccountRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -626,6 +720,25 @@ export class DcsClient {
      */
     public deleteBigkeyScanTask(deleteBigkeyScanTaskRequest?: DeleteBigkeyScanTaskRequest): Promise<DeleteBigkeyScanTaskResponse> {
         const options = ParamCreater().deleteBigkeyScanTask(deleteBigkeyScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义模板
+     * @param {string} templateId 模板ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConfigTemplate(deleteConfigTemplateRequest?: DeleteConfigTemplateRequest): Promise<DeleteConfigTemplateResponse> {
+        const options = ParamCreater().deleteConfigTemplate(deleteConfigTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -728,6 +841,25 @@ export class DcsClient {
      */
     public executeClusterSwitchover(executeClusterSwitchoverRequest?: ExecuteClusterSwitchoverRequest): Promise<ExecuteClusterSwitchoverResponse> {
         const options = ParamCreater().executeClusterSwitchover(executeClusterSwitchoverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询ACL账户列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ACL账户列表
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAclAccounts(listAclAccountsRequest?: ListAclAccountsRequest): Promise<ListAclAccountsResponse> {
+        const options = ParamCreater().listAclAccounts(listAclAccountsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1232,6 +1364,27 @@ export class DcsClient {
     }
 
     /**
+     * 重置ACL账号密码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置ACL账号密码
+     * @param {string} instanceId 实例ID。
+     * @param {string} accountId ACL账号ID。
+     * @param {AclAccountResetPasswordBody} resetAclAccountPasswordRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetAclAccountPassWord(resetAclAccountPassWordRequest?: ResetAclAccountPassWordRequest): Promise<ResetAclAccountPassWordResponse> {
+        const options = ParamCreater().resetAclAccountPassWord(resetAclAccountPassWordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置缓存实例的密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1365,6 +1518,26 @@ export class DcsClient {
      */
     public showBigkeyScanTaskDetails(showBigkeyScanTaskDetailsRequest?: ShowBigkeyScanTaskDetailsRequest): Promise<ShowBigkeyScanTaskDetailsResponse> {
         const options = ParamCreater().showBigkeyScanTaskDetails(showBigkeyScanTaskDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询参数模板详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数模板详情
+     * @param {string} templateId 模板ID
+     * @param {'sys' | 'user'} type 模板类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConfigTemplate(showConfigTemplateRequest?: ShowConfigTemplateRequest): Promise<ShowConfigTemplateResponse> {
+        const options = ParamCreater().showConfigTemplate(showConfigTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1546,6 +1719,26 @@ export class DcsClient {
     }
 
     /**
+     * 获取副本状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取副本状态
+     * @param {string} instanceId 实例ID。
+     * @param {string} groupId 分片ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReplicationStates(showReplicationStatesRequest?: ShowReplicationStatesRequest): Promise<ShowReplicationStatesResponse> {
+        const options = ParamCreater().showReplicationStates(showReplicationStatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过实例ID查询标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1603,6 +1796,69 @@ export class DcsClient {
     }
 
     /**
+     * 修改ACL账号密码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改ACL账号密码
+     * @param {string} instanceId 实例ID。
+     * @param {string} accountId ACL账号ID。
+     * @param {AclAccountModifyPasswordBody} updateAclAccountPasswordRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAclAccountPassWord(updateAclAccountPassWordRequest?: UpdateAclAccountPassWordRequest): Promise<UpdateAclAccountPassWordResponse> {
+        const options = ParamCreater().updateAclAccountPassWord(updateAclAccountPassWordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ACL账号修改备注
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary ACL账号修改备注
+     * @param {string} instanceId 实例ID。
+     * @param {string} accountId ACL账号ID。
+     * @param {UpdateAclAccountRemarkRequestBody} [updateAclAccountRemarkRequestBody] 更新ACL账号备注请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAclAccountRemark(updateAclAccountRemarkRequest?: UpdateAclAccountRemarkRequest): Promise<UpdateAclAccountRemarkResponse> {
+        const options = ParamCreater().updateAclAccountRemark(updateAclAccountRemarkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改用户的类型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改ACL角色
+     * @param {string} instanceId 实例ID。
+     * @param {string} accountId ACL账号ID。
+     * @param {AclAccountRoleModifyBody} updateAclAccountRoleRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAclAccountRole(updateAclAccountRoleRequest?: UpdateAclAccountRoleRequest): Promise<UpdateAclAccountRoleResponse> {
+        const options = ParamCreater().updateAclAccountRole(updateAclAccountRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置大key自动分析配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1615,6 +1871,26 @@ export class DcsClient {
      */
     public updateBigkeyAutoscanConfig(updateBigkeyAutoscanConfigRequest?: UpdateBigkeyAutoscanConfigRequest): Promise<UpdateBigkeyAutoscanConfigResponse> {
         const options = ParamCreater().updateBigkeyAutoscanConfig(updateBigkeyAutoscanConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改自定义模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改自定义模板
+     * @param {string} templateId 模板ID
+     * @param {UpdateCustomTemplateBody} updateConfigTemplateRequestBody This is a auto update BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateConfigTemplate(updateConfigTemplateRequest?: UpdateConfigTemplateRequest): Promise<UpdateConfigTemplateResponse> {
+        const options = ParamCreater().updateConfigTemplate(updateConfigTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2041,6 +2317,54 @@ export const ParamCreater = function () {
         },
     
         /**
+         * \&quot;为redis4.0/5.0实例（Cluster集群实例除外）创建权限访问账号，包含读写和只读权限。
+         * 如果实例默认账号已开启免密访问，您创建的普通账号不能使用，如需使用普通账号请先关闭默认账号的免密访问。
+         * 单机、主备实例默认账号的密码不能带有冒号(:)，否则无法创建普通账号。\&quot;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAclAccount(createAclAccountRequest?: CreateAclAccountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createAclAccountRequest !== null && createAclAccountRequest !== undefined) {
+                if (createAclAccountRequest instanceof CreateAclAccountRequest) {
+                    instanceId = createAclAccountRequest.instanceId;
+                    body = createAclAccountRequest.body
+                } else {
+                    instanceId = createAclAccountRequest['instance_id'];
+                    body = createAclAccountRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAclAccount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建过期key扫描任务（Redis 3.0 不支持过期key扫描）。
          * 过期key扫描会对键空间进行Redis的scan扫描，释放内存中已过期但是由于惰性删除机制而没有释放的内存空间。
          * 过期key扫描在主节点上执行，会对实例性能有一定的影响，建议不要在业务高峰期进行。
@@ -2111,6 +2435,49 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createBigkeyScanTask.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建备份导入页面实例连接测试
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConnectivityTest(createConnectivityTestRequest?: CreateConnectivityTestRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instance/{instance_id}/connectivity-test",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createConnectivityTestRequest !== null && createConnectivityTestRequest !== undefined) {
+                if (createConnectivityTestRequest instanceof CreateConnectivityTestRequest) {
+                    instanceId = createConnectivityTestRequest.instanceId;
+                    body = createConnectivityTestRequest.body
+                } else {
+                    instanceId = createConnectivityTestRequest['instance_id'];
+                    body = createConnectivityTestRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createConnectivityTest.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2460,6 +2827,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除所创建的ACL普通账号
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAclAccount(deleteAclAccountRequest?: DeleteAclAccountRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts/{account_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let accountId;
+
+            if (deleteAclAccountRequest !== null && deleteAclAccountRequest !== undefined) {
+                if (deleteAclAccountRequest instanceof DeleteAclAccountRequest) {
+                    instanceId = deleteAclAccountRequest.instanceId;
+                    accountId = deleteAclAccountRequest.accountId;
+                } else {
+                    instanceId = deleteAclAccountRequest['instance_id'];
+                    accountId = deleteAclAccountRequest['account_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAclAccount.');
+            }
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling deleteAclAccount.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'account_id': accountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除后台任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2587,6 +2998,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'bigkey_id': bigkeyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConfigTemplate(deleteConfigTemplateRequest?: DeleteConfigTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/config-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+
+            if (deleteConfigTemplateRequest !== null && deleteConfigTemplateRequest !== undefined) {
+                if (deleteConfigTemplateRequest instanceof DeleteConfigTemplateRequest) {
+                    templateId = deleteConfigTemplateRequest.templateId;
+                } else {
+                    templateId = deleteConfigTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteConfigTemplate.');
+            }
+
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2810,6 +3258,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'group_id': groupId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询ACL账户列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAclAccounts(listAclAccountsRequest?: ListAclAccountsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listAclAccountsRequest !== null && listAclAccountsRequest !== undefined) {
+                if (listAclAccountsRequest instanceof ListAclAccountsRequest) {
+                    instanceId = listAclAccountsRequest.instanceId;
+                } else {
+                    instanceId = listAclAccountsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAclAccounts.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4061,6 +4546,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重置ACL账号密码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetAclAccountPassWord(resetAclAccountPassWordRequest?: ResetAclAccountPassWordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts/{account_id}/password/reset",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let accountId;
+
+            if (resetAclAccountPassWordRequest !== null && resetAclAccountPassWordRequest !== undefined) {
+                if (resetAclAccountPassWordRequest instanceof ResetAclAccountPassWordRequest) {
+                    instanceId = resetAclAccountPassWordRequest.instanceId;
+                    accountId = resetAclAccountPassWordRequest.accountId;
+                    body = resetAclAccountPassWordRequest.body
+                } else {
+                    instanceId = resetAclAccountPassWordRequest['instance_id'];
+                    accountId = resetAclAccountPassWordRequest['account_id'];
+                    body = resetAclAccountPassWordRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetAclAccountPassWord.');
+            }
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling resetAclAccountPassWord.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'account_id': accountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置缓存实例的密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4356,6 +4894,54 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'bigkey_id': bigkeyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询参数模板详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConfigTemplate(showConfigTemplateRequest?: ShowConfigTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/config-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let templateId;
+            
+            let type;
+
+            if (showConfigTemplateRequest !== null && showConfigTemplateRequest !== undefined) {
+                if (showConfigTemplateRequest instanceof ShowConfigTemplateRequest) {
+                    templateId = showConfigTemplateRequest.templateId;
+                    type = showConfigTemplateRequest.type;
+                } else {
+                    templateId = showConfigTemplateRequest['template_id'];
+                    type = showConfigTemplateRequest['type'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showConfigTemplate.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling showConfigTemplate.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4687,6 +5273,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取副本状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReplicationStates(showReplicationStatesRequest?: ShowReplicationStatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instance/{instance_id}/groups/{group_id}/group-nodes-state",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let groupId;
+
+            if (showReplicationStatesRequest !== null && showReplicationStatesRequest !== undefined) {
+                if (showReplicationStatesRequest instanceof ShowReplicationStatesRequest) {
+                    instanceId = showReplicationStatesRequest.instanceId;
+                    groupId = showReplicationStatesRequest.groupId;
+                } else {
+                    instanceId = showReplicationStatesRequest['instance_id'];
+                    groupId = showReplicationStatesRequest['group_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showReplicationStates.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showReplicationStates.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过实例ID查询标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4798,6 +5428,162 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改ACL账号密码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAclAccountPassWord(updateAclAccountPassWordRequest?: UpdateAclAccountPassWordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts/{account_id}/password/modify",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let accountId;
+
+            if (updateAclAccountPassWordRequest !== null && updateAclAccountPassWordRequest !== undefined) {
+                if (updateAclAccountPassWordRequest instanceof UpdateAclAccountPassWordRequest) {
+                    instanceId = updateAclAccountPassWordRequest.instanceId;
+                    accountId = updateAclAccountPassWordRequest.accountId;
+                    body = updateAclAccountPassWordRequest.body
+                } else {
+                    instanceId = updateAclAccountPassWordRequest['instance_id'];
+                    accountId = updateAclAccountPassWordRequest['account_id'];
+                    body = updateAclAccountPassWordRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAclAccountPassWord.');
+            }
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling updateAclAccountPassWord.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'account_id': accountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ACL账号修改备注
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAclAccountRemark(updateAclAccountRemarkRequest?: UpdateAclAccountRemarkRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts/{account_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let accountId;
+
+            if (updateAclAccountRemarkRequest !== null && updateAclAccountRemarkRequest !== undefined) {
+                if (updateAclAccountRemarkRequest instanceof UpdateAclAccountRemarkRequest) {
+                    instanceId = updateAclAccountRemarkRequest.instanceId;
+                    accountId = updateAclAccountRemarkRequest.accountId;
+                    body = updateAclAccountRemarkRequest.body
+                } else {
+                    instanceId = updateAclAccountRemarkRequest['instance_id'];
+                    accountId = updateAclAccountRemarkRequest['account_id'];
+                    body = updateAclAccountRemarkRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAclAccountRemark.');
+            }
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling updateAclAccountRemark.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'account_id': accountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改用户的类型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAclAccountRole(updateAclAccountRoleRequest?: UpdateAclAccountRoleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/accounts/{account_id}/role",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let accountId;
+
+            if (updateAclAccountRoleRequest !== null && updateAclAccountRoleRequest !== undefined) {
+                if (updateAclAccountRoleRequest instanceof UpdateAclAccountRoleRequest) {
+                    instanceId = updateAclAccountRoleRequest.instanceId;
+                    accountId = updateAclAccountRoleRequest.accountId;
+                    body = updateAclAccountRoleRequest.body
+                } else {
+                    instanceId = updateAclAccountRoleRequest['instance_id'];
+                    accountId = updateAclAccountRoleRequest['account_id'];
+                    body = updateAclAccountRoleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAclAccountRole.');
+            }
+            if (accountId === null || accountId === undefined) {
+            throw new RequiredError('accountId','Required parameter accountId was null or undefined when calling updateAclAccountRole.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'account_id': accountId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置大key自动分析配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4839,6 +5625,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改自定义模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateConfigTemplate(updateConfigTemplateRequest?: UpdateConfigTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/config-templates/{template_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let templateId;
+
+            if (updateConfigTemplateRequest !== null && updateConfigTemplateRequest !== undefined) {
+                if (updateConfigTemplateRequest instanceof UpdateConfigTemplateRequest) {
+                    templateId = updateConfigTemplateRequest.templateId;
+                    body = updateConfigTemplateRequest.body
+                } else {
+                    templateId = updateConfigTemplateRequest['template_id'];
+                    body = updateConfigTemplateRequest['body'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateConfigTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

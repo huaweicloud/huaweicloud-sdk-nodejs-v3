@@ -7,7 +7,7 @@ export class ListAuthorisationsRequest {
     public name?: Array<string>;
     public description?: Array<string>;
     private 'cloud_connection_id'?: Array<string>;
-    private 'instance_id'?: Array<ListAuthorisationsRequestInstanceIdEnum> | Array<string>;
+    private 'instance_id'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListAuthorisationsRequest {
@@ -40,22 +40,14 @@ export class ListAuthorisationsRequest {
     public get cloudConnectionId(): Array<string> | undefined {
         return this['cloud_connection_id'];
     }
-    public withInstanceId(instanceId: Array<ListAuthorisationsRequestInstanceIdEnum> | Array<string>): ListAuthorisationsRequest {
+    public withInstanceId(instanceId: Array<string>): ListAuthorisationsRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: Array<ListAuthorisationsRequestInstanceIdEnum> | Array<string>  | undefined) {
+    public set instanceId(instanceId: Array<string>  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId(): Array<ListAuthorisationsRequestInstanceIdEnum> | Array<string> | undefined {
+    public get instanceId(): Array<string> | undefined {
         return this['instance_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAuthorisationsRequestInstanceIdEnum {
-    ACTIVE = 'ACTIVE'
 }

@@ -1,4 +1,21 @@
+import { AreaIdDef } from './AreaIdDef';
+import { BillingMode } from './BillingMode';
+import { BillingModeEnum } from './BillingModeEnum';
+import { CreatedAt } from './CreatedAt';
+import { Description } from './Description';
+import { DomainId } from './DomainId';
+import { EnterpriseProjectId } from './EnterpriseProjectId';
+import { LocalAreaId } from './LocalAreaId';
+import { Name } from './Name';
+import { ProjectId } from './ProjectId';
+import { RemoteAreaId } from './RemoteAreaId';
+import { ResourceId } from './ResourceId';
+import { ResourceType } from './ResourceType';
+import { SpecCode } from './SpecCode';
 import { Tag } from './Tag';
+import { Tags } from './Tags';
+import { UUIDIdentifier } from './UUIDIdentifier';
+import { UpdatedAt } from './UpdatedAt';
 
 
 export class BandwidthPackage {
@@ -7,24 +24,36 @@ export class BandwidthPackage {
     public description?: string;
     private 'domain_id'?: string;
     private 'enterprise_project_id'?: string;
-    public status?: BandwidthPackageStatusEnum | string;
+    private 'project_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
+    private 'resource_id'?: string;
+    private 'resource_type'?: BandwidthPackageResourceTypeEnum | string;
+    private 'local_area_id'?: AreaIdDef;
+    private 'remote_area_id'?: AreaIdDef;
+    private 'spec_code'?: string;
+    private 'billing_mode'?: BillingModeEnum;
+    public tags?: Array<Tag>;
+    public status?: BandwidthPackageStatusEnum | string;
     private 'admin_state_up'?: boolean;
     private 'order_id'?: string;
     private 'product_id'?: string;
-    private 'spec_code'?: BandwidthPackageSpecCodeEnum | string;
-    private 'billing_mode'?: BandwidthPackageBillingModeEnum | string;
     private 'charge_mode'?: BandwidthPackageChargeModeEnum | string;
     public bandwidth?: number;
-    private 'resource_id'?: string;
-    private 'resource_type'?: BandwidthPackageResourceTypeEnum | string;
-    private 'local_area_id'?: BandwidthPackageLocalAreaIdEnum | string;
-    private 'remote_area_id'?: BandwidthPackageRemoteAreaIdEnum | string;
-    private 'project_id'?: string;
     private 'interflow_mode'?: BandwidthPackageInterflowModeEnum | string;
-    public tags?: Array<Tag>;
-    public constructor() { 
+    public constructor(id?: string, name?: string, domainId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, resourceId?: string, resourceType?: string, localAreaId?: AreaIdDef, remoteAreaId?: AreaIdDef, specCode?: string, billingMode?: BillingModeEnum) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['domain_id'] = domainId;
+        this['project_id'] = projectId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
+        this['resource_id'] = resourceId;
+        this['resource_type'] = resourceType;
+        this['local_area_id'] = localAreaId;
+        this['remote_area_id'] = remoteAreaId;
+        this['spec_code'] = specCode;
+        this['billing_mode'] = billingMode;
     }
     public withId(id: string): BandwidthPackage {
         this['id'] = id;
@@ -58,9 +87,15 @@ export class BandwidthPackage {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withStatus(status: BandwidthPackageStatusEnum | string): BandwidthPackage {
-        this['status'] = status;
+    public withProjectId(projectId: string): BandwidthPackage {
+        this['project_id'] = projectId;
         return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withCreatedAt(createdAt: Date): BandwidthPackage {
         this['created_at'] = createdAt;
@@ -81,6 +116,74 @@ export class BandwidthPackage {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withResourceId(resourceId: string): BandwidthPackage {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
+    public withResourceType(resourceType: BandwidthPackageResourceTypeEnum | string): BandwidthPackage {
+        this['resource_type'] = resourceType;
+        return this;
+    }
+    public set resourceType(resourceType: BandwidthPackageResourceTypeEnum | string  | undefined) {
+        this['resource_type'] = resourceType;
+    }
+    public get resourceType(): BandwidthPackageResourceTypeEnum | string | undefined {
+        return this['resource_type'];
+    }
+    public withLocalAreaId(localAreaId: AreaIdDef): BandwidthPackage {
+        this['local_area_id'] = localAreaId;
+        return this;
+    }
+    public set localAreaId(localAreaId: AreaIdDef  | undefined) {
+        this['local_area_id'] = localAreaId;
+    }
+    public get localAreaId(): AreaIdDef | undefined {
+        return this['local_area_id'];
+    }
+    public withRemoteAreaId(remoteAreaId: AreaIdDef): BandwidthPackage {
+        this['remote_area_id'] = remoteAreaId;
+        return this;
+    }
+    public set remoteAreaId(remoteAreaId: AreaIdDef  | undefined) {
+        this['remote_area_id'] = remoteAreaId;
+    }
+    public get remoteAreaId(): AreaIdDef | undefined {
+        return this['remote_area_id'];
+    }
+    public withSpecCode(specCode: string): BandwidthPackage {
+        this['spec_code'] = specCode;
+        return this;
+    }
+    public set specCode(specCode: string  | undefined) {
+        this['spec_code'] = specCode;
+    }
+    public get specCode(): string | undefined {
+        return this['spec_code'];
+    }
+    public withBillingMode(billingMode: BillingModeEnum): BandwidthPackage {
+        this['billing_mode'] = billingMode;
+        return this;
+    }
+    public set billingMode(billingMode: BillingModeEnum  | undefined) {
+        this['billing_mode'] = billingMode;
+    }
+    public get billingMode(): BillingModeEnum | undefined {
+        return this['billing_mode'];
+    }
+    public withTags(tags: Array<Tag>): BandwidthPackage {
+        this['tags'] = tags;
+        return this;
+    }
+    public withStatus(status: BandwidthPackageStatusEnum | string): BandwidthPackage {
+        this['status'] = status;
+        return this;
     }
     public withAdminStateUp(adminStateUp: boolean): BandwidthPackage {
         this['admin_state_up'] = adminStateUp;
@@ -112,26 +215,6 @@ export class BandwidthPackage {
     public get productId(): string | undefined {
         return this['product_id'];
     }
-    public withSpecCode(specCode: BandwidthPackageSpecCodeEnum | string): BandwidthPackage {
-        this['spec_code'] = specCode;
-        return this;
-    }
-    public set specCode(specCode: BandwidthPackageSpecCodeEnum | string  | undefined) {
-        this['spec_code'] = specCode;
-    }
-    public get specCode(): BandwidthPackageSpecCodeEnum | string | undefined {
-        return this['spec_code'];
-    }
-    public withBillingMode(billingMode: BandwidthPackageBillingModeEnum | string): BandwidthPackage {
-        this['billing_mode'] = billingMode;
-        return this;
-    }
-    public set billingMode(billingMode: BandwidthPackageBillingModeEnum | string  | undefined) {
-        this['billing_mode'] = billingMode;
-    }
-    public get billingMode(): BandwidthPackageBillingModeEnum | string | undefined {
-        return this['billing_mode'];
-    }
     public withChargeMode(chargeMode: BandwidthPackageChargeModeEnum | string): BandwidthPackage {
         this['charge_mode'] = chargeMode;
         return this;
@@ -146,56 +229,6 @@ export class BandwidthPackage {
         this['bandwidth'] = bandwidth;
         return this;
     }
-    public withResourceId(resourceId: string): BandwidthPackage {
-        this['resource_id'] = resourceId;
-        return this;
-    }
-    public set resourceId(resourceId: string  | undefined) {
-        this['resource_id'] = resourceId;
-    }
-    public get resourceId(): string | undefined {
-        return this['resource_id'];
-    }
-    public withResourceType(resourceType: BandwidthPackageResourceTypeEnum | string): BandwidthPackage {
-        this['resource_type'] = resourceType;
-        return this;
-    }
-    public set resourceType(resourceType: BandwidthPackageResourceTypeEnum | string  | undefined) {
-        this['resource_type'] = resourceType;
-    }
-    public get resourceType(): BandwidthPackageResourceTypeEnum | string | undefined {
-        return this['resource_type'];
-    }
-    public withLocalAreaId(localAreaId: BandwidthPackageLocalAreaIdEnum | string): BandwidthPackage {
-        this['local_area_id'] = localAreaId;
-        return this;
-    }
-    public set localAreaId(localAreaId: BandwidthPackageLocalAreaIdEnum | string  | undefined) {
-        this['local_area_id'] = localAreaId;
-    }
-    public get localAreaId(): BandwidthPackageLocalAreaIdEnum | string | undefined {
-        return this['local_area_id'];
-    }
-    public withRemoteAreaId(remoteAreaId: BandwidthPackageRemoteAreaIdEnum | string): BandwidthPackage {
-        this['remote_area_id'] = remoteAreaId;
-        return this;
-    }
-    public set remoteAreaId(remoteAreaId: BandwidthPackageRemoteAreaIdEnum | string  | undefined) {
-        this['remote_area_id'] = remoteAreaId;
-    }
-    public get remoteAreaId(): BandwidthPackageRemoteAreaIdEnum | string | undefined {
-        return this['remote_area_id'];
-    }
-    public withProjectId(projectId: string): BandwidthPackage {
-        this['project_id'] = projectId;
-        return this;
-    }
-    public set projectId(projectId: string  | undefined) {
-        this['project_id'] = projectId;
-    }
-    public get projectId(): string | undefined {
-        return this['project_id'];
-    }
     public withInterflowMode(interflowMode: BandwidthPackageInterflowModeEnum | string): BandwidthPackage {
         this['interflow_mode'] = interflowMode;
         return this;
@@ -206,63 +239,8 @@ export class BandwidthPackage {
     public get interflowMode(): BandwidthPackageInterflowModeEnum | string | undefined {
         return this['interflow_mode'];
     }
-    public withTags(tags: Array<Tag>): BandwidthPackage {
-        this['tags'] = tags;
-        return this;
-    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BandwidthPackageStatusEnum {
-    ACTIVE = 'ACTIVE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BandwidthPackageSpecCodeEnum {
-    BANDWIDTH_AFTOELA = 'bandwidth.aftoela',
-    BANDWIDTH_AFTONLA = 'bandwidth.aftonla',
-    BANDWIDTH_AFTOWLA = 'bandwidth.aftowla',
-    BANDWIDTH_APTOAF = 'bandwidth.aptoaf',
-    BANDWIDTH_APTOAP = 'bandwidth.aptoap',
-    BANDWIDTH_APTOELA = 'bandwidth.aptoela',
-    BANDWIDTH_APTONLA = 'bandwidth.aptonla',
-    BANDWIDTH_APTOWLA = 'bandwidth.aptowla',
-    BANDWIDTH_CMTOAF = 'bandwidth.cmtoaf',
-    BANDWIDTH_CMTOAP = 'bandwidth.cmtoap',
-    BANDWIDTH_CMTOCM = 'bandwidth.cmtocm',
-    BANDWIDTH_CMTOELA = 'bandwidth.cmtoela',
-    BANDWIDTH_CMTONLA = 'bandwidth.cmtonla',
-    BANDWIDTH_CMTOWLA = 'bandwidth.cmtowla',
-    BANDWIDTH_ELATOELA = 'bandwidth.elatoela',
-    BANDWIDTH_ELATONLA = 'bandwidth.elatonla',
-    BANDWIDTH_WLATOELA = 'bandwidth.wlatoela',
-    BANDWIDTH_WLATONLA = 'bandwidth.wlatonla',
-    BANDWIDTH_WLATOWLA = 'bandwidth.wlatowla'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BandwidthPackageBillingModeEnum {
-    E_1 = '1',
-    E_2 = '2',
-    E_3 = '3',
-    E_4 = '4',
-    E_5 = '5',
-    E_6 = '6'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BandwidthPackageChargeModeEnum {
-    BANDWIDTH = 'bandwidth'
-}
 /**
     * @export
     * @enum {string}
@@ -274,25 +252,15 @@ export enum BandwidthPackageResourceTypeEnum {
     * @export
     * @enum {string}
     */
-export enum BandwidthPackageLocalAreaIdEnum {
-    CHINESE_MAINLAND = 'Chinese-Mainland',
-    ASIA_PACIFIC = 'Asia-Pacific',
-    AFRICA = 'Africa',
-    WESTERN_LATIN_AMERICA = 'Western-Latin-America',
-    EASTERN_LATIN_AMERICA = 'Eastern-Latin-America',
-    NORTHERN_LATIN_AMERICA = 'Northern-Latin-America'
+export enum BandwidthPackageStatusEnum {
+    ACTIVE = 'ACTIVE'
 }
 /**
     * @export
     * @enum {string}
     */
-export enum BandwidthPackageRemoteAreaIdEnum {
-    CHINESE_MAINLAND = 'Chinese-Mainland',
-    ASIA_PACIFIC = 'Asia-Pacific',
-    AFRICA = 'Africa',
-    WESTERN_LATIN_AMERICA = 'Western-Latin-America',
-    EASTERN_LATIN_AMERICA = 'Eastern-Latin-America',
-    NORTHERN_LATIN_AMERICA = 'Northern-Latin-America'
+export enum BandwidthPackageChargeModeEnum {
+    BANDWIDTH = 'bandwidth'
 }
 /**
     * @export

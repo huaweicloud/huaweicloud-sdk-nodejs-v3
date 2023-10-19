@@ -5,8 +5,9 @@ export class ListBandwidthPackagesRequest {
     public marker?: string;
     public id?: Array<string>;
     public name?: Array<string>;
-    public status?: Array<ListBandwidthPackagesRequestStatusEnum> | Array<string>;
     private 'enterprise_project_id'?: Array<string>;
+    private 'cloud_connection_id'?: Array<string>;
+    public status?: Array<ListBandwidthPackagesRequestStatusEnum> | Array<string>;
     private 'billing_mode'?: Array<string>;
     private 'resource_id'?: Array<string>;
     public constructor() { 
@@ -27,10 +28,6 @@ export class ListBandwidthPackagesRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: Array<ListBandwidthPackagesRequestStatusEnum> | Array<string>): ListBandwidthPackagesRequest {
-        this['status'] = status;
-        return this;
-    }
     public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListBandwidthPackagesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -40,6 +37,20 @@ export class ListBandwidthPackagesRequest {
     }
     public get enterpriseProjectId(): Array<string> | undefined {
         return this['enterprise_project_id'];
+    }
+    public withCloudConnectionId(cloudConnectionId: Array<string>): ListBandwidthPackagesRequest {
+        this['cloud_connection_id'] = cloudConnectionId;
+        return this;
+    }
+    public set cloudConnectionId(cloudConnectionId: Array<string>  | undefined) {
+        this['cloud_connection_id'] = cloudConnectionId;
+    }
+    public get cloudConnectionId(): Array<string> | undefined {
+        return this['cloud_connection_id'];
+    }
+    public withStatus(status: Array<ListBandwidthPackagesRequestStatusEnum> | Array<string>): ListBandwidthPackagesRequest {
+        this['status'] = status;
+        return this;
     }
     public withBillingMode(billingMode: Array<string>): ListBandwidthPackagesRequest {
         this['billing_mode'] = billingMode;

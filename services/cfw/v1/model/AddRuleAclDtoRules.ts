@@ -1,6 +1,7 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDto } from './RuleAddressDto';
 import { RuleServiceDto } from './RuleServiceDto';
+import { TagsVO } from './TagsVO';
 
 
 export class AddRuleAclDtoRules {
@@ -19,6 +20,7 @@ export class AddRuleAclDtoRules {
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
+    public tag?: TagsVO;
     public constructor(name?: string, sequence?: OrderRuleAclDto, addressType?: number, actionType?: number, status?: number, longConnectEnable?: number, source?: RuleAddressDto, destination?: RuleAddressDto, service?: RuleServiceDto) { 
         this['name'] = name;
         this['sequence'] = sequence;
@@ -130,6 +132,10 @@ export class AddRuleAclDtoRules {
     }
     public withService(service: RuleServiceDto): AddRuleAclDtoRules {
         this['service'] = service;
+        return this;
+    }
+    public withTag(tag: TagsVO): AddRuleAclDtoRules {
+        this['tag'] = tag;
         return this;
     }
 }

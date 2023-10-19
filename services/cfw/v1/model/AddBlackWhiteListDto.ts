@@ -8,6 +8,7 @@ export class AddBlackWhiteListDto {
     public address?: string;
     public protocol?: number;
     public port?: string;
+    public description?: string;
     public constructor(objectId?: string, listType?: number, direction?: number, addressType?: number, address?: string, protocol?: number, port?: string) { 
         this['object_id'] = objectId;
         this['list_type'] = listType;
@@ -61,6 +62,10 @@ export class AddBlackWhiteListDto {
     }
     public withPort(port: string): AddBlackWhiteListDto {
         this['port'] = port;
+        return this;
+    }
+    public withDescription(description: string): AddBlackWhiteListDto {
+        this['description'] = description;
         return this;
     }
 }

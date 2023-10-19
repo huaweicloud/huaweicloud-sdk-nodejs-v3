@@ -2,7 +2,7 @@
 
 export class CreateRedislogRequest {
     private 'instance_id'?: string;
-    private 'query_time'?: number;
+    private 'query_time'?: CreateRedislogRequestQueryTimeEnum | number;
     private 'log_type'?: string;
     private 'replication_id'?: string;
     public constructor(instanceId?: string, logType?: string) { 
@@ -19,14 +19,14 @@ export class CreateRedislogRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withQueryTime(queryTime: number): CreateRedislogRequest {
+    public withQueryTime(queryTime: CreateRedislogRequestQueryTimeEnum | number): CreateRedislogRequest {
         this['query_time'] = queryTime;
         return this;
     }
-    public set queryTime(queryTime: number  | undefined) {
+    public set queryTime(queryTime: CreateRedislogRequestQueryTimeEnum | number  | undefined) {
         this['query_time'] = queryTime;
     }
-    public get queryTime(): number | undefined {
+    public get queryTime(): CreateRedislogRequestQueryTimeEnum | number | undefined {
         return this['query_time'];
     }
     public withLogType(logType: string): CreateRedislogRequest {
@@ -49,4 +49,15 @@ export class CreateRedislogRequest {
     public get replicationId(): string | undefined {
         return this['replication_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateRedislogRequestQueryTimeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_3 = 3,
+    NUMBER_7 = 7
 }

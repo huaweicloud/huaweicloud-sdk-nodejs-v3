@@ -8,9 +8,8 @@ export class SubnetInfo {
     private 'gateway_ip'?: string;
     private 'vpc_id'?: string;
     public status?: string;
-    public constructor(cidr?: string, name?: string) { 
-        this['cidr'] = cidr;
-        this['name'] = name;
+    private 'ipv6_enable'?: boolean;
+    public constructor() { 
     }
     public withAvailabilityZone(availabilityZone: string): SubnetInfo {
         this['availability_zone'] = availabilityZone;
@@ -57,5 +56,15 @@ export class SubnetInfo {
     public withStatus(status: string): SubnetInfo {
         this['status'] = status;
         return this;
+    }
+    public withIpv6Enable(ipv6Enable: boolean): SubnetInfo {
+        this['ipv6_enable'] = ipv6Enable;
+        return this;
+    }
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
+        this['ipv6_enable'] = ipv6Enable;
+    }
+    public get ipv6Enable(): boolean | undefined {
+        return this['ipv6_enable'];
     }
 }

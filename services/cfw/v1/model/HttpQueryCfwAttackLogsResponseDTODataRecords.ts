@@ -22,6 +22,11 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     public packet?: Packet;
     public app?: string;
     public packetMessages?: Array<PacketMessage>;
+    private 'dst_host'?: string;
+    private 'src_region_id'?: string;
+    private 'src_region_name'?: string;
+    private 'dst_region_id'?: string;
+    private 'dst_region_name'?: string;
     public constructor() { 
     }
     public withDirection(direction: HttpQueryCfwAttackLogsResponseDTODataRecordsDirectionEnum | string): HttpQueryCfwAttackLogsResponseDTODataRecords {
@@ -165,6 +170,56 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     public withPacketMessages(packetMessages: Array<PacketMessage>): HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['packetMessages'] = packetMessages;
         return this;
+    }
+    public withDstHost(dstHost: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
+    }
+    public withSrcRegionId(srcRegionId: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['src_region_id'] = srcRegionId;
+        return this;
+    }
+    public set srcRegionId(srcRegionId: string  | undefined) {
+        this['src_region_id'] = srcRegionId;
+    }
+    public get srcRegionId(): string | undefined {
+        return this['src_region_id'];
+    }
+    public withSrcRegionName(srcRegionName: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['src_region_name'] = srcRegionName;
+        return this;
+    }
+    public set srcRegionName(srcRegionName: string  | undefined) {
+        this['src_region_name'] = srcRegionName;
+    }
+    public get srcRegionName(): string | undefined {
+        return this['src_region_name'];
+    }
+    public withDstRegionId(dstRegionId: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['dst_region_id'] = dstRegionId;
+        return this;
+    }
+    public set dstRegionId(dstRegionId: string  | undefined) {
+        this['dst_region_id'] = dstRegionId;
+    }
+    public get dstRegionId(): string | undefined {
+        return this['dst_region_id'];
+    }
+    public withDstRegionName(dstRegionName: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['dst_region_name'] = dstRegionName;
+        return this;
+    }
+    public set dstRegionName(dstRegionName: string  | undefined) {
+        this['dst_region_name'] = dstRegionName;
+    }
+    public get dstRegionName(): string | undefined {
+        return this['dst_region_name'];
     }
 }
 

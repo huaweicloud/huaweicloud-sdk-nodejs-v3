@@ -1,3 +1,5 @@
+import { AddressGroupVO } from './AddressGroupVO';
+import { IpRegionDto } from './IpRegionDto';
 
 
 export class RuleAddressDto {
@@ -7,6 +9,13 @@ export class RuleAddressDto {
     private 'address_set_id'?: string;
     private 'address_set_name'?: string;
     private 'domain_address_name'?: string;
+    private 'region_list_json'?: string;
+    private 'region_list'?: Array<IpRegionDto>;
+    private 'domain_set_id'?: string;
+    private 'domain_set_name'?: string;
+    private 'ip_address'?: Array<string>;
+    private 'address_group'?: Array<string>;
+    private 'address_group_names'?: Array<AddressGroupVO>;
     public constructor(type?: number) { 
         this['type'] = type;
     }
@@ -57,5 +66,75 @@ export class RuleAddressDto {
     }
     public get domainAddressName(): string | undefined {
         return this['domain_address_name'];
+    }
+    public withRegionListJson(regionListJson: string): RuleAddressDto {
+        this['region_list_json'] = regionListJson;
+        return this;
+    }
+    public set regionListJson(regionListJson: string  | undefined) {
+        this['region_list_json'] = regionListJson;
+    }
+    public get regionListJson(): string | undefined {
+        return this['region_list_json'];
+    }
+    public withRegionList(regionList: Array<IpRegionDto>): RuleAddressDto {
+        this['region_list'] = regionList;
+        return this;
+    }
+    public set regionList(regionList: Array<IpRegionDto>  | undefined) {
+        this['region_list'] = regionList;
+    }
+    public get regionList(): Array<IpRegionDto> | undefined {
+        return this['region_list'];
+    }
+    public withDomainSetId(domainSetId: string): RuleAddressDto {
+        this['domain_set_id'] = domainSetId;
+        return this;
+    }
+    public set domainSetId(domainSetId: string  | undefined) {
+        this['domain_set_id'] = domainSetId;
+    }
+    public get domainSetId(): string | undefined {
+        return this['domain_set_id'];
+    }
+    public withDomainSetName(domainSetName: string): RuleAddressDto {
+        this['domain_set_name'] = domainSetName;
+        return this;
+    }
+    public set domainSetName(domainSetName: string  | undefined) {
+        this['domain_set_name'] = domainSetName;
+    }
+    public get domainSetName(): string | undefined {
+        return this['domain_set_name'];
+    }
+    public withIpAddress(ipAddress: Array<string>): RuleAddressDto {
+        this['ip_address'] = ipAddress;
+        return this;
+    }
+    public set ipAddress(ipAddress: Array<string>  | undefined) {
+        this['ip_address'] = ipAddress;
+    }
+    public get ipAddress(): Array<string> | undefined {
+        return this['ip_address'];
+    }
+    public withAddressGroup(addressGroup: Array<string>): RuleAddressDto {
+        this['address_group'] = addressGroup;
+        return this;
+    }
+    public set addressGroup(addressGroup: Array<string>  | undefined) {
+        this['address_group'] = addressGroup;
+    }
+    public get addressGroup(): Array<string> | undefined {
+        return this['address_group'];
+    }
+    public withAddressGroupNames(addressGroupNames: Array<AddressGroupVO>): RuleAddressDto {
+        this['address_group_names'] = addressGroupNames;
+        return this;
+    }
+    public set addressGroupNames(addressGroupNames: Array<AddressGroupVO>  | undefined) {
+        this['address_group_names'] = addressGroupNames;
+    }
+    public get addressGroupNames(): Array<AddressGroupVO> | undefined {
+        return this['address_group_names'];
     }
 }

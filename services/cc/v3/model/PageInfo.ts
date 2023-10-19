@@ -1,10 +1,13 @@
+import { NextMarker } from './NextMarker';
+import { PreviousMarker } from './PreviousMarker';
 
 
 export class PageInfo {
     private 'next_marker'?: string;
     private 'previous_marker'?: string;
     private 'current_count'?: number;
-    public constructor() { 
+    public constructor(currentCount?: number) { 
+        this['current_count'] = currentCount;
     }
     public withNextMarker(nextMarker: string): PageInfo {
         this['next_marker'] = nextMarker;

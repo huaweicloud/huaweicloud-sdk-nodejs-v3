@@ -16,6 +16,10 @@ import { AddressGroup } from './model/AddressGroup';
 import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
 import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
 import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
+import { BatchCreateSecurityGroupRulesOption } from './model/BatchCreateSecurityGroupRulesOption';
+import { BatchCreateSecurityGroupRulesRequest } from './model/BatchCreateSecurityGroupRulesRequest';
+import { BatchCreateSecurityGroupRulesRequestBody } from './model/BatchCreateSecurityGroupRulesRequestBody';
+import { BatchCreateSecurityGroupRulesResponse } from './model/BatchCreateSecurityGroupRulesResponse';
 import { BatchCreateSubNetworkInterfaceOption } from './model/BatchCreateSubNetworkInterfaceOption';
 import { BatchCreateSubNetworkInterfaceRequest } from './model/BatchCreateSubNetworkInterfaceRequest';
 import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSubNetworkInterfaceRequestBody';
@@ -218,6 +222,26 @@ export class VpcClient {
      */
     public addSourcesToTrafficMirrorSession(addSourcesToTrafficMirrorSessionRequest?: AddSourcesToTrafficMirrorSessionRequest): Promise<AddSourcesToTrafficMirrorSessionResponse> {
         const options = ParamCreater().addSourcesToTrafficMirrorSession(addSourcesToTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在特定安全组下批量创建安全组规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建安全组规则
+     * @param {string} securityGroupId 安全组ID
+     * @param {BatchCreateSecurityGroupRulesRequestBody} batchCreateSecurityGroupRulesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSecurityGroupRules(batchCreateSecurityGroupRulesRequest?: BatchCreateSecurityGroupRulesRequest): Promise<BatchCreateSecurityGroupRulesResponse> {
+        const options = ParamCreater().batchCreateSecurityGroupRules(batchCreateSecurityGroupRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1415,6 +1439,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'traffic_mirror_session_id': trafficMirrorSessionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在特定安全组下批量创建安全组规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSecurityGroupRules(batchCreateSecurityGroupRulesRequest?: BatchCreateSecurityGroupRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/security-groups/{security_group_id}/security-group-rules/batch-create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let securityGroupId;
+
+            if (batchCreateSecurityGroupRulesRequest !== null && batchCreateSecurityGroupRulesRequest !== undefined) {
+                if (batchCreateSecurityGroupRulesRequest instanceof BatchCreateSecurityGroupRulesRequest) {
+                    securityGroupId = batchCreateSecurityGroupRulesRequest.securityGroupId;
+                    body = batchCreateSecurityGroupRulesRequest.body
+                } else {
+                    securityGroupId = batchCreateSecurityGroupRulesRequest['security_group_id'];
+                    body = batchCreateSecurityGroupRulesRequest['body'];
+                }
+            }
+
+        
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling batchCreateSecurityGroupRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'security_group_id': securityGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

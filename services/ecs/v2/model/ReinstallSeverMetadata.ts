@@ -4,6 +4,7 @@ export class ReinstallSeverMetadata {
     private '__system__encrypted'?: string;
     private '__system__cmkid'?: string;
     private 'user_data'?: string;
+    private 'BYOL'?: string;
     public constructor() { 
     }
     public withSystemEncrypted(systemEncrypted: string): ReinstallSeverMetadata {
@@ -35,5 +36,15 @@ export class ReinstallSeverMetadata {
     }
     public get userData(): string | undefined {
         return this['user_data'];
+    }
+    public withByol(byol: string): ReinstallSeverMetadata {
+        this['BYOL'] = byol;
+        return this;
+    }
+    public set byol(byol: string  | undefined) {
+        this['BYOL'] = byol;
+    }
+    public get byol(): string | undefined {
+        return this['BYOL'];
     }
 }

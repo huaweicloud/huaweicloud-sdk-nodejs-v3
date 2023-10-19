@@ -1,3 +1,6 @@
+import { Description } from './Description';
+import { EnterpriseProjectId } from './EnterpriseProjectId';
+import { Name } from './Name';
 
 
 export class CreateCloudConnection {

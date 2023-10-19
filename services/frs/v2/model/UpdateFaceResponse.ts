@@ -5,6 +5,7 @@ export class UpdateFaceResponse extends SdkResponse {
     private 'face_number'?: number;
     private 'face_set_id'?: string;
     private 'face_set_name'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -37,5 +38,15 @@ export class UpdateFaceResponse extends SdkResponse {
     }
     public get faceSetName(): string | undefined {
         return this['face_set_name'];
+    }
+    public withXRequestId(xRequestId: string): UpdateFaceResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

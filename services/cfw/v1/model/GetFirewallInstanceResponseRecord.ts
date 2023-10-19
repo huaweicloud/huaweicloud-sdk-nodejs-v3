@@ -19,6 +19,8 @@ export class GetFirewallInstanceResponseRecord {
     public resources?: Array<FirewallInstanceResource>;
     private 'fw_instance_name'?: string;
     private 'enterprise_project_id'?: string;
+    private 'resource_id'?: string;
+    private 'support_url_filtering'?: boolean;
     public constructor() { 
     }
     public withFwInstanceId(fwInstanceId: string): GetFirewallInstanceResponseRecord {
@@ -146,6 +148,26 @@ export class GetFirewallInstanceResponseRecord {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withResourceId(resourceId: string): GetFirewallInstanceResponseRecord {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
+    public withSupportUrlFiltering(supportUrlFiltering: boolean): GetFirewallInstanceResponseRecord {
+        this['support_url_filtering'] = supportUrlFiltering;
+        return this;
+    }
+    public set supportUrlFiltering(supportUrlFiltering: boolean  | undefined) {
+        this['support_url_filtering'] = supportUrlFiltering;
+    }
+    public get supportUrlFiltering(): boolean | undefined {
+        return this['support_url_filtering'];
     }
 }
 

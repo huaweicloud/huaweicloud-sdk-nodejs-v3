@@ -5,6 +5,10 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     private 'rule_name'?: string;
     private 'rule_id'?: string;
     private 'hit_time'?: number;
+    private 'src_region_id'?: string;
+    private 'src_region_name'?: string;
+    private 'dst_region_id'?: string;
+    private 'dst_region_name'?: string;
     private 'log_id'?: string;
     private 'src_ip'?: string;
     private 'src_port'?: string;
@@ -12,6 +16,7 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     private 'dst_port'?: string;
     public protocol?: string;
     public app?: string;
+    private 'dst_host'?: string;
     public constructor() { 
     }
     public withAction(action: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
@@ -47,6 +52,46 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     }
     public get hitTime(): number | undefined {
         return this['hit_time'];
+    }
+    public withSrcRegionId(srcRegionId: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+        this['src_region_id'] = srcRegionId;
+        return this;
+    }
+    public set srcRegionId(srcRegionId: string  | undefined) {
+        this['src_region_id'] = srcRegionId;
+    }
+    public get srcRegionId(): string | undefined {
+        return this['src_region_id'];
+    }
+    public withSrcRegionName(srcRegionName: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+        this['src_region_name'] = srcRegionName;
+        return this;
+    }
+    public set srcRegionName(srcRegionName: string  | undefined) {
+        this['src_region_name'] = srcRegionName;
+    }
+    public get srcRegionName(): string | undefined {
+        return this['src_region_name'];
+    }
+    public withDstRegionId(dstRegionId: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+        this['dst_region_id'] = dstRegionId;
+        return this;
+    }
+    public set dstRegionId(dstRegionId: string  | undefined) {
+        this['dst_region_id'] = dstRegionId;
+    }
+    public get dstRegionId(): string | undefined {
+        return this['dst_region_id'];
+    }
+    public withDstRegionName(dstRegionName: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+        this['dst_region_name'] = dstRegionName;
+        return this;
+    }
+    public set dstRegionName(dstRegionName: string  | undefined) {
+        this['dst_region_name'] = dstRegionName;
+    }
+    public get dstRegionName(): string | undefined {
+        return this['dst_region_name'];
     }
     public withLogId(logId: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
         this['log_id'] = logId;
@@ -105,5 +150,15 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     public withApp(app: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
         this['app'] = app;
         return this;
+    }
+    public withDstHost(dstHost: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
     }
 }

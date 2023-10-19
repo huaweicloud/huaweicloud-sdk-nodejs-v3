@@ -1,21 +1,27 @@
+import { CloudConnectionId } from './CloudConnectionId';
+import { Description } from './Description';
+import { InstanceId } from './InstanceId';
+import { NonRequiredName } from './NonRequiredName';
+import { ProjectId } from './ProjectId';
+import { RegionId } from './RegionId';
 
 
 export class CreateAuthorisation {
     public name?: string;
     public description?: string;
     private 'instance_id'?: string;
-    private 'instance_type'?: CreateAuthorisationInstanceTypeEnum | string;
     private 'project_id'?: string;
     private 'region_id'?: string;
-    private 'cloud_connection_domain_id'?: string;
     private 'cloud_connection_id'?: string;
-    public constructor(instanceId?: string, instanceType?: string, projectId?: string, regionId?: string, cloudConnectionDomainId?: string, cloudConnectionId?: string) { 
+    private 'instance_type'?: CreateAuthorisationInstanceTypeEnum | string;
+    private 'cloud_connection_domain_id'?: string;
+    public constructor(instanceId?: string, projectId?: string, regionId?: string, cloudConnectionId?: string, instanceType?: string, cloudConnectionDomainId?: string) { 
         this['instance_id'] = instanceId;
-        this['instance_type'] = instanceType;
         this['project_id'] = projectId;
         this['region_id'] = regionId;
-        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
         this['cloud_connection_id'] = cloudConnectionId;
+        this['instance_type'] = instanceType;
+        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
     }
     public withName(name: string): CreateAuthorisation {
         this['name'] = name;
@@ -34,16 +40,6 @@ export class CreateAuthorisation {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
-    }
-    public withInstanceType(instanceType: CreateAuthorisationInstanceTypeEnum | string): CreateAuthorisation {
-        this['instance_type'] = instanceType;
-        return this;
-    }
-    public set instanceType(instanceType: CreateAuthorisationInstanceTypeEnum | string  | undefined) {
-        this['instance_type'] = instanceType;
-    }
-    public get instanceType(): CreateAuthorisationInstanceTypeEnum | string | undefined {
-        return this['instance_type'];
     }
     public withProjectId(projectId: string): CreateAuthorisation {
         this['project_id'] = projectId;
@@ -65,16 +61,6 @@ export class CreateAuthorisation {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withCloudConnectionDomainId(cloudConnectionDomainId: string): CreateAuthorisation {
-        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
-        return this;
-    }
-    public set cloudConnectionDomainId(cloudConnectionDomainId: string  | undefined) {
-        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
-    }
-    public get cloudConnectionDomainId(): string | undefined {
-        return this['cloud_connection_domain_id'];
-    }
     public withCloudConnectionId(cloudConnectionId: string): CreateAuthorisation {
         this['cloud_connection_id'] = cloudConnectionId;
         return this;
@@ -84,6 +70,26 @@ export class CreateAuthorisation {
     }
     public get cloudConnectionId(): string | undefined {
         return this['cloud_connection_id'];
+    }
+    public withInstanceType(instanceType: CreateAuthorisationInstanceTypeEnum | string): CreateAuthorisation {
+        this['instance_type'] = instanceType;
+        return this;
+    }
+    public set instanceType(instanceType: CreateAuthorisationInstanceTypeEnum | string  | undefined) {
+        this['instance_type'] = instanceType;
+    }
+    public get instanceType(): CreateAuthorisationInstanceTypeEnum | string | undefined {
+        return this['instance_type'];
+    }
+    public withCloudConnectionDomainId(cloudConnectionDomainId: string): CreateAuthorisation {
+        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
+        return this;
+    }
+    public set cloudConnectionDomainId(cloudConnectionDomainId: string  | undefined) {
+        this['cloud_connection_domain_id'] = cloudConnectionDomainId;
+    }
+    public get cloudConnectionDomainId(): string | undefined {
+        return this['cloud_connection_domain_id'];
     }
 }
 

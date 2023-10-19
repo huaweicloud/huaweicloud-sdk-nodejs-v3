@@ -3,6 +3,7 @@
 export class ChangeSeversOsMetadataWithoutCloudInitOption {
     private '__system__encrypted'?: string;
     private '__system__cmkid'?: string;
+    private 'BYOL'?: string;
     public constructor() { 
     }
     public withSystemEncrypted(systemEncrypted: string): ChangeSeversOsMetadataWithoutCloudInitOption {
@@ -24,5 +25,15 @@ export class ChangeSeversOsMetadataWithoutCloudInitOption {
     }
     public get systemCmkid(): string | undefined {
         return this['__system__cmkid'];
+    }
+    public withByol(byol: string): ChangeSeversOsMetadataWithoutCloudInitOption {
+        this['BYOL'] = byol;
+        return this;
+    }
+    public set byol(byol: string  | undefined) {
+        this['BYOL'] = byol;
+    }
+    public get byol(): string | undefined {
+        return this['BYOL'];
     }
 }

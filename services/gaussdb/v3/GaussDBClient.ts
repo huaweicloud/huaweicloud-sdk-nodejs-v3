@@ -2,8 +2,10 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessControlRule } from './model/AccessControlRule';
 import { AddDatabasePermissionRequest } from './model/AddDatabasePermissionRequest';
 import { AddDatabasePermissionResponse } from './model/AddDatabasePermissionResponse';
+import { ApplicableInstances } from './model/ApplicableInstances';
 import { ApplyConfigurationRequestBody } from './model/ApplyConfigurationRequestBody';
 import { Backup } from './model/Backup';
 import { BackupEncryptRequest } from './model/BackupEncryptRequest';
@@ -24,6 +26,12 @@ import { ChangeGaussMySqlProxySpecificationResponse } from './model/ChangeGaussM
 import { CloseMysqlProxyRequestBody } from './model/CloseMysqlProxyRequestBody';
 import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationSummary2 } from './model/ConfigurationSummary2';
+import { CopyConfigurationsRequest } from './model/CopyConfigurationsRequest';
+import { CopyConfigurationsRequestBody } from './model/CopyConfigurationsRequestBody';
+import { CopyConfigurationsResponse } from './model/CopyConfigurationsResponse';
+import { CreateAccessControlRequest } from './model/CreateAccessControlRequest';
+import { CreateAccessControlRequestBody } from './model/CreateAccessControlRequestBody';
+import { CreateAccessControlResponse } from './model/CreateAccessControlResponse';
 import { CreateConfigurationRequestBody } from './model/CreateConfigurationRequestBody';
 import { CreateDatabaseList } from './model/CreateDatabaseList';
 import { CreateDatabaseUserList } from './model/CreateDatabaseUserList';
@@ -47,6 +55,11 @@ import { CreateGaussMySqlReadonlyNodeRequest } from './model/CreateGaussMySqlRea
 import { CreateGaussMySqlReadonlyNodeResponse } from './model/CreateGaussMySqlReadonlyNodeResponse';
 import { CreateGaussMysqlDnsRequest } from './model/CreateGaussMysqlDnsRequest';
 import { CreateGaussMysqlDnsResponse } from './model/CreateGaussMysqlDnsResponse';
+import { CreateRestoreDatabaseTableInfo } from './model/CreateRestoreDatabaseTableInfo';
+import { CreateRestoreTableInfo } from './model/CreateRestoreTableInfo';
+import { CreateRestoreTablesRequest } from './model/CreateRestoreTablesRequest';
+import { CreateRestoreTablesRequestBody } from './model/CreateRestoreTablesRequestBody';
+import { CreateRestoreTablesResponse } from './model/CreateRestoreTablesResponse';
 import { DatabasePermission } from './model/DatabasePermission';
 import { DatastoreResult } from './model/DatastoreResult';
 import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
@@ -75,6 +88,9 @@ import { DeleteGaussMySqlReadonlyNodeRequest } from './model/DeleteGaussMySqlRea
 import { DeleteGaussMySqlReadonlyNodeResponse } from './model/DeleteGaussMySqlReadonlyNodeResponse';
 import { DeleteNodeSqlFilterRule } from './model/DeleteNodeSqlFilterRule';
 import { DeleteNodeSqlFilterRuleInfo } from './model/DeleteNodeSqlFilterRuleInfo';
+import { DeleteScheduleTasKRequest } from './model/DeleteScheduleTasKRequest';
+import { DeleteScheduleTasKRequestBody } from './model/DeleteScheduleTasKRequestBody';
+import { DeleteScheduleTasKResponse } from './model/DeleteScheduleTasKResponse';
 import { DeleteSqlFilterRuleReq } from './model/DeleteSqlFilterRuleReq';
 import { DeleteSqlFilterRuleRequest } from './model/DeleteSqlFilterRuleRequest';
 import { DeleteSqlFilterRuleResponse } from './model/DeleteSqlFilterRuleResponse';
@@ -83,6 +99,7 @@ import { DeleteTaskRecordResponse } from './model/DeleteTaskRecordResponse';
 import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
 import { DescribeBackupEncryptStatusResponse } from './model/DescribeBackupEncryptStatusResponse';
 import { EnlargeProxyRequest } from './model/EnlargeProxyRequest';
+import { EnterpriseProjectItem } from './model/EnterpriseProjectItem';
 import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlInstanceVolumeRequest';
 import { ExpandGaussMySqlInstanceVolumeResponse } from './model/ExpandGaussMySqlInstanceVolumeResponse';
 import { ExpandGaussMySqlProxyRequest } from './model/ExpandGaussMySqlProxyRequest';
@@ -95,12 +112,20 @@ import { GetJobInfoDetail } from './model/GetJobInfoDetail';
 import { GetJobInstanceInfoDetail } from './model/GetJobInstanceInfoDetail';
 import { GrantDatabasePermission } from './model/GrantDatabasePermission';
 import { GrantDatabasePermissionRequestBody } from './model/GrantDatabasePermissionRequestBody';
+import { IncrementalBackups } from './model/IncrementalBackups';
 import { InstanceTagItem } from './model/InstanceTagItem';
 import { InvokeGaussMySqlInstanceSwitchOverRequest } from './model/InvokeGaussMySqlInstanceSwitchOverRequest';
 import { InvokeGaussMySqlInstanceSwitchOverResponse } from './model/InvokeGaussMySqlInstanceSwitchOverResponse';
 import { ListAuditLogDownloadLinkRequest } from './model/ListAuditLogDownloadLinkRequest';
 import { ListAuditLogDownloadLinkResponse } from './model/ListAuditLogDownloadLinkResponse';
+import { ListConfigurationsDifferencesRequest } from './model/ListConfigurationsDifferencesRequest';
+import { ListConfigurationsDifferencesRequestBody } from './model/ListConfigurationsDifferencesRequestBody';
+import { ListConfigurationsDifferencesResponse } from './model/ListConfigurationsDifferencesResponse';
+import { ListConfigurationsInstancesRequest } from './model/ListConfigurationsInstancesRequest';
+import { ListConfigurationsInstancesResponse } from './model/ListConfigurationsInstancesResponse';
 import { ListDeleteDatabaseUserRequest } from './model/ListDeleteDatabaseUserRequest';
+import { ListEnterpriseProjectsRequest } from './model/ListEnterpriseProjectsRequest';
+import { ListEnterpriseProjectsResponse } from './model/ListEnterpriseProjectsResponse';
 import { ListGaussMySqlConfigurationsRequest } from './model/ListGaussMySqlConfigurationsRequest';
 import { ListGaussMySqlConfigurationsResponse } from './model/ListGaussMySqlConfigurationsResponse';
 import { ListGaussMySqlDatabase } from './model/ListGaussMySqlDatabase';
@@ -120,12 +145,16 @@ import { ListGaussMySqlInstancesResponse } from './model/ListGaussMySqlInstances
 import { ListGaussMysqlDatabaseInfo } from './model/ListGaussMysqlDatabaseInfo';
 import { ListImmediateJobsRequest } from './model/ListImmediateJobsRequest';
 import { ListImmediateJobsResponse } from './model/ListImmediateJobsResponse';
+import { ListInstanceConfigurationsRequest } from './model/ListInstanceConfigurationsRequest';
+import { ListInstanceConfigurationsResponse } from './model/ListInstanceConfigurationsResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListLtsErrorLogDetailsRequest } from './model/ListLtsErrorLogDetailsRequest';
 import { ListLtsErrorLogDetailsResponse } from './model/ListLtsErrorLogDetailsResponse';
 import { ListLtsSlowlogDetailsRequest } from './model/ListLtsSlowlogDetailsRequest';
 import { ListLtsSlowlogDetailsResponse } from './model/ListLtsSlowlogDetailsResponse';
+import { ListModifyHistoryRequest } from './model/ListModifyHistoryRequest';
+import { ListModifyHistoryResponse } from './model/ListModifyHistoryResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListScheduleJobsRequest } from './model/ListScheduleJobsRequest';
@@ -197,6 +226,10 @@ import { OpenMysqlProxyRequestBody } from './model/OpenMysqlProxyRequestBody';
 import { OperateAuditLogRequestV3Body } from './model/OperateAuditLogRequestV3Body';
 import { OperateSqlFilterControlReq } from './model/OperateSqlFilterControlReq';
 import { OperateSqlFilterRuleReq } from './model/OperateSqlFilterRuleReq';
+import { ParamGroupHistoryResponse } from './model/ParamGroupHistoryResponse';
+import { ParamGroupParameterDifferences } from './model/ParamGroupParameterDifferences';
+import { ParameterConfigurationInfo } from './model/ParameterConfigurationInfo';
+import { ParameterValuesInfo } from './model/ParameterValuesInfo';
 import { ProjectQuotas } from './model/ProjectQuotas';
 import { ProjectTagItem } from './model/ProjectTagItem';
 import { ProxyTransactionSplitRequest } from './model/ProxyTransactionSplitRequest';
@@ -244,6 +277,8 @@ import { ShowGaussMySqlEngineVersionRequest } from './model/ShowGaussMySqlEngine
 import { ShowGaussMySqlEngineVersionResponse } from './model/ShowGaussMySqlEngineVersionResponse';
 import { ShowGaussMySqlFlavorsRequest } from './model/ShowGaussMySqlFlavorsRequest';
 import { ShowGaussMySqlFlavorsResponse } from './model/ShowGaussMySqlFlavorsResponse';
+import { ShowGaussMySqlIncrementalBackupListRequest } from './model/ShowGaussMySqlIncrementalBackupListRequest';
+import { ShowGaussMySqlIncrementalBackupListResponse } from './model/ShowGaussMySqlIncrementalBackupListResponse';
 import { ShowGaussMySqlInstanceInfoRequest } from './model/ShowGaussMySqlInstanceInfoRequest';
 import { ShowGaussMySqlInstanceInfoResponse } from './model/ShowGaussMySqlInstanceInfoResponse';
 import { ShowGaussMySqlJobInfoRequest } from './model/ShowGaussMySqlJobInfoRequest';
@@ -264,6 +299,9 @@ import { ShowSqlFilterRuleRequest } from './model/ShowSqlFilterRuleRequest';
 import { ShowSqlFilterRuleResponse } from './model/ShowSqlFilterRuleResponse';
 import { SqlFilterRule } from './model/SqlFilterRule';
 import { SqlFilterRulePattern } from './model/SqlFilterRulePattern';
+import { SwitchAccessControlRequest } from './model/SwitchAccessControlRequest';
+import { SwitchAccessControlRequestBody } from './model/SwitchAccessControlRequestBody';
+import { SwitchAccessControlResponse } from './model/SwitchAccessControlResponse';
 import { SwitchGaussMySqlConfigurationRequest } from './model/SwitchGaussMySqlConfigurationRequest';
 import { SwitchGaussMySqlConfigurationResponse } from './model/SwitchGaussMySqlConfigurationResponse';
 import { SwitchGaussMySqlInstanceSslRequest } from './model/SwitchGaussMySqlInstanceSslRequest';
@@ -278,6 +316,10 @@ import { TaurusRestartInstanceRequest } from './model/TaurusRestartInstanceReque
 import { TaurusSwitchoverRequest } from './model/TaurusSwitchoverRequest';
 import { UpdateAuditLogRequest } from './model/UpdateAuditLogRequest';
 import { UpdateAuditLogResponse } from './model/UpdateAuditLogResponse';
+import { UpdateBackupOffsitePolicyInfo } from './model/UpdateBackupOffsitePolicyInfo';
+import { UpdateBackupOffsitePolicyRequest } from './model/UpdateBackupOffsitePolicyRequest';
+import { UpdateBackupOffsitePolicyRequestBody } from './model/UpdateBackupOffsitePolicyRequestBody';
+import { UpdateBackupOffsitePolicyResponse } from './model/UpdateBackupOffsitePolicyResponse';
 import { UpdateConfigurationParameterRequestBody } from './model/UpdateConfigurationParameterRequestBody';
 import { UpdateDatabaseComment } from './model/UpdateDatabaseComment';
 import { UpdateDatabaseCommentRequest } from './model/UpdateDatabaseCommentRequest';
@@ -309,8 +351,12 @@ import { UpdateGaussMySqlQuotasRequest } from './model/UpdateGaussMySqlQuotasReq
 import { UpdateGaussMySqlQuotasResponse } from './model/UpdateGaussMySqlQuotasResponse';
 import { UpdateInstanceMonitorRequest } from './model/UpdateInstanceMonitorRequest';
 import { UpdateInstanceMonitorResponse } from './model/UpdateInstanceMonitorResponse';
+import { UpdateProxyConfigurationItem } from './model/UpdateProxyConfigurationItem';
 import { UpdateProxyConnectionPoolTypeRequest } from './model/UpdateProxyConnectionPoolTypeRequest';
 import { UpdateProxyConnectionPoolTypeResponse } from './model/UpdateProxyConnectionPoolTypeResponse';
+import { UpdateProxyNewConfigRequestBody } from './model/UpdateProxyNewConfigRequestBody';
+import { UpdateProxyNewConfigurationsRequest } from './model/UpdateProxyNewConfigurationsRequest';
+import { UpdateProxyNewConfigurationsResponse } from './model/UpdateProxyNewConfigurationsResponse';
 import { UpdateProxyPortRequest } from './model/UpdateProxyPortRequest';
 import { UpdateProxyPortRequestBody } from './model/UpdateProxyPortRequestBody';
 import { UpdateProxyPortResponse } from './model/UpdateProxyPortResponse';
@@ -457,6 +503,49 @@ export class GaussDBClient {
      */
     public changeGaussMySqlProxySpecification(changeGaussMySqlProxySpecificationRequest?: ChangeGaussMySqlProxySpecificationRequest): Promise<ChangeGaussMySqlProxySpecificationResponse> {
         const options = ParamCreater().changeGaussMySqlProxySpecification(changeGaussMySqlProxySpecificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制参数组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制参数组
+     * @param {string} configurationId 参数组ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-gaussdb/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
+     * @param {CopyConfigurationsRequestBody} copyConfigurationsRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyConfigurations(copyConfigurationsRequest?: CopyConfigurationsRequest): Promise<CopyConfigurationsResponse> {
+        const options = ParamCreater().copyConfigurations(copyConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置访问控制规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置访问控制规则
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {CreateAccessControlRequestBody} createAccessControlRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAccessControl(createAccessControlRequest?: CreateAccessControlRequest): Promise<CreateAccessControlResponse> {
+        const options = ParamCreater().createAccessControl(createAccessControlRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -630,6 +719,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 表级时间点恢复。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表级时间点恢复
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {CreateRestoreTablesRequestBody} createRestoreTablesRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRestoreTables(createRestoreTablesRequest?: CreateRestoreTablesRequest): Promise<CreateRestoreTablesResponse> {
+        const options = ParamCreater().createRestoreTables(createRestoreTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除云数据库 GaussDB(for MySQL)实例数据库用户的数据库权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -795,6 +905,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 删除定时任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除定时任务
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {DeleteScheduleTasKRequestBody} deleteScheduleTasKRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScheduleTasK(deleteScheduleTasKRequest?: DeleteScheduleTasKRequest): Promise<DeleteScheduleTasKResponse> {
+        const options = ParamCreater().deleteScheduleTasK(deleteScheduleTasKRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定任务记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -924,6 +1055,69 @@ export class GaussDBClient {
     }
 
     /**
+     * 比较两个参数模板之间的差异。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 对比参数模板
+     * @param {ListConfigurationsDifferencesRequestBody} listConfigurationsDifferencesRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigurationsDifferences(listConfigurationsDifferencesRequest?: ListConfigurationsDifferencesRequest): Promise<ListConfigurationsDifferencesResponse> {
+        const options = ParamCreater().listConfigurationsDifferences(listConfigurationsDifferencesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定参数模板可被应用的实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可应用的实例列表
+     * @param {string} configurationId 参数模板ID。  通过调用[查询参数模板](https://support.huaweicloud.com/api-gaussdb/ListGaussMySqlConfigurations.html)接口获取。  请求响应成功后在响应消息体中包含的“id”的值即为configuration_id值。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigurationsInstances(listConfigurationsInstancesRequest?: ListConfigurationsInstancesRequest): Promise<ListConfigurationsInstancesResponse> {
+        const options = ParamCreater().listConfigurationsInstances(listConfigurationsInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业项目。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询企业项目
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEnterpriseProjects(listEnterpriseProjectsRequest?: ListEnterpriseProjectsRequest): Promise<ListEnterpriseProjectsResponse> {
+        const options = ParamCreater().listEnterpriseProjects(listEnterpriseProjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -954,6 +1148,8 @@ export class GaussDBClient {
      * @param {string} [xLanguage] 语言。
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} [name] 数据库名称。
+     * @param {string} [charset] 数据库使用的字符集，如utf8mb4、gbk等。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1107,6 +1303,28 @@ export class GaussDBClient {
     }
 
     /**
+     * 获取指定实例的参数信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定实例的参数信息
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceConfigurations(listInstanceConfigurationsRequest?: ListInstanceConfigurationsRequest): Promise<ListInstanceConfigurationsResponse> {
+        const options = ParamCreater().listInstanceConfigurations(listInstanceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定实例的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1163,6 +1381,28 @@ export class GaussDBClient {
      */
     public listLtsSlowlogDetails(listLtsSlowlogDetailsRequest?: ListLtsSlowlogDetailsRequest): Promise<ListLtsSlowlogDetailsResponse> {
         const options = ParamCreater().listLtsSlowlogDetails(listLtsSlowlogDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询参数修改历史。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数修改历史
+     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-gaussdb/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModifyHistory(listModifyHistoryRequest?: ListModifyHistoryRequest): Promise<ListModifyHistoryResponse> {
+        const options = ParamCreater().listModifyHistory(listModifyHistoryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1599,6 +1839,30 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询增量备份列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询增量备份列表
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [limit] 查询记录数。默认为10，可取范围：10、20、50。
+     * @param {string} [beginTime] 查询开始时间，格式为“yyyy-mm-ddThh:mm:ssZ”。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。  “begin_time”有值时，“end_time”必选。
+     * @param {string} [endTime] 查询结束时间，格式为“yyyy-mm-ddThh:mm:ssZ”，且大于查询开始时间。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。  “end_time”有值时，“begin_time”必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGaussMySqlIncrementalBackupList(showGaussMySqlIncrementalBackupListRequest?: ShowGaussMySqlIncrementalBackupListRequest): Promise<ShowGaussMySqlIncrementalBackupListResponse> {
+        const options = ParamCreater().showGaussMySqlIncrementalBackupList(showGaussMySqlIncrementalBackupListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1743,6 +2007,28 @@ export class GaussDBClient {
     }
 
     /**
+     * 开启或关闭访问控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭访问控制
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {SwitchAccessControlRequestBody} switchAccessControlRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchAccessControl(switchAccessControlRequest?: SwitchAccessControlRequest): Promise<SwitchAccessControlResponse> {
+        const options = ParamCreater().switchAccessControl(switchAccessControlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 指定实例变更参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1798,6 +2084,27 @@ export class GaussDBClient {
      */
     public updateAuditLog(updateAuditLogRequest?: UpdateAuditLogRequest): Promise<UpdateAuditLogResponse> {
         const options = ParamCreater().updateAuditLog(updateAuditLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置跨区备份策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置跨区备份策略
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {UpdateBackupOffsitePolicyRequestBody} updateBackupOffsitePolicyRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBackupOffsitePolicy(updateBackupOffsitePolicyRequest?: UpdateBackupOffsitePolicyRequest): Promise<UpdateBackupOffsitePolicyResponse> {
+        const options = ParamCreater().updateBackupOffsitePolicy(updateBackupOffsitePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2092,6 +2399,28 @@ export class GaussDBClient {
      */
     public updateProxyConnectionPoolType(updateProxyConnectionPoolTypeRequest?: UpdateProxyConnectionPoolTypeRequest): Promise<UpdateProxyConnectionPoolTypeResponse> {
         const options = ParamCreater().updateProxyConnectionPoolType(updateProxyConnectionPoolTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据库代理参数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改代理实例参数
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {UpdateProxyNewConfigRequestBody} updateProxyNewConfigurationsRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProxyNewConfigurations(updateProxyNewConfigurationsRequest?: UpdateProxyNewConfigurationsRequest): Promise<UpdateProxyNewConfigurationsResponse> {
+        const options = ParamCreater().updateProxyNewConfigurations(updateProxyNewConfigurationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2603,6 +2932,119 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 复制参数组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyConfigurations(copyConfigurationsRequest?: CopyConfigurationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations/{configuration_id}/copy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let configurationId;
+            
+            let xLanguage;
+
+            if (copyConfigurationsRequest !== null && copyConfigurationsRequest !== undefined) {
+                if (copyConfigurationsRequest instanceof CopyConfigurationsRequest) {
+                    configurationId = copyConfigurationsRequest.configurationId;
+                    body = copyConfigurationsRequest.body
+                    xLanguage = copyConfigurationsRequest.xLanguage;
+                } else {
+                    configurationId = copyConfigurationsRequest['configuration_id'];
+                    body = copyConfigurationsRequest['body'];
+                    xLanguage = copyConfigurationsRequest['X-Language'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling copyConfigurations.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置访问控制规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAccessControl(createAccessControlRequest?: CreateAccessControlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/access-control",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (createAccessControlRequest !== null && createAccessControlRequest !== undefined) {
+                if (createAccessControlRequest instanceof CreateAccessControlRequest) {
+                    instanceId = createAccessControlRequest.instanceId;
+                    proxyId = createAccessControlRequest.proxyId;
+                    body = createAccessControlRequest.body
+                    xLanguage = createAccessControlRequest.xLanguage;
+                } else {
+                    instanceId = createAccessControlRequest['instance_id'];
+                    proxyId = createAccessControlRequest['proxy_id'];
+                    body = createAccessControlRequest['body'];
+                    xLanguage = createAccessControlRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAccessControl.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling createAccessControl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建手动备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2984,6 +3426,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createGaussMysqlDns.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 表级时间点恢复。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRestoreTables(createRestoreTablesRequest?: CreateRestoreTablesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/restore/tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createRestoreTablesRequest !== null && createRestoreTablesRequest !== undefined) {
+                if (createRestoreTablesRequest instanceof CreateRestoreTablesRequest) {
+                    instanceId = createRestoreTablesRequest.instanceId;
+                    body = createRestoreTablesRequest.body
+                    xLanguage = createRestoreTablesRequest.xLanguage;
+                } else {
+                    instanceId = createRestoreTablesRequest['instance_id'];
+                    body = createRestoreTablesRequest['body'];
+                    xLanguage = createRestoreTablesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createRestoreTables.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3392,6 +3887,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除定时任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScheduleTasK(deleteScheduleTasKRequest?: DeleteScheduleTasKRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instance/{instance_id}/scheduled-jobs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteScheduleTasKRequest !== null && deleteScheduleTasKRequest !== undefined) {
+                if (deleteScheduleTasKRequest instanceof DeleteScheduleTasKRequest) {
+                    instanceId = deleteScheduleTasKRequest.instanceId;
+                    body = deleteScheduleTasKRequest.body
+                    xLanguage = deleteScheduleTasKRequest.xLanguage;
+                } else {
+                    instanceId = deleteScheduleTasKRequest['instance_id'];
+                    body = deleteScheduleTasKRequest['body'];
+                    xLanguage = deleteScheduleTasKRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteScheduleTasK.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除指定任务记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3726,6 +4274,161 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 比较两个参数模板之间的差异。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigurationsDifferences(listConfigurationsDifferencesRequest?: ListConfigurationsDifferencesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations/comparison",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (listConfigurationsDifferencesRequest !== null && listConfigurationsDifferencesRequest !== undefined) {
+                if (listConfigurationsDifferencesRequest instanceof ListConfigurationsDifferencesRequest) {
+                    body = listConfigurationsDifferencesRequest.body
+                    xLanguage = listConfigurationsDifferencesRequest.xLanguage;
+                } else {
+                    body = listConfigurationsDifferencesRequest['body'];
+                    xLanguage = listConfigurationsDifferencesRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定参数模板可被应用的实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigurationsInstances(listConfigurationsInstancesRequest?: ListConfigurationsInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{configuration_id}/applicable-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configurationId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listConfigurationsInstancesRequest !== null && listConfigurationsInstancesRequest !== undefined) {
+                if (listConfigurationsInstancesRequest instanceof ListConfigurationsInstancesRequest) {
+                    configurationId = listConfigurationsInstancesRequest.configurationId;
+                    xLanguage = listConfigurationsInstancesRequest.xLanguage;
+                    offset = listConfigurationsInstancesRequest.offset;
+                    limit = listConfigurationsInstancesRequest.limit;
+                } else {
+                    configurationId = listConfigurationsInstancesRequest['configuration_id'];
+                    xLanguage = listConfigurationsInstancesRequest['X-Language'];
+                    offset = listConfigurationsInstancesRequest['offset'];
+                    limit = listConfigurationsInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling listConfigurationsInstances.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业项目。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEnterpriseProjects(listEnterpriseProjectsRequest?: ListEnterpriseProjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/enterprise-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEnterpriseProjectsRequest !== null && listEnterpriseProjectsRequest !== undefined) {
+                if (listEnterpriseProjectsRequest instanceof ListEnterpriseProjectsRequest) {
+                    xLanguage = listEnterpriseProjectsRequest.xLanguage;
+                    offset = listEnterpriseProjectsRequest.offset;
+                    limit = listEnterpriseProjectsRequest.limit;
+                } else {
+                    xLanguage = listEnterpriseProjectsRequest['X-Language'];
+                    offset = listEnterpriseProjectsRequest['offset'];
+                    limit = listEnterpriseProjectsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3800,6 +4503,10 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let name;
+            
+            let charset;
 
             if (listGaussMySqlDatabaseRequest !== null && listGaussMySqlDatabaseRequest !== undefined) {
                 if (listGaussMySqlDatabaseRequest instanceof ListGaussMySqlDatabaseRequest) {
@@ -3807,11 +4514,15 @@ export const ParamCreater = function () {
                     xLanguage = listGaussMySqlDatabaseRequest.xLanguage;
                     offset = listGaussMySqlDatabaseRequest.offset;
                     limit = listGaussMySqlDatabaseRequest.limit;
+                    name = listGaussMySqlDatabaseRequest.name;
+                    charset = listGaussMySqlDatabaseRequest.charset;
                 } else {
                     instanceId = listGaussMySqlDatabaseRequest['instance_id'];
                     xLanguage = listGaussMySqlDatabaseRequest['X-Language'];
                     offset = listGaussMySqlDatabaseRequest['offset'];
                     limit = listGaussMySqlDatabaseRequest['limit'];
+                    name = listGaussMySqlDatabaseRequest['name'];
+                    charset = listGaussMySqlDatabaseRequest['charset'];
                 }
             }
 
@@ -3824,6 +4535,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (charset !== null && charset !== undefined) {
+                localVarQueryParameter['charset'] = charset;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -4244,6 +4961,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取指定实例的参数信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceConfigurations(listInstanceConfigurationsRequest?: ListInstanceConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceConfigurationsRequest !== null && listInstanceConfigurationsRequest !== undefined) {
+                if (listInstanceConfigurationsRequest instanceof ListInstanceConfigurationsRequest) {
+                    instanceId = listInstanceConfigurationsRequest.instanceId;
+                    xLanguage = listInstanceConfigurationsRequest.xLanguage;
+                    offset = listInstanceConfigurationsRequest.offset;
+                    limit = listInstanceConfigurationsRequest.limit;
+                } else {
+                    instanceId = listInstanceConfigurationsRequest['instance_id'];
+                    xLanguage = listInstanceConfigurationsRequest['X-Language'];
+                    offset = listInstanceConfigurationsRequest['offset'];
+                    limit = listInstanceConfigurationsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceConfigurations.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定实例的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4404,6 +5180,65 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询参数修改历史。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModifyHistory(listModifyHistoryRequest?: ListModifyHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{configuration_id}/modify-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configurationId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listModifyHistoryRequest !== null && listModifyHistoryRequest !== undefined) {
+                if (listModifyHistoryRequest instanceof ListModifyHistoryRequest) {
+                    configurationId = listModifyHistoryRequest.configurationId;
+                    xLanguage = listModifyHistoryRequest.xLanguage;
+                    offset = listModifyHistoryRequest.offset;
+                    limit = listModifyHistoryRequest.limit;
+                } else {
+                    configurationId = listModifyHistoryRequest['configuration_id'];
+                    xLanguage = listModifyHistoryRequest['X-Language'];
+                    offset = listModifyHistoryRequest['offset'];
+                    limit = listModifyHistoryRequest['limit'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling listModifyHistory.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'configuration_id': configurationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5499,6 +6334,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询增量备份列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGaussMySqlIncrementalBackupList(showGaussMySqlIncrementalBackupListRequest?: ShowGaussMySqlIncrementalBackupListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/incremental-backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let beginTime;
+            
+            let endTime;
+
+            if (showGaussMySqlIncrementalBackupListRequest !== null && showGaussMySqlIncrementalBackupListRequest !== undefined) {
+                if (showGaussMySqlIncrementalBackupListRequest instanceof ShowGaussMySqlIncrementalBackupListRequest) {
+                    instanceId = showGaussMySqlIncrementalBackupListRequest.instanceId;
+                    xLanguage = showGaussMySqlIncrementalBackupListRequest.xLanguage;
+                    offset = showGaussMySqlIncrementalBackupListRequest.offset;
+                    limit = showGaussMySqlIncrementalBackupListRequest.limit;
+                    beginTime = showGaussMySqlIncrementalBackupListRequest.beginTime;
+                    endTime = showGaussMySqlIncrementalBackupListRequest.endTime;
+                } else {
+                    instanceId = showGaussMySqlIncrementalBackupListRequest['instance_id'];
+                    xLanguage = showGaussMySqlIncrementalBackupListRequest['X-Language'];
+                    offset = showGaussMySqlIncrementalBackupListRequest['offset'];
+                    limit = showGaussMySqlIncrementalBackupListRequest['limit'];
+                    beginTime = showGaussMySqlIncrementalBackupListRequest['begin_time'];
+                    endTime = showGaussMySqlIncrementalBackupListRequest['end_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showGaussMySqlIncrementalBackupList.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5839,6 +6747,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启或关闭访问控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchAccessControl(switchAccessControlRequest?: SwitchAccessControlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/access-control-switch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (switchAccessControlRequest !== null && switchAccessControlRequest !== undefined) {
+                if (switchAccessControlRequest instanceof SwitchAccessControlRequest) {
+                    instanceId = switchAccessControlRequest.instanceId;
+                    proxyId = switchAccessControlRequest.proxyId;
+                    body = switchAccessControlRequest.body
+                    xLanguage = switchAccessControlRequest.xLanguage;
+                } else {
+                    instanceId = switchAccessControlRequest['instance_id'];
+                    proxyId = switchAccessControlRequest['proxy_id'];
+                    body = switchAccessControlRequest['body'];
+                    xLanguage = switchAccessControlRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchAccessControl.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling switchAccessControl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 指定实例变更参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5982,6 +6950,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAuditLog.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置跨区备份策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBackupOffsitePolicy(updateBackupOffsitePolicyRequest?: UpdateBackupOffsitePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/offsite-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateBackupOffsitePolicyRequest !== null && updateBackupOffsitePolicyRequest !== undefined) {
+                if (updateBackupOffsitePolicyRequest instanceof UpdateBackupOffsitePolicyRequest) {
+                    instanceId = updateBackupOffsitePolicyRequest.instanceId;
+                    body = updateBackupOffsitePolicyRequest.body
+                    xLanguage = updateBackupOffsitePolicyRequest.xLanguage;
+                } else {
+                    instanceId = updateBackupOffsitePolicyRequest['instance_id'];
+                    body = updateBackupOffsitePolicyRequest['body'];
+                    xLanguage = updateBackupOffsitePolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateBackupOffsitePolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6720,6 +7741,66 @@ export const ParamCreater = function () {
             }
             if (proxyId === null || proxyId === undefined) {
             throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateProxyConnectionPoolType.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据库代理参数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProxyNewConfigurations(updateProxyNewConfigurationsRequest?: UpdateProxyNewConfigurationsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (updateProxyNewConfigurationsRequest !== null && updateProxyNewConfigurationsRequest !== undefined) {
+                if (updateProxyNewConfigurationsRequest instanceof UpdateProxyNewConfigurationsRequest) {
+                    instanceId = updateProxyNewConfigurationsRequest.instanceId;
+                    proxyId = updateProxyNewConfigurationsRequest.proxyId;
+                    body = updateProxyNewConfigurationsRequest.body
+                    xLanguage = updateProxyNewConfigurationsRequest.xLanguage;
+                } else {
+                    instanceId = updateProxyNewConfigurationsRequest['instance_id'];
+                    proxyId = updateProxyNewConfigurationsRequest['proxy_id'];
+                    body = updateProxyNewConfigurationsRequest['body'];
+                    xLanguage = updateProxyNewConfigurationsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateProxyNewConfigurations.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateProxyNewConfigurations.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

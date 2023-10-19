@@ -1,4 +1,12 @@
+import { CreatedAt } from './CreatedAt';
+import { Description } from './Description';
+import { DomainId } from './DomainId';
+import { EnterpriseProjectId } from './EnterpriseProjectId';
+import { Name } from './Name';
 import { Tag } from './Tag';
+import { Tags } from './Tags';
+import { UUIDIdentifier } from './UUIDIdentifier';
+import { UpdatedAt } from './UpdatedAt';
 
 
 export class CloudConnection {
@@ -7,16 +15,21 @@ export class CloudConnection {
     public description?: string;
     private 'domain_id'?: string;
     private 'enterprise_project_id'?: string;
-    public status?: CloudConnectionStatusEnum | string;
-    private 'admin_state_up'?: boolean;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    private 'used_scene'?: CloudConnectionUsedSceneEnum | string;
     public tags?: Array<Tag>;
+    public status?: CloudConnectionStatusEnum | string;
+    private 'admin_state_up'?: boolean;
+    private 'used_scene'?: CloudConnectionUsedSceneEnum | string;
     private 'network_instance_number'?: number;
     private 'bandwidth_package_number'?: number;
     private 'inter_region_bandwidth_number'?: number;
-    public constructor() { 
+    public constructor(id?: string, name?: string, domainId?: string, createdAt?: Date, updatedAt?: Date) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['domain_id'] = domainId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
     }
     public withId(id: string): CloudConnection {
         this['id'] = id;
@@ -50,20 +63,6 @@ export class CloudConnection {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withStatus(status: CloudConnectionStatusEnum | string): CloudConnection {
-        this['status'] = status;
-        return this;
-    }
-    public withAdminStateUp(adminStateUp: boolean): CloudConnection {
-        this['admin_state_up'] = adminStateUp;
-        return this;
-    }
-    public set adminStateUp(adminStateUp: boolean  | undefined) {
-        this['admin_state_up'] = adminStateUp;
-    }
-    public get adminStateUp(): boolean | undefined {
-        return this['admin_state_up'];
-    }
     public withCreatedAt(createdAt: Date): CloudConnection {
         this['created_at'] = createdAt;
         return this;
@@ -84,6 +83,24 @@ export class CloudConnection {
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
+    public withTags(tags: Array<Tag>): CloudConnection {
+        this['tags'] = tags;
+        return this;
+    }
+    public withStatus(status: CloudConnectionStatusEnum | string): CloudConnection {
+        this['status'] = status;
+        return this;
+    }
+    public withAdminStateUp(adminStateUp: boolean): CloudConnection {
+        this['admin_state_up'] = adminStateUp;
+        return this;
+    }
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
+        this['admin_state_up'] = adminStateUp;
+    }
+    public get adminStateUp(): boolean | undefined {
+        return this['admin_state_up'];
+    }
     public withUsedScene(usedScene: CloudConnectionUsedSceneEnum | string): CloudConnection {
         this['used_scene'] = usedScene;
         return this;
@@ -93,10 +110,6 @@ export class CloudConnection {
     }
     public get usedScene(): CloudConnectionUsedSceneEnum | string | undefined {
         return this['used_scene'];
-    }
-    public withTags(tags: Array<Tag>): CloudConnection {
-        this['tags'] = tags;
-        return this;
     }
     public withNetworkInstanceNumber(networkInstanceNumber: number): CloudConnection {
         this['network_instance_number'] = networkInstanceNumber;

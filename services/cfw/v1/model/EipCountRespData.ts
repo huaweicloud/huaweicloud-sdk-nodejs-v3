@@ -4,6 +4,7 @@ export class EipCountRespData {
     private 'object_id'?: string;
     private 'eip_total'?: number;
     private 'eip_protected'?: number;
+    private 'eip_protected_self'?: number;
     public constructor() { 
     }
     public withObjectId(objectId: string): EipCountRespData {
@@ -35,5 +36,15 @@ export class EipCountRespData {
     }
     public get eipProtected(): number | undefined {
         return this['eip_protected'];
+    }
+    public withEipProtectedSelf(eipProtectedSelf: number): EipCountRespData {
+        this['eip_protected_self'] = eipProtectedSelf;
+        return this;
+    }
+    public set eipProtectedSelf(eipProtectedSelf: number  | undefined) {
+        this['eip_protected_self'] = eipProtectedSelf;
+    }
+    public get eipProtectedSelf(): number | undefined {
+        return this['eip_protected_self'];
     }
 }

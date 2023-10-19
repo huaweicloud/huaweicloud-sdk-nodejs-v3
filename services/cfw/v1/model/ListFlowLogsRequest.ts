@@ -18,6 +18,7 @@ export class ListFlowLogsRequest {
     public offset?: number;
     public limit?: number;
     private 'enterprise_project_id'?: string;
+    private 'dst_host'?: string;
     public constructor(projectId?: string, fwInstanceId?: string, startTime?: number, endTime?: number, limit?: number) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -164,6 +165,16 @@ export class ListFlowLogsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDstHost(dstHost: string): ListFlowLogsRequest {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
     }
 }
 

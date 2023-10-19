@@ -13,6 +13,11 @@ export class EipResource {
     private 'fw_instance_name'?: string;
     private 'fw_instance_id'?: string;
     private 'fw_enterprise_project_id'?: string;
+    private 'object_id'?: string;
+    public tags?: string;
+    private 'domain_id'?: string;
+    public owner?: string;
+    private 'fw_domain_id'?: string;
     public constructor() { 
     }
     public withId(id: string): EipResource {
@@ -122,6 +127,44 @@ export class EipResource {
     }
     public get fwEnterpriseProjectId(): string | undefined {
         return this['fw_enterprise_project_id'];
+    }
+    public withObjectId(objectId: string): EipResource {
+        this['object_id'] = objectId;
+        return this;
+    }
+    public set objectId(objectId: string  | undefined) {
+        this['object_id'] = objectId;
+    }
+    public get objectId(): string | undefined {
+        return this['object_id'];
+    }
+    public withTags(tags: string): EipResource {
+        this['tags'] = tags;
+        return this;
+    }
+    public withDomainId(domainId: string): EipResource {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
+    }
+    public withOwner(owner: string): EipResource {
+        this['owner'] = owner;
+        return this;
+    }
+    public withFwDomainId(fwDomainId: string): EipResource {
+        this['fw_domain_id'] = fwDomainId;
+        return this;
+    }
+    public set fwDomainId(fwDomainId: string  | undefined) {
+        this['fw_domain_id'] = fwDomainId;
+    }
+    public get fwDomainId(): string | undefined {
+        return this['fw_domain_id'];
     }
 }
 

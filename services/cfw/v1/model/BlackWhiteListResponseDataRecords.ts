@@ -7,6 +7,7 @@ export class BlackWhiteListResponseDataRecords {
     public address?: string;
     public protocol?: number;
     public port?: string;
+    public description?: string;
     public constructor() { 
     }
     public withListId(listId: string): BlackWhiteListResponseDataRecords {
@@ -43,6 +44,10 @@ export class BlackWhiteListResponseDataRecords {
     }
     public withPort(port: string): BlackWhiteListResponseDataRecords {
         this['port'] = port;
+        return this;
+    }
+    public withDescription(description: string): BlackWhiteListResponseDataRecords {
+        this['description'] = description;
         return this;
     }
 }

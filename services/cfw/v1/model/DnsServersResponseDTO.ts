@@ -5,6 +5,7 @@ export class DnsServersResponseDTO {
     private 'is_applied'?: number;
     private 'is_customized'?: number;
     private 'server_ip'?: string;
+    private 'health_check_domain_name'?: string;
     public constructor() { 
     }
     public withId(id: number): DnsServersResponseDTO {
@@ -40,5 +41,15 @@ export class DnsServersResponseDTO {
     }
     public get serverIp(): string | undefined {
         return this['server_ip'];
+    }
+    public withHealthCheckDomainName(healthCheckDomainName: string): DnsServersResponseDTO {
+        this['health_check_domain_name'] = healthCheckDomainName;
+        return this;
+    }
+    public set healthCheckDomainName(healthCheckDomainName: string  | undefined) {
+        this['health_check_domain_name'] = healthCheckDomainName;
+    }
+    public get healthCheckDomainName(): string | undefined {
+        return this['health_check_domain_name'];
     }
 }

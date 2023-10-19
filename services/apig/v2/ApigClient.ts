@@ -33,6 +33,8 @@ import { ApiBackendVpcReq } from './model/ApiBackendVpcReq';
 import { ApiBaseInfo } from './model/ApiBaseInfo';
 import { ApiBatchPublish } from './model/ApiBatchPublish';
 import { ApiBindAclInfo } from './model/ApiBindAclInfo';
+import { ApiCheckInfo } from './model/ApiCheckInfo';
+import { ApiCheckInfoV2 } from './model/ApiCheckInfoV2';
 import { ApiCommon } from './model/ApiCommon';
 import { ApiConditionBase } from './model/ApiConditionBase';
 import { ApiCreate } from './model/ApiCreate';
@@ -66,13 +68,20 @@ import { ApiPolicyRespBase } from './model/ApiPolicyRespBase';
 import { ApiRespBaseInfo } from './model/ApiRespBaseInfo';
 import { ApiVersion } from './model/ApiVersion';
 import { ApiVersionResp } from './model/ApiVersionResp';
+import { AppAclCreate } from './model/AppAclCreate';
 import { AppBaseInfo } from './model/AppBaseInfo';
 import { AppCodeBaseInfo } from './model/AppCodeBaseInfo';
 import { AppCodeCreate } from './model/AppCodeCreate';
 import { AppCreate } from './model/AppCreate';
 import { AppInfo } from './model/AppInfo';
 import { AppInfoWithBindNum } from './model/AppInfoWithBindNum';
+import { AppQuotaAppBinding } from './model/AppQuotaAppBinding';
+import { AppQuotaAppInfo } from './model/AppQuotaAppInfo';
+import { AppQuotaCreate } from './model/AppQuotaCreate';
+import { AppQuotaInfo } from './model/AppQuotaInfo';
 import { AppResetCreate } from './model/AppResetCreate';
+import { AssociateAppsForAppQuotaRequest } from './model/AssociateAppsForAppQuotaRequest';
+import { AssociateAppsForAppQuotaResponse } from './model/AssociateAppsForAppQuotaResponse';
 import { AssociateCertificateV2Request } from './model/AssociateCertificateV2Request';
 import { AssociateCertificateV2Response } from './model/AssociateCertificateV2Response';
 import { AssociateDomainV2Request } from './model/AssociateDomainV2Request';
@@ -135,6 +144,8 @@ import { CertForm } from './model/CertForm';
 import { CertificateForm } from './model/CertificateForm';
 import { ChangeApiVersionV2Request } from './model/ChangeApiVersionV2Request';
 import { ChangeApiVersionV2Response } from './model/ChangeApiVersionV2Response';
+import { CheckApisV2Request } from './model/CheckApisV2Request';
+import { CheckApisV2Response } from './model/CheckApisV2Response';
 import { CheckAppV2Request } from './model/CheckAppV2Request';
 import { CheckAppV2Response } from './model/CheckAppV2Response';
 import { CoditionResp } from './model/CoditionResp';
@@ -154,6 +165,9 @@ import { CreateAppCodeAutoV2Request } from './model/CreateAppCodeAutoV2Request';
 import { CreateAppCodeAutoV2Response } from './model/CreateAppCodeAutoV2Response';
 import { CreateAppCodeV2Request } from './model/CreateAppCodeV2Request';
 import { CreateAppCodeV2Response } from './model/CreateAppCodeV2Response';
+import { CreateAppQuotaBindingApp } from './model/CreateAppQuotaBindingApp';
+import { CreateAppQuotaRequest } from './model/CreateAppQuotaRequest';
+import { CreateAppQuotaResponse } from './model/CreateAppQuotaResponse';
 import { CreateAuthorizingAppsV2Request } from './model/CreateAuthorizingAppsV2Request';
 import { CreateAuthorizingAppsV2Response } from './model/CreateAuthorizingAppsV2Response';
 import { CreateCertificateV2Request } from './model/CreateCertificateV2Request';
@@ -174,8 +188,14 @@ import { CreateMemberGroupRequest } from './model/CreateMemberGroupRequest';
 import { CreateMemberGroupResponse } from './model/CreateMemberGroupResponse';
 import { CreateOrDeletePublishRecordForApiV2Request } from './model/CreateOrDeletePublishRecordForApiV2Request';
 import { CreateOrDeletePublishRecordForApiV2Response } from './model/CreateOrDeletePublishRecordForApiV2Response';
+import { CreateOrderRequest } from './model/CreateOrderRequest';
+import { CreateOrderResponse } from './model/CreateOrderResponse';
 import { CreatePluginRequest } from './model/CreatePluginRequest';
 import { CreatePluginResponse } from './model/CreatePluginResponse';
+import { CreatePostPayResizeOrderRequest } from './model/CreatePostPayResizeOrderRequest';
+import { CreatePostPayResizeOrderResponse } from './model/CreatePostPayResizeOrderResponse';
+import { CreatePrepayResizeRequest } from './model/CreatePrepayResizeRequest';
+import { CreatePrepayResizeResponse } from './model/CreatePrepayResizeResponse';
 import { CreateRequestThrottlingPolicyV2Request } from './model/CreateRequestThrottlingPolicyV2Request';
 import { CreateRequestThrottlingPolicyV2Response } from './model/CreateRequestThrottlingPolicyV2Response';
 import { CreateSignatureKeyV2Request } from './model/CreateSignatureKeyV2Request';
@@ -196,8 +216,12 @@ import { DeleteApiGroupV2Request } from './model/DeleteApiGroupV2Request';
 import { DeleteApiGroupV2Response } from './model/DeleteApiGroupV2Response';
 import { DeleteApiV2Request } from './model/DeleteApiV2Request';
 import { DeleteApiV2Response } from './model/DeleteApiV2Response';
+import { DeleteAppAclRequest } from './model/DeleteAppAclRequest';
+import { DeleteAppAclResponse } from './model/DeleteAppAclResponse';
 import { DeleteAppCodeV2Request } from './model/DeleteAppCodeV2Request';
 import { DeleteAppCodeV2Response } from './model/DeleteAppCodeV2Response';
+import { DeleteAppQuotaRequest } from './model/DeleteAppQuotaRequest';
+import { DeleteAppQuotaResponse } from './model/DeleteAppQuotaResponse';
 import { DeleteAppV2Request } from './model/DeleteAppV2Request';
 import { DeleteAppV2Response } from './model/DeleteAppV2Response';
 import { DeleteBackendInstanceV2Request } from './model/DeleteBackendInstanceV2Request';
@@ -234,6 +258,8 @@ import { DetachApiFromPluginRequest } from './model/DetachApiFromPluginRequest';
 import { DetachApiFromPluginResponse } from './model/DetachApiFromPluginResponse';
 import { DetachPluginFromApiRequest } from './model/DetachPluginFromApiRequest';
 import { DetachPluginFromApiResponse } from './model/DetachPluginFromApiResponse';
+import { DisassociateAppQuotaWithAppRequest } from './model/DisassociateAppQuotaWithAppRequest';
+import { DisassociateAppQuotaWithAppResponse } from './model/DisassociateAppQuotaWithAppResponse';
 import { DisassociateCertificateV2Request } from './model/DisassociateCertificateV2Request';
 import { DisassociateCertificateV2Response } from './model/DisassociateCertificateV2Response';
 import { DisassociateDomainV2Request } from './model/DisassociateDomainV2Request';
@@ -268,9 +294,12 @@ import { ImportMicroserviceRequest } from './model/ImportMicroserviceRequest';
 import { ImportMicroserviceResponse } from './model/ImportMicroserviceResponse';
 import { InnerLatencyStats } from './model/InnerLatencyStats';
 import { InstanceAbstractReq } from './model/InstanceAbstractReq';
+import { InstanceChangeOrderReq } from './model/InstanceChangeOrderReq';
 import { InstanceConfig } from './model/InstanceConfig';
 import { InstanceCreateReq } from './model/InstanceCreateReq';
+import { InstanceCreateReqV2 } from './model/InstanceCreateReqV2';
 import { InstanceModReq } from './model/InstanceModReq';
+import { InstanceOrderReq } from './model/InstanceOrderReq';
 import { IpDetails } from './model/IpDetails';
 import { LatencyStats } from './model/LatencyStats';
 import { ListAclPolicyBindedToApiV2Request } from './model/ListAclPolicyBindedToApiV2Request';
@@ -315,6 +344,12 @@ import { ListAppCodesV2Request } from './model/ListAppCodesV2Request';
 import { ListAppCodesV2Response } from './model/ListAppCodesV2Response';
 import { ListAppQuantitiesV2Request } from './model/ListAppQuantitiesV2Request';
 import { ListAppQuantitiesV2Response } from './model/ListAppQuantitiesV2Response';
+import { ListAppQuotaBindableAppsRequest } from './model/ListAppQuotaBindableAppsRequest';
+import { ListAppQuotaBindableAppsResponse } from './model/ListAppQuotaBindableAppsResponse';
+import { ListAppQuotaBoundAppsRequest } from './model/ListAppQuotaBoundAppsRequest';
+import { ListAppQuotaBoundAppsResponse } from './model/ListAppQuotaBoundAppsResponse';
+import { ListAppQuotasRequest } from './model/ListAppQuotasRequest';
+import { ListAppQuotasResponse } from './model/ListAppQuotasResponse';
 import { ListAppsBindedToApiV2Request } from './model/ListAppsBindedToApiV2Request';
 import { ListAppsBindedToApiV2Response } from './model/ListAppsBindedToApiV2Response';
 import { ListAppsV2Request } from './model/ListAppsV2Request';
@@ -424,17 +459,24 @@ import { ReqParamBase } from './model/ReqParamBase';
 import { RequestCountStats } from './model/RequestCountStats';
 import { ResettingAppSecretV2Request } from './model/ResettingAppSecretV2Request';
 import { ResettingAppSecretV2Response } from './model/ResettingAppSecretV2Response';
+import { ResizeInstanceReq } from './model/ResizeInstanceReq';
 import { RespInstanceBase } from './model/RespInstanceBase';
 import { ResponseInfo } from './model/ResponseInfo';
 import { ResponseInfoResp } from './model/ResponseInfoResp';
 import { ResponsesCreate } from './model/ResponsesCreate';
 import { ResponsesInfo } from './model/ResponsesInfo';
+import { ShowAppBoundAppQuotaRequest } from './model/ShowAppBoundAppQuotaRequest';
+import { ShowAppBoundAppQuotaResponse } from './model/ShowAppBoundAppQuotaResponse';
+import { ShowAppQuotaRequest } from './model/ShowAppQuotaRequest';
+import { ShowAppQuotaResponse } from './model/ShowAppQuotaResponse';
 import { ShowDetailsOfAclPolicyV2Request } from './model/ShowDetailsOfAclPolicyV2Request';
 import { ShowDetailsOfAclPolicyV2Response } from './model/ShowDetailsOfAclPolicyV2Response';
 import { ShowDetailsOfApiGroupV2Request } from './model/ShowDetailsOfApiGroupV2Request';
 import { ShowDetailsOfApiGroupV2Response } from './model/ShowDetailsOfApiGroupV2Response';
 import { ShowDetailsOfApiV2Request } from './model/ShowDetailsOfApiV2Request';
 import { ShowDetailsOfApiV2Response } from './model/ShowDetailsOfApiV2Response';
+import { ShowDetailsOfAppAclRequest } from './model/ShowDetailsOfAppAclRequest';
+import { ShowDetailsOfAppAclResponse } from './model/ShowDetailsOfAppAclResponse';
 import { ShowDetailsOfAppCodeV2Request } from './model/ShowDetailsOfAppCodeV2Request';
 import { ShowDetailsOfAppCodeV2Response } from './model/ShowDetailsOfAppCodeV2Response';
 import { ShowDetailsOfAppV2Request } from './model/ShowDetailsOfAppV2Request';
@@ -463,6 +505,8 @@ import { ShowDetailsOfVpcChannelV2Request } from './model/ShowDetailsOfVpcChanne
 import { ShowDetailsOfVpcChannelV2Response } from './model/ShowDetailsOfVpcChannelV2Response';
 import { ShowPluginRequest } from './model/ShowPluginRequest';
 import { ShowPluginResponse } from './model/ShowPluginResponse';
+import { ShowRestrictionOfInstanceV2Request } from './model/ShowRestrictionOfInstanceV2Request';
+import { ShowRestrictionOfInstanceV2Response } from './model/ShowRestrictionOfInstanceV2Response';
 import { SignApiBinding } from './model/SignApiBinding';
 import { SignApiBindingBase } from './model/SignApiBindingBase';
 import { SignApiBindingInfo } from './model/SignApiBindingInfo';
@@ -494,6 +538,10 @@ import { UpdateApiGroupV2Request } from './model/UpdateApiGroupV2Request';
 import { UpdateApiGroupV2Response } from './model/UpdateApiGroupV2Response';
 import { UpdateApiV2Request } from './model/UpdateApiV2Request';
 import { UpdateApiV2Response } from './model/UpdateApiV2Response';
+import { UpdateAppAclRequest } from './model/UpdateAppAclRequest';
+import { UpdateAppAclResponse } from './model/UpdateAppAclResponse';
+import { UpdateAppQuotaRequest } from './model/UpdateAppQuotaRequest';
+import { UpdateAppQuotaResponse } from './model/UpdateAppQuotaResponse';
 import { UpdateAppV2Request } from './model/UpdateAppV2Request';
 import { UpdateAppV2Response } from './model/UpdateAppV2Response';
 import { UpdateBackendInstancesV2Request } from './model/UpdateBackendInstancesV2Request';
@@ -508,6 +556,8 @@ import { UpdateEngressEipV2Request } from './model/UpdateEngressEipV2Request';
 import { UpdateEngressEipV2Response } from './model/UpdateEngressEipV2Response';
 import { UpdateEnvironmentV2Request } from './model/UpdateEnvironmentV2Request';
 import { UpdateEnvironmentV2Response } from './model/UpdateEnvironmentV2Response';
+import { UpdateEnvironmentVariableV2Request } from './model/UpdateEnvironmentVariableV2Request';
+import { UpdateEnvironmentVariableV2Response } from './model/UpdateEnvironmentVariableV2Response';
 import { UpdateGatewayResponseTypeV2Request } from './model/UpdateGatewayResponseTypeV2Request';
 import { UpdateGatewayResponseTypeV2Response } from './model/UpdateGatewayResponseTypeV2Response';
 import { UpdateGatewayResponseV2Request } from './model/UpdateGatewayResponseV2Request';
@@ -664,6 +714,27 @@ export class ApigClient {
     }
 
     /**
+     * 凭据配额绑定凭据列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 凭据配额绑定凭据列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {CreateAppQuotaBindingApp} associateAppsForAppQuotaRequestBody 凭据配额绑定请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateAppsForAppQuota(associateAppsForAppQuotaRequest?: AssociateAppsForAppQuotaRequest): Promise<AssociateAppsForAppQuotaResponse> {
+        const options = ParamCreater().associateAppsForAppQuota(associateAppsForAppQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 如果创建API时，“定义API请求”使用HTTPS请求协议，那么在独立域名中需要添加SSL证书。
      * 本章节主要介绍为特定域名绑定证书。
      * 
@@ -740,7 +811,7 @@ export class ApigClient {
      * - 只能选择发布状态的API
      * - 绑定以后及时生效
      * - 修改插件后及时生效
-     * - 相同类型的插件只能绑定一个，原来已经绑定的通类型插件，会直接覆盖。
+     * - 相同类型的插件只能绑定一个，如果再次绑定同类型的插件，那么已绑定的同类型插件将直接被覆盖。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -765,7 +836,7 @@ export class ApigClient {
      * - 只能选择发布状态的API
      * - 绑定以后及时生效
      * - 修改插件后及时生效
-     * - 相同类型的插件只能绑定一个，原来已经绑定的通类型插件，会直接覆盖。
+     * - 相同类型的插件只能绑定一个，如果再次绑定同类型的插件，那么已绑定的同类型插件将直接被覆盖。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -798,6 +869,109 @@ export class ApigClient {
      */
     public batchCreateOrDeleteInstanceTags(batchCreateOrDeleteInstanceTagsRequest?: BatchCreateOrDeleteInstanceTagsRequest): Promise<BatchCreateOrDeleteInstanceTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteInstanceTags(batchCreateOrDeleteInstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验app是否存在，非APP所有者可以调用该接口校验APP是否真实存在。这个接口只展示app的基本信息id 、name、
+     * remark，其他信息不显示。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验APP
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkAppV2(checkAppV2Request?: CheckAppV2Request): Promise<CheckAppV2Response> {
+        const options = ParamCreater().checkAppV2(checkAppV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * APP即应用，是一个可以访问API的身份标识。将API授权给APP后，APP即可调用API。
+     * 创建一个APP。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建APP
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {AppCreate} createAnAppV2RequestBody 创建APP的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAnAppV2(createAnAppV2Request?: CreateAnAppV2Request): Promise<CreateAnAppV2Response> {
+        const options = ParamCreater().createAnAppV2(createAnAppV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建App Code时，可以不指定具体值，由后台自动生成随机字符串填充。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 自动生成APP Code
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAppCodeAutoV2(createAppCodeAutoV2Request?: CreateAppCodeAutoV2Request): Promise<CreateAppCodeAutoV2Response> {
+        const options = ParamCreater().createAppCodeAutoV2(createAppCodeAutoV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建APP Code
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {AppCodeCreate} createAppCodeV2RequestBody 创建APP Code的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAppCodeV2(createAppCodeV2Request?: CreateAppCodeV2Request): Promise<CreateAppCodeV2Response> {
+        const options = ParamCreater().createAppCodeV2(createAppCodeV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建凭据配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建凭据配额
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {AppQuotaCreate} createAppQuotaRequestBody 创建凭据配额策略的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAppQuota(createAppQuotaRequest?: CreateAppQuotaRequest): Promise<CreateAppQuotaResponse> {
+        const options = ParamCreater().createAppQuota(createAppQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -926,17 +1100,36 @@ export class ApigClient {
     }
 
     /**
-     * 创建专享版实例
+     * 创建按需专享版实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建专享版实例
-     * @param {InstanceCreateReq} createInstanceV2RequestBody 创建实例的请求体
+     * @summary 创建专享版实例（按需）
+     * @param {InstanceCreateReq} createInstanceV2RequestBody 创建按需专享版实例的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createInstanceV2(createInstanceV2Request?: CreateInstanceV2Request): Promise<CreateInstanceV2Response> {
         const options = ParamCreater().createInstanceV2(createInstanceV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建包周期专享版实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建专享版实例（包周期）
+     * @param {InstanceOrderReq} createOrderRequestBody 创建包周期专享版实例的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrder(createOrderRequest?: CreateOrderRequest): Promise<CreateOrderResponse> {
+        const options = ParamCreater().createOrder(createOrderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -959,6 +1152,46 @@ export class ApigClient {
      */
     public createPlugin(createPluginRequest?: CreatePluginRequest): Promise<CreatePluginResponse> {
         const options = ParamCreater().createPlugin(createPluginRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建按需规格变更订单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按需规格变更
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {ResizeInstanceReq} createPostPayResizeOrderRequestBody 按需规格变更的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPostPayResizeOrder(createPostPayResizeOrderRequest?: CreatePostPayResizeOrderRequest): Promise<CreatePostPayResizeOrderResponse> {
+        const options = ParamCreater().createPostPayResizeOrder(createPostPayResizeOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建包周期规格变更订单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建包周期规格变更订单
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {InstanceChangeOrderReq} createPrepayResizeRequestBody 创建包周期规格变更订单的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrepayResize(createPrepayResizeRequest?: CreatePrepayResizeRequest): Promise<CreatePrepayResizeResponse> {
+        const options = ParamCreater().createPrepayResize(createPrepayResizeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1031,6 +1264,88 @@ export class ApigClient {
      */
     public createSpecialThrottlingConfigurationV2(createSpecialThrottlingConfigurationV2Request?: CreateSpecialThrottlingConfigurationV2Request): Promise<CreateSpecialThrottlingConfigurationV2Response> {
         const options = ParamCreater().createSpecialThrottlingConfigurationV2(createSpecialThrottlingConfigurationV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除凭据的访问控制信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除APP的访问控制
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppAcl(deleteAppAclRequest?: DeleteAppAclRequest): Promise<DeleteAppAclResponse> {
+        const options = ParamCreater().deleteAppAcl(deleteAppAclRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除App Code，App Code删除后，将无法再通过简易认证访问对应的API。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除APP Code
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {string} appCodeId APP Code编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppCodeV2(deleteAppCodeV2Request?: DeleteAppCodeV2Request): Promise<DeleteAppCodeV2Response> {
+        const options = ParamCreater().deleteAppCodeV2(deleteAppCodeV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除凭据配额。删除凭据配额时，同时删除凭据配额和凭据的关联关系
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除凭据配额
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppQuota(deleteAppQuotaRequest?: DeleteAppQuotaRequest): Promise<DeleteAppQuotaResponse> {
+        const options = ParamCreater().deleteAppQuota(deleteAppQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定的APP。
+     * APP删除后，将无法再调用任何API[；其中，云商店自动创建的APP无法被删除](tag:hws)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除APP
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppV2(deleteAppV2Request?: DeleteAppV2Request): Promise<DeleteAppV2Response> {
+        const options = ParamCreater().deleteAppV2(deleteAppV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1311,6 +1626,27 @@ export class ApigClient {
     }
 
     /**
+     * 解除凭据配额和凭据的绑定
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除凭据配额和凭据的绑定
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateAppQuotaWithApp(disassociateAppQuotaWithAppRequest?: DisassociateAppQuotaWithAppRequest): Promise<DisassociateAppQuotaWithAppResponse> {
+        const options = ParamCreater().disassociateAppQuotaWithApp(disassociateAppQuotaWithAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 如果域名证书不再需要或者已过期，则可以删除证书内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1542,6 +1878,28 @@ export class ApigClient {
     }
 
     /**
+     * 查询App Code列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询APP Code列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppCodesV2(listAppCodesV2Request?: ListAppCodesV2Request): Promise<ListAppCodesV2Response> {
+        const options = ParamCreater().listAppCodesV2(listAppCodesV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户名下的APP概况：已进行API访问授权的APP个数，未进行API访问授权的APP个数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1553,6 +1911,101 @@ export class ApigClient {
      */
     public listAppQuantitiesV2(listAppQuantitiesV2Request?: ListAppQuantitiesV2Request): Promise<ListAppQuantitiesV2Response> {
         const options = ParamCreater().listAppQuantitiesV2(listAppQuantitiesV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询凭据配额可绑定的凭据列表。支持按凭据名称模糊搜索
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询凭据配额可绑定的凭据列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [appName] 应用名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppQuotaBindableApps(listAppQuotaBindableAppsRequest?: ListAppQuotaBindableAppsRequest): Promise<ListAppQuotaBindableAppsResponse> {
+        const options = ParamCreater().listAppQuotaBindableApps(listAppQuotaBindableAppsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询凭据配额已绑定的凭据列表。支持按凭据名称模糊匹配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询凭据配额已绑定的凭据列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [appName] 凭据名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppQuotaBoundApps(listAppQuotaBoundAppsRequest?: ListAppQuotaBoundAppsRequest): Promise<ListAppQuotaBoundAppsResponse> {
+        const options = ParamCreater().listAppQuotaBoundApps(listAppQuotaBoundAppsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取凭据配额列表。支持根据名称模糊查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取凭据配额列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [name] 凭据配额名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppQuotas(listAppQuotasRequest?: ListAppQuotasRequest): Promise<ListAppQuotasResponse> {
+        const options = ParamCreater().listAppQuotas(listAppQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询APP列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询APP列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [id] APP编号
+     * @param {string} [name] APP名称
+     * @param {number} [status] APP状态
+     * @param {string} [appKey] APP的KEY
+     * @param {string} [creator] APP的创建者。 - USER：用户自行创建 - MARKET：[云商店分配](tag:hws)[暂未使用](tag:cmcc,ctc,DT,g42,hk_g42,hk_sbc,hk_tm,hws_eu,hws_ocb,OCB,sbc,tm,hws_hk)
+     * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppsV2(listAppsV2Request?: ListAppsV2Request): Promise<ListAppsV2Response> {
+        const options = ParamCreater().listAppsV2(listAppsV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2180,6 +2633,128 @@ export class ApigClient {
     }
 
     /**
+     * 重置指定APP的密钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置密钥
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {AppResetCreate} resettingAppSecretV2RequestBody 重置密钥的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resettingAppSecretV2(resettingAppSecretV2Request?: ResettingAppSecretV2Request): Promise<ResettingAppSecretV2Response> {
+        const options = ParamCreater().resettingAppSecretV2(resettingAppSecretV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看指定凭据关联的凭据配额。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询凭据关联的凭据配额
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppBoundAppQuota(showAppBoundAppQuotaRequest?: ShowAppBoundAppQuotaRequest): Promise<ShowAppBoundAppQuotaResponse> {
+        const options = ParamCreater().showAppBoundAppQuota(showAppBoundAppQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取凭据配额详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取凭据配额详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppQuota(showAppQuotaRequest?: ShowAppQuotaRequest): Promise<ShowAppQuotaResponse> {
+        const options = ParamCreater().showAppQuota(showAppQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看APP的访问控制详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看APP的访问控制详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDetailsOfAppAcl(showDetailsOfAppAclRequest?: ShowDetailsOfAppAclRequest): Promise<ShowDetailsOfAppAclResponse> {
+        const options = ParamCreater().showDetailsOfAppAcl(showDetailsOfAppAclRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看APP Code详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {string} appCodeId APP Code编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request?: ShowDetailsOfAppCodeV2Request): Promise<ShowDetailsOfAppCodeV2Response> {
+        const options = ParamCreater().showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看指定APP的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看APP详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDetailsOfAppV2(showDetailsOfAppV2Request?: ShowDetailsOfAppV2Request): Promise<ShowDetailsOfAppV2Response> {
+        const options = ParamCreater().showDetailsOfAppV2(showDetailsOfAppV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看自定义认证详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2363,6 +2938,88 @@ export class ApigClient {
     }
 
     /**
+     * 查看实例约束信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看实例约束信息
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRestrictionOfInstanceV2(showRestrictionOfInstanceV2Request?: ShowRestrictionOfInstanceV2Request): Promise<ShowRestrictionOfInstanceV2Response> {
+        const options = ParamCreater().showRestrictionOfInstanceV2(showRestrictionOfInstanceV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置凭据的访问控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置APP的访问控制
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {AppAclCreate} updateAppAclRequestBody 修改APP访问控制的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppAcl(updateAppAclRequest?: UpdateAppAclRequest): Promise<UpdateAppAclResponse> {
+        const options = ParamCreater().updateAppAcl(updateAppAclRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改凭据配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改凭据配额
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appQuotaId 凭据配额编号
+     * @param {AppQuotaCreate} updateAppQuotaRequestBody 更新凭据配额请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppQuota(updateAppQuotaRequest?: UpdateAppQuotaRequest): Promise<UpdateAppQuotaResponse> {
+        const options = ParamCreater().updateAppQuota(updateAppQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改APP
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 应用编号
+     * @param {AppCreate} updateAppV2RequestBody 修改APP的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppV2(updateAppV2Request?: UpdateAppV2Request): Promise<UpdateAppV2Response> {
+        const options = ParamCreater().updateAppV2(updateAppV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改自定义认证
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2439,6 +3096,27 @@ export class ApigClient {
      */
     public updateEnvironmentV2(updateEnvironmentV2Request?: UpdateEnvironmentV2Request): Promise<UpdateEnvironmentV2Response> {
         const options = ParamCreater().updateEnvironmentV2(updateEnvironmentV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改环境变量。环境变量引用位置为api的后端服务地址时，修改对应环境变量会将使用该变量的所有api重新发布。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改变量
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} envVariableId 环境变量的编号
+     * @param {EnvVariableBase} updateEnvironmentVariableV2RequestBody 修改环境变量的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEnvironmentVariableV2(updateEnvironmentVariableV2Request?: UpdateEnvironmentVariableV2Request): Promise<UpdateEnvironmentVariableV2Response> {
+        const options = ParamCreater().updateEnvironmentVariableV2(updateEnvironmentVariableV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2840,6 +3518,26 @@ export class ApigClient {
     }
 
     /**
+     * 校验API定义。校验API的路径或名称是否已存在
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验API定义
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {ApiCheckInfoV2} checkApisV2RequestBody 校验API定义的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkApisV2(checkApisV2Request?: CheckApisV2Request): Promise<CheckApisV2Response> {
+        const options = ParamCreater().checkApisV2(checkApisV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * API分组是API的管理单元，一个API分组等同于一个服务入口，创建API分组时，返回一个子域名作为访问入口。建议一个API分组下的API具有一定的相关性。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2863,7 +3561,7 @@ export class ApigClient {
      * 添加一个API，API即一个服务接口，具体的服务能力。
      * 
      * 
-     * API分为两部分，第一部分为面向API使用者的API接口，定义了使用者如何调用这个API。第二部分面向API提供者，由API提供者定义这个API的真实的后端情况，定义了API网关如何去访问真实的后端服务。API的真实后端服务目前支持三种类型：传统的HTTP/HTTPS形式的web后端、函数工作流、MOCK。
+     * API分为两部分，第一部分为面向API使用者的API接口，定义了使用者如何调用这个API。第二部分面向API提供者，由API提供者定义这个API的真实的后端情况，定义了API网关如何去访问真实的后端服务。API的真实后端服务目前支持四种类型：传统的HTTP/HTTPS形式的web后端、GRPC后端、函数工作流、MOCK。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3462,89 +4160,6 @@ export class ApigClient {
     }
 
     /**
-     * 校验app是否存在，非APP所有者可以调用该接口校验APP是否真实存在。这个接口只展示app的基本信息id 、name、
-     * remark，其他信息不显示。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 校验APP
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkAppV2(checkAppV2Request?: CheckAppV2Request): Promise<CheckAppV2Response> {
-        const options = ParamCreater().checkAppV2(checkAppV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * APP即应用，是一个可以访问API的身份标识。将API授权给APP后，APP即可调用API。
-     * 创建一个APP。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建APP
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {AppCreate} createAnAppV2RequestBody 创建APP的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAnAppV2(createAnAppV2Request?: CreateAnAppV2Request): Promise<CreateAnAppV2Response> {
-        const options = ParamCreater().createAnAppV2(createAnAppV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建App Code时，可以不指定具体值，由后台自动生成随机字符串填充。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 自动生成APP Code
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAppCodeAutoV2(createAppCodeAutoV2Request?: CreateAppCodeAutoV2Request): Promise<CreateAppCodeAutoV2Response> {
-        const options = ParamCreater().createAppCodeAutoV2(createAppCodeAutoV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建APP Code
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {AppCodeCreate} createAppCodeV2RequestBody 创建APP Code的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAppCodeV2(createAppCodeV2Request?: CreateAppCodeV2Request): Promise<CreateAppCodeV2Response> {
-        const options = ParamCreater().createAppCodeV2(createAppCodeV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * APP创建成功后，还不能访问API，如果想要访问某个环境上的API，需要将该API在该环境上授权给APP。授权成功后，APP即可访问该环境上的这个API。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3557,48 +4172,6 @@ export class ApigClient {
      */
     public createAuthorizingAppsV2(createAuthorizingAppsV2Request?: CreateAuthorizingAppsV2Request): Promise<CreateAuthorizingAppsV2Response> {
         const options = ParamCreater().createAuthorizingAppsV2(createAuthorizingAppsV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除App Code，App Code删除后，将无法再通过简易认证访问对应的API。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除APP Code
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {string} appCodeId APP Code编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteAppCodeV2(deleteAppCodeV2Request?: DeleteAppCodeV2Request): Promise<DeleteAppCodeV2Response> {
-        const options = ParamCreater().deleteAppCodeV2(deleteAppCodeV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除指定的APP。
-     * APP删除后，将无法再调用任何API[；其中，云商店自动创建的APP无法被删除](tag:hws)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除APP
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteAppV2(deleteAppV2Request?: DeleteAppV2Request): Promise<DeleteAppV2Response> {
-        const options = ParamCreater().deleteAppV2(deleteAppV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3660,28 +4233,6 @@ export class ApigClient {
     }
 
     /**
-     * 查询App Code列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询APP Code列表
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
-     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAppCodesV2(listAppCodesV2Request?: ListAppCodesV2Request): Promise<ListAppCodesV2Response> {
-        const options = ParamCreater().listAppCodesV2(listAppCodesV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询API绑定的APP列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3699,116 +4250,6 @@ export class ApigClient {
      */
     public listAppsBindedToApiV2(listAppsBindedToApiV2Request?: ListAppsBindedToApiV2Request): Promise<ListAppsBindedToApiV2Response> {
         const options = ParamCreater().listAppsBindedToApiV2(listAppsBindedToApiV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询APP列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询APP列表
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
-     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
-     * @param {string} [id] APP编号
-     * @param {string} [name] APP名称
-     * @param {number} [status] APP状态
-     * @param {string} [appKey] APP的KEY
-     * @param {string} [creator] APP的创建者。 - USER：用户自行创建 - MARKET：[云商店分配](tag:hws)[暂未使用](tag:cmcc,ctc,DT,g42,hk_g42,hk_sbc,hk_tm,hws_eu,hws_ocb,OCB,sbc,tm,hws_hk)
-     * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAppsV2(listAppsV2Request?: ListAppsV2Request): Promise<ListAppsV2Response> {
-        const options = ParamCreater().listAppsV2(listAppsV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 重置指定APP的密钥。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 重置密钥
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {AppResetCreate} resettingAppSecretV2RequestBody 重置密钥的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public resettingAppSecretV2(resettingAppSecretV2Request?: ResettingAppSecretV2Request): Promise<ResettingAppSecretV2Response> {
-        const options = ParamCreater().resettingAppSecretV2(resettingAppSecretV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看APP Code详情
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {string} appCodeId APP Code编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request?: ShowDetailsOfAppCodeV2Request): Promise<ShowDetailsOfAppCodeV2Response> {
-        const options = ParamCreater().showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看指定APP的详细信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看APP详情
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDetailsOfAppV2(showDetailsOfAppV2Request?: ShowDetailsOfAppV2Request): Promise<ShowDetailsOfAppV2Response> {
-        const options = ParamCreater().showDetailsOfAppV2(showDetailsOfAppV2Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改APP
-     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
-     * @param {AppCreate} updateAppV2RequestBody 修改APP的请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateAppV2(updateAppV2Request?: UpdateAppV2Request): Promise<UpdateAppV2Response> {
-        const options = ParamCreater().updateAppV2(updateAppV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4687,6 +5128,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 凭据配额绑定凭据列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateAppsForAppQuota(associateAppsForAppQuotaRequest?: AssociateAppsForAppQuotaRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}/binding-apps",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appQuotaId;
+
+            if (associateAppsForAppQuotaRequest !== null && associateAppsForAppQuotaRequest !== undefined) {
+                if (associateAppsForAppQuotaRequest instanceof AssociateAppsForAppQuotaRequest) {
+                    instanceId = associateAppsForAppQuotaRequest.instanceId;
+                    appQuotaId = associateAppsForAppQuotaRequest.appQuotaId;
+                    body = associateAppsForAppQuotaRequest.body
+                } else {
+                    instanceId = associateAppsForAppQuotaRequest['instance_id'];
+                    appQuotaId = associateAppsForAppQuotaRequest['app_quota_id'];
+                    body = associateAppsForAppQuotaRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling associateAppsForAppQuota.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling associateAppsForAppQuota.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 如果创建API时，“定义API请求”使用HTTPS请求协议，那么在独立域名中需要添加SSL证书。
          * 本章节主要介绍为特定域名绑定证书。
          * 
@@ -4859,7 +5353,7 @@ export const ParamCreater = function () {
          * - 只能选择发布状态的API
          * - 绑定以后及时生效
          * - 修改插件后及时生效
-         * - 相同类型的插件只能绑定一个，原来已经绑定的通类型插件，会直接覆盖。
+         * - 相同类型的插件只能绑定一个，如果再次绑定同类型的插件，那么已绑定的同类型插件将直接被覆盖。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4916,7 +5410,7 @@ export const ParamCreater = function () {
          * - 只能选择发布状态的API
          * - 绑定以后及时生效
          * - 修改插件后及时生效
-         * - 相同类型的插件只能绑定一个，原来已经绑定的通类型插件，会直接覆盖。
+         * - 相同类型的插件只能绑定一个，如果再次绑定同类型的插件，那么已绑定的同类型插件将直接被覆盖。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5002,6 +5496,241 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchCreateOrDeleteInstanceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验app是否存在，非APP所有者可以调用该接口校验APP是否真实存在。这个接口只展示app的基本信息id 、name、
+         * remark，其他信息不显示。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkAppV2(checkAppV2Request?: CheckAppV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/validation/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (checkAppV2Request !== null && checkAppV2Request !== undefined) {
+                if (checkAppV2Request instanceof CheckAppV2Request) {
+                    instanceId = checkAppV2Request.instanceId;
+                    appId = checkAppV2Request.appId;
+                } else {
+                    instanceId = checkAppV2Request['instance_id'];
+                    appId = checkAppV2Request['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkAppV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling checkAppV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * APP即应用，是一个可以访问API的身份标识。将API授权给APP后，APP即可调用API。
+         * 创建一个APP。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAnAppV2(createAnAppV2Request?: CreateAnAppV2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createAnAppV2Request !== null && createAnAppV2Request !== undefined) {
+                if (createAnAppV2Request instanceof CreateAnAppV2Request) {
+                    instanceId = createAnAppV2Request.instanceId;
+                    body = createAnAppV2Request.body
+                } else {
+                    instanceId = createAnAppV2Request['instance_id'];
+                    body = createAnAppV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAnAppV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建App Code时，可以不指定具体值，由后台自动生成随机字符串填充。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAppCodeAutoV2(createAppCodeAutoV2Request?: CreateAppCodeAutoV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (createAppCodeAutoV2Request !== null && createAppCodeAutoV2Request !== undefined) {
+                if (createAppCodeAutoV2Request instanceof CreateAppCodeAutoV2Request) {
+                    instanceId = createAppCodeAutoV2Request.instanceId;
+                    appId = createAppCodeAutoV2Request.appId;
+                } else {
+                    instanceId = createAppCodeAutoV2Request['instance_id'];
+                    appId = createAppCodeAutoV2Request['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAppCodeAutoV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling createAppCodeAutoV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAppCodeV2(createAppCodeV2Request?: CreateAppCodeV2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appId;
+
+            if (createAppCodeV2Request !== null && createAppCodeV2Request !== undefined) {
+                if (createAppCodeV2Request instanceof CreateAppCodeV2Request) {
+                    instanceId = createAppCodeV2Request.instanceId;
+                    appId = createAppCodeV2Request.appId;
+                    body = createAppCodeV2Request.body
+                } else {
+                    instanceId = createAppCodeV2Request['instance_id'];
+                    appId = createAppCodeV2Request['app_id'];
+                    body = createAppCodeV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAppCodeV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling createAppCodeV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建凭据配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAppQuota(createAppQuotaRequest?: CreateAppQuotaRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createAppQuotaRequest !== null && createAppQuotaRequest !== undefined) {
+                if (createAppQuotaRequest instanceof CreateAppQuotaRequest) {
+                    instanceId = createAppQuotaRequest.instanceId;
+                    body = createAppQuotaRequest.body
+                } else {
+                    instanceId = createAppQuotaRequest['instance_id'];
+                    body = createAppQuotaRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAppQuota.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5271,7 +6000,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建专享版实例
+         * 创建按需专享版实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5294,6 +6023,44 @@ export const ParamCreater = function () {
                     body = createInstanceV2Request.body
                 } else {
                     body = createInstanceV2Request['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建包周期专享版实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrder(createOrderRequest?: CreateOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/prepay-instances",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createOrderRequest !== null && createOrderRequest !== undefined) {
+                if (createOrderRequest instanceof CreateOrderRequest) {
+                    body = createOrderRequest.body
+                } else {
+                    body = createOrderRequest['body'];
                 }
             }
 
@@ -5344,6 +6111,98 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createPlugin.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建按需规格变更订单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPostPayResizeOrder(createPostPayResizeOrderRequest?: CreatePostPayResizeOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/postpaid-resize",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createPostPayResizeOrderRequest !== null && createPostPayResizeOrderRequest !== undefined) {
+                if (createPostPayResizeOrderRequest instanceof CreatePostPayResizeOrderRequest) {
+                    instanceId = createPostPayResizeOrderRequest.instanceId;
+                    body = createPostPayResizeOrderRequest.body
+                } else {
+                    instanceId = createPostPayResizeOrderRequest['instance_id'];
+                    body = createPostPayResizeOrderRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createPostPayResizeOrder.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建包周期规格变更订单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrepayResize(createPrepayResizeRequest?: CreatePrepayResizeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/prepay-resize",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createPrepayResizeRequest !== null && createPrepayResizeRequest !== undefined) {
+                if (createPrepayResizeRequest instanceof CreatePrepayResizeRequest) {
+                    instanceId = createPrepayResizeRequest.instanceId;
+                    body = createPrepayResizeRequest.body
+                } else {
+                    instanceId = createPrepayResizeRequest['instance_id'];
+                    body = createPrepayResizeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createPrepayResize.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5508,6 +6367,190 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'throttle_id': throttleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除凭据的访问控制信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppAcl(deleteAppAclRequest?: DeleteAppAclRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-acl",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (deleteAppAclRequest !== null && deleteAppAclRequest !== undefined) {
+                if (deleteAppAclRequest instanceof DeleteAppAclRequest) {
+                    instanceId = deleteAppAclRequest.instanceId;
+                    appId = deleteAppAclRequest.appId;
+                } else {
+                    instanceId = deleteAppAclRequest['instance_id'];
+                    appId = deleteAppAclRequest['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppAcl.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppAcl.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除App Code，App Code删除后，将无法再通过简易认证访问对应的API。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppCodeV2(deleteAppCodeV2Request?: DeleteAppCodeV2Request) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes/{app_code_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+            
+            let appCodeId;
+
+            if (deleteAppCodeV2Request !== null && deleteAppCodeV2Request !== undefined) {
+                if (deleteAppCodeV2Request instanceof DeleteAppCodeV2Request) {
+                    instanceId = deleteAppCodeV2Request.instanceId;
+                    appId = deleteAppCodeV2Request.appId;
+                    appCodeId = deleteAppCodeV2Request.appCodeId;
+                } else {
+                    instanceId = deleteAppCodeV2Request['instance_id'];
+                    appId = deleteAppCodeV2Request['app_id'];
+                    appCodeId = deleteAppCodeV2Request['app_code_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppCodeV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppCodeV2.');
+            }
+            if (appCodeId === null || appCodeId === undefined) {
+            throw new RequiredError('appCodeId','Required parameter appCodeId was null or undefined when calling deleteAppCodeV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'app_code_id': appCodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除凭据配额。删除凭据配额时，同时删除凭据配额和凭据的关联关系
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppQuota(deleteAppQuotaRequest?: DeleteAppQuotaRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appQuotaId;
+
+            if (deleteAppQuotaRequest !== null && deleteAppQuotaRequest !== undefined) {
+                if (deleteAppQuotaRequest instanceof DeleteAppQuotaRequest) {
+                    instanceId = deleteAppQuotaRequest.instanceId;
+                    appQuotaId = deleteAppQuotaRequest.appQuotaId;
+                } else {
+                    instanceId = deleteAppQuotaRequest['instance_id'];
+                    appQuotaId = deleteAppQuotaRequest['app_quota_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppQuota.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling deleteAppQuota.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定的APP。
+         * APP删除后，将无法再调用任何API[；其中，云商店自动创建的APP无法被删除](tag:hws)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppV2(deleteAppV2Request?: DeleteAppV2Request) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (deleteAppV2Request !== null && deleteAppV2Request !== undefined) {
+                if (deleteAppV2Request instanceof DeleteAppV2Request) {
+                    instanceId = deleteAppV2Request.instanceId;
+                    appId = deleteAppV2Request.appId;
+                } else {
+                    instanceId = deleteAppV2Request['instance_id'];
+                    appId = deleteAppV2Request['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6128,6 +7171,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'api_id': apiId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除凭据配额和凭据的绑定
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateAppQuotaWithApp(disassociateAppQuotaWithAppRequest?: DisassociateAppQuotaWithAppRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}/bound-apps/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appQuotaId;
+            
+            let appId;
+
+            if (disassociateAppQuotaWithAppRequest !== null && disassociateAppQuotaWithAppRequest !== undefined) {
+                if (disassociateAppQuotaWithAppRequest instanceof DisassociateAppQuotaWithAppRequest) {
+                    instanceId = disassociateAppQuotaWithAppRequest.instanceId;
+                    appQuotaId = disassociateAppQuotaWithAppRequest.appQuotaId;
+                    appId = disassociateAppQuotaWithAppRequest.appId;
+                } else {
+                    instanceId = disassociateAppQuotaWithAppRequest['instance_id'];
+                    appQuotaId = disassociateAppQuotaWithAppRequest['app_quota_id'];
+                    appId = disassociateAppQuotaWithAppRequest['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling disassociateAppQuotaWithApp.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling disassociateAppQuotaWithApp.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling disassociateAppQuotaWithApp.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId,'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6772,6 +7866,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询App Code列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppCodesV2(listAppCodesV2Request?: ListAppCodesV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAppCodesV2Request !== null && listAppCodesV2Request !== undefined) {
+                if (listAppCodesV2Request instanceof ListAppCodesV2Request) {
+                    instanceId = listAppCodesV2Request.instanceId;
+                    appId = listAppCodesV2Request.appId;
+                    offset = listAppCodesV2Request.offset;
+                    limit = listAppCodesV2Request.limit;
+                } else {
+                    instanceId = listAppCodesV2Request['instance_id'];
+                    appId = listAppCodesV2Request['app_id'];
+                    offset = listAppCodesV2Request['offset'];
+                    limit = listAppCodesV2Request['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppCodesV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling listAppCodesV2.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户名下的APP概况：已进行API访问授权的APP个数，未进行API访问授权的APP个数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6803,6 +7956,291 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppQuantitiesV2.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询凭据配额可绑定的凭据列表。支持按凭据名称模糊搜索
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppQuotaBindableApps(listAppQuotaBindableAppsRequest?: ListAppQuotaBindableAppsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}/bindable-apps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appQuotaId;
+            
+            let offset;
+            
+            let limit;
+            
+            let appName;
+
+            if (listAppQuotaBindableAppsRequest !== null && listAppQuotaBindableAppsRequest !== undefined) {
+                if (listAppQuotaBindableAppsRequest instanceof ListAppQuotaBindableAppsRequest) {
+                    instanceId = listAppQuotaBindableAppsRequest.instanceId;
+                    appQuotaId = listAppQuotaBindableAppsRequest.appQuotaId;
+                    offset = listAppQuotaBindableAppsRequest.offset;
+                    limit = listAppQuotaBindableAppsRequest.limit;
+                    appName = listAppQuotaBindableAppsRequest.appName;
+                } else {
+                    instanceId = listAppQuotaBindableAppsRequest['instance_id'];
+                    appQuotaId = listAppQuotaBindableAppsRequest['app_quota_id'];
+                    offset = listAppQuotaBindableAppsRequest['offset'];
+                    limit = listAppQuotaBindableAppsRequest['limit'];
+                    appName = listAppQuotaBindableAppsRequest['app_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppQuotaBindableApps.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling listAppQuotaBindableApps.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询凭据配额已绑定的凭据列表。支持按凭据名称模糊匹配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppQuotaBoundApps(listAppQuotaBoundAppsRequest?: ListAppQuotaBoundAppsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}/bound-apps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appQuotaId;
+            
+            let offset;
+            
+            let limit;
+            
+            let appName;
+
+            if (listAppQuotaBoundAppsRequest !== null && listAppQuotaBoundAppsRequest !== undefined) {
+                if (listAppQuotaBoundAppsRequest instanceof ListAppQuotaBoundAppsRequest) {
+                    instanceId = listAppQuotaBoundAppsRequest.instanceId;
+                    appQuotaId = listAppQuotaBoundAppsRequest.appQuotaId;
+                    offset = listAppQuotaBoundAppsRequest.offset;
+                    limit = listAppQuotaBoundAppsRequest.limit;
+                    appName = listAppQuotaBoundAppsRequest.appName;
+                } else {
+                    instanceId = listAppQuotaBoundAppsRequest['instance_id'];
+                    appQuotaId = listAppQuotaBoundAppsRequest['app_quota_id'];
+                    offset = listAppQuotaBoundAppsRequest['offset'];
+                    limit = listAppQuotaBoundAppsRequest['limit'];
+                    appName = listAppQuotaBoundAppsRequest['app_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppQuotaBoundApps.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling listAppQuotaBoundApps.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取凭据配额列表。支持根据名称模糊查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppQuotas(listAppQuotasRequest?: ListAppQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listAppQuotasRequest !== null && listAppQuotasRequest !== undefined) {
+                if (listAppQuotasRequest instanceof ListAppQuotasRequest) {
+                    instanceId = listAppQuotasRequest.instanceId;
+                    offset = listAppQuotasRequest.offset;
+                    limit = listAppQuotasRequest.limit;
+                    name = listAppQuotasRequest.name;
+                } else {
+                    instanceId = listAppQuotasRequest['instance_id'];
+                    offset = listAppQuotasRequest['offset'];
+                    limit = listAppQuotasRequest['limit'];
+                    name = listAppQuotasRequest['name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppQuotas.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询APP列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppsV2(listAppsV2Request?: ListAppsV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+            
+            let appKey;
+            
+            let creator;
+            
+            let preciseSearch;
+
+            if (listAppsV2Request !== null && listAppsV2Request !== undefined) {
+                if (listAppsV2Request instanceof ListAppsV2Request) {
+                    instanceId = listAppsV2Request.instanceId;
+                    offset = listAppsV2Request.offset;
+                    limit = listAppsV2Request.limit;
+                    id = listAppsV2Request.id;
+                    name = listAppsV2Request.name;
+                    status = listAppsV2Request.status;
+                    appKey = listAppsV2Request.appKey;
+                    creator = listAppsV2Request.creator;
+                    preciseSearch = listAppsV2Request.preciseSearch;
+                } else {
+                    instanceId = listAppsV2Request['instance_id'];
+                    offset = listAppsV2Request['offset'];
+                    limit = listAppsV2Request['limit'];
+                    id = listAppsV2Request['id'];
+                    name = listAppsV2Request['name'];
+                    status = listAppsV2Request['status'];
+                    appKey = listAppsV2Request['app_key'];
+                    creator = listAppsV2Request['creator'];
+                    preciseSearch = listAppsV2Request['precise_search'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppsV2.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (appKey !== null && appKey !== undefined) {
+                localVarQueryParameter['app_key'] = appKey;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (preciseSearch !== null && preciseSearch !== undefined) {
+                localVarQueryParameter['precise_search'] = preciseSearch;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -8488,6 +9926,286 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重置指定APP的密钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resettingAppSecretV2(resettingAppSecretV2Request?: ResettingAppSecretV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/secret/{app_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appId;
+
+            if (resettingAppSecretV2Request !== null && resettingAppSecretV2Request !== undefined) {
+                if (resettingAppSecretV2Request instanceof ResettingAppSecretV2Request) {
+                    instanceId = resettingAppSecretV2Request.instanceId;
+                    appId = resettingAppSecretV2Request.appId;
+                    body = resettingAppSecretV2Request.body
+                } else {
+                    instanceId = resettingAppSecretV2Request['instance_id'];
+                    appId = resettingAppSecretV2Request['app_id'];
+                    body = resettingAppSecretV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resettingAppSecretV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling resettingAppSecretV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看指定凭据关联的凭据配额。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppBoundAppQuota(showAppBoundAppQuotaRequest?: ShowAppBoundAppQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/bound-quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (showAppBoundAppQuotaRequest !== null && showAppBoundAppQuotaRequest !== undefined) {
+                if (showAppBoundAppQuotaRequest instanceof ShowAppBoundAppQuotaRequest) {
+                    instanceId = showAppBoundAppQuotaRequest.instanceId;
+                    appId = showAppBoundAppQuotaRequest.appId;
+                } else {
+                    instanceId = showAppBoundAppQuotaRequest['instance_id'];
+                    appId = showAppBoundAppQuotaRequest['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAppBoundAppQuota.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showAppBoundAppQuota.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取凭据配额详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppQuota(showAppQuotaRequest?: ShowAppQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appQuotaId;
+
+            if (showAppQuotaRequest !== null && showAppQuotaRequest !== undefined) {
+                if (showAppQuotaRequest instanceof ShowAppQuotaRequest) {
+                    instanceId = showAppQuotaRequest.instanceId;
+                    appQuotaId = showAppQuotaRequest.appQuotaId;
+                } else {
+                    instanceId = showAppQuotaRequest['instance_id'];
+                    appQuotaId = showAppQuotaRequest['app_quota_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAppQuota.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling showAppQuota.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看APP的访问控制详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDetailsOfAppAcl(showDetailsOfAppAclRequest?: ShowDetailsOfAppAclRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-acl",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (showDetailsOfAppAclRequest !== null && showDetailsOfAppAclRequest !== undefined) {
+                if (showDetailsOfAppAclRequest instanceof ShowDetailsOfAppAclRequest) {
+                    instanceId = showDetailsOfAppAclRequest.instanceId;
+                    appId = showDetailsOfAppAclRequest.appId;
+                } else {
+                    instanceId = showDetailsOfAppAclRequest['instance_id'];
+                    appId = showDetailsOfAppAclRequest['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAppAcl.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAppAcl.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request?: ShowDetailsOfAppCodeV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes/{app_code_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+            
+            let appCodeId;
+
+            if (showDetailsOfAppCodeV2Request !== null && showDetailsOfAppCodeV2Request !== undefined) {
+                if (showDetailsOfAppCodeV2Request instanceof ShowDetailsOfAppCodeV2Request) {
+                    instanceId = showDetailsOfAppCodeV2Request.instanceId;
+                    appId = showDetailsOfAppCodeV2Request.appId;
+                    appCodeId = showDetailsOfAppCodeV2Request.appCodeId;
+                } else {
+                    instanceId = showDetailsOfAppCodeV2Request['instance_id'];
+                    appId = showDetailsOfAppCodeV2Request['app_id'];
+                    appCodeId = showDetailsOfAppCodeV2Request['app_code_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAppCodeV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAppCodeV2.');
+            }
+            if (appCodeId === null || appCodeId === undefined) {
+            throw new RequiredError('appCodeId','Required parameter appCodeId was null or undefined when calling showDetailsOfAppCodeV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'app_code_id': appCodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看指定APP的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDetailsOfAppV2(showDetailsOfAppV2Request?: ShowDetailsOfAppV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+
+            if (showDetailsOfAppV2Request !== null && showDetailsOfAppV2Request !== undefined) {
+                if (showDetailsOfAppV2Request instanceof ShowDetailsOfAppV2Request) {
+                    instanceId = showDetailsOfAppV2Request.instanceId;
+                    appId = showDetailsOfAppV2Request.appId;
+                } else {
+                    instanceId = showDetailsOfAppV2Request['instance_id'];
+                    appId = showDetailsOfAppV2Request['app_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAppV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAppV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看自定义认证详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8905,6 +10623,202 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看实例约束信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRestrictionOfInstanceV2(showRestrictionOfInstanceV2Request?: ShowRestrictionOfInstanceV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/restriction",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showRestrictionOfInstanceV2Request !== null && showRestrictionOfInstanceV2Request !== undefined) {
+                if (showRestrictionOfInstanceV2Request instanceof ShowRestrictionOfInstanceV2Request) {
+                    instanceId = showRestrictionOfInstanceV2Request.instanceId;
+                } else {
+                    instanceId = showRestrictionOfInstanceV2Request['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRestrictionOfInstanceV2.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置凭据的访问控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppAcl(updateAppAclRequest?: UpdateAppAclRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-acl",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appId;
+
+            if (updateAppAclRequest !== null && updateAppAclRequest !== undefined) {
+                if (updateAppAclRequest instanceof UpdateAppAclRequest) {
+                    instanceId = updateAppAclRequest.instanceId;
+                    appId = updateAppAclRequest.appId;
+                    body = updateAppAclRequest.body
+                } else {
+                    instanceId = updateAppAclRequest['instance_id'];
+                    appId = updateAppAclRequest['app_id'];
+                    body = updateAppAclRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAppAcl.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppAcl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改凭据配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppQuota(updateAppQuotaRequest?: UpdateAppQuotaRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/app-quotas/{app_quota_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appQuotaId;
+
+            if (updateAppQuotaRequest !== null && updateAppQuotaRequest !== undefined) {
+                if (updateAppQuotaRequest instanceof UpdateAppQuotaRequest) {
+                    instanceId = updateAppQuotaRequest.instanceId;
+                    appQuotaId = updateAppQuotaRequest.appQuotaId;
+                    body = updateAppQuotaRequest.body
+                } else {
+                    instanceId = updateAppQuotaRequest['instance_id'];
+                    appQuotaId = updateAppQuotaRequest['app_quota_id'];
+                    body = updateAppQuotaRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAppQuota.');
+            }
+            if (appQuotaId === null || appQuotaId === undefined) {
+            throw new RequiredError('appQuotaId','Required parameter appQuotaId was null or undefined when calling updateAppQuota.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppV2(updateAppV2Request?: UpdateAppV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appId;
+
+            if (updateAppV2Request !== null && updateAppV2Request !== undefined) {
+                if (updateAppV2Request instanceof UpdateAppV2Request) {
+                    instanceId = updateAppV2Request.instanceId;
+                    appId = updateAppV2Request.appId;
+                    body = updateAppV2Request.body
+                } else {
+                    instanceId = updateAppV2Request['instance_id'];
+                    appId = updateAppV2Request['app_id'];
+                    body = updateAppV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAppV2.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改自定义认证
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9112,6 +11026,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'env_id': envId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改环境变量。环境变量引用位置为api的后端服务地址时，修改对应环境变量会将使用该变量的所有api重新发布。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEnvironmentVariableV2(updateEnvironmentVariableV2Request?: UpdateEnvironmentVariableV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/env-variables/{env_variable_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let envVariableId;
+
+            if (updateEnvironmentVariableV2Request !== null && updateEnvironmentVariableV2Request !== undefined) {
+                if (updateEnvironmentVariableV2Request instanceof UpdateEnvironmentVariableV2Request) {
+                    instanceId = updateEnvironmentVariableV2Request.instanceId;
+                    envVariableId = updateEnvironmentVariableV2Request.envVariableId;
+                    body = updateEnvironmentVariableV2Request.body
+                } else {
+                    instanceId = updateEnvironmentVariableV2Request['instance_id'];
+                    envVariableId = updateEnvironmentVariableV2Request['env_variable_id'];
+                    body = updateEnvironmentVariableV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateEnvironmentVariableV2.');
+            }
+            if (envVariableId === null || envVariableId === undefined) {
+            throw new RequiredError('envVariableId','Required parameter envVariableId was null or undefined when calling updateEnvironmentVariableV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'env_variable_id': envVariableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10111,6 +12078,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 校验API定义。校验API的路径或名称是否已存在
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkApisV2(checkApisV2Request?: CheckApisV2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apis/check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (checkApisV2Request !== null && checkApisV2Request !== undefined) {
+                if (checkApisV2Request instanceof CheckApisV2Request) {
+                    instanceId = checkApisV2Request.instanceId;
+                    body = checkApisV2Request.body
+                } else {
+                    instanceId = checkApisV2Request['instance_id'];
+                    body = checkApisV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkApisV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * API分组是API的管理单元，一个API分组等同于一个服务入口，创建API分组时，返回一个子域名作为访问入口。建议一个API分组下的API具有一定的相关性。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10160,7 +12173,7 @@ export const ParamCreater = function () {
          * 添加一个API，API即一个服务接口，具体的服务能力。
          * 
          * 
-         * API分为两部分，第一部分为面向API使用者的API接口，定义了使用者如何调用这个API。第二部分面向API提供者，由API提供者定义这个API的真实的后端情况，定义了API网关如何去访问真实的后端服务。API的真实后端服务目前支持三种类型：传统的HTTP/HTTPS形式的web后端、函数工作流、MOCK。
+         * API分为两部分，第一部分为面向API使用者的API接口，定义了使用者如何调用这个API。第二部分面向API提供者，由API提供者定义这个API的真实的后端情况，定义了API网关如何去访问真实的后端服务。API的真实后端服务目前支持四种类型：传统的HTTP/HTTPS形式的web后端、GRPC后端、函数工作流、MOCK。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11783,195 +13796,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 校验app是否存在，非APP所有者可以调用该接口校验APP是否真实存在。这个接口只展示app的基本信息id 、name、
-         * remark，其他信息不显示。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkAppV2(checkAppV2Request?: CheckAppV2Request) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/validation/{app_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-
-            if (checkAppV2Request !== null && checkAppV2Request !== undefined) {
-                if (checkAppV2Request instanceof CheckAppV2Request) {
-                    instanceId = checkAppV2Request.instanceId;
-                    appId = checkAppV2Request.appId;
-                } else {
-                    instanceId = checkAppV2Request['instance_id'];
-                    appId = checkAppV2Request['app_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkAppV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling checkAppV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * APP即应用，是一个可以访问API的身份标识。将API授权给APP后，APP即可调用API。
-         * 创建一个APP。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAnAppV2(createAnAppV2Request?: CreateAnAppV2Request) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (createAnAppV2Request !== null && createAnAppV2Request !== undefined) {
-                if (createAnAppV2Request instanceof CreateAnAppV2Request) {
-                    instanceId = createAnAppV2Request.instanceId;
-                    body = createAnAppV2Request.body
-                } else {
-                    instanceId = createAnAppV2Request['instance_id'];
-                    body = createAnAppV2Request['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAnAppV2.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建App Code时，可以不指定具体值，由后台自动生成随机字符串填充。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAppCodeAutoV2(createAppCodeAutoV2Request?: CreateAppCodeAutoV2Request) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-
-            if (createAppCodeAutoV2Request !== null && createAppCodeAutoV2Request !== undefined) {
-                if (createAppCodeAutoV2Request instanceof CreateAppCodeAutoV2Request) {
-                    instanceId = createAppCodeAutoV2Request.instanceId;
-                    appId = createAppCodeAutoV2Request.appId;
-                } else {
-                    instanceId = createAppCodeAutoV2Request['instance_id'];
-                    appId = createAppCodeAutoV2Request['app_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAppCodeAutoV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling createAppCodeAutoV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAppCodeV2(createAppCodeV2Request?: CreateAppCodeV2Request) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let appId;
-
-            if (createAppCodeV2Request !== null && createAppCodeV2Request !== undefined) {
-                if (createAppCodeV2Request instanceof CreateAppCodeV2Request) {
-                    instanceId = createAppCodeV2Request.instanceId;
-                    appId = createAppCodeV2Request.appId;
-                    body = createAppCodeV2Request.body
-                } else {
-                    instanceId = createAppCodeV2Request['instance_id'];
-                    appId = createAppCodeV2Request['app_id'];
-                    body = createAppCodeV2Request['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAppCodeV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling createAppCodeV2.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * APP创建成功后，还不能访问API，如果想要访问某个环境上的API，需要将该API在该环境上授权给APP。授权成功后，APP即可访问该环境上的这个API。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12013,102 +13837,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除App Code，App Code删除后，将无法再通过简易认证访问对应的API。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteAppCodeV2(deleteAppCodeV2Request?: DeleteAppCodeV2Request) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes/{app_code_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-            
-            let appCodeId;
-
-            if (deleteAppCodeV2Request !== null && deleteAppCodeV2Request !== undefined) {
-                if (deleteAppCodeV2Request instanceof DeleteAppCodeV2Request) {
-                    instanceId = deleteAppCodeV2Request.instanceId;
-                    appId = deleteAppCodeV2Request.appId;
-                    appCodeId = deleteAppCodeV2Request.appCodeId;
-                } else {
-                    instanceId = deleteAppCodeV2Request['instance_id'];
-                    appId = deleteAppCodeV2Request['app_id'];
-                    appCodeId = deleteAppCodeV2Request['app_code_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppCodeV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppCodeV2.');
-            }
-            if (appCodeId === null || appCodeId === undefined) {
-            throw new RequiredError('appCodeId','Required parameter appCodeId was null or undefined when calling deleteAppCodeV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'app_code_id': appCodeId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除指定的APP。
-         * APP删除后，将无法再调用任何API[；其中，云商店自动创建的APP无法被删除](tag:hws)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteAppV2(deleteAppV2Request?: DeleteAppV2Request) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-
-            if (deleteAppV2Request !== null && deleteAppV2Request !== undefined) {
-                if (deleteAppV2Request instanceof DeleteAppV2Request) {
-                    instanceId = deleteAppV2Request.instanceId;
-                    appId = deleteAppV2Request.appId;
-                } else {
-                    instanceId = deleteAppV2Request['instance_id'];
-                    appId = deleteAppV2Request['app_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAppV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12304,65 +14032,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询App Code列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAppCodesV2(listAppCodesV2Request?: ListAppCodesV2Request) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let instanceId;
-            
-            let appId;
-            
-            let offset;
-            
-            let limit;
-
-            if (listAppCodesV2Request !== null && listAppCodesV2Request !== undefined) {
-                if (listAppCodesV2Request instanceof ListAppCodesV2Request) {
-                    instanceId = listAppCodesV2Request.instanceId;
-                    appId = listAppCodesV2Request.appId;
-                    offset = listAppCodesV2Request.offset;
-                    limit = listAppCodesV2Request.limit;
-                } else {
-                    instanceId = listAppCodesV2Request['instance_id'];
-                    appId = listAppCodesV2Request['app_id'];
-                    offset = listAppCodesV2Request['offset'];
-                    limit = listAppCodesV2Request['limit'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppCodesV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling listAppCodesV2.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询API绑定的APP列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12438,301 +14107,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询APP列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAppsV2(listAppsV2Request?: ListAppsV2Request) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let instanceId;
-            
-            let offset;
-            
-            let limit;
-            
-            let id;
-            
-            let name;
-            
-            let status;
-            
-            let appKey;
-            
-            let creator;
-            
-            let preciseSearch;
-
-            if (listAppsV2Request !== null && listAppsV2Request !== undefined) {
-                if (listAppsV2Request instanceof ListAppsV2Request) {
-                    instanceId = listAppsV2Request.instanceId;
-                    offset = listAppsV2Request.offset;
-                    limit = listAppsV2Request.limit;
-                    id = listAppsV2Request.id;
-                    name = listAppsV2Request.name;
-                    status = listAppsV2Request.status;
-                    appKey = listAppsV2Request.appKey;
-                    creator = listAppsV2Request.creator;
-                    preciseSearch = listAppsV2Request.preciseSearch;
-                } else {
-                    instanceId = listAppsV2Request['instance_id'];
-                    offset = listAppsV2Request['offset'];
-                    limit = listAppsV2Request['limit'];
-                    id = listAppsV2Request['id'];
-                    name = listAppsV2Request['name'];
-                    status = listAppsV2Request['status'];
-                    appKey = listAppsV2Request['app_key'];
-                    creator = listAppsV2Request['creator'];
-                    preciseSearch = listAppsV2Request['precise_search'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAppsV2.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (appKey !== null && appKey !== undefined) {
-                localVarQueryParameter['app_key'] = appKey;
-            }
-            if (creator !== null && creator !== undefined) {
-                localVarQueryParameter['creator'] = creator;
-            }
-            if (preciseSearch !== null && preciseSearch !== undefined) {
-                localVarQueryParameter['precise_search'] = preciseSearch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 重置指定APP的密钥。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        resettingAppSecretV2(resettingAppSecretV2Request?: ResettingAppSecretV2Request) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/secret/{app_id}",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let appId;
-
-            if (resettingAppSecretV2Request !== null && resettingAppSecretV2Request !== undefined) {
-                if (resettingAppSecretV2Request instanceof ResettingAppSecretV2Request) {
-                    instanceId = resettingAppSecretV2Request.instanceId;
-                    appId = resettingAppSecretV2Request.appId;
-                    body = resettingAppSecretV2Request.body
-                } else {
-                    instanceId = resettingAppSecretV2Request['instance_id'];
-                    appId = resettingAppSecretV2Request['app_id'];
-                    body = resettingAppSecretV2Request['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resettingAppSecretV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling resettingAppSecretV2.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * App Code为APP应用下的子模块，创建App Code之后，可以实现简易的APP认证。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDetailsOfAppCodeV2(showDetailsOfAppCodeV2Request?: ShowDetailsOfAppCodeV2Request) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/app-codes/{app_code_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-            
-            let appCodeId;
-
-            if (showDetailsOfAppCodeV2Request !== null && showDetailsOfAppCodeV2Request !== undefined) {
-                if (showDetailsOfAppCodeV2Request instanceof ShowDetailsOfAppCodeV2Request) {
-                    instanceId = showDetailsOfAppCodeV2Request.instanceId;
-                    appId = showDetailsOfAppCodeV2Request.appId;
-                    appCodeId = showDetailsOfAppCodeV2Request.appCodeId;
-                } else {
-                    instanceId = showDetailsOfAppCodeV2Request['instance_id'];
-                    appId = showDetailsOfAppCodeV2Request['app_id'];
-                    appCodeId = showDetailsOfAppCodeV2Request['app_code_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAppCodeV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAppCodeV2.');
-            }
-            if (appCodeId === null || appCodeId === undefined) {
-            throw new RequiredError('appCodeId','Required parameter appCodeId was null or undefined when calling showDetailsOfAppCodeV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'app_code_id': appCodeId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看指定APP的详细信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDetailsOfAppV2(showDetailsOfAppV2Request?: ShowDetailsOfAppV2Request) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let appId;
-
-            if (showDetailsOfAppV2Request !== null && showDetailsOfAppV2Request !== undefined) {
-                if (showDetailsOfAppV2Request instanceof ShowDetailsOfAppV2Request) {
-                    instanceId = showDetailsOfAppV2Request.instanceId;
-                    appId = showDetailsOfAppV2Request.appId;
-                } else {
-                    instanceId = showDetailsOfAppV2Request['instance_id'];
-                    appId = showDetailsOfAppV2Request['app_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAppV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAppV2.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAppV2(updateAppV2Request?: UpdateAppV2Request) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let appId;
-
-            if (updateAppV2Request !== null && updateAppV2Request !== undefined) {
-                if (updateAppV2Request instanceof UpdateAppV2Request) {
-                    instanceId = updateAppV2Request.instanceId;
-                    appId = updateAppV2Request.appId;
-                    body = updateAppV2Request.body
-                } else {
-                    instanceId = updateAppV2Request['instance_id'];
-                    appId = updateAppV2Request['app_id'];
-                    body = updateAppV2Request['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateAppV2.');
-            }
-            if (appId === null || appId === undefined) {
-            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppV2.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,7 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AnalysisInfo } from './model/AnalysisInfo';
 import { AnalysisInfoResult } from './model/AnalysisInfoResult';
-import { AudioConfig } from './model/AudioConfig';
 import { CollectTranscriberJobRequest } from './model/CollectTranscriberJobRequest';
 import { CollectTranscriberJobResponse } from './model/CollectTranscriberJobResponse';
 import { Config } from './model/Config';
@@ -15,18 +14,10 @@ import { DeleteVocabularyRequest } from './model/DeleteVocabularyRequest';
 import { DeleteVocabularyResponse } from './model/DeleteVocabularyResponse';
 import { FlashResult } from './model/FlashResult';
 import { FlashScoreResult } from './model/FlashScoreResult';
-import { Fluency } from './model/Fluency';
-import { MultiModalConfig } from './model/MultiModalConfig';
-import { Phoneme } from './model/Phoneme';
-import { PhonemeFluency } from './model/PhonemeFluency';
-import { PhonemePronunciation } from './model/PhonemePronunciation';
 import { PostCreateVocabReq } from './model/PostCreateVocabReq';
 import { PostCustomTTSReq } from './model/PostCustomTTSReq';
-import { PostMultiModalAssessmentReq } from './model/PostMultiModalAssessmentReq';
-import { PostShortAudioAssessmentReq } from './model/PostShortAudioAssessmentReq';
 import { PostShortAudioReq } from './model/PostShortAudioReq';
 import { PostTranscriberJobs } from './model/PostTranscriberJobs';
-import { Pronunciation } from './model/Pronunciation';
 import { PushTranscriberJobsRequest } from './model/PushTranscriberJobsRequest';
 import { PushTranscriberJobsResponse } from './model/PushTranscriberJobsResponse';
 import { PutUpdateVocabReq } from './model/PutUpdateVocabReq';
@@ -35,10 +26,6 @@ import { RecognizeFlashAsrResponse } from './model/RecognizeFlashAsrResponse';
 import { RecognizeShortAudioRequest } from './model/RecognizeShortAudioRequest';
 import { RecognizeShortAudioResponse } from './model/RecognizeShortAudioResponse';
 import { Result } from './model/Result';
-import { RunAudioAssessmentRequest } from './model/RunAudioAssessmentRequest';
-import { RunAudioAssessmentResponse } from './model/RunAudioAssessmentResponse';
-import { RunMultiModalAssessmentRequest } from './model/RunMultiModalAssessmentRequest';
-import { RunMultiModalAssessmentResponse } from './model/RunMultiModalAssessmentResponse';
 import { RunTtsRequest } from './model/RunTtsRequest';
 import { RunTtsResponse } from './model/RunTtsResponse';
 import { Segment } from './model/Segment';
@@ -54,10 +41,7 @@ import { TtsConfig } from './model/TtsConfig';
 import { UpdateVocabularyRequest } from './model/UpdateVocabularyRequest';
 import { UpdateVocabularyResponse } from './model/UpdateVocabularyResponse';
 import { VocabInfo } from './model/VocabInfo';
-import { Word } from './model/Word';
-import { WordFluency } from './model/WordFluency';
 import { WordInfo } from './model/WordInfo';
-import { WordPronunciation } from './model/WordPronunciation';
 
 export class SisClient {
     public static newBuilder(): ClientBuilder<SisClient> {
@@ -200,44 +184,6 @@ export class SisClient {
      */
     public recognizeShortAudio(recognizeShortAudioRequest?: RecognizeShortAudioRequest): Promise<RecognizeShortAudioResponse> {
         const options = ParamCreater().recognizeShortAudio(recognizeShortAudioRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 口语评测接口，基于一小段朗读语音和预期文本，评价朗读者发音质量。当前仅支持华北-北京四。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 语音评测
-     * @param {PostShortAudioAssessmentReq} postShortAudioAssessmentReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runAudioAssessment(runAudioAssessmentRequest?: RunAudioAssessmentRequest): Promise<RunAudioAssessmentResponse> {
-        const options = ParamCreater().runAudioAssessment(runAudioAssessmentRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 多模态评测接口，根据朗读视频数据、视频对应的音频数据和试题文本，综合给出朗读者口语的评测分数。当前仅支持华北-北京四。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 多模态评测
-     * @param {PostMultiModalAssessmentReq} postShortVideoAssessmentReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runMultiModalAssessment(runMultiModalAssessmentRequest?: RunMultiModalAssessmentRequest): Promise<RunMultiModalAssessmentResponse> {
-        const options = ParamCreater().runMultiModalAssessment(runMultiModalAssessmentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -615,82 +561,6 @@ export const ParamCreater = function () {
                     body = recognizeShortAudioRequest.body
                 } else {
                     body = recognizeShortAudioRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 口语评测接口，基于一小段朗读语音和预期文本，评价朗读者发音质量。当前仅支持华北-北京四。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runAudioAssessment(runAudioAssessmentRequest?: RunAudioAssessmentRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/assessment/audio",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (runAudioAssessmentRequest !== null && runAudioAssessmentRequest !== undefined) {
-                if (runAudioAssessmentRequest instanceof RunAudioAssessmentRequest) {
-                    body = runAudioAssessmentRequest.body
-                } else {
-                    body = runAudioAssessmentRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 多模态评测接口，根据朗读视频数据、视频对应的音频数据和试题文本，综合给出朗读者口语的评测分数。当前仅支持华北-北京四。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runMultiModalAssessment(runMultiModalAssessmentRequest?: RunMultiModalAssessmentRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/assessment/video",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (runMultiModalAssessmentRequest !== null && runMultiModalAssessmentRequest !== undefined) {
-                if (runMultiModalAssessmentRequest instanceof RunMultiModalAssessmentRequest) {
-                    body = runMultiModalAssessmentRequest.body
-                } else {
-                    body = runMultiModalAssessmentRequest['body'];
                 }
             }
 

@@ -1,22 +1,15 @@
 import { NetworkInstance } from './NetworkInstance';
+import { RequestId } from './RequestId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateNetworkInstanceResponse extends SdkResponse {
-    private 'network_instance'?: NetworkInstance;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'network_instance'?: NetworkInstance;
+    public constructor(requestId?: string, networkInstance?: NetworkInstance) { 
         super();
-    }
-    public withNetworkInstance(networkInstance: NetworkInstance): UpdateNetworkInstanceResponse {
+        this['request_id'] = requestId;
         this['network_instance'] = networkInstance;
-        return this;
-    }
-    public set networkInstance(networkInstance: NetworkInstance  | undefined) {
-        this['network_instance'] = networkInstance;
-    }
-    public get networkInstance(): NetworkInstance | undefined {
-        return this['network_instance'];
     }
     public withRequestId(requestId: string): UpdateNetworkInstanceResponse {
         this['request_id'] = requestId;
@@ -27,5 +20,15 @@ export class UpdateNetworkInstanceResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withNetworkInstance(networkInstance: NetworkInstance): UpdateNetworkInstanceResponse {
+        this['network_instance'] = networkInstance;
+        return this;
+    }
+    public set networkInstance(networkInstance: NetworkInstance  | undefined) {
+        this['network_instance'] = networkInstance;
+    }
+    public get networkInstance(): NetworkInstance | undefined {
+        return this['network_instance'];
     }
 }

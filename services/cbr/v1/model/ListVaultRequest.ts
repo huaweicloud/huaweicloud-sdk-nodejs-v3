@@ -8,7 +8,7 @@ export class ListVaultRequest {
     private 'protect_type'?: ListVaultRequestProtectTypeEnum | string;
     private 'object_type'?: string;
     private 'enterprise_project_id'?: string;
-    public id?: string;
+    public id?: Array<string>;
     private 'policy_id'?: string;
     public status?: string;
     private 'resource_ids'?: string;
@@ -66,7 +66,7 @@ export class ListVaultRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withId(id: string): ListVaultRequest {
+    public withId(id: Array<string>): ListVaultRequest {
         this['id'] = id;
         return this;
     }

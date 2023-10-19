@@ -8,6 +8,7 @@ export class UpdateBlackWhiteListDto {
     public port?: string;
     private 'list_type'?: UpdateBlackWhiteListDtoListTypeEnum | number;
     private 'object_id'?: string;
+    public description?: string;
     public constructor() { 
     }
     public withDirection(direction: number): UpdateBlackWhiteListDto {
@@ -55,6 +56,10 @@ export class UpdateBlackWhiteListDto {
     }
     public get objectId(): string | undefined {
         return this['object_id'];
+    }
+    public withDescription(description: string): UpdateBlackWhiteListDto {
+        this['description'] = description;
+        return this;
     }
 }
 

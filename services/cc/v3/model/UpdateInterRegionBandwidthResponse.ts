@@ -1,22 +1,15 @@
 import { InterRegionBandwidth } from './InterRegionBandwidth';
+import { RequestId } from './RequestId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateInterRegionBandwidthResponse extends SdkResponse {
-    private 'inter_region_bandwidth'?: InterRegionBandwidth;
     private 'request_id'?: string;
-    public constructor() { 
+    private 'inter_region_bandwidth'?: InterRegionBandwidth;
+    public constructor(requestId?: string, interRegionBandwidth?: InterRegionBandwidth) { 
         super();
-    }
-    public withInterRegionBandwidth(interRegionBandwidth: InterRegionBandwidth): UpdateInterRegionBandwidthResponse {
+        this['request_id'] = requestId;
         this['inter_region_bandwidth'] = interRegionBandwidth;
-        return this;
-    }
-    public set interRegionBandwidth(interRegionBandwidth: InterRegionBandwidth  | undefined) {
-        this['inter_region_bandwidth'] = interRegionBandwidth;
-    }
-    public get interRegionBandwidth(): InterRegionBandwidth | undefined {
-        return this['inter_region_bandwidth'];
     }
     public withRequestId(requestId: string): UpdateInterRegionBandwidthResponse {
         this['request_id'] = requestId;
@@ -27,5 +20,15 @@ export class UpdateInterRegionBandwidthResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withInterRegionBandwidth(interRegionBandwidth: InterRegionBandwidth): UpdateInterRegionBandwidthResponse {
+        this['inter_region_bandwidth'] = interRegionBandwidth;
+        return this;
+    }
+    public set interRegionBandwidth(interRegionBandwidth: InterRegionBandwidth  | undefined) {
+        this['inter_region_bandwidth'] = interRegionBandwidth;
+    }
+    public get interRegionBandwidth(): InterRegionBandwidth | undefined {
+        return this['inter_region_bandwidth'];
     }
 }

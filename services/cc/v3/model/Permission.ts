@@ -1,19 +1,36 @@
+import { CloudConnectionId } from './CloudConnectionId';
+import { CreatedAt } from './CreatedAt';
+import { Description } from './Description';
+import { DomainId } from './DomainId';
+import { InstanceId } from './InstanceId';
+import { Name } from './Name';
+import { ProjectId } from './ProjectId';
+import { RegionId } from './RegionId';
+import { UUIDIdentifier } from './UUIDIdentifier';
 
 
 export class Permission {
     public id?: string;
     public name?: string;
     public description?: string;
-    public status?: string;
+    private 'instance_id'?: string;
+    private 'project_id'?: string;
+    private 'region_id'?: string;
     private 'created_at'?: Date;
     private 'domain_id'?: string;
     private 'cloud_connection_id'?: string;
-    private 'instance_id'?: string;
+    public status?: string;
     private 'instance_type'?: string;
     private 'instance_domain_id'?: string;
-    private 'region_id'?: string;
-    private 'project_id'?: string;
-    public constructor() { 
+    public constructor(id?: string, name?: string, instanceId?: string, projectId?: string, regionId?: string, createdAt?: Date, domainId?: string, cloudConnectionId?: string) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['instance_id'] = instanceId;
+        this['project_id'] = projectId;
+        this['region_id'] = regionId;
+        this['created_at'] = createdAt;
+        this['domain_id'] = domainId;
+        this['cloud_connection_id'] = cloudConnectionId;
     }
     public withId(id: string): Permission {
         this['id'] = id;
@@ -27,9 +44,35 @@ export class Permission {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: string): Permission {
-        this['status'] = status;
+    public withInstanceId(instanceId: string): Permission {
+        this['instance_id'] = instanceId;
         return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withProjectId(projectId: string): Permission {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
+    }
+    public withRegionId(regionId: string): Permission {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
     }
     public withCreatedAt(createdAt: Date): Permission {
         this['created_at'] = createdAt;
@@ -61,15 +104,9 @@ export class Permission {
     public get cloudConnectionId(): string | undefined {
         return this['cloud_connection_id'];
     }
-    public withInstanceId(instanceId: string): Permission {
-        this['instance_id'] = instanceId;
+    public withStatus(status: string): Permission {
+        this['status'] = status;
         return this;
-    }
-    public set instanceId(instanceId: string  | undefined) {
-        this['instance_id'] = instanceId;
-    }
-    public get instanceId(): string | undefined {
-        return this['instance_id'];
     }
     public withInstanceType(instanceType: string): Permission {
         this['instance_type'] = instanceType;
@@ -90,25 +127,5 @@ export class Permission {
     }
     public get instanceDomainId(): string | undefined {
         return this['instance_domain_id'];
-    }
-    public withRegionId(regionId: string): Permission {
-        this['region_id'] = regionId;
-        return this;
-    }
-    public set regionId(regionId: string  | undefined) {
-        this['region_id'] = regionId;
-    }
-    public get regionId(): string | undefined {
-        return this['region_id'];
-    }
-    public withProjectId(projectId: string): Permission {
-        this['project_id'] = projectId;
-        return this;
-    }
-    public set projectId(projectId: string  | undefined) {
-        this['project_id'] = projectId;
-    }
-    public get projectId(): string | undefined {
-        return this['project_id'];
     }
 }

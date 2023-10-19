@@ -1,6 +1,7 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDto } from './RuleAddressDto';
 import { RuleServiceDto } from './RuleServiceDto';
+import { TagsVO } from './TagsVO';
 
 
 export class UpdateRuleAclDto {
@@ -20,6 +21,7 @@ export class UpdateRuleAclDto {
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
     public type?: UpdateRuleAclDtoTypeEnum | number;
+    public tag?: TagsVO;
     public constructor() { 
     }
     public withAddressType(addressType: UpdateRuleAclDtoAddressTypeEnum | number): UpdateRuleAclDto {
@@ -126,6 +128,10 @@ export class UpdateRuleAclDto {
     }
     public withType(type: UpdateRuleAclDtoTypeEnum | number): UpdateRuleAclDto {
         this['type'] = type;
+        return this;
+    }
+    public withTag(tag: TagsVO): UpdateRuleAclDto {
+        this['tag'] = tag;
         return this;
     }
 }

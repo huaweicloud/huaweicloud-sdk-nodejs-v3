@@ -27,6 +27,8 @@ export class CbrRegion {
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://cbr.cn-north-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cbr.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://cbr.tr-west-1.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://cbr.me-east-1.myhuaweicloud.com"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://cbr.ae-ad-1.g42cloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +52,9 @@ export class CbrRegion {
         "cn-north-9":CbrRegion.CN_NORTH_9,
         "cn-north-2":CbrRegion.CN_NORTH_2,
         "ap-southeast-4":CbrRegion.AP_SOUTHEAST_4,
-        "tr-west-1":CbrRegion.TR_WEST_1
+        "tr-west-1":CbrRegion.TR_WEST_1,
+        "me-east-1":CbrRegion.ME_EAST_1,
+        "ae-ad-1":CbrRegion.AE_AD_1
     };
   
     public static valueOf(regionId: string) {

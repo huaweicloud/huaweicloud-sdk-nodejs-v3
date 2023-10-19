@@ -18,6 +18,9 @@ export class ListAccessControlLogsRequest {
     public limit?: number;
     private 'log_type'?: ListAccessControlLogsRequestLogTypeEnum | string;
     private 'enterprise_project_id'?: string;
+    private 'dst_host'?: string;
+    private 'rule_name'?: string;
+    public action?: string;
     public constructor(projectId?: string, fwInstanceId?: string, startTime?: number, endTime?: number, limit?: number) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -170,6 +173,30 @@ export class ListAccessControlLogsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDstHost(dstHost: string): ListAccessControlLogsRequest {
+        this['dst_host'] = dstHost;
+        return this;
+    }
+    public set dstHost(dstHost: string  | undefined) {
+        this['dst_host'] = dstHost;
+    }
+    public get dstHost(): string | undefined {
+        return this['dst_host'];
+    }
+    public withRuleName(ruleName: string): ListAccessControlLogsRequest {
+        this['rule_name'] = ruleName;
+        return this;
+    }
+    public set ruleName(ruleName: string  | undefined) {
+        this['rule_name'] = ruleName;
+    }
+    public get ruleName(): string | undefined {
+        return this['rule_name'];
+    }
+    public withAction(action: string): ListAccessControlLogsRequest {
+        this['action'] = action;
+        return this;
     }
 }
 
