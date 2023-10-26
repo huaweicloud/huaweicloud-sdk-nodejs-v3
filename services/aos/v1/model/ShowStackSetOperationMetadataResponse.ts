@@ -1,7 +1,7 @@
 import { AdministrationAgencyNamePrimitiveTypeHolder } from './AdministrationAgencyNamePrimitiveTypeHolder';
 import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgencyUrnPrimitiveTypeHolder';
+import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
-import { DeploymentTargetsPrimitiveTypeHolderDeploymentTargets } from './DeploymentTargetsPrimitiveTypeHolderDeploymentTargets';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { StackSetNamePrimitiveTypeHolder } from './StackSetNamePrimitiveTypeHolder';
@@ -24,10 +24,10 @@ export class ShowStackSetOperationMetadataResponse extends SdkResponse {
     private 'administration_agency_name'?: string;
     private 'administration_agency_urn'?: string;
     private 'managed_agency_name'?: string;
-    private 'deployment_targets'?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets;
+    private 'deployment_targets'?: DeploymentTargets;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    public constructor(stackSetName?: string, deploymentTargets?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets) { 
+    public constructor(stackSetName?: string, deploymentTargets?: DeploymentTargets) { 
         super();
         this['stack_set_name'] = stackSetName;
         this['deployment_targets'] = deploymentTargets;
@@ -110,14 +110,14 @@ export class ShowStackSetOperationMetadataResponse extends SdkResponse {
     public get managedAgencyName(): string | undefined {
         return this['managed_agency_name'];
     }
-    public withDeploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets): ShowStackSetOperationMetadataResponse {
+    public withDeploymentTargets(deploymentTargets: DeploymentTargets): ShowStackSetOperationMetadataResponse {
         this['deployment_targets'] = deploymentTargets;
         return this;
     }
-    public set deploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets  | undefined) {
+    public set deploymentTargets(deploymentTargets: DeploymentTargets  | undefined) {
         this['deployment_targets'] = deploymentTargets;
     }
-    public get deploymentTargets(): DeploymentTargetsPrimitiveTypeHolderDeploymentTargets | undefined {
+    public get deploymentTargets(): DeploymentTargets | undefined {
         return this['deployment_targets'];
     }
     public withCreateTime(createTime: string): ShowStackSetOperationMetadataResponse {

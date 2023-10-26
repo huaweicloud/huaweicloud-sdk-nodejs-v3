@@ -6,6 +6,9 @@ import { AddExtendCidrOption } from './model/AddExtendCidrOption';
 import { AddFirewallRulesRequest } from './model/AddFirewallRulesRequest';
 import { AddFirewallRulesRequestBody } from './model/AddFirewallRulesRequestBody';
 import { AddFirewallRulesResponse } from './model/AddFirewallRulesResponse';
+import { AddSecurityGroupsRequest } from './model/AddSecurityGroupsRequest';
+import { AddSecurityGroupsRequestBody } from './model/AddSecurityGroupsRequestBody';
+import { AddSecurityGroupsResponse } from './model/AddSecurityGroupsResponse';
 import { AddSourcesToTrafficMirrorSessionRequest } from './model/AddSourcesToTrafficMirrorSessionRequest';
 import { AddSourcesToTrafficMirrorSessionRequestBody } from './model/AddSourcesToTrafficMirrorSessionRequestBody';
 import { AddSourcesToTrafficMirrorSessionResponse } from './model/AddSourcesToTrafficMirrorSessionResponse';
@@ -13,6 +16,7 @@ import { AddVpcExtendCidrRequest } from './model/AddVpcExtendCidrRequest';
 import { AddVpcExtendCidrRequestBody } from './model/AddVpcExtendCidrRequestBody';
 import { AddVpcExtendCidrResponse } from './model/AddVpcExtendCidrResponse';
 import { AddressGroup } from './model/AddressGroup';
+import { AllowedAddressPair } from './model/AllowedAddressPair';
 import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
 import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
 import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
@@ -93,6 +97,7 @@ import { FirewallRemoveRuleOption } from './model/FirewallRemoveRuleOption';
 import { FirewallRuleDetail } from './model/FirewallRuleDetail';
 import { FirewallUpdateRuleItemOption } from './model/FirewallUpdateRuleItemOption';
 import { FirewallUpdateRuleOption } from './model/FirewallUpdateRuleOption';
+import { InsertSecurityGroupOption } from './model/InsertSecurityGroupOption';
 import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
 import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
 import { ListFirewallDetail } from './model/ListFirewallDetail';
@@ -117,10 +122,16 @@ import { MigrateSubNetworkInterfaceRequest } from './model/MigrateSubNetworkInte
 import { MigrateSubNetworkInterfaceRequestBody } from './model/MigrateSubNetworkInterfaceRequestBody';
 import { MigrateSubNetworkInterfaceResponse } from './model/MigrateSubNetworkInterfaceResponse';
 import { PageInfo } from './model/PageInfo';
+import { Port } from './model/Port';
+import { PrivateIpInfo } from './model/PrivateIpInfo';
 import { RemoveExtendCidrOption } from './model/RemoveExtendCidrOption';
 import { RemoveFirewallRulesRequest } from './model/RemoveFirewallRulesRequest';
 import { RemoveFirewallRulesRequestBody } from './model/RemoveFirewallRulesRequestBody';
 import { RemoveFirewallRulesResponse } from './model/RemoveFirewallRulesResponse';
+import { RemoveSecurityGroupOption } from './model/RemoveSecurityGroupOption';
+import { RemoveSecurityGroupsRequest } from './model/RemoveSecurityGroupsRequest';
+import { RemoveSecurityGroupsRequestBody } from './model/RemoveSecurityGroupsRequestBody';
+import { RemoveSecurityGroupsResponse } from './model/RemoveSecurityGroupsResponse';
 import { RemoveSourcesFromTrafficMirrorSessionRequest } from './model/RemoveSourcesFromTrafficMirrorSessionRequest';
 import { RemoveSourcesFromTrafficMirrorSessionRequestBody } from './model/RemoveSourcesFromTrafficMirrorSessionRequestBody';
 import { RemoveSourcesFromTrafficMirrorSessionResponse } from './model/RemoveSourcesFromTrafficMirrorSessionResponse';
@@ -208,6 +219,26 @@ export class VpcClient {
         return __dirname;
     }
 
+
+    /**
+     * 端口插入安全组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 端口插入安全组
+     * @param {string} portId 端口的唯一标识
+     * @param {AddSecurityGroupsRequestBody} addSecurityGroupsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addSecurityGroups(addSecurityGroupsRequest?: AddSecurityGroupsRequest): Promise<AddSecurityGroupsResponse> {
+        const options = ParamCreater().addSecurityGroups(addSecurityGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 流量镜像会话添加镜像源
@@ -670,6 +701,26 @@ export class VpcClient {
      */
     public migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest?: MigrateSubNetworkInterfaceRequest): Promise<MigrateSubNetworkInterfaceResponse> {
         const options = ParamCreater().migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 端口移除安全组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 端口移除安全组
+     * @param {string} portId 端口的唯一标识
+     * @param {RemoveSecurityGroupsRequestBody} removeSecurityGroupsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeSecurityGroups(removeSecurityGroupsRequest?: RemoveSecurityGroupsRequest): Promise<RemoveSecurityGroupsResponse> {
+        const options = ParamCreater().removeSecurityGroups(removeSecurityGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1396,6 +1447,52 @@ export class VpcClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 端口插入安全组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addSecurityGroups(addSecurityGroupsRequest?: AddSecurityGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ports/{port_id}/insert-security-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (addSecurityGroupsRequest !== null && addSecurityGroupsRequest !== undefined) {
+                if (addSecurityGroupsRequest instanceof AddSecurityGroupsRequest) {
+                    portId = addSecurityGroupsRequest.portId;
+                    body = addSecurityGroupsRequest.body
+                } else {
+                    portId = addSecurityGroupsRequest['port_id'];
+                    body = addSecurityGroupsRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling addSecurityGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 流量镜像会话添加镜像源
@@ -2569,6 +2666,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 端口移除安全组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeSecurityGroups(removeSecurityGroupsRequest?: RemoveSecurityGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ports/{port_id}/remove-security-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (removeSecurityGroupsRequest !== null && removeSecurityGroupsRequest !== undefined) {
+                if (removeSecurityGroupsRequest instanceof RemoveSecurityGroupsRequest) {
+                    portId = removeSecurityGroupsRequest.portId;
+                    body = removeSecurityGroupsRequest.body
+                } else {
+                    portId = removeSecurityGroupsRequest['port_id'];
+                    body = removeSecurityGroupsRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling removeSecurityGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

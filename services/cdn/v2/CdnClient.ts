@@ -17,6 +17,10 @@ import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
+import { CreatePreheatingTasksRequest } from './model/CreatePreheatingTasksRequest';
+import { CreatePreheatingTasksResponse } from './model/CreatePreheatingTasksResponse';
+import { CreateRefreshTasksRequest } from './model/CreateRefreshTasksRequest';
+import { CreateRefreshTasksResponse } from './model/CreateRefreshTasksResponse';
 import { CustomArgs } from './model/CustomArgs';
 import { DomainOriginHost } from './model/DomainOriginHost';
 import { Domains } from './model/Domains';
@@ -47,8 +51,12 @@ import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
+import { PreheatingTaskRequest } from './model/PreheatingTaskRequest';
+import { PreheatingTaskRequestBody } from './model/PreheatingTaskRequestBody';
 import { Quic } from './model/Quic';
 import { RefererConfig } from './model/RefererConfig';
+import { RefreshTaskRequest } from './model/RefreshTaskRequest';
+import { RefreshTaskRequestBody } from './model/RefreshTaskRequestBody';
 import { RemoteAuthRuleVo } from './model/RemoteAuthRuleVo';
 import { RequestLimitRules } from './model/RequestLimitRules';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
@@ -66,18 +74,27 @@ import { ShowDomainLocationStatsRequest } from './model/ShowDomainLocationStatsR
 import { ShowDomainLocationStatsResponse } from './model/ShowDomainLocationStatsResponse';
 import { ShowDomainStatsRequest } from './model/ShowDomainStatsRequest';
 import { ShowDomainStatsResponse } from './model/ShowDomainStatsResponse';
+import { ShowHistoryTaskDetailsRequest } from './model/ShowHistoryTaskDetailsRequest';
+import { ShowHistoryTaskDetailsResponse } from './model/ShowHistoryTaskDetailsResponse';
+import { ShowHistoryTasksRequest } from './model/ShowHistoryTasksRequest';
+import { ShowHistoryTasksResponse } from './model/ShowHistoryTasksResponse';
 import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
 import { ShowTopDomainNamesResponse } from './model/ShowTopDomainNamesResponse';
 import { ShowTopUrlRequest } from './model/ShowTopUrlRequest';
 import { ShowTopUrlResponse } from './model/ShowTopUrlResponse';
+import { ShowUrlTaskInfoRequest } from './model/ShowUrlTaskInfoRequest';
+import { ShowUrlTaskInfoResponse } from './model/ShowUrlTaskInfoResponse';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
+import { TasksObject } from './model/TasksObject';
 import { TopUrlSummary } from './model/TopUrlSummary';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
 import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
+import { UrlObject } from './model/UrlObject';
+import { Urls } from './model/Urls';
 import { UserAgentFilter } from './model/UserAgentFilter';
 import { VideoSeek } from './model/VideoSeek';
 import { WebSocketSeek } from './model/WebSocketSeek';
@@ -110,6 +127,46 @@ export class CdnClient {
      */
     public batchCopyDomain(batchCopyDomainRequest?: BatchCopyDomainRequest): Promise<BatchCopyDomainResponse> {
         const options = ParamCreater().batchCopyDomain(batchCopyDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建预热任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建预热缓存任务
+     * @param {PreheatingTaskRequest} preheatingTaskRequest urls: 多个URL之间需要用逗号分隔，目前不支持对目录的预热，单个url的长度限制为4096字符。每个账户每天最多预热1000个URL，单次提交数量不超过1000条。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示在当前企业项目下添加缓存预热任务，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPreheatingTasks(createPreheatingTasksRequest?: CreatePreheatingTasksRequest): Promise<CreatePreheatingTasksResponse> {
+        const options = ParamCreater().createPreheatingTasks(createPreheatingTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建刷新缓存任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建刷新缓存任务
+     * @param {RefreshTaskRequest} refreshTaskRequest type: 刷新类型，其值可为file 或directory，默认为file; urls: 多个URL之间需用逗号分隔，单个url长度限制为4096字符。每个账户每天最多刷新2000个文件和100个目录，单次提交数量不超过1000条。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示在当前企业项目下添加缓存刷新任务，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRefreshTasks(createRefreshTasksRequest?: CreateRefreshTasksRequest): Promise<CreateRefreshTasksResponse> {
+        const options = ParamCreater().createRefreshTasks(createRefreshTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -432,6 +489,59 @@ export class CdnClient {
     }
 
     /**
+     * 查询刷新预热任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询刷新预热任务详情
+     * @param {string} historyTasksId 刷新任务ID。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {number} [pageSize] 刷新预热的urls所显示单页最大数量，取值范围为1-10000。page_size和page_number必须同时传值。默认值30。
+     * @param {number} [pageNumber] 刷新预热的urls当前查询为第几页，取值范围为1-65535。默认值1。
+     * @param {string} [status] url的状态 processing 处理中，succeed 完成，failed 失败，waiting 等待，refreshing 刷新中，preheating 预热中。
+     * @param {string} [url] url的地址。
+     * @param {number} [createTime] 刷新预热任务的创建时间。不传参默认为查询7天内的任务。最长可查询15天内数据。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHistoryTaskDetails(showHistoryTaskDetailsRequest?: ShowHistoryTaskDetailsRequest): Promise<ShowHistoryTaskDetailsResponse> {
+        const options = ParamCreater().showHistoryTaskDetails(showHistoryTaskDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询刷新预热任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询刷新预热任务
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {number} [pageSize] 单页最大数量，取值范围为1-10000。page_size和page_number必须同时传值。默认值30。
+     * @param {number} [pageNumber] 当前查询第几页，取值范围为1-65535。默认值1。
+     * @param {'task_inprocess' | 'task_done'} [status] 任务状态。 task_inprocess 表示任务处理中，task_done表示任务完成。
+     * @param {number} [startDate] 查询起始时间，相对于UTC 1970-01-01到当前时间相隔的毫秒数。
+     * @param {number} [endDate] 查询结束时间，相对于UTC 1970-01-01到当前时间相隔的毫秒数。
+     * @param {string} [orderField] 用来排序的字段，支持的字段有“task_type”：任务的类型，“total”：url总数，“processing”：处理中的url个数， “succeed”：成功处理的url个数，“failed”：处理失败的url个数，“create_time”：任务的创建时间。order_field和order_type必须同时传值，否则使用默认值\&quot;create_time\&quot; 和 \&quot;desc\&quot;：降序。
+     * @param {string} [orderType] desc：降序，或者asc：升序。默认值desc。
+     * @param {'file' | 'directory'} [fileType] 默认是文件file。file：文件,directory：目录。
+     * @param {'refresh' | 'preheating'} [taskType] 任务类型，refresh：刷新任务；preheating：预热任务
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHistoryTasks(showHistoryTasksRequest?: ShowHistoryTasksRequest): Promise<ShowHistoryTasksResponse> {
+        const options = ParamCreater().showHistoryTasks(showHistoryTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询TOP域名。
      * 
      * - 支持查询90天内的数据。
@@ -504,6 +614,32 @@ export class CdnClient {
     }
 
     /**
+     * 查询刷新预热URL记录。如需此接口，请提交工单开通。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询刷新预热URL记录
+     * @param {number} [startTime] 起始时间戳（毫秒），默认当天00:00。
+     * @param {number} [endTime] 结束时间戳（毫秒），默认次日00:00。
+     * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离。
+     * @param {number} [limit] 单次查询数据条数，上限为100。
+     * @param {string} [url] 刷新预热url。
+     * @param {string} [taskType] 任务类型，REFRESH：刷新任务；PREHEATING：预热任务。
+     * @param {string} [status] url状态，状态类型：processing：处理中；succeed：完成；failed：失败；waiting：等待；refreshing：刷新中; preheating : 预热中。
+     * @param {string} [fileType] 文件类型，file:文件;directory:目录。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUrlTaskInfo(showUrlTaskInfoRequest?: ShowUrlTaskInfoRequest): Promise<ShowUrlTaskInfoResponse> {
+        const options = ParamCreater().showUrlTaskInfo(showUrlTaskInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -563,6 +699,98 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建预热任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPreheatingTasks(createPreheatingTasksRequest?: CreatePreheatingTasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/content/preheating-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (createPreheatingTasksRequest !== null && createPreheatingTasksRequest !== undefined) {
+                if (createPreheatingTasksRequest instanceof CreatePreheatingTasksRequest) {
+                    body = createPreheatingTasksRequest.body
+                    enterpriseProjectId = createPreheatingTasksRequest.enterpriseProjectId;
+                } else {
+                    body = createPreheatingTasksRequest['body'];
+                    enterpriseProjectId = createPreheatingTasksRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建刷新缓存任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRefreshTasks(createRefreshTasksRequest?: CreateRefreshTasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/content/refresh-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (createRefreshTasksRequest !== null && createRefreshTasksRequest !== undefined) {
+                if (createRefreshTasksRequest instanceof CreateRefreshTasksRequest) {
+                    body = createRefreshTasksRequest.body
+                    enterpriseProjectId = createRefreshTasksRequest.enterpriseProjectId;
+                } else {
+                    body = createRefreshTasksRequest['body'];
+                    enterpriseProjectId = createRefreshTasksRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1446,6 +1674,186 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询刷新预热任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHistoryTaskDetails(showHistoryTaskDetailsRequest?: ShowHistoryTaskDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/historytasks/{history_tasks_id}/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let historyTasksId;
+            
+            let enterpriseProjectId;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let status;
+            
+            let url;
+            
+            let createTime;
+
+            if (showHistoryTaskDetailsRequest !== null && showHistoryTaskDetailsRequest !== undefined) {
+                if (showHistoryTaskDetailsRequest instanceof ShowHistoryTaskDetailsRequest) {
+                    historyTasksId = showHistoryTaskDetailsRequest.historyTasksId;
+                    enterpriseProjectId = showHistoryTaskDetailsRequest.enterpriseProjectId;
+                    pageSize = showHistoryTaskDetailsRequest.pageSize;
+                    pageNumber = showHistoryTaskDetailsRequest.pageNumber;
+                    status = showHistoryTaskDetailsRequest.status;
+                    url = showHistoryTaskDetailsRequest.url;
+                    createTime = showHistoryTaskDetailsRequest.createTime;
+                } else {
+                    historyTasksId = showHistoryTaskDetailsRequest['history_tasks_id'];
+                    enterpriseProjectId = showHistoryTaskDetailsRequest['enterprise_project_id'];
+                    pageSize = showHistoryTaskDetailsRequest['page_size'];
+                    pageNumber = showHistoryTaskDetailsRequest['page_number'];
+                    status = showHistoryTaskDetailsRequest['status'];
+                    url = showHistoryTaskDetailsRequest['url'];
+                    createTime = showHistoryTaskDetailsRequest['create_time'];
+                }
+            }
+
+        
+            if (historyTasksId === null || historyTasksId === undefined) {
+            throw new RequiredError('historyTasksId','Required parameter historyTasksId was null or undefined when calling showHistoryTaskDetails.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (url !== null && url !== undefined) {
+                localVarQueryParameter['url'] = url;
+            }
+            if (createTime !== null && createTime !== undefined) {
+                localVarQueryParameter['create_time'] = createTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'history_tasks_id': historyTasksId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询刷新预热任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHistoryTasks(showHistoryTasksRequest?: ShowHistoryTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/historytasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let status;
+            
+            let startDate;
+            
+            let endDate;
+            
+            let orderField;
+            
+            let orderType;
+            
+            let fileType;
+            
+            let taskType;
+
+            if (showHistoryTasksRequest !== null && showHistoryTasksRequest !== undefined) {
+                if (showHistoryTasksRequest instanceof ShowHistoryTasksRequest) {
+                    enterpriseProjectId = showHistoryTasksRequest.enterpriseProjectId;
+                    pageSize = showHistoryTasksRequest.pageSize;
+                    pageNumber = showHistoryTasksRequest.pageNumber;
+                    status = showHistoryTasksRequest.status;
+                    startDate = showHistoryTasksRequest.startDate;
+                    endDate = showHistoryTasksRequest.endDate;
+                    orderField = showHistoryTasksRequest.orderField;
+                    orderType = showHistoryTasksRequest.orderType;
+                    fileType = showHistoryTasksRequest.fileType;
+                    taskType = showHistoryTasksRequest.taskType;
+                } else {
+                    enterpriseProjectId = showHistoryTasksRequest['enterprise_project_id'];
+                    pageSize = showHistoryTasksRequest['page_size'];
+                    pageNumber = showHistoryTasksRequest['page_number'];
+                    status = showHistoryTasksRequest['status'];
+                    startDate = showHistoryTasksRequest['start_date'];
+                    endDate = showHistoryTasksRequest['end_date'];
+                    orderField = showHistoryTasksRequest['order_field'];
+                    orderType = showHistoryTasksRequest['order_type'];
+                    fileType = showHistoryTasksRequest['file_type'];
+                    taskType = showHistoryTasksRequest['task_type'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startDate !== null && startDate !== undefined) {
+                localVarQueryParameter['start_date'] = startDate;
+            }
+            if (endDate !== null && endDate !== undefined) {
+                localVarQueryParameter['end_date'] = endDate;
+            }
+            if (orderField !== null && orderField !== undefined) {
+                localVarQueryParameter['order_field'] = orderField;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
+            if (fileType !== null && fileType !== undefined) {
+                localVarQueryParameter['file_type'] = fileType;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询TOP域名。
          * 
          * - 支持查询90天内的数据。
@@ -1627,6 +2035,92 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询刷新预热URL记录。如需此接口，请提交工单开通。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUrlTaskInfo(showUrlTaskInfoRequest?: ShowUrlTaskInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/contentgateway/url-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+            
+            let url;
+            
+            let taskType;
+            
+            let status;
+            
+            let fileType;
+
+            if (showUrlTaskInfoRequest !== null && showUrlTaskInfoRequest !== undefined) {
+                if (showUrlTaskInfoRequest instanceof ShowUrlTaskInfoRequest) {
+                    startTime = showUrlTaskInfoRequest.startTime;
+                    endTime = showUrlTaskInfoRequest.endTime;
+                    offset = showUrlTaskInfoRequest.offset;
+                    limit = showUrlTaskInfoRequest.limit;
+                    url = showUrlTaskInfoRequest.url;
+                    taskType = showUrlTaskInfoRequest.taskType;
+                    status = showUrlTaskInfoRequest.status;
+                    fileType = showUrlTaskInfoRequest.fileType;
+                } else {
+                    startTime = showUrlTaskInfoRequest['start_time'];
+                    endTime = showUrlTaskInfoRequest['end_time'];
+                    offset = showUrlTaskInfoRequest['offset'];
+                    limit = showUrlTaskInfoRequest['limit'];
+                    url = showUrlTaskInfoRequest['url'];
+                    taskType = showUrlTaskInfoRequest['task_type'];
+                    status = showUrlTaskInfoRequest['status'];
+                    fileType = showUrlTaskInfoRequest['file_type'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (url !== null && url !== undefined) {
+                localVarQueryParameter['url'] = url;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (fileType !== null && fileType !== undefined) {
+                localVarQueryParameter['file_type'] = fileType;
             }
 
             options.queryParams = localVarQueryParameter;

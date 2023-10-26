@@ -17,6 +17,11 @@ export class ListSecurityEventsRequest {
     private 'begin_time'?: string;
     private 'end_time'?: string;
     private 'event_class_ids'?: Array<string>;
+    private 'severity_list'?: Array<string>;
+    private 'attack_tag'?: string;
+    private 'asset_value'?: string;
+    private 'tag_list'?: Array<string>;
+    private 'att_ck'?: string;
     public constructor(region?: string, category?: string) { 
         this['region'] = region;
         this['category'] = category;
@@ -150,5 +155,55 @@ export class ListSecurityEventsRequest {
     }
     public get eventClassIds(): Array<string> | undefined {
         return this['event_class_ids'];
+    }
+    public withSeverityList(severityList: Array<string>): ListSecurityEventsRequest {
+        this['severity_list'] = severityList;
+        return this;
+    }
+    public set severityList(severityList: Array<string>  | undefined) {
+        this['severity_list'] = severityList;
+    }
+    public get severityList(): Array<string> | undefined {
+        return this['severity_list'];
+    }
+    public withAttackTag(attackTag: string): ListSecurityEventsRequest {
+        this['attack_tag'] = attackTag;
+        return this;
+    }
+    public set attackTag(attackTag: string  | undefined) {
+        this['attack_tag'] = attackTag;
+    }
+    public get attackTag(): string | undefined {
+        return this['attack_tag'];
+    }
+    public withAssetValue(assetValue: string): ListSecurityEventsRequest {
+        this['asset_value'] = assetValue;
+        return this;
+    }
+    public set assetValue(assetValue: string  | undefined) {
+        this['asset_value'] = assetValue;
+    }
+    public get assetValue(): string | undefined {
+        return this['asset_value'];
+    }
+    public withTagList(tagList: Array<string>): ListSecurityEventsRequest {
+        this['tag_list'] = tagList;
+        return this;
+    }
+    public set tagList(tagList: Array<string>  | undefined) {
+        this['tag_list'] = tagList;
+    }
+    public get tagList(): Array<string> | undefined {
+        return this['tag_list'];
+    }
+    public withAttCk(attCk: string): ListSecurityEventsRequest {
+        this['att_ck'] = attCk;
+        return this;
+    }
+    public set attCk(attCk: string  | undefined) {
+        this['att_ck'] = attCk;
+    }
+    public get attCk(): string | undefined {
+        return this['att_ck'];
     }
 }

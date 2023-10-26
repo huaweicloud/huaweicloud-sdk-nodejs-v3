@@ -52,8 +52,8 @@ import { DeployStackSetRequest } from './model/DeployStackSetRequest';
 import { DeployStackSetRequestBody } from './model/DeployStackSetRequestBody';
 import { DeployStackSetResponse } from './model/DeployStackSetResponse';
 import { DeploymentIdPrimitiveTypeHolder } from './model/DeploymentIdPrimitiveTypeHolder';
+import { DeploymentTargets } from './model/DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './model/DeploymentTargetsPrimitiveTypeHolder';
-import { DeploymentTargetsPrimitiveTypeHolderDeploymentTargets } from './model/DeploymentTargetsPrimitiveTypeHolderDeploymentTargets';
 import { EnableAutoRollbackPrimitiveTypeHolder } from './model/EnableAutoRollbackPrimitiveTypeHolder';
 import { EnableDeletionProtectionPrimitiveTypeHolder } from './model/EnableDeletionProtectionPrimitiveTypeHolder';
 import { EncryptionStructure } from './model/EncryptionStructure';
@@ -111,6 +111,8 @@ import { ResourceNamePrimitiveTypeHolder } from './model/ResourceNamePrimitiveTy
 import { ResourcePriceResponse } from './model/ResourcePriceResponse';
 import { ResourceTypePrimitiveTypeHolder } from './model/ResourceTypePrimitiveTypeHolder';
 import { RetainAllResourcesTypeHolder } from './model/RetainAllResourcesTypeHolder';
+import { ShowStackInstanceRequest } from './model/ShowStackInstanceRequest';
+import { ShowStackInstanceResponse } from './model/ShowStackInstanceResponse';
 import { ShowStackSetMetadataRequest } from './model/ShowStackSetMetadataRequest';
 import { ShowStackSetMetadataResponse } from './model/ShowStackSetMetadataResponse';
 import { ShowStackSetOperationMetadataRequest } from './model/ShowStackSetOperationMetadataRequest';
@@ -154,6 +156,9 @@ import { Template } from './model/Template';
 import { TemplateBodyPrimitiveTypeHolder } from './model/TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './model/TemplateURIPrimitiveTypeHolder';
 import { TemplateVersion } from './model/TemplateVersion';
+import { UpdateStackInstancesRequest } from './model/UpdateStackInstancesRequest';
+import { UpdateStackInstancesRequestBody } from './model/UpdateStackInstancesRequestBody';
+import { UpdateStackInstancesResponse } from './model/UpdateStackInstancesResponse';
 import { UpdateStackRequest } from './model/UpdateStackRequest';
 import { UpdateStackRequestBody } from './model/UpdateStackRequestBody';
 import { UpdateStackResponse } from './model/UpdateStackResponse';
@@ -172,6 +177,7 @@ import { VarsStructure } from './model/VarsStructure';
 import { VarsStructurePrimitiveTypeHolder } from './model/VarsStructurePrimitiveTypeHolder';
 import { VarsURIPrimitiveTypeHolder } from './model/VarsURIPrimitiveTypeHolder';
 import { VarsUriContentPrimitiveTypeHolder } from './model/VarsUriContentPrimitiveTypeHolder';
+import { VoidBody } from './model/VoidBody';
 
 export class AosClient {
     public static newBuilder(): ClientBuilder<AosClient> {
@@ -212,7 +218,7 @@ export class AosClient {
      *
      * @summary 执行执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {ApplyExecutionPlanRequestBody} [applyExecutionPlanRequestBody] ApplyExecutionPlan API的请求Body体
@@ -249,7 +255,7 @@ export class AosClient {
      *
      * @summary 创建执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {CreateExecutionPlanRequestBody} createExecutionPlanRequestBody CreateExecutionPlan API的请求Body体
      * @param {*} [options] Override http request option.
@@ -275,7 +281,7 @@ export class AosClient {
      *
      * @summary 删除执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
@@ -350,7 +356,7 @@ export class AosClient {
      *
      * @summary 预估执行计划价格
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
@@ -378,7 +384,7 @@ export class AosClient {
      *
      * @summary 获取执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
@@ -408,7 +414,7 @@ export class AosClient {
      *
      * @summary 获取执行计划元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
@@ -441,7 +447,7 @@ export class AosClient {
      *
      * @summary 列举执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -469,7 +475,7 @@ export class AosClient {
      *
      * @summary 继续部署资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {ContinueDeployStackRequestBody} [continueDeployStackRequestBody] ContinueDeployStack API的请求Body体
      * @param {*} [options] Override http request option.
@@ -498,7 +504,7 @@ export class AosClient {
      *
      * @summary 继续回滚资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {ContinueRollbackStackRequestBody} [continueRollbackStackRequestBody] ContinueRollbackStack API的请求Body体
      * @param {*} [options] Override http request option.
@@ -523,7 +529,7 @@ export class AosClient {
      *
      * @summary 创建资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {CreateStackRequestBody} createStackRequestBody CreateStack API的请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -557,7 +563,7 @@ export class AosClient {
      *
      * @summary 删除资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -594,7 +600,7 @@ export class AosClient {
      *
      * @summary 条件删除资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {DeleteStackEnhancedRequestBody} [deleteStackEnhancedRequestBody] DeleteStackEnhanced API的请求Body体
      * @param {*} [options] Override http request option.
@@ -626,7 +632,7 @@ export class AosClient {
      *
      * @summary 部署资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {DeployStackRequestBody} deployStackRequestBody DeployStack API的请求Body体
      * @param {*} [options] Override http request option.
@@ -669,7 +675,7 @@ export class AosClient {
      *
      * @summary 获取资源栈元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -713,7 +719,7 @@ export class AosClient {
      *
      * @summary 获取资源栈模板
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -743,7 +749,7 @@ export class AosClient {
      *
      * @summary 列举资源栈事件
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {string} [deploymentId] 标识部署的唯一Id，此Id由资源编排服务在触发部署、回滚等操作时生成，为UUID。
@@ -779,7 +785,7 @@ export class AosClient {
      *
      * @summary 列举资源栈输出
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -810,7 +816,7 @@ export class AosClient {
      *
      * @summary 列举资源栈资源
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400
      * @param {*} [options] Override http request option.
@@ -840,7 +846,7 @@ export class AosClient {
      *
      * @summary 列举资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -878,7 +884,7 @@ export class AosClient {
      *
      * @summary 更新资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {UpdateStackRequestBody} updateStackRequestBody UpdateStack API的请求Body体
      * @param {*} [options] Override http request option.
@@ -951,7 +957,7 @@ export class AosClient {
      * 
      * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
      * 
-     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。
+     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
      * 
      * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
      * 
@@ -1048,7 +1054,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {*} [options] Override http request option.
@@ -1078,7 +1084,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {*} [options] Override http request option.
@@ -1107,7 +1113,7 @@ export class AosClient {
      *
      * @summary 列举资源栈集
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
+     * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
      * @param {*} [options] Override http request option.
@@ -1115,6 +1121,30 @@ export class AosClient {
      */
     public listStackSets(listStackSetsRequest?: ListStackSetsRequest): Promise<ListStackSetsResponse> {
         const options = ParamCreater().listStackSets(listStackSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源栈实例（ShowStackInstance）
+     * 
+     * 用户可以使用此API获取资源栈实例的详细信息，包括关联资源栈名称与id，创建时间，参数覆盖等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源栈实例
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} stackInstanceAddr 资源栈实例的唯一地址。该地址由region和stack_domain_id通过\&quot;/\&quot;（转义后为%2f或%2F）拼接而成。该地址在domain_id+region+stack_set_name下唯一。
+     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStackInstance(showStackInstanceRequest?: ShowStackInstanceRequest): Promise<ShowStackInstanceResponse> {
+        const options = ParamCreater().showStackInstance(showStackInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1198,6 +1228,39 @@ export class AosClient {
     }
 
     /**
+     * 更新资源栈实例（UpdateStackInstances）
+     * 
+     * 此API用于更新并部署指定资源栈实例集合，并返回资源栈集操作ID（stack_set_operation_id）
+     * 
+     * 此API可以通过var_overrides参数，更新指定资源栈实例的参数值，进行参数覆盖。若var_overrides参数未给与，则默认使用当前资源栈集中记录的参数进行部署，详见：var_overrides参数描述。用户只可以更新已经存在的资源栈实例，如果用户想要增加额外的资源栈实例，请使用CreateStackInstances API。
+     * 
+     * 通过DeployStackSet API更新资源栈集参数后，资源栈实例中已经被覆盖的参数不会被更新，仍然保留覆盖值。
+     * 
+     * 用户只能覆盖已经在资源栈集中记录的参数，如果用户想要增加可以覆盖的参数，需要先通过DeployStackSet API更新资源栈集记录的参数集合。
+     * 
+     * * 当触发的部署失败时，资源栈实例不会自动回滚参数覆盖，但部署失败的资源栈会默认自动回滚，已经部署成功的资源栈不会触发回滚。
+     * 
+     * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源栈实例
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {UpdateStackInstancesRequestBody} updateStackInstancesRequestBody UpdateStackInstances API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStackInstances(updateStackInstancesRequest?: UpdateStackInstancesRequest): Promise<UpdateStackInstancesResponse> {
+        const options = ParamCreater().updateStackInstances(updateStackInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新资源栈集（UpdateStackSet）
      * 
      * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;五个属性中的一个或多个。
@@ -1241,7 +1304,7 @@ export class AosClient {
      *
      * @summary 解析模板参数
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
-     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)
      * @param {ParseTemplateVariablesRequestBody} parseTemplateVariablesRequestBody ParseTemplateVariables API的请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3099,7 +3162,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
          * 
-         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。
+         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
          * 
          * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
          * 
@@ -3500,6 +3563,67 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取资源栈实例（ShowStackInstance）
+         * 
+         * 用户可以使用此API获取资源栈实例的详细信息，包括关联资源栈名称与id，创建时间，参数覆盖等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStackInstance(showStackInstanceRequest?: ShowStackInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances/{stack_instance_addr}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+            
+            let stackInstanceAddr;
+            
+            let stackSetId;
+
+            if (showStackInstanceRequest !== null && showStackInstanceRequest !== undefined) {
+                if (showStackInstanceRequest instanceof ShowStackInstanceRequest) {
+                    clientRequestId = showStackInstanceRequest.clientRequestId;
+                    stackSetName = showStackInstanceRequest.stackSetName;
+                    stackInstanceAddr = showStackInstanceRequest.stackInstanceAddr;
+                    stackSetId = showStackInstanceRequest.stackSetId;
+                } else {
+                    clientRequestId = showStackInstanceRequest['Client-Request-Id'];
+                    stackSetName = showStackInstanceRequest['stack_set_name'];
+                    stackInstanceAddr = showStackInstanceRequest['stack_instance_addr'];
+                    stackSetId = showStackInstanceRequest['stack_set_id'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling showStackInstance.');
+            }
+            if (stackInstanceAddr === null || stackInstanceAddr === undefined) {
+            throw new RequiredError('stackInstanceAddr','Required parameter stackInstanceAddr was null or undefined when calling showStackInstance.');
+            }
+            if (stackSetId !== null && stackSetId !== undefined) {
+                localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName,'stack_instance_addr': stackInstanceAddr, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取资源栈集元数据（ShowStackSetMetadata）
          * 
          * * 用户可以使用此API获取资源栈集的元数据
@@ -3668,6 +3792,71 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新资源栈实例（UpdateStackInstances）
+         * 
+         * 此API用于更新并部署指定资源栈实例集合，并返回资源栈集操作ID（stack_set_operation_id）
+         * 
+         * 此API可以通过var_overrides参数，更新指定资源栈实例的参数值，进行参数覆盖。若var_overrides参数未给与，则默认使用当前资源栈集中记录的参数进行部署，详见：var_overrides参数描述。用户只可以更新已经存在的资源栈实例，如果用户想要增加额外的资源栈实例，请使用CreateStackInstances API。
+         * 
+         * 通过DeployStackSet API更新资源栈集参数后，资源栈实例中已经被覆盖的参数不会被更新，仍然保留覆盖值。
+         * 
+         * 用户只能覆盖已经在资源栈集中记录的参数，如果用户想要增加可以覆盖的参数，需要先通过DeployStackSet API更新资源栈集记录的参数集合。
+         * 
+         * * 当触发的部署失败时，资源栈实例不会自动回滚参数覆盖，但部署失败的资源栈会默认自动回滚，已经部署成功的资源栈不会触发回滚。
+         * 
+         * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStackInstances(updateStackInstancesRequest?: UpdateStackInstancesRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (updateStackInstancesRequest !== null && updateStackInstancesRequest !== undefined) {
+                if (updateStackInstancesRequest instanceof UpdateStackInstancesRequest) {
+                    clientRequestId = updateStackInstancesRequest.clientRequestId;
+                    stackSetName = updateStackInstancesRequest.stackSetName;
+                    body = updateStackInstancesRequest.body
+                } else {
+                    clientRequestId = updateStackInstancesRequest['Client-Request-Id'];
+                    stackSetName = updateStackInstancesRequest['stack_set_name'];
+                    body = updateStackInstancesRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling updateStackInstances.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'stack_set_name': stackSetName, };
             options.headers = localVarHeaderParameter;
             return options;

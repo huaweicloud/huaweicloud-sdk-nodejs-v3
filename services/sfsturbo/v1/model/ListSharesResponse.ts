@@ -1,14 +1,14 @@
-import { Shares } from './Shares';
+import { ShareInfo } from './ShareInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSharesResponse extends SdkResponse {
-    public shares?: Array<Shares>;
+    public shares?: Array<ShareInfo>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withShares(shares: Array<Shares>): ListSharesResponse {
+    public withShares(shares: Array<ShareInfo>): ListSharesResponse {
         this['shares'] = shares;
         return this;
     }

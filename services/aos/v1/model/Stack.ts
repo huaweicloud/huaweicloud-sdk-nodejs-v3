@@ -12,8 +12,7 @@ export class Stack {
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'status_message'?: string;
-    public constructor(stackName?: string) { 
-        this['stack_name'] = stackName;
+    public constructor() { 
     }
     public withStackName(stackName: string): Stack {
         this['stack_name'] = stackName;

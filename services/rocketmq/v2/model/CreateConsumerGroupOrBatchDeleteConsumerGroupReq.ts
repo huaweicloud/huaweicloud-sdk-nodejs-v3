@@ -8,6 +8,7 @@ export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
     public broadcast?: boolean;
     public brokers?: Array<string>;
     public name?: string;
+    private 'group_desc'?: string;
     private 'retry_max_time'?: number;
     private 'from_beginning'?: boolean;
     public constructor() { 
@@ -31,6 +32,16 @@ export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
     public withName(name: string): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
         this['name'] = name;
         return this;
+    }
+    public withGroupDesc(groupDesc: string): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
+        this['group_desc'] = groupDesc;
+        return this;
+    }
+    public set groupDesc(groupDesc: string  | undefined) {
+        this['group_desc'] = groupDesc;
+    }
+    public get groupDesc(): string | undefined {
+        return this['group_desc'];
     }
     public withRetryMaxTime(retryMaxTime: number): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
         this['retry_max_time'] = retryMaxTime;

@@ -10,6 +10,12 @@ export class EventResourceResponseInfo {
     private 'vm_name'?: string;
     private 'vm_uuid'?: string;
     private 'container_id'?: string;
+    private 'container_status'?: string;
+    private 'pod_uid'?: string;
+    private 'pod_name'?: string;
+    public namespace?: string;
+    private 'cluster_id'?: string;
+    private 'cluster_name'?: string;
     private 'image_id'?: string;
     private 'image_name'?: string;
     private 'host_attr'?: string;
@@ -111,6 +117,60 @@ export class EventResourceResponseInfo {
     }
     public get containerId(): string | undefined {
         return this['container_id'];
+    }
+    public withContainerStatus(containerStatus: string): EventResourceResponseInfo {
+        this['container_status'] = containerStatus;
+        return this;
+    }
+    public set containerStatus(containerStatus: string  | undefined) {
+        this['container_status'] = containerStatus;
+    }
+    public get containerStatus(): string | undefined {
+        return this['container_status'];
+    }
+    public withPodUid(podUid: string): EventResourceResponseInfo {
+        this['pod_uid'] = podUid;
+        return this;
+    }
+    public set podUid(podUid: string  | undefined) {
+        this['pod_uid'] = podUid;
+    }
+    public get podUid(): string | undefined {
+        return this['pod_uid'];
+    }
+    public withPodName(podName: string): EventResourceResponseInfo {
+        this['pod_name'] = podName;
+        return this;
+    }
+    public set podName(podName: string  | undefined) {
+        this['pod_name'] = podName;
+    }
+    public get podName(): string | undefined {
+        return this['pod_name'];
+    }
+    public withNamespace(namespace: string): EventResourceResponseInfo {
+        this['namespace'] = namespace;
+        return this;
+    }
+    public withClusterId(clusterId: string): EventResourceResponseInfo {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
+    }
+    public withClusterName(clusterName: string): EventResourceResponseInfo {
+        this['cluster_name'] = clusterName;
+        return this;
+    }
+    public set clusterName(clusterName: string  | undefined) {
+        this['cluster_name'] = clusterName;
+    }
+    public get clusterName(): string | undefined {
+        return this['cluster_name'];
     }
     public withImageId(imageId: string): EventResourceResponseInfo {
         this['image_id'] = imageId;

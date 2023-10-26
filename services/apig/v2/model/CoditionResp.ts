@@ -3,6 +3,9 @@ import { ApiConditionBase } from './ApiConditionBase';
 
 export class CoditionResp {
     private 'req_param_name'?: string;
+    private 'sys_param_name'?: CoditionRespSysParamNameEnum | string;
+    private 'cookie_param_name'?: string;
+    private 'frontend_authorizer_param_name'?: string;
     private 'condition_type'?: CoditionRespConditionTypeEnum | string;
     private 'condition_origin'?: CoditionRespConditionOriginEnum | string;
     private 'condition_value'?: string;
@@ -22,6 +25,36 @@ export class CoditionResp {
     }
     public get reqParamName(): string | undefined {
         return this['req_param_name'];
+    }
+    public withSysParamName(sysParamName: CoditionRespSysParamNameEnum | string): CoditionResp {
+        this['sys_param_name'] = sysParamName;
+        return this;
+    }
+    public set sysParamName(sysParamName: CoditionRespSysParamNameEnum | string  | undefined) {
+        this['sys_param_name'] = sysParamName;
+    }
+    public get sysParamName(): CoditionRespSysParamNameEnum | string | undefined {
+        return this['sys_param_name'];
+    }
+    public withCookieParamName(cookieParamName: string): CoditionResp {
+        this['cookie_param_name'] = cookieParamName;
+        return this;
+    }
+    public set cookieParamName(cookieParamName: string  | undefined) {
+        this['cookie_param_name'] = cookieParamName;
+    }
+    public get cookieParamName(): string | undefined {
+        return this['cookie_param_name'];
+    }
+    public withFrontendAuthorizerParamName(frontendAuthorizerParamName: string): CoditionResp {
+        this['frontend_authorizer_param_name'] = frontendAuthorizerParamName;
+        return this;
+    }
+    public set frontendAuthorizerParamName(frontendAuthorizerParamName: string  | undefined) {
+        this['frontend_authorizer_param_name'] = frontendAuthorizerParamName;
+    }
+    public get frontendAuthorizerParamName(): string | undefined {
+        return this['frontend_authorizer_param_name'];
     }
     public withConditionType(conditionType: CoditionRespConditionTypeEnum | string): CoditionResp {
         this['condition_type'] = conditionType;
@@ -83,6 +116,14 @@ export class CoditionResp {
     * @export
     * @enum {string}
     */
+export enum CoditionRespSysParamNameEnum {
+    REQ_PATH = 'req_path',
+    REQ_METHOD = 'req_method'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum CoditionRespConditionTypeEnum {
     EXACT = 'exact',
     ENUM = 'enum',
@@ -94,5 +135,8 @@ export enum CoditionRespConditionTypeEnum {
     */
 export enum CoditionRespConditionOriginEnum {
     PARAM = 'param',
-    SOURCE = 'source'
+    SOURCE = 'source',
+    SYSTEM = 'system',
+    COOKIE = 'cookie',
+    FRONTEND_AUTHORIZER = 'frontend_authorizer'
 }

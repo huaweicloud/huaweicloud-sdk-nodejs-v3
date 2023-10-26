@@ -6,6 +6,7 @@ export class ListPipelinesPageLatestRunStageStatusList {
     public status?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    public id?: string;
     public constructor() { 
     }
     public withName(name: string): ListPipelinesPageLatestRunStageStatusList {
@@ -39,5 +40,9 @@ export class ListPipelinesPageLatestRunStageStatusList {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withId(id: string): ListPipelinesPageLatestRunStageStatusList {
+        this['id'] = id;
+        return this;
     }
 }

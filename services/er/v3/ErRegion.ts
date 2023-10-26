@@ -20,6 +20,7 @@ export class ErRegion {
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://er.la-south-2.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://er.tr-west-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://er.me-east-1.myhuaweicloud.com"]);
+    public static AF_SOUTH_1 = new Region("af-south-1", ["https://er.af-south-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -36,7 +37,8 @@ export class ErRegion {
         "sa-brazil-1":ErRegion.SA_BRAZIL_1,
         "la-south-2":ErRegion.LA_SOUTH_2,
         "tr-west-1":ErRegion.TR_WEST_1,
-        "me-east-1":ErRegion.ME_EAST_1
+        "me-east-1":ErRegion.ME_EAST_1,
+        "af-south-1":ErRegion.AF_SOUTH_1
     };
   
     public static valueOf(regionId: string) {

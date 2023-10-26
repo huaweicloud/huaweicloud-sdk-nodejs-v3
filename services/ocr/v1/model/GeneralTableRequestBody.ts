@@ -8,6 +8,7 @@ export class GeneralTableRequestBody {
     private 'return_confidence'?: boolean;
     private 'return_excel'?: boolean;
     private 'return_rectification_matrix'?: boolean;
+    private 'with_borders'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): GeneralTableRequestBody {
@@ -67,5 +68,15 @@ export class GeneralTableRequestBody {
     }
     public get returnRectificationMatrix(): boolean | undefined {
         return this['return_rectification_matrix'];
+    }
+    public withWithBorders(withBorders: boolean): GeneralTableRequestBody {
+        this['with_borders'] = withBorders;
+        return this;
+    }
+    public set withBorders(withBorders: boolean  | undefined) {
+        this['with_borders'] = withBorders;
+    }
+    public get withBorders(): boolean | undefined {
+        return this['with_borders'];
     }
 }

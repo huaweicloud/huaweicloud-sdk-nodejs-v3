@@ -207,9 +207,9 @@ import { UpdateAlarmTemplateResponse } from './model/UpdateAlarmTemplateResponse
 import { UpdateDashboardRequest } from './model/UpdateDashboardRequest';
 import { UpdateDashboardRequestBody } from './model/UpdateDashboardRequestBody';
 import { UpdateDashboardResponse } from './model/UpdateDashboardResponse';
-import { UpdateNotificationMasksRequest } from './model/UpdateNotificationMasksRequest';
+import { UpdateNotificationMaskRequest } from './model/UpdateNotificationMaskRequest';
+import { UpdateNotificationMaskResponse } from './model/UpdateNotificationMaskResponse';
 import { UpdateNotificationMasksRequestBody } from './model/UpdateNotificationMasksRequestBody';
-import { UpdateNotificationMasksResponse } from './model/UpdateNotificationMasksResponse';
 import { UpdateOneClickAlarmNotificationsRequest } from './model/UpdateOneClickAlarmNotificationsRequest';
 import { UpdateOneClickAlarmNotificationsResponse } from './model/UpdateOneClickAlarmNotificationsResponse';
 import { UpdatePolicy } from './model/UpdatePolicy';
@@ -1182,8 +1182,8 @@ export class CesClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateNotificationMasks(updateNotificationMasksRequest?: UpdateNotificationMasksRequest): Promise<UpdateNotificationMasksResponse> {
-        const options = ParamCreater().updateNotificationMasks(updateNotificationMasksRequest);
+    public updateNotificationMask(updateNotificationMaskRequest?: UpdateNotificationMaskRequest): Promise<UpdateNotificationMaskResponse> {
+        const options = ParamCreater().updateNotificationMask(updateNotificationMaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3388,7 +3388,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateNotificationMasks(updateNotificationMasksRequest?: UpdateNotificationMasksRequest) {
+        updateNotificationMask(updateNotificationMaskRequest?: UpdateNotificationMaskRequest) {
             const options = {
                 method: "PUT",
                 url: "/v2/{project_id}/notification-masks/{notification_mask_id}",
@@ -3404,19 +3404,19 @@ export const ParamCreater = function () {
             
             let notificationMaskId;
 
-            if (updateNotificationMasksRequest !== null && updateNotificationMasksRequest !== undefined) {
-                if (updateNotificationMasksRequest instanceof UpdateNotificationMasksRequest) {
-                    notificationMaskId = updateNotificationMasksRequest.notificationMaskId;
-                    body = updateNotificationMasksRequest.body
+            if (updateNotificationMaskRequest !== null && updateNotificationMaskRequest !== undefined) {
+                if (updateNotificationMaskRequest instanceof UpdateNotificationMaskRequest) {
+                    notificationMaskId = updateNotificationMaskRequest.notificationMaskId;
+                    body = updateNotificationMaskRequest.body
                 } else {
-                    notificationMaskId = updateNotificationMasksRequest['notification_mask_id'];
-                    body = updateNotificationMasksRequest['body'];
+                    notificationMaskId = updateNotificationMaskRequest['notification_mask_id'];
+                    body = updateNotificationMaskRequest['body'];
                 }
             }
 
         
             if (notificationMaskId === null || notificationMaskId === undefined) {
-            throw new RequiredError('notificationMaskId','Required parameter notificationMaskId was null or undefined when calling updateNotificationMasks.');
+            throw new RequiredError('notificationMaskId','Required parameter notificationMaskId was null or undefined when calling updateNotificationMask.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

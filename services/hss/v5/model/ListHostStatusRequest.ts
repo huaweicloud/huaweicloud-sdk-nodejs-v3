@@ -16,6 +16,7 @@ export class ListHostStatusRequest {
     private 'group_id'?: string;
     private 'group_name'?: string;
     public region?: string;
+    private 'has_intrusion'?: boolean;
     private 'policy_group_id'?: string;
     private 'policy_group_name'?: string;
     private 'charging_mode'?: string;
@@ -25,6 +26,7 @@ export class ListHostStatusRequest {
     private 'asset_value'?: string;
     public label?: string;
     private 'server_group'?: string;
+    private 'agent_upgradable'?: boolean;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -167,6 +169,16 @@ export class ListHostStatusRequest {
         this['region'] = region;
         return this;
     }
+    public withHasIntrusion(hasIntrusion: boolean): ListHostStatusRequest {
+        this['has_intrusion'] = hasIntrusion;
+        return this;
+    }
+    public set hasIntrusion(hasIntrusion: boolean  | undefined) {
+        this['has_intrusion'] = hasIntrusion;
+    }
+    public get hasIntrusion(): boolean | undefined {
+        return this['has_intrusion'];
+    }
     public withPolicyGroupId(policyGroupId: string): ListHostStatusRequest {
         this['policy_group_id'] = policyGroupId;
         return this;
@@ -244,6 +256,16 @@ export class ListHostStatusRequest {
     }
     public get serverGroup(): string | undefined {
         return this['server_group'];
+    }
+    public withAgentUpgradable(agentUpgradable: boolean): ListHostStatusRequest {
+        this['agent_upgradable'] = agentUpgradable;
+        return this;
+    }
+    public set agentUpgradable(agentUpgradable: boolean  | undefined) {
+        this['agent_upgradable'] = agentUpgradable;
+    }
+    public get agentUpgradable(): boolean | undefined {
+        return this['agent_upgradable'];
     }
     public withLimit(limit: number): ListHostStatusRequest {
         this['limit'] = limit;

@@ -7,6 +7,8 @@ export class ResizeInstanceReq {
     private 'new_broker_num'?: number;
     private 'new_product_id'?: string;
     private 'publicip_id'?: string;
+    private 'tenant_ips'?: Array<string>;
+    private 'second_tenant_subnet_id'?: string;
     public constructor() { 
     }
     public withNewSpecCode(newSpecCode: string): ResizeInstanceReq {
@@ -68,5 +70,25 @@ export class ResizeInstanceReq {
     }
     public get publicipId(): string | undefined {
         return this['publicip_id'];
+    }
+    public withTenantIps(tenantIps: Array<string>): ResizeInstanceReq {
+        this['tenant_ips'] = tenantIps;
+        return this;
+    }
+    public set tenantIps(tenantIps: Array<string>  | undefined) {
+        this['tenant_ips'] = tenantIps;
+    }
+    public get tenantIps(): Array<string> | undefined {
+        return this['tenant_ips'];
+    }
+    public withSecondTenantSubnetId(secondTenantSubnetId: string): ResizeInstanceReq {
+        this['second_tenant_subnet_id'] = secondTenantSubnetId;
+        return this;
+    }
+    public set secondTenantSubnetId(secondTenantSubnetId: string  | undefined) {
+        this['second_tenant_subnet_id'] = secondTenantSubnetId;
+    }
+    public get secondTenantSubnetId(): string | undefined {
+        return this['second_tenant_subnet_id'];
     }
 }

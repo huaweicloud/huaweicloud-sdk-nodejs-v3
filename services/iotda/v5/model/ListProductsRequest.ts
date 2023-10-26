@@ -5,6 +5,7 @@ export class ListProductsRequest {
     public limit?: number;
     public marker?: string;
     private 'app_id'?: string;
+    private 'product_name'?: string;
     public offset?: number;
     public constructor() { 
     }
@@ -35,6 +36,16 @@ export class ListProductsRequest {
     }
     public get appId(): string | undefined {
         return this['app_id'];
+    }
+    public withProductName(productName: string): ListProductsRequest {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
     }
     public withOffset(offset: number): ListProductsRequest {
         this['offset'] = offset;

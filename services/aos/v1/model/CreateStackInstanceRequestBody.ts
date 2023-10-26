@@ -1,5 +1,5 @@
+import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
-import { DeploymentTargetsPrimitiveTypeHolderDeploymentTargets } from './DeploymentTargetsPrimitiveTypeHolderDeploymentTargets';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { VarOverridesPrimitiveTypeHolder } from './VarOverridesPrimitiveTypeHolder';
 import { VarOverridesPrimitiveTypeHolderVarOverrides } from './VarOverridesPrimitiveTypeHolderVarOverrides';
@@ -7,9 +7,9 @@ import { VarOverridesPrimitiveTypeHolderVarOverrides } from './VarOverridesPrimi
 
 export class CreateStackInstanceRequestBody {
     private 'stack_set_id'?: string;
-    private 'deployment_targets'?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets;
+    private 'deployment_targets'?: DeploymentTargets;
     private 'var_overrides'?: VarOverridesPrimitiveTypeHolderVarOverrides;
-    public constructor(deploymentTargets?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets) { 
+    public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
     public withStackSetId(stackSetId: string): CreateStackInstanceRequestBody {
@@ -22,14 +22,14 @@ export class CreateStackInstanceRequestBody {
     public get stackSetId(): string | undefined {
         return this['stack_set_id'];
     }
-    public withDeploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets): CreateStackInstanceRequestBody {
+    public withDeploymentTargets(deploymentTargets: DeploymentTargets): CreateStackInstanceRequestBody {
         this['deployment_targets'] = deploymentTargets;
         return this;
     }
-    public set deploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets  | undefined) {
+    public set deploymentTargets(deploymentTargets: DeploymentTargets  | undefined) {
         this['deployment_targets'] = deploymentTargets;
     }
-    public get deploymentTargets(): DeploymentTargetsPrimitiveTypeHolderDeploymentTargets | undefined {
+    public get deploymentTargets(): DeploymentTargets | undefined {
         return this['deployment_targets'];
     }
     public withVarOverrides(varOverrides: VarOverridesPrimitiveTypeHolderVarOverrides): CreateStackInstanceRequestBody {

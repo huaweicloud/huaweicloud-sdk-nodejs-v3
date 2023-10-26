@@ -11,6 +11,8 @@ export class EventDetailRequestInfo {
     private 'private_ip'?: string;
     private 'login_ip'?: string;
     private 'login_user_name'?: string;
+    private 'container_id'?: string;
+    private 'container_name'?: string;
     public constructor() { 
     }
     public withAgentId(agentId: string): EventDetailRequestInfo {
@@ -100,5 +102,25 @@ export class EventDetailRequestInfo {
     }
     public get loginUserName(): string | undefined {
         return this['login_user_name'];
+    }
+    public withContainerId(containerId: string): EventDetailRequestInfo {
+        this['container_id'] = containerId;
+        return this;
+    }
+    public set containerId(containerId: string  | undefined) {
+        this['container_id'] = containerId;
+    }
+    public get containerId(): string | undefined {
+        return this['container_id'];
+    }
+    public withContainerName(containerName: string): EventDetailRequestInfo {
+        this['container_name'] = containerName;
+        return this;
+    }
+    public set containerName(containerName: string  | undefined) {
+        this['container_name'] = containerName;
+    }
+    public get containerName(): string | undefined {
+        return this['container_name'];
     }
 }

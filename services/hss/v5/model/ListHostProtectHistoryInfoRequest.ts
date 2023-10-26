@@ -8,6 +8,10 @@ export class ListHostProtectHistoryInfoRequest {
     private 'end_time'?: number;
     public limit?: number;
     public offset?: number;
+    private 'host_name'?: string;
+    private 'host_ip'?: string;
+    private 'file_path'?: string;
+    private 'file_operation'?: string;
     public constructor(region?: string, hostId?: string, startTime?: number, endTime?: number, limit?: number, offset?: number) { 
         this['region'] = region;
         this['host_id'] = hostId;
@@ -67,5 +71,45 @@ export class ListHostProtectHistoryInfoRequest {
     public withOffset(offset: number): ListHostProtectHistoryInfoRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withHostName(hostName: string): ListHostProtectHistoryInfoRequest {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
+    }
+    public withHostIp(hostIp: string): ListHostProtectHistoryInfoRequest {
+        this['host_ip'] = hostIp;
+        return this;
+    }
+    public set hostIp(hostIp: string  | undefined) {
+        this['host_ip'] = hostIp;
+    }
+    public get hostIp(): string | undefined {
+        return this['host_ip'];
+    }
+    public withFilePath(filePath: string): ListHostProtectHistoryInfoRequest {
+        this['file_path'] = filePath;
+        return this;
+    }
+    public set filePath(filePath: string  | undefined) {
+        this['file_path'] = filePath;
+    }
+    public get filePath(): string | undefined {
+        return this['file_path'];
+    }
+    public withFileOperation(fileOperation: string): ListHostProtectHistoryInfoRequest {
+        this['file_operation'] = fileOperation;
+        return this;
+    }
+    public set fileOperation(fileOperation: string  | undefined) {
+        this['file_operation'] = fileOperation;
+    }
+    public get fileOperation(): string | undefined {
+        return this['file_operation'];
     }
 }

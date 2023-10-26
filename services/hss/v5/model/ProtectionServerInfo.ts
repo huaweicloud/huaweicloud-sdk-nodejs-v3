@@ -22,6 +22,7 @@ export class ProtectionServerInfo {
     private 'count_backuped'?: number;
     private 'agent_status'?: string;
     public version?: string;
+    private 'host_source'?: string;
     private 'vault_id'?: string;
     private 'vault_name'?: string;
     private 'vault_size'?: number;
@@ -228,6 +229,16 @@ export class ProtectionServerInfo {
     public withVersion(version: string): ProtectionServerInfo {
         this['version'] = version;
         return this;
+    }
+    public withHostSource(hostSource: string): ProtectionServerInfo {
+        this['host_source'] = hostSource;
+        return this;
+    }
+    public set hostSource(hostSource: string  | undefined) {
+        this['host_source'] = hostSource;
+    }
+    public get hostSource(): string | undefined {
+        return this['host_source'];
     }
     public withVaultId(vaultId: string): ProtectionServerInfo {
         this['vault_id'] = vaultId;

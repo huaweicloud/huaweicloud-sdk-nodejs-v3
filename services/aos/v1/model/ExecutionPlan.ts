@@ -17,8 +17,7 @@ export class ExecutionPlan {
     private 'status_message'?: string;
     private 'create_time'?: string;
     private 'apply_time'?: string;
-    public constructor(stackName?: string, executionPlanName?: string) { 
-        this['stack_name'] = stackName;
+    public constructor(executionPlanName?: string) { 
         this['execution_plan_name'] = executionPlanName;
     }
     public withStackName(stackName: string): ExecutionPlan {

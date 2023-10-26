@@ -40,10 +40,13 @@ export class EventManagementResponseInfo {
     private 'system_info'?: object;
     private 'extend_info'?: object;
     public recommendation?: string;
+    public description?: string;
+    private 'event_abstract'?: string;
     private 'process_info_list'?: Array<EventProcessResponseInfo>;
     private 'user_info_list'?: Array<EventUserResponseInfo>;
     private 'file_info_list'?: Array<EventFileResponseInfo>;
     private 'event_details'?: string;
+    private 'tag_list'?: Array<string>;
     public constructor() { 
     }
     public withEventId(eventId: string): EventManagementResponseInfo {
@@ -368,6 +371,20 @@ export class EventManagementResponseInfo {
         this['recommendation'] = recommendation;
         return this;
     }
+    public withDescription(description: string): EventManagementResponseInfo {
+        this['description'] = description;
+        return this;
+    }
+    public withEventAbstract(eventAbstract: string): EventManagementResponseInfo {
+        this['event_abstract'] = eventAbstract;
+        return this;
+    }
+    public set eventAbstract(eventAbstract: string  | undefined) {
+        this['event_abstract'] = eventAbstract;
+    }
+    public get eventAbstract(): string | undefined {
+        return this['event_abstract'];
+    }
     public withProcessInfoList(processInfoList: Array<EventProcessResponseInfo>): EventManagementResponseInfo {
         this['process_info_list'] = processInfoList;
         return this;
@@ -407,5 +424,15 @@ export class EventManagementResponseInfo {
     }
     public get eventDetails(): string | undefined {
         return this['event_details'];
+    }
+    public withTagList(tagList: Array<string>): EventManagementResponseInfo {
+        this['tag_list'] = tagList;
+        return this;
+    }
+    public set tagList(tagList: Array<string>  | undefined) {
+        this['tag_list'] = tagList;
+    }
+    public get tagList(): Array<string> | undefined {
+        return this['tag_list'];
     }
 }

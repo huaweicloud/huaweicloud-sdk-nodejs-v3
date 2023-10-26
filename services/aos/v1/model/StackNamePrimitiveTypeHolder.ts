@@ -2,8 +2,7 @@
 
 export class StackNamePrimitiveTypeHolder {
     private 'stack_name'?: string;
-    public constructor(stackName?: string) { 
-        this['stack_name'] = stackName;
+    public constructor() { 
     }
     public withStackName(stackName: string): StackNamePrimitiveTypeHolder {
         this['stack_name'] = stackName;

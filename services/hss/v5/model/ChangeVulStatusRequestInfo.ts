@@ -1,3 +1,4 @@
+import { ChangeVulStatusRequestInfoCustomBackupHosts } from './ChangeVulStatusRequestInfoCustomBackupHosts';
 import { HostVulOperateInfo } from './HostVulOperateInfo';
 import { VulOperateInfo } from './VulOperateInfo';
 
@@ -9,6 +10,8 @@ export class ChangeVulStatusRequestInfo {
     public type?: string;
     private 'data_list'?: Array<VulOperateInfo>;
     private 'host_data_list'?: Array<HostVulOperateInfo>;
+    private 'backup_info_id'?: string;
+    private 'custom_backup_hosts'?: Array<ChangeVulStatusRequestInfoCustomBackupHosts>;
     public constructor(operateType?: string, dataList?: Array<VulOperateInfo>) { 
         this['operate_type'] = operateType;
         this['data_list'] = dataList;
@@ -60,5 +63,25 @@ export class ChangeVulStatusRequestInfo {
     }
     public get hostDataList(): Array<HostVulOperateInfo> | undefined {
         return this['host_data_list'];
+    }
+    public withBackupInfoId(backupInfoId: string): ChangeVulStatusRequestInfo {
+        this['backup_info_id'] = backupInfoId;
+        return this;
+    }
+    public set backupInfoId(backupInfoId: string  | undefined) {
+        this['backup_info_id'] = backupInfoId;
+    }
+    public get backupInfoId(): string | undefined {
+        return this['backup_info_id'];
+    }
+    public withCustomBackupHosts(customBackupHosts: Array<ChangeVulStatusRequestInfoCustomBackupHosts>): ChangeVulStatusRequestInfo {
+        this['custom_backup_hosts'] = customBackupHosts;
+        return this;
+    }
+    public set customBackupHosts(customBackupHosts: Array<ChangeVulStatusRequestInfoCustomBackupHosts>  | undefined) {
+        this['custom_backup_hosts'] = customBackupHosts;
+    }
+    public get customBackupHosts(): Array<ChangeVulStatusRequestInfoCustomBackupHosts> | undefined {
+        return this['custom_backup_hosts'];
     }
 }

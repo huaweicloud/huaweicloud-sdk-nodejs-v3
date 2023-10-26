@@ -23,8 +23,7 @@ export class CreateStackRequestBody {
     private 'vars_body'?: string;
     private 'vars_structure'?: Array<VarsStructure>;
     private 'vars_uri'?: string;
-    public constructor(stackName?: string) { 
-        this['stack_name'] = stackName;
+    public constructor() { 
     }
     public withStackName(stackName: string): CreateStackRequestBody {
         this['stack_name'] = stackName;

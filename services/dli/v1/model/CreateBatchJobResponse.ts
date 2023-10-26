@@ -15,7 +15,6 @@ export class CreateBatchJobResponse extends SdkResponse {
     public kind?: string;
     public queue?: string;
     public image?: string;
-    private 'req_body'?: string;
     private 'update_time'?: number;
     public duration?: number;
     public constructor() { 
@@ -90,16 +89,6 @@ export class CreateBatchJobResponse extends SdkResponse {
     public withImage(image: string): CreateBatchJobResponse {
         this['image'] = image;
         return this;
-    }
-    public withReqBody(reqBody: string): CreateBatchJobResponse {
-        this['req_body'] = reqBody;
-        return this;
-    }
-    public set reqBody(reqBody: string  | undefined) {
-        this['req_body'] = reqBody;
-    }
-    public get reqBody(): string | undefined {
-        return this['req_body'];
     }
     public withUpdateTime(updateTime: number): CreateBatchJobResponse {
         this['update_time'] = updateTime;

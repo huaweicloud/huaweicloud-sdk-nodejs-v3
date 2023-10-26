@@ -135,6 +135,8 @@ import { DeleteSqlserverDatabaseRequest } from './model/DeleteSqlserverDatabaseR
 import { DeleteSqlserverDatabaseResponse } from './model/DeleteSqlserverDatabaseResponse';
 import { DeleteSqlserverDbUserRequest } from './model/DeleteSqlserverDbUserRequest';
 import { DeleteSqlserverDbUserResponse } from './model/DeleteSqlserverDbUserResponse';
+import { DiagnosisInstancesInfoResult } from './model/DiagnosisInstancesInfoResult';
+import { DiagnosisItemResult } from './model/DiagnosisItemResult';
 import { DownloadInfoRsp } from './model/DownloadInfoRsp';
 import { DownloadSlowlogRequest } from './model/DownloadSlowlogRequest';
 import { DownloadSlowlogResponse } from './model/DownloadSlowlogResponse';
@@ -210,10 +212,14 @@ import { ListErrorlogForLtsRequest } from './model/ListErrorlogForLtsRequest';
 import { ListErrorlogForLtsResponse } from './model/ListErrorlogForLtsResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { ListInstanceDiagnosisRequest } from './model/ListInstanceDiagnosisRequest';
+import { ListInstanceDiagnosisResponse } from './model/ListInstanceDiagnosisResponse';
 import { ListInstanceParamHistoriesRequest } from './model/ListInstanceParamHistoriesRequest';
 import { ListInstanceParamHistoriesResponse } from './model/ListInstanceParamHistoriesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
+import { ListInstancesInfoDiagnosisRequest } from './model/ListInstancesInfoDiagnosisRequest';
+import { ListInstancesInfoDiagnosisResponse } from './model/ListInstancesInfoDiagnosisResponse';
 import { ListInstancesRecommendationRequest } from './model/ListInstancesRecommendationRequest';
 import { ListInstancesRecommendationResponse } from './model/ListInstancesRecommendationResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
@@ -1260,6 +1266,25 @@ export class RdsClient {
     }
 
     /**
+     * 获取诊断后的实例数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取诊断后的实例数量
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceDiagnosis(listInstanceDiagnosisRequest?: ListInstanceDiagnosisRequest): Promise<ListInstanceDiagnosisResponse> {
+        const options = ParamCreater().listInstanceDiagnosis(listInstanceDiagnosisRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 实例参数修改历史。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1325,6 +1350,28 @@ export class RdsClient {
      */
     public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
         const options = ParamCreater().listInstances(listInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定诊断项的诊断结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定诊断项的诊断结果
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎类型
+     * @param {'high_pressure' | 'lock_wait' | 'insufficient_capacity' | 'slow_sql_frequency' | 'disk_performance_cap' | 'mem_overrun' | 'age_exceed' | 'connections_exceed'} diagnosis 诊断项
+     * @param {number} [offset] offset
+     * @param {number} [limit] limit
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesInfoDiagnosis(listInstancesInfoDiagnosisRequest?: ListInstancesInfoDiagnosisRequest): Promise<ListInstancesInfoDiagnosisResponse> {
+        const options = ParamCreater().listInstancesInfoDiagnosis(listInstancesInfoDiagnosisRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5918,6 +5965,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取诊断后的实例数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceDiagnosis(listInstanceDiagnosisRequest?: ListInstanceDiagnosisRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/diagnosis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+
+            if (listInstanceDiagnosisRequest !== null && listInstanceDiagnosisRequest !== undefined) {
+                if (listInstanceDiagnosisRequest instanceof ListInstanceDiagnosisRequest) {
+                    engine = listInstanceDiagnosisRequest.engine;
+                } else {
+                    engine = listInstanceDiagnosisRequest['engine'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstanceDiagnosis.');
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实例参数修改历史。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6134,6 +6221,70 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定诊断项的诊断结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesInfoDiagnosis(listInstancesInfoDiagnosisRequest?: ListInstancesInfoDiagnosisRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/diagnosis/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let diagnosis;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstancesInfoDiagnosisRequest !== null && listInstancesInfoDiagnosisRequest !== undefined) {
+                if (listInstancesInfoDiagnosisRequest instanceof ListInstancesInfoDiagnosisRequest) {
+                    engine = listInstancesInfoDiagnosisRequest.engine;
+                    diagnosis = listInstancesInfoDiagnosisRequest.diagnosis;
+                    offset = listInstancesInfoDiagnosisRequest.offset;
+                    limit = listInstancesInfoDiagnosisRequest.limit;
+                } else {
+                    engine = listInstancesInfoDiagnosisRequest['engine'];
+                    diagnosis = listInstancesInfoDiagnosisRequest['diagnosis'];
+                    offset = listInstancesInfoDiagnosisRequest['offset'];
+                    limit = listInstancesInfoDiagnosisRequest['limit'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstancesInfoDiagnosis.');
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+            if (diagnosis === null || diagnosis === undefined) {
+                throw new RequiredError('diagnosis','Required parameter diagnosis was null or undefined when calling listInstancesInfoDiagnosis.');
+            }
+            if (diagnosis !== null && diagnosis !== undefined) {
+                localVarQueryParameter['diagnosis'] = diagnosis;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

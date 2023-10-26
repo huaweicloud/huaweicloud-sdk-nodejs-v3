@@ -27,9 +27,8 @@ export class GetExecutionPlanMetadataResponse extends SdkResponse {
     private 'create_time'?: string;
     private 'apply_time'?: string;
     public summary?: ExecutionPlanSummary;
-    public constructor(stackName?: string, executionPlanName?: string) { 
+    public constructor(executionPlanName?: string) { 
         super();
-        this['stack_name'] = stackName;
         this['execution_plan_name'] = executionPlanName;
     }
     public withStackId(stackId: string): GetExecutionPlanMetadataResponse {

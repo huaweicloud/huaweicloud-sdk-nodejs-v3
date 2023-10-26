@@ -20,6 +20,11 @@ export class HostVulInfo {
     private 'cve_list'?: Array<HostVulInfoCveList>;
     private 'is_affect_business'?: boolean;
     private 'first_scan_time'?: number;
+    private 'app_name'?: string;
+    private 'app_version'?: string;
+    private 'app_path'?: string;
+    public version?: string;
+    private 'support_restore'?: boolean;
     public constructor() { 
     }
     public withVulName(vulName: string): HostVulInfo {
@@ -167,5 +172,49 @@ export class HostVulInfo {
     }
     public get firstScanTime(): number | undefined {
         return this['first_scan_time'];
+    }
+    public withAppName(appName: string): HostVulInfo {
+        this['app_name'] = appName;
+        return this;
+    }
+    public set appName(appName: string  | undefined) {
+        this['app_name'] = appName;
+    }
+    public get appName(): string | undefined {
+        return this['app_name'];
+    }
+    public withAppVersion(appVersion: string): HostVulInfo {
+        this['app_version'] = appVersion;
+        return this;
+    }
+    public set appVersion(appVersion: string  | undefined) {
+        this['app_version'] = appVersion;
+    }
+    public get appVersion(): string | undefined {
+        return this['app_version'];
+    }
+    public withAppPath(appPath: string): HostVulInfo {
+        this['app_path'] = appPath;
+        return this;
+    }
+    public set appPath(appPath: string  | undefined) {
+        this['app_path'] = appPath;
+    }
+    public get appPath(): string | undefined {
+        return this['app_path'];
+    }
+    public withVersion(version: string): HostVulInfo {
+        this['version'] = version;
+        return this;
+    }
+    public withSupportRestore(supportRestore: boolean): HostVulInfo {
+        this['support_restore'] = supportRestore;
+        return this;
+    }
+    public set supportRestore(supportRestore: boolean  | undefined) {
+        this['support_restore'] = supportRestore;
+    }
+    public get supportRestore(): boolean | undefined {
+        return this['support_restore'];
     }
 }

@@ -651,9 +651,9 @@ export class CdnClient {
      * @param {'task_inprocess' | 'task_done'} [status] 任务状态。 task_inprocess 表示任务处理中，task_done表示任务完成。
      * @param {number} [startDate] 查询起始时间，相对于UTC 1970-01-01到当前时间相隔的毫秒数。
      * @param {number} [endDate] 查询结束时间，相对于UTC 1970-01-01到当前时间相隔的毫秒数。
-     * @param {string} [orderField] 用来排序的字段，支持的字段有“task_type”，“total”，“processing”， “succeed”，“failed”，“create_time”。order_field和order_type必须同时传值，否则使用默认值\&quot;create_time\&quot; 和 \&quot;desc\&quot;。
-     * @param {string} [orderType] desc 或者asc。默认值desc。
-     * @param {'file' | 'directory'} [fileType] file：文件,directory：目录。
+     * @param {string} [orderField] 用来排序的字段，支持的字段有“task_type”：任务的类型，“total”：url总数，“processing”：处理中的url个数， “succeed”：成功处理的url个数，“failed”：处理失败的url个数，“create_time”：任务的创建时间。order_field和order_type必须同时传值，否则使用默认值\&quot;create_time\&quot; 和 \&quot;desc\&quot;：降序。
+     * @param {string} [orderType] desc：降序，或者asc：升序。默认值desc。
+     * @param {'file' | 'directory'} [fileType] 默认是文件file。file：文件,directory：目录。
      * @param {'refresh' | 'preheating'} [taskType] 任务类型，refresh：刷新任务；preheating：预热任务
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -866,19 +866,19 @@ export class CdnClient {
     }
 
     /**
-     * 查询刷新预热URL记录。如需此接口，请提交工单开通
+     * 查询刷新预热URL记录。如需此接口，请提交工单开通。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询刷新预热URL记录
-     * @param {number} [startTime] 起始时间戳（毫秒），默认当天00:00
-     * @param {number} [endTime] 结束时间戳（毫秒），默认次日00:00
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 单次查询数据条数，上限为100
-     * @param {string} [url] 刷新预热url
-     * @param {string} [taskType] 任务类型，REFRESH：刷新任务；PREHEATING：预热任务
-     * @param {string} [status] url状态，状态类型：processing：处理中；succeed：完成；failed：失败；waiting：等待；refreshing：刷新中; preheating : 预热中
-     * @param {string} [fileType] 文件类型，file:文件;directory:目录
+     * @param {number} [startTime] 起始时间戳（毫秒），默认当天00:00。
+     * @param {number} [endTime] 结束时间戳（毫秒），默认次日00:00。
+     * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离。
+     * @param {number} [limit] 单次查询数据条数，上限为100。
+     * @param {string} [url] 刷新预热url。
+     * @param {string} [taskType] 任务类型，REFRESH：刷新任务；PREHEATING：预热任务。
+     * @param {string} [status] url状态，状态类型：processing：处理中；succeed：完成；failed：失败；waiting：等待；refreshing：刷新中; preheating : 预热中。
+     * @param {string} [fileType] 文件类型，file:文件;directory:目录。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2924,7 +2924,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询刷新预热URL记录。如需此接口，请提交工单开通
+         * 查询刷新预热URL记录。如需此接口，请提交工单开通。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

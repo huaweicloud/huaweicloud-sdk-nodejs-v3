@@ -21,6 +21,7 @@ export class VulHostInfo {
     private 'is_affect_business'?: boolean;
     private 'first_scan_time'?: number;
     private 'scan_time'?: number;
+    private 'support_restore'?: boolean;
     public constructor() { 
     }
     public withHostId(hostId: string): VulHostInfo {
@@ -216,5 +217,15 @@ export class VulHostInfo {
     }
     public get scanTime(): number | undefined {
         return this['scan_time'];
+    }
+    public withSupportRestore(supportRestore: boolean): VulHostInfo {
+        this['support_restore'] = supportRestore;
+        return this;
+    }
+    public set supportRestore(supportRestore: boolean  | undefined) {
+        this['support_restore'] = supportRestore;
+    }
+    public get supportRestore(): boolean | undefined {
+        return this['support_restore'];
     }
 }

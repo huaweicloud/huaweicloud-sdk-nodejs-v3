@@ -1,4 +1,5 @@
 import { CodeSource } from './CodeSource';
+import { PipelineByTemplateDTOVariables } from './PipelineByTemplateDTOVariables';
 
 
 export class PipelineByTemplateDTO {
@@ -6,6 +7,7 @@ export class PipelineByTemplateDTO {
     public description?: string;
     private 'is_publish'?: boolean;
     public sources?: Array<CodeSource>;
+    public variables?: Array<PipelineByTemplateDTOVariables>;
     public constructor() { 
     }
     public withName(name: string): PipelineByTemplateDTO {
@@ -28,6 +30,10 @@ export class PipelineByTemplateDTO {
     }
     public withSources(sources: Array<CodeSource>): PipelineByTemplateDTO {
         this['sources'] = sources;
+        return this;
+    }
+    public withVariables(variables: Array<PipelineByTemplateDTOVariables>): PipelineByTemplateDTO {
+        this['variables'] = variables;
         return this;
     }
 }

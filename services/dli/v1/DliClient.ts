@@ -2301,6 +2301,7 @@ export class DliClient {
      * @param {string} [clusterName] DLI队列名称，不填写则获取当前Project下所有批处理作业(不推荐使用)。
      * @param {number} [end] 用于查询开始时间在该时间点之前的作业。时间格式为unix时间戳，单位：毫秒。
      * @param {number} [from] 起始批处理作业的索引号，默认从0开始。
+     * @param {string} [jobName] 批处理作业的名称。
      * @param {string} [jobId] 
      * @param {string} [order] 指定作业排序方式，默认为CREATE_TIME_DESC（作业提交时间降序），支持DURATION_DESC（作业运行时长降序）、DURATION_ASC（作业运行时长升序）、CREATE_TIME_DESC（作业提交时间降序）、CREATE_TIME_ASC（作业提交时间升序）四种排序方式。
      * @param {string} [queueName] 
@@ -7001,6 +7002,8 @@ export const ParamCreater = function () {
             
             let from;
             
+            let jobName;
+            
             let jobId;
             
             let order;
@@ -7018,6 +7021,7 @@ export const ParamCreater = function () {
                     clusterName = listBatchesRequest.clusterName;
                     end = listBatchesRequest.end;
                     from = listBatchesRequest.from;
+                    jobName = listBatchesRequest.jobName;
                     jobId = listBatchesRequest.jobId;
                     order = listBatchesRequest.order;
                     queueName = listBatchesRequest.queueName;
@@ -7028,6 +7032,7 @@ export const ParamCreater = function () {
                     clusterName = listBatchesRequest['cluster_name'];
                     end = listBatchesRequest['end'];
                     from = listBatchesRequest['from'];
+                    jobName = listBatchesRequest['job-name'];
                     jobId = listBatchesRequest['job-id'];
                     order = listBatchesRequest['order'];
                     queueName = listBatchesRequest['queue_name'];
@@ -7046,6 +7051,9 @@ export const ParamCreater = function () {
             }
             if (from !== null && from !== undefined) {
                 localVarQueryParameter['from'] = from;
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job-name'] = jobName;
             }
             if (jobId !== null && jobId !== undefined) {
                 localVarQueryParameter['job-id'] = jobId;

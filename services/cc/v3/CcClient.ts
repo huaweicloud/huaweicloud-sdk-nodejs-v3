@@ -28,6 +28,8 @@ import { BillingModeEnum } from './model/BillingModeEnum';
 import { CentralNetwork } from './model/CentralNetwork';
 import { CentralNetworkAttachment } from './model/CentralNetworkAttachment';
 import { CentralNetworkAttachmentSpecificationValueInfo } from './model/CentralNetworkAttachmentSpecificationValueInfo';
+import { CentralNetworkCapability } from './model/CentralNetworkCapability';
+import { CentralNetworkCapabilityEnum } from './model/CentralNetworkCapabilityEnum';
 import { CentralNetworkConnection } from './model/CentralNetworkConnection';
 import { CentralNetworkConnectionInfo } from './model/CentralNetworkConnectionInfo';
 import { CentralNetworkConnectionState } from './model/CentralNetworkConnectionState';
@@ -140,6 +142,8 @@ import { ListBandwidthPackagesRequest } from './model/ListBandwidthPackagesReque
 import { ListBandwidthPackagesResponse } from './model/ListBandwidthPackagesResponse';
 import { ListCentralNetworkAttachmentsRequest } from './model/ListCentralNetworkAttachmentsRequest';
 import { ListCentralNetworkAttachmentsResponse } from './model/ListCentralNetworkAttachmentsResponse';
+import { ListCentralNetworkCapabilitiesRequest } from './model/ListCentralNetworkCapabilitiesRequest';
+import { ListCentralNetworkCapabilitiesResponse } from './model/ListCentralNetworkCapabilitiesResponse';
 import { ListCentralNetworkConnectionsRequest } from './model/ListCentralNetworkConnectionsRequest';
 import { ListCentralNetworkConnectionsResponse } from './model/ListCentralNetworkConnectionsResponse';
 import { ListCentralNetworkGdgwAttachmentsRequest } from './model/ListCentralNetworkGdgwAttachmentsRequest';
@@ -1023,6 +1027,25 @@ export class CcClient {
      */
     public updateCentralNetworkGdgwAttachment(updateCentralNetworkGdgwAttachmentRequest?: UpdateCentralNetworkGdgwAttachmentRequest): Promise<UpdateCentralNetworkGdgwAttachmentResponse> {
         const options = ParamCreater().updateCentralNetworkGdgwAttachment(updateCentralNetworkGdgwAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询中心网络能力列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中心网络能力列表
+     * @param {Array<CentralNetworkCapabilityEnum>} [capability] 根据租户能力名查询，可查询多个类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCentralNetworkCapabilities(listCentralNetworkCapabilitiesRequest?: ListCentralNetworkCapabilitiesRequest): Promise<ListCentralNetworkCapabilitiesResponse> {
+        const options = ParamCreater().listCentralNetworkCapabilities(listCentralNetworkCapabilitiesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3379,6 +3402,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'central_network_id': centralNetworkId,'gdgw_attachment_id': gdgwAttachmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询中心网络能力列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCentralNetworkCapabilities(listCentralNetworkCapabilitiesRequest?: ListCentralNetworkCapabilitiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcn/capabilities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let capability;
+
+            if (listCentralNetworkCapabilitiesRequest !== null && listCentralNetworkCapabilitiesRequest !== undefined) {
+                if (listCentralNetworkCapabilitiesRequest instanceof ListCentralNetworkCapabilitiesRequest) {
+                    capability = listCentralNetworkCapabilitiesRequest.capability;
+                } else {
+                    capability = listCentralNetworkCapabilitiesRequest['capability'];
+                }
+            }
+
+        
+            if (capability !== null && capability !== undefined) {
+                localVarQueryParameter['capability'] = capability;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

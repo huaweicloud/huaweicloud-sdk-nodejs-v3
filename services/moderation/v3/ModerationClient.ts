@@ -3,11 +3,14 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AudioCreateRequest } from './model/AudioCreateRequest';
+import { AudioCreateResponse } from './model/AudioCreateResponse';
 import { AudioInputBody } from './model/AudioInputBody';
 import { AudioModerationResultDetail } from './model/AudioModerationResultDetail';
 import { AudioModerationResultRequestParams } from './model/AudioModerationResultRequestParams';
 import { AudioModerationResultRequestParamsData } from './model/AudioModerationResultRequestParamsData';
 import { AudioModerationResultResult } from './model/AudioModerationResultResult';
+import { AudioStreamCreateRequest } from './model/AudioStreamCreateRequest';
+import { AudioStreamCreateRequestData } from './model/AudioStreamCreateRequestData';
 import { CheckImageModerationRequest } from './model/CheckImageModerationRequest';
 import { CheckImageModerationResponse } from './model/CheckImageModerationResponse';
 import { FaceLocationDetail } from './model/FaceLocationDetail';
@@ -17,10 +20,18 @@ import { ImageDetectionResultDetail } from './model/ImageDetectionResultDetail';
 import { ImgTextConfig } from './model/ImgTextConfig';
 import { OCRTextDetail } from './model/OCRTextDetail';
 import { QRLocationDetail } from './model/QRLocationDetail';
+import { RunCloseAudioStreamModerationJobRequest } from './model/RunCloseAudioStreamModerationJobRequest';
+import { RunCloseAudioStreamModerationJobResponse } from './model/RunCloseAudioStreamModerationJobResponse';
+import { RunCloseVideoStreamModerationJobRequest } from './model/RunCloseVideoStreamModerationJobRequest';
+import { RunCloseVideoStreamModerationJobResponse } from './model/RunCloseVideoStreamModerationJobResponse';
 import { RunCreateAudioModerationJobRequest } from './model/RunCreateAudioModerationJobRequest';
 import { RunCreateAudioModerationJobResponse } from './model/RunCreateAudioModerationJobResponse';
+import { RunCreateAudioStreamModerationJobRequest } from './model/RunCreateAudioStreamModerationJobRequest';
+import { RunCreateAudioStreamModerationJobResponse } from './model/RunCreateAudioStreamModerationJobResponse';
 import { RunCreateVideoModerationJobRequest } from './model/RunCreateVideoModerationJobRequest';
 import { RunCreateVideoModerationJobResponse } from './model/RunCreateVideoModerationJobResponse';
+import { RunCreateVideoStreamModerationJobRequest } from './model/RunCreateVideoStreamModerationJobRequest';
+import { RunCreateVideoStreamModerationJobResponse } from './model/RunCreateVideoStreamModerationJobResponse';
 import { RunQueryAudioModerationJobRequest } from './model/RunQueryAudioModerationJobRequest';
 import { RunQueryAudioModerationJobResponse } from './model/RunQueryAudioModerationJobResponse';
 import { RunQueryVideoModerationJobRequest } from './model/RunQueryVideoModerationJobRequest';
@@ -44,6 +55,8 @@ import { VideoModerationResultRequestParams } from './model/VideoModerationResul
 import { VideoModerationResultRequestParamsData } from './model/VideoModerationResultRequestParamsData';
 import { VideoModerationResultResult } from './model/VideoModerationResultResult';
 import { VideoModerationVideoDetail } from './model/VideoModerationVideoDetail';
+import { VideoStreamCreateRequest } from './model/VideoStreamCreateRequest';
+import { VideoStreamCreateRequestData } from './model/VideoStreamCreateRequestData';
 
 export class ModerationClient {
     public static newBuilder(): ClientBuilder<ModerationClient> {
@@ -80,6 +93,44 @@ export class ModerationClient {
     }
 
     /**
+     * 关闭音频流内容审核作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭音频流内容审核作业
+     * @param {string} jobId 创建作业成功时，接口返回的job_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCloseAudioStreamModerationJob(runCloseAudioStreamModerationJobRequest?: RunCloseAudioStreamModerationJobRequest): Promise<RunCloseAudioStreamModerationJobResponse> {
+        const options = ParamCreater().runCloseAudioStreamModerationJob(runCloseAudioStreamModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭视频流审核接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭视频流内容审核作业
+     * @param {string} jobId 创建作业成功时，接口返回的job_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCloseVideoStreamModerationJob(runCloseVideoStreamModerationJobRequest?: RunCloseVideoStreamModerationJobRequest): Promise<RunCloseVideoStreamModerationJobResponse> {
+        const options = ParamCreater().runCloseVideoStreamModerationJob(runCloseVideoStreamModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -99,6 +150,25 @@ export class ModerationClient {
     }
 
     /**
+     * 创建音频流内容审核作业，创建成功会将作业ID返回给用户
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建音频流内容审核作业
+     * @param {AudioStreamCreateRequest} runCreateAudioStreamModerationJobRequestBody 创建音频流内容审核作业请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCreateAudioStreamModerationJob(runCreateAudioStreamModerationJobRequest?: RunCreateAudioStreamModerationJobRequest): Promise<RunCreateAudioStreamModerationJobResponse> {
+        const options = ParamCreater().runCreateAudioStreamModerationJob(runCreateAudioStreamModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建视频内容审核作业，创建成功会将作业ID返回给用户
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -110,6 +180,25 @@ export class ModerationClient {
      */
     public runCreateVideoModerationJob(runCreateVideoModerationJobRequest?: RunCreateVideoModerationJobRequest): Promise<RunCreateVideoModerationJobResponse> {
         const options = ParamCreater().runCreateVideoModerationJob(runCreateVideoModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建视频流内容审核作业，创建成功会将作业ID返回给用户
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建视频流内容审核作业
+     * @param {VideoStreamCreateRequest} runCreateVideoStreamModerationJobRequestBody 创建视频流内容审核作业请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCreateVideoStreamModerationJob(runCreateVideoStreamModerationJobRequest?: RunCreateVideoStreamModerationJobRequest): Promise<RunCreateVideoStreamModerationJobResponse> {
+        const options = ParamCreater().runCreateVideoStreamModerationJob(runCreateVideoStreamModerationJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -216,6 +305,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 关闭音频流内容审核作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCloseAudioStreamModerationJob(runCloseAudioStreamModerationJobRequest?: RunCloseAudioStreamModerationJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/audio-stream/jobs/stop/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (runCloseAudioStreamModerationJobRequest !== null && runCloseAudioStreamModerationJobRequest !== undefined) {
+                if (runCloseAudioStreamModerationJobRequest instanceof RunCloseAudioStreamModerationJobRequest) {
+                    jobId = runCloseAudioStreamModerationJobRequest.jobId;
+                } else {
+                    jobId = runCloseAudioStreamModerationJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling runCloseAudioStreamModerationJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭视频流审核接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCloseVideoStreamModerationJob(runCloseVideoStreamModerationJobRequest?: RunCloseVideoStreamModerationJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/video-stream/jobs/stop/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (runCloseVideoStreamModerationJobRequest !== null && runCloseVideoStreamModerationJobRequest !== undefined) {
+                if (runCloseVideoStreamModerationJobRequest instanceof RunCloseVideoStreamModerationJobRequest) {
+                    jobId = runCloseVideoStreamModerationJobRequest.jobId;
+                } else {
+                    jobId = runCloseVideoStreamModerationJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling runCloseVideoStreamModerationJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -254,6 +417,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建音频流内容审核作业，创建成功会将作业ID返回给用户
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCreateAudioStreamModerationJob(runCreateAudioStreamModerationJobRequest?: RunCreateAudioStreamModerationJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/audio-stream/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runCreateAudioStreamModerationJobRequest !== null && runCreateAudioStreamModerationJobRequest !== undefined) {
+                if (runCreateAudioStreamModerationJobRequest instanceof RunCreateAudioStreamModerationJobRequest) {
+                    body = runCreateAudioStreamModerationJobRequest.body
+                } else {
+                    body = runCreateAudioStreamModerationJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建视频内容审核作业，创建成功会将作业ID返回给用户
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -277,6 +478,44 @@ export const ParamCreater = function () {
                     body = runCreateVideoModerationJobRequest.body
                 } else {
                     body = runCreateVideoModerationJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建视频流内容审核作业，创建成功会将作业ID返回给用户
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCreateVideoStreamModerationJob(runCreateVideoStreamModerationJobRequest?: RunCreateVideoStreamModerationJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/video-stream/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runCreateVideoStreamModerationJobRequest !== null && runCreateVideoStreamModerationJobRequest !== undefined) {
+                if (runCreateVideoStreamModerationJobRequest instanceof RunCreateVideoStreamModerationJobRequest) {
+                    body = runCreateVideoStreamModerationJobRequest.body
+                } else {
+                    body = runCreateVideoStreamModerationJobRequest['body'];
                 }
             }
 

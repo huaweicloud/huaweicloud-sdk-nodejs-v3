@@ -6,6 +6,7 @@ export class ProtectionPolicyInfo {
     private 'policy_name'?: string;
     private 'protection_mode'?: string;
     private 'bait_protection_status'?: string;
+    private 'deploy_mode'?: string;
     private 'protection_directory'?: string;
     private 'protection_type'?: string;
     private 'exclude_directory'?: string;
@@ -14,6 +15,7 @@ export class ProtectionPolicyInfo {
     private 'count_associated_server'?: number;
     private 'operating_system'?: string;
     private 'process_whitelist'?: Array<TrustProcessInfo>;
+    private 'default_policy'?: number;
     public constructor() { 
     }
     public withPolicyId(policyId: string): ProtectionPolicyInfo {
@@ -55,6 +57,16 @@ export class ProtectionPolicyInfo {
     }
     public get baitProtectionStatus(): string | undefined {
         return this['bait_protection_status'];
+    }
+    public withDeployMode(deployMode: string): ProtectionPolicyInfo {
+        this['deploy_mode'] = deployMode;
+        return this;
+    }
+    public set deployMode(deployMode: string  | undefined) {
+        this['deploy_mode'] = deployMode;
+    }
+    public get deployMode(): string | undefined {
+        return this['deploy_mode'];
     }
     public withProtectionDirectory(protectionDirectory: string): ProtectionPolicyInfo {
         this['protection_directory'] = protectionDirectory;
@@ -135,5 +147,15 @@ export class ProtectionPolicyInfo {
     }
     public get processWhitelist(): Array<TrustProcessInfo> | undefined {
         return this['process_whitelist'];
+    }
+    public withDefaultPolicy(defaultPolicy: number): ProtectionPolicyInfo {
+        this['default_policy'] = defaultPolicy;
+        return this;
+    }
+    public set defaultPolicy(defaultPolicy: number  | undefined) {
+        this['default_policy'] = defaultPolicy;
+    }
+    public get defaultPolicy(): number | undefined {
+        return this['default_policy'];
     }
 }

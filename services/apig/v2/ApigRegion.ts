@@ -26,7 +26,7 @@ export class ApigRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://apig.tr-west-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://apig.cn-north-2.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://apig.eu-west-101.myhuaweicloud.eu"]);
-    public static AE_AD_1 = new Region("ae-ad-1", ["https://apig.ae-ad-1.g42cloud.com"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://apig.ae-ad-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {

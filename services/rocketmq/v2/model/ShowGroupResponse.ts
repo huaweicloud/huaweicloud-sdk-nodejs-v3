@@ -6,6 +6,7 @@ export class ShowGroupResponse extends SdkResponse {
     public broadcast?: boolean;
     public brokers?: Array<string>;
     public name?: string;
+    private 'group_desc'?: string;
     private 'retry_max_time'?: number;
     private 'app_id'?: string;
     private 'app_name'?: string;
@@ -28,6 +29,16 @@ export class ShowGroupResponse extends SdkResponse {
     public withName(name: string): ShowGroupResponse {
         this['name'] = name;
         return this;
+    }
+    public withGroupDesc(groupDesc: string): ShowGroupResponse {
+        this['group_desc'] = groupDesc;
+        return this;
+    }
+    public set groupDesc(groupDesc: string  | undefined) {
+        this['group_desc'] = groupDesc;
+    }
+    public get groupDesc(): string | undefined {
+        return this['group_desc'];
     }
     public withRetryMaxTime(retryMaxTime: number): ShowGroupResponse {
         this['retry_max_time'] = retryMaxTime;

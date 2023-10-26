@@ -1,5 +1,5 @@
+import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
-import { DeploymentTargetsPrimitiveTypeHolderDeploymentTargets } from './DeploymentTargetsPrimitiveTypeHolderDeploymentTargets';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
@@ -11,13 +11,13 @@ import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
 export class DeployStackSetRequestBody {
     private 'stack_set_id'?: string;
-    private 'deployment_targets'?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets;
+    private 'deployment_targets'?: DeploymentTargets;
     private 'template_body'?: string;
     private 'template_uri'?: string;
     private 'vars_uri'?: string;
     private 'vars_body'?: string;
     private 'var_overrides'?: VarOverridesPrimitiveTypeHolderVarOverrides;
-    public constructor(deploymentTargets?: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets) { 
+    public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
     public withStackSetId(stackSetId: string): DeployStackSetRequestBody {
@@ -30,14 +30,14 @@ export class DeployStackSetRequestBody {
     public get stackSetId(): string | undefined {
         return this['stack_set_id'];
     }
-    public withDeploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets): DeployStackSetRequestBody {
+    public withDeploymentTargets(deploymentTargets: DeploymentTargets): DeployStackSetRequestBody {
         this['deployment_targets'] = deploymentTargets;
         return this;
     }
-    public set deploymentTargets(deploymentTargets: DeploymentTargetsPrimitiveTypeHolderDeploymentTargets  | undefined) {
+    public set deploymentTargets(deploymentTargets: DeploymentTargets  | undefined) {
         this['deployment_targets'] = deploymentTargets;
     }
-    public get deploymentTargets(): DeploymentTargetsPrimitiveTypeHolderDeploymentTargets | undefined {
+    public get deploymentTargets(): DeploymentTargets | undefined {
         return this['deployment_targets'];
     }
     public withTemplateBody(templateBody: string): DeployStackSetRequestBody {

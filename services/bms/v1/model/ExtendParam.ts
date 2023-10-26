@@ -51,7 +51,8 @@ export class ExtendParam {
     * @enum {string}
     */
 export enum ExtendParamChargingModeEnum {
-    PREPAID = 'prePaid'
+    PREPAID = 'prePaid',
+    POSTPAID = 'postPaid'
 }
 /**
     * @export

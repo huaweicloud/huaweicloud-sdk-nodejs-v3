@@ -4,6 +4,7 @@ export class ListBatchesRequest {
     private 'cluster_name'?: string;
     public end?: number;
     public from?: number;
+    private 'job-name'?: string;
     private 'job-id'?: string;
     public order?: string;
     private 'queue_name'?: string;
@@ -29,6 +30,16 @@ export class ListBatchesRequest {
     public withFrom(from: number): ListBatchesRequest {
         this['from'] = from;
         return this;
+    }
+    public withJobName(jobName: string): ListBatchesRequest {
+        this['job-name'] = jobName;
+        return this;
+    }
+    public set jobName(jobName: string  | undefined) {
+        this['job-name'] = jobName;
+    }
+    public get jobName(): string | undefined {
+        return this['job-name'];
     }
     public withJobId(jobId: string): ListBatchesRequest {
         this['job-id'] = jobId;

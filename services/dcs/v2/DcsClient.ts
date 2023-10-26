@@ -6,6 +6,7 @@ import { AclAccountModifyPasswordBody } from './model/AclAccountModifyPasswordBo
 import { AclAccountResetPasswordBody } from './model/AclAccountResetPasswordBody';
 import { AclAccountResp } from './model/AclAccountResp';
 import { AclAccountRoleModifyBody } from './model/AclAccountRoleModifyBody';
+import { AdditionalBackupRequest } from './model/AdditionalBackupRequest';
 import { AttrsObject } from './model/AttrsObject';
 import { AutoscanConfigRequest } from './model/AutoscanConfigRequest';
 import { AvailableZones } from './model/AvailableZones';
@@ -32,6 +33,8 @@ import { BssParamEntity } from './model/BssParamEntity';
 import { ChangeInstanceStatusBody } from './model/ChangeInstanceStatusBody';
 import { ChangeMasterStandbyRequest } from './model/ChangeMasterStandbyRequest';
 import { ChangeMasterStandbyResponse } from './model/ChangeMasterStandbyResponse';
+import { CheckMigrationConnectivityRequest } from './model/CheckMigrationConnectivityRequest';
+import { CheckMigrationConnectivityResponse } from './model/CheckMigrationConnectivityResponse';
 import { ClusterRedisNodeMonitoredObject } from './model/ClusterRedisNodeMonitoredObject';
 import { CommandTimeTaken } from './model/CommandTimeTaken';
 import { CommandTimeTakenList } from './model/CommandTimeTakenList';
@@ -68,6 +71,8 @@ import { CreateOnlineMigrationTaskBody } from './model/CreateOnlineMigrationTask
 import { CreateOnlineMigrationTaskRequest } from './model/CreateOnlineMigrationTaskRequest';
 import { CreateOnlineMigrationTaskResponse } from './model/CreateOnlineMigrationTaskResponse';
 import { CreateOrDeleteInstanceTags } from './model/CreateOrDeleteInstanceTags';
+import { CreateOrUpdateBackUpInfoRequest } from './model/CreateOrUpdateBackUpInfoRequest';
+import { CreateOrUpdateBackUpInfoResponse } from './model/CreateOrUpdateBackUpInfoResponse';
 import { CreateRedislogDownloadLinkRequest } from './model/CreateRedislogDownloadLinkRequest';
 import { CreateRedislogDownloadLinkResponse } from './model/CreateRedislogDownloadLinkResponse';
 import { CreateRedislogRequest } from './model/CreateRedislogRequest';
@@ -100,8 +105,13 @@ import { DimChild } from './model/DimChild';
 import { DomainNameEntity } from './model/DomainNameEntity';
 import { DomainNameInfo } from './model/DomainNameInfo';
 import { DownloadBackupFilesReq } from './model/DownloadBackupFilesReq';
+import { ExchangeInstanceIpRequest } from './model/ExchangeInstanceIpRequest';
+import { ExchangeInstanceIpResponse } from './model/ExchangeInstanceIpResponse';
 import { ExecuteClusterSwitchoverRequest } from './model/ExecuteClusterSwitchoverRequest';
 import { ExecuteClusterSwitchoverResponse } from './model/ExecuteClusterSwitchoverResponse';
+import { ExecuteCommandMobilizationRequest } from './model/ExecuteCommandMobilizationRequest';
+import { ExecuteCommandMobilizationResponse } from './model/ExecuteCommandMobilizationResponse';
+import { ExecuteCommandRequestBody } from './model/ExecuteCommandRequestBody';
 import { Features } from './model/Features';
 import { Files } from './model/Files';
 import { FlavorAzObject } from './model/FlavorAzObject';
@@ -118,6 +128,7 @@ import { InstanceRestoreInfo } from './model/InstanceRestoreInfo';
 import { InstanceStatistic } from './model/InstanceStatistic';
 import { Instances } from './model/Instances';
 import { InstancesMonitoredObject } from './model/InstancesMonitoredObject';
+import { IpExchangeRequest } from './model/IpExchangeRequest';
 import { LinksItem } from './model/LinksItem';
 import { ListAclAccountsRequest } from './model/ListAclAccountsRequest';
 import { ListAclAccountsResponse } from './model/ListAclAccountsResponse';
@@ -131,6 +142,9 @@ import { ListBackupRecordsRequest } from './model/ListBackupRecordsRequest';
 import { ListBackupRecordsResponse } from './model/ListBackupRecordsResponse';
 import { ListBigkeyScanTasksRequest } from './model/ListBigkeyScanTasksRequest';
 import { ListBigkeyScanTasksResponse } from './model/ListBigkeyScanTasksResponse';
+import { ListCenterTaskRequest } from './model/ListCenterTaskRequest';
+import { ListCenterTaskResponse } from './model/ListCenterTaskResponse';
+import { ListCenterTasksResp } from './model/ListCenterTasksResp';
 import { ListConfigHistoriesRequest } from './model/ListConfigHistoriesRequest';
 import { ListConfigHistoriesResponse } from './model/ListConfigHistoriesResponse';
 import { ListConfigTemplatesRequest } from './model/ListConfigTemplatesRequest';
@@ -149,6 +163,8 @@ import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListMaintenanceWindowsRequest } from './model/ListMaintenanceWindowsRequest';
 import { ListMaintenanceWindowsResponse } from './model/ListMaintenanceWindowsResponse';
+import { ListMigrationTaskLogsRequest } from './model/ListMigrationTaskLogsRequest';
+import { ListMigrationTaskLogsResponse } from './model/ListMigrationTaskLogsResponse';
 import { ListMigrationTaskRequest } from './model/ListMigrationTaskRequest';
 import { ListMigrationTaskResponse } from './model/ListMigrationTaskResponse';
 import { ListMonitoredObjectsOfInstanceRequest } from './model/ListMonitoredObjectsOfInstanceRequest';
@@ -167,8 +183,13 @@ import { ListStatisticsOfRunningInstancesRequest } from './model/ListStatisticsO
 import { ListStatisticsOfRunningInstancesResponse } from './model/ListStatisticsOfRunningInstancesResponse';
 import { ListTagsOfTenantRequest } from './model/ListTagsOfTenantRequest';
 import { ListTagsOfTenantResponse } from './model/ListTagsOfTenantResponse';
+import { LoginWebCliBody } from './model/LoginWebCliBody';
+import { LoginWebCliRequest } from './model/LoginWebCliRequest';
+import { LoginWebCliResponse } from './model/LoginWebCliResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
+import { MigrationLog } from './model/MigrationLog';
 import { MigrationTaskList } from './model/MigrationTaskList';
+import { MigrationUpdateRequestEntity } from './model/MigrationUpdateRequestEntity';
 import { ModifyInstanceBody } from './model/ModifyInstanceBody';
 import { ModifyInstancePasswordBody } from './model/ModifyInstancePasswordBody';
 import { ModifyIpWhitelistBody } from './model/ModifyIpWhitelistBody';
@@ -181,6 +202,7 @@ import { QueryRedisConfig } from './model/QueryRedisConfig';
 import { QueryTenantQuotaRespQuotas } from './model/QueryTenantQuotaRespQuotas';
 import { RecordsResponse } from './model/RecordsResponse';
 import { RedisConfig } from './model/RedisConfig';
+import { RedisConnectionParam } from './model/RedisConnectionParam';
 import { RenameCommandResp } from './model/RenameCommandResp';
 import { ResetAclAccountPassWordRequest } from './model/ResetAclAccountPassWordRequest';
 import { ResetAclAccountPassWordResponse } from './model/ResetAclAccountPassWordResponse';
@@ -198,9 +220,15 @@ import { RestoreInstanceBody } from './model/RestoreInstanceBody';
 import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
 import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
 import { RunlogItem } from './model/RunlogItem';
+import { ScanExpireKeyRequest } from './model/ScanExpireKeyRequest';
+import { ScanExpireKeyResponse } from './model/ScanExpireKeyResponse';
 import { SetOnlineMigrationTaskBody } from './model/SetOnlineMigrationTaskBody';
 import { SetOnlineMigrationTaskRequest } from './model/SetOnlineMigrationTaskRequest';
 import { SetOnlineMigrationTaskResponse } from './model/SetOnlineMigrationTaskResponse';
+import { ShowBackUpInfoRequest } from './model/ShowBackUpInfoRequest';
+import { ShowBackUpInfoResponse } from './model/ShowBackUpInfoResponse';
+import { ShowBackgroundTaskProgressRequest } from './model/ShowBackgroundTaskProgressRequest';
+import { ShowBackgroundTaskProgressResponse } from './model/ShowBackgroundTaskProgressResponse';
 import { ShowBigkeyAutoscanConfigRequest } from './model/ShowBigkeyAutoscanConfigRequest';
 import { ShowBigkeyAutoscanConfigResponse } from './model/ShowBigkeyAutoscanConfigResponse';
 import { ShowBigkeyScanTaskDetailsRequest } from './model/ShowBigkeyScanTaskDetailsRequest';
@@ -209,6 +237,8 @@ import { ShowConfigTemplateRequest } from './model/ShowConfigTemplateRequest';
 import { ShowConfigTemplateResponse } from './model/ShowConfigTemplateResponse';
 import { ShowDiagnosisTaskDetailsRequest } from './model/ShowDiagnosisTaskDetailsRequest';
 import { ShowDiagnosisTaskDetailsResponse } from './model/ShowDiagnosisTaskDetailsResponse';
+import { ShowExpireKeyScanInfoRequest } from './model/ShowExpireKeyScanInfoRequest';
+import { ShowExpireKeyScanInfoResponse } from './model/ShowExpireKeyScanInfoResponse';
 import { ShowHotkeyAutoscanConfigRequest } from './model/ShowHotkeyAutoscanConfigRequest';
 import { ShowHotkeyAutoscanConfigResponse } from './model/ShowHotkeyAutoscanConfigResponse';
 import { ShowHotkeyTaskDetailsRequest } from './model/ShowHotkeyTaskDetailsRequest';
@@ -231,15 +261,20 @@ import { ShowReplicationStatesRequest } from './model/ShowReplicationStatesReque
 import { ShowReplicationStatesResponse } from './model/ShowReplicationStatesResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
 import { ShowTagsResponse } from './model/ShowTagsResponse';
+import { SimpleKeyScanRecord } from './model/SimpleKeyScanRecord';
 import { SingleBackgroundTask } from './model/SingleBackgroundTask';
 import { SlowlogItem } from './model/SlowlogItem';
 import { SourceInstanceBody } from './model/SourceInstanceBody';
+import { StartInstanceResizeCheckJobRequest } from './model/StartInstanceResizeCheckJobRequest';
+import { StartInstanceResizeCheckJobResponse } from './model/StartInstanceResizeCheckJobResponse';
 import { StatusStatistic } from './model/StatusStatistic';
+import { StepDetail } from './model/StepDetail';
 import { StopMigrationTaskRequest } from './model/StopMigrationTaskRequest';
 import { StopMigrationTaskResponse } from './model/StopMigrationTaskResponse';
 import { StopMigrationTaskResult } from './model/StopMigrationTaskResult';
 import { StopMigrationTaskSyncRequest } from './model/StopMigrationTaskSyncRequest';
 import { StopMigrationTaskSyncResponse } from './model/StopMigrationTaskSyncResponse';
+import { SubStepDetail } from './model/SubStepDetail';
 import { Tag } from './model/Tag';
 import { TargetInstanceBody } from './model/TargetInstanceBody';
 import { UpdateAclAccountPassWordRequest } from './model/UpdateAclAccountPassWordRequest';
@@ -264,6 +299,8 @@ import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateIpWhitelistRequest } from './model/UpdateIpWhitelistRequest';
 import { UpdateIpWhitelistResponse } from './model/UpdateIpWhitelistResponse';
+import { UpdateMigrationTaskRequest } from './model/UpdateMigrationTaskRequest';
+import { UpdateMigrationTaskResponse } from './model/UpdateMigrationTaskResponse';
 import { UpdatePasswordRequest } from './model/UpdatePasswordRequest';
 import { UpdatePasswordResponse } from './model/UpdatePasswordResponse';
 import { UpdateSlavePriorityRequest } from './model/UpdateSlavePriorityRequest';
@@ -378,6 +415,26 @@ export class DcsClient {
      */
     public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<ChangeMasterStandbyResponse> {
         const options = ParamCreater().changeMasterStandby(changeMasterStandbyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据迁移配置页实例连接测试
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据迁移配置页实例连接测试
+     * @param {string} taskId 任务ID
+     * @param {RedisConnectionParam} checkMigrationConnectivityRequestBody 连接测试请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkMigrationConnectivity(checkMigrationConnectivityRequest?: CheckMigrationConnectivityRequest): Promise<CheckMigrationConnectivityResponse> {
+        const options = ParamCreater().checkMigrationConnectivity(checkMigrationConnectivityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -598,6 +655,26 @@ export class DcsClient {
      */
     public createOnlineMigrationTask(createOnlineMigrationTaskRequest?: CreateOnlineMigrationTaskRequest): Promise<CreateOnlineMigrationTaskResponse> {
         const options = ParamCreater().createOnlineMigrationTask(createOnlineMigrationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增/修改高级备份信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增/修改高级备份信息
+     * @param {string} instanceId 实例ID
+     * @param {AdditionalBackupRequest} [createOrUpdateBackUpInfoRequestBody] 请求实体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrUpdateBackUpInfo(createOrUpdateBackUpInfoRequest?: CreateOrUpdateBackUpInfoRequest): Promise<CreateOrUpdateBackUpInfoResponse> {
+        const options = ParamCreater().createOrUpdateBackUpInfo(createOrUpdateBackUpInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -828,6 +905,26 @@ export class DcsClient {
     }
 
     /**
+     * 进行IP交换
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 进行IP交换
+     * @param {string} taskId 任务ID
+     * @param {IpExchangeRequest} [exchangeInstanceIpRequestBody] 进行IP交换请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exchangeInstanceIp(exchangeInstanceIpRequest?: ExchangeInstanceIpRequest): Promise<ExchangeInstanceIpResponse> {
+        const options = ParamCreater().exchangeInstanceIp(exchangeInstanceIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 集群分片倒换，适用于proxy和cluster实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -841,6 +938,26 @@ export class DcsClient {
      */
     public executeClusterSwitchover(executeClusterSwitchoverRequest?: ExecuteClusterSwitchoverRequest): Promise<ExecuteClusterSwitchoverResponse> {
         const options = ParamCreater().executeClusterSwitchover(executeClusterSwitchoverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 登入web-cli，执行redis命令
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行web-cli命令V2接口
+     * @param {string} instanceId 实例ID
+     * @param {ExecuteCommandRequestBody} [executeCommandMobilizationRequestBody] 执行命令请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeCommandMobilization(executeCommandMobilizationRequest?: ExecuteCommandMobilizationRequest): Promise<ExecuteCommandMobilizationResponse> {
+        const options = ParamCreater().executeCommandMobilization(executeCommandMobilizationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -967,6 +1084,28 @@ export class DcsClient {
      */
     public listBigkeyScanTasks(listBigkeyScanTasksRequest?: ListBigkeyScanTasksRequest): Promise<ListBigkeyScanTasksResponse> {
         const options = ParamCreater().listBigkeyScanTasks(listBigkeyScanTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务中心任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务中心任务列表
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0
+     * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10。
+     * @param {string} [startTime] 查询开始时间，时间为UTC时间。格式：yyyyMMddHHmmss，如：20200609160000。
+     * @param {string} [endTime] 查询结束时间，时间为UTC时间。格式：yyyyMMddHHmmss，如：20230612155959。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCenterTask(listCenterTaskRequest?: ListCenterTaskRequest): Promise<ListCenterTaskResponse> {
+        const options = ParamCreater().listCenterTask(listCenterTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1196,6 +1335,28 @@ export class DcsClient {
     }
 
     /**
+     * 查询迁移日志列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询迁移日志列表
+     * @param {string} taskId 任务ID
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [logLevel] 日志级别
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMigrationTaskLogs(listMigrationTaskLogsRequest?: ListMigrationTaskLogsRequest): Promise<ListMigrationTaskLogsResponse> {
+        const options = ParamCreater().listMigrationTaskLogs(listMigrationTaskLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询主维度对象列表，主维度ID当前支持dcs_instance_id，dcs_memcached_instance_id。
      * &gt; 该接口当前仅在中国华南区开放。
      * 
@@ -1364,6 +1525,26 @@ export class DcsClient {
     }
 
     /**
+     * 登录webCli
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 登录webCli
+     * @param {string} instanceId 实例ID。
+     * @param {LoginWebCliBody} loginWebCliRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public loginWebCli(loginWebCliRequest?: LoginWebCliRequest): Promise<LoginWebCliResponse> {
+        const options = ParamCreater().loginWebCli(loginWebCliRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置ACL账号密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1467,6 +1648,25 @@ export class DcsClient {
     }
 
     /**
+     * 立刻扫描过期Key
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 立刻扫描过期Key
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public scanExpireKey(scanExpireKeyRequest?: ScanExpireKeyRequest): Promise<ScanExpireKeyResponse> {
+        const options = ParamCreater().scanExpireKey(scanExpireKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 配置在线数据迁移任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1479,6 +1679,45 @@ export class DcsClient {
      */
     public setOnlineMigrationTask(setOnlineMigrationTaskRequest?: SetOnlineMigrationTaskRequest): Promise<SetOnlineMigrationTaskResponse> {
         const options = ParamCreater().setOnlineMigrationTask(setOnlineMigrationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询高级备份信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询高级备份信息
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackUpInfo(showBackUpInfoRequest?: ShowBackUpInfoRequest): Promise<ShowBackUpInfoResponse> {
+        const options = ParamCreater().showBackUpInfo(showBackUpInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询后台任务详细信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询后台任务详细信息
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId 任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackgroundTaskProgress(showBackgroundTaskProgressRequest?: ShowBackgroundTaskProgressRequest): Promise<ShowBackgroundTaskProgressResponse> {
+        const options = ParamCreater().showBackgroundTaskProgress(showBackgroundTaskProgressRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1557,6 +1796,25 @@ export class DcsClient {
      */
     public showDiagnosisTaskDetails(showDiagnosisTaskDetailsRequest?: ShowDiagnosisTaskDetailsRequest): Promise<ShowDiagnosisTaskDetailsResponse> {
         const options = ParamCreater().showDiagnosisTaskDetails(showDiagnosisTaskDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询过期Key扫描记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询过期Key扫描记录
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showExpireKeyScanInfo(showExpireKeyScanInfoRequest?: ShowExpireKeyScanInfoRequest): Promise<ShowExpireKeyScanInfoResponse> {
+        const options = ParamCreater().showExpireKeyScanInfo(showExpireKeyScanInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1750,6 +2008,25 @@ export class DcsClient {
      */
     public showTags(showTagsRequest?: ShowTagsRequest): Promise<ShowTagsResponse> {
         const options = ParamCreater().showTags(showTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提交前置检查任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 提交前置检查任务
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startInstanceResizeCheckJob(startInstanceResizeCheckJobRequest?: StartInstanceResizeCheckJobRequest): Promise<StartInstanceResizeCheckJobResponse> {
+        const options = ParamCreater().startInstanceResizeCheckJob(startInstanceResizeCheckJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1970,6 +2247,26 @@ export class DcsClient {
      */
     public updateInstanceBandwidth(updateInstanceBandwidthRequest?: UpdateInstanceBandwidthRequest): Promise<UpdateInstanceBandwidthResponse> {
         const options = ParamCreater().updateInstanceBandwidth(updateInstanceBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置迁移任务自动重连
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置迁移任务自动重连
+     * @param {string} taskId 任务ID
+     * @param {MigrationUpdateRequestEntity} updateMigrationTaskRequestBody 设置迁移任务自动重连请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMigrationTask(updateMigrationTaskRequest?: UpdateMigrationTaskRequest): Promise<UpdateMigrationTaskResponse> {
+        const options = ParamCreater().updateMigrationTask(updateMigrationTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2268,6 +2565,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据迁移配置页实例连接测试
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkMigrationConnectivity(checkMigrationConnectivityRequest?: CheckMigrationConnectivityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/migration/{task_id}/connectivity",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (checkMigrationConnectivityRequest !== null && checkMigrationConnectivityRequest !== undefined) {
+                if (checkMigrationConnectivityRequest instanceof CheckMigrationConnectivityRequest) {
+                    taskId = checkMigrationConnectivityRequest.taskId;
+                    body = checkMigrationConnectivityRequest.body
+                } else {
+                    taskId = checkMigrationConnectivityRequest['task_id'];
+                    body = checkMigrationConnectivityRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling checkMigrationConnectivity.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2716,6 +3059,49 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增/修改高级备份信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrUpdateBackUpInfo(createOrUpdateBackUpInfoRequest?: CreateOrUpdateBackUpInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/additional-backups",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createOrUpdateBackUpInfoRequest !== null && createOrUpdateBackUpInfoRequest !== undefined) {
+                if (createOrUpdateBackUpInfoRequest instanceof CreateOrUpdateBackUpInfoRequest) {
+                    instanceId = createOrUpdateBackUpInfoRequest.instanceId;
+                    body = createOrUpdateBackUpInfoRequest.body
+                } else {
+                    instanceId = createOrUpdateBackUpInfoRequest['instance_id'];
+                    body = createOrUpdateBackUpInfoRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createOrUpdateBackUpInfo.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3212,6 +3598,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 进行IP交换
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exchangeInstanceIp(exchangeInstanceIpRequest?: ExchangeInstanceIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/migration-task/{task_id}/exchange-ip",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (exchangeInstanceIpRequest !== null && exchangeInstanceIpRequest !== undefined) {
+                if (exchangeInstanceIpRequest instanceof ExchangeInstanceIpRequest) {
+                    taskId = exchangeInstanceIpRequest.taskId;
+                    body = exchangeInstanceIpRequest.body
+                } else {
+                    taskId = exchangeInstanceIpRequest['task_id'];
+                    body = exchangeInstanceIpRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling exchangeInstanceIp.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 集群分片倒换，适用于proxy和cluster实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3258,6 +3687,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'group_id': groupId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 登入web-cli，执行redis命令
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeCommandMobilization(executeCommandMobilizationRequest?: ExecuteCommandMobilizationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/webcli/command",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (executeCommandMobilizationRequest !== null && executeCommandMobilizationRequest !== undefined) {
+                if (executeCommandMobilizationRequest instanceof ExecuteCommandMobilizationRequest) {
+                    instanceId = executeCommandMobilizationRequest.instanceId;
+                    body = executeCommandMobilizationRequest.body
+                } else {
+                    instanceId = executeCommandMobilizationRequest['instance_id'];
+                    body = executeCommandMobilizationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeCommandMobilization.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3560,6 +4032,64 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务中心任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCenterTask(listCenterTaskRequest?: ListCenterTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listCenterTaskRequest !== null && listCenterTaskRequest !== undefined) {
+                if (listCenterTaskRequest instanceof ListCenterTaskRequest) {
+                    offset = listCenterTaskRequest.offset;
+                    limit = listCenterTaskRequest.limit;
+                    startTime = listCenterTaskRequest.startTime;
+                    endTime = listCenterTaskRequest.endTime;
+                } else {
+                    offset = listCenterTaskRequest['offset'];
+                    limit = listCenterTaskRequest['limit'];
+                    startTime = listCenterTaskRequest['start_time'];
+                    endTime = listCenterTaskRequest['end_time'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4149,6 +4679,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询迁移日志列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMigrationTaskLogs(listMigrationTaskLogsRequest?: ListMigrationTaskLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/migration-task/{task_id}/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+            
+            let logLevel;
+
+            if (listMigrationTaskLogsRequest !== null && listMigrationTaskLogsRequest !== undefined) {
+                if (listMigrationTaskLogsRequest instanceof ListMigrationTaskLogsRequest) {
+                    taskId = listMigrationTaskLogsRequest.taskId;
+                    offset = listMigrationTaskLogsRequest.offset;
+                    limit = listMigrationTaskLogsRequest.limit;
+                    logLevel = listMigrationTaskLogsRequest.logLevel;
+                } else {
+                    taskId = listMigrationTaskLogsRequest['task_id'];
+                    offset = listMigrationTaskLogsRequest['offset'];
+                    limit = listMigrationTaskLogsRequest['limit'];
+                    logLevel = listMigrationTaskLogsRequest['log_level'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listMigrationTaskLogs.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (logLevel !== null && logLevel !== undefined) {
+                localVarQueryParameter['log_level'] = logLevel;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询主维度对象列表，主维度ID当前支持dcs_instance_id，dcs_memcached_instance_id。
          * &gt; 该接口当前仅在中国华南区开放。
          * 
@@ -4546,6 +5135,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 登录webCli
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        loginWebCli(loginWebCliRequest?: LoginWebCliRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/webcli/auth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (loginWebCliRequest !== null && loginWebCliRequest !== undefined) {
+                if (loginWebCliRequest instanceof LoginWebCliRequest) {
+                    instanceId = loginWebCliRequest.instanceId;
+                    body = loginWebCliRequest.body
+                } else {
+                    instanceId = loginWebCliRequest['instance_id'];
+                    body = loginWebCliRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling loginWebCli.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置ACL账号密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4772,6 +5407,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 立刻扫描过期Key
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        scanExpireKey(scanExpireKeyRequest?: ScanExpireKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/auto-expire/scan",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (scanExpireKeyRequest !== null && scanExpireKeyRequest !== undefined) {
+                if (scanExpireKeyRequest instanceof ScanExpireKeyRequest) {
+                    instanceId = scanExpireKeyRequest.instanceId;
+                } else {
+                    instanceId = scanExpireKeyRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling scanExpireKey.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 配置在线数据迁移任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4813,6 +5485,87 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询高级备份信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackUpInfo(showBackUpInfoRequest?: ShowBackUpInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/additional-backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showBackUpInfoRequest !== null && showBackUpInfoRequest !== undefined) {
+                if (showBackUpInfoRequest instanceof ShowBackUpInfoRequest) {
+                    instanceId = showBackUpInfoRequest.instanceId;
+                } else {
+                    instanceId = showBackUpInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBackUpInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询后台任务详细信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackgroundTaskProgress(showBackgroundTaskProgressRequest?: ShowBackgroundTaskProgressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/tasks/{task_id}/progress",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (showBackgroundTaskProgressRequest !== null && showBackgroundTaskProgressRequest !== undefined) {
+                if (showBackgroundTaskProgressRequest instanceof ShowBackgroundTaskProgressRequest) {
+                    instanceId = showBackgroundTaskProgressRequest.instanceId;
+                    taskId = showBackgroundTaskProgressRequest.taskId;
+                } else {
+                    instanceId = showBackgroundTaskProgressRequest['instance_id'];
+                    taskId = showBackgroundTaskProgressRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBackgroundTaskProgress.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showBackgroundTaskProgress.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4979,6 +5732,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'report_id': reportId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询过期Key扫描记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showExpireKeyScanInfo(showExpireKeyScanInfoRequest?: ShowExpireKeyScanInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/auto-expire/histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showExpireKeyScanInfoRequest !== null && showExpireKeyScanInfoRequest !== undefined) {
+                if (showExpireKeyScanInfoRequest instanceof ShowExpireKeyScanInfoRequest) {
+                    instanceId = showExpireKeyScanInfoRequest.instanceId;
+                } else {
+                    instanceId = showExpireKeyScanInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showExpireKeyScanInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5346,6 +6136,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTags.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提交前置检查任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startInstanceResizeCheckJob(startInstanceResizeCheckJobRequest?: StartInstanceResizeCheckJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/resize/check-job",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (startInstanceResizeCheckJobRequest !== null && startInstanceResizeCheckJobRequest !== undefined) {
+                if (startInstanceResizeCheckJobRequest instanceof StartInstanceResizeCheckJobRequest) {
+                    instanceId = startInstanceResizeCheckJobRequest.instanceId;
+                } else {
+                    instanceId = startInstanceResizeCheckJobRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startInstanceResizeCheckJob.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -5843,6 +6670,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置迁移任务自动重连
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMigrationTask(updateMigrationTaskRequest?: UpdateMigrationTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/migration-task/{task_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (updateMigrationTaskRequest !== null && updateMigrationTaskRequest !== undefined) {
+                if (updateMigrationTaskRequest instanceof UpdateMigrationTaskRequest) {
+                    taskId = updateMigrationTaskRequest.taskId;
+                    body = updateMigrationTaskRequest.body
+                } else {
+                    taskId = updateMigrationTaskRequest['task_id'];
+                    body = updateMigrationTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateMigrationTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
