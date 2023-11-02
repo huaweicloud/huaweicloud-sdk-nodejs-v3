@@ -283,7 +283,7 @@ export class RocketMQClient {
      * @param {'true' | 'false'} overwrite true开启同名覆盖，会对已有的同名元数据的配置进行修改，false时当topic或group已存在则会报错。
      * @param {string} name 迁移任务名称，名称规则参考创建实例
      * @param {'rocketmq' | 'rabbitToRocket'} type 迁移任务类型，分为自建RocketMQ上云(rocketmq)、自建RabbitMQ上云(rabbitToRocket)
-     * @param {string} createRocketMqMigrationTaskRequestBody 元数据json文件。
+     * @param {{ [key: string]: object; }} createRocketMqMigrationTaskRequestBody 元数据json文件。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

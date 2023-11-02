@@ -28,8 +28,9 @@ export class GetStackMetadataResponse extends SdkResponse {
     private 'vars_uri_content'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    public constructor() { 
+    public constructor(stackName?: string) { 
         super();
+        this['stack_name'] = stackName;
     }
     public withStackId(stackId: string): GetStackMetadataResponse {
         this['stack_id'] = stackId;

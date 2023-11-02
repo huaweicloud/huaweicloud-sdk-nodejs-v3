@@ -8,6 +8,7 @@ export class OpenMysqlProxyRequestBody {
     private 'proxy_mode'?: OpenMysqlProxyRequestBodyProxyModeEnum | string;
     private 'route_mode'?: number;
     private 'nodes_read_weight'?: Array<NodesWeight>;
+    private 'subnet_id'?: string;
     public constructor(flavorRef?: string, nodeNum?: number) { 
         this['flavor_ref'] = flavorRef;
         this['node_num'] = nodeNum;
@@ -71,6 +72,16 @@ export class OpenMysqlProxyRequestBody {
     }
     public get nodesReadWeight(): Array<NodesWeight> | undefined {
         return this['nodes_read_weight'];
+    }
+    public withSubnetId(subnetId: string): OpenMysqlProxyRequestBody {
+        this['subnet_id'] = subnetId;
+        return this;
+    }
+    public set subnetId(subnetId: string  | undefined) {
+        this['subnet_id'] = subnetId;
+    }
+    public get subnetId(): string | undefined {
+        return this['subnet_id'];
     }
 }
 

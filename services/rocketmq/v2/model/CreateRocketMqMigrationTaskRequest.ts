@@ -5,7 +5,7 @@ export class CreateRocketMqMigrationTaskRequest {
     public overwrite?: CreateRocketMqMigrationTaskRequestOverwriteEnum | string;
     public name?: string;
     public type?: CreateRocketMqMigrationTaskRequestTypeEnum | string;
-    public body?: string;
+    public body?: { [key: string]: object; };
     public constructor(instanceId?: string, overwrite?: string, name?: string, type?: string) { 
         this['instance_id'] = instanceId;
         this['overwrite'] = overwrite;
@@ -34,7 +34,7 @@ export class CreateRocketMqMigrationTaskRequest {
         this['type'] = type;
         return this;
     }
-    public withBody(body: string): CreateRocketMqMigrationTaskRequest {
+    public withBody(body: { [key: string]: object; }): CreateRocketMqMigrationTaskRequest {
         this['body'] = body;
         return this;
     }

@@ -9,6 +9,7 @@ export class CreateNatGatewayOption {
     public spec?: CreateNatGatewayOptionSpecEnum | string;
     private 'enterprise_project_id'?: string;
     private 'session_conf'?: SessionConfiguration;
+    private 'ngport_ip_address'?: string;
     public constructor(name?: string, routerId?: string, internalNetworkId?: string, spec?: string) { 
         this['name'] = name;
         this['router_id'] = routerId;
@@ -66,6 +67,16 @@ export class CreateNatGatewayOption {
     }
     public get sessionConf(): SessionConfiguration | undefined {
         return this['session_conf'];
+    }
+    public withNgportIpAddress(ngportIpAddress: string): CreateNatGatewayOption {
+        this['ngport_ip_address'] = ngportIpAddress;
+        return this;
+    }
+    public set ngportIpAddress(ngportIpAddress: string  | undefined) {
+        this['ngport_ip_address'] = ngportIpAddress;
+    }
+    public get ngportIpAddress(): string | undefined {
+        return this['ngport_ip_address'];
     }
 }
 

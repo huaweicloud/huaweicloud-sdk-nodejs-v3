@@ -23,6 +23,7 @@ export class MysqlProxyV3 {
     private 'route_mode'?: number;
     private 'balance_route_mode_enabled'?: boolean;
     private 'consistence_mode'?: string;
+    private 'subnet_id'?: string;
     public constructor() { 
     }
     public withPoolId(poolId: string): MysqlProxyV3 {
@@ -180,5 +181,15 @@ export class MysqlProxyV3 {
     }
     public get consistenceMode(): string | undefined {
         return this['consistence_mode'];
+    }
+    public withSubnetId(subnetId: string): MysqlProxyV3 {
+        this['subnet_id'] = subnetId;
+        return this;
+    }
+    public set subnetId(subnetId: string  | undefined) {
+        this['subnet_id'] = subnetId;
+    }
+    public get subnetId(): string | undefined {
+        return this['subnet_id'];
     }
 }

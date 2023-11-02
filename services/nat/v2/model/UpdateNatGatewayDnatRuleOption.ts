@@ -11,6 +11,7 @@ export class UpdateNatGatewayDnatRuleOption {
     private 'external_service_port'?: number;
     private 'internal_service_port_range'?: string;
     private 'external_service_port_range'?: string;
+    private 'global_eip_id'?: string;
     public constructor(natGatewayId?: string) { 
         this['nat_gateway_id'] = natGatewayId;
     }
@@ -101,6 +102,16 @@ export class UpdateNatGatewayDnatRuleOption {
     }
     public get externalServicePortRange(): string | undefined {
         return this['external_service_port_range'];
+    }
+    public withGlobalEipId(globalEipId: string): UpdateNatGatewayDnatRuleOption {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
 }
 

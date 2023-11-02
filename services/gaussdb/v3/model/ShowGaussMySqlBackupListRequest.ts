@@ -9,6 +9,8 @@ export class ShowGaussMySqlBackupListRequest {
     public limit?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
+    public name?: string;
+    private 'instance_name'?: string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: string): ShowGaussMySqlBackupListRequest {
@@ -78,5 +80,19 @@ export class ShowGaussMySqlBackupListRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withName(name: string): ShowGaussMySqlBackupListRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withInstanceName(instanceName: string): ShowGaussMySqlBackupListRequest {
+        this['instance_name'] = instanceName;
+        return this;
+    }
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
+    }
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
     }
 }

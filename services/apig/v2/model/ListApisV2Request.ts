@@ -14,6 +14,7 @@ export class ListApisV2Request {
     private 'env_id'?: string;
     public type?: number;
     private 'precise_search'?: string;
+    private 'vpc_channel_name'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -116,5 +117,15 @@ export class ListApisV2Request {
     }
     public get preciseSearch(): string | undefined {
         return this['precise_search'];
+    }
+    public withVpcChannelName(vpcChannelName: string): ListApisV2Request {
+        this['vpc_channel_name'] = vpcChannelName;
+        return this;
+    }
+    public set vpcChannelName(vpcChannelName: string  | undefined) {
+        this['vpc_channel_name'] = vpcChannelName;
+    }
+    public get vpcChannelName(): string | undefined {
+        return this['vpc_channel_name'];
     }
 }

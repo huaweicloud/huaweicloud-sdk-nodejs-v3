@@ -14,7 +14,11 @@ export class NatGatewayResponseBody {
     private 'internal_network_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'session_conf'?: SessionConfiguration;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, spec?: string, status?: string, adminStateUp?: boolean, createdAt?: string, routerId?: string, internalNetworkId?: string, enterpriseProjectId?: string, sessionConf?: SessionConfiguration) { 
+    private 'ngport_ip_address'?: string;
+    private 'billing_info'?: string;
+    private 'dnat_rules_limit'?: number;
+    private 'snat_rule_public_ip_limit'?: number;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, spec?: string, status?: string, adminStateUp?: boolean, createdAt?: string, routerId?: string, internalNetworkId?: string, enterpriseProjectId?: string, sessionConf?: SessionConfiguration, ngportIpAddress?: string, billingInfo?: string, dnatRulesLimit?: number, snatRulePublicIpLimit?: number) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -27,6 +31,10 @@ export class NatGatewayResponseBody {
         this['internal_network_id'] = internalNetworkId;
         this['enterprise_project_id'] = enterpriseProjectId;
         this['session_conf'] = sessionConf;
+        this['ngport_ip_address'] = ngportIpAddress;
+        this['billing_info'] = billingInfo;
+        this['dnat_rules_limit'] = dnatRulesLimit;
+        this['snat_rule_public_ip_limit'] = snatRulePublicIpLimit;
     }
     public withId(id: string): NatGatewayResponseBody {
         this['id'] = id;
@@ -117,6 +125,46 @@ export class NatGatewayResponseBody {
     }
     public get sessionConf(): SessionConfiguration | undefined {
         return this['session_conf'];
+    }
+    public withNgportIpAddress(ngportIpAddress: string): NatGatewayResponseBody {
+        this['ngport_ip_address'] = ngportIpAddress;
+        return this;
+    }
+    public set ngportIpAddress(ngportIpAddress: string  | undefined) {
+        this['ngport_ip_address'] = ngportIpAddress;
+    }
+    public get ngportIpAddress(): string | undefined {
+        return this['ngport_ip_address'];
+    }
+    public withBillingInfo(billingInfo: string): NatGatewayResponseBody {
+        this['billing_info'] = billingInfo;
+        return this;
+    }
+    public set billingInfo(billingInfo: string  | undefined) {
+        this['billing_info'] = billingInfo;
+    }
+    public get billingInfo(): string | undefined {
+        return this['billing_info'];
+    }
+    public withDnatRulesLimit(dnatRulesLimit: number): NatGatewayResponseBody {
+        this['dnat_rules_limit'] = dnatRulesLimit;
+        return this;
+    }
+    public set dnatRulesLimit(dnatRulesLimit: number  | undefined) {
+        this['dnat_rules_limit'] = dnatRulesLimit;
+    }
+    public get dnatRulesLimit(): number | undefined {
+        return this['dnat_rules_limit'];
+    }
+    public withSnatRulePublicIpLimit(snatRulePublicIpLimit: number): NatGatewayResponseBody {
+        this['snat_rule_public_ip_limit'] = snatRulePublicIpLimit;
+        return this;
+    }
+    public set snatRulePublicIpLimit(snatRulePublicIpLimit: number  | undefined) {
+        this['snat_rule_public_ip_limit'] = snatRulePublicIpLimit;
+    }
+    public get snatRulePublicIpLimit(): number | undefined {
+        return this['snat_rule_public_ip_limit'];
     }
 }
 

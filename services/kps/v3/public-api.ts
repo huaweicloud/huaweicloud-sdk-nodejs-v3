@@ -31,6 +31,7 @@ export * from './model/ExportPrivateKeyRequest';
 export * from './model/ExportPrivateKeyRequestBody';
 export * from './model/ExportPrivateKeyResponse';
 export * from './model/FailedTasks';
+export * from './model/ImportPrivateKeyAction';
 export * from './model/ImportPrivateKeyKeypairBean';
 export * from './model/ImportPrivateKeyProtection';
 export * from './model/ImportPrivateKeyRequest';

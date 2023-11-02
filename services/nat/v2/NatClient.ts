@@ -267,7 +267,7 @@ export class NatClient {
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {number} [externalServicePort] Floatingip对外提供服务的端口号。 取值范围：0~65535。
      * @param {string} [floatingIpAddress] 弹性公网的IP地址。
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] Dnat规则的状态。
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] DNAT规则的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;EIP_FREEZED\&quot;：EIP冻结 \&quot;INACTIVE\&quot;：不可用
      * @param {string} [floatingIpId] 弹性公网IP的id。
      * @param {number} [internalServicePort] 虚拟机或者裸机对外提供服务的协议端口号。 取值范围：0~65535。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
@@ -674,7 +674,7 @@ export class NatClient {
      * @param {string} [description] 公网NAT网关实例的描述，长度限制为255。
      * @param {string} [createdAt] 公网NAT网关实例的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。 公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;INACTIVE\&quot;：不可用
      * @param {Array<'1' | '2' | '3' | '4'>} [spec] 公网NAT网关实例的规格。 取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000 \&quot;2\&quot;：中型，SNAT最大连接数50000 \&quot;3\&quot;：大型，SNAT最大连接数200000 \&quot;4\&quot;：超大型，SNAT最大连接数1000000 
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {string} [internalNetworkId] 公网NAT网关下行口（DVR的下一跳）所属的network id。
@@ -1028,7 +1028,7 @@ export class NatClient {
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {string} [cidr] 可以是网段或者主机格式，与network_id参数二选一。 Source_type&#x3D;0时，cidr必须是vpc子网网段的子集(不能相等）; Source_type&#x3D;1时，cidr必须指定专线侧网段。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
-     * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。 取值范围：最大长度1024字节。
+     * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。
      * @param {string} [floatingIpId] 功能说明：弹性公网IP的id，多个弹性公网IP使用逗号分隔。 取值范围：最大长度4096字节。
      * @param {string} [id] SNAT规则的ID。
      * @param {string} [description] SNAT规则的描述，长度限制为255。
@@ -1036,7 +1036,7 @@ export class NatClient {
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [networkId] 规则使用的网络id。与cidr参数二选一。
      * @param {number} [sourceType] 0：VPC侧，可以指定network_id 或者cidr 1：专线侧，只能指定cidr 不输入默认为0（VPC）
-     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] 功能说明：SNAT规则的状态。
+     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;EIP_FREEZED\&quot;：EIP冻结 \&quot;INACTIVE\&quot;：不可用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

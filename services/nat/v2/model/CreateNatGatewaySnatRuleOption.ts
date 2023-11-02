@@ -7,6 +7,7 @@ export class CreateNatGatewaySnatRuleOption {
     public description?: string;
     private 'source_type'?: number;
     private 'floating_ip_id'?: string;
+    private 'global_eip_id'?: string;
     public constructor(natGatewayId?: string, floatingIpId?: string) { 
         this['nat_gateway_id'] = natGatewayId;
         this['floating_ip_id'] = floatingIpId;
@@ -58,5 +59,15 @@ export class CreateNatGatewaySnatRuleOption {
     }
     public get floatingIpId(): string | undefined {
         return this['floating_ip_id'];
+    }
+    public withGlobalEipId(globalEipId: string): CreateNatGatewaySnatRuleOption {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
 }

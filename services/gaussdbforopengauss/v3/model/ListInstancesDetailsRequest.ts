@@ -11,6 +11,7 @@ export class ListInstancesDetailsRequest {
     public offset?: number;
     public limit?: number;
     public tags?: Array<string>;
+    private 'charge_mode'?: ListInstancesDetailsRequestChargeModeEnum | string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: string): ListInstancesDetailsRequest {
@@ -77,6 +78,16 @@ export class ListInstancesDetailsRequest {
         this['tags'] = tags;
         return this;
     }
+    public withChargeMode(chargeMode: ListInstancesDetailsRequestChargeModeEnum | string): ListInstancesDetailsRequest {
+        this['charge_mode'] = chargeMode;
+        return this;
+    }
+    public set chargeMode(chargeMode: ListInstancesDetailsRequestChargeModeEnum | string  | undefined) {
+        this['charge_mode'] = chargeMode;
+    }
+    public get chargeMode(): ListInstancesDetailsRequestChargeModeEnum | string | undefined {
+        return this['charge_mode'];
+    }
 }
 
 /**
@@ -93,4 +104,12 @@ export enum ListInstancesDetailsRequestTypeEnum {
     */
 export enum ListInstancesDetailsRequestDatastoreTypeEnum {
     GAUSSDB = 'GaussDB'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstancesDetailsRequestChargeModeEnum {
+    POSTPAID = 'postPaid',
+    PREPAID = 'prePaid'
 }

@@ -25,6 +25,7 @@ export class ListListenersRequest {
     private 'client_timeout'?: Array<number>;
     private 'keepalive_timeout'?: Array<number>;
     private 'transparent_client_ip_enable'?: boolean;
+    private 'proxy_protocol_enable'?: boolean;
     private 'enhance_l7policy_enable'?: boolean;
     private 'member_instance_id'?: Array<string>;
     private 'protection_status'?: Array<string>;
@@ -233,6 +234,16 @@ export class ListListenersRequest {
     }
     public get transparentClientIpEnable(): boolean | undefined {
         return this['transparent_client_ip_enable'];
+    }
+    public withProxyProtocolEnable(proxyProtocolEnable: boolean): ListListenersRequest {
+        this['proxy_protocol_enable'] = proxyProtocolEnable;
+        return this;
+    }
+    public set proxyProtocolEnable(proxyProtocolEnable: boolean  | undefined) {
+        this['proxy_protocol_enable'] = proxyProtocolEnable;
+    }
+    public get proxyProtocolEnable(): boolean | undefined {
+        return this['proxy_protocol_enable'];
     }
     public withEnhanceL7policyEnable(enhanceL7policyEnable: boolean): ListListenersRequest {
         this['enhance_l7policy_enable'] = enhanceL7policyEnable;

@@ -52,6 +52,8 @@ import { PageInfo } from './model/PageInfo';
 import { Record } from './model/Record';
 import { RestoreSecretRequest } from './model/RestoreSecretRequest';
 import { RestoreSecretResponse } from './model/RestoreSecretResponse';
+import { RotateSecretRequest } from './model/RotateSecretRequest';
+import { RotateSecretResponse } from './model/RotateSecretResponse';
 import { Secret } from './model/Secret';
 import { ShowSecretEventRequest } from './model/ShowSecretEventRequest';
 import { ShowSecretEventResponse } from './model/ShowSecretEventResponse';
@@ -468,6 +470,25 @@ export class CsmsClient {
      */
     public restoreSecret(restoreSecretRequest?: RestoreSecretRequest): Promise<RestoreSecretResponse> {
         const options = ParamCreater().restoreSecret(restoreSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 立即执行轮转凭据。在指定的凭据中，创建一个新的凭据版本，用于加密存储后台随机产生的凭据值。同时将新创建的凭据版本标记为SYSCURRENT状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 轮转凭据
+     * @param {string} secretName 凭据名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rotateSecret(rotateSecretRequest?: RotateSecretRequest): Promise<RotateSecretResponse> {
+        const options = ParamCreater().rotateSecret(rotateSecretRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1424,6 +1445,43 @@ export const ParamCreater = function () {
         
             if (secretName === null || secretName === undefined) {
             throw new RequiredError('secretName','Required parameter secretName was null or undefined when calling restoreSecret.');
+            }
+
+            options.pathParams = { 'secret_name': secretName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 立即执行轮转凭据。在指定的凭据中，创建一个新的凭据版本，用于加密存储后台随机产生的凭据值。同时将新创建的凭据版本标记为SYSCURRENT状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rotateSecret(rotateSecretRequest?: RotateSecretRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/secrets/{secret_name}/rotate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let secretName;
+
+            if (rotateSecretRequest !== null && rotateSecretRequest !== undefined) {
+                if (rotateSecretRequest instanceof RotateSecretRequest) {
+                    secretName = rotateSecretRequest.secretName;
+                } else {
+                    secretName = rotateSecretRequest['secret_name'];
+                }
+            }
+
+        
+            if (secretName === null || secretName === undefined) {
+            throw new RequiredError('secretName','Required parameter secretName was null or undefined when calling rotateSecret.');
             }
 
             options.pathParams = { 'secret_name': secretName, };

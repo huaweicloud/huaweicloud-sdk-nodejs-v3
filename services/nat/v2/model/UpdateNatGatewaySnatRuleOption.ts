@@ -3,6 +3,7 @@
 export class UpdateNatGatewaySnatRuleOption {
     private 'nat_gateway_id'?: string;
     private 'public_ip_address'?: string;
+    private 'global_eip_id'?: string;
     public description?: string;
     public constructor(natGatewayId?: string) { 
         this['nat_gateway_id'] = natGatewayId;
@@ -26,6 +27,16 @@ export class UpdateNatGatewaySnatRuleOption {
     }
     public get publicIpAddress(): string | undefined {
         return this['public_ip_address'];
+    }
+    public withGlobalEipId(globalEipId: string): UpdateNatGatewaySnatRuleOption {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
     public withDescription(description: string): UpdateNatGatewaySnatRuleOption {
         this['description'] = description;

@@ -18,8 +18,9 @@ export class StackInstance {
     public region?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    public constructor(stackSetName?: string) { 
+    public constructor(stackSetName?: string, stackName?: string) { 
         this['stack_set_name'] = stackSetName;
+        this['stack_name'] = stackName;
     }
     public withStackSetId(stackSetId: string): StackInstance {
         this['stack_set_id'] = stackSetId;

@@ -14,7 +14,9 @@ export class NatGatewayUpdateSnatRuleResponseBody {
     private 'admin_state_up'?: boolean;
     private 'floating_ip_address'?: string;
     private 'public_ip_address'?: string;
-    public constructor(id?: string, tenantId?: string, natGatewayId?: string, sourceType?: number, cidr?: string, floatingIpId?: string, description?: string, status?: string, createdAt?: string, networkId?: string, adminStateUp?: boolean, floatingIpAddress?: string, publicIpAddress?: string) { 
+    private 'global_eip_address'?: string;
+    private 'global_eip_id'?: string;
+    public constructor(id?: string, tenantId?: string, natGatewayId?: string, sourceType?: number, cidr?: string, floatingIpId?: string, description?: string, status?: string, createdAt?: string, networkId?: string, adminStateUp?: boolean, floatingIpAddress?: string, publicIpAddress?: string, globalEipAddress?: string, globalEipId?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['nat_gateway_id'] = natGatewayId;
@@ -28,6 +30,8 @@ export class NatGatewayUpdateSnatRuleResponseBody {
         this['admin_state_up'] = adminStateUp;
         this['floating_ip_address'] = floatingIpAddress;
         this['public_ip_address'] = publicIpAddress;
+        this['global_eip_address'] = globalEipAddress;
+        this['global_eip_id'] = globalEipId;
     }
     public withId(id: string): NatGatewayUpdateSnatRuleResponseBody {
         this['id'] = id;
@@ -134,6 +138,26 @@ export class NatGatewayUpdateSnatRuleResponseBody {
     }
     public get publicIpAddress(): string | undefined {
         return this['public_ip_address'];
+    }
+    public withGlobalEipAddress(globalEipAddress: string): NatGatewayUpdateSnatRuleResponseBody {
+        this['global_eip_address'] = globalEipAddress;
+        return this;
+    }
+    public set globalEipAddress(globalEipAddress: string  | undefined) {
+        this['global_eip_address'] = globalEipAddress;
+    }
+    public get globalEipAddress(): string | undefined {
+        return this['global_eip_address'];
+    }
+    public withGlobalEipId(globalEipId: string): NatGatewayUpdateSnatRuleResponseBody {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
 }
 

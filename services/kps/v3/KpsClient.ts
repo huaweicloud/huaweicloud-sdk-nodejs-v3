@@ -33,6 +33,7 @@ import { ExportPrivateKeyRequest } from './model/ExportPrivateKeyRequest';
 import { ExportPrivateKeyRequestBody } from './model/ExportPrivateKeyRequestBody';
 import { ExportPrivateKeyResponse } from './model/ExportPrivateKeyResponse';
 import { FailedTasks } from './model/FailedTasks';
+import { ImportPrivateKeyAction } from './model/ImportPrivateKeyAction';
 import { ImportPrivateKeyKeypairBean } from './model/ImportPrivateKeyKeypairBean';
 import { ImportPrivateKeyProtection } from './model/ImportPrivateKeyProtection';
 import { ImportPrivateKeyRequest } from './model/ImportPrivateKeyRequest';

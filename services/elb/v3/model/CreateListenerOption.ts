@@ -29,6 +29,7 @@ export class CreateListenerOption {
     private 'member_timeout'?: number;
     public ipgroup?: CreateListenerIpGroupOption;
     private 'transparent_client_ip_enable'?: boolean;
+    private 'proxy_protocol_enable'?: boolean;
     private 'enhance_l7policy_enable'?: boolean;
     private 'quic_config'?: CreateListenerQuicConfigOption;
     private 'protection_status'?: CreateListenerOptionProtectionStatusEnum | string;
@@ -238,6 +239,16 @@ export class CreateListenerOption {
     }
     public get transparentClientIpEnable(): boolean | undefined {
         return this['transparent_client_ip_enable'];
+    }
+    public withProxyProtocolEnable(proxyProtocolEnable: boolean): CreateListenerOption {
+        this['proxy_protocol_enable'] = proxyProtocolEnable;
+        return this;
+    }
+    public set proxyProtocolEnable(proxyProtocolEnable: boolean  | undefined) {
+        this['proxy_protocol_enable'] = proxyProtocolEnable;
+    }
+    public get proxyProtocolEnable(): boolean | undefined {
+        return this['proxy_protocol_enable'];
     }
     public withEnhanceL7policyEnable(enhanceL7policyEnable: boolean): CreateListenerOption {
         this['enhance_l7policy_enable'] = enhanceL7policyEnable;

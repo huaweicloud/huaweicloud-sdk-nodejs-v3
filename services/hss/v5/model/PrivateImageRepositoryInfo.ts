@@ -19,7 +19,7 @@ export class PrivateImageRepositoryInfo {
     private 'malicious_file_num'?: number;
     private 'domain_name'?: string;
     private 'shared_status'?: string;
-    public scanable?: boolean;
+    public scannable?: boolean;
     private 'association_images'?: Array<AssociateImages>;
     public constructor() { 
     }
@@ -181,8 +181,8 @@ export class PrivateImageRepositoryInfo {
     public get sharedStatus(): string | undefined {
         return this['shared_status'];
     }
-    public withScanable(scanable: boolean): PrivateImageRepositoryInfo {
-        this['scanable'] = scanable;
+    public withScannable(scannable: boolean): PrivateImageRepositoryInfo {
+        this['scannable'] = scannable;
         return this;
     }
     public withAssociationImages(associationImages: Array<AssociateImages>): PrivateImageRepositoryInfo {

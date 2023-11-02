@@ -20,9 +20,10 @@ export class ShowStackInstanceResponse extends SdkResponse {
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'var_overrides'?: object;
-    public constructor(stackSetName?: string) { 
+    public constructor(stackSetName?: string, stackName?: string) { 
         super();
         this['stack_set_name'] = stackSetName;
+        this['stack_name'] = stackName;
     }
     public withStackSetId(stackSetId: string): ShowStackInstanceResponse {
         this['stack_set_id'] = stackSetId;

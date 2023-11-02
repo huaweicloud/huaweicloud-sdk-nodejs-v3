@@ -16,6 +16,7 @@ export class CreatePoolOption {
     private 'member_deletion_protection_enable'?: boolean;
     private 'vpc_id'?: string;
     public type?: string;
+    private 'ip_version'?: string;
     private 'protection_status'?: CreatePoolOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
@@ -128,6 +129,16 @@ export class CreatePoolOption {
     public withType(type: string): CreatePoolOption {
         this['type'] = type;
         return this;
+    }
+    public withIpVersion(ipVersion: string): CreatePoolOption {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): string | undefined {
+        return this['ip_version'];
     }
     public withProtectionStatus(protectionStatus: CreatePoolOptionProtectionStatusEnum | string): CreatePoolOption {
         this['protection_status'] = protectionStatus;

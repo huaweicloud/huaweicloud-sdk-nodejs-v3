@@ -51,6 +51,8 @@ import { DbUserPwdRequest } from './model/DbUserPwdRequest';
 import { DeleteBackupErrorResponse } from './model/DeleteBackupErrorResponse';
 import { DeleteConfigurationRequest } from './model/DeleteConfigurationRequest';
 import { DeleteConfigurationResponse } from './model/DeleteConfigurationResponse';
+import { DeleteDatabaseRequest } from './model/DeleteDatabaseRequest';
+import { DeleteDatabaseResponse } from './model/DeleteDatabaseResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
@@ -537,6 +539,27 @@ export class GaussDBforopenGaussClient {
      */
     public deleteConfiguration(deleteConfigurationRequest?: DeleteConfigurationRequest): Promise<DeleteConfigurationResponse> {
         const options = ParamCreater().deleteConfiguration(deleteConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定实例的数据库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据库
+     * @param {string} instanceId 实例ID。
+     * @param {string} databaseName 数据库库名称。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。默认值：en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDatabase(deleteDatabaseRequest?: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
+        const options = ParamCreater().deleteDatabase(deleteDatabaseRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1062,6 +1085,7 @@ export class GaussDBforopenGaussClient {
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100
      * @param {Array<string>} [tags] 根据实例标签键值对进行查询。  {key}表示标签键，不可以为空或重复。最大长度127个unicode字符。key不能为空或者空字符串，不能为空格，使用之前先trim前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。  {value}表示标签值，可以为空。最大长度255个unicode字符，使用之前先trim 前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。  如果value为空，则表示any_value（查询任意value）。  如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，最多包含10组。
+     * @param {'postPaid' | 'prePaid'} [chargeMode] 计费模式。  取值范围：   postPaid：后付费，即按需付费。  prePaid：预付费，即包年/包月。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1090,6 +1114,7 @@ export class GaussDBforopenGaussClient {
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100
      * @param {Array<string>} [tags] 根据实例标签键值对进行查询。  {key}表示标签键，不可以为空或重复。最大长度127个unicode字符。key不能为空或者空字符串，不能为空格，使用之前先trim前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。  {value}表示标签值，可以为空。最大长度255个unicode字符，使用之前先trim 前后半角空格。不能包含+/?#&amp;&#x3D;,%特殊字符。  如果value为空，则表示any_value（查询任意value）。  如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，最多包含10组。
+     * @param {'postPaid' | 'prePaid'} [chargeMode] 计费模式。  取值范围：  postPaid：后付费，即按需付费。  prePaid：预付费，即包年/包月。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2475,6 +2500,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除指定实例的数据库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDatabase(deleteDatabaseRequest?: DeleteDatabaseRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/database",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let databaseName;
+            
+            let xLanguage;
+
+            if (deleteDatabaseRequest !== null && deleteDatabaseRequest !== undefined) {
+                if (deleteDatabaseRequest instanceof DeleteDatabaseRequest) {
+                    instanceId = deleteDatabaseRequest.instanceId;
+                    databaseName = deleteDatabaseRequest.databaseName;
+                    xLanguage = deleteDatabaseRequest.xLanguage;
+                } else {
+                    instanceId = deleteDatabaseRequest['instance_id'];
+                    databaseName = deleteDatabaseRequest['database_name'];
+                    xLanguage = deleteDatabaseRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDatabase.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+                throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling deleteDatabase.');
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除数据库实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3830,6 +3910,8 @@ export const ParamCreater = function () {
             let limit;
             
             let tags;
+            
+            let chargeMode;
 
             if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
                 if (listInstancesRequest instanceof ListInstancesRequest) {
@@ -3843,6 +3925,7 @@ export const ParamCreater = function () {
                     offset = listInstancesRequest.offset;
                     limit = listInstancesRequest.limit;
                     tags = listInstancesRequest.tags;
+                    chargeMode = listInstancesRequest.chargeMode;
                 } else {
                     xLanguage = listInstancesRequest['X-Language'];
                     id = listInstancesRequest['id'];
@@ -3854,6 +3937,7 @@ export const ParamCreater = function () {
                     offset = listInstancesRequest['offset'];
                     limit = listInstancesRequest['limit'];
                     tags = listInstancesRequest['tags'];
+                    chargeMode = listInstancesRequest['charge_mode'];
                 }
             }
 
@@ -3884,6 +3968,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -3930,6 +4017,8 @@ export const ParamCreater = function () {
             let limit;
             
             let tags;
+            
+            let chargeMode;
 
             if (listInstancesDetailsRequest !== null && listInstancesDetailsRequest !== undefined) {
                 if (listInstancesDetailsRequest instanceof ListInstancesDetailsRequest) {
@@ -3943,6 +4032,7 @@ export const ParamCreater = function () {
                     offset = listInstancesDetailsRequest.offset;
                     limit = listInstancesDetailsRequest.limit;
                     tags = listInstancesDetailsRequest.tags;
+                    chargeMode = listInstancesDetailsRequest.chargeMode;
                 } else {
                     xLanguage = listInstancesDetailsRequest['X-Language'];
                     id = listInstancesDetailsRequest['id'];
@@ -3954,6 +4044,7 @@ export const ParamCreater = function () {
                     offset = listInstancesDetailsRequest['offset'];
                     limit = listInstancesDetailsRequest['limit'];
                     tags = listInstancesDetailsRequest['tags'];
+                    chargeMode = listInstancesDetailsRequest['charge_mode'];
                 }
             }
 
@@ -3984,6 +4075,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

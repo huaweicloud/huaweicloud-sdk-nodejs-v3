@@ -1,13 +1,13 @@
-import { KeypairBean } from './KeypairBean';
+import { ImportPrivateKeyAction } from './ImportPrivateKeyAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ImportPrivateKeyResponse extends SdkResponse {
-    public keypair?: KeypairBean;
+    public keypair?: ImportPrivateKeyAction;
     public constructor() { 
         super();
     }
-    public withKeypair(keypair: KeypairBean): ImportPrivateKeyResponse {
+    public withKeypair(keypair: ImportPrivateKeyAction): ImportPrivateKeyResponse {
         this['keypair'] = keypair;
         return this;
     }

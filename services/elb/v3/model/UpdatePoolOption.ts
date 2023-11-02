@@ -14,6 +14,7 @@ export class UpdatePoolOption {
     public type?: string;
     private 'protection_status'?: UpdatePoolOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'any_port_enable'?: boolean;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -107,6 +108,16 @@ export class UpdatePoolOption {
     }
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
+    }
+    public withAnyPortEnable(anyPortEnable: boolean): UpdatePoolOption {
+        this['any_port_enable'] = anyPortEnable;
+        return this;
+    }
+    public set anyPortEnable(anyPortEnable: boolean  | undefined) {
+        this['any_port_enable'] = anyPortEnable;
+    }
+    public get anyPortEnable(): boolean | undefined {
+        return this['any_port_enable'];
     }
 }
 

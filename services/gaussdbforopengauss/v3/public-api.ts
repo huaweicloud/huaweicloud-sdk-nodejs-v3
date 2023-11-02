@@ -49,6 +49,8 @@ export * from './model/DbUserPwdRequest';
 export * from './model/DeleteBackupErrorResponse';
 export * from './model/DeleteConfigurationRequest';
 export * from './model/DeleteConfigurationResponse';
+export * from './model/DeleteDatabaseRequest';
+export * from './model/DeleteDatabaseResponse';
 export * from './model/DeleteInstanceRequest';
 export * from './model/DeleteInstanceResponse';
 export * from './model/DeleteJobRequest';

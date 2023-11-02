@@ -2,18 +2,29 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteGaussMySqlBackupResponse extends SdkResponse {
-    private 'job_id'?: string;
+    private 'backup_id'?: string;
+    private 'backup_name'?: string;
     public constructor() { 
         super();
     }
-    public withJobId(jobId: string): DeleteGaussMySqlBackupResponse {
-        this['job_id'] = jobId;
+    public withBackupId(backupId: string): DeleteGaussMySqlBackupResponse {
+        this['backup_id'] = backupId;
         return this;
     }
-    public set jobId(jobId: string  | undefined) {
-        this['job_id'] = jobId;
+    public set backupId(backupId: string  | undefined) {
+        this['backup_id'] = backupId;
     }
-    public get jobId(): string | undefined {
-        return this['job_id'];
+    public get backupId(): string | undefined {
+        return this['backup_id'];
+    }
+    public withBackupName(backupName: string): DeleteGaussMySqlBackupResponse {
+        this['backup_name'] = backupName;
+        return this;
+    }
+    public set backupName(backupName: string  | undefined) {
+        this['backup_name'] = backupName;
+    }
+    public get backupName(): string | undefined {
+        return this['backup_name'];
     }
 }

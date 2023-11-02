@@ -11,6 +11,7 @@ export class CreateNatGatewayDnatOption {
     public protocol?: string;
     private 'internal_service_port_range'?: string;
     private 'external_service_port_range'?: string;
+    private 'global_eip_id'?: string;
     public constructor(natGatewayId?: string, internalServicePort?: number, floatingIpId?: string, externalServicePort?: number, protocol?: string) { 
         this['nat_gateway_id'] = natGatewayId;
         this['internal_service_port'] = internalServicePort;
@@ -105,5 +106,15 @@ export class CreateNatGatewayDnatOption {
     }
     public get externalServicePortRange(): string | undefined {
         return this['external_service_port_range'];
+    }
+    public withGlobalEipId(globalEipId: string): CreateNatGatewayDnatOption {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
 }

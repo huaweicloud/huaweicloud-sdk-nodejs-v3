@@ -6,12 +6,13 @@ export class Backups {
     public name?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
-    public status?: BackupsStatusEnum | string;
+    public status?: string;
     private 'take_up_time'?: number;
-    public type?: BackupsTypeEnum | string;
+    public type?: string;
     public size?: number;
     public datastore?: MysqlDatastoreInBackup;
     private 'instance_id'?: string;
+    private 'instance_name'?: string;
     private 'backup_level'?: BackupsBackupLevelEnum | string;
     public description?: string;
     public constructor() { 
@@ -44,7 +45,7 @@ export class Backups {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withStatus(status: BackupsStatusEnum | string): Backups {
+    public withStatus(status: string): Backups {
         this['status'] = status;
         return this;
     }
@@ -58,7 +59,7 @@ export class Backups {
     public get takeUpTime(): number | undefined {
         return this['take_up_time'];
     }
-    public withType(type: BackupsTypeEnum | string): Backups {
+    public withType(type: string): Backups {
         this['type'] = type;
         return this;
     }
@@ -80,6 +81,16 @@ export class Backups {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
+    public withInstanceName(instanceName: string): Backups {
+        this['instance_name'] = instanceName;
+        return this;
+    }
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
+    }
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
+    }
     public withBackupLevel(backupLevel: BackupsBackupLevelEnum | string): Backups {
         this['backup_level'] = backupLevel;
         return this;
@@ -96,24 +107,6 @@ export class Backups {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackupsStatusEnum {
-    BUILDING = 'BUILDING',
-    COMPLETED = 'COMPLETED',
-    FAILED = 'FAILED',
-    AVAILABLE = 'AVAILABLE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackupsTypeEnum {
-    AUTO = 'auto',
-    MANUAL = 'manual'
-}
 /**
     * @export
     * @enum {string}

@@ -3879,6 +3879,7 @@ export class ApigClient {
      * @param {string} [envId] 发布的环境编号
      * @param {number} [type] API类型
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name、req_uri
+     * @param {string} [vpcChannelName] 负载通道名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -12975,6 +12976,8 @@ export const ParamCreater = function () {
             let type;
             
             let preciseSearch;
+            
+            let vpcChannelName;
 
             if (listApisV2Request !== null && listApisV2Request !== undefined) {
                 if (listApisV2Request instanceof ListApisV2Request) {
@@ -12991,6 +12994,7 @@ export const ParamCreater = function () {
                     envId = listApisV2Request.envId;
                     type = listApisV2Request.type;
                     preciseSearch = listApisV2Request.preciseSearch;
+                    vpcChannelName = listApisV2Request.vpcChannelName;
                 } else {
                     instanceId = listApisV2Request['instance_id'];
                     offset = listApisV2Request['offset'];
@@ -13005,6 +13009,7 @@ export const ParamCreater = function () {
                     envId = listApisV2Request['env_id'];
                     type = listApisV2Request['type'];
                     preciseSearch = listApisV2Request['precise_search'];
+                    vpcChannelName = listApisV2Request['vpc_channel_name'];
                 }
             }
 
@@ -13047,6 +13052,9 @@ export const ParamCreater = function () {
             }
             if (preciseSearch !== null && preciseSearch !== undefined) {
                 localVarQueryParameter['precise_search'] = preciseSearch;
+            }
+            if (vpcChannelName !== null && vpcChannelName !== undefined) {
+                localVarQueryParameter['vpc_channel_name'] = vpcChannelName;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -50,6 +50,8 @@ export * from './model/PageInfo';
 export * from './model/Record';
 export * from './model/RestoreSecretRequest';
 export * from './model/RestoreSecretResponse';
+export * from './model/RotateSecretRequest';
+export * from './model/RotateSecretResponse';
 export * from './model/Secret';
 export * from './model/ShowSecretEventRequest';
 export * from './model/ShowSecretEventResponse';

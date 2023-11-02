@@ -49,6 +49,8 @@ import { CollectDbObjectsAsyncRequest } from './model/CollectDbObjectsAsyncReque
 import { CollectDbObjectsAsyncResponse } from './model/CollectDbObjectsAsyncResponse';
 import { CollectDbObjectsInfoRequest } from './model/CollectDbObjectsInfoRequest';
 import { CollectDbObjectsInfoResponse } from './model/CollectDbObjectsInfoResponse';
+import { CollectPositionAsyncRequest } from './model/CollectPositionAsyncRequest';
+import { CollectPositionAsyncResponse } from './model/CollectPositionAsyncResponse';
 import { ColumnObject } from './model/ColumnObject';
 import { CommitAsyncJobRequest } from './model/CommitAsyncJobRequest';
 import { CommitAsyncJobResponse } from './model/CommitAsyncJobResponse';
@@ -136,6 +138,7 @@ import { ProgressCompleteInfo } from './model/ProgressCompleteInfo';
 import { ProjectTag } from './model/ProjectTag';
 import { QueryColumnInfo } from './model/QueryColumnInfo';
 import { QueryColumnReq } from './model/QueryColumnReq';
+import { QueryDbPositionReq } from './model/QueryDbPositionReq';
 import { QueryMetricResult } from './model/QueryMetricResult';
 import { QueryMigrationObjectProgressInfo } from './model/QueryMigrationObjectProgressInfo';
 import { QueryNetworkResult } from './model/QueryNetworkResult';
@@ -183,6 +186,8 @@ import { ShowMonitorDataRequest } from './model/ShowMonitorDataRequest';
 import { ShowMonitorDataResponse } from './model/ShowMonitorDataResponse';
 import { ShowObjectMappingRequest } from './model/ShowObjectMappingRequest';
 import { ShowObjectMappingResponse } from './model/ShowObjectMappingResponse';
+import { ShowPositionResultRequest } from './model/ShowPositionResultRequest';
+import { ShowPositionResultResponse } from './model/ShowPositionResultResponse';
 import { ShowProgressDataRequest } from './model/ShowProgressDataRequest';
 import { ShowProgressDataResponse } from './model/ShowProgressDataResponse';
 import { ShowSupportObjectTypeRequest } from './model/ShowSupportObjectTypeRequest';
@@ -420,13 +425,34 @@ export class DrsClient {
      *
      * @summary 提交查询数据库对象信息
      * @param {string} jobId 任务ID。
-     * @param {QuerySelectObjectInfoReq} collectDbObjectsInfoRequestBody 数据库对象采集请求体
+     * @param {QuerySelectObjectInfoReq} collectDbObjectsInfoRequestBody 数据库对象采集请求体。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public collectDbObjectsInfo(collectDbObjectsInfoRequest?: CollectDbObjectsInfoRequest): Promise<CollectDbObjectsInfoResponse> {
         const options = ParamCreater().collectDbObjectsInfo(collectDbObjectsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 采集数据库位点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 采集数据库位点信息
+     * @param {string} jobId 任务ID
+     * @param {QueryDbPositionReq} collectPositionAsyncRequestBody 采集数据库位点信息请求体
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectPositionAsync(collectPositionAsyncRequest?: CollectPositionAsyncRequest): Promise<CollectPositionAsyncResponse> {
+        const options = ParamCreater().collectPositionAsync(collectPositionAsyncRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1179,6 +1205,27 @@ export class DrsClient {
     }
 
     /**
+     * 获取查询数据库位点的结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取查询数据库位点的结果
+     * @param {string} jobId 任务ID。
+     * @param {string} queryId 位点信息采集的ID，由采集数据库位点信息接口返回的ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPositionResult(showPositionResultRequest?: ShowPositionResultRequest): Promise<ShowPositionResultResponse> {
+        const options = ParamCreater().showPositionResult(showPositionResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询不同迁移对象类型的迁移进度。
      * 说明：
      * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MongoDB-&gt;DDS、DDS-&gt;MongoDB的迁移支持查看迁移明细。
@@ -1872,6 +1919,59 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling collectDbObjectsInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 采集数据库位点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectPositionAsync(collectPositionAsyncRequest?: CollectPositionAsyncRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/jobs/{job_id}/collect-db-position",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (collectPositionAsyncRequest !== null && collectPositionAsyncRequest !== undefined) {
+                if (collectPositionAsyncRequest instanceof CollectPositionAsyncRequest) {
+                    jobId = collectPositionAsyncRequest.jobId;
+                    body = collectPositionAsyncRequest.body
+                    xLanguage = collectPositionAsyncRequest.xLanguage;
+                } else {
+                    jobId = collectPositionAsyncRequest['job_id'];
+                    body = collectPositionAsyncRequest['body'];
+                    xLanguage = collectPositionAsyncRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling collectPositionAsync.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3869,6 +3969,61 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取查询数据库位点的结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPositionResult(showPositionResultRequest?: ShowPositionResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/db-position",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let queryId;
+            
+            let xLanguage;
+
+            if (showPositionResultRequest !== null && showPositionResultRequest !== undefined) {
+                if (showPositionResultRequest instanceof ShowPositionResultRequest) {
+                    jobId = showPositionResultRequest.jobId;
+                    queryId = showPositionResultRequest.queryId;
+                    xLanguage = showPositionResultRequest.xLanguage;
+                } else {
+                    jobId = showPositionResultRequest['job_id'];
+                    queryId = showPositionResultRequest['query_id'];
+                    xLanguage = showPositionResultRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showPositionResult.');
+            }
+            if (queryId === null || queryId === undefined) {
+                throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling showPositionResult.');
+            }
+            if (queryId !== null && queryId !== undefined) {
+                localVarQueryParameter['query_id'] = queryId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;

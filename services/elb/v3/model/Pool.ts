@@ -28,7 +28,7 @@ export class Pool {
     private 'protection_status'?: PoolProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
-    public constructor(adminStateUp?: boolean, description?: string, healthmonitorId?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MemberRef>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, slowStart?: SlowStart, memberDeletionProtectionEnable?: boolean, vpcId?: string, type?: string) { 
+    public constructor(adminStateUp?: boolean, description?: string, healthmonitorId?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MemberRef>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, slowStart?: SlowStart, memberDeletionProtectionEnable?: boolean, vpcId?: string, type?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
         this['healthmonitor_id'] = healthmonitorId;
@@ -41,6 +41,7 @@ export class Pool {
         this['project_id'] = projectId;
         this['protocol'] = protocol;
         this['session_persistence'] = sessionPersistence;
+        this['ip_version'] = ipVersion;
         this['slow_start'] = slowStart;
         this['member_deletion_protection_enable'] = memberDeletionProtectionEnable;
         this['vpc_id'] = vpcId;
