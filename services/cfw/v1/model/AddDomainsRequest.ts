@@ -3,11 +3,13 @@ import { AddDomainListDto } from './AddDomainListDto';
 
 export class AddDomainsRequest {
     private 'project_id'?: string;
+    private 'set_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     public body?: AddDomainListDto;
-    public constructor(projectId?: string) { 
+    public constructor(projectId?: string, setId?: string) { 
         this['project_id'] = projectId;
+        this['set_id'] = setId;
     }
     public withProjectId(projectId: string): AddDomainsRequest {
         this['project_id'] = projectId;
@@ -18,6 +20,16 @@ export class AddDomainsRequest {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withSetId(setId: string): AddDomainsRequest {
+        this['set_id'] = setId;
+        return this;
+    }
+    public set setId(setId: string  | undefined) {
+        this['set_id'] = setId;
+    }
+    public get setId(): string | undefined {
+        return this['set_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): AddDomainsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

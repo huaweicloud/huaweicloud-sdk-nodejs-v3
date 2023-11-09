@@ -67,5 +67,6 @@ export enum AddonInstanceStatusStatusEnum {
     DELETEFAILED = 'deleteFailed',
     AVAILABLE = 'available',
     ROLLBACKING = 'rollbacking',
-    ROLLBACKFAILED = 'rollbackFailed'
+    ROLLBACKFAILED = 'rollbackFailed',
+    UNKNOWN = 'unknown'
 }

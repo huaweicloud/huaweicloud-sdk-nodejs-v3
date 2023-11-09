@@ -328,6 +328,7 @@ export class CfwClient {
      *
      * @summary 添加域名列表
      * @param {string} projectId 租户项目id
+     * @param {string} setId 域名组id
      * @param {AddDomainListDto} addDomainListDto 添加域名列表Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
@@ -545,6 +546,7 @@ export class CfwClient {
      *
      * @summary 删除域名列表
      * @param {string} projectId 租户项目id
+     * @param {string} setId 域名组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {DeleteDomainDto} [deleteDomainDto] 删除域名组列表dto
      * @param {*} [options] Override http request option.
@@ -1850,7 +1852,7 @@ export const ParamCreater = function () {
         addDomains(addDomainsRequest?: AddDomainsRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/domain-set/domains",
+                url: "/v1/{project_id}/domain-set/domains/{set_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1863,6 +1865,8 @@ export const ParamCreater = function () {
             
             let projectId;
             
+            let setId;
+            
             let enterpriseProjectId;
             
             let fwInstanceId;
@@ -1870,11 +1874,13 @@ export const ParamCreater = function () {
             if (addDomainsRequest !== null && addDomainsRequest !== undefined) {
                 if (addDomainsRequest instanceof AddDomainsRequest) {
                     projectId = addDomainsRequest.projectId;
+                    setId = addDomainsRequest.setId;
                     body = addDomainsRequest.body
                     enterpriseProjectId = addDomainsRequest.enterpriseProjectId;
                     fwInstanceId = addDomainsRequest.fwInstanceId;
                 } else {
                     projectId = addDomainsRequest['project_id'];
+                    setId = addDomainsRequest['set_id'];
                     body = addDomainsRequest['body'];
                     enterpriseProjectId = addDomainsRequest['enterprise_project_id'];
                     fwInstanceId = addDomainsRequest['fw_instance_id'];
@@ -1884,6 +1890,9 @@ export const ParamCreater = function () {
         
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling addDomains.');
+            }
+            if (setId === null || setId === undefined) {
+            throw new RequiredError('setId','Required parameter setId was null or undefined when calling addDomains.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1898,7 +1907,7 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
+            options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2452,7 +2461,7 @@ export const ParamCreater = function () {
         deleteDomains(deleteDomainsRequest?: DeleteDomainsRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/domain-set/domains",
+                url: "/v1/{project_id}/domain-set/domains/{set_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2465,15 +2474,19 @@ export const ParamCreater = function () {
             
             let projectId;
             
+            let setId;
+            
             let enterpriseProjectId;
 
             if (deleteDomainsRequest !== null && deleteDomainsRequest !== undefined) {
                 if (deleteDomainsRequest instanceof DeleteDomainsRequest) {
                     projectId = deleteDomainsRequest.projectId;
+                    setId = deleteDomainsRequest.setId;
                     enterpriseProjectId = deleteDomainsRequest.enterpriseProjectId;
                     body = deleteDomainsRequest.body
                 } else {
                     projectId = deleteDomainsRequest['project_id'];
+                    setId = deleteDomainsRequest['set_id'];
                     enterpriseProjectId = deleteDomainsRequest['enterprise_project_id'];
                     body = deleteDomainsRequest['body'];
                 }
@@ -2483,6 +2496,9 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteDomains.');
             }
+            if (setId === null || setId === undefined) {
+            throw new RequiredError('setId','Required parameter setId was null or undefined when calling deleteDomains.');
+            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -2490,7 +2506,7 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
+            options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

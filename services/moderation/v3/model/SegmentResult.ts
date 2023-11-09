@@ -3,6 +3,7 @@
 export class SegmentResult {
     public segment?: string;
     private 'glossary_name'?: string;
+    public position?: Array<number>;
     public constructor() { 
     }
     public withSegment(segment: string): SegmentResult {
@@ -18,5 +19,9 @@ export class SegmentResult {
     }
     public get glossaryName(): string | undefined {
         return this['glossary_name'];
+    }
+    public withPosition(position: Array<number>): SegmentResult {
+        this['position'] = position;
+        return this;
     }
 }

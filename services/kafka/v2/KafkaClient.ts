@@ -59,7 +59,6 @@ import { CreateSinkTaskResponse } from './model/CreateSinkTaskResponse';
 import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
 import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
 import { DeleteConnectorRequest } from './model/DeleteConnectorRequest';
-import { DeleteConnectorRequestBody } from './model/DeleteConnectorRequestBody';
 import { DeleteConnectorResponse } from './model/DeleteConnectorResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
@@ -72,6 +71,7 @@ import { ExtendProductIosEntity } from './model/ExtendProductIosEntity';
 import { ExtendProductPropertiesEntity } from './model/ExtendProductPropertiesEntity';
 import { ExtendProductSupportFeaturesEntity } from './model/ExtendProductSupportFeaturesEntity';
 import { GroupInfoSimple } from './model/GroupInfoSimple';
+import { InstanceConfig } from './model/InstanceConfig';
 import { KafkaTopicPartitionResponsePartitions } from './model/KafkaTopicPartitionResponsePartitions';
 import { KafkaTopicProducerResponseProducers } from './model/KafkaTopicProducerResponseProducers';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
@@ -108,6 +108,10 @@ import { ListTopicProducersRequest } from './model/ListTopicProducersRequest';
 import { ListTopicProducersResponse } from './model/ListTopicProducersResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { MessagesEntity } from './model/MessagesEntity';
+import { ModifyInstanceConfig } from './model/ModifyInstanceConfig';
+import { ModifyInstanceConfigsReq } from './model/ModifyInstanceConfigsReq';
+import { ModifyInstanceConfigsRequest } from './model/ModifyInstanceConfigsRequest';
+import { ModifyInstanceConfigsResponse } from './model/ModifyInstanceConfigsResponse';
 import { ObsDestinationDescriptor } from './model/ObsDestinationDescriptor';
 import { PartitionReassignEntity } from './model/PartitionReassignEntity';
 import { PartitionReassignRequest } from './model/PartitionReassignRequest';
@@ -161,6 +165,8 @@ import { ShowGroupsRespGroupAssignment } from './model/ShowGroupsRespGroupAssign
 import { ShowGroupsRespGroupGroupMessageOffsets } from './model/ShowGroupsRespGroupGroupMessageOffsets';
 import { ShowGroupsRespGroupMembers } from './model/ShowGroupsRespGroupMembers';
 import { ShowGroupsResponse } from './model/ShowGroupsResponse';
+import { ShowInstanceConfigsRequest } from './model/ShowInstanceConfigsRequest';
+import { ShowInstanceConfigsResponse } from './model/ShowInstanceConfigsResponse';
 import { ShowInstanceExtendProductInfoRequest } from './model/ShowInstanceExtendProductInfoRequest';
 import { ShowInstanceExtendProductInfoRespDetail } from './model/ShowInstanceExtendProductInfoRespDetail';
 import { ShowInstanceExtendProductInfoRespHourly } from './model/ShowInstanceExtendProductInfoRespHourly';
@@ -604,7 +610,6 @@ export class KafkaClient {
      *
      * @summary 关闭实例转储节点
      * @param {string} instanceId 实例ID。
-     * @param {DeleteConnectorRequestBody} [deleteConnectorRequestBody] 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -866,6 +871,26 @@ export class KafkaClient {
      */
     public listTopicProducers(listTopicProducersRequest?: ListTopicProducersRequest): Promise<ListTopicProducersResponse> {
         const options = ParamCreater().listTopicProducers(listTopicProducersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例配置
+     * @param {string} instanceId 实例ID。
+     * @param {ModifyInstanceConfigsReq} modifyInstanceConfigsRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyInstanceConfigs(modifyInstanceConfigsRequest?: ModifyInstanceConfigsRequest): Promise<ModifyInstanceConfigsResponse> {
+        const options = ParamCreater().modifyInstanceConfigs(modifyInstanceConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1147,6 +1172,25 @@ export class KafkaClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实例配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实例配置
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceConfigs(showInstanceConfigsRequest?: ShowInstanceConfigsRequest): Promise<ShowInstanceConfigsResponse> {
+        const options = ParamCreater().showInstanceConfigs(showInstanceConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2427,22 +2471,18 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
             
             let instanceId;
 
             if (deleteConnectorRequest !== null && deleteConnectorRequest !== undefined) {
                 if (deleteConnectorRequest instanceof DeleteConnectorRequest) {
                     instanceId = deleteConnectorRequest.instanceId;
-                    body = deleteConnectorRequest.body
                 } else {
                     instanceId = deleteConnectorRequest['instance_id'];
-                    body = deleteConnectorRequest['body'];
                 }
             }
 
@@ -2450,9 +2490,7 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteConnector.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3057,6 +3095,52 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'topic': topic, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyInstanceConfigs(modifyInstanceConfigsRequest?: ModifyInstanceConfigsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (modifyInstanceConfigsRequest !== null && modifyInstanceConfigsRequest !== undefined) {
+                if (modifyInstanceConfigsRequest instanceof ModifyInstanceConfigsRequest) {
+                    instanceId = modifyInstanceConfigsRequest.instanceId;
+                    body = modifyInstanceConfigsRequest.body
+                } else {
+                    instanceId = modifyInstanceConfigsRequest['instance_id'];
+                    body = modifyInstanceConfigsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyInstanceConfigs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3681,6 +3765,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstance.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取实例配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceConfigs(showInstanceConfigsRequest?: ShowInstanceConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceConfigsRequest !== null && showInstanceConfigsRequest !== undefined) {
+                if (showInstanceConfigsRequest instanceof ShowInstanceConfigsRequest) {
+                    instanceId = showInstanceConfigsRequest.instanceId;
+                } else {
+                    instanceId = showInstanceConfigsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceConfigs.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };

@@ -3,6 +3,7 @@ import { TextDetectionDataReq } from './TextDetectionDataReq';
 
 export class TextDetectionReq {
     private 'event_type'?: string;
+    public categories?: Array<string>;
     private 'glossary_names'?: Array<string>;
     public data?: TextDetectionDataReq;
     private 'white_glossary_names'?: Array<string>;
@@ -19,6 +20,10 @@ export class TextDetectionReq {
     }
     public get eventType(): string | undefined {
         return this['event_type'];
+    }
+    public withCategories(categories: Array<string>): TextDetectionReq {
+        this['categories'] = categories;
+        return this;
     }
     public withGlossaryNames(glossaryNames: Array<string>): TextDetectionReq {
         this['glossary_names'] = glossaryNames;

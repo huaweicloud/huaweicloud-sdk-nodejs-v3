@@ -17,6 +17,7 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     private 'database_name'?: string;
     private 'table_name'?: string;
     public detail?: string;
+    private 'user_conf'?: string;
     public statement?: string;
     private 'is_success'?: boolean;
     public message?: string;
@@ -140,6 +141,16 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     public withDetail(detail: string): ShowSqlJobStatusResponse {
         this['detail'] = detail;
         return this;
+    }
+    public withUserConf(userConf: string): ShowSqlJobStatusResponse {
+        this['user_conf'] = userConf;
+        return this;
+    }
+    public set userConf(userConf: string  | undefined) {
+        this['user_conf'] = userConf;
+    }
+    public get userConf(): string | undefined {
+        return this['user_conf'];
     }
     public withStatement(statement: string): ShowSqlJobStatusResponse {
         this['statement'] = statement;

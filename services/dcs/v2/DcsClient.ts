@@ -32,8 +32,6 @@ import { BssParamEntity } from './model/BssParamEntity';
 import { ChangeInstanceStatusBody } from './model/ChangeInstanceStatusBody';
 import { ChangeMasterStandbyRequest } from './model/ChangeMasterStandbyRequest';
 import { ChangeMasterStandbyResponse } from './model/ChangeMasterStandbyResponse';
-import { CheckMigrationConnectivityRequest } from './model/CheckMigrationConnectivityRequest';
-import { CheckMigrationConnectivityResponse } from './model/CheckMigrationConnectivityResponse';
 import { ClusterRedisNodeMonitoredObject } from './model/ClusterRedisNodeMonitoredObject';
 import { CommandTimeTaken } from './model/CommandTimeTaken';
 import { CommandTimeTakenList } from './model/CommandTimeTakenList';
@@ -207,7 +205,6 @@ import { QueryRedisConfig } from './model/QueryRedisConfig';
 import { QueryTenantQuotaRespQuotas } from './model/QueryTenantQuotaRespQuotas';
 import { RecordsResponse } from './model/RecordsResponse';
 import { RedisConfig } from './model/RedisConfig';
-import { RedisConnectionParam } from './model/RedisConnectionParam';
 import { RenameCommandResp } from './model/RenameCommandResp';
 import { ResetAclAccountPassWordRequest } from './model/ResetAclAccountPassWordRequest';
 import { ResetAclAccountPassWordResponse } from './model/ResetAclAccountPassWordResponse';
@@ -428,26 +425,6 @@ export class DcsClient {
      */
     public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<ChangeMasterStandbyResponse> {
         const options = ParamCreater().changeMasterStandby(changeMasterStandbyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 数据迁移配置页实例连接测试
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 数据迁移配置页实例连接测试
-     * @param {string} taskId 任务ID
-     * @param {RedisConnectionParam} checkMigrationConnectivityRequestBody 连接测试请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkMigrationConnectivity(checkMigrationConnectivityRequest?: CheckMigrationConnectivityRequest): Promise<CheckMigrationConnectivityResponse> {
-        const options = ParamCreater().checkMigrationConnectivity(checkMigrationConnectivityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2675,52 +2652,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 数据迁移配置页实例连接测试
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkMigrationConnectivity(checkMigrationConnectivityRequest?: CheckMigrationConnectivityRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/migration/{task_id}/connectivity",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let taskId;
-
-            if (checkMigrationConnectivityRequest !== null && checkMigrationConnectivityRequest !== undefined) {
-                if (checkMigrationConnectivityRequest instanceof CheckMigrationConnectivityRequest) {
-                    taskId = checkMigrationConnectivityRequest.taskId;
-                    body = checkMigrationConnectivityRequest.body
-                } else {
-                    taskId = checkMigrationConnectivityRequest['task_id'];
-                    body = checkMigrationConnectivityRequest['body'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling checkMigrationConnectivity.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

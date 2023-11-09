@@ -14,6 +14,8 @@ export class BackupRecordResponse {
     public remark?: string;
     public status?: BackupRecordResponseStatusEnum | string;
     private 'is_support_restore'?: string;
+    private 'backup_format'?: BackupRecordResponseBackupFormatEnum | string;
+    private 'execution_at'?: string;
     public constructor() { 
     }
     public withBackupId(backupId: string): BackupRecordResponse {
@@ -116,6 +118,26 @@ export class BackupRecordResponse {
     public get isSupportRestore(): string | undefined {
         return this['is_support_restore'];
     }
+    public withBackupFormat(backupFormat: BackupRecordResponseBackupFormatEnum | string): BackupRecordResponse {
+        this['backup_format'] = backupFormat;
+        return this;
+    }
+    public set backupFormat(backupFormat: BackupRecordResponseBackupFormatEnum | string  | undefined) {
+        this['backup_format'] = backupFormat;
+    }
+    public get backupFormat(): BackupRecordResponseBackupFormatEnum | string | undefined {
+        return this['backup_format'];
+    }
+    public withExecutionAt(executionAt: string): BackupRecordResponse {
+        this['execution_at'] = executionAt;
+        return this;
+    }
+    public set executionAt(executionAt: string  | undefined) {
+        this['execution_at'] = executionAt;
+    }
+    public get executionAt(): string | undefined {
+        return this['execution_at'];
+    }
 }
 
 /**
@@ -137,4 +159,12 @@ export enum BackupRecordResponseStatusEnum {
     FAILED = 'failed',
     EXPIRED = 'expired',
     DELETED = 'deleted'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BackupRecordResponseBackupFormatEnum {
+    AOF = 'aof',
+    RDB = 'rdb'
 }

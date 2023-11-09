@@ -588,7 +588,7 @@ export class GaussDBClient {
      *
      * @summary 复制实例参数组
      * @param {string} instanceId 实例ID，严格匹配UUID规则。
-     * @param {string} configurationId 实例ID，严格匹配UUID规则。
+     * @param {string} configurationId 参数组ID。  通过调用[查询实例详情信息](https://support.huaweicloud.com/api-gaussdbformysql/ShowGaussMySqlInstanceInfo.html)接口获取。  请求响应成功后在响应消息体中包含的“configuration_id”的值即为configuration_id值。
      * @param {CopyInstanceConfigurationsRequestBody} copyInstanceConfigurationsRequestBody 请求体。
      * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
      * @param {*} [options] Override http request option.

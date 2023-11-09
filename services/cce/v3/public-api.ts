@@ -175,6 +175,7 @@ export * from './model/RollbackAddonInstanceResponse';
 export * from './model/Runtime';
 export * from './model/RuntimeConfig';
 export * from './model/SecurityID';
+export * from './model/ServiceNetwork';
 export * from './model/ShowAddonInstanceRequest';
 export * from './model/ShowAddonInstanceResponse';
 export * from './model/ShowClusterEndpointsRequest';

@@ -13,6 +13,16 @@ import { AudioStreamCreateRequest } from './model/AudioStreamCreateRequest';
 import { AudioStreamCreateRequestData } from './model/AudioStreamCreateRequestData';
 import { CheckImageModerationRequest } from './model/CheckImageModerationRequest';
 import { CheckImageModerationResponse } from './model/CheckImageModerationResponse';
+import { DocumentAudioDetail } from './model/DocumentAudioDetail';
+import { DocumentCreateRequest } from './model/DocumentCreateRequest';
+import { DocumentCreateRequestData } from './model/DocumentCreateRequestData';
+import { DocumentQueryResponseRequestParams } from './model/DocumentQueryResponseRequestParams';
+import { DocumentQueryResponseRequestParamsData } from './model/DocumentQueryResponseRequestParamsData';
+import { DocumentQueryResponseResult } from './model/DocumentQueryResponseResult';
+import { DocumentQueryResponseResultDetails } from './model/DocumentQueryResponseResultDetails';
+import { DocumentQueryResponseResultSegments } from './model/DocumentQueryResponseResultSegments';
+import { DocumentVideoImageDetail } from './model/DocumentVideoImageDetail';
+import { DocumentVideoImageDetailSegments } from './model/DocumentVideoImageDetailSegments';
 import { FaceLocationDetail } from './model/FaceLocationDetail';
 import { ImageDetectionReq } from './model/ImageDetectionReq';
 import { ImageDetectionResult } from './model/ImageDetectionResult';
@@ -28,12 +38,16 @@ import { RunCreateAudioModerationJobRequest } from './model/RunCreateAudioModera
 import { RunCreateAudioModerationJobResponse } from './model/RunCreateAudioModerationJobResponse';
 import { RunCreateAudioStreamModerationJobRequest } from './model/RunCreateAudioStreamModerationJobRequest';
 import { RunCreateAudioStreamModerationJobResponse } from './model/RunCreateAudioStreamModerationJobResponse';
+import { RunCreateDocumentModerationJobRequest } from './model/RunCreateDocumentModerationJobRequest';
+import { RunCreateDocumentModerationJobResponse } from './model/RunCreateDocumentModerationJobResponse';
 import { RunCreateVideoModerationJobRequest } from './model/RunCreateVideoModerationJobRequest';
 import { RunCreateVideoModerationJobResponse } from './model/RunCreateVideoModerationJobResponse';
 import { RunCreateVideoStreamModerationJobRequest } from './model/RunCreateVideoStreamModerationJobRequest';
 import { RunCreateVideoStreamModerationJobResponse } from './model/RunCreateVideoStreamModerationJobResponse';
 import { RunQueryAudioModerationJobRequest } from './model/RunQueryAudioModerationJobRequest';
 import { RunQueryAudioModerationJobResponse } from './model/RunQueryAudioModerationJobResponse';
+import { RunQueryDocumentModerationJobRequest } from './model/RunQueryDocumentModerationJobRequest';
+import { RunQueryDocumentModerationJobResponse } from './model/RunQueryDocumentModerationJobResponse';
 import { RunQueryVideoModerationJobRequest } from './model/RunQueryVideoModerationJobRequest';
 import { RunQueryVideoModerationJobResponse } from './model/RunQueryVideoModerationJobResponse';
 import { RunTextModerationRequest } from './model/RunTextModerationRequest';
@@ -169,6 +183,25 @@ export class ModerationClient {
     }
 
     /**
+     * 创建文档内容审核作业，创建成功会将作业ID返回给用户
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建文档内容审核作业
+     * @param {DocumentCreateRequest} runDocumentModerationRequestBody 文档内容审核请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCreateDocumentModerationJob(runCreateDocumentModerationJobRequest?: RunCreateDocumentModerationJobRequest): Promise<RunCreateDocumentModerationJobResponse> {
+        const options = ParamCreater().runCreateDocumentModerationJob(runCreateDocumentModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建视频内容审核作业，创建成功会将作业ID返回给用户
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -217,6 +250,25 @@ export class ModerationClient {
      */
     public runQueryAudioModerationJob(runQueryAudioModerationJobRequest?: RunQueryAudioModerationJobRequest): Promise<RunQueryAudioModerationJobResponse> {
         const options = ParamCreater().runQueryAudioModerationJob(runQueryAudioModerationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询文档审核结果接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询文档审核作业结果
+     * @param {string} jobId 创建作业成功时，接口返回的job_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runQueryDocumentModerationJob(runQueryDocumentModerationJobRequest?: RunQueryDocumentModerationJobRequest): Promise<RunQueryDocumentModerationJobResponse> {
+        const options = ParamCreater().runQueryDocumentModerationJob(runQueryDocumentModerationJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -455,6 +507,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建文档内容审核作业，创建成功会将作业ID返回给用户
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCreateDocumentModerationJob(runCreateDocumentModerationJobRequest?: RunCreateDocumentModerationJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/document/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runCreateDocumentModerationJobRequest !== null && runCreateDocumentModerationJobRequest !== undefined) {
+                if (runCreateDocumentModerationJobRequest instanceof RunCreateDocumentModerationJobRequest) {
+                    body = runCreateDocumentModerationJobRequest.body
+                } else {
+                    body = runCreateDocumentModerationJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建视频内容审核作业，创建成功会将作业ID返回给用户
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -559,6 +649,43 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling runQueryAudioModerationJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询文档审核结果接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runQueryDocumentModerationJob(runQueryDocumentModerationJobRequest?: RunQueryDocumentModerationJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/moderation/document/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (runQueryDocumentModerationJobRequest !== null && runQueryDocumentModerationJobRequest !== undefined) {
+                if (runQueryDocumentModerationJobRequest instanceof RunQueryDocumentModerationJobRequest) {
+                    jobId = runQueryDocumentModerationJobRequest.jobId;
+                } else {
+                    jobId = runQueryDocumentModerationJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling runQueryDocumentModerationJob.');
             }
 
             options.pathParams = { 'job_id': jobId, };

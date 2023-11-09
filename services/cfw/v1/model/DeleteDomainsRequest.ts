@@ -3,10 +3,12 @@ import { DeleteDomainDto } from './DeleteDomainDto';
 
 export class DeleteDomainsRequest {
     private 'project_id'?: string;
+    private 'set_id'?: string;
     private 'enterprise_project_id'?: string;
     public body?: DeleteDomainDto;
-    public constructor(projectId?: string) { 
+    public constructor(projectId?: string, setId?: string) { 
         this['project_id'] = projectId;
+        this['set_id'] = setId;
     }
     public withProjectId(projectId: string): DeleteDomainsRequest {
         this['project_id'] = projectId;
@@ -17,6 +19,16 @@ export class DeleteDomainsRequest {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withSetId(setId: string): DeleteDomainsRequest {
+        this['set_id'] = setId;
+        return this;
+    }
+    public set setId(setId: string  | undefined) {
+        this['set_id'] = setId;
+    }
+    public get setId(): string | undefined {
+        return this['set_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): DeleteDomainsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

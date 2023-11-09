@@ -83,6 +83,8 @@ import { CreateJobTemplatesRequestBody } from './model/CreateJobTemplatesRequest
 import { CreateJobTemplatesResponse } from './model/CreateJobTemplatesResponse';
 import { CreateQueuePlanRequest } from './model/CreateQueuePlanRequest';
 import { CreateQueuePlanResponse } from './model/CreateQueuePlanResponse';
+import { CreateQueuePropertyRequest } from './model/CreateQueuePropertyRequest';
+import { CreateQueuePropertyResponse } from './model/CreateQueuePropertyResponse';
 import { CreateQueueReq } from './model/CreateQueueReq';
 import { CreateQueueRequest } from './model/CreateQueueRequest';
 import { CreateQueueResponse } from './model/CreateQueueResponse';
@@ -122,6 +124,9 @@ import { DeleteGlobalValueRequest } from './model/DeleteGlobalValueRequest';
 import { DeleteGlobalValueResponse } from './model/DeleteGlobalValueResponse';
 import { DeleteQueuePlanRequest } from './model/DeleteQueuePlanRequest';
 import { DeleteQueuePlanResponse } from './model/DeleteQueuePlanResponse';
+import { DeleteQueuePropertiesRequestBody } from './model/DeleteQueuePropertiesRequestBody';
+import { DeleteQueuePropertyRequest } from './model/DeleteQueuePropertyRequest';
+import { DeleteQueuePropertyResponse } from './model/DeleteQueuePropertyResponse';
 import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
 import { DeleteResourceRequest } from './model/DeleteResourceRequest';
@@ -168,6 +173,8 @@ import { ImportFlinkJobResponse } from './model/ImportFlinkJobResponse';
 import { ImportTableRequest } from './model/ImportTableRequest';
 import { ImportTableRequestBody } from './model/ImportTableRequestBody';
 import { ImportTableResponse } from './model/ImportTableResponse';
+import { InsertQueuePropertyRequestBody } from './model/InsertQueuePropertyRequestBody';
+import { InsertQueuePropertyRequestBodyProperties } from './model/InsertQueuePropertyRequestBodyProperties';
 import { JobMapInfo } from './model/JobMapInfo';
 import { JobTemplateInfo } from './model/JobTemplateInfo';
 import { Jobs } from './model/Jobs';
@@ -205,6 +212,9 @@ import { ListJobTemplatesResponse } from './model/ListJobTemplatesResponse';
 import { ListJobsJobs } from './model/ListJobsJobs';
 import { ListQueuePlansRequest } from './model/ListQueuePlansRequest';
 import { ListQueuePlansResponse } from './model/ListQueuePlansResponse';
+import { ListQueuePropertyRequest } from './model/ListQueuePropertyRequest';
+import { ListQueuePropertyRespProperties } from './model/ListQueuePropertyRespProperties';
+import { ListQueuePropertyResponse } from './model/ListQueuePropertyResponse';
 import { ListQueueUsersRequest } from './model/ListQueueUsersRequest';
 import { ListQueueUsersResponse } from './model/ListQueueUsersResponse';
 import { ListQueuesRequest } from './model/ListQueuesRequest';
@@ -346,6 +356,10 @@ import { UpdateOwnerRequestBody } from './model/UpdateOwnerRequestBody';
 import { UpdateQueueCidrReq } from './model/UpdateQueueCidrReq';
 import { UpdateQueueCidrRequest } from './model/UpdateQueueCidrRequest';
 import { UpdateQueueCidrResponse } from './model/UpdateQueueCidrResponse';
+import { UpdateQueuePropertyRequest } from './model/UpdateQueuePropertyRequest';
+import { UpdateQueuePropertyRequestBody } from './model/UpdateQueuePropertyRequestBody';
+import { UpdateQueuePropertyRequestBodyProperties } from './model/UpdateQueuePropertyRequestBodyProperties';
+import { UpdateQueuePropertyResponse } from './model/UpdateQueuePropertyResponse';
 import { UpdateResourceOwner } from './model/UpdateResourceOwner';
 import { UpdateSqlTemplatesRequest } from './model/UpdateSqlTemplatesRequest';
 import { UpdateSqlTemplatesRequestBody } from './model/UpdateSqlTemplatesRequestBody';
@@ -873,6 +887,26 @@ export class DliClient {
     }
 
     /**
+     * 该接口用于增加队列属性, 一次可增加多个属性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增队列属性
+     * @param {string} queueName 队列名称
+     * @param {InsertQueuePropertyRequestBody} body 待增加属性key及属性值
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createQueueProperty(createQueuePropertyRequest?: CreateQueuePropertyRequest): Promise<CreateQueuePropertyResponse> {
+        const options = ParamCreater().createQueueProperty(createQueuePropertyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于删除跨源认证信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1023,6 +1057,26 @@ export class DliClient {
      */
     public deleteQueuePlan(deleteQueuePlanRequest?: DeleteQueuePlanRequest): Promise<DeleteQueuePlanResponse> {
         const options = ParamCreater().deleteQueuePlan(deleteQueuePlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除队列的属性，一次可删除多个属性值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除队列的属性
+     * @param {string} queueName 队列名称
+     * @param {DeleteQueuePropertiesRequestBody} body 待删除属性keys值 范围如下： computeEngine.maxInstance computeEngine.maxPrefetchInstance job.maxConcurrent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteQueueProperty(deleteQueuePropertyRequest?: DeleteQueuePropertyRequest): Promise<DeleteQueuePropertyResponse> {
+        const options = ParamCreater().deleteQueueProperty(deleteQueuePropertyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1253,6 +1307,27 @@ export class DliClient {
      */
     public listQueuePlans(listQueuePlansRequest?: ListQueuePlansRequest): Promise<ListQueuePlansResponse> {
         const options = ParamCreater().listQueuePlans(listQueuePlansRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取队列配置的属性
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取队列属性
+     * @param {string} queueName 队列名称
+     * @param {number} [page] 列表当前页
+     * @param {number} [pageSize] 每页显示条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listQueueProperty(listQueuePropertyRequest?: ListQueuePropertyRequest): Promise<ListQueuePropertyResponse> {
+        const options = ParamCreater().listQueueProperty(listQueuePropertyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1688,6 +1763,26 @@ export class DliClient {
      */
     public updateQueueCidr(updateQueueCidrRequest?: UpdateQueueCidrRequest): Promise<UpdateQueueCidrResponse> {
         const options = ParamCreater().updateQueueCidr(updateQueueCidrRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新队列属性
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新队列属性
+     * @param {string} queueName 队列名称
+     * @param {UpdateQueuePropertyRequestBody} body 待更新队列属性
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateQueueProperty(updateQueuePropertyRequest?: UpdateQueuePropertyRequest): Promise<UpdateQueuePropertyResponse> {
+        const options = ParamCreater().updateQueueProperty(updateQueuePropertyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3874,6 +3969,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于增加队列属性, 一次可增加多个属性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createQueueProperty(createQueuePropertyRequest?: CreateQueuePropertyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/queues/{queue_name}/properties",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let queueName;
+
+            if (createQueuePropertyRequest !== null && createQueuePropertyRequest !== undefined) {
+                if (createQueuePropertyRequest instanceof CreateQueuePropertyRequest) {
+                    queueName = createQueuePropertyRequest.queueName;
+                    body = createQueuePropertyRequest.body
+                } else {
+                    queueName = createQueuePropertyRequest['queue_name'];
+                    body = createQueuePropertyRequest['body'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling createQueueProperty.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于删除跨源认证信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4183,6 +4324,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'plan_id': planId,'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除队列的属性，一次可删除多个属性值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteQueueProperty(deleteQueuePropertyRequest?: DeleteQueuePropertyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/queues/{queue_name}/properties",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let queueName;
+
+            if (deleteQueuePropertyRequest !== null && deleteQueuePropertyRequest !== undefined) {
+                if (deleteQueuePropertyRequest instanceof DeleteQueuePropertyRequest) {
+                    queueName = deleteQueuePropertyRequest.queueName;
+                    body = deleteQueuePropertyRequest.body
+                } else {
+                    queueName = deleteQueuePropertyRequest['queue_name'];
+                    body = deleteQueuePropertyRequest['body'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling deleteQueueProperty.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4741,6 +4928,58 @@ export const ParamCreater = function () {
             throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listQueuePlans.');
             }
 
+            options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取队列配置的属性
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listQueueProperty(listQueuePropertyRequest?: ListQueuePropertyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/queues/{queue_name}/properties",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let queueName;
+            
+            let page;
+            
+            let pageSize;
+
+            if (listQueuePropertyRequest !== null && listQueuePropertyRequest !== undefined) {
+                if (listQueuePropertyRequest instanceof ListQueuePropertyRequest) {
+                    queueName = listQueuePropertyRequest.queueName;
+                    page = listQueuePropertyRequest.page;
+                    pageSize = listQueuePropertyRequest.pageSize;
+                } else {
+                    queueName = listQueuePropertyRequest['queue_name'];
+                    page = listQueuePropertyRequest['page'];
+                    pageSize = listQueuePropertyRequest['page_size'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listQueueProperty.');
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5662,6 +5901,52 @@ export const ParamCreater = function () {
         
             if (queueName === null || queueName === undefined) {
             throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateQueueCidr.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新队列属性
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateQueueProperty(updateQueuePropertyRequest?: UpdateQueuePropertyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/queues/{queue_name}/properties",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let queueName;
+
+            if (updateQueuePropertyRequest !== null && updateQueuePropertyRequest !== undefined) {
+                if (updateQueuePropertyRequest instanceof UpdateQueuePropertyRequest) {
+                    queueName = updateQueuePropertyRequest.queueName;
+                    body = updateQueuePropertyRequest.body
+                } else {
+                    queueName = updateQueuePropertyRequest['queue_name'];
+                    body = updateQueuePropertyRequest['body'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateQueueProperty.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

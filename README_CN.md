@@ -34,15 +34,17 @@ npm install @huaweicloud/huaweicloud-sdk-vpc
 
 ## 代码示例
 
-- 使用如下代码查询VPC列表，调用前请根据实际情况替换如下变量： `{your ak string}`、`{your sk string}`、`{your endpoint}`、`{your project id}`
+- 使用如下代码查询VPC列表，调用前请根据实际情况替换如下变量：`{your endpoint}`、`{your project id}`
 
 ``` javascript
 // index.ts
 import { ListVpcsRequest, VpcClient } from "@huaweicloud/huaweicloud-sdk-vpc";
 import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
 
-const ak = '{your ak string}';
-const sk = '{your sk string}';
+// 认证用的 ak 和 sk 硬编码到代码中或者明文存储都有很大的安全风险，建议在配置文件或者环境变量中密文存放，使用时解密，确保安全；
+// 本示例以 ak 和 sk 保存在环境变量中来实现身份验证为例，运行本示例前请先在本地环境中设置环境变量 HUAWEICLOUD_SDK_AK 和 HUAWEICLOUD_SDK_SK。
+const ak = process.env.HUAWEICLOUD_SDK_AK;
+const sk = process.env.HUAWEICLOUD_SDK_SK;
 const projectId = '{your project id}';
 const endpoint = '{your endpoint}';
 

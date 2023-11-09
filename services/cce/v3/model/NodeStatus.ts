@@ -53,8 +53,6 @@ export class NodeStatus {
 export enum NodeStatusPhaseEnum {
     BUILD = 'Build',
     INSTALLING = 'Installing',
-    INSTALLED = 'Installed',
-    SHUTDOWN = 'ShutDown',
     UPGRADING = 'Upgrading',
     ACTIVE = 'Active',
     ABNORMAL = 'Abnormal',

@@ -13,6 +13,7 @@ export class AntiDDoSRegion {
     public static CN_EAST_2 = new Region("cn-east-2", ["https://antiddos.cn-east-2.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://antiddos.cn-south-1.myhuaweicloud.com"]);
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://antiddos.cn-south-2.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://antiddos.cn-south-4.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://antiddos.cn-southwest-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://antiddos.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://antiddos.ap-southeast-2.myhuaweicloud.com"]);
@@ -36,6 +37,7 @@ export class AntiDDoSRegion {
         "cn-east-2":AntiDDoSRegion.CN_EAST_2,
         "cn-south-1":AntiDDoSRegion.CN_SOUTH_1,
         "cn-south-2":AntiDDoSRegion.CN_SOUTH_2,
+        "cn-south-4":AntiDDoSRegion.CN_SOUTH_4,
         "cn-southwest-2":AntiDDoSRegion.CN_SOUTHWEST_2,
         "ap-southeast-1":AntiDDoSRegion.AP_SOUTHEAST_1,
         "ap-southeast-2":AntiDDoSRegion.AP_SOUTHEAST_2,

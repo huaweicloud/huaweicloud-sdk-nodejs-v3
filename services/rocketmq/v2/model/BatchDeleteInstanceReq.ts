@@ -3,7 +3,7 @@
 export class BatchDeleteInstanceReq {
     public instances?: Array<string>;
     public action?: BatchDeleteInstanceReqActionEnum | string;
-    public allFailure?: BatchDeleteInstanceReqAllFailureEnum | string;
+    private 'all_failure'?: BatchDeleteInstanceReqAllFailureEnum | string;
     public constructor(action?: string) { 
         this['action'] = action;
     }
@@ -16,8 +16,14 @@ export class BatchDeleteInstanceReq {
         return this;
     }
     public withAllFailure(allFailure: BatchDeleteInstanceReqAllFailureEnum | string): BatchDeleteInstanceReq {
-        this['allFailure'] = allFailure;
+        this['all_failure'] = allFailure;
         return this;
+    }
+    public set allFailure(allFailure: BatchDeleteInstanceReqAllFailureEnum | string  | undefined) {
+        this['all_failure'] = allFailure;
+    }
+    public get allFailure(): BatchDeleteInstanceReqAllFailureEnum | string | undefined {
+        return this['all_failure'];
     }
 }
 

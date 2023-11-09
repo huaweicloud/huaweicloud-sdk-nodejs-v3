@@ -177,6 +177,7 @@ import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResp
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
 import { SecurityID } from './model/SecurityID';
+import { ServiceNetwork } from './model/ServiceNetwork';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
 import { ShowAddonInstanceResponse } from './model/ShowAddonInstanceResponse';
 import { ShowClusterEndpointsRequest } from './model/ShowClusterEndpointsRequest';

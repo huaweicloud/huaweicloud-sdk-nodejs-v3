@@ -6,6 +6,7 @@ import { HostNetwork } from './HostNetwork';
 import { MasterSpec } from './MasterSpec';
 import { PackageConfiguration } from './PackageConfiguration';
 import { ResourceTag } from './ResourceTag';
+import { ServiceNetwork } from './ServiceNetwork';
 
 
 export class ClusterSpec {
@@ -20,6 +21,7 @@ export class ClusterSpec {
     public hostNetwork?: HostNetwork;
     public containerNetwork?: ContainerNetwork;
     public eniNetwork?: EniNetwork;
+    public serviceNetwork?: ServiceNetwork;
     public authentication?: Authentication;
     public billingMode?: number;
     public masters?: Array<MasterSpec>;
@@ -77,6 +79,10 @@ export class ClusterSpec {
     }
     public withEniNetwork(eniNetwork: EniNetwork): ClusterSpec {
         this['eniNetwork'] = eniNetwork;
+        return this;
+    }
+    public withServiceNetwork(serviceNetwork: ServiceNetwork): ClusterSpec {
+        this['serviceNetwork'] = serviceNetwork;
         return this;
     }
     public withAuthentication(authentication: Authentication): ClusterSpec {

@@ -1,3 +1,174 @@
+# 3.1.62 2023-11-09
+
+### HuaweiCloud SDK SecMaster
+
+- _Features_
+  - Support `SecMaster`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK ServiceStage
+
+- _Features_
+  - Support `ServiceStage`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK TICS
+
+- _Features_
+  - Support `TICS`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowAddonInstance**
+    - changes of response param
+      - `+ status.status: enum value [unknown]`
+  - **UpdateAddonInstance**
+    - changes of response param
+      - `+ status.status: enum value [unknown]`
+  - **RollbackAddonInstance**
+    - changes of response param
+      - `+ status.status: enum value [unknown]`
+  - **ShowCluster**
+    - changes of response param
+      - `+ spec.serviceNetwork`
+  - **UpdateCluster**
+    - changes of response param
+      - `+ spec.serviceNetwork`
+  - **DeleteCluster**
+    - changes of response param
+      - `+ spec.serviceNetwork`
+  - **CreateAddonInstance**
+    - changes of response param
+      - `+ status.status: enum value [unknown]`
+  - **ListAddonInstances**
+    - changes of response param
+      - `+ items.status.status: enum value [unknown]`
+  - **CreateCluster**
+    - changes of request param
+      - `+ spec.serviceNetwork`
+    - changes of response param
+      - `+ spec.serviceNetwork`
+  - **ListClusters**
+    - changes of response param
+      - `+ items.spec.serviceNetwork`
+  - **ShowNode**
+    - changes of response param
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **UpdateNode**
+    - changes of response param
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **DeleteNode**
+    - changes of response param
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **CreateNode**
+    - changes of response param
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **ListNodes**
+    - changes of response param
+      - `- items.status.phase: enum value [Installed,ShutDown]`
+
+### HuaweiCloud SDK DCS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interface `CheckMigrationConnectivity`
+  - **ListBackupRecords**
+    - changes of response param
+      - `+ backup_record_response.backup_format`
+      - `+ backup_record_response.execution_at`
+
+### HuaweiCloud SDK DLI
+
+- _Features_
+  - Support the interfaces `ListQueueProperty`, `UpdateQueueProperty`, `CreateQueueProperty`, `DeleteQueueProperty`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowSqlJobStatus**
+    - changes of response param
+      - `+ user_conf`
+
+### HuaweiCloud SDK GES
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListGraphs2**
+    - changes of response param
+      - `+ graphs.origin_graph_size_type_index`
+      - `+ graphs.expand_time`
+      - `+ graphs.resize_time`
+      - `+ graphs.enable_multi_label`
+  - **CreateGraph2**
+    - changes of request param
+      - `+ graph.enable_multi_label`
+  - **ShowGraph2**
+    - changes of response param
+      - `+ graph.origin_graph_size_type_index`
+      - `+ graph.expand_time`
+      - `+ graph.resize_time`
+      - `+ graph.enable_multi_label`
+
+### HuaweiCloud SDK Kafka
+
+- _Features_
+  - Support the interfaces `ShowInstanceConfigs`, `ModifyInstanceConfigs`
+- _Bug Fix_
+  - None
+- _Change_
+  - **BatchRestartOrDeleteInstances**
+    - changes of request param
+      - `+ all_failure`
+      - `- allFailure`
+
+### HuaweiCloud SDK RabbitMQ
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **BatchRestartOrDeleteInstances**
+    - changes of request param
+      - `+ all_failure`
+      - `- allFailure`
+
+### HuaweiCloud SDK RocketMQ
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **BatchDeleteInstances**
+    - changes of request param
+      - `+ all_failure`
+      - `- allFailure`
+  - **DeleteRocketMqMigrationTask**
+    - changes of request param
+      - `+ task_ids`
+      - `- taskIds`
+
 # 3.1.61 2023-11-02
 
 ### HuaweiCloud SDK APIG

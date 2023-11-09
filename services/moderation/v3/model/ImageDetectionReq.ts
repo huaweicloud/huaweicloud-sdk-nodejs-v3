@@ -8,6 +8,7 @@ export class ImageDetectionReq {
     public url?: string;
     public image?: string;
     private 'biz_type'?: string;
+    public language?: ImageDetectionReqLanguageEnum | string;
     public constructor() { 
     }
     public withEventType(eventType: string): ImageDetectionReq {
@@ -52,4 +53,16 @@ export class ImageDetectionReq {
     public get bizType(): string | undefined {
         return this['biz_type'];
     }
+    public withLanguage(language: ImageDetectionReqLanguageEnum | string): ImageDetectionReq {
+        this['language'] = language;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ImageDetectionReqLanguageEnum {
+    ZH = 'zh'
 }

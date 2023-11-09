@@ -43,6 +43,10 @@ export class ListGraphsRespGraphs {
     public tags?: Array<ListGraphsRespTags>;
     private 'product_type'?: string;
     private 'vertex_id_type'?: ListGraphsRespVertexIdType;
+    private 'origin_graph_size_type_index'?: string;
+    private 'expand_time'?: string;
+    private 'resize_time'?: string;
+    private 'enable_multi_label'?: boolean;
     public constructor() { 
     }
     public withId(id: string): ListGraphsRespGraphs {
@@ -380,5 +384,45 @@ export class ListGraphsRespGraphs {
     }
     public get vertexIdType(): ListGraphsRespVertexIdType | undefined {
         return this['vertex_id_type'];
+    }
+    public withOriginGraphSizeTypeIndex(originGraphSizeTypeIndex: string): ListGraphsRespGraphs {
+        this['origin_graph_size_type_index'] = originGraphSizeTypeIndex;
+        return this;
+    }
+    public set originGraphSizeTypeIndex(originGraphSizeTypeIndex: string  | undefined) {
+        this['origin_graph_size_type_index'] = originGraphSizeTypeIndex;
+    }
+    public get originGraphSizeTypeIndex(): string | undefined {
+        return this['origin_graph_size_type_index'];
+    }
+    public withExpandTime(expandTime: string): ListGraphsRespGraphs {
+        this['expand_time'] = expandTime;
+        return this;
+    }
+    public set expandTime(expandTime: string  | undefined) {
+        this['expand_time'] = expandTime;
+    }
+    public get expandTime(): string | undefined {
+        return this['expand_time'];
+    }
+    public withResizeTime(resizeTime: string): ListGraphsRespGraphs {
+        this['resize_time'] = resizeTime;
+        return this;
+    }
+    public set resizeTime(resizeTime: string  | undefined) {
+        this['resize_time'] = resizeTime;
+    }
+    public get resizeTime(): string | undefined {
+        return this['resize_time'];
+    }
+    public withEnableMultiLabel(enableMultiLabel: boolean): ListGraphsRespGraphs {
+        this['enable_multi_label'] = enableMultiLabel;
+        return this;
+    }
+    public set enableMultiLabel(enableMultiLabel: boolean  | undefined) {
+        this['enable_multi_label'] = enableMultiLabel;
+    }
+    public get enableMultiLabel(): boolean | undefined {
+        return this['enable_multi_label'];
     }
 }

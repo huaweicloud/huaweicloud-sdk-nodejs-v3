@@ -26,6 +26,7 @@ export class CreateGraphReqGraph {
     private 'enable_https'?: boolean;
     private 'product_type'?: string;
     private 'vertex_id_type'?: CreateGraphReqGraphVertexIdType;
+    private 'enable_multi_label'?: boolean;
     public constructor(name?: string, graphSizeTypeIndex?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, cryptAlgorithm?: string, enableHttps?: boolean) { 
         this['name'] = name;
         this['graph_size_type_index'] = graphSizeTypeIndex;
@@ -200,5 +201,15 @@ export class CreateGraphReqGraph {
     }
     public get vertexIdType(): CreateGraphReqGraphVertexIdType | undefined {
         return this['vertex_id_type'];
+    }
+    public withEnableMultiLabel(enableMultiLabel: boolean): CreateGraphReqGraph {
+        this['enable_multi_label'] = enableMultiLabel;
+        return this;
+    }
+    public set enableMultiLabel(enableMultiLabel: boolean  | undefined) {
+        this['enable_multi_label'] = enableMultiLabel;
+    }
+    public get enableMultiLabel(): boolean | undefined {
+        return this['enable_multi_label'];
     }
 }

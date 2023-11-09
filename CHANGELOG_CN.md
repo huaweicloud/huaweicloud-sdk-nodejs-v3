@@ -1,3 +1,174 @@
+# 3.1.62 2023-11-09
+
+### HuaweiCloud SDK SecMaster
+
+- _新增特性_
+  - 支持安全云脑服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK ServiceStage
+
+- _新增特性_
+  - 支持应用管理与运维平台服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK TICS
+
+- _新增特性_
+  - 支持可信智能计算服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowAddonInstance**
+    - 响应参数变更
+      - `+ status.status: enum value [unknown]`
+  - **UpdateAddonInstance**
+    - 响应参数变更
+      - `+ status.status: enum value [unknown]`
+  - **RollbackAddonInstance**
+    - 响应参数变更
+      - `+ status.status: enum value [unknown]`
+  - **ShowCluster**
+    - 响应参数变更
+      - `+ spec.serviceNetwork`
+  - **UpdateCluster**
+    - 响应参数变更
+      - `+ spec.serviceNetwork`
+  - **DeleteCluster**
+    - 响应参数变更
+      - `+ spec.serviceNetwork`
+  - **CreateAddonInstance**
+    - 响应参数变更
+      - `+ status.status: enum value [unknown]`
+  - **ListAddonInstances**
+    - 响应参数变更
+      - `+ items.status.status: enum value [unknown]`
+  - **CreateCluster**
+    - 请求参数变更
+      - `+ spec.serviceNetwork`
+    - 响应参数变更
+      - `+ spec.serviceNetwork`
+  - **ListClusters**
+    - 响应参数变更
+      - `+ items.spec.serviceNetwork`
+  - **ShowNode**
+    - 响应参数变更
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **UpdateNode**
+    - 响应参数变更
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **DeleteNode**
+    - 响应参数变更
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **CreateNode**
+    - 响应参数变更
+      - `- status.phase: enum value [Installed,ShutDown]`
+  - **ListNodes**
+    - 响应参数变更
+      - `- items.status.phase: enum value [Installed,ShutDown]`
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`CheckMigrationConnectivity`
+  - **ListBackupRecords**
+    - 响应参数变更
+      - `+ backup_record_response.backup_format`
+      - `+ backup_record_response.execution_at`
+
+### HuaweiCloud SDK DLI
+
+- _新增特性_
+  - 支持接口`ListQueueProperty`、`UpdateQueueProperty`、`CreateQueueProperty`、`DeleteQueueProperty`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowSqlJobStatus**
+    - 响应参数变更
+      - `+ user_conf`
+
+### HuaweiCloud SDK GES
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListGraphs2**
+    - 响应参数变更
+      - `+ graphs.origin_graph_size_type_index`
+      - `+ graphs.expand_time`
+      - `+ graphs.resize_time`
+      - `+ graphs.enable_multi_label`
+  - **CreateGraph2**
+    - 请求参数变更
+      - `+ graph.enable_multi_label`
+  - **ShowGraph2**
+    - 响应参数变更
+      - `+ graph.origin_graph_size_type_index`
+      - `+ graph.expand_time`
+      - `+ graph.resize_time`
+      - `+ graph.enable_multi_label`
+
+### HuaweiCloud SDK Kafka
+
+- _新增特性_
+  - 支持接口`ShowInstanceConfigs`、`ModifyInstanceConfigs`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchRestartOrDeleteInstances**
+    - 请求参数变更
+      - `+ all_failure`
+      - `- allFailure`
+
+### HuaweiCloud SDK RabbitMQ
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchRestartOrDeleteInstances**
+    - 请求参数变更
+      - `+ all_failure`
+      - `- allFailure`
+
+### HuaweiCloud SDK RocketMQ
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **BatchDeleteInstances**
+    - 请求参数变更
+      - `+ all_failure`
+      - `- allFailure`
+  - **DeleteRocketMqMigrationTask**
+    - 请求参数变更
+      - `+ task_ids`
+      - `- taskIds`
+
 # 3.1.61 2023-11-02
 
 ### HuaweiCloud SDK APIG

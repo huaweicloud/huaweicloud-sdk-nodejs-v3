@@ -38,15 +38,17 @@ npm install @huaweicloud/huaweicloud-sdk-vpc
 
 - The following example shows how to query vpcs, you need to substitute your real `{Service}Client`
   for `VpcClient` in actual use.
-- Substitute the values for `{your ak string}`, `{your sk string}`, `{your endpoint}`, `{your project id}`.
+- Substitute the values for `{your endpoint}`, `{your project id}`.
 
 ``` javascript
 // index.ts
 import { ListVpcsRequest, VpcClient } from "@huaweicloud/huaweicloud-sdk-vpc";
 import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
 
-const ak = '{your ak string}';
-const sk = '{your sk string}';
+// The AK and SK used for authentication are hard-coded or stored in plaintext, which has great security risks. It is recommended that the AK and SK be stored in ciphertext in configuration files or environment variables and decrypted during use to ensure security.
+// In this example, AK and SK are stored in environment variables for authentication. Before running this example, set environment variables HUAWEICLOUD_SDK_AK and HUAWEICLOUD_SDK_SK in the local environment.
+const ak = process.env.HUAWEICLOUD_SDK_AK;
+const sk = process.env.HUAWEICLOUD_SDK_SK;
 const projectId = '{your project id}';
 const endpoint = '{your endpoint}';
 
