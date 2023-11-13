@@ -8,11 +8,13 @@ export class CreatefavoriteReqbody {
     private 'log_group_name'?: string;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
-    public constructor(favoriteResourceId?: string, favoriteResourceType?: string, logGroupId?: string, logStreamId?: string) { 
+    private 'is_global'?: boolean;
+    public constructor(favoriteResourceId?: string, favoriteResourceType?: string, logGroupId?: string, logStreamId?: string, isGlobal?: boolean) { 
         this['favorite_resource_id'] = favoriteResourceId;
         this['favorite_resource_type'] = favoriteResourceType;
         this['log_group_id'] = logGroupId;
         this['log_stream_id'] = logStreamId;
+        this['is_global'] = isGlobal;
     }
     public withEpsId(epsId: string): CreatefavoriteReqbody {
         this['eps_id'] = epsId;
@@ -83,5 +85,15 @@ export class CreatefavoriteReqbody {
     }
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
+    }
+    public withIsGlobal(isGlobal: boolean): CreatefavoriteReqbody {
+        this['is_global'] = isGlobal;
+        return this;
+    }
+    public set isGlobal(isGlobal: boolean  | undefined) {
+        this['is_global'] = isGlobal;
+    }
+    public get isGlobal(): boolean | undefined {
+        return this['is_global'];
     }
 }

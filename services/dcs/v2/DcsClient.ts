@@ -80,8 +80,14 @@ import { DeleteBackupFileRequest } from './model/DeleteBackupFileRequest';
 import { DeleteBackupFileResponse } from './model/DeleteBackupFileResponse';
 import { DeleteBigkeyScanTaskRequest } from './model/DeleteBigkeyScanTaskRequest';
 import { DeleteBigkeyScanTaskResponse } from './model/DeleteBigkeyScanTaskResponse';
+import { DeleteCenterTaskRequest } from './model/DeleteCenterTaskRequest';
+import { DeleteCenterTaskRequestBody } from './model/DeleteCenterTaskRequestBody';
+import { DeleteCenterTaskResponse } from './model/DeleteCenterTaskResponse';
 import { DeleteConfigTemplateRequest } from './model/DeleteConfigTemplateRequest';
 import { DeleteConfigTemplateResponse } from './model/DeleteConfigTemplateResponse';
+import { DeleteDiagnosisReportRequest } from './model/DeleteDiagnosisReportRequest';
+import { DeleteDiagnosisTaskRequest } from './model/DeleteDiagnosisTaskRequest';
+import { DeleteDiagnosisTaskResponse } from './model/DeleteDiagnosisTaskResponse';
 import { DeleteHotkeyScanTaskRequest } from './model/DeleteHotkeyScanTaskRequest';
 import { DeleteHotkeyScanTaskResponse } from './model/DeleteHotkeyScanTaskResponse';
 import { DeleteIpFromDomainNameRequest } from './model/DeleteIpFromDomainNameRequest';
@@ -129,6 +135,7 @@ import { InstanceStatistic } from './model/InstanceStatistic';
 import { Instances } from './model/Instances';
 import { InstancesMonitoredObject } from './model/InstancesMonitoredObject';
 import { IpExchangeRequest } from './model/IpExchangeRequest';
+import { Item } from './model/Item';
 import { LinksItem } from './model/LinksItem';
 import { ListAclAccountsRequest } from './model/ListAclAccountsRequest';
 import { ListAclAccountsResponse } from './model/ListAclAccountsResponse';
@@ -257,6 +264,8 @@ import { ShowMigrationTaskRequest } from './model/ShowMigrationTaskRequest';
 import { ShowMigrationTaskResponse } from './model/ShowMigrationTaskResponse';
 import { ShowMigrationTaskStatsRequest } from './model/ShowMigrationTaskStatsRequest';
 import { ShowMigrationTaskStatsResponse } from './model/ShowMigrationTaskStatsResponse';
+import { ShowNodesInformationRequest } from './model/ShowNodesInformationRequest';
+import { ShowNodesInformationResponse } from './model/ShowNodesInformationResponse';
 import { ShowQuotaOfTenantRequest } from './model/ShowQuotaOfTenantRequest';
 import { ShowQuotaOfTenantResponse } from './model/ShowQuotaOfTenantResponse';
 import { ShowReplicationStatesRequest } from './model/ShowReplicationStatesRequest';
@@ -775,6 +784,26 @@ export class DcsClient {
     }
 
     /**
+     * 删除任务中心任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除任务中心任务
+     * @param {string} taskId 后台任务ID
+     * @param {DeleteCenterTaskRequestBody} [deleteCenterTaskRequestBody] 删除任务中心任务请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCenterTask(deleteCenterTaskRequest?: DeleteCenterTaskRequest): Promise<DeleteCenterTaskResponse> {
+        const options = ParamCreater().deleteCenterTask(deleteCenterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除自定义模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -786,6 +815,26 @@ export class DcsClient {
      */
     public deleteConfigTemplate(deleteConfigTemplateRequest?: DeleteConfigTemplateRequest): Promise<DeleteConfigTemplateResponse> {
         const options = ParamCreater().deleteConfigTemplate(deleteConfigTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除诊断记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除诊断记录
+     * @param {string} instanceId 实例ID
+     * @param {DeleteDiagnosisReportRequest} [deleteDiagnosisTaskRequestBody] 删除诊断记录请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDiagnosisTask(deleteDiagnosisTaskRequest?: DeleteDiagnosisTaskRequest): Promise<DeleteDiagnosisTaskResponse> {
+        const options = ParamCreater().deleteDiagnosisTask(deleteDiagnosisTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1978,6 +2027,27 @@ export class DcsClient {
      */
     public showMigrationTaskStats(showMigrationTaskStatsRequest?: ShowMigrationTaskStatsRequest): Promise<ShowMigrationTaskStatsResponse> {
         const options = ParamCreater().showMigrationTaskStats(showMigrationTaskStatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的节点信息。
+     * 仅支持Redis4.0和Redis5.0实例查询。
+     * 创建中实例不返回节点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例节点信息
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNodesInformation(showNodesInformationRequest?: ShowNodesInformationRequest): Promise<ShowNodesInformationResponse> {
+        const options = ParamCreater().showNodesInformation(showNodesInformationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3387,6 +3457,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除任务中心任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCenterTask(deleteCenterTaskRequest?: DeleteCenterTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/tasks/{task_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (deleteCenterTaskRequest !== null && deleteCenterTaskRequest !== undefined) {
+                if (deleteCenterTaskRequest instanceof DeleteCenterTaskRequest) {
+                    taskId = deleteCenterTaskRequest.taskId;
+                    body = deleteCenterTaskRequest.body
+                } else {
+                    taskId = deleteCenterTaskRequest['task_id'];
+                    body = deleteCenterTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteCenterTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除自定义模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3419,6 +3532,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除诊断记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDiagnosisTask(deleteDiagnosisTaskRequest?: DeleteDiagnosisTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/diagnosis",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteDiagnosisTaskRequest !== null && deleteDiagnosisTaskRequest !== undefined) {
+                if (deleteDiagnosisTaskRequest instanceof DeleteDiagnosisTaskRequest) {
+                    instanceId = deleteDiagnosisTaskRequest.instanceId;
+                    body = deleteDiagnosisTaskRequest.body
+                } else {
+                    instanceId = deleteDiagnosisTaskRequest['instance_id'];
+                    body = deleteDiagnosisTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDiagnosisTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6166,6 +6322,45 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的节点信息。
+         * 仅支持Redis4.0和Redis5.0实例查询。
+         * 创建中实例不返回节点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNodesInformation(showNodesInformationRequest?: ShowNodesInformationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/logical-nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showNodesInformationRequest !== null && showNodesInformationRequest !== undefined) {
+                if (showNodesInformationRequest instanceof ShowNodesInformationRequest) {
+                    instanceId = showNodesInformationRequest.instanceId;
+                } else {
+                    instanceId = showNodesInformationRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showNodesInformation.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

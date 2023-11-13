@@ -751,6 +751,8 @@ export class KafkaClient {
      *
      * @summary Kafka实例查询Topic
      * @param {string} instanceId 实例ID。
+     * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {string} [limit] 当次查询返回的最大实例个数，默认值为10，取值范围为1~50。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2783,15 +2785,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let offset;
+            
+            let limit;
 
             if (listInstanceTopicsRequest !== null && listInstanceTopicsRequest !== undefined) {
                 if (listInstanceTopicsRequest instanceof ListInstanceTopicsRequest) {
                     instanceId = listInstanceTopicsRequest.instanceId;
+                    offset = listInstanceTopicsRequest.offset;
+                    limit = listInstanceTopicsRequest.limit;
                 } else {
                     instanceId = listInstanceTopicsRequest['instance_id'];
+                    offset = listInstanceTopicsRequest['offset'];
+                    limit = listInstanceTopicsRequest['limit'];
                 }
             }
 
@@ -2799,7 +2809,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceTopics.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

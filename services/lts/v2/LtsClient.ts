@@ -5054,7 +5054,7 @@ export const ParamCreater = function () {
         updateLogStream(updateLogStreamRequest?: UpdateLogStreamRequest) {
             const options = {
                 method: "PUT",
-                url: "/v2/{project_id}/groups/{log_group_id}/streams_ttl/{log_stream_id}",
+                url: "/v2/{project_id}/groups/{log_group_id}/streams-ttl/{log_stream_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},

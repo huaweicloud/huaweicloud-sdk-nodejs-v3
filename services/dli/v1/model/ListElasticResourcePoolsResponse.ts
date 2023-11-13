@@ -6,7 +6,6 @@ export class ListElasticResourcePoolsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     public count?: number;
-    private 'elastic_resource_pool_name'?: string;
     private 'elastic_resource_pools'?: Array<ElasticResourcePoolsResponse>;
     public constructor() { 
         super();
@@ -28,16 +27,6 @@ export class ListElasticResourcePoolsResponse extends SdkResponse {
     public withCount(count: number): ListElasticResourcePoolsResponse {
         this['count'] = count;
         return this;
-    }
-    public withElasticResourcePoolName(elasticResourcePoolName: string): ListElasticResourcePoolsResponse {
-        this['elastic_resource_pool_name'] = elasticResourcePoolName;
-        return this;
-    }
-    public set elasticResourcePoolName(elasticResourcePoolName: string  | undefined) {
-        this['elastic_resource_pool_name'] = elasticResourcePoolName;
-    }
-    public get elasticResourcePoolName(): string | undefined {
-        return this['elastic_resource_pool_name'];
     }
     public withElasticResourcePools(elasticResourcePools: Array<ElasticResourcePoolsResponse>): ListElasticResourcePoolsResponse {
         this['elastic_resource_pools'] = elasticResourcePools;

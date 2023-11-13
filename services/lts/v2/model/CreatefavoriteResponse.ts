@@ -11,6 +11,7 @@ export class CreatefavoriteResponse extends SdkResponse {
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
     private 'project_id'?: string;
+    private 'is_global'?: boolean;
     public constructor() { 
         super();
     }
@@ -103,5 +104,15 @@ export class CreatefavoriteResponse extends SdkResponse {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withIsGlobal(isGlobal: boolean): CreatefavoriteResponse {
+        this['is_global'] = isGlobal;
+        return this;
+    }
+    public set isGlobal(isGlobal: boolean  | undefined) {
+        this['is_global'] = isGlobal;
+    }
+    public get isGlobal(): boolean | undefined {
+        return this['is_global'];
     }
 }

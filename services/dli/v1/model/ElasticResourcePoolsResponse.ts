@@ -1,10 +1,11 @@
 
 
 export class ElasticResourcePoolsResponse {
+    private 'elastic_resource_pool_name'?: string;
+    public id?: number;
     private 'update_time'?: number;
     public queues?: Array<string>;
     public owner?: string;
-    private 'elastic_resource_pool_name'?: string;
     public description?: string;
     private 'max_cu'?: number;
     private 'min_cu'?: number;
@@ -21,6 +22,20 @@ export class ElasticResourcePoolsResponse {
     public manager?: string;
     public label?: { [key: string]: string; };
     public constructor() { 
+    }
+    public withElasticResourcePoolName(elasticResourcePoolName: string): ElasticResourcePoolsResponse {
+        this['elastic_resource_pool_name'] = elasticResourcePoolName;
+        return this;
+    }
+    public set elasticResourcePoolName(elasticResourcePoolName: string  | undefined) {
+        this['elastic_resource_pool_name'] = elasticResourcePoolName;
+    }
+    public get elasticResourcePoolName(): string | undefined {
+        return this['elastic_resource_pool_name'];
+    }
+    public withId(id: number): ElasticResourcePoolsResponse {
+        this['id'] = id;
+        return this;
     }
     public withUpdateTime(updateTime: number): ElasticResourcePoolsResponse {
         this['update_time'] = updateTime;
@@ -39,16 +54,6 @@ export class ElasticResourcePoolsResponse {
     public withOwner(owner: string): ElasticResourcePoolsResponse {
         this['owner'] = owner;
         return this;
-    }
-    public withElasticResourcePoolName(elasticResourcePoolName: string): ElasticResourcePoolsResponse {
-        this['elastic_resource_pool_name'] = elasticResourcePoolName;
-        return this;
-    }
-    public set elasticResourcePoolName(elasticResourcePoolName: string  | undefined) {
-        this['elastic_resource_pool_name'] = elasticResourcePoolName;
-    }
-    public get elasticResourcePoolName(): string | undefined {
-        return this['elastic_resource_pool_name'];
     }
     public withDescription(description: string): ElasticResourcePoolsResponse {
         this['description'] = description;

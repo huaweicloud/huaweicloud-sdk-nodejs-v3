@@ -2,6 +2,8 @@
 
 export class ListInstanceTopicsRequest {
     private 'instance_id'?: string;
+    public offset?: string;
+    public limit?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,13 @@ export class ListInstanceTopicsRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withOffset(offset: string): ListInstanceTopicsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: string): ListInstanceTopicsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
