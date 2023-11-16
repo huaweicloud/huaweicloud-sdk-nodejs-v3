@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { BackSources } from './model/BackSources';
 import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
 import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
 import { BlackWhiteListBody } from './model/BlackWhiteListBody';
@@ -11,6 +12,7 @@ import { CacheConfigRequestBody } from './model/CacheConfigRequestBody';
 import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
 import { CdnIps } from './model/CdnIps';
+import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { CompressRequest } from './model/CompressRequest';
 import { CompressResponse } from './model/CompressResponse';
@@ -28,6 +30,7 @@ import { CreateRefreshTasksResponse } from './model/CreateRefreshTasksResponse';
 import { CreateTagsRequest } from './model/CreateTagsRequest';
 import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
 import { CreateTagsResponse } from './model/CreateTagsResponse';
+import { CustomArgs } from './model/CustomArgs';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
 import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
@@ -45,12 +48,14 @@ import { EnableDomainResponse } from './model/EnableDomainResponse';
 import { EpResourceTag } from './model/EpResourceTag';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
+import { FlexibleOrigins } from './model/FlexibleOrigins';
 import { Follow302StatusBody } from './model/Follow302StatusBody';
 import { Follow302StatusRequest } from './model/Follow302StatusRequest';
 import { ForceRedirect } from './model/ForceRedirect';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
 import { HeaderBody } from './model/HeaderBody';
 import { HeaderMap } from './model/HeaderMap';
+import { HstsQuery } from './model/HstsQuery';
 import { HttpGetBody } from './model/HttpGetBody';
 import { HttpInfoRequest } from './model/HttpInfoRequest';
 import { HttpInfoRequestBody } from './model/HttpInfoRequestBody';
@@ -58,7 +63,9 @@ import { HttpInfoResponseBody } from './model/HttpInfoResponseBody';
 import { HttpPutBody } from './model/HttpPutBody';
 import { HttpResponseHeader } from './model/HttpResponseHeader';
 import { HttpsDetail } from './model/HttpsDetail';
+import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
+import { IpFrequencyLimitQuery } from './model/IpFrequencyLimitQuery';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { LogObject } from './model/LogObject';
@@ -72,6 +79,7 @@ import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
 import { PreheatingTaskRequest } from './model/PreheatingTaskRequest';
 import { PreheatingTaskRequestBody } from './model/PreheatingTaskRequestBody';
+import { Quic } from './model/Quic';
 import { Quotas } from './model/Quotas';
 import { RangeStatusRequest } from './model/RangeStatusRequest';
 import { Referer } from './model/Referer';
@@ -80,6 +88,8 @@ import { RefererConfig } from './model/RefererConfig';
 import { RefererRsp } from './model/RefererRsp';
 import { RefreshTaskRequest } from './model/RefreshTaskRequest';
 import { RefreshTaskRequestBody } from './model/RefreshTaskRequestBody';
+import { RemoteAuthRuleVo } from './model/RemoteAuthRuleVo';
+import { RequestLimitRules } from './model/RequestLimitRules';
 import { ResourceBody } from './model/ResourceBody';
 import { Rules } from './model/Rules';
 import { ShowBlackWhiteListRequest } from './model/ShowBlackWhiteListRequest';
@@ -162,6 +172,8 @@ import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
 import { Urls } from './model/Urls';
 import { UserAgentFilter } from './model/UserAgentFilter';
+import { VideoSeek } from './model/VideoSeek';
+import { WebSocketSeek } from './model/WebSocketSeek';
 
 export class CdnClient {
     public static newBuilder(): ClientBuilder<CdnClient> {
@@ -345,8 +357,8 @@ export class CdnClient {
      * @param {'web' | 'download' | 'video' | 'wholeSite'} [businessType] 加速域名的业务类型。取值： - web（网站加速） - download（文件下载加速） - video（点播加速） - wholeSite（全站加速）
      * @param {'online' | 'offline' | 'configuring' | 'configure_failed' | 'checking' | 'check_failed' | 'deleting'} [domainStatus] 加速域名状态。取值意义： - online表示“已开启” - offline表示“已停用” - configuring表示“配置中” - configure_failed表示“配置失败” - checking表示“审核中” - check_failed表示“审核未通过” - deleting表示“删除中”。
      * @param {'mainland_china' | 'outside_mainland_china' | 'global'} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
-     * @param {number} [pageSize] 每页加速域名的数量，取值范围1-10000，不设值时默认值为30。
-     * @param {number} [pageNumber] 查询的页码，即：从哪一页开始查询。取值范围1-65535，不设值时默认值为1。
+     * @param {number} [pageSize] 每页加速域名的数量，取值范围1-10000，默认值为30。
+     * @param {number} [pageNumber] 查询的页码，即：从哪一页开始查询，取值范围1-65535，默认值为1。
      * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
      * @param {boolean} [exactMatch] 精准匹配 on：开启 off：关闭。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。

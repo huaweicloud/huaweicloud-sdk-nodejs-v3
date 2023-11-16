@@ -78,8 +78,6 @@ import { ShowInstanceResp } from './model/ShowInstanceResp';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowMaintainWindowsRequest } from './model/ShowMaintainWindowsRequest';
 import { ShowMaintainWindowsResponse } from './model/ShowMaintainWindowsResponse';
-import { ShowRabbitMqProductCoresRequest } from './model/ShowRabbitMqProductCoresRequest';
-import { ShowRabbitMqProductCoresResponse } from './model/ShowRabbitMqProductCoresResponse';
 import { ShowRabbitMqProjectTagsRequest } from './model/ShowRabbitMqProjectTagsRequest';
 import { ShowRabbitMqProjectTagsResponse } from './model/ShowRabbitMqProjectTagsResponse';
 import { ShowRabbitMqTagsRequest } from './model/ShowRabbitMqTagsRequest';
@@ -533,28 +531,6 @@ export class RabbitMQClient {
      */
     public showMaintainWindows(showMaintainWindowsRequest?: ShowMaintainWindowsRequest): Promise<ShowMaintainWindowsResponse> {
         const options = ParamCreater().showMaintainWindows();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询RabbitMQ产品规格核数
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询RabbitMQ产品规格核数
-     * @param {'rabbitmq'} engine 消息引擎的类型。
-     * @param {string} productId 产品ID。
-     * @param {number} brokerNum 代理个数。  当产品为单机类型，代理个数只能为1；当产品为集群类型，可选3、5、7个代理个数。  产品类型为single时:   - 1  产品类型为cluster时:   - 3   - 5   - 7
-     * @param {string} [instanceId] 实例ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showRabbitMqProductCores(showRabbitMqProductCoresRequest?: ShowRabbitMqProductCoresRequest): Promise<ShowRabbitMqProductCoresResponse> {
-        const options = ParamCreater().showRabbitMqProductCores(showRabbitMqProductCoresRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1591,71 +1567,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询RabbitMQ产品规格核数
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showRabbitMqProductCores(showRabbitMqProductCoresRequest?: ShowRabbitMqProductCoresRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{engine}/products/cores",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let engine;
-            
-            let productId;
-            
-            let brokerNum;
-            
-            let instanceId;
-
-            if (showRabbitMqProductCoresRequest !== null && showRabbitMqProductCoresRequest !== undefined) {
-                if (showRabbitMqProductCoresRequest instanceof ShowRabbitMqProductCoresRequest) {
-                    engine = showRabbitMqProductCoresRequest.engine;
-                    productId = showRabbitMqProductCoresRequest.productId;
-                    brokerNum = showRabbitMqProductCoresRequest.brokerNum;
-                    instanceId = showRabbitMqProductCoresRequest.instanceId;
-                } else {
-                    engine = showRabbitMqProductCoresRequest['engine'];
-                    productId = showRabbitMqProductCoresRequest['product_id'];
-                    brokerNum = showRabbitMqProductCoresRequest['broker_num'];
-                    instanceId = showRabbitMqProductCoresRequest['instance_id'];
-                }
-            }
-
-        
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showRabbitMqProductCores.');
-            }
-            if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling showRabbitMqProductCores.');
-            }
-            if (productId !== null && productId !== undefined) {
-                localVarQueryParameter['product_id'] = productId;
-            }
-            if (brokerNum === null || brokerNum === undefined) {
-                throw new RequiredError('brokerNum','Required parameter brokerNum was null or undefined when calling showRabbitMqProductCores.');
-            }
-            if (brokerNum !== null && brokerNum !== undefined) {
-                localVarQueryParameter['broker_num'] = brokerNum;
-            }
-            if (instanceId !== null && instanceId !== undefined) {
-                localVarQueryParameter['instance_id'] = instanceId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },

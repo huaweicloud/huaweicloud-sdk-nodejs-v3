@@ -18,6 +18,7 @@ export class VifPeer {
     private 'bgp_status'?: string;
     public status?: string;
     private 'vif_id'?: string;
+    private 'receive_route_num'?: number;
     public constructor() { 
     }
     public withId(id: string): VifPeer {
@@ -165,6 +166,16 @@ export class VifPeer {
     }
     public get vifId(): string | undefined {
         return this['vif_id'];
+    }
+    public withReceiveRouteNum(receiveRouteNum: number): VifPeer {
+        this['receive_route_num'] = receiveRouteNum;
+        return this;
+    }
+    public set receiveRouteNum(receiveRouteNum: number  | undefined) {
+        this['receive_route_num'] = receiveRouteNum;
+    }
+    public get receiveRouteNum(): number | undefined {
+        return this['receive_route_num'];
     }
 }
 

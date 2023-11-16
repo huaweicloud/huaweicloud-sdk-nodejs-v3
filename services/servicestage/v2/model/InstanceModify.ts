@@ -1,5 +1,6 @@
 import { ExternalAccesses } from './ExternalAccesses';
 import { FlavorId } from './FlavorId';
+import { InstanceConfiguration } from './InstanceConfiguration';
 import { ReferResourceCreate } from './ReferResourceCreate';
 
 
@@ -7,7 +8,7 @@ export class InstanceModify {
     public version?: string;
     private 'flavor_id'?: FlavorId;
     public artifacts?: { [key: string]: object; };
-    public configuration?: { [key: string]: object; };
+    public configuration?: InstanceConfiguration;
     public description?: string;
     private 'external_accesses'?: Array<ExternalAccesses>;
     private 'refer_resources'?: Array<ReferResourceCreate>;
@@ -32,7 +33,7 @@ export class InstanceModify {
         this['artifacts'] = artifacts;
         return this;
     }
-    public withConfiguration(configuration: { [key: string]: object; }): InstanceModify {
+    public withConfiguration(configuration: InstanceConfiguration): InstanceModify {
         this['configuration'] = configuration;
         return this;
     }

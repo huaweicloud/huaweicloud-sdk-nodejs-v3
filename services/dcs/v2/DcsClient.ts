@@ -277,6 +277,7 @@ import { SingleBackgroundTask } from './model/SingleBackgroundTask';
 import { SlowlogItem } from './model/SlowlogItem';
 import { SourceInstanceBody } from './model/SourceInstanceBody';
 import { StartInstanceResizeCheckJobRequest } from './model/StartInstanceResizeCheckJobRequest';
+import { StartInstanceResizeCheckJobRequestBody } from './model/StartInstanceResizeCheckJobRequestBody';
 import { StartInstanceResizeCheckJobResponse } from './model/StartInstanceResizeCheckJobResponse';
 import { StatusStatistic } from './model/StatusStatistic';
 import { StepDetail } from './model/StepDetail';
@@ -1629,7 +1630,7 @@ export class DcsClient {
      * @summary 重置ACL账号密码
      * @param {string} instanceId 实例ID。
      * @param {string} accountId ACL账号ID。
-     * @param {AclAccountResetPasswordBody} resetAclAccountPasswordRequestBody This is a auto create BodyParameter
+     * @param {AclAccountResetPasswordBody} resetAclAccountPassWordRequestBody This is a auto create BodyParameter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2119,6 +2120,7 @@ export class DcsClient {
      *
      * @summary 提交前置检查任务
      * @param {string} instanceId 实例ID
+     * @param {StartInstanceResizeCheckJobRequestBody} [startInstanceResizeCheckJobRequestBody] 提交前置检查任务请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2177,7 +2179,7 @@ export class DcsClient {
      * @summary 修改ACL角色
      * @param {string} instanceId 实例ID。
      * @param {string} accountId ACL账号ID。
-     * @param {AclAccountRoleModifyBody} updateAclAccountRoleRequestBody This is a auto create BodyParameter
+     * @param {AclAccountRoleModifyBody} updateAclAccountRequestBody This is a auto create BodyParameter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2198,7 +2200,7 @@ export class DcsClient {
      * @summary 修改ACL账号密码
      * @param {string} instanceId 实例ID。
      * @param {string} accountId ACL账号ID。
-     * @param {AclAccountModifyPasswordBody} updateAclAccountPasswordRequestBody This is a auto create BodyParameter
+     * @param {AclAccountModifyPasswordBody} updateAclAccountPassWordRequestBody This is a auto create BodyParameter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6476,21 +6478,25 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v2/{project_id}/instances/{instance_id}/resize/check-job",
-                contentType: "application/json",
+                contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let instanceId;
 
             if (startInstanceResizeCheckJobRequest !== null && startInstanceResizeCheckJobRequest !== undefined) {
                 if (startInstanceResizeCheckJobRequest instanceof StartInstanceResizeCheckJobRequest) {
                     instanceId = startInstanceResizeCheckJobRequest.instanceId;
+                    body = startInstanceResizeCheckJobRequest.body
                 } else {
                     instanceId = startInstanceResizeCheckJobRequest['instance_id'];
+                    body = startInstanceResizeCheckJobRequest['body'];
                 }
             }
 
@@ -6498,7 +6504,9 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startInstanceResizeCheckJob.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

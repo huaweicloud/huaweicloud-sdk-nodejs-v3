@@ -4,6 +4,7 @@ export class TemplateParameterDefinition {
     public name?: string;
     public description?: string;
     private 'default_value'?: object;
+    private 'allowed_values'?: Array<object>;
     public type?: TemplateParameterDefinitionTypeEnum | string;
     public constructor() { 
     }
@@ -24,6 +25,16 @@ export class TemplateParameterDefinition {
     }
     public get defaultValue(): object | undefined {
         return this['default_value'];
+    }
+    public withAllowedValues(allowedValues: Array<object>): TemplateParameterDefinition {
+        this['allowed_values'] = allowedValues;
+        return this;
+    }
+    public set allowedValues(allowedValues: Array<object>  | undefined) {
+        this['allowed_values'] = allowedValues;
+    }
+    public get allowedValues(): Array<object> | undefined {
+        return this['allowed_values'];
     }
     public withType(type: TemplateParameterDefinitionTypeEnum | string): TemplateParameterDefinition {
         this['type'] = type;

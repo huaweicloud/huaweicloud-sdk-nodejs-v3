@@ -9,8 +9,11 @@ export class CreateCustomTemplateBody {
     public description?: string;
     private 'engine_version'?: string;
     public params?: { [key: string]: string; };
-    public constructor(name?: string) { 
+    public constructor(templateId?: string, name?: string, type?: string, params?: { [key: string]: string; }) { 
+        this['template_id'] = templateId;
         this['name'] = name;
+        this['type'] = type;
+        this['params'] = params;
     }
     public withTemplateId(templateId: string): CreateCustomTemplateBody {
         this['template_id'] = templateId;

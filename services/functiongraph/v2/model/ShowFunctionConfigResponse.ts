@@ -7,6 +7,8 @@ import { StrategyConfig } from './StrategyConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFunctionConfigResponse extends SdkResponse {
+    private 'func_id'?: string;
+    private 'resource_id'?: string;
     private 'func_urn'?: string;
     private 'func_name'?: string;
     private 'domain_id'?: string;
@@ -52,6 +54,26 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'custom_image'?: CustomImage;
     public constructor() { 
         super();
+    }
+    public withFuncId(funcId: string): ShowFunctionConfigResponse {
+        this['func_id'] = funcId;
+        return this;
+    }
+    public set funcId(funcId: string  | undefined) {
+        this['func_id'] = funcId;
+    }
+    public get funcId(): string | undefined {
+        return this['func_id'];
+    }
+    public withResourceId(resourceId: string): ShowFunctionConfigResponse {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withFuncUrn(funcUrn: string): ShowFunctionConfigResponse {
         this['func_urn'] = funcUrn;

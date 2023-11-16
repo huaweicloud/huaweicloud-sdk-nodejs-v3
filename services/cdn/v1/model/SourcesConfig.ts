@@ -1,27 +1,23 @@
 
 
 export class SourcesConfig {
-    private 'origin_addr'?: string;
     private 'origin_type'?: string;
+    private 'origin_addr'?: string;
     public priority?: number;
+    public weight?: number;
     private 'obs_web_hosting_status'?: string;
     private 'http_port'?: number;
     private 'https_port'?: number;
     private 'host_name'?: string;
-    public constructor(originAddr?: string, originType?: string, priority?: number) { 
-        this['origin_addr'] = originAddr;
+    private 'obs_bucket_type'?: string;
+    private 'bucket_access_key'?: string;
+    private 'bucket_secret_key'?: string;
+    private 'bucket_region'?: string;
+    private 'bucket_name'?: string;
+    public constructor(originType?: string, originAddr?: string, priority?: number) { 
         this['origin_type'] = originType;
+        this['origin_addr'] = originAddr;
         this['priority'] = priority;
-    }
-    public withOriginAddr(originAddr: string): SourcesConfig {
-        this['origin_addr'] = originAddr;
-        return this;
-    }
-    public set originAddr(originAddr: string  | undefined) {
-        this['origin_addr'] = originAddr;
-    }
-    public get originAddr(): string | undefined {
-        return this['origin_addr'];
     }
     public withOriginType(originType: string): SourcesConfig {
         this['origin_type'] = originType;
@@ -33,8 +29,22 @@ export class SourcesConfig {
     public get originType(): string | undefined {
         return this['origin_type'];
     }
+    public withOriginAddr(originAddr: string): SourcesConfig {
+        this['origin_addr'] = originAddr;
+        return this;
+    }
+    public set originAddr(originAddr: string  | undefined) {
+        this['origin_addr'] = originAddr;
+    }
+    public get originAddr(): string | undefined {
+        return this['origin_addr'];
+    }
     public withPriority(priority: number): SourcesConfig {
         this['priority'] = priority;
+        return this;
+    }
+    public withWeight(weight: number): SourcesConfig {
+        this['weight'] = weight;
         return this;
     }
     public withObsWebHostingStatus(obsWebHostingStatus: string): SourcesConfig {
@@ -76,5 +86,55 @@ export class SourcesConfig {
     }
     public get hostName(): string | undefined {
         return this['host_name'];
+    }
+    public withObsBucketType(obsBucketType: string): SourcesConfig {
+        this['obs_bucket_type'] = obsBucketType;
+        return this;
+    }
+    public set obsBucketType(obsBucketType: string  | undefined) {
+        this['obs_bucket_type'] = obsBucketType;
+    }
+    public get obsBucketType(): string | undefined {
+        return this['obs_bucket_type'];
+    }
+    public withBucketAccessKey(bucketAccessKey: string): SourcesConfig {
+        this['bucket_access_key'] = bucketAccessKey;
+        return this;
+    }
+    public set bucketAccessKey(bucketAccessKey: string  | undefined) {
+        this['bucket_access_key'] = bucketAccessKey;
+    }
+    public get bucketAccessKey(): string | undefined {
+        return this['bucket_access_key'];
+    }
+    public withBucketSecretKey(bucketSecretKey: string): SourcesConfig {
+        this['bucket_secret_key'] = bucketSecretKey;
+        return this;
+    }
+    public set bucketSecretKey(bucketSecretKey: string  | undefined) {
+        this['bucket_secret_key'] = bucketSecretKey;
+    }
+    public get bucketSecretKey(): string | undefined {
+        return this['bucket_secret_key'];
+    }
+    public withBucketRegion(bucketRegion: string): SourcesConfig {
+        this['bucket_region'] = bucketRegion;
+        return this;
+    }
+    public set bucketRegion(bucketRegion: string  | undefined) {
+        this['bucket_region'] = bucketRegion;
+    }
+    public get bucketRegion(): string | undefined {
+        return this['bucket_region'];
+    }
+    public withBucketName(bucketName: string): SourcesConfig {
+        this['bucket_name'] = bucketName;
+        return this;
+    }
+    public set bucketName(bucketName: string  | undefined) {
+        this['bucket_name'] = bucketName;
+    }
+    public get bucketName(): string | undefined {
+        return this['bucket_name'];
     }
 }

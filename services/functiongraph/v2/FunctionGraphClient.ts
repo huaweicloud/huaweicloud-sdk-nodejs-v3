@@ -62,6 +62,8 @@ import { DeleteVersionAliasResponse } from './model/DeleteVersionAliasResponse';
 import { DeleteVpcEndpointRequest } from './model/DeleteVpcEndpointRequest';
 import { DeleteVpcEndpointResponse } from './model/DeleteVpcEndpointResponse';
 import { Dependency } from './model/Dependency';
+import { EnableAsyncStatusLogRequest } from './model/EnableAsyncStatusLogRequest';
+import { EnableAsyncStatusLogResponse } from './model/EnableAsyncStatusLogResponse';
 import { EnableLtsLogsRequest } from './model/EnableLtsLogsRequest';
 import { EnableLtsLogsResponse } from './model/EnableLtsLogsResponse';
 import { ExportFunctionRequest } from './model/ExportFunctionRequest';
@@ -91,6 +93,10 @@ import { ListActiveAsyncInvocationsRequest } from './model/ListActiveAsyncInvoca
 import { ListActiveAsyncInvocationsResponse } from './model/ListActiveAsyncInvocationsResponse';
 import { ListAsyncInvocationsRequest } from './model/ListAsyncInvocationsRequest';
 import { ListAsyncInvocationsResponse } from './model/ListAsyncInvocationsResponse';
+import { ListBridgeFunctionsRequest } from './model/ListBridgeFunctionsRequest';
+import { ListBridgeFunctionsResponse } from './model/ListBridgeFunctionsResponse';
+import { ListBridgeVersionsRequest } from './model/ListBridgeVersionsRequest';
+import { ListBridgeVersionsResponse } from './model/ListBridgeVersionsResponse';
 import { ListDependenciesRequest } from './model/ListDependenciesRequest';
 import { ListDependenciesResponse } from './model/ListDependenciesResponse';
 import { ListDependenciesResult } from './model/ListDependenciesResult';
@@ -113,6 +119,10 @@ import { ListFunctionResult } from './model/ListFunctionResult';
 import { ListFunctionStatisticsRequest } from './model/ListFunctionStatisticsRequest';
 import { ListFunctionStatisticsResponse } from './model/ListFunctionStatisticsResponse';
 import { ListFunctionStatisticsResponseBody } from './model/ListFunctionStatisticsResponseBody';
+import { ListFunctionTagsRequest } from './model/ListFunctionTagsRequest';
+import { ListFunctionTagsResponse } from './model/ListFunctionTagsResponse';
+import { ListFunctionTemplateRequest } from './model/ListFunctionTemplateRequest';
+import { ListFunctionTemplateResponse } from './model/ListFunctionTemplateResponse';
 import { ListFunctionTriggerResult } from './model/ListFunctionTriggerResult';
 import { ListFunctionTriggersRequest } from './model/ListFunctionTriggersRequest';
 import { ListFunctionTriggersResponse } from './model/ListFunctionTriggersResponse';
@@ -152,12 +162,15 @@ import { Resources } from './model/Resources';
 import { Retry } from './model/Retry';
 import { RetryWorkFlowRequest } from './model/RetryWorkFlowRequest';
 import { RetryWorkFlowResponse } from './model/RetryWorkFlowResponse';
+import { ServiceBridgeVersion } from './model/ServiceBridgeVersion';
 import { ShowDependcyRequest } from './model/ShowDependcyRequest';
 import { ShowDependcyResponse } from './model/ShowDependcyResponse';
 import { ShowDependencyVersionRequest } from './model/ShowDependencyVersionRequest';
 import { ShowDependencyVersionResponse } from './model/ShowDependencyVersionResponse';
 import { ShowEventRequest } from './model/ShowEventRequest';
 import { ShowEventResponse } from './model/ShowEventResponse';
+import { ShowFuncReservedInstanceMetricsRequest } from './model/ShowFuncReservedInstanceMetricsRequest';
+import { ShowFuncReservedInstanceMetricsResponse } from './model/ShowFuncReservedInstanceMetricsResponse';
 import { ShowFuncSnapshotStateRequest } from './model/ShowFuncSnapshotStateRequest';
 import { ShowFuncSnapshotStateResponse } from './model/ShowFuncSnapshotStateResponse';
 import { ShowFunctionAsyncInvokeConfigRequest } from './model/ShowFunctionAsyncInvokeConfigRequest';
@@ -166,10 +179,17 @@ import { ShowFunctionCodeRequest } from './model/ShowFunctionCodeRequest';
 import { ShowFunctionCodeResponse } from './model/ShowFunctionCodeResponse';
 import { ShowFunctionConfigRequest } from './model/ShowFunctionConfigRequest';
 import { ShowFunctionConfigResponse } from './model/ShowFunctionConfigResponse';
+import { ShowFunctionMetricsRequest } from './model/ShowFunctionMetricsRequest';
+import { ShowFunctionMetricsResponse } from './model/ShowFunctionMetricsResponse';
+import { ShowFunctionTemplateRequest } from './model/ShowFunctionTemplateRequest';
+import { ShowFunctionTemplateResponse } from './model/ShowFunctionTemplateResponse';
+import { ShowFunctionTemplateResponseBody } from './model/ShowFunctionTemplateResponseBody';
 import { ShowFunctionTriggerRequest } from './model/ShowFunctionTriggerRequest';
 import { ShowFunctionTriggerResponse } from './model/ShowFunctionTriggerResponse';
 import { ShowLtsLogDetailsRequest } from './model/ShowLtsLogDetailsRequest';
 import { ShowLtsLogDetailsResponse } from './model/ShowLtsLogDetailsResponse';
+import { ShowProjectAsyncStatusLogInfoRequest } from './model/ShowProjectAsyncStatusLogInfoRequest';
+import { ShowProjectAsyncStatusLogInfoResponse } from './model/ShowProjectAsyncStatusLogInfoResponse';
 import { ShowProjectTagsListRequest } from './model/ShowProjectTagsListRequest';
 import { ShowProjectTagsListResponse } from './model/ShowProjectTagsListResponse';
 import { ShowResInstanceInfoRequest } from './model/ShowResInstanceInfoRequest';
@@ -200,8 +220,10 @@ import { StrategyConfig } from './model/StrategyConfig';
 import { SyncExecutionNodeErrorDetail } from './model/SyncExecutionNodeErrorDetail';
 import { TacticsConfig } from './model/TacticsConfig';
 import { TagItem } from './model/TagItem';
+import { TempDetail } from './model/TempDetail';
 import { Trigger } from './model/Trigger';
 import { TriggerEventData } from './model/TriggerEventData';
+import { TriggerMetadataList } from './model/TriggerMetadataList';
 import { UpdateDependcyRequest } from './model/UpdateDependcyRequest';
 import { UpdateDependcyResponse } from './model/UpdateDependcyResponse';
 import { UpdateDependencyRequestBody } from './model/UpdateDependencyRequestBody';
@@ -216,6 +238,8 @@ import { UpdateFunctionAsyncInvokeConfigResponse } from './model/UpdateFunctionA
 import { UpdateFunctionCodeRequest } from './model/UpdateFunctionCodeRequest';
 import { UpdateFunctionCodeRequestBody } from './model/UpdateFunctionCodeRequestBody';
 import { UpdateFunctionCodeResponse } from './model/UpdateFunctionCodeResponse';
+import { UpdateFunctionCollectStateRequest } from './model/UpdateFunctionCollectStateRequest';
+import { UpdateFunctionCollectStateResponse } from './model/UpdateFunctionCollectStateResponse';
 import { UpdateFunctionConfigRequest } from './model/UpdateFunctionConfigRequest';
 import { UpdateFunctionConfigRequestBody } from './model/UpdateFunctionConfigRequestBody';
 import { UpdateFunctionConfigResponse } from './model/UpdateFunctionConfigResponse';
@@ -743,6 +767,24 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 允许异步状态通知。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 允许异步状态通知
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableAsyncStatusLog(enableAsyncStatusLogRequest?: EnableAsyncStatusLogRequest): Promise<EnableAsyncStatusLogResponse> {
+        const options = ParamCreater().enableAsyncStatusLog();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 开通lts日志上报功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -866,6 +908,45 @@ export class FunctionGraphClient {
      */
     public listAsyncInvocations(listAsyncInvocationsRequest?: ListAsyncInvocationsRequest): Promise<ListAsyncInvocationsResponse> {
         const options = ParamCreater().listAsyncInvocations(listAsyncInvocationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定函数绑定的servicebridge函数列表信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定函数绑定的servicebridge函数列表
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} [type] servicebridge类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBridgeFunctions(listBridgeFunctionsRequest?: ListBridgeFunctionsRequest): Promise<ListBridgeFunctionsResponse> {
+        const options = ParamCreater().listBridgeFunctions(listBridgeFunctionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取servicebridge可用的版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取servicebridge可用的版本
+     * @param {string} type servicebridge 类型，可选  rds, mqs 或 cache
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBridgeVersions(listBridgeVersionsRequest?: ListBridgeVersionsRequest): Promise<ListBridgeVersionsResponse> {
+        const options = ParamCreater().listBridgeVersions(listBridgeVersionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1017,6 +1098,50 @@ export class FunctionGraphClient {
      */
     public listFunctionStatistics(listFunctionStatisticsRequest?: ListFunctionStatisticsRequest): Promise<ListFunctionStatisticsResponse> {
         const options = ParamCreater().listFunctionStatistics(listFunctionStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询函数标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询函数标签列表
+     * @param {string} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionTags(listFunctionTagsRequest?: ListFunctionTagsRequest): Promise<ListFunctionTagsResponse> {
+        const options = ParamCreater().listFunctionTags(listFunctionTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取函数模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取函数模板列表
+     * @param {string} [marker] 本次查询起始位置，默认值0
+     * @param {string} [maxitems] 每次查询获取的最大模板数量。
+     * @param {string} [ispublic] 是否为公开模板
+     * @param {string} [runtime] 指定运行时模板
+     * @param {string} [scene] 指定场景模板
+     * @param {string} [service] 指定云服务模板
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionTemplate(listFunctionTemplateRequest?: ListFunctionTemplateRequest): Promise<ListFunctionTemplateResponse> {
+        const options = ParamCreater().listFunctionTemplate(listFunctionTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1293,6 +1418,31 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 查询函数实例使用情况指标。
+     * 
+     * - 指标单位为分钟：
+     *     当查询时间范围小于1小时,指标周期为1分钟
+     *     当查询时间范围小于1天,指标周期为30分钟
+     *     当查询时间范围大于1天,指标周期为180分钟
+     * - 指标分为如下几类：reservedinstancenum（预留实例使用）、concurrency（实例使用/并发）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询函数实例使用情况指标
+     * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFuncReservedInstanceMetrics(showFuncReservedInstanceMetricsRequest?: ShowFuncReservedInstanceMetricsRequest): Promise<ShowFuncReservedInstanceMetricsResponse> {
+        const options = ParamCreater().showFuncReservedInstanceMetrics(showFuncReservedInstanceMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询函数快照制作状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1370,6 +1520,45 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 查询函数流量指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询函数实例流量指标
+     * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} period 时间间隔
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFunctionMetrics(showFunctionMetricsRequest?: ShowFunctionMetricsRequest): Promise<ShowFunctionMetricsResponse> {
+        const options = ParamCreater().showFunctionMetrics(showFunctionMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定函数模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定函数模板
+     * @param {string} templateId 指定模板id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFunctionTemplate(showFunctionTemplateRequest?: ShowFunctionTemplateRequest): Promise<ShowFunctionTemplateResponse> {
+        const options = ParamCreater().showFunctionTemplate(showFunctionTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取特定触发器的信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1402,6 +1591,24 @@ export class FunctionGraphClient {
      */
     public showLtsLogDetails(showLtsLogDetailsRequest?: ShowLtsLogDetailsRequest): Promise<ShowLtsLogDetailsResponse> {
         const options = ParamCreater().showLtsLogDetails(showLtsLogDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询异步日志详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询异步日志详情
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectAsyncStatusLogInfo(showProjectAsyncStatusLogInfoRequest?: ShowProjectAsyncStatusLogInfoRequest): Promise<ShowProjectAsyncStatusLogInfoResponse> {
+        const options = ParamCreater().showProjectAsyncStatusLogInfo();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1752,6 +1959,26 @@ export class FunctionGraphClient {
      */
     public updateFunctionCode(updateFunctionCodeRequest?: UpdateFunctionCodeRequest): Promise<UpdateFunctionCodeResponse> {
         const options = ParamCreater().updateFunctionCode(updateFunctionCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新函数收藏状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新函数收藏状态
+     * @param {string} funcUrn 函数URN
+     * @param {string} state 收藏状态
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFunctionCollectState(updateFunctionCollectStateRequest?: UpdateFunctionCollectStateRequest): Promise<UpdateFunctionCollectStateResponse> {
+        const options = ParamCreater().updateFunctionCollectState(updateFunctionCollectStateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2946,6 +3173,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 允许异步状态通知。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableAsyncStatusLog() {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/functions/enable-async-status-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 开通lts日志上报功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3279,6 +3527,91 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数绑定的servicebridge函数列表信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBridgeFunctions(listBridgeFunctionsRequest?: ListBridgeFunctionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/servicebridge/relation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let functionUrn;
+            
+            let type;
+
+            if (listBridgeFunctionsRequest !== null && listBridgeFunctionsRequest !== undefined) {
+                if (listBridgeFunctionsRequest instanceof ListBridgeFunctionsRequest) {
+                    functionUrn = listBridgeFunctionsRequest.functionUrn;
+                    type = listBridgeFunctionsRequest.type;
+                } else {
+                    functionUrn = listBridgeFunctionsRequest['function_urn'];
+                    type = listBridgeFunctionsRequest['type'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listBridgeFunctions.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取servicebridge可用的版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBridgeVersions(listBridgeVersionsRequest?: ListBridgeVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/servicebridge/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+
+            if (listBridgeVersionsRequest !== null && listBridgeVersionsRequest !== undefined) {
+                if (listBridgeVersionsRequest instanceof ListBridgeVersionsRequest) {
+                    type = listBridgeVersionsRequest.type;
+                } else {
+                    type = listBridgeVersionsRequest['type'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listBridgeVersions.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3654,6 +3987,122 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'func_urn': funcUrn,'period': period, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询函数标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFunctionTags(listFunctionTagsRequest?: ListFunctionTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (listFunctionTagsRequest !== null && listFunctionTagsRequest !== undefined) {
+                if (listFunctionTagsRequest instanceof ListFunctionTagsRequest) {
+                    resourceType = listFunctionTagsRequest.resourceType;
+                    resourceId = listFunctionTagsRequest.resourceId;
+                } else {
+                    resourceType = listFunctionTagsRequest['resource_type'];
+                    resourceId = listFunctionTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listFunctionTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listFunctionTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFunctionTemplate(listFunctionTemplateRequest?: ListFunctionTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let maxitems;
+            
+            let ispublic;
+            
+            let runtime;
+            
+            let scene;
+            
+            let service;
+
+            if (listFunctionTemplateRequest !== null && listFunctionTemplateRequest !== undefined) {
+                if (listFunctionTemplateRequest instanceof ListFunctionTemplateRequest) {
+                    marker = listFunctionTemplateRequest.marker;
+                    maxitems = listFunctionTemplateRequest.maxitems;
+                    ispublic = listFunctionTemplateRequest.ispublic;
+                    runtime = listFunctionTemplateRequest.runtime;
+                    scene = listFunctionTemplateRequest.scene;
+                    service = listFunctionTemplateRequest.service;
+                } else {
+                    marker = listFunctionTemplateRequest['marker'];
+                    maxitems = listFunctionTemplateRequest['maxitems'];
+                    ispublic = listFunctionTemplateRequest['ispublic'];
+                    runtime = listFunctionTemplateRequest['runtime'];
+                    scene = listFunctionTemplateRequest['scene'];
+                    service = listFunctionTemplateRequest['service'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (maxitems !== null && maxitems !== undefined) {
+                localVarQueryParameter['maxitems'] = maxitems;
+            }
+            if (ispublic !== null && ispublic !== undefined) {
+                localVarQueryParameter['ispublic'] = ispublic;
+            }
+            if (runtime !== null && runtime !== undefined) {
+                localVarQueryParameter['runtime'] = runtime;
+            }
+            if (scene !== null && scene !== undefined) {
+                localVarQueryParameter['scene'] = scene;
+            }
+            if (service !== null && service !== undefined) {
+                localVarQueryParameter['service'] = service;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4265,6 +4714,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询函数实例使用情况指标。
+         * 
+         * - 指标单位为分钟：
+         *     当查询时间范围小于1小时,指标周期为1分钟
+         *     当查询时间范围小于1天,指标周期为30分钟
+         *     当查询时间范围大于1天,指标周期为180分钟
+         * - 指标分为如下几类：reservedinstancenum（预留实例使用）、concurrency（实例使用/并发）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFuncReservedInstanceMetrics(showFuncReservedInstanceMetricsRequest?: ShowFuncReservedInstanceMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{func_urn}/instancereports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let funcUrn;
+
+            if (showFuncReservedInstanceMetricsRequest !== null && showFuncReservedInstanceMetricsRequest !== undefined) {
+                if (showFuncReservedInstanceMetricsRequest instanceof ShowFuncReservedInstanceMetricsRequest) {
+                    funcUrn = showFuncReservedInstanceMetricsRequest.funcUrn;
+                } else {
+                    funcUrn = showFuncReservedInstanceMetricsRequest['func_urn'];
+                }
+            }
+
+        
+            if (funcUrn === null || funcUrn === undefined) {
+            throw new RequiredError('funcUrn','Required parameter funcUrn was null or undefined when calling showFuncReservedInstanceMetrics.');
+            }
+
+            options.pathParams = { 'func_urn': funcUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询函数快照制作状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4420,6 +4912,87 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询函数流量指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFunctionMetrics(showFunctionMetricsRequest?: ShowFunctionMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{func_urn}/slareports/{period}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let funcUrn;
+            
+            let period;
+
+            if (showFunctionMetricsRequest !== null && showFunctionMetricsRequest !== undefined) {
+                if (showFunctionMetricsRequest instanceof ShowFunctionMetricsRequest) {
+                    funcUrn = showFunctionMetricsRequest.funcUrn;
+                    period = showFunctionMetricsRequest.period;
+                } else {
+                    funcUrn = showFunctionMetricsRequest['func_urn'];
+                    period = showFunctionMetricsRequest['period'];
+                }
+            }
+
+        
+            if (funcUrn === null || funcUrn === undefined) {
+            throw new RequiredError('funcUrn','Required parameter funcUrn was null or undefined when calling showFunctionMetrics.');
+            }
+            if (period === null || period === undefined) {
+            throw new RequiredError('period','Required parameter period was null or undefined when calling showFunctionMetrics.');
+            }
+
+            options.pathParams = { 'func_urn': funcUrn,'period': period, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFunctionTemplate(showFunctionTemplateRequest?: ShowFunctionTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+
+            if (showFunctionTemplateRequest !== null && showFunctionTemplateRequest !== undefined) {
+                if (showFunctionTemplateRequest instanceof ShowFunctionTemplateRequest) {
+                    templateId = showFunctionTemplateRequest.templateId;
+                } else {
+                    templateId = showFunctionTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showFunctionTemplate.');
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取特定触发器的信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4503,6 +5076,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询异步日志详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectAsyncStatusLogInfo() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/async-status-log-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5343,6 +5937,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新函数收藏状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFunctionCollectState(updateFunctionCollectStateRequest?: UpdateFunctionCollectStateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/fgs/functions/{func_urn}/collect/{state}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let funcUrn;
+            
+            let state;
+
+            if (updateFunctionCollectStateRequest !== null && updateFunctionCollectStateRequest !== undefined) {
+                if (updateFunctionCollectStateRequest instanceof UpdateFunctionCollectStateRequest) {
+                    funcUrn = updateFunctionCollectStateRequest.funcUrn;
+                    state = updateFunctionCollectStateRequest.state;
+                } else {
+                    funcUrn = updateFunctionCollectStateRequest['func_urn'];
+                    state = updateFunctionCollectStateRequest['state'];
+                }
+            }
+
+        
+            if (funcUrn === null || funcUrn === undefined) {
+            throw new RequiredError('funcUrn','Required parameter funcUrn was null or undefined when calling updateFunctionCollectState.');
+            }
+            if (state === null || state === undefined) {
+            throw new RequiredError('state','Required parameter state was null or undefined when calling updateFunctionCollectState.');
+            }
+
+            options.pathParams = { 'func_urn': funcUrn,'state': state, };
             options.headers = localVarHeaderParameter;
             return options;
         },

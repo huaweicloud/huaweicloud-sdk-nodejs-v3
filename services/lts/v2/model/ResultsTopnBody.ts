@@ -11,6 +11,7 @@ export class ResultsTopnBody {
     private 'basic_transfer'?: number;
     private 'senior_transfer'?: number;
     private 'is_agency_transfer'?: boolean;
+    private 'cold_storage'?: number;
     public constructor(indexTraffic?: number, storage?: number, writeTraffic?: number, logGroupId?: string, logGroupName?: string) { 
         this['index_traffic'] = indexTraffic;
         this['storage'] = storage;
@@ -111,5 +112,15 @@ export class ResultsTopnBody {
     }
     public get isAgencyTransfer(): boolean | undefined {
         return this['is_agency_transfer'];
+    }
+    public withColdStorage(coldStorage: number): ResultsTopnBody {
+        this['cold_storage'] = coldStorage;
+        return this;
+    }
+    public set coldStorage(coldStorage: number  | undefined) {
+        this['cold_storage'] = coldStorage;
+    }
+    public get coldStorage(): number | undefined {
+        return this['cold_storage'];
     }
 }

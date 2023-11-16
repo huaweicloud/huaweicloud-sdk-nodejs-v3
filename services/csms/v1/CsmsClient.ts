@@ -327,11 +327,13 @@ export class CsmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已触发的事件通知记录
+     * @param {string} [limit] 每页返回的个数。  默认值：50。
+     * @param {string} [marker] 分页查询起始的事件通知记录时间，为空时为查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listNotificationRecords(listNotificationRecordsRequest?: ListNotificationRecordsRequest): Promise<ListNotificationRecordsResponse> {
-        const options = ParamCreater().listNotificationRecords();
+        const options = ParamCreater().listNotificationRecords(listNotificationRecordsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1148,7 +1150,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listNotificationRecords() {
+        listNotificationRecords(listNotificationRecordsRequest?: ListNotificationRecordsRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/{project_id}/csms/notification-records",
@@ -1158,8 +1160,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
 
+            if (listNotificationRecordsRequest !== null && listNotificationRecordsRequest !== undefined) {
+                if (listNotificationRecordsRequest instanceof ListNotificationRecordsRequest) {
+                    limit = listNotificationRecordsRequest.limit;
+                    marker = listNotificationRecordsRequest.marker;
+                } else {
+                    limit = listNotificationRecordsRequest['limit'];
+                    marker = listNotificationRecordsRequest['marker'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

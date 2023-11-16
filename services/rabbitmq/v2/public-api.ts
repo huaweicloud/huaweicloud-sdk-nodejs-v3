@@ -76,8 +76,6 @@ export * from './model/ShowInstanceResp';
 export * from './model/ShowInstanceResponse';
 export * from './model/ShowMaintainWindowsRequest';
 export * from './model/ShowMaintainWindowsResponse';
-export * from './model/ShowRabbitMqProductCoresRequest';
-export * from './model/ShowRabbitMqProductCoresResponse';
 export * from './model/ShowRabbitMqProjectTagsRequest';
 export * from './model/ShowRabbitMqProjectTagsResponse';
 export * from './model/ShowRabbitMqTagsRequest';

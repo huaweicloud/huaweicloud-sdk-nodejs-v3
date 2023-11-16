@@ -607,6 +607,9 @@ import { UpdateDataconnectionRequest } from './model/UpdateDataconnectionRequest
 import { UpdateDataconnectionResponse } from './model/UpdateDataconnectionResponse';
 import { UpdateDirectoryRequest } from './model/UpdateDirectoryRequest';
 import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
+import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
+import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
+import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
 import { UpdateStandardRequest } from './model/UpdateStandardRequest';
 import { UpdateStandardResponse } from './model/UpdateStandardResponse';
 import { UpdateStandardTemplateRequest } from './model/UpdateStandardTemplateRequest';
@@ -4928,6 +4931,30 @@ export class DataArtsStudioClient {
      */
     public updateDirectory(updateDirectoryRequest?: UpdateDirectoryRequest): Promise<UpdateDirectoryResponse> {
         const options = ParamCreater().updateDirectory(updateDirectoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改作业名称
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改作业名称
+     * @param {string} jobName 作业名
+     * @param {string} workspace 工作空间ID
+     * @param {UpdateFactoryJobNameRequestBody} updateFactoryJobNameRequestBody DemoInfo object that needs to be modified
+     * @param {string} [contentType] 有Body体的情况下必选，无Body体的情况下则无需填写和校验
+     * @param {string} [authorization] 使用AK/SK进行认证时该字段必选
+     * @param {string} [host] 使用AK/SK进行认证时该字段必选
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFactoryJobName(updateFactoryJobNameRequest?: UpdateFactoryJobNameRequest): Promise<UpdateFactoryJobNameResponse> {
+        const options = ParamCreater().updateFactoryJobName(updateFactoryJobNameRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -17249,6 +17276,80 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改作业名称
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFactoryJobName(updateFactoryJobNameRequest?: UpdateFactoryJobNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/rename",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobName;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let authorization;
+            
+            let host;
+
+            if (updateFactoryJobNameRequest !== null && updateFactoryJobNameRequest !== undefined) {
+                if (updateFactoryJobNameRequest instanceof UpdateFactoryJobNameRequest) {
+                    jobName = updateFactoryJobNameRequest.jobName;
+                    workspace = updateFactoryJobNameRequest.workspace;
+                    body = updateFactoryJobNameRequest.body
+                    contentType = updateFactoryJobNameRequest.contentType;
+                    authorization = updateFactoryJobNameRequest.authorization;
+                    host = updateFactoryJobNameRequest.host;
+                } else {
+                    jobName = updateFactoryJobNameRequest['job_name'];
+                    workspace = updateFactoryJobNameRequest['workspace'];
+                    body = updateFactoryJobNameRequest['body'];
+                    contentType = updateFactoryJobNameRequest['Content-Type'];
+                    authorization = updateFactoryJobNameRequest['Authorization'];
+                    host = updateFactoryJobNameRequest['Host'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling updateFactoryJobName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (host !== undefined && host !== null) {
+                localVarHeaderParameter['Host'] = String(host);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

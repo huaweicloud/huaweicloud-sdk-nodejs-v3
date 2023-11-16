@@ -1,31 +1,42 @@
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilter } from './CacheUrlParameterFilter';
+import { CommonRemoteAuth } from './CommonRemoteAuth';
 import { Compress } from './Compress';
 import { ErrorCodeCache } from './ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './ErrorCodeRedirectRules';
+import { FlexibleOrigins } from './FlexibleOrigins';
 import { ForceRedirectConfig } from './ForceRedirectConfig';
+import { HstsQuery } from './HstsQuery';
 import { HttpGetBody } from './HttpGetBody';
 import { HttpResponseHeader } from './HttpResponseHeader';
 import { IpFilter } from './IpFilter';
+import { IpFrequencyLimitQuery } from './IpFrequencyLimitQuery';
 import { OriginRequestHeader } from './OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './OriginRequestUrlRewrite';
+import { Quic } from './Quic';
 import { RefererConfig } from './RefererConfig';
+import { RequestLimitRules } from './RequestLimitRules';
 import { SourcesConfig } from './SourcesConfig';
 import { UrlAuthGetBody } from './UrlAuthGetBody';
 import { UserAgentFilter } from './UserAgentFilter';
+import { VideoSeek } from './VideoSeek';
+import { WebSocketSeek } from './WebSocketSeek';
 
 
 export class ConfigsGetBody {
+    private 'business_type'?: string;
+    private 'service_area'?: string;
+    public remark?: string;
     private 'origin_request_header'?: Array<OriginRequestHeader>;
     private 'http_response_header'?: Array<HttpResponseHeader>;
     private 'url_auth'?: UrlAuthGetBody;
     public https?: HttpGetBody;
     public sources?: Array<SourcesConfig>;
+    private 'origin_protocol'?: string;
     private 'origin_follow302_status'?: string;
     private 'cache_rules'?: Array<CacheRules>;
     private 'ip_filter'?: IpFilter;
     public referer?: RefererConfig;
-    private 'origin_protocol'?: string;
     private 'force_redirect'?: ForceRedirectConfig;
     public compress?: Compress;
     private 'cache_url_parameter_filter'?: CacheUrlParameterFilter;
@@ -34,8 +45,42 @@ export class ConfigsGetBody {
     private 'origin_range_status'?: string;
     private 'user_agent_filter'?: UserAgentFilter;
     private 'origin_request_url_rewrite'?: Array<OriginRequestUrlRewrite>;
+    private 'flexible_origin'?: Array<FlexibleOrigins>;
+    private 'slice_etag_status'?: string;
+    private 'origin_receive_timeout'?: number;
+    private 'remote_auth'?: CommonRemoteAuth;
+    public websocket?: WebSocketSeek;
+    private 'video_seek'?: VideoSeek;
+    private 'request_limit_rules'?: Array<RequestLimitRules>;
+    private 'ip_frequency_limit'?: IpFrequencyLimitQuery;
+    public hsts?: HstsQuery;
+    public quic?: Quic;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules>;
     public constructor() { 
+    }
+    public withBusinessType(businessType: string): ConfigsGetBody {
+        this['business_type'] = businessType;
+        return this;
+    }
+    public set businessType(businessType: string  | undefined) {
+        this['business_type'] = businessType;
+    }
+    public get businessType(): string | undefined {
+        return this['business_type'];
+    }
+    public withServiceArea(serviceArea: string): ConfigsGetBody {
+        this['service_area'] = serviceArea;
+        return this;
+    }
+    public set serviceArea(serviceArea: string  | undefined) {
+        this['service_area'] = serviceArea;
+    }
+    public get serviceArea(): string | undefined {
+        return this['service_area'];
+    }
+    public withRemark(remark: string): ConfigsGetBody {
+        this['remark'] = remark;
+        return this;
     }
     public withOriginRequestHeader(originRequestHeader: Array<OriginRequestHeader>): ConfigsGetBody {
         this['origin_request_header'] = originRequestHeader;
@@ -75,6 +120,16 @@ export class ConfigsGetBody {
         this['sources'] = sources;
         return this;
     }
+    public withOriginProtocol(originProtocol: string): ConfigsGetBody {
+        this['origin_protocol'] = originProtocol;
+        return this;
+    }
+    public set originProtocol(originProtocol: string  | undefined) {
+        this['origin_protocol'] = originProtocol;
+    }
+    public get originProtocol(): string | undefined {
+        return this['origin_protocol'];
+    }
     public withOriginFollow302Status(originFollow302Status: string): ConfigsGetBody {
         this['origin_follow302_status'] = originFollow302Status;
         return this;
@@ -108,16 +163,6 @@ export class ConfigsGetBody {
     public withReferer(referer: RefererConfig): ConfigsGetBody {
         this['referer'] = referer;
         return this;
-    }
-    public withOriginProtocol(originProtocol: string): ConfigsGetBody {
-        this['origin_protocol'] = originProtocol;
-        return this;
-    }
-    public set originProtocol(originProtocol: string  | undefined) {
-        this['origin_protocol'] = originProtocol;
-    }
-    public get originProtocol(): string | undefined {
-        return this['origin_protocol'];
     }
     public withForceRedirect(forceRedirect: ForceRedirectConfig): ConfigsGetBody {
         this['force_redirect'] = forceRedirect;
@@ -192,6 +237,88 @@ export class ConfigsGetBody {
     }
     public get originRequestUrlRewrite(): Array<OriginRequestUrlRewrite> | undefined {
         return this['origin_request_url_rewrite'];
+    }
+    public withFlexibleOrigin(flexibleOrigin: Array<FlexibleOrigins>): ConfigsGetBody {
+        this['flexible_origin'] = flexibleOrigin;
+        return this;
+    }
+    public set flexibleOrigin(flexibleOrigin: Array<FlexibleOrigins>  | undefined) {
+        this['flexible_origin'] = flexibleOrigin;
+    }
+    public get flexibleOrigin(): Array<FlexibleOrigins> | undefined {
+        return this['flexible_origin'];
+    }
+    public withSliceEtagStatus(sliceEtagStatus: string): ConfigsGetBody {
+        this['slice_etag_status'] = sliceEtagStatus;
+        return this;
+    }
+    public set sliceEtagStatus(sliceEtagStatus: string  | undefined) {
+        this['slice_etag_status'] = sliceEtagStatus;
+    }
+    public get sliceEtagStatus(): string | undefined {
+        return this['slice_etag_status'];
+    }
+    public withOriginReceiveTimeout(originReceiveTimeout: number): ConfigsGetBody {
+        this['origin_receive_timeout'] = originReceiveTimeout;
+        return this;
+    }
+    public set originReceiveTimeout(originReceiveTimeout: number  | undefined) {
+        this['origin_receive_timeout'] = originReceiveTimeout;
+    }
+    public get originReceiveTimeout(): number | undefined {
+        return this['origin_receive_timeout'];
+    }
+    public withRemoteAuth(remoteAuth: CommonRemoteAuth): ConfigsGetBody {
+        this['remote_auth'] = remoteAuth;
+        return this;
+    }
+    public set remoteAuth(remoteAuth: CommonRemoteAuth  | undefined) {
+        this['remote_auth'] = remoteAuth;
+    }
+    public get remoteAuth(): CommonRemoteAuth | undefined {
+        return this['remote_auth'];
+    }
+    public withWebsocket(websocket: WebSocketSeek): ConfigsGetBody {
+        this['websocket'] = websocket;
+        return this;
+    }
+    public withVideoSeek(videoSeek: VideoSeek): ConfigsGetBody {
+        this['video_seek'] = videoSeek;
+        return this;
+    }
+    public set videoSeek(videoSeek: VideoSeek  | undefined) {
+        this['video_seek'] = videoSeek;
+    }
+    public get videoSeek(): VideoSeek | undefined {
+        return this['video_seek'];
+    }
+    public withRequestLimitRules(requestLimitRules: Array<RequestLimitRules>): ConfigsGetBody {
+        this['request_limit_rules'] = requestLimitRules;
+        return this;
+    }
+    public set requestLimitRules(requestLimitRules: Array<RequestLimitRules>  | undefined) {
+        this['request_limit_rules'] = requestLimitRules;
+    }
+    public get requestLimitRules(): Array<RequestLimitRules> | undefined {
+        return this['request_limit_rules'];
+    }
+    public withIpFrequencyLimit(ipFrequencyLimit: IpFrequencyLimitQuery): ConfigsGetBody {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+        return this;
+    }
+    public set ipFrequencyLimit(ipFrequencyLimit: IpFrequencyLimitQuery  | undefined) {
+        this['ip_frequency_limit'] = ipFrequencyLimit;
+    }
+    public get ipFrequencyLimit(): IpFrequencyLimitQuery | undefined {
+        return this['ip_frequency_limit'];
+    }
+    public withHsts(hsts: HstsQuery): ConfigsGetBody {
+        this['hsts'] = hsts;
+        return this;
+    }
+    public withQuic(quic: Quic): ConfigsGetBody {
+        this['quic'] = quic;
+        return this;
     }
     public withErrorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules>): ConfigsGetBody {
         this['error_code_redirect_rules'] = errorCodeRedirectRules;

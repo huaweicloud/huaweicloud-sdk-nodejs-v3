@@ -9,6 +9,7 @@ export class DmsKafkaForwarding {
     public username?: string;
     public password?: string;
     public mechanism?: string;
+    private 'security_protocol'?: string;
     public constructor(regionName?: string, projectId?: string, addresses?: Array<NetAddress>, topic?: string) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
@@ -54,5 +55,15 @@ export class DmsKafkaForwarding {
     public withMechanism(mechanism: string): DmsKafkaForwarding {
         this['mechanism'] = mechanism;
         return this;
+    }
+    public withSecurityProtocol(securityProtocol: string): DmsKafkaForwarding {
+        this['security_protocol'] = securityProtocol;
+        return this;
+    }
+    public set securityProtocol(securityProtocol: string  | undefined) {
+        this['security_protocol'] = securityProtocol;
+    }
+    public get securityProtocol(): string | undefined {
+        return this['security_protocol'];
     }
 }

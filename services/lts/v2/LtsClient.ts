@@ -597,7 +597,7 @@ export class LtsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Demo
+     * @summary 创建日志收藏
      * @param {CreatefavoriteReqbody} [requestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

@@ -1,10 +1,17 @@
+import { InheritConfigQuery } from './InheritConfigQuery';
 
 
 export class UrlAuthGetBody {
     public status?: string;
     public type?: string;
-    private 'time_format'?: string;
     private 'expire_time'?: number;
+    private 'sign_method'?: string;
+    private 'match_type'?: string;
+    private 'inherit_config'?: InheritConfigQuery;
+    public key?: string;
+    private 'backup_key'?: string;
+    private 'sign_arg'?: string;
+    private 'time_format'?: string;
     public constructor(status?: string) { 
         this['status'] = status;
     }
@@ -16,16 +23,6 @@ export class UrlAuthGetBody {
         this['type'] = type;
         return this;
     }
-    public withTimeFormat(timeFormat: string): UrlAuthGetBody {
-        this['time_format'] = timeFormat;
-        return this;
-    }
-    public set timeFormat(timeFormat: string  | undefined) {
-        this['time_format'] = timeFormat;
-    }
-    public get timeFormat(): string | undefined {
-        return this['time_format'];
-    }
     public withExpireTime(expireTime: number): UrlAuthGetBody {
         this['expire_time'] = expireTime;
         return this;
@@ -35,5 +32,69 @@ export class UrlAuthGetBody {
     }
     public get expireTime(): number | undefined {
         return this['expire_time'];
+    }
+    public withSignMethod(signMethod: string): UrlAuthGetBody {
+        this['sign_method'] = signMethod;
+        return this;
+    }
+    public set signMethod(signMethod: string  | undefined) {
+        this['sign_method'] = signMethod;
+    }
+    public get signMethod(): string | undefined {
+        return this['sign_method'];
+    }
+    public withMatchType(matchType: string): UrlAuthGetBody {
+        this['match_type'] = matchType;
+        return this;
+    }
+    public set matchType(matchType: string  | undefined) {
+        this['match_type'] = matchType;
+    }
+    public get matchType(): string | undefined {
+        return this['match_type'];
+    }
+    public withInheritConfig(inheritConfig: InheritConfigQuery): UrlAuthGetBody {
+        this['inherit_config'] = inheritConfig;
+        return this;
+    }
+    public set inheritConfig(inheritConfig: InheritConfigQuery  | undefined) {
+        this['inherit_config'] = inheritConfig;
+    }
+    public get inheritConfig(): InheritConfigQuery | undefined {
+        return this['inherit_config'];
+    }
+    public withKey(key: string): UrlAuthGetBody {
+        this['key'] = key;
+        return this;
+    }
+    public withBackupKey(backupKey: string): UrlAuthGetBody {
+        this['backup_key'] = backupKey;
+        return this;
+    }
+    public set backupKey(backupKey: string  | undefined) {
+        this['backup_key'] = backupKey;
+    }
+    public get backupKey(): string | undefined {
+        return this['backup_key'];
+    }
+    public withSignArg(signArg: string): UrlAuthGetBody {
+        this['sign_arg'] = signArg;
+        return this;
+    }
+    public set signArg(signArg: string  | undefined) {
+        this['sign_arg'] = signArg;
+    }
+    public get signArg(): string | undefined {
+        return this['sign_arg'];
+    }
+    public withTimeFormat(timeFormat: string): UrlAuthGetBody {
+        this['time_format'] = timeFormat;
+        return this;
+    }
+    public set timeFormat(timeFormat: string  | undefined) {
+        this['time_format'] = timeFormat;
+    }
+    public get timeFormat(): string | undefined {
+        return this['time_format'];
     }
 }

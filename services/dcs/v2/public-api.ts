@@ -275,6 +275,7 @@ export * from './model/SingleBackgroundTask';
 export * from './model/SlowlogItem';
 export * from './model/SourceInstanceBody';
 export * from './model/StartInstanceResizeCheckJobRequest';
+export * from './model/StartInstanceResizeCheckJobRequestBody';
 export * from './model/StartInstanceResizeCheckJobResponse';
 export * from './model/StatusStatistic';
 export * from './model/StepDetail';

@@ -377,6 +377,10 @@ import { RestoreToExistingInstanceRequestBody } from './model/RestoreToExistingI
 import { RestoreToExistingInstanceRequestBodySource } from './model/RestoreToExistingInstanceRequestBodySource';
 import { RestoreToExistingInstanceRequestBodyTarget } from './model/RestoreToExistingInstanceRequestBodyTarget';
 import { RestoreToExistingInstanceResponse } from './model/RestoreToExistingInstanceResponse';
+import { RevokePostgresqlDbPrivilegeRequest } from './model/RevokePostgresqlDbPrivilegeRequest';
+import { RevokePostgresqlDbPrivilegeRequestBody } from './model/RevokePostgresqlDbPrivilegeRequestBody';
+import { RevokePostgresqlDbPrivilegeResponse } from './model/RevokePostgresqlDbPrivilegeResponse';
+import { RevokePostgresqlDbPrivilegeUser } from './model/RevokePostgresqlDbPrivilegeUser';
 import { RevokeRequest } from './model/RevokeRequest';
 import { RevokeRequestBody } from './model/RevokeRequestBody';
 import { RevokeRequestBodyUsers } from './model/RevokeRequestBodyUsers';
@@ -3633,6 +3637,26 @@ export class RdsClient {
      */
     public listPostgresqlExtension(listPostgresqlExtensionRequest?: ListPostgresqlExtensionRequest): Promise<ListPostgresqlExtensionResponse> {
         const options = ParamCreater().listPostgresqlExtension(listPostgresqlExtensionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除数据库帐号权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除数据库帐号权限
+     * @param {string} instanceId 实例ID
+     * @param {RevokePostgresqlDbPrivilegeRequestBody} revokePostgresqlDbPrivilegeRequest 请求信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public revokePostgresqlDbPrivilege(revokePostgresqlDbPrivilegeRequest?: RevokePostgresqlDbPrivilegeRequest): Promise<RevokePostgresqlDbPrivilegeResponse> {
+        const options = ParamCreater().revokePostgresqlDbPrivilege(revokePostgresqlDbPrivilegeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11942,6 +11966,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除数据库帐号权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        revokePostgresqlDbPrivilege(revokePostgresqlDbPrivilegeRequest?: RevokePostgresqlDbPrivilegeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/db_privilege",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (revokePostgresqlDbPrivilegeRequest !== null && revokePostgresqlDbPrivilegeRequest !== undefined) {
+                if (revokePostgresqlDbPrivilegeRequest instanceof RevokePostgresqlDbPrivilegeRequest) {
+                    instanceId = revokePostgresqlDbPrivilegeRequest.instanceId;
+                    body = revokePostgresqlDbPrivilegeRequest.body
+                } else {
+                    instanceId = revokePostgresqlDbPrivilegeRequest['instance_id'];
+                    body = revokePostgresqlDbPrivilegeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling revokePostgresqlDbPrivilege.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

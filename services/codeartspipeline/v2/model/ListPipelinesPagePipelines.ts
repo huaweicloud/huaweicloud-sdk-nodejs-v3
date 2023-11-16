@@ -5,6 +5,7 @@ export class ListPipelinesPagePipelines {
     private 'pipeline_id'?: string;
     public name?: string;
     private 'project_id'?: string;
+    private 'project_name'?: string;
     private 'component_id'?: string;
     private 'is_publish'?: boolean;
     private 'is_collect'?: boolean;
@@ -37,6 +38,16 @@ export class ListPipelinesPagePipelines {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withProjectName(projectName: string): ListPipelinesPagePipelines {
+        this['project_name'] = projectName;
+        return this;
+    }
+    public set projectName(projectName: string  | undefined) {
+        this['project_name'] = projectName;
+    }
+    public get projectName(): string | undefined {
+        return this['project_name'];
     }
     public withComponentId(componentId: string): ListPipelinesPagePipelines {
         this['component_id'] = componentId;

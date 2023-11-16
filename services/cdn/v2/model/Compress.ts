@@ -4,9 +4,8 @@ export class Compress {
     public status?: string;
     public type?: string;
     private 'file_type'?: string;
-    public constructor(status?: string, type?: string) { 
+    public constructor(status?: string) { 
         this['status'] = status;
-        this['type'] = type;
     }
     public withStatus(status: string): Compress {
         this['status'] = status;

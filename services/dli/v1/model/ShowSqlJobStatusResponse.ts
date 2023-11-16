@@ -18,6 +18,8 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     private 'table_name'?: string;
     public detail?: string;
     private 'user_conf'?: string;
+    private 'result_path'?: string;
+    private 'result_format'?: string;
     public statement?: string;
     private 'is_success'?: boolean;
     public message?: string;
@@ -151,6 +153,26 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     }
     public get userConf(): string | undefined {
         return this['user_conf'];
+    }
+    public withResultPath(resultPath: string): ShowSqlJobStatusResponse {
+        this['result_path'] = resultPath;
+        return this;
+    }
+    public set resultPath(resultPath: string  | undefined) {
+        this['result_path'] = resultPath;
+    }
+    public get resultPath(): string | undefined {
+        return this['result_path'];
+    }
+    public withResultFormat(resultFormat: string): ShowSqlJobStatusResponse {
+        this['result_format'] = resultFormat;
+        return this;
+    }
+    public set resultFormat(resultFormat: string  | undefined) {
+        this['result_format'] = resultFormat;
+    }
+    public get resultFormat(): string | undefined {
+        return this['result_format'];
     }
     public withStatement(statement: string): ShowSqlJobStatusResponse {
         this['statement'] = statement;

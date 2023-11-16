@@ -1,8 +1,12 @@
 export * from './MrsClient';
 
+export * from './model/AddComponentRequest';
+export * from './model/AddComponentResponse';
+export * from './model/AddComponentsReq';
 export * from './model/AddJobsReqV11';
 export * from './model/AgencyMapping';
 export * from './model/AgencyMappingArray';
+export * from './model/AssignedNodeGroup';
 export * from './model/AutoScalingPolicy';
 export * from './model/AutoScalingPolicyV2';
 export * from './model/BatchDeleteJobsRequest';
@@ -13,6 +17,7 @@ export * from './model/CancelSqlResponse';
 export * from './model/ChargeInfo';
 export * from './model/ClusterDataConnectorMap';
 export * from './model/ComponentConfig';
+export * from './model/ComponentInstallMode';
 export * from './model/Config';
 export * from './model/CreateClusterReqV2';
 export * from './model/CreateClusterRequest';

@@ -2,15 +2,15 @@
 
 export class SysTag {
     public key?: string;
-    public values?: string;
+    public value?: string;
     public constructor() { 
     }
     public withKey(key: string): SysTag {
         this['key'] = key;
         return this;
     }
-    public withValues(values: string): SysTag {
-        this['values'] = values;
+    public withValue(value: string): SysTag {
+        this['value'] = value;
         return this;
     }
 }

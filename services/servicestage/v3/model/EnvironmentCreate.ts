@@ -8,10 +8,9 @@ export class EnvironmentCreate {
     private 'vpc_id'?: string;
     private 'deploy_mode'?: EnvironmentCreateDeployModeEnum | string;
     public labels?: Array<EnvironmentCreateLabels>;
-    public constructor(name?: string, vpcId?: string, deployMode?: string) { 
+    public constructor(name?: string, vpcId?: string) { 
         this['name'] = name;
         this['vpc_id'] = vpcId;
-        this['deploy_mode'] = deployMode;
     }
     public withName(name: string): EnvironmentCreate {
         this['name'] = name;

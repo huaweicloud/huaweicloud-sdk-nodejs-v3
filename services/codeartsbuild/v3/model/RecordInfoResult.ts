@@ -28,6 +28,7 @@ export class RecordInfoResult {
     private 'start_time'?: string;
     private 'runnable_time'?: string;
     private 'finish_time'?: string;
+    public duration?: number;
     private 'record_status'?: string;
     private 'use_private_slave'?: number;
     public region?: string;
@@ -274,6 +275,10 @@ export class RecordInfoResult {
     }
     public get finishTime(): string | undefined {
         return this['finish_time'];
+    }
+    public withDuration(duration: number): RecordInfoResult {
+        this['duration'] = duration;
+        return this;
     }
     public withRecordStatus(recordStatus: string): RecordInfoResult {
         this['record_status'] = recordStatus;

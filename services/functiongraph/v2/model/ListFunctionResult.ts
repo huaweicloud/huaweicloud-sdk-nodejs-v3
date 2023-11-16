@@ -2,6 +2,7 @@ import { StrategyConfig } from './StrategyConfig';
 
 
 export class ListFunctionResult {
+    private 'resource_id'?: string;
     private 'func_urn'?: string;
     private 'func_name'?: string;
     private 'domain_id'?: string;
@@ -58,6 +59,16 @@ export class ListFunctionResult {
         this['version'] = version;
         this['image_name'] = imageName;
         this['last_modified'] = lastModified;
+    }
+    public withResourceId(resourceId: string): ListFunctionResult {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withFuncUrn(funcUrn: string): ListFunctionResult {
         this['func_urn'] = funcUrn;

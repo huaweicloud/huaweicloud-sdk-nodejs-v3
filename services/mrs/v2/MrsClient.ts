@@ -2,9 +2,13 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddComponentRequest } from './model/AddComponentRequest';
+import { AddComponentResponse } from './model/AddComponentResponse';
+import { AddComponentsReq } from './model/AddComponentsReq';
 import { AddJobsReqV11 } from './model/AddJobsReqV11';
 import { AgencyMapping } from './model/AgencyMapping';
 import { AgencyMappingArray } from './model/AgencyMappingArray';
+import { AssignedNodeGroup } from './model/AssignedNodeGroup';
 import { AutoScalingPolicy } from './model/AutoScalingPolicy';
 import { AutoScalingPolicyV2 } from './model/AutoScalingPolicyV2';
 import { BatchDeleteJobsRequest } from './model/BatchDeleteJobsRequest';
@@ -15,6 +19,7 @@ import { CancelSqlResponse } from './model/CancelSqlResponse';
 import { ChargeInfo } from './model/ChargeInfo';
 import { ClusterDataConnectorMap } from './model/ClusterDataConnectorMap';
 import { ComponentConfig } from './model/ComponentConfig';
+import { ComponentInstallMode } from './model/ComponentInstallMode';
 import { Config } from './model/Config';
 import { CreateClusterReqV2 } from './model/CreateClusterReqV2';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
@@ -350,6 +355,26 @@ export class MrsClient {
      */
     public updateClusterName(updateClusterNameRequest?: UpdateClusterNameRequest): Promise<UpdateClusterNameResponse> {
         const options = ParamCreater().updateClusterName(updateClusterNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群添加组件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群添加组件
+     * @param {string} clusterId 集群ID。获取方法，请参见[获取集群ID](https://support.huaweicloud.com/api-mrs/mrs_02_9001.html)。
+     * @param {AddComponentsReq} addComponentRequestBody 添加组件请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addComponent(addComponentRequest?: AddComponentRequest): Promise<AddComponentResponse> {
+        const options = ParamCreater().addComponent(addComponentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1175,6 +1200,52 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群添加组件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addComponent(addComponentRequest?: AddComponentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/components",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (addComponentRequest !== null && addComponentRequest !== undefined) {
+                if (addComponentRequest instanceof AddComponentRequest) {
+                    clusterId = addComponentRequest.clusterId;
+                    body = addComponentRequest.body
+                } else {
+                    clusterId = addComponentRequest['cluster_id'];
+                    body = addComponentRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addComponent.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -1,7 +1,9 @@
+import { StartInstanceResizeCheckJobRequestBody } from './StartInstanceResizeCheckJobRequestBody';
 
 
 export class StartInstanceResizeCheckJobRequest {
     private 'instance_id'?: string;
+    public body?: StartInstanceResizeCheckJobRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,9 @@ export class StartInstanceResizeCheckJobRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: StartInstanceResizeCheckJobRequestBody): StartInstanceResizeCheckJobRequest {
+        this['body'] = body;
+        return this;
     }
 }

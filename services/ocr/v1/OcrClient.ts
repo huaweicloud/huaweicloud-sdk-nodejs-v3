@@ -89,6 +89,8 @@ import { PcrTestRecordConfidence } from './model/PcrTestRecordConfidence';
 import { PcrTestRecordRequestBody } from './model/PcrTestRecordRequestBody';
 import { PcrTestRecordResult } from './model/PcrTestRecordResult';
 import { PcrTestRecordWordsBlockList } from './model/PcrTestRecordWordsBlockList';
+import { PeruIdCardRequestBody } from './model/PeruIdCardRequestBody';
+import { PeruIdCardResult } from './model/PeruIdCardResult';
 import { QualificationCategory } from './model/QualificationCategory';
 import { QualificationCategoryConfidence } from './model/QualificationCategoryConfidence';
 import { QualificationCertificateRequestBody } from './model/QualificationCertificateRequestBody';
@@ -158,6 +160,8 @@ import { RecognizePassportRequest } from './model/RecognizePassportRequest';
 import { RecognizePassportResponse } from './model/RecognizePassportResponse';
 import { RecognizePcrTestRecordRequest } from './model/RecognizePcrTestRecordRequest';
 import { RecognizePcrTestRecordResponse } from './model/RecognizePcrTestRecordResponse';
+import { RecognizePeruIdCardRequest } from './model/RecognizePeruIdCardRequest';
+import { RecognizePeruIdCardResponse } from './model/RecognizePeruIdCardResponse';
 import { RecognizeQualificationCertificateRequest } from './model/RecognizeQualificationCertificateRequest';
 import { RecognizeQualificationCertificateResponse } from './model/RecognizeQualificationCertificateResponse';
 import { RecognizeQuotaInvoiceRequest } from './model/RecognizeQuotaInvoiceRequest';
@@ -877,6 +881,26 @@ export class OcrClient {
      */
     public recognizePcrTestRecord(recognizePcrTestRecordRequest?: RecognizePcrTestRecordRequest): Promise<RecognizePcrTestRecordResponse> {
         const options = ParamCreater().recognizePcrTestRecord(recognizePcrTestRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别秘鲁身份证图片中的文字内容，并将识别的结构化结果返回给用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 秘鲁身份证识别
+     * @param {PeruIdCardRequestBody} recognizePeruIdCardRequestBody This is a peru id card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizePeruIdCard(recognizePeruIdCardRequest?: RecognizePeruIdCardRequest): Promise<RecognizePeruIdCardResponse> {
+        const options = ParamCreater().recognizePeruIdCard(recognizePeruIdCardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2596,6 +2620,51 @@ export const ParamCreater = function () {
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别秘鲁身份证图片中的文字内容，并将识别的结构化结果返回给用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizePeruIdCard(recognizePeruIdCardRequest?: RecognizePeruIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/peru-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizePeruIdCardRequest !== null && recognizePeruIdCardRequest !== undefined) {
+                if (recognizePeruIdCardRequest instanceof RecognizePeruIdCardRequest) {
+                    body = recognizePeruIdCardRequest.body
+                    enterpriseProjectId = recognizePeruIdCardRequest.enterpriseProjectId;
+                } else {
+                    body = recognizePeruIdCardRequest['body'];
+                    enterpriseProjectId = recognizePeruIdCardRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
                 localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }

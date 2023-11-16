@@ -3,6 +3,7 @@
 export class Router {
     private 'router_id'?: string;
     private 'router_region'?: string;
+    public status?: string;
     public constructor(routerId?: string) { 
         this['router_id'] = routerId;
     }
@@ -25,5 +26,9 @@ export class Router {
     }
     public get routerRegion(): string | undefined {
         return this['router_region'];
+    }
+    public withStatus(status: string): Router {
+        this['status'] = status;
+        return this;
     }
 }

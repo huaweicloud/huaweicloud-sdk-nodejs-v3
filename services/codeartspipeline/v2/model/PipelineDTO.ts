@@ -1,4 +1,7 @@
 import { CodeSource } from './CodeSource';
+import { CustomVariable } from './CustomVariable';
+import { PipelineSchedule } from './PipelineSchedule';
+import { PipelineTrigger } from './PipelineTrigger';
 
 
 export class PipelineDTO {
@@ -6,6 +9,12 @@ export class PipelineDTO {
     public description?: string;
     private 'is_publish'?: boolean;
     public sources?: Array<CodeSource>;
+    public variables?: Array<CustomVariable>;
+    public schedules?: Array<PipelineSchedule>;
+    public triggers?: Array<PipelineTrigger>;
+    private 'manifest_version'?: string;
+    public definition?: string;
+    private 'project_name'?: string;
     public constructor() { 
     }
     public withName(name: string): PipelineDTO {
@@ -29,5 +38,41 @@ export class PipelineDTO {
     public withSources(sources: Array<CodeSource>): PipelineDTO {
         this['sources'] = sources;
         return this;
+    }
+    public withVariables(variables: Array<CustomVariable>): PipelineDTO {
+        this['variables'] = variables;
+        return this;
+    }
+    public withSchedules(schedules: Array<PipelineSchedule>): PipelineDTO {
+        this['schedules'] = schedules;
+        return this;
+    }
+    public withTriggers(triggers: Array<PipelineTrigger>): PipelineDTO {
+        this['triggers'] = triggers;
+        return this;
+    }
+    public withManifestVersion(manifestVersion: string): PipelineDTO {
+        this['manifest_version'] = manifestVersion;
+        return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
+    }
+    public withDefinition(definition: string): PipelineDTO {
+        this['definition'] = definition;
+        return this;
+    }
+    public withProjectName(projectName: string): PipelineDTO {
+        this['project_name'] = projectName;
+        return this;
+    }
+    public set projectName(projectName: string  | undefined) {
+        this['project_name'] = projectName;
+    }
+    public get projectName(): string | undefined {
+        return this['project_name'];
     }
 }
