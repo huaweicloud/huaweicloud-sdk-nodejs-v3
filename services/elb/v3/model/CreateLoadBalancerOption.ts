@@ -34,6 +34,8 @@ export class CreateLoadBalancerOption {
     private 'waf_failure_action'?: CreateLoadBalancerOptionWafFailureActionEnum | string;
     private 'protection_status'?: CreateLoadBalancerOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'charge_mode'?: CreateLoadBalancerOptionChargeModeEnum | string;
+    private 'ipv6_vip_address'?: string;
     public constructor(availabilityZoneList?: Array<string>) { 
         this['availability_zone_list'] = availabilityZoneList;
     }
@@ -269,6 +271,26 @@ export class CreateLoadBalancerOption {
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
     }
+    public withChargeMode(chargeMode: CreateLoadBalancerOptionChargeModeEnum | string): CreateLoadBalancerOption {
+        this['charge_mode'] = chargeMode;
+        return this;
+    }
+    public set chargeMode(chargeMode: CreateLoadBalancerOptionChargeModeEnum | string  | undefined) {
+        this['charge_mode'] = chargeMode;
+    }
+    public get chargeMode(): CreateLoadBalancerOptionChargeModeEnum | string | undefined {
+        return this['charge_mode'];
+    }
+    public withIpv6VipAddress(ipv6VipAddress: string): CreateLoadBalancerOption {
+        this['ipv6_vip_address'] = ipv6VipAddress;
+        return this;
+    }
+    public set ipv6VipAddress(ipv6VipAddress: string  | undefined) {
+        this['ipv6_vip_address'] = ipv6VipAddress;
+    }
+    public get ipv6VipAddress(): string | undefined {
+        return this['ipv6_vip_address'];
+    }
 }
 
 /**
@@ -286,4 +308,12 @@ export enum CreateLoadBalancerOptionWafFailureActionEnum {
 export enum CreateLoadBalancerOptionProtectionStatusEnum {
     NONPROTECTION = 'nonProtection',
     CONSOLEPROTECTION = 'consoleProtection'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateLoadBalancerOptionChargeModeEnum {
+    FLAVOR = 'flavor',
+    LCU = 'lcu'
 }

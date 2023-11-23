@@ -35,6 +35,8 @@ export class ListLoadBalancersRequest {
     public autoscaling?: Array<string>;
     private 'protection_status'?: Array<string>;
     private 'global_eips'?: Array<string>;
+    private 'log_topic_id'?: string;
+    private 'log_group_id'?: string;
     public constructor() { 
     }
     public withMarker(marker: string): ListLoadBalancersRequest {
@@ -322,5 +324,25 @@ export class ListLoadBalancersRequest {
     }
     public get globalEips(): Array<string> | undefined {
         return this['global_eips'];
+    }
+    public withLogTopicId(logTopicId: string): ListLoadBalancersRequest {
+        this['log_topic_id'] = logTopicId;
+        return this;
+    }
+    public set logTopicId(logTopicId: string  | undefined) {
+        this['log_topic_id'] = logTopicId;
+    }
+    public get logTopicId(): string | undefined {
+        return this['log_topic_id'];
+    }
+    public withLogGroupId(logGroupId: string): ListLoadBalancersRequest {
+        this['log_group_id'] = logGroupId;
+        return this;
+    }
+    public set logGroupId(logGroupId: string  | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId(): string | undefined {
+        return this['log_group_id'];
     }
 }

@@ -623,6 +623,8 @@ export class VpcClient {
      * @param {string} [destinationPortRange] 使用规则目的端口范围过滤
      * @param {string} [action] 使用规则action过滤
      * @param {string} [priority] 使用规则优先级过滤
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -646,6 +648,8 @@ export class VpcClient {
      * @param {string} [description] 使用description过滤查询
      * @param {string} [createdAt] 使用创建时间戳排序
      * @param {string} [updatedAt] 使用更新时间戳排序
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -677,6 +681,8 @@ export class VpcClient {
      * @param {string} [type] 使用镜像源类型过滤
      * @param {string} [createdAt] 使用创建时间戳排序
      * @param {string} [updatedAt] 使用更新时间戳排序
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2377,6 +2383,10 @@ export const ParamCreater = function () {
             let action;
             
             let priority;
+            
+            let limit;
+            
+            let marker;
 
             if (listTrafficMirrorFilterRulesRequest !== null && listTrafficMirrorFilterRulesRequest !== undefined) {
                 if (listTrafficMirrorFilterRulesRequest instanceof ListTrafficMirrorFilterRulesRequest) {
@@ -2391,6 +2401,8 @@ export const ParamCreater = function () {
                     destinationPortRange = listTrafficMirrorFilterRulesRequest.destinationPortRange;
                     action = listTrafficMirrorFilterRulesRequest.action;
                     priority = listTrafficMirrorFilterRulesRequest.priority;
+                    limit = listTrafficMirrorFilterRulesRequest.limit;
+                    marker = listTrafficMirrorFilterRulesRequest.marker;
                 } else {
                     id = listTrafficMirrorFilterRulesRequest['id'];
                     description = listTrafficMirrorFilterRulesRequest['description'];
@@ -2403,6 +2415,8 @@ export const ParamCreater = function () {
                     destinationPortRange = listTrafficMirrorFilterRulesRequest['destination_port_range'];
                     action = listTrafficMirrorFilterRulesRequest['action'];
                     priority = listTrafficMirrorFilterRulesRequest['priority'];
+                    limit = listTrafficMirrorFilterRulesRequest['limit'];
+                    marker = listTrafficMirrorFilterRulesRequest['marker'];
                 }
             }
 
@@ -2440,6 +2454,12 @@ export const ParamCreater = function () {
             if (priority !== null && priority !== undefined) {
                 localVarQueryParameter['priority'] = priority;
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -2472,6 +2492,10 @@ export const ParamCreater = function () {
             let createdAt;
             
             let updatedAt;
+            
+            let limit;
+            
+            let marker;
 
             if (listTrafficMirrorFiltersRequest !== null && listTrafficMirrorFiltersRequest !== undefined) {
                 if (listTrafficMirrorFiltersRequest instanceof ListTrafficMirrorFiltersRequest) {
@@ -2480,12 +2504,16 @@ export const ParamCreater = function () {
                     description = listTrafficMirrorFiltersRequest.description;
                     createdAt = listTrafficMirrorFiltersRequest.createdAt;
                     updatedAt = listTrafficMirrorFiltersRequest.updatedAt;
+                    limit = listTrafficMirrorFiltersRequest.limit;
+                    marker = listTrafficMirrorFiltersRequest.marker;
                 } else {
                     id = listTrafficMirrorFiltersRequest['id'];
                     name = listTrafficMirrorFiltersRequest['name'];
                     description = listTrafficMirrorFiltersRequest['description'];
                     createdAt = listTrafficMirrorFiltersRequest['created_at'];
                     updatedAt = listTrafficMirrorFiltersRequest['updated_at'];
+                    limit = listTrafficMirrorFiltersRequest['limit'];
+                    marker = listTrafficMirrorFiltersRequest['marker'];
                 }
             }
 
@@ -2504,6 +2532,12 @@ export const ParamCreater = function () {
             }
             if (updatedAt !== null && updatedAt !== undefined) {
                 localVarQueryParameter['updated_at'] = updatedAt;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2553,6 +2587,10 @@ export const ParamCreater = function () {
             let createdAt;
             
             let updatedAt;
+            
+            let limit;
+            
+            let marker;
 
             if (listTrafficMirrorSessionsRequest !== null && listTrafficMirrorSessionsRequest !== undefined) {
                 if (listTrafficMirrorSessionsRequest instanceof ListTrafficMirrorSessionsRequest) {
@@ -2569,6 +2607,8 @@ export const ParamCreater = function () {
                     type = listTrafficMirrorSessionsRequest.type;
                     createdAt = listTrafficMirrorSessionsRequest.createdAt;
                     updatedAt = listTrafficMirrorSessionsRequest.updatedAt;
+                    limit = listTrafficMirrorSessionsRequest.limit;
+                    marker = listTrafficMirrorSessionsRequest.marker;
                 } else {
                     id = listTrafficMirrorSessionsRequest['id'];
                     name = listTrafficMirrorSessionsRequest['name'];
@@ -2583,6 +2623,8 @@ export const ParamCreater = function () {
                     type = listTrafficMirrorSessionsRequest['type'];
                     createdAt = listTrafficMirrorSessionsRequest['created_at'];
                     updatedAt = listTrafficMirrorSessionsRequest['updated_at'];
+                    limit = listTrafficMirrorSessionsRequest['limit'];
+                    marker = listTrafficMirrorSessionsRequest['marker'];
                 }
             }
 
@@ -2625,6 +2667,12 @@ export const ParamCreater = function () {
             }
             if (updatedAt !== null && updatedAt !== undefined) {
                 localVarQueryParameter['updated_at'] = updatedAt;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

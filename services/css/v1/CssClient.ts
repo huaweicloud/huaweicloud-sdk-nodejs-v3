@@ -279,7 +279,6 @@ import { UpdateFlavorReq } from './model/UpdateFlavorReq';
 import { UpdateFlavorRequest } from './model/UpdateFlavorRequest';
 import { UpdateFlavorResponse } from './model/UpdateFlavorResponse';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
-import { UpdateInstanceRequestBody } from './model/UpdateInstanceRequestBody';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateLogSettingReq } from './model/UpdateLogSettingReq';
 import { UpdateLogSettingRequest } from './model/UpdateLogSettingRequest';
@@ -1566,7 +1565,6 @@ export class CssClient {
      * @summary 节点替换
      * @param {string} clusterId 指定替换集群ID。
      * @param {string} instanceId 指定替换节点ID。
-     * @param {UpdateInstanceRequestBody} updateInstanceRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4902,12 +4900,10 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
             
             let clusterId;
             
@@ -4917,11 +4913,9 @@ export const ParamCreater = function () {
                 if (updateInstanceRequest instanceof UpdateInstanceRequest) {
                     clusterId = updateInstanceRequest.clusterId;
                     instanceId = updateInstanceRequest.instanceId;
-                    body = updateInstanceRequest.body
                 } else {
                     clusterId = updateInstanceRequest['cluster_id'];
                     instanceId = updateInstanceRequest['instance_id'];
-                    body = updateInstanceRequest['body'];
                 }
             }
 
@@ -4932,12 +4926,7 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstance.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

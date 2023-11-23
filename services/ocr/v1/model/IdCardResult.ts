@@ -15,6 +15,7 @@ export class IdCardResult {
     private 'text_location'?: object;
     private 'detect_reproduce_result'?: boolean;
     private 'detect_copy_result'?: boolean;
+    private 'portrait_location'?: Array<Array<number>>;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -110,5 +111,15 @@ export class IdCardResult {
     }
     public get detectCopyResult(): boolean | undefined {
         return this['detect_copy_result'];
+    }
+    public withPortraitLocation(portraitLocation: Array<Array<number>>): IdCardResult {
+        this['portrait_location'] = portraitLocation;
+        return this;
+    }
+    public set portraitLocation(portraitLocation: Array<Array<number>>  | undefined) {
+        this['portrait_location'] = portraitLocation;
+    }
+    public get portraitLocation(): Array<Array<number>> | undefined {
+        return this['portrait_location'];
     }
 }

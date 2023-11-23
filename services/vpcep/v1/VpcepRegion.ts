@@ -25,6 +25,7 @@ export class VpcepRegion {
     public static LA_NORTH_2 = new Region("la-north-2", ["https://vpcep.la-north-2.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://vpcep.tr-west-1.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://vpcep.eu-west-101.myhuaweicloud.eu"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://vpcep.ap-southeast-4.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -46,7 +47,8 @@ export class VpcepRegion {
         "sa-brazil-1":VpcepRegion.SA_BRAZIL_1,
         "la-north-2":VpcepRegion.LA_NORTH_2,
         "tr-west-1":VpcepRegion.TR_WEST_1,
-        "eu-west-101":VpcepRegion.EU_WEST_101
+        "eu-west-101":VpcepRegion.EU_WEST_101,
+        "ap-southeast-4":VpcepRegion.AP_SOUTHEAST_4
     };
   
     public static valueOf(regionId: string) {

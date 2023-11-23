@@ -172,6 +172,7 @@ import { GetTaskDetailListRspJobsInstance } from './model/GetTaskDetailListRspJo
 import { GrantRequest } from './model/GrantRequest';
 import { Ha } from './model/Ha';
 import { HaResponse } from './model/HaResponse';
+import { InspectionReports } from './model/InspectionReports';
 import { InstanceDrRelation } from './model/InstanceDrRelation';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
@@ -216,6 +217,8 @@ import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListHistoryDatabaseRequest } from './model/ListHistoryDatabaseRequest';
 import { ListHistoryDatabaseResponse } from './model/ListHistoryDatabaseResponse';
+import { ListInspectionHistoriesRequest } from './model/ListInspectionHistoriesRequest';
+import { ListInspectionHistoriesResponse } from './model/ListInspectionHistoriesResponse';
 import { ListInstanceDiagnosisRequest } from './model/ListInstanceDiagnosisRequest';
 import { ListInstanceDiagnosisResponse } from './model/ListInstanceDiagnosisResponse';
 import { ListInstanceParamHistoriesRequest } from './model/ListInstanceParamHistoriesRequest';
@@ -285,6 +288,8 @@ import { ListSslCertDownloadLinkRequest } from './model/ListSslCertDownloadLinkR
 import { ListSslCertDownloadLinkResponse } from './model/ListSslCertDownloadLinkResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListUpgradeHistoriesRequest } from './model/ListUpgradeHistoriesRequest';
+import { ListUpgradeHistoriesResponse } from './model/ListUpgradeHistoriesResponse';
 import { ListXelLogResponseResult } from './model/ListXelLogResponseResult';
 import { ListXellogFilesRequest } from './model/ListXellogFilesRequest';
 import { ListXellogFilesResponse } from './model/ListXellogFilesResponse';
@@ -337,6 +342,7 @@ import { PostgresqlGrantRequest } from './model/PostgresqlGrantRequest';
 import { PostgresqlHbaConf } from './model/PostgresqlHbaConf';
 import { PostgresqlHbaHistory } from './model/PostgresqlHbaHistory';
 import { PostgresqlListDatabase } from './model/PostgresqlListDatabase';
+import { PostgresqlPreCheckUpgradeMajorVersionReq } from './model/PostgresqlPreCheckUpgradeMajorVersionReq';
 import { PostgresqlUserForCreation } from './model/PostgresqlUserForCreation';
 import { PostgresqlUserForList } from './model/PostgresqlUserForList';
 import { PostgresqlUserWithPrivilege } from './model/PostgresqlUserWithPrivilege';
@@ -431,6 +437,8 @@ import { ShowAuditlogPolicyRequest } from './model/ShowAuditlogPolicyRequest';
 import { ShowAuditlogPolicyResponse } from './model/ShowAuditlogPolicyResponse';
 import { ShowAutoEnlargePolicyRequest } from './model/ShowAutoEnlargePolicyRequest';
 import { ShowAutoEnlargePolicyResponse } from './model/ShowAutoEnlargePolicyResponse';
+import { ShowAvailableVersionRequest } from './model/ShowAvailableVersionRequest';
+import { ShowAvailableVersionResponse } from './model/ShowAvailableVersionResponse';
 import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkRequest';
 import { ShowBackupDownloadLinkResponse } from './model/ShowBackupDownloadLinkResponse';
 import { ShowBackupPolicyRequest } from './model/ShowBackupPolicyRequest';
@@ -461,6 +469,10 @@ import { ShowReplicationStatusRequest } from './model/ShowReplicationStatusReque
 import { ShowReplicationStatusResponse } from './model/ShowReplicationStatusResponse';
 import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitoringRequest';
 import { ShowSecondLevelMonitoringResponse } from './model/ShowSecondLevelMonitoringResponse';
+import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
+import { ShowTdeStatusResponse } from './model/ShowTdeStatusResponse';
+import { ShowUpgradeDbMajorVersionStatusRequest } from './model/ShowUpgradeDbMajorVersionStatusRequest';
+import { ShowUpgradeDbMajorVersionStatusResponse } from './model/ShowUpgradeDbMajorVersionStatusResponse';
 import { SimplifiedInstanceEntry } from './model/SimplifiedInstanceEntry';
 import { SimplifiedInstancesRequest } from './model/SimplifiedInstancesRequest';
 import { Single2Ha } from './model/Single2Ha';
@@ -546,10 +558,19 @@ import { UpdatePostgresqlParameterValueResponse } from './model/UpdatePostgresql
 import { UpdateRdsInstanceAliasRequest } from './model/UpdateRdsInstanceAliasRequest';
 import { UpdateReadWeightRequest } from './model/UpdateReadWeightRequest';
 import { UpdateReadWeightResponse } from './model/UpdateReadWeightResponse';
+import { UpdateTdeStatusRequest } from './model/UpdateTdeStatusRequest';
+import { UpdateTdeStatusRequestBody } from './model/UpdateTdeStatusRequestBody';
+import { UpdateTdeStatusResponse } from './model/UpdateTdeStatusResponse';
+import { UpgradeDbMajorVersionPreCheckRequest } from './model/UpgradeDbMajorVersionPreCheckRequest';
+import { UpgradeDbMajorVersionPreCheckResponse } from './model/UpgradeDbMajorVersionPreCheckResponse';
+import { UpgradeDbMajorVersionRequest } from './model/UpgradeDbMajorVersionRequest';
+import { UpgradeDbMajorVersionResponse } from './model/UpgradeDbMajorVersionResponse';
 import { UpgradeDbVersionNewRequest } from './model/UpgradeDbVersionNewRequest';
 import { UpgradeDbVersionNewResponse } from './model/UpgradeDbVersionNewResponse';
 import { UpgradeDbVersionRequest } from './model/UpgradeDbVersionRequest';
 import { UpgradeDbVersionResponse } from './model/UpgradeDbVersionResponse';
+import { UpgradePgMajorVersion } from './model/UpgradePgMajorVersion';
+import { UpgradeReports } from './model/UpgradeReports';
 import { UserForCreation } from './model/UserForCreation';
 import { UserForList } from './model/UserForList';
 import { UserWithPrivilege } from './model/UserWithPrivilege';
@@ -1344,6 +1365,31 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例大版本升级检查历史。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {string} [order] 排序方式。 DESC，降序。 ASC，升序。 默认降序。
+     * @param {string} [sortField] 排序字段。 check_time 检查时间。 expiration_time 过期时间。 默认检查时间。
+     * @param {string} [targetVersion] 目标版本。
+     * @param {boolean} [isAvailable] 是否有效。 true 表示有效。 false 表示无效。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInspectionHistories(listInspectionHistoriesRequest?: ListInspectionHistoriesRequest): Promise<ListInspectionHistoriesResponse> {
+        const options = ParamCreater().listInspectionHistories(listInspectionHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取诊断后的实例数量
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1933,6 +1979,29 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例大版本升级历史信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {string} [order] 排序方式。 DESC，降序。 ASC，升序。 默认降序。
+     * @param {string} [sortField] 排序字段。 start_time 开始时间。 end_time 结束时间。 默认开始时间。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpgradeHistories(listUpgradeHistoriesRequest?: ListUpgradeHistoriesRequest): Promise<ListUpgradeHistoriesResponse> {
+        const options = ParamCreater().listUpgradeHistories(listUpgradeHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询扩展日志文件列表。
      * 查询扩展日志文件列表，可以调用接口/v3/{project_id}/instances/{instance_id}/xellog-download 获取扩展日志下载链接
      * 
@@ -2312,6 +2381,25 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例可升级的目标版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvailableVersion(showAvailableVersionRequest?: ShowAvailableVersionRequest): Promise<ShowAvailableVersionResponse> {
+        const options = ParamCreater().showAvailableVersion(showAvailableVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取备份下载链接。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2563,6 +2651,45 @@ export class RdsClient {
      */
     public showSecondLevelMonitoring(showSecondLevelMonitoringRequest?: ShowSecondLevelMonitoringRequest): Promise<ShowSecondLevelMonitoringResponse> {
         const options = ParamCreater().showSecondLevelMonitoring(showSecondLevelMonitoringRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据实例id查询sqlserver TDE状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据实例id查询sqlserver TDE状态
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTdeStatus(showTdeStatusRequest?: ShowTdeStatusRequest): Promise<ShowTdeStatusResponse> {
+        const options = ParamCreater().showTdeStatus(showTdeStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询大版本检查状态或升级状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {string} action 要查询的状态 check：查询升级预检查的状态。 upgrade：查询大板本升级的状态。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUpgradeDbMajorVersionStatus(showUpgradeDbMajorVersionStatusRequest?: ShowUpgradeDbMajorVersionStatusRequest): Promise<ShowUpgradeDbMajorVersionStatusResponse> {
+        const options = ParamCreater().showUpgradeDbMajorVersionStatus(showUpgradeDbMajorVersionStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2917,6 +3044,65 @@ export class RdsClient {
      */
     public updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest?: UpdatePostgresqlInstanceAliasRequest): Promise<UpdatePostgresqlInstanceAliasResponse> {
         const options = ParamCreater().updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * sqlserverTDE开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary sqlserverTDE开关
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateTdeStatusRequestBody} [updateTdeStatusRequestBody] sqlserverTDE开关信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTdeStatus(updateTdeStatusRequest?: UpdateTdeStatusRequest): Promise<UpdateTdeStatusResponse> {
+        const options = ParamCreater().updateTdeStatus(updateTdeStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * PostgreSQL数据库升级大版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {UpgradePgMajorVersion} upgradePgMajorVersion 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeDbMajorVersion(upgradeDbMajorVersionRequest?: UpgradeDbMajorVersionRequest): Promise<UpgradeDbMajorVersionResponse> {
+        const options = ParamCreater().upgradeDbMajorVersion(upgradeDbMajorVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 大版本升级前进行升级检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} instanceId 实例ID
+     * @param {PostgresqlPreCheckUpgradeMajorVersionReq} targetVersion 
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeDbMajorVersionPreCheck(upgradeDbMajorVersionPreCheckRequest?: UpgradeDbMajorVersionPreCheckRequest): Promise<UpgradeDbMajorVersionPreCheckResponse> {
+        const options = ParamCreater().upgradeDbMajorVersionPreCheck(upgradeDbMajorVersionPreCheckRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6164,6 +6350,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例大版本升级检查历史。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInspectionHistories(listInspectionHistoriesRequest?: ListInspectionHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/inspection-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let order;
+            
+            let sortField;
+            
+            let targetVersion;
+            
+            let isAvailable;
+            
+            let xLanguage;
+
+            if (listInspectionHistoriesRequest !== null && listInspectionHistoriesRequest !== undefined) {
+                if (listInspectionHistoriesRequest instanceof ListInspectionHistoriesRequest) {
+                    instanceId = listInspectionHistoriesRequest.instanceId;
+                    offset = listInspectionHistoriesRequest.offset;
+                    limit = listInspectionHistoriesRequest.limit;
+                    order = listInspectionHistoriesRequest.order;
+                    sortField = listInspectionHistoriesRequest.sortField;
+                    targetVersion = listInspectionHistoriesRequest.targetVersion;
+                    isAvailable = listInspectionHistoriesRequest.isAvailable;
+                    xLanguage = listInspectionHistoriesRequest.xLanguage;
+                } else {
+                    instanceId = listInspectionHistoriesRequest['instance_id'];
+                    offset = listInspectionHistoriesRequest['offset'];
+                    limit = listInspectionHistoriesRequest['limit'];
+                    order = listInspectionHistoriesRequest['order'];
+                    sortField = listInspectionHistoriesRequest['sort_field'];
+                    targetVersion = listInspectionHistoriesRequest['target_version'];
+                    isAvailable = listInspectionHistoriesRequest['is_available'];
+                    xLanguage = listInspectionHistoriesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInspectionHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (targetVersion !== null && targetVersion !== undefined) {
+                localVarQueryParameter['target_version'] = targetVersion;
+            }
+            if (isAvailable !== null && isAvailable !== undefined) {
+                localVarQueryParameter['is_available'] = isAvailable;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取诊断后的实例数量
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7760,6 +8033,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例大版本升级历史信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpgradeHistories(listUpgradeHistoriesRequest?: ListUpgradeHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/upgrade-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let order;
+            
+            let sortField;
+            
+            let xLanguage;
+
+            if (listUpgradeHistoriesRequest !== null && listUpgradeHistoriesRequest !== undefined) {
+                if (listUpgradeHistoriesRequest instanceof ListUpgradeHistoriesRequest) {
+                    instanceId = listUpgradeHistoriesRequest.instanceId;
+                    offset = listUpgradeHistoriesRequest.offset;
+                    limit = listUpgradeHistoriesRequest.limit;
+                    order = listUpgradeHistoriesRequest.order;
+                    sortField = listUpgradeHistoriesRequest.sortField;
+                    xLanguage = listUpgradeHistoriesRequest.xLanguage;
+                } else {
+                    instanceId = listUpgradeHistoriesRequest['instance_id'];
+                    offset = listUpgradeHistoriesRequest['offset'];
+                    limit = listUpgradeHistoriesRequest['limit'];
+                    order = listUpgradeHistoriesRequest['order'];
+                    sortField = listUpgradeHistoriesRequest['sort_field'];
+                    xLanguage = listUpgradeHistoriesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listUpgradeHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询扩展日志文件列表。
          * 查询扩展日志文件列表，可以调用接口/v3/{project_id}/instances/{instance_id}/xellog-download 获取扩展日志下载链接
          * 
@@ -8679,6 +9025,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例可升级的目标版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvailableVersion(showAvailableVersionRequest?: ShowAvailableVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/available-version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showAvailableVersionRequest !== null && showAvailableVersionRequest !== undefined) {
+                if (showAvailableVersionRequest instanceof ShowAvailableVersionRequest) {
+                    instanceId = showAvailableVersionRequest.instanceId;
+                    xLanguage = showAvailableVersionRequest.xLanguage;
+                } else {
+                    instanceId = showAvailableVersionRequest['instance_id'];
+                    xLanguage = showAvailableVersionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvailableVersion.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取备份下载链接。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9254,6 +9644,98 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据实例id查询sqlserver TDE状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTdeStatus(showTdeStatusRequest?: ShowTdeStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/tde-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showTdeStatusRequest !== null && showTdeStatusRequest !== undefined) {
+                if (showTdeStatusRequest instanceof ShowTdeStatusRequest) {
+                    instanceId = showTdeStatusRequest.instanceId;
+                } else {
+                    instanceId = showTdeStatusRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTdeStatus.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询大版本检查状态或升级状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUpgradeDbMajorVersionStatus(showUpgradeDbMajorVersionStatusRequest?: ShowUpgradeDbMajorVersionStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let action;
+            
+            let xLanguage;
+
+            if (showUpgradeDbMajorVersionStatusRequest !== null && showUpgradeDbMajorVersionStatusRequest !== undefined) {
+                if (showUpgradeDbMajorVersionStatusRequest instanceof ShowUpgradeDbMajorVersionStatusRequest) {
+                    instanceId = showUpgradeDbMajorVersionStatusRequest.instanceId;
+                    action = showUpgradeDbMajorVersionStatusRequest.action;
+                    xLanguage = showUpgradeDbMajorVersionStatusRequest.xLanguage;
+                } else {
+                    instanceId = showUpgradeDbMajorVersionStatusRequest['instance_id'];
+                    action = showUpgradeDbMajorVersionStatusRequest['action'];
+                    xLanguage = showUpgradeDbMajorVersionStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showUpgradeDbMajorVersionStatus.');
+            }
+            if (action === null || action === undefined) {
+                throw new RequiredError('action','Required parameter action was null or undefined when calling showUpgradeDbMajorVersionStatus.');
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -10116,6 +10598,148 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePostgresqlInstanceAlias.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * sqlserverTDE开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTdeStatus(updateTdeStatusRequest?: UpdateTdeStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/tde",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateTdeStatusRequest !== null && updateTdeStatusRequest !== undefined) {
+                if (updateTdeStatusRequest instanceof UpdateTdeStatusRequest) {
+                    instanceId = updateTdeStatusRequest.instanceId;
+                    body = updateTdeStatusRequest.body
+                } else {
+                    instanceId = updateTdeStatusRequest['instance_id'];
+                    body = updateTdeStatusRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateTdeStatus.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * PostgreSQL数据库升级大版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeDbMajorVersion(upgradeDbMajorVersionRequest?: UpgradeDbMajorVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (upgradeDbMajorVersionRequest !== null && upgradeDbMajorVersionRequest !== undefined) {
+                if (upgradeDbMajorVersionRequest instanceof UpgradeDbMajorVersionRequest) {
+                    instanceId = upgradeDbMajorVersionRequest.instanceId;
+                    body = upgradeDbMajorVersionRequest.body
+                } else {
+                    instanceId = upgradeDbMajorVersionRequest['instance_id'];
+                    body = upgradeDbMajorVersionRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbMajorVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 大版本升级前进行升级检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeDbMajorVersionPreCheck(upgradeDbMajorVersionPreCheckRequest?: UpgradeDbMajorVersionPreCheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/major-version/inspection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (upgradeDbMajorVersionPreCheckRequest !== null && upgradeDbMajorVersionPreCheckRequest !== undefined) {
+                if (upgradeDbMajorVersionPreCheckRequest instanceof UpgradeDbMajorVersionPreCheckRequest) {
+                    instanceId = upgradeDbMajorVersionPreCheckRequest.instanceId;
+                    body = upgradeDbMajorVersionPreCheckRequest.body
+                    xLanguage = upgradeDbMajorVersionPreCheckRequest.xLanguage;
+                } else {
+                    instanceId = upgradeDbMajorVersionPreCheckRequest['instance_id'];
+                    body = upgradeDbMajorVersionPreCheckRequest['body'];
+                    xLanguage = upgradeDbMajorVersionPreCheckRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbMajorVersionPreCheck.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

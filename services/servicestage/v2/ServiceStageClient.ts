@@ -34,6 +34,8 @@ import { ChangeResourceInEnvironmentResponse } from './model/ChangeResourceInEnv
 import { ChargeMode } from './model/ChargeMode';
 import { CommitsCommits } from './model/CommitsCommits';
 import { ComponentCategory } from './model/ComponentCategory';
+import { ComponentContainerParameter } from './model/ComponentContainerParameter';
+import { ComponentContainerSize } from './model/ComponentContainerSize';
 import { ComponentCreate } from './model/ComponentCreate';
 import { ComponentModify } from './model/ComponentModify';
 import { ComponentMount } from './model/ComponentMount';
@@ -41,6 +43,7 @@ import { ComponentProbe } from './model/ComponentProbe';
 import { ComponentStorage } from './model/ComponentStorage';
 import { ComponentSubCategory } from './model/ComponentSubCategory';
 import { ComponentView } from './model/ComponentView';
+import { ConfigurationContainerSpec } from './model/ConfigurationContainerSpec';
 import { ConfigurationEnvParam } from './model/ConfigurationEnvParam';
 import { ConfigurationLifecycle } from './model/ConfigurationLifecycle';
 import { ConfigurationProbes } from './model/ConfigurationProbes';

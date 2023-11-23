@@ -16,6 +16,8 @@ export class SyncPolicyReq {
     private 'is_fill_materialized_view'?: boolean;
     private 'export_snapshot'?: boolean;
     private 'slot_name'?: string;
+    private 'file_and_position'?: string;
+    private 'gtid_set'?: string;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -162,6 +164,26 @@ export class SyncPolicyReq {
     }
     public get slotName(): string | undefined {
         return this['slot_name'];
+    }
+    public withFileAndPosition(fileAndPosition: string): SyncPolicyReq {
+        this['file_and_position'] = fileAndPosition;
+        return this;
+    }
+    public set fileAndPosition(fileAndPosition: string  | undefined) {
+        this['file_and_position'] = fileAndPosition;
+    }
+    public get fileAndPosition(): string | undefined {
+        return this['file_and_position'];
+    }
+    public withGtidSet(gtidSet: string): SyncPolicyReq {
+        this['gtid_set'] = gtidSet;
+        return this;
+    }
+    public set gtidSet(gtidSet: string  | undefined) {
+        this['gtid_set'] = gtidSet;
+    }
+    public get gtidSet(): string | undefined {
+        return this['gtid_set'];
     }
 }
 

@@ -6,6 +6,8 @@ export class ListTrafficMirrorFiltersRequest {
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListTrafficMirrorFiltersRequest {
@@ -39,5 +41,13 @@ export class ListTrafficMirrorFiltersRequest {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withLimit(limit: number): ListTrafficMirrorFiltersRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListTrafficMirrorFiltersRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

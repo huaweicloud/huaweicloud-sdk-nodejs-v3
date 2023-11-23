@@ -14,7 +14,7 @@ import { CreateGovernancePolicyResponse } from './model/CreateGovernancePolicyRe
 import { CreateKieReq } from './model/CreateKieReq';
 import { CreateMatch } from './model/CreateMatch';
 import { CreateMatchHeaders } from './model/CreateMatchHeaders';
-import { CreateMatchHeadersAaaa } from './model/CreateMatchHeadersAaaa';
+import { CreateMatchHeadersHeader } from './model/CreateMatchHeadersHeader';
 import { CreateMicroserviceRouteRuleRequest } from './model/CreateMicroserviceRouteRuleRequest';
 import { CreateMicroserviceRouteRuleResponse } from './model/CreateMicroserviceRouteRuleResponse';
 import { CreateNacosNamespacesRequest } from './model/CreateNacosNamespacesRequest';
@@ -45,6 +45,8 @@ import { EngineSimpleInfo } from './model/EngineSimpleInfo';
 import { EngineUpdateReq } from './model/EngineUpdateReq';
 import { EntrypointItem } from './model/EntrypointItem';
 import { FlavorBrief } from './model/FlavorBrief';
+import { GovPolicyDetail } from './model/GovPolicyDetail';
+import { GovPolicyDetailPolicies } from './model/GovPolicyDetailPolicies';
 import { GovSelector } from './model/GovSelector';
 import { ListEnginesRequest } from './model/ListEnginesRequest';
 import { ListEnginesResponse } from './model/ListEnginesResponse';
@@ -54,8 +56,6 @@ import { ListGovernancePolicyByPolicyIdRequest } from './model/ListGovernancePol
 import { ListGovernancePolicyByPolicyIdResponse } from './model/ListGovernancePolicyByPolicyIdResponse';
 import { ListGovernancePolicyRequest } from './model/ListGovernancePolicyRequest';
 import { ListGovernancePolicyResponse } from './model/ListGovernancePolicyResponse';
-import { ListGovernancePolicyResponseBody } from './model/ListGovernancePolicyResponseBody';
-import { ListGovernancePolicyResponsePolicies } from './model/ListGovernancePolicyResponsePolicies';
 import { ListGovernancePolicysRequest } from './model/ListGovernancePolicysRequest';
 import { ListGovernancePolicysResponse } from './model/ListGovernancePolicysResponse';
 import { ListMicroserviceRouteRuleRequest } from './model/ListMicroserviceRouteRuleRequest';

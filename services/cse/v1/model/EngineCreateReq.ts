@@ -9,6 +9,7 @@ export class EngineCreateReq {
     public azList?: Array<string>;
     public authType?: EngineCreateReqAuthTypeEnum | string;
     public vpc?: string;
+    public vpcId?: string;
     public networkId?: string;
     public subnetCidr?: string;
     public publicIpId?: string;
@@ -52,6 +53,10 @@ export class EngineCreateReq {
     }
     public withVpc(vpc: string): EngineCreateReq {
         this['vpc'] = vpc;
+        return this;
+    }
+    public withVpcId(vpcId: string): EngineCreateReq {
+        this['vpcId'] = vpcId;
         return this;
     }
     public withNetworkId(networkId: string): EngineCreateReq {

@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessCodeModel } from './model/AccessCodeModel';
 import { ActionRule } from './model/ActionRule';
 import { AddActionRuleRequest } from './model/AddActionRuleRequest';
 import { AddActionRuleResponse } from './model/AddActionRuleResponse';
@@ -20,9 +21,15 @@ import { AppNameRule } from './model/AppNameRule';
 import { AppRules } from './model/AppRules';
 import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
+import { ApplicationModel } from './model/ApplicationModel';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
+import { AuthModel } from './model/AuthModel';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
+import { CreatePromInstanceRequest } from './model/CreatePromInstanceRequest';
+import { CreatePromInstanceResponse } from './model/CreatePromInstanceResponse';
+import { CreateRecordingRuleRequest } from './model/CreateRecordingRuleRequest';
+import { CreateRecordingRuleResponse } from './model/CreateRecordingRuleResponse';
 import { DeleteActionRuleRequest } from './model/DeleteActionRuleRequest';
 import { DeleteActionRuleResponse } from './model/DeleteActionRuleResponse';
 import { DeleteAlarmRuleRequest } from './model/DeleteAlarmRuleRequest';
@@ -35,6 +42,8 @@ import { DeleteEvent2alarmRuleResponse } from './model/DeleteEvent2alarmRuleResp
 import { DeleteMuteRuleName } from './model/DeleteMuteRuleName';
 import { DeleteMuteRulesRequest } from './model/DeleteMuteRulesRequest';
 import { DeleteMuteRulesResponse } from './model/DeleteMuteRulesResponse';
+import { DeletePromInstanceRequest } from './model/DeletePromInstanceRequest';
+import { DeletePromInstanceResponse } from './model/DeletePromInstanceResponse';
 import { DeleteserviceDiscoveryRulesRequest } from './model/DeleteserviceDiscoveryRulesRequest';
 import { DeleteserviceDiscoveryRulesResponse } from './model/DeleteserviceDiscoveryRulesResponse';
 import { Dimension } from './model/Dimension';
@@ -51,8 +60,12 @@ import { EventQueryParam2 } from './model/EventQueryParam2';
 import { EventQueryParam2Sort } from './model/EventQueryParam2Sort';
 import { EventQueryParamSort } from './model/EventQueryParamSort';
 import { EventSeries } from './model/EventSeries';
+import { ListAccessCodeRequest } from './model/ListAccessCodeRequest';
+import { ListAccessCodeResponse } from './model/ListAccessCodeResponse';
 import { ListActionRuleRequest } from './model/ListActionRuleRequest';
 import { ListActionRuleResponse } from './model/ListActionRuleResponse';
+import { ListAgentsRequest } from './model/ListAgentsRequest';
+import { ListAgentsResponse } from './model/ListAgentsResponse';
 import { ListAlarmRuleRequest } from './model/ListAlarmRuleRequest';
 import { ListAlarmRuleResponse } from './model/ListAlarmRuleResponse';
 import { ListEvent2alarmRuleRequest } from './model/ListEvent2alarmRuleRequest';
@@ -79,6 +92,10 @@ import { ListMuteRuleRequest } from './model/ListMuteRuleRequest';
 import { ListMuteRuleResponse } from './model/ListMuteRuleResponse';
 import { ListNotifiedHistoriesRequest } from './model/ListNotifiedHistoriesRequest';
 import { ListNotifiedHistoriesResponse } from './model/ListNotifiedHistoriesResponse';
+import { ListPermissionsRequest } from './model/ListPermissionsRequest';
+import { ListPermissionsResponse } from './model/ListPermissionsResponse';
+import { ListPromInstanceRequest } from './model/ListPromInstanceRequest';
+import { ListPromInstanceResponse } from './model/ListPromInstanceResponse';
 import { ListRangeQueryAomPromGetRequest } from './model/ListRangeQueryAomPromGetRequest';
 import { ListRangeQueryAomPromGetResponse } from './model/ListRangeQueryAomPromGetResponse';
 import { ListRangeQueryAomPromPostRequest } from './model/ListRangeQueryAomPromPostRequest';
@@ -104,6 +121,8 @@ import { MuteConfig } from './model/MuteConfig';
 import { MuteRule } from './model/MuteRule';
 import { NameRule } from './model/NameRule';
 import { Notifications } from './model/Notifications';
+import { PromConfigModel } from './model/PromConfigModel';
+import { PromInstanceEpsModel } from './model/PromInstanceEpsModel';
 import { PushEventsRequest } from './model/PushEventsRequest';
 import { PushEventsResponse } from './model/PushEventsResponse';
 import { QueryAlarmResult } from './model/QueryAlarmResult';
@@ -113,6 +132,7 @@ import { QueryMetricItemOptionParam } from './model/QueryMetricItemOptionParam';
 import { QuerySample } from './model/QuerySample';
 import { QuerySampleParam } from './model/QuerySampleParam';
 import { QuerySeriesOptionParam } from './model/QuerySeriesOptionParam';
+import { RecordingRuleRequest } from './model/RecordingRuleRequest';
 import { RelationModel } from './model/RelationModel';
 import { SampleDataValue } from './model/SampleDataValue';
 import { SearchKey } from './model/SearchKey';
@@ -773,6 +793,102 @@ export class AomClient {
     }
 
     /**
+     * 该接口用于新增Prometheus实例数据源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增Prometheus实例数据源
+     * @param {PromInstanceEpsModel} createPromInstanceRequestBody 普罗实例信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPromInstance(createPromInstanceRequest?: CreatePromInstanceRequest): Promise<CreatePromInstanceResponse> {
+        const options = ParamCreater().createPromInstance(createPromInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建预汇聚规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建预汇聚规则
+     * @param {string} prometheusInstance prometheus实例id。
+     * @param {RecordingRuleRequest} createRecordingRuleRequestBody 预汇聚规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRecordingRule(createRecordingRuleRequest?: CreateRecordingRuleRequest): Promise<CreateRecordingRuleResponse> {
+        const options = ParamCreater().createRecordingRule(createRecordingRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于卸载托管Prometheus
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 卸载托管Prometheus
+     * @param {string} promId 普罗实例id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePromInstance(deletePromInstanceRequest?: DeletePromInstanceRequest): Promise<DeletePromInstanceResponse> {
+        const options = ParamCreater().deletePromInstance(deletePromInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取Prometheus监控所需Token-access code
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Prometheus监控所需Token-access code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAccessCode(listAccessCodeRequest?: ListAccessCodeRequest): Promise<ListAccessCodeResponse> {
+        const options = ParamCreater().listAccessCode();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询集群Agent信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群Agent信息
+     * @param {string} clusterId 集群id
+     * @param {string} namespace 命名空间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgents(listAgentsRequest?: ListAgentsRequest): Promise<ListAgentsResponse> {
+        const options = ParamCreater().listAgents(listAgentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -878,6 +994,46 @@ export class AomClient {
      */
     public listMetadataAomPromGet(listMetadataAomPromGetRequest?: ListMetadataAomPromGetRequest): Promise<ListMetadataAomPromGetResponse> {
         const options = ParamCreater().listMetadataAomPromGet();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询用户是否已经完成aom2.0授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 是否开通aom2.0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPermissions(listPermissionsRequest?: ListPermissionsRequest): Promise<ListPermissionsResponse> {
+        const options = ParamCreater().listPermissions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取所有正常prometheus实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取所有正常实例
+     * @param {string} [promId] 普罗实例ID
+     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] 普罗实例类型,DEFAULT,ECS,VPC,CCE,REMOTE_WRITE,KUBERNETES,CLOUD_SERVICE,ACROSS_ACCOUNT
+     * @param {'true' | 'false'} [cceClusterEnable] cce集群开关 true/false
+     * @param {'true' | 'false'} [promStatus] 普罗实例状态 true/false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPromInstance(listPromInstanceRequest?: ListPromInstanceRequest): Promise<ListPromInstanceResponse> {
+        const options = ParamCreater().listPromInstance(listPromInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2191,6 +2347,195 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于新增Prometheus实例数据源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPromInstance(createPromInstanceRequest?: CreatePromInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aom/prometheus",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPromInstanceRequest !== null && createPromInstanceRequest !== undefined) {
+                if (createPromInstanceRequest instanceof CreatePromInstanceRequest) {
+                    body = createPromInstanceRequest.body
+                } else {
+                    body = createPromInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建预汇聚规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRecordingRule(createRecordingRuleRequest?: CreateRecordingRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/{prometheus_instance}/aom/api/v1/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let prometheusInstance;
+
+            if (createRecordingRuleRequest !== null && createRecordingRuleRequest !== undefined) {
+                if (createRecordingRuleRequest instanceof CreateRecordingRuleRequest) {
+                    prometheusInstance = createRecordingRuleRequest.prometheusInstance;
+                    body = createRecordingRuleRequest.body
+                } else {
+                    prometheusInstance = createRecordingRuleRequest['prometheus_instance'];
+                    body = createRecordingRuleRequest['body'];
+                }
+            }
+
+        
+            if (prometheusInstance === null || prometheusInstance === undefined) {
+            throw new RequiredError('prometheusInstance','Required parameter prometheusInstance was null or undefined when calling createRecordingRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'prometheus_instance': prometheusInstance, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于卸载托管Prometheus
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePromInstance(deletePromInstanceRequest?: DeletePromInstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aom/prometheus",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let promId;
+
+            if (deletePromInstanceRequest !== null && deletePromInstanceRequest !== undefined) {
+                if (deletePromInstanceRequest instanceof DeletePromInstanceRequest) {
+                    promId = deletePromInstanceRequest.promId;
+                } else {
+                    promId = deletePromInstanceRequest['prom_id'];
+                }
+            }
+
+        
+            if (promId === null || promId === undefined) {
+                throw new RequiredError('promId','Required parameter promId was null or undefined when calling deletePromInstance.');
+            }
+            if (promId !== null && promId !== undefined) {
+                localVarQueryParameter['prom_id'] = promId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取Prometheus监控所需Token-access code
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAccessCode() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/access-code",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询集群Agent信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgents(listAgentsRequest?: ListAgentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/{cluster_id}/{namespace}/agents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let namespace;
+
+            if (listAgentsRequest !== null && listAgentsRequest !== undefined) {
+                if (listAgentsRequest instanceof ListAgentsRequest) {
+                    clusterId = listAgentsRequest.clusterId;
+                    namespace = listAgentsRequest.namespace;
+                } else {
+                    clusterId = listAgentsRequest['cluster_id'];
+                    namespace = listAgentsRequest['namespace'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAgents.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listAgents.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'namespace': namespace, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2380,6 +2725,85 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询用户是否已经完成aom2.0授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPermissions() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aom/auth/grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取所有正常prometheus实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPromInstance(listPromInstanceRequest?: ListPromInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aom/prometheus",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let promId;
+            
+            let promType;
+            
+            let cceClusterEnable;
+            
+            let promStatus;
+
+            if (listPromInstanceRequest !== null && listPromInstanceRequest !== undefined) {
+                if (listPromInstanceRequest instanceof ListPromInstanceRequest) {
+                    promId = listPromInstanceRequest.promId;
+                    promType = listPromInstanceRequest.promType;
+                    cceClusterEnable = listPromInstanceRequest.cceClusterEnable;
+                    promStatus = listPromInstanceRequest.promStatus;
+                } else {
+                    promId = listPromInstanceRequest['prom_id'];
+                    promType = listPromInstanceRequest['prom_type'];
+                    cceClusterEnable = listPromInstanceRequest['cce_cluster_enable'];
+                    promStatus = listPromInstanceRequest['prom_status'];
+                }
+            }
+
+        
+            if (promId !== null && promId !== undefined) {
+                localVarQueryParameter['prom_id'] = promId;
+            }
+            if (promType !== null && promType !== undefined) {
+                localVarQueryParameter['prom_type'] = promType;
+            }
+            if (cceClusterEnable !== null && cceClusterEnable !== undefined) {
+                localVarQueryParameter['cce_cluster_enable'] = cceClusterEnable;
+            }
+            if (promStatus !== null && promStatus !== undefined) {
+                localVarQueryParameter['prom_status'] = promStatus;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

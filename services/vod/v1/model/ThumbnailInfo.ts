@@ -4,6 +4,7 @@ import { ThumbnailRsp } from './ThumbnailRsp';
 export class ThumbnailInfo {
     public sample?: Array<ThumbnailRsp>;
     public dots?: Array<ThumbnailRsp>;
+    public quantity?: Array<ThumbnailRsp>;
     private 'exec_desc'?: string;
     private 'thumbnail_status'?: string;
     public constructor() { 
@@ -14,6 +15,10 @@ export class ThumbnailInfo {
     }
     public withDots(dots: Array<ThumbnailRsp>): ThumbnailInfo {
         this['dots'] = dots;
+        return this;
+    }
+    public withQuantity(quantity: Array<ThumbnailRsp>): ThumbnailInfo {
+        this['quantity'] = quantity;
         return this;
     }
     public withExecDesc(execDesc: string): ThumbnailInfo {

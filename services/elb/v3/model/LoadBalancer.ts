@@ -48,9 +48,12 @@ export class LoadBalancer {
     private 'deletion_protection_enable'?: boolean;
     public autoscaling?: AutoscalingRef;
     private 'public_border_group'?: string;
+    private 'charge_mode'?: string;
     private 'waf_failure_action'?: string;
     private 'protection_status'?: LoadBalancerProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'log_group_id'?: string;
+    private 'log_topic_id'?: string;
     public constructor(id?: string, description?: string, provisioningStatus?: string, adminStateUp?: boolean, provider?: string, pools?: Array<PoolRef>, listeners?: Array<ListenerRef>, operatingStatus?: string, name?: string, projectId?: string, vipSubnetCidrId?: string, vipAddress?: string, vipPortId?: string, tags?: Array<Tag>, createdAt?: string, updatedAt?: string, guaranteed?: boolean, vpcId?: string, eips?: Array<EipInfo>, ipv6VipAddress?: string, ipv6VipVirsubnetId?: string, ipv6VipPortId?: string, availabilityZoneList?: Array<string>, enterpriseProjectId?: string, billingInfo?: string, l4FlavorId?: string, l4ScaleFlavorId?: string, l7FlavorId?: string, l7ScaleFlavorId?: string, publicips?: Array<PublicIpInfo>, globalEips?: Array<GlobalEipInfo>, elbVirsubnetIds?: Array<string>, elbVirsubnetType?: string, ipTargetEnable?: boolean, frozenScene?: string, ipv6Bandwidth?: BandwidthRef) { 
         this['id'] = id;
         this['description'] = description;
@@ -413,6 +416,16 @@ export class LoadBalancer {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
+    public withChargeMode(chargeMode: string): LoadBalancer {
+        this['charge_mode'] = chargeMode;
+        return this;
+    }
+    public set chargeMode(chargeMode: string  | undefined) {
+        this['charge_mode'] = chargeMode;
+    }
+    public get chargeMode(): string | undefined {
+        return this['charge_mode'];
+    }
     public withWafFailureAction(wafFailureAction: string): LoadBalancer {
         this['waf_failure_action'] = wafFailureAction;
         return this;
@@ -442,6 +455,26 @@ export class LoadBalancer {
     }
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
+    }
+    public withLogGroupId(logGroupId: string): LoadBalancer {
+        this['log_group_id'] = logGroupId;
+        return this;
+    }
+    public set logGroupId(logGroupId: string  | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId(): string | undefined {
+        return this['log_group_id'];
+    }
+    public withLogTopicId(logTopicId: string): LoadBalancer {
+        this['log_topic_id'] = logTopicId;
+        return this;
+    }
+    public set logTopicId(logTopicId: string  | undefined) {
+        this['log_topic_id'] = logTopicId;
+    }
+    public get logTopicId(): string | undefined {
+        return this['log_topic_id'];
     }
 }
 

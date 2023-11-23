@@ -31,6 +31,12 @@ import { CreatePipelineNewRequest } from './model/CreatePipelineNewRequest';
 import { CreatePipelineNewResponse } from './model/CreatePipelineNewResponse';
 import { CreatePipelineTemplateRequest } from './model/CreatePipelineTemplateRequest';
 import { CreatePipelineTemplateResponse } from './model/CreatePipelineTemplateResponse';
+import { CreatePluginDraftRequest } from './model/CreatePluginDraftRequest';
+import { CreatePluginDraftResponse } from './model/CreatePluginDraftResponse';
+import { CreatePluginVersionRequest } from './model/CreatePluginVersionRequest';
+import { CreatePluginVersionResponse } from './model/CreatePluginVersionResponse';
+import { CreatePublisherRequest } from './model/CreatePublisherRequest';
+import { CreatePublisherResponse } from './model/CreatePublisherResponse';
 import { CreateRuleReq } from './model/CreateRuleReq';
 import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateRuleResponse } from './model/CreateRuleResponse';
@@ -151,6 +157,9 @@ import { PipelineTemplateSimpleVO } from './model/PipelineTemplateSimpleVO';
 import { PipelineTemplateSimpleVOStages } from './model/PipelineTemplateSimpleVOStages';
 import { PipelineTrigger } from './model/PipelineTrigger';
 import { PluginBasicDTO } from './model/PluginBasicDTO';
+import { PluginDTO } from './model/PluginDTO';
+import { PluginDTOExecutionInfo } from './model/PluginDTOExecutionInfo';
+import { PluginDTOInputInfo } from './model/PluginDTOInputInfo';
 import { PluginPartQueryDTO } from './model/PluginPartQueryDTO';
 import { PluginPartQueryVOListAgentPluginInputVO } from './model/PluginPartQueryVOListAgentPluginInputVO';
 import { PluginPartQueryVOListAgentPluginInputVOData } from './model/PluginPartQueryVOListAgentPluginInputVOData';
@@ -159,8 +168,11 @@ import { PluginPartQueryVOListAgentPluginOutputVOData } from './model/PluginPart
 import { PublishPluginBindRequest } from './model/PublishPluginBindRequest';
 import { PublishPluginBindResponse } from './model/PublishPluginBindResponse';
 import { PublishPluginDTO } from './model/PublishPluginDTO';
+import { PublishPluginDraftRequest } from './model/PublishPluginDraftRequest';
+import { PublishPluginDraftResponse } from './model/PublishPluginDraftResponse';
 import { PublishPluginRequest } from './model/PublishPluginRequest';
 import { PublishPluginResponse } from './model/PublishPluginResponse';
+import { PublisherRequest } from './model/PublisherRequest';
 import { PublisherVO } from './model/PublisherVO';
 import { RejectManualReviewRequest } from './model/RejectManualReviewRequest';
 import { RejectManualReviewResponse } from './model/RejectManualReviewResponse';
@@ -256,6 +268,10 @@ import { UpdatePipelineGroupRequest } from './model/UpdatePipelineGroupRequest';
 import { UpdatePipelineGroupResponse } from './model/UpdatePipelineGroupResponse';
 import { UpdatePipelineTemplateRequest } from './model/UpdatePipelineTemplateRequest';
 import { UpdatePipelineTemplateResponse } from './model/UpdatePipelineTemplateResponse';
+import { UpdatePluginBaseInfoRequest } from './model/UpdatePluginBaseInfoRequest';
+import { UpdatePluginBaseInfoResponse } from './model/UpdatePluginBaseInfoResponse';
+import { UpdatePluginDraftRequest } from './model/UpdatePluginDraftRequest';
+import { UpdatePluginDraftResponse } from './model/UpdatePluginDraftResponse';
 import { UpdateRuleInstance } from './model/UpdateRuleInstance';
 import { UpdateRuleReq } from './model/UpdateRuleReq';
 import { UpdateRuleRequest } from './model/UpdateRuleRequest';
@@ -503,6 +519,66 @@ export class CodeArtsPipelineClient {
      */
     public createPipelineTemplate(createPipelineTemplateRequest?: CreatePipelineTemplateRequest): Promise<CreatePipelineTemplateResponse> {
         const options = ParamCreater().createPipelineTemplate(createPipelineTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建插件草稿版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建插件草稿版本
+     * @param {string} domainId 租户ID
+     * @param {PluginDTO} [pluginDTO] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPluginDraft(createPluginDraftRequest?: CreatePluginDraftRequest): Promise<CreatePluginDraftResponse> {
+        const options = ParamCreater().createPluginDraft(createPluginDraftRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建插件版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建插件版本
+     * @param {string} domainId 租户ID
+     * @param {PluginDTO} [pluginDTO] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPluginVersion(createPluginVersionRequest?: CreatePluginVersionRequest): Promise<CreatePluginVersionResponse> {
+        const options = ParamCreater().createPluginVersion(createPluginVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建发布商
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建发布商
+     * @param {string} domainId 租户ID
+     * @param {PublisherRequest} [publisherRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPublisher(createPublisherRequest?: CreatePublisherRequest): Promise<CreatePublisherResponse> {
+        const options = ParamCreater().createPublisher(createPublisherRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1186,6 +1262,26 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 发布插件草稿
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 发布插件草稿
+     * @param {string} domainId 租户ID
+     * @param {PluginPartQueryDTO} [pluginPartQueryDTO] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public publishPluginDraft(publishPluginDraftRequest?: PublishPluginDraftRequest): Promise<PublishPluginDraftResponse> {
+        const options = ParamCreater().publishPluginDraft(publishPluginDraftRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 驳回人工审核
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1529,7 +1625,7 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询发布商详情
      * @param {string} domainId 租户ID
-     * @param {Array<string>} [arrayString] 
+     * @param {Array<string>} [arrayString] 发布商ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1781,6 +1877,46 @@ export class CodeArtsPipelineClient {
      */
     public updatePipelineTemplate(updatePipelineTemplateRequest?: UpdatePipelineTemplateRequest): Promise<UpdatePipelineTemplateResponse> {
         const options = ParamCreater().updatePipelineTemplate(updatePipelineTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新插件基本信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新插件基本信息
+     * @param {string} domainId 租户ID
+     * @param {PluginBasicDTO} [pluginBasicDTO] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePluginBaseInfo(updatePluginBaseInfoRequest?: UpdatePluginBaseInfoRequest): Promise<UpdatePluginBaseInfoResponse> {
+        const options = ParamCreater().updatePluginBaseInfo(updatePluginBaseInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新插件草稿
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新插件草稿
+     * @param {string} domainId 租户ID
+     * @param {PluginDTO} [pluginDTO] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePluginDraft(updatePluginDraftRequest?: UpdatePluginDraftRequest): Promise<UpdatePluginDraftResponse> {
+        const options = ParamCreater().updatePluginDraft(updatePluginDraftRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2379,6 +2515,135 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'tenant_id': tenantId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建插件草稿版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPluginDraft(createPluginDraftRequest?: CreatePluginDraftRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/agent-plugin/create-draft",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (createPluginDraftRequest !== null && createPluginDraftRequest !== undefined) {
+                if (createPluginDraftRequest instanceof CreatePluginDraftRequest) {
+                    domainId = createPluginDraftRequest.domainId;
+                    body = createPluginDraftRequest.body
+                } else {
+                    domainId = createPluginDraftRequest['domain_id'];
+                    body = createPluginDraftRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling createPluginDraft.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建插件版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPluginVersion(createPluginVersionRequest?: CreatePluginVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/agent-plugin/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (createPluginVersionRequest !== null && createPluginVersionRequest !== undefined) {
+                if (createPluginVersionRequest instanceof CreatePluginVersionRequest) {
+                    domainId = createPluginVersionRequest.domainId;
+                    body = createPluginVersionRequest.body
+                } else {
+                    domainId = createPluginVersionRequest['domain_id'];
+                    body = createPluginVersionRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling createPluginVersion.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建发布商
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPublisher(createPublisherRequest?: CreatePublisherRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/publisher/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (createPublisherRequest !== null && createPublisherRequest !== undefined) {
+                if (createPublisherRequest instanceof CreatePublisherRequest) {
+                    domainId = createPublisherRequest.domainId;
+                    body = createPublisherRequest.body
+                } else {
+                    domainId = createPublisherRequest['domain_id'];
+                    body = createPublisherRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling createPublisher.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4099,6 +4364,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 发布插件草稿
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        publishPluginDraft(publishPluginDraftRequest?: PublishPluginDraftRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/agent-plugin/publish-draft",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (publishPluginDraftRequest !== null && publishPluginDraftRequest !== undefined) {
+                if (publishPluginDraftRequest instanceof PublishPluginDraftRequest) {
+                    domainId = publishPluginDraftRequest.domainId;
+                    body = publishPluginDraftRequest.body
+                } else {
+                    domainId = publishPluginDraftRequest['domain_id'];
+                    body = publishPluginDraftRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling publishPluginDraft.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 驳回人工审核
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5446,6 +5754,92 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'tenant_id': tenantId,'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新插件基本信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePluginBaseInfo(updatePluginBaseInfoRequest?: UpdatePluginBaseInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/agent-plugin/update-info",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (updatePluginBaseInfoRequest !== null && updatePluginBaseInfoRequest !== undefined) {
+                if (updatePluginBaseInfoRequest instanceof UpdatePluginBaseInfoRequest) {
+                    domainId = updatePluginBaseInfoRequest.domainId;
+                    body = updatePluginBaseInfoRequest.body
+                } else {
+                    domainId = updatePluginBaseInfoRequest['domain_id'];
+                    body = updatePluginBaseInfoRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updatePluginBaseInfo.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新插件草稿
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePluginDraft(updatePluginDraftRequest?: UpdatePluginDraftRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{domain_id}/agent-plugin/edit-draft",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (updatePluginDraftRequest !== null && updatePluginDraftRequest !== undefined) {
+                if (updatePluginDraftRequest instanceof UpdatePluginDraftRequest) {
+                    domainId = updatePluginDraftRequest.domainId;
+                    body = updatePluginDraftRequest.body
+                } else {
+                    domainId = updatePluginDraftRequest['domain_id'];
+                    body = updatePluginDraftRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updatePluginDraft.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

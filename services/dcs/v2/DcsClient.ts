@@ -195,6 +195,9 @@ import { ListTagsOfTenantResponse } from './model/ListTagsOfTenantResponse';
 import { LoginWebCliBody } from './model/LoginWebCliBody';
 import { LoginWebCliRequest } from './model/LoginWebCliRequest';
 import { LoginWebCliResponse } from './model/LoginWebCliResponse';
+import { LogoffWebCliRequest } from './model/LogoffWebCliRequest';
+import { LogoffWebCliResponse } from './model/LogoffWebCliResponse';
+import { LogoutWebCliBody } from './model/LogoutWebCliBody';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { MigrationLog } from './model/MigrationLog';
 import { MigrationTaskList } from './model/MigrationTaskList';
@@ -1615,6 +1618,26 @@ export class DcsClient {
      */
     public loginWebCli(loginWebCliRequest?: LoginWebCliRequest): Promise<LoginWebCliResponse> {
         const options = ParamCreater().loginWebCli(loginWebCliRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 登出webCli
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 登出webCli
+     * @param {string} instanceId 实例ID。
+     * @param {LogoutWebCliBody} logoffWebCliRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public logoffWebCli(logoffWebCliRequest?: LogoffWebCliRequest): Promise<LogoffWebCliResponse> {
+        const options = ParamCreater().logoffWebCli(logoffWebCliRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5450,6 +5473,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling loginWebCli.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 登出webCli
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        logoffWebCli(logoffWebCliRequest?: LogoffWebCliRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/webcli/logout",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (logoffWebCliRequest !== null && logoffWebCliRequest !== undefined) {
+                if (logoffWebCliRequest instanceof LogoffWebCliRequest) {
+                    instanceId = logoffWebCliRequest.instanceId;
+                    body = logoffWebCliRequest.body
+                } else {
+                    instanceId = logoffWebCliRequest['instance_id'];
+                    body = logoffWebCliRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling logoffWebCli.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -3,6 +3,7 @@
 export class DeleteJobReq {
     private 'delete_type'?: DeleteJobReqDeleteTypeEnum | string;
     private 'job_id'?: string;
+    private 'is_show_breakpoint_position'?: boolean;
     public constructor(deleteType?: string, jobId?: string) { 
         this['delete_type'] = deleteType;
         this['job_id'] = jobId;
@@ -26,6 +27,16 @@ export class DeleteJobReq {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withIsShowBreakpointPosition(isShowBreakpointPosition: boolean): DeleteJobReq {
+        this['is_show_breakpoint_position'] = isShowBreakpointPosition;
+        return this;
+    }
+    public set isShowBreakpointPosition(isShowBreakpointPosition: boolean  | undefined) {
+        this['is_show_breakpoint_position'] = isShowBreakpointPosition;
+    }
+    public get isShowBreakpointPosition(): boolean | undefined {
+        return this['is_show_breakpoint_position'];
     }
 }
 

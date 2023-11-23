@@ -41,6 +41,7 @@ export class Listener {
     private 'protection_reason'?: string;
     private 'gzip_enable'?: boolean;
     private 'port_ranges'?: Array<PortRange>;
+    private 'ssl_early_data_enable'?: boolean;
     public constructor(adminStateUp?: boolean, clientCaTlsContainerRef?: string, connectionLimit?: number, createdAt?: string, defaultPoolId?: string, defaultTlsContainerRef?: string, description?: string, http2Enable?: boolean, id?: string, insertHeaders?: ListenerInsertHeaders, loadbalancers?: Array<LoadBalancerRef>, name?: string, projectId?: string, protocol?: string, protocolPort?: number, sniContainerRefs?: Array<string>, sniMatchAlgo?: string, tags?: Array<Tag>, updatedAt?: string, tlsCiphersPolicy?: string, securityPolicyId?: string, enableMemberRetry?: boolean, keepaliveTimeout?: number, clientTimeout?: number, memberTimeout?: number, ipgroup?: ListenerIpGroup, transparentClientIpEnable?: boolean, enhanceL7policyEnable?: boolean) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
@@ -368,6 +369,16 @@ export class Listener {
     }
     public get portRanges(): Array<PortRange> | undefined {
         return this['port_ranges'];
+    }
+    public withSslEarlyDataEnable(sslEarlyDataEnable: boolean): Listener {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+        return this;
+    }
+    public set sslEarlyDataEnable(sslEarlyDataEnable: boolean  | undefined) {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+    }
+    public get sslEarlyDataEnable(): boolean | undefined {
+        return this['ssl_early_data_enable'];
     }
 }
 

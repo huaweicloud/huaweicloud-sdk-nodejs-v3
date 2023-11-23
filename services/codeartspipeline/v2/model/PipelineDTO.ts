@@ -15,6 +15,8 @@ export class PipelineDTO {
     private 'manifest_version'?: string;
     public definition?: string;
     private 'project_name'?: string;
+    private 'group_id'?: string;
+    public id?: string;
     public constructor() { 
     }
     public withName(name: string): PipelineDTO {
@@ -74,5 +76,19 @@ export class PipelineDTO {
     }
     public get projectName(): string | undefined {
         return this['project_name'];
+    }
+    public withGroupId(groupId: string): PipelineDTO {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withId(id: string): PipelineDTO {
+        this['id'] = id;
+        return this;
     }
 }

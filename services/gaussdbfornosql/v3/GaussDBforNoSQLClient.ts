@@ -18,6 +18,7 @@ import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionRequestBody } from './model/BatchTagActionRequestBody';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
 import { BatchTagActionTagOption } from './model/BatchTagActionTagOption';
+import { CassandraSlowLogDetail } from './model/CassandraSlowLogDetail';
 import { ChargeInfoOption } from './model/ChargeInfoOption';
 import { ChargeInfoResult } from './model/ChargeInfoResult';
 import { CheckDisasterRecoveryOperationRequest } from './model/CheckDisasterRecoveryOperationRequest';
@@ -74,6 +75,12 @@ import { DeleteEnlargeFailNodeRequestBody } from './model/DeleteEnlargeFailNodeR
 import { DeleteEnlargeFailNodeResponse } from './model/DeleteEnlargeFailNodeResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteInstancesSessionRequest } from './model/DeleteInstancesSessionRequest';
+import { DeleteInstancesSessionRequestBody } from './model/DeleteInstancesSessionRequestBody';
+import { DeleteInstancesSessionResponse } from './model/DeleteInstancesSessionResponse';
+import { DeleteLtsConfigsRequest } from './model/DeleteLtsConfigsRequest';
+import { DeleteLtsConfigsRequestBody } from './model/DeleteLtsConfigsRequestBody';
+import { DeleteLtsConfigsResponse } from './model/DeleteLtsConfigsResponse';
 import { DifferentDetails } from './model/DifferentDetails';
 import { DiskAutoExpansionPolicy } from './model/DiskAutoExpansionPolicy';
 import { ErrorLogList } from './model/ErrorLogList';
@@ -81,13 +88,19 @@ import { ErrorResponseBody } from './model/ErrorResponseBody';
 import { ExpandInstanceNodeRequest } from './model/ExpandInstanceNodeRequest';
 import { ExpandInstanceNodeRequestBody } from './model/ExpandInstanceNodeRequestBody';
 import { ExpandInstanceNodeResponse } from './model/ExpandInstanceNodeResponse';
+import { InstanceLogConfig } from './model/InstanceLogConfig';
+import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
 import { InstanceResult } from './model/InstanceResult';
 import { InstanceTagResult } from './model/InstanceTagResult';
+import { InstancesDatastoreResult } from './model/InstancesDatastoreResult';
 import { Links } from './model/Links';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
 import { ListAvailableFlavorInfosRequest } from './model/ListAvailableFlavorInfosRequest';
 import { ListAvailableFlavorInfosResponse } from './model/ListAvailableFlavorInfosResponse';
+import { ListCassandraSlowLogsRequest } from './model/ListCassandraSlowLogsRequest';
+import { ListCassandraSlowLogsRequestBody } from './model/ListCassandraSlowLogsRequestBody';
+import { ListCassandraSlowLogsResponse } from './model/ListCassandraSlowLogsResponse';
 import { ListConfigurationDatastoresRequest } from './model/ListConfigurationDatastoresRequest';
 import { ListConfigurationDatastoresResponse } from './model/ListConfigurationDatastoresResponse';
 import { ListConfigurationTemplatesRequest } from './model/ListConfigurationTemplatesRequest';
@@ -126,14 +139,36 @@ import { ListInstancesNodeResult } from './model/ListInstancesNodeResult';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesResult } from './model/ListInstancesResult';
+import { ListInstancesSessionRequest } from './model/ListInstancesSessionRequest';
+import { ListInstancesSessionRespondBodySessions } from './model/ListInstancesSessionRespondBodySessions';
+import { ListInstancesSessionResponse } from './model/ListInstancesSessionResponse';
+import { ListInstancesSessionStatisticsRequest } from './model/ListInstancesSessionStatisticsRequest';
+import { ListInstancesSessionStatisticsRespondBodyTopSourceIps } from './model/ListInstancesSessionStatisticsRespondBodyTopSourceIps';
+import { ListInstancesSessionStatisticsResponse } from './model/ListInstancesSessionStatisticsResponse';
+import { ListLtsConfigsRequest } from './model/ListLtsConfigsRequest';
+import { ListLtsConfigsResponse } from './model/ListLtsConfigsResponse';
+import { ListMongodbErrorLogsRequest } from './model/ListMongodbErrorLogsRequest';
+import { ListMongodbErrorLogsRequestBody } from './model/ListMongodbErrorLogsRequestBody';
+import { ListMongodbErrorLogsResponse } from './model/ListMongodbErrorLogsResponse';
+import { ListMongodbSlowLogsRequest } from './model/ListMongodbSlowLogsRequest';
+import { ListMongodbSlowLogsRequestBody } from './model/ListMongodbSlowLogsRequestBody';
+import { ListMongodbSlowLogsResponse } from './model/ListMongodbSlowLogsResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListRecycleInstancesRequest } from './model/ListRecycleInstancesRequest';
 import { ListRecycleInstancesResponse } from './model/ListRecycleInstancesResponse';
+import { ListRedisSlowLogsRequest } from './model/ListRedisSlowLogsRequest';
+import { ListRedisSlowLogsRequestBody } from './model/ListRedisSlowLogsRequestBody';
+import { ListRedisSlowLogsResponse } from './model/ListRedisSlowLogsResponse';
+import { ListRestoreDatabasesRequest } from './model/ListRestoreDatabasesRequest';
+import { ListRestoreDatabasesResponse } from './model/ListRestoreDatabasesResponse';
+import { ListRestoreTablesRequest } from './model/ListRestoreTablesRequest';
+import { ListRestoreTablesResponse } from './model/ListRestoreTablesResponse';
 import { ListRestoreTimeRequest } from './model/ListRestoreTimeRequest';
 import { ListRestoreTimeResponse } from './model/ListRestoreTimeResponse';
 import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
+import { LogInstanceInfo } from './model/LogInstanceInfo';
 import { MatchOption } from './model/MatchOption';
 import { ModifyDbUserPrivilegeRequest } from './model/ModifyDbUserPrivilegeRequest';
 import { ModifyDbUserPrivilegeResponse } from './model/ModifyDbUserPrivilegeResponse';
@@ -148,6 +183,8 @@ import { ModifyPublicIpResponse } from './model/ModifyPublicIpResponse';
 import { ModifyVolumeRequest } from './model/ModifyVolumeRequest';
 import { ModifyVolumeRequestBody } from './model/ModifyVolumeRequestBody';
 import { ModifyVolumeResponse } from './model/ModifyVolumeResponse';
+import { MongodbErrorLogDetail } from './model/MongodbErrorLogDetail';
+import { MongodbSlowLogDetail } from './model/MongodbSlowLogDetail';
 import { NoSQLDrDateSyncIndicators } from './model/NoSQLDrDateSyncIndicators';
 import { NoSQLDrRpoAndRto } from './model/NoSQLDrRpoAndRto';
 import { NoSqlCreateBackupRequestBody } from './model/NoSqlCreateBackupRequestBody';
@@ -176,10 +213,13 @@ import { RedisDeleteDbUserRequest } from './model/RedisDeleteDbUserRequest';
 import { RedisModifyDBUserPrivilegeRequest } from './model/RedisModifyDBUserPrivilegeRequest';
 import { RedisModifyDbUserPrivilegeRequestBody } from './model/RedisModifyDbUserPrivilegeRequestBody';
 import { RedisResetDbUserPasswordRequestBody } from './model/RedisResetDbUserPasswordRequestBody';
+import { RedisSlowLogDetail } from './model/RedisSlowLogDetail';
 import { RedisUserForCreation } from './model/RedisUserForCreation';
 import { RenameHighRiskCommandsRequest } from './model/RenameHighRiskCommandsRequest';
 import { ResetDbUserPasswordRequest } from './model/ResetDbUserPasswordRequest';
 import { ResetDbUserPasswordResponse } from './model/ResetDbUserPasswordResponse';
+import { ResetParamGroupTemplateRequest } from './model/ResetParamGroupTemplateRequest';
+import { ResetParamGroupTemplateResponse } from './model/ResetParamGroupTemplateResponse';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordRequestBody } from './model/ResetPasswordRequestBody';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
@@ -200,6 +240,9 @@ import { RestoreExistingInstanceRequest } from './model/RestoreExistingInstanceR
 import { RestoreExistingInstanceResponse } from './model/RestoreExistingInstanceResponse';
 import { RestoreInfo } from './model/RestoreInfo';
 import { RestoreRequestBody } from './model/RestoreRequestBody';
+import { SaveLtsConfigsRequest } from './model/SaveLtsConfigsRequest';
+import { SaveLtsConfigsRequestBody } from './model/SaveLtsConfigsRequestBody';
+import { SaveLtsConfigsResponse } from './model/SaveLtsConfigsResponse';
 import { SetAutoEnlargePolicyRequest } from './model/SetAutoEnlargePolicyRequest';
 import { SetAutoEnlargePolicyResponse } from './model/SetAutoEnlargePolicyResponse';
 import { SetAutoPolicyRequestBody } from './model/SetAutoPolicyRequestBody';
@@ -225,6 +268,8 @@ import { ShowBackupPolicyResponse } from './model/ShowBackupPolicyResponse';
 import { ShowBackupPolicyResult } from './model/ShowBackupPolicyResult';
 import { ShowConfigurationDetailRequest } from './model/ShowConfigurationDetailRequest';
 import { ShowConfigurationDetailResponse } from './model/ShowConfigurationDetailResponse';
+import { ShowElbIpGroupRequest } from './model/ShowElbIpGroupRequest';
+import { ShowElbIpGroupResponse } from './model/ShowElbIpGroupResponse';
 import { ShowErrorLogRequest } from './model/ShowErrorLogRequest';
 import { ShowErrorLogResponse } from './model/ShowErrorLogResponse';
 import { ShowHighRiskCommandsRequest } from './model/ShowHighRiskCommandsRequest';
@@ -255,6 +300,10 @@ import { ShrinkInstanceNodeRequest } from './model/ShrinkInstanceNodeRequest';
 import { ShrinkInstanceNodeRequestBody } from './model/ShrinkInstanceNodeRequestBody';
 import { ShrinkInstanceNodeResponse } from './model/ShrinkInstanceNodeResponse';
 import { SlowlogResult } from './model/SlowlogResult';
+import { SwitchIpGroupRequest } from './model/SwitchIpGroupRequest';
+import { SwitchIpGroupRequestBody } from './model/SwitchIpGroupRequestBody';
+import { SwitchIpGroupRequestBodyIpGroups } from './model/SwitchIpGroupRequestBodyIpGroups';
+import { SwitchIpGroupResponse } from './model/SwitchIpGroupResponse';
 import { SwitchSlowlogDesensitizationRequest } from './model/SwitchSlowlogDesensitizationRequest';
 import { SwitchSlowlogDesensitizationRequestBody } from './model/SwitchSlowlogDesensitizationRequestBody';
 import { SwitchSlowlogDesensitizationResponse } from './model/SwitchSlowlogDesensitizationResponse';
@@ -658,6 +707,46 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 关闭实例节点会话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭实例节点会话
+     * @param {string} nodeId 节点ID。
+     * @param {DeleteInstancesSessionRequestBody} deleteInstancesSessionRequestBody 关闭实例节点会话请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstancesSession(deleteInstancesSessionRequest?: DeleteInstancesSessionRequest): Promise<DeleteInstancesSessionResponse> {
+        const options = ParamCreater().deleteInstancesSession(deleteInstancesSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将实例日志与LTS日志流解除关联，后台将取消上传实例日志到的LTS日志流里。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除关联LTS日志流
+     * @param {DeleteLtsConfigsRequestBody} deleteLtsConfigsRequestBody 请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLtsConfigs(deleteLtsConfigsRequest?: DeleteLtsConfigsRequest): Promise<DeleteLtsConfigsResponse> {
+        const options = ParamCreater().deleteLtsConfigs(deleteLtsConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 扩容指定集群实例的节点数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -691,6 +780,26 @@ export class GaussDBforNoSQLClient {
      */
     public listAvailableFlavorInfos(listAvailableFlavorInfosRequest?: ListAvailableFlavorInfosRequest): Promise<ListAvailableFlavorInfosResponse> {
         const options = ParamCreater().listAvailableFlavorInfos(listAvailableFlavorInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB(for Cassandra)数据库慢日志信息，支持日志关键字搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GeminiDB(for Cassandra)数据库慢日志
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {ListCassandraSlowLogsRequestBody} listCassandraSlowLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCassandraSlowLogs(listCassandraSlowLogsRequest?: ListCassandraSlowLogsRequest): Promise<ListCassandraSlowLogsResponse> {
+        const options = ParamCreater().listCassandraSlowLogs(listCassandraSlowLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -760,7 +869,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例类型的数据库版本信息
-     * @param {string} datastoreName 数据库类型。   - GaussDB(for Cassandra)数据库实例，取值为“cassandra”。   - GaussDB(for Mongo)数据库实例，取值为“mongodb”。   - GaussDB(for Influx)数据库实例，取值为“influxdb”。   - GaussDB(for Redis)数据库实例，取值为“redis”。
+     * @param {string} datastoreName 数据库类型。   - GeminiDB Cassandra数据库实例，取值为“cassandra”。   - GeminiDB Mongo数据库实例，取值为“mongodb”。   - GeminiDB Influx数据库实例，取值为“influxdb”。   - GeminiDB Redis数据库实例，取值为“redis”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -842,7 +951,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据库规格
-     * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GaussDB(for Cassandra)数据库实例支持的规格。   - 取值为“mongodb”，表示查询GaussDB(for Mongo)数据库实例支持的规格。   - 取值为“influxdb”，表示查询GaussDB(for Influx)数据库实例支持的规格。   - 取值为“redis”，表示查询GaussDB(for Redis)数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
+     * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例支持的规格。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例支持的规格。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例支持的规格。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
      * @param {number} [offset] 索引位置，偏移量。   - 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。   - 取值必须为数字，不能为负数。
      * @param {number} [limit] 查询规格信息上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条规格信息。
      * @param {*} [options] Override http request option.
@@ -864,7 +973,7 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询指定条件下的所有实例规格信息
      * @param {string} [region] 实例所在区域。
-     * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GaussDB(for Cassandra)数据库实例支持的规格。   - 取值为“mongodb”，表示查询GaussDB(for Mongo)数据库实例支持的规格。   - 取值为“influxdb”，表示查询GaussDB(for Influx)数据库实例支持的规格。   - 取值为“redis”，表示查询GaussDB(for Redis)数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
+     * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例支持的规格。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例支持的规格。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例支持的规格。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -925,8 +1034,8 @@ export class GaussDBforNoSQLClient {
      * @summary 查询实例列表和详情
      * @param {string} [id] 实例ID。 如果id以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的id精确匹配查询。
      * @param {string} [name] 实例名称。 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。
-     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GaussDB(for Cassandra)、GaussDB(for Influx)、GaussDB(for Redis)集群实例类型。   - 取值为“Sharding”，表示GaussDB(for Mongo)集群实例类型。   - 取值为“ReplicaSet”，表示GaussDB(for Mongo)副本集实例类型。   - 取值为“InfluxdbCluster”，表示GaussDB(for Influx)集群实例类型。   - 取值为“InfluxdbSingle”，表示GaussDB(for Influx)单节点实例类型。   - 取值为“RedisReplica”，表示GaussDB(for Redis)性能版实例类型。   - 取值为“Replication”，表示GaussDB(for Redis)主备版实例类型。
-     * @param {string} [datastoreType] 数据库类型。   - 取值为“cassandra”，表示查询GaussDB(for Cassandra)数据库实例。   - 取值为“mongodb”，表示查询GaussDB(for Mongo)数据库实例。   - 取值为“influxdb”，表示查询GaussDB(for Influx)数据库实例。   - 取值为“redis”，表示查询GaussDB(for Redis)数据库实例。   - 如果不传该参数，表示查询所有数据库实例。
+     * @param {string} [mode] 实例类型。   - 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。   - 取值为“Sharding”，表示GeminiDB Mongo集群实例类型。   - 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。   - 取值为“InfluxdbCluster”，表示GeminiDB Influx集群实例类型。   - 取值为“InfluxdbSingle”，表示GeminiDB Influx单节点实例类型。   - 取值为“RedisReplica”，表示GeminiDB Redis性能版实例类型。   - 取值为“Replication”，表示GeminiDB Redis主备版实例类型。
+     * @param {string} [datastoreType] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例。   - 如果不传该参数，表示查询所有数据库实例。
      * @param {string} [vpcId] 虚拟私有云ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，在虚拟私有云的详情页面查找VPC ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询VPC列表。
      * @param {string} [subnetId] 子网的网络ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，单击VPC下的子网，进入子网详情页面，查找网络ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询子网列表。
      * @param {number} [offset] 索引位置偏移量，表示从指定project ID下最新的实例创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从最新的实例创建时间对应的实例开始查询。
@@ -982,6 +1091,111 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 获取节点会话列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取节点会话列表
+     * @param {string} nodeId 节点ID。
+     * @param {number} [offset] 索引位置，偏移量。取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从最新创建的实例节点连接开始查询。
+     * @param {number} [limit] 分页查询页数。不传该参数时，默认每页50条实例节点连接信息，最大100条。
+     * @param {string} [addrPrefix] 用户端地址前缀匹配字符串。完整的地址由ip和端口号组成。不传默认查询所有。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesSession(listInstancesSessionRequest?: ListInstancesSessionRequest): Promise<ListInstancesSessionResponse> {
+        const options = ParamCreater().listInstancesSession(listInstancesSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例节点会话统计信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例节点会话统计信息
+     * @param {string} nodeId 节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesSessionStatistics(listInstancesSessionStatisticsRequest?: ListInstancesSessionStatisticsRequest): Promise<ListInstancesSessionStatisticsResponse> {
+        const options = ParamCreater().listInstancesSessionStatistics(listInstancesSessionStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询实例关联的LTS日志配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询LTS日志配置信息
+     * @param {string} [xLanguage] 语言。
+     * @param {number} [offset] 索引位置偏移量，表示从第一条数据偏移offset条数据后开始查询。取值必须为数字，不能为负数。默认取0值，表示从第一条数据开始查询。
+     * @param {number} [limit] 查询记录数。取值范围：1~100，必须为数字。不传该参数时，默认查询前100条实例信息。
+     * @param {string} [instanceId] 根据实例ID精确搜索。
+     * @param {string} [instanceName] 根据实例名称模糊搜索。
+     * @param {string} [enterpriseProjectId] 根据企业项目ID精确搜索。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLtsConfigs(listLtsConfigsRequest?: ListLtsConfigsRequest): Promise<ListLtsConfigsResponse> {
+        const options = ParamCreater().listLtsConfigs(listLtsConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB(for Mongo)数据库错误日志信息，支持日志关键字搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GeminiDB(for Mongo)数据库错误日志
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {ListMongodbErrorLogsRequestBody} listMongodbErrorLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMongodbErrorLogs(listMongodbErrorLogsRequest?: ListMongodbErrorLogsRequest): Promise<ListMongodbErrorLogsResponse> {
+        const options = ParamCreater().listMongodbErrorLogs(listMongodbErrorLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB(for Mongo)数据库慢日志信息，支持日志关键字搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GeminiDB(for Mongo)数据库慢日志
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {ListMongodbSlowLogsRequestBody} listMongodbSlowLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMongodbSlowLogs(listMongodbSlowLogsRequest?: ListMongodbSlowLogsRequest): Promise<ListMongodbSlowLogsResponse> {
+        const options = ParamCreater().listMongodbSlowLogs(listMongodbSlowLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定项目的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1015,6 +1229,69 @@ export class GaussDBforNoSQLClient {
      */
     public listRecycleInstances(listRecycleInstancesRequest?: ListRecycleInstancesRequest): Promise<ListRecycleInstancesResponse> {
         const options = ParamCreater().listRecycleInstances(listRecycleInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB(for Redis)数据库慢日志信息，支持日志关键字搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GeminiDB(for Redis)数据库慢日志
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {ListRedisSlowLogsRequestBody} listRedisSlowLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRedisSlowLogs(listRedisSlowLogsRequest?: ListRedisSlowLogsRequest): Promise<ListRedisSlowLogsResponse> {
+        const options = ParamCreater().listRedisSlowLogs(listRedisSlowLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取GeminiDB(for Cassandra)实例表级恢复的数据库信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取GeminiDB(for Cassandra)实例表级恢复的数据库信息
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {number} [offset] 索引位置偏移量。   - 索引位置偏移量，表示从指定project ID下最新的专属资源创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的专属资源信息。   - 取值大于或等于0。   - 不传该参数时，查询偏移量默认为0，表示从最新的创建时间对应的专属资源开始查询。
+     * @param {number} [limit] 查询专属资源个数上限值。   - 取值范围：1~100。不传该参数时，默认查询前100条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRestoreDatabases(listRestoreDatabasesRequest?: ListRestoreDatabasesRequest): Promise<ListRestoreDatabasesResponse> {
+        const options = ParamCreater().listRestoreDatabases(listRestoreDatabasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取GeminiDB(for Cassandra)实例表级恢复的表信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取GeminiDB(for Cassandra)实例表级恢复的表信息
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {string} databaseName 数据库名。
+     * @param {number} [offset] 索引位置偏移量。   - 索引位置偏移量，表示从指定project ID下最新的专属资源创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的专属资源信息。   - 取值大于或等于0。   - 不传该参数时，查询偏移量默认为0，表示从最新的创建时间对应的专属资源开始查询。
+     * @param {number} [limit] 查询专属资源个数上限值。   - 取值范围：1~100。不传该参数时，默认查询前100条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRestoreTables(listRestoreTablesRequest?: ListRestoreTablesRequest): Promise<ListRestoreTablesResponse> {
+        const options = ParamCreater().listRestoreTables(listRestoreTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1213,6 +1490,25 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 重置自定义参数模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置自定义参数模板
+     * @param {string} configId 参数模板ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetParamGroupTemplate(resetParamGroupTemplateRequest?: ResetParamGroupTemplateRequest): Promise<ResetParamGroupTemplateResponse> {
+        const options = ParamCreater().resetParamGroupTemplate(resetParamGroupTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改实例的管理员密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1324,6 +1620,28 @@ export class GaussDBforNoSQLClient {
      */
     public restoreExistingInstance(restoreExistingInstanceRequest?: RestoreExistingInstanceRequest): Promise<RestoreExistingInstanceResponse> {
         const options = ParamCreater().restoreExistingInstance(restoreExistingInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
+     * - 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
+     * - 系统会为当前选择的日志流创建对应日志类型的结构化配置，若该日志流已存在其他日志类型的结构化配置，系统会进行覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关联LTS日志流
+     * @param {SaveLtsConfigsRequestBody} saveLtsConfigsRequestBody 请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveLtsConfigs(saveLtsConfigsRequest?: SaveLtsConfigsRequest): Promise<SaveLtsConfigsResponse> {
+        const options = ParamCreater().saveLtsConfigs(saveLtsConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1541,6 +1859,25 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 查询实例负载均衡的IP访问黑白名单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例负载均衡的IP访问黑白名单
+     * @param {string} instanceId 实例id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showElbIpGroup(showElbIpGroupRequest?: ShowElbIpGroupRequest): Promise<ShowElbIpGroupResponse> {
+        const options = ParamCreater().showElbIpGroup(showElbIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库错误日志
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1648,8 +1985,8 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询创建实例或扩容节点时需要的IP数量
      * @param {number} nodeNum 创建实例或扩容节点的个数。最大支持输入200。
-     * @param {string} [engineName] 数据库引擎名称。没有传入实例ID的时候该字段为必传。 - 取值为“cassandra”，表示GaussDB(for Cassandra)数据库引擎。 - 取值为“mongodb”，表示GaussDB(for Mongo)数据库引擎。 - 取值为“influxdb”，表示GaussDB(for Influx)数据库引擎。 - 取值为“redis”，表示GaussDB(for Redis)数据库引擎。
-     * @param {string} [instanceMode] 实例类型。没有传入实例ID的时候该字段为必传。 - 取值为“Cluster”，表示GaussDB(for Cassandra)、GaussDB(for Influx)、GaussDB(for Redis)集群实例类型。 - 取值为“ReplicaSet”，表示GaussDB(for Mongo)副本集实例类型。
+     * @param {string} [engineName] 数据库引擎名称。没有传入实例ID的时候该字段为必传。 - 取值为“cassandra”，表示GeminiDB Cassandra数据库引擎。 - 取值为“mongodb”，表示GeminiDB Mongo数据库引擎。 - 取值为“influxdb”，表示GeminiDB Influx数据库引擎。 - 取值为“redis”，表示GeminiDB Redis数据库引擎。
+     * @param {string} [instanceMode] 实例类型。没有传入实例ID的时候该字段为必传。 - 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。 - 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。
      * @param {string} [instanceId] 实例Id，可以调用5.3.3 查询实例列表和详情接口获取。如果未申请实例，可以调用5.3.1 创建实例接口创建。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1704,13 +2041,13 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 查询单租户在GaussDBforNoSQL服务下的资源配额。
+     * 查询单租户在GeminiDB服务下的资源配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额
-     * @param {string} [datastoreType] 数据库类型。 取值为“cassandra”，表示查询GaussDB(for Cassandra)数据库实例配额。 取值为“mongodb”，表示GaussDB(for Mongo)查询数据库实例配额。 取值为“influxdb”，表示查询GaussDB(for Influx)数据库实例配额。 取值为“redis”，表示查询GaussDB(for Redis)数据库实例配额。 如果不传该参数，表示查询所有数据库实例配额。
-     * @param {string} [mode] 实例类型。 取值为“Cluster”，表示GaussDB(for Cassandra)、GaussDB(for Influx)、GaussDB(for Redis)集群实例类型。 取值为“InfluxdbSingle”，表示GaussDB(for Influx)单节点实例类型。 取值为“ReplicaSet”，表示GaussDB(for Mongo)副本集实例类型。 如果不传datastore_type参数，自动忽略该参数设置，传入datastore_type时，该参数必填。
+     * @param {string} [datastoreType] 数据库类型。 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例配额。 取值为“mongodb”，表示GeminiDB Mongo查询数据库实例配额。 取值为“influxdb”，表示查询GeminiDB Influx数据库实例配额。 取值为“redis”，表示查询GeminiDB Redis数据库实例配额。 如果不传该参数，表示查询所有数据库实例配额。
+     * @param {string} [mode] 实例类型。 取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis集群实例类型。 取值为“InfluxdbSingle”，表示GeminiDB Influx单节点实例类型。 取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。 如果不传datastore_type参数，自动忽略该参数设置，传入datastore_type时，该参数必填。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1795,6 +2132,26 @@ export class GaussDBforNoSQLClient {
      */
     public shrinkInstanceNode(shrinkInstanceNodeRequest?: ShrinkInstanceNodeRequest): Promise<ShrinkInstanceNodeResponse> {
         const options = ParamCreater().shrinkInstanceNode(shrinkInstanceNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置实例负载均衡的IP访问黑白名单，黑名单、白名单只能选一种，每次调用此接口覆盖之前的设置。关闭后不限制连接的源IP地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例负载均衡的IP访问黑白名单
+     * @param {string} instanceId 实例ID。
+     * @param {SwitchIpGroupRequestBody} switchIpGroupRequestBody 设置实例负载均衡的IP访问黑白名单请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchIpGroup(switchIpGroupRequest?: SwitchIpGroupRequest): Promise<SwitchIpGroupResponse> {
+        const options = ParamCreater().switchIpGroup(switchIpGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2820,6 +3177,97 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 关闭实例节点会话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstancesSession(deleteInstancesSessionRequest?: DeleteInstancesSessionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/redis/nodes/{node_id}/sessions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let nodeId;
+
+            if (deleteInstancesSessionRequest !== null && deleteInstancesSessionRequest !== undefined) {
+                if (deleteInstancesSessionRequest instanceof DeleteInstancesSessionRequest) {
+                    nodeId = deleteInstancesSessionRequest.nodeId;
+                    body = deleteInstancesSessionRequest.body
+                } else {
+                    nodeId = deleteInstancesSessionRequest['node_id'];
+                    body = deleteInstancesSessionRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling deleteInstancesSession.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将实例日志与LTS日志流解除关联，后台将取消上传实例日志到的LTS日志流里。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLtsConfigs(deleteLtsConfigsRequest?: DeleteLtsConfigsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteLtsConfigsRequest !== null && deleteLtsConfigsRequest !== undefined) {
+                if (deleteLtsConfigsRequest instanceof DeleteLtsConfigsRequest) {
+                    body = deleteLtsConfigsRequest.body
+                    xLanguage = deleteLtsConfigsRequest.xLanguage;
+                } else {
+                    body = deleteLtsConfigsRequest['body'];
+                    xLanguage = deleteLtsConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 扩容指定集群实例的节点数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2912,6 +3360,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB(for Cassandra)数据库慢日志信息，支持日志关键字搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCassandraSlowLogs(listCassandraSlowLogsRequest?: ListCassandraSlowLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/cassandra/instances/{instance_id}/slow-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listCassandraSlowLogsRequest !== null && listCassandraSlowLogsRequest !== undefined) {
+                if (listCassandraSlowLogsRequest instanceof ListCassandraSlowLogsRequest) {
+                    instanceId = listCassandraSlowLogsRequest.instanceId;
+                    body = listCassandraSlowLogsRequest.body
+                } else {
+                    instanceId = listCassandraSlowLogsRequest['instance_id'];
+                    body = listCassandraSlowLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listCassandraSlowLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3541,6 +4035,266 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取节点会话列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesSession(listInstancesSessionRequest?: ListInstancesSessionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/nodes/{node_id}/sessions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let nodeId;
+            
+            let offset;
+            
+            let limit;
+            
+            let addrPrefix;
+
+            if (listInstancesSessionRequest !== null && listInstancesSessionRequest !== undefined) {
+                if (listInstancesSessionRequest instanceof ListInstancesSessionRequest) {
+                    nodeId = listInstancesSessionRequest.nodeId;
+                    offset = listInstancesSessionRequest.offset;
+                    limit = listInstancesSessionRequest.limit;
+                    addrPrefix = listInstancesSessionRequest.addrPrefix;
+                } else {
+                    nodeId = listInstancesSessionRequest['node_id'];
+                    offset = listInstancesSessionRequest['offset'];
+                    limit = listInstancesSessionRequest['limit'];
+                    addrPrefix = listInstancesSessionRequest['addr_prefix'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listInstancesSession.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (addrPrefix !== null && addrPrefix !== undefined) {
+                localVarQueryParameter['addr_prefix'] = addrPrefix;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例节点会话统计信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesSessionStatistics(listInstancesSessionStatisticsRequest?: ListInstancesSessionStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/redis/nodes/{node_id}/session-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let nodeId;
+
+            if (listInstancesSessionStatisticsRequest !== null && listInstancesSessionStatisticsRequest !== undefined) {
+                if (listInstancesSessionStatisticsRequest instanceof ListInstancesSessionStatisticsRequest) {
+                    nodeId = listInstancesSessionStatisticsRequest.nodeId;
+                } else {
+                    nodeId = listInstancesSessionStatisticsRequest['node_id'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listInstancesSessionStatistics.');
+            }
+
+            options.pathParams = { 'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询实例关联的LTS日志配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLtsConfigs(listLtsConfigsRequest?: ListLtsConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let instanceId;
+            
+            let instanceName;
+            
+            let enterpriseProjectId;
+
+            if (listLtsConfigsRequest !== null && listLtsConfigsRequest !== undefined) {
+                if (listLtsConfigsRequest instanceof ListLtsConfigsRequest) {
+                    xLanguage = listLtsConfigsRequest.xLanguage;
+                    offset = listLtsConfigsRequest.offset;
+                    limit = listLtsConfigsRequest.limit;
+                    instanceId = listLtsConfigsRequest.instanceId;
+                    instanceName = listLtsConfigsRequest.instanceName;
+                    enterpriseProjectId = listLtsConfigsRequest.enterpriseProjectId;
+                } else {
+                    xLanguage = listLtsConfigsRequest['X-Language'];
+                    offset = listLtsConfigsRequest['offset'];
+                    limit = listLtsConfigsRequest['limit'];
+                    instanceId = listLtsConfigsRequest['instance_id'];
+                    instanceName = listLtsConfigsRequest['instance_name'];
+                    enterpriseProjectId = listLtsConfigsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB(for Mongo)数据库错误日志信息，支持日志关键字搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMongodbErrorLogs(listMongodbErrorLogsRequest?: ListMongodbErrorLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/mongodb/instances/{instance_id}/error-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listMongodbErrorLogsRequest !== null && listMongodbErrorLogsRequest !== undefined) {
+                if (listMongodbErrorLogsRequest instanceof ListMongodbErrorLogsRequest) {
+                    instanceId = listMongodbErrorLogsRequest.instanceId;
+                    body = listMongodbErrorLogsRequest.body
+                } else {
+                    instanceId = listMongodbErrorLogsRequest['instance_id'];
+                    body = listMongodbErrorLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listMongodbErrorLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB(for Mongo)数据库慢日志信息，支持日志关键字搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMongodbSlowLogs(listMongodbSlowLogsRequest?: ListMongodbSlowLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/mongodb/instances/{instance_id}/slow-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listMongodbSlowLogsRequest !== null && listMongodbSlowLogsRequest !== undefined) {
+                if (listMongodbSlowLogsRequest instanceof ListMongodbSlowLogsRequest) {
+                    instanceId = listMongodbSlowLogsRequest.instanceId;
+                    body = listMongodbSlowLogsRequest.body
+                } else {
+                    instanceId = listMongodbSlowLogsRequest['instance_id'];
+                    body = listMongodbSlowLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listMongodbSlowLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定项目的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3631,6 +4385,166 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB(for Redis)数据库慢日志信息，支持日志关键字搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRedisSlowLogs(listRedisSlowLogsRequest?: ListRedisSlowLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/redis/instances/{instance_id}/slow-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listRedisSlowLogsRequest !== null && listRedisSlowLogsRequest !== undefined) {
+                if (listRedisSlowLogsRequest instanceof ListRedisSlowLogsRequest) {
+                    instanceId = listRedisSlowLogsRequest.instanceId;
+                    body = listRedisSlowLogsRequest.body
+                } else {
+                    instanceId = listRedisSlowLogsRequest['instance_id'];
+                    body = listRedisSlowLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRedisSlowLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取GeminiDB(for Cassandra)实例表级恢复的数据库信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRestoreDatabases(listRestoreDatabasesRequest?: ListRestoreDatabasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRestoreDatabasesRequest !== null && listRestoreDatabasesRequest !== undefined) {
+                if (listRestoreDatabasesRequest instanceof ListRestoreDatabasesRequest) {
+                    instanceId = listRestoreDatabasesRequest.instanceId;
+                    offset = listRestoreDatabasesRequest.offset;
+                    limit = listRestoreDatabasesRequest.limit;
+                } else {
+                    instanceId = listRestoreDatabasesRequest['instance_id'];
+                    offset = listRestoreDatabasesRequest['offset'];
+                    limit = listRestoreDatabasesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRestoreDatabases.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取GeminiDB(for Cassandra)实例表级恢复的表信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRestoreTables(listRestoreTablesRequest?: ListRestoreTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let databaseName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRestoreTablesRequest !== null && listRestoreTablesRequest !== undefined) {
+                if (listRestoreTablesRequest instanceof ListRestoreTablesRequest) {
+                    instanceId = listRestoreTablesRequest.instanceId;
+                    databaseName = listRestoreTablesRequest.databaseName;
+                    offset = listRestoreTablesRequest.offset;
+                    limit = listRestoreTablesRequest.limit;
+                } else {
+                    instanceId = listRestoreTablesRequest['instance_id'];
+                    databaseName = listRestoreTablesRequest['database_name'];
+                    offset = listRestoreTablesRequest['offset'];
+                    limit = listRestoreTablesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRestoreTables.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+                throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling listRestoreTables.');
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4111,6 +5025,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重置自定义参数模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetParamGroupTemplate(resetParamGroupTemplateRequest?: ResetParamGroupTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations/{config_id}/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let configId;
+
+            if (resetParamGroupTemplateRequest !== null && resetParamGroupTemplateRequest !== undefined) {
+                if (resetParamGroupTemplateRequest instanceof ResetParamGroupTemplateRequest) {
+                    configId = resetParamGroupTemplateRequest.configId;
+                } else {
+                    configId = resetParamGroupTemplateRequest['config_id'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling resetParamGroupTemplate.');
+            }
+
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改实例的管理员密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4373,6 +5324,53 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
+         * - 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
+         * - 系统会为当前选择的日志流创建对应日志类型的结构化配置，若该日志流已存在其他日志类型的结构化配置，系统会进行覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveLtsConfigs(saveLtsConfigsRequest?: SaveLtsConfigsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (saveLtsConfigsRequest !== null && saveLtsConfigsRequest !== undefined) {
+                if (saveLtsConfigsRequest instanceof SaveLtsConfigsRequest) {
+                    body = saveLtsConfigsRequest.body
+                    xLanguage = saveLtsConfigsRequest.xLanguage;
+                } else {
+                    body = saveLtsConfigsRequest['body'];
+                    xLanguage = saveLtsConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4899,6 +5897,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例负载均衡的IP访问黑白名单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showElbIpGroup(showElbIpGroupRequest?: ShowElbIpGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lb/access-control",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showElbIpGroupRequest !== null && showElbIpGroupRequest !== undefined) {
+                if (showElbIpGroupRequest instanceof ShowElbIpGroupRequest) {
+                    instanceId = showElbIpGroupRequest.instanceId;
+                } else {
+                    instanceId = showElbIpGroupRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showElbIpGroup.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库错误日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5283,7 +6318,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单租户在GaussDBforNoSQL服务下的资源配额。
+         * 查询单租户在GeminiDB服务下的资源配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5485,6 +6520,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling shrinkInstanceNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置实例负载均衡的IP访问黑白名单，黑名单、白名单只能选一种，每次调用此接口覆盖之前的设置。关闭后不限制连接的源IP地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchIpGroup(switchIpGroupRequest?: SwitchIpGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/lb/access-control",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (switchIpGroupRequest !== null && switchIpGroupRequest !== undefined) {
+                if (switchIpGroupRequest instanceof SwitchIpGroupRequest) {
+                    instanceId = switchIpGroupRequest.instanceId;
+                    body = switchIpGroupRequest.body
+                } else {
+                    instanceId = switchIpGroupRequest['instance_id'];
+                    body = switchIpGroupRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchIpGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

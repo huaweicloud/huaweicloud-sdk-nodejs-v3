@@ -8,6 +8,7 @@ export class IdCardRequestBody {
     private 'return_text_location'?: boolean;
     private 'detect_reproduce'?: boolean;
     private 'detect_copy'?: boolean;
+    private 'return_portrait_location'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): IdCardRequestBody {
@@ -61,5 +62,15 @@ export class IdCardRequestBody {
     }
     public get detectCopy(): boolean | undefined {
         return this['detect_copy'];
+    }
+    public withReturnPortraitLocation(returnPortraitLocation: boolean): IdCardRequestBody {
+        this['return_portrait_location'] = returnPortraitLocation;
+        return this;
+    }
+    public set returnPortraitLocation(returnPortraitLocation: boolean  | undefined) {
+        this['return_portrait_location'] = returnPortraitLocation;
+    }
+    public get returnPortraitLocation(): boolean | undefined {
+        return this['return_portrait_location'];
     }
 }

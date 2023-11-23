@@ -65,6 +65,9 @@ import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { CreateIpRequest } from './model/CreateIpRequest';
 import { CreateIpRequestBody } from './model/CreateIpRequestBody';
 import { CreateIpResponse } from './model/CreateIpResponse';
+import { CreateKillOpRuleRequest } from './model/CreateKillOpRuleRequest';
+import { CreateKillOpRuleRequestBody } from './model/CreateKillOpRuleRequestBody';
+import { CreateKillOpRuleResponse } from './model/CreateKillOpRuleResponse';
 import { CreateManualBackupOption } from './model/CreateManualBackupOption';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
@@ -85,8 +88,18 @@ import { DeleteDatabaseUserRequestBody } from './model/DeleteDatabaseUserRequest
 import { DeleteDatabaseUserResponse } from './model/DeleteDatabaseUserResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteKillOpRuleListRequest } from './model/DeleteKillOpRuleListRequest';
+import { DeleteKillOpRuleListRequestBody } from './model/DeleteKillOpRuleListRequestBody';
+import { DeleteKillOpRuleListResponse } from './model/DeleteKillOpRuleListResponse';
+import { DeleteLtsConfigRequest } from './model/DeleteLtsConfigRequest';
+import { DeleteLtsConfigRequestBody } from './model/DeleteLtsConfigRequestBody';
+import { DeleteLtsConfigRequestBodyLtsConfigs } from './model/DeleteLtsConfigRequestBodyLtsConfigs';
+import { DeleteLtsConfigResponse } from './model/DeleteLtsConfigResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
+import { DeleteReadonlyNodeRequest } from './model/DeleteReadonlyNodeRequest';
+import { DeleteReadonlyNodeRequestBody } from './model/DeleteReadonlyNodeRequestBody';
+import { DeleteReadonlyNodeResponse } from './model/DeleteReadonlyNodeResponse';
 import { DeleteSessionRequest } from './model/DeleteSessionRequest';
 import { DeleteSessionRequestBody } from './model/DeleteSessionRequestBody';
 import { DeleteSessionResponse } from './model/DeleteSessionResponse';
@@ -106,6 +119,7 @@ import { EnlargeInstanceRequestBody } from './model/EnlargeInstanceRequestBody';
 import { EnlargeReplicasetNodeRequestBody } from './model/EnlargeReplicasetNodeRequestBody';
 import { EntityConfigurationParametersResult } from './model/EntityConfigurationParametersResult';
 import { EntityInfo } from './model/EntityInfo';
+import { ErrorLogDetail } from './model/ErrorLogDetail';
 import { ErrorResponse } from './model/ErrorResponse';
 import { ErrorlogResult } from './model/ErrorlogResult';
 import { ExpandReplicasetNodeRequest } from './model/ExpandReplicasetNodeRequest';
@@ -120,6 +134,7 @@ import { InstanceItemTagItem } from './model/InstanceItemTagItem';
 import { JobDetail } from './model/JobDetail';
 import { JobInfo } from './model/JobInfo';
 import { JobInstanceInfo } from './model/JobInstanceInfo';
+import { KillOpRule } from './model/KillOpRule';
 import { Links } from './model/Links';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
@@ -156,6 +171,15 @@ import { ListInstancesByTagsRequestBody } from './model/ListInstancesByTagsReque
 import { ListInstancesByTagsResponse } from './model/ListInstancesByTagsResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
+import { ListLtsConfigsRequest } from './model/ListLtsConfigsRequest';
+import { ListLtsConfigsResponse } from './model/ListLtsConfigsResponse';
+import { ListLtsErrorLogsRequest } from './model/ListLtsErrorLogsRequest';
+import { ListLtsErrorLogsRequestBody } from './model/ListLtsErrorLogsRequestBody';
+import { ListLtsErrorLogsResponse } from './model/ListLtsErrorLogsResponse';
+import { ListLtsLogPolicyRespondBodyInstance } from './model/ListLtsLogPolicyRespondBodyInstance';
+import { ListLtsLogPolicyRespondBodyInstanceDatastore } from './model/ListLtsLogPolicyRespondBodyInstanceDatastore';
+import { ListLtsLogPolicyRespondBodyInstanceLtsConfigs } from './model/ListLtsLogPolicyRespondBodyInstanceLtsConfigs';
+import { ListLtsLogPolicyRespondBodyLtsConfigs } from './model/ListLtsLogPolicyRespondBodyLtsConfigs';
 import { ListLtsSlowLogsRequest } from './model/ListLtsSlowLogsRequest';
 import { ListLtsSlowLogsRequestBody } from './model/ListLtsSlowLogsRequestBody';
 import { ListLtsSlowLogsResponse } from './model/ListLtsSlowLogsResponse';
@@ -180,6 +204,7 @@ import { ListStorageTypeRequest } from './model/ListStorageTypeRequest';
 import { ListStorageTypeResponse } from './model/ListStorageTypeResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
+import { LtsLogType } from './model/LtsLogType';
 import { MigrateAzRequest } from './model/MigrateAzRequest';
 import { MigrateAzRequestBody } from './model/MigrateAzRequestBody';
 import { MigrateAzResponse } from './model/MigrateAzResponse';
@@ -265,6 +290,8 @@ import { ShowEntityConfigurationRequest } from './model/ShowEntityConfigurationR
 import { ShowEntityConfigurationResponse } from './model/ShowEntityConfigurationResponse';
 import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
 import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
+import { ShowKillOpRuleRuleListRequest } from './model/ShowKillOpRuleRuleListRequest';
+import { ShowKillOpRuleRuleListResponse } from './model/ShowKillOpRuleRuleListResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
@@ -286,9 +313,14 @@ import { ShrinkInstanceNodesResponse } from './model/ShrinkInstanceNodesResponse
 import { SlowLogDetail } from './model/SlowLogDetail';
 import { SlowlogResult } from './model/SlowlogResult';
 import { Source } from './model/Source';
+import { StopBackupRequest } from './model/StopBackupRequest';
+import { StopBackupRequestBody } from './model/StopBackupRequestBody';
+import { StopBackupResponse } from './model/StopBackupResponse';
 import { Storage } from './model/Storage';
 import { SwitchConfigurationRequest } from './model/SwitchConfigurationRequest';
 import { SwitchConfigurationResponse } from './model/SwitchConfigurationResponse';
+import { SwitchInstancePrimaryRequest } from './model/SwitchInstancePrimaryRequest';
+import { SwitchInstancePrimaryResponse } from './model/SwitchInstancePrimaryResponse';
 import { SwitchSecondLevelMonitoringRequest } from './model/SwitchSecondLevelMonitoringRequest';
 import { SwitchSecondLevelMonitoringRequestBody } from './model/SwitchSecondLevelMonitoringRequestBody';
 import { SwitchSecondLevelMonitoringResponse } from './model/SwitchSecondLevelMonitoringResponse';
@@ -318,6 +350,13 @@ import { UpdateInstancePortResponse } from './model/UpdateInstancePortResponse';
 import { UpdateInstanceRemarkRequest } from './model/UpdateInstanceRemarkRequest';
 import { UpdateInstanceRemarkRequestBody } from './model/UpdateInstanceRemarkRequestBody';
 import { UpdateInstanceRemarkResponse } from './model/UpdateInstanceRemarkResponse';
+import { UpdateKillOpRuleRequest } from './model/UpdateKillOpRuleRequest';
+import { UpdateKillOpRuleRequestBody } from './model/UpdateKillOpRuleRequestBody';
+import { UpdateKillOpRuleResponse } from './model/UpdateKillOpRuleResponse';
+import { UpdateLtsConfigRequest } from './model/UpdateLtsConfigRequest';
+import { UpdateLtsConfigRequestBody } from './model/UpdateLtsConfigRequestBody';
+import { UpdateLtsConfigRequestBodyLtsConfigs } from './model/UpdateLtsConfigRequestBodyLtsConfigs';
+import { UpdateLtsConfigResponse } from './model/UpdateLtsConfigResponse';
 import { UpdateNameRequestBody } from './model/UpdateNameRequestBody';
 import { UpdatePortRequestBody } from './model/UpdatePortRequestBody';
 import { UpdateReplSetNameRequest } from './model/UpdateReplSetNameRequest';
@@ -663,6 +702,26 @@ export class DdsClient {
     }
 
     /**
+     * 创建killOp规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建killOp规则
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {CreateKillOpRuleRequestBody} createKillOpRuleRequestBody killOp规则参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKillOpRule(createKillOpRuleRequest?: CreateKillOpRuleRequest): Promise<CreateKillOpRuleResponse> {
+        const options = ParamCreater().createKillOpRule(createKillOpRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建数据库实例的手动备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -781,17 +840,76 @@ export class DdsClient {
     }
 
     /**
+     * 删除killOp规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除killOp规则
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {DeleteKillOpRuleListRequestBody} deleteKillOpRuleListRequestBody killOp规则ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKillOpRuleList(deleteKillOpRuleListRequest?: DeleteKillOpRuleListRequest): Promise<DeleteKillOpRuleListResponse> {
+        const options = ParamCreater().deleteKillOpRuleList(deleteKillOpRuleListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将实例日志与LTS日志流解除关联，后台将取消上传实例日志到的LTS日志流里。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除关联LTS日志流
+     * @param {DeleteLtsConfigRequestBody} deleteLtsConfigRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLtsConfig(deleteLtsConfigRequest?: DeleteLtsConfigRequest): Promise<DeleteLtsConfigResponse> {
+        const options = ParamCreater().deleteLtsConfig(deleteLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除数据库实例的手动备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除手动备份
-     * @param {string} backupId 备份文件ID。
+     * @param {string} backupId 备份ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteManualBackup(deleteManualBackupRequest?: DeleteManualBackupRequest): Promise<DeleteManualBackupResponse> {
         const options = ParamCreater().deleteManualBackup(deleteManualBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当副本集添加了只读节点后，需要删除对应的只读节点需要调用此API。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除只读节点
+     * @param {string} instanceId 实例ID。
+     * @param {DeleteReadonlyNodeRequestBody} [deleteReadonlyNodeRequestBody] 准备删除的只读节点。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteReadonlyNode(deleteReadonlyNodeRequest?: DeleteReadonlyNodeRequest): Promise<DeleteReadonlyNodeResponse> {
+        const options = ParamCreater().deleteReadonlyNode(deleteReadonlyNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1200,6 +1318,46 @@ export class DdsClient {
      */
     public listInstancesByTags(listInstancesByTagsRequest?: ListInstancesByTagsRequest): Promise<ListInstancesByTagsResponse> {
         const options = ParamCreater().listInstancesByTags(listInstancesByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询LTS日志配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询LTS日志配置信息
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。取值范围：0~50。不传该参数时，默认查询前50条实例的云服务日志配置信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLtsConfigs(listLtsConfigsRequest?: ListLtsConfigsRequest): Promise<ListLtsConfigsResponse> {
+        const options = ParamCreater().listLtsConfigs(listLtsConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库错误日志信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库错误日志
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {ListLtsErrorLogsRequestBody} listLtsErrorLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLtsErrorLogs(listLtsErrorLogsRequest?: ListLtsErrorLogsRequest): Promise<ListLtsErrorLogsResponse> {
+        const options = ParamCreater().listLtsErrorLogs(listLtsErrorLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1926,6 +2084,31 @@ export class DdsClient {
     }
 
     /**
+     * 获取killOp规则列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取killOp规则列表
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {string} [operationTypes] Sql语句操作类型。  - insert，表示插入语句。  - update，表示更新语句。  - query，表示查询语句。  - command，表示命令语句。  - remove，表示删除语句。  - getmore，表示获取更多数据语句。
+     * @param {string} [namespaces] 表命名空间。取值格式：库名.表名。 - 可为空，表示不做限制。 - 单独库名，表示对某个库下的所有集合生效。 - 库名.表名，表示对具体库下的具体的集合生效。
+     * @param {string} [status] killOp规则状态。  - ENABLED，规则生效中。 - DISABLED，规则禁用中。
+     * @param {string} [planSummary] 执行计划。 默认值空，表示不做限制。  - COLLSCAN。 - SORT_KEY_GENERATOR。 - SKIP。 - LIMIT。 - GEO_NEAR_2DSPHERE。 - GEO_NEAR_2D。 - AGGREGATE。 - OR。
+     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 取值必须为数字，不能为负数。
+     * @param {number} [limit] 查询个数上限值。 - 取值范围: 1~100。 - 不传该参数时，默认查询前100条信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKillOpRuleRuleList(showKillOpRuleRuleListRequest?: ShowKillOpRuleRuleListRequest): Promise<ShowKillOpRuleRuleListResponse> {
+        const options = ParamCreater().showKillOpRuleRuleList(showKillOpRuleRuleListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单租户在DDS服务下的资源配额，包括单节点实例配额、副本集实例配额、集群实例配额等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2080,6 +2263,26 @@ export class DdsClient {
     }
 
     /**
+     * 支持紧急情况下停止备份功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止备份
+     * @param {string} backupId 备份ID。
+     * @param {StopBackupRequestBody} stopBackupRequestBody 停止备份请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBackup(stopBackupRequest?: StopBackupRequest): Promise<StopBackupResponse> {
+        const options = ParamCreater().stopBackup(stopBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 指定实例变更参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2092,6 +2295,26 @@ export class DdsClient {
      */
     public switchConfiguration(switchConfigurationRequest?: SwitchConfigurationRequest): Promise<SwitchConfigurationResponse> {
         const options = ParamCreater().switchConfiguration(switchConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持副本集、shard和config备节点强制升主。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 强制备节点升主
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {string} nodeId 备节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchInstancePrimary(switchInstancePrimaryRequest?: SwitchInstancePrimaryRequest): Promise<SwitchInstancePrimaryResponse> {
+        const options = ParamCreater().switchInstancePrimary(switchInstancePrimaryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2292,6 +2515,47 @@ export class DdsClient {
      */
     public updateInstanceRemark(updateInstanceRemarkRequest?: UpdateInstanceRemarkRequest): Promise<UpdateInstanceRemarkResponse> {
         const options = ParamCreater().updateInstanceRemark(updateInstanceRemarkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用/禁用killOp规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用/禁用killOp规则
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {UpdateKillOpRuleRequestBody} updateKillOpRuleRequestBody killOp规则参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKillOpRule(updateKillOpRuleRequest?: UpdateKillOpRuleRequest): Promise<UpdateKillOpRuleResponse> {
+        const options = ParamCreater().updateKillOpRule(updateKillOpRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
+     * 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
+     * 系统会为当前选择的日志流创建对应日志类型的结构化配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关联LTS日志流
+     * @param {UpdateLtsConfigRequestBody} updateLtsConfigRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLtsConfig(updateLtsConfigRequest?: UpdateLtsConfigRequest): Promise<UpdateLtsConfigResponse> {
+        const options = ParamCreater().updateLtsConfig(updateLtsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3103,6 +3367,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建killOp规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createKillOpRule(createKillOpRuleRequest?: CreateKillOpRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/kill-op-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createKillOpRuleRequest !== null && createKillOpRuleRequest !== undefined) {
+                if (createKillOpRuleRequest instanceof CreateKillOpRuleRequest) {
+                    instanceId = createKillOpRuleRequest.instanceId;
+                    body = createKillOpRuleRequest.body
+                } else {
+                    instanceId = createKillOpRuleRequest['instance_id'];
+                    body = createKillOpRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createKillOpRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建数据库实例的手动备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3360,6 +3670,90 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除killOp规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKillOpRuleList(deleteKillOpRuleListRequest?: DeleteKillOpRuleListRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/kill-op-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteKillOpRuleListRequest !== null && deleteKillOpRuleListRequest !== undefined) {
+                if (deleteKillOpRuleListRequest instanceof DeleteKillOpRuleListRequest) {
+                    instanceId = deleteKillOpRuleListRequest.instanceId;
+                    body = deleteKillOpRuleListRequest.body
+                } else {
+                    instanceId = deleteKillOpRuleListRequest['instance_id'];
+                    body = deleteKillOpRuleListRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteKillOpRuleList.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将实例日志与LTS日志流解除关联，后台将取消上传实例日志到的LTS日志流里。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLtsConfig(deleteLtsConfigRequest?: DeleteLtsConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteLtsConfigRequest !== null && deleteLtsConfigRequest !== undefined) {
+                if (deleteLtsConfigRequest instanceof DeleteLtsConfigRequest) {
+                    body = deleteLtsConfigRequest.body
+                } else {
+                    body = deleteLtsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除数据库实例的手动备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3392,6 +3786,49 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当副本集添加了只读节点后，需要删除对应的只读节点需要调用此API。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteReadonlyNode(deleteReadonlyNodeRequest?: DeleteReadonlyNodeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/readonly-node",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteReadonlyNodeRequest !== null && deleteReadonlyNodeRequest !== undefined) {
+                if (deleteReadonlyNodeRequest instanceof DeleteReadonlyNodeRequest) {
+                    instanceId = deleteReadonlyNodeRequest.instanceId;
+                    body = deleteReadonlyNodeRequest.body
+                } else {
+                    instanceId = deleteReadonlyNodeRequest['instance_id'];
+                    body = deleteReadonlyNodeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteReadonlyNode.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4452,6 +4889,96 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询LTS日志配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLtsConfigs(listLtsConfigsRequest?: ListLtsConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listLtsConfigsRequest !== null && listLtsConfigsRequest !== undefined) {
+                if (listLtsConfigsRequest instanceof ListLtsConfigsRequest) {
+                    offset = listLtsConfigsRequest.offset;
+                    limit = listLtsConfigsRequest.limit;
+                } else {
+                    offset = listLtsConfigsRequest['offset'];
+                    limit = listLtsConfigsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库错误日志信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLtsErrorLogs(listLtsErrorLogsRequest?: ListLtsErrorLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.1/{project_id}/instances/{instance_id}/error-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listLtsErrorLogsRequest !== null && listLtsErrorLogsRequest !== undefined) {
+                if (listLtsErrorLogsRequest instanceof ListLtsErrorLogsRequest) {
+                    instanceId = listLtsErrorLogsRequest.instanceId;
+                    body = listLtsErrorLogsRequest.body
+                } else {
+                    instanceId = listLtsErrorLogsRequest['instance_id'];
+                    body = listLtsErrorLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLtsErrorLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6182,6 +6709,86 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取killOp规则列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKillOpRuleRuleList(showKillOpRuleRuleListRequest?: ShowKillOpRuleRuleListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/kill-op-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let operationTypes;
+            
+            let namespaces;
+            
+            let status;
+            
+            let planSummary;
+            
+            let offset;
+            
+            let limit;
+
+            if (showKillOpRuleRuleListRequest !== null && showKillOpRuleRuleListRequest !== undefined) {
+                if (showKillOpRuleRuleListRequest instanceof ShowKillOpRuleRuleListRequest) {
+                    instanceId = showKillOpRuleRuleListRequest.instanceId;
+                    operationTypes = showKillOpRuleRuleListRequest.operationTypes;
+                    namespaces = showKillOpRuleRuleListRequest.namespaces;
+                    status = showKillOpRuleRuleListRequest.status;
+                    planSummary = showKillOpRuleRuleListRequest.planSummary;
+                    offset = showKillOpRuleRuleListRequest.offset;
+                    limit = showKillOpRuleRuleListRequest.limit;
+                } else {
+                    instanceId = showKillOpRuleRuleListRequest['instance_id'];
+                    operationTypes = showKillOpRuleRuleListRequest['operation_types'];
+                    namespaces = showKillOpRuleRuleListRequest['namespaces'];
+                    status = showKillOpRuleRuleListRequest['status'];
+                    planSummary = showKillOpRuleRuleListRequest['plan_summary'];
+                    offset = showKillOpRuleRuleListRequest['offset'];
+                    limit = showKillOpRuleRuleListRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKillOpRuleRuleList.');
+            }
+            if (operationTypes !== null && operationTypes !== undefined) {
+                localVarQueryParameter['operation_types'] = operationTypes;
+            }
+            if (namespaces !== null && namespaces !== undefined) {
+                localVarQueryParameter['namespaces'] = namespaces;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (planSummary !== null && planSummary !== undefined) {
+                localVarQueryParameter['plan_summary'] = planSummary;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单租户在DDS服务下的资源配额，包括单节点实例配额、副本集实例配额、集群实例配额等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6484,6 +7091,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 支持紧急情况下停止备份功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBackup(stopBackupRequest?: StopBackupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/backups/{backup_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let backupId;
+
+            if (stopBackupRequest !== null && stopBackupRequest !== undefined) {
+                if (stopBackupRequest instanceof StopBackupRequest) {
+                    backupId = stopBackupRequest.backupId;
+                    body = stopBackupRequest.body
+                } else {
+                    backupId = stopBackupRequest['backup_id'];
+                    body = stopBackupRequest['body'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling stopBackup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 指定实例变更参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6525,6 +7178,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持副本集、shard和config备节点强制升主。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchInstancePrimary(switchInstancePrimaryRequest?: SwitchInstancePrimaryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/primary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (switchInstancePrimaryRequest !== null && switchInstancePrimaryRequest !== undefined) {
+                if (switchInstancePrimaryRequest instanceof SwitchInstancePrimaryRequest) {
+                    instanceId = switchInstancePrimaryRequest.instanceId;
+                    nodeId = switchInstancePrimaryRequest.nodeId;
+                } else {
+                    instanceId = switchInstancePrimaryRequest['instance_id'];
+                    nodeId = switchInstancePrimaryRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchInstancePrimary.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling switchInstancePrimary.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6981,6 +7678,92 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用/禁用killOp规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKillOpRule(updateKillOpRuleRequest?: UpdateKillOpRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/kill-op-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateKillOpRuleRequest !== null && updateKillOpRuleRequest !== undefined) {
+                if (updateKillOpRuleRequest instanceof UpdateKillOpRuleRequest) {
+                    instanceId = updateKillOpRuleRequest.instanceId;
+                    body = updateKillOpRuleRequest.body
+                } else {
+                    instanceId = updateKillOpRuleRequest['instance_id'];
+                    body = updateKillOpRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateKillOpRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将实例日志与LTS日志流关联，后台将自动上传实例日志到关联的LTS日志流里。
+         * 关联成功后，会产生一定费用，具体计费可参考云日志服务（LTS）的定价详情。
+         * 系统会为当前选择的日志流创建对应日志类型的结构化配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLtsConfig(updateLtsConfigRequest?: UpdateLtsConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateLtsConfigRequest !== null && updateLtsConfigRequest !== undefined) {
+                if (updateLtsConfigRequest instanceof UpdateLtsConfigRequest) {
+                    body = updateLtsConfigRequest.body
+                } else {
+                    body = updateLtsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

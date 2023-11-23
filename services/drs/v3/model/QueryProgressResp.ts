@@ -5,6 +5,7 @@ export class QueryProgressResp {
     private 'job_id'?: string;
     public progress?: string;
     private 'incre_trans_delay'?: string;
+    private 'incre_trans_delay_millis'?: string;
     private 'task_mode'?: QueryProgressRespTaskModeEnum | string;
     private 'transfer_status'?: string;
     private 'process_time'?: string;
@@ -37,6 +38,16 @@ export class QueryProgressResp {
     }
     public get increTransDelay(): string | undefined {
         return this['incre_trans_delay'];
+    }
+    public withIncreTransDelayMillis(increTransDelayMillis: string): QueryProgressResp {
+        this['incre_trans_delay_millis'] = increTransDelayMillis;
+        return this;
+    }
+    public set increTransDelayMillis(increTransDelayMillis: string  | undefined) {
+        this['incre_trans_delay_millis'] = increTransDelayMillis;
+    }
+    public get increTransDelayMillis(): string | undefined {
+        return this['incre_trans_delay_millis'];
     }
     public withTaskMode(taskMode: QueryProgressRespTaskModeEnum | string): QueryProgressResp {
         this['task_mode'] = taskMode;

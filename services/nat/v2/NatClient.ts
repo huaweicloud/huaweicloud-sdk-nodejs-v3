@@ -272,7 +272,7 @@ export class NatClient {
      * @param {number} [internalServicePort] 虚拟机或者裸机对外提供服务的协议端口号。 取值范围：0~65535。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
      * @param {string} [id] DNAT规则的ID。
-     * @param {string} [description] DNAT规则的描述，长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {string} [description] DNAT规则的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {string} [createdAt] DNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [portId] 虚拟机或者裸机的Port ID，对应虚拟私有云场景，与private_ip参数二选一。
@@ -301,7 +301,7 @@ export class NatClient {
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] DNAT规则的ID。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。创建DNAT规则时，关联的企业项目ID。
-     * @param {Array<string>} [description] DNAT规则的描述。长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {Array<string>} [description] DNAT规则的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {Array<string>} [gatewayId] 私网NAT网关实例的ID。
      * @param {Array<string>} [transitIpId] 中转IP的ID。
      * @param {Array<string>} [externalIpAddress] 中转IP的地址。
@@ -671,7 +671,7 @@ export class NatClient {
      * @summary 查询公网NAT网关列表
      * @param {string} [id] 公网NAT网关实例的ID。
      * @param {string} [enterpriseProjectId] 企业项目ID。创建公网NAT网关实例时，关联的企业项目ID。
-     * @param {string} [description] 公网NAT网关实例的描述，长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {string} [description] 公网NAT网关实例的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {string} [createdAt] 公网NAT网关实例的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。 公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文
      * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;INACTIVE\&quot;：不可用
@@ -722,7 +722,7 @@ export class NatClient {
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] 私网NAT网关实例的ID。
      * @param {Array<string>} [name] 私网NAT网关实例的名字。
-     * @param {Array<string>} [description] 私网NAT网关实例的描述。长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {Array<string>} [description] 私网NAT网关实例的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {Array<'Small' | 'Medium' | 'Large' | 'Extra-large'>} [spec] 私网NAT网关实例的规格。 取值为： \&quot;Small\&quot;：小型 \&quot;Medium\&quot;：中型 \&quot;Large\&quot;：大型 \&quot;Extra-large\&quot;：超大型
      * @param {Array<'ACTIVE' | 'FROZEN'>} [status] 私网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;：正常运行 \&quot;FROZEN\&quot;：冻结
      * @param {Array<string>} [vpcId] 私网NAT网关实例所属VPC的ID。
@@ -1031,7 +1031,7 @@ export class NatClient {
      * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。
      * @param {string} [floatingIpId] 功能说明：弹性公网IP的id，多个弹性公网IP使用逗号分隔。 取值范围：最大长度4096字节。
      * @param {string} [id] SNAT规则的ID。
-     * @param {string} [description] SNAT规则的描述，长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {string} [description] SNAT规则的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {string} [createdAt] SNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [networkId] 规则使用的网络id。与cidr参数二选一。
@@ -1059,7 +1059,7 @@ export class NatClient {
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取。
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] SNAT规则的ID。
-     * @param {Array<string>} [description] SNAT规则的描述。长度范围小于等于255个字符，不能包含&lt;&gt;
+     * @param {Array<string>} [description] SNAT规则的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {Array<string>} [gatewayId] 私网NAT网关实例的ID。
      * @param {Array<string>} [cidr] 规则匹配的CIDR。
      * @param {Array<string>} [virsubnetId] 规则匹配的子网的ID。

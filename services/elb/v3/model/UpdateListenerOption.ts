@@ -28,6 +28,7 @@ export class UpdateListenerOption {
     private 'protection_status'?: UpdateListenerOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'gzip_enable'?: boolean;
+    private 'ssl_early_data_enable'?: boolean;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateListenerOption {
@@ -251,6 +252,16 @@ export class UpdateListenerOption {
     }
     public get gzipEnable(): boolean | undefined {
         return this['gzip_enable'];
+    }
+    public withSslEarlyDataEnable(sslEarlyDataEnable: boolean): UpdateListenerOption {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+        return this;
+    }
+    public set sslEarlyDataEnable(sslEarlyDataEnable: boolean  | undefined) {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+    }
+    public get sslEarlyDataEnable(): boolean | undefined {
+        return this['ssl_early_data_enable'];
     }
 }
 

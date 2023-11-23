@@ -1,5 +1,6 @@
 import { AlarmNotifyConfig } from './AlarmNotifyConfig';
 import { CompareResultInfo } from './CompareResultInfo';
+import { ConnectionManagement } from './ConnectionManagement';
 import { DbParamInfo } from './DbParamInfo';
 import { JobBaseInfo } from './JobBaseInfo';
 import { JobEndpointInfo } from './JobEndpointInfo';
@@ -45,6 +46,7 @@ export class JobDetailResp {
     private 'support_import_file_resp'?: SupportImportFileResult;
     private 'instance_features'?: { [key: string]: string; };
     private 'task_version'?: string;
+    private 'connection_management'?: ConnectionManagement;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -282,5 +284,15 @@ export class JobDetailResp {
     }
     public get taskVersion(): string | undefined {
         return this['task_version'];
+    }
+    public withConnectionManagement(connectionManagement: ConnectionManagement): JobDetailResp {
+        this['connection_management'] = connectionManagement;
+        return this;
+    }
+    public set connectionManagement(connectionManagement: ConnectionManagement  | undefined) {
+        this['connection_management'] = connectionManagement;
+    }
+    public get connectionManagement(): ConnectionManagement | undefined {
+        return this['connection_management'];
     }
 }

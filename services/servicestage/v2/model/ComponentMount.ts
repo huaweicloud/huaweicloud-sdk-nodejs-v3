@@ -4,7 +4,9 @@ export class ComponentMount {
     public path?: string;
     public subPath?: string;
     public readOnly?: boolean;
-    public constructor() { 
+    public constructor(path?: string, readOnly?: boolean) { 
+        this['path'] = path;
+        this['readOnly'] = readOnly;
     }
     public withPath(path: string): ComponentMount {
         this['path'] = path;

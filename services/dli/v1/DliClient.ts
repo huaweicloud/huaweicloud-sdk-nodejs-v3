@@ -3,27 +3,27 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AssociateConnectionQueueReq } from './model/AssociateConnectionQueueReq';
-import { AssociateConnectionQueueRequest } from './model/AssociateConnectionQueueRequest';
-import { AssociateConnectionQueueResponse } from './model/AssociateConnectionQueueResponse';
 import { AssociateQueueToElasticResourcePoolRequest } from './model/AssociateQueueToElasticResourcePoolRequest';
 import { AssociateQueueToElasticResourcePoolRequestBody } from './model/AssociateQueueToElasticResourcePoolRequestBody';
 import { AssociateQueueToElasticResourcePoolResponse } from './model/AssociateQueueToElasticResourcePoolResponse';
+import { AssociateQueueToEnhancedConnectionRequest } from './model/AssociateQueueToEnhancedConnectionRequest';
+import { AssociateQueueToEnhancedConnectionResponse } from './model/AssociateQueueToEnhancedConnectionResponse';
 import { AuthInfos } from './model/AuthInfos';
-import { AuthorizeResourceRequest } from './model/AuthorizeResourceRequest';
 import { AuthorizeResourceRequestBody } from './model/AuthorizeResourceRequestBody';
-import { AuthorizeResourceResponse } from './model/AuthorizeResourceResponse';
 import { AvailableQueueInfo } from './model/AvailableQueueInfo';
 import { BatchDeleteFlinkJobsRequest } from './model/BatchDeleteFlinkJobsRequest';
 import { BatchDeleteFlinkJobsRequestBody } from './model/BatchDeleteFlinkJobsRequestBody';
 import { BatchDeleteFlinkJobsResponse } from './model/BatchDeleteFlinkJobsResponse';
 import { BatchDeleteQueuePlansRequest } from './model/BatchDeleteQueuePlansRequest';
 import { BatchDeleteQueuePlansResponse } from './model/BatchDeleteQueuePlansResponse';
+import { BatchDeleteSqlJobTemplatesRequest } from './model/BatchDeleteSqlJobTemplatesRequest';
+import { BatchDeleteSqlJobTemplatesResponse } from './model/BatchDeleteSqlJobTemplatesResponse';
 import { BatchJobInfo } from './model/BatchJobInfo';
 import { BatchRunFlinkJobsRequest } from './model/BatchRunFlinkJobsRequest';
 import { BatchRunFlinkJobsRequestBody } from './model/BatchRunFlinkJobsRequestBody';
 import { BatchRunFlinkJobsResponse } from './model/BatchRunFlinkJobsResponse';
-import { CancelBatchJobRequest } from './model/CancelBatchJobRequest';
-import { CancelBatchJobResponse } from './model/CancelBatchJobResponse';
+import { CancelSparkJobRequest } from './model/CancelSparkJobRequest';
+import { CancelSparkJobResponse } from './model/CancelSparkJobResponse';
 import { CancelSqlJobRequest } from './model/CancelSqlJobRequest';
 import { CancelSqlJobResponse } from './model/CancelSqlJobResponse';
 import { ChangeAuthorizationRequest } from './model/ChangeAuthorizationRequest';
@@ -32,8 +32,6 @@ import { ChangeFlinkJobStatusReportRequest } from './model/ChangeFlinkJobStatusR
 import { ChangeFlinkJobStatusReportResponse } from './model/ChangeFlinkJobStatusReportResponse';
 import { ChangeQueuePlanRequest } from './model/ChangeQueuePlanRequest';
 import { ChangeQueuePlanResponse } from './model/ChangeQueuePlanResponse';
-import { CheckConnectionRequest } from './model/CheckConnectionRequest';
-import { CheckConnectionResponse } from './model/CheckConnectionResponse';
 import { CheckSqlRequest } from './model/CheckSqlRequest';
 import { CheckSqlRequestBody } from './model/CheckSqlRequestBody';
 import { CheckSqlResponse } from './model/CheckSqlResponse';
@@ -42,8 +40,8 @@ import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAuthInfoReq } from './model/CreateAuthInfoReq';
 import { CreateAuthInfoRequest } from './model/CreateAuthInfoRequest';
 import { CreateAuthInfoResponse } from './model/CreateAuthInfoResponse';
-import { CreateBatchJobRequest } from './model/CreateBatchJobRequest';
-import { CreateBatchJobResponse } from './model/CreateBatchJobResponse';
+import { CreateConnectivityTaskRequest } from './model/CreateConnectivityTaskRequest';
+import { CreateConnectivityTaskResponse } from './model/CreateConnectivityTaskResponse';
 import { CreateDatabaseRequest } from './model/CreateDatabaseRequest';
 import { CreateDatabaseRequestBody } from './model/CreateDatabaseRequestBody';
 import { CreateDatabaseResponse } from './model/CreateDatabaseResponse';
@@ -60,27 +58,27 @@ import { CreateEnhancedConnectionResponse } from './model/CreateEnhancedConnecti
 import { CreateEnhancedConnectionRoutesRequest } from './model/CreateEnhancedConnectionRoutesRequest';
 import { CreateEnhancedConnectionRoutesResponse } from './model/CreateEnhancedConnectionRoutesResponse';
 import { CreateEnhancedConnectionsReq } from './model/CreateEnhancedConnectionsReq';
-import { CreateFlinkJarRequest } from './model/CreateFlinkJarRequest';
+import { CreateFlinkJarJobRequest } from './model/CreateFlinkJarJobRequest';
+import { CreateFlinkJarJobResponse } from './model/CreateFlinkJarJobResponse';
 import { CreateFlinkJarRequestBody } from './model/CreateFlinkJarRequestBody';
-import { CreateFlinkJarResponse } from './model/CreateFlinkJarResponse';
+import { CreateFlinkSqlJobGraphRequest } from './model/CreateFlinkSqlJobGraphRequest';
+import { CreateFlinkSqlJobGraphResponse } from './model/CreateFlinkSqlJobGraphResponse';
 import { CreateFlinkSqlJobRequest } from './model/CreateFlinkSqlJobRequest';
 import { CreateFlinkSqlJobRequestBody } from './model/CreateFlinkSqlJobRequestBody';
 import { CreateFlinkSqlJobResponse } from './model/CreateFlinkSqlJobResponse';
-import { CreateFlinkTemplateRequest } from './model/CreateFlinkTemplateRequest';
+import { CreateFlinkSqlJobTemplateRequest } from './model/CreateFlinkSqlJobTemplateRequest';
+import { CreateFlinkSqlJobTemplateResponse } from './model/CreateFlinkSqlJobTemplateResponse';
 import { CreateFlinkTemplateRequestBody } from './model/CreateFlinkTemplateRequestBody';
-import { CreateFlinkTemplateResponse } from './model/CreateFlinkTemplateResponse';
 import { CreateGlobalValueReq } from './model/CreateGlobalValueReq';
-import { CreateGlobalValueRequest } from './model/CreateGlobalValueRequest';
-import { CreateGlobalValueResponse } from './model/CreateGlobalValueResponse';
+import { CreateGlobalVariableRequest } from './model/CreateGlobalVariableRequest';
+import { CreateGlobalVariableResponse } from './model/CreateGlobalVariableResponse';
 import { CreateIefMessageChannelReq } from './model/CreateIefMessageChannelReq';
 import { CreateIefMessageChannelRequest } from './model/CreateIefMessageChannelRequest';
 import { CreateIefMessageChannelResponse } from './model/CreateIefMessageChannelResponse';
 import { CreateIefSystemEventsRequest } from './model/CreateIefSystemEventsRequest';
 import { CreateIefSystemEventsResponse } from './model/CreateIefSystemEventsResponse';
 import { CreateJobRespJob } from './model/CreateJobRespJob';
-import { CreateJobTemplatesRequest } from './model/CreateJobTemplatesRequest';
 import { CreateJobTemplatesRequestBody } from './model/CreateJobTemplatesRequestBody';
-import { CreateJobTemplatesResponse } from './model/CreateJobTemplatesResponse';
 import { CreateQueuePlanRequest } from './model/CreateQueuePlanRequest';
 import { CreateQueuePlanResponse } from './model/CreateQueuePlanResponse';
 import { CreateQueuePropertyRequest } from './model/CreateQueuePropertyRequest';
@@ -91,14 +89,16 @@ import { CreateQueueResponse } from './model/CreateQueueResponse';
 import { CreateRouteRequestBody } from './model/CreateRouteRequestBody';
 import { CreateSessionReqGroup } from './model/CreateSessionReqGroup';
 import { CreateSessionReqResource } from './model/CreateSessionReqResource';
+import { CreateSparkJobRequest } from './model/CreateSparkJobRequest';
+import { CreateSparkJobResponse } from './model/CreateSparkJobResponse';
+import { CreateSparkJobTemplateRequest } from './model/CreateSparkJobTemplateRequest';
+import { CreateSparkJobTemplateResponse } from './model/CreateSparkJobTemplateResponse';
 import { CreateSqlJobRequest } from './model/CreateSqlJobRequest';
 import { CreateSqlJobRequestBody } from './model/CreateSqlJobRequestBody';
 import { CreateSqlJobResponse } from './model/CreateSqlJobResponse';
-import { CreateSqlTemplatesRequest } from './model/CreateSqlTemplatesRequest';
+import { CreateSqlJobTemplateRequest } from './model/CreateSqlJobTemplateRequest';
+import { CreateSqlJobTemplateResponse } from './model/CreateSqlJobTemplateResponse';
 import { CreateSqlTemplatesRequestBody } from './model/CreateSqlTemplatesRequestBody';
-import { CreateSqlTemplatesResponse } from './model/CreateSqlTemplatesResponse';
-import { CreateStreamGraphRequest } from './model/CreateStreamGraphRequest';
-import { CreateStreamGraphResponse } from './model/CreateStreamGraphResponse';
 import { CreateTableReq } from './model/CreateTableReq';
 import { CreateTableReqColumn } from './model/CreateTableReqColumn';
 import { CreateTableRequest } from './model/CreateTableRequest';
@@ -118,10 +118,10 @@ import { DeleteEnhancedConnectionRoutesRequest } from './model/DeleteEnhancedCon
 import { DeleteEnhancedConnectionRoutesResponse } from './model/DeleteEnhancedConnectionRoutesResponse';
 import { DeleteFlinkJobRequest } from './model/DeleteFlinkJobRequest';
 import { DeleteFlinkJobResponse } from './model/DeleteFlinkJobResponse';
-import { DeleteFlinkTemplateRequest } from './model/DeleteFlinkTemplateRequest';
-import { DeleteFlinkTemplateResponse } from './model/DeleteFlinkTemplateResponse';
-import { DeleteGlobalValueRequest } from './model/DeleteGlobalValueRequest';
-import { DeleteGlobalValueResponse } from './model/DeleteGlobalValueResponse';
+import { DeleteFlinkSqlJobTemplateRequest } from './model/DeleteFlinkSqlJobTemplateRequest';
+import { DeleteFlinkSqlJobTemplateResponse } from './model/DeleteFlinkSqlJobTemplateResponse';
+import { DeleteGlobalVariableRequest } from './model/DeleteGlobalVariableRequest';
+import { DeleteGlobalVariableResponse } from './model/DeleteGlobalVariableResponse';
 import { DeleteQueuePlanRequest } from './model/DeleteQueuePlanRequest';
 import { DeleteQueuePlanResponse } from './model/DeleteQueuePlanResponse';
 import { DeleteQueuePropertiesRequestBody } from './model/DeleteQueuePropertiesRequestBody';
@@ -131,21 +131,19 @@ import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
 import { DeleteResourceRequest } from './model/DeleteResourceRequest';
 import { DeleteResourceResponse } from './model/DeleteResourceResponse';
-import { DeleteSqlTemplatesRequest } from './model/DeleteSqlTemplatesRequest';
 import { DeleteSqlTemplatesRequestBody } from './model/DeleteSqlTemplatesRequestBody';
-import { DeleteSqlTemplatesResponse } from './model/DeleteSqlTemplatesResponse';
 import { DeleteTableRequest } from './model/DeleteTableRequest';
 import { DeleteTableResponse } from './model/DeleteTableResponse';
 import { DeleteTemplateRespTemplate } from './model/DeleteTemplateRespTemplate';
 import { DisassociateConnectionQueueReq } from './model/DisassociateConnectionQueueReq';
-import { DisassociateConnectionQueueRequest } from './model/DisassociateConnectionQueueRequest';
-import { DisassociateConnectionQueueResponse } from './model/DisassociateConnectionQueueResponse';
+import { DisassociateQueueFromEnhancedConnectionRequest } from './model/DisassociateQueueFromEnhancedConnectionRequest';
+import { DisassociateQueueFromEnhancedConnectionResponse } from './model/DisassociateQueueFromEnhancedConnectionResponse';
 import { ElasticResourcePoolsResponse } from './model/ElasticResourcePoolsResponse';
 import { EnhancedConnectionResourceInfo } from './model/EnhancedConnectionResourceInfo';
 import { EnhancedConnectionsHost } from './model/EnhancedConnectionsHost';
-import { ExportFlinkJobRequest } from './model/ExportFlinkJobRequest';
 import { ExportFlinkJobRequestBody } from './model/ExportFlinkJobRequestBody';
-import { ExportFlinkJobResponse } from './model/ExportFlinkJobResponse';
+import { ExportFlinkJobsRequest } from './model/ExportFlinkJobsRequest';
+import { ExportFlinkJobsResponse } from './model/ExportFlinkJobsResponse';
 import { ExportSqlJobResultRequest } from './model/ExportSqlJobResultRequest';
 import { ExportSqlJobResultResponse } from './model/ExportSqlJobResultResponse';
 import { ExportSqlResultRequestBody } from './model/ExportSqlResultRequestBody';
@@ -167,9 +165,9 @@ import { IefEvents } from './model/IefEvents';
 import { IefFlinkJobMessagesReq } from './model/IefFlinkJobMessagesReq';
 import { IefFlinkJobStatusReportReq } from './model/IefFlinkJobStatusReportReq';
 import { IefSystemEventsReq } from './model/IefSystemEventsReq';
-import { ImportFlinkJobRequest } from './model/ImportFlinkJobRequest';
 import { ImportFlinkJobRequestBody } from './model/ImportFlinkJobRequestBody';
-import { ImportFlinkJobResponse } from './model/ImportFlinkJobResponse';
+import { ImportFlinkJobsRequest } from './model/ImportFlinkJobsRequest';
+import { ImportFlinkJobsResponse } from './model/ImportFlinkJobsResponse';
 import { ImportTableRequest } from './model/ImportTableRequest';
 import { ImportTableRequestBody } from './model/ImportTableRequestBody';
 import { ImportTableResponse } from './model/ImportTableResponse';
@@ -182,8 +180,8 @@ import { ListAllTablesRequest } from './model/ListAllTablesRequest';
 import { ListAllTablesResponse } from './model/ListAllTablesResponse';
 import { ListAuthInfoRequest } from './model/ListAuthInfoRequest';
 import { ListAuthInfoResponse } from './model/ListAuthInfoResponse';
-import { ListBatchesRequest } from './model/ListBatchesRequest';
-import { ListBatchesResponse } from './model/ListBatchesResponse';
+import { ListAuthorizationPrivilegesRequest } from './model/ListAuthorizationPrivilegesRequest';
+import { ListAuthorizationPrivilegesResponse } from './model/ListAuthorizationPrivilegesResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
 import { ListDatabaseUsersResponse } from './model/ListDatabaseUsersResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
@@ -201,20 +199,18 @@ import { ListEnhancedConnectionsRequest } from './model/ListEnhancedConnectionsR
 import { ListEnhancedConnectionsResponse } from './model/ListEnhancedConnectionsResponse';
 import { ListFlinkJobsRequest } from './model/ListFlinkJobsRequest';
 import { ListFlinkJobsResponse } from './model/ListFlinkJobsResponse';
-import { ListFlinkTemplatesRequest } from './model/ListFlinkTemplatesRequest';
-import { ListFlinkTemplatesResponse } from './model/ListFlinkTemplatesResponse';
+import { ListFlinkSqlJobTemplatesRequest } from './model/ListFlinkSqlJobTemplatesRequest';
+import { ListFlinkSqlJobTemplatesResponse } from './model/ListFlinkSqlJobTemplatesResponse';
 import { ListGlobalValue } from './model/ListGlobalValue';
-import { ListGlobalValuesRequest } from './model/ListGlobalValuesRequest';
-import { ListGlobalValuesResponse } from './model/ListGlobalValuesResponse';
+import { ListGlobalVariablesRequest } from './model/ListGlobalVariablesRequest';
+import { ListGlobalVariablesResponse } from './model/ListGlobalVariablesResponse';
 import { ListGroupPackagesResource } from './model/ListGroupPackagesResource';
-import { ListJobTemplatesRequest } from './model/ListJobTemplatesRequest';
-import { ListJobTemplatesResponse } from './model/ListJobTemplatesResponse';
 import { ListJobsJobs } from './model/ListJobsJobs';
 import { ListQueuePlansRequest } from './model/ListQueuePlansRequest';
 import { ListQueuePlansResponse } from './model/ListQueuePlansResponse';
-import { ListQueuePropertyRequest } from './model/ListQueuePropertyRequest';
+import { ListQueuePropertiesRequest } from './model/ListQueuePropertiesRequest';
+import { ListQueuePropertiesResponse } from './model/ListQueuePropertiesResponse';
 import { ListQueuePropertyRespProperties } from './model/ListQueuePropertyRespProperties';
-import { ListQueuePropertyResponse } from './model/ListQueuePropertyResponse';
 import { ListQueueUsersRequest } from './model/ListQueueUsersRequest';
 import { ListQueueUsersResponse } from './model/ListQueueUsersResponse';
 import { ListQueuesRequest } from './model/ListQueuesRequest';
@@ -222,6 +218,12 @@ import { ListQueuesResponse } from './model/ListQueuesResponse';
 import { ListResourcePackagesRespMoudle } from './model/ListResourcePackagesRespMoudle';
 import { ListResourcesRequest } from './model/ListResourcesRequest';
 import { ListResourcesResponse } from './model/ListResourcesResponse';
+import { ListSparkJobTemplatesRequest } from './model/ListSparkJobTemplatesRequest';
+import { ListSparkJobTemplatesResponse } from './model/ListSparkJobTemplatesResponse';
+import { ListSparkJobsRequest } from './model/ListSparkJobsRequest';
+import { ListSparkJobsResponse } from './model/ListSparkJobsResponse';
+import { ListSqlJobTemplatesRequest } from './model/ListSqlJobTemplatesRequest';
+import { ListSqlJobTemplatesResponse } from './model/ListSqlJobTemplatesResponse';
 import { ListSqlJobsRequest } from './model/ListSqlJobsRequest';
 import { ListSqlJobsResponse } from './model/ListSqlJobsResponse';
 import { ListTablePrivilegesRequest } from './model/ListTablePrivilegesRequest';
@@ -231,8 +233,8 @@ import { ListTableUsersResponse } from './model/ListTableUsersResponse';
 import { ObsBuckets } from './model/ObsBuckets';
 import { PartitionInfos } from './model/PartitionInfos';
 import { Partitions } from './model/Partitions';
-import { PreviewJobResultRequest } from './model/PreviewJobResultRequest';
-import { PreviewJobResultResponse } from './model/PreviewJobResultResponse';
+import { PreviewSqlJobResultRequest } from './model/PreviewSqlJobResultRequest';
+import { PreviewSqlJobResultResponse } from './model/PreviewSqlJobResultResponse';
 import { Privilege } from './model/Privilege';
 import { PrivilegesInfo } from './model/PrivilegesInfo';
 import { ProjectPrivilege } from './model/ProjectPrivilege';
@@ -246,19 +248,19 @@ import { RegisterAuthorizedQueueRequest } from './model/RegisterAuthorizedQueueR
 import { RegisterAuthorizedQueueResponse } from './model/RegisterAuthorizedQueueResponse';
 import { RegisterBucketRequest } from './model/RegisterBucketRequest';
 import { RegisterBucketResponse } from './model/RegisterBucketResponse';
+import { RunAuthorizationActionRequest } from './model/RunAuthorizationActionRequest';
+import { RunAuthorizationActionResponse } from './model/RunAuthorizationActionResponse';
 import { RunIefJobActionCallBackRequest } from './model/RunIefJobActionCallBackRequest';
 import { RunIefJobActionCallBackResponse } from './model/RunIefJobActionCallBackResponse';
 import { RunQueueActionReq } from './model/RunQueueActionReq';
 import { RunQueueActionRequest } from './model/RunQueueActionRequest';
 import { RunQueueActionResponse } from './model/RunQueueActionResponse';
 import { SetQueuePlanReq } from './model/SetQueuePlanReq';
-import { ShowBatchInfoRequest } from './model/ShowBatchInfoRequest';
-import { ShowBatchInfoResponse } from './model/ShowBatchInfoResponse';
 import { ShowBatchJobDetailResp } from './model/ShowBatchJobDetailResp';
 import { ShowBatchLogRequest } from './model/ShowBatchLogRequest';
 import { ShowBatchLogResponse } from './model/ShowBatchLogResponse';
-import { ShowBatchStateRequest } from './model/ShowBatchStateRequest';
-import { ShowBatchStateResponse } from './model/ShowBatchStateResponse';
+import { ShowConnectivityTaskRequest } from './model/ShowConnectivityTaskRequest';
+import { ShowConnectivityTaskResponse } from './model/ShowConnectivityTaskResponse';
 import { ShowDatabaseUsersPrivilege } from './model/ShowDatabaseUsersPrivilege';
 import { ShowDatasourceConnectionRequest } from './model/ShowDatasourceConnectionRequest';
 import { ShowDatasourceConnectionResp } from './model/ShowDatasourceConnectionResp';
@@ -267,12 +269,12 @@ import { ShowDescribeTableRequest } from './model/ShowDescribeTableRequest';
 import { ShowDescribeTableResponse } from './model/ShowDescribeTableResponse';
 import { ShowDliAgencyRequest } from './model/ShowDliAgencyRequest';
 import { ShowDliAgencyResponse } from './model/ShowDliAgencyResponse';
+import { ShowEnhancedConnectionPrivilegeRequest } from './model/ShowEnhancedConnectionPrivilegeRequest';
+import { ShowEnhancedConnectionPrivilegeResponse } from './model/ShowEnhancedConnectionPrivilegeResponse';
 import { ShowEnhancedConnectionRequest } from './model/ShowEnhancedConnectionRequest';
 import { ShowEnhancedConnectionResponse } from './model/ShowEnhancedConnectionResponse';
-import { ShowEnhancedPrivilegeRequest } from './model/ShowEnhancedPrivilegeRequest';
-import { ShowEnhancedPrivilegeResponse } from './model/ShowEnhancedPrivilegeResponse';
-import { ShowFlinkExecuteGraphRequest } from './model/ShowFlinkExecuteGraphRequest';
-import { ShowFlinkExecuteGraphResponse } from './model/ShowFlinkExecuteGraphResponse';
+import { ShowFlinkJobExecutionGraphRequest } from './model/ShowFlinkJobExecutionGraphRequest';
+import { ShowFlinkJobExecutionGraphResponse } from './model/ShowFlinkJobExecutionGraphResponse';
 import { ShowFlinkJobRequest } from './model/ShowFlinkJobRequest';
 import { ShowFlinkJobResponse } from './model/ShowFlinkJobResponse';
 import { ShowFlinkMetricRequest } from './model/ShowFlinkMetricRequest';
@@ -282,28 +284,26 @@ import { ShowJobMonitorInfoRespPayload } from './model/ShowJobMonitorInfoRespPay
 import { ShowJobMonitorInfoRespPayloadJobs } from './model/ShowJobMonitorInfoRespPayloadJobs';
 import { ShowJobMonitorInfoRespPayloadJobsMetrics } from './model/ShowJobMonitorInfoRespPayloadJobsMetrics';
 import { ShowJobMonitorInfoRespPayloadJobsMetricsSources } from './model/ShowJobMonitorInfoRespPayloadJobsMetricsSources';
-import { ShowJobProgressRequest } from './model/ShowJobProgressRequest';
-import { ShowJobProgressResponse } from './model/ShowJobProgressResponse';
-import { ShowJobTemplateRequest } from './model/ShowJobTemplateRequest';
-import { ShowJobTemplateResponse } from './model/ShowJobTemplateResponse';
-import { ShowNodeConnectivityRequest } from './model/ShowNodeConnectivityRequest';
-import { ShowNodeConnectivityResponse } from './model/ShowNodeConnectivityResponse';
-import { ShowObjectUserRequest } from './model/ShowObjectUserRequest';
-import { ShowObjectUserResponse } from './model/ShowObjectUserResponse';
 import { ShowPartitionsRequest } from './model/ShowPartitionsRequest';
 import { ShowPartitionsResponse } from './model/ShowPartitionsResponse';
-import { ShowQueueDetailRequest } from './model/ShowQueueDetailRequest';
-import { ShowQueueDetailResponse } from './model/ShowQueueDetailResponse';
+import { ShowQueueRequest } from './model/ShowQueueRequest';
+import { ShowQueueResponse } from './model/ShowQueueResponse';
 import { ShowResourceInfoRequest } from './model/ShowResourceInfoRequest';
 import { ShowResourceInfoResponse } from './model/ShowResourceInfoResponse';
+import { ShowSparkJobRequest } from './model/ShowSparkJobRequest';
+import { ShowSparkJobResponse } from './model/ShowSparkJobResponse';
+import { ShowSparkJobStatusRequest } from './model/ShowSparkJobStatusRequest';
+import { ShowSparkJobStatusResponse } from './model/ShowSparkJobStatusResponse';
+import { ShowSparkJobTemplateRequest } from './model/ShowSparkJobTemplateRequest';
+import { ShowSparkJobTemplateResponse } from './model/ShowSparkJobTemplateResponse';
 import { ShowSqlJobDetailRequest } from './model/ShowSqlJobDetailRequest';
 import { ShowSqlJobDetailResponse } from './model/ShowSqlJobDetailResponse';
+import { ShowSqlJobProgressRequest } from './model/ShowSqlJobProgressRequest';
+import { ShowSqlJobProgressResponse } from './model/ShowSqlJobProgressResponse';
 import { ShowSqlJobStatusRequest } from './model/ShowSqlJobStatusRequest';
 import { ShowSqlJobStatusResponse } from './model/ShowSqlJobStatusResponse';
 import { ShowSqlSampleTemplatesRequest } from './model/ShowSqlSampleTemplatesRequest';
 import { ShowSqlSampleTemplatesResponse } from './model/ShowSqlSampleTemplatesResponse';
-import { ShowSqlTemplatesRequest } from './model/ShowSqlTemplatesRequest';
-import { ShowSqlTemplatesResponse } from './model/ShowSqlTemplatesResponse';
 import { ShowStreamJobListJobConfig } from './model/ShowStreamJobListJobConfig';
 import { ShowTableContentRequest } from './model/ShowTableContentRequest';
 import { ShowTableContentResponse } from './model/ShowTableContentResponse';
@@ -325,33 +325,31 @@ import { UpdateAuthInfoRequestBody } from './model/UpdateAuthInfoRequestBody';
 import { UpdateAuthInfoResponse } from './model/UpdateAuthInfoResponse';
 import { UpdateDatabaseOwnerRequest } from './model/UpdateDatabaseOwnerRequest';
 import { UpdateDatabaseOwnerResponse } from './model/UpdateDatabaseOwnerResponse';
-import { UpdateElasticResourcePoolQueueInfoRequest } from './model/UpdateElasticResourcePoolQueueInfoRequest';
-import { UpdateElasticResourcePoolQueueInfoResponse } from './model/UpdateElasticResourcePoolQueueInfoResponse';
+import { UpdateElasticResourcePoolQueueRequest } from './model/UpdateElasticResourcePoolQueueRequest';
+import { UpdateElasticResourcePoolQueueResponse } from './model/UpdateElasticResourcePoolQueueResponse';
 import { UpdateElasticResourcePoolQueueScalingPolicyInfo } from './model/UpdateElasticResourcePoolQueueScalingPolicyInfo';
 import { UpdateElasticResourcePoolRequest } from './model/UpdateElasticResourcePoolRequest';
 import { UpdateElasticResourcePoolRequestBody } from './model/UpdateElasticResourcePoolRequestBody';
 import { UpdateElasticResourcePoolResponse } from './model/UpdateElasticResourcePoolResponse';
-import { UpdateFlinkJarRequest } from './model/UpdateFlinkJarRequest';
+import { UpdateEnhancedConnectionRequest } from './model/UpdateEnhancedConnectionRequest';
+import { UpdateEnhancedConnectionResponse } from './model/UpdateEnhancedConnectionResponse';
+import { UpdateFlinkJarJobRequest } from './model/UpdateFlinkJarJobRequest';
+import { UpdateFlinkJarJobResponse } from './model/UpdateFlinkJarJobResponse';
 import { UpdateFlinkJarRequestBody } from './model/UpdateFlinkJarRequestBody';
-import { UpdateFlinkJarResponse } from './model/UpdateFlinkJarResponse';
-import { UpdateFlinkSqlRequest } from './model/UpdateFlinkSqlRequest';
+import { UpdateFlinkSqlJobRequest } from './model/UpdateFlinkSqlJobRequest';
+import { UpdateFlinkSqlJobResponse } from './model/UpdateFlinkSqlJobResponse';
+import { UpdateFlinkSqlJobTemplateRequest } from './model/UpdateFlinkSqlJobTemplateRequest';
+import { UpdateFlinkSqlJobTemplateResponse } from './model/UpdateFlinkSqlJobTemplateResponse';
 import { UpdateFlinkSqlRequestBody } from './model/UpdateFlinkSqlRequestBody';
-import { UpdateFlinkSqlResponse } from './model/UpdateFlinkSqlResponse';
-import { UpdateFlinkTemplateRequest } from './model/UpdateFlinkTemplateRequest';
 import { UpdateFlinkTemplateRequestBody } from './model/UpdateFlinkTemplateRequestBody';
-import { UpdateFlinkTemplateResponse } from './model/UpdateFlinkTemplateResponse';
 import { UpdateGlobalValueReq } from './model/UpdateGlobalValueReq';
-import { UpdateGlobalValueRequest } from './model/UpdateGlobalValueRequest';
-import { UpdateGlobalValueResponse } from './model/UpdateGlobalValueResponse';
+import { UpdateGlobalVariableRequest } from './model/UpdateGlobalVariableRequest';
+import { UpdateGlobalVariableResponse } from './model/UpdateGlobalVariableResponse';
 import { UpdateGroupOrResourceOwnerRequest } from './model/UpdateGroupOrResourceOwnerRequest';
 import { UpdateGroupOrResourceOwnerResponse } from './model/UpdateGroupOrResourceOwnerResponse';
 import { UpdateHostMassageReq } from './model/UpdateHostMassageReq';
-import { UpdateHostMassageRequest } from './model/UpdateHostMassageRequest';
-import { UpdateHostMassageResponse } from './model/UpdateHostMassageResponse';
 import { UpdateJobRespJob } from './model/UpdateJobRespJob';
-import { UpdateJobTemplatesRequest } from './model/UpdateJobTemplatesRequest';
 import { UpdateJobTemplatesRequestBody } from './model/UpdateJobTemplatesRequestBody';
-import { UpdateJobTemplatesResponse } from './model/UpdateJobTemplatesResponse';
 import { UpdateOwnerRequestBody } from './model/UpdateOwnerRequestBody';
 import { UpdateQueueCidrReq } from './model/UpdateQueueCidrReq';
 import { UpdateQueueCidrRequest } from './model/UpdateQueueCidrRequest';
@@ -361,9 +359,11 @@ import { UpdateQueuePropertyRequestBody } from './model/UpdateQueuePropertyReque
 import { UpdateQueuePropertyRequestBodyProperties } from './model/UpdateQueuePropertyRequestBodyProperties';
 import { UpdateQueuePropertyResponse } from './model/UpdateQueuePropertyResponse';
 import { UpdateResourceOwner } from './model/UpdateResourceOwner';
-import { UpdateSqlTemplatesRequest } from './model/UpdateSqlTemplatesRequest';
+import { UpdateSparkJobTemplateRequest } from './model/UpdateSparkJobTemplateRequest';
+import { UpdateSparkJobTemplateResponse } from './model/UpdateSparkJobTemplateResponse';
+import { UpdateSqlJobTemplateRequest } from './model/UpdateSqlJobTemplateRequest';
+import { UpdateSqlJobTemplateResponse } from './model/UpdateSqlJobTemplateResponse';
 import { UpdateSqlTemplatesRequestBody } from './model/UpdateSqlTemplatesRequestBody';
-import { UpdateSqlTemplatesResponse } from './model/UpdateSqlTemplatesResponse';
 import { UpdateTableOwnerRequest } from './model/UpdateTableOwnerRequest';
 import { UpdateTableOwnerResponse } from './model/UpdateTableOwnerResponse';
 import { UploadFilesRequest } from './model/UploadFilesRequest';
@@ -395,6 +395,25 @@ export class DliClient {
 
 
     /**
+     * 该API用于批量删除SQL模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除SQL模板
+     * @param {DeleteSqlTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest): Promise<BatchDeleteSqlJobTemplatesResponse> {
+        const options = ParamCreater().batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于创建作业模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -404,8 +423,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createJobTemplates(createJobTemplatesRequest?: CreateJobTemplatesRequest): Promise<CreateJobTemplatesResponse> {
-        const options = ParamCreater().createJobTemplates(createJobTemplatesRequest);
+    public createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest): Promise<CreateSparkJobTemplateResponse> {
+        const options = ParamCreater().createSparkJobTemplate(createSparkJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -423,27 +442,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createSqlTemplates(createSqlTemplatesRequest?: CreateSqlTemplatesRequest): Promise<CreateSqlTemplatesResponse> {
-        const options = ParamCreater().createSqlTemplates(createSqlTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于批量删除SQL模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除SQL模板
-     * @param {DeleteSqlTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteSqlTemplates(deleteSqlTemplatesRequest?: DeleteSqlTemplatesRequest): Promise<DeleteSqlTemplatesResponse> {
-        const options = ParamCreater().deleteSqlTemplates(deleteSqlTemplatesRequest);
+    public createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest): Promise<CreateSqlJobTemplateResponse> {
+        const options = ParamCreater().createSqlJobTemplate(createSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -464,8 +464,27 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listJobTemplates(listJobTemplatesRequest?: ListJobTemplatesRequest): Promise<ListJobTemplatesResponse> {
-        const options = ParamCreater().listJobTemplates(listJobTemplatesRequest);
+    public listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest): Promise<ListSparkJobTemplatesResponse> {
+        const options = ParamCreater().listSparkJobTemplates(listSparkJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用查看用户保存的所有SQL模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看所有SQL模板
+     * @param {string} [keyword] 用于过滤SQL模板的名字。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest): Promise<ListSqlJobTemplatesResponse> {
+        const options = ParamCreater().listSqlJobTemplates(listSqlJobTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -483,8 +502,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showJobTemplate(showJobTemplateRequest?: ShowJobTemplateRequest): Promise<ShowJobTemplateResponse> {
-        const options = ParamCreater().showJobTemplate(showJobTemplateRequest);
+    public showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest): Promise<ShowSparkJobTemplateResponse> {
+        const options = ParamCreater().showSparkJobTemplate(showSparkJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -511,25 +530,6 @@ export class DliClient {
     }
 
     /**
-     * 该API用查看用户保存的所有SQL模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看所有SQL模板
-     * @param {string} [keyword] 用于过滤SQL模板的名字。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSqlTemplates(showSqlTemplatesRequest?: ShowSqlTemplatesRequest): Promise<ShowSqlTemplatesResponse> {
-        const options = ParamCreater().showSqlTemplates(showSqlTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该API用于修改作业模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -540,8 +540,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateJobTemplates(updateJobTemplatesRequest?: UpdateJobTemplatesRequest): Promise<UpdateJobTemplatesResponse> {
-        const options = ParamCreater().updateJobTemplates(updateJobTemplatesRequest);
+    public updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest): Promise<UpdateSparkJobTemplateResponse> {
+        const options = ParamCreater().updateSparkJobTemplate(updateSparkJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -560,28 +560,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateSqlTemplates(updateSqlTemplatesRequest?: UpdateSqlTemplatesRequest): Promise<UpdateSqlTemplatesResponse> {
-        const options = ParamCreater().updateSqlTemplates(updateSqlTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于在已创建的增强型跨源中绑定队列。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 绑定队列
-     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
-     * @param {AssociateConnectionQueueReq} body 需要使用跨源的队列名列表。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public associateConnectionQueue(associateConnectionQueueRequest?: AssociateConnectionQueueRequest): Promise<AssociateConnectionQueueResponse> {
-        const options = ParamCreater().associateConnectionQueue(associateConnectionQueueRequest);
+    public updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest): Promise<UpdateSqlJobTemplateResponse> {
+        const options = ParamCreater().updateSqlJobTemplate(updateSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -610,17 +590,18 @@ export class DliClient {
     }
 
     /**
-     * 该API用于将DLI资源权限赋给、回收、更新指定的其他用户或项目。
+     * 该API用于在已创建的增强型跨源中绑定队列。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 数据赋权（用户、项目）
-     * @param {AuthorizeResourceRequestBody} body 
+     * @summary 绑定队列
+     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
+     * @param {AssociateConnectionQueueReq} body 需要使用跨源的队列名列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public authorizeResource(authorizeResourceRequest?: AuthorizeResourceRequest): Promise<AuthorizeResourceResponse> {
-        const options = ParamCreater().authorizeResource(authorizeResourceRequest);
+    public associateQueueToEnhancedConnection(associateQueueToEnhancedConnectionRequest?: AssociateQueueToEnhancedConnectionRequest): Promise<AssociateQueueToEnhancedConnectionResponse> {
+        const options = ParamCreater().associateQueueToEnhancedConnection(associateQueueToEnhancedConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -691,26 +672,6 @@ export class DliClient {
     }
 
     /**
-     * 创建地址连通性请求API接口，往指定集群发送地址连通性测试请求，并将测试地址插入表内
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建地址连通性请求
-     * @param {string} queueName 队列名称
-     * @param {VerityConnectivityReq} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkConnection(checkConnectionRequest?: CheckConnectionRequest): Promise<CheckConnectionResponse> {
-        const options = ParamCreater().checkConnection(checkConnectionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该API用于创建跨源认证。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -722,6 +683,26 @@ export class DliClient {
      */
     public createAuthInfo(createAuthInfoRequest?: CreateAuthInfoRequest): Promise<CreateAuthInfoResponse> {
         const options = ParamCreater().createAuthInfo(createAuthInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建地址连通性请求API接口，往指定集群发送地址连通性测试请求，并将测试地址插入表内
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建地址连通性请求
+     * @param {string} queueName 队列名称
+     * @param {VerityConnectivityReq} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConnectivityTask(createConnectivityTaskRequest?: CreateConnectivityTaskRequest): Promise<CreateConnectivityTaskResponse> {
+        const options = ParamCreater().createConnectivityTask(createConnectivityTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -838,8 +819,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createGlobalValue(createGlobalValueRequest?: CreateGlobalValueRequest): Promise<CreateGlobalValueResponse> {
-        const options = ParamCreater().createGlobalValue(createGlobalValueRequest);
+    public createGlobalVariable(createGlobalVariableRequest?: CreateGlobalVariableRequest): Promise<CreateGlobalVariableResponse> {
+        const options = ParamCreater().createGlobalVariable(createGlobalVariableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1014,8 +995,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteGlobalValue(deleteGlobalValueRequest?: DeleteGlobalValueRequest): Promise<DeleteGlobalValueResponse> {
-        const options = ParamCreater().deleteGlobalValue(deleteGlobalValueRequest);
+    public deleteGlobalVariable(deleteGlobalVariableRequest?: DeleteGlobalVariableRequest): Promise<DeleteGlobalVariableResponse> {
+        const options = ParamCreater().deleteGlobalVariable(deleteGlobalVariableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1115,8 +1096,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disassociateConnectionQueue(disassociateConnectionQueueRequest?: DisassociateConnectionQueueRequest): Promise<DisassociateConnectionQueueResponse> {
-        const options = ParamCreater().disassociateConnectionQueue(disassociateConnectionQueueRequest);
+    public disassociateQueueFromEnhancedConnection(disassociateQueueFromEnhancedConnectionRequest?: DisassociateQueueFromEnhancedConnectionRequest): Promise<DisassociateQueueFromEnhancedConnectionResponse> {
+        const options = ParamCreater().disassociateQueueFromEnhancedConnection(disassociateQueueFromEnhancedConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1138,6 +1119,25 @@ export class DliClient {
      */
     public listAuthInfo(listAuthInfoRequest?: ListAuthInfoRequest): Promise<ListAuthInfoResponse> {
         const options = ParamCreater().listAuthInfo(listAuthInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取对象赋权用户的权限信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看赋权对象的用者权限信息
+     * @param {string} modelObject 授权对象，和授权接口中的object对应 \&quot;jobs.flink.flink作业ID\&quot;，查询指定的作业。 \&quot;groups.程序包组名\&quot;，查询指定的程序包组。 \&quot;resources.程序包名\&quot;，查询指定程序包。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAuthorizationPrivileges(listAuthorizationPrivilegesRequest?: ListAuthorizationPrivilegesRequest): Promise<ListAuthorizationPrivilegesResponse> {
+        const options = ParamCreater().listAuthorizationPrivileges(listAuthorizationPrivilegesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1286,8 +1286,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listGlobalValues(listGlobalValuesRequest?: ListGlobalValuesRequest): Promise<ListGlobalValuesResponse> {
-        const options = ParamCreater().listGlobalValues(listGlobalValuesRequest);
+    public listGlobalVariables(listGlobalVariablesRequest?: ListGlobalVariablesRequest): Promise<ListGlobalVariablesResponse> {
+        const options = ParamCreater().listGlobalVariables(listGlobalVariablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1326,8 +1326,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQueueProperty(listQueuePropertyRequest?: ListQueuePropertyRequest): Promise<ListQueuePropertyResponse> {
-        const options = ParamCreater().listQueueProperty(listQueuePropertyRequest);
+    public listQueueProperties(listQueuePropertiesRequest?: ListQueuePropertiesRequest): Promise<ListQueuePropertiesResponse> {
+        const options = ParamCreater().listQueueProperties(listQueuePropertiesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1457,6 +1457,25 @@ export class DliClient {
     }
 
     /**
+     * 该API用于将DLI资源权限赋给、回收、更新指定的其他用户或项目。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据赋权（用户、项目）
+     * @param {AuthorizeResourceRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runAuthorizationAction(runAuthorizationActionRequest?: RunAuthorizationActionRequest): Promise<RunAuthorizationActionResponse> {
+        const options = ParamCreater().runAuthorizationAction(runAuthorizationActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该功能用于重新启动队列、扩容队列、缩容队列。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1469,6 +1488,26 @@ export class DliClient {
      */
     public runQueueAction(runQueueActionRequest?: RunQueueActionRequest): Promise<RunQueueActionResponse> {
         const options = ParamCreater().runQueueAction(runQueueActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于在连通性测试提交后查询连通性结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定地址连通性测试详情
+     * @param {string} queueName 
+     * @param {string} taskId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConnectivityTask(showConnectivityTaskRequest?: ShowConnectivityTaskRequest): Promise<ShowConnectivityTaskResponse> {
+        const options = ParamCreater().showConnectivityTask(showConnectivityTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1542,47 +1581,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showEnhancedPrivilege(showEnhancedPrivilegeRequest?: ShowEnhancedPrivilegeRequest): Promise<ShowEnhancedPrivilegeResponse> {
-        const options = ParamCreater().showEnhancedPrivilege(showEnhancedPrivilegeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于在连通性测试提交后查询连通性结果。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定地址连通性测试详情
-     * @param {string} queueName 
-     * @param {string} taskId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showNodeConnectivity(showNodeConnectivityRequest?: ShowNodeConnectivityRequest): Promise<ShowNodeConnectivityResponse> {
-        const options = ParamCreater().showNodeConnectivity(showNodeConnectivityRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取对象赋权用户的权限信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看赋权对象的用者权限信息
-     * @param {string} modelObject 授权对象，和授权接口中的object对应 \&quot;jobs.flink.flink作业ID\&quot;，查询指定的作业。 \&quot;groups.程序包组名\&quot;，查询指定的程序包组。 \&quot;resources.程序包名\&quot;，查询指定程序包。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showObjectUser(showObjectUserRequest?: ShowObjectUserRequest): Promise<ShowObjectUserResponse> {
-        const options = ParamCreater().showObjectUser(showObjectUserRequest);
+    public showEnhancedConnectionPrivilege(showEnhancedConnectionPrivilegeRequest?: ShowEnhancedConnectionPrivilegeRequest): Promise<ShowEnhancedConnectionPrivilegeResponse> {
+        const options = ParamCreater().showEnhancedConnectionPrivilege(showEnhancedConnectionPrivilegeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1600,8 +1600,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showQueueDetail(showQueueDetailRequest?: ShowQueueDetailRequest): Promise<ShowQueueDetailResponse> {
-        const options = ParamCreater().showQueueDetail(showQueueDetailRequest);
+    public showQueue(showQueueRequest?: ShowQueueRequest): Promise<ShowQueueResponse> {
+        const options = ParamCreater().showQueue(showQueueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1680,8 +1680,28 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateElasticResourcePoolQueueInfo(updateElasticResourcePoolQueueInfoRequest?: UpdateElasticResourcePoolQueueInfoRequest): Promise<UpdateElasticResourcePoolQueueInfoResponse> {
-        const options = ParamCreater().updateElasticResourcePoolQueueInfo(updateElasticResourcePoolQueueInfoRequest);
+    public updateElasticResourcePoolQueue(updateElasticResourcePoolQueueRequest?: UpdateElasticResourcePoolQueueRequest): Promise<UpdateElasticResourcePoolQueueResponse> {
+        const options = ParamCreater().updateElasticResourcePoolQueue(updateElasticResourcePoolQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于在跨源中修改数据源主机信息，仅支持全量覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改增强型跨源主机信息
+     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
+     * @param {UpdateHostMassageReq} body 修改主机信息的请求body体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEnhancedConnection(updateEnhancedConnectionRequest?: UpdateEnhancedConnectionRequest): Promise<UpdateEnhancedConnectionResponse> {
+        const options = ParamCreater().updateEnhancedConnection(updateEnhancedConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1700,8 +1720,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateGlobalValue(updateGlobalValueRequest?: UpdateGlobalValueRequest): Promise<UpdateGlobalValueResponse> {
-        const options = ParamCreater().updateGlobalValue(updateGlobalValueRequest);
+    public updateGlobalVariable(updateGlobalVariableRequest?: UpdateGlobalVariableRequest): Promise<UpdateGlobalVariableResponse> {
+        const options = ParamCreater().updateGlobalVariable(updateGlobalVariableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1721,26 +1741,6 @@ export class DliClient {
      */
     public updateGroupOrResourceOwner(updateGroupOrResourceOwnerRequest?: UpdateGroupOrResourceOwnerRequest): Promise<UpdateGroupOrResourceOwnerResponse> {
         const options = ParamCreater().updateGroupOrResourceOwner(updateGroupOrResourceOwnerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于在跨源中修改数据源主机信息，仅支持全量覆盖。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改增强型跨源主机信息
-     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
-     * @param {UpdateHostMassageReq} body 修改主机信息的请求body体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateHostMassage(updateHostMassageRequest?: UpdateHostMassageRequest): Promise<UpdateHostMassageResponse> {
-        const options = ParamCreater().updateHostMassage(updateHostMassageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1940,8 +1940,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createFlinkJar(createFlinkJarRequest?: CreateFlinkJarRequest): Promise<CreateFlinkJarResponse> {
-        const options = ParamCreater().createFlinkJar(createFlinkJarRequest);
+    public createFlinkJarJob(createFlinkJarJobRequest?: CreateFlinkJarJobRequest): Promise<CreateFlinkJarJobResponse> {
+        const options = ParamCreater().createFlinkJarJob(createFlinkJarJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1969,6 +1969,26 @@ export class DliClient {
     }
 
     /**
+     * 生成flink SQL作业的静态流图
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成flink SQL作业的静态流图
+     * @param {string} jobId 
+     * @param {GenStreamGraphReq} body 生成Flink SQL作业静态流图请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFlinkSqlJobGraph(createFlinkSqlJobGraphRequest?: CreateFlinkSqlJobGraphRequest): Promise<CreateFlinkSqlJobGraphResponse> {
+        const options = ParamCreater().createFlinkSqlJobGraph(createFlinkSqlJobGraphRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 在DLI服务中新建一个Flink作业模板，最多100个。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1978,8 +1998,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createFlinkTemplate(createFlinkTemplateRequest?: CreateFlinkTemplateRequest): Promise<CreateFlinkTemplateResponse> {
-        const options = ParamCreater().createFlinkTemplate(createFlinkTemplateRequest);
+    public createFlinkSqlJobTemplate(createFlinkSqlJobTemplateRequest?: CreateFlinkSqlJobTemplateRequest): Promise<CreateFlinkSqlJobTemplateResponse> {
+        const options = ParamCreater().createFlinkSqlJobTemplate(createFlinkSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2026,26 +2046,6 @@ export class DliClient {
     }
 
     /**
-     * 生成flink SQL作业的静态流图
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 生成flink SQL作业的静态流图
-     * @param {string} jobId 
-     * @param {GenStreamGraphReq} body 生成Flink SQL作业静态流图请求参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createStreamGraph(createStreamGraphRequest?: CreateStreamGraphRequest): Promise<CreateStreamGraphResponse> {
-        const options = ParamCreater().createStreamGraph(createStreamGraphRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 删除任何状态的作业。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2074,8 +2074,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteFlinkTemplate(deleteFlinkTemplateRequest?: DeleteFlinkTemplateRequest): Promise<DeleteFlinkTemplateResponse> {
-        const options = ParamCreater().deleteFlinkTemplate(deleteFlinkTemplateRequest);
+    public deleteFlinkSqlJobTemplate(deleteFlinkSqlJobTemplateRequest?: DeleteFlinkSqlJobTemplateRequest): Promise<DeleteFlinkSqlJobTemplateResponse> {
+        const options = ParamCreater().deleteFlinkSqlJobTemplate(deleteFlinkSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2093,8 +2093,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public exportFlinkJob(exportFlinkJobRequest?: ExportFlinkJobRequest): Promise<ExportFlinkJobResponse> {
-        const options = ParamCreater().exportFlinkJob(exportFlinkJobRequest);
+    public exportFlinkJobs(exportFlinkJobsRequest?: ExportFlinkJobsRequest): Promise<ExportFlinkJobsResponse> {
+        const options = ParamCreater().exportFlinkJobs(exportFlinkJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2112,8 +2112,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public importFlinkJob(importFlinkJobRequest?: ImportFlinkJobRequest): Promise<ImportFlinkJobResponse> {
-        const options = ParamCreater().importFlinkJob(importFlinkJobRequest);
+    public importFlinkJobs(importFlinkJobsRequest?: ImportFlinkJobsRequest): Promise<ImportFlinkJobsResponse> {
+        const options = ParamCreater().importFlinkJobs(importFlinkJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2165,8 +2165,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listFlinkTemplates(listFlinkTemplatesRequest?: ListFlinkTemplatesRequest): Promise<ListFlinkTemplatesResponse> {
-        const options = ParamCreater().listFlinkTemplates(listFlinkTemplatesRequest);
+    public listFlinkSqlJobTemplates(listFlinkSqlJobTemplatesRequest?: ListFlinkSqlJobTemplatesRequest): Promise<ListFlinkSqlJobTemplatesResponse> {
+        const options = ParamCreater().listFlinkSqlJobTemplates(listFlinkSqlJobTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2213,25 +2213,6 @@ export class DliClient {
     }
 
     /**
-     * 查询Flink作业执行计划。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Flink作业执行计划
-     * @param {number} jobId 作业ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showFlinkExecuteGraph(showFlinkExecuteGraphRequest?: ShowFlinkExecuteGraphRequest): Promise<ShowFlinkExecuteGraphResponse> {
-        const options = ParamCreater().showFlinkExecuteGraph(showFlinkExecuteGraphRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查看一个Flink作业的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2243,6 +2224,25 @@ export class DliClient {
      */
     public showFlinkJob(showFlinkJobRequest?: ShowFlinkJobRequest): Promise<ShowFlinkJobResponse> {
         const options = ParamCreater().showFlinkJob(showFlinkJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Flink作业执行计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Flink作业执行计划
+     * @param {number} jobId 作业ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlinkJobExecutionGraph(showFlinkJobExecutionGraphRequest?: ShowFlinkJobExecutionGraphRequest): Promise<ShowFlinkJobExecutionGraphResponse> {
+        const options = ParamCreater().showFlinkJobExecutionGraph(showFlinkJobExecutionGraphRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2299,8 +2299,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateFlinkJar(updateFlinkJarRequest?: UpdateFlinkJarRequest): Promise<UpdateFlinkJarResponse> {
-        const options = ParamCreater().updateFlinkJar(updateFlinkJarRequest);
+    public updateFlinkJarJob(updateFlinkJarJobRequest?: UpdateFlinkJarJobRequest): Promise<UpdateFlinkJarJobResponse> {
+        const options = ParamCreater().updateFlinkJarJob(updateFlinkJarJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2319,8 +2319,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateFlinkSql(updateFlinkSqlRequest?: UpdateFlinkSqlRequest): Promise<UpdateFlinkSqlResponse> {
-        const options = ParamCreater().updateFlinkSql(updateFlinkSqlRequest);
+    public updateFlinkSqlJob(updateFlinkSqlJobRequest?: UpdateFlinkSqlJobRequest): Promise<UpdateFlinkSqlJobResponse> {
+        const options = ParamCreater().updateFlinkSqlJob(updateFlinkSqlJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2339,8 +2339,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateFlinkTemplate(updateFlinkTemplateRequest?: UpdateFlinkTemplateRequest): Promise<UpdateFlinkTemplateResponse> {
-        const options = ParamCreater().updateFlinkTemplate(updateFlinkTemplateRequest);
+    public updateFlinkSqlJobTemplate(updateFlinkSqlJobTemplateRequest?: UpdateFlinkSqlJobTemplateRequest): Promise<UpdateFlinkSqlJobTemplateResponse> {
+        const options = ParamCreater().updateFlinkSqlJobTemplate(updateFlinkSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2358,8 +2358,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelBatchJob(cancelBatchJobRequest?: CancelBatchJobRequest): Promise<CancelBatchJobResponse> {
-        const options = ParamCreater().cancelBatchJob(cancelBatchJobRequest);
+    public cancelSparkJob(cancelSparkJobRequest?: CancelSparkJobRequest): Promise<CancelSparkJobResponse> {
+        const options = ParamCreater().cancelSparkJob(cancelSparkJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2378,8 +2378,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createBatchJob(createBatchJobRequest?: CreateBatchJobRequest): Promise<CreateBatchJobResponse> {
-        const options = ParamCreater().createBatchJob(createBatchJobRequest);
+    public createSparkJob(createSparkJobRequest?: CreateSparkJobRequest): Promise<CreateSparkJobResponse> {
+        const options = ParamCreater().createSparkJob(createSparkJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2406,27 +2406,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listBatches(listBatchesRequest?: ListBatchesRequest): Promise<ListBatchesResponse> {
-        const options = ParamCreater().listBatches(listBatchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于根据批处理作业的id查询作业详情。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询批处理作业详情
-     * @param {string} batchId 批处理作业的ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBatchInfo(showBatchInfoRequest?: ShowBatchInfoRequest): Promise<ShowBatchInfoResponse> {
-        const options = ParamCreater().showBatchInfo(showBatchInfoRequest);
+    public listSparkJobs(listSparkJobsRequest?: ListSparkJobsRequest): Promise<ListSparkJobsResponse> {
+        const options = ParamCreater().listSparkJobs(listSparkJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2458,6 +2439,25 @@ export class DliClient {
     }
 
     /**
+     * 该API用于根据批处理作业的id查询作业详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询批处理作业详情
+     * @param {string} batchId 批处理作业的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSparkJob(showSparkJobRequest?: ShowSparkJobRequest): Promise<ShowSparkJobResponse> {
+        const options = ParamCreater().showSparkJob(showSparkJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于查询批处理作业的状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2467,8 +2467,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showBatchState(showBatchStateRequest?: ShowBatchStateRequest): Promise<ShowBatchStateResponse> {
-        const options = ParamCreater().showBatchState(showBatchStateRequest);
+    public showSparkJobStatus(showSparkJobStatusRequest?: ShowSparkJobStatusRequest): Promise<ShowSparkJobStatusResponse> {
+        const options = ParamCreater().showSparkJobStatus(showSparkJobStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2766,8 +2766,8 @@ export class DliClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public previewJobResult(previewJobResultRequest?: PreviewJobResultRequest): Promise<PreviewJobResultResponse> {
-        const options = ParamCreater().previewJobResult(previewJobResultRequest);
+    public previewSqlJobResult(previewSqlJobResultRequest?: PreviewSqlJobResultRequest): Promise<PreviewSqlJobResultResponse> {
+        const options = ParamCreater().previewSqlJobResult(previewSqlJobResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2788,25 +2788,6 @@ export class DliClient {
      */
     public showDescribeTable(showDescribeTableRequest?: ShowDescribeTableRequest): Promise<ShowDescribeTableResponse> {
         const options = ParamCreater().showDescribeTable(showDescribeTableRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于获取作业执行进度信息，如果作业正在执行，可以获取到子作业的信息，如果作业刚开始或者已经结束，不可以获取到子作业信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询作业执行进度信息
-     * @param {string} jobId 作业ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJobProgress(showJobProgressRequest?: ShowJobProgressRequest): Promise<ShowJobProgressResponse> {
-        const options = ParamCreater().showJobProgress(showJobProgressRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2847,6 +2828,25 @@ export class DliClient {
      */
     public showSqlJobDetail(showSqlJobDetailRequest?: ShowSqlJobDetailRequest): Promise<ShowSqlJobDetailResponse> {
         const options = ParamCreater().showSqlJobDetail(showSqlJobDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取作业执行进度信息，如果作业正在执行，可以获取到子作业的信息，如果作业刚开始或者已经结束，不可以获取到子作业信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询作业执行进度信息
+     * @param {string} jobId 作业ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlJobProgress(showSqlJobProgressRequest?: ShowSqlJobProgressRequest): Promise<ShowSqlJobProgressResponse> {
+        const options = ParamCreater().showSqlJobProgress(showSqlJobProgressRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2940,11 +2940,49 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 该API用于批量删除SQL模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/sqls-deletion",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteSqlJobTemplatesRequest !== null && batchDeleteSqlJobTemplatesRequest !== undefined) {
+                if (batchDeleteSqlJobTemplatesRequest instanceof BatchDeleteSqlJobTemplatesRequest) {
+                    body = batchDeleteSqlJobTemplatesRequest.body
+                } else {
+                    body = batchDeleteSqlJobTemplatesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于创建作业模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createJobTemplates(createJobTemplatesRequest?: CreateJobTemplatesRequest) {
+        createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest) {
             const options = {
                 method: "POST",
                 url: "/v3/{project_id}/templates",
@@ -2958,11 +2996,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createJobTemplatesRequest !== null && createJobTemplatesRequest !== undefined) {
-                if (createJobTemplatesRequest instanceof CreateJobTemplatesRequest) {
-                    body = createJobTemplatesRequest.body
+            if (createSparkJobTemplateRequest !== null && createSparkJobTemplateRequest !== undefined) {
+                if (createSparkJobTemplateRequest instanceof CreateSparkJobTemplateRequest) {
+                    body = createSparkJobTemplateRequest.body
                 } else {
-                    body = createJobTemplatesRequest['body'];
+                    body = createSparkJobTemplateRequest['body'];
                 }
             }
 
@@ -2982,7 +3020,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createSqlTemplates(createSqlTemplatesRequest?: CreateSqlTemplatesRequest) {
+        createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/sqls",
@@ -2996,49 +3034,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createSqlTemplatesRequest !== null && createSqlTemplatesRequest !== undefined) {
-                if (createSqlTemplatesRequest instanceof CreateSqlTemplatesRequest) {
-                    body = createSqlTemplatesRequest.body
+            if (createSqlJobTemplateRequest !== null && createSqlJobTemplateRequest !== undefined) {
+                if (createSqlJobTemplateRequest instanceof CreateSqlJobTemplateRequest) {
+                    body = createSqlJobTemplateRequest.body
                 } else {
-                    body = createSqlTemplatesRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于批量删除SQL模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteSqlTemplates(deleteSqlTemplatesRequest?: DeleteSqlTemplatesRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1.0/{project_id}/sqls-deletion",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (deleteSqlTemplatesRequest !== null && deleteSqlTemplatesRequest !== undefined) {
-                if (deleteSqlTemplatesRequest instanceof DeleteSqlTemplatesRequest) {
-                    body = deleteSqlTemplatesRequest.body
-                } else {
-                    body = deleteSqlTemplatesRequest['body'];
+                    body = createSqlJobTemplateRequest['body'];
                 }
             }
 
@@ -3058,7 +3058,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listJobTemplates(listJobTemplatesRequest?: ListJobTemplatesRequest) {
+        listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/templates",
@@ -3078,17 +3078,17 @@ export const ParamCreater = function () {
             
             let currentPage;
 
-            if (listJobTemplatesRequest !== null && listJobTemplatesRequest !== undefined) {
-                if (listJobTemplatesRequest instanceof ListJobTemplatesRequest) {
-                    type = listJobTemplatesRequest.type;
-                    keyword = listJobTemplatesRequest.keyword;
-                    pageSize = listJobTemplatesRequest.pageSize;
-                    currentPage = listJobTemplatesRequest.currentPage;
+            if (listSparkJobTemplatesRequest !== null && listSparkJobTemplatesRequest !== undefined) {
+                if (listSparkJobTemplatesRequest instanceof ListSparkJobTemplatesRequest) {
+                    type = listSparkJobTemplatesRequest.type;
+                    keyword = listSparkJobTemplatesRequest.keyword;
+                    pageSize = listSparkJobTemplatesRequest.pageSize;
+                    currentPage = listSparkJobTemplatesRequest.currentPage;
                 } else {
-                    type = listJobTemplatesRequest['type'];
-                    keyword = listJobTemplatesRequest['keyword'];
-                    pageSize = listJobTemplatesRequest['page-size'];
-                    currentPage = listJobTemplatesRequest['current-page'];
+                    type = listSparkJobTemplatesRequest['type'];
+                    keyword = listSparkJobTemplatesRequest['keyword'];
+                    pageSize = listSparkJobTemplatesRequest['page-size'];
+                    currentPage = listSparkJobTemplatesRequest['current-page'];
                 }
             }
 
@@ -3112,11 +3112,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用查看用户保存的所有SQL模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/sqls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyword;
+
+            if (listSqlJobTemplatesRequest !== null && listSqlJobTemplatesRequest !== undefined) {
+                if (listSqlJobTemplatesRequest instanceof ListSqlJobTemplatesRequest) {
+                    keyword = listSqlJobTemplatesRequest.keyword;
+                } else {
+                    keyword = listSqlJobTemplatesRequest['keyword'];
+                }
+            }
+
+        
+            if (keyword !== null && keyword !== undefined) {
+                localVarQueryParameter['keyword'] = keyword;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取作业模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showJobTemplate(showJobTemplateRequest?: ShowJobTemplateRequest) {
+        showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/templates/{template_id}",
@@ -3130,17 +3167,17 @@ export const ParamCreater = function () {
             
             let templateId;
 
-            if (showJobTemplateRequest !== null && showJobTemplateRequest !== undefined) {
-                if (showJobTemplateRequest instanceof ShowJobTemplateRequest) {
-                    templateId = showJobTemplateRequest.templateId;
+            if (showSparkJobTemplateRequest !== null && showSparkJobTemplateRequest !== undefined) {
+                if (showSparkJobTemplateRequest instanceof ShowSparkJobTemplateRequest) {
+                    templateId = showSparkJobTemplateRequest.templateId;
                 } else {
-                    templateId = showJobTemplateRequest['template_id'];
+                    templateId = showSparkJobTemplateRequest['template_id'];
                 }
             }
 
         
             if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showJobTemplate.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showSparkJobTemplate.');
             }
 
             options.pathParams = { 'template_id': templateId, };
@@ -3170,48 +3207,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用查看用户保存的所有SQL模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSqlTemplates(showSqlTemplatesRequest?: ShowSqlTemplatesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/sqls",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let keyword;
-
-            if (showSqlTemplatesRequest !== null && showSqlTemplatesRequest !== undefined) {
-                if (showSqlTemplatesRequest instanceof ShowSqlTemplatesRequest) {
-                    keyword = showSqlTemplatesRequest.keyword;
-                } else {
-                    keyword = showSqlTemplatesRequest['keyword'];
-                }
-            }
-
-        
-            if (keyword !== null && keyword !== undefined) {
-                localVarQueryParameter['keyword'] = keyword;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该API用于修改作业模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateJobTemplates(updateJobTemplatesRequest?: UpdateJobTemplatesRequest) {
+        updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest) {
             const options = {
                 method: "PUT",
                 url: "/v3/{project_id}/templates/{template_id}",
@@ -3227,19 +3227,19 @@ export const ParamCreater = function () {
             
             let templateId;
 
-            if (updateJobTemplatesRequest !== null && updateJobTemplatesRequest !== undefined) {
-                if (updateJobTemplatesRequest instanceof UpdateJobTemplatesRequest) {
-                    templateId = updateJobTemplatesRequest.templateId;
-                    body = updateJobTemplatesRequest.body
+            if (updateSparkJobTemplateRequest !== null && updateSparkJobTemplateRequest !== undefined) {
+                if (updateSparkJobTemplateRequest instanceof UpdateSparkJobTemplateRequest) {
+                    templateId = updateSparkJobTemplateRequest.templateId;
+                    body = updateSparkJobTemplateRequest.body
                 } else {
-                    templateId = updateJobTemplatesRequest['template_id'];
-                    body = updateJobTemplatesRequest['body'];
+                    templateId = updateSparkJobTemplateRequest['template_id'];
+                    body = updateSparkJobTemplateRequest['body'];
                 }
             }
 
         
             if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateJobTemplates.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateSparkJobTemplate.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3257,7 +3257,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateSqlTemplates(updateSqlTemplatesRequest?: UpdateSqlTemplatesRequest) {
+        updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/sqls/{sql_id}",
@@ -3273,19 +3273,19 @@ export const ParamCreater = function () {
             
             let sqlId;
 
-            if (updateSqlTemplatesRequest !== null && updateSqlTemplatesRequest !== undefined) {
-                if (updateSqlTemplatesRequest instanceof UpdateSqlTemplatesRequest) {
-                    sqlId = updateSqlTemplatesRequest.sqlId;
-                    body = updateSqlTemplatesRequest.body
+            if (updateSqlJobTemplateRequest !== null && updateSqlJobTemplateRequest !== undefined) {
+                if (updateSqlJobTemplateRequest instanceof UpdateSqlJobTemplateRequest) {
+                    sqlId = updateSqlJobTemplateRequest.sqlId;
+                    body = updateSqlJobTemplateRequest.body
                 } else {
-                    sqlId = updateSqlTemplatesRequest['sql_id'];
-                    body = updateSqlTemplatesRequest['body'];
+                    sqlId = updateSqlJobTemplateRequest['sql_id'];
+                    body = updateSqlJobTemplateRequest['body'];
                 }
             }
 
         
             if (sqlId === null || sqlId === undefined) {
-            throw new RequiredError('sqlId','Required parameter sqlId was null or undefined when calling updateSqlTemplates.');
+            throw new RequiredError('sqlId','Required parameter sqlId was null or undefined when calling updateSqlJobTemplate.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3294,52 +3294,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'sql_id': sqlId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于在已创建的增强型跨源中绑定队列。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        associateConnectionQueue(associateConnectionQueueRequest?: AssociateConnectionQueueRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/associate-queue",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let connectionId;
-
-            if (associateConnectionQueueRequest !== null && associateConnectionQueueRequest !== undefined) {
-                if (associateConnectionQueueRequest instanceof AssociateConnectionQueueRequest) {
-                    connectionId = associateConnectionQueueRequest.connectionId;
-                    body = associateConnectionQueueRequest.body
-                } else {
-                    connectionId = associateConnectionQueueRequest['connection_id'];
-                    body = associateConnectionQueueRequest['body'];
-                }
-            }
-
-        
-            if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling associateConnectionQueue.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3391,14 +3345,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于将DLI资源权限赋给、回收、更新指定的其他用户或项目。
+         * 该API用于在已创建的增强型跨源中绑定队列。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        authorizeResource(authorizeResourceRequest?: AuthorizeResourceRequest) {
+        associateQueueToEnhancedConnection(associateQueueToEnhancedConnectionRequest?: AssociateQueueToEnhancedConnectionRequest) {
             const options = {
-                method: "PUT",
-                url: "/v1.0/{project_id}/authorization",
+                method: "POST",
+                url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/associate-queue",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3408,22 +3362,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let connectionId;
 
-            if (authorizeResourceRequest !== null && authorizeResourceRequest !== undefined) {
-                if (authorizeResourceRequest instanceof AuthorizeResourceRequest) {
-                    body = authorizeResourceRequest.body
+            if (associateQueueToEnhancedConnectionRequest !== null && associateQueueToEnhancedConnectionRequest !== undefined) {
+                if (associateQueueToEnhancedConnectionRequest instanceof AssociateQueueToEnhancedConnectionRequest) {
+                    connectionId = associateQueueToEnhancedConnectionRequest.connectionId;
+                    body = associateQueueToEnhancedConnectionRequest.body
                 } else {
-                    body = authorizeResourceRequest['body'];
+                    connectionId = associateQueueToEnhancedConnectionRequest['connection_id'];
+                    body = associateQueueToEnhancedConnectionRequest['body'];
                 }
             }
 
         
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling associateQueueToEnhancedConnection.');
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3568,52 +3530,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建地址连通性请求API接口，往指定集群发送地址连通性测试请求，并将测试地址插入表内
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkConnection(checkConnectionRequest?: CheckConnectionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1.0/{project_id}/queues/{queue_name}/connection-test",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let queueName;
-
-            if (checkConnectionRequest !== null && checkConnectionRequest !== undefined) {
-                if (checkConnectionRequest instanceof CheckConnectionRequest) {
-                    queueName = checkConnectionRequest.queueName;
-                    body = checkConnectionRequest.body
-                } else {
-                    queueName = checkConnectionRequest['queue_name'];
-                    body = checkConnectionRequest['body'];
-                }
-            }
-
-        
-            if (queueName === null || queueName === undefined) {
-            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling checkConnection.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'queue_name': queueName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该API用于创建跨源认证。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3647,6 +3563,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建地址连通性请求API接口，往指定集群发送地址连通性测试请求，并将测试地址插入表内
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConnectivityTask(createConnectivityTaskRequest?: CreateConnectivityTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/queues/{queue_name}/connection-test",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let queueName;
+
+            if (createConnectivityTaskRequest !== null && createConnectivityTaskRequest !== undefined) {
+                if (createConnectivityTaskRequest instanceof CreateConnectivityTaskRequest) {
+                    queueName = createConnectivityTaskRequest.queueName;
+                    body = createConnectivityTaskRequest.body
+                } else {
+                    queueName = createConnectivityTaskRequest['queue_name'];
+                    body = createConnectivityTaskRequest['body'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling createConnectivityTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3851,7 +3813,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createGlobalValue(createGlobalValueRequest?: CreateGlobalValueRequest) {
+        createGlobalVariable(createGlobalVariableRequest?: CreateGlobalVariableRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/variables",
@@ -3865,11 +3827,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createGlobalValueRequest !== null && createGlobalValueRequest !== undefined) {
-                if (createGlobalValueRequest instanceof CreateGlobalValueRequest) {
-                    body = createGlobalValueRequest.body
+            if (createGlobalVariableRequest !== null && createGlobalVariableRequest !== undefined) {
+                if (createGlobalVariableRequest instanceof CreateGlobalVariableRequest) {
+                    body = createGlobalVariableRequest.body
                 } else {
-                    body = createGlobalValueRequest['body'];
+                    body = createGlobalVariableRequest['body'];
                 }
             }
 
@@ -4213,7 +4175,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteGlobalValue(deleteGlobalValueRequest?: DeleteGlobalValueRequest) {
+        deleteGlobalVariable(deleteGlobalVariableRequest?: DeleteGlobalVariableRequest) {
             const options = {
                 method: "DELETE",
                 url: "/v1.0/{project_id}/variables/{var_name}",
@@ -4227,17 +4189,17 @@ export const ParamCreater = function () {
             
             let varName;
 
-            if (deleteGlobalValueRequest !== null && deleteGlobalValueRequest !== undefined) {
-                if (deleteGlobalValueRequest instanceof DeleteGlobalValueRequest) {
-                    varName = deleteGlobalValueRequest.varName;
+            if (deleteGlobalVariableRequest !== null && deleteGlobalVariableRequest !== undefined) {
+                if (deleteGlobalVariableRequest instanceof DeleteGlobalVariableRequest) {
+                    varName = deleteGlobalVariableRequest.varName;
                 } else {
-                    varName = deleteGlobalValueRequest['var_name'];
+                    varName = deleteGlobalVariableRequest['var_name'];
                 }
             }
 
         
             if (varName === null || varName === undefined) {
-            throw new RequiredError('varName','Required parameter varName was null or undefined when calling deleteGlobalValue.');
+            throw new RequiredError('varName','Required parameter varName was null or undefined when calling deleteGlobalVariable.');
             }
 
             options.pathParams = { 'var_name': varName, };
@@ -4424,7 +4386,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        disassociateConnectionQueue(disassociateConnectionQueueRequest?: DisassociateConnectionQueueRequest) {
+        disassociateQueueFromEnhancedConnection(disassociateQueueFromEnhancedConnectionRequest?: DisassociateQueueFromEnhancedConnectionRequest) {
             const options = {
                 method: "POST",
                 url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/disassociate-queue",
@@ -4440,19 +4402,19 @@ export const ParamCreater = function () {
             
             let connectionId;
 
-            if (disassociateConnectionQueueRequest !== null && disassociateConnectionQueueRequest !== undefined) {
-                if (disassociateConnectionQueueRequest instanceof DisassociateConnectionQueueRequest) {
-                    connectionId = disassociateConnectionQueueRequest.connectionId;
-                    body = disassociateConnectionQueueRequest.body
+            if (disassociateQueueFromEnhancedConnectionRequest !== null && disassociateQueueFromEnhancedConnectionRequest !== undefined) {
+                if (disassociateQueueFromEnhancedConnectionRequest instanceof DisassociateQueueFromEnhancedConnectionRequest) {
+                    connectionId = disassociateQueueFromEnhancedConnectionRequest.connectionId;
+                    body = disassociateQueueFromEnhancedConnectionRequest.body
                 } else {
-                    connectionId = disassociateConnectionQueueRequest['connection_id'];
-                    body = disassociateConnectionQueueRequest['body'];
+                    connectionId = disassociateQueueFromEnhancedConnectionRequest['connection_id'];
+                    body = disassociateQueueFromEnhancedConnectionRequest['body'];
                 }
             }
 
         
             if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling disassociateConnectionQueue.');
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling disassociateQueueFromEnhancedConnection.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4509,6 +4471,46 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取对象赋权用户的权限信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAuthorizationPrivileges(listAuthorizationPrivilegesRequest?: ListAuthorizationPrivilegesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/authorization/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let modelObject;
+
+            if (listAuthorizationPrivilegesRequest !== null && listAuthorizationPrivilegesRequest !== undefined) {
+                if (listAuthorizationPrivilegesRequest instanceof ListAuthorizationPrivilegesRequest) {
+                    modelObject = listAuthorizationPrivilegesRequest.modelObject;
+                } else {
+                    modelObject = listAuthorizationPrivilegesRequest['object'];
+                }
+            }
+
+        
+            if (modelObject === null || modelObject === undefined) {
+                throw new RequiredError('modelObject','Required parameter modelObject was null or undefined when calling listAuthorizationPrivileges.');
+            }
+            if (modelObject !== null && modelObject !== undefined) {
+                localVarQueryParameter['object'] = modelObject;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4857,7 +4859,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listGlobalValues(listGlobalValuesRequest?: ListGlobalValuesRequest) {
+        listGlobalVariables(listGlobalVariablesRequest?: ListGlobalVariablesRequest) {
             const options = {
                 method: "GET",
                 url: "/v1.0/{project_id}/variables",
@@ -4873,13 +4875,13 @@ export const ParamCreater = function () {
             
             let offset;
 
-            if (listGlobalValuesRequest !== null && listGlobalValuesRequest !== undefined) {
-                if (listGlobalValuesRequest instanceof ListGlobalValuesRequest) {
-                    limit = listGlobalValuesRequest.limit;
-                    offset = listGlobalValuesRequest.offset;
+            if (listGlobalVariablesRequest !== null && listGlobalVariablesRequest !== undefined) {
+                if (listGlobalVariablesRequest instanceof ListGlobalVariablesRequest) {
+                    limit = listGlobalVariablesRequest.limit;
+                    offset = listGlobalVariablesRequest.offset;
                 } else {
-                    limit = listGlobalValuesRequest['limit'];
-                    offset = listGlobalValuesRequest['offset'];
+                    limit = listGlobalVariablesRequest['limit'];
+                    offset = listGlobalVariablesRequest['offset'];
                 }
             }
 
@@ -4938,7 +4940,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listQueueProperty(listQueuePropertyRequest?: ListQueuePropertyRequest) {
+        listQueueProperties(listQueuePropertiesRequest?: ListQueuePropertiesRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/queues/{queue_name}/properties",
@@ -4956,21 +4958,21 @@ export const ParamCreater = function () {
             
             let pageSize;
 
-            if (listQueuePropertyRequest !== null && listQueuePropertyRequest !== undefined) {
-                if (listQueuePropertyRequest instanceof ListQueuePropertyRequest) {
-                    queueName = listQueuePropertyRequest.queueName;
-                    page = listQueuePropertyRequest.page;
-                    pageSize = listQueuePropertyRequest.pageSize;
+            if (listQueuePropertiesRequest !== null && listQueuePropertiesRequest !== undefined) {
+                if (listQueuePropertiesRequest instanceof ListQueuePropertiesRequest) {
+                    queueName = listQueuePropertiesRequest.queueName;
+                    page = listQueuePropertiesRequest.page;
+                    pageSize = listQueuePropertiesRequest.pageSize;
                 } else {
-                    queueName = listQueuePropertyRequest['queue_name'];
-                    page = listQueuePropertyRequest['page'];
-                    pageSize = listQueuePropertyRequest['page_size'];
+                    queueName = listQueuePropertiesRequest['queue_name'];
+                    page = listQueuePropertiesRequest['page'];
+                    pageSize = listQueuePropertiesRequest['page_size'];
                 }
             }
 
         
             if (queueName === null || queueName === undefined) {
-            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listQueueProperty.');
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listQueueProperties.');
             }
             if (page !== null && page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -5258,6 +5260,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于将DLI资源权限赋给、回收、更新指定的其他用户或项目。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runAuthorizationAction(runAuthorizationActionRequest?: RunAuthorizationActionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/authorization",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runAuthorizationActionRequest !== null && runAuthorizationActionRequest !== undefined) {
+                if (runAuthorizationActionRequest instanceof RunAuthorizationActionRequest) {
+                    body = runAuthorizationActionRequest.body
+                } else {
+                    body = runAuthorizationActionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该功能用于重新启动队列、扩容队列、缩容队列。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5299,6 +5339,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于在连通性测试提交后查询连通性结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConnectivityTask(showConnectivityTaskRequest?: ShowConnectivityTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/queues/{queue_name}/connection-test/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let queueName;
+            
+            let taskId;
+
+            if (showConnectivityTaskRequest !== null && showConnectivityTaskRequest !== undefined) {
+                if (showConnectivityTaskRequest instanceof ShowConnectivityTaskRequest) {
+                    queueName = showConnectivityTaskRequest.queueName;
+                    taskId = showConnectivityTaskRequest.taskId;
+                } else {
+                    queueName = showConnectivityTaskRequest['queue_name'];
+                    taskId = showConnectivityTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showConnectivityTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showConnectivityTask.');
+            }
+
+            options.pathParams = { 'queue_name': queueName,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5403,7 +5487,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showEnhancedPrivilege(showEnhancedPrivilegeRequest?: ShowEnhancedPrivilegeRequest) {
+        showEnhancedConnectionPrivilege(showEnhancedConnectionPrivilegeRequest?: ShowEnhancedConnectionPrivilegeRequest) {
             const options = {
                 method: "GET",
                 url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/privileges",
@@ -5417,104 +5501,20 @@ export const ParamCreater = function () {
             
             let connectionId;
 
-            if (showEnhancedPrivilegeRequest !== null && showEnhancedPrivilegeRequest !== undefined) {
-                if (showEnhancedPrivilegeRequest instanceof ShowEnhancedPrivilegeRequest) {
-                    connectionId = showEnhancedPrivilegeRequest.connectionId;
+            if (showEnhancedConnectionPrivilegeRequest !== null && showEnhancedConnectionPrivilegeRequest !== undefined) {
+                if (showEnhancedConnectionPrivilegeRequest instanceof ShowEnhancedConnectionPrivilegeRequest) {
+                    connectionId = showEnhancedConnectionPrivilegeRequest.connectionId;
                 } else {
-                    connectionId = showEnhancedPrivilegeRequest['connection_id'];
+                    connectionId = showEnhancedConnectionPrivilegeRequest['connection_id'];
                 }
             }
 
         
             if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showEnhancedPrivilege.');
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showEnhancedConnectionPrivilege.');
             }
 
             options.pathParams = { 'connection_id': connectionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于在连通性测试提交后查询连通性结果。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showNodeConnectivity(showNodeConnectivityRequest?: ShowNodeConnectivityRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/queues/{queue_name}/connection-test/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let queueName;
-            
-            let taskId;
-
-            if (showNodeConnectivityRequest !== null && showNodeConnectivityRequest !== undefined) {
-                if (showNodeConnectivityRequest instanceof ShowNodeConnectivityRequest) {
-                    queueName = showNodeConnectivityRequest.queueName;
-                    taskId = showNodeConnectivityRequest.taskId;
-                } else {
-                    queueName = showNodeConnectivityRequest['queue_name'];
-                    taskId = showNodeConnectivityRequest['task_id'];
-                }
-            }
-
-        
-            if (queueName === null || queueName === undefined) {
-            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showNodeConnectivity.');
-            }
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showNodeConnectivity.');
-            }
-
-            options.pathParams = { 'queue_name': queueName,'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取对象赋权用户的权限信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showObjectUser(showObjectUserRequest?: ShowObjectUserRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/authorization/privileges",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let modelObject;
-
-            if (showObjectUserRequest !== null && showObjectUserRequest !== undefined) {
-                if (showObjectUserRequest instanceof ShowObjectUserRequest) {
-                    modelObject = showObjectUserRequest.modelObject;
-                } else {
-                    modelObject = showObjectUserRequest['object'];
-                }
-            }
-
-        
-            if (modelObject === null || modelObject === undefined) {
-                throw new RequiredError('modelObject','Required parameter modelObject was null or undefined when calling showObjectUser.');
-            }
-            if (modelObject !== null && modelObject !== undefined) {
-                localVarQueryParameter['object'] = modelObject;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5524,7 +5524,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showQueueDetail(showQueueDetailRequest?: ShowQueueDetailRequest) {
+        showQueue(showQueueRequest?: ShowQueueRequest) {
             const options = {
                 method: "GET",
                 url: "/v1.0/{project_id}/queues/{queue_name}",
@@ -5538,17 +5538,17 @@ export const ParamCreater = function () {
             
             let queueName;
 
-            if (showQueueDetailRequest !== null && showQueueDetailRequest !== undefined) {
-                if (showQueueDetailRequest instanceof ShowQueueDetailRequest) {
-                    queueName = showQueueDetailRequest.queueName;
+            if (showQueueRequest !== null && showQueueRequest !== undefined) {
+                if (showQueueRequest instanceof ShowQueueRequest) {
+                    queueName = showQueueRequest.queueName;
                 } else {
-                    queueName = showQueueDetailRequest['queue_name'];
+                    queueName = showQueueRequest['queue_name'];
                 }
             }
 
         
             if (queueName === null || queueName === undefined) {
-            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showQueueDetail.');
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showQueue.');
             }
 
             options.pathParams = { 'queue_name': queueName, };
@@ -5687,7 +5687,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateElasticResourcePoolQueueInfo(updateElasticResourcePoolQueueInfoRequest?: UpdateElasticResourcePoolQueueInfoRequest) {
+        updateElasticResourcePoolQueue(updateElasticResourcePoolQueueRequest?: UpdateElasticResourcePoolQueueRequest) {
             const options = {
                 method: "PUT",
                 url: "/v3/{project_id}/elastic-resource-pools/{elastic_resource_pool_name}/queues/{queue_name}",
@@ -5705,24 +5705,24 @@ export const ParamCreater = function () {
             
             let queueName;
 
-            if (updateElasticResourcePoolQueueInfoRequest !== null && updateElasticResourcePoolQueueInfoRequest !== undefined) {
-                if (updateElasticResourcePoolQueueInfoRequest instanceof UpdateElasticResourcePoolQueueInfoRequest) {
-                    elasticResourcePoolName = updateElasticResourcePoolQueueInfoRequest.elasticResourcePoolName;
-                    queueName = updateElasticResourcePoolQueueInfoRequest.queueName;
-                    body = updateElasticResourcePoolQueueInfoRequest.body
+            if (updateElasticResourcePoolQueueRequest !== null && updateElasticResourcePoolQueueRequest !== undefined) {
+                if (updateElasticResourcePoolQueueRequest instanceof UpdateElasticResourcePoolQueueRequest) {
+                    elasticResourcePoolName = updateElasticResourcePoolQueueRequest.elasticResourcePoolName;
+                    queueName = updateElasticResourcePoolQueueRequest.queueName;
+                    body = updateElasticResourcePoolQueueRequest.body
                 } else {
-                    elasticResourcePoolName = updateElasticResourcePoolQueueInfoRequest['elastic_resource_pool_name'];
-                    queueName = updateElasticResourcePoolQueueInfoRequest['queue_name'];
-                    body = updateElasticResourcePoolQueueInfoRequest['body'];
+                    elasticResourcePoolName = updateElasticResourcePoolQueueRequest['elastic_resource_pool_name'];
+                    queueName = updateElasticResourcePoolQueueRequest['queue_name'];
+                    body = updateElasticResourcePoolQueueRequest['body'];
                 }
             }
 
         
             if (elasticResourcePoolName === null || elasticResourcePoolName === undefined) {
-            throw new RequiredError('elasticResourcePoolName','Required parameter elasticResourcePoolName was null or undefined when calling updateElasticResourcePoolQueueInfo.');
+            throw new RequiredError('elasticResourcePoolName','Required parameter elasticResourcePoolName was null or undefined when calling updateElasticResourcePoolQueue.');
             }
             if (queueName === null || queueName === undefined) {
-            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateElasticResourcePoolQueueInfo.');
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateElasticResourcePoolQueue.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5736,11 +5736,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于在跨源中修改数据源主机信息，仅支持全量覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEnhancedConnection(updateEnhancedConnectionRequest?: UpdateEnhancedConnectionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectionId;
+
+            if (updateEnhancedConnectionRequest !== null && updateEnhancedConnectionRequest !== undefined) {
+                if (updateEnhancedConnectionRequest instanceof UpdateEnhancedConnectionRequest) {
+                    connectionId = updateEnhancedConnectionRequest.connectionId;
+                    body = updateEnhancedConnectionRequest.body
+                } else {
+                    connectionId = updateEnhancedConnectionRequest['connection_id'];
+                    body = updateEnhancedConnectionRequest['body'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling updateEnhancedConnection.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改全局变量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateGlobalValue(updateGlobalValueRequest?: UpdateGlobalValueRequest) {
+        updateGlobalVariable(updateGlobalVariableRequest?: UpdateGlobalVariableRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/variables/{var_name}",
@@ -5756,19 +5802,19 @@ export const ParamCreater = function () {
             
             let varName;
 
-            if (updateGlobalValueRequest !== null && updateGlobalValueRequest !== undefined) {
-                if (updateGlobalValueRequest instanceof UpdateGlobalValueRequest) {
-                    varName = updateGlobalValueRequest.varName;
-                    body = updateGlobalValueRequest.body
+            if (updateGlobalVariableRequest !== null && updateGlobalVariableRequest !== undefined) {
+                if (updateGlobalVariableRequest instanceof UpdateGlobalVariableRequest) {
+                    varName = updateGlobalVariableRequest.varName;
+                    body = updateGlobalVariableRequest.body
                 } else {
-                    varName = updateGlobalValueRequest['var_name'];
-                    body = updateGlobalValueRequest['body'];
+                    varName = updateGlobalVariableRequest['var_name'];
+                    body = updateGlobalVariableRequest['body'];
                 }
             }
 
         
             if (varName === null || varName === undefined) {
-            throw new RequiredError('varName','Required parameter varName was null or undefined when calling updateGlobalValue.');
+            throw new RequiredError('varName','Required parameter varName was null or undefined when calling updateGlobalVariable.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5815,52 +5861,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于在跨源中修改数据源主机信息，仅支持全量覆盖。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateHostMassage(updateHostMassageRequest?: UpdateHostMassageRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2.0/{project_id}/datasource/enhanced-connections/{connection_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let connectionId;
-
-            if (updateHostMassageRequest !== null && updateHostMassageRequest !== undefined) {
-                if (updateHostMassageRequest instanceof UpdateHostMassageRequest) {
-                    connectionId = updateHostMassageRequest.connectionId;
-                    body = updateHostMassageRequest.body
-                } else {
-                    connectionId = updateHostMassageRequest['connection_id'];
-                    body = updateHostMassageRequest['body'];
-                }
-            }
-
-        
-            if (connectionId === null || connectionId === undefined) {
-            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling updateHostMassage.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6258,7 +6258,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createFlinkJar(createFlinkJarRequest?: CreateFlinkJarRequest) {
+        createFlinkJarJob(createFlinkJarJobRequest?: CreateFlinkJarJobRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/streaming/flink-jobs",
@@ -6272,11 +6272,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createFlinkJarRequest !== null && createFlinkJarRequest !== undefined) {
-                if (createFlinkJarRequest instanceof CreateFlinkJarRequest) {
-                    body = createFlinkJarRequest.body
+            if (createFlinkJarJobRequest !== null && createFlinkJarJobRequest !== undefined) {
+                if (createFlinkJarJobRequest instanceof CreateFlinkJarJobRequest) {
+                    body = createFlinkJarJobRequest.body
                 } else {
-                    body = createFlinkJarRequest['body'];
+                    body = createFlinkJarJobRequest['body'];
                 }
             }
 
@@ -6330,11 +6330,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 生成flink SQL作业的静态流图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFlinkSqlJobGraph(createFlinkSqlJobGraphRequest?: CreateFlinkSqlJobGraphRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/streaming/jobs/{job_id}/gen-graph",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+
+            if (createFlinkSqlJobGraphRequest !== null && createFlinkSqlJobGraphRequest !== undefined) {
+                if (createFlinkSqlJobGraphRequest instanceof CreateFlinkSqlJobGraphRequest) {
+                    jobId = createFlinkSqlJobGraphRequest.jobId;
+                    body = createFlinkSqlJobGraphRequest.body
+                } else {
+                    jobId = createFlinkSqlJobGraphRequest['job_id'];
+                    body = createFlinkSqlJobGraphRequest['body'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling createFlinkSqlJobGraph.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在DLI服务中新建一个Flink作业模板，最多100个。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createFlinkTemplate(createFlinkTemplateRequest?: CreateFlinkTemplateRequest) {
+        createFlinkSqlJobTemplate(createFlinkSqlJobTemplateRequest?: CreateFlinkSqlJobTemplateRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/streaming/job-templates",
@@ -6348,11 +6394,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createFlinkTemplateRequest !== null && createFlinkTemplateRequest !== undefined) {
-                if (createFlinkTemplateRequest instanceof CreateFlinkTemplateRequest) {
-                    body = createFlinkTemplateRequest.body
+            if (createFlinkSqlJobTemplateRequest !== null && createFlinkSqlJobTemplateRequest !== undefined) {
+                if (createFlinkSqlJobTemplateRequest instanceof CreateFlinkSqlJobTemplateRequest) {
+                    body = createFlinkSqlJobTemplateRequest.body
                 } else {
-                    body = createFlinkTemplateRequest['body'];
+                    body = createFlinkSqlJobTemplateRequest['body'];
                 }
             }
 
@@ -6444,52 +6490,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 生成flink SQL作业的静态流图
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createStreamGraph(createStreamGraphRequest?: CreateStreamGraphRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/streaming/jobs/{job_id}/gen-graph",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let jobId;
-
-            if (createStreamGraphRequest !== null && createStreamGraphRequest !== undefined) {
-                if (createStreamGraphRequest instanceof CreateStreamGraphRequest) {
-                    jobId = createStreamGraphRequest.jobId;
-                    body = createStreamGraphRequest.body
-                } else {
-                    jobId = createStreamGraphRequest['job_id'];
-                    body = createStreamGraphRequest['body'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling createStreamGraph.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 删除任何状态的作业。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6531,7 +6531,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteFlinkTemplate(deleteFlinkTemplateRequest?: DeleteFlinkTemplateRequest) {
+        deleteFlinkSqlJobTemplate(deleteFlinkSqlJobTemplateRequest?: DeleteFlinkSqlJobTemplateRequest) {
             const options = {
                 method: "DELETE",
                 url: "/v1.0/{project_id}/streaming/job-templates/{template_id}",
@@ -6545,17 +6545,17 @@ export const ParamCreater = function () {
             
             let templateId;
 
-            if (deleteFlinkTemplateRequest !== null && deleteFlinkTemplateRequest !== undefined) {
-                if (deleteFlinkTemplateRequest instanceof DeleteFlinkTemplateRequest) {
-                    templateId = deleteFlinkTemplateRequest.templateId;
+            if (deleteFlinkSqlJobTemplateRequest !== null && deleteFlinkSqlJobTemplateRequest !== undefined) {
+                if (deleteFlinkSqlJobTemplateRequest instanceof DeleteFlinkSqlJobTemplateRequest) {
+                    templateId = deleteFlinkSqlJobTemplateRequest.templateId;
                 } else {
-                    templateId = deleteFlinkTemplateRequest['template_id'];
+                    templateId = deleteFlinkSqlJobTemplateRequest['template_id'];
                 }
             }
 
         
             if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteFlinkTemplate.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteFlinkSqlJobTemplate.');
             }
 
             options.pathParams = { 'template_id': templateId, };
@@ -6568,7 +6568,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        exportFlinkJob(exportFlinkJobRequest?: ExportFlinkJobRequest) {
+        exportFlinkJobs(exportFlinkJobsRequest?: ExportFlinkJobsRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/streaming/jobs/export",
@@ -6582,11 +6582,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (exportFlinkJobRequest !== null && exportFlinkJobRequest !== undefined) {
-                if (exportFlinkJobRequest instanceof ExportFlinkJobRequest) {
-                    body = exportFlinkJobRequest.body
+            if (exportFlinkJobsRequest !== null && exportFlinkJobsRequest !== undefined) {
+                if (exportFlinkJobsRequest instanceof ExportFlinkJobsRequest) {
+                    body = exportFlinkJobsRequest.body
                 } else {
-                    body = exportFlinkJobRequest['body'];
+                    body = exportFlinkJobsRequest['body'];
                 }
             }
 
@@ -6606,7 +6606,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        importFlinkJob(importFlinkJobRequest?: ImportFlinkJobRequest) {
+        importFlinkJobs(importFlinkJobsRequest?: ImportFlinkJobsRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/streaming/jobs/import",
@@ -6620,11 +6620,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (importFlinkJobRequest !== null && importFlinkJobRequest !== undefined) {
-                if (importFlinkJobRequest instanceof ImportFlinkJobRequest) {
-                    body = importFlinkJobRequest.body
+            if (importFlinkJobsRequest !== null && importFlinkJobsRequest !== undefined) {
+                if (importFlinkJobsRequest instanceof ImportFlinkJobsRequest) {
+                    body = importFlinkJobsRequest.body
                 } else {
-                    body = importFlinkJobRequest['body'];
+                    body = importFlinkJobsRequest['body'];
                 }
             }
 
@@ -6758,7 +6758,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listFlinkTemplates(listFlinkTemplatesRequest?: ListFlinkTemplatesRequest) {
+        listFlinkSqlJobTemplates(listFlinkSqlJobTemplatesRequest?: ListFlinkSqlJobTemplatesRequest) {
             const options = {
                 method: "GET",
                 url: "/v1.0/{project_id}/streaming/job-templates",
@@ -6780,19 +6780,19 @@ export const ParamCreater = function () {
             
             let tags;
 
-            if (listFlinkTemplatesRequest !== null && listFlinkTemplatesRequest !== undefined) {
-                if (listFlinkTemplatesRequest instanceof ListFlinkTemplatesRequest) {
-                    limit = listFlinkTemplatesRequest.limit;
-                    name = listFlinkTemplatesRequest.name;
-                    offset = listFlinkTemplatesRequest.offset;
-                    order = listFlinkTemplatesRequest.order;
-                    tags = listFlinkTemplatesRequest.tags;
+            if (listFlinkSqlJobTemplatesRequest !== null && listFlinkSqlJobTemplatesRequest !== undefined) {
+                if (listFlinkSqlJobTemplatesRequest instanceof ListFlinkSqlJobTemplatesRequest) {
+                    limit = listFlinkSqlJobTemplatesRequest.limit;
+                    name = listFlinkSqlJobTemplatesRequest.name;
+                    offset = listFlinkSqlJobTemplatesRequest.offset;
+                    order = listFlinkSqlJobTemplatesRequest.order;
+                    tags = listFlinkSqlJobTemplatesRequest.tags;
                 } else {
-                    limit = listFlinkTemplatesRequest['limit'];
-                    name = listFlinkTemplatesRequest['name'];
-                    offset = listFlinkTemplatesRequest['offset'];
-                    order = listFlinkTemplatesRequest['order'];
-                    tags = listFlinkTemplatesRequest['tags'];
+                    limit = listFlinkSqlJobTemplatesRequest['limit'];
+                    name = listFlinkSqlJobTemplatesRequest['name'];
+                    offset = listFlinkSqlJobTemplatesRequest['offset'];
+                    order = listFlinkSqlJobTemplatesRequest['order'];
+                    tags = listFlinkSqlJobTemplatesRequest['tags'];
                 }
             }
 
@@ -6895,43 +6895,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Flink作业执行计划。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showFlinkExecuteGraph(showFlinkExecuteGraphRequest?: ShowFlinkExecuteGraphRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/streaming/jobs/{job_id}/execute-graph",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-
-            if (showFlinkExecuteGraphRequest !== null && showFlinkExecuteGraphRequest !== undefined) {
-                if (showFlinkExecuteGraphRequest instanceof ShowFlinkExecuteGraphRequest) {
-                    jobId = showFlinkExecuteGraphRequest.jobId;
-                } else {
-                    jobId = showFlinkExecuteGraphRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showFlinkExecuteGraph.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查看一个Flink作业的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6961,6 +6924,43 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showFlinkJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Flink作业执行计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlinkJobExecutionGraph(showFlinkJobExecutionGraphRequest?: ShowFlinkJobExecutionGraphRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/streaming/jobs/{job_id}/execute-graph",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showFlinkJobExecutionGraphRequest !== null && showFlinkJobExecutionGraphRequest !== undefined) {
+                if (showFlinkJobExecutionGraphRequest instanceof ShowFlinkJobExecutionGraphRequest) {
+                    jobId = showFlinkJobExecutionGraphRequest.jobId;
+                } else {
+                    jobId = showFlinkJobExecutionGraphRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showFlinkJobExecutionGraph.');
             }
 
             options.pathParams = { 'job_id': jobId, };
@@ -7049,7 +7049,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateFlinkJar(updateFlinkJarRequest?: UpdateFlinkJarRequest) {
+        updateFlinkJarJob(updateFlinkJarJobRequest?: UpdateFlinkJarJobRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/streaming/flink-jobs/{job_id}",
@@ -7065,19 +7065,19 @@ export const ParamCreater = function () {
             
             let jobId;
 
-            if (updateFlinkJarRequest !== null && updateFlinkJarRequest !== undefined) {
-                if (updateFlinkJarRequest instanceof UpdateFlinkJarRequest) {
-                    jobId = updateFlinkJarRequest.jobId;
-                    body = updateFlinkJarRequest.body
+            if (updateFlinkJarJobRequest !== null && updateFlinkJarJobRequest !== undefined) {
+                if (updateFlinkJarJobRequest instanceof UpdateFlinkJarJobRequest) {
+                    jobId = updateFlinkJarJobRequest.jobId;
+                    body = updateFlinkJarJobRequest.body
                 } else {
-                    jobId = updateFlinkJarRequest['job_id'];
-                    body = updateFlinkJarRequest['body'];
+                    jobId = updateFlinkJarJobRequest['job_id'];
+                    body = updateFlinkJarJobRequest['body'];
                 }
             }
 
         
             if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateFlinkJar.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateFlinkJarJob.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7095,7 +7095,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateFlinkSql(updateFlinkSqlRequest?: UpdateFlinkSqlRequest) {
+        updateFlinkSqlJob(updateFlinkSqlJobRequest?: UpdateFlinkSqlJobRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/streaming/sql-jobs/{job_id}",
@@ -7111,19 +7111,19 @@ export const ParamCreater = function () {
             
             let jobId;
 
-            if (updateFlinkSqlRequest !== null && updateFlinkSqlRequest !== undefined) {
-                if (updateFlinkSqlRequest instanceof UpdateFlinkSqlRequest) {
-                    jobId = updateFlinkSqlRequest.jobId;
-                    body = updateFlinkSqlRequest.body
+            if (updateFlinkSqlJobRequest !== null && updateFlinkSqlJobRequest !== undefined) {
+                if (updateFlinkSqlJobRequest instanceof UpdateFlinkSqlJobRequest) {
+                    jobId = updateFlinkSqlJobRequest.jobId;
+                    body = updateFlinkSqlJobRequest.body
                 } else {
-                    jobId = updateFlinkSqlRequest['job_id'];
-                    body = updateFlinkSqlRequest['body'];
+                    jobId = updateFlinkSqlJobRequest['job_id'];
+                    body = updateFlinkSqlJobRequest['body'];
                 }
             }
 
         
             if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateFlinkSql.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateFlinkSqlJob.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7141,7 +7141,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateFlinkTemplate(updateFlinkTemplateRequest?: UpdateFlinkTemplateRequest) {
+        updateFlinkSqlJobTemplate(updateFlinkSqlJobTemplateRequest?: UpdateFlinkSqlJobTemplateRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/streaming/job-templates/{template_id}",
@@ -7157,19 +7157,19 @@ export const ParamCreater = function () {
             
             let templateId;
 
-            if (updateFlinkTemplateRequest !== null && updateFlinkTemplateRequest !== undefined) {
-                if (updateFlinkTemplateRequest instanceof UpdateFlinkTemplateRequest) {
-                    templateId = updateFlinkTemplateRequest.templateId;
-                    body = updateFlinkTemplateRequest.body
+            if (updateFlinkSqlJobTemplateRequest !== null && updateFlinkSqlJobTemplateRequest !== undefined) {
+                if (updateFlinkSqlJobTemplateRequest instanceof UpdateFlinkSqlJobTemplateRequest) {
+                    templateId = updateFlinkSqlJobTemplateRequest.templateId;
+                    body = updateFlinkSqlJobTemplateRequest.body
                 } else {
-                    templateId = updateFlinkTemplateRequest['template_id'];
-                    body = updateFlinkTemplateRequest['body'];
+                    templateId = updateFlinkSqlJobTemplateRequest['template_id'];
+                    body = updateFlinkSqlJobTemplateRequest['body'];
                 }
             }
 
         
             if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateFlinkTemplate.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateFlinkSqlJobTemplate.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7187,7 +7187,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        cancelBatchJob(cancelBatchJobRequest?: CancelBatchJobRequest) {
+        cancelSparkJob(cancelSparkJobRequest?: CancelSparkJobRequest) {
             const options = {
                 method: "DELETE",
                 url: "/v2.0/{project_id}/batches/{batch_id}",
@@ -7201,17 +7201,17 @@ export const ParamCreater = function () {
             
             let batchId;
 
-            if (cancelBatchJobRequest !== null && cancelBatchJobRequest !== undefined) {
-                if (cancelBatchJobRequest instanceof CancelBatchJobRequest) {
-                    batchId = cancelBatchJobRequest.batchId;
+            if (cancelSparkJobRequest !== null && cancelSparkJobRequest !== undefined) {
+                if (cancelSparkJobRequest instanceof CancelSparkJobRequest) {
+                    batchId = cancelSparkJobRequest.batchId;
                 } else {
-                    batchId = cancelBatchJobRequest['batch_id'];
+                    batchId = cancelSparkJobRequest['batch_id'];
                 }
             }
 
         
             if (batchId === null || batchId === undefined) {
-            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling cancelBatchJob.');
+            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling cancelSparkJob.');
             }
 
             options.pathParams = { 'batch_id': batchId, };
@@ -7224,7 +7224,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createBatchJob(createBatchJobRequest?: CreateBatchJobRequest) {
+        createSparkJob(createSparkJobRequest?: CreateSparkJobRequest) {
             const options = {
                 method: "POST",
                 url: "/v2.0/{project_id}/batches",
@@ -7240,13 +7240,13 @@ export const ParamCreater = function () {
             
             let USER_ID;
 
-            if (createBatchJobRequest !== null && createBatchJobRequest !== undefined) {
-                if (createBatchJobRequest instanceof CreateBatchJobRequest) {
-                    body = createBatchJobRequest.body
-                    USER_ID = createBatchJobRequest.USER_ID;
+            if (createSparkJobRequest !== null && createSparkJobRequest !== undefined) {
+                if (createSparkJobRequest instanceof CreateSparkJobRequest) {
+                    body = createSparkJobRequest.body
+                    USER_ID = createSparkJobRequest.USER_ID;
                 } else {
-                    body = createBatchJobRequest['body'];
-                    USER_ID = createBatchJobRequest['USER-ID'];
+                    body = createSparkJobRequest['body'];
+                    USER_ID = createSparkJobRequest['USER-ID'];
                 }
             }
 
@@ -7269,7 +7269,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listBatches(listBatchesRequest?: ListBatchesRequest) {
+        listSparkJobs(listSparkJobsRequest?: ListSparkJobsRequest) {
             const options = {
                 method: "GET",
                 url: "/v2.0/{project_id}/batches",
@@ -7301,29 +7301,29 @@ export const ParamCreater = function () {
             
             let state;
 
-            if (listBatchesRequest !== null && listBatchesRequest !== undefined) {
-                if (listBatchesRequest instanceof ListBatchesRequest) {
-                    clusterName = listBatchesRequest.clusterName;
-                    end = listBatchesRequest.end;
-                    from = listBatchesRequest.from;
-                    jobName = listBatchesRequest.jobName;
-                    jobId = listBatchesRequest.jobId;
-                    order = listBatchesRequest.order;
-                    queueName = listBatchesRequest.queueName;
-                    size = listBatchesRequest.size;
-                    start = listBatchesRequest.start;
-                    state = listBatchesRequest.state;
+            if (listSparkJobsRequest !== null && listSparkJobsRequest !== undefined) {
+                if (listSparkJobsRequest instanceof ListSparkJobsRequest) {
+                    clusterName = listSparkJobsRequest.clusterName;
+                    end = listSparkJobsRequest.end;
+                    from = listSparkJobsRequest.from;
+                    jobName = listSparkJobsRequest.jobName;
+                    jobId = listSparkJobsRequest.jobId;
+                    order = listSparkJobsRequest.order;
+                    queueName = listSparkJobsRequest.queueName;
+                    size = listSparkJobsRequest.size;
+                    start = listSparkJobsRequest.start;
+                    state = listSparkJobsRequest.state;
                 } else {
-                    clusterName = listBatchesRequest['cluster_name'];
-                    end = listBatchesRequest['end'];
-                    from = listBatchesRequest['from'];
-                    jobName = listBatchesRequest['job-name'];
-                    jobId = listBatchesRequest['job-id'];
-                    order = listBatchesRequest['order'];
-                    queueName = listBatchesRequest['queue_name'];
-                    size = listBatchesRequest['size'];
-                    start = listBatchesRequest['start'];
-                    state = listBatchesRequest['state'];
+                    clusterName = listSparkJobsRequest['cluster_name'];
+                    end = listSparkJobsRequest['end'];
+                    from = listSparkJobsRequest['from'];
+                    jobName = listSparkJobsRequest['job-name'];
+                    jobId = listSparkJobsRequest['job-id'];
+                    order = listSparkJobsRequest['order'];
+                    queueName = listSparkJobsRequest['queue_name'];
+                    size = listSparkJobsRequest['size'];
+                    start = listSparkJobsRequest['start'];
+                    state = listSparkJobsRequest['state'];
                 }
             }
 
@@ -7360,43 +7360,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于根据批处理作业的id查询作业详情。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBatchInfo(showBatchInfoRequest?: ShowBatchInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2.0/{project_id}/batches/{batch_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let batchId;
-
-            if (showBatchInfoRequest !== null && showBatchInfoRequest !== undefined) {
-                if (showBatchInfoRequest instanceof ShowBatchInfoRequest) {
-                    batchId = showBatchInfoRequest.batchId;
-                } else {
-                    batchId = showBatchInfoRequest['batch_id'];
-                }
-            }
-
-        
-            if (batchId === null || batchId === undefined) {
-            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling showBatchInfo.');
-            }
-
-            options.pathParams = { 'batch_id': batchId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7468,11 +7431,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于根据批处理作业的id查询作业详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSparkJob(showSparkJobRequest?: ShowSparkJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/{project_id}/batches/{batch_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let batchId;
+
+            if (showSparkJobRequest !== null && showSparkJobRequest !== undefined) {
+                if (showSparkJobRequest instanceof ShowSparkJobRequest) {
+                    batchId = showSparkJobRequest.batchId;
+                } else {
+                    batchId = showSparkJobRequest['batch_id'];
+                }
+            }
+
+        
+            if (batchId === null || batchId === undefined) {
+            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling showSparkJob.');
+            }
+
+            options.pathParams = { 'batch_id': batchId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于查询批处理作业的状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showBatchState(showBatchStateRequest?: ShowBatchStateRequest) {
+        showSparkJobStatus(showSparkJobStatusRequest?: ShowSparkJobStatusRequest) {
             const options = {
                 method: "GET",
                 url: "/v2.0/{project_id}/batches/{batch_id}/state",
@@ -7486,17 +7486,17 @@ export const ParamCreater = function () {
             
             let batchId;
 
-            if (showBatchStateRequest !== null && showBatchStateRequest !== undefined) {
-                if (showBatchStateRequest instanceof ShowBatchStateRequest) {
-                    batchId = showBatchStateRequest.batchId;
+            if (showSparkJobStatusRequest !== null && showSparkJobStatusRequest !== undefined) {
+                if (showSparkJobStatusRequest instanceof ShowSparkJobStatusRequest) {
+                    batchId = showSparkJobStatusRequest.batchId;
                 } else {
-                    batchId = showBatchStateRequest['batch_id'];
+                    batchId = showSparkJobStatusRequest['batch_id'];
                 }
             }
 
         
             if (batchId === null || batchId === undefined) {
-            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling showBatchState.');
+            throw new RequiredError('batchId','Required parameter batchId was null or undefined when calling showSparkJobStatus.');
             }
 
             options.pathParams = { 'batch_id': batchId, };
@@ -8208,7 +8208,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        previewJobResult(previewJobResultRequest?: PreviewJobResultRequest) {
+        previewSqlJobResult(previewSqlJobResultRequest?: PreviewSqlJobResultRequest) {
             const options = {
                 method: "GET",
                 url: "/v1.0/{project_id}/jobs/{job_id}/preview",
@@ -8224,19 +8224,19 @@ export const ParamCreater = function () {
             
             let queueName;
 
-            if (previewJobResultRequest !== null && previewJobResultRequest !== undefined) {
-                if (previewJobResultRequest instanceof PreviewJobResultRequest) {
-                    jobId = previewJobResultRequest.jobId;
-                    queueName = previewJobResultRequest.queueName;
+            if (previewSqlJobResultRequest !== null && previewSqlJobResultRequest !== undefined) {
+                if (previewSqlJobResultRequest instanceof PreviewSqlJobResultRequest) {
+                    jobId = previewSqlJobResultRequest.jobId;
+                    queueName = previewSqlJobResultRequest.queueName;
                 } else {
-                    jobId = previewJobResultRequest['job_id'];
-                    queueName = previewJobResultRequest['queue-name'];
+                    jobId = previewSqlJobResultRequest['job_id'];
+                    queueName = previewSqlJobResultRequest['queue-name'];
                 }
             }
 
         
             if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling previewJobResult.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling previewSqlJobResult.');
             }
             if (queueName !== null && queueName !== undefined) {
                 localVarQueryParameter['queue-name'] = queueName;
@@ -8288,43 +8288,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'database_name': databaseName,'table_name': tableName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于获取作业执行进度信息，如果作业正在执行，可以获取到子作业的信息，如果作业刚开始或者已经结束，不可以获取到子作业信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJobProgress(showJobProgressRequest?: ShowJobProgressRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/jobs/{job_id}/progress",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-
-            if (showJobProgressRequest !== null && showJobProgressRequest !== undefined) {
-                if (showJobProgressRequest instanceof ShowJobProgressRequest) {
-                    jobId = showJobProgressRequest.jobId;
-                } else {
-                    jobId = showJobProgressRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobProgress.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8417,6 +8380,43 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showSqlJobDetail.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取作业执行进度信息，如果作业正在执行，可以获取到子作业的信息，如果作业刚开始或者已经结束，不可以获取到子作业信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlJobProgress(showSqlJobProgressRequest?: ShowSqlJobProgressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/jobs/{job_id}/progress",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showSqlJobProgressRequest !== null && showSqlJobProgressRequest !== undefined) {
+                if (showSqlJobProgressRequest instanceof ShowSqlJobProgressRequest) {
+                    jobId = showSqlJobProgressRequest.jobId;
+                } else {
+                    jobId = showSqlJobProgressRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showSqlJobProgress.');
             }
 
             options.pathParams = { 'job_id': jobId, };

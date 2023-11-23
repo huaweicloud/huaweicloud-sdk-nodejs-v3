@@ -11,6 +11,8 @@ export class QueryJobsReq {
     private 'service_name'?: string;
     public status?: QueryJobsReqStatusEnum | string;
     public tags?: { [key: string]: string; };
+    private 'instance_ids'?: Array<string>;
+    private 'instance_ip'?: string;
     public constructor(curPage?: number, perPage?: number, dbUseType?: string) { 
         this['cur_page'] = curPage;
         this['per_page'] = perPage;
@@ -97,6 +99,26 @@ export class QueryJobsReq {
     public withTags(tags: { [key: string]: string; }): QueryJobsReq {
         this['tags'] = tags;
         return this;
+    }
+    public withInstanceIds(instanceIds: Array<string>): QueryJobsReq {
+        this['instance_ids'] = instanceIds;
+        return this;
+    }
+    public set instanceIds(instanceIds: Array<string>  | undefined) {
+        this['instance_ids'] = instanceIds;
+    }
+    public get instanceIds(): Array<string> | undefined {
+        return this['instance_ids'];
+    }
+    public withInstanceIp(instanceIp: string): QueryJobsReq {
+        this['instance_ip'] = instanceIp;
+        return this;
+    }
+    public set instanceIp(instanceIp: string  | undefined) {
+        this['instance_ip'] = instanceIp;
+    }
+    public get instanceIp(): string | undefined {
+        return this['instance_ip'];
     }
 }
 

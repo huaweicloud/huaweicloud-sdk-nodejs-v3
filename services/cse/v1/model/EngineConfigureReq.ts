@@ -1,12 +1,12 @@
 
 
 export class EngineConfigureReq {
-    public version?: string;
-    public constructor(version?: string) { 
-        this['version'] = version;
+    public authType?: string;
+    public constructor(authType?: string) { 
+        this['authType'] = authType;
     }
-    public withVersion(version: string): EngineConfigureReq {
-        this['version'] = version;
+    public withAuthType(authType: string): EngineConfigureReq {
+        this['authType'] = authType;
         return this;
     }
 }

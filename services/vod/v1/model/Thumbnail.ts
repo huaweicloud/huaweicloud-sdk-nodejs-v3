@@ -2,6 +2,8 @@
 
 export class Thumbnail {
     public type?: ThumbnailTypeEnum | string;
+    public quantity?: number;
+    private 'quantity_time'?: number;
     public time?: number;
     public dots?: Array<number>;
     private 'cover_position'?: number;
@@ -14,6 +16,20 @@ export class Thumbnail {
     public withType(type: ThumbnailTypeEnum | string): Thumbnail {
         this['type'] = type;
         return this;
+    }
+    public withQuantity(quantity: number): Thumbnail {
+        this['quantity'] = quantity;
+        return this;
+    }
+    public withQuantityTime(quantityTime: number): Thumbnail {
+        this['quantity_time'] = quantityTime;
+        return this;
+    }
+    public set quantityTime(quantityTime: number  | undefined) {
+        this['quantity_time'] = quantityTime;
+    }
+    public get quantityTime(): number | undefined {
+        return this['quantity_time'];
     }
     public withTime(time: number): Thumbnail {
         this['time'] = time;
@@ -65,5 +81,6 @@ export class Thumbnail {
     */
 export enum ThumbnailTypeEnum {
     TIME = 'time',
-    DOTS = 'dots'
+    DOTS = 'dots',
+    QUANTITY = 'quantity'
 }

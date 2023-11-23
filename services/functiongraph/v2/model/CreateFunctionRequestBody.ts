@@ -26,6 +26,8 @@ export class CreateFunctionRequestBody {
     private 'func_code'?: FuncCode;
     private 'initializer_handler'?: string;
     private 'initializer_timeout'?: number;
+    private 'pre_stop_handler'?: string;
+    private 'pre_stop_timeout'?: number;
     private 'enterprise_project_id'?: string;
     public type?: CreateFunctionRequestBodyTypeEnum | string;
     private 'log_config'?: FuncLogConfig;
@@ -208,6 +210,26 @@ export class CreateFunctionRequestBody {
     }
     public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
+    }
+    public withPreStopHandler(preStopHandler: string): CreateFunctionRequestBody {
+        this['pre_stop_handler'] = preStopHandler;
+        return this;
+    }
+    public set preStopHandler(preStopHandler: string  | undefined) {
+        this['pre_stop_handler'] = preStopHandler;
+    }
+    public get preStopHandler(): string | undefined {
+        return this['pre_stop_handler'];
+    }
+    public withPreStopTimeout(preStopTimeout: number): CreateFunctionRequestBody {
+        this['pre_stop_timeout'] = preStopTimeout;
+        return this;
+    }
+    public set preStopTimeout(preStopTimeout: number  | undefined) {
+        this['pre_stop_timeout'] = preStopTimeout;
+    }
+    public get preStopTimeout(): number | undefined {
+        return this['pre_stop_timeout'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateFunctionRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;

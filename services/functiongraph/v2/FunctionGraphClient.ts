@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { Action } from './model/Action';
+import { AppTemplateResourceDetail } from './model/AppTemplateResourceDetail';
 import { AsyncInvokeFunctionRequest } from './model/AsyncInvokeFunctionRequest';
 import { AsyncInvokeFunctionResponse } from './model/AsyncInvokeFunctionResponse';
 import { AsyncInvokeReservedFunctionRequest } from './model/AsyncInvokeReservedFunctionRequest';
@@ -11,9 +12,12 @@ import { BatchDeleteFunctionTriggersRequest } from './model/BatchDeleteFunctionT
 import { BatchDeleteFunctionTriggersResponse } from './model/BatchDeleteFunctionTriggersResponse';
 import { BatchDeleteWorkflowsRequest } from './model/BatchDeleteWorkflowsRequest';
 import { BatchDeleteWorkflowsResponse } from './model/BatchDeleteWorkflowsResponse';
+import { CallbackWorkflowRequestBody } from './model/CallbackWorkflowRequestBody';
 import { CancelAsyncInvocationRequest } from './model/CancelAsyncInvocationRequest';
 import { CancelAsyncInvocationRequestBody } from './model/CancelAsyncInvocationRequestBody';
 import { CancelAsyncInvocationResponse } from './model/CancelAsyncInvocationResponse';
+import { CreateCallbackWorkflowRequest } from './model/CreateCallbackWorkflowRequest';
+import { CreateCallbackWorkflowResponse } from './model/CreateCallbackWorkflowResponse';
 import { CreateDependencyRequest } from './model/CreateDependencyRequest';
 import { CreateDependencyRequestBody } from './model/CreateDependencyRequestBody';
 import { CreateDependencyResponse } from './model/CreateDependencyResponse';
@@ -22,6 +26,9 @@ import { CreateDependencyVersionResponse } from './model/CreateDependencyVersion
 import { CreateEventRequest } from './model/CreateEventRequest';
 import { CreateEventRequestBody } from './model/CreateEventRequestBody';
 import { CreateEventResponse } from './model/CreateEventResponse';
+import { CreateFunctionAppRequest } from './model/CreateFunctionAppRequest';
+import { CreateFunctionAppRequestBody } from './model/CreateFunctionAppRequestBody';
+import { CreateFunctionAppResponse } from './model/CreateFunctionAppResponse';
 import { CreateFunctionRequest } from './model/CreateFunctionRequest';
 import { CreateFunctionRequestBody } from './model/CreateFunctionRequestBody';
 import { CreateFunctionResponse } from './model/CreateFunctionResponse';
@@ -49,6 +56,8 @@ import { DeleteDependencyVersionRequest } from './model/DeleteDependencyVersionR
 import { DeleteDependencyVersionResponse } from './model/DeleteDependencyVersionResponse';
 import { DeleteEventRequest } from './model/DeleteEventRequest';
 import { DeleteEventResponse } from './model/DeleteEventResponse';
+import { DeleteFunctionAppRequest } from './model/DeleteFunctionAppRequest';
+import { DeleteFunctionAppResponse } from './model/DeleteFunctionAppResponse';
 import { DeleteFunctionAsyncInvokeConfigRequest } from './model/DeleteFunctionAsyncInvokeConfigRequest';
 import { DeleteFunctionAsyncInvokeConfigResponse } from './model/DeleteFunctionAsyncInvokeConfigResponse';
 import { DeleteFunctionRequest } from './model/DeleteFunctionRequest';
@@ -91,6 +100,9 @@ import { InvokeFunctionResponse } from './model/InvokeFunctionResponse';
 import { KvItem } from './model/KvItem';
 import { ListActiveAsyncInvocationsRequest } from './model/ListActiveAsyncInvocationsRequest';
 import { ListActiveAsyncInvocationsResponse } from './model/ListActiveAsyncInvocationsResponse';
+import { ListAppTemplatesRequest } from './model/ListAppTemplatesRequest';
+import { ListAppTemplatesResponse } from './model/ListAppTemplatesResponse';
+import { ListAppTemplatesResult } from './model/ListAppTemplatesResult';
 import { ListAsyncInvocationsRequest } from './model/ListAsyncInvocationsRequest';
 import { ListAsyncInvocationsResponse } from './model/ListAsyncInvocationsResponse';
 import { ListBridgeFunctionsRequest } from './model/ListBridgeFunctionsRequest';
@@ -107,6 +119,9 @@ import { ListEnterpriseResourceResult } from './model/ListEnterpriseResourceResu
 import { ListEventsRequest } from './model/ListEventsRequest';
 import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListEventsResult } from './model/ListEventsResult';
+import { ListFunctionApplicationResult } from './model/ListFunctionApplicationResult';
+import { ListFunctionApplicationsRequest } from './model/ListFunctionApplicationsRequest';
+import { ListFunctionApplicationsResponse } from './model/ListFunctionApplicationsResponse';
 import { ListFunctionAsMetricRequest } from './model/ListFunctionAsMetricRequest';
 import { ListFunctionAsMetricResponse } from './model/ListFunctionAsMetricResponse';
 import { ListFunctionAsyncInvocationsResult } from './model/ListFunctionAsyncInvocationsResult';
@@ -157,12 +172,15 @@ import { OnError } from './model/OnError';
 import { OperateErrorInfo } from './model/OperateErrorInfo';
 import { OperationState } from './model/OperationState';
 import { PageInfo } from './model/PageInfo';
+import { RepoInfo } from './model/RepoInfo';
 import { ReservedInstanceConfigs } from './model/ReservedInstanceConfigs';
 import { Resources } from './model/Resources';
 import { Retry } from './model/Retry';
 import { RetryWorkFlowRequest } from './model/RetryWorkFlowRequest';
 import { RetryWorkFlowResponse } from './model/RetryWorkFlowResponse';
 import { ServiceBridgeVersion } from './model/ServiceBridgeVersion';
+import { ShowAppTemplateRequest } from './model/ShowAppTemplateRequest';
+import { ShowAppTemplateResponse } from './model/ShowAppTemplateResponse';
 import { ShowDependcyRequest } from './model/ShowDependcyRequest';
 import { ShowDependcyResponse } from './model/ShowDependcyResponse';
 import { ShowDependencyVersionRequest } from './model/ShowDependencyVersionRequest';
@@ -173,6 +191,8 @@ import { ShowFuncReservedInstanceMetricsRequest } from './model/ShowFuncReserved
 import { ShowFuncReservedInstanceMetricsResponse } from './model/ShowFuncReservedInstanceMetricsResponse';
 import { ShowFuncSnapshotStateRequest } from './model/ShowFuncSnapshotStateRequest';
 import { ShowFuncSnapshotStateResponse } from './model/ShowFuncSnapshotStateResponse';
+import { ShowFunctionAppRequest } from './model/ShowFunctionAppRequest';
+import { ShowFunctionAppResponse } from './model/ShowFunctionAppResponse';
 import { ShowFunctionAsyncInvokeConfigRequest } from './model/ShowFunctionAsyncInvokeConfigRequest';
 import { ShowFunctionAsyncInvokeConfigResponse } from './model/ShowFunctionAsyncInvokeConfigResponse';
 import { ShowFunctionCodeRequest } from './model/ShowFunctionCodeRequest';
@@ -209,6 +229,7 @@ import { ShowWorkflowExecutionForPageResponse } from './model/ShowWorkflowExecut
 import { ShowWorkflowExecutionRequest } from './model/ShowWorkflowExecutionRequest';
 import { ShowWorkflowExecutionResponse } from './model/ShowWorkflowExecutionResponse';
 import { SlaReportsValue } from './model/SlaReportsValue';
+import { StackResource } from './model/StackResource';
 import { StartSyncWorkflowExecutionRequest } from './model/StartSyncWorkflowExecutionRequest';
 import { StartSyncWorkflowExecutionResponse } from './model/StartSyncWorkflowExecutionResponse';
 import { StartWorkflowExecutionRequest } from './model/StartWorkflowExecutionRequest';
@@ -365,7 +386,7 @@ export class FunctionGraphClient {
     }
 
     /**
-     * -| 停止函数异步调用请求 当前仅支持recursive为false且force为true的参数。针对1：N的函数做并发异步调用 停止异步请求时实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled 目前仅支持广州和贵阳一
+     * -| 当前仅支持参数recursive为false且force为true的函数。 在1：N的函数做并发异步调用的场景下调用停止异步请求接口时，同一函数实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -377,6 +398,28 @@ export class FunctionGraphClient {
      */
     public cancelAsyncInvocation(cancelAsyncInvocationRequest?: CancelAsyncInvocationRequest): Promise<CancelAsyncInvocationResponse> {
         const options = ParamCreater().cancelAsyncInvocation(cancelAsyncInvocationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 回调工作流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 回调工作流
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} xWorkflowRunId workflow run id
+     * @param {string} xWorkflowStateId workflow state id
+     * @param {CallbackWorkflowRequestBody} createCallbackWorkflowRequestBody callback workflow body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCallbackWorkflow(createCallbackWorkflowRequest?: CreateCallbackWorkflowRequest): Promise<CreateCallbackWorkflowResponse> {
+        const options = ParamCreater().createCallbackWorkflow(createCallbackWorkflowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -454,6 +497,25 @@ export class FunctionGraphClient {
      */
     public createFunction(createFunctionRequest?: CreateFunctionRequest): Promise<CreateFunctionResponse> {
         const options = ParamCreater().createFunction(createFunctionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建应用程序
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建应用程序
+     * @param {CreateFunctionAppRequestBody} createFunctionAppRequestBody 创建应用程序请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctionApp(createFunctionAppRequest?: CreateFunctionAppRequest): Promise<CreateFunctionAppResponse> {
+        const options = ParamCreater().createFunctionApp(createFunctionAppRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -666,6 +728,25 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 删除应用程序
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除应用程序
+     * @param {string} id 应用ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFunctionApp(deleteFunctionAppRequest?: DeleteFunctionAppRequest): Promise<DeleteFunctionAppResponse> {
+        const options = ParamCreater().deleteFunctionApp(deleteFunctionAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除函数异步配置信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -809,9 +890,9 @@ export class FunctionGraphClient {
      *
      * @summary 导出函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {boolean} [config] 是否导出函数配置，默认为false
-     * @param {boolean} [code] 是否导出函数代码，默认为false
-     * @param {string} [type] 不兼容与code、config参数混用；type&#x3D;code代表导出代码,type&#x3D;config代码导出配置
+     * @param {boolean} [config] 是否导出函数配置，默认为false。若无type参数，则必填code&#x3D;true或config&#x3D;true至少一项。
+     * @param {boolean} [code] 是否导出函数代码，默认为false。若无type参数，则必填code&#x3D;true或config&#x3D;true至少一项。
+     * @param {string} [type] 不兼容与code、config参数混用；type&#x3D;code代表导出代码，type&#x3D;config代码导出配置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -883,6 +964,29 @@ export class FunctionGraphClient {
      */
     public listActiveAsyncInvocations(listActiveAsyncInvocationsRequest?: ListActiveAsyncInvocationsRequest): Promise<ListActiveAsyncInvocationsResponse> {
         const options = ParamCreater().listActiveAsyncInvocations(listActiveAsyncInvocationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用程序模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用程序模板列表
+     * @param {string} [marker] 本次查询起始位置，默认值0
+     * @param {string} [maxitems] 本次查询最大返回的数据条数，最大值500，默认值100
+     * @param {string} [runtime] 模板执行运行时
+     * @param {string} [category] 模板类别
+     * @param {string} [xLanguage] 模板语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppTemplates(listAppTemplatesRequest?: ListAppTemplatesRequest): Promise<ListAppTemplatesResponse> {
+        const options = ParamCreater().listAppTemplates(listAppTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1012,6 +1116,24 @@ export class FunctionGraphClient {
      */
     public listEvents(listEventsRequest?: ListEventsRequest): Promise<ListEventsResponse> {
         const options = ParamCreater().listEvents(listEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用程序列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用程序列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionApplications(listFunctionApplicationsRequest?: ListFunctionApplicationsRequest): Promise<ListFunctionApplicationsResponse> {
+        const options = ParamCreater().listFunctionApplications();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1359,6 +1481,25 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 查询应用程序模板详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用程序模板详情
+     * @param {string} id 应用模板ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAppTemplate(showAppTemplateRequest?: ShowAppTemplateRequest): Promise<ShowAppTemplateResponse> {
+        const options = ParamCreater().showAppTemplate(showAppTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定依赖包
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1463,6 +1604,25 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 查询应用程序详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用程序详情
+     * @param {string} id 应用ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFunctionApp(showFunctionAppRequest?: ShowFunctionAppRequest): Promise<ShowFunctionAppResponse> {
+        const options = ParamCreater().showFunctionApp(showFunctionAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定函数某一版本的异步配置信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1526,7 +1686,7 @@ export class FunctionGraphClient {
      *
      * @summary 查询函数实例流量指标
      * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {string} period 时间间隔
+     * @param {string} period 时间间隔（单位：min）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1907,7 +2067,7 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 禁用/启动函数快照
+     * 禁用/启动函数快照，仅支持java运行时函数，且为非latest版本才能开启函数快照功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1967,13 +2127,13 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 更新函数收藏状态
+     * 更新函数置顶状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新函数收藏状态
+     * @summary 更新函数置顶状态
      * @param {string} funcUrn 函数URN
-     * @param {string} state 收藏状态
+     * @param {string} state 置顶状态
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2302,7 +2462,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * -| 停止函数异步调用请求 当前仅支持recursive为false且force为true的参数。针对1：N的函数做并发异步调用 停止异步请求时实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled 目前仅支持广州和贵阳一
+         * -| 当前仅支持参数recursive为false且force为true的函数。 在1：N的函数做并发异步调用的场景下调用停止异步请求接口时，同一函数实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2343,6 +2503,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 回调工作流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCallbackWorkflow(createCallbackWorkflowRequest?: CreateCallbackWorkflowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/callback",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workflowId;
+            
+            let xWorkflowRunId;
+            
+            let xWorkflowStateId;
+
+            if (createCallbackWorkflowRequest !== null && createCallbackWorkflowRequest !== undefined) {
+                if (createCallbackWorkflowRequest instanceof CreateCallbackWorkflowRequest) {
+                    workflowId = createCallbackWorkflowRequest.workflowId;
+                    xWorkflowRunId = createCallbackWorkflowRequest.xWorkflowRunId;
+                    xWorkflowStateId = createCallbackWorkflowRequest.xWorkflowStateId;
+                    body = createCallbackWorkflowRequest.body
+                } else {
+                    workflowId = createCallbackWorkflowRequest['workflow_id'];
+                    xWorkflowRunId = createCallbackWorkflowRequest['X-Workflow-Run-Id'];
+                    xWorkflowStateId = createCallbackWorkflowRequest['X-Workflow-State-Id'];
+                    body = createCallbackWorkflowRequest['body'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling createCallbackWorkflow.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xWorkflowRunId !== undefined && xWorkflowRunId !== null) {
+                localVarHeaderParameter['X-Workflow-Run-Id'] = String(xWorkflowRunId);
+            }
+            if (xWorkflowStateId !== undefined && xWorkflowStateId !== null) {
+                localVarHeaderParameter['X-Workflow-State-Id'] = String(xWorkflowStateId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2493,6 +2713,44 @@ export const ParamCreater = function () {
                     body = createFunctionRequest.body
                 } else {
                     body = createFunctionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建应用程序
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFunctionApp(createFunctionAppRequest?: CreateFunctionAppRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/applications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createFunctionAppRequest !== null && createFunctionAppRequest !== undefined) {
+                if (createFunctionAppRequest instanceof CreateFunctionAppRequest) {
+                    body = createFunctionAppRequest.body
+                } else {
+                    body = createFunctionAppRequest['body'];
                 }
             }
 
@@ -2939,6 +3197,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除应用程序
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFunctionApp(deleteFunctionAppRequest?: DeleteFunctionAppRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/applications/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteFunctionAppRequest !== null && deleteFunctionAppRequest !== undefined) {
+                if (deleteFunctionAppRequest instanceof DeleteFunctionAppRequest) {
+                    id = deleteFunctionAppRequest.id;
+                } else {
+                    id = deleteFunctionAppRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteFunctionApp.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3452,6 +3747,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询应用程序模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppTemplates(listAppTemplatesRequest?: ListAppTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/application/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let maxitems;
+            
+            let runtime;
+            
+            let category;
+            
+            let xLanguage;
+
+            if (listAppTemplatesRequest !== null && listAppTemplatesRequest !== undefined) {
+                if (listAppTemplatesRequest instanceof ListAppTemplatesRequest) {
+                    marker = listAppTemplatesRequest.marker;
+                    maxitems = listAppTemplatesRequest.maxitems;
+                    runtime = listAppTemplatesRequest.runtime;
+                    category = listAppTemplatesRequest.category;
+                    xLanguage = listAppTemplatesRequest.xLanguage;
+                } else {
+                    marker = listAppTemplatesRequest['marker'];
+                    maxitems = listAppTemplatesRequest['maxitems'];
+                    runtime = listAppTemplatesRequest['runtime'];
+                    category = listAppTemplatesRequest['category'];
+                    xLanguage = listAppTemplatesRequest['X-Language'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (maxitems !== null && maxitems !== undefined) {
+                localVarQueryParameter['maxitems'] = maxitems;
+            }
+            if (runtime !== null && runtime !== undefined) {
+                localVarQueryParameter['runtime'] = runtime;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取函数异步调用请求列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3780,6 +4140,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用程序列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFunctionApplications() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/applications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4589,6 +4970,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询应用程序模板详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAppTemplate(showAppTemplateRequest?: ShowAppTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/application/templates/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showAppTemplateRequest !== null && showAppTemplateRequest !== undefined) {
+                if (showAppTemplateRequest instanceof ShowAppTemplateRequest) {
+                    id = showAppTemplateRequest.id;
+                } else {
+                    id = showAppTemplateRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showAppTemplate.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定依赖包
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4796,6 +5214,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn,'action': action, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用程序详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFunctionApp(showFunctionAppRequest?: ShowFunctionAppRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/applications/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showFunctionAppRequest !== null && showFunctionAppRequest !== undefined) {
+                if (showFunctionAppRequest instanceof ShowFunctionAppRequest) {
+                    id = showFunctionAppRequest.id;
+                } else {
+                    id = showFunctionAppRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showFunctionApp.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5806,7 +6261,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 禁用/启动函数快照
+         * 禁用/启动函数快照，仅支持java运行时函数，且为非latest版本才能开启函数快照功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5942,7 +6397,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新函数收藏状态
+         * 更新函数置顶状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,4 +1,5 @@
 import { ComponentStorage } from './ComponentStorage';
+import { ConfigurationContainerSpec } from './ConfigurationContainerSpec';
 import { ConfigurationEnvParam } from './ConfigurationEnvParam';
 import { ConfigurationLifecycle } from './ConfigurationLifecycle';
 import { ConfigurationProbes } from './ConfigurationProbes';
@@ -13,6 +14,7 @@ export class InstanceConfiguration {
     public lifecycle?: ConfigurationLifecycle;
     public scheduler?: ConfigurationScheduler;
     public probes?: ConfigurationProbes;
+    private 'container_spec'?: ConfigurationContainerSpec;
     public constructor() { 
     }
     public withEnv(env: Array<ConfigurationEnvParam>): InstanceConfiguration {
@@ -38,5 +40,15 @@ export class InstanceConfiguration {
     public withProbes(probes: ConfigurationProbes): InstanceConfiguration {
         this['probes'] = probes;
         return this;
+    }
+    public withContainerSpec(containerSpec: ConfigurationContainerSpec): InstanceConfiguration {
+        this['container_spec'] = containerSpec;
+        return this;
+    }
+    public set containerSpec(containerSpec: ConfigurationContainerSpec  | undefined) {
+        this['container_spec'] = containerSpec;
+    }
+    public get containerSpec(): ConfigurationContainerSpec | undefined {
+        return this['container_spec'];
     }
 }

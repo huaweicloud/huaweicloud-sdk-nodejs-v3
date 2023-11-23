@@ -5,7 +5,7 @@ export class PipelineSchedule {
     public type?: string;
     public name?: string;
     public enable?: string;
-    private 'days_of_week'?: string;
+    private 'days_of_week'?: Array<number>;
     private 'time_zone'?: string;
     public constructor() { 
     }
@@ -25,14 +25,14 @@ export class PipelineSchedule {
         this['enable'] = enable;
         return this;
     }
-    public withDaysOfWeek(daysOfWeek: string): PipelineSchedule {
+    public withDaysOfWeek(daysOfWeek: Array<number>): PipelineSchedule {
         this['days_of_week'] = daysOfWeek;
         return this;
     }
-    public set daysOfWeek(daysOfWeek: string  | undefined) {
+    public set daysOfWeek(daysOfWeek: Array<number>  | undefined) {
         this['days_of_week'] = daysOfWeek;
     }
-    public get daysOfWeek(): string | undefined {
+    public get daysOfWeek(): Array<number> | undefined {
         return this['days_of_week'];
     }
     public withTimeZone(timeZone: string): PipelineSchedule {

@@ -33,6 +33,8 @@ export class ListFunctionVersionResult {
     private 'strategy_config'?: StrategyConfig;
     private 'initializer_handler'?: string;
     private 'initializer_timeout'?: number;
+    private 'pre_stop_handler'?: string;
+    private 'pre_stop_timeout'?: number;
     private 'long_time'?: boolean;
     private 'function_async_config'?: FunctionAsyncConfig;
     public type?: string;
@@ -297,6 +299,26 @@ export class ListFunctionVersionResult {
     }
     public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
+    }
+    public withPreStopHandler(preStopHandler: string): ListFunctionVersionResult {
+        this['pre_stop_handler'] = preStopHandler;
+        return this;
+    }
+    public set preStopHandler(preStopHandler: string  | undefined) {
+        this['pre_stop_handler'] = preStopHandler;
+    }
+    public get preStopHandler(): string | undefined {
+        return this['pre_stop_handler'];
+    }
+    public withPreStopTimeout(preStopTimeout: number): ListFunctionVersionResult {
+        this['pre_stop_timeout'] = preStopTimeout;
+        return this;
+    }
+    public set preStopTimeout(preStopTimeout: number  | undefined) {
+        this['pre_stop_timeout'] = preStopTimeout;
+    }
+    public get preStopTimeout(): number | undefined {
+        return this['pre_stop_timeout'];
     }
     public withLongTime(longTime: boolean): ListFunctionVersionResult {
         this['long_time'] = longTime;

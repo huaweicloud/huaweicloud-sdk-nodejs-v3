@@ -259,6 +259,8 @@ import { RestartGaussMySqlInstanceResponse } from './model/RestartGaussMySqlInst
 import { RestartGaussMySqlNodeRequest } from './model/RestartGaussMySqlNodeRequest';
 import { RestartGaussMySqlNodeResponse } from './model/RestartGaussMySqlNodeResponse';
 import { RestartNodeRequest } from './model/RestartNodeRequest';
+import { RestoreDatabaseInfos } from './model/RestoreDatabaseInfos';
+import { RestoreDatabaseTableInfo } from './model/RestoreDatabaseTableInfo';
 import { RestoreOldInstanceRequest } from './model/RestoreOldInstanceRequest';
 import { RestoreOldInstanceResponse } from './model/RestoreOldInstanceResponse';
 import { RestoreRequest } from './model/RestoreRequest';
@@ -314,6 +316,8 @@ import { ShowIntelligentDiagnosisAbnormalCountOfInstancesRequest } from './model
 import { ShowIntelligentDiagnosisAbnormalCountOfInstancesResponse } from './model/ShowIntelligentDiagnosisAbnormalCountOfInstancesResponse';
 import { ShowIntelligentDiagnosisInstanceInfosPerMetricRequest } from './model/ShowIntelligentDiagnosisInstanceInfosPerMetricRequest';
 import { ShowIntelligentDiagnosisInstanceInfosPerMetricResponse } from './model/ShowIntelligentDiagnosisInstanceInfosPerMetricResponse';
+import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
+import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
 import { ShowSqlFilterControlRequest } from './model/ShowSqlFilterControlRequest';
 import { ShowSqlFilterControlResponse } from './model/ShowSqlFilterControlResponse';
 import { ShowSqlFilterRuleRequest } from './model/ShowSqlFilterRuleRequest';
@@ -2154,6 +2158,30 @@ export class GaussDBClient {
      */
     public showIntelligentDiagnosisInstanceInfosPerMetric(showIntelligentDiagnosisInstanceInfosPerMetricRequest?: ShowIntelligentDiagnosisInstanceInfosPerMetricRequest): Promise<ShowIntelligentDiagnosisInstanceInfosPerMetricResponse> {
         const options = ParamCreater().showIntelligentDiagnosisInstanceInfosPerMetric(showIntelligentDiagnosisInstanceInfosPerMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询表级时间点恢复可选表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询表级时间点恢复可选表
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} restoreTime 备份时间点，时间戳格式。  通过[查询可恢复时间段](https://support.huaweicloud.com/api-gaussdbformysql/ShowBackupRestoreTime.html)获取。
+     * @param {string} lastTableInfo 是否是最新库表。 - true：是最新库表。 - false：是恢复时间点库表。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [databaseName] 数据库名称，模糊匹配。
+     * @param {string} [tableName] 表名称，模糊匹配。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRestoreTables(showRestoreTablesRequest?: ShowRestoreTablesRequest): Promise<ShowRestoreTablesResponse> {
+        const options = ParamCreater().showRestoreTables(showRestoreTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7272,6 +7300,85 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询表级时间点恢复可选表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRestoreTables(showRestoreTablesRequest?: ShowRestoreTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/restore/tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let restoreTime;
+            
+            let lastTableInfo;
+            
+            let xLanguage;
+            
+            let databaseName;
+            
+            let tableName;
+
+            if (showRestoreTablesRequest !== null && showRestoreTablesRequest !== undefined) {
+                if (showRestoreTablesRequest instanceof ShowRestoreTablesRequest) {
+                    instanceId = showRestoreTablesRequest.instanceId;
+                    restoreTime = showRestoreTablesRequest.restoreTime;
+                    lastTableInfo = showRestoreTablesRequest.lastTableInfo;
+                    xLanguage = showRestoreTablesRequest.xLanguage;
+                    databaseName = showRestoreTablesRequest.databaseName;
+                    tableName = showRestoreTablesRequest.tableName;
+                } else {
+                    instanceId = showRestoreTablesRequest['instance_id'];
+                    restoreTime = showRestoreTablesRequest['restore_time'];
+                    lastTableInfo = showRestoreTablesRequest['last_table_info'];
+                    xLanguage = showRestoreTablesRequest['X-Language'];
+                    databaseName = showRestoreTablesRequest['database_name'];
+                    tableName = showRestoreTablesRequest['table_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRestoreTables.');
+            }
+            if (restoreTime === null || restoreTime === undefined) {
+                throw new RequiredError('restoreTime','Required parameter restoreTime was null or undefined when calling showRestoreTables.');
+            }
+            if (restoreTime !== null && restoreTime !== undefined) {
+                localVarQueryParameter['restore_time'] = restoreTime;
+            }
+            if (lastTableInfo === null || lastTableInfo === undefined) {
+                throw new RequiredError('lastTableInfo','Required parameter lastTableInfo was null or undefined when calling showRestoreTables.');
+            }
+            if (lastTableInfo !== null && lastTableInfo !== undefined) {
+                localVarQueryParameter['last_table_info'] = lastTableInfo;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -277,7 +277,6 @@ export * from './model/UpdateFlavorReq';
 export * from './model/UpdateFlavorRequest';
 export * from './model/UpdateFlavorResponse';
 export * from './model/UpdateInstanceRequest';
-export * from './model/UpdateInstanceRequestBody';
 export * from './model/UpdateInstanceResponse';
 export * from './model/UpdateLogSettingReq';
 export * from './model/UpdateLogSettingRequest';

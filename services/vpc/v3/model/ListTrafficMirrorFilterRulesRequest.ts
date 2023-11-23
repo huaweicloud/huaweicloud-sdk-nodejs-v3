@@ -12,6 +12,8 @@ export class ListTrafficMirrorFilterRulesRequest {
     private 'destination_port_range'?: string;
     public action?: string;
     public priority?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListTrafficMirrorFilterRulesRequest {
@@ -86,6 +88,14 @@ export class ListTrafficMirrorFilterRulesRequest {
     }
     public withPriority(priority: string): ListTrafficMirrorFilterRulesRequest {
         this['priority'] = priority;
+        return this;
+    }
+    public withLimit(limit: number): ListTrafficMirrorFilterRulesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListTrafficMirrorFilterRulesRequest {
+        this['marker'] = marker;
         return this;
     }
 }

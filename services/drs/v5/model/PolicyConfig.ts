@@ -9,6 +9,7 @@ export class PolicyConfig {
     private 'support_ddl_info'?: PolicyConfigSupportDdlInfoEnum | string;
     private 'sync_type_policy'?: string;
     private 'increment_read_mode'?: string;
+    private 'dml_types'?: string;
     public constructor() { 
     }
     public withFilterDdlPolicy(filterDdlPolicy: PolicyConfigFilterDdlPolicyEnum | string): PolicyConfig {
@@ -90,6 +91,16 @@ export class PolicyConfig {
     }
     public get incrementReadMode(): string | undefined {
         return this['increment_read_mode'];
+    }
+    public withDmlTypes(dmlTypes: string): PolicyConfig {
+        this['dml_types'] = dmlTypes;
+        return this;
+    }
+    public set dmlTypes(dmlTypes: string  | undefined) {
+        this['dml_types'] = dmlTypes;
+    }
+    public get dmlTypes(): string | undefined {
+        return this['dml_types'];
     }
 }
 

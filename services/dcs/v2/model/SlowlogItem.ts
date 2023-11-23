@@ -6,6 +6,8 @@ export class SlowlogItem {
     private 'start_time'?: string;
     public duration?: string;
     private 'shard_name'?: string;
+    private 'database_id'?: number;
+    public username?: string;
     public constructor() { 
     }
     public withId(id: number): SlowlogItem {
@@ -39,5 +41,19 @@ export class SlowlogItem {
     }
     public get shardName(): string | undefined {
         return this['shard_name'];
+    }
+    public withDatabaseId(databaseId: number): SlowlogItem {
+        this['database_id'] = databaseId;
+        return this;
+    }
+    public set databaseId(databaseId: number  | undefined) {
+        this['database_id'] = databaseId;
+    }
+    public get databaseId(): number | undefined {
+        return this['database_id'];
+    }
+    public withUsername(username: string): SlowlogItem {
+        this['username'] = username;
+        return this;
     }
 }

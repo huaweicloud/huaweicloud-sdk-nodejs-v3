@@ -14,6 +14,8 @@ export class ListTrafficMirrorSessionsRequest {
     public type?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListTrafficMirrorSessionsRequest {
@@ -109,5 +111,13 @@ export class ListTrafficMirrorSessionsRequest {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withLimit(limit: number): ListTrafficMirrorSessionsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListTrafficMirrorSessionsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

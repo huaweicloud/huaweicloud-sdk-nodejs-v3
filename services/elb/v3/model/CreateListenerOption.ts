@@ -36,6 +36,7 @@ export class CreateListenerOption {
     private 'protection_reason'?: string;
     private 'gzip_enable'?: boolean;
     private 'port_ranges'?: Array<PortRange>;
+    private 'ssl_early_data_enable'?: boolean;
     public constructor(loadbalancerId?: string, protocol?: string) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['protocol'] = protocol;
@@ -309,6 +310,16 @@ export class CreateListenerOption {
     }
     public get portRanges(): Array<PortRange> | undefined {
         return this['port_ranges'];
+    }
+    public withSslEarlyDataEnable(sslEarlyDataEnable: boolean): CreateListenerOption {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+        return this;
+    }
+    public set sslEarlyDataEnable(sslEarlyDataEnable: boolean  | undefined) {
+        this['ssl_early_data_enable'] = sslEarlyDataEnable;
+    }
+    public get sslEarlyDataEnable(): boolean | undefined {
+        return this['ssl_early_data_enable'];
     }
 }
 

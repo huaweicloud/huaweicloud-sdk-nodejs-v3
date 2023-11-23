@@ -45,6 +45,9 @@ import { CreateInstanceUserRequest } from './model/CreateInstanceUserRequest';
 import { CreateInstanceUserResponse } from './model/CreateInstanceUserResponse';
 import { CreateKafkaConsumerGroupRequest } from './model/CreateKafkaConsumerGroupRequest';
 import { CreateKafkaConsumerGroupResponse } from './model/CreateKafkaConsumerGroupResponse';
+import { CreateKafkaUserClientQuotaTaskReq } from './model/CreateKafkaUserClientQuotaTaskReq';
+import { CreateKafkaUserClientQuotaTaskRequest } from './model/CreateKafkaUserClientQuotaTaskRequest';
+import { CreateKafkaUserClientQuotaTaskResponse } from './model/CreateKafkaUserClientQuotaTaskResponse';
 import { CreatePartitionReq } from './model/CreatePartitionReq';
 import { CreatePartitionRequest } from './model/CreatePartitionRequest';
 import { CreatePartitionResponse } from './model/CreatePartitionResponse';
@@ -62,6 +65,9 @@ import { DeleteConnectorRequest } from './model/DeleteConnectorRequest';
 import { DeleteConnectorResponse } from './model/DeleteConnectorResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteKafkaUserClientQuotaTaskReq } from './model/DeleteKafkaUserClientQuotaTaskReq';
+import { DeleteKafkaUserClientQuotaTaskRequest } from './model/DeleteKafkaUserClientQuotaTaskRequest';
+import { DeleteKafkaUserClientQuotaTaskResponse } from './model/DeleteKafkaUserClientQuotaTaskResponse';
 import { DeleteSinkTaskRequest } from './model/DeleteSinkTaskRequest';
 import { DeleteSinkTaskResponse } from './model/DeleteSinkTaskResponse';
 import { DiskusageEntity } from './model/DiskusageEntity';
@@ -116,6 +122,7 @@ import { ObsDestinationDescriptor } from './model/ObsDestinationDescriptor';
 import { PartitionReassignEntity } from './model/PartitionReassignEntity';
 import { PartitionReassignRequest } from './model/PartitionReassignRequest';
 import { PolicyEntity } from './model/PolicyEntity';
+import { Quota } from './model/Quota';
 import { ResetManagerPasswordReq } from './model/ResetManagerPasswordReq';
 import { ResetManagerPasswordRequest } from './model/ResetManagerPasswordRequest';
 import { ResetManagerPasswordResponse } from './model/ResetManagerPasswordResponse';
@@ -190,6 +197,8 @@ import { ShowKafkaTagsRequest } from './model/ShowKafkaTagsRequest';
 import { ShowKafkaTagsResponse } from './model/ShowKafkaTagsResponse';
 import { ShowKafkaTopicPartitionDiskusageRequest } from './model/ShowKafkaTopicPartitionDiskusageRequest';
 import { ShowKafkaTopicPartitionDiskusageResponse } from './model/ShowKafkaTopicPartitionDiskusageResponse';
+import { ShowKafkaUserClientQuotaRequest } from './model/ShowKafkaUserClientQuotaRequest';
+import { ShowKafkaUserClientQuotaResponse } from './model/ShowKafkaUserClientQuotaResponse';
 import { ShowMaintainWindowsRequest } from './model/ShowMaintainWindowsRequest';
 import { ShowMaintainWindowsResponse } from './model/ShowMaintainWindowsResponse';
 import { ShowMessagesRequest } from './model/ShowMessagesRequest';
@@ -232,6 +241,9 @@ import { UpdateInstanceTopicRequest } from './model/UpdateInstanceTopicRequest';
 import { UpdateInstanceTopicResponse } from './model/UpdateInstanceTopicResponse';
 import { UpdateInstanceUserRequest } from './model/UpdateInstanceUserRequest';
 import { UpdateInstanceUserResponse } from './model/UpdateInstanceUserResponse';
+import { UpdateKafkaUserClientQuotaTaskReq } from './model/UpdateKafkaUserClientQuotaTaskReq';
+import { UpdateKafkaUserClientQuotaTaskRequest } from './model/UpdateKafkaUserClientQuotaTaskRequest';
+import { UpdateKafkaUserClientQuotaTaskResponse } from './model/UpdateKafkaUserClientQuotaTaskResponse';
 import { UpdateSinkTaskQuotaReq } from './model/UpdateSinkTaskQuotaReq';
 import { UpdateSinkTaskQuotaRequest } from './model/UpdateSinkTaskQuotaRequest';
 import { UpdateSinkTaskQuotaResponse } from './model/UpdateSinkTaskQuotaResponse';
@@ -504,6 +516,26 @@ export class KafkaClient {
     }
 
     /**
+     * 该接口用于向Kafka实例提交创建user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建客户端流控配置
+     * @param {string} instanceId 实例ID。
+     * @param {CreateKafkaUserClientQuotaTaskReq} creatKafkaUserClientQuotaTaskBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKafkaUserClientQuotaTask(createKafkaUserClientQuotaTaskRequest?: CreateKafkaUserClientQuotaTaskRequest): Promise<CreateKafkaUserClientQuotaTaskResponse> {
+        const options = ParamCreater().createKafkaUserClientQuotaTask(createKafkaUserClientQuotaTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 新增Kafka实例指定Topic分区。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -634,6 +666,26 @@ export class KafkaClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于向Kafka实例提交删除user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除客户端流控设置
+     * @param {string} instanceId 实例ID。
+     * @param {DeleteKafkaUserClientQuotaTaskReq} deleteKafkaUserClientQuotaTaskBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest?: DeleteKafkaUserClientQuotaTaskRequest): Promise<DeleteKafkaUserClientQuotaTaskResponse> {
+        const options = ParamCreater().deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -774,7 +826,7 @@ export class KafkaClient {
      * @param {'kafka'} [engine] 消息引擎：kafka。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'FAULTY' | 'RESTARTING' | 'RESIZING' | 'RESIZING FAILED' | 'FROZEN'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'UPGRADING' | 'UPGRADINGFAILED' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -1352,6 +1404,27 @@ export class KafkaClient {
     }
 
     /**
+     * 该接口用于向Kafka实例查询流控的配置，若成功则返回流控配置的列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询客户端流控配置
+     * @param {string} instanceId 实例ID。
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录
+     * @param {number} [limit] 查询返回记录的数量限制
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKafkaUserClientQuota(showKafkaUserClientQuotaRequest?: ShowKafkaUserClientQuotaRequest): Promise<ShowKafkaUserClientQuotaResponse> {
+        const options = ParamCreater().showKafkaUserClientQuota(showKafkaUserClientQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询维护时间窗开始时间和结束时间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1618,6 +1691,26 @@ export class KafkaClient {
      */
     public updateInstanceUser(updateInstanceUserRequest?: UpdateInstanceUserRequest): Promise<UpdateInstanceUserResponse> {
         const options = ParamCreater().updateInstanceUser(updateInstanceUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于向Kafka实例提交修改user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改客户端流控设置
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateKafkaUserClientQuotaTaskReq} updateKafkaUserClientQuotaTaskBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKafkaUserClientQuotaTask(updateKafkaUserClientQuotaTaskRequest?: UpdateKafkaUserClientQuotaTaskRequest): Promise<UpdateKafkaUserClientQuotaTaskResponse> {
+        const options = ParamCreater().updateKafkaUserClientQuotaTask(updateKafkaUserClientQuotaTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2235,6 +2328,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于向Kafka实例提交创建user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createKafkaUserClientQuotaTask(createKafkaUserClientQuotaTaskRequest?: CreateKafkaUserClientQuotaTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/kafka/{project_id}/instances/{instance_id}/kafka-user-client-quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createKafkaUserClientQuotaTaskRequest !== null && createKafkaUserClientQuotaTaskRequest !== undefined) {
+                if (createKafkaUserClientQuotaTaskRequest instanceof CreateKafkaUserClientQuotaTaskRequest) {
+                    instanceId = createKafkaUserClientQuotaTaskRequest.instanceId;
+                    body = createKafkaUserClientQuotaTaskRequest.body
+                } else {
+                    instanceId = createKafkaUserClientQuotaTaskRequest['instance_id'];
+                    body = createKafkaUserClientQuotaTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createKafkaUserClientQuotaTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 新增Kafka实例指定Topic分区。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2530,6 +2669,52 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstance.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于向Kafka实例提交删除user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest?: DeleteKafkaUserClientQuotaTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/kafka/{project_id}/instances/{instance_id}/kafka-user-client-quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteKafkaUserClientQuotaTaskRequest !== null && deleteKafkaUserClientQuotaTaskRequest !== undefined) {
+                if (deleteKafkaUserClientQuotaTaskRequest instanceof DeleteKafkaUserClientQuotaTaskRequest) {
+                    instanceId = deleteKafkaUserClientQuotaTaskRequest.instanceId;
+                    body = deleteKafkaUserClientQuotaTaskRequest.body
+                } else {
+                    instanceId = deleteKafkaUserClientQuotaTaskRequest['instance_id'];
+                    body = deleteKafkaUserClientQuotaTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteKafkaUserClientQuotaTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4197,6 +4382,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于向Kafka实例查询流控的配置，若成功则返回流控配置的列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKafkaUserClientQuota(showKafkaUserClientQuotaRequest?: ShowKafkaUserClientQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/kafka/{project_id}/instances/{instance_id}/kafka-user-client-quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showKafkaUserClientQuotaRequest !== null && showKafkaUserClientQuotaRequest !== undefined) {
+                if (showKafkaUserClientQuotaRequest instanceof ShowKafkaUserClientQuotaRequest) {
+                    instanceId = showKafkaUserClientQuotaRequest.instanceId;
+                    offset = showKafkaUserClientQuotaRequest.offset;
+                    limit = showKafkaUserClientQuotaRequest.limit;
+                } else {
+                    instanceId = showKafkaUserClientQuotaRequest['instance_id'];
+                    offset = showKafkaUserClientQuotaRequest['offset'];
+                    limit = showKafkaUserClientQuotaRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKafkaUserClientQuota.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询维护时间窗开始时间和结束时间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4859,6 +5096,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'engine': engine,'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于向Kafka实例提交修改user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKafkaUserClientQuotaTask(updateKafkaUserClientQuotaTaskRequest?: UpdateKafkaUserClientQuotaTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/kafka/{project_id}/instances/{instance_id}/kafka-user-client-quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateKafkaUserClientQuotaTaskRequest !== null && updateKafkaUserClientQuotaTaskRequest !== undefined) {
+                if (updateKafkaUserClientQuotaTaskRequest instanceof UpdateKafkaUserClientQuotaTaskRequest) {
+                    instanceId = updateKafkaUserClientQuotaTaskRequest.instanceId;
+                    body = updateKafkaUserClientQuotaTaskRequest.body
+                } else {
+                    instanceId = updateKafkaUserClientQuotaTaskRequest['instance_id'];
+                    body = updateKafkaUserClientQuotaTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateKafkaUserClientQuotaTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

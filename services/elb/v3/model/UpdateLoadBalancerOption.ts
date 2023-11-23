@@ -18,9 +18,11 @@ export class UpdateLoadBalancerOption {
     private 'deletion_protection_enable'?: boolean;
     private 'prepaid_options'?: PrepaidUpdateOption;
     public autoscaling?: UpdateLoadbalancerAutoscalingOption;
+    private 'charge_mode'?: string;
     private 'waf_failure_action'?: UpdateLoadBalancerOptionWafFailureActionEnum | string;
     private 'protection_status'?: UpdateLoadBalancerOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'ipv6_vip_address'?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateLoadBalancerOption {
@@ -145,6 +147,16 @@ export class UpdateLoadBalancerOption {
         this['autoscaling'] = autoscaling;
         return this;
     }
+    public withChargeMode(chargeMode: string): UpdateLoadBalancerOption {
+        this['charge_mode'] = chargeMode;
+        return this;
+    }
+    public set chargeMode(chargeMode: string  | undefined) {
+        this['charge_mode'] = chargeMode;
+    }
+    public get chargeMode(): string | undefined {
+        return this['charge_mode'];
+    }
     public withWafFailureAction(wafFailureAction: UpdateLoadBalancerOptionWafFailureActionEnum | string): UpdateLoadBalancerOption {
         this['waf_failure_action'] = wafFailureAction;
         return this;
@@ -174,6 +186,16 @@ export class UpdateLoadBalancerOption {
     }
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
+    }
+    public withIpv6VipAddress(ipv6VipAddress: string): UpdateLoadBalancerOption {
+        this['ipv6_vip_address'] = ipv6VipAddress;
+        return this;
+    }
+    public set ipv6VipAddress(ipv6VipAddress: string  | undefined) {
+        this['ipv6_vip_address'] = ipv6VipAddress;
+    }
+    public get ipv6VipAddress(): string | undefined {
+        return this['ipv6_vip_address'];
     }
 }
 
