@@ -1,17 +1,16 @@
-import { Packet } from './Packet';
 import { PacketMessage } from './PacketMessage';
 
 
 export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     public direction?: HttpQueryCfwAttackLogsResponseDTODataRecordsDirectionEnum | string;
     public action?: string;
-    private 'event_time'?: string;
+    private 'event_time'?: number;
     private 'attack_type'?: string;
     private 'attack_rule'?: string;
     public level?: string;
     public source?: string;
     private 'packet_length'?: number;
-    private 'attack_rule_id'?: number;
+    private 'attack_rule_id'?: string;
     private 'hit_time'?: number;
     private 'log_id'?: string;
     private 'src_ip'?: string;
@@ -19,7 +18,7 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     private 'dst_ip'?: string;
     private 'dst_port'?: number;
     public protocol?: string;
-    public packet?: Packet;
+    public packet?: string;
     public app?: string;
     public packetMessages?: Array<PacketMessage>;
     private 'dst_host'?: string;
@@ -37,14 +36,14 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['action'] = action;
         return this;
     }
-    public withEventTime(eventTime: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
+    public withEventTime(eventTime: number): HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['event_time'] = eventTime;
         return this;
     }
-    public set eventTime(eventTime: string  | undefined) {
+    public set eventTime(eventTime: number  | undefined) {
         this['event_time'] = eventTime;
     }
-    public get eventTime(): string | undefined {
+    public get eventTime(): number | undefined {
         return this['event_time'];
     }
     public withAttackType(attackType: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
@@ -85,14 +84,14 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     public get packetLength(): number | undefined {
         return this['packet_length'];
     }
-    public withAttackRuleId(attackRuleId: number): HttpQueryCfwAttackLogsResponseDTODataRecords {
+    public withAttackRuleId(attackRuleId: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['attack_rule_id'] = attackRuleId;
         return this;
     }
-    public set attackRuleId(attackRuleId: number  | undefined) {
+    public set attackRuleId(attackRuleId: string  | undefined) {
         this['attack_rule_id'] = attackRuleId;
     }
-    public get attackRuleId(): number | undefined {
+    public get attackRuleId(): string | undefined {
         return this['attack_rule_id'];
     }
     public withHitTime(hitTime: number): HttpQueryCfwAttackLogsResponseDTODataRecords {
@@ -159,7 +158,7 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['protocol'] = protocol;
         return this;
     }
-    public withPacket(packet: Packet): HttpQueryCfwAttackLogsResponseDTODataRecords {
+    public withPacket(packet: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['packet'] = packet;
         return this;
     }

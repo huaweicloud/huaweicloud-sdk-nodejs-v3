@@ -11,9 +11,9 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     private 'dst_region_name'?: string;
     private 'log_id'?: string;
     private 'src_ip'?: string;
-    private 'src_port'?: string;
+    private 'src_port'?: number;
     private 'dst_ip'?: string;
-    private 'dst_port'?: string;
+    private 'dst_port'?: number;
     public protocol?: string;
     public app?: string;
     private 'dst_host'?: string;
@@ -113,14 +113,14 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     public get srcIp(): string | undefined {
         return this['src_ip'];
     }
-    public withSrcPort(srcPort: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+    public withSrcPort(srcPort: number): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
         this['src_port'] = srcPort;
         return this;
     }
-    public set srcPort(srcPort: string  | undefined) {
+    public set srcPort(srcPort: number  | undefined) {
         this['src_port'] = srcPort;
     }
-    public get srcPort(): string | undefined {
+    public get srcPort(): number | undefined {
         return this['src_port'];
     }
     public withDstIp(dstIp: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
@@ -133,14 +133,14 @@ export class HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
     public get dstIp(): string | undefined {
         return this['dst_ip'];
     }
-    public withDstPort(dstPort: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
+    public withDstPort(dstPort: number): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {
         this['dst_port'] = dstPort;
         return this;
     }
-    public set dstPort(dstPort: string  | undefined) {
+    public set dstPort(dstPort: number  | undefined) {
         this['dst_port'] = dstPort;
     }
-    public get dstPort(): string | undefined {
+    public get dstPort(): number | undefined {
         return this['dst_port'];
     }
     public withProtocol(protocol: string): HttpQueryCfwAccessControllerLogsResponseDTODataRecords {

@@ -20,6 +20,8 @@ import { AddDomainSetRequest } from './model/AddDomainSetRequest';
 import { AddDomainSetResponse } from './model/AddDomainSetResponse';
 import { AddDomainsRequest } from './model/AddDomainsRequest';
 import { AddDomainsResponse } from './model/AddDomainsResponse';
+import { AddLogConfigRequest } from './model/AddLogConfigRequest';
+import { AddLogConfigResponse } from './model/AddLogConfigResponse';
 import { AddRuleAclDto } from './model/AddRuleAclDto';
 import { AddRuleAclDtoRules } from './model/AddRuleAclDtoRules';
 import { AddServiceItemsRequest } from './model/AddServiceItemsRequest';
@@ -60,6 +62,9 @@ import { ChangeProtectStatusRequestBody } from './model/ChangeProtectStatusReque
 import { ClearAccessLogRuleHitCountsDto } from './model/ClearAccessLogRuleHitCountsDto';
 import { CommonResponseDTOData } from './model/CommonResponseDTOData';
 import { CoveredIPVO } from './model/CoveredIPVO';
+import { CreateEastWestFirewallRequest } from './model/CreateEastWestFirewallRequest';
+import { CreateEastWestFirewallRequestBody } from './model/CreateEastWestFirewallRequestBody';
+import { CreateEastWestFirewallResponse } from './model/CreateEastWestFirewallResponse';
 import { DeleteAclRuleHitCountRequest } from './model/DeleteAclRuleHitCountRequest';
 import { DeleteAclRuleHitCountResponse } from './model/DeleteAclRuleHitCountResponse';
 import { DeleteAclRuleRequest } from './model/DeleteAclRuleRequest';
@@ -157,6 +162,8 @@ import { ListIpsProtectModeRequest } from './model/ListIpsProtectModeRequest';
 import { ListIpsProtectModeResponse } from './model/ListIpsProtectModeResponse';
 import { ListIpsSwitchStatusRequest } from './model/ListIpsSwitchStatusRequest';
 import { ListIpsSwitchStatusResponse } from './model/ListIpsSwitchStatusResponse';
+import { ListLogConfigRequest } from './model/ListLogConfigRequest';
+import { ListLogConfigResponse } from './model/ListLogConfigResponse';
 import { ListProtectedVpcsRequest } from './model/ListProtectedVpcsRequest';
 import { ListProtectedVpcsResponse } from './model/ListProtectedVpcsResponse';
 import { ListRuleAclTagsRequest } from './model/ListRuleAclTagsRequest';
@@ -168,8 +175,8 @@ import { ListServiceSetDetailRequest } from './model/ListServiceSetDetailRequest
 import { ListServiceSetDetailResponse } from './model/ListServiceSetDetailResponse';
 import { ListServiceSetsRequest } from './model/ListServiceSetsRequest';
 import { ListServiceSetsResponse } from './model/ListServiceSetsResponse';
+import { LogConfigDto } from './model/LogConfigDto';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
-import { Packet } from './model/Packet';
 import { PacketMessage } from './model/PacketMessage';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
@@ -210,6 +217,8 @@ import { UpdateDnsServersResponse } from './model/UpdateDnsServersResponse';
 import { UpdateDomainSetInfoDto } from './model/UpdateDomainSetInfoDto';
 import { UpdateDomainSetRequest } from './model/UpdateDomainSetRequest';
 import { UpdateDomainSetResponse } from './model/UpdateDomainSetResponse';
+import { UpdateLogConfigRequest } from './model/UpdateLogConfigRequest';
+import { UpdateLogConfigResponse } from './model/UpdateLogConfigResponse';
 import { UpdateRuleAclDto } from './model/UpdateRuleAclDto';
 import { UpdateSecurityPolciesActionDto } from './model/UpdateSecurityPolciesActionDto';
 import { UpdateServiceSetRequest } from './model/UpdateServiceSetRequest';
@@ -301,6 +310,7 @@ export class CfwClient {
     }
 
     /**
+     * 添加域名组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -337,6 +347,28 @@ export class CfwClient {
      */
     public addDomains(addDomainsRequest?: AddDomainsRequest): Promise<AddDomainsResponse> {
         const options = ParamCreater().addDomains(addDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建日志配置
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {LogConfigDto} logConfigDto 日志配置Dto
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addLogConfig(addLogConfigRequest?: AddLogConfigRequest): Promise<AddLogConfigResponse> {
+        const options = ParamCreater().addLogConfig(addLogConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -389,6 +421,7 @@ export class CfwClient {
     }
 
     /**
+     * 批量删除地址组成员
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -410,6 +443,7 @@ export class CfwClient {
     }
 
     /**
+     * 批量删除服务组成员信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -445,6 +479,28 @@ export class CfwClient {
      */
     public changeEastWestFirewallStatus(changeEastWestFirewallStatusRequest?: ChangeEastWestFirewallStatusRequest): Promise<ChangeEastWestFirewallStatusResponse> {
         const options = ParamCreater().changeEastWestFirewallStatus(changeEastWestFirewallStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建东西向防火墙
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建东西向防火墙
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {CreateEastWestFirewallRequestBody} createEastWestFirewallRequestBody CreateEastWestFirewallRequestBody
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createEastWestFirewall(createEastWestFirewallRequest?: CreateEastWestFirewallRequest): Promise<CreateEastWestFirewallResponse> {
+        const options = ParamCreater().createEastWestFirewall(createEastWestFirewallRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -519,6 +575,7 @@ export class CfwClient {
     }
 
     /**
+     * 删除域名组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -993,6 +1050,27 @@ export class CfwClient {
     }
 
     /**
+     * 获取日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取日志配置
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogConfig(listLogConfigRequest?: ListLogConfigRequest): Promise<ListLogConfigResponse> {
+        const options = ParamCreater().listLogConfig(listLogConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询防护vpc信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1155,6 +1233,7 @@ export class CfwClient {
     }
 
     /**
+     * 更新域名组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1169,6 +1248,28 @@ export class CfwClient {
      */
     public updateDomainSet(updateDomainSetRequest?: UpdateDomainSetRequest): Promise<UpdateDomainSetResponse> {
         const options = ParamCreater().updateDomainSet(updateDomainSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新日志配置
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {LogConfigDto} logConfigDto 日志配置DTO
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogConfig(updateLogConfigRequest?: UpdateLogConfigRequest): Promise<UpdateLogConfigResponse> {
+        const options = ParamCreater().updateLogConfig(updateLogConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1244,6 +1345,7 @@ export class CfwClient {
     }
 
     /**
+     * 批量更新规则动作
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1366,6 +1468,7 @@ export class CfwClient {
     }
 
     /**
+     * 查询规则标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1434,7 +1537,7 @@ export class CfwClient {
     }
 
     /**
-     * 开启关闭EIP,客户购买EIP后首次开启EIP防护前需使用ListEips同步EIP资产，sync字段设置为1。
+     * 开启关闭EIP，客户购买EIP后首次开启EIP防护前需使用ListEips同步EIP资产，sync字段设置为1。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1541,6 +1644,7 @@ export class CfwClient {
      * @param {IpsSwitchDTO} changeIpsSwitchUsingPOSTRequestBody ChangeIpsSwitchUsingPOSTRequestBody
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [xLanguage] 语言头部，默认为zh-cn，如需使用英文，请选择en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1785,6 +1889,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 添加域名组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1913,6 +2018,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addLogConfig(addLogConfigRequest?: AddLogConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cfw/logs/configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (addLogConfigRequest !== null && addLogConfigRequest !== undefined) {
+                if (addLogConfigRequest instanceof AddLogConfigRequest) {
+                    projectId = addLogConfigRequest.projectId;
+                    fwInstanceId = addLogConfigRequest.fwInstanceId;
+                    body = addLogConfigRequest.body
+                    enterpriseProjectId = addLogConfigRequest.enterpriseProjectId;
+                } else {
+                    projectId = addLogConfigRequest['project_id'];
+                    fwInstanceId = addLogConfigRequest['fw_instance_id'];
+                    body = addLogConfigRequest['body'];
+                    enterpriseProjectId = addLogConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling addLogConfig.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling addLogConfig.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量添加服务组成员
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2035,6 +2204,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除地址组成员
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2095,6 +2265,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除服务组成员信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2205,6 +2376,70 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建东西向防火墙
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createEastWestFirewall(createEastWestFirewallRequest?: CreateEastWestFirewallRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/firewall/east-west",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (createEastWestFirewallRequest !== null && createEastWestFirewallRequest !== undefined) {
+                if (createEastWestFirewallRequest instanceof CreateEastWestFirewallRequest) {
+                    projectId = createEastWestFirewallRequest.projectId;
+                    fwInstanceId = createEastWestFirewallRequest.fwInstanceId;
+                    body = createEastWestFirewallRequest.body
+                    enterpriseProjectId = createEastWestFirewallRequest.enterpriseProjectId;
+                } else {
+                    projectId = createEastWestFirewallRequest['project_id'];
+                    fwInstanceId = createEastWestFirewallRequest['fw_instance_id'];
+                    body = createEastWestFirewallRequest['body'];
+                    enterpriseProjectId = createEastWestFirewallRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createEastWestFirewall.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling createEastWestFirewall.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2393,6 +2628,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除域名组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4113,6 +4349,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogConfig(listLogConfigRequest?: ListLogConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cfw/logs/configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (listLogConfigRequest !== null && listLogConfigRequest !== undefined) {
+                if (listLogConfigRequest instanceof ListLogConfigRequest) {
+                    projectId = listLogConfigRequest.projectId;
+                    fwInstanceId = listLogConfigRequest.fwInstanceId;
+                    enterpriseProjectId = listLogConfigRequest.enterpriseProjectId;
+                } else {
+                    projectId = listLogConfigRequest['project_id'];
+                    fwInstanceId = listLogConfigRequest['fw_instance_id'];
+                    enterpriseProjectId = listLogConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listLogConfig.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listLogConfig.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询防护vpc信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4609,6 +4900,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新域名组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4671,6 +4963,70 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogConfig(updateLogConfigRequest?: UpdateLogConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cfw/logs/configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (updateLogConfigRequest !== null && updateLogConfigRequest !== undefined) {
+                if (updateLogConfigRequest instanceof UpdateLogConfigRequest) {
+                    projectId = updateLogConfigRequest.projectId;
+                    fwInstanceId = updateLogConfigRequest.fwInstanceId;
+                    body = updateLogConfigRequest.body
+                    enterpriseProjectId = updateLogConfigRequest.enterpriseProjectId;
+                } else {
+                    projectId = updateLogConfigRequest['project_id'];
+                    fwInstanceId = updateLogConfigRequest['fw_instance_id'];
+                    body = updateLogConfigRequest['body'];
+                    enterpriseProjectId = updateLogConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateLogConfig.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling updateLogConfig.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4866,6 +5222,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量更新规则动作
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5263,6 +5620,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询规则标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5473,7 +5831,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 开启关闭EIP,客户购买EIP后首次开启EIP防护前需使用ListEips同步EIP资产，sync字段设置为1。
+         * 开启关闭EIP，客户购买EIP后首次开启EIP防护前需使用ListEips同步EIP资产，sync字段设置为1。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5815,6 +6173,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let xLanguage;
 
             if (changeIpsSwitchStatusRequest !== null && changeIpsSwitchStatusRequest !== undefined) {
                 if (changeIpsSwitchStatusRequest instanceof ChangeIpsSwitchStatusRequest) {
@@ -5822,11 +6182,13 @@ export const ParamCreater = function () {
                     body = changeIpsSwitchStatusRequest.body
                     enterpriseProjectId = changeIpsSwitchStatusRequest.enterpriseProjectId;
                     fwInstanceId = changeIpsSwitchStatusRequest.fwInstanceId;
+                    xLanguage = changeIpsSwitchStatusRequest.xLanguage;
                 } else {
                     projectId = changeIpsSwitchStatusRequest['project_id'];
                     body = changeIpsSwitchStatusRequest['body'];
                     enterpriseProjectId = changeIpsSwitchStatusRequest['enterprise_project_id'];
                     fwInstanceId = changeIpsSwitchStatusRequest['fw_instance_id'];
+                    xLanguage = changeIpsSwitchStatusRequest['X-Language'];
                 }
             }
 
@@ -5842,6 +6204,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

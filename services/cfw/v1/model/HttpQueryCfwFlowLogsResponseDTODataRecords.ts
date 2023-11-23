@@ -8,10 +8,10 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     private 'end_time'?: number;
     private 'log_id'?: string;
     private 'src_ip'?: string;
-    private 'src_port'?: string;
+    private 'src_port'?: number;
     private 'dst_ip'?: string;
     public app?: string;
-    private 'dst_port'?: string;
+    private 'dst_port'?: number;
     public protocol?: string;
     private 'dst_host'?: string;
     public constructor() { 
@@ -68,14 +68,14 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     public get srcIp(): string | undefined {
         return this['src_ip'];
     }
-    public withSrcPort(srcPort: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+    public withSrcPort(srcPort: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['src_port'] = srcPort;
         return this;
     }
-    public set srcPort(srcPort: string  | undefined) {
+    public set srcPort(srcPort: number  | undefined) {
         this['src_port'] = srcPort;
     }
-    public get srcPort(): string | undefined {
+    public get srcPort(): number | undefined {
         return this['src_port'];
     }
     public withDstIp(dstIp: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
@@ -92,14 +92,14 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['app'] = app;
         return this;
     }
-    public withDstPort(dstPort: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+    public withDstPort(dstPort: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['dst_port'] = dstPort;
         return this;
     }
-    public set dstPort(dstPort: string  | undefined) {
+    public set dstPort(dstPort: number  | undefined) {
         this['dst_port'] = dstPort;
     }
-    public get dstPort(): string | undefined {
+    public get dstPort(): number | undefined {
         return this['dst_port'];
     }
     public withProtocol(protocol: string): HttpQueryCfwFlowLogsResponseDTODataRecords {

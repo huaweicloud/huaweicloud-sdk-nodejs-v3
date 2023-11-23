@@ -1,16 +1,16 @@
-import { IpsSwitchDTO } from './IpsSwitchDTO';
+import { CreateEastWestFirewallRequestBody } from './CreateEastWestFirewallRequestBody';
 
 
-export class ChangeIpsSwitchStatusRequest {
+export class CreateEastWestFirewallRequest {
     private 'project_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
-    private 'X-Language'?: string;
-    public body?: IpsSwitchDTO;
-    public constructor(projectId?: string) { 
+    public body?: CreateEastWestFirewallRequestBody;
+    public constructor(projectId?: string, fwInstanceId?: string) { 
         this['project_id'] = projectId;
+        this['fw_instance_id'] = fwInstanceId;
     }
-    public withProjectId(projectId: string): ChangeIpsSwitchStatusRequest {
+    public withProjectId(projectId: string): CreateEastWestFirewallRequest {
         this['project_id'] = projectId;
         return this;
     }
@@ -20,7 +20,7 @@ export class ChangeIpsSwitchStatusRequest {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ChangeIpsSwitchStatusRequest {
+    public withEnterpriseProjectId(enterpriseProjectId: string): CreateEastWestFirewallRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -30,7 +30,7 @@ export class ChangeIpsSwitchStatusRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withFwInstanceId(fwInstanceId: string): ChangeIpsSwitchStatusRequest {
+    public withFwInstanceId(fwInstanceId: string): CreateEastWestFirewallRequest {
         this['fw_instance_id'] = fwInstanceId;
         return this;
     }
@@ -40,17 +40,7 @@ export class ChangeIpsSwitchStatusRequest {
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withXLanguage(xLanguage: string): ChangeIpsSwitchStatusRequest {
-        this['X-Language'] = xLanguage;
-        return this;
-    }
-    public set xLanguage(xLanguage: string  | undefined) {
-        this['X-Language'] = xLanguage;
-    }
-    public get xLanguage(): string | undefined {
-        return this['X-Language'];
-    }
-    public withBody(body: IpsSwitchDTO): ChangeIpsSwitchStatusRequest {
+    public withBody(body: CreateEastWestFirewallRequestBody): CreateEastWestFirewallRequest {
         this['body'] = body;
         return this;
     }
