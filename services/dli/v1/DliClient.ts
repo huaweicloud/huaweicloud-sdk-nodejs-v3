@@ -288,6 +288,10 @@ import { ShowPartitionsRequest } from './model/ShowPartitionsRequest';
 import { ShowPartitionsResponse } from './model/ShowPartitionsResponse';
 import { ShowQueueRequest } from './model/ShowQueueRequest';
 import { ShowQueueResponse } from './model/ShowQueueResponse';
+import { ShowQuotaPropertiesBody } from './model/ShowQuotaPropertiesBody';
+import { ShowQuotaRequest } from './model/ShowQuotaRequest';
+import { ShowQuotaResponse } from './model/ShowQuotaResponse';
+import { ShowQuotaResponseBodyQuotas } from './model/ShowQuotaResponseBodyQuotas';
 import { ShowResourceInfoRequest } from './model/ShowResourceInfoRequest';
 import { ShowResourceInfoResponse } from './model/ShowResourceInfoResponse';
 import { ShowSparkJobRequest } from './model/ShowSparkJobRequest';
@@ -1321,8 +1325,8 @@ export class DliClient {
      *
      * @summary 获取队列属性
      * @param {string} queueName 队列名称
-     * @param {number} [page] 列表当前页
-     * @param {number} [pageSize] 每页显示条数
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页显示条数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1602,6 +1606,24 @@ export class DliClient {
      */
     public showQueue(showQueueRequest?: ShowQueueRequest): Promise<ShowQueueResponse> {
         const options = ParamCreater().showQueue(showQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取用户配额信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
+        const options = ParamCreater().showQuota();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4954,19 +4976,19 @@ export const ParamCreater = function () {
             
             let queueName;
             
-            let page;
+            let offset;
             
-            let pageSize;
+            let limit;
 
             if (listQueuePropertiesRequest !== null && listQueuePropertiesRequest !== undefined) {
                 if (listQueuePropertiesRequest instanceof ListQueuePropertiesRequest) {
                     queueName = listQueuePropertiesRequest.queueName;
-                    page = listQueuePropertiesRequest.page;
-                    pageSize = listQueuePropertiesRequest.pageSize;
+                    offset = listQueuePropertiesRequest.offset;
+                    limit = listQueuePropertiesRequest.limit;
                 } else {
                     queueName = listQueuePropertiesRequest['queue_name'];
-                    page = listQueuePropertiesRequest['page'];
-                    pageSize = listQueuePropertiesRequest['page_size'];
+                    offset = listQueuePropertiesRequest['offset'];
+                    limit = listQueuePropertiesRequest['limit'];
                 }
             }
 
@@ -4974,11 +4996,11 @@ export const ParamCreater = function () {
             if (queueName === null || queueName === undefined) {
             throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listQueueProperties.');
             }
-            if (page !== null && page !== undefined) {
-                localVarQueryParameter['page'] = page;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5552,6 +5574,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取用户配额信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuota() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

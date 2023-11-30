@@ -8,7 +8,10 @@ export class PipelineByTemplateDTO {
     private 'is_publish'?: boolean;
     public sources?: Array<CodeSource>;
     public variables?: Array<PipelineByTemplateDTOVariables>;
-    public constructor() { 
+    public constructor(name?: string, isPublish?: boolean, sources?: Array<CodeSource>) { 
+        this['name'] = name;
+        this['is_publish'] = isPublish;
+        this['sources'] = sources;
     }
     public withName(name: string): PipelineByTemplateDTO {
         this['name'] = name;

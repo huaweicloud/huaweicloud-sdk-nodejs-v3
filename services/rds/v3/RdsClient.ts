@@ -172,6 +172,8 @@ import { GetTaskDetailListRspJobsInstance } from './model/GetTaskDetailListRspJo
 import { GrantRequest } from './model/GrantRequest';
 import { Ha } from './model/Ha';
 import { HaResponse } from './model/HaResponse';
+import { HistoryDatabaseInfo } from './model/HistoryDatabaseInfo';
+import { HistoryDatabaseInstance } from './model/HistoryDatabaseInstance';
 import { InspectionReports } from './model/InspectionReports';
 import { InstanceDrRelation } from './model/InstanceDrRelation';
 import { InstanceRequest } from './model/InstanceRequest';
@@ -318,18 +320,13 @@ import { OpsWindowRequest } from './model/OpsWindowRequest';
 import { ParaGroupDatastore } from './model/ParaGroupDatastore';
 import { ParamGroupHistoryResult } from './model/ParamGroupHistoryResult';
 import { PostgreSQLHistoryDatabase } from './model/PostgreSQLHistoryDatabase';
-import { PostgreSQLHistoryDatabaseInfo } from './model/PostgreSQLHistoryDatabaseInfo';
-import { PostgreSQLHistoryDatabaseInstance } from './model/PostgreSQLHistoryDatabaseInstance';
 import { PostgreSQLHistoryDatabaseRequest } from './model/PostgreSQLHistoryDatabaseRequest';
 import { PostgreSQLHistorySchema } from './model/PostgreSQLHistorySchema';
 import { PostgreSQLHistoryTable } from './model/PostgreSQLHistoryTable';
 import { PostgreSQLHistoryTableInstance } from './model/PostgreSQLHistoryTableInstance';
 import { PostgreSQLHistoryTableRequest } from './model/PostgreSQLHistoryTableRequest';
 import { PostgreSQLRestoreDatabase } from './model/PostgreSQLRestoreDatabase';
-import { PostgreSQLRestoreDatabaseInfo } from './model/PostgreSQLRestoreDatabaseInfo';
-import { PostgreSQLRestoreDatabaseInstance } from './model/PostgreSQLRestoreDatabaseInstance';
 import { PostgreSQLRestoreDatabaseRequest } from './model/PostgreSQLRestoreDatabaseRequest';
-import { PostgreSQLRestoreResult } from './model/PostgreSQLRestoreResult';
 import { PostgreSQLRestoreSchema } from './model/PostgreSQLRestoreSchema';
 import { PostgreSQLRestoreTable } from './model/PostgreSQLRestoreTable';
 import { PostgreSQLRestoreTableInstance } from './model/PostgreSQLRestoreTableInstance';
@@ -363,6 +360,8 @@ import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
+import { RestoreDatabaseInfo } from './model/RestoreDatabaseInfo';
+import { RestoreDatabaseInstance } from './model/RestoreDatabaseInstance';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
 import { RestoreDatabasesInfoNew } from './model/RestoreDatabasesInfoNew';
 import { RestoreExistInstanceRequest } from './model/RestoreExistInstanceRequest';
@@ -370,6 +369,7 @@ import { RestoreExistInstanceResponse } from './model/RestoreExistInstanceRespon
 import { RestoreExistingInstanceRequestBody } from './model/RestoreExistingInstanceRequestBody';
 import { RestoreExistingInstanceRequestBodySource } from './model/RestoreExistingInstanceRequestBodySource';
 import { RestorePoint } from './model/RestorePoint';
+import { RestoreResult } from './model/RestoreResult';
 import { RestoreTableInfo } from './model/RestoreTableInfo';
 import { RestoreTableInfoNew } from './model/RestoreTableInfoNew';
 import { RestoreTablesNewRequest } from './model/RestoreTablesNewRequest';
@@ -416,6 +416,8 @@ import { SetDatabaseUserPrivilegeRequest } from './model/SetDatabaseUserPrivileg
 import { SetDatabaseUserPrivilegeResponse } from './model/SetDatabaseUserPrivilegeResponse';
 import { SetDbUserPwdRequest } from './model/SetDbUserPwdRequest';
 import { SetDbUserPwdResponse } from './model/SetDbUserPwdResponse';
+import { SetInstancesDbShrinkRequest } from './model/SetInstancesDbShrinkRequest';
+import { SetInstancesDbShrinkResponse } from './model/SetInstancesDbShrinkResponse';
 import { SetOffSiteBackupPolicyRequest } from './model/SetOffSiteBackupPolicyRequest';
 import { SetOffSiteBackupPolicyRequestBody } from './model/SetOffSiteBackupPolicyRequestBody';
 import { SetOffSiteBackupPolicyResponse } from './model/SetOffSiteBackupPolicyResponse';
@@ -525,6 +527,7 @@ import { UnchangeableParam } from './model/UnchangeableParam';
 import { UpdateConfigurationRequest } from './model/UpdateConfigurationRequest';
 import { UpdateConfigurationResponse } from './model/UpdateConfigurationResponse';
 import { UpdateConfigurationRspConfiguration } from './model/UpdateConfigurationRspConfiguration';
+import { UpdateDBShrinkRequestBody } from './model/UpdateDBShrinkRequestBody';
 import { UpdateDataIpRequest } from './model/UpdateDataIpRequest';
 import { UpdateDataIpResponse } from './model/UpdateDataIpResponse';
 import { UpdateDatabaseReq } from './model/UpdateDatabaseReq';
@@ -1349,7 +1352,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定时间点可恢复的库
-     * @param {string} databaseName 数据库引擎。支持的引擎如下，不区分大小写：postgresql
+     * @param {string} engine 数据库引擎。支持的引擎如下，不区分大小写：postgresql,mysql
      * @param {PostgreSQLHistoryDatabaseRequest} listPostgresqlListHistoryDatabaseRequestBody 查询可恢复表的请求信息
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
@@ -2226,6 +2229,26 @@ export class RdsClient {
      */
     public setBinlogClearPolicy(setBinlogClearPolicyRequest?: SetBinlogClearPolicyRequest): Promise<SetBinlogClearPolicyResponse> {
         const options = ParamCreater().setBinlogClearPolicy(setBinlogClearPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 收缩数据库日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 收缩数据库日志
+     * @param {string} instanceId 实例ID
+     * @param {UpdateDBShrinkRequestBody} updateDBShrinkRequestBody 收缩数据库
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest): Promise<SetInstancesDbShrinkResponse> {
+        const options = ParamCreater().setInstancesDbShrink(setInstancesDbShrinkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6304,7 +6327,7 @@ export const ParamCreater = function () {
         listHistoryDatabase(listHistoryDatabaseRequest?: ListHistoryDatabaseRequest) {
             const options = {
                 method: "POST",
-                url: "/v3/{project_id}/{database_name}/instances/history/databases",
+                url: "/v3/{project_id}/{engine}/instances/history/databases",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6315,25 +6338,25 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let databaseName;
+            let engine;
             
             let xLanguage;
 
             if (listHistoryDatabaseRequest !== null && listHistoryDatabaseRequest !== undefined) {
                 if (listHistoryDatabaseRequest instanceof ListHistoryDatabaseRequest) {
-                    databaseName = listHistoryDatabaseRequest.databaseName;
+                    engine = listHistoryDatabaseRequest.engine;
                     body = listHistoryDatabaseRequest.body
                     xLanguage = listHistoryDatabaseRequest.xLanguage;
                 } else {
-                    databaseName = listHistoryDatabaseRequest['database_name'];
+                    engine = listHistoryDatabaseRequest['engine'];
                     body = listHistoryDatabaseRequest['body'];
                     xLanguage = listHistoryDatabaseRequest['X-Language'];
                 }
             }
 
         
-            if (databaseName === null || databaseName === undefined) {
-            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling listHistoryDatabase.');
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling listHistoryDatabase.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6344,7 +6367,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'database_name': databaseName, };
+            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8662,6 +8685,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 收缩数据库日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db_shrink",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setInstancesDbShrinkRequest !== null && setInstancesDbShrinkRequest !== undefined) {
+                if (setInstancesDbShrinkRequest instanceof SetInstancesDbShrinkRequest) {
+                    instanceId = setInstancesDbShrinkRequest.instanceId;
+                    body = setInstancesDbShrinkRequest.body
+                } else {
+                    instanceId = setInstancesDbShrinkRequest['instance_id'];
+                    body = setInstancesDbShrinkRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesDbShrink.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

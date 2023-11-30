@@ -19,8 +19,9 @@ export class NodeExtendParam {
     public nicThreshold?: string;
     public chargingMode?: number;
     private 'agency_name'?: string;
-    private 'kube-reserved-mem'?: number;
-    private 'system-reserved-mem'?: number;
+    public kubeReservedMem?: number;
+    public systemReservedMem?: number;
+    private 'init-node-password'?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -132,23 +133,21 @@ export class NodeExtendParam {
         return this['agency_name'];
     }
     public withKubeReservedMem(kubeReservedMem: number): NodeExtendParam {
-        this['kube-reserved-mem'] = kubeReservedMem;
+        this['kubeReservedMem'] = kubeReservedMem;
         return this;
-    }
-    public set kubeReservedMem(kubeReservedMem: number  | undefined) {
-        this['kube-reserved-mem'] = kubeReservedMem;
-    }
-    public get kubeReservedMem(): number | undefined {
-        return this['kube-reserved-mem'];
     }
     public withSystemReservedMem(systemReservedMem: number): NodeExtendParam {
-        this['system-reserved-mem'] = systemReservedMem;
+        this['systemReservedMem'] = systemReservedMem;
         return this;
     }
-    public set systemReservedMem(systemReservedMem: number  | undefined) {
-        this['system-reserved-mem'] = systemReservedMem;
+    public withInitNodePassword(initNodePassword: string): NodeExtendParam {
+        this['init-node-password'] = initNodePassword;
+        return this;
     }
-    public get systemReservedMem(): number | undefined {
-        return this['system-reserved-mem'];
+    public set initNodePassword(initNodePassword: string  | undefined) {
+        this['init-node-password'] = initNodePassword;
+    }
+    public get initNodePassword(): string | undefined {
+        return this['init-node-password'];
     }
 }

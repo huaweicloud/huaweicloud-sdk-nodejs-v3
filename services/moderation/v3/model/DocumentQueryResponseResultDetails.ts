@@ -9,6 +9,9 @@ export class DocumentQueryResponseResultDetails {
     public label?: string;
     public index?: number;
     public text?: string;
+    private 'start_position'?: number;
+    private 'end_position'?: number;
+    private 'image_url'?: string;
     public segments?: Array<DocumentQueryResponseResultSegments>;
     private 'video_image_details'?: Array<DocumentVideoImageDetail>;
     private 'audio_details'?: Array<DocumentAudioDetail>;
@@ -33,6 +36,36 @@ export class DocumentQueryResponseResultDetails {
     public withText(text: string): DocumentQueryResponseResultDetails {
         this['text'] = text;
         return this;
+    }
+    public withStartPosition(startPosition: number): DocumentQueryResponseResultDetails {
+        this['start_position'] = startPosition;
+        return this;
+    }
+    public set startPosition(startPosition: number  | undefined) {
+        this['start_position'] = startPosition;
+    }
+    public get startPosition(): number | undefined {
+        return this['start_position'];
+    }
+    public withEndPosition(endPosition: number): DocumentQueryResponseResultDetails {
+        this['end_position'] = endPosition;
+        return this;
+    }
+    public set endPosition(endPosition: number  | undefined) {
+        this['end_position'] = endPosition;
+    }
+    public get endPosition(): number | undefined {
+        return this['end_position'];
+    }
+    public withImageUrl(imageUrl: string): DocumentQueryResponseResultDetails {
+        this['image_url'] = imageUrl;
+        return this;
+    }
+    public set imageUrl(imageUrl: string  | undefined) {
+        this['image_url'] = imageUrl;
+    }
+    public get imageUrl(): string | undefined {
+        return this['image_url'];
     }
     public withSegments(segments: Array<DocumentQueryResponseResultSegments>): DocumentQueryResponseResultDetails {
         this['segments'] = segments;

@@ -3,6 +3,7 @@
 export class PublisherRequest {
     public name?: string;
     private 'user_id'?: string;
+    public description?: string;
     private 'logo_url'?: string;
     public website?: string;
     private 'support_url'?: string;
@@ -24,6 +25,10 @@ export class PublisherRequest {
     }
     public get userId(): string | undefined {
         return this['user_id'];
+    }
+    public withDescription(description: string): PublisherRequest {
+        this['description'] = description;
+        return this;
     }
     public withLogoUrl(logoUrl: string): PublisherRequest {
         this['logo_url'] = logoUrl;

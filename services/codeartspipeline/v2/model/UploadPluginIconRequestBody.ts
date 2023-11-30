@@ -2,7 +2,8 @@
 
 export class UploadPluginIconRequestBody {
     private 'upload_file'?: any;
-    public constructor() { 
+    public constructor(uploadFile?: any) { 
+        this['upload_file'] = uploadFile;
     }
     public withUploadFile(uploadFile: any): UploadPluginIconRequestBody {
         this['upload_file'] = uploadFile;

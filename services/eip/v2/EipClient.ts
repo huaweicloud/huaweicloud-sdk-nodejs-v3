@@ -31,6 +31,8 @@ import { BatchDeletePublicipTagsRequestBody } from './model/BatchDeletePublicipT
 import { BatchDeletePublicipTagsResponse } from './model/BatchDeletePublicipTagsResponse';
 import { BatchDisassociatePublicipsRequest } from './model/BatchDisassociatePublicipsRequest';
 import { BatchDisassociatePublicipsResponse } from './model/BatchDisassociatePublicipsResponse';
+import { BatchModifyBandwidthRequest } from './model/BatchModifyBandwidthRequest';
+import { BatchModifyBandwidthResponse } from './model/BatchModifyBandwidthResponse';
 import { BatchProfile } from './model/BatchProfile';
 import { BatchPublicIp } from './model/BatchPublicIp';
 import { BwChangeToPeriodReq } from './model/BwChangeToPeriodReq';
@@ -67,6 +69,7 @@ import { DeletePublicipTagRequest } from './model/DeletePublicipTagRequest';
 import { DeletePublicipTagResponse } from './model/DeletePublicipTagResponse';
 import { DeleteSharedBandwidthRequest } from './model/DeleteSharedBandwidthRequest';
 import { DeleteSharedBandwidthResponse } from './model/DeleteSharedBandwidthResponse';
+import { FailureResources } from './model/FailureResources';
 import { FloatingIpResp } from './model/FloatingIpResp';
 import { InsertPublicipInfo } from './model/InsertPublicipInfo';
 import { ListBandwidthPkgRequest } from './model/ListBandwidthPkgRequest';
@@ -84,6 +87,8 @@ import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
 import { ListResourceResp } from './model/ListResourceResp';
 import { MatchReq } from './model/MatchReq';
+import { ModifyBandwidthOption } from './model/ModifyBandwidthOption';
+import { ModifyBandwidthRequestBody } from './model/ModifyBandwidthRequestBody';
 import { NeutronCreateFloatingIpRequest } from './model/NeutronCreateFloatingIpRequest';
 import { NeutronCreateFloatingIpRequestBody } from './model/NeutronCreateFloatingIpRequestBody';
 import { NeutronCreateFloatingIpResponse } from './model/NeutronCreateFloatingIpResponse';
@@ -123,6 +128,7 @@ import { ShowPublicipTagsResponse } from './model/ShowPublicipTagsResponse';
 import { ShowResourcesJobDetailRequest } from './model/ShowResourcesJobDetailRequest';
 import { ShowResourcesJobDetailResponse } from './model/ShowResourcesJobDetailResponse';
 import { SubJobsInfo } from './model/SubJobsInfo';
+import { SuccessResources } from './model/SuccessResources';
 import { TagReq } from './model/TagReq';
 import { TagResp } from './model/TagResp';
 import { UpdateBandwidthOption } from './model/UpdateBandwidthOption';
@@ -187,6 +193,25 @@ export class EipClient {
      */
     public batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest?: BatchCreateSharedBandwidthsRequest): Promise<BatchCreateSharedBandwidthsResponse> {
         const options = ParamCreater().batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量更新带宽，共享带宽和包周期带宽该接口不适用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新带宽
+     * @param {ModifyBandwidthRequestBody} bandwidth 带宽对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchModifyBandwidth(batchModifyBandwidthRequest?: BatchModifyBandwidthRequest): Promise<BatchModifyBandwidthResponse> {
+        const options = ParamCreater().batchModifyBandwidth(batchModifyBandwidthRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -982,6 +1007,44 @@ export const ParamCreater = function () {
                     body = batchCreateSharedBandwidthsRequest.body
                 } else {
                     body = batchCreateSharedBandwidthsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量更新带宽，共享带宽和包周期带宽该接口不适用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchModifyBandwidth(batchModifyBandwidthRequest?: BatchModifyBandwidthRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/batch-bandwidths/modify",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchModifyBandwidthRequest !== null && batchModifyBandwidthRequest !== undefined) {
+                if (batchModifyBandwidthRequest instanceof BatchModifyBandwidthRequest) {
+                    body = batchModifyBandwidthRequest.body
+                } else {
+                    body = batchModifyBandwidthRequest['body'];
                 }
             }
 

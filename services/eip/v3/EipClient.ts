@@ -39,13 +39,19 @@ import { DisassociatePublicipsOption } from './model/DisassociatePublicipsOption
 import { DisassociatePublicipsRequest } from './model/DisassociatePublicipsRequest';
 import { DisassociatePublicipsRequestBody } from './model/DisassociatePublicipsRequestBody';
 import { DisassociatePublicipsResponse } from './model/DisassociatePublicipsResponse';
+import { EipBandwidthResponseBody } from './model/EipBandwidthResponseBody';
 import { EipResourcesAvailableV3RequestBody } from './model/EipResourcesAvailableV3RequestBody';
 import { EnableNat64Request } from './model/EnableNat64Request';
 import { EnableNat64Response } from './model/EnableNat64Response';
+import { ExtLimitPojo } from './model/ExtLimitPojo';
 import { ListBandwidthRequest } from './model/ListBandwidthRequest';
 import { ListBandwidthResponse } from './model/ListBandwidthResponse';
+import { ListBandwidthsLimitRequest } from './model/ListBandwidthsLimitRequest';
+import { ListBandwidthsLimitResponse } from './model/ListBandwidthsLimitResponse';
 import { ListCommonPoolsRequest } from './model/ListCommonPoolsRequest';
 import { ListCommonPoolsResponse } from './model/ListCommonPoolsResponse';
+import { ListEipBandwidthsRequest } from './model/ListEipBandwidthsRequest';
+import { ListEipBandwidthsResponse } from './model/ListEipBandwidthsResponse';
 import { ListPublicBorderGroupsRequest } from './model/ListPublicBorderGroupsRequest';
 import { ListPublicBorderGroupsResponse } from './model/ListPublicBorderGroupsResponse';
 import { ListPublicipPoolRequest } from './model/ListPublicipPoolRequest';
@@ -54,6 +60,7 @@ import { ListPublicipsRequest } from './model/ListPublicipsRequest';
 import { ListPublicipsResponse } from './model/ListPublicipsResponse';
 import { ListShareBandwidthTypesRequest } from './model/ListShareBandwidthTypesRequest';
 import { ListShareBandwidthTypesResponse } from './model/ListShareBandwidthTypesResponse';
+import { PageInfoDict } from './model/PageInfoDict';
 import { PageInfoOption } from './model/PageInfoOption';
 import { ProfileInfo } from './model/ProfileInfo';
 import { PublicipBandwidthInfo } from './model/PublicipBandwidthInfo';
@@ -62,16 +69,22 @@ import { PublicipInstanceResp } from './model/PublicipInstanceResp';
 import { PublicipPoolShowResp } from './model/PublicipPoolShowResp';
 import { PublicipResp } from './model/PublicipResp';
 import { PublicipSingleShowResp } from './model/PublicipSingleShowResp';
+import { PublicipUpdateResp } from './model/PublicipUpdateResp';
 import { ShareBandwidthTypeShowResp } from './model/ShareBandwidthTypeShowResp';
 import { ShowPublicipPoolRequest } from './model/ShowPublicipPoolRequest';
 import { ShowPublicipPoolResponse } from './model/ShowPublicipPoolResponse';
 import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
+import { ShowTenantDict } from './model/ShowTenantDict';
 import { TagsInfo } from './model/TagsInfo';
 import { UpdateAssociatePublicipRequest } from './model/UpdateAssociatePublicipRequest';
 import { UpdateAssociatePublicipResponse } from './model/UpdateAssociatePublicipResponse';
 import { UpdateDisassociatePublicipRequest } from './model/UpdateDisassociatePublicipRequest';
 import { UpdateDisassociatePublicipResponse } from './model/UpdateDisassociatePublicipResponse';
+import { UpdatePublicipOption } from './model/UpdatePublicipOption';
+import { UpdatePublicipRequest } from './model/UpdatePublicipRequest';
+import { UpdatePublicipResponse } from './model/UpdatePublicipResponse';
+import { UpdatePublicipsRequestBody } from './model/UpdatePublicipsRequestBody';
 import { VnicInfo } from './model/VnicInfo';
 import { VnicResp } from './model/VnicResp';
 
@@ -125,6 +138,30 @@ export class EipClient {
     }
 
     /**
+     * 获取EIP带宽限制列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看租户带宽限制
+     * @param {number} [limit] 每页条数
+     * @param {number} [offset] 分页起始点
+     * @param {string} [marker] 分页起始点
+     * @param {boolean} [pageReverse] 翻页方向
+     * @param {Array<'id' | 'charge_mode' | 'min_size' | 'max_size' | 'ext_limit'>} [fields] 只显示指定的字段。使用ext-fields时在默认显示的字段基础上追加字段
+     * @param {string} [chargeMode] 根据charge_mode过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidthsLimit(listBandwidthsLimitRequest?: ListBandwidthsLimitRequest): Promise<ListBandwidthsLimitResponse> {
+        const options = ParamCreater().listBandwidthsLimit(listBandwidthsLimitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询公共池列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -140,6 +177,41 @@ export class EipClient {
      */
     public listCommonPools(listCommonPoolsRequest?: ListCommonPoolsRequest): Promise<ListCommonPoolsResponse> {
         const options = ParamCreater().listCommonPools(listCommonPoolsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽列表
+     * @param {string} [limit] - 功能说明：每页返回的个数 - 取值范围：取值范围：1~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {string} [marker] - 功能说明：分页查询起始的资源ID，为空时为查询第一页
+     * @param {string} [id] - 功能说明：带宽唯一标识
+     * @param {string} [bandwidthType] - 功能说明：带宽类型，共享带宽默认为share。 - 取值范围：share，bgp，telcom，sbgp等。   - share：共享带宽   - bgp：动态bgp   - telcom ：联通   - sbgp：静态bgp
+     * @param {string} [name] - 功能说明：宽带名称，按照宽带名称过滤
+     * @param {string} [nameLike] - 功能说明：根据宽带名称模糊查询过滤
+     * @param {string} [tenantId] - 功能说明：根据tenant_id过滤
+     * @param {string} [ingressSize] - 功能说明：根据入云大小过滤
+     * @param {string} [adminState] - 功能说明：根据宽带状态过滤
+     * @param {string} [billingInfo] - 功能说明：根据计费信息过滤
+     * @param {string} [tags] - 功能说明：根据标签过滤
+     * @param {string} [enableBandwidthRules] - 功能说明：根据是否带宽分组使能过滤 - 取值范围：true、false
+     * @param {number} [ruleQuota] - 功能说明：根据规则数值过滤
+     * @param {string} [publicBorderGroup] - 功能说明：根据站点信息过滤
+     * @param {string} [chargeMode] - 功能说明：按流量计费,按带宽计费还是按增强型95计费 - 取值范围：bandwidth（按带宽计费），traffic（按流量计费），95peak_plus（按增强型95计费），不返回或者为空时表示是bandwidth - 约束：只有共享带宽支持95peak_plus（按增强型95计费），按增强型95计费时需要指定保底百分比，默认是20%
+     * @param {string} [size] - 功能说明：带宽大小。共享带宽的大小有最小值限制，默认为5M，可能因局点不同而不同。 - 取值范围：默认5Mbit/s~2000Mbit/s（具体范围以各区域配置为准，请参见控制台对应页面显示）。   调整带宽时的最小单位会根据带宽范围不同存在差异。 - 小于等于300Mbit/s：默认最小单位为1Mbit/s。 - 300Mbit/s~1000Mbit/s：默认最小单位为50Mbit/s。 - 大于1000Mbit/s：默认最小单位为500Mbit/s。
+     * @param {string} [type] - 功能说明：带宽类型，标识是否是共享带宽 - 取值范围：WHOLE，PER。   - WHOLE表示共享带宽   - PER表示独享带宽
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEipBandwidths(listEipBandwidthsRequest?: ListEipBandwidthsRequest): Promise<ListEipBandwidthsResponse> {
+        const options = ParamCreater().listEipBandwidths(listEipBandwidthsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -537,6 +609,26 @@ export class EipClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 更新弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新弹性公网IP
+     * @param {string} publicipId 弹性公网IP的ID
+     * @param {UpdatePublicipsRequestBody} updatePublicipsRequestBody 弹性公网ip对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePublicip(updatePublicipRequest?: UpdatePublicipRequest): Promise<UpdatePublicipResponse> {
+        const options = ParamCreater().updatePublicip(updatePublicipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -685,6 +777,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取EIP带宽限制列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidthsLimit(listBandwidthsLimitRequest?: ListBandwidthsLimitRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip/eip-bandwidth-limits",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let pageReverse;
+            
+            let fields;
+            
+            let chargeMode;
+
+            if (listBandwidthsLimitRequest !== null && listBandwidthsLimitRequest !== undefined) {
+                if (listBandwidthsLimitRequest instanceof ListBandwidthsLimitRequest) {
+                    limit = listBandwidthsLimitRequest.limit;
+                    offset = listBandwidthsLimitRequest.offset;
+                    marker = listBandwidthsLimitRequest.marker;
+                    pageReverse = listBandwidthsLimitRequest.pageReverse;
+                    fields = listBandwidthsLimitRequest.fields;
+                    chargeMode = listBandwidthsLimitRequest.chargeMode;
+                } else {
+                    limit = listBandwidthsLimitRequest['limit'];
+                    offset = listBandwidthsLimitRequest['offset'];
+                    marker = listBandwidthsLimitRequest['marker'];
+                    pageReverse = listBandwidthsLimitRequest['page_reverse'];
+                    fields = listBandwidthsLimitRequest['fields'];
+                    chargeMode = listBandwidthsLimitRequest['charge_mode'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询公共池列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -742,6 +906,155 @@ export const ParamCreater = function () {
             }
             if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
                 localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询带宽列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEipBandwidths(listEipBandwidthsRequest?: ListEipBandwidthsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip-bandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let bandwidthType;
+            
+            let name;
+            
+            let nameLike;
+            
+            let tenantId;
+            
+            let ingressSize;
+            
+            let adminState;
+            
+            let billingInfo;
+            
+            let tags;
+            
+            let enableBandwidthRules;
+            
+            let ruleQuota;
+            
+            let publicBorderGroup;
+            
+            let chargeMode;
+            
+            let size;
+            
+            let type;
+
+            if (listEipBandwidthsRequest !== null && listEipBandwidthsRequest !== undefined) {
+                if (listEipBandwidthsRequest instanceof ListEipBandwidthsRequest) {
+                    limit = listEipBandwidthsRequest.limit;
+                    marker = listEipBandwidthsRequest.marker;
+                    id = listEipBandwidthsRequest.id;
+                    bandwidthType = listEipBandwidthsRequest.bandwidthType;
+                    name = listEipBandwidthsRequest.name;
+                    nameLike = listEipBandwidthsRequest.nameLike;
+                    tenantId = listEipBandwidthsRequest.tenantId;
+                    ingressSize = listEipBandwidthsRequest.ingressSize;
+                    adminState = listEipBandwidthsRequest.adminState;
+                    billingInfo = listEipBandwidthsRequest.billingInfo;
+                    tags = listEipBandwidthsRequest.tags;
+                    enableBandwidthRules = listEipBandwidthsRequest.enableBandwidthRules;
+                    ruleQuota = listEipBandwidthsRequest.ruleQuota;
+                    publicBorderGroup = listEipBandwidthsRequest.publicBorderGroup;
+                    chargeMode = listEipBandwidthsRequest.chargeMode;
+                    size = listEipBandwidthsRequest.size;
+                    type = listEipBandwidthsRequest.type;
+                } else {
+                    limit = listEipBandwidthsRequest['limit'];
+                    marker = listEipBandwidthsRequest['marker'];
+                    id = listEipBandwidthsRequest['id'];
+                    bandwidthType = listEipBandwidthsRequest['bandwidth_type'];
+                    name = listEipBandwidthsRequest['name'];
+                    nameLike = listEipBandwidthsRequest['name_like'];
+                    tenantId = listEipBandwidthsRequest['tenant_id'];
+                    ingressSize = listEipBandwidthsRequest['ingress_size'];
+                    adminState = listEipBandwidthsRequest['admin_state'];
+                    billingInfo = listEipBandwidthsRequest['billing_info'];
+                    tags = listEipBandwidthsRequest['tags'];
+                    enableBandwidthRules = listEipBandwidthsRequest['enable_bandwidth_rules'];
+                    ruleQuota = listEipBandwidthsRequest['rule_quota'];
+                    publicBorderGroup = listEipBandwidthsRequest['public_border_group'];
+                    chargeMode = listEipBandwidthsRequest['charge_mode'];
+                    size = listEipBandwidthsRequest['size'];
+                    type = listEipBandwidthsRequest['type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (bandwidthType !== null && bandwidthType !== undefined) {
+                localVarQueryParameter['bandwidth_type'] = bandwidthType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (nameLike !== null && nameLike !== undefined) {
+                localVarQueryParameter['name_like'] = nameLike;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+            if (ingressSize !== null && ingressSize !== undefined) {
+                localVarQueryParameter['ingress_size'] = ingressSize;
+            }
+            if (adminState !== null && adminState !== undefined) {
+                localVarQueryParameter['admin_state'] = adminState;
+            }
+            if (billingInfo !== null && billingInfo !== undefined) {
+                localVarQueryParameter['billing_info'] = billingInfo;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (enableBandwidthRules !== null && enableBandwidthRules !== undefined) {
+                localVarQueryParameter['enable_bandwidth_rules'] = enableBandwidthRules;
+            }
+            if (ruleQuota !== null && ruleQuota !== undefined) {
+                localVarQueryParameter['rule_quota'] = ruleQuota;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
+            }
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1857,6 +2170,52 @@ export const ParamCreater = function () {
         
             if (publicipId === null || publicipId === undefined) {
             throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updateDisassociatePublicip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePublicip(updatePublicipRequest?: UpdatePublicipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let publicipId;
+
+            if (updatePublicipRequest !== null && updatePublicipRequest !== undefined) {
+                if (updatePublicipRequest instanceof UpdatePublicipRequest) {
+                    publicipId = updatePublicipRequest.publicipId;
+                    body = updatePublicipRequest.body
+                } else {
+                    publicipId = updatePublicipRequest['publicip_id'];
+                    body = updatePublicipRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updatePublicip.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

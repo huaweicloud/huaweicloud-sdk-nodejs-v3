@@ -17,8 +17,8 @@ export class PageInfoBusinessTypeDefinitionVOPluginsList {
     private 'icon_url'?: string;
     private 'multi_step_editable'?: number;
     public location?: string;
-    public publisherUniqueId?: string;
-    public manifestVersion?: string;
+    private 'publisher_unique_id'?: string;
+    private 'manifest_version'?: string;
     public constructor() { 
     }
     public withUniqueId(uniqueId: string): PageInfoBusinessTypeDefinitionVOPluginsList {
@@ -154,11 +154,23 @@ export class PageInfoBusinessTypeDefinitionVOPluginsList {
         return this;
     }
     public withPublisherUniqueId(publisherUniqueId: string): PageInfoBusinessTypeDefinitionVOPluginsList {
-        this['publisherUniqueId'] = publisherUniqueId;
+        this['publisher_unique_id'] = publisherUniqueId;
         return this;
     }
+    public set publisherUniqueId(publisherUniqueId: string  | undefined) {
+        this['publisher_unique_id'] = publisherUniqueId;
+    }
+    public get publisherUniqueId(): string | undefined {
+        return this['publisher_unique_id'];
+    }
     public withManifestVersion(manifestVersion: string): PageInfoBusinessTypeDefinitionVOPluginsList {
-        this['manifestVersion'] = manifestVersion;
+        this['manifest_version'] = manifestVersion;
         return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
     }
 }

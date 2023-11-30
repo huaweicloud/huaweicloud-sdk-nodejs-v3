@@ -52,6 +52,9 @@ export enum ListClustersRequestStatusEnum {
     RESIZING = 'Resizing',
     ROLLINGBACK = 'RollingBack',
     ROLLBACKFAILED = 'RollbackFailed',
+    HIBERNATING = 'Hibernating',
+    HIBERNATION = 'Hibernation',
+    AWAKING = 'Awaking',
     EMPTY = 'Empty'
 }
 /**

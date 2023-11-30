@@ -1,3 +1,4 @@
+import { HostnameConfig } from './HostnameConfig';
 import { Login } from './Login';
 import { NodeLifecycleConfig } from './NodeLifecycleConfig';
 import { ReinstallExtendParam } from './ReinstallExtendParam';
@@ -18,6 +19,7 @@ export class ReinstallNodeSpec {
     public lifecycle?: NodeLifecycleConfig;
     public initializedConditions?: Array<string>;
     public extendParam?: ReinstallExtendParam;
+    public hostnameConfig?: HostnameConfig;
     public constructor(os?: string, login?: Login) { 
         this['os'] = os;
         this['login'] = login;
@@ -60,6 +62,10 @@ export class ReinstallNodeSpec {
     }
     public withExtendParam(extendParam: ReinstallExtendParam): ReinstallNodeSpec {
         this['extendParam'] = extendParam;
+        return this;
+    }
+    public withHostnameConfig(hostnameConfig: HostnameConfig): ReinstallNodeSpec {
+        this['hostnameConfig'] = hostnameConfig;
         return this;
     }
 }

@@ -3,16 +3,18 @@
 export class RecognizeFlashAsrRequest {
     public property?: RecognizeFlashAsrRequestPropertyEnum | string;
     private 'audio_format'?: RecognizeFlashAsrRequestAudioFormatEnum | string;
+    private 'obs_bucket_name'?: string;
+    private 'obs_object_key'?: string;
     private 'add_punc'?: RecognizeFlashAsrRequestAddPuncEnum | string;
     private 'digit_norm'?: RecognizeFlashAsrRequestDigitNormEnum | string;
     private 'need_word_info'?: RecognizeFlashAsrRequestNeedWordInfoEnum | string;
     private 'vocabulary_id'?: string;
-    private 'obs_bucket_name'?: string;
-    private 'obs_object_key'?: string;
     private 'first_channel_only'?: RecognizeFlashAsrRequestFirstChannelOnlyEnum | string;
-    public constructor(property?: string, audioFormat?: string) { 
+    public constructor(property?: string, audioFormat?: string, obsBucketName?: string, obsObjectKey?: string) { 
         this['property'] = property;
         this['audio_format'] = audioFormat;
+        this['obs_bucket_name'] = obsBucketName;
+        this['obs_object_key'] = obsObjectKey;
     }
     public withProperty(property: RecognizeFlashAsrRequestPropertyEnum | string): RecognizeFlashAsrRequest {
         this['property'] = property;
@@ -27,6 +29,26 @@ export class RecognizeFlashAsrRequest {
     }
     public get audioFormat(): RecognizeFlashAsrRequestAudioFormatEnum | string | undefined {
         return this['audio_format'];
+    }
+    public withObsBucketName(obsBucketName: string): RecognizeFlashAsrRequest {
+        this['obs_bucket_name'] = obsBucketName;
+        return this;
+    }
+    public set obsBucketName(obsBucketName: string  | undefined) {
+        this['obs_bucket_name'] = obsBucketName;
+    }
+    public get obsBucketName(): string | undefined {
+        return this['obs_bucket_name'];
+    }
+    public withObsObjectKey(obsObjectKey: string): RecognizeFlashAsrRequest {
+        this['obs_object_key'] = obsObjectKey;
+        return this;
+    }
+    public set obsObjectKey(obsObjectKey: string  | undefined) {
+        this['obs_object_key'] = obsObjectKey;
+    }
+    public get obsObjectKey(): string | undefined {
+        return this['obs_object_key'];
     }
     public withAddPunc(addPunc: RecognizeFlashAsrRequestAddPuncEnum | string): RecognizeFlashAsrRequest {
         this['add_punc'] = addPunc;
@@ -67,26 +89,6 @@ export class RecognizeFlashAsrRequest {
     }
     public get vocabularyId(): string | undefined {
         return this['vocabulary_id'];
-    }
-    public withObsBucketName(obsBucketName: string): RecognizeFlashAsrRequest {
-        this['obs_bucket_name'] = obsBucketName;
-        return this;
-    }
-    public set obsBucketName(obsBucketName: string  | undefined) {
-        this['obs_bucket_name'] = obsBucketName;
-    }
-    public get obsBucketName(): string | undefined {
-        return this['obs_bucket_name'];
-    }
-    public withObsObjectKey(obsObjectKey: string): RecognizeFlashAsrRequest {
-        this['obs_object_key'] = obsObjectKey;
-        return this;
-    }
-    public set obsObjectKey(obsObjectKey: string  | undefined) {
-        this['obs_object_key'] = obsObjectKey;
-    }
-    public get obsObjectKey(): string | undefined {
-        return this['obs_object_key'];
     }
     public withFirstChannelOnly(firstChannelOnly: RecognizeFlashAsrRequestFirstChannelOnlyEnum | string): RecognizeFlashAsrRequest {
         this['first_channel_only'] = firstChannelOnly;

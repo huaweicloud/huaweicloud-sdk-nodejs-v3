@@ -11,6 +11,8 @@ export class DeleteClusterRequest {
     private 'delete_sfs'?: DeleteClusterRequestDeleteSfsEnum | string;
     private 'delete_sfs30'?: DeleteClusterRequestDeleteSfs30Enum | string;
     public tobedeleted?: DeleteClusterRequestTobedeletedEnum | string;
+    private 'ondemand_node_policy'?: DeleteClusterRequestOndemandNodePolicyEnum | string;
+    private 'periodic_node_policy'?: DeleteClusterRequestPeriodicNodePolicyEnum | string;
     public constructor(clusterId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -109,6 +111,26 @@ export class DeleteClusterRequest {
         this['tobedeleted'] = tobedeleted;
         return this;
     }
+    public withOndemandNodePolicy(ondemandNodePolicy: DeleteClusterRequestOndemandNodePolicyEnum | string): DeleteClusterRequest {
+        this['ondemand_node_policy'] = ondemandNodePolicy;
+        return this;
+    }
+    public set ondemandNodePolicy(ondemandNodePolicy: DeleteClusterRequestOndemandNodePolicyEnum | string  | undefined) {
+        this['ondemand_node_policy'] = ondemandNodePolicy;
+    }
+    public get ondemandNodePolicy(): DeleteClusterRequestOndemandNodePolicyEnum | string | undefined {
+        return this['ondemand_node_policy'];
+    }
+    public withPeriodicNodePolicy(periodicNodePolicy: DeleteClusterRequestPeriodicNodePolicyEnum | string): DeleteClusterRequest {
+        this['periodic_node_policy'] = periodicNodePolicy;
+        return this;
+    }
+    public set periodicNodePolicy(periodicNodePolicy: DeleteClusterRequestPeriodicNodePolicyEnum | string  | undefined) {
+        this['periodic_node_policy'] = periodicNodePolicy;
+    }
+    public get periodicNodePolicy(): DeleteClusterRequestPeriodicNodePolicyEnum | string | undefined {
+        return this['periodic_node_policy'];
+    }
 }
 
 /**
@@ -194,4 +216,21 @@ export enum DeleteClusterRequestDeleteSfs30Enum {
     */
 export enum DeleteClusterRequestTobedeletedEnum {
     TRUE = 'true'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteClusterRequestOndemandNodePolicyEnum {
+    DELETE = 'delete',
+    RESET = 'reset',
+    RETAIN = 'retain'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteClusterRequestPeriodicNodePolicyEnum {
+    RESET = 'reset',
+    RETAIN = 'retain'
 }

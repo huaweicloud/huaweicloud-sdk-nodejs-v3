@@ -88,6 +88,7 @@ import { ErrorResponseBody } from './model/ErrorResponseBody';
 import { ExpandInstanceNodeRequest } from './model/ExpandInstanceNodeRequest';
 import { ExpandInstanceNodeRequestBody } from './model/ExpandInstanceNodeRequestBody';
 import { ExpandInstanceNodeResponse } from './model/ExpandInstanceNodeResponse';
+import { InfluxdbSlowLogDetail } from './model/InfluxdbSlowLogDetail';
 import { InstanceLogConfig } from './model/InstanceLogConfig';
 import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
 import { InstanceResult } from './model/InstanceResult';
@@ -122,6 +123,9 @@ import { ListFlavorInfosResponse } from './model/ListFlavorInfosResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListFlavorsResult } from './model/ListFlavorsResult';
+import { ListInfluxdbSlowLogsRequest } from './model/ListInfluxdbSlowLogsRequest';
+import { ListInfluxdbSlowLogsRequestBody } from './model/ListInfluxdbSlowLogsRequestBody';
+import { ListInfluxdbSlowLogsResponse } from './model/ListInfluxdbSlowLogsResponse';
 import { ListInstanceDatabasesRequest } from './model/ListInstanceDatabasesRequest';
 import { ListInstanceDatabasesResponse } from './model/ListInstanceDatabasesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
@@ -979,6 +983,26 @@ export class GaussDBforNoSQLClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB(for influxdb)数据库慢日志信息，支持日志关键字搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GeminiDB(for influxdb)数据库慢日志
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {ListInfluxdbSlowLogsRequestBody} listRedisSlowLogsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInfluxdbSlowLogs(listInfluxdbSlowLogsRequest?: ListInfluxdbSlowLogsRequest): Promise<ListInfluxdbSlowLogsResponse> {
+        const options = ParamCreater().listInfluxdbSlowLogs(listInfluxdbSlowLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3779,6 +3803,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB(for influxdb)数据库慢日志信息，支持日志关键字搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInfluxdbSlowLogs(listInfluxdbSlowLogsRequest?: ListInfluxdbSlowLogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/influxdb/instances/{instance_id}/slow-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listInfluxdbSlowLogsRequest !== null && listInfluxdbSlowLogsRequest !== undefined) {
+                if (listInfluxdbSlowLogsRequest instanceof ListInfluxdbSlowLogsRequest) {
+                    instanceId = listInfluxdbSlowLogsRequest.instanceId;
+                    body = listInfluxdbSlowLogsRequest.body
+                } else {
+                    instanceId = listInfluxdbSlowLogsRequest['instance_id'];
+                    body = listInfluxdbSlowLogsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInfluxdbSlowLogs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

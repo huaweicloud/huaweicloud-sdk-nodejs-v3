@@ -153,12 +153,12 @@ export class SisClient {
      * @summary 录音文件识别极速版
      * @param {'chinese_8k_common' | 'chinese_16k_conversation'} property 所使用的模型特征串。通常是 “语种_采样率_领域”的形式。 采样率需要与音频采样率保持一致。 当前支持如下模型特征串： chinese_8k_common chinese_16k_conversation
      * @param {'wav' | 'mp3' | 'm4a' | 'aac' | 'opus'} audioFormat 音频格式，audio_format取值范围： wav,mp3,m4a,aac,opus
+     * @param {string} obsBucketName obs桶名
+     * @param {string} obsObjectKey obs对象key，经过urlencode编码，长度不超过1024个字符
      * @param {'yes' | 'no'} [addPunc] 是否加标点， 可以为 yes, 默认no
      * @param {'yes' | 'no'} [digitNorm] 是否将音频中的数字使用阿拉伯数字的形式呈现，取值为yes，no，默认为yes
      * @param {'yes' | 'no'} [needWordInfo] 表示是否在识别结果中输出分词结果信息，取值为yes，no，默认no
      * @param {string} [vocabularyId] 热词表id
-     * @param {string} [obsBucketName] obs桶名
-     * @param {string} [obsObjectKey] obs对象key，经过urlencode编码，长度不超过1024个字符
      * @param {'yes' | 'no'} [firstChannelOnly] 表示是否在识别中只识别首个声道的音频数据，取值为“yes”和“no”，默认为“no”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -459,6 +459,10 @@ export const ParamCreater = function () {
             
             let audioFormat;
             
+            let obsBucketName;
+            
+            let obsObjectKey;
+            
             let addPunc;
             
             let digitNorm;
@@ -467,32 +471,28 @@ export const ParamCreater = function () {
             
             let vocabularyId;
             
-            let obsBucketName;
-            
-            let obsObjectKey;
-            
             let firstChannelOnly;
 
             if (recognizeFlashAsrRequest !== null && recognizeFlashAsrRequest !== undefined) {
                 if (recognizeFlashAsrRequest instanceof RecognizeFlashAsrRequest) {
                     property = recognizeFlashAsrRequest.property;
                     audioFormat = recognizeFlashAsrRequest.audioFormat;
+                    obsBucketName = recognizeFlashAsrRequest.obsBucketName;
+                    obsObjectKey = recognizeFlashAsrRequest.obsObjectKey;
                     addPunc = recognizeFlashAsrRequest.addPunc;
                     digitNorm = recognizeFlashAsrRequest.digitNorm;
                     needWordInfo = recognizeFlashAsrRequest.needWordInfo;
                     vocabularyId = recognizeFlashAsrRequest.vocabularyId;
-                    obsBucketName = recognizeFlashAsrRequest.obsBucketName;
-                    obsObjectKey = recognizeFlashAsrRequest.obsObjectKey;
                     firstChannelOnly = recognizeFlashAsrRequest.firstChannelOnly;
                 } else {
                     property = recognizeFlashAsrRequest['property'];
                     audioFormat = recognizeFlashAsrRequest['audio_format'];
+                    obsBucketName = recognizeFlashAsrRequest['obs_bucket_name'];
+                    obsObjectKey = recognizeFlashAsrRequest['obs_object_key'];
                     addPunc = recognizeFlashAsrRequest['add_punc'];
                     digitNorm = recognizeFlashAsrRequest['digit_norm'];
                     needWordInfo = recognizeFlashAsrRequest['need_word_info'];
                     vocabularyId = recognizeFlashAsrRequest['vocabulary_id'];
-                    obsBucketName = recognizeFlashAsrRequest['obs_bucket_name'];
-                    obsObjectKey = recognizeFlashAsrRequest['obs_object_key'];
                     firstChannelOnly = recognizeFlashAsrRequest['first_channel_only'];
                 }
             }
@@ -510,6 +510,18 @@ export const ParamCreater = function () {
             if (audioFormat !== null && audioFormat !== undefined) {
                 localVarQueryParameter['audio_format'] = audioFormat;
             }
+            if (obsBucketName === null || obsBucketName === undefined) {
+                throw new RequiredError('obsBucketName','Required parameter obsBucketName was null or undefined when calling recognizeFlashAsr.');
+            }
+            if (obsBucketName !== null && obsBucketName !== undefined) {
+                localVarQueryParameter['obs_bucket_name'] = obsBucketName;
+            }
+            if (obsObjectKey === null || obsObjectKey === undefined) {
+                throw new RequiredError('obsObjectKey','Required parameter obsObjectKey was null or undefined when calling recognizeFlashAsr.');
+            }
+            if (obsObjectKey !== null && obsObjectKey !== undefined) {
+                localVarQueryParameter['obs_object_key'] = obsObjectKey;
+            }
             if (addPunc !== null && addPunc !== undefined) {
                 localVarQueryParameter['add_punc'] = addPunc;
             }
@@ -521,12 +533,6 @@ export const ParamCreater = function () {
             }
             if (vocabularyId !== null && vocabularyId !== undefined) {
                 localVarQueryParameter['vocabulary_id'] = vocabularyId;
-            }
-            if (obsBucketName !== null && obsBucketName !== undefined) {
-                localVarQueryParameter['obs_bucket_name'] = obsBucketName;
-            }
-            if (obsObjectKey !== null && obsObjectKey !== undefined) {
-                localVarQueryParameter['obs_object_key'] = obsObjectKey;
             }
             if (firstChannelOnly !== null && firstChannelOnly !== undefined) {
                 localVarQueryParameter['first_channel_only'] = firstChannelOnly;

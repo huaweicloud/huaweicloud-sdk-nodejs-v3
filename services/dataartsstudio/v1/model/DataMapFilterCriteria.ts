@@ -1,27 +1,26 @@
-import { ConditionInfo } from './ConditionInfo';
 
 
 export class DataMapFilterCriteria {
-    public attribute?: string;
-    public operator?: string;
-    public value?: object;
-    public condition?: ConditionInfo;
+    public attribute?: DataMapFilterCriteriaAttributeEnum | string;
+    public operator?: DataMapFilterCriteriaOperatorEnum | string;
+    public value?: Array<string>;
+    public condition?: DataMapFilterCriteriaConditionEnum | string;
     public criterion?: Array<DataMapFilterCriteria>;
     public constructor() { 
     }
-    public withAttribute(attribute: string): DataMapFilterCriteria {
+    public withAttribute(attribute: DataMapFilterCriteriaAttributeEnum | string): DataMapFilterCriteria {
         this['attribute'] = attribute;
         return this;
     }
-    public withOperator(operator: string): DataMapFilterCriteria {
+    public withOperator(operator: DataMapFilterCriteriaOperatorEnum | string): DataMapFilterCriteria {
         this['operator'] = operator;
         return this;
     }
-    public withValue(value: object): DataMapFilterCriteria {
+    public withValue(value: Array<string>): DataMapFilterCriteria {
         this['value'] = value;
         return this;
     }
-    public withCondition(condition: ConditionInfo): DataMapFilterCriteria {
+    public withCondition(condition: DataMapFilterCriteriaConditionEnum | string): DataMapFilterCriteria {
         this['condition'] = condition;
         return this;
     }
@@ -29,4 +28,32 @@ export class DataMapFilterCriteria {
         this['criterion'] = criterion;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DataMapFilterCriteriaAttributeEnum {
+    BASE_DATAASSET_SOURCETYPE = 'base.DataAsset.sourceType',
+    TYPENAME = 'typeName',
+    CLASSIFICATIONS_NAME = 'classifications.name',
+    TAGS_NAME = 'tags.name',
+    SECURITYLEVEL_NAME = 'securityLevel.name',
+    WORKSPACEID = 'workspaceId'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DataMapFilterCriteriaOperatorEnum {
+    IN = 'IN',
+    EQ = 'EQ'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DataMapFilterCriteriaConditionEnum {
+    OR = 'OR'
 }

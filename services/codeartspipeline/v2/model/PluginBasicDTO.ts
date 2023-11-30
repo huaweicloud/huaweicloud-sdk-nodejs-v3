@@ -12,6 +12,7 @@ export class PluginBasicDTO {
     private 'is_private'?: number;
     public region?: string;
     public maintainers?: string;
+    private 'plugin_composition_type'?: string;
     public constructor() { 
     }
     public withUniqueId(uniqueId: string): PluginBasicDTO {
@@ -105,5 +106,15 @@ export class PluginBasicDTO {
     public withMaintainers(maintainers: string): PluginBasicDTO {
         this['maintainers'] = maintainers;
         return this;
+    }
+    public withPluginCompositionType(pluginCompositionType: string): PluginBasicDTO {
+        this['plugin_composition_type'] = pluginCompositionType;
+        return this;
+    }
+    public set pluginCompositionType(pluginCompositionType: string  | undefined) {
+        this['plugin_composition_type'] = pluginCompositionType;
+    }
+    public get pluginCompositionType(): string | undefined {
+        return this['plugin_composition_type'];
     }
 }

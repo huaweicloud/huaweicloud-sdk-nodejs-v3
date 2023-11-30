@@ -1,9 +1,9 @@
-import { ResizeClusterRequestExtendParam } from './ResizeClusterRequestExtendParam';
+import { ResizeClusterRequestBodyExtendParam } from './ResizeClusterRequestBodyExtendParam';
 
 
 export class ResizeClusterRequestBody {
     public flavorResize?: string;
-    public extendParam?: ResizeClusterRequestExtendParam;
+    public extendParam?: ResizeClusterRequestBodyExtendParam;
     public constructor(flavorResize?: string) { 
         this['flavorResize'] = flavorResize;
     }
@@ -11,7 +11,7 @@ export class ResizeClusterRequestBody {
         this['flavorResize'] = flavorResize;
         return this;
     }
-    public withExtendParam(extendParam: ResizeClusterRequestExtendParam): ResizeClusterRequestBody {
+    public withExtendParam(extendParam: ResizeClusterRequestBodyExtendParam): ResizeClusterRequestBody {
         this['extendParam'] = extendParam;
         return this;
     }

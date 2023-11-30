@@ -1,4 +1,4 @@
-import { PageInfoResponseListPluginBasicVOData } from './PageInfoResponseListPluginBasicVOData';
+import { PluginBasicVO } from './PluginBasicVO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListPluginsResponse extends SdkResponse {
     public offset?: number;
     public limit?: number;
     public total?: number;
-    public data?: Array<PageInfoResponseListPluginBasicVOData>;
+    public data?: Array<PluginBasicVO>;
     public constructor() { 
         super();
     }
@@ -22,7 +22,7 @@ export class ListPluginsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withData(data: Array<PageInfoResponseListPluginBasicVOData>): ListPluginsResponse {
+    public withData(data: Array<PluginBasicVO>): ListPluginsResponse {
         this['data'] = data;
         return this;
     }

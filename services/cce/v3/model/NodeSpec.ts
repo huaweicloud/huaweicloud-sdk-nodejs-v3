@@ -1,3 +1,4 @@
+import { HostnameConfig } from './HostnameConfig';
 import { Login } from './Login';
 import { NodeExtendParam } from './NodeExtendParam';
 import { NodeNicSpec } from './NodeNicSpec';
@@ -29,6 +30,7 @@ export class NodeSpec {
     public runtime?: Runtime;
     public initializedConditions?: Array<string>;
     public extendParam?: NodeExtendParam;
+    public hostnameConfig?: HostnameConfig;
     public constructor(flavor?: string, az?: string, login?: Login, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
         this['flavor'] = flavor;
         this['az'] = az;
@@ -110,6 +112,10 @@ export class NodeSpec {
     }
     public withExtendParam(extendParam: NodeExtendParam): NodeSpec {
         this['extendParam'] = extendParam;
+        return this;
+    }
+    public withHostnameConfig(hostnameConfig: HostnameConfig): NodeSpec {
+        this['hostnameConfig'] = hostnameConfig;
         return this;
     }
 }

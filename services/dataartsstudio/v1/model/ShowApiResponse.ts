@@ -1,3 +1,4 @@
+import { ApiPublishDTO } from './ApiPublishDTO';
 import { BackendConfig } from './BackendConfig';
 import { DatasourceConfig } from './DatasourceConfig';
 import { InstanceHostDTO } from './InstanceHostDTO';
@@ -24,6 +25,7 @@ export class ShowApiResponse extends SdkResponse {
     public status?: ShowApiResponseStatusEnum | string;
     public type?: ShowApiResponseTypeEnum | string;
     private 'debug_status'?: ShowApiResponseDebugStatusEnum | string;
+    private 'publish_messages'?: Array<ApiPublishDTO>;
     private 'request_paras'?: Array<RequestPara>;
     private 'datasource_config'?: DatasourceConfig;
     private 'backend_config'?: BackendConfig;
@@ -149,6 +151,16 @@ export class ShowApiResponse extends SdkResponse {
     }
     public get debugStatus(): ShowApiResponseDebugStatusEnum | string | undefined {
         return this['debug_status'];
+    }
+    public withPublishMessages(publishMessages: Array<ApiPublishDTO>): ShowApiResponse {
+        this['publish_messages'] = publishMessages;
+        return this;
+    }
+    public set publishMessages(publishMessages: Array<ApiPublishDTO>  | undefined) {
+        this['publish_messages'] = publishMessages;
+    }
+    public get publishMessages(): Array<ApiPublishDTO> | undefined {
+        return this['publish_messages'];
     }
     public withRequestParas(requestParas: Array<RequestPara>): ShowApiResponse {
         this['request_paras'] = requestParas;

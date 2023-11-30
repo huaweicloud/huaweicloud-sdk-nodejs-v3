@@ -94,12 +94,21 @@ import { ResetConsumeOffsetReq } from './model/ResetConsumeOffsetReq';
 import { ResetConsumeOffsetRequest } from './model/ResetConsumeOffsetRequest';
 import { ResetConsumeOffsetRespQueues } from './model/ResetConsumeOffsetRespQueues';
 import { ResetConsumeOffsetResponse } from './model/ResetConsumeOffsetResponse';
+import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
+import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
+import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RocketMQExtendProductInfoEntity } from './model/RocketMQExtendProductInfoEntity';
+import { RocketMQExtendProductIosEntity } from './model/RocketMQExtendProductIosEntity';
+import { RocketMQExtendProductPropertiesEntity } from './model/RocketMQExtendProductPropertiesEntity';
+import { RocketMQProductSupportFeaturesEntity } from './model/RocketMQProductSupportFeaturesEntity';
 import { SendDlqMessageRequest } from './model/SendDlqMessageRequest';
 import { SendDlqMessageResponse } from './model/SendDlqMessageResponse';
 import { ShowConsumerConnectionsRequest } from './model/ShowConsumerConnectionsRequest';
 import { ShowConsumerConnectionsResponse } from './model/ShowConsumerConnectionsResponse';
 import { ShowConsumerListOrDetailsRequest } from './model/ShowConsumerListOrDetailsRequest';
 import { ShowConsumerListOrDetailsResponse } from './model/ShowConsumerListOrDetailsResponse';
+import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineInstanceExtendProductInfoRequest';
+import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
 import { ShowGroupRequest } from './model/ShowGroupRequest';
 import { ShowGroupResponse } from './model/ShowGroupResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
@@ -663,6 +672,29 @@ export class RocketMQClient {
     }
 
     /**
+     * 实例规格变更。
+     * 
+     * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例规格变更
+     * @param {string} engine 消息引擎的类型。支持的类型为rocketmq。
+     * @param {string} instanceId 实例ID。
+     * @param {ResizeEngineInstanceReq} resizeInstanceRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest): Promise<ResizeInstanceResponse> {
+        const options = ParamCreater().resizeInstance(resizeInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重发死信消息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -722,6 +754,27 @@ export class RocketMQClient {
      */
     public showConsumerListOrDetails(showConsumerListOrDetailsRequest?: ShowConsumerListOrDetailsRequest): Promise<ShowConsumerListOrDetailsResponse> {
         const options = ParamCreater().showConsumerListOrDetails(showConsumerListOrDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的扩容规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的扩容规格列表
+     * @param {string} engine 消息引擎的类型。支持的类型为rocketmq。
+     * @param {string} instanceId 实例ID。
+     * @param {'advanced'} [type] 产品的类型。 advanced：专享版
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEngineInstanceExtendProductInfo(showEngineInstanceExtendProductInfoRequest?: ShowEngineInstanceExtendProductInfoRequest): Promise<ShowEngineInstanceExtendProductInfoResponse> {
+        const options = ParamCreater().showEngineInstanceExtendProductInfo(showEngineInstanceExtendProductInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2339,6 +2392,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 实例规格变更。
+         * 
+         * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/extend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (resizeInstanceRequest !== null && resizeInstanceRequest !== undefined) {
+                if (resizeInstanceRequest instanceof ResizeInstanceRequest) {
+                    engine = resizeInstanceRequest.engine;
+                    instanceId = resizeInstanceRequest.instanceId;
+                    body = resizeInstanceRequest.body
+                } else {
+                    engine = resizeInstanceRequest['engine'];
+                    instanceId = resizeInstanceRequest['instance_id'];
+                    body = resizeInstanceRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling resizeInstance.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重发死信消息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2519,6 +2627,58 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的扩容规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEngineInstanceExtendProductInfo(showEngineInstanceExtendProductInfoRequest?: ShowEngineInstanceExtendProductInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/extend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let type;
+
+            if (showEngineInstanceExtendProductInfoRequest !== null && showEngineInstanceExtendProductInfoRequest !== undefined) {
+                if (showEngineInstanceExtendProductInfoRequest instanceof ShowEngineInstanceExtendProductInfoRequest) {
+                    engine = showEngineInstanceExtendProductInfoRequest.engine;
+                    instanceId = showEngineInstanceExtendProductInfoRequest.instanceId;
+                    type = showEngineInstanceExtendProductInfoRequest.type;
+                } else {
+                    engine = showEngineInstanceExtendProductInfoRequest['engine'];
+                    instanceId = showEngineInstanceExtendProductInfoRequest['instance_id'];
+                    type = showEngineInstanceExtendProductInfoRequest['type'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showEngineInstanceExtendProductInfo.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showEngineInstanceExtendProductInfo.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

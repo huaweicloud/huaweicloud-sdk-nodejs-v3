@@ -23,7 +23,6 @@ import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
 import { ApplicationModel } from './model/ApplicationModel';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
-import { AuthModel } from './model/AuthModel';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
 import { CreatePromInstanceRequest } from './model/CreatePromInstanceRequest';
@@ -441,6 +440,26 @@ export class AomClient {
     }
 
     /**
+     * 该接口用于查询集群主机安装的ICAgent信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群主机安装的ICAgent信息
+     * @param {string} clusterId 集群id。
+     * @param {string} namespace 命名空间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgents(listAgentsRequest?: ListAgentsRequest): Promise<ListAgentsResponse> {
+        const options = ParamCreater().listAgents(listAgentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询阈值规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -570,6 +589,24 @@ export class AomClient {
      */
     public listNotifiedHistories(listNotifiedHistoriesRequest?: ListNotifiedHistoriesRequest): Promise<ListNotifiedHistoriesResponse> {
         const options = ParamCreater().listNotifiedHistories(listNotifiedHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询aom2.0相关云服务授权信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询aom2.0相关云服务授权信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPermissions(listPermissionsRequest?: ListPermissionsRequest): Promise<ListPermissionsResponse> {
+        const options = ParamCreater().listPermissions();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -793,12 +830,12 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于新增Prometheus实例数据源
+     * 该接口用于新增Prometheus实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 新增Prometheus实例数据源
-     * @param {PromInstanceEpsModel} createPromInstanceRequestBody 普罗实例信息
+     * @summary 新增Prometheus实例
+     * @param {PromInstanceEpsModel} createPromInstanceRequestBody Prometheus实例信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -812,13 +849,13 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于创建预汇聚规则
+     * 该接口用于给Prometheus实例创建预聚合规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建预汇聚规则
+     * @summary 创建Prometheus实例的预聚合规则
      * @param {string} prometheusInstance prometheus实例id。
-     * @param {RecordingRuleRequest} createRecordingRuleRequestBody 预汇聚规则
+     * @param {RecordingRuleRequest} createRecordingRuleRequestBody 预聚合规则
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -832,12 +869,12 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于卸载托管Prometheus
+     * 该接口用于卸载托管Prometheus实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 卸载托管Prometheus
-     * @param {string} promId 普罗实例id。
+     * @summary 卸载托管Prometheus实例
+     * @param {string} promId Prometheus实例id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -851,36 +888,16 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于获取Prometheus监控所需Token-access code
+     * 该接口用于获取Prometheus实例调用凭证。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取Prometheus监控所需Token-access code
+     * @summary 获取Prometheus实例调用凭证
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listAccessCode(listAccessCodeRequest?: ListAccessCodeRequest): Promise<ListAccessCodeResponse> {
         const options = ParamCreater().listAccessCode();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询集群Agent信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询集群Agent信息
-     * @param {string} clusterId 集群id
-     * @param {string} namespace 命名空间
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAgents(listAgentsRequest?: ListAgentsRequest): Promise<ListAgentsResponse> {
-        const options = ParamCreater().listAgents(listAgentsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1002,33 +1019,15 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询用户是否已经完成aom2.0授权
+     * 该接口用于查询Prometheus实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 是否开通aom2.0
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPermissions(listPermissionsRequest?: ListPermissionsRequest): Promise<ListPermissionsResponse> {
-        const options = ParamCreater().listPermissions();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于获取所有正常prometheus实例
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取所有正常实例
-     * @param {string} [promId] 普罗实例ID
-     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] 普罗实例类型,DEFAULT,ECS,VPC,CCE,REMOTE_WRITE,KUBERNETES,CLOUD_SERVICE,ACROSS_ACCOUNT
-     * @param {'true' | 'false'} [cceClusterEnable] cce集群开关 true/false
-     * @param {'true' | 'false'} [promStatus] 普罗实例状态 true/false
+     * @summary 查询Prometheus实例
+     * @param {string} [promId] Prometheus实例id。
+     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型。
+     * @param {'true' | 'false'} [cceClusterEnable] cce集群开关。
+     * @param {'true' | 'false'} [promStatus] Prometheus实例状态。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1611,6 +1610,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询集群主机安装的ICAgent信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgents(listAgentsRequest?: ListAgentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/{cluster_id}/{namespace}/agents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let namespace;
+
+            if (listAgentsRequest !== null && listAgentsRequest !== undefined) {
+                if (listAgentsRequest instanceof ListAgentsRequest) {
+                    clusterId = listAgentsRequest.clusterId;
+                    namespace = listAgentsRequest.namespace;
+                } else {
+                    clusterId = listAgentsRequest['cluster_id'];
+                    namespace = listAgentsRequest['namespace'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAgents.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listAgents.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'namespace': namespace, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询阈值规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1884,6 +1927,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询aom2.0相关云服务授权信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPermissions() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aom/auth/grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2347,7 +2411,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于新增Prometheus实例数据源
+         * 该接口用于新增Prometheus实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2385,7 +2449,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建预汇聚规则
+         * 该接口用于给Prometheus实例创建预聚合规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2431,7 +2495,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于卸载托管Prometheus
+         * 该接口用于卸载托管Prometheus实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2471,7 +2535,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取Prometheus监控所需Token-access code
+         * 该接口用于获取Prometheus实例调用凭证。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2487,50 +2551,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询集群Agent信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAgents(listAgentsRequest?: ListAgentsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/{cluster_id}/{namespace}/agents",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let clusterId;
-            
-            let namespace;
-
-            if (listAgentsRequest !== null && listAgentsRequest !== undefined) {
-                if (listAgentsRequest instanceof ListAgentsRequest) {
-                    clusterId = listAgentsRequest.clusterId;
-                    namespace = listAgentsRequest.namespace;
-                } else {
-                    clusterId = listAgentsRequest['cluster_id'];
-                    namespace = listAgentsRequest['namespace'];
-                }
-            }
-
-        
-            if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAgents.');
-            }
-            if (namespace === null || namespace === undefined) {
-            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listAgents.');
-            }
-
-            options.pathParams = { 'cluster_id': clusterId,'namespace': namespace, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2730,28 +2750,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询用户是否已经完成aom2.0授权
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPermissions() {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/aom/auth/grant",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于获取所有正常prometheus实例
+         * 该接口用于查询Prometheus实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

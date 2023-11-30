@@ -2,12 +2,18 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpgradeDbMajorVersionResponse extends SdkResponse {
-    public body?: string;
+    private 'job_id'?: string;
     public constructor() { 
         super();
     }
-    public withBody(body: string): UpgradeDbMajorVersionResponse {
-        this['body'] = body;
+    public withJobId(jobId: string): UpgradeDbMajorVersionResponse {
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }

@@ -4,6 +4,7 @@ export class ListApisRequest {
     public workspace?: string;
     private 'Dlm-Type'?: ListApisRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
+    private 'x-return-publish-messages'?: string;
     public offset?: number;
     public limit?: number;
     public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
@@ -34,6 +35,16 @@ export class ListApisRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXReturnPublishMessages(xReturnPublishMessages: string): ListApisRequest {
+        this['x-return-publish-messages'] = xReturnPublishMessages;
+        return this;
+    }
+    public set xReturnPublishMessages(xReturnPublishMessages: string  | undefined) {
+        this['x-return-publish-messages'] = xReturnPublishMessages;
+    }
+    public get xReturnPublishMessages(): string | undefined {
+        return this['x-return-publish-messages'];
     }
     public withOffset(offset: number): ListApisRequest {
         this['offset'] = offset;

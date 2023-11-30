@@ -1,12 +1,12 @@
+import { MultivaluedTag } from './MultivaluedTag';
 import { RequestId } from './RequestId';
-import { Tag } from './Tag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListBandwidthPackageTagsResponse extends SdkResponse {
     private 'request_id'?: string;
-    public tags?: Array<Tag>;
-    public constructor(requestId?: string, tags?: Array<Tag>) { 
+    public tags?: Array<MultivaluedTag>;
+    public constructor(requestId?: string, tags?: Array<MultivaluedTag>) { 
         super();
         this['request_id'] = requestId;
         this['tags'] = tags;
@@ -21,7 +21,7 @@ export class ListBandwidthPackageTagsResponse extends SdkResponse {
     public get requestId(): string | undefined {
         return this['request_id'];
     }
-    public withTags(tags: Array<Tag>): ListBandwidthPackageTagsResponse {
+    public withTags(tags: Array<MultivaluedTag>): ListBandwidthPackageTagsResponse {
         this['tags'] = tags;
         return this;
     }

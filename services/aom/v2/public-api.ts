@@ -21,7 +21,6 @@ export * from './model/AppRulesBody';
 export * from './model/AppRulesSpec';
 export * from './model/ApplicationModel';
 export * from './model/ApplicationNameRule';
-export * from './model/AuthModel';
 export * from './model/CountEventsRequest';
 export * from './model/CountEventsResponse';
 export * from './model/CreatePromInstanceRequest';

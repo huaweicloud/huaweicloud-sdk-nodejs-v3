@@ -121,6 +121,7 @@ import { ListStrategyRequest } from './model/ListStrategyRequest';
 import { ListStrategyResponse } from './model/ListStrategyResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
+import { LogQuery } from './model/LogQuery';
 import { NewExtensionExecution } from './model/NewExtensionExecution';
 import { NewExtensionInputs } from './model/NewExtensionInputs';
 import { NewExtensionOutputs } from './model/NewExtensionOutputs';
@@ -130,7 +131,6 @@ import { PackageInfo } from './model/PackageInfo';
 import { PageInfoBusinessTypeDefinitionVOData } from './model/PageInfoBusinessTypeDefinitionVOData';
 import { PageInfoBusinessTypeDefinitionVOPluginsList } from './model/PageInfoBusinessTypeDefinitionVOPluginsList';
 import { PageInfoOptionalSinglePluginVOData } from './model/PageInfoOptionalSinglePluginVOData';
-import { PageInfoResponseListPluginBasicVOData } from './model/PageInfoResponseListPluginBasicVOData';
 import { ParamTypeLimits } from './model/ParamTypeLimits';
 import { PipelineBasicInfo } from './model/PipelineBasicInfo';
 import { PipelineBuildResult } from './model/PipelineBuildResult';
@@ -157,6 +157,7 @@ import { PipelineTemplateSimpleVO } from './model/PipelineTemplateSimpleVO';
 import { PipelineTemplateSimpleVOStages } from './model/PipelineTemplateSimpleVOStages';
 import { PipelineTrigger } from './model/PipelineTrigger';
 import { PluginBasicDTO } from './model/PluginBasicDTO';
+import { PluginBasicVO } from './model/PluginBasicVO';
 import { PluginDTO } from './model/PluginDTO';
 import { PluginDTOExecutionInfo } from './model/PluginDTOExecutionInfo';
 import { PluginDTOInputInfo } from './model/PluginDTOInputInfo';
@@ -210,6 +211,8 @@ import { ShowOpenSourceStrategyRequest } from './model/ShowOpenSourceStrategyReq
 import { ShowOpenSourceStrategyResponse } from './model/ShowOpenSourceStrategyResponse';
 import { ShowPipelineGroupTreeRequest } from './model/ShowPipelineGroupTreeRequest';
 import { ShowPipelineGroupTreeResponse } from './model/ShowPipelineGroupTreeResponse';
+import { ShowPipelineLogRequest } from './model/ShowPipelineLogRequest';
+import { ShowPipelineLogResponse } from './model/ShowPipelineLogResponse';
 import { ShowPipelineRunDetailRequest } from './model/ShowPipelineRunDetailRequest';
 import { ShowPipelineRunDetailResponse } from './model/ShowPipelineRunDetailResponse';
 import { ShowPipelineTemplateDetailRequest } from './model/ShowPipelineTemplateDetailRequest';
@@ -1441,6 +1444,29 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 查询流水线日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流水线日志
+     * @param {string} pipelineId 流水线ID
+     * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {string} jobRunId 流水线任务ID
+     * @param {string} stepRunId 流水线步骤ID
+     * @param {LogQuery} body 查询日志请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPipelineLog(showPipelineLogRequest?: ShowPipelineLogRequest): Promise<ShowPipelineLogResponse> {
+        const options = ParamCreater().showPipelineLog(showPipelineLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取流水线状态/获取流水线执行详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1995,8 +2021,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 更新插件图标
      * @param {string} domainId 租户ID
+     * @param {any} uploadFile 图标文件
      * @param {string} [pluginName] 
-     * @param {any} [uploadFile] 图标文件
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4743,6 +4769,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询流水线日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPipelineLog(showPipelineLogRequest?: ShowPipelineLogRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}/pipeline-runs/{pipeline_run_id}/jobs/{job_run_id}/steps/{step_run_id}/logs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+            
+            let jobRunId;
+            
+            let stepRunId;
+
+            if (showPipelineLogRequest !== null && showPipelineLogRequest !== undefined) {
+                if (showPipelineLogRequest instanceof ShowPipelineLogRequest) {
+                    pipelineId = showPipelineLogRequest.pipelineId;
+                    pipelineRunId = showPipelineLogRequest.pipelineRunId;
+                    jobRunId = showPipelineLogRequest.jobRunId;
+                    stepRunId = showPipelineLogRequest.stepRunId;
+                    body = showPipelineLogRequest.body
+                } else {
+                    pipelineId = showPipelineLogRequest['pipeline_id'];
+                    pipelineRunId = showPipelineLogRequest['pipeline_run_id'];
+                    jobRunId = showPipelineLogRequest['job_run_id'];
+                    stepRunId = showPipelineLogRequest['step_run_id'];
+                    body = showPipelineLogRequest['body'];
+                }
+            }
+
+        
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showPipelineLog.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling showPipelineLog.');
+            }
+            if (jobRunId === null || jobRunId === undefined) {
+            throw new RequiredError('jobRunId','Required parameter jobRunId was null or undefined when calling showPipelineLog.');
+            }
+            if (stepRunId === null || stepRunId === undefined) {
+            throw new RequiredError('stepRunId','Required parameter stepRunId was null or undefined when calling showPipelineLog.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId,'job_run_id': jobRunId,'step_run_id': stepRunId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取流水线状态/获取流水线执行详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6036,26 +6129,29 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             
             let domainId;
-            
-            let pluginName;
             let uploadFile;
             
+            
+            let pluginName;
 
             if (uploadPluginIconRequest !== null && uploadPluginIconRequest !== undefined) {
                 if (uploadPluginIconRequest instanceof UploadPluginIconRequest) {
                     domainId = uploadPluginIconRequest.domainId;
-                    pluginName = uploadPluginIconRequest.pluginName;
                     uploadFile = uploadPluginIconRequest.body?.uploadFile;
+                    pluginName = uploadPluginIconRequest.pluginName;
                 } else {
                     domainId = uploadPluginIconRequest['domain_id'];
-                    pluginName = uploadPluginIconRequest['plugin_name'];
                     uploadFile = uploadPluginIconRequest['body']['uploadFile'];
+                    pluginName = uploadPluginIconRequest['plugin_name'];
                 }
             }
 
         
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling uploadPluginIcon.');
+            }
+            if (uploadFile === null || uploadFile === undefined) {
+            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadPluginIcon.');
             }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;

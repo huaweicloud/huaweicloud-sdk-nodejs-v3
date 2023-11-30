@@ -9,6 +9,7 @@ export class LogInstanceInfo {
     public datastore?: InstancesDatastoreResult;
     public actions?: Array<string>;
     private 'enterprise_project_id'?: string;
+    private 'supported_log_types'?: LogInstanceInfoSupportedLogTypesEnum | string;
     public constructor() { 
     }
     public withId(id: string): LogInstanceInfo {
@@ -45,4 +46,23 @@ export class LogInstanceInfo {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withSupportedLogTypes(supportedLogTypes: LogInstanceInfoSupportedLogTypesEnum | string): LogInstanceInfo {
+        this['supported_log_types'] = supportedLogTypes;
+        return this;
+    }
+    public set supportedLogTypes(supportedLogTypes: LogInstanceInfoSupportedLogTypesEnum | string  | undefined) {
+        this['supported_log_types'] = supportedLogTypes;
+    }
+    public get supportedLogTypes(): LogInstanceInfoSupportedLogTypesEnum | string | undefined {
+        return this['supported_log_types'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LogInstanceInfoSupportedLogTypesEnum {
+    SLOW_LOG = 'slow_log',
+    AUDIT_LOG = 'audit_log'
 }

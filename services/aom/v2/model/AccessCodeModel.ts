@@ -4,7 +4,7 @@ export class AccessCodeModel {
     private 'access_code'?: string;
     private 'access_code_id'?: string;
     private 'create_at'?: number;
-    public status?: AccessCodeModelStatusEnum | string;
+    public status?: string;
     public constructor() { 
     }
     public withAccessCode(accessCode: string): AccessCodeModel {
@@ -37,17 +37,8 @@ export class AccessCodeModel {
     public get createAt(): number | undefined {
         return this['create_at'];
     }
-    public withStatus(status: AccessCodeModelStatusEnum | string): AccessCodeModel {
+    public withStatus(status: string): AccessCodeModel {
         this['status'] = status;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AccessCodeModelStatusEnum {
-    ENABLE = 'enable',
-    UNENABLE = 'unenable'
 }

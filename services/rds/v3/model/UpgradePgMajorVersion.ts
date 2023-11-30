@@ -4,10 +4,9 @@ export class UpgradePgMajorVersion {
     private 'target_version'?: string;
     private 'is_change_private_ip'?: boolean;
     private 'statistics_collection_mode'?: string;
-    public constructor(targetVersion?: string, isChangePrivateIp?: boolean, statisticsCollectionMode?: string) { 
+    public constructor(targetVersion?: string, isChangePrivateIp?: boolean) { 
         this['target_version'] = targetVersion;
         this['is_change_private_ip'] = isChangePrivateIp;
-        this['statistics_collection_mode'] = statisticsCollectionMode;
     }
     public withTargetVersion(targetVersion: string): UpgradePgMajorVersion {
         this['target_version'] = targetVersion;

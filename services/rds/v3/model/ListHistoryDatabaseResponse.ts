@@ -1,11 +1,11 @@
-import { PostgreSQLHistoryDatabaseInstance } from './PostgreSQLHistoryDatabaseInstance';
+import { HistoryDatabaseInstance } from './HistoryDatabaseInstance';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListHistoryDatabaseResponse extends SdkResponse {
     private 'database_limit'?: number;
     private 'table_limit'?: number;
-    public instances?: Array<PostgreSQLHistoryDatabaseInstance>;
+    public instances?: Array<HistoryDatabaseInstance>;
     public constructor() { 
         super();
     }
@@ -29,7 +29,7 @@ export class ListHistoryDatabaseResponse extends SdkResponse {
     public get tableLimit(): number | undefined {
         return this['table_limit'];
     }
-    public withInstances(instances: Array<PostgreSQLHistoryDatabaseInstance>): ListHistoryDatabaseResponse {
+    public withInstances(instances: Array<HistoryDatabaseInstance>): ListHistoryDatabaseResponse {
         this['instances'] = instances;
         return this;
     }

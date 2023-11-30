@@ -54,6 +54,10 @@ import { AtlasAssetEntity } from './model/AtlasAssetEntity';
 import { AtlasClassificationInfo } from './model/AtlasClassificationInfo';
 import { AtlasEntityHeader } from './model/AtlasEntityHeader';
 import { AtlasFullTextResult } from './model/AtlasFullTextResult';
+import { AtomicIndexVO } from './model/AtomicIndexVO';
+import { AtomicIndexVODetailData } from './model/AtomicIndexVODetailData';
+import { AtomicIndexVOSearchResultData } from './model/AtomicIndexVOSearchResultData';
+import { AtomicIndexVOSearchResultDataValue } from './model/AtomicIndexVOSearchResultDataValue';
 import { AttributeSearchResult } from './model/AttributeSearchResult';
 import { AuthorizeActionApiToInstanceRequest } from './model/AuthorizeActionApiToInstanceRequest';
 import { AuthorizeActionApiToInstanceResponse } from './model/AuthorizeActionApiToInstanceResponse';
@@ -112,7 +116,11 @@ import { CodeTableFieldValueVO } from './model/CodeTableFieldValueVO';
 import { CodeTableVO } from './model/CodeTableVO';
 import { ColumnInfo } from './model/ColumnInfo';
 import { ColumnsList } from './model/ColumnsList';
-import { ConditionInfo } from './model/ConditionInfo';
+import { CommonConditionVO } from './model/CommonConditionVO';
+import { CompoundMetricVO } from './model/CompoundMetricVO';
+import { CompoundMetricVODetailData } from './model/CompoundMetricVODetailData';
+import { CompoundMetricVOSearchResultData } from './model/CompoundMetricVOSearchResultData';
+import { CompoundMetricVOSearchResultDataValue } from './model/CompoundMetricVOSearchResultDataValue';
 import { ConfirmApprovalsRequest } from './model/ConfirmApprovalsRequest';
 import { ConfirmApprovalsResponse } from './model/ConfirmApprovalsResponse';
 import { ConfirmMessageRequest } from './model/ConfirmMessageRequest';
@@ -230,6 +238,13 @@ import { DeleteWorkspacesRequest } from './model/DeleteWorkspacesRequest';
 import { DeleteWorkspacesResponse } from './model/DeleteWorkspacesResponse';
 import { DeleteWorkspaceusersRequest } from './model/DeleteWorkspaceusersRequest';
 import { DeleteWorkspaceusersResponse } from './model/DeleteWorkspaceusersResponse';
+import { DerivativeIndexDimensionVO } from './model/DerivativeIndexDimensionVO';
+import { DerivativeIndexVO } from './model/DerivativeIndexVO';
+import { DerivativeIndexVODetailData } from './model/DerivativeIndexVODetailData';
+import { DerivativeIndexVOSearchResultData } from './model/DerivativeIndexVOSearchResultData';
+import { DerivativeIndexVOSearchResultDataValue } from './model/DerivativeIndexVOSearchResultDataValue';
+import { DimensionAttributeVO } from './model/DimensionAttributeVO';
+import { DimensionHierarchiesVO } from './model/DimensionHierarchiesVO';
 import { DirectoryVO } from './model/DirectoryVO';
 import { DisStream } from './model/DisStream';
 import { DwName } from './model/DwName';
@@ -249,6 +264,7 @@ import { FilterCriteria } from './model/FilterCriteria';
 import { GatewayDTO } from './model/GatewayDTO';
 import { GlossaryInfo } from './model/GlossaryInfo';
 import { Group } from './model/Group';
+import { HierarchiesAttrVO } from './model/HierarchiesAttrVO';
 import { IdsParam } from './model/IdsParam';
 import { ImportResultRequest } from './model/ImportResultRequest';
 import { ImportResultResponse } from './model/ImportResultResponse';
@@ -370,6 +386,7 @@ import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
 import { MetadataCollectionTask } from './model/MetadataCollectionTask';
+import { MetricMonitorVO } from './model/MetricMonitorVO';
 import { MetricOpenSearchParams } from './model/MetricOpenSearchParams';
 import { MigrateApiRequest } from './model/MigrateApiRequest';
 import { MigrateApiResponse } from './model/MigrateApiResponse';
@@ -5293,6 +5310,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间id
      * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {string} [xReturnPublishMessages] 是否返回专享版API的发布信息
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {*} [options] Override http request option.
@@ -18213,6 +18231,8 @@ export const ParamCreater = function () {
             
             let contentType;
             
+            let xReturnPublishMessages;
+            
             let offset;
             
             let limit;
@@ -18222,12 +18242,14 @@ export const ParamCreater = function () {
                     workspace = listApisRequest.workspace;
                     dlmType = listApisRequest.dlmType;
                     contentType = listApisRequest.contentType;
+                    xReturnPublishMessages = listApisRequest.xReturnPublishMessages;
                     offset = listApisRequest.offset;
                     limit = listApisRequest.limit;
                 } else {
                     workspace = listApisRequest['workspace'];
                     dlmType = listApisRequest['Dlm-Type'];
                     contentType = listApisRequest['Content-Type'];
+                    xReturnPublishMessages = listApisRequest['x-return-publish-messages'];
                     offset = listApisRequest['offset'];
                     limit = listApisRequest['limit'];
                 }
@@ -18248,6 +18270,9 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xReturnPublishMessages !== undefined && xReturnPublishMessages !== null) {
+                localVarHeaderParameter['x-return-publish-messages'] = String(xReturnPublishMessages);
             }
 
             options.queryParams = localVarQueryParameter;

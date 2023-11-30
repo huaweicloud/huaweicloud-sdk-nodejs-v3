@@ -1,3 +1,4 @@
+import { ApiPublishDTO } from './ApiPublishDTO';
 
 
 export class ApiOverview {
@@ -7,6 +8,7 @@ export class ApiOverview {
     public description?: string;
     public status?: ApiOverviewStatusEnum | string;
     private 'debug_status'?: ApiOverviewDebugStatusEnum | string;
+    private 'publish_messages'?: Array<ApiPublishDTO>;
     public type?: ApiOverviewTypeEnum | string;
     public manager?: string;
     private 'create_user'?: string;
@@ -48,6 +50,16 @@ export class ApiOverview {
     }
     public get debugStatus(): ApiOverviewDebugStatusEnum | string | undefined {
         return this['debug_status'];
+    }
+    public withPublishMessages(publishMessages: Array<ApiPublishDTO>): ApiOverview {
+        this['publish_messages'] = publishMessages;
+        return this;
+    }
+    public set publishMessages(publishMessages: Array<ApiPublishDTO>  | undefined) {
+        this['publish_messages'] = publishMessages;
+    }
+    public get publishMessages(): Array<ApiPublishDTO> | undefined {
+        return this['publish_messages'];
     }
     public withType(type: ApiOverviewTypeEnum | string): ApiOverview {
         this['type'] = type;

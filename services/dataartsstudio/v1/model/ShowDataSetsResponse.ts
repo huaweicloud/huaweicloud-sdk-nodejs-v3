@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowDataSetsResponse extends SdkResponse {
     public count?: number;
     public entities?: Array<Entity>;
-    public facets?: object;
+    public facets?: Array<object>;
     public metrics?: object;
     private 'referred_entities'?: object;
     public constructor() { 
@@ -19,7 +19,7 @@ export class ShowDataSetsResponse extends SdkResponse {
         this['entities'] = entities;
         return this;
     }
-    public withFacets(facets: object): ShowDataSetsResponse {
+    public withFacets(facets: Array<object>): ShowDataSetsResponse {
         this['facets'] = facets;
         return this;
     }

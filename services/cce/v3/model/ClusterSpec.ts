@@ -31,6 +31,7 @@ export class ClusterSpec {
     public az?: string;
     public extendParam?: ClusterExtendParam;
     public supportIstio?: boolean;
+    public enableMasterVolumeEncryption?: boolean;
     public configurationsOverride?: Array<PackageConfiguration>;
     public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
         this['flavor'] = flavor;
@@ -119,6 +120,10 @@ export class ClusterSpec {
     }
     public withSupportIstio(supportIstio: boolean): ClusterSpec {
         this['supportIstio'] = supportIstio;
+        return this;
+    }
+    public withEnableMasterVolumeEncryption(enableMasterVolumeEncryption: boolean): ClusterSpec {
+        this['enableMasterVolumeEncryption'] = enableMasterVolumeEncryption;
         return this;
     }
     public withConfigurationsOverride(configurationsOverride: Array<PackageConfiguration>): ClusterSpec {

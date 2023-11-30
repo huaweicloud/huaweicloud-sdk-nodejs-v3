@@ -1,11 +1,11 @@
-import { PostgreSQLRestoreDatabaseInstance } from './PostgreSQLRestoreDatabaseInstance';
+import { RestoreDatabaseInstance } from './RestoreDatabaseInstance';
 
 
 export class PostgreSQLRestoreDatabaseRequest {
-    public instances?: Array<PostgreSQLRestoreDatabaseInstance>;
+    public instances?: Array<RestoreDatabaseInstance>;
     public constructor() { 
     }
-    public withInstances(instances: Array<PostgreSQLRestoreDatabaseInstance>): PostgreSQLRestoreDatabaseRequest {
+    public withInstances(instances: Array<RestoreDatabaseInstance>): PostgreSQLRestoreDatabaseRequest {
         this['instances'] = instances;
         return this;
     }

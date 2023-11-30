@@ -5,7 +5,7 @@ export class ShowUpgradeDbMajorVersionStatusResponse extends SdkResponse {
     public status?: string;
     private 'target_version'?: string;
     private 'start_time'?: string;
-    private 'report_expiration_time'?: string;
+    private 'check_expiration_time'?: string;
     public detail?: string;
     public constructor() { 
         super();
@@ -34,15 +34,15 @@ export class ShowUpgradeDbMajorVersionStatusResponse extends SdkResponse {
     public get startTime(): string | undefined {
         return this['start_time'];
     }
-    public withReportExpirationTime(reportExpirationTime: string): ShowUpgradeDbMajorVersionStatusResponse {
-        this['report_expiration_time'] = reportExpirationTime;
+    public withCheckExpirationTime(checkExpirationTime: string): ShowUpgradeDbMajorVersionStatusResponse {
+        this['check_expiration_time'] = checkExpirationTime;
         return this;
     }
-    public set reportExpirationTime(reportExpirationTime: string  | undefined) {
-        this['report_expiration_time'] = reportExpirationTime;
+    public set checkExpirationTime(checkExpirationTime: string  | undefined) {
+        this['check_expiration_time'] = checkExpirationTime;
     }
-    public get reportExpirationTime(): string | undefined {
-        return this['report_expiration_time'];
+    public get checkExpirationTime(): string | undefined {
+        return this['check_expiration_time'];
     }
     public withDetail(detail: string): ShowUpgradeDbMajorVersionStatusResponse {
         this['detail'] = detail;
