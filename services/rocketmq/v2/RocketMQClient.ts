@@ -88,6 +88,7 @@ import { Message } from './model/Message';
 import { MessagePropertyList } from './model/MessagePropertyList';
 import { MetadataDeleteReq } from './model/MetadataDeleteReq';
 import { MetadataTask } from './model/MetadataTask';
+import { ModifyConfigReq } from './model/ModifyConfigReq';
 import { Queue } from './model/Queue';
 import { ResendReq } from './model/ResendReq';
 import { ResetConsumeOffsetReq } from './model/ResetConsumeOffsetReq';
@@ -97,6 +98,8 @@ import { ResetConsumeOffsetResponse } from './model/ResetConsumeOffsetResponse';
 import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RocketMQConfigReq } from './model/RocketMQConfigReq';
+import { RocketMQConfigResp } from './model/RocketMQConfigResp';
 import { RocketMQExtendProductInfoEntity } from './model/RocketMQExtendProductInfoEntity';
 import { RocketMQExtendProductIosEntity } from './model/RocketMQExtendProductIosEntity';
 import { RocketMQExtendProductPropertiesEntity } from './model/RocketMQExtendProductPropertiesEntity';
@@ -116,6 +119,8 @@ import { ShowInstanceResp } from './model/ShowInstanceResp';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowOneTopicRequest } from './model/ShowOneTopicRequest';
 import { ShowOneTopicResponse } from './model/ShowOneTopicResponse';
+import { ShowRocketMqConfigsRequest } from './model/ShowRocketMqConfigsRequest';
+import { ShowRocketMqConfigsResponse } from './model/ShowRocketMqConfigsResponse';
 import { ShowRocketmqProjectTagsRequest } from './model/ShowRocketmqProjectTagsRequest';
 import { ShowRocketmqProjectTagsResponse } from './model/ShowRocketmqProjectTagsResponse';
 import { ShowRocketmqTagsRequest } from './model/ShowRocketmqTagsRequest';
@@ -137,6 +142,8 @@ import { UpdateConsumerGroupResponse } from './model/UpdateConsumerGroupResponse
 import { UpdateInstanceReq } from './model/UpdateInstanceReq';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
+import { UpdateRocketMqConfigsRequest } from './model/UpdateRocketMqConfigsRequest';
+import { UpdateRocketMqConfigsResponse } from './model/UpdateRocketMqConfigsResponse';
 import { UpdateTopicReq } from './model/UpdateTopicReq';
 import { UpdateTopicRequest } from './model/UpdateTopicRequest';
 import { UpdateTopicResponse } from './model/UpdateTopicResponse';
@@ -515,7 +522,7 @@ export class RocketMQClient {
      * @param {'reliability'} [engine] 消息引擎。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'UPGRADING' | 'UPGRADINGFAILED' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -822,6 +829,25 @@ export class RocketMQClient {
     }
 
     /**
+     * 该接口用于查询RocketMQ配置，若成功则返回配置的相关信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询RocketMQ配置
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRocketMqConfigs(showRocketMqConfigsRequest?: ShowRocketMqConfigsRequest): Promise<ShowRocketMqConfigsResponse> {
+        const options = ParamCreater().showRocketMqConfigs(showRocketMqConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询项目标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -912,6 +938,26 @@ export class RocketMQClient {
      */
     public updateInstance(updateInstanceRequest?: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
         const options = ParamCreater().updateInstance(updateInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改RocketMQ配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改RocketMQ配置
+     * @param {string} instanceId 实例ID。
+     * @param {ModifyConfigReq} updateRocketMqConfigsRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRocketMqConfigs(updateRocketMqConfigsRequest?: UpdateRocketMqConfigsRequest): Promise<UpdateRocketMqConfigsResponse> {
+        const options = ParamCreater().updateRocketMqConfigs(updateRocketMqConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2765,6 +2811,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询RocketMQ配置，若成功则返回配置的相关信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRocketMqConfigs(showRocketMqConfigsRequest?: ShowRocketMqConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showRocketMqConfigsRequest !== null && showRocketMqConfigsRequest !== undefined) {
+                if (showRocketMqConfigsRequest instanceof ShowRocketMqConfigsRequest) {
+                    instanceId = showRocketMqConfigsRequest.instanceId;
+                } else {
+                    instanceId = showRocketMqConfigsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRocketMqConfigs.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询项目标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2953,6 +3036,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改RocketMQ配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRocketMqConfigs(updateRocketMqConfigsRequest?: UpdateRocketMqConfigsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateRocketMqConfigsRequest !== null && updateRocketMqConfigsRequest !== undefined) {
+                if (updateRocketMqConfigsRequest instanceof UpdateRocketMqConfigsRequest) {
+                    instanceId = updateRocketMqConfigsRequest.instanceId;
+                    body = updateRocketMqConfigsRequest.body
+                } else {
+                    instanceId = updateRocketMqConfigsRequest['instance_id'];
+                    body = updateRocketMqConfigsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateRocketMqConfigs.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

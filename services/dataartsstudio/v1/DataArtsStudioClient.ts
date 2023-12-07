@@ -72,6 +72,14 @@ import { BatchAssociateClassificationToEntitiesRequest } from './model/BatchAsso
 import { BatchAssociateClassificationToEntitiesResponse } from './model/BatchAssociateClassificationToEntitiesResponse';
 import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssociateSecurityLevelToEntitiesRequest';
 import { BatchAssociateSecurityLevelToEntitiesResponse } from './model/BatchAssociateSecurityLevelToEntitiesResponse';
+import { BatchDeleteBaseDTO } from './model/BatchDeleteBaseDTO';
+import { BatchDeleteRulesBaseDTO } from './model/BatchDeleteRulesBaseDTO';
+import { BatchDeleteSecurityDataClassificationRuleRequest } from './model/BatchDeleteSecurityDataClassificationRuleRequest';
+import { BatchDeleteSecurityDataClassificationRuleResponse } from './model/BatchDeleteSecurityDataClassificationRuleResponse';
+import { BatchDeleteSecurityPermissionSetMembersRequest } from './model/BatchDeleteSecurityPermissionSetMembersRequest';
+import { BatchDeleteSecurityPermissionSetMembersResponse } from './model/BatchDeleteSecurityPermissionSetMembersResponse';
+import { BatchDeleteSecurityPermissionSetPermissionsRequest } from './model/BatchDeleteSecurityPermissionSetPermissionsRequest';
+import { BatchDeleteSecurityPermissionSetPermissionsResponse } from './model/BatchDeleteSecurityPermissionSetPermissionsResponse';
 import { BatchDeleteTemplatesRequest } from './model/BatchDeleteTemplatesRequest';
 import { BatchDeleteTemplatesResponse } from './model/BatchDeleteTemplatesResponse';
 import { BatchOfflineRequest } from './model/BatchOfflineRequest';
@@ -163,6 +171,14 @@ import { CreateManagerWorkSpaceRequest } from './model/CreateManagerWorkSpaceReq
 import { CreateManagerWorkSpaceResponse } from './model/CreateManagerWorkSpaceResponse';
 import { CreateOrUpdateAssetRequest } from './model/CreateOrUpdateAssetRequest';
 import { CreateOrUpdateAssetResponse } from './model/CreateOrUpdateAssetResponse';
+import { CreateSecurityDataClassificationRuleRequest } from './model/CreateSecurityDataClassificationRuleRequest';
+import { CreateSecurityDataClassificationRuleResponse } from './model/CreateSecurityDataClassificationRuleResponse';
+import { CreateSecurityPermissionSetMemberRequest } from './model/CreateSecurityPermissionSetMemberRequest';
+import { CreateSecurityPermissionSetMemberResponse } from './model/CreateSecurityPermissionSetMemberResponse';
+import { CreateSecurityPermissionSetPermissionRequest } from './model/CreateSecurityPermissionSetPermissionRequest';
+import { CreateSecurityPermissionSetPermissionResponse } from './model/CreateSecurityPermissionSetPermissionResponse';
+import { CreateSecurityPermissionSetRequest } from './model/CreateSecurityPermissionSetRequest';
+import { CreateSecurityPermissionSetResponse } from './model/CreateSecurityPermissionSetResponse';
 import { CreateServiceCatalogRequest } from './model/CreateServiceCatalogRequest';
 import { CreateServiceCatalogResponse } from './model/CreateServiceCatalogResponse';
 import { CreateStandardRequest } from './model/CreateStandardRequest';
@@ -186,6 +202,10 @@ import { CssIndex } from './model/CssIndex';
 import { CustomMetadata } from './model/CustomMetadata';
 import { CustomizedFieldsVO } from './model/CustomizedFieldsVO';
 import { CustomizedFieldsVOList } from './model/CustomizedFieldsVOList';
+import { DataClassificationGroupQueryDTO } from './model/DataClassificationGroupQueryDTO';
+import { DataClassificationRuleEnableDTO } from './model/DataClassificationRuleEnableDTO';
+import { DataClassificationRuleOperateDTO } from './model/DataClassificationRuleOperateDTO';
+import { DataClassificationRuleQueryDTO } from './model/DataClassificationRuleQueryDTO';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
 import { DataSource } from './model/DataSource';
 import { DataType } from './model/DataType';
@@ -218,8 +238,12 @@ import { DeleteDataconnectionRequest } from './model/DeleteDataconnectionRequest
 import { DeleteDataconnectionResponse } from './model/DeleteDataconnectionResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
 import { DeleteDirectoryResponse } from './model/DeleteDirectoryResponse';
+import { DeleteSecurityDataClassificationRuleRequest } from './model/DeleteSecurityDataClassificationRuleRequest';
+import { DeleteSecurityDataClassificationRuleResponse } from './model/DeleteSecurityDataClassificationRuleResponse';
 import { DeleteSecurityLevelFromEntityRequest } from './model/DeleteSecurityLevelFromEntityRequest';
 import { DeleteSecurityLevelFromEntityResponse } from './model/DeleteSecurityLevelFromEntityResponse';
+import { DeleteSecurityPermissionSetRequest } from './model/DeleteSecurityPermissionSetRequest';
+import { DeleteSecurityPermissionSetResponse } from './model/DeleteSecurityPermissionSetResponse';
 import { DeleteServiceCatalogRequest } from './model/DeleteServiceCatalogRequest';
 import { DeleteServiceCatalogResponse } from './model/DeleteServiceCatalogResponse';
 import { DeleteStandardRequest } from './model/DeleteStandardRequest';
@@ -370,6 +394,16 @@ import { ListRelationsRequest } from './model/ListRelationsRequest';
 import { ListRelationsResponse } from './model/ListRelationsResponse';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
+import { ListSecurityDataClassificationRuleGroupsRequest } from './model/ListSecurityDataClassificationRuleGroupsRequest';
+import { ListSecurityDataClassificationRuleGroupsResponse } from './model/ListSecurityDataClassificationRuleGroupsResponse';
+import { ListSecurityDataClassificationRulesRequest } from './model/ListSecurityDataClassificationRulesRequest';
+import { ListSecurityDataClassificationRulesResponse } from './model/ListSecurityDataClassificationRulesResponse';
+import { ListSecurityPermissionSetMembersRequest } from './model/ListSecurityPermissionSetMembersRequest';
+import { ListSecurityPermissionSetMembersResponse } from './model/ListSecurityPermissionSetMembersResponse';
+import { ListSecurityPermissionSetPermissionsRequest } from './model/ListSecurityPermissionSetPermissionsRequest';
+import { ListSecurityPermissionSetPermissionsResponse } from './model/ListSecurityPermissionSetPermissionsResponse';
+import { ListSecurityPermissionSetsRequest } from './model/ListSecurityPermissionSetsRequest';
+import { ListSecurityPermissionSetsResponse } from './model/ListSecurityPermissionSetsResponse';
 import { ListSubjectLevelsRequest } from './model/ListSubjectLevelsRequest';
 import { ListSubjectLevelsResponse } from './model/ListSubjectLevelsResponse';
 import { ListTableModelRelationsRequest } from './model/ListTableModelRelationsRequest';
@@ -412,6 +446,13 @@ import { ParseUserBehaviorRequest } from './model/ParseUserBehaviorRequest';
 import { ParseUserBehaviorResponse } from './model/ParseUserBehaviorResponse';
 import { PayForDgcOneKeyRequest } from './model/PayForDgcOneKeyRequest';
 import { PayForDgcOneKeyResponse } from './model/PayForDgcOneKeyResponse';
+import { PermissionSet } from './model/PermissionSet';
+import { PermissionSetCreateDTO } from './model/PermissionSetCreateDTO';
+import { PermissionSetMember } from './model/PermissionSetMember';
+import { PermissionSetMemberCreateDTO } from './model/PermissionSetMemberCreateDTO';
+import { PermissionSetPermission } from './model/PermissionSetPermission';
+import { PermissionSetPermissionCreateDTO } from './model/PermissionSetPermissionCreateDTO';
+import { PermissionSetPermissionUpdateDTO } from './model/PermissionSetPermissionUpdateDTO';
 import { ProfileInfo } from './model/ProfileInfo';
 import { PublishApiRequest } from './model/PublishApiRequest';
 import { PublishApiResponse } from './model/PublishApiResponse';
@@ -469,6 +510,9 @@ import { SearchSubjectResponse } from './model/SearchSubjectResponse';
 import { SearchVersionsRequest } from './model/SearchVersionsRequest';
 import { SearchVersionsResponse } from './model/SearchVersionsResponse';
 import { SelfDefinedFieldVO } from './model/SelfDefinedFieldVO';
+import { SetFactoryJobTagsRequest } from './model/SetFactoryJobTagsRequest';
+import { SetFactoryJobTagsResponse } from './model/SetFactoryJobTagsResponse';
+import { SetJobTagsRequestBody } from './model/SetJobTagsRequestBody';
 import { ShowAggregationLogicTableByIdRequest } from './model/ShowAggregationLogicTableByIdRequest';
 import { ShowAggregationLogicTableByIdResponse } from './model/ShowAggregationLogicTableByIdResponse';
 import { ShowApiDashboardRequest } from './model/ShowApiDashboardRequest';
@@ -553,6 +597,12 @@ import { ShowQualityTaskDetailRequest } from './model/ShowQualityTaskDetailReque
 import { ShowQualityTaskDetailResponse } from './model/ShowQualityTaskDetailResponse';
 import { ShowRelationByIdRequest } from './model/ShowRelationByIdRequest';
 import { ShowRelationByIdResponse } from './model/ShowRelationByIdResponse';
+import { ShowSecurityDataClassificationRuleGroupRequest } from './model/ShowSecurityDataClassificationRuleGroupRequest';
+import { ShowSecurityDataClassificationRuleGroupResponse } from './model/ShowSecurityDataClassificationRuleGroupResponse';
+import { ShowSecurityDataClassificationRuleRequest } from './model/ShowSecurityDataClassificationRuleRequest';
+import { ShowSecurityDataClassificationRuleResponse } from './model/ShowSecurityDataClassificationRuleResponse';
+import { ShowSecurityPermissionSetRequest } from './model/ShowSecurityPermissionSetRequest';
+import { ShowSecurityPermissionSetResponse } from './model/ShowSecurityPermissionSetResponse';
 import { ShowStandardByIdRequest } from './model/ShowStandardByIdRequest';
 import { ShowStandardByIdResponse } from './model/ShowStandardByIdResponse';
 import { ShowStandardTemplateRequest } from './model/ShowStandardTemplateRequest';
@@ -627,6 +677,14 @@ import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
 import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
 import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
 import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
+import { UpdateSecurityDataClassificationRuleRequest } from './model/UpdateSecurityDataClassificationRuleRequest';
+import { UpdateSecurityDataClassificationRuleResponse } from './model/UpdateSecurityDataClassificationRuleResponse';
+import { UpdateSecurityPermissionSetPermissionRequest } from './model/UpdateSecurityPermissionSetPermissionRequest';
+import { UpdateSecurityPermissionSetPermissionResponse } from './model/UpdateSecurityPermissionSetPermissionResponse';
+import { UpdateSecurityPermissionSetRequest } from './model/UpdateSecurityPermissionSetRequest';
+import { UpdateSecurityPermissionSetResponse } from './model/UpdateSecurityPermissionSetResponse';
+import { UpdateSecurityRuleEnableStatusRequest } from './model/UpdateSecurityRuleEnableStatusRequest';
+import { UpdateSecurityRuleEnableStatusResponse } from './model/UpdateSecurityRuleEnableStatusResponse';
 import { UpdateStandardRequest } from './model/UpdateStandardRequest';
 import { UpdateStandardResponse } from './model/UpdateStandardResponse';
 import { UpdateStandardTemplateRequest } from './model/UpdateStandardTemplateRequest';
@@ -753,9 +811,9 @@ export class DataArtsStudioClient {
      *
      * @summary 审核申请
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {OpenApplyIdsForApproveApply} openApplyIdsForApproveApply apply编号列表
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -801,6 +859,68 @@ export class DataArtsStudioClient {
      */
     public batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest?: BatchAssociateSecurityLevelToEntitiesRequest): Promise<BatchAssociateSecurityLevelToEntitiesResponse> {
         const options = ParamCreater().batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除识别规则接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除识别规则接口
+     * @param {string} workspace workspace 信息
+     * @param {BatchDeleteRulesBaseDTO} batchDeleteSecurityDataClassificationRuleRequestBody 识别规则id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityDataClassificationRule(batchDeleteSecurityDataClassificationRuleRequest?: BatchDeleteSecurityDataClassificationRuleRequest): Promise<BatchDeleteSecurityDataClassificationRuleResponse> {
+        const options = ParamCreater().batchDeleteSecurityDataClassificationRule(batchDeleteSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除权限集成员
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除权限集成员
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {BatchDeleteBaseDTO} batchDeleteSecurityPermissionSetMembersRequestBody 权限集成员批量删除参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityPermissionSetMembers(batchDeleteSecurityPermissionSetMembersRequest?: BatchDeleteSecurityPermissionSetMembersRequest): Promise<BatchDeleteSecurityPermissionSetMembersResponse> {
+        const options = ParamCreater().batchDeleteSecurityPermissionSetMembers(batchDeleteSecurityPermissionSetMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除权限集的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除权限集的权限
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {BatchDeleteBaseDTO} batchDeleteSecurityPermissionSetPermissionsRequestBody 权限删除参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityPermissionSetPermissions(batchDeleteSecurityPermissionSetPermissionsRequest?: BatchDeleteSecurityPermissionSetPermissionsRequest): Promise<BatchDeleteSecurityPermissionSetPermissionsResponse> {
+        const options = ParamCreater().batchDeleteSecurityPermissionSetPermissions(batchDeleteSecurityPermissionSetPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1012,9 +1132,9 @@ export class DataArtsStudioClient {
      *
      * @summary 处理消息
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {OpenApiParaForCheckMessage} openApiParaForDealWithMessage 处理消息相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1113,8 +1233,8 @@ export class DataArtsStudioClient {
      *
      * @summary 创建应用
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {AppRequestDTO} [appRequestDto] 创建应用相关参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1331,15 +1451,97 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 创建识别规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建识别规则
+     * @param {string} workspace workspace 信息
+     * @param {DataClassificationRuleOperateDTO} createSecurityDataClassificationRuleRequestBody 敏感数据识别规则传输层DTO对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityDataClassificationRule(createSecurityDataClassificationRuleRequest?: CreateSecurityDataClassificationRuleRequest): Promise<CreateSecurityDataClassificationRuleResponse> {
+        const options = ParamCreater().createSecurityDataClassificationRule(createSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建权限集
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建权限集
+     * @param {string} workspace workspace 信息
+     * @param {PermissionSetCreateDTO} createSecurityPermissionSetRequestBody 权限集创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityPermissionSet(createSecurityPermissionSetRequest?: CreateSecurityPermissionSetRequest): Promise<CreateSecurityPermissionSetResponse> {
+        const options = ParamCreater().createSecurityPermissionSet(createSecurityPermissionSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加权限集成员
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加权限集成员
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {PermissionSetMemberCreateDTO} createSecurityPermissionSetMemberRequestBody 权限集成员创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityPermissionSetMember(createSecurityPermissionSetMemberRequest?: CreateSecurityPermissionSetMemberRequest): Promise<CreateSecurityPermissionSetMemberResponse> {
+        const options = ParamCreater().createSecurityPermissionSetMember(createSecurityPermissionSetMemberRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加权限集的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加权限集的权限
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {PermissionSetPermissionCreateDTO} createSecurityPermissionSetPermissionRequestBody 权限创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityPermissionSetPermission(createSecurityPermissionSetPermissionRequest?: CreateSecurityPermissionSetPermissionRequest): Promise<CreateSecurityPermissionSetPermissionResponse> {
+        const options = ParamCreater().createSecurityPermissionSetPermission(createSecurityPermissionSetPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建服务目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建服务目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {ApiCatalogCreateParaDTO} apiCatalogCreateParaDTO 目录创建参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1539,9 +1741,9 @@ export class DataArtsStudioClient {
      *
      * @summary 删除应用
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} appId 应用编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1716,6 +1918,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 删除识别规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除识别规则
+     * @param {string} workspace workspace 信息
+     * @param {string} id 需要删除的规则id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityDataClassificationRule(deleteSecurityDataClassificationRuleRequest?: DeleteSecurityDataClassificationRuleRequest): Promise<DeleteSecurityDataClassificationRuleResponse> {
+        const options = ParamCreater().deleteSecurityDataClassificationRule(deleteSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 移除资产关联密级
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1736,15 +1958,35 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 删除权限集
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除权限集
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityPermissionSet(deleteSecurityPermissionSetRequest?: DeleteSecurityPermissionSetRequest): Promise<DeleteSecurityPermissionSetResponse> {
+        const options = ParamCreater().deleteSecurityPermissionSet(deleteSecurityPermissionSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {ApiCatalogDeleteParaDTO} apiCatalogDeleteParaDTO 目录id列表
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2019,9 +2261,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取当前目录下的所有类型列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {*} [options] Override http request option.
@@ -2067,9 +2309,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取当前目录下的api列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {*} [options] Override http request option.
@@ -2091,7 +2333,6 @@ export class DataArtsStudioClient {
      *
      * @summary 查询指定api 应用调用topN
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {number} startTime 开始时间（13位时间戳）
@@ -2099,6 +2340,7 @@ export class DataArtsStudioClient {
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
      * @param {number} topNum 前几名
      * @param {'CALL_NUM' | 'SUCCESS_NUM' | 'FAIL_NUM' | 'LEGAL_NUM' | 'ILLEGAL_NUM' | 'COST_TIME_AVG' | 'SUCCESS_COST_TIME_AVG' | 'FAIL_COST_TIME_AVG' | 'SUCCESS_RATE' | 'FAIL_RATE' | 'LEGAL_RATE' | 'ILLEGAL_RATE'} orderBy 排序条件
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [instanceId] 集群编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2119,10 +2361,10 @@ export class DataArtsStudioClient {
      *
      * @summary 获取网关分组
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apigInstanceId 网关实例编号
      * @param {'APIGW' | 'ROMA_APIC'} apigType 网关类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -2144,9 +2386,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取网关实例
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {'APIGW' | 'ROMA_APIC'} apigType 网关类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -2168,13 +2410,13 @@ export class DataArtsStudioClient {
      *
      * @summary 查询api 服务调用topN
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
      * @param {number} topNum 前几名
      * @param {'CALL_NUM' | 'SUCCESS_NUM' | 'FAIL_NUM' | 'LEGAL_NUM' | 'ILLEGAL_NUM' | 'COST_TIME_AVG' | 'SUCCESS_COST_TIME_AVG' | 'FAIL_COST_TIME_AVG' | 'SUCCESS_RATE' | 'FAIL_RATE' | 'LEGAL_RATE' | 'ILLEGAL_RATE'} orderBy 排序条件
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [instanceId] 集群编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2195,8 +2437,8 @@ export class DataArtsStudioClient {
      *
      * @summary 查询申请列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {string} [apiName] api名称
@@ -2242,8 +2484,8 @@ export class DataArtsStudioClient {
      *
      * @summary 查询应用列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {string} [name] 应用名称
@@ -2267,13 +2509,13 @@ export class DataArtsStudioClient {
      *
      * @summary 查询app 服务使用topN
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
      * @param {number} topNum 前几名
      * @param {'CALL_NUM' | 'SUCCESS_NUM' | 'FAIL_NUM' | 'LEGAL_NUM' | 'ILLEGAL_NUM' | 'COST_TIME_AVG' | 'SUCCESS_COST_TIME_AVG' | 'FAIL_COST_TIME_AVG' | 'SUCCESS_RATE' | 'FAIL_RATE' | 'LEGAL_RATE' | 'ILLEGAL_RATE'} orderBy 排序条件
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2386,9 +2628,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取当前目录下的目录列表（全量）
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -2871,8 +3113,8 @@ export class DataArtsStudioClient {
      *
      * @summary 查询消息列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {string} [apiName] api名称
@@ -3040,6 +3282,150 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询规则组列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规则组列表
+     * @param {string} workspace workspace 信息
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {string} [name] 规则组名称
+     * @param {string} [creator] 规则组创建者
+     * @param {'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy' | 'name' | 'description'} [orderBy] 排序字段, createdAt, createdBy, updatedAt, updatedBy, name, description
+     * @param {boolean} [desc] 是否降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDataClassificationRuleGroups(listSecurityDataClassificationRuleGroupsRequest?: ListSecurityDataClassificationRuleGroupsRequest): Promise<ListSecurityDataClassificationRuleGroupsResponse> {
+        const options = ParamCreater().listSecurityDataClassificationRuleGroups(listSecurityDataClassificationRuleGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询识别规则列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询识别规则列表
+     * @param {string} workspace workspace 信息
+     * @param {number} [offset] 查询偏移
+     * @param {number} [limit] 查询一页限制
+     * @param {string} [secrecyLevel] 密级
+     * @param {string} [name] 规则名称
+     * @param {string} [creator] 规则创建者
+     * @param {boolean} [enable] 规则是否开启
+     * @param {number} [startTime] 开始日期
+     * @param {number} [endTime] 结束日期
+     * @param {'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy' | 'name' | 'description'} [orderBy] 排序字段, createdAt, createdBy, updatedAt, updatedBy, name, description
+     * @param {boolean} [desc] 排序规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDataClassificationRules(listSecurityDataClassificationRulesRequest?: ListSecurityDataClassificationRulesRequest): Promise<ListSecurityDataClassificationRulesResponse> {
+        const options = ParamCreater().listSecurityDataClassificationRules(listSecurityDataClassificationRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询权限集成员列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询权限集成员列表
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {string} [memberName] 成员名称
+     * @param {'USER' | 'USER_GROUP' | 'WORKSPACE_ROLE'} [memberType] 成员类型,USER,USER_GROUP,WORKSPACE_ROLE
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数时有效）
+     * @param {'CREATE_TIME' | 'MEMBER_NAME'} [orderBy] 排序参数, CREATE_TIME, MEMBER_NAME
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityPermissionSetMembers(listSecurityPermissionSetMembersRequest?: ListSecurityPermissionSetMembersRequest): Promise<ListSecurityPermissionSetMembersResponse> {
+        const options = ParamCreater().listSecurityPermissionSetMembers(listSecurityPermissionSetMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询权限集的权限列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询权限集的权限列表
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {'DENY' | 'ALLOW'} [permissionType] 权限类型,DENY,ALLOW
+     * @param {'ALL' | 'SELECT' | 'UPDATE' | 'CREATE' | 'DROP' | 'ALTER' | 'INDEX' | 'LOCK' | 'READ' | 'WRITE'} [permissionAction] 权限操作,ALL,SELECT,UPDATE,CREATE,DROP,ALTER,INDEX,LOCK,READ,WRITE
+     * @param {string} [clusterId] 集群id
+     * @param {string} [clusterName] 集群名称
+     * @param {'HIVE'} [datasourceType] 数据源类型,HIVE
+     * @param {string} [databaseName] 数据库名称
+     * @param {string} [tableName] 表名称
+     * @param {string} [columnName] 列名称
+     * @param {'UNKNOWN' | 'NOT_SYNC' | 'SYNCING' | 'SYNC_SUCCESS' | 'SYNC_FAIL'} [syncStatus] 同步状态,UNKNOWN,NOT_SYNC,SYNCING,SYNC_SUCCESS,SYNC_FAIL
+     * @param {'CLUSTER_NAME' | 'DATABASE_NAME'} [orderBy] 排序参数, CLUSTER_NAME, DATABASE_NAME
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数时有效）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityPermissionSetPermissions(listSecurityPermissionSetPermissionsRequest?: ListSecurityPermissionSetPermissionsRequest): Promise<ListSecurityPermissionSetPermissionsResponse> {
+        const options = ParamCreater().listSecurityPermissionSetPermissions(listSecurityPermissionSetPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询权限集列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询权限集列表
+     * @param {string} workspace workspace 信息
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {string} [name] 名称
+     * @param {string} [parentId] 父权限集id
+     * @param {'TOP_PERMISSION_SET' | 'SUB_PERMISSION_SET' | 'ALL_PERMISSION_SET'} [typeFilter] 权限集类型过滤,TOP_PERMISSION_SET,SUB_PERMISSION_SET,ALL_PERMISSION_SET
+     * @param {string} [managerId] 管理员id
+     * @param {string} [managerName] 管理员名称
+     * @param {'USER' | 'USER_GROUP'} [managerType] 管理员类型,USER,USER_GROUP
+     * @param {'HIVE'} [datasourceType] 数据源类型,HIVE
+     * @param {'UNKNOWN' | 'NOT_SYNC' | 'SYNCING' | 'SYNC_SUCCESS' | 'SYNC_FAIL'} [syncStatus] 同步状态,UNKNOWN,NOT_SYNC,SYNCING,SYNC_SUCCESS,SYNC_FAIL
+     * @param {'NAME' | 'CREATE_TIME' | 'UPDATE_TIME'} [orderBy] 排序参数, NAME,CREATE_TIME,UPDATE_TIME
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数时有效）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityPermissionSets(listSecurityPermissionSetsRequest?: ListSecurityPermissionSetsRequest): Promise<ListSecurityPermissionSetsResponse> {
+        const options = ParamCreater().listSecurityPermissionSets(listSecurityPermissionSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取主题层级
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3186,9 +3572,9 @@ export class DataArtsStudioClient {
      *
      * @summary 批量移动api至新目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {ApiMoveParaDTO} apiMoveParaDTO 移动目录相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3208,10 +3594,10 @@ export class DataArtsStudioClient {
      *
      * @summary 移动当前目录至新目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
      * @param {CatalogMoveParaDTO} catalogMoveParaDTO 移动目录相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3390,9 +3776,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查询API已授权的APP
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {*} [options] Override http request option.
@@ -3414,9 +3800,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查询APP已拥有授权的API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} appId app编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整
      * @param {number} [limit] 查询条数, 即查询Y条数据
      * @param {*} [options] Override http request option.
@@ -3559,9 +3945,9 @@ export class DataArtsStudioClient {
      *
      * @summary 通过路径获取id
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} path 路径
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -3687,12 +4073,12 @@ export class DataArtsStudioClient {
      *
      * @summary 查询指定api 仪表板数据详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [instanceId] 集群编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3713,11 +4099,11 @@ export class DataArtsStudioClient {
      *
      * @summary 查询api 仪表板数据详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [instanceId] 集群编号
      * @param {number} [limit] limit
      * @param {number} [offset] offset
@@ -3740,12 +4126,12 @@ export class DataArtsStudioClient {
      *
      * @summary 查询api 统计数据详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [instanceId] 集群编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3766,11 +4152,11 @@ export class DataArtsStudioClient {
      *
      * @summary 查询统计用户相关的总览开发指标
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3790,9 +4176,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查询应用详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} appId 应用编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3812,9 +4198,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取申请详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} applyId 审核信息id
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3834,11 +4220,11 @@ export class DataArtsStudioClient {
      *
      * @summary 查询app 仪表板数据详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -3860,12 +4246,12 @@ export class DataArtsStudioClient {
      *
      * @summary 查询app 统计数据详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} appId app编号
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3885,11 +4271,11 @@ export class DataArtsStudioClient {
      *
      * @summary 查询统计用户相关的总览调用指标
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {number} startTime 开始时间（13位时间戳）
      * @param {number} endTime 结束时间（13位时间戳）
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4012,9 +4398,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查询服务目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4419,9 +4805,9 @@ export class DataArtsStudioClient {
      *
      * @summary 获取消息详情
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} messageId 消息信息id
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4480,9 +4866,9 @@ export class DataArtsStudioClient {
      *
      * @summary 通过id获取路径
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -4504,9 +4890,9 @@ export class DataArtsStudioClient {
      *
      * @summary 通过id获取路径对象
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -4555,6 +4941,66 @@ export class DataArtsStudioClient {
      */
     public showRelationById(showRelationByIdRequest?: ShowRelationByIdRequest): Promise<ShowRelationByIdResponse> {
         const options = ParamCreater().showRelationById(showRelationByIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询特定识别规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询特定识别规则
+     * @param {string} workspace workspace 信息
+     * @param {string} id 需要查询的规则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityDataClassificationRule(showSecurityDataClassificationRuleRequest?: ShowSecurityDataClassificationRuleRequest): Promise<ShowSecurityDataClassificationRuleResponse> {
+        const options = ParamCreater().showSecurityDataClassificationRule(showSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询规则组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规则组
+     * @param {string} workspace workspace 信息
+     * @param {string} id 需要查询的规则组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityDataClassificationRuleGroup(showSecurityDataClassificationRuleGroupRequest?: ShowSecurityDataClassificationRuleGroupRequest): Promise<ShowSecurityDataClassificationRuleGroupResponse> {
+        const options = ParamCreater().showSecurityDataClassificationRuleGroup(showSecurityDataClassificationRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询权限集
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询权限集
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityPermissionSet(showSecurityPermissionSetRequest?: ShowSecurityPermissionSetRequest): Promise<ShowSecurityPermissionSetResponse> {
+        const options = ParamCreater().showSecurityPermissionSet(showSecurityPermissionSetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4813,9 +5259,9 @@ export class DataArtsStudioClient {
      *
      * @summary 更新应用
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} appId 应用编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {AppUpdateDTO} [appUpdateDTO] 更新应用相关参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4856,10 +5302,10 @@ export class DataArtsStudioClient {
      *
      * @summary 更新服务目录
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} catalogId 目录编号
      * @param {ApiCatalogUpdateParaDTO} apiCatalogUpdateParaDTO 目录创建参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4972,6 +5418,91 @@ export class DataArtsStudioClient {
      */
     public updateFactoryJobName(updateFactoryJobNameRequest?: UpdateFactoryJobNameRequest): Promise<UpdateFactoryJobNameResponse> {
         const options = ParamCreater().updateFactoryJobName(updateFactoryJobNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改识别规则接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改识别规则接口
+     * @param {string} workspace workspace 信息
+     * @param {string} id 识别规则id
+     * @param {DataClassificationRuleOperateDTO} updateSecurityDataClassificationRuleRequestBody 需要修改的识别规则DTO
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityDataClassificationRule(updateSecurityDataClassificationRuleRequest?: UpdateSecurityDataClassificationRuleRequest): Promise<UpdateSecurityDataClassificationRuleResponse> {
+        const options = ParamCreater().updateSecurityDataClassificationRule(updateSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新权限集
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新权限集
+     * @param {string} permissionSetId 权限集id
+     * @param {string} workspace workspace 信息
+     * @param {PermissionSetCreateDTO} updateSecurityPermissionSetRequestBody 权限集创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityPermissionSet(updateSecurityPermissionSetRequest?: UpdateSecurityPermissionSetRequest): Promise<UpdateSecurityPermissionSetResponse> {
+        const options = ParamCreater().updateSecurityPermissionSet(updateSecurityPermissionSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新权限集的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新权限集的权限
+     * @param {string} permissionSetId 权限集id
+     * @param {string} permissionId 权限id
+     * @param {string} workspace workspace 信息
+     * @param {PermissionSetPermissionUpdateDTO} updateSecurityPermissionSetPermissionRequestBody 权限更新参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityPermissionSetPermission(updateSecurityPermissionSetPermissionRequest?: UpdateSecurityPermissionSetPermissionRequest): Promise<UpdateSecurityPermissionSetPermissionResponse> {
+        const options = ParamCreater().updateSecurityPermissionSetPermission(updateSecurityPermissionSetPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改识别规则状态接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改识别规则状态接口
+     * @param {string} workspace workspace 信息
+     * @param {string} id 识别规则id
+     * @param {DataClassificationRuleEnableDTO} updateSecurityRuleEnableStatusRequestBody 需要修改的识别规则DTO
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityRuleEnableStatus(updateSecurityRuleEnableStatusRequest?: UpdateSecurityRuleEnableStatusRequest): Promise<UpdateSecurityRuleEnableStatusResponse> {
+        const options = ParamCreater().updateSecurityRuleEnableStatus(updateSecurityRuleEnableStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5170,9 +5701,9 @@ export class DataArtsStudioClient {
      *
      * @summary API授权操作(授权/取消授权/申请/续约)
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {ApiParaForAuthToInstance} apiParaForAuthToInstance 授权相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5192,11 +5723,11 @@ export class DataArtsStudioClient {
      *
      * @summary 批量授权API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {string} instanceId 集群编号
      * @param {ApiParaForAuthorizeToInstance} apiParaForAuthorizeToInstance 授权相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5216,9 +5747,9 @@ export class DataArtsStudioClient {
      *
      * @summary 创建API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {Api} api API 信息
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5238,11 +5769,11 @@ export class DataArtsStudioClient {
      *
      * @summary 调试API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {string} instanceId 集群编号
      * @param {ApiTestDTO} apiTestDTO 调试参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5261,10 +5792,10 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除API
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {Array<string>} ids 删除API的ID列表
      * @param {string} [workspace] 工作空间id
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5284,11 +5815,11 @@ export class DataArtsStudioClient {
      *
      * @summary API操作(下线/停用/恢复)
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {string} instanceId 集群编号
      * @param {ApiActionDTO} apiActionDTO api操作参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5308,8 +5839,8 @@ export class DataArtsStudioClient {
      *
      * @summary 查询API列表
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {string} [xReturnPublishMessages] 是否返回专享版API的发布信息
      * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整
      * @param {number} [limit] 查询条数, 即查询Y条数据
@@ -5332,10 +5863,10 @@ export class DataArtsStudioClient {
      *
      * @summary 查看API不同操作对应的实例信息
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {'PUBLISH' | 'UNPUBLISH' | 'STOP' | 'RECOVER' | 'WHITELIST' | 'AUTHORIZE'} action api操作
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {boolean} [showAll] 全部展示(包括不可执行当前操作的实例)
      * @param {boolean} [checkStatus] 校验api状态
      * @param {boolean} [checkDebug] 校验api调试状态
@@ -5361,9 +5892,9 @@ export class DataArtsStudioClient {
      *
      * @summary 发布/下线/停用/恢复API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {OpenApiParaForPublish} openApiParaForPublish api操作相关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5383,11 +5914,11 @@ export class DataArtsStudioClient {
      *
      * @summary 发布API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
      * @param {string} instanceId 集群编号
      * @param {GatewayDTO} gatewayDTO 网关参数
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5407,9 +5938,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查看API调试信息
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -5431,9 +5962,9 @@ export class DataArtsStudioClient {
      *
      * @summary 查看API发布信息
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId api编号
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
@@ -5449,15 +5980,38 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置作业标签
+     * @param {string} jobName 作业名称.
+     * @param {SetJobTagsRequestBody} body 请求body体
+     * @param {string} [workspace] 工作空间id
+     * @param {string} [contentType] 有Body体的情况下必选，无Body体的情况下则无需填写和校验
+     * @param {string} [authorization] 使用AK/SK进行认证时该字段必选
+     * @param {string} [host] 使用AK/SK进行认证时该字段必选
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest): Promise<SetFactoryJobTagsResponse> {
+        const options = ParamCreater().setFactoryJobTags(setFactoryJobTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询API信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API信息
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId API ID
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5477,10 +6031,10 @@ export class DataArtsStudioClient {
      *
      * @summary 更新API
      * @param {string} workspace 工作空间id
-     * @param {'SHARED' | 'EXCLUSIVE'} dlmType dlm版本类型
      * @param {string} contentType 资源类型
      * @param {string} apiId API ID
      * @param {Api} api API实体信息
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] dlm版本类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5722,21 +6276,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (batchApproveApplyRequest !== null && batchApproveApplyRequest !== undefined) {
                 if (batchApproveApplyRequest instanceof BatchApproveApplyRequest) {
                     workspace = batchApproveApplyRequest.workspace;
-                    dlmType = batchApproveApplyRequest.dlmType;
                     contentType = batchApproveApplyRequest.contentType;
                     body = batchApproveApplyRequest.body
+                    dlmType = batchApproveApplyRequest.dlmType;
                 } else {
                     workspace = batchApproveApplyRequest['workspace'];
-                    dlmType = batchApproveApplyRequest['Dlm-Type'];
                     contentType = batchApproveApplyRequest['Content-Type'];
                     body = batchApproveApplyRequest['body'];
+                    dlmType = batchApproveApplyRequest['Dlm-Type'];
                 }
             }
 
@@ -5843,6 +6397,157 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除识别规则接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityDataClassificationRule(batchDeleteSecurityDataClassificationRuleRequest?: BatchDeleteSecurityDataClassificationRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/data-classification/rule/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchDeleteSecurityDataClassificationRuleRequest !== null && batchDeleteSecurityDataClassificationRuleRequest !== undefined) {
+                if (batchDeleteSecurityDataClassificationRuleRequest instanceof BatchDeleteSecurityDataClassificationRuleRequest) {
+                    workspace = batchDeleteSecurityDataClassificationRuleRequest.workspace;
+                    body = batchDeleteSecurityDataClassificationRuleRequest.body
+                } else {
+                    workspace = batchDeleteSecurityDataClassificationRuleRequest['workspace'];
+                    body = batchDeleteSecurityDataClassificationRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除权限集成员
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityPermissionSetMembers(batchDeleteSecurityPermissionSetMembersRequest?: BatchDeleteSecurityPermissionSetMembersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/members/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (batchDeleteSecurityPermissionSetMembersRequest !== null && batchDeleteSecurityPermissionSetMembersRequest !== undefined) {
+                if (batchDeleteSecurityPermissionSetMembersRequest instanceof BatchDeleteSecurityPermissionSetMembersRequest) {
+                    permissionSetId = batchDeleteSecurityPermissionSetMembersRequest.permissionSetId;
+                    workspace = batchDeleteSecurityPermissionSetMembersRequest.workspace;
+                    body = batchDeleteSecurityPermissionSetMembersRequest.body
+                } else {
+                    permissionSetId = batchDeleteSecurityPermissionSetMembersRequest['permission_set_id'];
+                    workspace = batchDeleteSecurityPermissionSetMembersRequest['workspace'];
+                    body = batchDeleteSecurityPermissionSetMembersRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling batchDeleteSecurityPermissionSetMembers.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除权限集的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityPermissionSetPermissions(batchDeleteSecurityPermissionSetPermissionsRequest?: BatchDeleteSecurityPermissionSetPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/permissions/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (batchDeleteSecurityPermissionSetPermissionsRequest !== null && batchDeleteSecurityPermissionSetPermissionsRequest !== undefined) {
+                if (batchDeleteSecurityPermissionSetPermissionsRequest instanceof BatchDeleteSecurityPermissionSetPermissionsRequest) {
+                    permissionSetId = batchDeleteSecurityPermissionSetPermissionsRequest.permissionSetId;
+                    workspace = batchDeleteSecurityPermissionSetPermissionsRequest.workspace;
+                    body = batchDeleteSecurityPermissionSetPermissionsRequest.body
+                } else {
+                    permissionSetId = batchDeleteSecurityPermissionSetPermissionsRequest['permission_set_id'];
+                    workspace = batchDeleteSecurityPermissionSetPermissionsRequest['workspace'];
+                    body = batchDeleteSecurityPermissionSetPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling batchDeleteSecurityPermissionSetPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6297,21 +7002,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (confirmMessageRequest !== null && confirmMessageRequest !== undefined) {
                 if (confirmMessageRequest instanceof ConfirmMessageRequest) {
                     workspace = confirmMessageRequest.workspace;
-                    dlmType = confirmMessageRequest.dlmType;
                     contentType = confirmMessageRequest.contentType;
                     body = confirmMessageRequest.body
+                    dlmType = confirmMessageRequest.dlmType;
                 } else {
                     workspace = confirmMessageRequest['workspace'];
-                    dlmType = confirmMessageRequest['Dlm-Type'];
                     contentType = confirmMessageRequest['Content-Type'];
                     body = confirmMessageRequest['body'];
+                    dlmType = confirmMessageRequest['Dlm-Type'];
                 }
             }
 
@@ -6524,20 +7229,20 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (createAppRequest !== null && createAppRequest !== undefined) {
                 if (createAppRequest instanceof CreateAppRequest) {
                     workspace = createAppRequest.workspace;
-                    dlmType = createAppRequest.dlmType;
                     contentType = createAppRequest.contentType;
+                    dlmType = createAppRequest.dlmType;
                     body = createAppRequest.body
                 } else {
                     workspace = createAppRequest['workspace'];
-                    dlmType = createAppRequest['Dlm-Type'];
                     contentType = createAppRequest['Content-Type'];
+                    dlmType = createAppRequest['Dlm-Type'];
                     body = createAppRequest['body'];
                 }
             }
@@ -7025,6 +7730,202 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建识别规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityDataClassificationRule(createSecurityDataClassificationRuleRequest?: CreateSecurityDataClassificationRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/data-classification/rule",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecurityDataClassificationRuleRequest !== null && createSecurityDataClassificationRuleRequest !== undefined) {
+                if (createSecurityDataClassificationRuleRequest instanceof CreateSecurityDataClassificationRuleRequest) {
+                    workspace = createSecurityDataClassificationRuleRequest.workspace;
+                    body = createSecurityDataClassificationRuleRequest.body
+                } else {
+                    workspace = createSecurityDataClassificationRuleRequest['workspace'];
+                    body = createSecurityDataClassificationRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建权限集
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityPermissionSet(createSecurityPermissionSetRequest?: CreateSecurityPermissionSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecurityPermissionSetRequest !== null && createSecurityPermissionSetRequest !== undefined) {
+                if (createSecurityPermissionSetRequest instanceof CreateSecurityPermissionSetRequest) {
+                    workspace = createSecurityPermissionSetRequest.workspace;
+                    body = createSecurityPermissionSetRequest.body
+                } else {
+                    workspace = createSecurityPermissionSetRequest['workspace'];
+                    body = createSecurityPermissionSetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加权限集成员
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityPermissionSetMember(createSecurityPermissionSetMemberRequest?: CreateSecurityPermissionSetMemberRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/members",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (createSecurityPermissionSetMemberRequest !== null && createSecurityPermissionSetMemberRequest !== undefined) {
+                if (createSecurityPermissionSetMemberRequest instanceof CreateSecurityPermissionSetMemberRequest) {
+                    permissionSetId = createSecurityPermissionSetMemberRequest.permissionSetId;
+                    workspace = createSecurityPermissionSetMemberRequest.workspace;
+                    body = createSecurityPermissionSetMemberRequest.body
+                } else {
+                    permissionSetId = createSecurityPermissionSetMemberRequest['permission_set_id'];
+                    workspace = createSecurityPermissionSetMemberRequest['workspace'];
+                    body = createSecurityPermissionSetMemberRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling createSecurityPermissionSetMember.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加权限集的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityPermissionSetPermission(createSecurityPermissionSetPermissionRequest?: CreateSecurityPermissionSetPermissionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/permissions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (createSecurityPermissionSetPermissionRequest !== null && createSecurityPermissionSetPermissionRequest !== undefined) {
+                if (createSecurityPermissionSetPermissionRequest instanceof CreateSecurityPermissionSetPermissionRequest) {
+                    permissionSetId = createSecurityPermissionSetPermissionRequest.permissionSetId;
+                    workspace = createSecurityPermissionSetPermissionRequest.workspace;
+                    body = createSecurityPermissionSetPermissionRequest.body
+                } else {
+                    permissionSetId = createSecurityPermissionSetPermissionRequest['permission_set_id'];
+                    workspace = createSecurityPermissionSetPermissionRequest['workspace'];
+                    body = createSecurityPermissionSetPermissionRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling createSecurityPermissionSetPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建服务目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7045,21 +7946,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (createServiceCatalogRequest !== null && createServiceCatalogRequest !== undefined) {
                 if (createServiceCatalogRequest instanceof CreateServiceCatalogRequest) {
                     workspace = createServiceCatalogRequest.workspace;
-                    dlmType = createServiceCatalogRequest.dlmType;
                     contentType = createServiceCatalogRequest.contentType;
                     body = createServiceCatalogRequest.body
+                    dlmType = createServiceCatalogRequest.dlmType;
                 } else {
                     workspace = createServiceCatalogRequest['workspace'];
-                    dlmType = createServiceCatalogRequest['Dlm-Type'];
                     contentType = createServiceCatalogRequest['Content-Type'];
                     body = createServiceCatalogRequest['body'];
+                    dlmType = createServiceCatalogRequest['Dlm-Type'];
                 }
             }
 
@@ -7507,23 +8408,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let appId;
+            
+            let dlmType;
 
             if (deleteAppRequest !== null && deleteAppRequest !== undefined) {
                 if (deleteAppRequest instanceof DeleteAppRequest) {
                     workspace = deleteAppRequest.workspace;
-                    dlmType = deleteAppRequest.dlmType;
                     contentType = deleteAppRequest.contentType;
                     appId = deleteAppRequest.appId;
+                    dlmType = deleteAppRequest.dlmType;
                 } else {
                     workspace = deleteAppRequest['workspace'];
-                    dlmType = deleteAppRequest['Dlm-Type'];
                     contentType = deleteAppRequest['Content-Type'];
                     appId = deleteAppRequest['app_id'];
+                    dlmType = deleteAppRequest['Dlm-Type'];
                 }
             }
 
@@ -7917,6 +8818,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除识别规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityDataClassificationRule(deleteSecurityDataClassificationRuleRequest?: DeleteSecurityDataClassificationRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/security/data-classification/rule/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (deleteSecurityDataClassificationRuleRequest !== null && deleteSecurityDataClassificationRuleRequest !== undefined) {
+                if (deleteSecurityDataClassificationRuleRequest instanceof DeleteSecurityDataClassificationRuleRequest) {
+                    workspace = deleteSecurityDataClassificationRuleRequest.workspace;
+                    id = deleteSecurityDataClassificationRuleRequest.id;
+                } else {
+                    workspace = deleteSecurityDataClassificationRuleRequest['workspace'];
+                    id = deleteSecurityDataClassificationRuleRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteSecurityDataClassificationRule.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 移除资产关联密级
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7961,6 +8906,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除权限集
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityPermissionSet(deleteSecurityPermissionSetRequest?: DeleteSecurityPermissionSetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (deleteSecurityPermissionSetRequest !== null && deleteSecurityPermissionSetRequest !== undefined) {
+                if (deleteSecurityPermissionSetRequest instanceof DeleteSecurityPermissionSetRequest) {
+                    permissionSetId = deleteSecurityPermissionSetRequest.permissionSetId;
+                    workspace = deleteSecurityPermissionSetRequest.workspace;
+                } else {
+                    permissionSetId = deleteSecurityPermissionSetRequest['permission_set_id'];
+                    workspace = deleteSecurityPermissionSetRequest['workspace'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling deleteSecurityPermissionSet.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7981,21 +8970,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (deleteServiceCatalogRequest !== null && deleteServiceCatalogRequest !== undefined) {
                 if (deleteServiceCatalogRequest instanceof DeleteServiceCatalogRequest) {
                     workspace = deleteServiceCatalogRequest.workspace;
-                    dlmType = deleteServiceCatalogRequest.dlmType;
                     contentType = deleteServiceCatalogRequest.contentType;
                     body = deleteServiceCatalogRequest.body
+                    dlmType = deleteServiceCatalogRequest.dlmType;
                 } else {
                     workspace = deleteServiceCatalogRequest['workspace'];
-                    dlmType = deleteServiceCatalogRequest['Dlm-Type'];
                     contentType = deleteServiceCatalogRequest['Content-Type'];
                     body = deleteServiceCatalogRequest['body'];
+                    dlmType = deleteServiceCatalogRequest['Dlm-Type'];
                 }
             }
 
@@ -8695,11 +9684,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
             
             let offset;
             
@@ -8708,16 +9697,16 @@ export const ParamCreater = function () {
             if (listAllCatalogListRequest !== null && listAllCatalogListRequest !== undefined) {
                 if (listAllCatalogListRequest instanceof ListAllCatalogListRequest) {
                     workspace = listAllCatalogListRequest.workspace;
-                    dlmType = listAllCatalogListRequest.dlmType;
                     contentType = listAllCatalogListRequest.contentType;
                     catalogId = listAllCatalogListRequest.catalogId;
+                    dlmType = listAllCatalogListRequest.dlmType;
                     offset = listAllCatalogListRequest.offset;
                     limit = listAllCatalogListRequest.limit;
                 } else {
                     workspace = listAllCatalogListRequest['workspace'];
-                    dlmType = listAllCatalogListRequest['Dlm-Type'];
                     contentType = listAllCatalogListRequest['Content-Type'];
                     catalogId = listAllCatalogListRequest['catalog_id'];
+                    dlmType = listAllCatalogListRequest['Dlm-Type'];
                     offset = listAllCatalogListRequest['offset'];
                     limit = listAllCatalogListRequest['limit'];
                 }
@@ -8840,11 +9829,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
             
             let offset;
             
@@ -8853,16 +9842,16 @@ export const ParamCreater = function () {
             if (listApiCatalogListRequest !== null && listApiCatalogListRequest !== undefined) {
                 if (listApiCatalogListRequest instanceof ListApiCatalogListRequest) {
                     workspace = listApiCatalogListRequest.workspace;
-                    dlmType = listApiCatalogListRequest.dlmType;
                     contentType = listApiCatalogListRequest.contentType;
                     catalogId = listApiCatalogListRequest.catalogId;
+                    dlmType = listApiCatalogListRequest.dlmType;
                     offset = listApiCatalogListRequest.offset;
                     limit = listApiCatalogListRequest.limit;
                 } else {
                     workspace = listApiCatalogListRequest['workspace'];
-                    dlmType = listApiCatalogListRequest['Dlm-Type'];
                     contentType = listApiCatalogListRequest['Content-Type'];
                     catalogId = listApiCatalogListRequest['catalog_id'];
+                    dlmType = listApiCatalogListRequest['Dlm-Type'];
                     offset = listApiCatalogListRequest['offset'];
                     limit = listApiCatalogListRequest['limit'];
                 }
@@ -8913,8 +9902,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
@@ -8929,12 +9916,13 @@ export const ParamCreater = function () {
             
             let orderBy;
             
+            let dlmType;
+            
             let instanceId;
 
             if (listApiTopNRequest !== null && listApiTopNRequest !== undefined) {
                 if (listApiTopNRequest instanceof ListApiTopNRequest) {
                     workspace = listApiTopNRequest.workspace;
-                    dlmType = listApiTopNRequest.dlmType;
                     contentType = listApiTopNRequest.contentType;
                     apiId = listApiTopNRequest.apiId;
                     startTime = listApiTopNRequest.startTime;
@@ -8942,10 +9930,10 @@ export const ParamCreater = function () {
                     timeUnit = listApiTopNRequest.timeUnit;
                     topNum = listApiTopNRequest.topNum;
                     orderBy = listApiTopNRequest.orderBy;
+                    dlmType = listApiTopNRequest.dlmType;
                     instanceId = listApiTopNRequest.instanceId;
                 } else {
                     workspace = listApiTopNRequest['workspace'];
-                    dlmType = listApiTopNRequest['Dlm-Type'];
                     contentType = listApiTopNRequest['Content-Type'];
                     apiId = listApiTopNRequest['api_id'];
                     startTime = listApiTopNRequest['start_time'];
@@ -8953,6 +9941,7 @@ export const ParamCreater = function () {
                     timeUnit = listApiTopNRequest['time_unit'];
                     topNum = listApiTopNRequest['top_num'];
                     orderBy = listApiTopNRequest['order_by'];
+                    dlmType = listApiTopNRequest['Dlm-Type'];
                     instanceId = listApiTopNRequest['instance_id'];
                 }
             }
@@ -9029,13 +10018,13 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apigInstanceId;
             
             let apigType;
+            
+            let dlmType;
             
             let limit;
             
@@ -9044,18 +10033,18 @@ export const ParamCreater = function () {
             if (listApicGroupsRequest !== null && listApicGroupsRequest !== undefined) {
                 if (listApicGroupsRequest instanceof ListApicGroupsRequest) {
                     workspace = listApicGroupsRequest.workspace;
-                    dlmType = listApicGroupsRequest.dlmType;
                     contentType = listApicGroupsRequest.contentType;
                     apigInstanceId = listApicGroupsRequest.apigInstanceId;
                     apigType = listApicGroupsRequest.apigType;
+                    dlmType = listApicGroupsRequest.dlmType;
                     limit = listApicGroupsRequest.limit;
                     offset = listApicGroupsRequest.offset;
                 } else {
                     workspace = listApicGroupsRequest['workspace'];
-                    dlmType = listApicGroupsRequest['Dlm-Type'];
                     contentType = listApicGroupsRequest['Content-Type'];
                     apigInstanceId = listApicGroupsRequest['apig_instance_id'];
                     apigType = listApicGroupsRequest['apig_type'];
+                    dlmType = listApicGroupsRequest['Dlm-Type'];
                     limit = listApicGroupsRequest['limit'];
                     offset = listApicGroupsRequest['offset'];
                 }
@@ -9112,11 +10101,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apigType;
+            
+            let dlmType;
             
             let limit;
             
@@ -9125,16 +10114,16 @@ export const ParamCreater = function () {
             if (listApicInstancesRequest !== null && listApicInstancesRequest !== undefined) {
                 if (listApicInstancesRequest instanceof ListApicInstancesRequest) {
                     workspace = listApicInstancesRequest.workspace;
-                    dlmType = listApicInstancesRequest.dlmType;
                     contentType = listApicInstancesRequest.contentType;
                     apigType = listApicInstancesRequest.apigType;
+                    dlmType = listApicInstancesRequest.dlmType;
                     limit = listApicInstancesRequest.limit;
                     offset = listApicInstancesRequest.offset;
                 } else {
                     workspace = listApicInstancesRequest['workspace'];
-                    dlmType = listApicInstancesRequest['Dlm-Type'];
                     contentType = listApicInstancesRequest['Content-Type'];
                     apigType = listApicInstancesRequest['apig_type'];
+                    dlmType = listApicInstancesRequest['Dlm-Type'];
                     limit = listApicInstancesRequest['limit'];
                     offset = listApicInstancesRequest['offset'];
                 }
@@ -9187,8 +10176,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -9201,28 +10188,30 @@ export const ParamCreater = function () {
             
             let orderBy;
             
+            let dlmType;
+            
             let instanceId;
 
             if (listApisTopRequest !== null && listApisTopRequest !== undefined) {
                 if (listApisTopRequest instanceof ListApisTopRequest) {
                     workspace = listApisTopRequest.workspace;
-                    dlmType = listApisTopRequest.dlmType;
                     contentType = listApisTopRequest.contentType;
                     startTime = listApisTopRequest.startTime;
                     endTime = listApisTopRequest.endTime;
                     timeUnit = listApisTopRequest.timeUnit;
                     topNum = listApisTopRequest.topNum;
                     orderBy = listApisTopRequest.orderBy;
+                    dlmType = listApisTopRequest.dlmType;
                     instanceId = listApisTopRequest.instanceId;
                 } else {
                     workspace = listApisTopRequest['workspace'];
-                    dlmType = listApisTopRequest['Dlm-Type'];
                     contentType = listApisTopRequest['Content-Type'];
                     startTime = listApisTopRequest['start_time'];
                     endTime = listApisTopRequest['end_time'];
                     timeUnit = listApisTopRequest['time_unit'];
                     topNum = listApisTopRequest['top_num'];
                     orderBy = listApisTopRequest['order_by'];
+                    dlmType = listApisTopRequest['Dlm-Type'];
                     instanceId = listApisTopRequest['instance_id'];
                 }
             }
@@ -9295,9 +10284,9 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
             
             let offset;
             
@@ -9310,16 +10299,16 @@ export const ParamCreater = function () {
             if (listApplyRequest !== null && listApplyRequest !== undefined) {
                 if (listApplyRequest instanceof ListApplyRequest) {
                     workspace = listApplyRequest.workspace;
-                    dlmType = listApplyRequest.dlmType;
                     contentType = listApplyRequest.contentType;
+                    dlmType = listApplyRequest.dlmType;
                     offset = listApplyRequest.offset;
                     limit = listApplyRequest.limit;
                     apiName = listApplyRequest.apiName;
                     queryType = listApplyRequest.queryType;
                 } else {
                     workspace = listApplyRequest['workspace'];
-                    dlmType = listApplyRequest['Dlm-Type'];
                     contentType = listApplyRequest['Content-Type'];
+                    dlmType = listApplyRequest['Dlm-Type'];
                     offset = listApplyRequest['offset'];
                     limit = listApplyRequest['limit'];
                     apiName = listApplyRequest['api_name'];
@@ -9432,9 +10421,9 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
             
             let limit;
             
@@ -9447,16 +10436,16 @@ export const ParamCreater = function () {
             if (listAppsRequest !== null && listAppsRequest !== undefined) {
                 if (listAppsRequest instanceof ListAppsRequest) {
                     workspace = listAppsRequest.workspace;
-                    dlmType = listAppsRequest.dlmType;
                     contentType = listAppsRequest.contentType;
+                    dlmType = listAppsRequest.dlmType;
                     limit = listAppsRequest.limit;
                     offset = listAppsRequest.offset;
                     name = listAppsRequest.name;
                     appType = listAppsRequest.appType;
                 } else {
                     workspace = listAppsRequest['workspace'];
-                    dlmType = listAppsRequest['Dlm-Type'];
                     contentType = listAppsRequest['Content-Type'];
+                    dlmType = listAppsRequest['Dlm-Type'];
                     limit = listAppsRequest['limit'];
                     offset = listAppsRequest['offset'];
                     name = listAppsRequest['name'];
@@ -9511,8 +10500,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -9524,26 +10511,28 @@ export const ParamCreater = function () {
             let topNum;
             
             let orderBy;
+            
+            let dlmType;
 
             if (listAppsTopRequest !== null && listAppsTopRequest !== undefined) {
                 if (listAppsTopRequest instanceof ListAppsTopRequest) {
                     workspace = listAppsTopRequest.workspace;
-                    dlmType = listAppsTopRequest.dlmType;
                     contentType = listAppsTopRequest.contentType;
                     startTime = listAppsTopRequest.startTime;
                     endTime = listAppsTopRequest.endTime;
                     timeUnit = listAppsTopRequest.timeUnit;
                     topNum = listAppsTopRequest.topNum;
                     orderBy = listAppsTopRequest.orderBy;
+                    dlmType = listAppsTopRequest.dlmType;
                 } else {
                     workspace = listAppsTopRequest['workspace'];
-                    dlmType = listAppsTopRequest['Dlm-Type'];
                     contentType = listAppsTopRequest['Content-Type'];
                     startTime = listAppsTopRequest['start_time'];
                     endTime = listAppsTopRequest['end_time'];
                     timeUnit = listAppsTopRequest['time_unit'];
                     topNum = listAppsTopRequest['top_num'];
                     orderBy = listAppsTopRequest['order_by'];
+                    dlmType = listAppsTopRequest['Dlm-Type'];
                 }
             }
 
@@ -9879,11 +10868,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
             
             let limit;
             
@@ -9892,16 +10881,16 @@ export const ParamCreater = function () {
             if (listCatalogListRequest !== null && listCatalogListRequest !== undefined) {
                 if (listCatalogListRequest instanceof ListCatalogListRequest) {
                     workspace = listCatalogListRequest.workspace;
-                    dlmType = listCatalogListRequest.dlmType;
                     contentType = listCatalogListRequest.contentType;
                     catalogId = listCatalogListRequest.catalogId;
+                    dlmType = listCatalogListRequest.dlmType;
                     limit = listCatalogListRequest.limit;
                     offset = listCatalogListRequest.offset;
                 } else {
                     workspace = listCatalogListRequest['workspace'];
-                    dlmType = listCatalogListRequest['Dlm-Type'];
                     contentType = listCatalogListRequest['Content-Type'];
                     catalogId = listCatalogListRequest['catalog_id'];
+                    dlmType = listCatalogListRequest['Dlm-Type'];
                     limit = listCatalogListRequest['limit'];
                     offset = listCatalogListRequest['offset'];
                 }
@@ -11460,9 +12449,9 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
             
             let offset;
             
@@ -11473,15 +12462,15 @@ export const ParamCreater = function () {
             if (listMessageRequest !== null && listMessageRequest !== undefined) {
                 if (listMessageRequest instanceof ListMessageRequest) {
                     workspace = listMessageRequest.workspace;
-                    dlmType = listMessageRequest.dlmType;
                     contentType = listMessageRequest.contentType;
+                    dlmType = listMessageRequest.dlmType;
                     offset = listMessageRequest.offset;
                     limit = listMessageRequest.limit;
                     apiName = listMessageRequest.apiName;
                 } else {
                     workspace = listMessageRequest['workspace'];
-                    dlmType = listMessageRequest['Dlm-Type'];
                     contentType = listMessageRequest['Content-Type'];
+                    dlmType = listMessageRequest['Dlm-Type'];
                     offset = listMessageRequest['offset'];
                     limit = listMessageRequest['limit'];
                     apiName = listMessageRequest['api_name'];
@@ -12009,6 +12998,536 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询规则组列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDataClassificationRuleGroups(listSecurityDataClassificationRuleGroupsRequest?: ListSecurityDataClassificationRuleGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/rule/group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let name;
+            
+            let creator;
+            
+            let orderBy;
+            
+            let desc;
+
+            if (listSecurityDataClassificationRuleGroupsRequest !== null && listSecurityDataClassificationRuleGroupsRequest !== undefined) {
+                if (listSecurityDataClassificationRuleGroupsRequest instanceof ListSecurityDataClassificationRuleGroupsRequest) {
+                    workspace = listSecurityDataClassificationRuleGroupsRequest.workspace;
+                    limit = listSecurityDataClassificationRuleGroupsRequest.limit;
+                    offset = listSecurityDataClassificationRuleGroupsRequest.offset;
+                    name = listSecurityDataClassificationRuleGroupsRequest.name;
+                    creator = listSecurityDataClassificationRuleGroupsRequest.creator;
+                    orderBy = listSecurityDataClassificationRuleGroupsRequest.orderBy;
+                    desc = listSecurityDataClassificationRuleGroupsRequest.desc;
+                } else {
+                    workspace = listSecurityDataClassificationRuleGroupsRequest['workspace'];
+                    limit = listSecurityDataClassificationRuleGroupsRequest['limit'];
+                    offset = listSecurityDataClassificationRuleGroupsRequest['offset'];
+                    name = listSecurityDataClassificationRuleGroupsRequest['name'];
+                    creator = listSecurityDataClassificationRuleGroupsRequest['creator'];
+                    orderBy = listSecurityDataClassificationRuleGroupsRequest['order_by'];
+                    desc = listSecurityDataClassificationRuleGroupsRequest['desc'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (desc !== null && desc !== undefined) {
+                localVarQueryParameter['desc'] = desc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询识别规则列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDataClassificationRules(listSecurityDataClassificationRulesRequest?: ListSecurityDataClassificationRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let offset;
+            
+            let limit;
+            
+            let secrecyLevel;
+            
+            let name;
+            
+            let creator;
+            
+            let enable;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let orderBy;
+            
+            let desc;
+
+            if (listSecurityDataClassificationRulesRequest !== null && listSecurityDataClassificationRulesRequest !== undefined) {
+                if (listSecurityDataClassificationRulesRequest instanceof ListSecurityDataClassificationRulesRequest) {
+                    workspace = listSecurityDataClassificationRulesRequest.workspace;
+                    offset = listSecurityDataClassificationRulesRequest.offset;
+                    limit = listSecurityDataClassificationRulesRequest.limit;
+                    secrecyLevel = listSecurityDataClassificationRulesRequest.secrecyLevel;
+                    name = listSecurityDataClassificationRulesRequest.name;
+                    creator = listSecurityDataClassificationRulesRequest.creator;
+                    enable = listSecurityDataClassificationRulesRequest.enable;
+                    startTime = listSecurityDataClassificationRulesRequest.startTime;
+                    endTime = listSecurityDataClassificationRulesRequest.endTime;
+                    orderBy = listSecurityDataClassificationRulesRequest.orderBy;
+                    desc = listSecurityDataClassificationRulesRequest.desc;
+                } else {
+                    workspace = listSecurityDataClassificationRulesRequest['workspace'];
+                    offset = listSecurityDataClassificationRulesRequest['offset'];
+                    limit = listSecurityDataClassificationRulesRequest['limit'];
+                    secrecyLevel = listSecurityDataClassificationRulesRequest['secrecy_level'];
+                    name = listSecurityDataClassificationRulesRequest['name'];
+                    creator = listSecurityDataClassificationRulesRequest['creator'];
+                    enable = listSecurityDataClassificationRulesRequest['enable'];
+                    startTime = listSecurityDataClassificationRulesRequest['start_time'];
+                    endTime = listSecurityDataClassificationRulesRequest['end_time'];
+                    orderBy = listSecurityDataClassificationRulesRequest['order_by'];
+                    desc = listSecurityDataClassificationRulesRequest['desc'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (secrecyLevel !== null && secrecyLevel !== undefined) {
+                localVarQueryParameter['secrecy_level'] = secrecyLevel;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (enable !== null && enable !== undefined) {
+                localVarQueryParameter['enable'] = enable;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (desc !== null && desc !== undefined) {
+                localVarQueryParameter['desc'] = desc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询权限集成员列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityPermissionSetMembers(listSecurityPermissionSetMembersRequest?: ListSecurityPermissionSetMembersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/members",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let permissionSetId;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let memberName;
+            
+            let memberType;
+            
+            let orderByAsc;
+            
+            let orderBy;
+
+            if (listSecurityPermissionSetMembersRequest !== null && listSecurityPermissionSetMembersRequest !== undefined) {
+                if (listSecurityPermissionSetMembersRequest instanceof ListSecurityPermissionSetMembersRequest) {
+                    permissionSetId = listSecurityPermissionSetMembersRequest.permissionSetId;
+                    workspace = listSecurityPermissionSetMembersRequest.workspace;
+                    limit = listSecurityPermissionSetMembersRequest.limit;
+                    offset = listSecurityPermissionSetMembersRequest.offset;
+                    memberName = listSecurityPermissionSetMembersRequest.memberName;
+                    memberType = listSecurityPermissionSetMembersRequest.memberType;
+                    orderByAsc = listSecurityPermissionSetMembersRequest.orderByAsc;
+                    orderBy = listSecurityPermissionSetMembersRequest.orderBy;
+                } else {
+                    permissionSetId = listSecurityPermissionSetMembersRequest['permission_set_id'];
+                    workspace = listSecurityPermissionSetMembersRequest['workspace'];
+                    limit = listSecurityPermissionSetMembersRequest['limit'];
+                    offset = listSecurityPermissionSetMembersRequest['offset'];
+                    memberName = listSecurityPermissionSetMembersRequest['member_name'];
+                    memberType = listSecurityPermissionSetMembersRequest['member_type'];
+                    orderByAsc = listSecurityPermissionSetMembersRequest['order_by_asc'];
+                    orderBy = listSecurityPermissionSetMembersRequest['order_by'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling listSecurityPermissionSetMembers.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (memberName !== null && memberName !== undefined) {
+                localVarQueryParameter['member_name'] = memberName;
+            }
+            if (memberType !== null && memberType !== undefined) {
+                localVarQueryParameter['member_type'] = memberType;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询权限集的权限列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityPermissionSetPermissions(listSecurityPermissionSetPermissionsRequest?: ListSecurityPermissionSetPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let permissionSetId;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let permissionType;
+            
+            let permissionAction;
+            
+            let clusterId;
+            
+            let clusterName;
+            
+            let datasourceType;
+            
+            let databaseName;
+            
+            let tableName;
+            
+            let columnName;
+            
+            let syncStatus;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityPermissionSetPermissionsRequest !== null && listSecurityPermissionSetPermissionsRequest !== undefined) {
+                if (listSecurityPermissionSetPermissionsRequest instanceof ListSecurityPermissionSetPermissionsRequest) {
+                    permissionSetId = listSecurityPermissionSetPermissionsRequest.permissionSetId;
+                    workspace = listSecurityPermissionSetPermissionsRequest.workspace;
+                    limit = listSecurityPermissionSetPermissionsRequest.limit;
+                    offset = listSecurityPermissionSetPermissionsRequest.offset;
+                    permissionType = listSecurityPermissionSetPermissionsRequest.permissionType;
+                    permissionAction = listSecurityPermissionSetPermissionsRequest.permissionAction;
+                    clusterId = listSecurityPermissionSetPermissionsRequest.clusterId;
+                    clusterName = listSecurityPermissionSetPermissionsRequest.clusterName;
+                    datasourceType = listSecurityPermissionSetPermissionsRequest.datasourceType;
+                    databaseName = listSecurityPermissionSetPermissionsRequest.databaseName;
+                    tableName = listSecurityPermissionSetPermissionsRequest.tableName;
+                    columnName = listSecurityPermissionSetPermissionsRequest.columnName;
+                    syncStatus = listSecurityPermissionSetPermissionsRequest.syncStatus;
+                    orderBy = listSecurityPermissionSetPermissionsRequest.orderBy;
+                    orderByAsc = listSecurityPermissionSetPermissionsRequest.orderByAsc;
+                } else {
+                    permissionSetId = listSecurityPermissionSetPermissionsRequest['permission_set_id'];
+                    workspace = listSecurityPermissionSetPermissionsRequest['workspace'];
+                    limit = listSecurityPermissionSetPermissionsRequest['limit'];
+                    offset = listSecurityPermissionSetPermissionsRequest['offset'];
+                    permissionType = listSecurityPermissionSetPermissionsRequest['permission_type'];
+                    permissionAction = listSecurityPermissionSetPermissionsRequest['permission_action'];
+                    clusterId = listSecurityPermissionSetPermissionsRequest['cluster_id'];
+                    clusterName = listSecurityPermissionSetPermissionsRequest['cluster_name'];
+                    datasourceType = listSecurityPermissionSetPermissionsRequest['datasource_type'];
+                    databaseName = listSecurityPermissionSetPermissionsRequest['database_name'];
+                    tableName = listSecurityPermissionSetPermissionsRequest['table_name'];
+                    columnName = listSecurityPermissionSetPermissionsRequest['column_name'];
+                    syncStatus = listSecurityPermissionSetPermissionsRequest['sync_status'];
+                    orderBy = listSecurityPermissionSetPermissionsRequest['order_by'];
+                    orderByAsc = listSecurityPermissionSetPermissionsRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling listSecurityPermissionSetPermissions.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (permissionType !== null && permissionType !== undefined) {
+                localVarQueryParameter['permission_type'] = permissionType;
+            }
+            if (permissionAction !== null && permissionAction !== undefined) {
+                localVarQueryParameter['permission_action'] = permissionAction;
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (clusterName !== null && clusterName !== undefined) {
+                localVarQueryParameter['cluster_name'] = clusterName;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (columnName !== null && columnName !== undefined) {
+                localVarQueryParameter['column_name'] = columnName;
+            }
+            if (syncStatus !== null && syncStatus !== undefined) {
+                localVarQueryParameter['sync_status'] = syncStatus;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询权限集列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityPermissionSets(listSecurityPermissionSetsRequest?: ListSecurityPermissionSetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let name;
+            
+            let parentId;
+            
+            let typeFilter;
+            
+            let managerId;
+            
+            let managerName;
+            
+            let managerType;
+            
+            let datasourceType;
+            
+            let syncStatus;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityPermissionSetsRequest !== null && listSecurityPermissionSetsRequest !== undefined) {
+                if (listSecurityPermissionSetsRequest instanceof ListSecurityPermissionSetsRequest) {
+                    workspace = listSecurityPermissionSetsRequest.workspace;
+                    limit = listSecurityPermissionSetsRequest.limit;
+                    offset = listSecurityPermissionSetsRequest.offset;
+                    name = listSecurityPermissionSetsRequest.name;
+                    parentId = listSecurityPermissionSetsRequest.parentId;
+                    typeFilter = listSecurityPermissionSetsRequest.typeFilter;
+                    managerId = listSecurityPermissionSetsRequest.managerId;
+                    managerName = listSecurityPermissionSetsRequest.managerName;
+                    managerType = listSecurityPermissionSetsRequest.managerType;
+                    datasourceType = listSecurityPermissionSetsRequest.datasourceType;
+                    syncStatus = listSecurityPermissionSetsRequest.syncStatus;
+                    orderBy = listSecurityPermissionSetsRequest.orderBy;
+                    orderByAsc = listSecurityPermissionSetsRequest.orderByAsc;
+                } else {
+                    workspace = listSecurityPermissionSetsRequest['workspace'];
+                    limit = listSecurityPermissionSetsRequest['limit'];
+                    offset = listSecurityPermissionSetsRequest['offset'];
+                    name = listSecurityPermissionSetsRequest['name'];
+                    parentId = listSecurityPermissionSetsRequest['parent_id'];
+                    typeFilter = listSecurityPermissionSetsRequest['type_filter'];
+                    managerId = listSecurityPermissionSetsRequest['manager_id'];
+                    managerName = listSecurityPermissionSetsRequest['manager_name'];
+                    managerType = listSecurityPermissionSetsRequest['manager_type'];
+                    datasourceType = listSecurityPermissionSetsRequest['datasource_type'];
+                    syncStatus = listSecurityPermissionSetsRequest['sync_status'];
+                    orderBy = listSecurityPermissionSetsRequest['order_by'];
+                    orderByAsc = listSecurityPermissionSetsRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (parentId !== null && parentId !== undefined) {
+                localVarQueryParameter['parent_id'] = parentId;
+            }
+            if (typeFilter !== null && typeFilter !== undefined) {
+                localVarQueryParameter['type_filter'] = typeFilter;
+            }
+            if (managerId !== null && managerId !== undefined) {
+                localVarQueryParameter['manager_id'] = managerId;
+            }
+            if (managerName !== null && managerName !== undefined) {
+                localVarQueryParameter['manager_name'] = managerName;
+            }
+            if (managerType !== null && managerType !== undefined) {
+                localVarQueryParameter['manager_type'] = managerType;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (syncStatus !== null && syncStatus !== undefined) {
+                localVarQueryParameter['sync_status'] = syncStatus;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取主题层级
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12438,21 +13957,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (migrateApiRequest !== null && migrateApiRequest !== undefined) {
                 if (migrateApiRequest instanceof MigrateApiRequest) {
                     workspace = migrateApiRequest.workspace;
-                    dlmType = migrateApiRequest.dlmType;
                     contentType = migrateApiRequest.contentType;
                     body = migrateApiRequest.body
+                    dlmType = migrateApiRequest.dlmType;
                 } else {
                     workspace = migrateApiRequest['workspace'];
-                    dlmType = migrateApiRequest['Dlm-Type'];
                     contentType = migrateApiRequest['Content-Type'];
                     body = migrateApiRequest['body'];
+                    dlmType = migrateApiRequest['Dlm-Type'];
                 }
             }
 
@@ -12497,25 +14016,25 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
 
             if (migrateCatalogRequest !== null && migrateCatalogRequest !== undefined) {
                 if (migrateCatalogRequest instanceof MigrateCatalogRequest) {
                     workspace = migrateCatalogRequest.workspace;
-                    dlmType = migrateCatalogRequest.dlmType;
                     contentType = migrateCatalogRequest.contentType;
                     catalogId = migrateCatalogRequest.catalogId;
                     body = migrateCatalogRequest.body
+                    dlmType = migrateCatalogRequest.dlmType;
                 } else {
                     workspace = migrateCatalogRequest['workspace'];
-                    dlmType = migrateCatalogRequest['Dlm-Type'];
                     contentType = migrateCatalogRequest['Content-Type'];
                     catalogId = migrateCatalogRequest['catalog_id'];
                     body = migrateCatalogRequest['body'];
+                    dlmType = migrateCatalogRequest['Dlm-Type'];
                 }
             }
 
@@ -13010,11 +14529,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
+            
+            let dlmType;
             
             let offset;
             
@@ -13023,16 +14542,16 @@ export const ParamCreater = function () {
             if (searchAuthorizeAppRequest !== null && searchAuthorizeAppRequest !== undefined) {
                 if (searchAuthorizeAppRequest instanceof SearchAuthorizeAppRequest) {
                     workspace = searchAuthorizeAppRequest.workspace;
-                    dlmType = searchAuthorizeAppRequest.dlmType;
                     contentType = searchAuthorizeAppRequest.contentType;
                     apiId = searchAuthorizeAppRequest.apiId;
+                    dlmType = searchAuthorizeAppRequest.dlmType;
                     offset = searchAuthorizeAppRequest.offset;
                     limit = searchAuthorizeAppRequest.limit;
                 } else {
                     workspace = searchAuthorizeAppRequest['workspace'];
-                    dlmType = searchAuthorizeAppRequest['Dlm-Type'];
                     contentType = searchAuthorizeAppRequest['Content-Type'];
                     apiId = searchAuthorizeAppRequest['api_id'];
+                    dlmType = searchAuthorizeAppRequest['Dlm-Type'];
                     offset = searchAuthorizeAppRequest['offset'];
                     limit = searchAuthorizeAppRequest['limit'];
                 }
@@ -13083,11 +14602,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let appId;
+            
+            let dlmType;
             
             let offset;
             
@@ -13096,16 +14615,16 @@ export const ParamCreater = function () {
             if (searchBindApiRequest !== null && searchBindApiRequest !== undefined) {
                 if (searchBindApiRequest instanceof SearchBindApiRequest) {
                     workspace = searchBindApiRequest.workspace;
-                    dlmType = searchBindApiRequest.dlmType;
                     contentType = searchBindApiRequest.contentType;
                     appId = searchBindApiRequest.appId;
+                    dlmType = searchBindApiRequest.dlmType;
                     offset = searchBindApiRequest.offset;
                     limit = searchBindApiRequest.limit;
                 } else {
                     workspace = searchBindApiRequest['workspace'];
-                    dlmType = searchBindApiRequest['Dlm-Type'];
                     contentType = searchBindApiRequest['Content-Type'];
                     appId = searchBindApiRequest['app_id'];
+                    dlmType = searchBindApiRequest['Dlm-Type'];
                     offset = searchBindApiRequest['offset'];
                     limit = searchBindApiRequest['limit'];
                 }
@@ -13530,11 +15049,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let path;
+            
+            let dlmType;
             
             let limit;
             
@@ -13543,16 +15062,16 @@ export const ParamCreater = function () {
             if (searchIdByPathRequest !== null && searchIdByPathRequest !== undefined) {
                 if (searchIdByPathRequest instanceof SearchIdByPathRequest) {
                     workspace = searchIdByPathRequest.workspace;
-                    dlmType = searchIdByPathRequest.dlmType;
                     contentType = searchIdByPathRequest.contentType;
                     path = searchIdByPathRequest.path;
+                    dlmType = searchIdByPathRequest.dlmType;
                     limit = searchIdByPathRequest.limit;
                     offset = searchIdByPathRequest.offset;
                 } else {
                     workspace = searchIdByPathRequest['workspace'];
-                    dlmType = searchIdByPathRequest['Dlm-Type'];
                     contentType = searchIdByPathRequest['Content-Type'];
                     path = searchIdByPathRequest['path'];
+                    dlmType = searchIdByPathRequest['Dlm-Type'];
                     limit = searchIdByPathRequest['limit'];
                     offset = searchIdByPathRequest['offset'];
                 }
@@ -13950,8 +15469,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
@@ -13962,26 +15479,28 @@ export const ParamCreater = function () {
             
             let timeUnit;
             
+            let dlmType;
+            
             let instanceId;
 
             if (showApiDashboardRequest !== null && showApiDashboardRequest !== undefined) {
                 if (showApiDashboardRequest instanceof ShowApiDashboardRequest) {
                     workspace = showApiDashboardRequest.workspace;
-                    dlmType = showApiDashboardRequest.dlmType;
                     contentType = showApiDashboardRequest.contentType;
                     apiId = showApiDashboardRequest.apiId;
                     startTime = showApiDashboardRequest.startTime;
                     endTime = showApiDashboardRequest.endTime;
                     timeUnit = showApiDashboardRequest.timeUnit;
+                    dlmType = showApiDashboardRequest.dlmType;
                     instanceId = showApiDashboardRequest.instanceId;
                 } else {
                     workspace = showApiDashboardRequest['workspace'];
-                    dlmType = showApiDashboardRequest['Dlm-Type'];
                     contentType = showApiDashboardRequest['Content-Type'];
                     apiId = showApiDashboardRequest['api_id'];
                     startTime = showApiDashboardRequest['start_time'];
                     endTime = showApiDashboardRequest['end_time'];
                     timeUnit = showApiDashboardRequest['time_unit'];
+                    dlmType = showApiDashboardRequest['Dlm-Type'];
                     instanceId = showApiDashboardRequest['instance_id'];
                 }
             }
@@ -14046,8 +15565,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -14055,6 +15572,8 @@ export const ParamCreater = function () {
             let endTime;
             
             let timeUnit;
+            
+            let dlmType;
             
             let instanceId;
             
@@ -14065,21 +15584,21 @@ export const ParamCreater = function () {
             if (showApisDashboardRequest !== null && showApisDashboardRequest !== undefined) {
                 if (showApisDashboardRequest instanceof ShowApisDashboardRequest) {
                     workspace = showApisDashboardRequest.workspace;
-                    dlmType = showApisDashboardRequest.dlmType;
                     contentType = showApisDashboardRequest.contentType;
                     startTime = showApisDashboardRequest.startTime;
                     endTime = showApisDashboardRequest.endTime;
                     timeUnit = showApisDashboardRequest.timeUnit;
+                    dlmType = showApisDashboardRequest.dlmType;
                     instanceId = showApisDashboardRequest.instanceId;
                     limit = showApisDashboardRequest.limit;
                     offset = showApisDashboardRequest.offset;
                 } else {
                     workspace = showApisDashboardRequest['workspace'];
-                    dlmType = showApisDashboardRequest['Dlm-Type'];
                     contentType = showApisDashboardRequest['Content-Type'];
                     startTime = showApisDashboardRequest['start_time'];
                     endTime = showApisDashboardRequest['end_time'];
                     timeUnit = showApisDashboardRequest['time_unit'];
+                    dlmType = showApisDashboardRequest['Dlm-Type'];
                     instanceId = showApisDashboardRequest['instance_id'];
                     limit = showApisDashboardRequest['limit'];
                     offset = showApisDashboardRequest['offset'];
@@ -14148,8 +15667,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
@@ -14160,26 +15677,28 @@ export const ParamCreater = function () {
             
             let timeUnit;
             
+            let dlmType;
+            
             let instanceId;
 
             if (showApisDetailRequest !== null && showApisDetailRequest !== undefined) {
                 if (showApisDetailRequest instanceof ShowApisDetailRequest) {
                     workspace = showApisDetailRequest.workspace;
-                    dlmType = showApisDetailRequest.dlmType;
                     contentType = showApisDetailRequest.contentType;
                     apiId = showApisDetailRequest.apiId;
                     startTime = showApisDetailRequest.startTime;
                     endTime = showApisDetailRequest.endTime;
                     timeUnit = showApisDetailRequest.timeUnit;
+                    dlmType = showApisDetailRequest.dlmType;
                     instanceId = showApisDetailRequest.instanceId;
                 } else {
                     workspace = showApisDetailRequest['workspace'];
-                    dlmType = showApisDetailRequest['Dlm-Type'];
                     contentType = showApisDetailRequest['Content-Type'];
                     apiId = showApisDetailRequest['api_id'];
                     startTime = showApisDetailRequest['start_time'];
                     endTime = showApisDetailRequest['end_time'];
                     timeUnit = showApisDetailRequest['time_unit'];
+                    dlmType = showApisDetailRequest['Dlm-Type'];
                     instanceId = showApisDetailRequest['instance_id'];
                 }
             }
@@ -14244,8 +15763,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -14253,22 +15770,24 @@ export const ParamCreater = function () {
             let endTime;
             
             let timeUnit;
+            
+            let dlmType;
 
             if (showApisOverviewRequest !== null && showApisOverviewRequest !== undefined) {
                 if (showApisOverviewRequest instanceof ShowApisOverviewRequest) {
                     workspace = showApisOverviewRequest.workspace;
-                    dlmType = showApisOverviewRequest.dlmType;
                     contentType = showApisOverviewRequest.contentType;
                     startTime = showApisOverviewRequest.startTime;
                     endTime = showApisOverviewRequest.endTime;
                     timeUnit = showApisOverviewRequest.timeUnit;
+                    dlmType = showApisOverviewRequest.dlmType;
                 } else {
                     workspace = showApisOverviewRequest['workspace'];
-                    dlmType = showApisOverviewRequest['Dlm-Type'];
                     contentType = showApisOverviewRequest['Content-Type'];
                     startTime = showApisOverviewRequest['start_time'];
                     endTime = showApisOverviewRequest['end_time'];
                     timeUnit = showApisOverviewRequest['time_unit'];
+                    dlmType = showApisOverviewRequest['Dlm-Type'];
                 }
             }
 
@@ -14325,23 +15844,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let appId;
+            
+            let dlmType;
 
             if (showAppInfoRequest !== null && showAppInfoRequest !== undefined) {
                 if (showAppInfoRequest instanceof ShowAppInfoRequest) {
                     workspace = showAppInfoRequest.workspace;
-                    dlmType = showAppInfoRequest.dlmType;
                     contentType = showAppInfoRequest.contentType;
                     appId = showAppInfoRequest.appId;
+                    dlmType = showAppInfoRequest.dlmType;
                 } else {
                     workspace = showAppInfoRequest['workspace'];
-                    dlmType = showAppInfoRequest['Dlm-Type'];
                     contentType = showAppInfoRequest['Content-Type'];
                     appId = showAppInfoRequest['app_id'];
+                    dlmType = showAppInfoRequest['Dlm-Type'];
                 }
             }
 
@@ -14383,23 +15902,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let applyId;
+            
+            let dlmType;
 
             if (showApplyDetailRequest !== null && showApplyDetailRequest !== undefined) {
                 if (showApplyDetailRequest instanceof ShowApplyDetailRequest) {
                     workspace = showApplyDetailRequest.workspace;
-                    dlmType = showApplyDetailRequest.dlmType;
                     contentType = showApplyDetailRequest.contentType;
                     applyId = showApplyDetailRequest.applyId;
+                    dlmType = showApplyDetailRequest.dlmType;
                 } else {
                     workspace = showApplyDetailRequest['workspace'];
-                    dlmType = showApplyDetailRequest['Dlm-Type'];
                     contentType = showApplyDetailRequest['Content-Type'];
                     applyId = showApplyDetailRequest['apply_id'];
+                    dlmType = showApplyDetailRequest['Dlm-Type'];
                 }
             }
 
@@ -14441,8 +15960,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -14451,6 +15968,8 @@ export const ParamCreater = function () {
             
             let timeUnit;
             
+            let dlmType;
+            
             let limit;
             
             let offset;
@@ -14458,20 +15977,20 @@ export const ParamCreater = function () {
             if (showAppsDashboardRequest !== null && showAppsDashboardRequest !== undefined) {
                 if (showAppsDashboardRequest instanceof ShowAppsDashboardRequest) {
                     workspace = showAppsDashboardRequest.workspace;
-                    dlmType = showAppsDashboardRequest.dlmType;
                     contentType = showAppsDashboardRequest.contentType;
                     startTime = showAppsDashboardRequest.startTime;
                     endTime = showAppsDashboardRequest.endTime;
                     timeUnit = showAppsDashboardRequest.timeUnit;
+                    dlmType = showAppsDashboardRequest.dlmType;
                     limit = showAppsDashboardRequest.limit;
                     offset = showAppsDashboardRequest.offset;
                 } else {
                     workspace = showAppsDashboardRequest['workspace'];
-                    dlmType = showAppsDashboardRequest['Dlm-Type'];
                     contentType = showAppsDashboardRequest['Content-Type'];
                     startTime = showAppsDashboardRequest['start_time'];
                     endTime = showAppsDashboardRequest['end_time'];
                     timeUnit = showAppsDashboardRequest['time_unit'];
+                    dlmType = showAppsDashboardRequest['Dlm-Type'];
                     limit = showAppsDashboardRequest['limit'];
                     offset = showAppsDashboardRequest['offset'];
                 }
@@ -14536,8 +16055,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let appId;
@@ -14547,24 +16064,26 @@ export const ParamCreater = function () {
             let endTime;
             
             let timeUnit;
+            
+            let dlmType;
 
             if (showAppsDetailRequest !== null && showAppsDetailRequest !== undefined) {
                 if (showAppsDetailRequest instanceof ShowAppsDetailRequest) {
                     workspace = showAppsDetailRequest.workspace;
-                    dlmType = showAppsDetailRequest.dlmType;
                     contentType = showAppsDetailRequest.contentType;
                     appId = showAppsDetailRequest.appId;
                     startTime = showAppsDetailRequest.startTime;
                     endTime = showAppsDetailRequest.endTime;
                     timeUnit = showAppsDetailRequest.timeUnit;
+                    dlmType = showAppsDetailRequest.dlmType;
                 } else {
                     workspace = showAppsDetailRequest['workspace'];
-                    dlmType = showAppsDetailRequest['Dlm-Type'];
                     contentType = showAppsDetailRequest['Content-Type'];
                     appId = showAppsDetailRequest['app_id'];
                     startTime = showAppsDetailRequest['start_time'];
                     endTime = showAppsDetailRequest['end_time'];
                     timeUnit = showAppsDetailRequest['time_unit'];
+                    dlmType = showAppsDetailRequest['Dlm-Type'];
                 }
             }
 
@@ -14625,8 +16144,6 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let startTime;
@@ -14634,22 +16151,24 @@ export const ParamCreater = function () {
             let endTime;
             
             let timeUnit;
+            
+            let dlmType;
 
             if (showAppsOverviewRequest !== null && showAppsOverviewRequest !== undefined) {
                 if (showAppsOverviewRequest instanceof ShowAppsOverviewRequest) {
                     workspace = showAppsOverviewRequest.workspace;
-                    dlmType = showAppsOverviewRequest.dlmType;
                     contentType = showAppsOverviewRequest.contentType;
                     startTime = showAppsOverviewRequest.startTime;
                     endTime = showAppsOverviewRequest.endTime;
                     timeUnit = showAppsOverviewRequest.timeUnit;
+                    dlmType = showAppsOverviewRequest.dlmType;
                 } else {
                     workspace = showAppsOverviewRequest['workspace'];
-                    dlmType = showAppsOverviewRequest['Dlm-Type'];
                     contentType = showAppsOverviewRequest['Content-Type'];
                     startTime = showAppsOverviewRequest['start_time'];
                     endTime = showAppsOverviewRequest['end_time'];
                     timeUnit = showAppsOverviewRequest['time_unit'];
+                    dlmType = showAppsOverviewRequest['Dlm-Type'];
                 }
             }
 
@@ -14950,23 +16469,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
 
             if (showCatalogDetailRequest !== null && showCatalogDetailRequest !== undefined) {
                 if (showCatalogDetailRequest instanceof ShowCatalogDetailRequest) {
                     workspace = showCatalogDetailRequest.workspace;
-                    dlmType = showCatalogDetailRequest.dlmType;
                     contentType = showCatalogDetailRequest.contentType;
                     catalogId = showCatalogDetailRequest.catalogId;
+                    dlmType = showCatalogDetailRequest.dlmType;
                 } else {
                     workspace = showCatalogDetailRequest['workspace'];
-                    dlmType = showCatalogDetailRequest['Dlm-Type'];
                     contentType = showCatalogDetailRequest['Content-Type'];
                     catalogId = showCatalogDetailRequest['catalog_id'];
+                    dlmType = showCatalogDetailRequest['Dlm-Type'];
                 }
             }
 
@@ -15996,23 +17515,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let messageId;
+            
+            let dlmType;
 
             if (showMessageDetailRequest !== null && showMessageDetailRequest !== undefined) {
                 if (showMessageDetailRequest instanceof ShowMessageDetailRequest) {
                     workspace = showMessageDetailRequest.workspace;
-                    dlmType = showMessageDetailRequest.dlmType;
                     contentType = showMessageDetailRequest.contentType;
                     messageId = showMessageDetailRequest.messageId;
+                    dlmType = showMessageDetailRequest.dlmType;
                 } else {
                     workspace = showMessageDetailRequest['workspace'];
-                    dlmType = showMessageDetailRequest['Dlm-Type'];
                     contentType = showMessageDetailRequest['Content-Type'];
                     messageId = showMessageDetailRequest['message_id'];
+                    dlmType = showMessageDetailRequest['Dlm-Type'];
                 }
             }
 
@@ -16135,11 +17654,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
             
             let limit;
             
@@ -16148,16 +17667,16 @@ export const ParamCreater = function () {
             if (showPathByIdRequest !== null && showPathByIdRequest !== undefined) {
                 if (showPathByIdRequest instanceof ShowPathByIdRequest) {
                     workspace = showPathByIdRequest.workspace;
-                    dlmType = showPathByIdRequest.dlmType;
                     contentType = showPathByIdRequest.contentType;
                     catalogId = showPathByIdRequest.catalogId;
+                    dlmType = showPathByIdRequest.dlmType;
                     limit = showPathByIdRequest.limit;
                     offset = showPathByIdRequest.offset;
                 } else {
                     workspace = showPathByIdRequest['workspace'];
-                    dlmType = showPathByIdRequest['Dlm-Type'];
                     contentType = showPathByIdRequest['Content-Type'];
                     catalogId = showPathByIdRequest['catalog_id'];
+                    dlmType = showPathByIdRequest['Dlm-Type'];
                     limit = showPathByIdRequest['limit'];
                     offset = showPathByIdRequest['offset'];
                 }
@@ -16208,11 +17727,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
             
             let limit;
             
@@ -16221,16 +17740,16 @@ export const ParamCreater = function () {
             if (showPathObjectByIdRequest !== null && showPathObjectByIdRequest !== undefined) {
                 if (showPathObjectByIdRequest instanceof ShowPathObjectByIdRequest) {
                     workspace = showPathObjectByIdRequest.workspace;
-                    dlmType = showPathObjectByIdRequest.dlmType;
                     contentType = showPathObjectByIdRequest.contentType;
                     catalogId = showPathObjectByIdRequest.catalogId;
+                    dlmType = showPathObjectByIdRequest.dlmType;
                     limit = showPathObjectByIdRequest.limit;
                     offset = showPathObjectByIdRequest.offset;
                 } else {
                     workspace = showPathObjectByIdRequest['workspace'];
-                    dlmType = showPathObjectByIdRequest['Dlm-Type'];
                     contentType = showPathObjectByIdRequest['Content-Type'];
                     catalogId = showPathObjectByIdRequest['catalog_id'];
+                    dlmType = showPathObjectByIdRequest['Dlm-Type'];
                     limit = showPathObjectByIdRequest['limit'];
                     offset = showPathObjectByIdRequest['offset'];
                 }
@@ -16354,6 +17873,138 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询特定识别规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityDataClassificationRule(showSecurityDataClassificationRuleRequest?: ShowSecurityDataClassificationRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/rule/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (showSecurityDataClassificationRuleRequest !== null && showSecurityDataClassificationRuleRequest !== undefined) {
+                if (showSecurityDataClassificationRuleRequest instanceof ShowSecurityDataClassificationRuleRequest) {
+                    workspace = showSecurityDataClassificationRuleRequest.workspace;
+                    id = showSecurityDataClassificationRuleRequest.id;
+                } else {
+                    workspace = showSecurityDataClassificationRuleRequest['workspace'];
+                    id = showSecurityDataClassificationRuleRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showSecurityDataClassificationRule.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询规则组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityDataClassificationRuleGroup(showSecurityDataClassificationRuleGroupRequest?: ShowSecurityDataClassificationRuleGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/rule/group/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (showSecurityDataClassificationRuleGroupRequest !== null && showSecurityDataClassificationRuleGroupRequest !== undefined) {
+                if (showSecurityDataClassificationRuleGroupRequest instanceof ShowSecurityDataClassificationRuleGroupRequest) {
+                    workspace = showSecurityDataClassificationRuleGroupRequest.workspace;
+                    id = showSecurityDataClassificationRuleGroupRequest.id;
+                } else {
+                    workspace = showSecurityDataClassificationRuleGroupRequest['workspace'];
+                    id = showSecurityDataClassificationRuleGroupRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showSecurityDataClassificationRuleGroup.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询权限集
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityPermissionSet(showSecurityPermissionSetRequest?: ShowSecurityPermissionSetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (showSecurityPermissionSetRequest !== null && showSecurityPermissionSetRequest !== undefined) {
+                if (showSecurityPermissionSetRequest instanceof ShowSecurityPermissionSetRequest) {
+                    permissionSetId = showSecurityPermissionSetRequest.permissionSetId;
+                    workspace = showSecurityPermissionSetRequest.workspace;
+                } else {
+                    permissionSetId = showSecurityPermissionSetRequest['permission_set_id'];
+                    workspace = showSecurityPermissionSetRequest['workspace'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling showSecurityPermissionSet.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'permission_set_id': permissionSetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16939,24 +18590,24 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let appId;
+            
+            let dlmType;
 
             if (updateAppRequest !== null && updateAppRequest !== undefined) {
                 if (updateAppRequest instanceof UpdateAppRequest) {
                     workspace = updateAppRequest.workspace;
-                    dlmType = updateAppRequest.dlmType;
                     contentType = updateAppRequest.contentType;
                     appId = updateAppRequest.appId;
+                    dlmType = updateAppRequest.dlmType;
                     body = updateAppRequest.body
                 } else {
                     workspace = updateAppRequest['workspace'];
-                    dlmType = updateAppRequest['Dlm-Type'];
                     contentType = updateAppRequest['Content-Type'];
                     appId = updateAppRequest['app_id'];
+                    dlmType = updateAppRequest['Dlm-Type'];
                     body = updateAppRequest['body'];
                 }
             }
@@ -17048,25 +18699,25 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let catalogId;
+            
+            let dlmType;
 
             if (updateCatalogRequest !== null && updateCatalogRequest !== undefined) {
                 if (updateCatalogRequest instanceof UpdateCatalogRequest) {
                     workspace = updateCatalogRequest.workspace;
-                    dlmType = updateCatalogRequest.dlmType;
                     contentType = updateCatalogRequest.contentType;
                     catalogId = updateCatalogRequest.catalogId;
                     body = updateCatalogRequest.body
+                    dlmType = updateCatalogRequest.dlmType;
                 } else {
                     workspace = updateCatalogRequest['workspace'];
-                    dlmType = updateCatalogRequest['Dlm-Type'];
                     contentType = updateCatalogRequest['Content-Type'];
                     catalogId = updateCatalogRequest['catalog_id'];
                     body = updateCatalogRequest['body'];
+                    dlmType = updateCatalogRequest['Dlm-Type'];
                 }
             }
 
@@ -17368,6 +19019,225 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_name': jobName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改识别规则接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityDataClassificationRule(updateSecurityDataClassificationRuleRequest?: UpdateSecurityDataClassificationRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/data-classification/rule/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecurityDataClassificationRuleRequest !== null && updateSecurityDataClassificationRuleRequest !== undefined) {
+                if (updateSecurityDataClassificationRuleRequest instanceof UpdateSecurityDataClassificationRuleRequest) {
+                    workspace = updateSecurityDataClassificationRuleRequest.workspace;
+                    id = updateSecurityDataClassificationRuleRequest.id;
+                    body = updateSecurityDataClassificationRuleRequest.body
+                } else {
+                    workspace = updateSecurityDataClassificationRuleRequest['workspace'];
+                    id = updateSecurityDataClassificationRuleRequest['id'];
+                    body = updateSecurityDataClassificationRuleRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityDataClassificationRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新权限集
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityPermissionSet(updateSecurityPermissionSetRequest?: UpdateSecurityPermissionSetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let workspace;
+
+            if (updateSecurityPermissionSetRequest !== null && updateSecurityPermissionSetRequest !== undefined) {
+                if (updateSecurityPermissionSetRequest instanceof UpdateSecurityPermissionSetRequest) {
+                    permissionSetId = updateSecurityPermissionSetRequest.permissionSetId;
+                    workspace = updateSecurityPermissionSetRequest.workspace;
+                    body = updateSecurityPermissionSetRequest.body
+                } else {
+                    permissionSetId = updateSecurityPermissionSetRequest['permission_set_id'];
+                    workspace = updateSecurityPermissionSetRequest['workspace'];
+                    body = updateSecurityPermissionSetRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling updateSecurityPermissionSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新权限集的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityPermissionSetPermission(updateSecurityPermissionSetPermissionRequest?: UpdateSecurityPermissionSetPermissionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/permission-sets/{permission_set_id}/permissions/{permission_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let permissionSetId;
+            
+            let permissionId;
+            
+            let workspace;
+
+            if (updateSecurityPermissionSetPermissionRequest !== null && updateSecurityPermissionSetPermissionRequest !== undefined) {
+                if (updateSecurityPermissionSetPermissionRequest instanceof UpdateSecurityPermissionSetPermissionRequest) {
+                    permissionSetId = updateSecurityPermissionSetPermissionRequest.permissionSetId;
+                    permissionId = updateSecurityPermissionSetPermissionRequest.permissionId;
+                    workspace = updateSecurityPermissionSetPermissionRequest.workspace;
+                    body = updateSecurityPermissionSetPermissionRequest.body
+                } else {
+                    permissionSetId = updateSecurityPermissionSetPermissionRequest['permission_set_id'];
+                    permissionId = updateSecurityPermissionSetPermissionRequest['permission_id'];
+                    workspace = updateSecurityPermissionSetPermissionRequest['workspace'];
+                    body = updateSecurityPermissionSetPermissionRequest['body'];
+                }
+            }
+
+        
+            if (permissionSetId === null || permissionSetId === undefined) {
+            throw new RequiredError('permissionSetId','Required parameter permissionSetId was null or undefined when calling updateSecurityPermissionSetPermission.');
+            }
+            if (permissionId === null || permissionId === undefined) {
+            throw new RequiredError('permissionId','Required parameter permissionId was null or undefined when calling updateSecurityPermissionSetPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'permission_set_id': permissionSetId,'permission_id': permissionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改识别规则状态接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityRuleEnableStatus(updateSecurityRuleEnableStatusRequest?: UpdateSecurityRuleEnableStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/data-classification/rule/switch-status/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecurityRuleEnableStatusRequest !== null && updateSecurityRuleEnableStatusRequest !== undefined) {
+                if (updateSecurityRuleEnableStatusRequest instanceof UpdateSecurityRuleEnableStatusRequest) {
+                    workspace = updateSecurityRuleEnableStatusRequest.workspace;
+                    id = updateSecurityRuleEnableStatusRequest.id;
+                    body = updateSecurityRuleEnableStatusRequest.body
+                } else {
+                    workspace = updateSecurityRuleEnableStatusRequest['workspace'];
+                    id = updateSecurityRuleEnableStatusRequest['id'];
+                    body = updateSecurityRuleEnableStatusRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityRuleEnableStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17830,21 +19700,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (authorizeActionApiToInstanceRequest !== null && authorizeActionApiToInstanceRequest !== undefined) {
                 if (authorizeActionApiToInstanceRequest instanceof AuthorizeActionApiToInstanceRequest) {
                     workspace = authorizeActionApiToInstanceRequest.workspace;
-                    dlmType = authorizeActionApiToInstanceRequest.dlmType;
                     contentType = authorizeActionApiToInstanceRequest.contentType;
                     body = authorizeActionApiToInstanceRequest.body
+                    dlmType = authorizeActionApiToInstanceRequest.dlmType;
                 } else {
                     workspace = authorizeActionApiToInstanceRequest['workspace'];
-                    dlmType = authorizeActionApiToInstanceRequest['Dlm-Type'];
                     contentType = authorizeActionApiToInstanceRequest['Content-Type'];
                     body = authorizeActionApiToInstanceRequest['body'];
+                    dlmType = authorizeActionApiToInstanceRequest['Dlm-Type'];
                 }
             }
 
@@ -17889,29 +19759,29 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
             
             let instanceId;
+            
+            let dlmType;
 
             if (authorizeApiToInstanceRequest !== null && authorizeApiToInstanceRequest !== undefined) {
                 if (authorizeApiToInstanceRequest instanceof AuthorizeApiToInstanceRequest) {
                     workspace = authorizeApiToInstanceRequest.workspace;
-                    dlmType = authorizeApiToInstanceRequest.dlmType;
                     contentType = authorizeApiToInstanceRequest.contentType;
                     apiId = authorizeApiToInstanceRequest.apiId;
                     instanceId = authorizeApiToInstanceRequest.instanceId;
                     body = authorizeApiToInstanceRequest.body
+                    dlmType = authorizeApiToInstanceRequest.dlmType;
                 } else {
                     workspace = authorizeApiToInstanceRequest['workspace'];
-                    dlmType = authorizeApiToInstanceRequest['Dlm-Type'];
                     contentType = authorizeApiToInstanceRequest['Content-Type'];
                     apiId = authorizeApiToInstanceRequest['api_id'];
                     instanceId = authorizeApiToInstanceRequest['instance_id'];
                     body = authorizeApiToInstanceRequest['body'];
+                    dlmType = authorizeApiToInstanceRequest['Dlm-Type'];
                 }
             }
 
@@ -17963,21 +19833,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (createApiRequest !== null && createApiRequest !== undefined) {
                 if (createApiRequest instanceof CreateApiRequest) {
                     workspace = createApiRequest.workspace;
-                    dlmType = createApiRequest.dlmType;
                     contentType = createApiRequest.contentType;
                     body = createApiRequest.body
+                    dlmType = createApiRequest.dlmType;
                 } else {
                     workspace = createApiRequest['workspace'];
-                    dlmType = createApiRequest['Dlm-Type'];
                     contentType = createApiRequest['Content-Type'];
                     body = createApiRequest['body'];
+                    dlmType = createApiRequest['Dlm-Type'];
                 }
             }
 
@@ -18022,29 +19892,29 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
             
             let instanceId;
+            
+            let dlmType;
 
             if (debugApiRequest !== null && debugApiRequest !== undefined) {
                 if (debugApiRequest instanceof DebugApiRequest) {
                     workspace = debugApiRequest.workspace;
-                    dlmType = debugApiRequest.dlmType;
                     contentType = debugApiRequest.contentType;
                     apiId = debugApiRequest.apiId;
                     instanceId = debugApiRequest.instanceId;
                     body = debugApiRequest.body
+                    dlmType = debugApiRequest.dlmType;
                 } else {
                     workspace = debugApiRequest['workspace'];
-                    dlmType = debugApiRequest['Dlm-Type'];
                     contentType = debugApiRequest['Content-Type'];
                     apiId = debugApiRequest['api_id'];
                     instanceId = debugApiRequest['instance_id'];
                     body = debugApiRequest['body'];
+                    dlmType = debugApiRequest['Dlm-Type'];
                 }
             }
 
@@ -18094,23 +19964,23 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let dlmType;
-            
             let contentType;
             
             let workspace;
+            
+            let dlmType;
 
             if (deleteApiRequest !== null && deleteApiRequest !== undefined) {
                 if (deleteApiRequest instanceof DeleteApiRequest) {
-                    dlmType = deleteApiRequest.dlmType;
                     contentType = deleteApiRequest.contentType;
                     body = deleteApiRequest.body
                     workspace = deleteApiRequest.workspace;
+                    dlmType = deleteApiRequest.dlmType;
                 } else {
-                    dlmType = deleteApiRequest['Dlm-Type'];
                     contentType = deleteApiRequest['Content-Type'];
                     body = deleteApiRequest['body'];
                     workspace = deleteApiRequest['workspace'];
+                    dlmType = deleteApiRequest['Dlm-Type'];
                 }
             }
 
@@ -18155,29 +20025,29 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
             
             let instanceId;
+            
+            let dlmType;
 
             if (executeApiToInstanceRequest !== null && executeApiToInstanceRequest !== undefined) {
                 if (executeApiToInstanceRequest instanceof ExecuteApiToInstanceRequest) {
                     workspace = executeApiToInstanceRequest.workspace;
-                    dlmType = executeApiToInstanceRequest.dlmType;
                     contentType = executeApiToInstanceRequest.contentType;
                     apiId = executeApiToInstanceRequest.apiId;
                     instanceId = executeApiToInstanceRequest.instanceId;
                     body = executeApiToInstanceRequest.body
+                    dlmType = executeApiToInstanceRequest.dlmType;
                 } else {
                     workspace = executeApiToInstanceRequest['workspace'];
-                    dlmType = executeApiToInstanceRequest['Dlm-Type'];
                     contentType = executeApiToInstanceRequest['Content-Type'];
                     apiId = executeApiToInstanceRequest['api_id'];
                     instanceId = executeApiToInstanceRequest['instance_id'];
                     body = executeApiToInstanceRequest['body'];
+                    dlmType = executeApiToInstanceRequest['Dlm-Type'];
                 }
             }
 
@@ -18227,9 +20097,9 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
             
             let xReturnPublishMessages;
             
@@ -18240,15 +20110,15 @@ export const ParamCreater = function () {
             if (listApisRequest !== null && listApisRequest !== undefined) {
                 if (listApisRequest instanceof ListApisRequest) {
                     workspace = listApisRequest.workspace;
-                    dlmType = listApisRequest.dlmType;
                     contentType = listApisRequest.contentType;
+                    dlmType = listApisRequest.dlmType;
                     xReturnPublishMessages = listApisRequest.xReturnPublishMessages;
                     offset = listApisRequest.offset;
                     limit = listApisRequest.limit;
                 } else {
                     workspace = listApisRequest['workspace'];
-                    dlmType = listApisRequest['Dlm-Type'];
                     contentType = listApisRequest['Content-Type'];
+                    dlmType = listApisRequest['Dlm-Type'];
                     xReturnPublishMessages = listApisRequest['x-return-publish-messages'];
                     offset = listApisRequest['offset'];
                     limit = listApisRequest['limit'];
@@ -18299,13 +20169,13 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
             
             let action;
+            
+            let dlmType;
             
             let showAll;
             
@@ -18322,10 +20192,10 @@ export const ParamCreater = function () {
             if (listInstanceListRequest !== null && listInstanceListRequest !== undefined) {
                 if (listInstanceListRequest instanceof ListInstanceListRequest) {
                     workspace = listInstanceListRequest.workspace;
-                    dlmType = listInstanceListRequest.dlmType;
                     contentType = listInstanceListRequest.contentType;
                     apiId = listInstanceListRequest.apiId;
                     action = listInstanceListRequest.action;
+                    dlmType = listInstanceListRequest.dlmType;
                     showAll = listInstanceListRequest.showAll;
                     checkStatus = listInstanceListRequest.checkStatus;
                     checkDebug = listInstanceListRequest.checkDebug;
@@ -18334,10 +20204,10 @@ export const ParamCreater = function () {
                     offset = listInstanceListRequest.offset;
                 } else {
                     workspace = listInstanceListRequest['workspace'];
-                    dlmType = listInstanceListRequest['Dlm-Type'];
                     contentType = listInstanceListRequest['Content-Type'];
                     apiId = listInstanceListRequest['api_id'];
                     action = listInstanceListRequest['action'];
+                    dlmType = listInstanceListRequest['Dlm-Type'];
                     showAll = listInstanceListRequest['show_all'];
                     checkStatus = listInstanceListRequest['check_status'];
                     checkDebug = listInstanceListRequest['check_debug'];
@@ -18412,21 +20282,21 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
+            
+            let dlmType;
 
             if (publishApiRequest !== null && publishApiRequest !== undefined) {
                 if (publishApiRequest instanceof PublishApiRequest) {
                     workspace = publishApiRequest.workspace;
-                    dlmType = publishApiRequest.dlmType;
                     contentType = publishApiRequest.contentType;
                     body = publishApiRequest.body
+                    dlmType = publishApiRequest.dlmType;
                 } else {
                     workspace = publishApiRequest['workspace'];
-                    dlmType = publishApiRequest['Dlm-Type'];
                     contentType = publishApiRequest['Content-Type'];
                     body = publishApiRequest['body'];
+                    dlmType = publishApiRequest['Dlm-Type'];
                 }
             }
 
@@ -18471,29 +20341,29 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
             
             let instanceId;
+            
+            let dlmType;
 
             if (publishApiToInstanceRequest !== null && publishApiToInstanceRequest !== undefined) {
                 if (publishApiToInstanceRequest instanceof PublishApiToInstanceRequest) {
                     workspace = publishApiToInstanceRequest.workspace;
-                    dlmType = publishApiToInstanceRequest.dlmType;
                     contentType = publishApiToInstanceRequest.contentType;
                     apiId = publishApiToInstanceRequest.apiId;
                     instanceId = publishApiToInstanceRequest.instanceId;
                     body = publishApiToInstanceRequest.body
+                    dlmType = publishApiToInstanceRequest.dlmType;
                 } else {
                     workspace = publishApiToInstanceRequest['workspace'];
-                    dlmType = publishApiToInstanceRequest['Dlm-Type'];
                     contentType = publishApiToInstanceRequest['Content-Type'];
                     apiId = publishApiToInstanceRequest['api_id'];
                     instanceId = publishApiToInstanceRequest['instance_id'];
                     body = publishApiToInstanceRequest['body'];
+                    dlmType = publishApiToInstanceRequest['Dlm-Type'];
                 }
             }
 
@@ -18543,11 +20413,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
+            
+            let dlmType;
             
             let limit;
             
@@ -18556,16 +20426,16 @@ export const ParamCreater = function () {
             if (searchDebugInfoRequest !== null && searchDebugInfoRequest !== undefined) {
                 if (searchDebugInfoRequest instanceof SearchDebugInfoRequest) {
                     workspace = searchDebugInfoRequest.workspace;
-                    dlmType = searchDebugInfoRequest.dlmType;
                     contentType = searchDebugInfoRequest.contentType;
                     apiId = searchDebugInfoRequest.apiId;
+                    dlmType = searchDebugInfoRequest.dlmType;
                     limit = searchDebugInfoRequest.limit;
                     offset = searchDebugInfoRequest.offset;
                 } else {
                     workspace = searchDebugInfoRequest['workspace'];
-                    dlmType = searchDebugInfoRequest['Dlm-Type'];
                     contentType = searchDebugInfoRequest['Content-Type'];
                     apiId = searchDebugInfoRequest['api_id'];
+                    dlmType = searchDebugInfoRequest['Dlm-Type'];
                     limit = searchDebugInfoRequest['limit'];
                     offset = searchDebugInfoRequest['offset'];
                 }
@@ -18616,11 +20486,11 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
+            
+            let dlmType;
             
             let limit;
             
@@ -18629,16 +20499,16 @@ export const ParamCreater = function () {
             if (searchPublishInfoRequest !== null && searchPublishInfoRequest !== undefined) {
                 if (searchPublishInfoRequest instanceof SearchPublishInfoRequest) {
                     workspace = searchPublishInfoRequest.workspace;
-                    dlmType = searchPublishInfoRequest.dlmType;
                     contentType = searchPublishInfoRequest.contentType;
                     apiId = searchPublishInfoRequest.apiId;
+                    dlmType = searchPublishInfoRequest.dlmType;
                     limit = searchPublishInfoRequest.limit;
                     offset = searchPublishInfoRequest.offset;
                 } else {
                     workspace = searchPublishInfoRequest['workspace'];
-                    dlmType = searchPublishInfoRequest['Dlm-Type'];
                     contentType = searchPublishInfoRequest['Content-Type'];
                     apiId = searchPublishInfoRequest['api_id'];
+                    dlmType = searchPublishInfoRequest['Dlm-Type'];
                     limit = searchPublishInfoRequest['limit'];
                     offset = searchPublishInfoRequest['offset'];
                 }
@@ -18671,6 +20541,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobName;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let authorization;
+            
+            let host;
+
+            if (setFactoryJobTagsRequest !== null && setFactoryJobTagsRequest !== undefined) {
+                if (setFactoryJobTagsRequest instanceof SetFactoryJobTagsRequest) {
+                    jobName = setFactoryJobTagsRequest.jobName;
+                    body = setFactoryJobTagsRequest.body
+                    workspace = setFactoryJobTagsRequest.workspace;
+                    contentType = setFactoryJobTagsRequest.contentType;
+                    authorization = setFactoryJobTagsRequest.authorization;
+                    host = setFactoryJobTagsRequest.host;
+                } else {
+                    jobName = setFactoryJobTagsRequest['job_name'];
+                    body = setFactoryJobTagsRequest['body'];
+                    workspace = setFactoryJobTagsRequest['workspace'];
+                    contentType = setFactoryJobTagsRequest['Content-Type'];
+                    authorization = setFactoryJobTagsRequest['Authorization'];
+                    host = setFactoryJobTagsRequest['Host'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling setFactoryJobTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (host !== undefined && host !== null) {
+                localVarHeaderParameter['Host'] = String(host);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_name': jobName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询API信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18689,23 +20632,23 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
+            
+            let dlmType;
 
             if (showApiRequest !== null && showApiRequest !== undefined) {
                 if (showApiRequest instanceof ShowApiRequest) {
                     workspace = showApiRequest.workspace;
-                    dlmType = showApiRequest.dlmType;
                     contentType = showApiRequest.contentType;
                     apiId = showApiRequest.apiId;
+                    dlmType = showApiRequest.dlmType;
                 } else {
                     workspace = showApiRequest['workspace'];
-                    dlmType = showApiRequest['Dlm-Type'];
                     contentType = showApiRequest['Content-Type'];
                     apiId = showApiRequest['api_id'];
+                    dlmType = showApiRequest['Dlm-Type'];
                 }
             }
 
@@ -18749,25 +20692,25 @@ export const ParamCreater = function () {
             
             let workspace;
             
-            let dlmType;
-            
             let contentType;
             
             let apiId;
+            
+            let dlmType;
 
             if (updateApiRequest !== null && updateApiRequest !== undefined) {
                 if (updateApiRequest instanceof UpdateApiRequest) {
                     workspace = updateApiRequest.workspace;
-                    dlmType = updateApiRequest.dlmType;
                     contentType = updateApiRequest.contentType;
                     apiId = updateApiRequest.apiId;
                     body = updateApiRequest.body
+                    dlmType = updateApiRequest.dlmType;
                 } else {
                     workspace = updateApiRequest['workspace'];
-                    dlmType = updateApiRequest['Dlm-Type'];
                     contentType = updateApiRequest['Content-Type'];
                     apiId = updateApiRequest['api_id'];
                     body = updateApiRequest['body'];
+                    dlmType = updateApiRequest['Dlm-Type'];
                 }
             }
 

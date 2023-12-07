@@ -4,6 +4,8 @@ export class ListStatisticsRequest {
     public filter?: ListStatisticsRequestFilterEnum | string;
     public period?: string;
     public option?: string;
+    public limit?: string;
+    public marker?: string;
     public constructor(filter?: string) { 
         this['filter'] = filter;
     }
@@ -17,6 +19,14 @@ export class ListStatisticsRequest {
     }
     public withOption(option: string): ListStatisticsRequest {
         this['option'] = option;
+        return this;
+    }
+    public withLimit(limit: string): ListStatisticsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListStatisticsRequest {
+        this['marker'] = marker;
         return this;
     }
 }

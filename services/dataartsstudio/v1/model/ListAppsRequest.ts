@@ -8,9 +8,8 @@ export class ListAppsRequest {
     public offset?: number;
     public name?: string;
     private 'app_type'?: ListAppsRequestAppTypeEnum | string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): ListAppsRequest {

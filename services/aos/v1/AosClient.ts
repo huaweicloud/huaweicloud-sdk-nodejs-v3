@@ -34,6 +34,8 @@ import { DeleteExecutionPlanResponse } from './model/DeleteExecutionPlanResponse
 import { DeleteStackEnhancedRequest } from './model/DeleteStackEnhancedRequest';
 import { DeleteStackEnhancedRequestBody } from './model/DeleteStackEnhancedRequestBody';
 import { DeleteStackEnhancedResponse } from './model/DeleteStackEnhancedResponse';
+import { DeleteStackInstanceDeprecatedRequest } from './model/DeleteStackInstanceDeprecatedRequest';
+import { DeleteStackInstanceDeprecatedResponse } from './model/DeleteStackInstanceDeprecatedResponse';
 import { DeleteStackInstanceRequest } from './model/DeleteStackInstanceRequest';
 import { DeleteStackInstanceRequestBody } from './model/DeleteStackInstanceRequestBody';
 import { DeleteStackInstanceResponse } from './model/DeleteStackInstanceResponse';
@@ -147,6 +149,7 @@ import { StackSetOperationIdPrimitiveTypeHolder } from './model/StackSetOperatio
 import { StackSetOperationStatusMessagePrimitiveTypeHolder } from './model/StackSetOperationStatusMessagePrimitiveTypeHolder';
 import { StackSetOperationStatusPrimitiveTypeHolder } from './model/StackSetOperationStatusPrimitiveTypeHolder';
 import { StackSetOperationUpdateTimePrimitiveTypeHolder } from './model/StackSetOperationUpdateTimePrimitiveTypeHolder';
+import { StackSetStackNamePrimitiveTypeHolder } from './model/StackSetStackNamePrimitiveTypeHolder';
 import { StackSetStatusPrimitiveTypeHolder } from './model/StackSetStatusPrimitiveTypeHolder';
 import { StackSetUpdateTimePrimitiveTypeHolder } from './model/StackSetUpdateTimePrimitiveTypeHolder';
 import { StackSetVarsURIContentPrimitiveTypeHolder } from './model/StackSetVarsURIContentPrimitiveTypeHolder';
@@ -436,7 +439,7 @@ export class AosClient {
      * 
      * 列举当前局点下用户指定资源栈下所有的执行计划
      * 
-     *   * 默认按照生成时间排序，最早生成的在最前
+     *   * 默认按照生成时间降序排序，最新生成的在最前
      *   * 注意：目前暂时返回全量执行计划信息，即不支持分页
      *   * 如果指定的资源栈下没有任何执行计划，则返回空list
      *   * 如果指定的资源栈不存在，则返回404
@@ -836,7 +839,7 @@ export class AosClient {
      * 
      * 此API用于列举当前局点下用户所有的资源栈
      * 
-     *   * 默认按照生成时间排序，最早生成的在最前
+     *   * 默认按照生成时间降序排序，最新生成的在最前
      *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
      *   * 如果没有任何资源栈，则返回空list
      * 
@@ -966,7 +969,7 @@ export class AosClient {
      * @summary 删除资源栈实例
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {DeleteStackInstanceRequestBody} deleteStackInstanceRequestBody DeleteStackInstance API的请求Body体
+     * @param {DeleteStackInstanceRequestBody} deleteStackInstanceRequestBody DeleteStackInstances API的请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -980,11 +983,38 @@ export class AosClient {
     }
 
     /**
+     * 删除资源栈实例-被废弃（DeleteStackInstanceDeprecated）
+     * 
+     * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+     * 
+     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+     * 
+     * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源栈实例-已废弃
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {DeleteStackInstanceRequestBody} deleteStackInstanceDeprecatedRequestBody DeleteStackInstanceDeprecated API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStackInstanceDeprecated(deleteStackInstanceDeprecatedRequest?: DeleteStackInstanceDeprecatedRequest): Promise<DeleteStackInstanceDeprecatedResponse> {
+        const options = ParamCreater().deleteStackInstanceDeprecated(deleteStackInstanceDeprecatedRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除资源栈集（DeleteStackSet）
      * 
      * **请谨慎操作，删除资源栈集将会删除与该资源栈集相关的所有数据，如：资源栈集操作、资源栈集操作事件等。**
      * 
-     * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错
+     * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错：
      *   * 资源栈集下没有资源栈实例
      *   * 资源栈集状态处于空闲（&#x60;IDLE&#x60;）状态
      * 
@@ -993,7 +1023,7 @@ export class AosClient {
      * @summary 删除资源栈集
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1045,7 +1075,7 @@ export class AosClient {
      * 此API用于列举指定资源栈集下指定局点（region）或指定成员账户（stack_domain_id）或全部资源栈实例
      * 
      * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账户（stack_domain_id）下的资源栈实例
-     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * * 若指定资源栈集下没有任何资源栈实例，则返回空list
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1053,7 +1083,7 @@ export class AosClient {
      * @summary 列举资源栈实例
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
@@ -1075,7 +1105,7 @@ export class AosClient {
      * 列举指定资源栈集下所有的资源栈集的操作。
      * 
      * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
-     * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * 若指定资源栈集下没有任何资源栈集操作，则返回空list。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1083,7 +1113,7 @@ export class AosClient {
      * @summary 列举资源栈集操作
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
@@ -1105,7 +1135,7 @@ export class AosClient {
      * 此API用于列举当前用户（domain）当前局点（region）下全部资源栈集。
      * 
      * * 可以使用filter作为过滤器，过滤出指定权限模型（permission_model）下的资源栈集。
-     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+     * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
      * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
      * * 如果没有任何资源栈集，则返回空list
      * 
@@ -1139,7 +1169,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} stackInstanceAddr 资源栈实例的唯一地址。该地址由region和stack_domain_id通过\&quot;/\&quot;（转义后为%2f或%2F）拼接而成。该地址在domain_id+region+stack_set_name下唯一。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1162,7 +1192,7 @@ export class AosClient {
      * @summary 获取资源栈集元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1187,8 +1217,8 @@ export class AosClient {
      * @summary 获取资源栈集操作的元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} stackSetOperationId 资源栈集操作（stack_set_operation）的唯一Id。  此Id由资源编排服务在生成资源栈集操作的时候生成，为UUID。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} stackSetOperationId 资源栈集操作（stack_set_operation）的唯一Id。  此ID由资源编排服务在生成资源栈集操作的时候生成，为UUID。
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1214,7 +1244,7 @@ export class AosClient {
      * @summary 获取资源栈集模板
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [stackSetId] 资源栈集（stack-set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给与的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1263,13 +1293,13 @@ export class AosClient {
     /**
      * 更新资源栈集（UpdateStackSet）
      * 
-     * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;五个属性中的一个或多个。
+     * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”六个属性中的一个或多个。
      * 
      * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈集属性进行更新。
      * 
      * 注：
      *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
-     *   * 只有在permission_model&#x3D;self_managed时，才可更新administration_agency_name和managed_agency_name。
+     *   * 只有在permission_model&#x3D;SELF_MANAGED时，才可更新administration_agency_name、managed_agency_name和administration_agency_urn。
      *   * permission_model目前只支持更新SELF_MANAGED
      *   * 若资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
      * 
@@ -1380,7 +1410,7 @@ export class AosClient {
      * 
      * 此API用于列举模板下所有的模板版本信息
      * 
-     *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+     *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
      *   * 注意：目前返回全量模板版本信息，即不支持分页
      *   * 如果没有任何模板版本，则返回空list
      *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给与的template_id和当前模板管理的ID不一致，则返回400
@@ -1412,7 +1442,7 @@ export class AosClient {
      * 
      * 此API用于列举当前局点下用户所有的模板
      * 
-     *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+     *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
      *   * 注意：目前返回全量模板信息，即不支持分页
      *   * 如果没有任何模板，则返回空list
      *   * 若用户需要详细的模板版本信息，请调用ListTemplateVersions
@@ -2070,7 +2100,7 @@ export const ParamCreater = function () {
          * 
          * 列举当前局点下用户指定资源栈下所有的执行计划
          * 
-         *   * 默认按照生成时间排序，最早生成的在最前
+         *   * 默认按照生成时间降序排序，最新生成的在最前
          *   * 注意：目前暂时返回全量执行计划信息，即不支持分页
          *   * 如果指定的资源栈下没有任何执行计划，则返回空list
          *   * 如果指定的资源栈不存在，则返回404
@@ -2922,7 +2952,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于列举当前局点下用户所有的资源栈
          * 
-         *   * 默认按照生成时间排序，最早生成的在最前
+         *   * 默认按照生成时间降序排序，最新生成的在最前
          *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
          *   * 如果没有任何资源栈，则返回空list
          * 
@@ -3170,8 +3200,8 @@ export const ParamCreater = function () {
          */
         deleteStackInstance(deleteStackInstanceRequest?: DeleteStackInstanceRequest) {
             const options = {
-                method: "DELETE",
-                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                method: "POST",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances/deletion",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3217,11 +3247,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除资源栈实例-被废弃（DeleteStackInstanceDeprecated）
+         * 
+         * 此API用于删除指定资源栈集下指定局点（region）或指定成员账户（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
+         * 
+         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+         * 
+         * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStackInstanceDeprecated(deleteStackInstanceDeprecatedRequest?: DeleteStackInstanceDeprecatedRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/stack-sets/{stack_set_name}/stack-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let stackSetName;
+
+            if (deleteStackInstanceDeprecatedRequest !== null && deleteStackInstanceDeprecatedRequest !== undefined) {
+                if (deleteStackInstanceDeprecatedRequest instanceof DeleteStackInstanceDeprecatedRequest) {
+                    clientRequestId = deleteStackInstanceDeprecatedRequest.clientRequestId;
+                    stackSetName = deleteStackInstanceDeprecatedRequest.stackSetName;
+                    body = deleteStackInstanceDeprecatedRequest.body
+                } else {
+                    clientRequestId = deleteStackInstanceDeprecatedRequest['Client-Request-Id'];
+                    stackSetName = deleteStackInstanceDeprecatedRequest['stack_set_name'];
+                    body = deleteStackInstanceDeprecatedRequest['body'];
+                }
+            }
+
+        
+            if (stackSetName === null || stackSetName === undefined) {
+            throw new RequiredError('stackSetName','Required parameter stackSetName was null or undefined when calling deleteStackInstanceDeprecated.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'stack_set_name': stackSetName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除资源栈集（DeleteStackSet）
          * 
          * **请谨慎操作，删除资源栈集将会删除与该资源栈集相关的所有数据，如：资源栈集操作、资源栈集操作事件等。**
          * 
-         * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错
+         * 当且仅当指定的资源栈集满足以下所有条件时，资源栈集才能被成功删除，否则会报错：
          *   * 资源栈集下没有资源栈实例
          *   * 资源栈集状态处于空闲（&#x60;IDLE&#x60;）状态
          * 
@@ -3345,7 +3434,7 @@ export const ParamCreater = function () {
          * 此API用于列举指定资源栈集下指定局点（region）或指定成员账户（stack_domain_id）或全部资源栈实例
          * 
          * * 可以使用filter作为过滤器，过滤出指定局点（region）或指定成员账户（stack_domain_id）下的资源栈实例
-         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * * 若指定资源栈集下没有任何资源栈实例，则返回空list
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3424,7 +3513,7 @@ export const ParamCreater = function () {
          * 列举指定资源栈集下所有的资源栈集的操作。
          * 
          * 可以使用filter作为过滤器，过滤出指定操作状态（status）或操作类型（action）下的资源栈集操作。
-         * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * 若指定资源栈集下没有任何资源栈集操作，则返回空list。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3503,7 +3592,7 @@ export const ParamCreater = function () {
          * 此API用于列举当前用户（domain）当前局点（region）下全部资源栈集。
          * 
          * * 可以使用filter作为过滤器，过滤出指定权限模型（permission_model）下的资源栈集。
-         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间升序排序。
+         * * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。若未给予sort_key和sort_dir，则默认按照创建时间降序排序。
          * * 注意：目前暂时返回全量资源栈集信息，即不支持分页
          * * 如果没有任何资源栈集，则返回空list
          * 
@@ -3865,13 +3954,13 @@ export const ParamCreater = function () {
         /**
          * 更新资源栈集（UpdateStackSet）
          * 
-         * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;五个属性中的一个或多个。
+         * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”六个属性中的一个或多个。
          * 
          * 该API只会更新用户给予的信息中所涉及的字段；若某字段未给予，则不会对该资源栈集属性进行更新。
          * 
          * 注：
          *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
-         *   * 只有在permission_model&#x3D;self_managed时，才可更新administration_agency_name和managed_agency_name。
+         *   * 只有在permission_model&#x3D;SELF_MANAGED时，才可更新administration_agency_name、managed_agency_name和administration_agency_urn。
          *   * permission_model目前只支持更新SELF_MANAGED
          *   * 若资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
          * 
@@ -4126,7 +4215,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于列举模板下所有的模板版本信息
          * 
-         *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+         *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
          *   * 注意：目前返回全量模板版本信息，即不支持分页
          *   * 如果没有任何模板版本，则返回空list
          *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给与的template_id和当前模板管理的ID不一致，则返回400
@@ -4195,7 +4284,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于列举当前局点下用户所有的模板
          * 
-         *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+         *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
          *   * 注意：目前返回全量模板信息，即不支持分页
          *   * 如果没有任何模板，则返回空list
          *   * 若用户需要详细的模板版本信息，请调用ListTemplateVersions

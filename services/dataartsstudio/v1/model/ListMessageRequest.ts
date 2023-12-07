@@ -7,9 +7,8 @@ export class ListMessageRequest {
     public offset?: number;
     public limit?: number;
     private 'api_name'?: string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): ListMessageRequest {

@@ -2,9 +2,9 @@
 
 export class ConfigNasTarget {
     public name?: string;
-    public type?: object;
-    public url?: object;
-    public constructor(name?: string, type?: object, url?: object) { 
+    public type?: string;
+    public url?: string;
+    public constructor(name?: string, type?: string, url?: string) { 
         this['name'] = name;
         this['type'] = type;
         this['url'] = url;
@@ -13,11 +13,11 @@ export class ConfigNasTarget {
         this['name'] = name;
         return this;
     }
-    public withType(type: object): ConfigNasTarget {
+    public withType(type: string): ConfigNasTarget {
         this['type'] = type;
         return this;
     }
-    public withUrl(url: object): ConfigNasTarget {
+    public withUrl(url: string): ConfigNasTarget {
         this['url'] = url;
         return this;
     }

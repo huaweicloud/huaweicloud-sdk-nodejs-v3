@@ -151,8 +151,12 @@ import { ListGaussMySqlDedicatedResourcesRequest } from './model/ListGaussMySqlD
 import { ListGaussMySqlDedicatedResourcesResponse } from './model/ListGaussMySqlDedicatedResourcesResponse';
 import { ListGaussMySqlInstanceDetailInfoRequest } from './model/ListGaussMySqlInstanceDetailInfoRequest';
 import { ListGaussMySqlInstanceDetailInfoResponse } from './model/ListGaussMySqlInstanceDetailInfoResponse';
+import { ListGaussMySqlInstanceDetailInfoUnifyStatusRequest } from './model/ListGaussMySqlInstanceDetailInfoUnifyStatusRequest';
+import { ListGaussMySqlInstanceDetailInfoUnifyStatusResponse } from './model/ListGaussMySqlInstanceDetailInfoUnifyStatusResponse';
 import { ListGaussMySqlInstancesRequest } from './model/ListGaussMySqlInstancesRequest';
 import { ListGaussMySqlInstancesResponse } from './model/ListGaussMySqlInstancesResponse';
+import { ListGaussMySqlInstancesUnifyStatusRequest } from './model/ListGaussMySqlInstancesUnifyStatusRequest';
+import { ListGaussMySqlInstancesUnifyStatusResponse } from './model/ListGaussMySqlInstancesUnifyStatusResponse';
 import { ListGaussMysqlDatabaseInfo } from './model/ListGaussMysqlDatabaseInfo';
 import { ListImmediateJobsRequest } from './model/ListImmediateJobsRequest';
 import { ListImmediateJobsResponse } from './model/ListImmediateJobsResponse';
@@ -207,7 +211,9 @@ import { MysqlFlavorInfo } from './model/MysqlFlavorInfo';
 import { MysqlFlavorsInfo } from './model/MysqlFlavorsInfo';
 import { MysqlInstanceChargeInfo } from './model/MysqlInstanceChargeInfo';
 import { MysqlInstanceInfoDetail } from './model/MysqlInstanceInfoDetail';
+import { MysqlInstanceInfoDetailUnifyStatus } from './model/MysqlInstanceInfoDetailUnifyStatus';
 import { MysqlInstanceListInfo } from './model/MysqlInstanceListInfo';
+import { MysqlInstanceListInfoUnifyStatus } from './model/MysqlInstanceListInfoUnifyStatus';
 import { MysqlInstanceNodeInfo } from './model/MysqlInstanceNodeInfo';
 import { MysqlInstanceNodeVolumeInfo } from './model/MysqlInstanceNodeVolumeInfo';
 import { MysqlInstanceRequest } from './model/MysqlInstanceRequest';
@@ -298,6 +304,8 @@ import { ShowGaussMySqlIncrementalBackupListRequest } from './model/ShowGaussMyS
 import { ShowGaussMySqlIncrementalBackupListResponse } from './model/ShowGaussMySqlIncrementalBackupListResponse';
 import { ShowGaussMySqlInstanceInfoRequest } from './model/ShowGaussMySqlInstanceInfoRequest';
 import { ShowGaussMySqlInstanceInfoResponse } from './model/ShowGaussMySqlInstanceInfoResponse';
+import { ShowGaussMySqlInstanceInfoUnifyStatusRequest } from './model/ShowGaussMySqlInstanceInfoUnifyStatusRequest';
+import { ShowGaussMySqlInstanceInfoUnifyStatusResponse } from './model/ShowGaussMySqlInstanceInfoUnifyStatusResponse';
 import { ShowGaussMySqlJobInfoRequest } from './model/ShowGaussMySqlJobInfoRequest';
 import { ShowGaussMySqlJobInfoResponse } from './model/ShowGaussMySqlJobInfoResponse';
 import { ShowGaussMySqlProjectQuotasRequest } from './model/ShowGaussMySqlProjectQuotasRequest';
@@ -334,6 +342,9 @@ import { SwitchGaussMySqlConfigurationRequest } from './model/SwitchGaussMySqlCo
 import { SwitchGaussMySqlConfigurationResponse } from './model/SwitchGaussMySqlConfigurationResponse';
 import { SwitchGaussMySqlInstanceSslRequest } from './model/SwitchGaussMySqlInstanceSslRequest';
 import { SwitchGaussMySqlInstanceSslResponse } from './model/SwitchGaussMySqlInstanceSslResponse';
+import { SwitchGaussMySqlProxySslRequest } from './model/SwitchGaussMySqlProxySslRequest';
+import { SwitchGaussMySqlProxySslResponse } from './model/SwitchGaussMySqlProxySslResponse';
+import { SwitchProxySSLRequest } from './model/SwitchProxySSLRequest';
 import { SwitchSSLRequest } from './model/SwitchSSLRequest';
 import { TagItem } from './model/TagItem';
 import { TaskDetailInfo } from './model/TaskDetailInfo';
@@ -1322,6 +1333,26 @@ export class GaussDBClient {
     }
 
     /**
+     * 批量查询实例详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询实例详情
+     * @param {string} instanceIds 实例ID，严格匹配UUID规则。最多同时输入20个实例ID，用英文逗号分隔。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGaussMySqlInstanceDetailInfoUnifyStatus(listGaussMySqlInstanceDetailInfoUnifyStatusRequest?: ListGaussMySqlInstanceDetailInfoUnifyStatusRequest): Promise<ListGaussMySqlInstanceDetailInfoUnifyStatusResponse> {
+        const options = ParamCreater().listGaussMySqlInstanceDetailInfoUnifyStatus(listGaussMySqlInstanceDetailInfoUnifyStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据指定条件查询实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1345,6 +1376,37 @@ export class GaussDBClient {
      */
     public listGaussMySqlInstances(listGaussMySqlInstancesRequest?: ListGaussMySqlInstancesRequest): Promise<ListGaussMySqlInstancesResponse> {
         const options = ParamCreater().listGaussMySqlInstances(listGaussMySqlInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据指定条件查询实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例列表
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [id] 实例ID。 “\\*”为系统保留字符，如果id是以“\\*”起始，表示按照“\\*”后面的值模糊匹配，否则，按照id精确匹配查询。不能只传入“\\*”。
+     * @param {string} [name] 实例名称。  “\\*”为系统保留字符，如果name是以“\\*”起始，表示按照“\\*”后面的值模糊匹配，否则，按照name精确匹配查询。不能只传入“\\*”。
+     * @param {string} [type] 按照实例类型查询。目前仅支持Cluster。
+     * @param {string} [datastoreType] 数据库类型，现在只支持gaussdb-mysql。
+     * @param {string} [vpcId] 虚拟私有云ID。
+     * @param {string} [subnetId] 子网的网络ID信息。
+     * @param {string} [privateIp] 读写内网IP地址。
+     * @param {string} [readonlyPrivateIp] 读内网IP地址。
+     * @param {string} [proxyIp] 读写分离IP地址。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} [tags] 根据实例标签键值对进行查询。 - {key}表示标签键。 - {value}表示标签值。  如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，表示查询同时包含指定标签键值对的实例。key不能重复，key之间是与的关系。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGaussMySqlInstancesUnifyStatus(listGaussMySqlInstancesUnifyStatusRequest?: ListGaussMySqlInstancesUnifyStatusRequest): Promise<ListGaussMySqlInstancesUnifyStatusResponse> {
+        const options = ParamCreater().listGaussMySqlInstancesUnifyStatus(listGaussMySqlInstancesUnifyStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1981,6 +2043,26 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询实例详情信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例详情信息
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGaussMySqlInstanceInfoUnifyStatus(showGaussMySqlInstanceInfoUnifyStatusRequest?: ShowGaussMySqlInstanceInfoUnifyStatusRequest): Promise<ShowGaussMySqlInstanceInfoUnifyStatusResponse> {
+        const options = ParamCreater().showGaussMySqlInstanceInfoUnifyStatus(showGaussMySqlInstanceInfoUnifyStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取GaussDB(for MySQL)任务中心指定ID的任务信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2269,6 +2351,28 @@ export class GaussDBClient {
      */
     public switchGaussMySqlInstanceSsl(switchGaussMySqlInstanceSslRequest?: SwitchGaussMySqlInstanceSslRequest): Promise<SwitchGaussMySqlInstanceSslResponse> {
         const options = ParamCreater().switchGaussMySqlInstanceSsl(switchGaussMySqlInstanceSslRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为数据库代理设置SSL数据加密。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开关数据库代理SSL
+     * @param {string} instanceId 租户在某一project下的实例ID。
+     * @param {string} proxyId 数据库代理ID。
+     * @param {SwitchProxySSLRequest} switchGaussMySqlProxySslRequestBody 开关数据库代理SSL加密请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchGaussMySqlProxySsl(switchGaussMySqlProxySslRequest?: SwitchGaussMySqlProxySslRequest): Promise<SwitchGaussMySqlProxySslResponse> {
+        const options = ParamCreater().switchGaussMySqlProxySsl(switchGaussMySqlProxySslRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5107,6 +5211,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量查询实例详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGaussMySqlInstanceDetailInfoUnifyStatus(listGaussMySqlInstanceDetailInfoUnifyStatusRequest?: ListGaussMySqlInstanceDetailInfoUnifyStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.1/{project_id}/instances/details",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceIds;
+            
+            let xLanguage;
+
+            if (listGaussMySqlInstanceDetailInfoUnifyStatusRequest !== null && listGaussMySqlInstanceDetailInfoUnifyStatusRequest !== undefined) {
+                if (listGaussMySqlInstanceDetailInfoUnifyStatusRequest instanceof ListGaussMySqlInstanceDetailInfoUnifyStatusRequest) {
+                    instanceIds = listGaussMySqlInstanceDetailInfoUnifyStatusRequest.instanceIds;
+                    xLanguage = listGaussMySqlInstanceDetailInfoUnifyStatusRequest.xLanguage;
+                } else {
+                    instanceIds = listGaussMySqlInstanceDetailInfoUnifyStatusRequest['instance_ids'];
+                    xLanguage = listGaussMySqlInstanceDetailInfoUnifyStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceIds === null || instanceIds === undefined) {
+                throw new RequiredError('instanceIds','Required parameter instanceIds was null or undefined when calling listGaussMySqlInstanceDetailInfoUnifyStatus.');
+            }
+            if (instanceIds !== null && instanceIds !== undefined) {
+                localVarQueryParameter['instance_ids'] = instanceIds;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据指定条件查询实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5178,6 +5329,127 @@ export const ParamCreater = function () {
                     offset = listGaussMySqlInstancesRequest['offset'];
                     limit = listGaussMySqlInstancesRequest['limit'];
                     tags = listGaussMySqlInstancesRequest['tags'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (subnetId !== null && subnetId !== undefined) {
+                localVarQueryParameter['subnet_id'] = subnetId;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (readonlyPrivateIp !== null && readonlyPrivateIp !== undefined) {
+                localVarQueryParameter['readonly_private_ip'] = readonlyPrivateIp;
+            }
+            if (proxyIp !== null && proxyIp !== undefined) {
+                localVarQueryParameter['proxy_ip'] = proxyIp;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据指定条件查询实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGaussMySqlInstancesUnifyStatus(listGaussMySqlInstancesUnifyStatusRequest?: ListGaussMySqlInstancesUnifyStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.1/{project_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let id;
+            
+            let name;
+            
+            let type;
+            
+            let datastoreType;
+            
+            let vpcId;
+            
+            let subnetId;
+            
+            let privateIp;
+            
+            let readonlyPrivateIp;
+            
+            let proxyIp;
+            
+            let offset;
+            
+            let limit;
+            
+            let tags;
+
+            if (listGaussMySqlInstancesUnifyStatusRequest !== null && listGaussMySqlInstancesUnifyStatusRequest !== undefined) {
+                if (listGaussMySqlInstancesUnifyStatusRequest instanceof ListGaussMySqlInstancesUnifyStatusRequest) {
+                    xLanguage = listGaussMySqlInstancesUnifyStatusRequest.xLanguage;
+                    id = listGaussMySqlInstancesUnifyStatusRequest.id;
+                    name = listGaussMySqlInstancesUnifyStatusRequest.name;
+                    type = listGaussMySqlInstancesUnifyStatusRequest.type;
+                    datastoreType = listGaussMySqlInstancesUnifyStatusRequest.datastoreType;
+                    vpcId = listGaussMySqlInstancesUnifyStatusRequest.vpcId;
+                    subnetId = listGaussMySqlInstancesUnifyStatusRequest.subnetId;
+                    privateIp = listGaussMySqlInstancesUnifyStatusRequest.privateIp;
+                    readonlyPrivateIp = listGaussMySqlInstancesUnifyStatusRequest.readonlyPrivateIp;
+                    proxyIp = listGaussMySqlInstancesUnifyStatusRequest.proxyIp;
+                    offset = listGaussMySqlInstancesUnifyStatusRequest.offset;
+                    limit = listGaussMySqlInstancesUnifyStatusRequest.limit;
+                    tags = listGaussMySqlInstancesUnifyStatusRequest.tags;
+                } else {
+                    xLanguage = listGaussMySqlInstancesUnifyStatusRequest['X-Language'];
+                    id = listGaussMySqlInstancesUnifyStatusRequest['id'];
+                    name = listGaussMySqlInstancesUnifyStatusRequest['name'];
+                    type = listGaussMySqlInstancesUnifyStatusRequest['type'];
+                    datastoreType = listGaussMySqlInstancesUnifyStatusRequest['datastore_type'];
+                    vpcId = listGaussMySqlInstancesUnifyStatusRequest['vpc_id'];
+                    subnetId = listGaussMySqlInstancesUnifyStatusRequest['subnet_id'];
+                    privateIp = listGaussMySqlInstancesUnifyStatusRequest['private_ip'];
+                    readonlyPrivateIp = listGaussMySqlInstancesUnifyStatusRequest['readonly_private_ip'];
+                    proxyIp = listGaussMySqlInstancesUnifyStatusRequest['proxy_ip'];
+                    offset = listGaussMySqlInstancesUnifyStatusRequest['offset'];
+                    limit = listGaussMySqlInstancesUnifyStatusRequest['limit'];
+                    tags = listGaussMySqlInstancesUnifyStatusRequest['tags'];
                 }
             }
 
@@ -6862,6 +7134,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例详情信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGaussMySqlInstanceInfoUnifyStatus(showGaussMySqlInstanceInfoUnifyStatusRequest?: ShowGaussMySqlInstanceInfoUnifyStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.1/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showGaussMySqlInstanceInfoUnifyStatusRequest !== null && showGaussMySqlInstanceInfoUnifyStatusRequest !== undefined) {
+                if (showGaussMySqlInstanceInfoUnifyStatusRequest instanceof ShowGaussMySqlInstanceInfoUnifyStatusRequest) {
+                    instanceId = showGaussMySqlInstanceInfoUnifyStatusRequest.instanceId;
+                    xLanguage = showGaussMySqlInstanceInfoUnifyStatusRequest.xLanguage;
+                } else {
+                    instanceId = showGaussMySqlInstanceInfoUnifyStatusRequest['instance_id'];
+                    xLanguage = showGaussMySqlInstanceInfoUnifyStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showGaussMySqlInstanceInfoUnifyStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取GaussDB(for MySQL)任务中心指定ID的任务信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7606,6 +7922,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为数据库代理设置SSL数据加密。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchGaussMySqlProxySsl(switchGaussMySqlProxySslRequest?: SwitchGaussMySqlProxySslRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/ssl",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (switchGaussMySqlProxySslRequest !== null && switchGaussMySqlProxySslRequest !== undefined) {
+                if (switchGaussMySqlProxySslRequest instanceof SwitchGaussMySqlProxySslRequest) {
+                    instanceId = switchGaussMySqlProxySslRequest.instanceId;
+                    proxyId = switchGaussMySqlProxySslRequest.proxyId;
+                    body = switchGaussMySqlProxySslRequest.body
+                    xLanguage = switchGaussMySqlProxySslRequest.xLanguage;
+                } else {
+                    instanceId = switchGaussMySqlProxySslRequest['instance_id'];
+                    proxyId = switchGaussMySqlProxySslRequest['proxy_id'];
+                    body = switchGaussMySqlProxySslRequest['body'];
+                    xLanguage = switchGaussMySqlProxySslRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchGaussMySqlProxySsl.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling switchGaussMySqlProxySsl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

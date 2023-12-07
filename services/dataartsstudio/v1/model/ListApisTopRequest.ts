@@ -10,9 +10,8 @@ export class ListApisTopRequest {
     private 'time_unit'?: ListApisTopRequestTimeUnitEnum | string;
     private 'top_num'?: number;
     private 'order_by'?: ListApisTopRequestOrderByEnum | string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, startTime?: number, endTime?: number, timeUnit?: string, topNum?: number, orderBy?: string) { 
+    public constructor(workspace?: string, contentType?: string, startTime?: number, endTime?: number, timeUnit?: string, topNum?: number, orderBy?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['start_time'] = startTime;
         this['end_time'] = endTime;

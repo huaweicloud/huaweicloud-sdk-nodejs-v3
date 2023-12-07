@@ -6,9 +6,8 @@ export class PublishApiRequest {
     private 'Dlm-Type'?: PublishApiRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: OpenApiParaForPublish;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): PublishApiRequest {

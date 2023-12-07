@@ -9,9 +9,8 @@ export class ShowApisDetailRequest {
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'time_unit'?: ShowApisDetailRequestTimeUnitEnum | string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apiId?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
+    public constructor(workspace?: string, contentType?: string, apiId?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['api_id'] = apiId;
         this['start_time'] = startTime;

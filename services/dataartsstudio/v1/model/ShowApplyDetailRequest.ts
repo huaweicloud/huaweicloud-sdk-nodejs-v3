@@ -5,9 +5,8 @@ export class ShowApplyDetailRequest {
     private 'Dlm-Type'?: ShowApplyDetailRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     private 'apply_id'?: string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, applyId?: string) { 
+    public constructor(workspace?: string, contentType?: string, applyId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['apply_id'] = applyId;
     }

@@ -5,9 +5,8 @@ export class ShowMessageDetailRequest {
     private 'Dlm-Type'?: ShowMessageDetailRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     private 'message_id'?: string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, messageId?: string) { 
+    public constructor(workspace?: string, contentType?: string, messageId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['message_id'] = messageId;
     }

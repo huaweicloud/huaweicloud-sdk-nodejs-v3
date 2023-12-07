@@ -11,9 +11,8 @@ export class ListApiTopNRequest {
     private 'time_unit'?: ListApiTopNRequestTimeUnitEnum | string;
     private 'top_num'?: number;
     private 'order_by'?: ListApiTopNRequestOrderByEnum | string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apiId?: string, startTime?: number, endTime?: number, timeUnit?: string, topNum?: number, orderBy?: string) { 
+    public constructor(workspace?: string, contentType?: string, apiId?: string, startTime?: number, endTime?: number, timeUnit?: string, topNum?: number, orderBy?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['api_id'] = apiId;
         this['start_time'] = startTime;

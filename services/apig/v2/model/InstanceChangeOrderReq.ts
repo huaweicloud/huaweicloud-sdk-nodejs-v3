@@ -2,9 +2,20 @@ import { ResizeInstanceReq } from './ResizeInstanceReq';
 
 
 export class InstanceChangeOrderReq {
+    private 'instance_id'?: string;
     private 'product_id'?: string;
     private 'resize_info'?: ResizeInstanceReq;
     public constructor() { 
+    }
+    public withInstanceId(instanceId: string): InstanceChangeOrderReq {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withProductId(productId: string): InstanceChangeOrderReq {
         this['product_id'] = productId;

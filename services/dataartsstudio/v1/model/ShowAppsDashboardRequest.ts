@@ -9,9 +9,8 @@ export class ShowAppsDashboardRequest {
     private 'time_unit'?: ShowAppsDashboardRequestTimeUnitEnum | string;
     public limit?: number;
     public offset?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
+    public constructor(workspace?: string, contentType?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['start_time'] = startTime;
         this['end_time'] = endTime;

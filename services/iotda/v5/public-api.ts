@@ -26,6 +26,7 @@ export * from './model/AmqpForwarding';
 export * from './model/ApplicationDTO';
 export * from './model/AsyncDeviceCommandRequest';
 export * from './model/AuthInfo';
+export * from './model/AuthInfoRes';
 export * from './model/AuthInfoWithoutSecret';
 export * from './model/BatchShowQueueRequest';
 export * from './model/BatchShowQueueResponse';

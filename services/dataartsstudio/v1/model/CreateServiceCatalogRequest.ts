@@ -6,9 +6,8 @@ export class CreateServiceCatalogRequest {
     private 'Dlm-Type'?: CreateServiceCatalogRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: ApiCatalogCreateParaDTO;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): CreateServiceCatalogRequest {

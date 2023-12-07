@@ -7,9 +7,8 @@ export class ListApisRequest {
     private 'x-return-publish-messages'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): ListApisRequest {

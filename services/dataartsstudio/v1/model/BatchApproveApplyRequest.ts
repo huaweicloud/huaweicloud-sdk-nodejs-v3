@@ -6,9 +6,8 @@ export class BatchApproveApplyRequest {
     private 'Dlm-Type'?: BatchApproveApplyRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: OpenApplyIdsForApproveApply;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): BatchApproveApplyRequest {

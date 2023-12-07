@@ -1,3 +1,456 @@
+# 3.1.68 2023-12-07
+
+### HuaweiCloud SDK AOS
+
+- _Features_
+  - Support the API `DeleteStackInstance`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListStackSetOperations**
+    - changes of response param
+      - `+ stack_set_operations.action: enum value [UPDATE_STACK_INSTANCES]`
+  - **ShowStackSetOperationMetadata**
+    - changes of response param
+      - `+ action: enum value [UPDATE_STACK_INSTANCES]`
+
+### HuaweiCloud SDK APIG
+
+- _Features_
+  - Support the API `CheckApiGroupsV2`
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreatePrepayResize**
+    - changes of request param
+      - `+ instance_id`
+  - **ListPluginAttachableApis**
+    - changes of request param
+      - `* env_id: optional -> required`
+  - **ListApisV2**
+    - changes of request param
+      - `+ return_data_mode`
+
+### HuaweiCloud SDK CBH
+
+- _Features_
+  - Support the API `LoginCbh`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowAvailableZoneInfo**
+    - changes of response param
+      - `* availability_zone: object<AvailabilityZones> -> list<AvailabilityZones>`
+
+### HuaweiCloud SDK CodeArtsPipeline
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowPipelineLog**
+    - changes of request param
+      - `- level`
+      - `- job_run_id`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _Features_
+  - Support the following APIs:
+    - `SetFactoryJobTags`
+    - `ListSecurityPermissionSets`
+    - `CreateSecurityPermissionSet`
+    - `ShowSecurityPermissionSet`
+    - `UpdateSecurityPermissionSet`
+    - `DeleteSecurityPermissionSet`
+    - `ListSecurityPermissionSetMembers`
+    - `CreateSecurityPermissionSetMember`
+    - `BatchDeleteSecurityPermissionSetMembers`
+    - `ListSecurityPermissionSetPermissions`
+    - `CreateSecurityPermissionSetPermission`
+    - `BatchDeleteSecurityPermissionSetPermissions`
+    - `UpdateSecurityPermissionSetPermission`
+    - `ListSecurityDataClassificationRules`
+    - `CreateSecurityDataClassificationRule`
+    - `ShowSecurityDataClassificationRule`
+    - `UpdateSecurityDataClassificationRule`
+    - `DeleteSecurityDataClassificationRule`
+    - `BatchDeleteSecurityDataClassificationRule`
+    - `UpdateSecurityRuleEnableStatus`
+    - `ListSecurityDataClassificationRuleGroups`
+    - `ShowSecurityDataClassificationRuleGroup`
+- _Bug Fix_
+  - None
+- _Change_
+  - **DeleteApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **PublishApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApplyDetail**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowMessageDetail**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowCatalogDetail**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **UpdateCatalog**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **CreateServiceCatalog**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **DeleteServiceCatalog**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **MigrateCatalog**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **MigrateApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **SearchIdByPath**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowPathById**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **PublishApiToInstance**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ExecuteApiToInstance**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **AuthorizeApiToInstance**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **AuthorizeActionApiToInstance**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **DeleteApp**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowAppInfo**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **UpdateApp**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApisOverview**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowAppsOverview**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApisDetail**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowAppsDetail**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **UpdateFactoryJobName**
+    - changes of request param
+      - `- x-Auth-Token`
+  - **BatchApproveApply**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApply**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ConfirmMessage**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListMessage**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListAllCatalogList**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListCatalogList**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowPathObjectById**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **DebugApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **SearchPublishInfo**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListInstanceList**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **SearchDebugInfo**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApicInstances**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApicGroups**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **CreateApp**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApps**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApisTop**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListAppsTop**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApisDashboard**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApiDashboard**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowAppsDashboard**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApiTopN**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApis**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **CreateApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ShowApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **UpdateApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **ListApiCatalogList**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **SearchAuthorizeApp**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+  - **SearchBindApi**
+    - changes of request param
+      - `* Dlm-Type: required -> optional`
+
+### HuaweiCloud SDK DLI
+
+- _Features_
+  - Support the APIs `ListJobAuthInfos`, `UpdateJobAuthInfo`, `CreateJobAuthInfo`, `DeleteJobAuthInfo`
+- _Bug Fix_
+  - None
+- _Change_
+  - Deprecate the following APIs:
+    - `ShowDliAgency`
+    - `CreateDliAgency`
+    - `DeleteResource`
+    - `ShowResourceInfo`
+    - `UpdateGroupOrResourceOwner`
+    - `ShowBatchLog`
+    - `ExportTable`
+    - `ImportTable`
+    - `ExportSqlJobResult`
+    - `UpdateDatabaseOwner`
+    - `DeleteDatabase`
+    - `RegisterAuthorizedQueue`
+    - `UpdateTableOwner`
+    - `ShowTableContent`
+    - `UpdateQueueCidr`
+    - `BatchDeleteQueuePlans`
+    - `ChangeQueuePlan`
+    - `DeleteQueuePlan`
+    - `DeleteAuthInfo`
+    - `DeleteEnhancedConnectionRoutes`
+    - `CreateEnhancedConnectionRoutes`
+    - `RegisterBucket`
+    - `CreateIefMessageChannel`
+    - `UploadFiles`
+    - `UploadPythonFiles`
+    - `ListResources`
+    - `UploadResources`
+    - `UploadJars`
+    - `ListDatabases`
+    - `CreateDatabase`
+    - `ListTableUsers`
+    - `ChangeAuthorization`
+    - `ListTablePrivileges`
+    - `ListDatabaseUsers`
+    - `ListQueueUsers`
+    - `ListAllTables`
+    - `CreateTable`
+    - `DeleteTable`
+    - `ShowDescribeTable`
+    - `CreateQueuePlan`
+    - `ListQueuePlans`
+    - `UpdateAuthInfo`
+    - `CreateAuthInfo`
+    - `ListAuthInfo`
+    - `ChangeFlinkJobStatusReport`
+    - `RunIefJobActionCallBack`
+    - `CreateIefSystemEvents`
+    - `ListDatasourceConnections`
+    - `CreateDatasourceConnection`
+    - `DeleteDatasourceConnection`
+    - `ShowDatasourceConnection`
+    - `ShowSqlSampleTemplates`
+    - `ShowPartitions`
+    - `ShowFlinkMetric`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the following APIs:
+    - `ShowDependcy`
+    - `UpdateDependcy`
+    - `DeleteDependency`
+    - `AsyncInvokeReservedFunction`
+    - `CreateDependency`
+  - **ShowFuncReservedInstanceMetrics**
+    - changes of request param
+      - `+ marker`
+      - `+ limit`
+  - **ListFunctionApplications**
+    - changes of request param
+      - `+ limit`
+      - `+ marker`
+  - **ListStatistics**
+    - changes of request param
+      - `+ limit`
+      - `+ marker`
+
+### HuaweiCloud SDK GaussDB
+
+- _Features_
+  - Support the APIs `ListGaussMySqlInstancesUnifyStatus`, `ShowGaussMySqlInstanceInfoUnifyStatus`, `ListGaussMySqlInstanceDetailInfoUnifyStatus`, `SwitchGaussMySqlProxySsl`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowGaussMySqlProxyList**
+    - changes of response param
+      - `+ proxy_list.proxy.ssl_option`
+
+### HuaweiCloud SDK GaussDBforNoSQL
+
+- _Features_
+  - Support the API `OfflineNodes`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListLtsConfigs**
+    - changes of response param
+      - `* instance_lts_configs.instance.supported_log_types: string -> list<string>`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ResetDeviceSecret**
+    - changes of request param
+      - `+ secret_type`
+    - changes of response param
+      - `+ secret_type`
+  - **ResetFingerprint**
+    - changes of request param
+      - `+ fingerprint_type`
+    - changes of response param
+      - `+ fingerprint_type`
+  - **ShowDevice**
+    - changes of response param
+      - `+ auth_info.secondary_secret`
+      - `+ auth_info.secondary_fingerprint`
+      - `* auth_info: object<AuthInfo> -> object<AuthInfoRes>`
+  - **UpdateDevice**
+    - changes of response param
+      - `+ auth_info.secondary_secret`
+      - `+ auth_info.secondary_fingerprint`
+      - `* auth_info: object<AuthInfo> -> object<AuthInfoRes>`
+  - **AddDevice**
+    - changes of response param
+      - `+ auth_info.secondary_secret`
+      - `+ auth_info.secondary_fingerprint`
+      - `* auth_info: object<AuthInfo> -> object<AuthInfoRes>`
+
+### HuaweiCloud SDK MRS
+
+- _Features_
+  - Support the APIs `UpdateAutoScalingPolicy`, `CreateAutoScalingPolicy`, `DeleteAutoScalingPolicy`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowAutoScalingPolicy**
+    - changes of response param
+      - `+ auto_scaling_policy.tags`
+      - `- auto_scaling_policy.exec_scripts`
+      - `* auto_scaling_policy: object<AutoScalingPolicy> -> object<AutoScalingPolicyInfo>`
+
+### HuaweiCloud SDK NAT
+
+- _Features_
+  - Support the following APIs:
+    - `ListNatGatewayByTag`
+    - `BatchCreateDeleteNatGatewayTag`
+    - `ShowNatGatewayTag`
+    - `CreateNatGatewayTag`
+    - `DeleteNatGatewayTag`
+    - `ListNatGatewayTag`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK OMS
+
+- _Features_
+  - Support the API `BatchUpdateTasks`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowSyncTask**
+    - changes of response param
+      - `+ dst_storage_policy`
+      - `+ object_overwrite_mode`
+  - **ListSyncTasks**
+    - changes of response param
+      - `+ tasks.object_overwrite_mode`
+      - `+ tasks.dst_storage_policy`
+
+### HuaweiCloud SDK RocketMQ
+
+- _Features_
+  - Support the APIs `ShowRocketMqConfigs`, `UpdateRocketMqConfigs`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListInstances**
+    - changes of request param
+      - `+ status: enum value [UPGRADING,UPGRADINGFAILED]`
+
+### HuaweiCloud SDK SFSTurbo
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **SetHpcCacheBackend**
+    - changes of request param
+      - `* update_hpc_cache.data.nas.type: object -> string`
+      - `* update_hpc_cache.data.nas.url: object -> string`
+
 # 3.1.67 2023-11-30
 
 ### HuaweiCloud SDK AOM

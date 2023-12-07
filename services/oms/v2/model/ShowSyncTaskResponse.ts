@@ -21,6 +21,8 @@ export class ShowSyncTaskResponse extends SdkResponse {
     private 'monthly_failure_object'?: number;
     private 'monthly_skip_object'?: number;
     private 'monthly_size'?: number;
+    private 'object_overwrite_mode'?: ShowSyncTaskResponseObjectOverwriteModeEnum | string;
+    private 'dst_storage_policy'?: ShowSyncTaskResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowSyncTaskResponseConsistencyCheckEnum | string;
     public constructor() { 
         super();
@@ -203,6 +205,26 @@ export class ShowSyncTaskResponse extends SdkResponse {
     public get monthlySize(): number | undefined {
         return this['monthly_size'];
     }
+    public withObjectOverwriteMode(objectOverwriteMode: ShowSyncTaskResponseObjectOverwriteModeEnum | string): ShowSyncTaskResponse {
+        this['object_overwrite_mode'] = objectOverwriteMode;
+        return this;
+    }
+    public set objectOverwriteMode(objectOverwriteMode: ShowSyncTaskResponseObjectOverwriteModeEnum | string  | undefined) {
+        this['object_overwrite_mode'] = objectOverwriteMode;
+    }
+    public get objectOverwriteMode(): ShowSyncTaskResponseObjectOverwriteModeEnum | string | undefined {
+        return this['object_overwrite_mode'];
+    }
+    public withDstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string): ShowSyncTaskResponse {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): ShowSyncTaskResponseDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withConsistencyCheck(consistencyCheck: ShowSyncTaskResponseConsistencyCheckEnum | string): ShowSyncTaskResponse {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -238,6 +260,27 @@ export enum ShowSyncTaskResponseSrcCloudTypeEnum {
 export enum ShowSyncTaskResponseStatusEnum {
     SYNCHRONIZING = 'SYNCHRONIZING',
     STOPPED = 'STOPPED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSyncTaskResponseObjectOverwriteModeEnum {
+    NO_OVERWRITE = 'NO_OVERWRITE',
+    SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
+    CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
+    FULL_OVERWRITE = 'FULL_OVERWRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSyncTaskResponseDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
 }
 /**
     * @export

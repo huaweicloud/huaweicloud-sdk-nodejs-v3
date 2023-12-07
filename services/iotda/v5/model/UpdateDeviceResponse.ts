@@ -1,4 +1,4 @@
-import { AuthInfo } from './AuthInfo';
+import { AuthInfoRes } from './AuthInfoRes';
 import { TagV5DTO } from './TagV5DTO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -15,7 +15,7 @@ export class UpdateDeviceResponse extends SdkResponse {
     private 'fw_version'?: string;
     private 'sw_version'?: string;
     private 'device_sdk_version'?: string;
-    private 'auth_info'?: AuthInfo;
+    private 'auth_info'?: AuthInfoRes;
     private 'product_id'?: string;
     private 'product_name'?: string;
     public status?: string;
@@ -131,14 +131,14 @@ export class UpdateDeviceResponse extends SdkResponse {
     public get deviceSdkVersion(): string | undefined {
         return this['device_sdk_version'];
     }
-    public withAuthInfo(authInfo: AuthInfo): UpdateDeviceResponse {
+    public withAuthInfo(authInfo: AuthInfoRes): UpdateDeviceResponse {
         this['auth_info'] = authInfo;
         return this;
     }
-    public set authInfo(authInfo: AuthInfo  | undefined) {
+    public set authInfo(authInfo: AuthInfoRes  | undefined) {
         this['auth_info'] = authInfo;
     }
-    public get authInfo(): AuthInfo | undefined {
+    public get authInfo(): AuthInfoRes | undefined {
         return this['auth_info'];
     }
     public withProductId(productId: string): UpdateDeviceResponse {

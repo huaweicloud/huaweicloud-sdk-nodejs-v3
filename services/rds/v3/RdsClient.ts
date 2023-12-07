@@ -2237,26 +2237,6 @@ export class RdsClient {
     }
 
     /**
-     * 收缩数据库日志
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 收缩数据库日志
-     * @param {string} instanceId 实例ID
-     * @param {UpdateDBShrinkRequestBody} updateDBShrinkRequestBody 收缩数据库
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest): Promise<SetInstancesDbShrinkResponse> {
-        const options = ParamCreater().setInstancesDbShrink(setInstancesDbShrinkRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 设置跨区域备份策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4420,6 +4400,26 @@ export class RdsClient {
      */
     public revokeSqlserverDbUserPrivilege(revokeSqlserverDbUserPrivilegeRequest?: RevokeSqlserverDbUserPrivilegeRequest): Promise<RevokeSqlserverDbUserPrivilegeResponse> {
         const options = ParamCreater().revokeSqlserverDbUserPrivilege(revokeSqlserverDbUserPrivilegeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 收缩数据库日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 收缩数据库日志
+     * @param {string} instanceId 实例ID
+     * @param {UpdateDBShrinkRequestBody} updateDBShrinkRequestBody 收缩数据库
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest): Promise<SetInstancesDbShrinkResponse> {
+        const options = ParamCreater().setInstancesDbShrink(setInstancesDbShrinkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8685,52 +8685,6 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 收缩数据库日志
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/instances/{instance_id}/db_shrink",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (setInstancesDbShrinkRequest !== null && setInstancesDbShrinkRequest !== undefined) {
-                if (setInstancesDbShrinkRequest instanceof SetInstancesDbShrinkRequest) {
-                    instanceId = setInstancesDbShrinkRequest.instanceId;
-                    body = setInstancesDbShrinkRequest.body
-                } else {
-                    instanceId = setInstancesDbShrinkRequest['instance_id'];
-                    body = setInstancesDbShrinkRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesDbShrink.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -14118,6 +14072,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 收缩数据库日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db_shrink",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setInstancesDbShrinkRequest !== null && setInstancesDbShrinkRequest !== undefined) {
+                if (setInstancesDbShrinkRequest instanceof SetInstancesDbShrinkRequest) {
+                    instanceId = setInstancesDbShrinkRequest.instanceId;
+                    body = setInstancesDbShrinkRequest.body
+                } else {
+                    instanceId = setInstancesDbShrinkRequest['instance_id'];
+                    body = setInstancesDbShrinkRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesDbShrink.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

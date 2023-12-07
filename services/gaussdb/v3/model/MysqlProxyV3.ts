@@ -24,6 +24,7 @@ export class MysqlProxyV3 {
     private 'balance_route_mode_enabled'?: boolean;
     private 'consistence_mode'?: string;
     private 'subnet_id'?: string;
+    private 'ssl_option'?: string;
     public constructor() { 
     }
     public withPoolId(poolId: string): MysqlProxyV3 {
@@ -191,5 +192,15 @@ export class MysqlProxyV3 {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withSslOption(sslOption: string): MysqlProxyV3 {
+        this['ssl_option'] = sslOption;
+        return this;
+    }
+    public set sslOption(sslOption: string  | undefined) {
+        this['ssl_option'] = sslOption;
+    }
+    public get sslOption(): string | undefined {
+        return this['ssl_option'];
     }
 }

@@ -77,6 +77,9 @@ import { CreateIefMessageChannelRequest } from './model/CreateIefMessageChannelR
 import { CreateIefMessageChannelResponse } from './model/CreateIefMessageChannelResponse';
 import { CreateIefSystemEventsRequest } from './model/CreateIefSystemEventsRequest';
 import { CreateIefSystemEventsResponse } from './model/CreateIefSystemEventsResponse';
+import { CreateJobAuthInfoRequest } from './model/CreateJobAuthInfoRequest';
+import { CreateJobAuthInfoRequestBody } from './model/CreateJobAuthInfoRequestBody';
+import { CreateJobAuthInfoResponse } from './model/CreateJobAuthInfoResponse';
 import { CreateJobRespJob } from './model/CreateJobRespJob';
 import { CreateJobTemplatesRequestBody } from './model/CreateJobTemplatesRequestBody';
 import { CreateQueuePlanRequest } from './model/CreateQueuePlanRequest';
@@ -122,6 +125,8 @@ import { DeleteFlinkSqlJobTemplateRequest } from './model/DeleteFlinkSqlJobTempl
 import { DeleteFlinkSqlJobTemplateResponse } from './model/DeleteFlinkSqlJobTemplateResponse';
 import { DeleteGlobalVariableRequest } from './model/DeleteGlobalVariableRequest';
 import { DeleteGlobalVariableResponse } from './model/DeleteGlobalVariableResponse';
+import { DeleteJobAuthInfoRequest } from './model/DeleteJobAuthInfoRequest';
+import { DeleteJobAuthInfoResponse } from './model/DeleteJobAuthInfoResponse';
 import { DeleteQueuePlanRequest } from './model/DeleteQueuePlanRequest';
 import { DeleteQueuePlanResponse } from './model/DeleteQueuePlanResponse';
 import { DeleteQueuePropertiesRequestBody } from './model/DeleteQueuePropertiesRequestBody';
@@ -205,6 +210,8 @@ import { ListGlobalValue } from './model/ListGlobalValue';
 import { ListGlobalVariablesRequest } from './model/ListGlobalVariablesRequest';
 import { ListGlobalVariablesResponse } from './model/ListGlobalVariablesResponse';
 import { ListGroupPackagesResource } from './model/ListGroupPackagesResource';
+import { ListJobAuthInfosRequest } from './model/ListJobAuthInfosRequest';
+import { ListJobAuthInfosResponse } from './model/ListJobAuthInfosResponse';
 import { ListJobsJobs } from './model/ListJobsJobs';
 import { ListQueuePlansRequest } from './model/ListQueuePlansRequest';
 import { ListQueuePlansResponse } from './model/ListQueuePlansResponse';
@@ -352,6 +359,9 @@ import { UpdateGlobalVariableResponse } from './model/UpdateGlobalVariableRespon
 import { UpdateGroupOrResourceOwnerRequest } from './model/UpdateGroupOrResourceOwnerRequest';
 import { UpdateGroupOrResourceOwnerResponse } from './model/UpdateGroupOrResourceOwnerResponse';
 import { UpdateHostMassageReq } from './model/UpdateHostMassageReq';
+import { UpdateJobAuthInfoRequest } from './model/UpdateJobAuthInfoRequest';
+import { UpdateJobAuthInfoRequestBody } from './model/UpdateJobAuthInfoRequestBody';
+import { UpdateJobAuthInfoResponse } from './model/UpdateJobAuthInfoResponse';
 import { UpdateJobRespJob } from './model/UpdateJobRespJob';
 import { UpdateJobTemplatesRequestBody } from './model/UpdateJobTemplatesRequestBody';
 import { UpdateOwnerRequestBody } from './model/UpdateOwnerRequestBody';
@@ -833,6 +843,25 @@ export class DliClient {
     }
 
     /**
+     * 该API用于创建跨源认证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建跨源认证
+     * @param {CreateJobAuthInfoRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobAuthInfo(createJobAuthInfoRequest?: CreateJobAuthInfoRequest): Promise<CreateJobAuthInfoResponse> {
+        const options = ParamCreater().createJobAuthInfo(createJobAuthInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于创建队列，该队列将会绑定用户指定的计算资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1001,6 +1030,25 @@ export class DliClient {
      */
     public deleteGlobalVariable(deleteGlobalVariableRequest?: DeleteGlobalVariableRequest): Promise<DeleteGlobalVariableResponse> {
         const options = ParamCreater().deleteGlobalVariable(deleteGlobalVariableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除跨源认证信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除跨源认证
+     * @param {string} authInfoName 即将删除的认证信息名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteJobAuthInfo(deleteJobAuthInfoRequest?: DeleteJobAuthInfoRequest): Promise<DeleteJobAuthInfoResponse> {
+        const options = ParamCreater().deleteJobAuthInfo(deleteJobAuthInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1292,6 +1340,27 @@ export class DliClient {
      */
     public listGlobalVariables(listGlobalVariablesRequest?: ListGlobalVariablesRequest): Promise<ListGlobalVariablesResponse> {
         const options = ParamCreater().listGlobalVariables(listGlobalVariablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询跨源认证信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询增强型跨源授权信息
+     * @param {string} [authInfoName] 认证信息名称
+     * @param {number} [offset] 默认为0
+     * @param {number} [limit] 默认为100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobAuthInfos(listJobAuthInfosRequest?: ListJobAuthInfosRequest): Promise<ListJobAuthInfosResponse> {
+        const options = ParamCreater().listJobAuthInfos(listJobAuthInfosRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1763,6 +1832,25 @@ export class DliClient {
      */
     public updateGroupOrResourceOwner(updateGroupOrResourceOwnerRequest?: UpdateGroupOrResourceOwnerRequest): Promise<UpdateGroupOrResourceOwnerResponse> {
         const options = ParamCreater().updateGroupOrResourceOwner(updateGroupOrResourceOwnerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新跨源认证信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新跨源认证
+     * @param {UpdateJobAuthInfoRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateJobAuthInfo(updateJobAuthInfoRequest?: UpdateJobAuthInfoRequest): Promise<UpdateJobAuthInfoResponse> {
+        const options = ParamCreater().updateJobAuthInfo(updateJobAuthInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3869,6 +3957,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建跨源认证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createJobAuthInfo(createJobAuthInfoRequest?: CreateJobAuthInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/datasource/auth-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createJobAuthInfoRequest !== null && createJobAuthInfoRequest !== undefined) {
+                if (createJobAuthInfoRequest instanceof CreateJobAuthInfoRequest) {
+                    body = createJobAuthInfoRequest.body
+                } else {
+                    body = createJobAuthInfoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于创建队列，该队列将会绑定用户指定的计算资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4225,6 +4351,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'var_name': varName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除跨源认证信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteJobAuthInfo(deleteJobAuthInfoRequest?: DeleteJobAuthInfoRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/datasource/auth-infos/{auth_info_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authInfoName;
+
+            if (deleteJobAuthInfoRequest !== null && deleteJobAuthInfoRequest !== undefined) {
+                if (deleteJobAuthInfoRequest instanceof DeleteJobAuthInfoRequest) {
+                    authInfoName = deleteJobAuthInfoRequest.authInfoName;
+                } else {
+                    authInfoName = deleteJobAuthInfoRequest['auth_info_name'];
+                }
+            }
+
+        
+            if (authInfoName === null || authInfoName === undefined) {
+            throw new RequiredError('authInfoName','Required parameter authInfoName was null or undefined when calling deleteJobAuthInfo.');
+            }
+
+            options.pathParams = { 'auth_info_name': authInfoName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4913,6 +5076,57 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询跨源认证信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobAuthInfos(listJobAuthInfosRequest?: ListJobAuthInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/datasource/auth-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authInfoName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listJobAuthInfosRequest !== null && listJobAuthInfosRequest !== undefined) {
+                if (listJobAuthInfosRequest instanceof ListJobAuthInfosRequest) {
+                    authInfoName = listJobAuthInfosRequest.authInfoName;
+                    offset = listJobAuthInfosRequest.offset;
+                    limit = listJobAuthInfosRequest.limit;
+                } else {
+                    authInfoName = listJobAuthInfosRequest['auth_info_name'];
+                    offset = listJobAuthInfosRequest['offset'];
+                    limit = listJobAuthInfosRequest['limit'];
+                }
+            }
+
+        
+            if (authInfoName !== null && authInfoName !== undefined) {
+                localVarQueryParameter['auth_info_name'] = authInfoName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5894,6 +6108,44 @@ export const ParamCreater = function () {
                     body = updateGroupOrResourceOwnerRequest.body
                 } else {
                     body = updateGroupOrResourceOwnerRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新跨源认证信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateJobAuthInfo(updateJobAuthInfoRequest?: UpdateJobAuthInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/datasource/auth-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateJobAuthInfoRequest !== null && updateJobAuthInfoRequest !== undefined) {
+                if (updateJobAuthInfoRequest instanceof UpdateJobAuthInfoRequest) {
+                    body = updateJobAuthInfoRequest.body
+                } else {
+                    body = updateJobAuthInfoRequest['body'];
                 }
             }
 

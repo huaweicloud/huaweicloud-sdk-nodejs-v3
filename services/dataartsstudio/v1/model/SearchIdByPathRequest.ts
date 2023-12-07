@@ -7,9 +7,8 @@ export class SearchIdByPathRequest {
     public path?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, path?: string) { 
+    public constructor(workspace?: string, contentType?: string, path?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['path'] = path;
     }

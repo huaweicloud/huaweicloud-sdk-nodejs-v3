@@ -554,7 +554,7 @@ export class SFSTurboClient {
      * @param {string} shareId 文件系统id
      * @param {string} feature 任务类型。例，DU任务取值为dir-usage
      * @param {string} [marker] marker，取值为task_id
-     * @param {number} [limit] limit, 取值为正整数
+     * @param {number} [limit] limit, 取值为正整数. 默认为20，最大值为100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -45,6 +45,7 @@ import { ApiForThrottle } from './model/ApiForThrottle';
 import { ApiFunc } from './model/ApiFunc';
 import { ApiFuncCreate } from './model/ApiFuncCreate';
 import { ApiGroupBase } from './model/ApiGroupBase';
+import { ApiGroupCheck } from './model/ApiGroupCheck';
 import { ApiGroupCommonInfo } from './model/ApiGroupCommonInfo';
 import { ApiGroupCreate } from './model/ApiGroupCreate';
 import { ApiGroupInfo } from './model/ApiGroupInfo';
@@ -144,6 +145,8 @@ import { CertForm } from './model/CertForm';
 import { CertificateForm } from './model/CertificateForm';
 import { ChangeApiVersionV2Request } from './model/ChangeApiVersionV2Request';
 import { ChangeApiVersionV2Response } from './model/ChangeApiVersionV2Response';
+import { CheckApiGroupsV2Request } from './model/CheckApiGroupsV2Request';
+import { CheckApiGroupsV2Response } from './model/CheckApiGroupsV2Response';
 import { CheckApisV2Request } from './model/CheckApisV2Request';
 import { CheckApisV2Response } from './model/CheckApisV2Response';
 import { CheckAppV2Request } from './model/CheckAppV2Request';
@@ -2088,7 +2091,7 @@ export class ApigClient {
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
-     * @param {string} [permission] 权限帐号ID，格式为“iam:domain::domain_id”，支持模糊搜索
+     * @param {string} [permission] 权限账号ID，格式为“iam:domain::domain_id”，支持模糊搜索
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2334,9 +2337,9 @@ export class ApigClient {
      * @summary 查询可绑定当前插件的API
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} pluginId 插件编号
+     * @param {string} envId 发布的环境编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
-     * @param {string} [envId] 发布的环境编号
      * @param {string} [apiName] API名称
      * @param {string} [apiId] API编号
      * @param {string} [groupId] 分组编号
@@ -3261,7 +3264,7 @@ export class ApigClient {
      * @summary 修改签名密钥
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} signId 签名密钥编号
-     * @param {BaseSignature} updateSignatureKeyV2RequestBody 创建签名密钥的请求体
+     * @param {BaseSignature} updateSignatureKeyV2RequestBody 修改签名密钥的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3320,7 +3323,7 @@ export class ApigClient {
     }
 
     /**
-     * 增加一个ACL策略，策略类型通过字段acl_type来确定（permit或者deny），限制的对象的类型可以为IP或者DOMAIN，这里的DOMAIN对应的acl_value的值为租户名称，而非“www.exampleDomain.com\&quot;之类的网络域名。
+     * 增加一个ACL策略，策略类型通过字段acl_type来确定（permit或者deny），限制的对象的类型可以为IP或者DOMAIN，这里的DOMAIN对应的acl_value的值为租户名称，而非“www.exampleDomain.com”之类的网络域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3510,6 +3513,26 @@ export class ApigClient {
      */
     public changeApiVersionV2(changeApiVersionV2Request?: ChangeApiVersionV2Request): Promise<ChangeApiVersionV2Response> {
         const options = ParamCreater().changeApiVersionV2(changeApiVersionV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验API分组名称是否存在。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验API分组名称是否存在
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {ApiGroupCheck} checkApiGroupsV2RequestBody 校验API分组的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkApiGroupsV2(checkApiGroupsV2Request?: CheckApiGroupsV2Request): Promise<CheckApiGroupsV2Response> {
+        const options = ParamCreater().checkApiGroupsV2(checkApiGroupsV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3714,7 +3737,7 @@ export class ApigClient {
     /**
      * 查询API分组列表。
      * 
-     * 如果是租户操作，则查询该租户下所有的分组；如果是管理员权限帐号操作，则查询的是所有租户的分组。
+     * 如果是租户操作，则查询该租户下所有的分组；如果是管理员权限账号操作，则查询的是所有租户的分组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3861,7 +3884,7 @@ export class ApigClient {
     }
 
     /**
-     * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息。
+     * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息和API请求参数信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3879,7 +3902,8 @@ export class ApigClient {
      * @param {string} [envId] 发布的环境编号
      * @param {number} [type] API类型
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name、req_uri
-     * @param {string} [vpcChannelName] 负载通道名称。
+     * @param {string} [vpcChannelName] 负载通道名称
+     * @param {'brief' | 'include_group' | 'include_group_backend'} [returnDataMode] 指定API详情中需要包含的额外返回结果，多个参数之间使用“,”隔开，当brief和其他include参数共同使用时，brief不生效。 目前仅支持brief，include_group，include_group_backend。 brief：默认值，不包含额外信息。 include_group：返回结果中包含api_group_info。 include_group_backend：返回结果中包含backend_api。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9104,11 +9128,11 @@ export const ParamCreater = function () {
             
             let pluginId;
             
+            let envId;
+            
             let offset;
             
             let limit;
-            
-            let envId;
             
             let apiName;
             
@@ -9124,9 +9148,9 @@ export const ParamCreater = function () {
                 if (listPluginAttachableApisRequest instanceof ListPluginAttachableApisRequest) {
                     instanceId = listPluginAttachableApisRequest.instanceId;
                     pluginId = listPluginAttachableApisRequest.pluginId;
+                    envId = listPluginAttachableApisRequest.envId;
                     offset = listPluginAttachableApisRequest.offset;
                     limit = listPluginAttachableApisRequest.limit;
-                    envId = listPluginAttachableApisRequest.envId;
                     apiName = listPluginAttachableApisRequest.apiName;
                     apiId = listPluginAttachableApisRequest.apiId;
                     groupId = listPluginAttachableApisRequest.groupId;
@@ -9135,9 +9159,9 @@ export const ParamCreater = function () {
                 } else {
                     instanceId = listPluginAttachableApisRequest['instance_id'];
                     pluginId = listPluginAttachableApisRequest['plugin_id'];
+                    envId = listPluginAttachableApisRequest['env_id'];
                     offset = listPluginAttachableApisRequest['offset'];
                     limit = listPluginAttachableApisRequest['limit'];
-                    envId = listPluginAttachableApisRequest['env_id'];
                     apiName = listPluginAttachableApisRequest['api_name'];
                     apiId = listPluginAttachableApisRequest['api_id'];
                     groupId = listPluginAttachableApisRequest['group_id'];
@@ -9153,14 +9177,17 @@ export const ParamCreater = function () {
             if (pluginId === null || pluginId === undefined) {
             throw new RequiredError('pluginId','Required parameter pluginId was null or undefined when calling listPluginAttachableApis.');
             }
+            if (envId === null || envId === undefined) {
+                throw new RequiredError('envId','Required parameter envId was null or undefined when calling listPluginAttachableApis.');
+            }
+            if (envId !== null && envId !== undefined) {
+                localVarQueryParameter['env_id'] = envId;
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (envId !== null && envId !== undefined) {
-                localVarQueryParameter['env_id'] = envId;
             }
             if (apiName !== null && apiName !== undefined) {
                 localVarQueryParameter['api_name'] = apiName;
@@ -11584,7 +11611,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 增加一个ACL策略，策略类型通过字段acl_type来确定（permit或者deny），限制的对象的类型可以为IP或者DOMAIN，这里的DOMAIN对应的acl_value的值为租户名称，而非“www.exampleDomain.com\&quot;之类的网络域名。
+         * 增加一个ACL策略，策略类型通过字段acl_type来确定（permit或者deny），限制的对象的类型可以为IP或者DOMAIN，这里的DOMAIN对应的acl_value的值为租户名称，而非“www.exampleDomain.com”之类的网络域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12079,6 +12106,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 校验API分组名称是否存在。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkApiGroupsV2(checkApiGroupsV2Request?: CheckApiGroupsV2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/api-groups/check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (checkApiGroupsV2Request !== null && checkApiGroupsV2Request !== undefined) {
+                if (checkApiGroupsV2Request instanceof CheckApiGroupsV2Request) {
+                    instanceId = checkApiGroupsV2Request.instanceId;
+                    body = checkApiGroupsV2Request.body
+                } else {
+                    instanceId = checkApiGroupsV2Request['instance_id'];
+                    body = checkApiGroupsV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkApiGroupsV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 校验API定义。校验API的路径或名称是否已存在
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12507,7 +12580,7 @@ export const ParamCreater = function () {
         /**
          * 查询API分组列表。
          * 
-         * 如果是租户操作，则查询该租户下所有的分组；如果是管理员权限帐号操作，则查询的是所有租户的分组。
+         * 如果是租户操作，则查询该租户下所有的分组；如果是管理员权限账号操作，则查询的是所有租户的分组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12935,7 +13008,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息。
+         * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息和API请求参数信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12978,6 +13051,8 @@ export const ParamCreater = function () {
             let preciseSearch;
             
             let vpcChannelName;
+            
+            let returnDataMode;
 
             if (listApisV2Request !== null && listApisV2Request !== undefined) {
                 if (listApisV2Request instanceof ListApisV2Request) {
@@ -12995,6 +13070,7 @@ export const ParamCreater = function () {
                     type = listApisV2Request.type;
                     preciseSearch = listApisV2Request.preciseSearch;
                     vpcChannelName = listApisV2Request.vpcChannelName;
+                    returnDataMode = listApisV2Request.returnDataMode;
                 } else {
                     instanceId = listApisV2Request['instance_id'];
                     offset = listApisV2Request['offset'];
@@ -13010,6 +13086,7 @@ export const ParamCreater = function () {
                     type = listApisV2Request['type'];
                     preciseSearch = listApisV2Request['precise_search'];
                     vpcChannelName = listApisV2Request['vpc_channel_name'];
+                    returnDataMode = listApisV2Request['return_data_mode'];
                 }
             }
 
@@ -13055,6 +13132,9 @@ export const ParamCreater = function () {
             }
             if (vpcChannelName !== null && vpcChannelName !== undefined) {
                 localVarQueryParameter['vpc_channel_name'] = vpcChannelName;
+            }
+            if (returnDataMode !== null && returnDataMode !== undefined) {
+                localVarQueryParameter['return_data_mode'] = returnDataMode;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -7,9 +7,8 @@ export class ListCatalogListRequest {
     private 'catalog_id'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, catalogId?: string) { 
+    public constructor(workspace?: string, contentType?: string, catalogId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['catalog_id'] = catalogId;
     }

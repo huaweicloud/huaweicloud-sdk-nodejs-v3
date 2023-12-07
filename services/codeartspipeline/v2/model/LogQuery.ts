@@ -5,8 +5,6 @@ export class LogQuery {
     private 'end_offset'?: number;
     public limit?: number;
     public sort?: string;
-    public level?: string;
-    private 'job_run_id'?: string;
     public constructor(limit?: number, sort?: string) { 
         this['limit'] = limit;
         this['sort'] = sort;
@@ -38,19 +36,5 @@ export class LogQuery {
     public withSort(sort: string): LogQuery {
         this['sort'] = sort;
         return this;
-    }
-    public withLevel(level: string): LogQuery {
-        this['level'] = level;
-        return this;
-    }
-    public withJobRunId(jobRunId: string): LogQuery {
-        this['job_run_id'] = jobRunId;
-        return this;
-    }
-    public set jobRunId(jobRunId: string  | undefined) {
-        this['job_run_id'] = jobRunId;
-    }
-    public get jobRunId(): string | undefined {
-        return this['job_run_id'];
     }
 }

@@ -6,9 +6,8 @@ export class DeleteServiceCatalogRequest {
     private 'Dlm-Type'?: DeleteServiceCatalogRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: ApiCatalogDeleteParaDTO;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): DeleteServiceCatalogRequest {

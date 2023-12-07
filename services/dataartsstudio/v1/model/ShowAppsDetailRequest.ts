@@ -8,9 +8,8 @@ export class ShowAppsDetailRequest {
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'time_unit'?: ShowAppsDetailRequestTimeUnitEnum | string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, appId?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
+    public constructor(workspace?: string, contentType?: string, appId?: string, startTime?: number, endTime?: number, timeUnit?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['app_id'] = appId;
         this['start_time'] = startTime;

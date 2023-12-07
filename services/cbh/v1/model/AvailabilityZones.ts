@@ -6,11 +6,12 @@ export class AvailabilityZones {
     private 'region_id'?: string;
     public status?: string;
     public type?: string;
-    public constructor(id?: string, displayName?: string, regionId?: string, status?: string) { 
+    public constructor(id?: string, displayName?: string, regionId?: string, status?: string, type?: string) { 
         this['id'] = id;
         this['display_name'] = displayName;
         this['region_id'] = regionId;
         this['status'] = status;
+        this['type'] = type;
     }
     public withId(id: string): AvailabilityZones {
         this['id'] = id;

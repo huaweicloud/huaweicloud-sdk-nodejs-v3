@@ -22,6 +22,9 @@ import { ListCbhInstanceRequest } from './model/ListCbhInstanceRequest';
 import { ListCbhInstanceResponse } from './model/ListCbhInstanceResponse';
 import { ListQuotaStatusRequest } from './model/ListQuotaStatusRequest';
 import { ListQuotaStatusResponse } from './model/ListQuotaStatusResponse';
+import { LoginCbhRequest } from './model/LoginCbhRequest';
+import { LoginCbhRequestBody } from './model/LoginCbhRequestBody';
+import { LoginCbhResponse } from './model/LoginCbhResponse';
 import { NetworkRequestBody } from './model/NetworkRequestBody';
 import { Nics } from './model/Nics';
 import { OperateEipRequestBody } from './model/OperateEipRequestBody';
@@ -389,6 +392,25 @@ export class CbhClient {
      */
     public upgradeCbhInstance(upgradeCbhInstanceRequest?: UpgradeCbhInstanceRequest): Promise<UpgradeCbhInstanceResponse> {
         const options = ParamCreater().upgradeCbhInstance(upgradeCbhInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前IAM用户登录堡垒机的免登录链接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取IAM登录实例链接
+     * @param {LoginCbhRequestBody} loginCbhRequestBody LoginCbhBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public loginCbh(loginCbhRequest?: LoginCbhRequest): Promise<LoginCbhResponse> {
+        const options = ParamCreater().loginCbh(loginCbhRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1022,6 +1044,44 @@ export const ParamCreater = function () {
                     body = upgradeCbhInstanceRequest.body
                 } else {
                     body = upgradeCbhInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前IAM用户登录堡垒机的免登录链接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        loginCbh(loginCbhRequest?: LoginCbhRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cbs/instance/login",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (loginCbhRequest !== null && loginCbhRequest !== undefined) {
+                if (loginCbhRequest instanceof LoginCbhRequest) {
+                    body = loginCbhRequest.body
+                } else {
+                    body = loginCbhRequest['body'];
                 }
             }
 

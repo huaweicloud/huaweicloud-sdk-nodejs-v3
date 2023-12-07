@@ -8,9 +8,8 @@ export class ListApicGroupsRequest {
     private 'apig_type'?: ListApicGroupsRequestApigTypeEnum | string;
     public limit?: number;
     public offset?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apigInstanceId?: string, apigType?: string) { 
+    public constructor(workspace?: string, contentType?: string, apigInstanceId?: string, apigType?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['apig_instance_id'] = apigInstanceId;
         this['apig_type'] = apigType;

@@ -7,9 +7,8 @@ export class SearchBindApiRequest {
     private 'app_id'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, appId?: string) { 
+    public constructor(workspace?: string, contentType?: string, appId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['app_id'] = appId;
     }

@@ -5,9 +5,8 @@ export class ShowApiRequest {
     private 'Dlm-Type'?: ShowApiRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     private 'api_id'?: string;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apiId?: string) { 
+    public constructor(workspace?: string, contentType?: string, apiId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['api_id'] = apiId;
     }

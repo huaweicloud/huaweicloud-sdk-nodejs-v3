@@ -12,9 +12,8 @@ export class ListInstanceListRequest {
     private 'app_id'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apiId?: string, action?: string) { 
+    public constructor(workspace?: string, contentType?: string, apiId?: string, action?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['api_id'] = apiId;
         this['action'] = action;

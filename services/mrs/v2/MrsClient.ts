@@ -10,6 +10,8 @@ import { AgencyMapping } from './model/AgencyMapping';
 import { AgencyMappingArray } from './model/AgencyMappingArray';
 import { AssignedNodeGroup } from './model/AssignedNodeGroup';
 import { AutoScalingPolicy } from './model/AutoScalingPolicy';
+import { AutoScalingPolicyDeleteReq } from './model/AutoScalingPolicyDeleteReq';
+import { AutoScalingPolicyInfo } from './model/AutoScalingPolicyInfo';
 import { AutoScalingPolicyV2 } from './model/AutoScalingPolicyV2';
 import { BatchDeleteJobsRequest } from './model/BatchDeleteJobsRequest';
 import { BatchDeleteJobsResponse } from './model/BatchDeleteJobsResponse';
@@ -21,6 +23,8 @@ import { ClusterDataConnectorMap } from './model/ClusterDataConnectorMap';
 import { ComponentConfig } from './model/ComponentConfig';
 import { ComponentInstallMode } from './model/ComponentInstallMode';
 import { Config } from './model/Config';
+import { CreateAutoScalingPolicyRequest } from './model/CreateAutoScalingPolicyRequest';
+import { CreateAutoScalingPolicyResponse } from './model/CreateAutoScalingPolicyResponse';
 import { CreateClusterReqV2 } from './model/CreateClusterReqV2';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
@@ -31,6 +35,8 @@ import { CreateExecuteJobResponse } from './model/CreateExecuteJobResponse';
 import { DataConnector } from './model/DataConnector';
 import { DataConnectorDetail } from './model/DataConnectorDetail';
 import { DataConnectorReq } from './model/DataConnectorReq';
+import { DeleteAutoScalingPolicyRequest } from './model/DeleteAutoScalingPolicyRequest';
+import { DeleteAutoScalingPolicyResponse } from './model/DeleteAutoScalingPolicyResponse';
 import { DeleteDataConnectorRequest } from './model/DeleteDataConnectorRequest';
 import { DeleteDataConnectorResponse } from './model/DeleteDataConnectorResponse';
 import { ExecuteSqlRequest } from './model/ExecuteSqlRequest';
@@ -79,6 +85,8 @@ import { Tag } from './model/Tag';
 import { Trigger } from './model/Trigger';
 import { UpdateAgencyMappingRequest } from './model/UpdateAgencyMappingRequest';
 import { UpdateAgencyMappingResponse } from './model/UpdateAgencyMappingResponse';
+import { UpdateAutoScalingPolicyRequest } from './model/UpdateAutoScalingPolicyRequest';
+import { UpdateAutoScalingPolicyResponse } from './model/UpdateAutoScalingPolicyResponse';
 import { UpdateClusterNameRequest } from './model/UpdateClusterNameRequest';
 import { UpdateClusterNameResponse } from './model/UpdateClusterNameResponse';
 import { UpdateClusterReq } from './model/UpdateClusterReq';
@@ -114,6 +122,26 @@ export class MrsClient {
      */
     public batchDeleteJobs(batchDeleteJobsRequest?: BatchDeleteJobsRequest): Promise<BatchDeleteJobsResponse> {
         const options = ParamCreater().batchDeleteJobs(batchDeleteJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建弹性伸缩策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建弹性伸缩策略
+     * @param {string} clusterId 集群ID。
+     * @param {AutoScalingPolicyV2} [createAutoScalingPolicyRequestBody] 创建弹性伸缩策略请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutoScalingPolicy(createAutoScalingPolicyRequest?: CreateAutoScalingPolicyRequest): Promise<CreateAutoScalingPolicyResponse> {
+        const options = ParamCreater().createAutoScalingPolicy(createAutoScalingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -163,6 +191,26 @@ export class MrsClient {
      */
     public createExecuteJob(createExecuteJobRequest?: CreateExecuteJobRequest): Promise<CreateExecuteJobResponse> {
         const options = ParamCreater().createExecuteJob(createExecuteJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除弹性伸缩策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除弹性伸缩策略
+     * @param {string} clusterId 集群ID。
+     * @param {AutoScalingPolicyDeleteReq} [deleteAutoScalingPolicyRequestBody] 删除弹性伸缩请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutoScalingPolicy(deleteAutoScalingPolicyRequest?: DeleteAutoScalingPolicyRequest): Promise<DeleteAutoScalingPolicyResponse> {
+        const options = ParamCreater().deleteAutoScalingPolicy(deleteAutoScalingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -335,6 +383,26 @@ export class MrsClient {
      */
     public updateAgencyMapping(updateAgencyMappingRequest?: UpdateAgencyMappingRequest): Promise<UpdateAgencyMappingResponse> {
         const options = ParamCreater().updateAgencyMapping(updateAgencyMappingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新弹性伸缩策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新弹性伸缩策略
+     * @param {string} clusterId 集群ID。
+     * @param {AutoScalingPolicyV2} updateAutoScalingPolicyRequestBody 更新弹性伸缩策略请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutoScalingPolicy(updateAutoScalingPolicyRequest?: UpdateAutoScalingPolicyRequest): Promise<UpdateAutoScalingPolicyResponse> {
+        const options = ParamCreater().updateAutoScalingPolicy(updateAutoScalingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -657,6 +725,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建弹性伸缩策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutoScalingPolicy(createAutoScalingPolicyRequest?: CreateAutoScalingPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/autoscaling-policy/{cluster_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createAutoScalingPolicyRequest !== null && createAutoScalingPolicyRequest !== undefined) {
+                if (createAutoScalingPolicyRequest instanceof CreateAutoScalingPolicyRequest) {
+                    clusterId = createAutoScalingPolicyRequest.clusterId;
+                    body = createAutoScalingPolicyRequest.body
+                } else {
+                    clusterId = createAutoScalingPolicyRequest['cluster_id'];
+                    body = createAutoScalingPolicyRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutoScalingPolicy.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建一个MRS集群。使用接口前，您需要先获取下的资源信息。
          * - 通过VPC创建或查询VPC、子网
          * - 通过ECS创建或查询密钥对
@@ -743,6 +854,49 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除弹性伸缩策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutoScalingPolicy(deleteAutoScalingPolicyRequest?: DeleteAutoScalingPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/autoscaling-policy/{cluster_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (deleteAutoScalingPolicyRequest !== null && deleteAutoScalingPolicyRequest !== undefined) {
+                if (deleteAutoScalingPolicyRequest instanceof DeleteAutoScalingPolicyRequest) {
+                    clusterId = deleteAutoScalingPolicyRequest.clusterId;
+                    body = deleteAutoScalingPolicyRequest.body
+                } else {
+                    clusterId = deleteAutoScalingPolicyRequest['cluster_id'];
+                    body = deleteAutoScalingPolicyRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteAutoScalingPolicy.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
@@ -1154,6 +1308,52 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAgencyMapping.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新弹性伸缩策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutoScalingPolicy(updateAutoScalingPolicyRequest?: UpdateAutoScalingPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/autoscaling-policy/{cluster_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateAutoScalingPolicyRequest !== null && updateAutoScalingPolicyRequest !== undefined) {
+                if (updateAutoScalingPolicyRequest instanceof UpdateAutoScalingPolicyRequest) {
+                    clusterId = updateAutoScalingPolicyRequest.clusterId;
+                    body = updateAutoScalingPolicyRequest.body
+                } else {
+                    clusterId = updateAutoScalingPolicyRequest['cluster_id'];
+                    body = updateAutoScalingPolicyRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutoScalingPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

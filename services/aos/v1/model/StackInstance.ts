@@ -1,9 +1,9 @@
 import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
 import { StackInstanceStatusMessagePrimitiveTypeHolder } from './StackInstanceStatusMessagePrimitiveTypeHolder';
 import { StackInstanceStatusPrimitiveTypeHolder } from './StackInstanceStatusPrimitiveTypeHolder';
-import { StackNamePrimitiveTypeHolder } from './StackNamePrimitiveTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { StackSetNamePrimitiveTypeHolder } from './StackSetNamePrimitiveTypeHolder';
+import { StackSetStackNamePrimitiveTypeHolder } from './StackSetStackNamePrimitiveTypeHolder';
 
 
 export class StackInstance {
@@ -18,9 +18,8 @@ export class StackInstance {
     public region?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    public constructor(stackSetName?: string, stackName?: string) { 
+    public constructor(stackSetName?: string) { 
         this['stack_set_name'] = stackSetName;
-        this['stack_name'] = stackName;
     }
     public withStackSetId(stackSetId: string): StackInstance {
         this['stack_set_id'] = stackSetId;

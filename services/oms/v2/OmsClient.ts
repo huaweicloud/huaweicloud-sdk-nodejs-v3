@@ -3,6 +3,9 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { BandwidthPolicyDto } from './model/BandwidthPolicyDto';
+import { BatchUpdateTasksReq } from './model/BatchUpdateTasksReq';
+import { BatchUpdateTasksRequest } from './model/BatchUpdateTasksRequest';
+import { BatchUpdateTasksResponse } from './model/BatchUpdateTasksResponse';
 import { CheckPrefixReq } from './model/CheckPrefixReq';
 import { CheckPrefixRequest } from './model/CheckPrefixRequest';
 import { CheckPrefixResponse } from './model/CheckPrefixResponse';
@@ -125,6 +128,25 @@ export class OmsClient {
 
 
     /**
+     * 批量更新迁移任务，可指定单个迁移任务组下所有的迁移任务或通过迁移任务ID来执行。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新任务
+     * @param {BatchUpdateTasksReq} batchUpdateTasksRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateTasks(batchUpdateTasksRequest?: BatchUpdateTasksRequest): Promise<BatchUpdateTasksResponse> {
+        const options = ParamCreater().batchUpdateTasks(batchUpdateTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 检查前缀是否在源端桶中存在
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -222,7 +244,7 @@ export class OmsClient {
 
     /**
      * 调用该接口删除同步任务。
-     * 正在同步的任务不允许删除，如果删除会返回失败；若要删除，请先行暂停任务(目前只支持华北-北京四、华东-上海一地区)。
+     * 正在同步的任务不允许删除，如果删除会返回失败；若要删除，请先行暂停任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -303,7 +325,7 @@ export class OmsClient {
     }
 
     /**
-     * 查询用户名下所有同步任务信息(目前只支持华北-北京四、华东-上海一地区)。
+     * 查询用户名下所有同步任务信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -500,7 +522,7 @@ export class OmsClient {
     }
 
     /**
-     * 查询指定ID的同步任务详情(目前只支持华北-北京四、华东-上海一地区)。
+     * 查询指定ID的同步任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -756,6 +778,44 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 批量更新迁移任务，可指定单个迁移任务组下所有的迁移任务或通过迁移任务ID来执行。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateTasks(batchUpdateTasksRequest?: BatchUpdateTasksRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/tasks/batch-update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateTasksRequest !== null && batchUpdateTasksRequest !== undefined) {
+                if (batchUpdateTasksRequest instanceof BatchUpdateTasksRequest) {
+                    body = batchUpdateTasksRequest.body
+                } else {
+                    body = batchUpdateTasksRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 检查前缀是否在源端桶中存在
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -955,7 +1015,7 @@ export const ParamCreater = function () {
     
         /**
          * 调用该接口删除同步任务。
-         * 正在同步的任务不允许删除，如果删除会返回失败；若要删除，请先行暂停任务(目前只支持华北-北京四、华东-上海一地区)。
+         * 正在同步的任务不允许删除，如果删除会返回失败；若要删除，请先行暂停任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1136,7 +1196,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户名下所有同步任务信息(目前只支持华北-北京四、华东-上海一地区)。
+         * 查询用户名下所有同步任务信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1555,7 +1615,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定ID的同步任务详情(目前只支持华北-北京四、华东-上海一地区)。
+         * 查询指定ID的同步任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

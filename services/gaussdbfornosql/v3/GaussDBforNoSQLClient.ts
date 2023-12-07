@@ -198,6 +198,9 @@ import { NoSqlEpsQuotaUsed } from './model/NoSqlEpsQuotaUsed';
 import { NoSqlModiflyEpsQuotasRequestBody } from './model/NoSqlModiflyEpsQuotasRequestBody';
 import { NoSqlQueryEpsQuotaInfo } from './model/NoSqlQueryEpsQuotaInfo';
 import { NoSqlRequestEpsQuota } from './model/NoSqlRequestEpsQuota';
+import { OfflineNodesRequest } from './model/OfflineNodesRequest';
+import { OfflineNodesRequestBody } from './model/OfflineNodesRequestBody';
+import { OfflineNodesResponse } from './model/OfflineNodesResponse';
 import { OptionalFlavorsInfo } from './model/OptionalFlavorsInfo';
 import { PauseResumeDataSynchronizationRequest } from './model/PauseResumeDataSynchronizationRequest';
 import { PauseResumeDataSynchronizationResponse } from './model/PauseResumeDataSynchronizationResponse';
@@ -1464,6 +1467,26 @@ export class GaussDBforNoSQLClient {
      */
     public modifyVolume(modifyVolumeRequest?: ModifyVolumeRequest): Promise<ModifyVolumeResponse> {
         const options = ParamCreater().modifyVolume(modifyVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当底层故障导致节点无法正常工作时，可以对该节点执行关机操作，关机后会由其他节点接管业务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 支持节点的开关机
+     * @param {string} instanceId 实例ID。
+     * @param {OfflineNodesRequestBody} offlineNodesRequestBody 隔离节点的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public offlineNodes(offlineNodesRequest?: OfflineNodesRequest): Promise<OfflineNodesResponse> {
+        const options = ParamCreater().offlineNodes(offlineNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4988,6 +5011,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyVolume.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当底层故障导致节点无法正常工作时，可以对该节点执行关机操作，关机后会由其他节点接管业务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        offlineNodes(offlineNodesRequest?: OfflineNodesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (offlineNodesRequest !== null && offlineNodesRequest !== undefined) {
+                if (offlineNodesRequest instanceof OfflineNodesRequest) {
+                    instanceId = offlineNodesRequest.instanceId;
+                    body = offlineNodesRequest.body
+                } else {
+                    instanceId = offlineNodesRequest['instance_id'];
+                    body = offlineNodesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling offlineNodes.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

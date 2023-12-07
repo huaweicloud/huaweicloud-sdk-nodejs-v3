@@ -1,6 +1,9 @@
 export * from './OmsClient';
 
 export * from './model/BandwidthPolicyDto';
+export * from './model/BatchUpdateTasksReq';
+export * from './model/BatchUpdateTasksRequest';
+export * from './model/BatchUpdateTasksResponse';
 export * from './model/CheckPrefixReq';
 export * from './model/CheckPrefixRequest';
 export * from './model/CheckPrefixResponse';

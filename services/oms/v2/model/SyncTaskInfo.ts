@@ -17,6 +17,8 @@ export class SyncTaskInfo {
     private 'enable_restore'?: boolean;
     private 'app_id'?: string;
     private 'source_cdn'?: SourceCdnResp;
+    private 'object_overwrite_mode'?: SyncTaskInfoObjectOverwriteModeEnum | string;
+    private 'dst_storage_policy'?: SyncTaskInfoDstStoragePolicyEnum | string;
     private 'consistency_check'?: SyncTaskInfoConsistencyCheckEnum | string;
     public constructor() { 
     }
@@ -158,6 +160,26 @@ export class SyncTaskInfo {
     public get sourceCdn(): SourceCdnResp | undefined {
         return this['source_cdn'];
     }
+    public withObjectOverwriteMode(objectOverwriteMode: SyncTaskInfoObjectOverwriteModeEnum | string): SyncTaskInfo {
+        this['object_overwrite_mode'] = objectOverwriteMode;
+        return this;
+    }
+    public set objectOverwriteMode(objectOverwriteMode: SyncTaskInfoObjectOverwriteModeEnum | string  | undefined) {
+        this['object_overwrite_mode'] = objectOverwriteMode;
+    }
+    public get objectOverwriteMode(): SyncTaskInfoObjectOverwriteModeEnum | string | undefined {
+        return this['object_overwrite_mode'];
+    }
+    public withDstStoragePolicy(dstStoragePolicy: SyncTaskInfoDstStoragePolicyEnum | string): SyncTaskInfo {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: SyncTaskInfoDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): SyncTaskInfoDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withConsistencyCheck(consistencyCheck: SyncTaskInfoConsistencyCheckEnum | string): SyncTaskInfo {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -193,6 +215,27 @@ export enum SyncTaskInfoSrcCloudTypeEnum {
 export enum SyncTaskInfoStatusEnum {
     SYNCHRONIZING = 'SYNCHRONIZING',
     STOPPED = 'STOPPED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SyncTaskInfoObjectOverwriteModeEnum {
+    NO_OVERWRITE = 'NO_OVERWRITE',
+    SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
+    CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
+    FULL_OVERWRITE = 'FULL_OVERWRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SyncTaskInfoDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
 }
 /**
     * @export

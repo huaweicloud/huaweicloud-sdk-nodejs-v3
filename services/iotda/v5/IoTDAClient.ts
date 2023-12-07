@@ -28,6 +28,7 @@ import { AmqpForwarding } from './model/AmqpForwarding';
 import { ApplicationDTO } from './model/ApplicationDTO';
 import { AsyncDeviceCommandRequest } from './model/AsyncDeviceCommandRequest';
 import { AuthInfo } from './model/AuthInfo';
+import { AuthInfoRes } from './model/AuthInfoRes';
 import { AuthInfoWithoutSecret } from './model/AuthInfoWithoutSecret';
 import { BatchShowQueueRequest } from './model/BatchShowQueueRequest';
 import { BatchShowQueueResponse } from './model/BatchShowQueueResponse';

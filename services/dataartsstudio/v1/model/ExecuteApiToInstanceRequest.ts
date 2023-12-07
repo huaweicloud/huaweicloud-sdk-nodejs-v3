@@ -8,9 +8,8 @@ export class ExecuteApiToInstanceRequest {
     private 'api_id'?: string;
     private 'instance_id'?: string;
     public body?: ApiActionDTO;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, apiId?: string, instanceId?: string) { 
+    public constructor(workspace?: string, contentType?: string, apiId?: string, instanceId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['api_id'] = apiId;
         this['instance_id'] = instanceId;

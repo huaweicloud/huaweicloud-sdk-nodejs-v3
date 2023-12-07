@@ -7,9 +7,8 @@ export class UpdateAppRequest {
     private 'Content-Type'?: string;
     private 'app_id'?: string;
     public body?: AppUpdateDTO;
-    public constructor(workspace?: string, dlmType?: string, contentType?: string, appId?: string) { 
+    public constructor(workspace?: string, contentType?: string, appId?: string) { 
         this['workspace'] = workspace;
-        this['Dlm-Type'] = dlmType;
         this['Content-Type'] = contentType;
         this['app_id'] = appId;
     }
