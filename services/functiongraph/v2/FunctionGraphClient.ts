@@ -108,6 +108,7 @@ import { ListDependenciesResponse } from './model/ListDependenciesResponse';
 import { ListDependenciesResult } from './model/ListDependenciesResult';
 import { ListDependencyVersionRequest } from './model/ListDependencyVersionRequest';
 import { ListDependencyVersionResponse } from './model/ListDependencyVersionResponse';
+import { ListEnterpriseResourceDetail } from './model/ListEnterpriseResourceDetail';
 import { ListEnterpriseResourceRequestBody } from './model/ListEnterpriseResourceRequestBody';
 import { ListEnterpriseResourceResult } from './model/ListEnterpriseResourceResult';
 import { ListEventsRequest } from './model/ListEventsRequest';

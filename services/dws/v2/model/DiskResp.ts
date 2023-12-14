@@ -2,6 +2,7 @@
 
 export class DiskResp {
     private 'instance_name'?: string;
+    private 'instance_id'?: string;
     private 'host_name'?: string;
     private 'disk_name'?: string;
     private 'disk_type'?: string;
@@ -25,6 +26,16 @@ export class DiskResp {
     }
     public get instanceName(): string | undefined {
         return this['instance_name'];
+    }
+    public withInstanceId(instanceId: string): DiskResp {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withHostName(hostName: string): DiskResp {
         this['host_name'] = hostName;

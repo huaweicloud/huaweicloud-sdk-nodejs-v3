@@ -21,6 +21,8 @@ import { CollectAllResourcesSummaryRequest } from './model/CollectAllResourcesSu
 import { CollectAllResourcesSummaryResponse } from './model/CollectAllResourcesSummaryResponse';
 import { CollectConformancePackComplianceSummaryRequest } from './model/CollectConformancePackComplianceSummaryRequest';
 import { CollectConformancePackComplianceSummaryResponse } from './model/CollectConformancePackComplianceSummaryResponse';
+import { CollectTrackedResourcesSummaryRequest } from './model/CollectTrackedResourcesSummaryRequest';
+import { CollectTrackedResourcesSummaryResponse } from './model/CollectTrackedResourcesSummaryResponse';
 import { Compliance } from './model/Compliance';
 import { ConfigurationAggregatorRequest } from './model/ConfigurationAggregatorRequest';
 import { ConfigurationAggregatorResp } from './model/ConfigurationAggregatorResp';
@@ -33,6 +35,8 @@ import { ConformancePackScore } from './model/ConformancePackScore';
 import { ConformancePackTemplate } from './model/ConformancePackTemplate';
 import { CountAllResourcesRequest } from './model/CountAllResourcesRequest';
 import { CountAllResourcesResponse } from './model/CountAllResourcesResponse';
+import { CountTrackedResourcesRequest } from './model/CountTrackedResourcesRequest';
+import { CountTrackedResourcesResponse } from './model/CountTrackedResourcesResponse';
 import { CreateAggregationAuthorizationRequest } from './model/CreateAggregationAuthorizationRequest';
 import { CreateAggregationAuthorizationResponse } from './model/CreateAggregationAuthorizationResponse';
 import { CreateConfigurationAggregatorRequest } from './model/CreateConfigurationAggregatorRequest';
@@ -124,6 +128,10 @@ import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListStoredQueriesRequest } from './model/ListStoredQueriesRequest';
 import { ListStoredQueriesResponse } from './model/ListStoredQueriesResponse';
+import { ListTrackedResourceTagsRequest } from './model/ListTrackedResourceTagsRequest';
+import { ListTrackedResourceTagsResponse } from './model/ListTrackedResourceTagsResponse';
+import { ListTrackedResourcesRequest } from './model/ListTrackedResourcesRequest';
+import { ListTrackedResourcesResponse } from './model/ListTrackedResourcesResponse';
 import { ManagedPolicyAssignmentMetadata } from './model/ManagedPolicyAssignmentMetadata';
 import { OrgConformancePackDetailedStatus } from './model/OrgConformancePackDetailedStatus';
 import { OrgConformancePackRequestBody } from './model/OrgConformancePackRequestBody';
@@ -213,6 +221,8 @@ import { ShowResourceRelationsRequest } from './model/ShowResourceRelationsReque
 import { ShowResourceRelationsResponse } from './model/ShowResourceRelationsResponse';
 import { ShowStoredQueryRequest } from './model/ShowStoredQueryRequest';
 import { ShowStoredQueryResponse } from './model/ShowStoredQueryResponse';
+import { ShowTrackedResourceDetailRequest } from './model/ShowTrackedResourceDetailRequest';
+import { ShowTrackedResourceDetailResponse } from './model/ShowTrackedResourceDetailResponse';
 import { ShowTrackerConfigRequest } from './model/ShowTrackerConfigRequest';
 import { ShowTrackerConfigResponse } from './model/ShowTrackerConfigResponse';
 import { StoredQuery } from './model/StoredQuery';
@@ -1632,6 +1642,30 @@ export class ConfigClient {
     }
 
     /**
+     * 查询当前用户资源记录器收集的资源概览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源记录器收集的资源概要
+     * @param {string} [name] 资源名称
+     * @param {Array<string>} [type] 资源类型（provider.type）
+     * @param {Array<string>} [regionId] 区域ID列表
+     * @param {Array<string>} [epId] 企业项目ID列表
+     * @param {Array<string>} [projectId] 项目ID
+     * @param {Array<string>} [tags] 标签列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectTrackedResourcesSummary(collectTrackedResourcesSummaryRequest?: CollectTrackedResourcesSummaryRequest): Promise<CollectTrackedResourcesSummaryResponse> {
+        const options = ParamCreater().collectTrackedResourcesSummary(collectTrackedResourcesSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前帐号的资源数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1649,6 +1683,31 @@ export class ConfigClient {
      */
     public countAllResources(countAllResourcesRequest?: CountAllResourcesRequest): Promise<CountAllResourcesResponse> {
         const options = ParamCreater().countAllResources(countAllResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前用户资源记录器收集的资源数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源记录器收集的资源数量
+     * @param {string} [id] 资源ID
+     * @param {string} [name] 资源名称
+     * @param {Array<string>} [type] 资源类型（provider.type）
+     * @param {Array<string>} [regionId] 区域ID列表
+     * @param {Array<string>} [epId] 企业项目ID列表
+     * @param {Array<string>} [projectId] 项目ID
+     * @param {Array<string>} [tags] 标签列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countTrackedResources(countTrackedResourcesRequest?: CountTrackedResourcesRequest): Promise<CountTrackedResourcesResponse> {
+        const options = ParamCreater().countTrackedResources(countTrackedResourcesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1751,6 +1810,53 @@ export class ConfigClient {
     }
 
     /**
+     * 查询当前用户资源记录器收集的资源的标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源记录器收集的资源标签
+     * @param {string} [key] 标签键名
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {number} [limit] 最大的返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrackedResourceTags(listTrackedResourceTagsRequest?: ListTrackedResourceTagsRequest): Promise<ListTrackedResourceTagsResponse> {
+        const options = ParamCreater().listTrackedResourceTags(listTrackedResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前用户资源记录器收集的全部资源，需要当前用户有rms:resources:list权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源记录器收集的全部资源
+     * @param {string} [regionId] 区域ID
+     * @param {string} [epId] 企业项目ID
+     * @param {string} [type] 资源类型（provider.type）
+     * @param {number} [limit] 最大的返回数量。
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [id] 资源ID
+     * @param {string} [name] 资源名称
+     * @param {Array<string>} [tags] 标签列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrackedResources(listTrackedResourcesRequest?: ListTrackedResourcesRequest): Promise<ListTrackedResourcesResponse> {
+        const options = ParamCreater().listTrackedResources(listTrackedResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 指定资源ID，返回该资源的详细信息，需要当前用户有rms:resources:get权限。比如查询云服务器，对应的Config资源类型是ecs.cloudservers，其中provider为ecs，type为cloudservers。Config支持的服务和资源类型参见[支持的服务和区域](https://console.huaweicloud.com/eps/#/resources/supported)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1783,6 +1889,25 @@ export class ConfigClient {
      */
     public showResourceDetail(showResourceDetailRequest?: ShowResourceDetailRequest): Promise<ShowResourceDetailResponse> {
         const options = ParamCreater().showResourceDetail(showResourceDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前用户资源记录器收集的单个资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源记录器收集的单个资源
+     * @param {string} resourceId 资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrackedResourceDetail(showTrackedResourceDetailRequest?: ShowTrackedResourceDetailRequest): Promise<ShowTrackedResourceDetailResponse> {
+        const options = ParamCreater().showTrackedResourceDetail(showTrackedResourceDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5009,6 +5134,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前用户资源记录器收集的资源概览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectTrackedResourcesSummary(collectTrackedResourcesSummaryRequest?: CollectTrackedResourcesSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/tracked-resources/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let type;
+            
+            let regionId;
+            
+            let epId;
+            
+            let projectId;
+            
+            let tags;
+
+            if (collectTrackedResourcesSummaryRequest !== null && collectTrackedResourcesSummaryRequest !== undefined) {
+                if (collectTrackedResourcesSummaryRequest instanceof CollectTrackedResourcesSummaryRequest) {
+                    name = collectTrackedResourcesSummaryRequest.name;
+                    type = collectTrackedResourcesSummaryRequest.type;
+                    regionId = collectTrackedResourcesSummaryRequest.regionId;
+                    epId = collectTrackedResourcesSummaryRequest.epId;
+                    projectId = collectTrackedResourcesSummaryRequest.projectId;
+                    tags = collectTrackedResourcesSummaryRequest.tags;
+                } else {
+                    name = collectTrackedResourcesSummaryRequest['name'];
+                    type = collectTrackedResourcesSummaryRequest['type'];
+                    regionId = collectTrackedResourcesSummaryRequest['region_id'];
+                    epId = collectTrackedResourcesSummaryRequest['ep_id'];
+                    projectId = collectTrackedResourcesSummaryRequest['project_id'];
+                    tags = collectTrackedResourcesSummaryRequest['tags'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (epId !== null && epId !== undefined) {
+                localVarQueryParameter['ep_id'] = epId;
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询当前帐号的资源数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5056,6 +5253,85 @@ export const ParamCreater = function () {
                     epId = countAllResourcesRequest['ep_id'];
                     projectId = countAllResourcesRequest['project_id'];
                     tags = countAllResourcesRequest['tags'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (epId !== null && epId !== undefined) {
+                localVarQueryParameter['ep_id'] = epId;
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前用户资源记录器收集的资源数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countTrackedResources(countTrackedResourcesRequest?: CountTrackedResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/tracked-resources/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let type;
+            
+            let regionId;
+            
+            let epId;
+            
+            let projectId;
+            
+            let tags;
+
+            if (countTrackedResourcesRequest !== null && countTrackedResourcesRequest !== undefined) {
+                if (countTrackedResourcesRequest instanceof CountTrackedResourcesRequest) {
+                    id = countTrackedResourcesRequest.id;
+                    name = countTrackedResourcesRequest.name;
+                    type = countTrackedResourcesRequest.type;
+                    regionId = countTrackedResourcesRequest.regionId;
+                    epId = countTrackedResourcesRequest.epId;
+                    projectId = countTrackedResourcesRequest.projectId;
+                    tags = countTrackedResourcesRequest.tags;
+                } else {
+                    id = countTrackedResourcesRequest['id'];
+                    name = countTrackedResourcesRequest['name'];
+                    type = countTrackedResourcesRequest['type'];
+                    regionId = countTrackedResourcesRequest['region_id'];
+                    epId = countTrackedResourcesRequest['ep_id'];
+                    projectId = countTrackedResourcesRequest['project_id'];
+                    tags = countTrackedResourcesRequest['tags'];
                 }
             }
 
@@ -5363,6 +5639,143 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前用户资源记录器收集的资源的标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrackedResourceTags(listTrackedResourceTagsRequest?: ListTrackedResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/tracked-resources/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let key;
+            
+            let marker;
+            
+            let limit;
+
+            if (listTrackedResourceTagsRequest !== null && listTrackedResourceTagsRequest !== undefined) {
+                if (listTrackedResourceTagsRequest instanceof ListTrackedResourceTagsRequest) {
+                    key = listTrackedResourceTagsRequest.key;
+                    marker = listTrackedResourceTagsRequest.marker;
+                    limit = listTrackedResourceTagsRequest.limit;
+                } else {
+                    key = listTrackedResourceTagsRequest['key'];
+                    marker = listTrackedResourceTagsRequest['marker'];
+                    limit = listTrackedResourceTagsRequest['limit'];
+                }
+            }
+
+        
+            if (key !== null && key !== undefined) {
+                localVarQueryParameter['key'] = key;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前用户资源记录器收集的全部资源，需要当前用户有rms:resources:list权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrackedResources(listTrackedResourcesRequest?: ListTrackedResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/tracked-resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let regionId;
+            
+            let epId;
+            
+            let type;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let tags;
+
+            if (listTrackedResourcesRequest !== null && listTrackedResourcesRequest !== undefined) {
+                if (listTrackedResourcesRequest instanceof ListTrackedResourcesRequest) {
+                    regionId = listTrackedResourcesRequest.regionId;
+                    epId = listTrackedResourcesRequest.epId;
+                    type = listTrackedResourcesRequest.type;
+                    limit = listTrackedResourcesRequest.limit;
+                    marker = listTrackedResourcesRequest.marker;
+                    id = listTrackedResourcesRequest.id;
+                    name = listTrackedResourcesRequest.name;
+                    tags = listTrackedResourcesRequest.tags;
+                } else {
+                    regionId = listTrackedResourcesRequest['region_id'];
+                    epId = listTrackedResourcesRequest['ep_id'];
+                    type = listTrackedResourcesRequest['type'];
+                    limit = listTrackedResourcesRequest['limit'];
+                    marker = listTrackedResourcesRequest['marker'];
+                    id = listTrackedResourcesRequest['id'];
+                    name = listTrackedResourcesRequest['name'];
+                    tags = listTrackedResourcesRequest['tags'];
+                }
+            }
+
+        
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (epId !== null && epId !== undefined) {
+                localVarQueryParameter['ep_id'] = epId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 指定资源ID，返回该资源的详细信息，需要当前用户有rms:resources:get权限。比如查询云服务器，对应的Config资源类型是ecs.cloudservers，其中provider为ecs，type为cloudservers。Config支持的服务和资源类型参见[支持的服务和区域](https://console.huaweicloud.com/eps/#/resources/supported)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5443,6 +5856,43 @@ export const ParamCreater = function () {
         
             if (resourceId === null || resourceId === undefined) {
             throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourceDetail.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前用户资源记录器收集的单个资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrackedResourceDetail(showTrackedResourceDetailRequest?: ShowTrackedResourceDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/tracked-resources/{resource_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+
+            if (showTrackedResourceDetailRequest !== null && showTrackedResourceDetailRequest !== undefined) {
+                if (showTrackedResourceDetailRequest instanceof ShowTrackedResourceDetailRequest) {
+                    resourceId = showTrackedResourceDetailRequest.resourceId;
+                } else {
+                    resourceId = showTrackedResourceDetailRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showTrackedResourceDetail.');
             }
 
             options.pathParams = { 'resource_id': resourceId, };

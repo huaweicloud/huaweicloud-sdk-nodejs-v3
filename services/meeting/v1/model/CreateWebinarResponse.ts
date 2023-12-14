@@ -27,6 +27,9 @@ export class CreateWebinarResponse extends SdkResponse {
     public audienceJoinUri?: string;
     public audiencePasswd?: string;
     public enableRecording?: YesNoEnum;
+    public liveAddress?: string;
+    public auxAddress?: string;
+    public liveUrl?: string;
     public attendees?: Array<string>;
     public constructor() { 
         super();
@@ -117,6 +120,18 @@ export class CreateWebinarResponse extends SdkResponse {
     }
     public withEnableRecording(enableRecording: YesNoEnum): CreateWebinarResponse {
         this['enableRecording'] = enableRecording;
+        return this;
+    }
+    public withLiveAddress(liveAddress: string): CreateWebinarResponse {
+        this['liveAddress'] = liveAddress;
+        return this;
+    }
+    public withAuxAddress(auxAddress: string): CreateWebinarResponse {
+        this['auxAddress'] = auxAddress;
+        return this;
+    }
+    public withLiveUrl(liveUrl: string): CreateWebinarResponse {
+        this['liveUrl'] = liveUrl;
         return this;
     }
     public withAttendees(attendees: Array<string>): CreateWebinarResponse {

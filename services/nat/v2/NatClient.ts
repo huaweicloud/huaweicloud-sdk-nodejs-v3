@@ -567,106 +567,6 @@ export class NatClient {
     }
 
     /**
-     * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 添加公网NAT网关资源标签
-     * @param {string} natGatewayId 所属公网NAT网关的id。
-     * @param {CreateNatTagRequestBody} createNatGatewayTagRequestBody 添加公网NAT网关资源标签的请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createNatGatewayTag(createNatGatewayTagRequest?: CreateNatGatewayTagRequest): Promise<CreateNatGatewayTagResponse> {
-        const options = ParamCreater().createNatGatewayTag(createNatGatewayTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * - 删除指定公网NAT网关资源实例的标签信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除公网NAT网关资源标签
-     * @param {string} natGatewayId 公网NAT网关id。
-     * @param {string} key 标签key。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteNatGatewayTag(deleteNatGatewayTagRequest?: DeleteNatGatewayTagRequest): Promise<DeleteNatGatewayTagResponse> {
-        const options = ParamCreater().deleteNatGatewayTag(deleteNatGatewayTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * - 使用标签过滤公网NAT网关资源实例。
-     * - 标签管理服务需要提供按标签过滤公网NAT网关服务实例并汇总显示在列表中，需要公网NAT网关服务提供查询能力。
-     * - 资源默认按照创建时间倒序，资源tag也按照创建时间倒序。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网NAT网关资源实例
-     * @param {ListNatsByTagsRequestBody} listNatGatewayByTagRequestBody 查询资源实例的请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listNatGatewayByTag(listNatGatewayByTagRequest?: ListNatGatewayByTagRequest): Promise<ListNatGatewayByTagResponse> {
-        const options = ParamCreater().listNatGatewayByTag(listNatGatewayByTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
-     * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网NAT网关项目标签
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listNatGatewayTag(listNatGatewayTagRequest?: ListNatGatewayTagRequest): Promise<ListNatGatewayTagResponse> {
-        const options = ParamCreater().listNatGatewayTag();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * - 查询指定公网NAT网关实例的标签信息。
-     * - 标签管理服务需要使用该接口查询指定公网NAT网关实例的全部标签数据。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网NAT网关资源标签
-     * @param {string} natGatewayId 公网NAT网关ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showNatGatewayTag(showNatGatewayTagRequest?: ShowNatGatewayTagRequest): Promise<ShowNatGatewayTagResponse> {
-        const options = ParamCreater().showNatGatewayTag(showNatGatewayTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * - 为指定私网NAT网关实例批量添加或删除标签
      * - 标签管理服务需要使用该接口批量管理私网NAT网关实例的标签。
      * - 一个私网NAT网关上最多有10个标签。
@@ -700,6 +600,26 @@ export class NatClient {
      */
     public createNatGateway(createNatGatewayRequest?: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
         const options = ParamCreater().createNatGateway(createNatGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加公网NAT网关资源标签
+     * @param {string} natGatewayId 所属公网NAT网关的id。
+     * @param {CreateNatTagRequestBody} createNatGatewayTagRequestBody 添加公网NAT网关资源标签的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createNatGatewayTag(createNatGatewayTagRequest?: CreateNatGatewayTagRequest): Promise<CreateNatGatewayTagResponse> {
+        const options = ParamCreater().createNatGatewayTag(createNatGatewayTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -768,6 +688,26 @@ export class NatClient {
     }
 
     /**
+     * - 删除指定公网NAT网关资源实例的标签信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除公网NAT网关资源标签
+     * @param {string} natGatewayId 公网NAT网关id。
+     * @param {string} key 标签key。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteNatGatewayTag(deleteNatGatewayTagRequest?: DeleteNatGatewayTagRequest): Promise<DeleteNatGatewayTagResponse> {
+        const options = ParamCreater().deleteNatGatewayTag(deleteNatGatewayTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除私网NAT网关实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -800,6 +740,46 @@ export class NatClient {
      */
     public deletePrivateNatTag(deletePrivateNatTagRequest?: DeletePrivateNatTagRequest): Promise<DeletePrivateNatTagResponse> {
         const options = ParamCreater().deletePrivateNatTag(deletePrivateNatTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 使用标签过滤公网NAT网关资源实例。
+     * - 标签管理服务需要提供按标签过滤公网NAT网关服务实例并汇总显示在列表中，需要公网NAT网关服务提供查询能力。
+     * - 资源默认按照创建时间倒序，资源tag也按照创建时间倒序。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网NAT网关资源实例
+     * @param {ListNatsByTagsRequestBody} listNatGatewayByTagRequestBody 查询资源实例的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNatGatewayByTag(listNatGatewayByTagRequest?: ListNatGatewayByTagRequest): Promise<ListNatGatewayByTagResponse> {
+        const options = ParamCreater().listNatGatewayByTag(listNatGatewayByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
+     * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网NAT网关项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNatGatewayTag(listNatGatewayTagRequest?: ListNatGatewayTagRequest): Promise<ListNatGatewayTagResponse> {
+        const options = ParamCreater().listNatGatewayTag();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -916,6 +896,26 @@ export class NatClient {
      */
     public showNatGateway(showNatGatewayRequest?: ShowNatGatewayRequest): Promise<ShowNatGatewayResponse> {
         const options = ParamCreater().showNatGateway(showNatGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询指定公网NAT网关实例的标签信息。
+     * - 标签管理服务需要使用该接口查询指定公网NAT网关实例的全部标签数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网NAT网关资源标签
+     * @param {string} natGatewayId 公网NAT网关ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNatGatewayTag(showNatGatewayTagRequest?: ShowNatGatewayTagRequest): Promise<ShowNatGatewayTagResponse> {
+        const options = ParamCreater().showNatGatewayTag(showNatGatewayTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2196,196 +2196,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createNatGatewayTag(createNatGatewayTagRequest?: CreateNatGatewayTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let natGatewayId;
-
-            if (createNatGatewayTagRequest !== null && createNatGatewayTagRequest !== undefined) {
-                if (createNatGatewayTagRequest instanceof CreateNatGatewayTagRequest) {
-                    natGatewayId = createNatGatewayTagRequest.natGatewayId;
-                    body = createNatGatewayTagRequest.body
-                } else {
-                    natGatewayId = createNatGatewayTagRequest['nat_gateway_id'];
-                    body = createNatGatewayTagRequest['body'];
-                }
-            }
-
-        
-            if (natGatewayId === null || natGatewayId === undefined) {
-            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling createNatGatewayTag.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'nat_gateway_id': natGatewayId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * - 删除指定公网NAT网关资源实例的标签信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteNatGatewayTag(deleteNatGatewayTagRequest?: DeleteNatGatewayTagRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags/{key}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let natGatewayId;
-            
-            let key;
-
-            if (deleteNatGatewayTagRequest !== null && deleteNatGatewayTagRequest !== undefined) {
-                if (deleteNatGatewayTagRequest instanceof DeleteNatGatewayTagRequest) {
-                    natGatewayId = deleteNatGatewayTagRequest.natGatewayId;
-                    key = deleteNatGatewayTagRequest.key;
-                } else {
-                    natGatewayId = deleteNatGatewayTagRequest['nat_gateway_id'];
-                    key = deleteNatGatewayTagRequest['key'];
-                }
-            }
-
-        
-            if (natGatewayId === null || natGatewayId === undefined) {
-            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling deleteNatGatewayTag.');
-            }
-            if (key === null || key === undefined) {
-            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteNatGatewayTag.');
-            }
-
-            options.pathParams = { 'nat_gateway_id': natGatewayId,'key': key, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * - 使用标签过滤公网NAT网关资源实例。
-         * - 标签管理服务需要提供按标签过滤公网NAT网关服务实例并汇总显示在列表中，需要公网NAT网关服务提供查询能力。
-         * - 资源默认按照创建时间倒序，资源tag也按照创建时间倒序。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listNatGatewayByTag(listNatGatewayByTagRequest?: ListNatGatewayByTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/nat_gateways/resource_instances/action",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (listNatGatewayByTagRequest !== null && listNatGatewayByTagRequest !== undefined) {
-                if (listNatGatewayByTagRequest instanceof ListNatGatewayByTagRequest) {
-                    body = listNatGatewayByTagRequest.body
-                } else {
-                    body = listNatGatewayByTagRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
-         * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listNatGatewayTag() {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/nat_gateways/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * - 查询指定公网NAT网关实例的标签信息。
-         * - 标签管理服务需要使用该接口查询指定公网NAT网关实例的全部标签数据。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showNatGatewayTag(showNatGatewayTagRequest?: ShowNatGatewayTagRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let natGatewayId;
-
-            if (showNatGatewayTagRequest !== null && showNatGatewayTagRequest !== undefined) {
-                if (showNatGatewayTagRequest instanceof ShowNatGatewayTagRequest) {
-                    natGatewayId = showNatGatewayTagRequest.natGatewayId;
-                } else {
-                    natGatewayId = showNatGatewayTagRequest['nat_gateway_id'];
-                }
-            }
-
-        
-            if (natGatewayId === null || natGatewayId === undefined) {
-            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling showNatGatewayTag.');
-            }
-
-            options.pathParams = { 'nat_gateway_id': natGatewayId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * - 为指定私网NAT网关实例批量添加或删除标签
          * - 标签管理服务需要使用该接口批量管理私网NAT网关实例的标签。
          * - 一个私网NAT网关上最多有10个标签。
@@ -2467,6 +2277,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createNatGatewayTag(createNatGatewayTagRequest?: CreateNatGatewayTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let natGatewayId;
+
+            if (createNatGatewayTagRequest !== null && createNatGatewayTagRequest !== undefined) {
+                if (createNatGatewayTagRequest instanceof CreateNatGatewayTagRequest) {
+                    natGatewayId = createNatGatewayTagRequest.natGatewayId;
+                    body = createNatGatewayTagRequest.body
+                } else {
+                    natGatewayId = createNatGatewayTagRequest['nat_gateway_id'];
+                    body = createNatGatewayTagRequest['body'];
+                }
+            }
+
+        
+            if (natGatewayId === null || natGatewayId === undefined) {
+            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling createNatGatewayTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'nat_gateway_id': natGatewayId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2595,6 +2451,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * - 删除指定公网NAT网关资源实例的标签信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteNatGatewayTag(deleteNatGatewayTagRequest?: DeleteNatGatewayTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let natGatewayId;
+            
+            let key;
+
+            if (deleteNatGatewayTagRequest !== null && deleteNatGatewayTagRequest !== undefined) {
+                if (deleteNatGatewayTagRequest instanceof DeleteNatGatewayTagRequest) {
+                    natGatewayId = deleteNatGatewayTagRequest.natGatewayId;
+                    key = deleteNatGatewayTagRequest.key;
+                } else {
+                    natGatewayId = deleteNatGatewayTagRequest['nat_gateway_id'];
+                    key = deleteNatGatewayTagRequest['key'];
+                }
+            }
+
+        
+            if (natGatewayId === null || natGatewayId === undefined) {
+            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling deleteNatGatewayTag.');
+            }
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteNatGatewayTag.');
+            }
+
+            options.pathParams = { 'nat_gateway_id': natGatewayId,'key': key, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除私网NAT网关实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2672,6 +2572,68 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'key': key,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 使用标签过滤公网NAT网关资源实例。
+         * - 标签管理服务需要提供按标签过滤公网NAT网关服务实例并汇总显示在列表中，需要公网NAT网关服务提供查询能力。
+         * - 资源默认按照创建时间倒序，资源tag也按照创建时间倒序。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNatGatewayByTag(listNatGatewayByTagRequest?: ListNatGatewayByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/nat_gateways/resource_instances/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listNatGatewayByTagRequest !== null && listNatGatewayByTagRequest !== undefined) {
+                if (listNatGatewayByTagRequest instanceof ListNatGatewayByTagRequest) {
+                    body = listNatGatewayByTagRequest.body
+                } else {
+                    body = listNatGatewayByTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
+         * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNatGatewayTag() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/nat_gateways/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2981,6 +2943,44 @@ export const ParamCreater = function () {
         
             if (natGatewayId === null || natGatewayId === undefined) {
             throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling showNatGateway.');
+            }
+
+            options.pathParams = { 'nat_gateway_id': natGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询指定公网NAT网关实例的标签信息。
+         * - 标签管理服务需要使用该接口查询指定公网NAT网关实例的全部标签数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNatGatewayTag(showNatGatewayTagRequest?: ShowNatGatewayTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/nat_gateways/{nat_gateway_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let natGatewayId;
+
+            if (showNatGatewayTagRequest !== null && showNatGatewayTagRequest !== undefined) {
+                if (showNatGatewayTagRequest instanceof ShowNatGatewayTagRequest) {
+                    natGatewayId = showNatGatewayTagRequest.natGatewayId;
+                } else {
+                    natGatewayId = showNatGatewayTagRequest['nat_gateway_id'];
+                }
+            }
+
+        
+            if (natGatewayId === null || natGatewayId === undefined) {
+            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling showNatGatewayTag.');
             }
 
             options.pathParams = { 'nat_gateway_id': natGatewayId, };

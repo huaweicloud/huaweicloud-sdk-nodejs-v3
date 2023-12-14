@@ -59,5 +59,8 @@ export class ListAlarmTemplatesRequest {
     */
 export enum ListAlarmTemplatesRequestTemplateTypeEnum {
     SYSTEM = 'system',
-    CUSTOM = 'custom'
+    CUSTOM = 'custom',
+    SYSTEM_EVENT = 'system_event',
+    CUSTOM_EVENT = 'custom_event',
+    SYSTEM_CUSTOM_EVENT = 'system_custom_event'
 }

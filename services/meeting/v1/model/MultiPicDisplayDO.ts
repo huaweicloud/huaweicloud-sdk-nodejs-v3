@@ -6,7 +6,7 @@ export class MultiPicDisplayDO {
     public manualSet?: number;
     public imageType?: string;
     public subscriberInPics?: Array<PicInfoNotify>;
-    public switchTime?: string;
+    public switchTime?: number;
     public picLayoutInfo?: PicLayoutInfo;
     public constructor() { 
     }
@@ -22,7 +22,7 @@ export class MultiPicDisplayDO {
         this['subscriberInPics'] = subscriberInPics;
         return this;
     }
-    public withSwitchTime(switchTime: string): MultiPicDisplayDO {
+    public withSwitchTime(switchTime: number): MultiPicDisplayDO {
         this['switchTime'] = switchTime;
         return this;
     }

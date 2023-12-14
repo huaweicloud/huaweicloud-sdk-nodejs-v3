@@ -6,6 +6,8 @@ import { ActionProgress } from './model/ActionProgress';
 import { AddComponentReq } from './model/AddComponentReq';
 import { Cluster } from './model/Cluster';
 import { ClusterDetail } from './model/ClusterDetail';
+import { CreateCloudTableClusterRequest } from './model/CreateCloudTableClusterRequest';
+import { CreateCloudTableClusterResponse } from './model/CreateCloudTableClusterResponse';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterRequestBody } from './model/CreateClusterRequestBody';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
@@ -236,6 +238,31 @@ export class CloudTableClient {
      */
     public updateClusterSetting(updateClusterSettingRequest?: UpdateClusterSettingRequest): Promise<UpdateClusterSettingResponse> {
         const options = ParamCreater().updateClusterSetting(updateClusterSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建一个CloudTable集群。
+     * 使用接口前，您需要先获取如下资源信息。
+     * - 通过VPC创建或查询VPC、子网
+     * - 通过安全组创建或查询可用的security_group_id
+     * 
+     * 本接口是一个同步接口，当创建CloudTable集群成功后会返回集群id。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建CloudTable集群
+     * @param {CreateClusterRequestBody} createClusterRequestBody This is a auto create Body Object
+     * @param {string} [xLanguage] 语言类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCloudTableCluster(createCloudTableClusterRequest?: CreateCloudTableClusterRequest): Promise<CreateCloudTableClusterResponse> {
+        const options = ParamCreater().createCloudTableCluster(createCloudTableClusterRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -691,6 +718,56 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建一个CloudTable集群。
+         * 使用接口前，您需要先获取如下资源信息。
+         * - 通过VPC创建或查询VPC、子网
+         * - 通过安全组创建或查询可用的security_group_id
+         * 
+         * 本接口是一个同步接口，当创建CloudTable集群成功后会返回集群id。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCloudTableCluster(createCloudTableClusterRequest?: CreateCloudTableClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (createCloudTableClusterRequest !== null && createCloudTableClusterRequest !== undefined) {
+                if (createCloudTableClusterRequest instanceof CreateCloudTableClusterRequest) {
+                    body = createCloudTableClusterRequest.body
+                    xLanguage = createCloudTableClusterRequest.xLanguage;
+                } else {
+                    body = createCloudTableClusterRequest['body'];
+                    xLanguage = createCloudTableClusterRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

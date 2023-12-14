@@ -146,6 +146,8 @@ import { HangUpRequest } from './model/HangUpRequest';
 import { HangUpResponse } from './model/HangUpResponse';
 import { IdMarkDTO } from './model/IdMarkDTO';
 import { ImageModerationResult } from './model/ImageModerationResult';
+import { InterpreterGroupInfo } from './model/InterpreterGroupInfo';
+import { InterpreterInfo } from './model/InterpreterInfo';
 import { InviteOperateVideoRequest } from './model/InviteOperateVideoRequest';
 import { InviteOperateVideoResponse } from './model/InviteOperateVideoResponse';
 import { InviteParticipantRequest } from './model/InviteParticipantRequest';
@@ -297,12 +299,17 @@ import { RestRenamePartReqBody } from './model/RestRenamePartReqBody';
 import { RestResponse } from './model/RestResponse';
 import { RestScheduleConfDTO } from './model/RestScheduleConfDTO';
 import { RestScheduleCycleConfDTO } from './model/RestScheduleCycleConfDTO';
+import { RestSetAttendeeLanChannelBody } from './model/RestSetAttendeeLanChannelBody';
 import { RestSetCohostBody } from './model/RestSetCohostBody';
+import { RestSetInterpreterGroupBody } from './model/RestSetInterpreterGroupBody';
 import { RestSetLiveReqBody } from './model/RestSetLiveReqBody';
 import { RestSetRecordReqBody } from './model/RestSetRecordReqBody';
+import { RestSimultaneousInterpretationBody } from './model/RestSimultaneousInterpretationBody';
 import { RestSubscriberInPic } from './model/RestSubscriberInPic';
 import { RestSwitchModeReqBody } from './model/RestSwitchModeReqBody';
 import { RestVideoBody } from './model/RestVideoBody';
+import { ResumeSimultaneousInterpretationRequest } from './model/ResumeSimultaneousInterpretationRequest';
+import { ResumeSimultaneousInterpretationResponse } from './model/ResumeSimultaneousInterpretationResponse';
 import { RollcallParticipantRequest } from './model/RollcallParticipantRequest';
 import { RollcallParticipantResponse } from './model/RollcallParticipantResponse';
 import { SaveLayoutRequest } from './model/SaveLayoutRequest';
@@ -376,6 +383,8 @@ import { SendVeriCodeForChangePwdRequest } from './model/SendVeriCodeForChangePw
 import { SendVeriCodeForChangePwdResponse } from './model/SendVeriCodeForChangePwdResponse';
 import { SendVeriCodeForUpdateUserInfoRequest } from './model/SendVeriCodeForUpdateUserInfoRequest';
 import { SendVeriCodeForUpdateUserInfoResponse } from './model/SendVeriCodeForUpdateUserInfoResponse';
+import { SetAttendeeLanChannelRequest } from './model/SetAttendeeLanChannelRequest';
+import { SetAttendeeLanChannelResponse } from './model/SetAttendeeLanChannelResponse';
 import { SetCPUThresholdData } from './model/SetCPUThresholdData';
 import { SetCohostRequest } from './model/SetCohostRequest';
 import { SetCohostResponse } from './model/SetCohostResponse';
@@ -383,6 +392,8 @@ import { SetCustomMultiPictureRequest } from './model/SetCustomMultiPictureReque
 import { SetCustomMultiPictureResponse } from './model/SetCustomMultiPictureResponse';
 import { SetHostViewRequest } from './model/SetHostViewRequest';
 import { SetHostViewResponse } from './model/SetHostViewResponse';
+import { SetInterpreterGroupRequest } from './model/SetInterpreterGroupRequest';
+import { SetInterpreterGroupResponse } from './model/SetInterpreterGroupResponse';
 import { SetMultiPictureRequest } from './model/SetMultiPictureRequest';
 import { SetMultiPictureResponse } from './model/SetMultiPictureResponse';
 import { SetPacketThresholdData } from './model/SetPacketThresholdData';
@@ -2198,6 +2209,27 @@ export class MeetingClient {
     }
 
     /**
+     * 该接口用于会议主席可以通过该接口开启/关闭同声传译。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭同声传译
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestSimultaneousInterpretationBody} restSimultaneousInterpretationBody 启动、停止同声传译请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumeSimultaneousInterpretation(resumeSimultaneousInterpretationRequest?: ResumeSimultaneousInterpretationRequest): Promise<ResumeSimultaneousInterpretationResponse> {
+        const options = ParamCreater().resumeSimultaneousInterpretation(resumeSimultaneousInterpretationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于点名指定与会者。点名会场的效果是除了主持人外，点名与会者为非静音状态，未点名的与会者统一为静音状态。同一时间，只允许一个与会者被点名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2898,6 +2930,27 @@ export class MeetingClient {
     }
 
     /**
+     * 主持人通过该接口设置某些普通与会者(包括主持人)加入哪个语言频道。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置普通与会人的语言频道
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestSetAttendeeLanChannelBody} restSetAttendeeLanChannelBody 设置与会者语言频道请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAttendeeLanChannel(setAttendeeLanChannelRequest?: SetAttendeeLanChannelRequest): Promise<SetAttendeeLanChannelResponse> {
+        const options = ParamCreater().setAttendeeLanChannel(setAttendeeLanChannelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于设置联席主持人或释放联席主持人。只能将来宾设置为联席主持人。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2954,6 +3007,27 @@ export class MeetingClient {
      */
     public setHostView(setHostViewRequest?: SetHostViewRequest): Promise<SetHostViewResponse> {
         const options = ParamCreater().setHostView(setHostViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 主持人通过该接口设置传译组，每个传译组支持两种语言，传译组内支持多个传译员。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置传译组
+     * @param {string} conferenceID 会议ID。
+     * @param {string} xConferenceAuthorization 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {RestSetInterpreterGroupBody} restSetInterpreterGroupBody 设置传译组请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInterpreterGroup(setInterpreterGroupRequest?: SetInterpreterGroupRequest): Promise<SetInterpreterGroupResponse> {
+        const options = ParamCreater().setInterpreterGroup(setInterpreterGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8865,6 +8939,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于会议主席可以通过该接口开启/关闭同声传译。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumeSimultaneousInterpretation(resumeSimultaneousInterpretationRequest?: ResumeSimultaneousInterpretationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/simultaneousInterpretation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (resumeSimultaneousInterpretationRequest !== null && resumeSimultaneousInterpretationRequest !== undefined) {
+                if (resumeSimultaneousInterpretationRequest instanceof ResumeSimultaneousInterpretationRequest) {
+                    conferenceID = resumeSimultaneousInterpretationRequest.conferenceID;
+                    xConferenceAuthorization = resumeSimultaneousInterpretationRequest.xConferenceAuthorization;
+                    body = resumeSimultaneousInterpretationRequest.body
+                } else {
+                    conferenceID = resumeSimultaneousInterpretationRequest['conferenceID'];
+                    xConferenceAuthorization = resumeSimultaneousInterpretationRequest['X-Conference-Authorization'];
+                    body = resumeSimultaneousInterpretationRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling resumeSimultaneousInterpretation.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于点名指定与会者。点名会场的效果是除了主持人外，点名与会者为非静音状态，未点名的与会者统一为静音状态。同一时间，只允许一个与会者被点名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11078,6 +11208,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 主持人通过该接口设置某些普通与会者(包括主持人)加入哪个语言频道。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAttendeeLanChannel(setAttendeeLanChannelRequest?: SetAttendeeLanChannelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/setAttendeeLanChannel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (setAttendeeLanChannelRequest !== null && setAttendeeLanChannelRequest !== undefined) {
+                if (setAttendeeLanChannelRequest instanceof SetAttendeeLanChannelRequest) {
+                    conferenceID = setAttendeeLanChannelRequest.conferenceID;
+                    xConferenceAuthorization = setAttendeeLanChannelRequest.xConferenceAuthorization;
+                    body = setAttendeeLanChannelRequest.body
+                } else {
+                    conferenceID = setAttendeeLanChannelRequest['conferenceID'];
+                    xConferenceAuthorization = setAttendeeLanChannelRequest['X-Conference-Authorization'];
+                    body = setAttendeeLanChannelRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling setAttendeeLanChannel.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于设置联席主持人或释放联席主持人。只能将来宾设置为联席主持人。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11234,6 +11420,62 @@ export const ParamCreater = function () {
         
             if (conferenceID === null || conferenceID === undefined) {
                 throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling setHostView.');
+            }
+            if (conferenceID !== null && conferenceID !== undefined) {
+                localVarQueryParameter['conferenceID'] = conferenceID;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xConferenceAuthorization !== undefined && xConferenceAuthorization !== null) {
+                localVarHeaderParameter['X-Conference-Authorization'] = String(xConferenceAuthorization);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 主持人通过该接口设置传译组，每个传译组支持两种语言，传译组内支持多个传译员。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInterpreterGroup(setInterpreterGroupRequest?: SetInterpreterGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/mmc/control/conferences/interpreterGroup",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceID;
+            
+            let xConferenceAuthorization;
+
+            if (setInterpreterGroupRequest !== null && setInterpreterGroupRequest !== undefined) {
+                if (setInterpreterGroupRequest instanceof SetInterpreterGroupRequest) {
+                    conferenceID = setInterpreterGroupRequest.conferenceID;
+                    xConferenceAuthorization = setInterpreterGroupRequest.xConferenceAuthorization;
+                    body = setInterpreterGroupRequest.body
+                } else {
+                    conferenceID = setInterpreterGroupRequest['conferenceID'];
+                    xConferenceAuthorization = setInterpreterGroupRequest['X-Conference-Authorization'];
+                    body = setInterpreterGroupRequest['body'];
+                }
+            }
+
+        
+            if (conferenceID === null || conferenceID === undefined) {
+                throw new RequiredError('conferenceID','Required parameter conferenceID was null or undefined when calling setInterpreterGroup.');
             }
             if (conferenceID !== null && conferenceID !== undefined) {
                 localVarQueryParameter['conferenceID'] = conferenceID;

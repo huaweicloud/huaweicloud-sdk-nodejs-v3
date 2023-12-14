@@ -51,6 +51,7 @@ export class ConferenceInfo {
     public confMode?: ConferenceInfoConfModeEnum | string;
     public scheduleVmr?: boolean;
     public concurrentParticipants?: number;
+    public supportSimultaneousInterpretation?: boolean;
     public picDisplay?: MultiPicDisplayDO;
     public subConfs?: Array<CycleSubConf>;
     public cycleSubConfID?: string;
@@ -230,6 +231,10 @@ export class ConferenceInfo {
     }
     public withConcurrentParticipants(concurrentParticipants: number): ConferenceInfo {
         this['concurrentParticipants'] = concurrentParticipants;
+        return this;
+    }
+    public withSupportSimultaneousInterpretation(supportSimultaneousInterpretation: boolean): ConferenceInfo {
+        this['supportSimultaneousInterpretation'] = supportSimultaneousInterpretation;
         return this;
     }
     public withPicDisplay(picDisplay: MultiPicDisplayDO): ConferenceInfo {

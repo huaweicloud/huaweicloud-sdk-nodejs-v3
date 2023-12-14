@@ -49,6 +49,7 @@ export class DataVolumes {
     * @enum {string}
     */
 export enum DataVolumesVolumetypeEnum {
+    GPSSD = 'GPSSD',
     SATA = 'SATA',
     SAS = 'SAS',
     SSD = 'SSD'

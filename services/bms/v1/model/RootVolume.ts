@@ -44,6 +44,7 @@ export class RootVolume {
     * @enum {string}
     */
 export enum RootVolumeVolumetypeEnum {
+    GPSSD = 'GPSSD',
     SATA = 'SATA',
     SAS = 'SAS',
     SSD = 'SSD'

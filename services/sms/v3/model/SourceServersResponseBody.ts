@@ -25,6 +25,7 @@ export class SourceServersResponseBody {
     private 'last_visit_time'?: number;
     private 'migration_cycle'?: SourceServersResponseBodyMigrationCycleEnum | string;
     private 'state_action_time'?: number;
+    private 'is_consistency_result_exist'?: boolean;
     public constructor() { 
     }
     public withId(id: string): SourceServersResponseBody {
@@ -182,6 +183,16 @@ export class SourceServersResponseBody {
     }
     public get stateActionTime(): number | undefined {
         return this['state_action_time'];
+    }
+    public withIsConsistencyResultExist(isConsistencyResultExist: boolean): SourceServersResponseBody {
+        this['is_consistency_result_exist'] = isConsistencyResultExist;
+        return this;
+    }
+    public set isConsistencyResultExist(isConsistencyResultExist: boolean  | undefined) {
+        this['is_consistency_result_exist'] = isConsistencyResultExist;
+    }
+    public get isConsistencyResultExist(): boolean | undefined {
+        return this['is_consistency_result_exist'];
     }
 }
 

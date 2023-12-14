@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AppQualityInfo } from './model/AppQualityInfo';
 import { BatchShowIpBelongsRequest } from './model/BatchShowIpBelongsRequest';
 import { BatchShowIpBelongsResponse } from './model/BatchShowIpBelongsResponse';
+import { CallbackUrl } from './model/CallbackUrl';
 import { CdnIp } from './model/CdnIp';
 import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
@@ -22,8 +23,12 @@ import { CreateStreamForbiddenRequest } from './model/CreateStreamForbiddenReque
 import { CreateStreamForbiddenResponse } from './model/CreateStreamForbiddenResponse';
 import { CreateTranscodingsTemplateRequest } from './model/CreateTranscodingsTemplateRequest';
 import { CreateTranscodingsTemplateResponse } from './model/CreateTranscodingsTemplateResponse';
+import { CreateUrlAuthchainReq } from './model/CreateUrlAuthchainReq';
+import { CreateUrlAuthchainRequest } from './model/CreateUrlAuthchainRequest';
+import { CreateUrlAuthchainResponse } from './model/CreateUrlAuthchainResponse';
 import { DecoupledLiveDomainInfo } from './model/DecoupledLiveDomainInfo';
 import { DefaultRecordConfig } from './model/DefaultRecordConfig';
+import { DelayConfig } from './model/DelayConfig';
 import { DeleteDomainHttpsCertRequest } from './model/DeleteDomainHttpsCertRequest';
 import { DeleteDomainHttpsCertResponse } from './model/DeleteDomainHttpsCertResponse';
 import { DeleteDomainKeyChainRequest } from './model/DeleteDomainKeyChainRequest';
@@ -32,6 +37,8 @@ import { DeleteDomainMappingRequest } from './model/DeleteDomainMappingRequest';
 import { DeleteDomainMappingResponse } from './model/DeleteDomainMappingResponse';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeletePublishTemplateRequest } from './model/DeletePublishTemplateRequest';
+import { DeletePublishTemplateResponse } from './model/DeletePublishTemplateResponse';
 import { DeleteRecordCallbackConfigRequest } from './model/DeleteRecordCallbackConfigRequest';
 import { DeleteRecordCallbackConfigResponse } from './model/DeleteRecordCallbackConfigResponse';
 import { DeleteRecordRuleRequest } from './model/DeleteRecordRuleRequest';
@@ -46,12 +53,22 @@ import { DomainHttpsCertInfo } from './model/DomainHttpsCertInfo';
 import { DomainIpv6SwitchReq } from './model/DomainIpv6SwitchReq';
 import { DomainMapping } from './model/DomainMapping';
 import { FLVRecordConfig } from './model/FLVRecordConfig';
+import { GeoBlockingConfigInfo } from './model/GeoBlockingConfigInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
+import { IPAuthInfo } from './model/IPAuthInfo';
 import { KeyChainInfo } from './model/KeyChainInfo';
+import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
+import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
+import { ListGeoBlockingConfigRequest } from './model/ListGeoBlockingConfigRequest';
+import { ListGeoBlockingConfigResponse } from './model/ListGeoBlockingConfigResponse';
+import { ListIpAuthListRequest } from './model/ListIpAuthListRequest';
+import { ListIpAuthListResponse } from './model/ListIpAuthListResponse';
 import { ListLiveSampleLogsRequest } from './model/ListLiveSampleLogsRequest';
 import { ListLiveSampleLogsResponse } from './model/ListLiveSampleLogsResponse';
 import { ListLiveStreamsOnlineRequest } from './model/ListLiveStreamsOnlineRequest';
 import { ListLiveStreamsOnlineResponse } from './model/ListLiveStreamsOnlineResponse';
+import { ListPublishTemplateRequest } from './model/ListPublishTemplateRequest';
+import { ListPublishTemplateResponse } from './model/ListPublishTemplateResponse';
 import { ListRecordCallbackConfigsRequest } from './model/ListRecordCallbackConfigsRequest';
 import { ListRecordCallbackConfigsResponse } from './model/ListRecordCallbackConfigsResponse';
 import { ListRecordContentsRequest } from './model/ListRecordContentsRequest';
@@ -67,6 +84,8 @@ import { LiveDomainModifyReq } from './model/LiveDomainModifyReq';
 import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
+import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyPullSourcesConfig } from './model/ModifyPullSourcesConfig';
 import { ObsAuthorityConfigV2 } from './model/ObsAuthorityConfigV2';
 import { ObsFileAddr } from './model/ObsFileAddr';
 import { OnlineInfo } from './model/OnlineInfo';
@@ -87,6 +106,8 @@ import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
 import { ShowDomainKeyChainResponse } from './model/ShowDomainKeyChainResponse';
 import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
+import { ShowPullSourcesConfigRequest } from './model/ShowPullSourcesConfigRequest';
+import { ShowPullSourcesConfigResponse } from './model/ShowPullSourcesConfigResponse';
 import { ShowRecordCallbackConfigRequest } from './model/ShowRecordCallbackConfigRequest';
 import { ShowRecordCallbackConfigResponse } from './model/ShowRecordCallbackConfigResponse';
 import { ShowRecordRuleRequest } from './model/ShowRecordRuleRequest';
@@ -96,6 +117,8 @@ import { ShowTranscodingsTemplateResponse } from './model/ShowTranscodingsTempla
 import { StreamForbiddenList } from './model/StreamForbiddenList';
 import { StreamForbiddenSetting } from './model/StreamForbiddenSetting';
 import { StreamTranscodingTemplate } from './model/StreamTranscodingTemplate';
+import { UpdateDelayConfigRequest } from './model/UpdateDelayConfigRequest';
+import { UpdateDelayConfigResponse } from './model/UpdateDelayConfigResponse';
 import { UpdateDomainHttpsCertRequest } from './model/UpdateDomainHttpsCertRequest';
 import { UpdateDomainHttpsCertResponse } from './model/UpdateDomainHttpsCertResponse';
 import { UpdateDomainIp6SwitchRequest } from './model/UpdateDomainIp6SwitchRequest';
@@ -104,8 +127,16 @@ import { UpdateDomainKeyChainRequest } from './model/UpdateDomainKeyChainRequest
 import { UpdateDomainKeyChainResponse } from './model/UpdateDomainKeyChainResponse';
 import { UpdateDomainRequest } from './model/UpdateDomainRequest';
 import { UpdateDomainResponse } from './model/UpdateDomainResponse';
+import { UpdateGeoBlockingConfigRequest } from './model/UpdateGeoBlockingConfigRequest';
+import { UpdateGeoBlockingConfigResponse } from './model/UpdateGeoBlockingConfigResponse';
+import { UpdateIpAuthListRequest } from './model/UpdateIpAuthListRequest';
+import { UpdateIpAuthListResponse } from './model/UpdateIpAuthListResponse';
 import { UpdateObsBucketAuthorityPublicRequest } from './model/UpdateObsBucketAuthorityPublicRequest';
 import { UpdateObsBucketAuthorityPublicResponse } from './model/UpdateObsBucketAuthorityPublicResponse';
+import { UpdatePublishTemplateRequest } from './model/UpdatePublishTemplateRequest';
+import { UpdatePublishTemplateResponse } from './model/UpdatePublishTemplateResponse';
+import { UpdatePullSourcesConfigRequest } from './model/UpdatePullSourcesConfigRequest';
+import { UpdatePullSourcesConfigResponse } from './model/UpdatePullSourcesConfigResponse';
 import { UpdateRecordCallbackConfigRequest } from './model/UpdateRecordCallbackConfigRequest';
 import { UpdateRecordCallbackConfigResponse } from './model/UpdateRecordCallbackConfigResponse';
 import { UpdateRecordRuleRequest } from './model/UpdateRecordRuleRequest';
@@ -306,6 +337,25 @@ export class LiveClient {
     }
 
     /**
+     * 生成URL鉴权串
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成URL鉴权串
+     * @param {CreateUrlAuthchainReq} createUrlAuthchainRequestBody 域名信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUrlAuthchain(createUrlAuthchainRequest?: CreateUrlAuthchainRequest): Promise<CreateUrlAuthchainResponse> {
+        const options = ParamCreater().createUrlAuthchain(createUrlAuthchainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除域名。只有在域名停用（off）状态时才能删除。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -356,6 +406,25 @@ export class LiveClient {
      */
     public deleteDomainMapping(deleteDomainMappingRequest?: DeleteDomainMappingRequest): Promise<DeleteDomainMappingResponse> {
         const options = ParamCreater().deleteDomainMapping(deleteDomainMappingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除直播推流通知配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除直播推流通知配置
+     * @param {string} domain 推流域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePublishTemplate(deletePublishTemplateRequest?: DeletePublishTemplateRequest): Promise<DeletePublishTemplateResponse> {
+        const options = ParamCreater().deletePublishTemplate(deletePublishTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -463,6 +532,66 @@ export class LiveClient {
     }
 
     /**
+     * 查询播放域名延时配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询播放域名延时配置
+     * @param {string} playDomain 播放域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDelayConfig(listDelayConfigRequest?: ListDelayConfigRequest): Promise<ListDelayConfigResponse> {
+        const options = ParamCreater().listDelayConfig(listDelayConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询播放域名的地域限制列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取地域限制配置列表
+     * @param {string} playDomain 播放域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGeoBlockingConfig(listGeoBlockingConfigRequest?: ListGeoBlockingConfigRequest): Promise<ListGeoBlockingConfigResponse> {
+        const options = ParamCreater().listGeoBlockingConfig(listGeoBlockingConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询推流/播放域名的IP黑/白名单。
+     * - 黑名单模式：禁止指定的IP或网段
+     * - 白名单模式：仅允许指定的IP或网段
+     * - 默认：全放通。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP黑/白名单
+     * @param {string} domain 推流域名或播放域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpAuthList(listIpAuthListRequest?: ListIpAuthListRequest): Promise<ListIpAuthListResponse> {
+        const options = ParamCreater().listIpAuthList(listIpAuthListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取直播播放日志，基于域名以5分钟粒度进行打包，日志内容以 \&quot;|\&quot; 进行分隔。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -507,6 +636,25 @@ export class LiveClient {
     }
 
     /**
+     * 查询直播推流通知配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询直播推流通知配置
+     * @param {string} domain 推流域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPublishTemplate(listPublishTemplateRequest?: ListPublishTemplateRequest): Promise<ListPublishTemplateResponse> {
+        const options = ParamCreater().listPublishTemplate(listPublishTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询录制回调配置列表接口。通过指定条件，查询满足条件的配置列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -535,10 +683,10 @@ export class LiveClient {
      *
      * @summary 录制完成内容的查询
      * @param {string} startTime 开始时间,格式为：yyyy-mm-ddThh:mm:ssZ，UTC时间
-     * @param {string} [publishDomain] 直播推流放域名
+     * @param {string} [publishDomain] 直播推流域名
      * @param {string} [app] 流应用名称
      * @param {string} [stream] 流名称
-     * @param {'CONTINUOUS_RECORD' | 'COMMAND_RECORD' | 'PLAN_RECORD' | 'ON_DEMAND_RECORD'} [recordType] 录制类型，包括：CONTINUOUS_RECORD，COMMAND_RECORD，PLAN_RECORD，ON_DEMAND_RECORD。默认CONTINUOUS_RECORD。 - CONTINUOUS_RECORD：持续录制，在该规则类型配置后，只要有流到推送到录制系统，就触发录制。 - COMMAND_RECORD：命令录制，在该规则类型配置后，在流推送到录制系统后，租户需要通过命令控制该流的录制开始和结束。 - PLAN_RECORD：计划录制，在该规则类型配置后，推的流如果在计划录制的时间区间则触发录制。 - ON_DEMAND_RECORD：按需录制，在该规则类型配置后，录制系统收到推流后，需要调用租户提供的接口查询录制规则，并根据规则录制。 
+     * @param {'CONTINUOUS_RECORD' | 'COMMAND_RECORD'} [recordType] 录制类型，包括：CONTINUOUS_RECORD，COMMAND_RECORD。默认CONTINUOUS_RECORD。 - CONTINUOUS_RECORD：持续录制，在该规则类型配置后，只要有流到推送到录制系统，就触发录制。 - COMMAND_RECORD：命令录制，在该规则类型配置后，在流推送到录制系统后，租户需要通过命令控制该流的录制开始和结束。 
      * @param {string} [endTime] 结束时间，格式为：yyyy-mm-ddThh:mm:ssZ，UTC时间
      * @param {number} [offset] 分页编号，从0开始算
      * @param {number} [limit] 每页记录数，取值范围[1,100]
@@ -683,6 +831,25 @@ export class LiveClient {
     }
 
     /**
+     * 查询直播拉流回源配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询直播拉流回源配置
+     * @param {string} playDomain 播放域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPullSourcesConfig(showPullSourcesConfigRequest?: ShowPullSourcesConfigRequest): Promise<ShowPullSourcesConfigResponse> {
+        const options = ParamCreater().showPullSourcesConfig(showPullSourcesConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询录制回调配置接口
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -743,6 +910,25 @@ export class LiveClient {
     }
 
     /**
+     * 修改播放域名延时配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改播放域名延时配置
+     * @param {ModifyDelayConfig} updateDelayConfigRequestBody 延时配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDelayConfig(updateDelayConfigRequest?: UpdateDelayConfigRequest): Promise<UpdateDelayConfigResponse> {
+        const options = ParamCreater().updateDelayConfig(updateDelayConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改直播播放、RTMP推流加速域名相关信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -793,6 +979,87 @@ export class LiveClient {
      */
     public updateDomainKeyChain(updateDomainKeyChainRequest?: UpdateDomainKeyChainRequest): Promise<UpdateDomainKeyChainResponse> {
         const options = ParamCreater().updateDomainKeyChain(updateDomainKeyChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改播放域名的地域限制，选中地域允许接入。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改地域限制配置
+     * @param {string} playDomain 播放域名
+     * @param {GeoBlockingConfigInfo} updateGeoBlockingConfigRequestBody 地域限制配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGeoBlockingConfig(updateGeoBlockingConfigRequest?: UpdateGeoBlockingConfigRequest): Promise<UpdateGeoBlockingConfigResponse> {
+        const options = ParamCreater().updateGeoBlockingConfig(updateGeoBlockingConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改推流/播放域名的IP黑/白名单，当前仅支持ipv4。
+     * - 黑名单模式：禁止指定的IP或网段
+     * - 白名单模式：仅允许指定的IP或网段
+     * - 默认：全放通。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改IP黑/白名单
+     * @param {IPAuthInfo} updateIpAuthListRequestBody IP黑名单信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIpAuthList(updateIpAuthListRequest?: UpdateIpAuthListRequest): Promise<UpdateIpAuthListResponse> {
+        const options = ParamCreater().updateIpAuthList(updateIpAuthListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增、覆盖直播推流通知配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增、覆盖直播推流通知配置
+     * @param {string} domain 推流域名
+     * @param {CallbackUrl} updatePublishTemplateRequestBody 推流通知配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePublishTemplate(updatePublishTemplateRequest?: UpdatePublishTemplateRequest): Promise<UpdatePublishTemplateResponse> {
+        const options = ParamCreater().updatePublishTemplate(updatePublishTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改直播拉流回源配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改直播拉流回源配置
+     * @param {ModifyPullSourcesConfig} updatePullSourcesConfigRequestBody 拉流回源配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePullSourcesConfig(updatePullSourcesConfigRequest?: UpdatePullSourcesConfigRequest): Promise<UpdatePullSourcesConfigResponse> {
+        const options = ParamCreater().updatePullSourcesConfig(updatePullSourcesConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1323,6 +1590,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 生成URL鉴权串
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUrlAuthchain(createUrlAuthchainRequest?: CreateUrlAuthchainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/auth/chain",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createUrlAuthchainRequest !== null && createUrlAuthchainRequest !== undefined) {
+                if (createUrlAuthchainRequest instanceof CreateUrlAuthchainRequest) {
+                    body = createUrlAuthchainRequest.body
+                } else {
+                    body = createUrlAuthchainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除域名。只有在域名停用（off）状态时才能删除。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1445,6 +1750,46 @@ export const ParamCreater = function () {
             }
             if (pushDomain !== null && pushDomain !== undefined) {
                 localVarQueryParameter['push_domain'] = pushDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除直播推流通知配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePublishTemplate(deletePublishTemplateRequest?: DeletePublishTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/notifications/publish",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (deletePublishTemplateRequest !== null && deletePublishTemplateRequest !== undefined) {
+                if (deletePublishTemplateRequest instanceof DeletePublishTemplateRequest) {
+                    domain = deletePublishTemplateRequest.domain;
+                } else {
+                    domain = deletePublishTemplateRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling deletePublishTemplate.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1687,6 +2032,129 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询播放域名延时配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDelayConfig(listDelayConfigRequest?: ListDelayConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/delay",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let playDomain;
+
+            if (listDelayConfigRequest !== null && listDelayConfigRequest !== undefined) {
+                if (listDelayConfigRequest instanceof ListDelayConfigRequest) {
+                    playDomain = listDelayConfigRequest.playDomain;
+                } else {
+                    playDomain = listDelayConfigRequest['play_domain'];
+                }
+            }
+
+        
+            if (playDomain === null || playDomain === undefined) {
+                throw new RequiredError('playDomain','Required parameter playDomain was null or undefined when calling listDelayConfig.');
+            }
+            if (playDomain !== null && playDomain !== undefined) {
+                localVarQueryParameter['play_domain'] = playDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询播放域名的地域限制列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGeoBlockingConfig(listGeoBlockingConfigRequest?: ListGeoBlockingConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/geo-blocking",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let playDomain;
+
+            if (listGeoBlockingConfigRequest !== null && listGeoBlockingConfigRequest !== undefined) {
+                if (listGeoBlockingConfigRequest instanceof ListGeoBlockingConfigRequest) {
+                    playDomain = listGeoBlockingConfigRequest.playDomain;
+                } else {
+                    playDomain = listGeoBlockingConfigRequest['play_domain'];
+                }
+            }
+
+        
+            if (playDomain === null || playDomain === undefined) {
+                throw new RequiredError('playDomain','Required parameter playDomain was null or undefined when calling listGeoBlockingConfig.');
+            }
+            if (playDomain !== null && playDomain !== undefined) {
+                localVarQueryParameter['play_domain'] = playDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询推流/播放域名的IP黑/白名单。
+         * - 黑名单模式：禁止指定的IP或网段
+         * - 白名单模式：仅允许指定的IP或网段
+         * - 默认：全放通。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpAuthList(listIpAuthListRequest?: ListIpAuthListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/guard/ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (listIpAuthListRequest !== null && listIpAuthListRequest !== undefined) {
+                if (listIpAuthListRequest instanceof ListIpAuthListRequest) {
+                    domain = listIpAuthListRequest.domain;
+                } else {
+                    domain = listIpAuthListRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling listIpAuthList.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取直播播放日志，基于域名以5分钟粒度进行打包，日志内容以 \&quot;|\&quot; 进行分隔。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1807,6 +2275,46 @@ export const ParamCreater = function () {
             }
             if (stream !== null && stream !== undefined) {
                 localVarQueryParameter['stream'] = stream;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询直播推流通知配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPublishTemplate(listPublishTemplateRequest?: ListPublishTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/notifications/publish",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (listPublishTemplateRequest !== null && listPublishTemplateRequest !== undefined) {
+                if (listPublishTemplateRequest instanceof ListPublishTemplateRequest) {
+                    domain = listPublishTemplateRequest.domain;
+                } else {
+                    domain = listPublishTemplateRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling listPublishTemplate.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2296,6 +2804,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询直播拉流回源配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPullSourcesConfig(showPullSourcesConfigRequest?: ShowPullSourcesConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/pull-sources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let playDomain;
+
+            if (showPullSourcesConfigRequest !== null && showPullSourcesConfigRequest !== undefined) {
+                if (showPullSourcesConfigRequest instanceof ShowPullSourcesConfigRequest) {
+                    playDomain = showPullSourcesConfigRequest.playDomain;
+                } else {
+                    playDomain = showPullSourcesConfigRequest['play_domain'];
+                }
+            }
+
+        
+            if (playDomain === null || playDomain === undefined) {
+                throw new RequiredError('playDomain','Required parameter playDomain was null or undefined when calling showPullSourcesConfig.');
+            }
+            if (playDomain !== null && playDomain !== undefined) {
+                localVarQueryParameter['play_domain'] = playDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询录制回调配置接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2431,6 +2979,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改播放域名延时配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDelayConfig(updateDelayConfigRequest?: UpdateDelayConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/domain/delay",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateDelayConfigRequest !== null && updateDelayConfigRequest !== undefined) {
+                if (updateDelayConfigRequest instanceof UpdateDelayConfigRequest) {
+                    body = updateDelayConfigRequest.body
+                } else {
+                    body = updateDelayConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改直播播放、RTMP推流加速域名相关信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2548,6 +3134,183 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改播放域名的地域限制，选中地域允许接入。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGeoBlockingConfig(updateGeoBlockingConfigRequest?: UpdateGeoBlockingConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/domain/geo-blocking",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let playDomain;
+
+            if (updateGeoBlockingConfigRequest !== null && updateGeoBlockingConfigRequest !== undefined) {
+                if (updateGeoBlockingConfigRequest instanceof UpdateGeoBlockingConfigRequest) {
+                    playDomain = updateGeoBlockingConfigRequest.playDomain;
+                    body = updateGeoBlockingConfigRequest.body
+                } else {
+                    playDomain = updateGeoBlockingConfigRequest['play_domain'];
+                    body = updateGeoBlockingConfigRequest['body'];
+                }
+            }
+
+        
+            if (playDomain === null || playDomain === undefined) {
+                throw new RequiredError('playDomain','Required parameter playDomain was null or undefined when calling updateGeoBlockingConfig.');
+            }
+            if (playDomain !== null && playDomain !== undefined) {
+                localVarQueryParameter['play_domain'] = playDomain;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改推流/播放域名的IP黑/白名单，当前仅支持ipv4。
+         * - 黑名单模式：禁止指定的IP或网段
+         * - 白名单模式：仅允许指定的IP或网段
+         * - 默认：全放通。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIpAuthList(updateIpAuthListRequest?: UpdateIpAuthListRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/guard/ip",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateIpAuthListRequest !== null && updateIpAuthListRequest !== undefined) {
+                if (updateIpAuthListRequest instanceof UpdateIpAuthListRequest) {
+                    body = updateIpAuthListRequest.body
+                } else {
+                    body = updateIpAuthListRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增、覆盖直播推流通知配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePublishTemplate(updatePublishTemplateRequest?: UpdatePublishTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/notifications/publish",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let domain;
+
+            if (updatePublishTemplateRequest !== null && updatePublishTemplateRequest !== undefined) {
+                if (updatePublishTemplateRequest instanceof UpdatePublishTemplateRequest) {
+                    domain = updatePublishTemplateRequest.domain;
+                    body = updatePublishTemplateRequest.body
+                } else {
+                    domain = updatePublishTemplateRequest['domain'];
+                    body = updatePublishTemplateRequest['body'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling updatePublishTemplate.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改直播拉流回源配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePullSourcesConfig(updatePullSourcesConfigRequest?: UpdatePullSourcesConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/domain/pull-sources",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updatePullSourcesConfigRequest !== null && updatePullSourcesConfigRequest !== undefined) {
+                if (updatePullSourcesConfigRequest instanceof UpdatePullSourcesConfigRequest) {
+                    body = updatePullSourcesConfigRequest.body
+                } else {
+                    body = updatePullSourcesConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

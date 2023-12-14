@@ -76,7 +76,5 @@ export class ListRecordContentsRequest {
     */
 export enum ListRecordContentsRequestRecordTypeEnum {
     CONTINUOUS_RECORD = 'CONTINUOUS_RECORD',
-    COMMAND_RECORD = 'COMMAND_RECORD',
-    PLAN_RECORD = 'PLAN_RECORD',
-    ON_DEMAND_RECORD = 'ON_DEMAND_RECORD'
+    COMMAND_RECORD = 'COMMAND_RECORD'
 }

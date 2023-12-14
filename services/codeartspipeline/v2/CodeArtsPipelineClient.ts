@@ -151,11 +151,13 @@ import { PipelineMoveToGroupResponseVo } from './model/PipelineMoveToGroupRespon
 import { PipelineParam } from './model/PipelineParam';
 import { PipelineParameter } from './model/PipelineParameter';
 import { PipelineSchedule } from './model/PipelineSchedule';
+import { PipelineSource } from './model/PipelineSource';
 import { PipelineStateStatus } from './model/PipelineStateStatus';
 import { PipelineTemplateDTO } from './model/PipelineTemplateDTO';
 import { PipelineTemplateSimpleVO } from './model/PipelineTemplateSimpleVO';
 import { PipelineTemplateSimpleVOStages } from './model/PipelineTemplateSimpleVOStages';
 import { PipelineTrigger } from './model/PipelineTrigger';
+import { PipelineVariable } from './model/PipelineVariable';
 import { PluginBasicDTO } from './model/PluginBasicDTO';
 import { PluginBasicVO } from './model/PluginBasicVO';
 import { PluginDTO } from './model/PluginDTO';
@@ -209,6 +211,8 @@ import { ShowInstanceStatusRequest } from './model/ShowInstanceStatusRequest';
 import { ShowInstanceStatusResponse } from './model/ShowInstanceStatusResponse';
 import { ShowOpenSourceStrategyRequest } from './model/ShowOpenSourceStrategyRequest';
 import { ShowOpenSourceStrategyResponse } from './model/ShowOpenSourceStrategyResponse';
+import { ShowPipelineDetailRequest } from './model/ShowPipelineDetailRequest';
+import { ShowPipelineDetailResponse } from './model/ShowPipelineDetailResponse';
 import { ShowPipelineGroupTreeRequest } from './model/ShowPipelineGroupTreeRequest';
 import { ShowPipelineGroupTreeResponse } from './model/ShowPipelineGroupTreeResponse';
 import { ShowPipelineLogRequest } from './model/ShowPipelineLogRequest';
@@ -1418,6 +1422,25 @@ export class CodeArtsPipelineClient {
      */
     public showOpenSourceStrategy(showOpenSourceStrategyRequest?: ShowOpenSourceStrategyRequest): Promise<ShowOpenSourceStrategyResponse> {
         const options = ParamCreater().showOpenSourceStrategy(showOpenSourceStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询流水线详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流水线详情
+     * @param {string} pipelineId 流水线ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPipelineDetail(showPipelineDetailRequest?: ShowPipelineDetailRequest): Promise<ShowPipelineDetailResponse> {
+        const options = ParamCreater().showPipelineDetail(showPipelineDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4743,6 +4766,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'domain_id': domainId,'rule_set_id': ruleSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询流水线详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPipelineDetail(showPipelineDetailRequest?: ShowPipelineDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let pipelineId;
+
+            if (showPipelineDetailRequest !== null && showPipelineDetailRequest !== undefined) {
+                if (showPipelineDetailRequest instanceof ShowPipelineDetailRequest) {
+                    pipelineId = showPipelineDetailRequest.pipelineId;
+                } else {
+                    pipelineId = showPipelineDetailRequest['pipeline_id'];
+                }
+            }
+
+        
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showPipelineDetail.');
+            }
+
+            options.pathParams = { 'pipeline_id': pipelineId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -106,6 +106,7 @@ export * from './model/ListDependenciesResponse';
 export * from './model/ListDependenciesResult';
 export * from './model/ListDependencyVersionRequest';
 export * from './model/ListDependencyVersionResponse';
+export * from './model/ListEnterpriseResourceDetail';
 export * from './model/ListEnterpriseResourceRequestBody';
 export * from './model/ListEnterpriseResourceResult';
 export * from './model/ListEventsRequest';

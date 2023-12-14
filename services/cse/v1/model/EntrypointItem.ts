@@ -3,7 +3,7 @@
 export class EntrypointItem {
     public masterEntrypoint?: string;
     public masterEntrypointIpv6?: string;
-    private 'slave_entrypoint'?: string;
+    public slaveEntrypoint?: string;
     public slaveEntrypointIpv6?: string;
     public type?: EntrypointItemTypeEnum | string;
     public constructor() { 
@@ -17,14 +17,8 @@ export class EntrypointItem {
         return this;
     }
     public withSlaveEntrypoint(slaveEntrypoint: string): EntrypointItem {
-        this['slave_entrypoint'] = slaveEntrypoint;
+        this['slaveEntrypoint'] = slaveEntrypoint;
         return this;
-    }
-    public set slaveEntrypoint(slaveEntrypoint: string  | undefined) {
-        this['slave_entrypoint'] = slaveEntrypoint;
-    }
-    public get slaveEntrypoint(): string | undefined {
-        return this['slave_entrypoint'];
     }
     public withSlaveEntrypointIpv6(slaveEntrypointIpv6: string): EntrypointItem {
         this['slaveEntrypointIpv6'] = slaveEntrypointIpv6;

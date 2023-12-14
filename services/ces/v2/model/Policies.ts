@@ -12,9 +12,8 @@ export class Policies {
     public count?: number;
     private 'alarm_level'?: number;
     private 'suppress_duration'?: PoliciesSuppressDurationEnum | number;
-    public constructor(namespace?: string, dimensionName?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, value?: number, count?: number, suppressDuration?: number) { 
+    public constructor(namespace?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, value?: number, count?: number, suppressDuration?: number) { 
         this['namespace'] = namespace;
-        this['dimension_name'] = dimensionName;
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
@@ -104,6 +103,7 @@ export class Policies {
     * @enum {string}
     */
 export enum PoliciesPeriodEnum {
+    NUMBER_0 = 0,
     NUMBER_1 = 1,
     NUMBER_300 = 300,
     NUMBER_1200 = 1200,

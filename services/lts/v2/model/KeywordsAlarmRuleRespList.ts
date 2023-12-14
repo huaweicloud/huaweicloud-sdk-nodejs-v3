@@ -23,8 +23,9 @@ export class KeywordsAlarmRuleRespList {
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(projectId?: string, keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number, topics?: Array<Topics>) { 
-        this['projectId'] = projectId;
+    private 'notification_frequency'?: KeywordsAlarmRuleRespListNotificationFrequencyEnum | number;
+    private 'alarm_action_rule_name'?: string;
+    public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number, topics?: Array<Topics>, notificationFrequency?: number) { 
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;
@@ -37,6 +38,7 @@ export class KeywordsAlarmRuleRespList {
         this['create_time'] = createTime;
         this['update_time'] = updateTime;
         this['topics'] = topics;
+        this['notification_frequency'] = notificationFrequency;
     }
     public withProjectId(projectId: string): KeywordsAlarmRuleRespList {
         this['projectId'] = projectId;
@@ -204,6 +206,26 @@ export class KeywordsAlarmRuleRespList {
     public get recoveryPolicy(): number | undefined {
         return this['recovery_policy'];
     }
+    public withNotificationFrequency(notificationFrequency: KeywordsAlarmRuleRespListNotificationFrequencyEnum | number): KeywordsAlarmRuleRespList {
+        this['notification_frequency'] = notificationFrequency;
+        return this;
+    }
+    public set notificationFrequency(notificationFrequency: KeywordsAlarmRuleRespListNotificationFrequencyEnum | number  | undefined) {
+        this['notification_frequency'] = notificationFrequency;
+    }
+    public get notificationFrequency(): KeywordsAlarmRuleRespListNotificationFrequencyEnum | number | undefined {
+        return this['notification_frequency'];
+    }
+    public withAlarmActionRuleName(alarmActionRuleName: string): KeywordsAlarmRuleRespList {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+        return this;
+    }
+    public set alarmActionRuleName(alarmActionRuleName: string  | undefined) {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+    }
+    public get alarmActionRuleName(): string | undefined {
+        return this['alarm_action_rule_name'];
+    }
 }
 
 /**
@@ -221,6 +243,20 @@ export enum KeywordsAlarmRuleRespListKeywordsAlarmLevelEnum {
     * @enum {string}
     */
 export enum KeywordsAlarmRuleRespListStatusEnum {
-    RUNNING = 'RUNNING',
-    STOPPING = 'STOPPING'
+    RUNNING_ = 'RUNNING  启用',
+    STOPPING_ = 'STOPPING  停止'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum KeywordsAlarmRuleRespListNotificationFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_5 = 5,
+    NUMBER_10 = 10,
+    NUMBER_15 = 15,
+    NUMBER_30 = 30,
+    NUMBER_60 = 60,
+    NUMBER_180 = 180,
+    NUMBER_360 = 360
 }

@@ -33,6 +33,8 @@ import { ChartConfig } from './model/ChartConfig';
 import { CreateAccessConfigRequest } from './model/CreateAccessConfigRequest';
 import { CreateAccessConfigRequestBody } from './model/CreateAccessConfigRequestBody';
 import { CreateAccessConfigResponse } from './model/CreateAccessConfigResponse';
+import { CreateAgencyAccessRequest } from './model/CreateAgencyAccessRequest';
+import { CreateAgencyAccessResponse } from './model/CreateAgencyAccessResponse';
 import { CreateAomMappingRulesRequest } from './model/CreateAomMappingRulesRequest';
 import { CreateAomMappingRulesResponse } from './model/CreateAomMappingRulesResponse';
 import { CreateDashBoardReqBody } from './model/CreateDashBoardReqBody';
@@ -62,6 +64,7 @@ import { CreateNotificationTemplateResponse } from './model/CreateNotificationTe
 import { CreateSearchCriteriasBody } from './model/CreateSearchCriteriasBody';
 import { CreateSearchCriteriasRequest } from './model/CreateSearchCriteriasRequest';
 import { CreateSearchCriteriasResponse } from './model/CreateSearchCriteriasResponse';
+import { CreateSqlAlarmRuleFrequency } from './model/CreateSqlAlarmRuleFrequency';
 import { CreateSqlAlarmRuleRequest } from './model/CreateSqlAlarmRuleRequest';
 import { CreateSqlAlarmRuleRequestBody } from './model/CreateSqlAlarmRuleRequestBody';
 import { CreateSqlAlarmRuleResponse } from './model/CreateSqlAlarmRuleResponse';
@@ -128,6 +131,7 @@ import { Event } from './model/Event';
 import { Events } from './model/Events';
 import { FieldModel } from './model/FieldModel';
 import { Frequency } from './model/Frequency';
+import { FrequencyRespBody } from './model/FrequencyRespBody';
 import { GetAccessConfigListRequestBody } from './model/GetAccessConfigListRequestBody';
 import { GetHostGroupInfo } from './model/GetHostGroupInfo';
 import { GetHostGroupListFilter } from './model/GetHostGroupListFilter';
@@ -140,6 +144,8 @@ import { GetQuerySearchCriteriasBody } from './model/GetQuerySearchCriteriasBody
 import { HostGroupTag } from './model/HostGroupTag';
 import { KeywordsAlarmRuleRespList } from './model/KeywordsAlarmRuleRespList';
 import { KeywordsRequest } from './model/KeywordsRequest';
+import { KeywordsResBody } from './model/KeywordsResBody';
+import { LTSAccessConfigInfoRespon200 } from './model/LTSAccessConfigInfoRespon200';
 import { ListAccessConfigRequest } from './model/ListAccessConfigRequest';
 import { ListAccessConfigResponse } from './model/ListAccessConfigResponse';
 import { ListActiveOrHistoryAlarmsRequest } from './model/ListActiveOrHistoryAlarmsRequest';
@@ -203,6 +209,8 @@ import { MemberGroupandStreamResults } from './model/MemberGroupandStreamResults
 import { Metadata } from './model/Metadata';
 import { NotificationTemplate } from './model/NotificationTemplate';
 import { PageInfo } from './model/PageInfo';
+import { PreviewAgencyLogAccessReqBody } from './model/PreviewAgencyLogAccessReqBody';
+import { PreviewAgencyLogAccessReqListBody } from './model/PreviewAgencyLogAccessReqListBody';
 import { PreviewTemplateBody } from './model/PreviewTemplateBody';
 import { QuertHistorySQLResultsBody } from './model/QuertHistorySQLResultsBody';
 import { QueryLogKeyWordCountRequestBody } from './model/QueryLogKeyWordCountRequestBody';
@@ -321,6 +329,26 @@ export class LtsClient {
      */
     public createAccessConfig(createAccessConfigRequest?: CreateAccessConfigRequest): Promise<CreateAccessConfigResponse> {
         const options = ParamCreater().createAccessConfig(createAccessConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新建跨账号日志接入
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建跨账号日志接入
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;utf8。
+     * @param {PreviewAgencyLogAccessReqListBody} previewAgencyLogAccessReqListBody 跨账号日志接入请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAgencyAccess(createAgencyAccessRequest?: CreateAgencyAccessRequest): Promise<CreateAgencyAccessResponse> {
+        const options = ParamCreater().createAgencyAccess(createAgencyAccessRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1966,6 +1994,51 @@ export const ParamCreater = function () {
                 } else {
                     contentType = createAccessConfigRequest['Content-Type'];
                     body = createAccessConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新建跨账号日志接入
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAgencyAccess(createAgencyAccessRequest?: CreateAgencyAccessRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/lts/createAgencyAccess",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createAgencyAccessRequest !== null && createAgencyAccessRequest !== undefined) {
+                if (createAgencyAccessRequest instanceof CreateAgencyAccessRequest) {
+                    contentType = createAgencyAccessRequest.contentType;
+                    body = createAgencyAccessRequest.body
+                } else {
+                    contentType = createAgencyAccessRequest['Content-Type'];
+                    body = createAgencyAccessRequest['body'];
                 }
             }
 

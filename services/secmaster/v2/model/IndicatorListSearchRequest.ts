@@ -1,16 +1,17 @@
+import { DataobjectSearchCondition } from './DataobjectSearchCondition';
 
 
 export class IndicatorListSearchRequest {
     public ids?: Array<string>;
     public name?: string;
     private 'dataclass_id'?: string;
-    public condition?: string;
+    public condition?: DataobjectSearchCondition;
     public offset?: number;
     public limit?: number;
     private 'sort_by'?: string;
     private 'from_date'?: string;
     private 'to_date'?: string;
-    public constructor(condition?: string, offset?: number, limit?: number) { 
+    public constructor(condition?: DataobjectSearchCondition, offset?: number, limit?: number) { 
         this['condition'] = condition;
         this['offset'] = offset;
         this['limit'] = limit;
@@ -33,7 +34,7 @@ export class IndicatorListSearchRequest {
     public get dataclassId(): string | undefined {
         return this['dataclass_id'];
     }
-    public withCondition(condition: string): IndicatorListSearchRequest {
+    public withCondition(condition: DataobjectSearchCondition): IndicatorListSearchRequest {
         this['condition'] = condition;
         return this;
     }

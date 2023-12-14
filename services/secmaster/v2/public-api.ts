@@ -91,8 +91,6 @@ export * from './model/DataobjectInfo';
 export * from './model/DataobjectSearch';
 export * from './model/DataobjectSearchCondition';
 export * from './model/DataobjectSearchConditionConditions';
-export * from './model/DataobjectSearchConditionData';
-export * from './model/DataobjectSearchConditionLogics';
 export * from './model/DeleteAlertRequest';
 export * from './model/DeleteAlertRequestBody';
 export * from './model/DeleteAlertResponse';

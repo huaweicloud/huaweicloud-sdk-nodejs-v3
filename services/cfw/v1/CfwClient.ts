@@ -65,6 +65,12 @@ import { CoveredIPVO } from './model/CoveredIPVO';
 import { CreateEastWestFirewallRequest } from './model/CreateEastWestFirewallRequest';
 import { CreateEastWestFirewallRequestBody } from './model/CreateEastWestFirewallRequestBody';
 import { CreateEastWestFirewallResponse } from './model/CreateEastWestFirewallResponse';
+import { CreateFirewallReq } from './model/CreateFirewallReq';
+import { CreateFirewallReqChargeInfo } from './model/CreateFirewallReqChargeInfo';
+import { CreateFirewallReqFlavor } from './model/CreateFirewallReqFlavor';
+import { CreateFirewallReqTags } from './model/CreateFirewallReqTags';
+import { CreateFirewallRequest } from './model/CreateFirewallRequest';
+import { CreateFirewallResponse } from './model/CreateFirewallResponse';
 import { DeleteAclRuleHitCountRequest } from './model/DeleteAclRuleHitCountRequest';
 import { DeleteAclRuleHitCountResponse } from './model/DeleteAclRuleHitCountResponse';
 import { DeleteAclRuleRequest } from './model/DeleteAclRuleRequest';
@@ -81,6 +87,8 @@ import { DeleteDomainSetRequest } from './model/DeleteDomainSetRequest';
 import { DeleteDomainSetResponse } from './model/DeleteDomainSetResponse';
 import { DeleteDomainsRequest } from './model/DeleteDomainsRequest';
 import { DeleteDomainsResponse } from './model/DeleteDomainsResponse';
+import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
+import { DeleteFirewallResponse } from './model/DeleteFirewallResponse';
 import { DeleteRuleAclDto } from './model/DeleteRuleAclDto';
 import { DeleteServiceItemDto } from './model/DeleteServiceItemDto';
 import { DeleteServiceItemRequest } from './model/DeleteServiceItemRequest';
@@ -99,6 +107,7 @@ import { EipOperateProtectReqIpInfos } from './model/EipOperateProtectReqIpInfos
 import { EipResource } from './model/EipResource';
 import { EipResponseData } from './model/EipResponseData';
 import { ErInstance } from './model/ErInstance';
+import { ErrorRsp } from './model/ErrorRsp';
 import { EwProtectResourceInfo } from './model/EwProtectResourceInfo';
 import { FirewallInstanceResource } from './model/FirewallInstanceResource';
 import { FirewallInstanceVO } from './model/FirewallInstanceVO';
@@ -162,6 +171,8 @@ import { ListIpsProtectModeRequest } from './model/ListIpsProtectModeRequest';
 import { ListIpsProtectModeResponse } from './model/ListIpsProtectModeResponse';
 import { ListIpsSwitchStatusRequest } from './model/ListIpsSwitchStatusRequest';
 import { ListIpsSwitchStatusResponse } from './model/ListIpsSwitchStatusResponse';
+import { ListJobRequest } from './model/ListJobRequest';
+import { ListJobResponse } from './model/ListJobResponse';
 import { ListLogConfigRequest } from './model/ListLogConfigRequest';
 import { ListLogConfigResponse } from './model/ListLogConfigResponse';
 import { ListProtectedVpcsRequest } from './model/ListProtectedVpcsRequest';
@@ -509,6 +520,28 @@ export class CfwClient {
     }
 
     /**
+     * 创建防火墙
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建防火墙
+     * @param {string} projectId 租户项目id
+     * @param {CreateFirewallReq} createFirewallRequest 创建防火墙请求参数
+     * @param {string} [xClientToken] 保证客户端请求幂等性的标识。  该标识为32位UUID格式，由客户端生成，且需确保不同请求之间该标识具有唯一性。
+     * @param {string} [xTraceId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFirewall(createFirewallRequest?: CreateFirewallRequest): Promise<CreateFirewallResponse> {
+        const options = ParamCreater().createFirewall(createFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除地址组成员
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -611,6 +644,26 @@ export class CfwClient {
      */
     public deleteDomains(deleteDomainsRequest?: DeleteDomainsRequest): Promise<DeleteDomainsResponse> {
         const options = ParamCreater().deleteDomains(deleteDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除防火墙，仅按需生效
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除防火墙
+     * @param {string} projectId 租户项目id
+     * @param {string} resourceId 资源id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFirewall(deleteFirewallRequest?: DeleteFirewallRequest): Promise<DeleteFirewallResponse> {
+        const options = ParamCreater().deleteFirewall(deleteFirewallRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1042,6 +1095,26 @@ export class CfwClient {
      */
     public listFlowLogs(listFlowLogsRequest?: ListFlowLogsRequest): Promise<ListFlowLogsResponse> {
         const options = ParamCreater().listFlowLogs(listFlowLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取CFW任务执行状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取CFW任务执行状态
+     * @param {string} projectId 项目ID
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJob(listJobRequest?: ListJobRequest): Promise<ListJobResponse> {
+        const options = ParamCreater().listJob(listJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2451,6 +2524,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建防火墙
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFirewall(createFirewallRequest?: CreateFirewallRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/firewall",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let xClientToken;
+            
+            let xTraceId;
+
+            if (createFirewallRequest !== null && createFirewallRequest !== undefined) {
+                if (createFirewallRequest instanceof CreateFirewallRequest) {
+                    projectId = createFirewallRequest.projectId;
+                    body = createFirewallRequest.body
+                    xClientToken = createFirewallRequest.xClientToken;
+                    xTraceId = createFirewallRequest.xTraceId;
+                } else {
+                    projectId = createFirewallRequest['project_id'];
+                    body = createFirewallRequest['body'];
+                    xClientToken = createFirewallRequest['X-Client-Token'];
+                    xTraceId = createFirewallRequest['X-Trace-Id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createFirewall.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            if (xTraceId !== undefined && xTraceId !== null) {
+                localVarHeaderParameter['X-Trace-Id'] = String(xTraceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除地址组成员
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2743,6 +2876,50 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除防火墙，仅按需生效
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFirewall(deleteFirewallRequest?: DeleteFirewallRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/firewall/{resource_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let resourceId;
+
+            if (deleteFirewallRequest !== null && deleteFirewallRequest !== undefined) {
+                if (deleteFirewallRequest instanceof DeleteFirewallRequest) {
+                    projectId = deleteFirewallRequest.projectId;
+                    resourceId = deleteFirewallRequest.resourceId;
+                } else {
+                    projectId = deleteFirewallRequest['project_id'];
+                    resourceId = deleteFirewallRequest['resource_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteFirewall.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteFirewall.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4344,6 +4521,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取CFW任务执行状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJob(listJobRequest?: ListJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let jobId;
+
+            if (listJobRequest !== null && listJobRequest !== undefined) {
+                if (listJobRequest instanceof ListJobRequest) {
+                    projectId = listJobRequest.projectId;
+                    jobId = listJobRequest.jobId;
+                } else {
+                    projectId = listJobRequest['project_id'];
+                    jobId = listJobRequest['job_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listJob.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listJob.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -5,7 +5,10 @@ export class RestoreDatabaseInstance {
     private 'restore_time'?: number;
     private 'instance_id'?: string;
     public databases?: Array<RestoreDatabaseInfo>;
-    public constructor() { 
+    public constructor(restoreTime?: number, instanceId?: string, databases?: Array<RestoreDatabaseInfo>) { 
+        this['restore_time'] = restoreTime;
+        this['instance_id'] = instanceId;
+        this['databases'] = databases;
     }
     public withRestoreTime(restoreTime: number): RestoreDatabaseInstance {
         this['restore_time'] = restoreTime;

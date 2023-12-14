@@ -1,11 +1,12 @@
+import { TagBody } from './TagBody';
 
 
 export class CreateNatTagRequestBody {
-    public tag?: object;
-    public constructor(tag?: object) { 
+    public tag?: TagBody;
+    public constructor(tag?: TagBody) { 
         this['tag'] = tag;
     }
-    public withTag(tag: object): CreateNatTagRequestBody {
+    public withTag(tag: TagBody): CreateNatTagRequestBody {
         this['tag'] = tag;
         return this;
     }

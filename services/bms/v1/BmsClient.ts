@@ -40,6 +40,9 @@ import { CreateSchedulerHints } from './model/CreateSchedulerHints';
 import { CreateServerNicAllowedAddressPairs } from './model/CreateServerNicAllowedAddressPairs';
 import { CreateServers } from './model/CreateServers';
 import { DataVolumes } from './model/DataVolumes';
+import { DeleteBaremetalBody } from './model/DeleteBaremetalBody';
+import { DeleteBaremetalServerRequest } from './model/DeleteBaremetalServerRequest';
+import { DeleteBaremetalServerResponse } from './model/DeleteBaremetalServerResponse';
 import { DeleteServerNicsReq } from './model/DeleteServerNicsReq';
 import { DeleteServerNicsRequest } from './model/DeleteServerNicsRequest';
 import { DeleteServerNicsResponse } from './model/DeleteServerNicsResponse';
@@ -341,6 +344,25 @@ export class BmsClient {
      */
     public createBareMetalServers(createBareMetalServersRequest?: CreateBareMetalServersRequest): Promise<CreateBareMetalServersResponse> {
         const options = ParamCreater().createBareMetalServers(createBareMetalServersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除裸金属服务器裸金属服务器物理机
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除裸金属服务器裸金属服务器物理机
+     * @param {DeleteBaremetalBody} deleteBaremetalBody 删除裸金属服务器接口请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBaremetalServer(deleteBaremetalServerRequest?: DeleteBaremetalServerRequest): Promise<DeleteBaremetalServerResponse> {
+        const options = ParamCreater().deleteBaremetalServer(deleteBaremetalServerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1138,6 +1160,44 @@ export const ParamCreater = function () {
                     body = createBareMetalServersRequest.body
                 } else {
                     body = createBareMetalServersRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除裸金属服务器裸金属服务器物理机
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBaremetalServer(deleteBaremetalServerRequest?: DeleteBaremetalServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/baremetalservers/delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteBaremetalServerRequest !== null && deleteBaremetalServerRequest !== undefined) {
+                if (deleteBaremetalServerRequest instanceof DeleteBaremetalServerRequest) {
+                    body = deleteBaremetalServerRequest.body
+                } else {
+                    body = deleteBaremetalServerRequest['body'];
                 }
             }
 

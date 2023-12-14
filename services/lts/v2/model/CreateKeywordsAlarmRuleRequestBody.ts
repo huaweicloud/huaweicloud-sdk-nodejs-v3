@@ -16,13 +16,16 @@ export class CreateKeywordsAlarmRuleRequestBody {
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string) { 
+    private 'notification_frequency'?: CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number;
+    private 'alarm_action_rule_name'?: string;
+    public constructor(keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, notificationFrequency?: number) { 
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_requests'] = keywordsRequests;
         this['frequency'] = frequency;
         this['keywords_alarm_level'] = keywordsAlarmLevel;
         this['keywords_alarm_send'] = keywordsAlarmSend;
         this['domain_id'] = domainId;
+        this['notification_frequency'] = notificationFrequency;
     }
     public withKeywordsAlarmRuleName(keywordsAlarmRuleName: string): CreateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
@@ -138,6 +141,26 @@ export class CreateKeywordsAlarmRuleRequestBody {
     public get recoveryPolicy(): number | undefined {
         return this['recovery_policy'];
     }
+    public withNotificationFrequency(notificationFrequency: CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number): CreateKeywordsAlarmRuleRequestBody {
+        this['notification_frequency'] = notificationFrequency;
+        return this;
+    }
+    public set notificationFrequency(notificationFrequency: CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number  | undefined) {
+        this['notification_frequency'] = notificationFrequency;
+    }
+    public get notificationFrequency(): CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number | undefined {
+        return this['notification_frequency'];
+    }
+    public withAlarmActionRuleName(alarmActionRuleName: string): CreateKeywordsAlarmRuleRequestBody {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+        return this;
+    }
+    public set alarmActionRuleName(alarmActionRuleName: string  | undefined) {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+    }
+    public get alarmActionRuleName(): string | undefined {
+        return this['alarm_action_rule_name'];
+    }
 }
 
 /**
@@ -148,5 +171,19 @@ export enum CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum {
     INFO = 'Info',
     MINOR = 'Minor',
     MAJOR = 'Major',
-    CRITICAL = 'CRITICAL'
+    CRITICAL = 'Critical'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_5 = 5,
+    NUMBER_10 = 10,
+    NUMBER_15 = 15,
+    NUMBER_30 = 30,
+    NUMBER_60 = 60,
+    NUMBER_180 = 180,
+    NUMBER_360 = 360
 }

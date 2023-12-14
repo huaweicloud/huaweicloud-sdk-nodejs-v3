@@ -32,6 +32,7 @@ import { CreateInstanceByEngineResponse } from './model/CreateInstanceByEngineRe
 import { CreatePostPaidInstanceReq } from './model/CreatePostPaidInstanceReq';
 import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
+import { CreateRocketMqMigrationTaskReq } from './model/CreateRocketMqMigrationTaskReq';
 import { CreateRocketMqMigrationTaskRequest } from './model/CreateRocketMqMigrationTaskRequest';
 import { CreateRocketMqMigrationTaskResponse } from './model/CreateRocketMqMigrationTaskResponse';
 import { CreateTopicOrBatchDeleteTopicReq } from './model/CreateTopicOrBatchDeleteTopicReq';
@@ -88,6 +89,12 @@ import { Message } from './model/Message';
 import { MessagePropertyList } from './model/MessagePropertyList';
 import { MetadataDeleteReq } from './model/MetadataDeleteReq';
 import { MetadataTask } from './model/MetadataTask';
+import { MigrationRabbitBindingMetadata } from './model/MigrationRabbitBindingMetadata';
+import { MigrationRabbitExchangeMetadata } from './model/MigrationRabbitExchangeMetadata';
+import { MigrationRabbitQueueMetadata } from './model/MigrationRabbitQueueMetadata';
+import { MigrationRabbitVhostMetadata } from './model/MigrationRabbitVhostMetadata';
+import { MigrationRocketMqSubscriptionGroup } from './model/MigrationRocketMqSubscriptionGroup';
+import { MigrationRocketMqTopicConfig } from './model/MigrationRocketMqTopicConfig';
 import { ModifyConfigReq } from './model/ModifyConfigReq';
 import { Queue } from './model/Queue';
 import { ResendReq } from './model/ResendReq';
@@ -299,7 +306,7 @@ export class RocketMQClient {
      * @param {'true' | 'false'} overwrite true开启同名覆盖，会对已有的同名元数据的配置进行修改，false时当topic或group已存在则会报错。
      * @param {string} name 迁移任务名称，名称规则参考创建实例
      * @param {'rocketmq' | 'rabbitToRocket'} type 迁移任务类型，分为自建RocketMQ上云(rocketmq)、自建RabbitMQ上云(rabbitToRocket)
-     * @param {{ [key: string]: object; }} createRocketMqMigrationTaskRequestBody 元数据json文件。
+     * @param {CreateRocketMqMigrationTaskReq} createRocketMqMigrationTaskRequestBody 元数据json文件。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

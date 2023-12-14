@@ -3,7 +3,9 @@
 export class RestoreDatabaseInfo {
     private 'old_name'?: string;
     private 'new_name'?: string;
-    public constructor() { 
+    public constructor(oldName?: string, newName?: string) { 
+        this['old_name'] = oldName;
+        this['new_name'] = newName;
     }
     public withOldName(oldName: string): RestoreDatabaseInfo {
         this['old_name'] = oldName;

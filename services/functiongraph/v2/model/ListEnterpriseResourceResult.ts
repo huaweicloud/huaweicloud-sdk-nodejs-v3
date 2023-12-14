@@ -1,10 +1,10 @@
 import { KvItem } from './KvItem';
-import { ListFunctionResult } from './ListFunctionResult';
+import { ListEnterpriseResourceDetail } from './ListEnterpriseResourceDetail';
 
 
 export class ListEnterpriseResourceResult {
     private 'resource_id'?: string;
-    private 'resource_detail'?: ListFunctionResult;
+    private 'resource_detail'?: ListEnterpriseResourceDetail;
     public tags?: Array<KvItem>;
     private 'sys_tags'?: Array<KvItem>;
     private 'resource_name'?: string;
@@ -20,14 +20,14 @@ export class ListEnterpriseResourceResult {
     public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withResourceDetail(resourceDetail: ListFunctionResult): ListEnterpriseResourceResult {
+    public withResourceDetail(resourceDetail: ListEnterpriseResourceDetail): ListEnterpriseResourceResult {
         this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resourceDetail(resourceDetail: ListFunctionResult  | undefined) {
+    public set resourceDetail(resourceDetail: ListEnterpriseResourceDetail  | undefined) {
         this['resource_detail'] = resourceDetail;
     }
-    public get resourceDetail(): ListFunctionResult | undefined {
+    public get resourceDetail(): ListEnterpriseResourceDetail | undefined {
         return this['resource_detail'];
     }
     public withTags(tags: Array<KvItem>): ListEnterpriseResourceResult {

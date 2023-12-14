@@ -26,6 +26,7 @@ export class RocketMQRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://dms.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://dms.tr-west-1.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://dms.ae-ad-1.myhuaweicloud.com"]);
+    public static EU_WEST_0 = new Region("eu-west-0", ["https://dms.eu-west-0.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -48,7 +49,8 @@ export class RocketMQRegion {
         "la-north-2":RocketMQRegion.LA_NORTH_2,
         "ap-southeast-4":RocketMQRegion.AP_SOUTHEAST_4,
         "tr-west-1":RocketMQRegion.TR_WEST_1,
-        "ae-ad-1":RocketMQRegion.AE_AD_1
+        "ae-ad-1":RocketMQRegion.AE_AD_1,
+        "eu-west-0":RocketMQRegion.EU_WEST_0
     };
   
     public static valueOf(regionId: string) {

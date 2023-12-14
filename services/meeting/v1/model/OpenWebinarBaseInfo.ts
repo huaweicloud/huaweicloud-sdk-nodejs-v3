@@ -25,6 +25,9 @@ export class OpenWebinarBaseInfo {
     public audienceJoinUri?: string;
     public audiencePasswd?: string;
     public enableRecording?: YesNoEnum;
+    public liveAddress?: string;
+    public auxAddress?: string;
+    public liveUrl?: string;
     public constructor() { 
     }
     public withConferenceId(conferenceId: string): OpenWebinarBaseInfo {
@@ -113,6 +116,18 @@ export class OpenWebinarBaseInfo {
     }
     public withEnableRecording(enableRecording: YesNoEnum): OpenWebinarBaseInfo {
         this['enableRecording'] = enableRecording;
+        return this;
+    }
+    public withLiveAddress(liveAddress: string): OpenWebinarBaseInfo {
+        this['liveAddress'] = liveAddress;
+        return this;
+    }
+    public withAuxAddress(auxAddress: string): OpenWebinarBaseInfo {
+        this['auxAddress'] = auxAddress;
+        return this;
+    }
+    public withLiveUrl(liveUrl: string): OpenWebinarBaseInfo {
+        this['liveUrl'] = liveUrl;
         return this;
     }
 }

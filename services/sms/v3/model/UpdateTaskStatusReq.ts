@@ -4,6 +4,7 @@ export class UpdateTaskStatusReq {
     public operation?: UpdateTaskStatusReqOperationEnum | string;
     public param?: { [key: string]: string; };
     private 'switch_hce'?: boolean;
+    private 'is_need_consistency_check'?: boolean;
     public constructor(operation?: string) { 
         this['operation'] = operation;
     }
@@ -24,6 +25,16 @@ export class UpdateTaskStatusReq {
     }
     public get switchHce(): boolean | undefined {
         return this['switch_hce'];
+    }
+    public withIsNeedConsistencyCheck(isNeedConsistencyCheck: boolean): UpdateTaskStatusReq {
+        this['is_need_consistency_check'] = isNeedConsistencyCheck;
+        return this;
+    }
+    public set isNeedConsistencyCheck(isNeedConsistencyCheck: boolean  | undefined) {
+        this['is_need_consistency_check'] = isNeedConsistencyCheck;
+    }
+    public get isNeedConsistencyCheck(): boolean | undefined {
+        return this['is_need_consistency_check'];
     }
 }
 

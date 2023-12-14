@@ -18,6 +18,9 @@ export class OpenEditConfReq {
     public scope?: number;
     public audienceScope?: number;
     public enableRecording?: YesNoEnum;
+    public liveAddress?: string;
+    public auxAddress?: string;
+    public liveUrl?: string;
     public constructor(conferenceId?: string, subject?: string, startTime?: string, duration?: number, timeZoneId?: number) { 
         this['conferenceId'] = conferenceId;
         this['subject'] = subject;
@@ -79,6 +82,18 @@ export class OpenEditConfReq {
     }
     public withEnableRecording(enableRecording: YesNoEnum): OpenEditConfReq {
         this['enableRecording'] = enableRecording;
+        return this;
+    }
+    public withLiveAddress(liveAddress: string): OpenEditConfReq {
+        this['liveAddress'] = liveAddress;
+        return this;
+    }
+    public withAuxAddress(auxAddress: string): OpenEditConfReq {
+        this['auxAddress'] = auxAddress;
+        return this;
+    }
+    public withLiveUrl(liveUrl: string): OpenEditConfReq {
+        this['liveUrl'] = liveUrl;
         return this;
     }
 }

@@ -136,7 +136,5 @@ export enum RecordContentInfoV2RecordFormatEnum {
     */
 export enum RecordContentInfoV2RecordTypeEnum {
     CONTINUOUS_RECORD = 'CONTINUOUS_RECORD',
-    COMMAND_RECORD = 'COMMAND_RECORD',
-    PLAN_RECORD = 'PLAN_RECORD',
-    ON_DEMAND_RECORD = 'ON_DEMAND_RECORD'
+    COMMAND_RECORD = 'COMMAND_RECORD'
 }

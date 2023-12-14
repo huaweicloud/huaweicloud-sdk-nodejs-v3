@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ADDomainInfo } from './model/ADDomainInfo';
+import { AddLogConfigResponseBody } from './model/AddLogConfigResponseBody';
+import { AddLogConfigs } from './model/AddLogConfigs';
 import { AddMsdtcRequestBody } from './model/AddMsdtcRequestBody';
 import { AddPostgresqlHbaConfRequest } from './model/AddPostgresqlHbaConfRequest';
 import { AddPostgresqlHbaConfResponse } from './model/AddPostgresqlHbaConfResponse';
@@ -123,6 +125,10 @@ import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
+import { DeleteLogConfigResponseBody } from './model/DeleteLogConfigResponseBody';
+import { DeleteLogConfigs } from './model/DeleteLogConfigs';
+import { DeleteLogLtsConfigsRequest } from './model/DeleteLogLtsConfigsRequest';
+import { DeleteLogLtsConfigsResponse } from './model/DeleteLogLtsConfigsResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
 import { DeleteManualBackupResponse } from './model/DeleteManualBackupResponse';
 import { DeletePostgresqlDatabaseRequest } from './model/DeletePostgresqlDatabaseRequest';
@@ -238,6 +244,8 @@ import { ListJobInfoDetailRequest } from './model/ListJobInfoDetailRequest';
 import { ListJobInfoDetailResponse } from './model/ListJobInfoDetailResponse';
 import { ListJobInfoRequest } from './model/ListJobInfoRequest';
 import { ListJobInfoResponse } from './model/ListJobInfoResponse';
+import { ListLogLtsConfigsRequest } from './model/ListLogLtsConfigsRequest';
+import { ListLogLtsConfigsResponse } from './model/ListLogLtsConfigsResponse';
 import { ListMsdtcHostsRequest } from './model/ListMsdtcHostsRequest';
 import { ListMsdtcHostsResponse } from './model/ListMsdtcHostsResponse';
 import { ListOffSiteBackupsRequest } from './model/ListOffSiteBackupsRequest';
@@ -418,6 +426,8 @@ import { SetDbUserPwdRequest } from './model/SetDbUserPwdRequest';
 import { SetDbUserPwdResponse } from './model/SetDbUserPwdResponse';
 import { SetInstancesDbShrinkRequest } from './model/SetInstancesDbShrinkRequest';
 import { SetInstancesDbShrinkResponse } from './model/SetInstancesDbShrinkResponse';
+import { SetLogLtsConfigsRequest } from './model/SetLogLtsConfigsRequest';
+import { SetLogLtsConfigsResponse } from './model/SetLogLtsConfigsResponse';
 import { SetOffSiteBackupPolicyRequest } from './model/SetOffSiteBackupPolicyRequest';
 import { SetOffSiteBackupPolicyRequestBody } from './model/SetOffSiteBackupPolicyRequestBody';
 import { SetOffSiteBackupPolicyResponse } from './model/SetOffSiteBackupPolicyResponse';
@@ -682,7 +692,7 @@ export class RdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 库级时间点恢复
-     * @param {PostgreSQLRestoreDatabaseRequest} [batchRestorePostgreSQLDatabaseRequestBody] 库级时间点恢复请求信息
+     * @param {PostgreSQLRestoreDatabaseRequest} batchRestorePostgreSQLDatabaseRequestBody 库级时间点恢复请求信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1013,6 +1023,26 @@ export class RdsClient {
      */
     public deleteJob(deleteJobRequest?: DeleteJobRequest): Promise<DeleteJobResponse> {
         const options = ParamCreater().deleteJob(deleteJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除LTS配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {DeleteLogConfigResponseBody} logConfigs 待解除Lts配置请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogLtsConfigs(deleteLogLtsConfigsRequest?: DeleteLogLtsConfigsRequest): Promise<DeleteLogLtsConfigsResponse> {
+        const options = ParamCreater().deleteLogLtsConfigs(deleteLogLtsConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1563,6 +1593,32 @@ export class RdsClient {
      */
     public listJobInfoDetail(listJobInfoDetailRequest?: ListJobInfoDetailRequest): Promise<ListJobInfoDetailResponse> {
         const options = ParamCreater().listJobInfoDetail(listJobInfoDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取LTS配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {string} [enterpriseProjectId] 企业项目ID。默认为空。
+     * @param {string} [instanceId] 实例ID。默认为空。
+     * @param {string} [instanceName] 实例名称。默认为空。
+     * @param {number} [limit] 查询记录数。默认10。
+     * @param {number} [offset] 索引位置，偏移量。默认0。
+     * @param {string} [sort] 排序
+     * @param {string} [instanceStatus] 实例状态
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogLtsConfigs(listLogLtsConfigsRequest?: ListLogLtsConfigsRequest): Promise<ListLogLtsConfigsResponse> {
+        const options = ParamCreater().listLogLtsConfigs(listLogLtsConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2229,6 +2285,26 @@ export class RdsClient {
      */
     public setBinlogClearPolicy(setBinlogClearPolicyRequest?: SetBinlogClearPolicyRequest): Promise<SetBinlogClearPolicyResponse> {
         const options = ParamCreater().setBinlogClearPolicy(setBinlogClearPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关联LTS配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎。
+     * @param {AddLogConfigResponseBody} request 关联LTS日志请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setLogLtsConfigs(setLogLtsConfigsRequest?: SetLogLtsConfigsRequest): Promise<SetLogLtsConfigsResponse> {
+        const options = ParamCreater().setLogLtsConfigs(setLogLtsConfigsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4653,6 +4729,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -5419,6 +5498,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除LTS配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogLtsConfigs(deleteLogLtsConfigsRequest?: DeleteLogLtsConfigsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/{engine}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let xLanguage;
+
+            if (deleteLogLtsConfigsRequest !== null && deleteLogLtsConfigsRequest !== undefined) {
+                if (deleteLogLtsConfigsRequest instanceof DeleteLogLtsConfigsRequest) {
+                    engine = deleteLogLtsConfigsRequest.engine;
+                    body = deleteLogLtsConfigsRequest.body
+                    xLanguage = deleteLogLtsConfigsRequest.xLanguage;
+                } else {
+                    engine = deleteLogLtsConfigsRequest['engine'];
+                    body = deleteLogLtsConfigsRequest['body'];
+                    xLanguage = deleteLogLtsConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling deleteLogLtsConfigs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6936,6 +7068,100 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取LTS配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogLtsConfigs(listLogLtsConfigsRequest?: ListLogLtsConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/{engine}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let enterpriseProjectId;
+            
+            let instanceId;
+            
+            let instanceName;
+            
+            let limit;
+            
+            let offset;
+            
+            let sort;
+            
+            let instanceStatus;
+            
+            let xLanguage;
+
+            if (listLogLtsConfigsRequest !== null && listLogLtsConfigsRequest !== undefined) {
+                if (listLogLtsConfigsRequest instanceof ListLogLtsConfigsRequest) {
+                    engine = listLogLtsConfigsRequest.engine;
+                    enterpriseProjectId = listLogLtsConfigsRequest.enterpriseProjectId;
+                    instanceId = listLogLtsConfigsRequest.instanceId;
+                    instanceName = listLogLtsConfigsRequest.instanceName;
+                    limit = listLogLtsConfigsRequest.limit;
+                    offset = listLogLtsConfigsRequest.offset;
+                    sort = listLogLtsConfigsRequest.sort;
+                    instanceStatus = listLogLtsConfigsRequest.instanceStatus;
+                    xLanguage = listLogLtsConfigsRequest.xLanguage;
+                } else {
+                    engine = listLogLtsConfigsRequest['engine'];
+                    enterpriseProjectId = listLogLtsConfigsRequest['enterprise_project_id'];
+                    instanceId = listLogLtsConfigsRequest['instance_id'];
+                    instanceName = listLogLtsConfigsRequest['instance_name'];
+                    limit = listLogLtsConfigsRequest['limit'];
+                    offset = listLogLtsConfigsRequest['offset'];
+                    sort = listLogLtsConfigsRequest['sort'];
+                    instanceStatus = listLogLtsConfigsRequest['instance_status'];
+                    xLanguage = listLogLtsConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling listLogLtsConfigs.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (instanceStatus !== null && instanceStatus !== undefined) {
+                localVarQueryParameter['instance_status'] = instanceStatus;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8690,6 +8916,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关联LTS配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setLogLtsConfigs(setLogLtsConfigsRequest?: SetLogLtsConfigsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/{engine}/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let xLanguage;
+
+            if (setLogLtsConfigsRequest !== null && setLogLtsConfigsRequest !== undefined) {
+                if (setLogLtsConfigsRequest instanceof SetLogLtsConfigsRequest) {
+                    engine = setLogLtsConfigsRequest.engine;
+                    body = setLogLtsConfigsRequest.body
+                    xLanguage = setLogLtsConfigsRequest.xLanguage;
+                } else {
+                    engine = setLogLtsConfigsRequest['engine'];
+                    body = setLogLtsConfigsRequest['body'];
+                    xLanguage = setLogLtsConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling setLogLtsConfigs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine, };
             options.headers = localVarHeaderParameter;
             return options;
         },

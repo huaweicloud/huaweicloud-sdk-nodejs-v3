@@ -93,8 +93,6 @@ import { DataobjectInfo } from './model/DataobjectInfo';
 import { DataobjectSearch } from './model/DataobjectSearch';
 import { DataobjectSearchCondition } from './model/DataobjectSearchCondition';
 import { DataobjectSearchConditionConditions } from './model/DataobjectSearchConditionConditions';
-import { DataobjectSearchConditionData } from './model/DataobjectSearchConditionData';
-import { DataobjectSearchConditionLogics } from './model/DataobjectSearchConditionLogics';
 import { DeleteAlertRequest } from './model/DeleteAlertRequest';
 import { DeleteAlertRequestBody } from './model/DeleteAlertRequestBody';
 import { DeleteAlertResponse } from './model/DeleteAlertResponse';

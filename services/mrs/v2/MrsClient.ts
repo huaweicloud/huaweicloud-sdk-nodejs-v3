@@ -51,6 +51,7 @@ import { JobQueryBean } from './model/JobQueryBean';
 import { JobSubmitResult } from './model/JobSubmitResult';
 import { ListDataConnectorRequest } from './model/ListDataConnectorRequest';
 import { ListDataConnectorResponse } from './model/ListDataConnectorResponse';
+import { ModifyDefaultTagsRequestBody } from './model/ModifyDefaultTagsRequestBody';
 import { NodeGroupV2 } from './model/NodeGroupV2';
 import { ResourcesPlan } from './model/ResourcesPlan';
 import { Rule } from './model/Rule';
@@ -74,6 +75,10 @@ import { ShowSqlResultRequest } from './model/ShowSqlResultRequest';
 import { ShowSqlResultResponse } from './model/ShowSqlResultResponse';
 import { ShowSqlResultWithJobRequest } from './model/ShowSqlResultWithJobRequest';
 import { ShowSqlResultWithJobResponse } from './model/ShowSqlResultWithJobResponse';
+import { ShowTagQuotaRequest } from './model/ShowTagQuotaRequest';
+import { ShowTagQuotaResponse } from './model/ShowTagQuotaResponse';
+import { ShowTagStatusRequest } from './model/ShowTagStatusRequest';
+import { ShowTagStatusResponse } from './model/ShowTagStatusResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
 import { ShrinkParam } from './model/ShrinkParam';
@@ -81,6 +86,8 @@ import { SqlExecutionReq } from './model/SqlExecutionReq';
 import { StepConfig } from './model/StepConfig';
 import { StopJobRequest } from './model/StopJobRequest';
 import { StopJobResponse } from './model/StopJobResponse';
+import { SwitchClusterTagsRequest } from './model/SwitchClusterTagsRequest';
+import { SwitchClusterTagsResponse } from './model/SwitchClusterTagsResponse';
 import { Tag } from './model/Tag';
 import { Trigger } from './model/Trigger';
 import { UpdateAgencyMappingRequest } from './model/UpdateAgencyMappingRequest';
@@ -649,6 +656,65 @@ export class MrsClient {
      */
     public showSqlResult(showSqlResultRequest?: ShowSqlResultRequest): Promise<ShowSqlResultResponse> {
         const options = ParamCreater().showSqlResult(showSqlResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询标签配额信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询标签配额
+     * @param {string} clusterId 集群ID。
+     * @param {boolean} [autoScalingPolicyTags] 是否查询弹性伸缩策略标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTagQuota(showTagQuotaRequest?: ShowTagQuotaRequest): Promise<ShowTagQuotaResponse> {
+        const options = ParamCreater().showTagQuota(showTagQuotaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群默认标签状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询默认标签状态
+     * @param {string} clusterId 集群ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTagStatus(showTagStatusRequest?: ShowTagStatusRequest): Promise<ShowTagStatusResponse> {
+        const options = ParamCreater().showTagStatus(showTagStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 对已有集群启用或关闭集群默认标签。开启后，集群内节点会打上集群默认标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群操作默认标签
+     * @param {string} clusterId 集群ID。
+     * @param {ModifyDefaultTagsRequestBody} switchClusterTagsRequestBody 操作默认标签请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchClusterTags(switchClusterTagsRequest?: SwitchClusterTagsRequest): Promise<SwitchClusterTagsResponse> {
+        const options = ParamCreater().switchClusterTags(switchClusterTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1949,6 +2015,134 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'sql_id': sqlId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询标签配额信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTagQuota(showTagQuotaRequest?: ShowTagQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/tags/quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let autoScalingPolicyTags;
+
+            if (showTagQuotaRequest !== null && showTagQuotaRequest !== undefined) {
+                if (showTagQuotaRequest instanceof ShowTagQuotaRequest) {
+                    clusterId = showTagQuotaRequest.clusterId;
+                    autoScalingPolicyTags = showTagQuotaRequest.autoScalingPolicyTags;
+                } else {
+                    clusterId = showTagQuotaRequest['cluster_id'];
+                    autoScalingPolicyTags = showTagQuotaRequest['auto_scaling_policy_tags'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showTagQuota.');
+            }
+            if (autoScalingPolicyTags !== null && autoScalingPolicyTags !== undefined) {
+                localVarQueryParameter['auto_scaling_policy_tags'] = autoScalingPolicyTags;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群默认标签状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTagStatus(showTagStatusRequest?: ShowTagStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/tags/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showTagStatusRequest !== null && showTagStatusRequest !== undefined) {
+                if (showTagStatusRequest instanceof ShowTagStatusRequest) {
+                    clusterId = showTagStatusRequest.clusterId;
+                } else {
+                    clusterId = showTagStatusRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showTagStatus.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 对已有集群启用或关闭集群默认标签。开启后，集群内节点会打上集群默认标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchClusterTags(switchClusterTagsRequest?: SwitchClusterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/tags/switch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (switchClusterTagsRequest !== null && switchClusterTagsRequest !== undefined) {
+                if (switchClusterTagsRequest instanceof SwitchClusterTagsRequest) {
+                    clusterId = switchClusterTagsRequest.clusterId;
+                    body = switchClusterTagsRequest.body
+                } else {
+                    clusterId = switchClusterTagsRequest['cluster_id'];
+                    body = switchClusterTagsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling switchClusterTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -90,6 +90,9 @@ import { CreateQueueReq } from './model/CreateQueueReq';
 import { CreateQueueRequest } from './model/CreateQueueRequest';
 import { CreateQueueResponse } from './model/CreateQueueResponse';
 import { CreateRouteRequestBody } from './model/CreateRouteRequestBody';
+import { CreateRouteToEnhancedConnectionRequest } from './model/CreateRouteToEnhancedConnectionRequest';
+import { CreateRouteToEnhancedConnectionRequestBody } from './model/CreateRouteToEnhancedConnectionRequestBody';
+import { CreateRouteToEnhancedConnectionResponse } from './model/CreateRouteToEnhancedConnectionResponse';
 import { CreateSessionReqGroup } from './model/CreateSessionReqGroup';
 import { CreateSessionReqResource } from './model/CreateSessionReqResource';
 import { CreateSparkJobRequest } from './model/CreateSparkJobRequest';
@@ -136,6 +139,8 @@ import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
 import { DeleteResourceRequest } from './model/DeleteResourceRequest';
 import { DeleteResourceResponse } from './model/DeleteResourceResponse';
+import { DeleteRouteFromEnhancedConnectionRequest } from './model/DeleteRouteFromEnhancedConnectionRequest';
+import { DeleteRouteFromEnhancedConnectionResponse } from './model/DeleteRouteFromEnhancedConnectionResponse';
 import { DeleteSqlTemplatesRequestBody } from './model/DeleteSqlTemplatesRequestBody';
 import { DeleteTableRequest } from './model/DeleteTableRequest';
 import { DeleteTableResponse } from './model/DeleteTableResponse';
@@ -407,181 +412,6 @@ export class DliClient {
         return __dirname;
     }
 
-
-    /**
-     * 该API用于批量删除SQL模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除SQL模板
-     * @param {DeleteSqlTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest): Promise<BatchDeleteSqlJobTemplatesResponse> {
-        const options = ParamCreater().batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于创建作业模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建作业模板
-     * @param {CreateJobTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest): Promise<CreateSparkJobTemplateResponse> {
-        const options = ParamCreater().createSparkJobTemplate(createSparkJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于存储指定的SQL语句，后续可以重复使用。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 存储指定SQL语句
-     * @param {CreateSqlTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest): Promise<CreateSqlJobTemplateResponse> {
-        const options = ParamCreater().createSqlJobTemplate(createSqlJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于查询作业模板列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询作业模板列表
-     * @param {string} [type] 类型。
-     * @param {string} [keyword] 模板名过滤关键字，模糊匹配，获取模板名含有该关键字的所有模板。
-     * @param {number} [pageSize] 每页显示的最大结果行数，范围: [1, 100]。默认值为：50。
-     * @param {number} [currentPage] 当前页码，默认为第一页。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest): Promise<ListSparkJobTemplatesResponse> {
-        const options = ParamCreater().listSparkJobTemplates(listSparkJobTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用查看用户保存的所有SQL模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看所有SQL模板
-     * @param {string} [keyword] 用于过滤SQL模板的名字。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest): Promise<ListSqlJobTemplatesResponse> {
-        const options = ParamCreater().listSqlJobTemplates(listSqlJobTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于获取作业模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取作业模板
-     * @param {string} templateId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest): Promise<ShowSparkJobTemplateResponse> {
-        const options = ParamCreater().showSparkJobTemplate(showSparkJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于查询所有SQL样例模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询所有SQL样例模板
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSqlSampleTemplates(showSqlSampleTemplatesRequest?: ShowSqlSampleTemplatesRequest): Promise<ShowSqlSampleTemplatesResponse> {
-        const options = ParamCreater().showSqlSampleTemplates();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于修改作业模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改作业模板
-     * @param {string} templateId 
-     * @param {UpdateJobTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest): Promise<UpdateSparkJobTemplateResponse> {
-        const options = ParamCreater().updateSparkJobTemplate(updateSparkJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该API用于更新SQL模板。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新SQL模板
-     * @param {string} sqlId 
-     * @param {UpdateSqlTemplatesRequestBody} body 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest): Promise<UpdateSqlJobTemplateResponse> {
-        const options = ParamCreater().updateSqlJobTemplate(updateSqlJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 关联队列到弹性资源池
@@ -921,6 +751,26 @@ export class DliClient {
     }
 
     /**
+     * 该API用于创建跨源需要的路由。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建路由
+     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
+     * @param {CreateRouteToEnhancedConnectionRequestBody} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRouteToEnhancedConnection(createRouteToEnhancedConnectionRequest?: CreateRouteToEnhancedConnectionRequest): Promise<CreateRouteToEnhancedConnectionResponse> {
+        const options = ParamCreater().createRouteToEnhancedConnection(createRouteToEnhancedConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于删除跨源认证信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1130,6 +980,26 @@ export class DliClient {
      */
     public deleteResource(deleteResourceRequest?: DeleteResourceRequest): Promise<DeleteResourceResponse> {
         const options = ParamCreater().deleteResource(deleteResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除跨源需要的路由。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除路由
+     * @param {string} connectionId 连接ID，用于标识跨源连接的UUID。
+     * @param {string} name 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRouteFromEnhancedConnection(deleteRouteFromEnhancedConnectionRequest?: DeleteRouteFromEnhancedConnectionRequest): Promise<DeleteRouteFromEnhancedConnectionResponse> {
+        const options = ParamCreater().deleteRouteFromEnhancedConnection(deleteRouteFromEnhancedConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2498,6 +2368,47 @@ export class DliClient {
     }
 
     /**
+     * 该API用于创建作业模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建作业模板
+     * @param {CreateJobTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest): Promise<CreateSparkJobTemplateResponse> {
+        const options = ParamCreater().createSparkJobTemplate(createSparkJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询作业模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询作业模板列表
+     * @param {string} [type] 类型。
+     * @param {string} [keyword] 模板名过滤关键字，模糊匹配，获取模板名含有该关键字的所有模板。
+     * @param {number} [pageSize] 每页显示的最大结果行数，范围: [1, 100]。默认值为：50。
+     * @param {number} [currentPage] 当前页码，默认为第一页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest): Promise<ListSparkJobTemplatesResponse> {
+        const options = ParamCreater().listSparkJobTemplates(listSparkJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于查询Project下某队列批处理作业的列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2587,6 +2498,64 @@ export class DliClient {
     }
 
     /**
+     * 该API用于获取作业模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取作业模板
+     * @param {string} templateId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest): Promise<ShowSparkJobTemplateResponse> {
+        const options = ParamCreater().showSparkJobTemplate(showSparkJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于修改作业模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改作业模板
+     * @param {string} templateId 
+     * @param {UpdateJobTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest): Promise<UpdateSparkJobTemplateResponse> {
+        const options = ParamCreater().updateSparkJobTemplate(updateSparkJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量删除SQL模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除SQL模板
+     * @param {DeleteSqlTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest): Promise<BatchDeleteSqlJobTemplatesResponse> {
+        const options = ParamCreater().batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于取消已经提交的作业，若作业已经执行结束或失败则无法取消。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2657,6 +2626,25 @@ export class DliClient {
      */
     public createSqlJob(createSqlJobRequest?: CreateSqlJobRequest): Promise<CreateSqlJobResponse> {
         const options = ParamCreater().createSqlJob(createSqlJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于存储指定的SQL语句，后续可以重复使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 存储指定SQL语句
+     * @param {CreateSqlTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest): Promise<CreateSqlJobTemplateResponse> {
+        const options = ParamCreater().createSqlJobTemplate(createSqlJobTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2833,6 +2821,25 @@ export class DliClient {
     }
 
     /**
+     * 该API用查看用户保存的所有SQL模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看所有SQL模板
+     * @param {string} [keyword] 用于过滤SQL模板的名字。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest): Promise<ListSqlJobTemplatesResponse> {
+        const options = ParamCreater().listSqlJobTemplates(listSqlJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于查询当前工程下面的所有作业的信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2984,6 +2991,24 @@ export class DliClient {
     }
 
     /**
+     * 该API用于查询所有SQL样例模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有SQL样例模板
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlSampleTemplates(showSqlSampleTemplatesRequest?: ShowSqlSampleTemplatesRequest): Promise<ShowSqlSampleTemplatesResponse> {
+        const options = ParamCreater().showSqlSampleTemplates();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于用于预览表中前10行的内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3025,6 +3050,26 @@ export class DliClient {
     }
 
     /**
+     * 该API用于更新SQL模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新SQL模板
+     * @param {string} sqlId 
+     * @param {UpdateSqlTemplatesRequestBody} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest): Promise<UpdateSqlJobTemplateResponse> {
+        const options = ParamCreater().updateSqlJobTemplate(updateSqlJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于修改表的owner。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3048,365 +3093,6 @@ export class DliClient {
 
 export const ParamCreater = function () {
     return {
-    
-        /**
-         * 该API用于批量删除SQL模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1.0/{project_id}/sqls-deletion",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (batchDeleteSqlJobTemplatesRequest !== null && batchDeleteSqlJobTemplatesRequest !== undefined) {
-                if (batchDeleteSqlJobTemplatesRequest instanceof BatchDeleteSqlJobTemplatesRequest) {
-                    body = batchDeleteSqlJobTemplatesRequest.body
-                } else {
-                    body = batchDeleteSqlJobTemplatesRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于创建作业模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/templates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createSparkJobTemplateRequest !== null && createSparkJobTemplateRequest !== undefined) {
-                if (createSparkJobTemplateRequest instanceof CreateSparkJobTemplateRequest) {
-                    body = createSparkJobTemplateRequest.body
-                } else {
-                    body = createSparkJobTemplateRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于存储指定的SQL语句，后续可以重复使用。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1.0/{project_id}/sqls",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createSqlJobTemplateRequest !== null && createSqlJobTemplateRequest !== undefined) {
-                if (createSqlJobTemplateRequest instanceof CreateSqlJobTemplateRequest) {
-                    body = createSqlJobTemplateRequest.body
-                } else {
-                    body = createSqlJobTemplateRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于查询作业模板列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/templates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-            
-            let keyword;
-            
-            let pageSize;
-            
-            let currentPage;
-
-            if (listSparkJobTemplatesRequest !== null && listSparkJobTemplatesRequest !== undefined) {
-                if (listSparkJobTemplatesRequest instanceof ListSparkJobTemplatesRequest) {
-                    type = listSparkJobTemplatesRequest.type;
-                    keyword = listSparkJobTemplatesRequest.keyword;
-                    pageSize = listSparkJobTemplatesRequest.pageSize;
-                    currentPage = listSparkJobTemplatesRequest.currentPage;
-                } else {
-                    type = listSparkJobTemplatesRequest['type'];
-                    keyword = listSparkJobTemplatesRequest['keyword'];
-                    pageSize = listSparkJobTemplatesRequest['page-size'];
-                    currentPage = listSparkJobTemplatesRequest['current-page'];
-                }
-            }
-
-        
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (keyword !== null && keyword !== undefined) {
-                localVarQueryParameter['keyword'] = keyword;
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page-size'] = pageSize;
-            }
-            if (currentPage !== null && currentPage !== undefined) {
-                localVarQueryParameter['current-page'] = currentPage;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用查看用户保存的所有SQL模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/sqls",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let keyword;
-
-            if (listSqlJobTemplatesRequest !== null && listSqlJobTemplatesRequest !== undefined) {
-                if (listSqlJobTemplatesRequest instanceof ListSqlJobTemplatesRequest) {
-                    keyword = listSqlJobTemplatesRequest.keyword;
-                } else {
-                    keyword = listSqlJobTemplatesRequest['keyword'];
-                }
-            }
-
-        
-            if (keyword !== null && keyword !== undefined) {
-                localVarQueryParameter['keyword'] = keyword;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于获取作业模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/templates/{template_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let templateId;
-
-            if (showSparkJobTemplateRequest !== null && showSparkJobTemplateRequest !== undefined) {
-                if (showSparkJobTemplateRequest instanceof ShowSparkJobTemplateRequest) {
-                    templateId = showSparkJobTemplateRequest.templateId;
-                } else {
-                    templateId = showSparkJobTemplateRequest['template_id'];
-                }
-            }
-
-        
-            if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showSparkJobTemplate.');
-            }
-
-            options.pathParams = { 'template_id': templateId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于查询所有SQL样例模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSqlSampleTemplates() {
-            const options = {
-                method: "GET",
-                url: "/v1.0/{project_id}/sqls/sample",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于修改作业模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3/{project_id}/templates/{template_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let templateId;
-
-            if (updateSparkJobTemplateRequest !== null && updateSparkJobTemplateRequest !== undefined) {
-                if (updateSparkJobTemplateRequest instanceof UpdateSparkJobTemplateRequest) {
-                    templateId = updateSparkJobTemplateRequest.templateId;
-                    body = updateSparkJobTemplateRequest.body
-                } else {
-                    templateId = updateSparkJobTemplateRequest['template_id'];
-                    body = updateSparkJobTemplateRequest['body'];
-                }
-            }
-
-        
-            if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateSparkJobTemplate.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'template_id': templateId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该API用于更新SQL模板。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1.0/{project_id}/sqls/{sql_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let sqlId;
-
-            if (updateSqlJobTemplateRequest !== null && updateSqlJobTemplateRequest !== undefined) {
-                if (updateSqlJobTemplateRequest instanceof UpdateSqlJobTemplateRequest) {
-                    sqlId = updateSqlJobTemplateRequest.sqlId;
-                    body = updateSqlJobTemplateRequest.body
-                } else {
-                    sqlId = updateSqlJobTemplateRequest['sql_id'];
-                    body = updateSqlJobTemplateRequest['body'];
-                }
-            }
-
-        
-            if (sqlId === null || sqlId === undefined) {
-            throw new RequiredError('sqlId','Required parameter sqlId was null or undefined when calling updateSqlJobTemplate.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'sql_id': sqlId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
     
         /**
          * 关联队列到弹性资源池
@@ -4125,6 +3811,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建跨源需要的路由。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRouteToEnhancedConnection(createRouteToEnhancedConnectionRequest?: CreateRouteToEnhancedConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/datasource/enhanced-connections/{connection_id}/routes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let connectionId;
+
+            if (createRouteToEnhancedConnectionRequest !== null && createRouteToEnhancedConnectionRequest !== undefined) {
+                if (createRouteToEnhancedConnectionRequest instanceof CreateRouteToEnhancedConnectionRequest) {
+                    connectionId = createRouteToEnhancedConnectionRequest.connectionId;
+                    body = createRouteToEnhancedConnectionRequest.body
+                } else {
+                    connectionId = createRouteToEnhancedConnectionRequest['connection_id'];
+                    body = createRouteToEnhancedConnectionRequest['body'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling createRouteToEnhancedConnection.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于删除跨源认证信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4562,6 +4291,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'resource_name': resourceName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除跨源需要的路由。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRouteFromEnhancedConnection(deleteRouteFromEnhancedConnectionRequest?: DeleteRouteFromEnhancedConnectionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/datasource/enhanced-connections/{connection_id}/routes/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectionId;
+            
+            let name;
+
+            if (deleteRouteFromEnhancedConnectionRequest !== null && deleteRouteFromEnhancedConnectionRequest !== undefined) {
+                if (deleteRouteFromEnhancedConnectionRequest instanceof DeleteRouteFromEnhancedConnectionRequest) {
+                    connectionId = deleteRouteFromEnhancedConnectionRequest.connectionId;
+                    name = deleteRouteFromEnhancedConnectionRequest.name;
+                } else {
+                    connectionId = deleteRouteFromEnhancedConnectionRequest['connection_id'];
+                    name = deleteRouteFromEnhancedConnectionRequest['name'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling deleteRouteFromEnhancedConnection.');
+            }
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling deleteRouteFromEnhancedConnection.');
+            }
+
+            options.pathParams = { 'connection_id': connectionId,'name': name, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7560,6 +7333,102 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建作业模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSparkJobTemplate(createSparkJobTemplateRequest?: CreateSparkJobTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSparkJobTemplateRequest !== null && createSparkJobTemplateRequest !== undefined) {
+                if (createSparkJobTemplateRequest instanceof CreateSparkJobTemplateRequest) {
+                    body = createSparkJobTemplateRequest.body
+                } else {
+                    body = createSparkJobTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询作业模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSparkJobTemplates(listSparkJobTemplatesRequest?: ListSparkJobTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let keyword;
+            
+            let pageSize;
+            
+            let currentPage;
+
+            if (listSparkJobTemplatesRequest !== null && listSparkJobTemplatesRequest !== undefined) {
+                if (listSparkJobTemplatesRequest instanceof ListSparkJobTemplatesRequest) {
+                    type = listSparkJobTemplatesRequest.type;
+                    keyword = listSparkJobTemplatesRequest.keyword;
+                    pageSize = listSparkJobTemplatesRequest.pageSize;
+                    currentPage = listSparkJobTemplatesRequest.currentPage;
+                } else {
+                    type = listSparkJobTemplatesRequest['type'];
+                    keyword = listSparkJobTemplatesRequest['keyword'];
+                    pageSize = listSparkJobTemplatesRequest['page-size'];
+                    currentPage = listSparkJobTemplatesRequest['current-page'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (keyword !== null && keyword !== undefined) {
+                localVarQueryParameter['keyword'] = keyword;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page-size'] = pageSize;
+            }
+            if (currentPage !== null && currentPage !== undefined) {
+                localVarQueryParameter['current-page'] = currentPage;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于查询Project下某队列批处理作业的列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7800,6 +7669,127 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于获取作业模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSparkJobTemplate(showSparkJobTemplateRequest?: ShowSparkJobTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+
+            if (showSparkJobTemplateRequest !== null && showSparkJobTemplateRequest !== undefined) {
+                if (showSparkJobTemplateRequest instanceof ShowSparkJobTemplateRequest) {
+                    templateId = showSparkJobTemplateRequest.templateId;
+                } else {
+                    templateId = showSparkJobTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showSparkJobTemplate.');
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于修改作业模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSparkJobTemplate(updateSparkJobTemplateRequest?: UpdateSparkJobTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let templateId;
+
+            if (updateSparkJobTemplateRequest !== null && updateSparkJobTemplateRequest !== undefined) {
+                if (updateSparkJobTemplateRequest instanceof UpdateSparkJobTemplateRequest) {
+                    templateId = updateSparkJobTemplateRequest.templateId;
+                    body = updateSparkJobTemplateRequest.body
+                } else {
+                    templateId = updateSparkJobTemplateRequest['template_id'];
+                    body = updateSparkJobTemplateRequest['body'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateSparkJobTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量删除SQL模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSqlJobTemplates(batchDeleteSqlJobTemplatesRequest?: BatchDeleteSqlJobTemplatesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/sqls-deletion",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteSqlJobTemplatesRequest !== null && batchDeleteSqlJobTemplatesRequest !== undefined) {
+                if (batchDeleteSqlJobTemplatesRequest instanceof BatchDeleteSqlJobTemplatesRequest) {
+                    body = batchDeleteSqlJobTemplatesRequest.body
+                } else {
+                    body = batchDeleteSqlJobTemplatesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于取消已经提交的作业，若作业已经执行结束或失败则无法取消。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7938,6 +7928,44 @@ export const ParamCreater = function () {
                     body = createSqlJobRequest.body
                 } else {
                     body = createSqlJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于存储指定的SQL语句，后续可以重复使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSqlJobTemplate(createSqlJobTemplateRequest?: CreateSqlJobTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/sqls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSqlJobTemplateRequest !== null && createSqlJobTemplateRequest !== undefined) {
+                if (createSqlJobTemplateRequest instanceof CreateSqlJobTemplateRequest) {
+                    body = createSqlJobTemplateRequest.body
+                } else {
+                    body = createSqlJobTemplateRequest['body'];
                 }
             }
 
@@ -8370,6 +8398,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用查看用户保存的所有SQL模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlJobTemplates(listSqlJobTemplatesRequest?: ListSqlJobTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/sqls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyword;
+
+            if (listSqlJobTemplatesRequest !== null && listSqlJobTemplatesRequest !== undefined) {
+                if (listSqlJobTemplatesRequest instanceof ListSqlJobTemplatesRequest) {
+                    keyword = listSqlJobTemplatesRequest.keyword;
+                } else {
+                    keyword = listSqlJobTemplatesRequest['keyword'];
+                }
+            }
+
+        
+            if (keyword !== null && keyword !== undefined) {
+                localVarQueryParameter['keyword'] = keyword;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于查询当前工程下面的所有作业的信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8757,6 +8822,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于查询所有SQL样例模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlSampleTemplates() {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/sqls/sample",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于用于预览表中前10行的内容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8850,6 +8936,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新SQL模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSqlJobTemplate(updateSqlJobTemplateRequest?: UpdateSqlJobTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/sqls/{sql_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let sqlId;
+
+            if (updateSqlJobTemplateRequest !== null && updateSqlJobTemplateRequest !== undefined) {
+                if (updateSqlJobTemplateRequest instanceof UpdateSqlJobTemplateRequest) {
+                    sqlId = updateSqlJobTemplateRequest.sqlId;
+                    body = updateSqlJobTemplateRequest.body
+                } else {
+                    sqlId = updateSqlJobTemplateRequest['sql_id'];
+                    body = updateSqlJobTemplateRequest['body'];
+                }
+            }
+
+        
+            if (sqlId === null || sqlId === undefined) {
+            throw new RequiredError('sqlId','Required parameter sqlId was null or undefined when calling updateSqlJobTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'sql_id': sqlId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

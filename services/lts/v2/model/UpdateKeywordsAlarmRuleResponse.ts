@@ -1,5 +1,5 @@
-import { Frequency } from './Frequency';
-import { KeywordsRequest } from './KeywordsRequest';
+import { FrequencyRespBody } from './FrequencyRespBody';
+import { KeywordsResBody } from './KeywordsResBody';
 import { Topics } from './Topics';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -8,18 +8,20 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     private 'keywords_alarm_rule_id'?: string;
     private 'keywords_alarm_rule_name'?: string;
     private 'keywords_alarm_rule_description'?: string;
-    private 'keywords_requests'?: Array<KeywordsRequest>;
-    public frequency?: Frequency;
+    private 'keywords_requests'?: Array<KeywordsResBody>;
+    public frequency?: FrequencyRespBody;
     private 'keywords_alarm_level'?: UpdateKeywordsAlarmRuleResponseKeywordsAlarmLevelEnum | string;
     private 'keywords_alarm_send'?: boolean;
     private 'domain_id'?: string;
     private 'create_time'?: number;
     private 'update_time'?: number;
-    public language?: string;
+    public language?: UpdateKeywordsAlarmRuleResponseLanguageEnum | string;
     public projectId?: string;
     public topics?: Array<Topics>;
     private 'condition_expression'?: string;
     public indexId?: string;
+    private 'notification_frequency'?: UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number;
+    private 'alarm_action_rule_name'?: string;
     public constructor() { 
         super();
     }
@@ -53,17 +55,17 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     public get keywordsAlarmRuleDescription(): string | undefined {
         return this['keywords_alarm_rule_description'];
     }
-    public withKeywordsRequests(keywordsRequests: Array<KeywordsRequest>): UpdateKeywordsAlarmRuleResponse {
+    public withKeywordsRequests(keywordsRequests: Array<KeywordsResBody>): UpdateKeywordsAlarmRuleResponse {
         this['keywords_requests'] = keywordsRequests;
         return this;
     }
-    public set keywordsRequests(keywordsRequests: Array<KeywordsRequest>  | undefined) {
+    public set keywordsRequests(keywordsRequests: Array<KeywordsResBody>  | undefined) {
         this['keywords_requests'] = keywordsRequests;
     }
-    public get keywordsRequests(): Array<KeywordsRequest> | undefined {
+    public get keywordsRequests(): Array<KeywordsResBody> | undefined {
         return this['keywords_requests'];
     }
-    public withFrequency(frequency: Frequency): UpdateKeywordsAlarmRuleResponse {
+    public withFrequency(frequency: FrequencyRespBody): UpdateKeywordsAlarmRuleResponse {
         this['frequency'] = frequency;
         return this;
     }
@@ -117,7 +119,7 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     public get updateTime(): number | undefined {
         return this['update_time'];
     }
-    public withLanguage(language: string): UpdateKeywordsAlarmRuleResponse {
+    public withLanguage(language: UpdateKeywordsAlarmRuleResponseLanguageEnum | string): UpdateKeywordsAlarmRuleResponse {
         this['language'] = language;
         return this;
     }
@@ -143,6 +145,26 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
         this['indexId'] = indexId;
         return this;
     }
+    public withNotificationFrequency(notificationFrequency: UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number): UpdateKeywordsAlarmRuleResponse {
+        this['notification_frequency'] = notificationFrequency;
+        return this;
+    }
+    public set notificationFrequency(notificationFrequency: UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number  | undefined) {
+        this['notification_frequency'] = notificationFrequency;
+    }
+    public get notificationFrequency(): UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number | undefined {
+        return this['notification_frequency'];
+    }
+    public withAlarmActionRuleName(alarmActionRuleName: string): UpdateKeywordsAlarmRuleResponse {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+        return this;
+    }
+    public set alarmActionRuleName(alarmActionRuleName: string  | undefined) {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+    }
+    public get alarmActionRuleName(): string | undefined {
+        return this['alarm_action_rule_name'];
+    }
 }
 
 /**
@@ -154,4 +176,26 @@ export enum UpdateKeywordsAlarmRuleResponseKeywordsAlarmLevelEnum {
     MINOR = 'Minor',
     MAJOR = 'Major',
     CRITICAL = 'Critical'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateKeywordsAlarmRuleResponseLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_5 = 5,
+    NUMBER_10 = 10,
+    NUMBER_15 = 15,
+    NUMBER_30 = 30,
+    NUMBER_60 = 60,
+    NUMBER_180 = 180,
+    NUMBER_360 = 360
 }

@@ -19,6 +19,7 @@ import { ClusterScalingParams } from './model/ClusterScalingParams';
 import { ClusterScalingReq } from './model/ClusterScalingReq';
 import { ComponentAmb } from './model/ComponentAmb';
 import { ComponentAmbV11 } from './model/ComponentAmbV11';
+import { ComponentExternalDatasource } from './model/ComponentExternalDatasource';
 import { CreateAndExecuteJobRequest } from './model/CreateAndExecuteJobRequest';
 import { CreateAndExecuteJobResponse } from './model/CreateAndExecuteJobResponse';
 import { CreateClusterReqV11 } from './model/CreateClusterReqV11';
@@ -35,6 +36,7 @@ import { DeleteClusterTagRequest } from './model/DeleteClusterTagRequest';
 import { DeleteClusterTagResponse } from './model/DeleteClusterTagResponse';
 import { DeleteJobExecutionRequest } from './model/DeleteJobExecutionRequest';
 import { DeleteJobExecutionResponse } from './model/DeleteJobExecutionResponse';
+import { FlavorLists } from './model/FlavorLists';
 import { HostModel } from './model/HostModel';
 import { JobExeResult } from './model/JobExeResult';
 import { ListAllTagsRequest } from './model/ListAllTagsRequest';
@@ -54,15 +56,20 @@ import { ListHostsResponse } from './model/ListHostsResponse';
 import { ListResourceReq } from './model/ListResourceReq';
 import { MRSResource } from './model/MRSResource';
 import { Match } from './model/Match';
+import { NodeConstraint } from './model/NodeConstraint';
+import { NodeConstraints } from './model/NodeConstraints';
 import { NodeGroupV10 } from './model/NodeGroupV10';
 import { NodeGroupV11 } from './model/NodeGroupV11';
 import { ResourcesPlan } from './model/ResourcesPlan';
+import { RoleDeployMeta } from './model/RoleDeployMeta';
 import { Rule } from './model/Rule';
 import { ScaleScript } from './model/ScaleScript';
 import { ShowClusterDetailsRequest } from './model/ShowClusterDetailsRequest';
 import { ShowClusterDetailsResponse } from './model/ShowClusterDetailsResponse';
 import { ShowJobExesRequest } from './model/ShowJobExesRequest';
 import { ShowJobExesResponse } from './model/ShowJobExesResponse';
+import { ShowMrsVersionMetadataRequest } from './model/ShowMrsVersionMetadataRequest';
+import { ShowMrsVersionMetadataResponse } from './model/ShowMrsVersionMetadataResponse';
 import { SubmitJobReqV11 } from './model/SubmitJobReqV11';
 import { Tag } from './model/Tag';
 import { TagPlain } from './model/TagPlain';
@@ -72,6 +79,8 @@ import { TaskNodeInfo } from './model/TaskNodeInfo';
 import { Trigger } from './model/Trigger';
 import { UpdateClusterScalingRequest } from './model/UpdateClusterScalingRequest';
 import { UpdateClusterScalingResponse } from './model/UpdateClusterScalingResponse';
+import { VersionComponent } from './model/VersionComponent';
+import { VersionConstraint } from './model/VersionConstraint';
 
 export class MrsClient {
     public static newBuilder(): ClientBuilder<MrsClient> {
@@ -498,6 +507,26 @@ export class MrsClient {
      */
     public listAvailableZones(listAvailableZonesRequest?: ListAvailableZonesRequest): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones(listAvailableZonesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询对应版本元数据。如果参数里指定集群id，则可查询集群更新过补丁之后的最新元数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询对应版本元数据
+     * @param {string} versionName 集群版本。例如“MRS 3.1.0”。如果请求客户端不支持自动转义，则需要将空格转义为%20，例如“MRS%203.1.0”。
+     * @param {string} [clusterId] 集群ID。如果指定集群ID，则获取该集群做过补丁更新的最新版本元数据。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMrsVersionMetadata(showMrsVersionMetadataRequest?: ShowMrsVersionMetadataRequest): Promise<ShowMrsVersionMetadataResponse> {
+        const options = ParamCreater().showMrsVersionMetadata(showMrsVersionMetadataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1375,6 +1404,51 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'region_id': regionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询对应版本元数据。如果参数里指定集群id，则可查询集群更新过补丁之后的最新元数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMrsVersionMetadata(showMrsVersionMetadataRequest?: ShowMrsVersionMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/{project_id}/metadata/versions/{version_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let versionName;
+            
+            let clusterId;
+
+            if (showMrsVersionMetadataRequest !== null && showMrsVersionMetadataRequest !== undefined) {
+                if (showMrsVersionMetadataRequest instanceof ShowMrsVersionMetadataRequest) {
+                    versionName = showMrsVersionMetadataRequest.versionName;
+                    clusterId = showMrsVersionMetadataRequest.clusterId;
+                } else {
+                    versionName = showMrsVersionMetadataRequest['version_name'];
+                    clusterId = showMrsVersionMetadataRequest['cluster_id'];
+                }
+            }
+
+        
+            if (versionName === null || versionName === undefined) {
+            throw new RequiredError('versionName','Required parameter versionName was null or undefined when calling showMrsVersionMetadata.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'version_name': versionName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

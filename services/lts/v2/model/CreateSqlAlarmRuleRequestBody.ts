@@ -1,13 +1,14 @@
-import { Frequency } from './Frequency';
+import { CreateSqlAlarmRuleFrequency } from './CreateSqlAlarmRuleFrequency';
 import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 import { SqlRequest } from './SqlRequest';
 
 
 export class CreateSqlAlarmRuleRequestBody {
     private 'sql_alarm_rule_name'?: string;
+    private 'is_css_sql'?: boolean;
     private 'sql_alarm_rule_description'?: string;
     private 'sql_requests'?: Array<SqlRequest>;
-    public frequency?: Frequency;
+    public frequency?: CreateSqlAlarmRuleFrequency;
     private 'condition_expression'?: string;
     private 'sql_alarm_level'?: CreateSqlAlarmRuleRequestBodySqlAlarmLevelEnum | string;
     private 'sql_alarm_send'?: boolean;
@@ -17,7 +18,9 @@ export class CreateSqlAlarmRuleRequestBody {
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
-    public constructor(sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: Frequency, conditionExpression?: string, sqlAlarmLevel?: string, sqlAlarmSend?: boolean, domainId?: string) { 
+    private 'notification_frequency'?: CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number;
+    private 'alarm_action_rule_name'?: string;
+    public constructor(sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, conditionExpression?: string, sqlAlarmLevel?: string, sqlAlarmSend?: boolean, domainId?: string, notificationFrequency?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_requests'] = sqlRequests;
         this['frequency'] = frequency;
@@ -25,6 +28,7 @@ export class CreateSqlAlarmRuleRequestBody {
         this['sql_alarm_level'] = sqlAlarmLevel;
         this['sql_alarm_send'] = sqlAlarmSend;
         this['domain_id'] = domainId;
+        this['notification_frequency'] = notificationFrequency;
     }
     public withSqlAlarmRuleName(sqlAlarmRuleName: string): CreateSqlAlarmRuleRequestBody {
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
@@ -35,6 +39,16 @@ export class CreateSqlAlarmRuleRequestBody {
     }
     public get sqlAlarmRuleName(): string | undefined {
         return this['sql_alarm_rule_name'];
+    }
+    public withIsCssSql(isCssSql: boolean): CreateSqlAlarmRuleRequestBody {
+        this['is_css_sql'] = isCssSql;
+        return this;
+    }
+    public set isCssSql(isCssSql: boolean  | undefined) {
+        this['is_css_sql'] = isCssSql;
+    }
+    public get isCssSql(): boolean | undefined {
+        return this['is_css_sql'];
     }
     public withSqlAlarmRuleDescription(sqlAlarmRuleDescription: string): CreateSqlAlarmRuleRequestBody {
         this['sql_alarm_rule_description'] = sqlAlarmRuleDescription;
@@ -56,7 +70,7 @@ export class CreateSqlAlarmRuleRequestBody {
     public get sqlRequests(): Array<SqlRequest> | undefined {
         return this['sql_requests'];
     }
-    public withFrequency(frequency: Frequency): CreateSqlAlarmRuleRequestBody {
+    public withFrequency(frequency: CreateSqlAlarmRuleFrequency): CreateSqlAlarmRuleRequestBody {
         this['frequency'] = frequency;
         return this;
     }
@@ -150,6 +164,26 @@ export class CreateSqlAlarmRuleRequestBody {
     public get recoveryPolicy(): number | undefined {
         return this['recovery_policy'];
     }
+    public withNotificationFrequency(notificationFrequency: CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number): CreateSqlAlarmRuleRequestBody {
+        this['notification_frequency'] = notificationFrequency;
+        return this;
+    }
+    public set notificationFrequency(notificationFrequency: CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number  | undefined) {
+        this['notification_frequency'] = notificationFrequency;
+    }
+    public get notificationFrequency(): CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number | undefined {
+        return this['notification_frequency'];
+    }
+    public withAlarmActionRuleName(alarmActionRuleName: string): CreateSqlAlarmRuleRequestBody {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+        return this;
+    }
+    public set alarmActionRuleName(alarmActionRuleName: string  | undefined) {
+        this['alarm_action_rule_name'] = alarmActionRuleName;
+    }
+    public get alarmActionRuleName(): string | undefined {
+        return this['alarm_action_rule_name'];
+    }
 }
 
 /**
@@ -161,4 +195,18 @@ export enum CreateSqlAlarmRuleRequestBodySqlAlarmLevelEnum {
     MINOR = 'Minor',
     MAJOR = 'Major',
     CRITICAL = 'Critical'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum {
+    NUMBER_0 = 0,
+    NUMBER_5 = 5,
+    NUMBER_10 = 10,
+    NUMBER_15 = 15,
+    NUMBER_30 = 30,
+    NUMBER_60 = 60,
+    NUMBER_180 = 180,
+    NUMBER_360 = 360
 }

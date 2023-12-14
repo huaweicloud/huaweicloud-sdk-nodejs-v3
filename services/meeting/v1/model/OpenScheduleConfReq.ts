@@ -18,6 +18,9 @@ export class OpenScheduleConfReq {
     public scope?: number;
     public audienceScope?: number;
     public enableRecording?: YesNoEnum;
+    public liveAddress?: string;
+    public auxAddress?: string;
+    public liveUrl?: string;
     public constructor(subject?: string, startTime?: string, duration?: number, timeZoneId?: number, vmrID?: string) { 
         this['subject'] = subject;
         this['startTime'] = startTime;
@@ -79,6 +82,18 @@ export class OpenScheduleConfReq {
     }
     public withEnableRecording(enableRecording: YesNoEnum): OpenScheduleConfReq {
         this['enableRecording'] = enableRecording;
+        return this;
+    }
+    public withLiveAddress(liveAddress: string): OpenScheduleConfReq {
+        this['liveAddress'] = liveAddress;
+        return this;
+    }
+    public withAuxAddress(auxAddress: string): OpenScheduleConfReq {
+        this['auxAddress'] = auxAddress;
+        return this;
+    }
+    public withLiveUrl(liveUrl: string): OpenScheduleConfReq {
+        this['liveUrl'] = liveUrl;
         return this;
     }
 }

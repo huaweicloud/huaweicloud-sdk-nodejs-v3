@@ -11,6 +11,7 @@ export class ListServersRequest {
     private 'migration_cycle'?: ListServersRequestMigrationCycleEnum | string;
     public connected?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'is_consistency_result_exist'?: boolean;
     public constructor() { 
     }
     public withState(state: ListServersRequestStateEnum | string): ListServersRequest {
@@ -64,6 +65,16 @@ export class ListServersRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIsConsistencyResultExist(isConsistencyResultExist: boolean): ListServersRequest {
+        this['is_consistency_result_exist'] = isConsistencyResultExist;
+        return this;
+    }
+    public set isConsistencyResultExist(isConsistencyResultExist: boolean  | undefined) {
+        this['is_consistency_result_exist'] = isConsistencyResultExist;
+    }
+    public get isConsistencyResultExist(): boolean | undefined {
+        return this['is_consistency_result_exist'];
     }
 }
 

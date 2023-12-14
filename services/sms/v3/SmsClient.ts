@@ -14,6 +14,8 @@ import { ComandParam } from './model/ComandParam';
 import { CommandBody } from './model/CommandBody';
 import { ConfigBody } from './model/ConfigBody';
 import { ConfigurationRequestBody } from './model/ConfigurationRequestBody';
+import { ConsistencyResult } from './model/ConsistencyResult';
+import { ConsistencyResultRequestBody } from './model/ConsistencyResultRequestBody';
 import { CreateMigprojectRequest } from './model/CreateMigprojectRequest';
 import { CreateMigprojectResponse } from './model/CreateMigprojectResponse';
 import { CreatePrivacyAgreementsRequest } from './model/CreatePrivacyAgreementsRequest';
@@ -93,6 +95,8 @@ import { ShowConfigRequest } from './model/ShowConfigRequest';
 import { ShowConfigResponse } from './model/ShowConfigResponse';
 import { ShowConfigSettingRequest } from './model/ShowConfigSettingRequest';
 import { ShowConfigSettingResponse } from './model/ShowConfigSettingResponse';
+import { ShowConsistencyResultRequest } from './model/ShowConsistencyResultRequest';
+import { ShowConsistencyResultResponse } from './model/ShowConsistencyResultResponse';
 import { ShowMigprojectRequest } from './model/ShowMigprojectRequest';
 import { ShowMigprojectResponse } from './model/ShowMigprojectResponse';
 import { ShowOverviewRequest } from './model/ShowOverviewRequest';
@@ -139,6 +143,8 @@ import { UnlockTargetEcsRequest } from './model/UnlockTargetEcsRequest';
 import { UnlockTargetEcsResponse } from './model/UnlockTargetEcsResponse';
 import { UpdateCommandResultRequest } from './model/UpdateCommandResultRequest';
 import { UpdateCommandResultResponse } from './model/UpdateCommandResultResponse';
+import { UpdateConsistencyResultRequest } from './model/UpdateConsistencyResultRequest';
+import { UpdateConsistencyResultResponse } from './model/UpdateConsistencyResultResponse';
 import { UpdateCopyStateRequest } from './model/UpdateCopyStateRequest';
 import { UpdateCopyStateResponse } from './model/UpdateCopyStateResponse';
 import { UpdateDefaultMigprojectRequest } from './model/UpdateDefaultMigprojectRequest';
@@ -494,6 +500,7 @@ export class SmsClient {
      * @param {'checking' | 'setting' | 'replicating' | 'syncing' | 'cutovering' | 'cutovered'} [migrationCycle] checking:检查中 setting:设置中 replicating:复制中 syncing:同步中 cutovering:启动目的端中 cutovered:启动目的端完成
      * @param {boolean} [connected] 查询失去连接的源端
      * @param {string} [enterpriseProjectId] 需要查询的企业项目ID
+     * @param {boolean} [isConsistencyResultExist] 是否存在一致性校验结果
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -625,6 +632,25 @@ export class SmsClient {
      */
     public showConfigSetting(showConfigSettingRequest?: ShowConfigSettingRequest): Promise<ShowConfigSettingResponse> {
         const options = ParamCreater().showConfigSetting(showConfigSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取一致性校验结果简报
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取一致性校验结果
+     * @param {string} taskId 任务id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConsistencyResult(showConsistencyResultRequest?: ShowConsistencyResultRequest): Promise<ShowConsistencyResultResponse> {
+        const options = ParamCreater().showConsistencyResult(showConsistencyResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -852,6 +878,26 @@ export class SmsClient {
      */
     public updateCommandResult(updateCommandResultRequest?: UpdateCommandResultRequest): Promise<UpdateCommandResultResponse> {
         const options = ParamCreater().updateCommandResult(updateCommandResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Agent 上传一致性校验结果简报
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传一致性校验结果
+     * @param {string} taskId 任务id
+     * @param {ConsistencyResultRequestBody} updateConsistencyResultRequestBody 一致性检验结果
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateConsistencyResult(updateConsistencyResultRequest?: UpdateConsistencyResultRequest): Promise<UpdateConsistencyResultResponse> {
+        const options = ParamCreater().updateConsistencyResult(updateConsistencyResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1805,6 +1851,8 @@ export const ParamCreater = function () {
             let connected;
             
             let enterpriseProjectId;
+            
+            let isConsistencyResultExist;
 
             if (listServersRequest !== null && listServersRequest !== undefined) {
                 if (listServersRequest instanceof ListServersRequest) {
@@ -1818,6 +1866,7 @@ export const ParamCreater = function () {
                     migrationCycle = listServersRequest.migrationCycle;
                     connected = listServersRequest.connected;
                     enterpriseProjectId = listServersRequest.enterpriseProjectId;
+                    isConsistencyResultExist = listServersRequest.isConsistencyResultExist;
                 } else {
                     state = listServersRequest['state'];
                     name = listServersRequest['name'];
@@ -1829,6 +1878,7 @@ export const ParamCreater = function () {
                     migrationCycle = listServersRequest['migration_cycle'];
                     connected = listServersRequest['connected'];
                     enterpriseProjectId = listServersRequest['enterprise_project_id'];
+                    isConsistencyResultExist = listServersRequest['is_consistency_result_exist'];
                 }
             }
 
@@ -1862,6 +1912,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (isConsistencyResultExist !== null && isConsistencyResultExist !== undefined) {
+                localVarQueryParameter['is_consistency_result_exist'] = isConsistencyResultExist;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2173,6 +2226,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取一致性校验结果简报
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConsistencyResult(showConsistencyResultRequest?: ShowConsistencyResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/tasks/{task_id}/consistency-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showConsistencyResultRequest !== null && showConsistencyResultRequest !== undefined) {
+                if (showConsistencyResultRequest instanceof ShowConsistencyResultRequest) {
+                    taskId = showConsistencyResultRequest.taskId;
+                } else {
+                    taskId = showConsistencyResultRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showConsistencyResult.');
+            }
+
             options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2595,6 +2685,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Agent 上传一致性校验结果简报
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateConsistencyResult(updateConsistencyResultRequest?: UpdateConsistencyResultRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/tasks/{task_id}/consistency-result",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (updateConsistencyResultRequest !== null && updateConsistencyResultRequest !== undefined) {
+                if (updateConsistencyResultRequest instanceof UpdateConsistencyResultRequest) {
+                    taskId = updateConsistencyResultRequest.taskId;
+                    body = updateConsistencyResultRequest.body
+                } else {
+                    taskId = updateConsistencyResultRequest['task_id'];
+                    body = updateConsistencyResultRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateConsistencyResult.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

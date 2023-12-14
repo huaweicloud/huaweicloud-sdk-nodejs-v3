@@ -2,11 +2,22 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdatePropertiesResponse extends SdkResponse {
+    private 'request_id'?: string;
     public response?: object;
     private 'error_code'?: string;
     private 'error_msg'?: object;
     public constructor() { 
         super();
+    }
+    public withRequestId(requestId: string): UpdatePropertiesResponse {
+        this['request_id'] = requestId;
+        return this;
+    }
+    public set requestId(requestId: string  | undefined) {
+        this['request_id'] = requestId;
+    }
+    public get requestId(): string | undefined {
+        return this['request_id'];
     }
     public withResponse(response: object): UpdatePropertiesResponse {
         this['response'] = response;

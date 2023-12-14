@@ -2,6 +2,7 @@
 
 export class ListHostDiskRequest {
     private 'cluster_id'?: string;
+    private 'instance_id'?: string;
     private 'instance_name'?: string;
     public limit?: number;
     public offset?: number;
@@ -18,6 +19,16 @@ export class ListHostDiskRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withInstanceId(instanceId: string): ListHostDiskRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withInstanceName(instanceName: string): ListHostDiskRequest {
         this['instance_name'] = instanceName;

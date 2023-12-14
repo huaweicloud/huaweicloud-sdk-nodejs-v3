@@ -4,6 +4,8 @@ export * from './model/ActionProgress';
 export * from './model/AddComponentReq';
 export * from './model/Cluster';
 export * from './model/ClusterDetail';
+export * from './model/CreateCloudTableClusterRequest';
+export * from './model/CreateCloudTableClusterResponse';
 export * from './model/CreateClusterRequest';
 export * from './model/CreateClusterRequestBody';
 export * from './model/CreateClusterResponse';
