@@ -53,5 +53,6 @@ export enum DeleteBackendTargetResponseLifecycleEnum {
     DELETING = 'DELETING',
     AVAILABLE = 'AVAILABLE',
     MISCONFIGURED = 'MISCONFIGURED',
-    CREATING = 'CREATING'
+    CREATING = 'CREATING',
+    FAILED = 'FAILED'
 }

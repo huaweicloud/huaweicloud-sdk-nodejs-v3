@@ -1,4 +1,5 @@
 import { ActionProgress } from './ActionProgress';
+import { ResourceTag } from './ResourceTag';
 
 
 export class ShareInfo {
@@ -23,6 +24,8 @@ export class ShareInfo {
     private 'sub_status'?: string;
     private 'subnet_id'?: string;
     private 'vpc_id'?: string;
+    private 'enterprise_project_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withActionProgress(actionProgress: ActionProgress): ShareInfo {
@@ -198,6 +201,20 @@ export class ShareInfo {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ShareInfo {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): ShareInfo {
+        this['tags'] = tags;
+        return this;
     }
 }
 

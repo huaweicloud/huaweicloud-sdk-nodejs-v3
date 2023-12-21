@@ -6,11 +6,7 @@ export class FsDuInfo {
     private 'used_capacity'?: number;
     private 'file_count'?: FsFileCount;
     public message?: string;
-    public constructor(path?: string, usedCapacity?: number, fileCount?: FsFileCount, message?: string) { 
-        this['path'] = path;
-        this['used_capacity'] = usedCapacity;
-        this['file_count'] = fileCount;
-        this['message'] = message;
+    public constructor() { 
     }
     public withPath(path: string): FsDuInfo {
         this['path'] = path;

@@ -201,11 +201,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建文件系统后端存储库
+     * 为SFS Turbo HPC型文件系统绑定后端存储
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建文件系统后端存储库
+     * @summary 绑定后端存储
      * @param {string} shareId 文件系统id
      * @param {CreateBackendTargetRequestBody} createBackendTargetRequestBody 创建文件系统后端存储库请求体
      * @param {*} [options] Override http request option.
@@ -261,7 +261,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建文件系统异步任务（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+     * 创建文件系统异步任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -282,11 +282,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 创建SFSTurbo 和 OBS 之间的联动任务
+     * 创建数据导入导出任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建SFSTurbo 和 OBS 之间的联动任务
+     * @summary 创建数据导入导出任务
      * @param {string} shareId 文件系统ID
      * @param {CreateHpcCacheTaskReq} createHpcCacheTaskRequestBody 联动任务请求
      * @param {*} [options] Override http request option.
@@ -364,14 +364,14 @@ export class SFSTurboClient {
     }
 
     /**
-     * 删除文件系统后端存储库
+     * 删除后端存储
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除文件系统后端存储库
+     * @summary 删除后端存储
      * @param {string} shareId 文件系统id
-     * @param {string} targetId 数据存储库 id
-     * @param {boolean} [deleteDataInFileSystem] 删除后端存储库时是否删除文件系统对应目录文件，默认为 false
+     * @param {string} targetId 绑定关系id
+     * @param {boolean} [deleteDataInFileSystem] 删除后端存储时是否同时删除文件系统内的联动目录及其数据文件，默认为 false。数据删除后无法恢复，请谨慎操作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -425,14 +425,14 @@ export class SFSTurboClient {
     }
 
     /**
-     * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+     * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 取消/删除文件系统异步任务
      * @param {string} shareId 文件系统id
      * @param {string} feature 任务类型。例，DU任务取值为dir-usage
-     * @param {string} taskId 任务id
+     * @param {string} taskId 任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -525,11 +525,11 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询文件系统后端存储库列表
+     * 查询后端存储列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询文件系统后端存储库列表
+     * @summary 查询后端存储列表
      * @param {string} shareId 文件系统id
      * @param {number} [limit] 查询列表返回元素个数
      * @param {string} [marker] 查询列表偏移量
@@ -546,7 +546,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 获取文件系统异步任务列表（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+     * 获取文件系统异步任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -568,13 +568,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询联动任务详情列表
+     * 查询数据导入导出任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询联动任务详情列表
+     * @summary 查询数据导入导出任务列表
      * @param {string} shareId 文件系统ID
-     * @param {string} [type] 操作类型
+     * @param {string} [type] 任务类型
      * @param {string} [status] 任务状态
      * @param {number} [offset] offset，默认值为 0
      * @param {number} [limit] limit，默认值为 20
@@ -668,13 +668,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 获取文件系统后端存储库详细信息
+     * 获取后端存储详细信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取文件系统后端存储库详细信息
+     * @summary 获取后端存储详细信息
      * @param {string} shareId 文件系统id
-     * @param {string} targetId 数据存储库 id
+     * @param {string} targetId 绑定关系id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -728,7 +728,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询目录资源使用情况(包括子目录的资源)。后端有5min的缓存时间，查询的数据可能有延迟。（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+     * 查询目录资源使用情况(包括子目录的资源)。后端有5min的缓存时间，查询的数据可能有延迟。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -748,14 +748,14 @@ export class SFSTurboClient {
     }
 
     /**
-     * 获取文件系统异步任务详情（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+     * 获取文件系统异步任务详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件系统异步任务详情
      * @param {string} shareId 文件系统id
      * @param {string} feature 任务类型。例，DU任务取值为dir-usage
-     * @param {string} taskId 任务id
+     * @param {string} taskId 任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -769,13 +769,13 @@ export class SFSTurboClient {
     }
 
     /**
-     * 查询联动任务详情
+     * 查询数据导入导出任务详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询联动任务详情
+     * @summary 查询数据导入导出任务详情
      * @param {string} shareId 文件系统ID
-     * @param {string} taskId 任务id
+     * @param {string} taskId 任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -867,7 +867,7 @@ export class SFSTurboClient {
     }
 
     /**
-     * 设置文件系统冷数据淘汰时间
+     * 更新文件系统冷数据淘汰时间
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1054,7 +1054,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建文件系统后端存储库
+         * 为SFS Turbo HPC型文件系统绑定后端存储
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1192,7 +1192,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建文件系统异步任务（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+         * 创建文件系统异步任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1242,7 +1242,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建SFSTurbo 和 OBS 之间的联动任务
+         * 创建数据导入导出任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1421,7 +1421,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除文件系统后端存储库
+         * 删除后端存储
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1565,7 +1565,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+         * 如果异步任务正在执行，则取消并删除任务；否则，删除任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1787,7 +1787,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询文件系统后端存储库列表
+         * 查询后端存储列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1839,7 +1839,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取文件系统异步任务列表（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+         * 获取文件系统异步任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1898,7 +1898,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询联动任务详情列表
+         * 查询数据导入导出任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2112,7 +2112,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取文件系统后端存储库详细信息
+         * 获取后端存储详细信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2252,7 +2252,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询目录资源使用情况(包括子目录的资源)。后端有5min的缓存时间，查询的数据可能有延迟。（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+         * 查询目录资源使用情况(包括子目录的资源)。后端有5min的缓存时间，查询的数据可能有延迟。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2300,7 +2300,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取文件系统异步任务详情（该接口目前仅支持“华南-广州-友好用户环境”，“华南-广州”，“华南-深圳”，“西南-贵阳一”，“华北-乌兰察布一”，“华北-北京一”，“华北-北京二”，“华北-北京四”，“华东-上海一”）
+         * 获取文件系统异步任务详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2351,7 +2351,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询联动任务详情
+         * 查询数据导入导出任务详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2559,7 +2559,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置文件系统冷数据淘汰时间
+         * 更新文件系统冷数据淘汰时间
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

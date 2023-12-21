@@ -11,6 +11,7 @@ export class PrivateImageRepositoryInfo {
     private 'image_type'?: string;
     private 'latest_version'?: boolean;
     private 'scan_status'?: string;
+    private 'scan_failed_desc'?: string;
     private 'image_size'?: number;
     private 'latest_update_time'?: number;
     private 'latest_scan_time'?: number;
@@ -100,6 +101,16 @@ export class PrivateImageRepositoryInfo {
     }
     public get scanStatus(): string | undefined {
         return this['scan_status'];
+    }
+    public withScanFailedDesc(scanFailedDesc: string): PrivateImageRepositoryInfo {
+        this['scan_failed_desc'] = scanFailedDesc;
+        return this;
+    }
+    public set scanFailedDesc(scanFailedDesc: string  | undefined) {
+        this['scan_failed_desc'] = scanFailedDesc;
+    }
+    public get scanFailedDesc(): string | undefined {
+        return this['scan_failed_desc'];
     }
     public withImageSize(imageSize: number): PrivateImageRepositoryInfo {
         this['image_size'] = imageSize;

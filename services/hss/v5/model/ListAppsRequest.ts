@@ -10,6 +10,8 @@ export class ListAppsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
+    private 'part_match'?: boolean;
     public constructor(hostId?: string) { 
         this['host_id'] = hostId;
     }
@@ -84,5 +86,19 @@ export class ListAppsRequest {
     public withOffset(offset: number): ListAppsRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withCategory(category: string): ListAppsRequest {
+        this['category'] = category;
+        return this;
+    }
+    public withPartMatch(partMatch: boolean): ListAppsRequest {
+        this['part_match'] = partMatch;
+        return this;
+    }
+    public set partMatch(partMatch: boolean  | undefined) {
+        this['part_match'] = partMatch;
+    }
+    public get partMatch(): boolean | undefined {
+        return this['part_match'];
     }
 }

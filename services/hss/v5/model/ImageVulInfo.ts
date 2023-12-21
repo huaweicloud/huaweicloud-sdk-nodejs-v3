@@ -6,6 +6,7 @@ export class ImageVulInfo {
     public description?: string;
     public position?: string;
     private 'app_name'?: string;
+    private 'app_path'?: string;
     public version?: string;
     public solution?: string;
     public url?: string;
@@ -48,6 +49,16 @@ export class ImageVulInfo {
     }
     public get appName(): string | undefined {
         return this['app_name'];
+    }
+    public withAppPath(appPath: string): ImageVulInfo {
+        this['app_path'] = appPath;
+        return this;
+    }
+    public set appPath(appPath: string  | undefined) {
+        this['app_path'] = appPath;
+    }
+    public get appPath(): string | undefined {
+        return this['app_path'];
     }
     public withVersion(version: string): ImageVulInfo {
         this['version'] = version;

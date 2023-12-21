@@ -11,6 +11,9 @@ export class ShowAssetStatisticResponse extends SdkResponse {
     private 'web_site_num'?: number;
     private 'jar_package_num'?: number;
     private 'kernel_module_num'?: number;
+    private 'web_service_num'?: number;
+    private 'web_app_num'?: number;
+    private 'database_num'?: number;
     public constructor() { 
         super();
     }
@@ -103,5 +106,35 @@ export class ShowAssetStatisticResponse extends SdkResponse {
     }
     public get kernelModuleNum(): number | undefined {
         return this['kernel_module_num'];
+    }
+    public withWebServiceNum(webServiceNum: number): ShowAssetStatisticResponse {
+        this['web_service_num'] = webServiceNum;
+        return this;
+    }
+    public set webServiceNum(webServiceNum: number  | undefined) {
+        this['web_service_num'] = webServiceNum;
+    }
+    public get webServiceNum(): number | undefined {
+        return this['web_service_num'];
+    }
+    public withWebAppNum(webAppNum: number): ShowAssetStatisticResponse {
+        this['web_app_num'] = webAppNum;
+        return this;
+    }
+    public set webAppNum(webAppNum: number  | undefined) {
+        this['web_app_num'] = webAppNum;
+    }
+    public get webAppNum(): number | undefined {
+        return this['web_app_num'];
+    }
+    public withDatabaseNum(databaseNum: number): ShowAssetStatisticResponse {
+        this['database_num'] = databaseNum;
+        return this;
+    }
+    public set databaseNum(databaseNum: number  | undefined) {
+        this['database_num'] = databaseNum;
+    }
+    public get databaseNum(): number | undefined {
+        return this['database_num'];
     }
 }

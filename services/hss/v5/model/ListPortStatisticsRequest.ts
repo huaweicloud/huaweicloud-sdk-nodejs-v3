@@ -9,6 +9,7 @@ export class ListPortStatisticsRequest {
     private 'sort_dir'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
     public constructor() { 
     }
     public withPort(port: number): ListPortStatisticsRequest {
@@ -65,6 +66,10 @@ export class ListPortStatisticsRequest {
     }
     public withOffset(offset: number): ListPortStatisticsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListPortStatisticsRequest {
+        this['category'] = category;
         return this;
     }
 }

@@ -4,9 +4,8 @@ import { ConsistencyResult } from './ConsistencyResult';
 export class ConsistencyResultRequestBody {
     private 'consistency_result'?: Array<ConsistencyResult>;
     private 'finished_time'?: number;
-    public constructor(consistencyResult?: Array<ConsistencyResult>, finishedTime?: number) { 
+    public constructor(consistencyResult?: Array<ConsistencyResult>) { 
         this['consistency_result'] = consistencyResult;
-        this['finished_time'] = finishedTime;
     }
     public withConsistencyResult(consistencyResult: Array<ConsistencyResult>): ConsistencyResultRequestBody {
         this['consistency_result'] = consistencyResult;

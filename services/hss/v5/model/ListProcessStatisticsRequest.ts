@@ -5,6 +5,7 @@ export class ListProcessStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
     public constructor() { 
     }
     public withPath(path: string): ListProcessStatisticsRequest {
@@ -27,6 +28,10 @@ export class ListProcessStatisticsRequest {
     }
     public withOffset(offset: number): ListProcessStatisticsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListProcessStatisticsRequest {
+        this['category'] = category;
         return this;
     }
 }

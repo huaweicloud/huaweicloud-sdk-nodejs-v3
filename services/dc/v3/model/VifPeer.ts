@@ -19,6 +19,8 @@ export class VifPeer {
     public status?: string;
     private 'vif_id'?: string;
     private 'receive_route_num'?: number;
+    private 'enable_nqa'?: boolean;
+    private 'enable_bfd'?: boolean;
     public constructor() { 
     }
     public withId(id: string): VifPeer {
@@ -176,6 +178,26 @@ export class VifPeer {
     }
     public get receiveRouteNum(): number | undefined {
         return this['receive_route_num'];
+    }
+    public withEnableNqa(enableNqa: boolean): VifPeer {
+        this['enable_nqa'] = enableNqa;
+        return this;
+    }
+    public set enableNqa(enableNqa: boolean  | undefined) {
+        this['enable_nqa'] = enableNqa;
+    }
+    public get enableNqa(): boolean | undefined {
+        return this['enable_nqa'];
+    }
+    public withEnableBfd(enableBfd: boolean): VifPeer {
+        this['enable_bfd'] = enableBfd;
+        return this;
+    }
+    public set enableBfd(enableBfd: boolean  | undefined) {
+        this['enable_bfd'] = enableBfd;
+    }
+    public get enableBfd(): boolean | undefined {
+        return this['enable_bfd'];
     }
 }
 

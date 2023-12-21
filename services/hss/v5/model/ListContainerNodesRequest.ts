@@ -8,6 +8,7 @@ export class ListContainerNodesRequest {
     private 'host_name'?: string;
     private 'agent_status'?: string;
     private 'protect_status'?: string;
+    private 'container_tags'?: string;
     public constructor(region?: string) { 
         this['region'] = region;
     }
@@ -62,5 +63,15 @@ export class ListContainerNodesRequest {
     }
     public get protectStatus(): string | undefined {
         return this['protect_status'];
+    }
+    public withContainerTags(containerTags: string): ListContainerNodesRequest {
+        this['container_tags'] = containerTags;
+        return this;
+    }
+    public set containerTags(containerTags: string  | undefined) {
+        this['container_tags'] = containerTags;
+    }
+    public get containerTags(): string | undefined {
+        return this['container_tags'];
     }
 }

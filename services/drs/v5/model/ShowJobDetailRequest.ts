@@ -151,7 +151,7 @@ export enum ShowJobDetailRequestTypeEnum {
     PRECHECK = 'precheck',
     PROGRESS = 'progress',
     LOG = 'log',
-    COMAPRE = 'comapre',
+    COMPARE = 'compare',
     FILE = 'file'
 }
 /**
@@ -171,7 +171,8 @@ export enum ShowJobDetailRequestCompareTypeEnum {
 export enum ShowJobDetailRequestQueryTypeEnum {
     OVERVIEW = 'overview',
     LIST = 'list',
-    DETAIL = 'detail'
+    DETAIL = 'detail',
+    DIFF = 'diff'
 }
 /**
     * @export

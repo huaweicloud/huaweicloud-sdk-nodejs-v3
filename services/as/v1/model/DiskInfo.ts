@@ -9,6 +9,8 @@ export class DiskInfo {
     private 'data_disk_image_id'?: string;
     private 'snapshot_id'?: string;
     public metadata?: MetaData;
+    public iops?: number;
+    public throughput?: number;
     public constructor(size?: number, volumeType?: string, diskType?: string) { 
         this['size'] = size;
         this['volume_type'] = volumeType;
@@ -72,6 +74,14 @@ export class DiskInfo {
         this['metadata'] = metadata;
         return this;
     }
+    public withIops(iops: number): DiskInfo {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): DiskInfo {
+        this['throughput'] = throughput;
+        return this;
+    }
 }
 
 /**
@@ -84,7 +94,9 @@ export enum DiskInfoVolumeTypeEnum {
     SSD = 'SSD',
     CO_PL = 'co-pl',
     UH_11 = 'uh-11',
-    GPSSD = 'GPSSD'
+    GPSSD = 'GPSSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

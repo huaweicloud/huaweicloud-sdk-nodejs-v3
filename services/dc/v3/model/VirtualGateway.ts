@@ -14,6 +14,9 @@ export class VirtualGateway {
     public status?: string;
     private 'bgp_asn'?: number;
     private 'enterprise_project_id'?: string;
+    private 'device_id'?: string;
+    private 'redundant_device_id'?: string;
+    private 'public_border_group'?: string;
     public tags?: Array<Tag>;
     public constructor() { 
     }
@@ -106,6 +109,36 @@ export class VirtualGateway {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDeviceId(deviceId: string): VirtualGateway {
+        this['device_id'] = deviceId;
+        return this;
+    }
+    public set deviceId(deviceId: string  | undefined) {
+        this['device_id'] = deviceId;
+    }
+    public get deviceId(): string | undefined {
+        return this['device_id'];
+    }
+    public withRedundantDeviceId(redundantDeviceId: string): VirtualGateway {
+        this['redundant_device_id'] = redundantDeviceId;
+        return this;
+    }
+    public set redundantDeviceId(redundantDeviceId: string  | undefined) {
+        this['redundant_device_id'] = redundantDeviceId;
+    }
+    public get redundantDeviceId(): string | undefined {
+        return this['redundant_device_id'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): VirtualGateway {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
     }
     public withTags(tags: Array<Tag>): VirtualGateway {
         this['tags'] = tags;

@@ -35,9 +35,7 @@ import { DetachSharedbwReq } from './model/DetachSharedbwReq';
 import { DetachSharedbwReqPublicip } from './model/DetachSharedbwReqPublicip';
 import { DisableNat64Request } from './model/DisableNat64Request';
 import { DisableNat64Response } from './model/DisableNat64Response';
-import { DisassociatePublicipsOption } from './model/DisassociatePublicipsOption';
 import { DisassociatePublicipsRequest } from './model/DisassociatePublicipsRequest';
-import { DisassociatePublicipsRequestBody } from './model/DisassociatePublicipsRequestBody';
 import { DisassociatePublicipsResponse } from './model/DisassociatePublicipsResponse';
 import { EipBandwidthResponseBody } from './model/EipBandwidthResponseBody';
 import { EipResourcesAvailableV3RequestBody } from './model/EipResourcesAvailableV3RequestBody';
@@ -77,10 +75,6 @@ import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
 import { ShowTenantDict } from './model/ShowTenantDict';
 import { TagsInfo } from './model/TagsInfo';
-import { UpdateAssociatePublicipRequest } from './model/UpdateAssociatePublicipRequest';
-import { UpdateAssociatePublicipResponse } from './model/UpdateAssociatePublicipResponse';
-import { UpdateDisassociatePublicipRequest } from './model/UpdateDisassociatePublicipRequest';
-import { UpdateDisassociatePublicipResponse } from './model/UpdateDisassociatePublicipResponse';
 import { UpdatePublicipOption } from './model/UpdatePublicipOption';
 import { UpdatePublicipRequest } from './model/UpdatePublicipRequest';
 import { UpdatePublicipResponse } from './model/UpdatePublicipResponse';
@@ -563,46 +557,6 @@ export class EipClient {
      */
     public showPublicip(showPublicipRequest?: ShowPublicipRequest): Promise<ShowPublicipResponse> {
         const options = ParamCreater().showPublicip(showPublicipRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 绑定弹性公网IP
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 绑定弹性公网IP
-     * @param {string} publicipId 弹性公网IP的ID
-     * @param {AssociatePublicipsRequestBody} associatePublicipsRequestBody 弹性公网ip对象
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateAssociatePublicip(updateAssociatePublicipRequest?: UpdateAssociatePublicipRequest): Promise<UpdateAssociatePublicipResponse> {
-        const options = ParamCreater().updateAssociatePublicip(updateAssociatePublicipRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 解绑弹性公网IP
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 解绑弹性公网IP
-     * @param {string} publicipId 弹性公网IP的ID
-     * @param {DisassociatePublicipsRequestBody} disassociatePublicipsRequestBody 弹性公网ip对象
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateDisassociatePublicip(updateDisassociatePublicipRequest?: UpdateDisassociatePublicipRequest): Promise<UpdateDisassociatePublicipResponse> {
-        const options = ParamCreater().updateDisassociatePublicip(updateDisassociatePublicipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2085,98 +2039,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'publicip_id': publicipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 绑定弹性公网IP
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAssociatePublicip(updateAssociatePublicipRequest?: UpdateAssociatePublicipRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3/{project_id}/eip/publicips/{publicip_id}/associate-instance",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let publicipId;
-
-            if (updateAssociatePublicipRequest !== null && updateAssociatePublicipRequest !== undefined) {
-                if (updateAssociatePublicipRequest instanceof UpdateAssociatePublicipRequest) {
-                    publicipId = updateAssociatePublicipRequest.publicipId;
-                    body = updateAssociatePublicipRequest.body
-                } else {
-                    publicipId = updateAssociatePublicipRequest['publicip_id'];
-                    body = updateAssociatePublicipRequest['body'];
-                }
-            }
-
-        
-            if (publicipId === null || publicipId === undefined) {
-            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updateAssociatePublicip.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'publicip_id': publicipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 解绑弹性公网IP
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateDisassociatePublicip(updateDisassociatePublicipRequest?: UpdateDisassociatePublicipRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3/{project_id}/eip/publicips/{publicip_id}/disassociate-instance",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let publicipId;
-
-            if (updateDisassociatePublicipRequest !== null && updateDisassociatePublicipRequest !== undefined) {
-                if (updateDisassociatePublicipRequest instanceof UpdateDisassociatePublicipRequest) {
-                    publicipId = updateDisassociatePublicipRequest.publicipId;
-                    body = updateDisassociatePublicipRequest.body
-                } else {
-                    publicipId = updateDisassociatePublicipRequest['publicip_id'];
-                    body = updateDisassociatePublicipRequest['body'];
-                }
-            }
-
-        
-            if (publicipId === null || publicipId === undefined) {
-            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updateDisassociatePublicip.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'publicip_id': publicipId, };
             options.headers = localVarHeaderParameter;
             return options;

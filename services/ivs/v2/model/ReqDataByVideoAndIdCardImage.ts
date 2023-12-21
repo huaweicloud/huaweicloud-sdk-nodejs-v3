@@ -6,6 +6,7 @@ export class ReqDataByVideoAndIdCardImage {
     public video?: string;
     public actions?: string;
     private 'nod_threshold'?: number;
+    public detail?: boolean;
     public constructor(idcardImage1?: string, video?: string, actions?: string) { 
         this['idcard_image1'] = idcardImage1;
         this['video'] = video;
@@ -48,5 +49,9 @@ export class ReqDataByVideoAndIdCardImage {
     }
     public get nodThreshold(): number | undefined {
         return this['nod_threshold'];
+    }
+    public withDetail(detail: boolean): ReqDataByVideoAndIdCardImage {
+        this['detail'] = detail;
+        return this;
     }
 }

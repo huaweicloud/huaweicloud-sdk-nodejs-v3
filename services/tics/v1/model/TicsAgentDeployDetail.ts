@@ -8,6 +8,7 @@ export class TicsAgentDeployDetail {
     private 'console_ip'?: string;
     private 'console_port'?: number;
     private 'host_path'?: string;
+    private 'ief_instance_id'?: string;
     private 'namespace_name'?: string;
     private 'obs_pvc_name'?: string;
     private 'persistence_id'?: string;
@@ -84,6 +85,16 @@ export class TicsAgentDeployDetail {
     }
     public get hostPath(): string | undefined {
         return this['host_path'];
+    }
+    public withIefInstanceId(iefInstanceId: string): TicsAgentDeployDetail {
+        this['ief_instance_id'] = iefInstanceId;
+        return this;
+    }
+    public set iefInstanceId(iefInstanceId: string  | undefined) {
+        this['ief_instance_id'] = iefInstanceId;
+    }
+    public get iefInstanceId(): string | undefined {
+        return this['ief_instance_id'];
     }
     public withNamespaceName(namespaceName: string): TicsAgentDeployDetail {
         this['namespace_name'] = namespaceName;

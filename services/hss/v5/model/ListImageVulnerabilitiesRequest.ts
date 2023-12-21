@@ -14,6 +14,7 @@ export class ListImageVulnerabilitiesRequest {
     private 'repair_necessity'?: string;
     private 'vul_id'?: string;
     private 'app_name'?: string;
+    public type?: string;
     public constructor(region?: string, imageType?: string, imageId?: string, namespace?: string, imageName?: string, tagName?: string) { 
         this['region'] = region;
         this['image_type'] = imageType;
@@ -127,5 +128,9 @@ export class ListImageVulnerabilitiesRequest {
     }
     public get appName(): string | undefined {
         return this['app_name'];
+    }
+    public withType(type: string): ListImageVulnerabilitiesRequest {
+        this['type'] = type;
+        return this;
     }
 }

@@ -30,7 +30,7 @@ export class ShowPipelineRunDetailResponse extends SdkResponse {
     private 'group_id'?: string;
     private 'group_name'?: string;
     private 'detail_url'?: string;
-    private 'current_system_time'?: string;
+    private 'current_system_time'?: number;
     public constructor() { 
         super();
     }
@@ -230,14 +230,14 @@ export class ShowPipelineRunDetailResponse extends SdkResponse {
     public get detailUrl(): string | undefined {
         return this['detail_url'];
     }
-    public withCurrentSystemTime(currentSystemTime: string): ShowPipelineRunDetailResponse {
+    public withCurrentSystemTime(currentSystemTime: number): ShowPipelineRunDetailResponse {
         this['current_system_time'] = currentSystemTime;
         return this;
     }
-    public set currentSystemTime(currentSystemTime: string  | undefined) {
+    public set currentSystemTime(currentSystemTime: number  | undefined) {
         this['current_system_time'] = currentSystemTime;
     }
-    public get currentSystemTime(): string | undefined {
+    public get currentSystemTime(): number | undefined {
         return this['current_system_time'];
     }
 }

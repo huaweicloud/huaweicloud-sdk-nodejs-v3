@@ -8,6 +8,9 @@ import { Cluster } from './model/Cluster';
 import { ClusterDetail } from './model/ClusterDetail';
 import { CreateCloudTableClusterRequest } from './model/CreateCloudTableClusterRequest';
 import { CreateCloudTableClusterResponse } from './model/CreateCloudTableClusterResponse';
+import { CreateClusterInstanceBody } from './model/CreateClusterInstanceBody';
+import { CreateClusterReqBody } from './model/CreateClusterReqBody';
+import { CreateClusterReqBodyClusterInfo } from './model/CreateClusterReqBodyClusterInfo';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterRequestBody } from './model/CreateClusterRequestBody';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
@@ -25,7 +28,7 @@ import { HbaseModifySettingV2Req } from './model/HbaseModifySettingV2Req';
 import { Instance } from './model/Instance';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
-import { Nics } from './model/Nics';
+import { Nic } from './model/Nic';
 import { ParameterInfo } from './model/ParameterInfo';
 import { RebootCloudTableClusterRequest } from './model/RebootCloudTableClusterRequest';
 import { RebootCloudTableClusterResponse } from './model/RebootCloudTableClusterResponse';
@@ -256,7 +259,7 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建CloudTable集群
-     * @param {CreateClusterRequestBody} createClusterRequestBody This is a auto create Body Object
+     * @param {CreateClusterReqBody} createClusterReqBody This is a auto create Body Object
      * @param {string} [xLanguage] 语言类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

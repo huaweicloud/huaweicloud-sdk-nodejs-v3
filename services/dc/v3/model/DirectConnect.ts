@@ -1,3 +1,4 @@
+import { LocalesBody } from './LocalesBody';
 import { Tag } from './Tag';
 
 
@@ -31,8 +32,24 @@ export class DirectConnect {
     private 'vgw_type'?: DirectConnectVgwTypeEnum | string;
     private 'lag_id'?: string;
     private 'signed_agreement_status'?: DirectConnectSignedAgreementStatusEnum | string;
+    private 'signed_agreement_time'?: Date;
     private 'enterprise_project_id'?: string;
     public tags?: Array<Tag>;
+    public locales?: LocalesBody;
+    private 'support_feature'?: Array<string>;
+    private 'ies_id'?: string;
+    public reason?: string;
+    public email?: string;
+    private 'onestop_product_id'?: string;
+    private 'building_line_product_id'?: string;
+    private 'last_onestop_product_id'?: string;
+    private 'last_building_line_product_id'?: string;
+    private 'modified_bandwidth'?: number;
+    private 'change_mode'?: number;
+    private 'onestopdc_status'?: string;
+    private 'public_border_group'?: string;
+    private 'auto_renew'?: number;
+    private 'ratio_95peak'?: number;
     public constructor() { 
     }
     public withId(id: string): DirectConnect {
@@ -271,6 +288,16 @@ export class DirectConnect {
     public get signedAgreementStatus(): DirectConnectSignedAgreementStatusEnum | string | undefined {
         return this['signed_agreement_status'];
     }
+    public withSignedAgreementTime(signedAgreementTime: Date): DirectConnect {
+        this['signed_agreement_time'] = signedAgreementTime;
+        return this;
+    }
+    public set signedAgreementTime(signedAgreementTime: Date  | undefined) {
+        this['signed_agreement_time'] = signedAgreementTime;
+    }
+    public get signedAgreementTime(): Date | undefined {
+        return this['signed_agreement_time'];
+    }
     public withEnterpriseProjectId(enterpriseProjectId: string): DirectConnect {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -284,6 +311,138 @@ export class DirectConnect {
     public withTags(tags: Array<Tag>): DirectConnect {
         this['tags'] = tags;
         return this;
+    }
+    public withLocales(locales: LocalesBody): DirectConnect {
+        this['locales'] = locales;
+        return this;
+    }
+    public withSupportFeature(supportFeature: Array<string>): DirectConnect {
+        this['support_feature'] = supportFeature;
+        return this;
+    }
+    public set supportFeature(supportFeature: Array<string>  | undefined) {
+        this['support_feature'] = supportFeature;
+    }
+    public get supportFeature(): Array<string> | undefined {
+        return this['support_feature'];
+    }
+    public withIesId(iesId: string): DirectConnect {
+        this['ies_id'] = iesId;
+        return this;
+    }
+    public set iesId(iesId: string  | undefined) {
+        this['ies_id'] = iesId;
+    }
+    public get iesId(): string | undefined {
+        return this['ies_id'];
+    }
+    public withReason(reason: string): DirectConnect {
+        this['reason'] = reason;
+        return this;
+    }
+    public withEmail(email: string): DirectConnect {
+        this['email'] = email;
+        return this;
+    }
+    public withOnestopProductId(onestopProductId: string): DirectConnect {
+        this['onestop_product_id'] = onestopProductId;
+        return this;
+    }
+    public set onestopProductId(onestopProductId: string  | undefined) {
+        this['onestop_product_id'] = onestopProductId;
+    }
+    public get onestopProductId(): string | undefined {
+        return this['onestop_product_id'];
+    }
+    public withBuildingLineProductId(buildingLineProductId: string): DirectConnect {
+        this['building_line_product_id'] = buildingLineProductId;
+        return this;
+    }
+    public set buildingLineProductId(buildingLineProductId: string  | undefined) {
+        this['building_line_product_id'] = buildingLineProductId;
+    }
+    public get buildingLineProductId(): string | undefined {
+        return this['building_line_product_id'];
+    }
+    public withLastOnestopProductId(lastOnestopProductId: string): DirectConnect {
+        this['last_onestop_product_id'] = lastOnestopProductId;
+        return this;
+    }
+    public set lastOnestopProductId(lastOnestopProductId: string  | undefined) {
+        this['last_onestop_product_id'] = lastOnestopProductId;
+    }
+    public get lastOnestopProductId(): string | undefined {
+        return this['last_onestop_product_id'];
+    }
+    public withLastBuildingLineProductId(lastBuildingLineProductId: string): DirectConnect {
+        this['last_building_line_product_id'] = lastBuildingLineProductId;
+        return this;
+    }
+    public set lastBuildingLineProductId(lastBuildingLineProductId: string  | undefined) {
+        this['last_building_line_product_id'] = lastBuildingLineProductId;
+    }
+    public get lastBuildingLineProductId(): string | undefined {
+        return this['last_building_line_product_id'];
+    }
+    public withModifiedBandwidth(modifiedBandwidth: number): DirectConnect {
+        this['modified_bandwidth'] = modifiedBandwidth;
+        return this;
+    }
+    public set modifiedBandwidth(modifiedBandwidth: number  | undefined) {
+        this['modified_bandwidth'] = modifiedBandwidth;
+    }
+    public get modifiedBandwidth(): number | undefined {
+        return this['modified_bandwidth'];
+    }
+    public withChangeMode(changeMode: number): DirectConnect {
+        this['change_mode'] = changeMode;
+        return this;
+    }
+    public set changeMode(changeMode: number  | undefined) {
+        this['change_mode'] = changeMode;
+    }
+    public get changeMode(): number | undefined {
+        return this['change_mode'];
+    }
+    public withOnestopdcStatus(onestopdcStatus: string): DirectConnect {
+        this['onestopdc_status'] = onestopdcStatus;
+        return this;
+    }
+    public set onestopdcStatus(onestopdcStatus: string  | undefined) {
+        this['onestopdc_status'] = onestopdcStatus;
+    }
+    public get onestopdcStatus(): string | undefined {
+        return this['onestopdc_status'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): DirectConnect {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
+    }
+    public withAutoRenew(autoRenew: number): DirectConnect {
+        this['auto_renew'] = autoRenew;
+        return this;
+    }
+    public set autoRenew(autoRenew: number  | undefined) {
+        this['auto_renew'] = autoRenew;
+    }
+    public get autoRenew(): number | undefined {
+        return this['auto_renew'];
+    }
+    public withRatio95peak(ratio95peak: number): DirectConnect {
+        this['ratio_95peak'] = ratio95peak;
+        return this;
+    }
+    public set ratio95peak(ratio95peak: number  | undefined) {
+        this['ratio_95peak'] = ratio95peak;
+    }
+    public get ratio95peak(): number | undefined {
+        return this['ratio_95peak'];
     }
 }
 
@@ -304,7 +463,9 @@ export enum DirectConnectPortTypeEnum {
 export enum DirectConnectTypeEnum {
     STANDARD = 'standard',
     HOSTING = 'hosting',
-    HOSTED = 'hosted'
+    HOSTED = 'hosted',
+    ONESTOP_STANDARD = 'onestop_standard',
+    ONESTOP_HOSTED = 'onestop_hosted'
 }
 /**
     * @export
@@ -330,10 +491,7 @@ export enum DirectConnectStatusEnum {
     PENDING_DELETE = 'PENDING_DELETE',
     DELETED = 'DELETED',
     DENY = 'DENY',
-    PENDING_PAY = 'PENDING_PAY',
-    ORDERING = 'ORDERING',
-    ACCEPT = 'ACCEPT',
-    REJECTED = 'REJECTED'
+    PENDING_PAY = 'PENDING_PAY'
 }
 /**
     * @export

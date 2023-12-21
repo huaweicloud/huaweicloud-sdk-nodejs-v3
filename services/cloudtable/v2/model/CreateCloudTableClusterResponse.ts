@@ -3,6 +3,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateCloudTableClusterResponse extends SdkResponse {
     private 'cluster_id'?: string;
+    public jobId?: string;
+    public getJobEndpoint?: string;
     public constructor() { 
         super();
     }
@@ -15,5 +17,13 @@ export class CreateCloudTableClusterResponse extends SdkResponse {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withJobId(jobId: string): CreateCloudTableClusterResponse {
+        this['jobId'] = jobId;
+        return this;
+    }
+    public withGetJobEndpoint(getJobEndpoint: string): CreateCloudTableClusterResponse {
+        this['getJobEndpoint'] = getJobEndpoint;
+        return this;
     }
 }

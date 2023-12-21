@@ -3,8 +3,8 @@
 export class TicsAgentDeploy {
     private 'agent_id'?: string;
     private 'agent_name'?: string;
-    private 'aom_flag'?: string;
-    private 'bcs_flag'?: string;
+    private 'aom_flag'?: boolean;
+    private 'bcs_flag'?: boolean;
     private 'cce_version'?: string;
     private 'create_time'?: Date;
     private 'creator_domain_id'?: string;
@@ -14,7 +14,7 @@ export class TicsAgentDeploy {
     private 'deploy_status'?: TicsAgentDeployDeployStatusEnum | string;
     private 'deploy_type'?: TicsAgentDeployDeployTypeEnum | string;
     private 'deployment_event_information'?: string;
-    private 'high_avail'?: string;
+    private 'high_avail'?: boolean;
     private 'image_id'?: string;
     private 'image_version'?: string;
     private 'league_id'?: string;
@@ -45,24 +45,24 @@ export class TicsAgentDeploy {
     public get agentName(): string | undefined {
         return this['agent_name'];
     }
-    public withAomFlag(aomFlag: string): TicsAgentDeploy {
+    public withAomFlag(aomFlag: boolean): TicsAgentDeploy {
         this['aom_flag'] = aomFlag;
         return this;
     }
-    public set aomFlag(aomFlag: string  | undefined) {
+    public set aomFlag(aomFlag: boolean  | undefined) {
         this['aom_flag'] = aomFlag;
     }
-    public get aomFlag(): string | undefined {
+    public get aomFlag(): boolean | undefined {
         return this['aom_flag'];
     }
-    public withBcsFlag(bcsFlag: string): TicsAgentDeploy {
+    public withBcsFlag(bcsFlag: boolean): TicsAgentDeploy {
         this['bcs_flag'] = bcsFlag;
         return this;
     }
-    public set bcsFlag(bcsFlag: string  | undefined) {
+    public set bcsFlag(bcsFlag: boolean  | undefined) {
         this['bcs_flag'] = bcsFlag;
     }
-    public get bcsFlag(): string | undefined {
+    public get bcsFlag(): boolean | undefined {
         return this['bcs_flag'];
     }
     public withCceVersion(cceVersion: string): TicsAgentDeploy {
@@ -155,14 +155,14 @@ export class TicsAgentDeploy {
     public get deploymentEventInformation(): string | undefined {
         return this['deployment_event_information'];
     }
-    public withHighAvail(highAvail: string): TicsAgentDeploy {
+    public withHighAvail(highAvail: boolean): TicsAgentDeploy {
         this['high_avail'] = highAvail;
         return this;
     }
-    public set highAvail(highAvail: string  | undefined) {
+    public set highAvail(highAvail: boolean  | undefined) {
         this['high_avail'] = highAvail;
     }
-    public get highAvail(): string | undefined {
+    public get highAvail(): boolean | undefined {
         return this['high_avail'];
     }
     public withImageId(imageId: string): TicsAgentDeploy {

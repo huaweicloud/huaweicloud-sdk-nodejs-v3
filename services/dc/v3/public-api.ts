@@ -54,6 +54,7 @@ export * from './model/ListVirtualGatewaysRequest';
 export * from './model/ListVirtualGatewaysResponse';
 export * from './model/ListVirtualInterfacesRequest';
 export * from './model/ListVirtualInterfacesResponse';
+export * from './model/LocalesBody';
 export * from './model/Match';
 export * from './model/PageInfo';
 export * from './model/Resource';

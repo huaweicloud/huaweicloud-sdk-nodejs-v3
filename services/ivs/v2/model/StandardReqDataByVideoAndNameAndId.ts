@@ -6,6 +6,7 @@ export class StandardReqDataByVideoAndNameAndId {
     public video?: string;
     public actions?: string;
     private 'nod_threshold'?: number;
+    public detail?: boolean;
     public constructor(verificationName?: string, verificationId?: string, video?: string, actions?: string) { 
         this['verification_name'] = verificationName;
         this['verification_id'] = verificationId;
@@ -49,5 +50,9 @@ export class StandardReqDataByVideoAndNameAndId {
     }
     public get nodThreshold(): number | undefined {
         return this['nod_threshold'];
+    }
+    public withDetail(detail: boolean): StandardReqDataByVideoAndNameAndId {
+        this['detail'] = detail;
+        return this;
     }
 }

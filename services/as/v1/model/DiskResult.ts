@@ -9,6 +9,8 @@ export class DiskResult {
     private 'data_disk_image_id'?: string;
     private 'snapshot_id'?: string;
     public metadata?: MetaData;
+    public iops?: number;
+    public throughput?: number;
     public constructor() { 
     }
     public withSize(size: number): DiskResult {
@@ -69,6 +71,14 @@ export class DiskResult {
         this['metadata'] = metadata;
         return this;
     }
+    public withIops(iops: number): DiskResult {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): DiskResult {
+        this['throughput'] = throughput;
+        return this;
+    }
 }
 
 /**
@@ -80,7 +90,9 @@ export enum DiskResultVolumeTypeEnum {
     SAS = 'SAS',
     SSD = 'SSD',
     CO_PL = 'co-pl',
-    UH_11 = 'uh-11'
+    UH_11 = 'uh-11',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }
 /**
     * @export

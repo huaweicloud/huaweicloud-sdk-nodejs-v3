@@ -39,6 +39,8 @@ import { BlockedIpResponseInfo } from './model/BlockedIpResponseInfo';
 import { ChangeBlockedIpRequest } from './model/ChangeBlockedIpRequest';
 import { ChangeBlockedIpRequestInfo } from './model/ChangeBlockedIpRequestInfo';
 import { ChangeBlockedIpResponse } from './model/ChangeBlockedIpResponse';
+import { ChangeCheckRuleActionRequest } from './model/ChangeCheckRuleActionRequest';
+import { ChangeCheckRuleActionResponse } from './model/ChangeCheckRuleActionResponse';
 import { ChangeEventRequest } from './model/ChangeEventRequest';
 import { ChangeEventRequestInfo } from './model/ChangeEventRequestInfo';
 import { ChangeEventResponse } from './model/ChangeEventResponse';
@@ -57,10 +59,15 @@ import { ChangeVulStatusRequestInfoCustomBackupHosts } from './model/ChangeVulSt
 import { ChangeVulStatusResponse } from './model/ChangeVulStatusResponse';
 import { CheckRuleCheckCaseResponseInfo } from './model/CheckRuleCheckCaseResponseInfo';
 import { CheckRuleFixParamInfo } from './model/CheckRuleFixParamInfo';
+import { CheckRuleFixValuesInfo } from './model/CheckRuleFixValuesInfo';
+import { CheckRuleIdListRequestInfo } from './model/CheckRuleIdListRequestInfo';
+import { CheckRuleKeyInfoRequestInfo } from './model/CheckRuleKeyInfoRequestInfo';
 import { CheckRuleRiskInfoResponseInfo } from './model/CheckRuleRiskInfoResponseInfo';
 import { CloseProtectionInfoRequestInfo } from './model/CloseProtectionInfoRequestInfo';
 import { ContainerName } from './model/ContainerName';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
+import { CreateVulnerabilityScanTaskRequest } from './model/CreateVulnerabilityScanTaskRequest';
+import { CreateVulnerabilityScanTaskResponse } from './model/CreateVulnerabilityScanTaskResponse';
 import { DefaultGroup } from './model/DefaultGroup';
 import { Deletable } from './model/Deletable';
 import { DeleteHostsGroupRequest } from './model/DeleteHostsGroupRequest';
@@ -80,6 +87,7 @@ import { EventProcessResponseInfo } from './model/EventProcessResponseInfo';
 import { EventResourceResponseInfo } from './model/EventResourceResponseInfo';
 import { EventType } from './model/EventType';
 import { EventUserResponseInfo } from './model/EventUserResponseInfo';
+import { EventWhiteRuleListRequestInfo } from './model/EventWhiteRuleListRequestInfo';
 import { FileAttr } from './model/FileAttr';
 import { FileHash } from './model/FileHash';
 import { FilePath } from './model/FilePath';
@@ -157,12 +165,16 @@ import { ListPasswordComplexityRequest } from './model/ListPasswordComplexityReq
 import { ListPasswordComplexityResponse } from './model/ListPasswordComplexityResponse';
 import { ListPolicyGroupRequest } from './model/ListPolicyGroupRequest';
 import { ListPolicyGroupResponse } from './model/ListPolicyGroupResponse';
+import { ListPortHostRequest } from './model/ListPortHostRequest';
+import { ListPortHostResponse } from './model/ListPortHostResponse';
 import { ListPortStatisticsRequest } from './model/ListPortStatisticsRequest';
 import { ListPortStatisticsResponse } from './model/ListPortStatisticsResponse';
 import { ListPortsRequest } from './model/ListPortsRequest';
 import { ListPortsResponse } from './model/ListPortsResponse';
 import { ListProcessStatisticsRequest } from './model/ListProcessStatisticsRequest';
 import { ListProcessStatisticsResponse } from './model/ListProcessStatisticsResponse';
+import { ListProcessesHostRequest } from './model/ListProcessesHostRequest';
+import { ListProcessesHostResponse } from './model/ListProcessesHostResponse';
 import { ListProtectionPolicyRequest } from './model/ListProtectionPolicyRequest';
 import { ListProtectionPolicyResponse } from './model/ListProtectionPolicyResponse';
 import { ListProtectionServerRequest } from './model/ListProtectionServerRequest';
@@ -187,6 +199,10 @@ import { ListUsersRequest } from './model/ListUsersRequest';
 import { ListUsersResponse } from './model/ListUsersResponse';
 import { ListVulHostsRequest } from './model/ListVulHostsRequest';
 import { ListVulHostsResponse } from './model/ListVulHostsResponse';
+import { ListVulScanTaskHostRequest } from './model/ListVulScanTaskHostRequest';
+import { ListVulScanTaskHostResponse } from './model/ListVulScanTaskHostResponse';
+import { ListVulScanTaskRequest } from './model/ListVulScanTaskRequest';
+import { ListVulScanTaskResponse } from './model/ListVulScanTaskResponse';
 import { ListVulnerabilitiesRequest } from './model/ListVulnerabilitiesRequest';
 import { ListVulnerabilitiesResponse } from './model/ListVulnerabilitiesResponse';
 import { ListVulnerabilityCveRequest } from './model/ListVulnerabilityCveRequest';
@@ -198,6 +214,7 @@ import { ListWtpProtectHostResponse } from './model/ListWtpProtectHostResponse';
 import { LoginIp } from './model/LoginIp';
 import { LoginType } from './model/LoginType';
 import { LoginUserName } from './model/LoginUserName';
+import { ManualVulScanRequestInfo } from './model/ManualVulScanRequestInfo';
 import { OccurTime } from './model/OccurTime';
 import { OperateEventRequestInfo } from './model/OperateEventRequestInfo';
 import { OperateType } from './model/OperateType';
@@ -207,12 +224,14 @@ import { OsType } from './model/OsType';
 import { PolicyGroupId } from './model/PolicyGroupId';
 import { PolicyGroupName } from './model/PolicyGroupName';
 import { PolicyGroupResponseInfo } from './model/PolicyGroupResponseInfo';
+import { PortHostResponseInfo } from './model/PortHostResponseInfo';
 import { PortResponseInfo } from './model/PortResponseInfo';
 import { PortStatisticResponseInfo } from './model/PortStatisticResponseInfo';
 import { PrivateImageRepositoryInfo } from './model/PrivateImageRepositoryInfo';
 import { PrivateIp } from './model/PrivateIp';
 import { ProcessPid } from './model/ProcessPid';
 import { ProcessStatisticResponseInfo } from './model/ProcessStatisticResponseInfo';
+import { ProcessesHostResponseInfo } from './model/ProcessesHostResponseInfo';
 import { ProtectionInfoRequestInfo } from './model/ProtectionInfoRequestInfo';
 import { ProtectionPolicyInfo } from './model/ProtectionPolicyInfo';
 import { ProtectionProxyInfoRequestInfo } from './model/ProtectionProxyInfoRequestInfo';
@@ -283,6 +302,9 @@ import { VulHostInfo } from './model/VulHostInfo';
 import { VulInfo } from './model/VulInfo';
 import { VulInfoCveList } from './model/VulInfoCveList';
 import { VulOperateInfo } from './model/VulOperateInfo';
+import { VulScanTaskHostInfo } from './model/VulScanTaskHostInfo';
+import { VulScanTaskHostInfoFailedReasons } from './model/VulScanTaskHostInfoFailedReasons';
+import { VulScanTaskInfo } from './model/VulScanTaskInfo';
 import { VulnerabilityHostNumberInfo } from './model/VulnerabilityHostNumberInfo';
 import { WeakPwdAccountInfoResponseInfo } from './model/WeakPwdAccountInfoResponseInfo';
 import { WeakPwdListInfoResponseInfo } from './model/WeakPwdListInfoResponseInfo';
@@ -409,6 +431,28 @@ export class HssClient {
     }
 
     /**
+     * 对未通过的配置检查项进行忽略/取消忽略/修复/验证操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 对未通过的配置检查项进行忽略/取消忽略/修复/验证操作
+     * @param {string} action 动作 - \&quot;ignore\&quot; - \&quot;unignore\&quot; - \&quot;fix\&quot; - \&quot;verify\&quot;
+     * @param {CheckRuleIdListRequestInfo} changeCheckRuleActionRequestBody 要执行操作的检查项ID列表
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeCheckRuleAction(changeCheckRuleActionRequest?: ChangeCheckRuleActionRequest): Promise<ChangeCheckRuleActionResponse> {
+        const options = ParamCreater().changeCheckRuleAction(changeCheckRuleActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 处理告警事件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -480,7 +524,7 @@ export class HssClient {
      *
      * @summary 修改漏洞扫描策略
      * @param {ChangeVulScanPolicyRequestInfo} changeVulScanPolicyRequestBody 修改漏洞扫描策略的请求体
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业租户ID，注：修改漏洞扫描策略将影响租户账号下所有主机的漏洞扫描行为，因此开通了多企业项目的用户，该参数须填写“all_granted_eps”才能执行漏洞策略修改。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -500,12 +544,32 @@ export class HssClient {
      *
      * @summary 修改漏洞的状态
      * @param {ChangeVulStatusRequestInfo} changeVulStatusRequestBody vul_operate请求体
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public changeVulStatus(changeVulStatusRequest?: ChangeVulStatusRequest): Promise<ChangeVulStatusResponse> {
         const options = ParamCreater().changeVulStatus(changeVulStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建漏洞扫描任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建漏洞扫描任务
+     * @param {ManualVulScanRequestInfo} createVulnerabilityScanTaskRequestBody 手动检测漏洞请求体
+     * @param {string} [enterpriseProjectId] 租户企业项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVulnerabilityScanTask(createVulnerabilityScanTaskRequest?: CreateVulnerabilityScanTaskRequest): Promise<CreateVulnerabilityScanTaskResponse> {
+        const options = ParamCreater().createVulnerabilityScanTask(createVulnerabilityScanTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -619,6 +683,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 偏移量，为页数*每页显示条数
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -646,6 +711,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
+     * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -726,6 +793,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -777,6 +845,7 @@ export class HssClient {
      * @param {string} [hostName] 节点名称
      * @param {string} [agentStatus] Agent状态，包含如下3种。   - not_installed ：未安装   - online ：在线   - offline ：离线
      * @param {string} [protectStatus] 防护状态，包含如下2种。   - closed ：关闭   - opened ：开启
+     * @param {string} [containerTags] 标签：用来识别cce容器节点和自建  - cce：cce节点  - self：自建节点  - other：其他节点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -922,8 +991,8 @@ export class HssClient {
      *
      * @summary 查询单台服务器漏洞信息
      * @param {string} hostId 服务器id
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [type] 漏洞类型，默认为linux_vul，包括如下：   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [type] 漏洞类型，默认为linux_vul，包括如下：   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞   - urgent_vul : 应急漏洞
      * @param {string} [vulName] 漏洞名称
      * @param {number} [limit] 每页显示个数
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
@@ -948,7 +1017,7 @@ export class HssClient {
      *
      * @summary 查询镜像指定安全配置项的检查项列表
      * @param {string} region region id
-     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库
+     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
@@ -960,6 +1029,7 @@ export class HssClient {
      * @param {string} [resultType] 结果类型，包含如下： - pass ： 已通过 - failed : 未通过
      * @param {string} [checkRuleName] 检查项名称，支持模糊匹配
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
+     * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -979,7 +1049,7 @@ export class HssClient {
      *
      * @summary 查询镜像安全配置检测结果列表
      * @param {string} region region id
-     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库
+     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -989,6 +1059,7 @@ export class HssClient {
      * @param {string} [checkName] 基线名称
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危
      * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
+     * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1008,11 +1079,11 @@ export class HssClient {
      *
      * @summary 查询镜像的漏洞信息
      * @param {string} region region id
-     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库
+     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} imageId 镜像id
      * @param {string} namespace 组织名称
      * @param {string} imageName 镜像名称
-     * @param {string} tagName 镜像版本名称
+     * @param {string} tagName 镜像版本
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -1020,6 +1091,7 @@ export class HssClient {
      * @param {string} [repairNecessity] 危险程度，包含如下3种。   - immediate_repair ：高危。   - delay_repair ：中危。   - not_needed_repair ：低危。
      * @param {string} [vulId] 漏洞ID（支持模糊查询）
      * @param {string} [appName] 软件名
+     * @param {string} [type] 漏洞类型，包含如下：   -linux_vul : linux漏洞   -app_vul : 应用漏洞
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1070,6 +1142,7 @@ export class HssClient {
      * @param {string} [hostIp] 服务器IP
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1153,11 +1226,37 @@ export class HssClient {
     }
 
     /**
+     * 具备该端口的主机/容器信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产指纹-端口-服务器列表
+     * @param {number} port 端口号
+     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [hostName] 主机名称
+     * @param {string} [hostIp] 主机ip
+     * @param {string} [type] 端口类型
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
+     * @param {number} [limit] 默认10
+     * @param {number} [offset] 默认是0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPortHost(listPortHostRequest?: ListPortHostRequest): Promise<ListPortHostResponse> {
+        const options = ParamCreater().listPortHost(listPortHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询开放端口列表
+     * @summary 查询开放端口统计信息
      * @param {number} [port] 端口号，精确匹配
      * @param {string} [portString] 端口字符串，用来进行模糊匹配
      * @param {string} [type] 端口类型
@@ -1166,6 +1265,7 @@ export class HssClient {
      * @param {string} [sortDir] 升序还是降序，默认升序，asc
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1192,6 +1292,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1214,11 +1315,37 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listProcessStatistics(listProcessStatisticsRequest?: ListProcessStatisticsRequest): Promise<ListProcessStatisticsResponse> {
         const options = ParamCreater().listProcessStatistics(listProcessStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 具备该进程的主机/容器信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产指纹-进程-服务器列表
+     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [hostName] 主机名称
+     * @param {string} [hostIp] 主机ip
+     * @param {string} [path] 进程路径
+     * @param {string} [category] 类型，默认为host，包含如下： - host：主机 - container：容器
+     * @param {number} [limit] 默认10
+     * @param {number} [offset] 默认是0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest): Promise<ListProcessesHostResponse> {
+        const options = ParamCreater().listProcessesHost(listProcessesHostRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1398,6 +1525,7 @@ export class HssClient {
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID
      * @param {string} [privateIp] 服务器私有IP
+     * @param {string} [publicIp] 服务器公网IP
      * @param {string} [containerName] 容器实例名称
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -1412,6 +1540,7 @@ export class HssClient {
      * @param {string} [assetValue] 资产重要性，包含如下3种   - important ：重要资产   - common ：一般资产   - test ：测试资产
      * @param {Array<string>} [tagList] 事件标签列表，例如:[\&quot;热点事件\&quot;]
      * @param {string} [attCk] ATT&amp;CK攻击阶，包含如下：   - Reconnaissance : 侦察   - Initial Access : 初始访问   - Execution : 执行   - Persistence : 持久化   - Privilege Escalation : 权限提升   - Defense Evasion : 防御绕过   - Credential Access : 凭据访问   - Command and Control : 命令与控制   - Impact : 影响破坏
+     * @param {string} [eventName] 告警名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1431,7 +1560,7 @@ export class HssClient {
      *
      * @summary 查询swr镜像仓库镜像列表
      * @param {string} region region id
-     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库
+     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [namespace] 组织名称
      * @param {string} [imageName] 镜像名称 id
@@ -1440,6 +1569,16 @@ export class HssClient {
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
      * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - download_failed : 下载失败   - image_oversized : 镜像超大
+     * @param {string} [instanceName] 企业镜像实例名称
+     * @param {number} [imageSize] 镜像大小
+     * @param {number} [startLatestUpdateTime] 创建时间开始日期
+     * @param {number} [endLatestUpdateTime] 创建时间结束日期
+     * @param {number} [startLatestScanTime] 最近一次扫描完成时间开始日期
+     * @param {number} [endLatestScanTime] 最近一次扫描完成时间结束日期
+     * @param {boolean} [hasMaliciousFile] 是否存在恶意文件
+     * @param {boolean} [hasUnsafeSetting] 是否存在基线检查
+     * @param {boolean} [hasVul] 是否存在软件漏洞
+     * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1491,6 +1630,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1519,6 +1659,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [limit] 默认10
      * @param {number} [offset] 默认是0
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
+     * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1538,8 +1680,8 @@ export class HssClient {
      *
      * @summary 查询单个漏洞影响的云服务器信息
      * @param {string} vulId 漏洞ID
-     * @param {string} type 漏洞类型   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} type 漏洞类型   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞   - urgent_vul : 应急漏洞
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostName] 受影响资产名称
      * @param {string} [hostIp] 受影响资产ip
      * @param {string} [status] 漏洞状态   - vul_status_unfix : 未处理   - vul_status_ignored : 已忽略   - vul_status_verified : 验证中   - vul_status_fixing : 修复中   - vul_status_fixed : 修复成功   - vul_status_reboot : 修复成功待重启   - vul_status_failed : 修复失败   - vul_status_fix_after_reboot : 请重启主机再次修复
@@ -1563,12 +1705,60 @@ export class HssClient {
     }
 
     /**
+     * 查询漏洞扫描任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞扫描任务列表
+     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示个数
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [scanType] 扫描任务的类型，包含如下：   -manual : 手动扫描任务   -schedule : 定时扫描任务
+     * @param {string} [taskId] 扫描任务ID
+     * @param {number} [minStartTime] 扫描任务开始时间的最小值
+     * @param {number} [maxStartTime] 扫描任务开始时间的最大值
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVulScanTask(listVulScanTaskRequest?: ListVulScanTaskRequest): Promise<ListVulScanTaskResponse> {
+        const options = ParamCreater().listVulScanTask(listVulScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询漏洞扫描任务对应的主机列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞扫描任务对应的主机列表
+     * @param {string} taskId 任务ID
+     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示个数
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [scanStatus] 主机的扫描状态，包含如下：   -scanning : 扫描中   -success : 扫描成功   -failed : 扫描失败
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVulScanTaskHost(listVulScanTaskHostRequest?: ListVulScanTaskHostRequest): Promise<ListVulScanTaskHostResponse> {
+        const options = ParamCreater().listVulScanTaskHost(listVulScanTaskHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询漏洞列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询漏洞列表
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {string} [type] 漏洞类型，包含如下：   -linux_vul : linux漏洞   -windows_vul : windows漏洞   -web_cms : Web-CMS漏洞   -app_vul : 应用漏洞
      * @param {string} [vulId] 漏洞ID
      * @param {string} [vulName] 漏洞名称
@@ -1742,6 +1932,7 @@ export class HssClient {
      * @summary 统计资产信息，账号、端口、进程等
      * @param {string} [enterpriseProjectId] 企业项目
      * @param {string} [hostId] host id
+     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1805,7 +1996,7 @@ export class HssClient {
      *
      * @summary 查询镜像配置检查项检测报告
      * @param {string} region region id
-     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库
+     * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} checkType 基线类型
      * @param {string} checkRuleId 检查项id
@@ -1814,6 +2005,7 @@ export class HssClient {
      * @param {string} [namespace] 组织名称（没有镜像相关信息时，表示查询所有镜像）
      * @param {string} [imageName] 镜像名称
      * @param {string} [imageVersion] 镜像版本名称
+     * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1878,7 +2070,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询漏洞扫描策略
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1897,7 +2089,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询漏洞管理统计数据
-     * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2285,6 +2477,69 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 对未通过的配置检查项进行忽略/取消忽略/修复/验证操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeCheckRuleAction(changeCheckRuleActionRequest?: ChangeCheckRuleActionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/baseline/check-rule/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let action;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+
+            if (changeCheckRuleActionRequest !== null && changeCheckRuleActionRequest !== undefined) {
+                if (changeCheckRuleActionRequest instanceof ChangeCheckRuleActionRequest) {
+                    action = changeCheckRuleActionRequest.action;
+                    body = changeCheckRuleActionRequest.body
+                    enterpriseProjectId = changeCheckRuleActionRequest.enterpriseProjectId;
+                    hostId = changeCheckRuleActionRequest.hostId;
+                } else {
+                    action = changeCheckRuleActionRequest['action'];
+                    body = changeCheckRuleActionRequest['body'];
+                    enterpriseProjectId = changeCheckRuleActionRequest['enterprise_project_id'];
+                    hostId = changeCheckRuleActionRequest['host_id'];
+                }
+            }
+
+        
+            if (action === null || action === undefined) {
+                throw new RequiredError('action','Required parameter action was null or undefined when calling changeCheckRuleAction.');
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 处理告警事件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2531,6 +2786,52 @@ export const ParamCreater = function () {
                 } else {
                     body = changeVulStatusRequest['body'];
                     enterpriseProjectId = changeVulStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建漏洞扫描任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVulnerabilityScanTask(createVulnerabilityScanTaskRequest?: CreateVulnerabilityScanTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vulnerability/scan-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (createVulnerabilityScanTaskRequest !== null && createVulnerabilityScanTaskRequest !== undefined) {
+                if (createVulnerabilityScanTaskRequest instanceof CreateVulnerabilityScanTaskRequest) {
+                    body = createVulnerabilityScanTaskRequest.body
+                    enterpriseProjectId = createVulnerabilityScanTaskRequest.enterpriseProjectId;
+                } else {
+                    body = createVulnerabilityScanTaskRequest['body'];
+                    enterpriseProjectId = createVulnerabilityScanTaskRequest['enterprise_project_id'];
                 }
             }
 
@@ -2864,6 +3165,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
 
             if (listAppStatisticsRequest !== null && listAppStatisticsRequest !== undefined) {
                 if (listAppStatisticsRequest instanceof ListAppStatisticsRequest) {
@@ -2871,11 +3174,13 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAppStatisticsRequest.enterpriseProjectId;
                     limit = listAppStatisticsRequest.limit;
                     offset = listAppStatisticsRequest.offset;
+                    category = listAppStatisticsRequest.category;
                 } else {
                     appName = listAppStatisticsRequest['app_name'];
                     enterpriseProjectId = listAppStatisticsRequest['enterprise_project_id'];
                     limit = listAppStatisticsRequest['limit'];
                     offset = listAppStatisticsRequest['offset'];
+                    category = listAppStatisticsRequest['category'];
                 }
             }
 
@@ -2891,6 +3196,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2932,6 +3240,10 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
+            
+            let partMatch;
 
             if (listAppsRequest !== null && listAppsRequest !== undefined) {
                 if (listAppsRequest instanceof ListAppsRequest) {
@@ -2944,6 +3256,8 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAppsRequest.enterpriseProjectId;
                     limit = listAppsRequest.limit;
                     offset = listAppsRequest.offset;
+                    category = listAppsRequest.category;
+                    partMatch = listAppsRequest.partMatch;
                 } else {
                     hostId = listAppsRequest['host_id'];
                     hostName = listAppsRequest['host_name'];
@@ -2954,6 +3268,8 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAppsRequest['enterprise_project_id'];
                     limit = listAppsRequest['limit'];
                     offset = listAppsRequest['offset'];
+                    category = listAppsRequest['category'];
+                    partMatch = listAppsRequest['part_match'];
                 }
             }
 
@@ -2987,6 +3303,12 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3212,6 +3534,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let partMatch;
 
             if (listAutoLaunchsRequest !== null && listAutoLaunchsRequest !== undefined) {
                 if (listAutoLaunchsRequest instanceof ListAutoLaunchsRequest) {
@@ -3223,6 +3547,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAutoLaunchsRequest.enterpriseProjectId;
                     limit = listAutoLaunchsRequest.limit;
                     offset = listAutoLaunchsRequest.offset;
+                    partMatch = listAutoLaunchsRequest.partMatch;
                 } else {
                     hostId = listAutoLaunchsRequest['host_id'];
                     hostName = listAutoLaunchsRequest['host_name'];
@@ -3232,6 +3557,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAutoLaunchsRequest['enterprise_project_id'];
                     limit = listAutoLaunchsRequest['limit'];
                     offset = listAutoLaunchsRequest['offset'];
+                    partMatch = listAutoLaunchsRequest['part_match'];
                 }
             }
 
@@ -3259,6 +3585,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3382,6 +3711,8 @@ export const ParamCreater = function () {
             let agentStatus;
             
             let protectStatus;
+            
+            let containerTags;
 
             if (listContainerNodesRequest !== null && listContainerNodesRequest !== undefined) {
                 if (listContainerNodesRequest instanceof ListContainerNodesRequest) {
@@ -3392,6 +3723,7 @@ export const ParamCreater = function () {
                     hostName = listContainerNodesRequest.hostName;
                     agentStatus = listContainerNodesRequest.agentStatus;
                     protectStatus = listContainerNodesRequest.protectStatus;
+                    containerTags = listContainerNodesRequest.containerTags;
                 } else {
                     region = listContainerNodesRequest['region'];
                     enterpriseProjectId = listContainerNodesRequest['enterprise_project_id'];
@@ -3400,6 +3732,7 @@ export const ParamCreater = function () {
                     hostName = listContainerNodesRequest['host_name'];
                     agentStatus = listContainerNodesRequest['agent_status'];
                     protectStatus = listContainerNodesRequest['protect_status'];
+                    containerTags = listContainerNodesRequest['container_tags'];
                 }
             }
 
@@ -3421,6 +3754,9 @@ export const ParamCreater = function () {
             }
             if (protectStatus !== null && protectStatus !== undefined) {
                 localVarQueryParameter['protect_status'] = protectStatus;
+            }
+            if (containerTags !== null && containerTags !== undefined) {
+                localVarQueryParameter['container_tags'] = containerTags;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -4088,6 +4424,8 @@ export const ParamCreater = function () {
             let checkRuleName;
             
             let severity;
+            
+            let instanceId;
 
             if (listImageRiskConfigRulesRequest !== null && listImageRiskConfigRulesRequest !== undefined) {
                 if (listImageRiskConfigRulesRequest instanceof ListImageRiskConfigRulesRequest) {
@@ -4104,6 +4442,7 @@ export const ParamCreater = function () {
                     resultType = listImageRiskConfigRulesRequest.resultType;
                     checkRuleName = listImageRiskConfigRulesRequest.checkRuleName;
                     severity = listImageRiskConfigRulesRequest.severity;
+                    instanceId = listImageRiskConfigRulesRequest.instanceId;
                 } else {
                     region = listImageRiskConfigRulesRequest['region'];
                     imageType = listImageRiskConfigRulesRequest['image_type'];
@@ -4118,6 +4457,7 @@ export const ParamCreater = function () {
                     resultType = listImageRiskConfigRulesRequest['result_type'];
                     checkRuleName = listImageRiskConfigRulesRequest['check_rule_name'];
                     severity = listImageRiskConfigRulesRequest['severity'];
+                    instanceId = listImageRiskConfigRulesRequest['instance_id'];
                 }
             }
 
@@ -4163,6 +4503,9 @@ export const ParamCreater = function () {
             }
             if (severity !== null && severity !== undefined) {
                 localVarQueryParameter['severity'] = severity;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -4212,6 +4555,8 @@ export const ParamCreater = function () {
             let severity;
             
             let standard;
+            
+            let instanceId;
 
             if (listImageRiskConfigsRequest !== null && listImageRiskConfigsRequest !== undefined) {
                 if (listImageRiskConfigsRequest instanceof ListImageRiskConfigsRequest) {
@@ -4226,6 +4571,7 @@ export const ParamCreater = function () {
                     checkName = listImageRiskConfigsRequest.checkName;
                     severity = listImageRiskConfigsRequest.severity;
                     standard = listImageRiskConfigsRequest.standard;
+                    instanceId = listImageRiskConfigsRequest.instanceId;
                 } else {
                     region = listImageRiskConfigsRequest['region'];
                     imageType = listImageRiskConfigsRequest['image_type'];
@@ -4238,6 +4584,7 @@ export const ParamCreater = function () {
                     checkName = listImageRiskConfigsRequest['check_name'];
                     severity = listImageRiskConfigsRequest['severity'];
                     standard = listImageRiskConfigsRequest['standard'];
+                    instanceId = listImageRiskConfigsRequest['instance_id'];
                 }
             }
 
@@ -4274,6 +4621,9 @@ export const ParamCreater = function () {
             }
             if (standard !== null && standard !== undefined) {
                 localVarQueryParameter['standard'] = standard;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -4326,6 +4676,8 @@ export const ParamCreater = function () {
             let vulId;
             
             let appName;
+            
+            let type;
 
             if (listImageVulnerabilitiesRequest !== null && listImageVulnerabilitiesRequest !== undefined) {
                 if (listImageVulnerabilitiesRequest instanceof ListImageVulnerabilitiesRequest) {
@@ -4342,6 +4694,7 @@ export const ParamCreater = function () {
                     repairNecessity = listImageVulnerabilitiesRequest.repairNecessity;
                     vulId = listImageVulnerabilitiesRequest.vulId;
                     appName = listImageVulnerabilitiesRequest.appName;
+                    type = listImageVulnerabilitiesRequest.type;
                 } else {
                     region = listImageVulnerabilitiesRequest['region'];
                     imageType = listImageVulnerabilitiesRequest['image_type'];
@@ -4356,6 +4709,7 @@ export const ParamCreater = function () {
                     repairNecessity = listImageVulnerabilitiesRequest['repair_necessity'];
                     vulId = listImageVulnerabilitiesRequest['vul_id'];
                     appName = listImageVulnerabilitiesRequest['app_name'];
+                    type = listImageVulnerabilitiesRequest['type'];
                 }
             }
 
@@ -4407,6 +4761,9 @@ export const ParamCreater = function () {
             }
             if (appName !== null && appName !== undefined) {
                 localVarQueryParameter['app_name'] = appName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -4527,6 +4884,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let partMatch;
 
             if (listJarPackageHostInfoRequest !== null && listJarPackageHostInfoRequest !== undefined) {
                 if (listJarPackageHostInfoRequest instanceof ListJarPackageHostInfoRequest) {
@@ -4537,6 +4896,7 @@ export const ParamCreater = function () {
                     hostIp = listJarPackageHostInfoRequest.hostIp;
                     limit = listJarPackageHostInfoRequest.limit;
                     offset = listJarPackageHostInfoRequest.offset;
+                    partMatch = listJarPackageHostInfoRequest.partMatch;
                 } else {
                     fileName = listJarPackageHostInfoRequest['file_name'];
                     enterpriseProjectId = listJarPackageHostInfoRequest['enterprise_project_id'];
@@ -4545,6 +4905,7 @@ export const ParamCreater = function () {
                     hostIp = listJarPackageHostInfoRequest['host_ip'];
                     limit = listJarPackageHostInfoRequest['limit'];
                     offset = listJarPackageHostInfoRequest['offset'];
+                    partMatch = listJarPackageHostInfoRequest['part_match'];
                 }
             }
 
@@ -4572,6 +4933,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4782,6 +5146,95 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 具备该端口的主机/容器信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPortHost(listPortHostRequest?: ListPortHostRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ports/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let port;
+            
+            let enterpriseProjectId;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let type;
+            
+            let category;
+            
+            let limit;
+            
+            let offset;
+
+            if (listPortHostRequest !== null && listPortHostRequest !== undefined) {
+                if (listPortHostRequest instanceof ListPortHostRequest) {
+                    port = listPortHostRequest.port;
+                    enterpriseProjectId = listPortHostRequest.enterpriseProjectId;
+                    hostName = listPortHostRequest.hostName;
+                    hostIp = listPortHostRequest.hostIp;
+                    type = listPortHostRequest.type;
+                    category = listPortHostRequest.category;
+                    limit = listPortHostRequest.limit;
+                    offset = listPortHostRequest.offset;
+                } else {
+                    port = listPortHostRequest['port'];
+                    enterpriseProjectId = listPortHostRequest['enterprise_project_id'];
+                    hostName = listPortHostRequest['host_name'];
+                    hostIp = listPortHostRequest['host_ip'];
+                    type = listPortHostRequest['type'];
+                    category = listPortHostRequest['category'];
+                    limit = listPortHostRequest['limit'];
+                    offset = listPortHostRequest['offset'];
+                }
+            }
+
+        
+            if (port === null || port === undefined) {
+                throw new RequiredError('port','Required parameter port was null or undefined when calling listPortHost.');
+            }
+            if (port !== null && port !== undefined) {
+                localVarQueryParameter['port'] = port;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4813,6 +5266,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
 
             if (listPortStatisticsRequest !== null && listPortStatisticsRequest !== undefined) {
                 if (listPortStatisticsRequest instanceof ListPortStatisticsRequest) {
@@ -4824,6 +5279,7 @@ export const ParamCreater = function () {
                     sortDir = listPortStatisticsRequest.sortDir;
                     limit = listPortStatisticsRequest.limit;
                     offset = listPortStatisticsRequest.offset;
+                    category = listPortStatisticsRequest.category;
                 } else {
                     port = listPortStatisticsRequest['port'];
                     portString = listPortStatisticsRequest['port_string'];
@@ -4833,6 +5289,7 @@ export const ParamCreater = function () {
                     sortDir = listPortStatisticsRequest['sort_dir'];
                     limit = listPortStatisticsRequest['limit'];
                     offset = listPortStatisticsRequest['offset'];
+                    category = listPortStatisticsRequest['category'];
                 }
             }
 
@@ -4860,6 +5317,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4899,6 +5359,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
 
             if (listPortsRequest !== null && listPortsRequest !== undefined) {
                 if (listPortsRequest instanceof ListPortsRequest) {
@@ -4910,6 +5372,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listPortsRequest.enterpriseProjectId;
                     limit = listPortsRequest.limit;
                     offset = listPortsRequest.offset;
+                    category = listPortsRequest.category;
                 } else {
                     hostId = listPortsRequest['host_id'];
                     hostName = listPortsRequest['host_name'];
@@ -4919,6 +5382,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listPortsRequest['enterprise_project_id'];
                     limit = listPortsRequest['limit'];
                     offset = listPortsRequest['offset'];
+                    category = listPortsRequest['category'];
                 }
             }
 
@@ -4950,6 +5414,9 @@ export const ParamCreater = function () {
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -4980,6 +5447,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
 
             if (listProcessStatisticsRequest !== null && listProcessStatisticsRequest !== undefined) {
                 if (listProcessStatisticsRequest instanceof ListProcessStatisticsRequest) {
@@ -4987,11 +5456,13 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listProcessStatisticsRequest.enterpriseProjectId;
                     limit = listProcessStatisticsRequest.limit;
                     offset = listProcessStatisticsRequest.offset;
+                    category = listProcessStatisticsRequest.category;
                 } else {
                     path = listProcessStatisticsRequest['path'];
                     enterpriseProjectId = listProcessStatisticsRequest['enterprise_project_id'];
                     limit = listProcessStatisticsRequest['limit'];
                     offset = listProcessStatisticsRequest['offset'];
+                    category = listProcessStatisticsRequest['category'];
                 }
             }
 
@@ -5001,6 +5472,88 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 具备该进程的主机/容器信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/processes/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let path;
+            
+            let category;
+            
+            let limit;
+            
+            let offset;
+
+            if (listProcessesHostRequest !== null && listProcessesHostRequest !== undefined) {
+                if (listProcessesHostRequest instanceof ListProcessesHostRequest) {
+                    enterpriseProjectId = listProcessesHostRequest.enterpriseProjectId;
+                    hostName = listProcessesHostRequest.hostName;
+                    hostIp = listProcessesHostRequest.hostIp;
+                    path = listProcessesHostRequest.path;
+                    category = listProcessesHostRequest.category;
+                    limit = listProcessesHostRequest.limit;
+                    offset = listProcessesHostRequest.offset;
+                } else {
+                    enterpriseProjectId = listProcessesHostRequest['enterprise_project_id'];
+                    hostName = listProcessesHostRequest['host_name'];
+                    hostIp = listProcessesHostRequest['host_ip'];
+                    path = listProcessesHostRequest['path'];
+                    category = listProcessesHostRequest['category'];
+                    limit = listProcessesHostRequest['limit'];
+                    offset = listProcessesHostRequest['offset'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -5590,6 +6143,8 @@ export const ParamCreater = function () {
             
             let privateIp;
             
+            let publicIp;
+            
             let containerName;
             
             let offset;
@@ -5617,6 +6172,8 @@ export const ParamCreater = function () {
             let tagList;
             
             let attCk;
+            
+            let eventName;
 
             if (listSecurityEventsRequest !== null && listSecurityEventsRequest !== undefined) {
                 if (listSecurityEventsRequest instanceof ListSecurityEventsRequest) {
@@ -5627,6 +6184,7 @@ export const ParamCreater = function () {
                     hostName = listSecurityEventsRequest.hostName;
                     hostId = listSecurityEventsRequest.hostId;
                     privateIp = listSecurityEventsRequest.privateIp;
+                    publicIp = listSecurityEventsRequest.publicIp;
                     containerName = listSecurityEventsRequest.containerName;
                     offset = listSecurityEventsRequest.offset;
                     limit = listSecurityEventsRequest.limit;
@@ -5641,6 +6199,7 @@ export const ParamCreater = function () {
                     assetValue = listSecurityEventsRequest.assetValue;
                     tagList = listSecurityEventsRequest.tagList;
                     attCk = listSecurityEventsRequest.attCk;
+                    eventName = listSecurityEventsRequest.eventName;
                 } else {
                     region = listSecurityEventsRequest['region'];
                     category = listSecurityEventsRequest['category'];
@@ -5649,6 +6208,7 @@ export const ParamCreater = function () {
                     hostName = listSecurityEventsRequest['host_name'];
                     hostId = listSecurityEventsRequest['host_id'];
                     privateIp = listSecurityEventsRequest['private_ip'];
+                    publicIp = listSecurityEventsRequest['public_ip'];
                     containerName = listSecurityEventsRequest['container_name'];
                     offset = listSecurityEventsRequest['offset'];
                     limit = listSecurityEventsRequest['limit'];
@@ -5663,6 +6223,7 @@ export const ParamCreater = function () {
                     assetValue = listSecurityEventsRequest['asset_value'];
                     tagList = listSecurityEventsRequest['tag_list'];
                     attCk = listSecurityEventsRequest['att_ck'];
+                    eventName = listSecurityEventsRequest['event_name'];
                 }
             }
 
@@ -5687,6 +6248,9 @@ export const ParamCreater = function () {
             }
             if (privateIp !== null && privateIp !== undefined) {
                 localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
             }
             if (containerName !== null && containerName !== undefined) {
                 localVarQueryParameter['container_name'] = containerName;
@@ -5729,6 +6293,9 @@ export const ParamCreater = function () {
             }
             if (attCk !== null && attCk !== undefined) {
                 localVarQueryParameter['att_ck'] = attCk;
+            }
+            if (eventName !== null && eventName !== undefined) {
+                localVarQueryParameter['event_name'] = eventName;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -5775,6 +6342,26 @@ export const ParamCreater = function () {
             let limit;
             
             let scanStatus;
+            
+            let instanceName;
+            
+            let imageSize;
+            
+            let startLatestUpdateTime;
+            
+            let endLatestUpdateTime;
+            
+            let startLatestScanTime;
+            
+            let endLatestScanTime;
+            
+            let hasMaliciousFile;
+            
+            let hasUnsafeSetting;
+            
+            let hasVul;
+            
+            let instanceId;
 
             if (listSwrImageRepositoryRequest !== null && listSwrImageRepositoryRequest !== undefined) {
                 if (listSwrImageRepositoryRequest instanceof ListSwrImageRepositoryRequest) {
@@ -5788,6 +6375,16 @@ export const ParamCreater = function () {
                     offset = listSwrImageRepositoryRequest.offset;
                     limit = listSwrImageRepositoryRequest.limit;
                     scanStatus = listSwrImageRepositoryRequest.scanStatus;
+                    instanceName = listSwrImageRepositoryRequest.instanceName;
+                    imageSize = listSwrImageRepositoryRequest.imageSize;
+                    startLatestUpdateTime = listSwrImageRepositoryRequest.startLatestUpdateTime;
+                    endLatestUpdateTime = listSwrImageRepositoryRequest.endLatestUpdateTime;
+                    startLatestScanTime = listSwrImageRepositoryRequest.startLatestScanTime;
+                    endLatestScanTime = listSwrImageRepositoryRequest.endLatestScanTime;
+                    hasMaliciousFile = listSwrImageRepositoryRequest.hasMaliciousFile;
+                    hasUnsafeSetting = listSwrImageRepositoryRequest.hasUnsafeSetting;
+                    hasVul = listSwrImageRepositoryRequest.hasVul;
+                    instanceId = listSwrImageRepositoryRequest.instanceId;
                 } else {
                     region = listSwrImageRepositoryRequest['region'];
                     imageType = listSwrImageRepositoryRequest['image_type'];
@@ -5799,6 +6396,16 @@ export const ParamCreater = function () {
                     offset = listSwrImageRepositoryRequest['offset'];
                     limit = listSwrImageRepositoryRequest['limit'];
                     scanStatus = listSwrImageRepositoryRequest['scan_status'];
+                    instanceName = listSwrImageRepositoryRequest['instance_name'];
+                    imageSize = listSwrImageRepositoryRequest['image_size'];
+                    startLatestUpdateTime = listSwrImageRepositoryRequest['start_latest_update_time'];
+                    endLatestUpdateTime = listSwrImageRepositoryRequest['end_latest_update_time'];
+                    startLatestScanTime = listSwrImageRepositoryRequest['start_latest_scan_time'];
+                    endLatestScanTime = listSwrImageRepositoryRequest['end_latest_scan_time'];
+                    hasMaliciousFile = listSwrImageRepositoryRequest['has_malicious_file'];
+                    hasUnsafeSetting = listSwrImageRepositoryRequest['has_unsafe_setting'];
+                    hasVul = listSwrImageRepositoryRequest['has_vul'];
+                    instanceId = listSwrImageRepositoryRequest['instance_id'];
                 }
             }
 
@@ -5832,6 +6439,36 @@ export const ParamCreater = function () {
             }
             if (scanStatus !== null && scanStatus !== undefined) {
                 localVarQueryParameter['scan_status'] = scanStatus;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (imageSize !== null && imageSize !== undefined) {
+                localVarQueryParameter['image_size'] = imageSize;
+            }
+            if (startLatestUpdateTime !== null && startLatestUpdateTime !== undefined) {
+                localVarQueryParameter['start_latest_update_time'] = startLatestUpdateTime;
+            }
+            if (endLatestUpdateTime !== null && endLatestUpdateTime !== undefined) {
+                localVarQueryParameter['end_latest_update_time'] = endLatestUpdateTime;
+            }
+            if (startLatestScanTime !== null && startLatestScanTime !== undefined) {
+                localVarQueryParameter['start_latest_scan_time'] = startLatestScanTime;
+            }
+            if (endLatestScanTime !== null && endLatestScanTime !== undefined) {
+                localVarQueryParameter['end_latest_scan_time'] = endLatestScanTime;
+            }
+            if (hasMaliciousFile !== null && hasMaliciousFile !== undefined) {
+                localVarQueryParameter['has_malicious_file'] = hasMaliciousFile;
+            }
+            if (hasUnsafeSetting !== null && hasUnsafeSetting !== undefined) {
+                localVarQueryParameter['has_unsafe_setting'] = hasUnsafeSetting;
+            }
+            if (hasVul !== null && hasVul !== undefined) {
+                localVarQueryParameter['has_vul'] = hasVul;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -5973,6 +6610,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
 
             if (listUserStatisticsRequest !== null && listUserStatisticsRequest !== undefined) {
                 if (listUserStatisticsRequest instanceof ListUserStatisticsRequest) {
@@ -5980,11 +6619,13 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listUserStatisticsRequest.enterpriseProjectId;
                     limit = listUserStatisticsRequest.limit;
                     offset = listUserStatisticsRequest.offset;
+                    category = listUserStatisticsRequest.category;
                 } else {
                     userName = listUserStatisticsRequest['user_name'];
                     enterpriseProjectId = listUserStatisticsRequest['enterprise_project_id'];
                     limit = listUserStatisticsRequest['limit'];
                     offset = listUserStatisticsRequest['offset'];
+                    category = listUserStatisticsRequest['category'];
                 }
             }
 
@@ -6000,6 +6641,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6043,6 +6687,10 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let category;
+            
+            let partMatch;
 
             if (listUsersRequest !== null && listUsersRequest !== undefined) {
                 if (listUsersRequest instanceof ListUsersRequest) {
@@ -6056,6 +6704,8 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listUsersRequest.enterpriseProjectId;
                     limit = listUsersRequest.limit;
                     offset = listUsersRequest.offset;
+                    category = listUsersRequest.category;
+                    partMatch = listUsersRequest.partMatch;
                 } else {
                     hostId = listUsersRequest['host_id'];
                     userName = listUsersRequest['user_name'];
@@ -6067,6 +6717,8 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listUsersRequest['enterprise_project_id'];
                     limit = listUsersRequest['limit'];
                     offset = listUsersRequest['offset'];
+                    category = listUsersRequest['category'];
+                    partMatch = listUsersRequest['part_match'];
                 }
             }
 
@@ -6100,6 +6752,12 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6230,6 +6888,151 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询漏洞扫描任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVulScanTask(listVulScanTaskRequest?: ListVulScanTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/scan-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let scanType;
+            
+            let taskId;
+            
+            let minStartTime;
+            
+            let maxStartTime;
+
+            if (listVulScanTaskRequest !== null && listVulScanTaskRequest !== undefined) {
+                if (listVulScanTaskRequest instanceof ListVulScanTaskRequest) {
+                    enterpriseProjectId = listVulScanTaskRequest.enterpriseProjectId;
+                    limit = listVulScanTaskRequest.limit;
+                    offset = listVulScanTaskRequest.offset;
+                    scanType = listVulScanTaskRequest.scanType;
+                    taskId = listVulScanTaskRequest.taskId;
+                    minStartTime = listVulScanTaskRequest.minStartTime;
+                    maxStartTime = listVulScanTaskRequest.maxStartTime;
+                } else {
+                    enterpriseProjectId = listVulScanTaskRequest['enterprise_project_id'];
+                    limit = listVulScanTaskRequest['limit'];
+                    offset = listVulScanTaskRequest['offset'];
+                    scanType = listVulScanTaskRequest['scan_type'];
+                    taskId = listVulScanTaskRequest['task_id'];
+                    minStartTime = listVulScanTaskRequest['min_start_time'];
+                    maxStartTime = listVulScanTaskRequest['max_start_time'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (scanType !== null && scanType !== undefined) {
+                localVarQueryParameter['scan_type'] = scanType;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (minStartTime !== null && minStartTime !== undefined) {
+                localVarQueryParameter['min_start_time'] = minStartTime;
+            }
+            if (maxStartTime !== null && maxStartTime !== undefined) {
+                localVarQueryParameter['max_start_time'] = maxStartTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询漏洞扫描任务对应的主机列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVulScanTaskHost(listVulScanTaskHostRequest?: ListVulScanTaskHostRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/scan-task/{task_id}/hosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let scanStatus;
+
+            if (listVulScanTaskHostRequest !== null && listVulScanTaskHostRequest !== undefined) {
+                if (listVulScanTaskHostRequest instanceof ListVulScanTaskHostRequest) {
+                    taskId = listVulScanTaskHostRequest.taskId;
+                    enterpriseProjectId = listVulScanTaskHostRequest.enterpriseProjectId;
+                    limit = listVulScanTaskHostRequest.limit;
+                    offset = listVulScanTaskHostRequest.offset;
+                    scanStatus = listVulScanTaskHostRequest.scanStatus;
+                } else {
+                    taskId = listVulScanTaskHostRequest['task_id'];
+                    enterpriseProjectId = listVulScanTaskHostRequest['enterprise_project_id'];
+                    limit = listVulScanTaskHostRequest['limit'];
+                    offset = listVulScanTaskHostRequest['offset'];
+                    scanStatus = listVulScanTaskHostRequest['scan_status'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listVulScanTaskHost.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (scanStatus !== null && scanStatus !== undefined) {
+                localVarQueryParameter['scan_status'] = scanStatus;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6793,14 +7596,18 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let hostId;
+            
+            let category;
 
             if (showAssetStatisticRequest !== null && showAssetStatisticRequest !== undefined) {
                 if (showAssetStatisticRequest instanceof ShowAssetStatisticRequest) {
                     enterpriseProjectId = showAssetStatisticRequest.enterpriseProjectId;
                     hostId = showAssetStatisticRequest.hostId;
+                    category = showAssetStatisticRequest.category;
                 } else {
                     enterpriseProjectId = showAssetStatisticRequest['enterprise_project_id'];
                     hostId = showAssetStatisticRequest['host_id'];
+                    category = showAssetStatisticRequest['category'];
                 }
             }
 
@@ -6810,6 +7617,9 @@ export const ParamCreater = function () {
             }
             if (hostId !== null && hostId !== undefined) {
                 localVarQueryParameter['host_id'] = hostId;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6981,6 +7791,8 @@ export const ParamCreater = function () {
             let imageName;
             
             let imageVersion;
+            
+            let instanceId;
 
             if (showImageCheckRuleDetailRequest !== null && showImageCheckRuleDetailRequest !== undefined) {
                 if (showImageCheckRuleDetailRequest instanceof ShowImageCheckRuleDetailRequest) {
@@ -6994,6 +7806,7 @@ export const ParamCreater = function () {
                     namespace = showImageCheckRuleDetailRequest.namespace;
                     imageName = showImageCheckRuleDetailRequest.imageName;
                     imageVersion = showImageCheckRuleDetailRequest.imageVersion;
+                    instanceId = showImageCheckRuleDetailRequest.instanceId;
                 } else {
                     region = showImageCheckRuleDetailRequest['region'];
                     imageType = showImageCheckRuleDetailRequest['image_type'];
@@ -7005,6 +7818,7 @@ export const ParamCreater = function () {
                     namespace = showImageCheckRuleDetailRequest['namespace'];
                     imageName = showImageCheckRuleDetailRequest['image_name'];
                     imageVersion = showImageCheckRuleDetailRequest['image_version'];
+                    instanceId = showImageCheckRuleDetailRequest['instance_id'];
                 }
             }
 
@@ -7050,6 +7864,9 @@ export const ParamCreater = function () {
             }
             if (imageVersion !== null && imageVersion !== undefined) {
                 localVarQueryParameter['image_version'] = imageVersion;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);

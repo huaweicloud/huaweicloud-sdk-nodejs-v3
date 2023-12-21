@@ -56,6 +56,7 @@ import { ListVirtualGatewaysRequest } from './model/ListVirtualGatewaysRequest';
 import { ListVirtualGatewaysResponse } from './model/ListVirtualGatewaysResponse';
 import { ListVirtualInterfacesRequest } from './model/ListVirtualInterfacesRequest';
 import { ListVirtualInterfacesResponse } from './model/ListVirtualInterfacesResponse';
+import { LocalesBody } from './model/LocalesBody';
 import { Match } from './model/Match';
 import { PageInfo } from './model/PageInfo';
 import { Resource } from './model/Resource';

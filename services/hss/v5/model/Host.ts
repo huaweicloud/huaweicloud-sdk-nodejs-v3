@@ -17,6 +17,7 @@ export class Host {
     private 'os_type'?: string;
     private 'os_bit'?: string;
     private 'detect_result'?: string;
+    private 'expire_time'?: number;
     private 'charging_mode'?: string;
     private 'resource_id'?: string;
     private 'outside_host'?: boolean;
@@ -37,6 +38,7 @@ export class Host {
     private 'upgrade_result_code'?: string;
     public upgradable?: boolean;
     private 'open_time'?: number;
+    private 'protect_interrupt'?: boolean;
     public constructor() { 
     }
     public withHostName(hostName: string): Host {
@@ -192,6 +194,16 @@ export class Host {
     }
     public get detectResult(): string | undefined {
         return this['detect_result'];
+    }
+    public withExpireTime(expireTime: number): Host {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): number | undefined {
+        return this['expire_time'];
     }
     public withChargingMode(chargingMode: string): Host {
         this['charging_mode'] = chargingMode;
@@ -356,5 +368,15 @@ export class Host {
     }
     public get openTime(): number | undefined {
         return this['open_time'];
+    }
+    public withProtectInterrupt(protectInterrupt: boolean): Host {
+        this['protect_interrupt'] = protectInterrupt;
+        return this;
+    }
+    public set protectInterrupt(protectInterrupt: boolean  | undefined) {
+        this['protect_interrupt'] = protectInterrupt;
+    }
+    public get protectInterrupt(): boolean | undefined {
+        return this['protect_interrupt'];
     }
 }

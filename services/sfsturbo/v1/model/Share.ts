@@ -1,4 +1,5 @@
 import { Metadata } from './Metadata';
+import { ResourceTag } from './ResourceTag';
 
 
 export class Share {
@@ -14,6 +15,7 @@ export class Share {
     private 'subnet_id'?: string;
     private 'vpc_id'?: string;
     private 'backup_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor(availabilityZone?: string, name?: string, securityGroupId?: string, shareProto?: string, shareType?: string, size?: number, subnetId?: string, vpcId?: string) { 
         this['availability_zone'] = availabilityZone;
         this['name'] = name;
@@ -119,5 +121,9 @@ export class Share {
     }
     public get backupId(): string | undefined {
         return this['backup_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): Share {
+        this['tags'] = tags;
+        return this;
     }
 }

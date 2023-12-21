@@ -1173,13 +1173,13 @@ export class DrsClient {
      *
      * @summary 查询任务详情
      * @param {string} jobId 任务ID。
-     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'comapre' | 'file'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - comapre：查询对比任务。 - file：对象导入信息
+     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'compare' | 'file'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - compare：查询对比任务。 - file：对象导入信息
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {string} [queryId] 通过指定Query ID查询任务详情。  说明：部分type类型的任务详情，需要通过触发该操作的请求返回的query_id进行操作结果查询。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。  说明：部分type类型的任务详情支持分页查询，可以通过传递该参数进行分页控制。
      * @param {number} [limit] 查询返回记录的数量限制。  说明：部分type类型的任务详情支持分页查询，可以通过传递该参数进行分页控制。
      * @param {'object_compare' | 'line_compare' | 'content_compare' | 'data_compare'} [compareType] 对比任务类型 - object_compare：对象对比。 - line_compare：行对比。 - content_compare：内容对比。 - data_compare：数据对比。
-     * @param {'overview' | 'list' | 'detail'} [queryType] 查询对比内容。取值： - overview：对比任务概览。 - list：数据对比任务列表。 - detail：对比详情。 - diff：不一致详情。
+     * @param {'overview' | 'list' | 'detail' | 'diff'} [queryType] 查询对比内容。取值： - overview：对比任务概览。 - list：数据对比任务列表。 - detail：对比详情。 - diff：不一致详情。
      * @param {'DB' | 'TABLE' | 'INDEX'} [objectType] 查询对象对比详情类型。取值： - DB：库级对比详情。 - TABLE：表级对比详情。 - INDEX：索引对比详情。
      * @param {string} [compareTaskId] 对比任务ID。
      * @param {string} [sourceDbName] 数据对比源库名称。

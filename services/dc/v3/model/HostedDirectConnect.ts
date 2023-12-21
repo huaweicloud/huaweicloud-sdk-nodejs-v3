@@ -16,6 +16,8 @@ export class HostedDirectConnect {
     private 'apply_time'?: string;
     private 'create_time'?: string;
     private 'provider_status'?: HostedDirectConnectProviderStatusEnum | string;
+    private 'port_type'?: HostedDirectConnectPortTypeEnum | string;
+    public type?: HostedDirectConnectTypeEnum | string;
     public constructor() { 
     }
     public withId(id: string): HostedDirectConnect {
@@ -120,6 +122,20 @@ export class HostedDirectConnect {
     public get providerStatus(): HostedDirectConnectProviderStatusEnum | string | undefined {
         return this['provider_status'];
     }
+    public withPortType(portType: HostedDirectConnectPortTypeEnum | string): HostedDirectConnect {
+        this['port_type'] = portType;
+        return this;
+    }
+    public set portType(portType: HostedDirectConnectPortTypeEnum | string  | undefined) {
+        this['port_type'] = portType;
+    }
+    public get portType(): HostedDirectConnectPortTypeEnum | string | undefined {
+        return this['port_type'];
+    }
+    public withType(type: HostedDirectConnectTypeEnum | string): HostedDirectConnect {
+        this['type'] = type;
+        return this;
+    }
 }
 
 /**
@@ -128,19 +144,12 @@ export class HostedDirectConnect {
     */
 export enum HostedDirectConnectStatusEnum {
     BUILD = 'BUILD',
-    PAID = 'PAID',
-    APPLY = 'APPLY',
-    PENDING_SURVEY = 'PENDING_SURVEY',
     ACTIVE = 'ACTIVE',
     DOWN = 'DOWN',
     ERROR = 'ERROR',
     PENDING_DELETE = 'PENDING_DELETE',
-    DELETED = 'DELETED',
-    DENY = 'DENY',
-    PENDING_PAY = 'PENDING_PAY',
-    ORDERING = 'ORDERING',
-    ACCEPT = 'ACCEPT',
-    REJECTED = 'REJECTED'
+    PENDING_UPDATE = 'PENDING_UPDATE',
+    PENDING_CREATE = 'PENDING_CREATE'
 }
 /**
     * @export
@@ -149,4 +158,25 @@ export enum HostedDirectConnectStatusEnum {
 export enum HostedDirectConnectProviderStatusEnum {
     ACTIVE = 'ACTIVE',
     DOWN = 'DOWN'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HostedDirectConnectPortTypeEnum {
+    E_1G = '1G',
+    E_10G = '10G',
+    E_40G = '40G',
+    E_100G = '100G'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HostedDirectConnectTypeEnum {
+    STANDARD = 'standard',
+    HOSTING = 'hosting',
+    HOSTED = 'hosted',
+    ONESTOP_STANDARD = 'onestop_standard',
+    ONESTOP_HOSTED = 'onestop_hosted'
 }

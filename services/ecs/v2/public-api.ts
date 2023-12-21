@@ -15,6 +15,7 @@ export * from './model/BatchAddServerNicOption';
 export * from './model/BatchAddServerNicsRequest';
 export * from './model/BatchAddServerNicsRequestBody';
 export * from './model/BatchAddServerNicsResponse';
+export * from './model/BatchAddServerTag';
 export * from './model/BatchAttachSharableVolumesOption';
 export * from './model/BatchAttachSharableVolumesRequest';
 export * from './model/BatchAttachSharableVolumesRequestBody';

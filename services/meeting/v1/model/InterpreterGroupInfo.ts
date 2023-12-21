@@ -7,9 +7,8 @@ export class InterpreterGroupInfo {
     public firstLanguage?: string;
     public secondLanguage?: string;
     public interpreters?: Array<InterpreterInfo>;
-    public constructor(groupID?: string, groupName?: string, firstLanguage?: string, secondLanguage?: string) { 
+    public constructor(groupID?: string, firstLanguage?: string, secondLanguage?: string) { 
         this['groupID'] = groupID;
-        this['groupName'] = groupName;
         this['firstLanguage'] = firstLanguage;
         this['secondLanguage'] = secondLanguage;
     }

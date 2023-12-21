@@ -1,13 +1,13 @@
-import { Nics } from './Nics';
+import { Nic } from './Nic';
 
 
 export class Instance {
     private 'availability_zone'?: string;
     private 'cu_num'?: number;
     private 'lemon_num'?: number;
-    public nics?: Array<Nics>;
+    public nics?: Array<Nic>;
     private 'tsd_num'?: number;
-    public constructor(availabilityZone?: string, cuNum?: number, nics?: Array<Nics>, tsdNum?: number) { 
+    public constructor(availabilityZone?: string, cuNum?: number, nics?: Array<Nic>, tsdNum?: number) { 
         this['availability_zone'] = availabilityZone;
         this['cu_num'] = cuNum;
         this['nics'] = nics;
@@ -43,7 +43,7 @@ export class Instance {
     public get lemonNum(): number | undefined {
         return this['lemon_num'];
     }
-    public withNics(nics: Array<Nics>): Instance {
+    public withNics(nics: Array<Nic>): Instance {
         this['nics'] = nics;
         return this;
     }

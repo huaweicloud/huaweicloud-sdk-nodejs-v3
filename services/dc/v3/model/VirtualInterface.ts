@@ -25,6 +25,20 @@ export class VirtualInterface {
     private 'device_id'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<Tag>;
+    private 'local_gateway_v4_ip'?: string;
+    private 'remote_gateway_v4_ip'?: string;
+    private 'ies_id'?: string;
+    public reason?: string;
+    private 'rate_limit'?: boolean;
+    private 'address_family'?: string;
+    private 'local_gateway_v6_ip'?: string;
+    private 'remote_gateway_v6_ip'?: string;
+    private 'lgw_id'?: string;
+    private 'gateway_id'?: string;
+    private 'remote_ep_group'?: Array<string>;
+    private 'service_ep_group'?: Array<string>;
+    private 'bgp_route_limit'?: number;
+    public priority?: VirtualInterfacePriorityEnum | string;
     private 'vif_peers'?: Array<VifPeer>;
     private 'extend_attribute'?: VifExtendAttribute;
     public constructor() { 
@@ -191,6 +205,134 @@ export class VirtualInterface {
         this['tags'] = tags;
         return this;
     }
+    public withLocalGatewayV4Ip(localGatewayV4Ip: string): VirtualInterface {
+        this['local_gateway_v4_ip'] = localGatewayV4Ip;
+        return this;
+    }
+    public set localGatewayV4Ip(localGatewayV4Ip: string  | undefined) {
+        this['local_gateway_v4_ip'] = localGatewayV4Ip;
+    }
+    public get localGatewayV4Ip(): string | undefined {
+        return this['local_gateway_v4_ip'];
+    }
+    public withRemoteGatewayV4Ip(remoteGatewayV4Ip: string): VirtualInterface {
+        this['remote_gateway_v4_ip'] = remoteGatewayV4Ip;
+        return this;
+    }
+    public set remoteGatewayV4Ip(remoteGatewayV4Ip: string  | undefined) {
+        this['remote_gateway_v4_ip'] = remoteGatewayV4Ip;
+    }
+    public get remoteGatewayV4Ip(): string | undefined {
+        return this['remote_gateway_v4_ip'];
+    }
+    public withIesId(iesId: string): VirtualInterface {
+        this['ies_id'] = iesId;
+        return this;
+    }
+    public set iesId(iesId: string  | undefined) {
+        this['ies_id'] = iesId;
+    }
+    public get iesId(): string | undefined {
+        return this['ies_id'];
+    }
+    public withReason(reason: string): VirtualInterface {
+        this['reason'] = reason;
+        return this;
+    }
+    public withRateLimit(rateLimit: boolean): VirtualInterface {
+        this['rate_limit'] = rateLimit;
+        return this;
+    }
+    public set rateLimit(rateLimit: boolean  | undefined) {
+        this['rate_limit'] = rateLimit;
+    }
+    public get rateLimit(): boolean | undefined {
+        return this['rate_limit'];
+    }
+    public withAddressFamily(addressFamily: string): VirtualInterface {
+        this['address_family'] = addressFamily;
+        return this;
+    }
+    public set addressFamily(addressFamily: string  | undefined) {
+        this['address_family'] = addressFamily;
+    }
+    public get addressFamily(): string | undefined {
+        return this['address_family'];
+    }
+    public withLocalGatewayV6Ip(localGatewayV6Ip: string): VirtualInterface {
+        this['local_gateway_v6_ip'] = localGatewayV6Ip;
+        return this;
+    }
+    public set localGatewayV6Ip(localGatewayV6Ip: string  | undefined) {
+        this['local_gateway_v6_ip'] = localGatewayV6Ip;
+    }
+    public get localGatewayV6Ip(): string | undefined {
+        return this['local_gateway_v6_ip'];
+    }
+    public withRemoteGatewayV6Ip(remoteGatewayV6Ip: string): VirtualInterface {
+        this['remote_gateway_v6_ip'] = remoteGatewayV6Ip;
+        return this;
+    }
+    public set remoteGatewayV6Ip(remoteGatewayV6Ip: string  | undefined) {
+        this['remote_gateway_v6_ip'] = remoteGatewayV6Ip;
+    }
+    public get remoteGatewayV6Ip(): string | undefined {
+        return this['remote_gateway_v6_ip'];
+    }
+    public withLgwId(lgwId: string): VirtualInterface {
+        this['lgw_id'] = lgwId;
+        return this;
+    }
+    public set lgwId(lgwId: string  | undefined) {
+        this['lgw_id'] = lgwId;
+    }
+    public get lgwId(): string | undefined {
+        return this['lgw_id'];
+    }
+    public withGatewayId(gatewayId: string): VirtualInterface {
+        this['gateway_id'] = gatewayId;
+        return this;
+    }
+    public set gatewayId(gatewayId: string  | undefined) {
+        this['gateway_id'] = gatewayId;
+    }
+    public get gatewayId(): string | undefined {
+        return this['gateway_id'];
+    }
+    public withRemoteEpGroup(remoteEpGroup: Array<string>): VirtualInterface {
+        this['remote_ep_group'] = remoteEpGroup;
+        return this;
+    }
+    public set remoteEpGroup(remoteEpGroup: Array<string>  | undefined) {
+        this['remote_ep_group'] = remoteEpGroup;
+    }
+    public get remoteEpGroup(): Array<string> | undefined {
+        return this['remote_ep_group'];
+    }
+    public withServiceEpGroup(serviceEpGroup: Array<string>): VirtualInterface {
+        this['service_ep_group'] = serviceEpGroup;
+        return this;
+    }
+    public set serviceEpGroup(serviceEpGroup: Array<string>  | undefined) {
+        this['service_ep_group'] = serviceEpGroup;
+    }
+    public get serviceEpGroup(): Array<string> | undefined {
+        return this['service_ep_group'];
+    }
+    public withBgpRouteLimit(bgpRouteLimit: number): VirtualInterface {
+        this['bgp_route_limit'] = bgpRouteLimit;
+        return this;
+    }
+    public set bgpRouteLimit(bgpRouteLimit: number  | undefined) {
+        this['bgp_route_limit'] = bgpRouteLimit;
+    }
+    public get bgpRouteLimit(): number | undefined {
+        return this['bgp_route_limit'];
+    }
+    public withPriority(priority: VirtualInterfacePriorityEnum | string): VirtualInterface {
+        this['priority'] = priority;
+        return this;
+    }
     public withVifPeers(vifPeers: Array<VifPeer>): VirtualInterface {
         this['vif_peers'] = vifPeers;
         return this;
@@ -229,4 +371,12 @@ export enum VirtualInterfaceServiceTypeEnum {
 export enum VirtualInterfaceTypeEnum {
     PRIVATE = 'private',
     PUBLIC = 'public'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VirtualInterfacePriorityEnum {
+    NORMAL = 'normal',
+    LOW = 'low'
 }

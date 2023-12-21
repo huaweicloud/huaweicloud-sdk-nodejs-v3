@@ -3,6 +3,7 @@
 export class ShowAssetStatisticRequest {
     private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
+    public category?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowAssetStatisticRequest {
@@ -24,5 +25,9 @@ export class ShowAssetStatisticRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withCategory(category: string): ShowAssetStatisticRequest {
+        this['category'] = category;
+        return this;
     }
 }

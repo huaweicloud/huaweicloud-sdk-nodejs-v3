@@ -9,6 +9,7 @@ export class ListPortsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
     public constructor(hostId?: string) { 
         this['host_id'] = hostId;
     }
@@ -66,6 +67,10 @@ export class ListPortsRequest {
     }
     public withOffset(offset: number): ListPortsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListPortsRequest {
+        this['category'] = category;
         return this;
     }
 }

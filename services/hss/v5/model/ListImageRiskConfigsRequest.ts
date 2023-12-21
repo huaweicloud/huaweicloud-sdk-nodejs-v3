@@ -12,6 +12,7 @@ export class ListImageRiskConfigsRequest {
     private 'check_name'?: string;
     public severity?: string;
     public standard?: string;
+    private 'instance_id'?: string;
     public constructor(region?: string, imageType?: string) { 
         this['region'] = region;
         this['image_type'] = imageType;
@@ -89,5 +90,15 @@ export class ListImageRiskConfigsRequest {
     public withStandard(standard: string): ListImageRiskConfigsRequest {
         this['standard'] = standard;
         return this;
+    }
+    public withInstanceId(instanceId: string): ListImageRiskConfigsRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
 }

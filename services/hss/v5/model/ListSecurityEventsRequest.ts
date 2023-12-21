@@ -7,6 +7,7 @@ export class ListSecurityEventsRequest {
     private 'host_name'?: string;
     private 'host_id'?: string;
     private 'private_ip'?: string;
+    private 'public_ip'?: string;
     private 'container_name'?: string;
     public offset?: number;
     public limit?: number;
@@ -22,6 +23,7 @@ export class ListSecurityEventsRequest {
     private 'asset_value'?: string;
     private 'tag_list'?: Array<string>;
     private 'att_ck'?: string;
+    private 'event_name'?: string;
     public constructor(region?: string, category?: string) { 
         this['region'] = region;
         this['category'] = category;
@@ -79,6 +81,16 @@ export class ListSecurityEventsRequest {
     }
     public get privateIp(): string | undefined {
         return this['private_ip'];
+    }
+    public withPublicIp(publicIp: string): ListSecurityEventsRequest {
+        this['public_ip'] = publicIp;
+        return this;
+    }
+    public set publicIp(publicIp: string  | undefined) {
+        this['public_ip'] = publicIp;
+    }
+    public get publicIp(): string | undefined {
+        return this['public_ip'];
     }
     public withContainerName(containerName: string): ListSecurityEventsRequest {
         this['container_name'] = containerName;
@@ -205,5 +217,15 @@ export class ListSecurityEventsRequest {
     }
     public get attCk(): string | undefined {
         return this['att_ck'];
+    }
+    public withEventName(eventName: string): ListSecurityEventsRequest {
+        this['event_name'] = eventName;
+        return this;
+    }
+    public set eventName(eventName: string  | undefined) {
+        this['event_name'] = eventName;
+    }
+    public get eventName(): string | undefined {
+        return this['event_name'];
     }
 }

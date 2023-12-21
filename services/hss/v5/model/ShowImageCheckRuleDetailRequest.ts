@@ -11,6 +11,7 @@ export class ShowImageCheckRuleDetailRequest {
     private 'check_type'?: string;
     private 'check_rule_id'?: string;
     public standard?: string;
+    private 'instance_id'?: string;
     public constructor(region?: string, imageType?: string, checkName?: string, checkType?: string, checkRuleId?: string, standard?: string) { 
         this['region'] = region;
         this['image_type'] = imageType;
@@ -100,5 +101,15 @@ export class ShowImageCheckRuleDetailRequest {
     public withStandard(standard: string): ShowImageCheckRuleDetailRequest {
         this['standard'] = standard;
         return this;
+    }
+    public withInstanceId(instanceId: string): ShowImageCheckRuleDetailRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
 }

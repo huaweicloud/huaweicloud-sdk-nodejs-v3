@@ -48,9 +48,6 @@ import { CreateKafkaConsumerGroupResponse } from './model/CreateKafkaConsumerGro
 import { CreateKafkaUserClientQuotaTaskReq } from './model/CreateKafkaUserClientQuotaTaskReq';
 import { CreateKafkaUserClientQuotaTaskRequest } from './model/CreateKafkaUserClientQuotaTaskRequest';
 import { CreateKafkaUserClientQuotaTaskResponse } from './model/CreateKafkaUserClientQuotaTaskResponse';
-import { CreatePartitionReq } from './model/CreatePartitionReq';
-import { CreatePartitionRequest } from './model/CreatePartitionRequest';
-import { CreatePartitionResponse } from './model/CreatePartitionResponse';
 import { CreatePostPaidInstanceReq } from './model/CreatePostPaidInstanceReq';
 import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
@@ -145,6 +142,9 @@ import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
 import { RestartManagerRequest } from './model/RestartManagerRequest';
 import { RestartManagerResponse } from './model/RestartManagerResponse';
+import { SendKafkaMessageRequest } from './model/SendKafkaMessageRequest';
+import { SendKafkaMessageRequestBody } from './model/SendKafkaMessageRequestBody';
+import { SendKafkaMessageResponse } from './model/SendKafkaMessageResponse';
 import { ShowBackgroundTaskRequest } from './model/ShowBackgroundTaskRequest';
 import { ShowBackgroundTaskResponse } from './model/ShowBackgroundTaskResponse';
 import { ShowCesHierarchyRequest } from './model/ShowCesHierarchyRequest';
@@ -373,11 +373,11 @@ export class KafkaClient {
     }
 
     /**
-     * 关闭kafka manager，相应的原来开放出的management相关接口也将不可用
+     * 关闭Kafka Manager，相应的原来开放出的management相关接口也将不可用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 关闭kafka manager
+     * @summary 关闭Kafka Manager
      * @param {string} instanceId 实例id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -516,11 +516,11 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交创建user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 该接口用于向Kafka实例提交创建用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建客户端流控配置
+     * @summary 创建用户/客户端流控配置
      * @param {string} instanceId 实例ID。
      * @param {CreateKafkaUserClientQuotaTaskReq} creatKafkaUserClientQuotaTaskBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -528,27 +528,6 @@ export class KafkaClient {
      */
     public createKafkaUserClientQuotaTask(createKafkaUserClientQuotaTaskRequest?: CreateKafkaUserClientQuotaTaskRequest): Promise<CreateKafkaUserClientQuotaTaskResponse> {
         const options = ParamCreater().createKafkaUserClientQuotaTask(createKafkaUserClientQuotaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 新增Kafka实例指定Topic分区。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 新增Kafka实例指定Topic分区
-     * @param {string} instanceId 实例ID。
-     * @param {string} topic Topic名称。
-     * @param {CreatePartitionReq} createPartitionRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPartition(createPartitionRequest?: CreatePartitionRequest): Promise<CreatePartitionResponse> {
-        const options = ParamCreater().createPartition(createPartitionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -636,11 +615,11 @@ export class KafkaClient {
     }
 
     /**
-     * 关闭实例转储节点。
+     * 介绍按需实例如何关闭Smart Connect。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 关闭实例转储节点
+     * @summary 关闭Smart Connect（按需实例）
      * @param {string} instanceId 实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -674,11 +653,11 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交删除user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 该接口用于向Kafka实例提交删除用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除客户端流控设置
+     * @summary 删除用户/客户端流控配置
      * @param {string} instanceId 实例ID。
      * @param {DeleteKafkaUserClientQuotaTaskReq} deleteKafkaUserClientQuotaTaskBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -826,8 +805,8 @@ export class KafkaClient {
      * @param {'kafka'} [engine] 消息引擎：kafka。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'UPGRADING' | 'UPGRADINGFAILED' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
-     * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
+     * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
@@ -996,7 +975,7 @@ export class KafkaClient {
     }
 
     /**
-     * 重置密码。
+     * 重置密码（只针对开通SSL的实例）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1037,11 +1016,11 @@ export class KafkaClient {
     }
 
     /**
-     * 实例规格变更。[当前通过调用API，只支持按需实例进行实例规格变更。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+     * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 实例规格变更
+     * @summary 实例扩容
      * @param {'kafka'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {ResizeEngineInstanceReq} resizeEngineInstanceRequestBody 请求消息。
@@ -1058,11 +1037,11 @@ export class KafkaClient {
     }
 
     /**
-     * 实例规格变更。[当前通过调用API，只支持按需实例进行实例规格变更。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+     * 实例扩容。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 实例规格变更
+     * @summary 实例扩容
      * @param {string} instanceId 实例ID。
      * @param {ResizeInstanceReq} resizeInstanceRequestBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -1089,6 +1068,27 @@ export class KafkaClient {
      */
     public restartManager(restartManagerRequest?: RestartManagerRequest): Promise<RestartManagerResponse> {
         const options = ParamCreater().restartManager(restartManagerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在控制台发送指定消息到Kafka实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Kafka生产消息
+     * @param {string} instanceId 实例ID
+     * @param {string} actionId 动作ID，生产消息对应的action_id为send。
+     * @param {SendKafkaMessageRequestBody} sendKafkaMessageRequestBody 请求消息，请求体内容包括topic、partition和消息key，详情请参考schema。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public sendKafkaMessage(sendKafkaMessageRequest?: SendKafkaMessageRequest): Promise<SendKafkaMessageResponse> {
+        const options = ParamCreater().sendKafkaMessage(sendKafkaMessageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1408,10 +1408,10 @@ export class KafkaClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询客户端流控配置
+     * @summary 查询用户/客户端流控配置
      * @param {string} instanceId 实例ID。
-     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录
-     * @param {number} [limit] 查询返回记录的数量限制
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。
+     * @param {number} [limit] 查询返回记录的数量限制。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1620,7 +1620,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑消费组
-     * @param {string} engine 消息中间件类型。
+     * @param {string} engine 消息引擎的类型。
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费者组。
      * @param {CreateGroupReq} updateInstanceConsumerGroupRequestBody 请求消息。
@@ -1682,7 +1682,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改用户参数
-     * @param {string} engine 消息中间件。
+     * @param {string} engine 消息引擎的类型。
      * @param {string} instanceId 实例ID。
      * @param {string} userName 用户名称。
      * @param {UpdateUserReq} updateInstanceUserRequestBody 请求消息。
@@ -1699,11 +1699,11 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例提交修改user、client级别的流控任务，若成功则返回流控任务的job id。
+     * 该接口用于向Kafka实例提交修改用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改客户端流控设置
+     * @summary 修改用户/客户端流控配置
      * @param {string} instanceId 实例ID。
      * @param {UpdateKafkaUserClientQuotaTaskReq} updateKafkaUserClientQuotaTaskBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -2014,7 +2014,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关闭kafka manager，相应的原来开放出的management相关接口也将不可用
+         * 关闭Kafka Manager，相应的原来开放出的management相关接口也将不可用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2328,7 +2328,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交创建user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 该接口用于向Kafka实例提交创建用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2369,59 +2369,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 新增Kafka实例指定Topic分区。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createPartition(createPartitionRequest?: CreatePartitionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances/{instance_id}/management/topics/{topic}/partitions-reassignment",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let topic;
-
-            if (createPartitionRequest !== null && createPartitionRequest !== undefined) {
-                if (createPartitionRequest instanceof CreatePartitionRequest) {
-                    instanceId = createPartitionRequest.instanceId;
-                    topic = createPartitionRequest.topic;
-                    body = createPartitionRequest.body
-                } else {
-                    instanceId = createPartitionRequest['instance_id'];
-                    topic = createPartitionRequest['topic'];
-                    body = createPartitionRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createPartition.');
-            }
-            if (topic === null || topic === undefined) {
-            throw new RequiredError('topic','Required parameter topic was null or undefined when calling createPartition.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2601,7 +2548,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关闭实例转储节点。
+         * 介绍按需实例如何关闭Smart Connect。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2675,7 +2622,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交删除user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 该接口用于向Kafka实例提交删除用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3449,7 +3396,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重置密码。
+         * 重置密码（只针对开通SSL的实例）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3548,7 +3495,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例规格变更。[当前通过调用API，只支持按需实例进行实例规格变更。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+         * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3601,7 +3548,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例规格变更。[当前通过调用API，只支持按需实例进行实例规格变更。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+         * 实例扩容。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3678,6 +3625,63 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartManager.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在控制台发送指定消息到Kafka实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        sendKafkaMessage(sendKafkaMessageRequest?: SendKafkaMessageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/messages/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let instanceId;
+            
+            let actionId;
+
+            if (sendKafkaMessageRequest !== null && sendKafkaMessageRequest !== undefined) {
+                if (sendKafkaMessageRequest instanceof SendKafkaMessageRequest) {
+                    instanceId = sendKafkaMessageRequest.instanceId;
+                    actionId = sendKafkaMessageRequest.actionId;
+                    body = sendKafkaMessageRequest.body
+                } else {
+                    instanceId = sendKafkaMessageRequest['instance_id'];
+                    actionId = sendKafkaMessageRequest['action_id'];
+                    body = sendKafkaMessageRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling sendKafkaMessage.');
+            }
+            if (actionId === null || actionId === undefined) {
+                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling sendKafkaMessage.');
+            }
+            if (actionId !== null && actionId !== undefined) {
+                localVarQueryParameter['action_id'] = actionId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5101,7 +5105,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例提交修改user、client级别的流控任务，若成功则返回流控任务的job id。
+         * 该接口用于向Kafka实例提交修改用户、客户端级别的流控任务，若成功则返回流控任务的job_id。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

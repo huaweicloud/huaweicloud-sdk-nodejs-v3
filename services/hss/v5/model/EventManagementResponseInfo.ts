@@ -47,6 +47,7 @@ export class EventManagementResponseInfo {
     private 'file_info_list'?: Array<EventFileResponseInfo>;
     private 'event_details'?: string;
     private 'tag_list'?: Array<string>;
+    private 'event_count'?: number;
     public constructor() { 
     }
     public withEventId(eventId: string): EventManagementResponseInfo {
@@ -434,5 +435,15 @@ export class EventManagementResponseInfo {
     }
     public get tagList(): Array<string> | undefined {
         return this['tag_list'];
+    }
+    public withEventCount(eventCount: number): EventManagementResponseInfo {
+        this['event_count'] = eventCount;
+        return this;
+    }
+    public set eventCount(eventCount: number  | undefined) {
+        this['event_count'] = eventCount;
+    }
+    public get eventCount(): number | undefined {
+        return this['event_count'];
     }
 }

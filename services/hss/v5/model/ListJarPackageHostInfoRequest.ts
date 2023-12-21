@@ -8,6 +8,7 @@ export class ListJarPackageHostInfoRequest {
     private 'host_ip'?: string;
     public limit?: number;
     public offset?: number;
+    private 'part_match'?: boolean;
     public constructor(fileName?: string) { 
         this['file_name'] = fileName;
     }
@@ -62,5 +63,15 @@ export class ListJarPackageHostInfoRequest {
     public withOffset(offset: number): ListJarPackageHostInfoRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withPartMatch(partMatch: boolean): ListJarPackageHostInfoRequest {
+        this['part_match'] = partMatch;
+        return this;
+    }
+    public set partMatch(partMatch: boolean  | undefined) {
+        this['part_match'] = partMatch;
+    }
+    public get partMatch(): boolean | undefined {
+        return this['part_match'];
     }
 }

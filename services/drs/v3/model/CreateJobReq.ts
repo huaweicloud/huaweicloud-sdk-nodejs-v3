@@ -271,7 +271,10 @@ export enum CreateJobReqEngineTypeEnum {
     MONGODB = 'mongodb',
     CLOUDDATAGUARD_MYSQL = 'cloudDataGuard-mysql',
     GAUSSDBV5 = 'gaussdbv5',
-    POSTGRESQL = 'postgresql'
+    POSTGRESQL = 'postgresql',
+    MYSQL_TO_KAFKA = 'mysql-to-kafka',
+    TAURUS_TO_KAFKA = 'taurus-to-kafka',
+    GAUSSDBV5HA_TO_KAFKA = 'gaussdbv5ha-to-kafka'
 }
 /**
     * @export

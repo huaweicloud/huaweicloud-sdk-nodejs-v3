@@ -650,7 +650,7 @@ export class ImsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询job状态
+     * @summary 异步任务查询
      * @param {string} jobId 异步任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

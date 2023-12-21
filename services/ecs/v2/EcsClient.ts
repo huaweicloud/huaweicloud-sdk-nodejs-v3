@@ -17,6 +17,7 @@ import { BatchAddServerNicOption } from './model/BatchAddServerNicOption';
 import { BatchAddServerNicsRequest } from './model/BatchAddServerNicsRequest';
 import { BatchAddServerNicsRequestBody } from './model/BatchAddServerNicsRequestBody';
 import { BatchAddServerNicsResponse } from './model/BatchAddServerNicsResponse';
+import { BatchAddServerTag } from './model/BatchAddServerTag';
 import { BatchAttachSharableVolumesOption } from './model/BatchAttachSharableVolumesOption';
 import { BatchAttachSharableVolumesRequest } from './model/BatchAttachSharableVolumesRequest';
 import { BatchAttachSharableVolumesRequestBody } from './model/BatchAttachSharableVolumesRequestBody';
@@ -987,7 +988,7 @@ export class EcsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询弹性云服务器磁盘信息
+     * @summary 查询弹性云服务器挂载磁盘列表详情信息
      * @param {string} serverId 云服务器ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

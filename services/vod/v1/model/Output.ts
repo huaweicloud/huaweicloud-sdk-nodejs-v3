@@ -4,6 +4,8 @@ import { MetaData } from './MetaData';
 export class Output {
     private 'play_type'?: OutputPlayTypeEnum | string;
     public url?: string;
+    private 'group_id'?: string;
+    private 'group_name'?: string;
     public encrypted?: number;
     public quality?: OutputQualityEnum | string;
     private 'meta_data'?: MetaData;
@@ -25,6 +27,26 @@ export class Output {
     public withUrl(url: string): Output {
         this['url'] = url;
         return this;
+    }
+    public withGroupId(groupId: string): Output {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withGroupName(groupName: string): Output {
+        this['group_name'] = groupName;
+        return this;
+    }
+    public set groupName(groupName: string  | undefined) {
+        this['group_name'] = groupName;
+    }
+    public get groupName(): string | undefined {
+        return this['group_name'];
     }
     public withEncrypted(encrypted: number): Output {
         this['encrypted'] = encrypted;

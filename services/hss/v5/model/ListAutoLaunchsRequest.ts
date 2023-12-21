@@ -9,6 +9,7 @@ export class ListAutoLaunchsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    private 'part_match'?: boolean;
     public constructor() { 
     }
     public withHostId(hostId: string): ListAutoLaunchsRequest {
@@ -66,5 +67,15 @@ export class ListAutoLaunchsRequest {
     public withOffset(offset: number): ListAutoLaunchsRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withPartMatch(partMatch: boolean): ListAutoLaunchsRequest {
+        this['part_match'] = partMatch;
+        return this;
+    }
+    public set partMatch(partMatch: boolean  | undefined) {
+        this['part_match'] = partMatch;
+    }
+    public get partMatch(): boolean | undefined {
+        return this['part_match'];
     }
 }

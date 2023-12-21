@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AddSubtitle } from './model/AddSubtitle';
+import { AssetDailySummaryResult } from './model/AssetDailySummaryResult';
 import { AssetDetails } from './model/AssetDetails';
 import { AssetInfo } from './model/AssetInfo';
 import { AssetProcessReq } from './model/AssetProcessReq';
@@ -73,6 +74,8 @@ import { ExtractAudioTaskReq } from './model/ExtractAudioTaskReq';
 import { FileAddr } from './model/FileAddr';
 import { ListAssetCategoryRequest } from './model/ListAssetCategoryRequest';
 import { ListAssetCategoryResponse } from './model/ListAssetCategoryResponse';
+import { ListAssetDailySummaryLogRequest } from './model/ListAssetDailySummaryLogRequest';
+import { ListAssetDailySummaryLogResponse } from './model/ListAssetDailySummaryLogResponse';
 import { ListAssetListRequest } from './model/ListAssetListRequest';
 import { ListAssetListResponse } from './model/ListAssetListResponse';
 import { ListDomainLogsRequest } from './model/ListDomainLogsRequest';
@@ -129,12 +132,15 @@ import { ShowTakeOverAssetDetailsRequest } from './model/ShowTakeOverAssetDetail
 import { ShowTakeOverAssetDetailsResponse } from './model/ShowTakeOverAssetDetailsResponse';
 import { ShowTakeOverTaskDetailsRequest } from './model/ShowTakeOverTaskDetailsRequest';
 import { ShowTakeOverTaskDetailsResponse } from './model/ShowTakeOverTaskDetailsResponse';
+import { ShowVodRetrievalRequest } from './model/ShowVodRetrievalRequest';
+import { ShowVodRetrievalResponse } from './model/ShowVodRetrievalResponse';
 import { ShowVodStatisticsRequest } from './model/ShowVodStatisticsRequest';
 import { ShowVodStatisticsResponse } from './model/ShowVodStatisticsResponse';
 import { Subtitle } from './model/Subtitle';
 import { SubtitleInfo } from './model/SubtitleInfo';
 import { SubtitleModifyReq } from './model/SubtitleModifyReq';
 import { TakeOverTask } from './model/TakeOverTask';
+import { TaskResult } from './model/TaskResult';
 import { TemplateGroup } from './model/TemplateGroup';
 import { TemplateGroupCollection } from './model/TemplateGroupCollection';
 import { TextReviewRet } from './model/TextReviewRet';
@@ -162,6 +168,9 @@ import { UpdateCategoryReq } from './model/UpdateCategoryReq';
 import { UpdateCoverByThumbnailReq } from './model/UpdateCoverByThumbnailReq';
 import { UpdateCoverByThumbnailRequest } from './model/UpdateCoverByThumbnailRequest';
 import { UpdateCoverByThumbnailResponse } from './model/UpdateCoverByThumbnailResponse';
+import { UpdateStorageModeReq } from './model/UpdateStorageModeReq';
+import { UpdateStorageModeRequest } from './model/UpdateStorageModeRequest';
+import { UpdateStorageModeResponse } from './model/UpdateStorageModeResponse';
 import { UpdateTemplateGroupCollectionRequest } from './model/UpdateTemplateGroupCollectionRequest';
 import { UpdateTemplateGroupCollectionResponse } from './model/UpdateTemplateGroupCollectionResponse';
 import { UpdateTemplateGroupRequest } from './model/UpdateTemplateGroupRequest';
@@ -180,6 +189,7 @@ import { UploadMetaDataByUrlResponse } from './model/UploadMetaDataByUrlResponse
 import { VideoInfo } from './model/VideoInfo';
 import { VideoTemplateInfo } from './model/VideoTemplateInfo';
 import { VideoTypeRef } from './model/VideoTypeRef';
+import { VodRetrievalData } from './model/VodRetrievalData';
 import { VodSampleData } from './model/VodSampleData';
 import { WatermarkTemplate } from './model/WatermarkTemplate';
 
@@ -659,6 +669,33 @@ export class VodClient {
      */
     public listAssetCategory(listAssetCategoryRequest?: ListAssetCategoryRequest): Promise<ListAssetCategoryResponse> {
         const options = ParamCreater().listAssetCategory(listAssetCategoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询媒资日播放统计数据。
+     * 
+     * 使用媒资日播放统计查询API前，需要先提交工单开通统计功能，才能触发统计任务。
+     * 
+     * 支持查询最近一年的播放统计数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询媒资日播放统计数据
+     * @param {string} startTime 查询开始时间。仅支持查询一年内的数据，且一次查询的日期跨度不能超过90天。  如果查询指定开始日期的数据，格式为：yyyyMMdd000000。
+     * @param {string} endTime 查询结束时间。仅支持查询一年内的数据，且一次查询的日期跨度不能超过90天。  如果查询指定结束日期的数据，格式为：yyyyMMdd000000。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。 
+     * @param {number} [limit] 查询返回记录的数量限制。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssetDailySummaryLog(listAssetDailySummaryLogRequest?: ListAssetDailySummaryLogRequest): Promise<ListAssetDailySummaryLogResponse> {
+        const options = ParamCreater().listAssetDailySummaryLog(listAssetDailySummaryLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1333,6 +1370,31 @@ export class VodClient {
     }
 
     /**
+     * ## 典型场景 ##
+     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+     * 
+     * ## 接口功能 ##
+     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询取回数据信息
+     * @param {string} [startTime] 开始时间 
+     * @param {string} [endTime] 结束时间 
+     * @param {number} [interval] 采样间隔，单位：秒，取值说明： 时间跨度1天：1小时、4小时、8小时，分别对应3600秒、14400秒和28800秒。 时间跨度2~7天：1小时、4小时、8小时、1天，分别对应3600秒、14400秒、28800秒和86400秒。 时间跨度8~31天：4小时、8小时、1天，分别对应14400秒、28800秒和86400秒。 如果不传，默认取对应时间跨度的最小间隔。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest): Promise<ShowVodRetrievalResponse> {
+        const options = ParamCreater().showVodRetrieval(showVodRetrievalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 多字幕封装，仅支持 HLS VTT格式
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1344,6 +1406,26 @@ export class VodClient {
      */
     public modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest): Promise<ModifySubtitleResponse> {
         const options = ParamCreater().modifySubtitle(modifySubtitleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 接口功能 ##
+     *   修改媒资文件在obs的存储模式&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改媒资文件在obs的存储模式
+     * @param {UpdateStorageModeReq} updateStorageModeRequestBody 修改存储模式请求体 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest): Promise<UpdateStorageModeResponse> {
+        const options = ParamCreater().updateStorageMode(updateStorageModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2420,6 +2502,81 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询媒资日播放统计数据。
+         * 
+         * 使用媒资日播放统计查询API前，需要先提交工单开通统计功能，才能触发统计任务。
+         * 
+         * 支持查询最近一年的播放统计数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssetDailySummaryLog(listAssetDailySummaryLogRequest?: ListAssetDailySummaryLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/daily-summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let xSdkDate;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAssetDailySummaryLogRequest !== null && listAssetDailySummaryLogRequest !== undefined) {
+                if (listAssetDailySummaryLogRequest instanceof ListAssetDailySummaryLogRequest) {
+                    startTime = listAssetDailySummaryLogRequest.startTime;
+                    endTime = listAssetDailySummaryLogRequest.endTime;
+                    xSdkDate = listAssetDailySummaryLogRequest.xSdkDate;
+                    offset = listAssetDailySummaryLogRequest.offset;
+                    limit = listAssetDailySummaryLogRequest.limit;
+                } else {
+                    startTime = listAssetDailySummaryLogRequest['start_time'];
+                    endTime = listAssetDailySummaryLogRequest['end_time'];
+                    xSdkDate = listAssetDailySummaryLogRequest['X-Sdk-Date'];
+                    offset = listAssetDailySummaryLogRequest['offset'];
+                    limit = listAssetDailySummaryLogRequest['limit'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listAssetDailySummaryLog.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listAssetDailySummaryLog.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4193,6 +4350,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * ## 典型场景 ##
+         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+         * 
+         * ## 接口功能 ##
+         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/vod-retrieval",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let interval;
+
+            if (showVodRetrievalRequest !== null && showVodRetrievalRequest !== undefined) {
+                if (showVodRetrievalRequest instanceof ShowVodRetrievalRequest) {
+                    startTime = showVodRetrievalRequest.startTime;
+                    endTime = showVodRetrievalRequest.endTime;
+                    interval = showVodRetrievalRequest.interval;
+                } else {
+                    startTime = showVodRetrievalRequest['start_time'];
+                    endTime = showVodRetrievalRequest['end_time'];
+                    interval = showVodRetrievalRequest['interval'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 多字幕封装，仅支持 HLS VTT格式
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4216,6 +4428,45 @@ export const ParamCreater = function () {
                     body = modifySubtitleRequest.body
                 } else {
                     body = modifySubtitleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 接口功能 ##
+         *   修改媒资文件在obs的存储模式&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/asset/storage-mode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateStorageModeRequest !== null && updateStorageModeRequest !== undefined) {
+                if (updateStorageModeRequest instanceof UpdateStorageModeRequest) {
+                    body = updateStorageModeRequest.body
+                } else {
+                    body = updateStorageModeRequest['body'];
                 }
             }
 

@@ -9,6 +9,8 @@ export class AppResponseInfo {
     public version?: string;
     private 'update_time'?: number;
     private 'recent_scan_time'?: number;
+    private 'container_id'?: string;
+    private 'container_name'?: string;
     public constructor() { 
     }
     public withAgentId(agentId: string): AppResponseInfo {
@@ -84,5 +86,25 @@ export class AppResponseInfo {
     }
     public get recentScanTime(): number | undefined {
         return this['recent_scan_time'];
+    }
+    public withContainerId(containerId: string): AppResponseInfo {
+        this['container_id'] = containerId;
+        return this;
+    }
+    public set containerId(containerId: string  | undefined) {
+        this['container_id'] = containerId;
+    }
+    public get containerId(): string | undefined {
+        return this['container_id'];
+    }
+    public withContainerName(containerName: string): AppResponseInfo {
+        this['container_name'] = containerName;
+        return this;
+    }
+    public set containerName(containerName: string  | undefined) {
+        this['container_name'] = containerName;
+    }
+    public get containerName(): string | undefined {
+        return this['container_name'];
     }
 }

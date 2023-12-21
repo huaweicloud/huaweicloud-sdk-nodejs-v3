@@ -5,6 +5,7 @@ export class ListUserStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
     public constructor() { 
     }
     public withUserName(userName: string): ListUserStatisticsRequest {
@@ -33,6 +34,10 @@ export class ListUserStatisticsRequest {
     }
     public withOffset(offset: number): ListUserStatisticsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListUserStatisticsRequest {
+        this['category'] = category;
         return this;
     }
 }

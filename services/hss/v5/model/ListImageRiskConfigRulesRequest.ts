@@ -14,6 +14,7 @@ export class ListImageRiskConfigRulesRequest {
     private 'result_type'?: string;
     private 'check_rule_name'?: string;
     public severity?: string;
+    private 'instance_id'?: string;
     public constructor(region?: string, imageType?: string, checkName?: string, standard?: string) { 
         this['region'] = region;
         this['image_type'] = imageType;
@@ -113,5 +114,15 @@ export class ListImageRiskConfigRulesRequest {
     public withSeverity(severity: string): ListImageRiskConfigRulesRequest {
         this['severity'] = severity;
         return this;
+    }
+    public withInstanceId(instanceId: string): ListImageRiskConfigRulesRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
 }

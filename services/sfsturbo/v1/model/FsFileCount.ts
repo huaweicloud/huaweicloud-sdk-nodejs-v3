@@ -8,14 +8,7 @@ export class FsFileCount {
     public block?: number;
     public socket?: number;
     public symlink?: number;
-    public constructor(dir?: number, regular?: number, pipe?: number, _char?: number, block?: number, socket?: number, symlink?: number) { 
-        this['dir'] = dir;
-        this['regular'] = regular;
-        this['pipe'] = pipe;
-        this['char'] = _char;
-        this['block'] = block;
-        this['socket'] = socket;
-        this['symlink'] = symlink;
+    public constructor() { 
     }
     public withDir(dir: number): FsFileCount {
         this['dir'] = dir;

@@ -6,6 +6,7 @@ export class AssetInfo {
     private 'asset_id'?: string;
     public status?: string;
     public description?: string;
+    private 'is_multi_transcode'?: boolean;
     private 'base_info'?: BaseInfo;
     private 'play_info_array'?: Array<PlayInfo>;
     public constructor() { 
@@ -27,6 +28,16 @@ export class AssetInfo {
     public withDescription(description: string): AssetInfo {
         this['description'] = description;
         return this;
+    }
+    public withIsMultiTranscode(isMultiTranscode: boolean): AssetInfo {
+        this['is_multi_transcode'] = isMultiTranscode;
+        return this;
+    }
+    public set isMultiTranscode(isMultiTranscode: boolean  | undefined) {
+        this['is_multi_transcode'] = isMultiTranscode;
+    }
+    public get isMultiTranscode(): boolean | undefined {
+        return this['is_multi_transcode'];
     }
     public withBaseInfo(baseInfo: BaseInfo): AssetInfo {
         this['base_info'] = baseInfo;

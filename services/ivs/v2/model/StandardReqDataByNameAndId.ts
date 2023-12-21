@@ -4,6 +4,8 @@ export class StandardReqDataByNameAndId {
     private 'verification_name'?: string;
     private 'verification_id'?: string;
     private 'face_image'?: string;
+    public detail?: boolean;
+    public crop?: boolean;
     public constructor(verificationName?: string, verificationId?: string, faceImage?: string) { 
         this['verification_name'] = verificationName;
         this['verification_id'] = verificationId;
@@ -38,5 +40,13 @@ export class StandardReqDataByNameAndId {
     }
     public get faceImage(): string | undefined {
         return this['face_image'];
+    }
+    public withDetail(detail: boolean): StandardReqDataByNameAndId {
+        this['detail'] = detail;
+        return this;
+    }
+    public withCrop(crop: boolean): StandardReqDataByNameAndId {
+        this['crop'] = crop;
+        return this;
     }
 }

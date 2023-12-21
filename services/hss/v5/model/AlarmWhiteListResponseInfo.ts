@@ -5,6 +5,9 @@ export class AlarmWhiteListResponseInfo {
     public hash?: string;
     public description?: string;
     private 'event_type'?: number;
+    private 'white_field'?: string;
+    private 'field_value'?: string;
+    private 'judge_type'?: string;
     private 'update_time'?: number;
     public constructor() { 
     }
@@ -35,6 +38,36 @@ export class AlarmWhiteListResponseInfo {
     }
     public get eventType(): number | undefined {
         return this['event_type'];
+    }
+    public withWhiteField(whiteField: string): AlarmWhiteListResponseInfo {
+        this['white_field'] = whiteField;
+        return this;
+    }
+    public set whiteField(whiteField: string  | undefined) {
+        this['white_field'] = whiteField;
+    }
+    public get whiteField(): string | undefined {
+        return this['white_field'];
+    }
+    public withFieldValue(fieldValue: string): AlarmWhiteListResponseInfo {
+        this['field_value'] = fieldValue;
+        return this;
+    }
+    public set fieldValue(fieldValue: string  | undefined) {
+        this['field_value'] = fieldValue;
+    }
+    public get fieldValue(): string | undefined {
+        return this['field_value'];
+    }
+    public withJudgeType(judgeType: string): AlarmWhiteListResponseInfo {
+        this['judge_type'] = judgeType;
+        return this;
+    }
+    public set judgeType(judgeType: string  | undefined) {
+        this['judge_type'] = judgeType;
+    }
+    public get judgeType(): string | undefined {
+        return this['judge_type'];
     }
     public withUpdateTime(updateTime: number): AlarmWhiteListResponseInfo {
         this['update_time'] = updateTime;

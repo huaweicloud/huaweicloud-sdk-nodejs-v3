@@ -11,6 +11,7 @@ export class ProtectionServerInfo {
     private 'os_name'?: string;
     private 'host_status'?: string;
     private 'ransom_protection_status'?: string;
+    private 'agent_version'?: string;
     private 'protect_status'?: string;
     private 'group_id'?: string;
     private 'group_name'?: string;
@@ -125,6 +126,16 @@ export class ProtectionServerInfo {
     }
     public get ransomProtectionStatus(): string | undefined {
         return this['ransom_protection_status'];
+    }
+    public withAgentVersion(agentVersion: string): ProtectionServerInfo {
+        this['agent_version'] = agentVersion;
+        return this;
+    }
+    public set agentVersion(agentVersion: string  | undefined) {
+        this['agent_version'] = agentVersion;
+    }
+    public get agentVersion(): string | undefined {
+        return this['agent_version'];
     }
     public withProtectStatus(protectStatus: string): ProtectionServerInfo {
         this['protect_status'] = protectStatus;

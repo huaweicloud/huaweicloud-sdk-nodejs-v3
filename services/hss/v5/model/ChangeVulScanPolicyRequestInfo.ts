@@ -4,6 +4,7 @@ export class ChangeVulScanPolicyRequestInfo {
     private 'scan_period'?: string;
     private 'scan_range_type'?: string;
     private 'host_ids'?: Array<string>;
+    private 'scan_vul_types'?: Array<string>;
     public status?: string;
     public constructor(scanPeriod?: string, scanRangeType?: string, status?: string) { 
         this['scan_period'] = scanPeriod;
@@ -39,6 +40,16 @@ export class ChangeVulScanPolicyRequestInfo {
     }
     public get hostIds(): Array<string> | undefined {
         return this['host_ids'];
+    }
+    public withScanVulTypes(scanVulTypes: Array<string>): ChangeVulScanPolicyRequestInfo {
+        this['scan_vul_types'] = scanVulTypes;
+        return this;
+    }
+    public set scanVulTypes(scanVulTypes: Array<string>  | undefined) {
+        this['scan_vul_types'] = scanVulTypes;
+    }
+    public get scanVulTypes(): Array<string> | undefined {
+        return this['scan_vul_types'];
     }
     public withStatus(status: string): ChangeVulScanPolicyRequestInfo {
         this['status'] = status;

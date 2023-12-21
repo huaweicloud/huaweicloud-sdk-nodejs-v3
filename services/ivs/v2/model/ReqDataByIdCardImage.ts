@@ -4,6 +4,8 @@ export class ReqDataByIdCardImage {
     private 'idcard_image1'?: string;
     private 'idcard_image2'?: string;
     private 'face_image'?: string;
+    public detail?: boolean;
+    public crop?: boolean;
     public constructor(idcardImage1?: string, faceImage?: string) { 
         this['idcard_image1'] = idcardImage1;
         this['face_image'] = faceImage;
@@ -37,5 +39,13 @@ export class ReqDataByIdCardImage {
     }
     public get faceImage(): string | undefined {
         return this['face_image'];
+    }
+    public withDetail(detail: boolean): ReqDataByIdCardImage {
+        this['detail'] = detail;
+        return this;
+    }
+    public withCrop(crop: boolean): ReqDataByIdCardImage {
+        this['crop'] = crop;
+        return this;
     }
 }

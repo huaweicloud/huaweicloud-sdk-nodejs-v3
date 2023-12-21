@@ -11,7 +11,7 @@ export class StepRun {
     public identifier?: string;
     private 'multi_step_editable'?: number;
     public id?: string;
-    private 'endpoint_ids'?: string;
+    private 'endpoint_ids'?: Array<string>;
     private 'last_dispatch_id'?: string;
     public status?: string;
     public message?: string;
@@ -73,14 +73,14 @@ export class StepRun {
         this['id'] = id;
         return this;
     }
-    public withEndpointIds(endpointIds: string): StepRun {
+    public withEndpointIds(endpointIds: Array<string>): StepRun {
         this['endpoint_ids'] = endpointIds;
         return this;
     }
-    public set endpointIds(endpointIds: string  | undefined) {
+    public set endpointIds(endpointIds: Array<string>  | undefined) {
         this['endpoint_ids'] = endpointIds;
     }
-    public get endpointIds(): string | undefined {
+    public get endpointIds(): Array<string> | undefined {
         return this['endpoint_ids'];
     }
     public withLastDispatchId(lastDispatchId: string): StepRun {

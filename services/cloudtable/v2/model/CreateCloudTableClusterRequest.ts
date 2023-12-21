@@ -1,9 +1,9 @@
-import { CreateClusterRequestBody } from './CreateClusterRequestBody';
+import { CreateClusterReqBody } from './CreateClusterReqBody';
 
 
 export class CreateCloudTableClusterRequest {
     private 'X-Language'?: string;
-    public body?: CreateClusterRequestBody;
+    public body?: CreateClusterReqBody;
     public constructor() { 
     }
     public withXLanguage(xLanguage: string): CreateCloudTableClusterRequest {
@@ -16,7 +16,7 @@ export class CreateCloudTableClusterRequest {
     public get xLanguage(): string | undefined {
         return this['X-Language'];
     }
-    public withBody(body: CreateClusterRequestBody): CreateCloudTableClusterRequest {
+    public withBody(body: CreateClusterReqBody): CreateCloudTableClusterRequest {
         this['body'] = body;
         return this;
     }

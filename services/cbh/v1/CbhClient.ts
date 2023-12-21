@@ -9,14 +9,14 @@ import { ChangeInstanceNetworkRequest } from './model/ChangeInstanceNetworkReque
 import { ChangeInstanceNetworkResponse } from './model/ChangeInstanceNetworkResponse';
 import { ChangeInstanceOrderRequest } from './model/ChangeInstanceOrderRequest';
 import { ChangeInstanceOrderResponse } from './model/ChangeInstanceOrderResponse';
+import { CreateCbhRequest } from './model/CreateCbhRequest';
+import { CreateCbhResponse } from './model/CreateCbhResponse';
 import { CreateInstanceBody } from './model/CreateInstanceBody';
 import { CreateInstanceOrder } from './model/CreateInstanceOrder';
 import { CreateInstanceOrderRequest } from './model/CreateInstanceOrderRequest';
 import { CreateInstanceOrderResponse } from './model/CreateInstanceOrderResponse';
-import { CreateInstanceRequest } from './model/CreateInstanceRequest';
-import { CreateInstanceResponse } from './model/CreateInstanceResponse';
-import { InstallInstanceEipRequest } from './model/InstallInstanceEipRequest';
-import { InstallInstanceEipResponse } from './model/InstallInstanceEipResponse';
+import { InstallCbhEipRequest } from './model/InstallCbhEipRequest';
+import { InstallCbhEipResponse } from './model/InstallCbhEipResponse';
 import { InstanceDetail } from './model/InstanceDetail';
 import { ListCbhInstanceRequest } from './model/ListCbhInstanceRequest';
 import { ListCbhInstanceResponse } from './model/ListCbhInstanceResponse';
@@ -53,8 +53,8 @@ import { StartCbhRequestBody } from './model/StartCbhRequestBody';
 import { StopCbhInstanceRequest } from './model/StopCbhInstanceRequest';
 import { StopCbhInstanceResponse } from './model/StopCbhInstanceResponse';
 import { StopCbhRequestBody } from './model/StopCbhRequestBody';
-import { UninstallInstanceEipRequest } from './model/UninstallInstanceEipRequest';
-import { UninstallInstanceEipResponse } from './model/UninstallInstanceEipResponse';
+import { UninstallCbhEipRequest } from './model/UninstallCbhEipRequest';
+import { UninstallCbhEipResponse } from './model/UninstallCbhEipResponse';
 import { UpgradeCbhInstanceRequest } from './model/UpgradeCbhInstanceRequest';
 import { UpgradeCbhInstanceResponse } from './model/UpgradeCbhInstanceResponse';
 import { UpgradeCbhRequestBody } from './model/UpgradeCbhRequestBody';
@@ -124,8 +124,8 @@ export class CbhClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-        const options = ParamCreater().createInstance(createInstanceRequest);
+    public createCbh(createCbhRequest?: CreateCbhRequest): Promise<CreateCbhResponse> {
+        const options = ParamCreater().createCbh(createCbhRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -163,8 +163,8 @@ export class CbhClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public installInstanceEip(installInstanceEipRequest?: InstallInstanceEipRequest): Promise<InstallInstanceEipResponse> {
-        const options = ParamCreater().installInstanceEip(installInstanceEipRequest);
+    public installCbhEip(installCbhEipRequest?: InstallCbhEipRequest): Promise<InstallCbhEipResponse> {
+        const options = ParamCreater().installCbhEip(installCbhEipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -371,8 +371,8 @@ export class CbhClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public uninstallInstanceEip(uninstallInstanceEipRequest?: UninstallInstanceEipRequest): Promise<UninstallInstanceEipResponse> {
-        const options = ParamCreater().uninstallInstanceEip(uninstallInstanceEipRequest);
+    public uninstallCbhEip(uninstallCbhEipRequest?: UninstallCbhEipRequest): Promise<UninstallCbhEipResponse> {
+        const options = ParamCreater().uninstallCbhEip(uninstallCbhEipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -517,7 +517,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createInstance(createInstanceRequest?: CreateInstanceRequest) {
+        createCbh(createCbhRequest?: CreateCbhRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/cbs/instance/create",
@@ -531,11 +531,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createInstanceRequest !== null && createInstanceRequest !== undefined) {
-                if (createInstanceRequest instanceof CreateInstanceRequest) {
-                    body = createInstanceRequest.body
+            if (createCbhRequest !== null && createCbhRequest !== undefined) {
+                if (createCbhRequest instanceof CreateCbhRequest) {
+                    body = createCbhRequest.body
                 } else {
-                    body = createInstanceRequest['body'];
+                    body = createCbhRequest['body'];
                 }
             }
 
@@ -593,7 +593,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        installInstanceEip(installInstanceEipRequest?: InstallInstanceEipRequest) {
+        installCbhEip(installCbhEipRequest?: InstallCbhEipRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/cbs/instance/{server_id}/eip/bind",
@@ -609,19 +609,19 @@ export const ParamCreater = function () {
             
             let serverId;
 
-            if (installInstanceEipRequest !== null && installInstanceEipRequest !== undefined) {
-                if (installInstanceEipRequest instanceof InstallInstanceEipRequest) {
-                    serverId = installInstanceEipRequest.serverId;
-                    body = installInstanceEipRequest.body
+            if (installCbhEipRequest !== null && installCbhEipRequest !== undefined) {
+                if (installCbhEipRequest instanceof InstallCbhEipRequest) {
+                    serverId = installCbhEipRequest.serverId;
+                    body = installCbhEipRequest.body
                 } else {
-                    serverId = installInstanceEipRequest['server_id'];
-                    body = installInstanceEipRequest['body'];
+                    serverId = installCbhEipRequest['server_id'];
+                    body = installCbhEipRequest['body'];
                 }
             }
 
         
             if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling installInstanceEip.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling installCbhEip.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -979,7 +979,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        uninstallInstanceEip(uninstallInstanceEipRequest?: UninstallInstanceEipRequest) {
+        uninstallCbhEip(uninstallCbhEipRequest?: UninstallCbhEipRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/cbs/instance/{server_id}/eip/unbind",
@@ -995,19 +995,19 @@ export const ParamCreater = function () {
             
             let serverId;
 
-            if (uninstallInstanceEipRequest !== null && uninstallInstanceEipRequest !== undefined) {
-                if (uninstallInstanceEipRequest instanceof UninstallInstanceEipRequest) {
-                    serverId = uninstallInstanceEipRequest.serverId;
-                    body = uninstallInstanceEipRequest.body
+            if (uninstallCbhEipRequest !== null && uninstallCbhEipRequest !== undefined) {
+                if (uninstallCbhEipRequest instanceof UninstallCbhEipRequest) {
+                    serverId = uninstallCbhEipRequest.serverId;
+                    body = uninstallCbhEipRequest.body
                 } else {
-                    serverId = uninstallInstanceEipRequest['server_id'];
-                    body = uninstallInstanceEipRequest['body'];
+                    serverId = uninstallCbhEipRequest['server_id'];
+                    body = uninstallCbhEipRequest['body'];
                 }
             }
 
         
             if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling uninstallInstanceEip.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling uninstallCbhEip.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

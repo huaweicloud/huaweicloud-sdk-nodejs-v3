@@ -11,6 +11,11 @@ export class BatchScanPrivateImageRequestInfo {
     private 'image_type'?: string;
     private 'scan_status'?: string;
     private 'latest_version'?: boolean;
+    private 'image_size'?: number;
+    private 'start_latest_update_time'?: number;
+    private 'end_latest_update_time'?: number;
+    private 'start_latest_scan_time'?: number;
+    private 'end_latest_scan_time'?: number;
     public constructor(imageType?: string) { 
         this['image_type'] = imageType;
     }
@@ -97,5 +102,55 @@ export class BatchScanPrivateImageRequestInfo {
     }
     public get latestVersion(): boolean | undefined {
         return this['latest_version'];
+    }
+    public withImageSize(imageSize: number): BatchScanPrivateImageRequestInfo {
+        this['image_size'] = imageSize;
+        return this;
+    }
+    public set imageSize(imageSize: number  | undefined) {
+        this['image_size'] = imageSize;
+    }
+    public get imageSize(): number | undefined {
+        return this['image_size'];
+    }
+    public withStartLatestUpdateTime(startLatestUpdateTime: number): BatchScanPrivateImageRequestInfo {
+        this['start_latest_update_time'] = startLatestUpdateTime;
+        return this;
+    }
+    public set startLatestUpdateTime(startLatestUpdateTime: number  | undefined) {
+        this['start_latest_update_time'] = startLatestUpdateTime;
+    }
+    public get startLatestUpdateTime(): number | undefined {
+        return this['start_latest_update_time'];
+    }
+    public withEndLatestUpdateTime(endLatestUpdateTime: number): BatchScanPrivateImageRequestInfo {
+        this['end_latest_update_time'] = endLatestUpdateTime;
+        return this;
+    }
+    public set endLatestUpdateTime(endLatestUpdateTime: number  | undefined) {
+        this['end_latest_update_time'] = endLatestUpdateTime;
+    }
+    public get endLatestUpdateTime(): number | undefined {
+        return this['end_latest_update_time'];
+    }
+    public withStartLatestScanTime(startLatestScanTime: number): BatchScanPrivateImageRequestInfo {
+        this['start_latest_scan_time'] = startLatestScanTime;
+        return this;
+    }
+    public set startLatestScanTime(startLatestScanTime: number  | undefined) {
+        this['start_latest_scan_time'] = startLatestScanTime;
+    }
+    public get startLatestScanTime(): number | undefined {
+        return this['start_latest_scan_time'];
+    }
+    public withEndLatestScanTime(endLatestScanTime: number): BatchScanPrivateImageRequestInfo {
+        this['end_latest_scan_time'] = endLatestScanTime;
+        return this;
+    }
+    public set endLatestScanTime(endLatestScanTime: number  | undefined) {
+        this['end_latest_scan_time'] = endLatestScanTime;
+    }
+    public get endLatestScanTime(): number | undefined {
+        return this['end_latest_scan_time'];
     }
 }

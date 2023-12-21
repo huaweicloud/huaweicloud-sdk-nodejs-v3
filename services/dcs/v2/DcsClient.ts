@@ -216,6 +216,7 @@ import { QueryTenantQuotaRespQuotas } from './model/QueryTenantQuotaRespQuotas';
 import { RecordsResponse } from './model/RecordsResponse';
 import { RedisConfig } from './model/RedisConfig';
 import { RenameCommandResp } from './model/RenameCommandResp';
+import { ReplicationInfo } from './model/ReplicationInfo';
 import { ResetAclAccountPassWordRequest } from './model/ResetAclAccountPassWordRequest';
 import { ResetAclAccountPassWordResponse } from './model/ResetAclAccountPassWordResponse';
 import { ResetInstancePasswordBody } from './model/ResetInstancePasswordBody';
@@ -328,6 +329,8 @@ import { UpdatePasswordRequest } from './model/UpdatePasswordRequest';
 import { UpdatePasswordResponse } from './model/UpdatePasswordResponse';
 import { UpdateSlavePriorityRequest } from './model/UpdateSlavePriorityRequest';
 import { UpdateSlavePriorityResponse } from './model/UpdateSlavePriorityResponse';
+import { ValidateDeletableReplicaRequest } from './model/ValidateDeletableReplicaRequest';
+import { ValidateDeletableReplicaResponse } from './model/ValidateDeletableReplicaResponse';
 import { Whitelist } from './model/Whitelist';
 
 export class DcsClient {
@@ -1931,6 +1934,9 @@ export class DcsClient {
      *
      * @summary 查询过期Key扫描记录
      * @param {string} instanceId 实例ID
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， start大于等于0
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {'waiting' | 'running' | 'success' | 'failed'} [status] 过期key状态
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2491,6 +2497,25 @@ export class DcsClient {
      */
     public updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest): Promise<UpdateSlavePriorityResponse> {
         const options = ParamCreater().updateSlavePriority(updateSlavePriorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验集群副本是否支持删除
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验集群副本是否支持删除
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateDeletableReplica(validateDeletableReplicaRequest?: ValidateDeletableReplicaRequest): Promise<ValidateDeletableReplicaResponse> {
+        const options = ParamCreater().validateDeletableReplica(validateDeletableReplicaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6146,15 +6171,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
 
             if (showExpireKeyScanInfoRequest !== null && showExpireKeyScanInfoRequest !== undefined) {
                 if (showExpireKeyScanInfoRequest instanceof ShowExpireKeyScanInfoRequest) {
                     instanceId = showExpireKeyScanInfoRequest.instanceId;
+                    offset = showExpireKeyScanInfoRequest.offset;
+                    limit = showExpireKeyScanInfoRequest.limit;
+                    status = showExpireKeyScanInfoRequest.status;
                 } else {
                     instanceId = showExpireKeyScanInfoRequest['instance_id'];
+                    offset = showExpireKeyScanInfoRequest['offset'];
+                    limit = showExpireKeyScanInfoRequest['limit'];
+                    status = showExpireKeyScanInfoRequest['status'];
                 }
             }
 
@@ -6162,7 +6199,17 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showExpireKeyScanInfo.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7358,6 +7405,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'group_id': groupId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验集群副本是否支持删除
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateDeletableReplica(validateDeletableReplicaRequest?: ValidateDeletableReplicaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/deletable-replication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (validateDeletableReplicaRequest !== null && validateDeletableReplicaRequest !== undefined) {
+                if (validateDeletableReplicaRequest instanceof ValidateDeletableReplicaRequest) {
+                    instanceId = validateDeletableReplicaRequest.instanceId;
+                } else {
+                    instanceId = validateDeletableReplicaRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling validateDeletableReplica.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

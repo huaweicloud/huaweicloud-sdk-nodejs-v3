@@ -5,6 +5,7 @@ export class ListAppStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    public category?: string;
     public constructor() { 
     }
     public withAppName(appName: string): ListAppStatisticsRequest {
@@ -33,6 +34,10 @@ export class ListAppStatisticsRequest {
     }
     public withOffset(offset: number): ListAppStatisticsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListAppStatisticsRequest {
+        this['category'] = category;
         return this;
     }
 }

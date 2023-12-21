@@ -7,6 +7,7 @@ export class UpdateInstanceTopicReqTopics {
     private 'sync_replication'?: boolean;
     private 'sync_message_flush'?: boolean;
     private 'new_partition_numbers'?: number;
+    private 'new_partition_brokers'?: Array<number>;
     private 'topic_other_configs'?: Array<CreateInstanceTopicReqTopicOtherConfigs>;
     private 'topic_desc'?: string;
     public constructor(id?: string) { 
@@ -55,6 +56,16 @@ export class UpdateInstanceTopicReqTopics {
     }
     public get newPartitionNumbers(): number | undefined {
         return this['new_partition_numbers'];
+    }
+    public withNewPartitionBrokers(newPartitionBrokers: Array<number>): UpdateInstanceTopicReqTopics {
+        this['new_partition_brokers'] = newPartitionBrokers;
+        return this;
+    }
+    public set newPartitionBrokers(newPartitionBrokers: Array<number>  | undefined) {
+        this['new_partition_brokers'] = newPartitionBrokers;
+    }
+    public get newPartitionBrokers(): Array<number> | undefined {
+        return this['new_partition_brokers'];
     }
     public withTopicOtherConfigs(topicOtherConfigs: Array<CreateInstanceTopicReqTopicOtherConfigs>): UpdateInstanceTopicReqTopics {
         this['topic_other_configs'] = topicOtherConfigs;

@@ -234,7 +234,8 @@ export enum TestEndPointDbTypeEnum {
     GAUSSDBV5 = 'gaussdbv5',
     POSTGRESQL = 'postgresql',
     KAFKA = 'kafka',
-    GAUSSDBV5HA = 'gaussdbv5ha'
+    GAUSSDBV5HA = 'gaussdbv5ha',
+    TAURUS = 'taurus'
 }
 /**
     * @export
