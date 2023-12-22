@@ -2,6 +2,7 @@
 
 export class TrackerOBSChannelConfigBody {
     private 'bucket_name'?: string;
+    private 'bucket_prefix'?: string;
     private 'region_id'?: string;
     public constructor(bucketName?: string, regionId?: string) { 
         this['bucket_name'] = bucketName;
@@ -16,6 +17,16 @@ export class TrackerOBSChannelConfigBody {
     }
     public get bucketName(): string | undefined {
         return this['bucket_name'];
+    }
+    public withBucketPrefix(bucketPrefix: string): TrackerOBSChannelConfigBody {
+        this['bucket_prefix'] = bucketPrefix;
+        return this;
+    }
+    public set bucketPrefix(bucketPrefix: string  | undefined) {
+        this['bucket_prefix'] = bucketPrefix;
+    }
+    public get bucketPrefix(): string | undefined {
+        return this['bucket_prefix'];
     }
     public withRegionId(regionId: string): TrackerOBSChannelConfigBody {
         this['region_id'] = regionId;
