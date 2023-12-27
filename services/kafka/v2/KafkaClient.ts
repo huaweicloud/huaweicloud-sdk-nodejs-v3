@@ -53,6 +53,9 @@ import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceReq
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
 import { CreateReassignmentTaskRequest } from './model/CreateReassignmentTaskRequest';
 import { CreateReassignmentTaskResponse } from './model/CreateReassignmentTaskResponse';
+import { CreateShrinkageJobRequest } from './model/CreateShrinkageJobRequest';
+import { CreateShrinkageJobRequestBody } from './model/CreateShrinkageJobRequestBody';
+import { CreateShrinkageJobResponse } from './model/CreateShrinkageJobResponse';
 import { CreateSinkTaskReq } from './model/CreateSinkTaskReq';
 import { CreateSinkTaskRequest } from './model/CreateSinkTaskRequest';
 import { CreateSinkTaskResponse } from './model/CreateSinkTaskResponse';
@@ -211,6 +214,10 @@ import { ShowPartitionEndMessageResponse } from './model/ShowPartitionEndMessage
 import { ShowPartitionMessageEntity } from './model/ShowPartitionMessageEntity';
 import { ShowPartitionMessageRequest } from './model/ShowPartitionMessageRequest';
 import { ShowPartitionMessageResponse } from './model/ShowPartitionMessageResponse';
+import { ShowShrinkCheckRequestBody } from './model/ShowShrinkCheckRequestBody';
+import { ShowShrinkCheckResponseBodyCheckDetail } from './model/ShowShrinkCheckResponseBodyCheckDetail';
+import { ShowShrinkCheckResultRequest } from './model/ShowShrinkCheckResultRequest';
+import { ShowShrinkCheckResultResponse } from './model/ShowShrinkCheckResultResponse';
 import { ShowSinkTaskDetailRequest } from './model/ShowSinkTaskDetailRequest';
 import { ShowSinkTaskDetailRespObsDestinationDescriptor } from './model/ShowSinkTaskDetailRespObsDestinationDescriptor';
 import { ShowSinkTaskDetailRespPartitions } from './model/ShowSinkTaskDetailRespPartitions';
@@ -567,6 +574,27 @@ export class KafkaClient {
      */
     public createReassignmentTask(createReassignmentTaskRequest?: CreateReassignmentTaskRequest): Promise<CreateReassignmentTaskResponse> {
         const options = ParamCreater().createReassignmentTask(createReassignmentTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 实例缩容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例缩容
+     * @param {'kafka'} engine 消息引擎。
+     * @param {string} instanceId 实例ID。
+     * @param {CreateShrinkageJobRequestBody} createShrinkageJobRequestBody 创建缩容任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createShrinkageJob(createShrinkageJobRequest?: CreateShrinkageJobRequest): Promise<CreateShrinkageJobResponse> {
+        const options = ParamCreater().createShrinkageJob(createShrinkageJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1532,6 +1560,27 @@ export class KafkaClient {
     }
 
     /**
+     * 实例缩容前置检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例缩容前置检查
+     * @param {'kafka'} engine 消息引擎。
+     * @param {string} instanceId 实例ID。
+     * @param {ShowShrinkCheckRequestBody} showShrinkCheckRequestBody 实例缩容前置检查请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showShrinkCheckResult(showShrinkCheckResultRequest?: ShowShrinkCheckResultRequest): Promise<ShowShrinkCheckResultResponse> {
+        const options = ParamCreater().showShrinkCheckResult(showShrinkCheckResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个转储任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2453,6 +2502,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 实例缩容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createShrinkageJob(createShrinkageJobRequest?: CreateShrinkageJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/shrink",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (createShrinkageJobRequest !== null && createShrinkageJobRequest !== undefined) {
+                if (createShrinkageJobRequest instanceof CreateShrinkageJobRequest) {
+                    engine = createShrinkageJobRequest.engine;
+                    instanceId = createShrinkageJobRequest.instanceId;
+                    body = createShrinkageJobRequest.body
+                } else {
+                    engine = createShrinkageJobRequest['engine'];
+                    instanceId = createShrinkageJobRequest['instance_id'];
+                    body = createShrinkageJobRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling createShrinkageJob.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createShrinkageJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4698,6 +4800,59 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'topic': topic,'partition': partition, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 实例缩容前置检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showShrinkCheckResult(showShrinkCheckResultRequest?: ShowShrinkCheckResultRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/shrink-check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (showShrinkCheckResultRequest !== null && showShrinkCheckResultRequest !== undefined) {
+                if (showShrinkCheckResultRequest instanceof ShowShrinkCheckResultRequest) {
+                    engine = showShrinkCheckResultRequest.engine;
+                    instanceId = showShrinkCheckResultRequest.instanceId;
+                    body = showShrinkCheckResultRequest.body
+                } else {
+                    engine = showShrinkCheckResultRequest['engine'];
+                    instanceId = showShrinkCheckResultRequest['instance_id'];
+                    body = showShrinkCheckResultRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showShrinkCheckResult.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showShrinkCheckResult.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

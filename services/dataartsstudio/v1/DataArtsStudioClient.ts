@@ -6,6 +6,7 @@ import { AddTagToAssetRequest } from './model/AddTagToAssetRequest';
 import { AddTagToAssetResponse } from './model/AddTagToAssetResponse';
 import { AddWorkSpaceUsersRequest } from './model/AddWorkSpaceUsersRequest';
 import { AddWorkSpaceUsersResponse } from './model/AddWorkSpaceUsersResponse';
+import { AlarmInfoResponseAlarmInfo } from './model/AlarmInfoResponseAlarmInfo';
 import { Api } from './model/Api';
 import { ApiActionDTO } from './model/ApiActionDTO';
 import { ApiCatalogCreateParaDTO } from './model/ApiCatalogCreateParaDTO';
@@ -44,6 +45,7 @@ import { ApprovalInfoParam } from './model/ApprovalInfoParam';
 import { ApprovalStatusEnum } from './model/ApprovalStatusEnum';
 import { ApprovalTypeEnum } from './model/ApprovalTypeEnum';
 import { ApprovalVO } from './model/ApprovalVO';
+import { Approver } from './model/Approver';
 import { ApproverParam } from './model/ApproverParam';
 import { ArchitectureStatistic } from './model/ArchitectureStatistic';
 import { AssociateClassificationToEntityRequest } from './model/AssociateClassificationToEntityRequest';
@@ -66,6 +68,7 @@ import { AuthorizeApiToInstanceResponse } from './model/AuthorizeApiToInstanceRe
 import { BackendConfig } from './model/BackendConfig';
 import { BackendConstant } from './model/BackendConstant';
 import { BackendRequestPara } from './model/BackendRequestPara';
+import { BasicInfo } from './model/BasicInfo';
 import { BatchApproveApplyRequest } from './model/BatchApproveApplyRequest';
 import { BatchApproveApplyResponse } from './model/BatchApproveApplyResponse';
 import { BatchAssociateClassificationToEntitiesRequest } from './model/BatchAssociateClassificationToEntitiesRequest';
@@ -129,6 +132,7 @@ import { CompoundMetricVO } from './model/CompoundMetricVO';
 import { CompoundMetricVODetailData } from './model/CompoundMetricVODetailData';
 import { CompoundMetricVOSearchResultData } from './model/CompoundMetricVOSearchResultData';
 import { CompoundMetricVOSearchResultDataValue } from './model/CompoundMetricVOSearchResultDataValue';
+import { Condition } from './model/Condition';
 import { ConfirmApprovalsRequest } from './model/ConfirmApprovalsRequest';
 import { ConfirmApprovalsResponse } from './model/ConfirmApprovalsResponse';
 import { ConfirmMessageRequest } from './model/ConfirmMessageRequest';
@@ -161,6 +165,8 @@ import { CreateDirectoryRequest } from './model/CreateDirectoryRequest';
 import { CreateDirectoryResponse } from './model/CreateDirectoryResponse';
 import { CreateFactoryEnvRequest } from './model/CreateFactoryEnvRequest';
 import { CreateFactoryEnvResponse } from './model/CreateFactoryEnvResponse';
+import { CreateFactoryJobRequest } from './model/CreateFactoryJobRequest';
+import { CreateFactoryJobResponse } from './model/CreateFactoryJobResponse';
 import { CreateFactorySupplementDataInstanceRequest } from './model/CreateFactorySupplementDataInstanceRequest';
 import { CreateFactorySupplementDataInstanceRequestBody } from './model/CreateFactorySupplementDataInstanceRequestBody';
 import { CreateFactorySupplementDataInstanceRequestBodyDependJobs } from './model/CreateFactorySupplementDataInstanceRequestBodyDependJobs';
@@ -198,6 +204,7 @@ import { CreateTemplateResponse } from './model/CreateTemplateResponse';
 import { CreateWorkspaceParams } from './model/CreateWorkspaceParams';
 import { CreateWorkspaceRequest } from './model/CreateWorkspaceRequest';
 import { CreateWorkspaceResponse } from './model/CreateWorkspaceResponse';
+import { Cron } from './model/Cron';
 import { CssIndex } from './model/CssIndex';
 import { CustomMetadata } from './model/CustomMetadata';
 import { CustomizedFieldsVO } from './model/CustomizedFieldsVO';
@@ -262,6 +269,7 @@ import { DeleteWorkspacesRequest } from './model/DeleteWorkspacesRequest';
 import { DeleteWorkspacesResponse } from './model/DeleteWorkspacesResponse';
 import { DeleteWorkspaceusersRequest } from './model/DeleteWorkspaceusersRequest';
 import { DeleteWorkspaceusersResponse } from './model/DeleteWorkspaceusersResponse';
+import { DependJob } from './model/DependJob';
 import { DerivativeIndexDimensionVO } from './model/DerivativeIndexDimensionVO';
 import { DerivativeIndexVO } from './model/DerivativeIndexVO';
 import { DerivativeIndexVODetailData } from './model/DerivativeIndexVODetailData';
@@ -279,6 +287,7 @@ import { EntityWithExtInfo } from './model/EntityWithExtInfo';
 import { EnvRequestBody } from './model/EnvRequestBody';
 import { EnvRequestBodyParams } from './model/EnvRequestBodyParams';
 import { EnvRespParams } from './model/EnvRespParams';
+import { Event } from './model/Event';
 import { EventParam } from './model/EventParam';
 import { ExecuteApiToInstanceRequest } from './model/ExecuteApiToInstanceRequest';
 import { ExecuteApiToInstanceResponse } from './model/ExecuteApiToInstanceResponse';
@@ -297,7 +306,10 @@ import { InitializeStandardTemplateResponse } from './model/InitializeStandardTe
 import { InstanceForApiActionDTO } from './model/InstanceForApiActionDTO';
 import { InstanceHostDTO } from './model/InstanceHostDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
+import { JobInfoRequest } from './model/JobInfoRequest';
 import { JobLogRequest } from './model/JobLogRequest';
+import { JobParam } from './model/JobParam';
+import { JobResp } from './model/JobResp';
 import { L1 } from './model/L1';
 import { L1Statistic } from './model/L1Statistic';
 import { L2 } from './model/L2';
@@ -305,6 +317,7 @@ import { L2Id } from './model/L2Id';
 import { L2Statistic } from './model/L2Statistic';
 import { L3 } from './model/L3';
 import { LayerPath } from './model/LayerPath';
+import { LineageRelation } from './model/LineageRelation';
 import { LinkAttributeAndElementVO } from './model/LinkAttributeAndElementVO';
 import { ListAggregationLogicTablesRequest } from './model/ListAggregationLogicTablesRequest';
 import { ListAggregationLogicTablesResponse } from './model/ListAggregationLogicTablesResponse';
@@ -374,6 +387,10 @@ import { ListDirectoriesRequest } from './model/ListDirectoriesRequest';
 import { ListDirectoriesResponse } from './model/ListDirectoriesResponse';
 import { ListFactLogicTablesRequest } from './model/ListFactLogicTablesRequest';
 import { ListFactLogicTablesResponse } from './model/ListFactLogicTablesResponse';
+import { ListFactoryAlarmInfoRequest } from './model/ListFactoryAlarmInfoRequest';
+import { ListFactoryAlarmInfoResponse } from './model/ListFactoryAlarmInfoResponse';
+import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
+import { ListFactoryJobsResponse } from './model/ListFactoryJobsResponse';
 import { ListInstanceListRequest } from './model/ListInstanceListRequest';
 import { ListInstanceListResponse } from './model/ListInstanceListResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
@@ -416,6 +433,7 @@ import { ListWorkspacesRequest } from './model/ListWorkspacesRequest';
 import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
 import { ListWorkspaceusersRequest } from './model/ListWorkspaceusersRequest';
 import { ListWorkspaceusersResponse } from './model/ListWorkspaceusersResponse';
+import { Location } from './model/Location';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
@@ -430,6 +448,7 @@ import { ModelLevel } from './model/ModelLevel';
 import { ModifyCustomizedFieldsRequest } from './model/ModifyCustomizedFieldsRequest';
 import { ModifyCustomizedFieldsResponse } from './model/ModifyCustomizedFieldsResponse';
 import { Namespace } from './model/Namespace';
+import { Node } from './model/Node';
 import { ObsFolder } from './model/ObsFolder';
 import { OpenApiParaForCheckMessage } from './model/OpenApiParaForCheckMessage';
 import { OpenApiParaForPublish } from './model/OpenApiParaForPublish';
@@ -454,6 +473,7 @@ import { PermissionSetPermission } from './model/PermissionSetPermission';
 import { PermissionSetPermissionCreateDTO } from './model/PermissionSetPermissionCreateDTO';
 import { PermissionSetPermissionUpdateDTO } from './model/PermissionSetPermissionUpdateDTO';
 import { ProfileInfo } from './model/ProfileInfo';
+import { Property } from './model/Property';
 import { PublishApiRequest } from './model/PublishApiRequest';
 import { PublishApiResponse } from './model/PublishApiResponse';
 import { PublishApiToInstanceRequest } from './model/PublishApiToInstanceRequest';
@@ -475,6 +495,7 @@ import { ResetLinkAttributeAndStandardResponse } from './model/ResetLinkAttribut
 import { RollbackApprovalRequest } from './model/RollbackApprovalRequest';
 import { RollbackApprovalResponse } from './model/RollbackApprovalResponse';
 import { RuleTemplateDetailVO } from './model/RuleTemplateDetailVO';
+import { Schedule } from './model/Schedule';
 import { SchedulerInfo } from './model/SchedulerInfo';
 import { SchemasList } from './model/SchemasList';
 import { SearchApprovalsRequest } from './model/SearchApprovalsRequest';
@@ -583,6 +604,8 @@ import { ShowInstanceLogRequest } from './model/ShowInstanceLogRequest';
 import { ShowInstanceLogResponse } from './model/ShowInstanceLogResponse';
 import { ShowInstanceResultRequest } from './model/ShowInstanceResultRequest';
 import { ShowInstanceResultResponse } from './model/ShowInstanceResultResponse';
+import { ShowLineageRequest } from './model/ShowLineageRequest';
+import { ShowLineageResponse } from './model/ShowLineageResponse';
 import { ShowMessageDetailRequest } from './model/ShowMessageDetailRequest';
 import { ShowMessageDetailResponse } from './model/ShowMessageDetailResponse';
 import { ShowMetricAssetsRequest } from './model/ShowMetricAssetsRequest';
@@ -1385,6 +1408,26 @@ export class DataArtsStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['status_code', 'is_success'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建作业
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建作业
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {JobInfoRequest} createFactoryJobRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFactoryJob(createFactoryJobRequest?: CreateFactoryJobRequest): Promise<CreateFactoryJobResponse> {
+        const options = ParamCreater().createFactoryJob(createFactoryJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3051,6 +3094,53 @@ export class DataArtsStudioClient {
      */
     public listFactLogicTables(listFactLogicTablesRequest?: ListFactLogicTablesRequest): Promise<ListFactLogicTablesResponse> {
         const options = ParamCreater().listFactLogicTables(listFactLogicTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警通知记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警通知记录
+     * @param {string} [workspace] 工作空间ID
+     * @param {number} [startTime] 告警的开始时间，默认当前时间的前一个小时，13位时间戳
+     * @param {number} [endTime] 告警的最后时间，默认为当前时间，13位时间戳
+     * @param {number} [offset] 分页的起始页，默认值为0。取值范围大于等于0。
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数。默认值10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryAlarmInfo(listFactoryAlarmInfoRequest?: ListFactoryAlarmInfoRequest): Promise<ListFactoryAlarmInfoResponse> {
+        const options = ParamCreater().listFactoryAlarmInfo(listFactoryAlarmInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询作业列表清单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询作业列表
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [limit] 分页参数：每页限定数量
+     * @param {number} [offset] 分页参数：页数
+     * @param {'REAL_TIME' | 'BATCH'} [jobType] 作业类型:  - REAL_TIME: 实时处理  - BATCH: 批处理
+     * @param {string} [jobName] 作业名称
+     * @param {string} [tags] 作业标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryJobs(listFactoryJobsRequest?: ListFactoryJobsRequest): Promise<ListFactoryJobsResponse> {
+        const options = ParamCreater().listFactoryJobs(listFactoryJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4791,6 +4881,28 @@ export class DataArtsStudioClient {
      */
     public showInstanceResult(showInstanceResultRequest?: ShowInstanceResultRequest): Promise<ShowInstanceResultResponse> {
         const options = ParamCreater().showInstanceResult(showInstanceResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 血缘查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 血缘查询
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} guid 资产guid
+     * @param {string} [direction] 查询方向，取值范围：BOTH、IN、OUT。默认BOTH
+     * @param {number} [depth] 血缘链路长度，默认值5
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLineage(showLineageRequest?: ShowLineageRequest): Promise<ShowLineageResponse> {
+        const options = ParamCreater().showLineage(showLineageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7578,6 +7690,51 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建作业
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFactoryJob(createFactoryJobRequest?: CreateFactoryJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/jobs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createFactoryJobRequest !== null && createFactoryJobRequest !== undefined) {
+                if (createFactoryJobRequest instanceof CreateFactoryJobRequest) {
+                    workspace = createFactoryJobRequest.workspace;
+                    body = createFactoryJobRequest.body
+                } else {
+                    workspace = createFactoryJobRequest['workspace'];
+                    body = createFactoryJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -12275,6 +12432,143 @@ export const ParamCreater = function () {
             }
             if (bizCatalogId !== null && bizCatalogId !== undefined) {
                 localVarQueryParameter['biz_catalog_id'] = bizCatalogId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询告警通知记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryAlarmInfo(listFactoryAlarmInfoRequest?: ListFactoryAlarmInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/alarm-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+
+            if (listFactoryAlarmInfoRequest !== null && listFactoryAlarmInfoRequest !== undefined) {
+                if (listFactoryAlarmInfoRequest instanceof ListFactoryAlarmInfoRequest) {
+                    workspace = listFactoryAlarmInfoRequest.workspace;
+                    startTime = listFactoryAlarmInfoRequest.startTime;
+                    endTime = listFactoryAlarmInfoRequest.endTime;
+                    offset = listFactoryAlarmInfoRequest.offset;
+                    limit = listFactoryAlarmInfoRequest.limit;
+                } else {
+                    workspace = listFactoryAlarmInfoRequest['workspace'];
+                    startTime = listFactoryAlarmInfoRequest['start_time'];
+                    endTime = listFactoryAlarmInfoRequest['end_time'];
+                    offset = listFactoryAlarmInfoRequest['offset'];
+                    limit = listFactoryAlarmInfoRequest['limit'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询作业列表清单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryJobs(listFactoryJobsRequest?: ListFactoryJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let jobType;
+            
+            let jobName;
+            
+            let tags;
+
+            if (listFactoryJobsRequest !== null && listFactoryJobsRequest !== undefined) {
+                if (listFactoryJobsRequest instanceof ListFactoryJobsRequest) {
+                    workspace = listFactoryJobsRequest.workspace;
+                    limit = listFactoryJobsRequest.limit;
+                    offset = listFactoryJobsRequest.offset;
+                    jobType = listFactoryJobsRequest.jobType;
+                    jobName = listFactoryJobsRequest.jobName;
+                    tags = listFactoryJobsRequest.tags;
+                } else {
+                    workspace = listFactoryJobsRequest['workspace'];
+                    limit = listFactoryJobsRequest['limit'];
+                    offset = listFactoryJobsRequest['offset'];
+                    jobType = listFactoryJobsRequest['job_type'];
+                    jobName = listFactoryJobsRequest['job_name'];
+                    tags = listFactoryJobsRequest['tags'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
@@ -17492,6 +17786,65 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 血缘查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLineage(showLineageRequest?: ShowLineageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/entities/{guid}/lineage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let guid;
+            
+            let direction;
+            
+            let depth;
+
+            if (showLineageRequest !== null && showLineageRequest !== undefined) {
+                if (showLineageRequest instanceof ShowLineageRequest) {
+                    workspace = showLineageRequest.workspace;
+                    guid = showLineageRequest.guid;
+                    direction = showLineageRequest.direction;
+                    depth = showLineageRequest.depth;
+                } else {
+                    workspace = showLineageRequest['workspace'];
+                    guid = showLineageRequest['guid'];
+                    direction = showLineageRequest['direction'];
+                    depth = showLineageRequest['depth'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showLineage.');
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (depth !== null && depth !== undefined) {
+                localVarQueryParameter['depth'] = depth;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },

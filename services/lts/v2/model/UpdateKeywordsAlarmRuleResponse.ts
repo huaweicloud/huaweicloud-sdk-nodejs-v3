@@ -7,6 +7,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     private 'keywords_alarm_rule_id'?: string;
     private 'keywords_alarm_rule_name'?: string;
+    private 'alarm_rule_alias'?: string;
     private 'keywords_alarm_rule_description'?: string;
     private 'keywords_requests'?: Array<KeywordsResBody>;
     public frequency?: FrequencyRespBody;
@@ -44,6 +45,16 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     }
     public get keywordsAlarmRuleName(): string | undefined {
         return this['keywords_alarm_rule_name'];
+    }
+    public withAlarmRuleAlias(alarmRuleAlias: string): UpdateKeywordsAlarmRuleResponse {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+        return this;
+    }
+    public set alarmRuleAlias(alarmRuleAlias: string  | undefined) {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+    }
+    public get alarmRuleAlias(): string | undefined {
+        return this['alarm_rule_alias'];
     }
     public withKeywordsAlarmRuleDescription(keywordsAlarmRuleDescription: string): UpdateKeywordsAlarmRuleResponse {
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;

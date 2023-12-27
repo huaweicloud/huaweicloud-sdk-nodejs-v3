@@ -1,4 +1,5 @@
 import { Secret } from './Secret';
+import { SysTag } from './SysTag';
 import { TagItem } from './TagItem';
 
 
@@ -7,6 +8,7 @@ export class ActionResources {
     private 'resource_detail'?: Secret;
     private 'resource_name'?: string;
     public tags?: Array<TagItem>;
+    private 'sys_tags'?: Array<SysTag>;
     public constructor() { 
     }
     public withResourceId(resourceId: string): ActionResources {
@@ -42,5 +44,15 @@ export class ActionResources {
     public withTags(tags: Array<TagItem>): ActionResources {
         this['tags'] = tags;
         return this;
+    }
+    public withSysTags(sysTags: Array<SysTag>): ActionResources {
+        this['sys_tags'] = sysTags;
+        return this;
+    }
+    public set sysTags(sysTags: Array<SysTag>  | undefined) {
+        this['sys_tags'] = sysTags;
+    }
+    public get sysTags(): Array<SysTag> | undefined {
+        return this['sys_tags'];
     }
 }

@@ -14,10 +14,8 @@ export class ListAssetsRequest {
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     private 'asset_source'?: ListAssetsRequestAssetSourceEnum | string;
-    private 'asset_manage_type'?: ListAssetsRequestAssetManageTypeEnum | string;
     private 'asset_state'?: string;
     private 'style_id'?: string;
-    private 'X-User-MePrivilege'?: string;
     private 'render_engine'?: string;
     public sex?: string;
     public language?: string;
@@ -131,16 +129,6 @@ export class ListAssetsRequest {
     public get assetSource(): ListAssetsRequestAssetSourceEnum | string | undefined {
         return this['asset_source'];
     }
-    public withAssetManageType(assetManageType: ListAssetsRequestAssetManageTypeEnum | string): ListAssetsRequest {
-        this['asset_manage_type'] = assetManageType;
-        return this;
-    }
-    public set assetManageType(assetManageType: ListAssetsRequestAssetManageTypeEnum | string  | undefined) {
-        this['asset_manage_type'] = assetManageType;
-    }
-    public get assetManageType(): ListAssetsRequestAssetManageTypeEnum | string | undefined {
-        return this['asset_manage_type'];
-    }
     public withAssetState(assetState: string): ListAssetsRequest {
         this['asset_state'] = assetState;
         return this;
@@ -160,16 +148,6 @@ export class ListAssetsRequest {
     }
     public get styleId(): string | undefined {
         return this['style_id'];
-    }
-    public withXUserMePrivilege(xUserMePrivilege: string): ListAssetsRequest {
-        this['X-User-MePrivilege'] = xUserMePrivilege;
-        return this;
-    }
-    public set xUserMePrivilege(xUserMePrivilege: string  | undefined) {
-        this['X-User-MePrivilege'] = xUserMePrivilege;
-    }
-    public get xUserMePrivilege(): string | undefined {
-        return this['X-User-MePrivilege'];
     }
     public withRenderEngine(renderEngine: string): ListAssetsRequest {
         this['render_engine'] = renderEngine;
@@ -219,18 +197,4 @@ export enum ListAssetsRequestAssetSourceEnum {
     SYSTEM = 'SYSTEM',
     CUSTOMIZATION = 'CUSTOMIZATION',
     ALL = 'ALL'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAssetsRequestAssetManageTypeEnum {
-    UPLOAD = 'UPLOAD',
-    UPLOADED = 'UPLOADED',
-    UPLOADING = 'UPLOADING',
-    UPLOAD_FAILED = 'UPLOAD_FAILED',
-    DOWNLOAD = 'DOWNLOAD',
-    COLLECTIO = 'COLLECTIO',
-    DRAFT = 'DRAFT',
-    RECYCLE = 'RECYCLE'
 }

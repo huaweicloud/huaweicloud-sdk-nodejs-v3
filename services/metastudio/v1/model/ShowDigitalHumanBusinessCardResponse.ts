@@ -9,8 +9,10 @@ export class ShowDigitalHumanBusinessCardResponse extends SdkResponse {
     private 'card_templet_asset_id'?: string;
     private 'card_text_config'?: BusinessCardTextConfig;
     private 'card_image_url'?: BusinessCardImageUrl;
+    private 'introduction_type'?: ShowDigitalHumanBusinessCardResponseIntroductionTypeEnum | string;
     private 'introduction_text'?: string;
     private 'voice_asset_id'?: string;
+    private 'introduction_audio_asset_id'?: string;
     public gender?: ShowDigitalHumanBusinessCardResponseGenderEnum | string;
     private 'X-Request-Id'?: string;
     public constructor() { 
@@ -56,6 +58,16 @@ export class ShowDigitalHumanBusinessCardResponse extends SdkResponse {
     public get cardImageUrl(): BusinessCardImageUrl | undefined {
         return this['card_image_url'];
     }
+    public withIntroductionType(introductionType: ShowDigitalHumanBusinessCardResponseIntroductionTypeEnum | string): ShowDigitalHumanBusinessCardResponse {
+        this['introduction_type'] = introductionType;
+        return this;
+    }
+    public set introductionType(introductionType: ShowDigitalHumanBusinessCardResponseIntroductionTypeEnum | string  | undefined) {
+        this['introduction_type'] = introductionType;
+    }
+    public get introductionType(): ShowDigitalHumanBusinessCardResponseIntroductionTypeEnum | string | undefined {
+        return this['introduction_type'];
+    }
     public withIntroductionText(introductionText: string): ShowDigitalHumanBusinessCardResponse {
         this['introduction_text'] = introductionText;
         return this;
@@ -76,6 +88,16 @@ export class ShowDigitalHumanBusinessCardResponse extends SdkResponse {
     public get voiceAssetId(): string | undefined {
         return this['voice_asset_id'];
     }
+    public withIntroductionAudioAssetId(introductionAudioAssetId: string): ShowDigitalHumanBusinessCardResponse {
+        this['introduction_audio_asset_id'] = introductionAudioAssetId;
+        return this;
+    }
+    public set introductionAudioAssetId(introductionAudioAssetId: string  | undefined) {
+        this['introduction_audio_asset_id'] = introductionAudioAssetId;
+    }
+    public get introductionAudioAssetId(): string | undefined {
+        return this['introduction_audio_asset_id'];
+    }
     public withGender(gender: ShowDigitalHumanBusinessCardResponseGenderEnum | string): ShowDigitalHumanBusinessCardResponse {
         this['gender'] = gender;
         return this;
@@ -92,6 +114,14 @@ export class ShowDigitalHumanBusinessCardResponse extends SdkResponse {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowDigitalHumanBusinessCardResponseIntroductionTypeEnum {
+    TEXT = 'TEXT',
+    AUDIO = 'AUDIO'
+}
 /**
     * @export
     * @enum {string}

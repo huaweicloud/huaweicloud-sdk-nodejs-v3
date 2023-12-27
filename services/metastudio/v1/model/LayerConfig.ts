@@ -7,6 +7,7 @@ import { VideoLayerConfig } from './VideoLayerConfig';
 
 export class LayerConfig {
     private 'layer_type'?: LayerConfigLayerTypeEnum | string;
+    private 'group_id'?: string;
     public position?: LayerPositionConfig;
     public size?: LayerSizeConfig;
     private 'image_config'?: ImageLayerConfig;
@@ -25,6 +26,16 @@ export class LayerConfig {
     }
     public get layerType(): LayerConfigLayerTypeEnum | string | undefined {
         return this['layer_type'];
+    }
+    public withGroupId(groupId: string): LayerConfig {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withPosition(position: LayerPositionConfig): LayerConfig {
         this['position'] = position;
@@ -73,5 +84,6 @@ export class LayerConfig {
 export enum LayerConfigLayerTypeEnum {
     HUMAN = 'HUMAN',
     IMAGE = 'IMAGE',
-    VIDEO = 'VIDEO'
+    VIDEO = 'VIDEO',
+    TEXT = 'TEXT'
 }

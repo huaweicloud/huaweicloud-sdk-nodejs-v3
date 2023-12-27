@@ -1,13 +1,14 @@
+import { InstanceDetail } from './InstanceDetail';
 import { ResourceTag } from './ResourceTag';
 
 
 export class Resources {
     private 'resource_id'?: string;
-    private 'resource_detail'?: object;
+    private 'resource_detail'?: InstanceDetail;
     public tags?: Array<ResourceTag>;
     private 'sys_tags'?: Array<ResourceTag>;
     private 'resource_name'?: string;
-    public constructor(resourceId?: string, resourceDetail?: object, tags?: Array<ResourceTag>, sysTags?: Array<ResourceTag>, resourceName?: string) { 
+    public constructor(resourceId?: string, resourceDetail?: InstanceDetail, tags?: Array<ResourceTag>, sysTags?: Array<ResourceTag>, resourceName?: string) { 
         this['resource_id'] = resourceId;
         this['resource_detail'] = resourceDetail;
         this['tags'] = tags;
@@ -24,14 +25,14 @@ export class Resources {
     public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withResourceDetail(resourceDetail: object): Resources {
+    public withResourceDetail(resourceDetail: InstanceDetail): Resources {
         this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resourceDetail(resourceDetail: object  | undefined) {
+    public set resourceDetail(resourceDetail: InstanceDetail  | undefined) {
         this['resource_detail'] = resourceDetail;
     }
-    public get resourceDetail(): object | undefined {
+    public get resourceDetail(): InstanceDetail | undefined {
         return this['resource_detail'];
     }
     public withTags(tags: Array<ResourceTag>): Resources {

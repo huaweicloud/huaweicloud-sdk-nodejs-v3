@@ -1,3 +1,4 @@
+import { NetworkInfoCreate } from './NetworkInfoCreate';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -13,12 +14,12 @@ export class CBHInstances {
     private 'period_num'?: number;
     private 'is_auto_renew'?: number;
     private 'is_auto_pay'?: number;
-    public network?: object;
+    public network?: NetworkInfoCreate;
     private 'ipv6_enable'?: boolean;
     private 'enterprise_project_id'?: string;
     private 'attach_disk_size'?: number;
     public tags?: Array<ResourceTag>;
-    public constructor(specification?: string, instanceName?: string, password?: string, region?: string, availabilityZone?: string, chargingMode?: number, network?: object) { 
+    public constructor(specification?: string, instanceName?: string, password?: string, region?: string, availabilityZone?: string, chargingMode?: number, network?: NetworkInfoCreate) { 
         this['specification'] = specification;
         this['instance_name'] = instanceName;
         this['password'] = password;
@@ -119,7 +120,7 @@ export class CBHInstances {
     public get isAutoPay(): number | undefined {
         return this['is_auto_pay'];
     }
-    public withNetwork(network: object): CBHInstances {
+    public withNetwork(network: NetworkInfoCreate): CBHInstances {
         this['network'] = network;
         return this;
     }

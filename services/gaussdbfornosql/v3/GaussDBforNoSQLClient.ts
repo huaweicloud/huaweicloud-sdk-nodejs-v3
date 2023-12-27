@@ -94,6 +94,8 @@ import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
 import { InstanceResult } from './model/InstanceResult';
 import { InstanceTagResult } from './model/InstanceTagResult';
 import { InstancesDatastoreResult } from './model/InstancesDatastoreResult';
+import { JobDetail } from './model/JobDetail';
+import { JobInstanceInfo } from './model/JobInstanceInfo';
 import { Links } from './model/Links';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
@@ -149,6 +151,8 @@ import { ListInstancesSessionResponse } from './model/ListInstancesSessionRespon
 import { ListInstancesSessionStatisticsRequest } from './model/ListInstancesSessionStatisticsRequest';
 import { ListInstancesSessionStatisticsRespondBodyTopSourceIps } from './model/ListInstancesSessionStatisticsRespondBodyTopSourceIps';
 import { ListInstancesSessionStatisticsResponse } from './model/ListInstancesSessionStatisticsResponse';
+import { ListJobsRequest } from './model/ListJobsRequest';
+import { ListJobsResponse } from './model/ListJobsResponse';
 import { ListLtsConfigsRequest } from './model/ListLtsConfigsRequest';
 import { ListLtsConfigsResponse } from './model/ListLtsConfigsResponse';
 import { ListMongodbErrorLogsRequest } from './model/ListMongodbErrorLogsRequest';
@@ -1000,7 +1004,7 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询GeminiDB(for influxdb)数据库慢日志
      * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
-     * @param {ListInfluxdbSlowLogsRequestBody} listRedisSlowLogsRequestBody 请求体。
+     * @param {ListInfluxdbSlowLogsRequestBody} listInfluxdbSlowLogsRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1151,6 +1155,31 @@ export class GaussDBforNoSQLClient {
      */
     public listInstancesSessionStatistics(listInstancesSessionStatisticsRequest?: ListInstancesSessionStatisticsRequest): Promise<ListInstancesSessionStatisticsResponse> {
         const options = ParamCreater().listInstancesSessionStatistics(listInstancesSessionStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务列表和详情，默认查询任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务列表和详情
+     * @param {string} [id] 任务ID。
+     * @param {string} [startTime] 查询开始时间，默认当前时间往前30天，格式为“yyyy-mm-ddThh:mm:ssZ”。 其中，T指某个时间的开始，Z指时区偏移量
+     * @param {string} [endTime] 查询结束时间，默认当前时间，格式为“yyyy-mm-ddThh:mm:ssZ”，且大于查询开始时间，时间跨度不超过30天。 其中，T指某个时间的开始，Z指时区偏移量。
+     * @param {string} [status] 任务状态： 取值为“Running”为执行中； 取值为“Completed”为完成； 取值为“Failed” 为失败。
+     * @param {string} [name] 任务名称。对应取值如下： - \&quot;CreateInstance\&quot;：创建实例 - \&quot;RestoreNewInstance\&quot;：恢复到新实例 - \&quot;EnlargeInstance\&quot;：扩容实例 - \&quot;ReduceInstance\&quot;：缩容实例 - \&quot;RestartInstance\&quot;：重启实例 - \&quot;RestartNode\&quot;：重启节点 - \&quot;EnlargeInstanceVolume\&quot;：扩容实例磁盘 - \&quot;ReduceInstanceVolume\&quot;：缩容实例磁盘 - \&quot;ResizeInstance\&quot;：规格变更实例 - \&quot;UpgradeDbVersion\&quot;：升级数据库版本 - \&quot;BindPublicIP\&quot;：绑定公网IP - \&quot;UnbindPublicIP\&quot;：解绑公网IP - \&quot;DeleteInstance\&quot;：删除实例 - \&quot;EnlargeInstanceColdVolume\&quot;：扩容实例冷存储 - \&quot;AddInstanceColdVolume\&quot;：增加实例冷存储 - \&quot;ModifySecurityGroup\&quot;：修改安全组 - \&quot;ModifyCcmCert\&quot;：修改CCM证书 - \&quot;ModifyPort\&quot;：修改端口 - \&quot;ConstructDisasterRecovery\&quot;：构造容灾关系 - \&quot;DeConstructDisasterRecovery\&quot;：解除容灾关系 - \&quot;SwitchOverDisasterRecovery\&quot;：切换容灾关系 - \&quot;BuildBiActiveInstance\&quot;：构建双活实例 - \&quot;ReleaseBiActiveInstance\&quot;：解除双活实例关系 - \&quot;BackupInstance\&quot;：备份实例
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。取值 10 20 50 ，默认为50。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobs(listJobsRequest?: ListJobsRequest): Promise<ListJobsResponse> {
+        const options = ParamCreater().listJobs(listJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4219,6 +4248,85 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务列表和详情，默认查询任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobs(listJobsRequest?: ListJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let status;
+            
+            let name;
+            
+            let offset;
+            
+            let limit;
+
+            if (listJobsRequest !== null && listJobsRequest !== undefined) {
+                if (listJobsRequest instanceof ListJobsRequest) {
+                    id = listJobsRequest.id;
+                    startTime = listJobsRequest.startTime;
+                    endTime = listJobsRequest.endTime;
+                    status = listJobsRequest.status;
+                    name = listJobsRequest.name;
+                    offset = listJobsRequest.offset;
+                    limit = listJobsRequest.limit;
+                } else {
+                    id = listJobsRequest['id'];
+                    startTime = listJobsRequest['start_time'];
+                    endTime = listJobsRequest['end_time'];
+                    status = listJobsRequest['status'];
+                    name = listJobsRequest['name'];
+                    offset = listJobsRequest['offset'];
+                    limit = listJobsRequest['limit'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

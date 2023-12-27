@@ -13,6 +13,7 @@ export class ListSmartLiveRoomsRequest {
     private 'live_state'?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'room_type'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListSmartLiveRoomsRequest {
@@ -122,5 +123,15 @@ export class ListSmartLiveRoomsRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withRoomType(roomType: string): ListSmartLiveRoomsRequest {
+        this['room_type'] = roomType;
+        return this;
+    }
+    public set roomType(roomType: string  | undefined) {
+        this['room_type'] = roomType;
+    }
+    public get roomType(): string | undefined {
+        return this['room_type'];
     }
 }

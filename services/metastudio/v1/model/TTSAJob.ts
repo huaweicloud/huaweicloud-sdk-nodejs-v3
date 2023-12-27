@@ -6,6 +6,7 @@ export class TTSAJob {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'content_duration'?: number;
+    private 'job_type'?: TTSAJobJobTypeEnum | string;
     public constructor() { 
     }
     public withJobId(jobId: string): TTSAJob {
@@ -52,6 +53,16 @@ export class TTSAJob {
     public get contentDuration(): number | undefined {
         return this['content_duration'];
     }
+    public withJobType(jobType: TTSAJobJobTypeEnum | string): TTSAJob {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: TTSAJobJobTypeEnum | string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): TTSAJobJobTypeEnum | string | undefined {
+        return this['job_type'];
+    }
 }
 
 /**
@@ -63,4 +74,12 @@ export enum TTSAJobStateEnum {
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TTSAJobJobTypeEnum {
+    REAL_JOB = 'REAL_JOB',
+    UNREAL_JOB = 'UNREAL_JOB'
 }

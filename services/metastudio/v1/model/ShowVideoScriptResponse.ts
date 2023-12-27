@@ -1,8 +1,9 @@
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
-import { CreateVideoScriptsReq } from './CreateVideoScriptsReq';
+import { ReviewConfig } from './ReviewConfig';
 import { ShootScriptAudioFiles } from './ShootScriptAudioFiles';
-import { ShootScriptItem } from './ShootScriptItem';
+import { ShootScriptShowItem } from './ShootScriptShowItem';
 import { VideoConfig } from './VideoConfig';
+import { VideoScriptsShowInfo } from './VideoScriptsShowInfo';
 import { VoiceConfig } from './VoiceConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -10,26 +11,23 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowVideoScriptResponse extends SdkResponse {
     private 'script_name'?: string;
     private 'script_description'?: string;
-    private 'video_making_type'?: ShowVideoScriptResponseVideoMakingTypeEnum | string;
     private 'model_asset_id'?: string;
     private 'model_asset_type'?: ShowVideoScriptResponseModelAssetTypeEnum | string;
-    private 'human_image'?: string;
     private 'voice_config'?: VoiceConfig;
     private 'video_config'?: VideoConfig;
     private 'scene_asset_id'?: string;
-    private 'shoot_scripts'?: Array<ShootScriptItem>;
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
+    private 'review_config'?: ReviewConfig;
+    private 'shoot_scripts'?: Array<ShootScriptShowItem>;
     private 'script_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'audio_files'?: ShootScriptAudioFiles;
+    private 'script_cover_url'?: string;
     private 'X-Request-Id'?: string;
-    public constructor(scriptName?: string, voiceConfig?: VoiceConfig, shootScripts?: Array<ShootScriptItem>) { 
+    public constructor() { 
         super();
-        this['script_name'] = scriptName;
-        this['voice_config'] = voiceConfig;
-        this['shoot_scripts'] = shootScripts;
     }
     public withScriptName(scriptName: string): ShowVideoScriptResponse {
         this['script_name'] = scriptName;
@@ -51,16 +49,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     public get scriptDescription(): string | undefined {
         return this['script_description'];
     }
-    public withVideoMakingType(videoMakingType: ShowVideoScriptResponseVideoMakingTypeEnum | string): ShowVideoScriptResponse {
-        this['video_making_type'] = videoMakingType;
-        return this;
-    }
-    public set videoMakingType(videoMakingType: ShowVideoScriptResponseVideoMakingTypeEnum | string  | undefined) {
-        this['video_making_type'] = videoMakingType;
-    }
-    public get videoMakingType(): ShowVideoScriptResponseVideoMakingTypeEnum | string | undefined {
-        return this['video_making_type'];
-    }
     public withModelAssetId(modelAssetId: string): ShowVideoScriptResponse {
         this['model_asset_id'] = modelAssetId;
         return this;
@@ -80,16 +68,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
     public get modelAssetType(): ShowVideoScriptResponseModelAssetTypeEnum | string | undefined {
         return this['model_asset_type'];
-    }
-    public withHumanImage(humanImage: string): ShowVideoScriptResponse {
-        this['human_image'] = humanImage;
-        return this;
-    }
-    public set humanImage(humanImage: string  | undefined) {
-        this['human_image'] = humanImage;
-    }
-    public get humanImage(): string | undefined {
-        return this['human_image'];
     }
     public withVoiceConfig(voiceConfig: VoiceConfig): ShowVideoScriptResponse {
         this['voice_config'] = voiceConfig;
@@ -121,16 +99,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     public get sceneAssetId(): string | undefined {
         return this['scene_asset_id'];
     }
-    public withShootScripts(shootScripts: Array<ShootScriptItem>): ShowVideoScriptResponse {
-        this['shoot_scripts'] = shootScripts;
-        return this;
-    }
-    public set shootScripts(shootScripts: Array<ShootScriptItem>  | undefined) {
-        this['shoot_scripts'] = shootScripts;
-    }
-    public get shootScripts(): Array<ShootScriptItem> | undefined {
-        return this['shoot_scripts'];
-    }
     public withPrivData(privData: string): ShowVideoScriptResponse {
         this['priv_data'] = privData;
         return this;
@@ -150,6 +118,26 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
     public get backgroundMusicConfig(): BackgroundMusicConfig | undefined {
         return this['background_music_config'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): ShowVideoScriptResponse {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
+    public withShootScripts(shootScripts: Array<ShootScriptShowItem>): ShowVideoScriptResponse {
+        this['shoot_scripts'] = shootScripts;
+        return this;
+    }
+    public set shootScripts(shootScripts: Array<ShootScriptShowItem>  | undefined) {
+        this['shoot_scripts'] = shootScripts;
+    }
+    public get shootScripts(): Array<ShootScriptShowItem> | undefined {
+        return this['shoot_scripts'];
     }
     public withScriptId(scriptId: string): ShowVideoScriptResponse {
         this['script_id'] = scriptId;
@@ -191,6 +179,16 @@ export class ShowVideoScriptResponse extends SdkResponse {
     public get audioFiles(): ShootScriptAudioFiles | undefined {
         return this['audio_files'];
     }
+    public withScriptCoverUrl(scriptCoverUrl: string): ShowVideoScriptResponse {
+        this['script_cover_url'] = scriptCoverUrl;
+        return this;
+    }
+    public set scriptCoverUrl(scriptCoverUrl: string  | undefined) {
+        this['script_cover_url'] = scriptCoverUrl;
+    }
+    public get scriptCoverUrl(): string | undefined {
+        return this['script_cover_url'];
+    }
     public withXRequestId(xRequestId: string): ShowVideoScriptResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -203,14 +201,6 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowVideoScriptResponseVideoMakingTypeEnum {
-    MODEL = 'MODEL',
-    PICTURE = 'PICTURE'
-}
 /**
     * @export
     * @enum {string}

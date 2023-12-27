@@ -4,10 +4,11 @@ export class VideoScriptBaseInfo {
     private 'script_id'?: string;
     private 'script_name'?: string;
     private 'script_description'?: string;
-    private 'video_making_type'?: VideoScriptBaseInfoVideoMakingTypeEnum | string;
-    private 'human_image'?: string;
     private 'model_asset_id'?: string;
     private 'model_asset_type'?: VideoScriptBaseInfoModelAssetTypeEnum | string;
+    private 'script_cover_url'?: string;
+    private 'script_type'?: string;
+    public text?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor(scriptId?: string, scriptName?: string) { 
@@ -44,26 +45,6 @@ export class VideoScriptBaseInfo {
     public get scriptDescription(): string | undefined {
         return this['script_description'];
     }
-    public withVideoMakingType(videoMakingType: VideoScriptBaseInfoVideoMakingTypeEnum | string): VideoScriptBaseInfo {
-        this['video_making_type'] = videoMakingType;
-        return this;
-    }
-    public set videoMakingType(videoMakingType: VideoScriptBaseInfoVideoMakingTypeEnum | string  | undefined) {
-        this['video_making_type'] = videoMakingType;
-    }
-    public get videoMakingType(): VideoScriptBaseInfoVideoMakingTypeEnum | string | undefined {
-        return this['video_making_type'];
-    }
-    public withHumanImage(humanImage: string): VideoScriptBaseInfo {
-        this['human_image'] = humanImage;
-        return this;
-    }
-    public set humanImage(humanImage: string  | undefined) {
-        this['human_image'] = humanImage;
-    }
-    public get humanImage(): string | undefined {
-        return this['human_image'];
-    }
     public withModelAssetId(modelAssetId: string): VideoScriptBaseInfo {
         this['model_asset_id'] = modelAssetId;
         return this;
@@ -83,6 +64,30 @@ export class VideoScriptBaseInfo {
     }
     public get modelAssetType(): VideoScriptBaseInfoModelAssetTypeEnum | string | undefined {
         return this['model_asset_type'];
+    }
+    public withScriptCoverUrl(scriptCoverUrl: string): VideoScriptBaseInfo {
+        this['script_cover_url'] = scriptCoverUrl;
+        return this;
+    }
+    public set scriptCoverUrl(scriptCoverUrl: string  | undefined) {
+        this['script_cover_url'] = scriptCoverUrl;
+    }
+    public get scriptCoverUrl(): string | undefined {
+        return this['script_cover_url'];
+    }
+    public withScriptType(scriptType: string): VideoScriptBaseInfo {
+        this['script_type'] = scriptType;
+        return this;
+    }
+    public set scriptType(scriptType: string  | undefined) {
+        this['script_type'] = scriptType;
+    }
+    public get scriptType(): string | undefined {
+        return this['script_type'];
+    }
+    public withText(text: string): VideoScriptBaseInfo {
+        this['text'] = text;
+        return this;
     }
     public withCreateTime(createTime: string): VideoScriptBaseInfo {
         this['create_time'] = createTime;
@@ -106,14 +111,6 @@ export class VideoScriptBaseInfo {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VideoScriptBaseInfoVideoMakingTypeEnum {
-    MODEL = 'MODEL',
-    PICTURE = 'PICTURE'
-}
 /**
     * @export
     * @enum {string}

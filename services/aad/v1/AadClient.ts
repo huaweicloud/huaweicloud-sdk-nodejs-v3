@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddBlackWhiteIpListRequest } from './model/AddBlackWhiteIpListRequest';
+import { AddBlackWhiteIpListResponse } from './model/AddBlackWhiteIpListResponse';
 import { AddPolicyBlackAndWhiteIpListRequest } from './model/AddPolicyBlackAndWhiteIpListRequest';
 import { AddPolicyBlackAndWhiteIpListResponse } from './model/AddPolicyBlackAndWhiteIpListResponse';
 import { AlarmBody } from './model/AlarmBody';
@@ -13,14 +15,23 @@ import { BatchDeleteInstanceIpRuleRequest } from './model/BatchDeleteInstanceIpR
 import { BatchDeleteInstanceIpRuleResponse } from './model/BatchDeleteInstanceIpRuleResponse';
 import { BatchIdBody } from './model/BatchIdBody';
 import { BatchTransferRuleBody } from './model/BatchTransferRuleBody';
+import { BlackWhiteIpListRequest } from './model/BlackWhiteIpListRequest';
 import { BlackWhiteIpRequestBody } from './model/BlackWhiteIpRequestBody';
 import { BlockListBlockingList } from './model/BlockListBlockingList';
 import { Bw } from './model/Bw';
+import { CadDomainSwitchRequest } from './model/CadDomainSwitchRequest';
+import { CertificateBody } from './model/CertificateBody';
+import { CreateAadDomainRequest } from './model/CreateAadDomainRequest';
+import { CreateAadDomainResponse } from './model/CreateAadDomainResponse';
+import { CreateCertificateRequest } from './model/CreateCertificateRequest';
+import { CreateCertificateResponse } from './model/CreateCertificateResponse';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyRequestBody } from './model/CreatePolicyRequestBody';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
 import { DeleteAlarmConfigRequest } from './model/DeleteAlarmConfigRequest';
 import { DeleteAlarmConfigResponse } from './model/DeleteAlarmConfigResponse';
+import { DeleteBlackWhiteIpListRequest } from './model/DeleteBlackWhiteIpListRequest';
+import { DeleteBlackWhiteIpListResponse } from './model/DeleteBlackWhiteIpListResponse';
 import { DeletePolicyBlackAndWhiteIpListRequest } from './model/DeletePolicyBlackAndWhiteIpListRequest';
 import { DeletePolicyBlackAndWhiteIpListResponse } from './model/DeletePolicyBlackAndWhiteIpListResponse';
 import { DeletePolicyRequest } from './model/DeletePolicyRequest';
@@ -32,6 +43,7 @@ import { DomainRealServerInfo } from './model/DomainRealServerInfo';
 import { ExecuteUnblockIpRequest } from './model/ExecuteUnblockIpRequest';
 import { ExecuteUnblockIpRequestBody } from './model/ExecuteUnblockIpRequestBody';
 import { ExecuteUnblockIpResponse } from './model/ExecuteUnblockIpResponse';
+import { HostBody } from './model/HostBody';
 import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceIpInfo } from './model/InstanceIpInfo';
 import { IpBindingBody } from './model/IpBindingBody';
@@ -54,10 +66,14 @@ import { ListPolicyRequest } from './model/ListPolicyRequest';
 import { ListPolicyResponse } from './model/ListPolicyResponse';
 import { ListProtectedIpRequest } from './model/ListProtectedIpRequest';
 import { ListProtectedIpResponse } from './model/ListProtectedIpResponse';
+import { ListSourceIpsRequest } from './model/ListSourceIpsRequest';
+import { ListSourceIpsResponse } from './model/ListSourceIpsResponse';
 import { ListUnblockQuotaStatisticsRequest } from './model/ListUnblockQuotaStatisticsRequest';
 import { ListUnblockQuotaStatisticsResponse } from './model/ListUnblockQuotaStatisticsResponse';
 import { ListUnboundProtectedIpRequest } from './model/ListUnboundProtectedIpRequest';
 import { ListUnboundProtectedIpResponse } from './model/ListUnboundProtectedIpResponse';
+import { ModifyDomainWebSwitchRequest } from './model/ModifyDomainWebSwitchRequest';
+import { ModifyDomainWebSwitchResponse } from './model/ModifyDomainWebSwitchResponse';
 import { PackageResponse } from './model/PackageResponse';
 import { PolicyResponse } from './model/PolicyResponse';
 import { PopPolicy } from './model/PopPolicy';
@@ -207,6 +223,25 @@ export class AadClient {
     }
 
     /**
+     * 高防实例添加黑白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 高防实例添加黑白名单
+     * @param {BlackWhiteIpListRequest} blackWhiteIpListRequest 黑白名单IP信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addBlackWhiteIpList(addBlackWhiteIpListRequest?: AddBlackWhiteIpListRequest): Promise<AddBlackWhiteIpListResponse> {
+        const options = ParamCreater().addBlackWhiteIpList(addBlackWhiteIpListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 策略添加黑白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -289,6 +324,44 @@ export class AadClient {
     }
 
     /**
+     * 创建防护域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建防护域名
+     * @param {HostBody} hostBody 域名信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAadDomain(createAadDomainRequest?: CreateAadDomainRequest): Promise<CreateAadDomainResponse> {
+        const options = ParamCreater().createAadDomain(createAadDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传/修改域名对应证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传/修改域名对应证书
+     * @param {CertificateBody} certificateBody 证书信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCertificate(createCertificateRequest?: CreateCertificateRequest): Promise<CreateCertificateResponse> {
+        const options = ParamCreater().createCertificate(createCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -318,6 +391,25 @@ export class AadClient {
      */
     public deleteAlarmConfig(deleteAlarmConfigRequest?: DeleteAlarmConfigRequest): Promise<DeleteAlarmConfigResponse> {
         const options = ParamCreater().deleteAlarmConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 高防实例删除黑白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 高防实例删除黑白名单
+     * @param {BlackWhiteIpListRequest} blackWhiteIpListRequest 黑白名单IP信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBlackWhiteIpList(deleteBlackWhiteIpListRequest?: DeleteBlackWhiteIpListRequest): Promise<DeleteBlackWhiteIpListResponse> {
+        const options = ParamCreater().deleteBlackWhiteIpList(deleteBlackWhiteIpListRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -545,6 +637,24 @@ export class AadClient {
     }
 
     /**
+     * 查询高防回源IP段列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询高防回源IP段列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSourceIps(listSourceIpsRequest?: ListSourceIpsRequest): Promise<ListSourceIpsResponse> {
+        const options = ParamCreater().listSourceIps();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询可绑定的防护对象列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -558,6 +668,25 @@ export class AadClient {
      */
     public listUnboundProtectedIp(listUnboundProtectedIpRequest?: ListUnboundProtectedIpRequest): Promise<ListUnboundProtectedIpResponse> {
         const options = ParamCreater().listUnboundProtectedIp(listUnboundProtectedIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改域名WEB基础防护开关/CC防护开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改域名WEB基础防护开关/CC防护开关
+     * @param {CadDomainSwitchRequest} switchRequest WEB防护开关信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyDomainWebSwitch(modifyDomainWebSwitchRequest?: ModifyDomainWebSwitchRequest): Promise<ModifyDomainWebSwitchResponse> {
+        const options = ParamCreater().modifyDomainWebSwitch(modifyDomainWebSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -962,6 +1091,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 高防实例添加黑白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addBlackWhiteIpList(addBlackWhiteIpListRequest?: AddBlackWhiteIpListRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aad/external/bwlist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (addBlackWhiteIpListRequest !== null && addBlackWhiteIpListRequest !== undefined) {
+                if (addBlackWhiteIpListRequest instanceof AddBlackWhiteIpListRequest) {
+                    body = addBlackWhiteIpListRequest.body
+                } else {
+                    body = addBlackWhiteIpListRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 策略添加黑白名单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1160,6 +1327,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建防护域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAadDomain(createAadDomainRequest?: CreateAadDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aad/external/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAadDomainRequest !== null && createAadDomainRequest !== undefined) {
+                if (createAadDomainRequest instanceof CreateAadDomainRequest) {
+                    body = createAadDomainRequest.body
+                } else {
+                    body = createAadDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传/修改域名对应证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCertificate(createCertificateRequest?: CreateCertificateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aad/external/domains/certificate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createCertificateRequest !== null && createCertificateRequest !== undefined) {
+                if (createCertificateRequest instanceof CreateCertificateRequest) {
+                    body = createCertificateRequest.body
+                } else {
+                    body = createCertificateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1214,6 +1457,44 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 高防实例删除黑白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBlackWhiteIpList(deleteBlackWhiteIpListRequest?: DeleteBlackWhiteIpListRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aad/external/bwlist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteBlackWhiteIpListRequest !== null && deleteBlackWhiteIpListRequest !== undefined) {
+                if (deleteBlackWhiteIpListRequest instanceof DeleteBlackWhiteIpListRequest) {
+                    body = deleteBlackWhiteIpListRequest.body
+                } else {
+                    body = deleteBlackWhiteIpListRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1680,6 +1961,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询高防回源IP段列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSourceIps() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aad/external/source-ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询可绑定的防护对象列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1727,6 +2029,44 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改域名WEB基础防护开关/CC防护开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyDomainWebSwitch(modifyDomainWebSwitchRequest?: ModifyDomainWebSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aad/external/domains/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyDomainWebSwitchRequest !== null && modifyDomainWebSwitchRequest !== undefined) {
+                if (modifyDomainWebSwitchRequest instanceof ModifyDomainWebSwitchRequest) {
+                    body = modifyDomainWebSwitchRequest.body
+                } else {
+                    body = modifyDomainWebSwitchRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

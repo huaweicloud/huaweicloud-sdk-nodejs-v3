@@ -1,7 +1,3 @@
-import { StyleExtraMetaEditColorItems } from './StyleExtraMetaEditColorItems';
-import { StyleExtraMetaEditComponents } from './StyleExtraMetaEditComponents';
-import { StyleExtraMetaEditValueItems } from './StyleExtraMetaEditValueItems';
-import { StyleExtraMetaModellingAlgorithm } from './StyleExtraMetaModellingAlgorithm';
 
 
 export class StyleExtraMeta {
@@ -9,10 +5,6 @@ export class StyleExtraMeta {
     private 'edit_enable'?: boolean;
     private 'edit_engine'?: string;
     private 'model_id'?: string;
-    private 'edit_value_items'?: { [key: string]: StyleExtraMetaEditValueItems; };
-    private 'edit_color_items'?: { [key: string]: StyleExtraMetaEditColorItems; };
-    private 'edit_components'?: { [key: string]: StyleExtraMetaEditComponents; };
-    private 'modelling_algorithm'?: { [key: string]: StyleExtraMetaModellingAlgorithm; };
     public constructor() { 
     }
     public withPictureModelingEnable(pictureModelingEnable: boolean): StyleExtraMeta {
@@ -54,45 +46,5 @@ export class StyleExtraMeta {
     }
     public get modelId(): string | undefined {
         return this['model_id'];
-    }
-    public withEditValueItems(editValueItems: { [key: string]: StyleExtraMetaEditValueItems; }): StyleExtraMeta {
-        this['edit_value_items'] = editValueItems;
-        return this;
-    }
-    public set editValueItems(editValueItems: { [key: string]: StyleExtraMetaEditValueItems; }  | undefined) {
-        this['edit_value_items'] = editValueItems;
-    }
-    public get editValueItems(): { [key: string]: StyleExtraMetaEditValueItems; } | undefined {
-        return this['edit_value_items'];
-    }
-    public withEditColorItems(editColorItems: { [key: string]: StyleExtraMetaEditColorItems; }): StyleExtraMeta {
-        this['edit_color_items'] = editColorItems;
-        return this;
-    }
-    public set editColorItems(editColorItems: { [key: string]: StyleExtraMetaEditColorItems; }  | undefined) {
-        this['edit_color_items'] = editColorItems;
-    }
-    public get editColorItems(): { [key: string]: StyleExtraMetaEditColorItems; } | undefined {
-        return this['edit_color_items'];
-    }
-    public withEditComponents(editComponents: { [key: string]: StyleExtraMetaEditComponents; }): StyleExtraMeta {
-        this['edit_components'] = editComponents;
-        return this;
-    }
-    public set editComponents(editComponents: { [key: string]: StyleExtraMetaEditComponents; }  | undefined) {
-        this['edit_components'] = editComponents;
-    }
-    public get editComponents(): { [key: string]: StyleExtraMetaEditComponents; } | undefined {
-        return this['edit_components'];
-    }
-    public withModellingAlgorithm(modellingAlgorithm: { [key: string]: StyleExtraMetaModellingAlgorithm; }): StyleExtraMeta {
-        this['modelling_algorithm'] = modellingAlgorithm;
-        return this;
-    }
-    public set modellingAlgorithm(modellingAlgorithm: { [key: string]: StyleExtraMetaModellingAlgorithm; }  | undefined) {
-        this['modelling_algorithm'] = modellingAlgorithm;
-    }
-    public get modellingAlgorithm(): { [key: string]: StyleExtraMetaModellingAlgorithm; } | undefined {
-        return this['modelling_algorithm'];
     }
 }

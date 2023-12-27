@@ -6,7 +6,6 @@ export class CreatePictureModelingJobRequest {
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
-    private 'X-User-Privilege'?: string;
     public body?: CreatePictureModelingJobRequestBody;
     public constructor() { 
     }
@@ -49,16 +48,6 @@ export class CreatePictureModelingJobRequest {
     }
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
-    }
-    public withXUserPrivilege(xUserPrivilege: string): CreatePictureModelingJobRequest {
-        this['X-User-Privilege'] = xUserPrivilege;
-        return this;
-    }
-    public set xUserPrivilege(xUserPrivilege: string  | undefined) {
-        this['X-User-Privilege'] = xUserPrivilege;
-    }
-    public get xUserPrivilege(): string | undefined {
-        return this['X-User-Privilege'];
     }
     public withBody(body: CreatePictureModelingJobRequestBody): CreatePictureModelingJobRequest {
         this['body'] = body;

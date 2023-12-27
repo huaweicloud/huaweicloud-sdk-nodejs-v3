@@ -3,6 +3,7 @@
 export class ModelInfo {
     private 'model_asset_id'?: string;
     private 'asset_name'?: string;
+    private 'backup_model_asset_ids'?: Array<string>;
     public constructor() { 
     }
     public withModelAssetId(modelAssetId: string): ModelInfo {
@@ -24,5 +25,15 @@ export class ModelInfo {
     }
     public get assetName(): string | undefined {
         return this['asset_name'];
+    }
+    public withBackupModelAssetIds(backupModelAssetIds: Array<string>): ModelInfo {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+        return this;
+    }
+    public set backupModelAssetIds(backupModelAssetIds: Array<string>  | undefined) {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+    }
+    public get backupModelAssetIds(): Array<string> | undefined {
+        return this['backup_model_asset_ids'];
     }
 }

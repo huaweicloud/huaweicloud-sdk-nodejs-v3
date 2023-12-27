@@ -1,4 +1,5 @@
 import { ErrorResponse } from './ErrorResponse';
+import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
 
@@ -13,6 +14,9 @@ export class SmartLiveJob {
     private 'lastupdate_time'?: string;
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'live_event_report_url'?: string;
+    private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'stream_duration'?: number;
+    private 'block_reason'?: string;
     public constructor() { 
     }
     public withJobId(jobId: string): SmartLiveJob {
@@ -103,6 +107,36 @@ export class SmartLiveJob {
     public get liveEventReportUrl(): string | undefined {
         return this['live_event_report_url'];
     }
+    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig): SmartLiveJob {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+        return this;
+    }
+    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig  | undefined) {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+    }
+    public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
+        return this['live_event_callback_config'];
+    }
+    public withStreamDuration(streamDuration: number): SmartLiveJob {
+        this['stream_duration'] = streamDuration;
+        return this;
+    }
+    public set streamDuration(streamDuration: number  | undefined) {
+        this['stream_duration'] = streamDuration;
+    }
+    public get streamDuration(): number | undefined {
+        return this['stream_duration'];
+    }
+    public withBlockReason(blockReason: string): SmartLiveJob {
+        this['block_reason'] = blockReason;
+        return this;
+    }
+    public set blockReason(blockReason: string  | undefined) {
+        this['block_reason'] = blockReason;
+    }
+    public get blockReason(): string | undefined {
+        return this['block_reason'];
+    }
 }
 
 /**
@@ -113,5 +147,6 @@ export enum SmartLiveJobStateEnum {
     WAITING = 'WAITING',
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
-    FAILED = 'FAILED'
+    FAILED = 'FAILED',
+    BLOCKED = 'BLOCKED'
 }

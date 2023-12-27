@@ -2,7 +2,7 @@ import { TagsBody } from './TagsBody';
 
 
 export class CreateTagsReqbody {
-    public action?: string;
+    public action?: CreateTagsReqbodyActionEnum | string;
     private 'is_open'?: boolean;
     public tags?: Array<TagsBody>;
     public constructor(action?: string, isOpen?: boolean, tags?: Array<TagsBody>) { 
@@ -10,7 +10,7 @@ export class CreateTagsReqbody {
         this['is_open'] = isOpen;
         this['tags'] = tags;
     }
-    public withAction(action: string): CreateTagsReqbody {
+    public withAction(action: CreateTagsReqbodyActionEnum | string): CreateTagsReqbody {
         this['action'] = action;
         return this;
     }
@@ -28,4 +28,13 @@ export class CreateTagsReqbody {
         this['tags'] = tags;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTagsReqbodyActionEnum {
+    CREATE = 'create',
+    DELETE = 'delete'
 }

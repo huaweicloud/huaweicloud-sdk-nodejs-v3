@@ -6,6 +6,7 @@ import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 export class UpdateKeywordsAlarmRuleRequestBody {
     private 'keywords_alarm_rule_id'?: string;
     private 'keywords_alarm_rule_name'?: string;
+    private 'alarm_rule_alias'?: string;
     private 'keywords_alarm_rule_description'?: string;
     private 'keywords_requests'?: Array<KeywordsRequest>;
     public frequency?: Frequency;
@@ -50,6 +51,16 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     }
     public get keywordsAlarmRuleName(): string | undefined {
         return this['keywords_alarm_rule_name'];
+    }
+    public withAlarmRuleAlias(alarmRuleAlias: string): UpdateKeywordsAlarmRuleRequestBody {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+        return this;
+    }
+    public set alarmRuleAlias(alarmRuleAlias: string  | undefined) {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+    }
+    public get alarmRuleAlias(): string | undefined {
+        return this['alarm_rule_alias'];
     }
     public withKeywordsAlarmRuleDescription(keywordsAlarmRuleDescription: string): UpdateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;

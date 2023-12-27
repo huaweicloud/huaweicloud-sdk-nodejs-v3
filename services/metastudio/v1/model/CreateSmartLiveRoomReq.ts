@@ -1,6 +1,9 @@
 import { InteractionRuleInfo } from './InteractionRuleInfo';
+import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
 import { PlayPolicy } from './PlayPolicy';
+import { ReviewConfig } from './ReviewConfig';
+import { SharedConfig } from './SharedConfig';
 import { VideoConfig } from './VideoConfig';
 
 
@@ -13,6 +16,11 @@ export class CreateSmartLiveRoomReq {
     private 'play_policy'?: PlayPolicy;
     private 'video_config'?: VideoConfig;
     private 'output_urls'?: Array<string>;
+    private 'stream_keys'?: Array<string>;
+    private 'backup_model_asset_ids'?: Array<string>;
+    private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'review_config'?: ReviewConfig;
+    private 'shared_config'?: SharedConfig;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -96,6 +104,56 @@ export class CreateSmartLiveRoomReq {
     public get outputUrls(): Array<string> | undefined {
         return this['output_urls'];
     }
+    public withStreamKeys(streamKeys: Array<string>): CreateSmartLiveRoomReq {
+        this['stream_keys'] = streamKeys;
+        return this;
+    }
+    public set streamKeys(streamKeys: Array<string>  | undefined) {
+        this['stream_keys'] = streamKeys;
+    }
+    public get streamKeys(): Array<string> | undefined {
+        return this['stream_keys'];
+    }
+    public withBackupModelAssetIds(backupModelAssetIds: Array<string>): CreateSmartLiveRoomReq {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+        return this;
+    }
+    public set backupModelAssetIds(backupModelAssetIds: Array<string>  | undefined) {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+    }
+    public get backupModelAssetIds(): Array<string> | undefined {
+        return this['backup_model_asset_ids'];
+    }
+    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig): CreateSmartLiveRoomReq {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+        return this;
+    }
+    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig  | undefined) {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+    }
+    public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
+        return this['live_event_callback_config'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): CreateSmartLiveRoomReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
+    public withSharedConfig(sharedConfig: SharedConfig): CreateSmartLiveRoomReq {
+        this['shared_config'] = sharedConfig;
+        return this;
+    }
+    public set sharedConfig(sharedConfig: SharedConfig  | undefined) {
+        this['shared_config'] = sharedConfig;
+    }
+    public get sharedConfig(): SharedConfig | undefined {
+        return this['shared_config'];
+    }
 }
 
 /**
@@ -104,5 +162,6 @@ export class CreateSmartLiveRoomReq {
     */
 export enum CreateSmartLiveRoomReqRoomTypeEnum {
     NORMAL = 'NORMAL',
-    TEMP = 'TEMP'
+    TEMP = 'TEMP',
+    TEMPLATE = 'TEMPLATE'
 }

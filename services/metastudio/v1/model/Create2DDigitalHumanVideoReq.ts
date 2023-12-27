@@ -1,5 +1,7 @@
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
+import { CallBackConfig } from './CallBackConfig';
 import { OutputAssetConfig } from './OutputAssetConfig';
+import { ReviewConfig } from './ReviewConfig';
 import { ShootScriptItem } from './ShootScriptItem';
 import { VideoConfig } from './VideoConfig';
 import { VoiceConfig } from './VoiceConfig';
@@ -15,6 +17,8 @@ export class Create2DDigitalHumanVideoReq {
     private 'shoot_scripts'?: Array<ShootScriptItem>;
     private 'output_asset_config'?: OutputAssetConfig;
     private 'background_music_config'?: BackgroundMusicConfig;
+    private 'review_config'?: ReviewConfig;
+    private 'callback_config'?: CallBackConfig;
     public constructor() { 
     }
     public withScriptId(scriptId: string): Create2DDigitalHumanVideoReq {
@@ -106,6 +110,26 @@ export class Create2DDigitalHumanVideoReq {
     }
     public get backgroundMusicConfig(): BackgroundMusicConfig | undefined {
         return this['background_music_config'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): Create2DDigitalHumanVideoReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
+    public withCallbackConfig(callbackConfig: CallBackConfig): Create2DDigitalHumanVideoReq {
+        this['callback_config'] = callbackConfig;
+        return this;
+    }
+    public set callbackConfig(callbackConfig: CallBackConfig  | undefined) {
+        this['callback_config'] = callbackConfig;
+    }
+    public get callbackConfig(): CallBackConfig | undefined {
+        return this['callback_config'];
     }
 }
 

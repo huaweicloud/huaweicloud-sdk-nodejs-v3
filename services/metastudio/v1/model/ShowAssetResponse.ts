@@ -12,6 +12,9 @@ export class ShowAssetResponse extends SdkResponse {
     private 'update_time'?: string;
     private 'asset_type'?: ShowAssetResponseAssetTypeEnum | string;
     private 'asset_state'?: ShowAssetResponseAssetStateEnum | string;
+    private 'fail_type'?: ShowAssetResponseFailTypeEnum | string;
+    public reason?: string;
+    private 'is_need_generate_cover'?: boolean;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
@@ -90,6 +93,30 @@ export class ShowAssetResponse extends SdkResponse {
     public get assetState(): ShowAssetResponseAssetStateEnum | string | undefined {
         return this['asset_state'];
     }
+    public withFailType(failType: ShowAssetResponseFailTypeEnum | string): ShowAssetResponse {
+        this['fail_type'] = failType;
+        return this;
+    }
+    public set failType(failType: ShowAssetResponseFailTypeEnum | string  | undefined) {
+        this['fail_type'] = failType;
+    }
+    public get failType(): ShowAssetResponseFailTypeEnum | string | undefined {
+        return this['fail_type'];
+    }
+    public withReason(reason: string): ShowAssetResponse {
+        this['reason'] = reason;
+        return this;
+    }
+    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): ShowAssetResponse {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+        return this;
+    }
+    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+    }
+    public get isNeedGenerateCover(): boolean | undefined {
+        return this['is_need_generate_cover'];
+    }
     public withTags(tags: Array<string>): ShowAssetResponse {
         this['tags'] = tags;
         return this;
@@ -147,7 +174,8 @@ export enum ShowAssetResponseAssetTypeEnum {
     COMMON_FILE = 'COMMON_FILE',
     HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
     BUSINESS_CARD_TEMPLET = 'BUSINESS_CARD_TEMPLET',
-    MUSIC = 'MUSIC'
+    MUSIC = 'MUSIC',
+    AUDIO = 'AUDIO'
 }
 /**
     * @export
@@ -161,4 +189,12 @@ export enum ShowAssetResponseAssetStateEnum {
     DELETING = 'DELETING',
     DELETED = 'DELETED',
     BLOCK = 'BLOCK'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowAssetResponseFailTypeEnum {
+    AUTOMATIC_REVIEW_REJECT = 'AUTOMATIC_REVIEW_REJECT',
+    MANUAL_REVIEW_REJECT = 'MANUAL_REVIEW_REJECT'
 }

@@ -7,6 +7,9 @@ export class ListVideoScriptsRequest {
     private 'X-App-UserId'?: string;
     public offset?: number;
     public limit?: number;
+    public name?: string;
+    private 'script_catalog'?: ListVideoScriptsRequestScriptCatalogEnum | string;
+    private 'view_mode'?: ListVideoScriptsRequestViewModeEnum | string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListVideoScriptsRequest {
@@ -57,4 +60,45 @@ export class ListVideoScriptsRequest {
         this['limit'] = limit;
         return this;
     }
+    public withName(name: string): ListVideoScriptsRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withScriptCatalog(scriptCatalog: ListVideoScriptsRequestScriptCatalogEnum | string): ListVideoScriptsRequest {
+        this['script_catalog'] = scriptCatalog;
+        return this;
+    }
+    public set scriptCatalog(scriptCatalog: ListVideoScriptsRequestScriptCatalogEnum | string  | undefined) {
+        this['script_catalog'] = scriptCatalog;
+    }
+    public get scriptCatalog(): ListVideoScriptsRequestScriptCatalogEnum | string | undefined {
+        return this['script_catalog'];
+    }
+    public withViewMode(viewMode: ListVideoScriptsRequestViewModeEnum | string): ListVideoScriptsRequest {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: ListVideoScriptsRequestViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): ListVideoScriptsRequestViewModeEnum | string | undefined {
+        return this['view_mode'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListVideoScriptsRequestScriptCatalogEnum {
+    VIDEO_DRAFT = 'VIDEO_DRAFT',
+    SYSTEM_VIDEO_TEMPLET = 'SYSTEM_VIDEO_TEMPLET'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListVideoScriptsRequestViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
 }

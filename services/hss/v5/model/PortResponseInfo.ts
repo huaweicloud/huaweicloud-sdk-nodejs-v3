@@ -8,6 +8,8 @@ export class PortResponseInfo {
     public type?: string;
     public pid?: number;
     public path?: string;
+    private 'agent_id'?: string;
+    private 'container_id'?: string;
     public constructor() { 
     }
     public withHostId(hostId: string): PortResponseInfo {
@@ -43,5 +45,25 @@ export class PortResponseInfo {
     public withPath(path: string): PortResponseInfo {
         this['path'] = path;
         return this;
+    }
+    public withAgentId(agentId: string): PortResponseInfo {
+        this['agent_id'] = agentId;
+        return this;
+    }
+    public set agentId(agentId: string  | undefined) {
+        this['agent_id'] = agentId;
+    }
+    public get agentId(): string | undefined {
+        return this['agent_id'];
+    }
+    public withContainerId(containerId: string): PortResponseInfo {
+        this['container_id'] = containerId;
+        return this;
+    }
+    public set containerId(containerId: string  | undefined) {
+        this['container_id'] = containerId;
+    }
+    public get containerId(): string | undefined {
+        return this['container_id'];
     }
 }

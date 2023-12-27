@@ -1,4 +1,5 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
+import { ReviewConfig } from './ReviewConfig';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -7,6 +8,8 @@ export class CreateDigitalAssetRequestBody {
     private 'asset_description'?: string;
     private 'asset_type'?: CreateDigitalAssetRequestBodyAssetTypeEnum | string;
     private 'asset_owner'?: string;
+    private 'is_need_generate_cover'?: boolean;
+    private 'review_config'?: ReviewConfig;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
@@ -54,6 +57,26 @@ export class CreateDigitalAssetRequestBody {
     public get assetOwner(): string | undefined {
         return this['asset_owner'];
     }
+    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): CreateDigitalAssetRequestBody {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+        return this;
+    }
+    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+    }
+    public get isNeedGenerateCover(): boolean | undefined {
+        return this['is_need_generate_cover'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): CreateDigitalAssetRequestBody {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
     public withTags(tags: Array<string>): CreateDigitalAssetRequestBody {
         this['tags'] = tags;
         return this;
@@ -97,5 +120,6 @@ export enum CreateDigitalAssetRequestBodyAssetTypeEnum {
     COMMON_FILE = 'COMMON_FILE',
     HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
     BUSINESS_CARD_TEMPLET = 'BUSINESS_CARD_TEMPLET',
-    MUSIC = 'MUSIC'
+    MUSIC = 'MUSIC',
+    AUDIO = 'AUDIO'
 }

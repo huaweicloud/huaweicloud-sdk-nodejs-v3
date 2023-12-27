@@ -106,6 +106,8 @@ import { DimChild } from './model/DimChild';
 import { DomainNameEntity } from './model/DomainNameEntity';
 import { DomainNameInfo } from './model/DomainNameInfo';
 import { DownloadBackupFilesReq } from './model/DownloadBackupFilesReq';
+import { DownloadSslCertRequest } from './model/DownloadSslCertRequest';
+import { DownloadSslCertResponse } from './model/DownloadSslCertResponse';
 import { ExchangeInstanceIpRequest } from './model/ExchangeInstanceIpRequest';
 import { ExchangeInstanceIpResponse } from './model/ExchangeInstanceIpResponse';
 import { ExecuteClusterSwitchoverRequest } from './model/ExecuteClusterSwitchoverRequest';
@@ -260,6 +262,8 @@ import { ShowHotkeyTaskDetailsRequest } from './model/ShowHotkeyTaskDetailsReque
 import { ShowHotkeyTaskDetailsResponse } from './model/ShowHotkeyTaskDetailsResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
+import { ShowInstanceSslDetailRequest } from './model/ShowInstanceSslDetailRequest';
+import { ShowInstanceSslDetailResponse } from './model/ShowInstanceSslDetailResponse';
 import { ShowIpWhitelistRequest } from './model/ShowIpWhitelistRequest';
 import { ShowIpWhitelistResponse } from './model/ShowIpWhitelistResponse';
 import { ShowJobInfoRequest } from './model/ShowJobInfoRequest';
@@ -327,8 +331,11 @@ import { UpdateMigrationTaskRequest } from './model/UpdateMigrationTaskRequest';
 import { UpdateMigrationTaskResponse } from './model/UpdateMigrationTaskResponse';
 import { UpdatePasswordRequest } from './model/UpdatePasswordRequest';
 import { UpdatePasswordResponse } from './model/UpdatePasswordResponse';
+import { UpdateSSLSwitchRequestBody } from './model/UpdateSSLSwitchRequestBody';
 import { UpdateSlavePriorityRequest } from './model/UpdateSlavePriorityRequest';
 import { UpdateSlavePriorityResponse } from './model/UpdateSlavePriorityResponse';
+import { UpdateSslSwitchRequest } from './model/UpdateSslSwitchRequest';
+import { UpdateSslSwitchResponse } from './model/UpdateSslSwitchResponse';
 import { ValidateDeletableReplicaRequest } from './model/ValidateDeletableReplicaRequest';
 import { ValidateDeletableReplicaResponse } from './model/ValidateDeletableReplicaResponse';
 import { Whitelist } from './model/Whitelist';
@@ -923,6 +930,25 @@ export class DcsClient {
      */
     public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<DeleteSingleInstanceResponse> {
         const options = ParamCreater().deleteSingleInstance(deleteSingleInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载实例SSL证书。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载实例SSL证书
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadSslCert(downloadSslCertRequest?: DownloadSslCertRequest): Promise<DownloadSslCertResponse> {
+        const options = ParamCreater().downloadSslCert(downloadSslCertRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2008,6 +2034,25 @@ export class DcsClient {
     }
 
     /**
+     * 查询实例SSL信息。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例SSL信息
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceSslDetail(showInstanceSslDetailRequest?: ShowInstanceSslDetailRequest): Promise<ShowInstanceSslDetailResponse> {
+        const options = ParamCreater().showInstanceSslDetail(showInstanceSslDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户Job执行结果
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2497,6 +2542,26 @@ export class DcsClient {
      */
     public updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest): Promise<UpdateSlavePriorityResponse> {
         const options = ParamCreater().updateSlavePriority(updateSlavePriorityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启/关闭SSL。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭SSL
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateSSLSwitchRequestBody} updateSSLSwitchRequestBody 开启或关闭SSL请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSslSwitch(updateSslSwitchRequest?: UpdateSslSwitchRequest): Promise<UpdateSslSwitchResponse> {
+        const options = ParamCreater().updateSslSwitch(updateSslSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3794,6 +3859,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteSingleInstance.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载实例SSL证书。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadSslCert(downloadSslCertRequest?: DownloadSslCertRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/ssl-certs/download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (downloadSslCertRequest !== null && downloadSslCertRequest !== undefined) {
+                if (downloadSslCertRequest instanceof DownloadSslCertRequest) {
+                    instanceId = downloadSslCertRequest.instanceId;
+                } else {
+                    instanceId = downloadSslCertRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadSslCert.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -6334,6 +6436,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例SSL信息。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceSslDetail(showInstanceSslDetailRequest?: ShowInstanceSslDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/ssl",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceSslDetailRequest !== null && showInstanceSslDetailRequest !== undefined) {
+                if (showInstanceSslDetailRequest instanceof ShowInstanceSslDetailRequest) {
+                    instanceId = showInstanceSslDetailRequest.instanceId;
+                } else {
+                    instanceId = showInstanceSslDetailRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceSslDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户Job执行结果
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7405,6 +7544,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'group_id': groupId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启/关闭SSL。该接口目前仅针对Redis 6.0[基础版](tag:hws,hws_hk)版本实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSslSwitch(updateSslSwitchRequest?: UpdateSslSwitchRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/ssl",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateSslSwitchRequest !== null && updateSslSwitchRequest !== undefined) {
+                if (updateSslSwitchRequest instanceof UpdateSslSwitchRequest) {
+                    instanceId = updateSslSwitchRequest.instanceId;
+                    body = updateSslSwitchRequest.body
+                } else {
+                    instanceId = updateSslSwitchRequest['instance_id'];
+                    body = updateSslSwitchRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSslSwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

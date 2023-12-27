@@ -1,9 +1,11 @@
+import { ErrorResponse } from './ErrorResponse';
 import { PPTPageInfo } from './PPTPageInfo';
 
 
 export class PPTAssetMeta {
     private 'auto_analysis'?: boolean;
     private 'ppt_analysis_status'?: PPTAssetMetaPptAnalysisStatusEnum | string;
+    private 'error_info'?: ErrorResponse;
     private 'page_count'?: number;
     public pages?: Array<PPTPageInfo>;
     public constructor() { 
@@ -27,6 +29,16 @@ export class PPTAssetMeta {
     }
     public get pptAnalysisStatus(): PPTAssetMetaPptAnalysisStatusEnum | string | undefined {
         return this['ppt_analysis_status'];
+    }
+    public withErrorInfo(errorInfo: ErrorResponse): PPTAssetMeta {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorResponse  | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo(): ErrorResponse | undefined {
+        return this['error_info'];
     }
     public withPageCount(pageCount: number): PPTAssetMeta {
         this['page_count'] = pageCount;

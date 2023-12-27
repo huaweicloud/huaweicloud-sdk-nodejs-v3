@@ -1,3 +1,4 @@
+import { SubtitleConfig } from './SubtitleConfig';
 
 
 export class VideoConfig {
@@ -8,7 +9,7 @@ export class VideoConfig {
     public height?: number;
     private 'frame_rate'?: VideoConfigFrameRateEnum | string;
     private 'is_subtitle_enable'?: boolean;
-    private 'disable_system_watermark'?: boolean;
+    private 'subtitle_config'?: SubtitleConfig;
     public dx?: number;
     public dy?: number;
     public constructor(codec?: string, bitrate?: number, width?: number, height?: number) { 
@@ -63,15 +64,15 @@ export class VideoConfig {
     public get isSubtitleEnable(): boolean | undefined {
         return this['is_subtitle_enable'];
     }
-    public withDisableSystemWatermark(disableSystemWatermark: boolean): VideoConfig {
-        this['disable_system_watermark'] = disableSystemWatermark;
+    public withSubtitleConfig(subtitleConfig: SubtitleConfig): VideoConfig {
+        this['subtitle_config'] = subtitleConfig;
         return this;
     }
-    public set disableSystemWatermark(disableSystemWatermark: boolean  | undefined) {
-        this['disable_system_watermark'] = disableSystemWatermark;
+    public set subtitleConfig(subtitleConfig: SubtitleConfig  | undefined) {
+        this['subtitle_config'] = subtitleConfig;
     }
-    public get disableSystemWatermark(): boolean | undefined {
-        return this['disable_system_watermark'];
+    public get subtitleConfig(): SubtitleConfig | undefined {
+        return this['subtitle_config'];
     }
     public withDx(dx: number): VideoConfig {
         this['dx'] = dx;
@@ -97,7 +98,8 @@ export enum VideoConfigClipModeEnum {
     */
 export enum VideoConfigCodecEnum {
     H264 = 'H264',
-    VP8 = 'VP8'
+    VP8 = 'VP8',
+    VP9 = 'VP9'
 }
 /**
     * @export

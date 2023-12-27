@@ -11,6 +11,9 @@ export class DigitalAssetInfo {
     private 'update_time'?: string;
     private 'asset_type'?: DigitalAssetInfoAssetTypeEnum | string;
     private 'asset_state'?: DigitalAssetInfoAssetStateEnum | string;
+    private 'fail_type'?: DigitalAssetInfoFailTypeEnum | string;
+    public reason?: string;
+    private 'is_need_generate_cover'?: boolean;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
@@ -87,6 +90,30 @@ export class DigitalAssetInfo {
     public get assetState(): DigitalAssetInfoAssetStateEnum | string | undefined {
         return this['asset_state'];
     }
+    public withFailType(failType: DigitalAssetInfoFailTypeEnum | string): DigitalAssetInfo {
+        this['fail_type'] = failType;
+        return this;
+    }
+    public set failType(failType: DigitalAssetInfoFailTypeEnum | string  | undefined) {
+        this['fail_type'] = failType;
+    }
+    public get failType(): DigitalAssetInfoFailTypeEnum | string | undefined {
+        return this['fail_type'];
+    }
+    public withReason(reason: string): DigitalAssetInfo {
+        this['reason'] = reason;
+        return this;
+    }
+    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): DigitalAssetInfo {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+        return this;
+    }
+    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+    }
+    public get isNeedGenerateCover(): boolean | undefined {
+        return this['is_need_generate_cover'];
+    }
     public withTags(tags: Array<string>): DigitalAssetInfo {
         this['tags'] = tags;
         return this;
@@ -134,7 +161,8 @@ export enum DigitalAssetInfoAssetTypeEnum {
     COMMON_FILE = 'COMMON_FILE',
     HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
     BUSINESS_CARD_TEMPLET = 'BUSINESS_CARD_TEMPLET',
-    MUSIC = 'MUSIC'
+    MUSIC = 'MUSIC',
+    AUDIO = 'AUDIO'
 }
 /**
     * @export
@@ -148,4 +176,12 @@ export enum DigitalAssetInfoAssetStateEnum {
     DELETING = 'DELETING',
     DELETED = 'DELETED',
     BLOCK = 'BLOCK'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DigitalAssetInfoFailTypeEnum {
+    AUTOMATIC_REVIEW_REJECT = 'AUTOMATIC_REVIEW_REJECT',
+    MANUAL_REVIEW_REJECT = 'MANUAL_REVIEW_REJECT'
 }

@@ -8,6 +8,8 @@ export class AssetFileInfo {
     private 'file_type'?: string;
     private 'asset_file_category'?: string;
     private 'download_url'?: string;
+    public state?: AssetFileInfoStateEnum | string;
+    public reason?: string;
     public constructor() { 
     }
     public withFileId(fileId: string): AssetFileInfo {
@@ -80,4 +82,27 @@ export class AssetFileInfo {
     public get downloadUrl(): string | undefined {
         return this['download_url'];
     }
+    public withState(state: AssetFileInfoStateEnum | string): AssetFileInfo {
+        this['state'] = state;
+        return this;
+    }
+    public withReason(reason: string): AssetFileInfo {
+        this['reason'] = reason;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AssetFileInfoStateEnum {
+    CREATING = 'CREATING',
+    CREATED = 'CREATED',
+    FAILED = 'FAILED',
+    CANCELLED = 'CANCELLED',
+    DELETING = 'DELETING',
+    DELETED = 'DELETED',
+    UPLOADED = 'UPLOADED',
+    REVIEW = 'REVIEW'
 }

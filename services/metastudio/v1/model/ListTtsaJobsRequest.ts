@@ -4,9 +4,9 @@ export class ListTtsaJobsRequest {
     private 'Authorization'?: string;
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
+    private 'X-App-UserId'?: string;
     public offset?: number;
     public limit?: number;
-    private 'X-App-UserId'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListTtsaJobsRequest {
@@ -39,14 +39,6 @@ export class ListTtsaJobsRequest {
     public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
-    public withOffset(offset: number): ListTtsaJobsRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ListTtsaJobsRequest {
-        this['limit'] = limit;
-        return this;
-    }
     public withXAppUserId(xAppUserId: string): ListTtsaJobsRequest {
         this['X-App-UserId'] = xAppUserId;
         return this;
@@ -56,5 +48,13 @@ export class ListTtsaJobsRequest {
     }
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
+    }
+    public withOffset(offset: number): ListTtsaJobsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListTtsaJobsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

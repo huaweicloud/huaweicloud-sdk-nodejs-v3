@@ -11,8 +11,8 @@ export class ListSmartLiveRequest {
     public state?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
-    private 'create_until'?: string;
     private 'create_since'?: string;
+    private 'create_until'?: string;
     public constructor(roomId?: string) { 
         this['room_id'] = roomId;
     }
@@ -98,16 +98,6 @@ export class ListSmartLiveRequest {
     public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
-    public withCreateUntil(createUntil: string): ListSmartLiveRequest {
-        this['create_until'] = createUntil;
-        return this;
-    }
-    public set createUntil(createUntil: string  | undefined) {
-        this['create_until'] = createUntil;
-    }
-    public get createUntil(): string | undefined {
-        return this['create_until'];
-    }
     public withCreateSince(createSince: string): ListSmartLiveRequest {
         this['create_since'] = createSince;
         return this;
@@ -117,5 +107,15 @@ export class ListSmartLiveRequest {
     }
     public get createSince(): string | undefined {
         return this['create_since'];
+    }
+    public withCreateUntil(createUntil: string): ListSmartLiveRequest {
+        this['create_until'] = createUntil;
+        return this;
+    }
+    public set createUntil(createUntil: string  | undefined) {
+        this['create_until'] = createUntil;
+    }
+    public get createUntil(): string | undefined {
+        return this['create_until'];
     }
 }

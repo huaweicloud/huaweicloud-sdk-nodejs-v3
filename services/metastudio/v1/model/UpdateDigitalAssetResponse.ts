@@ -12,6 +12,9 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     private 'update_time'?: string;
     private 'asset_type'?: UpdateDigitalAssetResponseAssetTypeEnum | string;
     private 'asset_state'?: UpdateDigitalAssetResponseAssetStateEnum | string;
+    private 'fail_type'?: UpdateDigitalAssetResponseFailTypeEnum | string;
+    public reason?: string;
+    private 'is_need_generate_cover'?: boolean;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
@@ -90,6 +93,30 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     public get assetState(): UpdateDigitalAssetResponseAssetStateEnum | string | undefined {
         return this['asset_state'];
     }
+    public withFailType(failType: UpdateDigitalAssetResponseFailTypeEnum | string): UpdateDigitalAssetResponse {
+        this['fail_type'] = failType;
+        return this;
+    }
+    public set failType(failType: UpdateDigitalAssetResponseFailTypeEnum | string  | undefined) {
+        this['fail_type'] = failType;
+    }
+    public get failType(): UpdateDigitalAssetResponseFailTypeEnum | string | undefined {
+        return this['fail_type'];
+    }
+    public withReason(reason: string): UpdateDigitalAssetResponse {
+        this['reason'] = reason;
+        return this;
+    }
+    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): UpdateDigitalAssetResponse {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+        return this;
+    }
+    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+    }
+    public get isNeedGenerateCover(): boolean | undefined {
+        return this['is_need_generate_cover'];
+    }
     public withTags(tags: Array<string>): UpdateDigitalAssetResponse {
         this['tags'] = tags;
         return this;
@@ -147,7 +174,8 @@ export enum UpdateDigitalAssetResponseAssetTypeEnum {
     COMMON_FILE = 'COMMON_FILE',
     HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
     BUSINESS_CARD_TEMPLET = 'BUSINESS_CARD_TEMPLET',
-    MUSIC = 'MUSIC'
+    MUSIC = 'MUSIC',
+    AUDIO = 'AUDIO'
 }
 /**
     * @export
@@ -161,4 +189,12 @@ export enum UpdateDigitalAssetResponseAssetStateEnum {
     DELETING = 'DELETING',
     DELETED = 'DELETED',
     BLOCK = 'BLOCK'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateDigitalAssetResponseFailTypeEnum {
+    AUTOMATIC_REVIEW_REJECT = 'AUTOMATIC_REVIEW_REJECT',
+    MANUAL_REVIEW_REJECT = 'MANUAL_REVIEW_REJECT'
 }

@@ -3903,7 +3903,7 @@ export class ApigClient {
      * @param {number} [type] API类型
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name、req_uri
      * @param {string} [vpcChannelName] 负载通道名称
-     * @param {'brief' | 'include_group' | 'include_group_backend'} [returnDataMode] 指定API详情中需要包含的额外返回结果，多个参数之间使用“,”隔开，当brief和其他include参数共同使用时，brief不生效。 目前仅支持brief，include_group，include_group_backend。 brief：默认值，不包含额外信息。 include_group：返回结果中包含api_group_info。 include_group_backend：返回结果中包含backend_api。
+     * @param {string} [returnDataMode] 指定API详情中需要包含的额外返回结果，多个参数之间使用“,”隔开，当brief和其他include参数共同使用时，brief不生效。 目前仅支持brief，include_group，include_group_backend。 brief：默认值，不包含额外信息。 include_group：返回结果中包含api_group_info。 include_group_backend：返回结果中包含backend_api。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

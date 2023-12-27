@@ -45,5 +45,7 @@ export enum RTCUserInfoUserTypeEnum {
     CAPTURE = 'CAPTURE',
     ANIMATION = 'ANIMATION',
     RENDER = 'RENDER',
-    PLAYER = 'PLAYER'
+    PLAYER = 'PLAYER',
+    INFERENCE_USER = 'INFERENCE_USER',
+    END_USER = 'END_USER'
 }

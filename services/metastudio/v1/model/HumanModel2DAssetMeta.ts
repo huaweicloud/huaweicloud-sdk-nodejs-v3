@@ -4,8 +4,8 @@ export class HumanModel2DAssetMeta {
     private 'is_action_editable'?: boolean;
     private 'is_real_background'?: boolean;
     private 'support_live'?: boolean;
-    private 'is_realtime_matting'?: boolean;
     private 'model_version'?: HumanModel2DAssetMetaModelVersionEnum | string;
+    private 'model_resolution'?: string;
     public constructor() { 
     }
     public withIsActionEditable(isActionEditable: boolean): HumanModel2DAssetMeta {
@@ -38,16 +38,6 @@ export class HumanModel2DAssetMeta {
     public get supportLive(): boolean | undefined {
         return this['support_live'];
     }
-    public withIsRealtimeMatting(isRealtimeMatting: boolean): HumanModel2DAssetMeta {
-        this['is_realtime_matting'] = isRealtimeMatting;
-        return this;
-    }
-    public set isRealtimeMatting(isRealtimeMatting: boolean  | undefined) {
-        this['is_realtime_matting'] = isRealtimeMatting;
-    }
-    public get isRealtimeMatting(): boolean | undefined {
-        return this['is_realtime_matting'];
-    }
     public withModelVersion(modelVersion: HumanModel2DAssetMetaModelVersionEnum | string): HumanModel2DAssetMeta {
         this['model_version'] = modelVersion;
         return this;
@@ -57,6 +47,16 @@ export class HumanModel2DAssetMeta {
     }
     public get modelVersion(): HumanModel2DAssetMetaModelVersionEnum | string | undefined {
         return this['model_version'];
+    }
+    public withModelResolution(modelResolution: string): HumanModel2DAssetMeta {
+        this['model_resolution'] = modelResolution;
+        return this;
+    }
+    public set modelResolution(modelResolution: string  | undefined) {
+        this['model_resolution'] = modelResolution;
+    }
+    public get modelResolution(): string | undefined {
+        return this['model_resolution'];
     }
 }
 

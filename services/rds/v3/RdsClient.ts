@@ -426,6 +426,8 @@ import { SetDbUserPwdRequest } from './model/SetDbUserPwdRequest';
 import { SetDbUserPwdResponse } from './model/SetDbUserPwdResponse';
 import { SetInstancesDbShrinkRequest } from './model/SetInstancesDbShrinkRequest';
 import { SetInstancesDbShrinkResponse } from './model/SetInstancesDbShrinkResponse';
+import { SetInstancesNewDbShrinkRequest } from './model/SetInstancesNewDbShrinkRequest';
+import { SetInstancesNewDbShrinkResponse } from './model/SetInstancesNewDbShrinkResponse';
 import { SetLogLtsConfigsRequest } from './model/SetLogLtsConfigsRequest';
 import { SetLogLtsConfigsResponse } from './model/SetLogLtsConfigsResponse';
 import { SetOffSiteBackupPolicyRequest } from './model/SetOffSiteBackupPolicyRequest';
@@ -520,6 +522,8 @@ import { StartResizeFlavorActionRequest } from './model/StartResizeFlavorActionR
 import { StartResizeFlavorActionResponse } from './model/StartResizeFlavorActionResponse';
 import { StartupInstanceRequest } from './model/StartupInstanceRequest';
 import { StartupInstanceResponse } from './model/StartupInstanceResponse';
+import { StopBackupRequest } from './model/StopBackupRequest';
+import { StopBackupResponse } from './model/StopBackupResponse';
 import { StopDatabaseProxyRequest } from './model/StopDatabaseProxyRequest';
 import { StopDatabaseProxyResponse } from './model/StopDatabaseProxyResponse';
 import { StopInstanceRequest } from './model/StopInstanceRequest';
@@ -2922,6 +2926,26 @@ export class RdsClient {
     }
 
     /**
+     * 停止创建备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止备份
+     * @param {string} instanceId 实例id
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBackup(stopBackupRequest?: StopBackupRequest): Promise<StopBackupResponse> {
+        const options = ParamCreater().stopBackup(stopBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 实例进行关机，通过暂时停止按需实例以节省费用，实例默认停止七天。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4496,6 +4520,26 @@ export class RdsClient {
      */
     public setInstancesDbShrink(setInstancesDbShrinkRequest?: SetInstancesDbShrinkRequest): Promise<SetInstancesDbShrinkResponse> {
         const options = ParamCreater().setInstancesDbShrink(setInstancesDbShrinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 收缩数据库日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 收缩数据库日志
+     * @param {string} instanceId 实例ID
+     * @param {UpdateDBShrinkRequestBody} updateDBShrinkRequestBody 收缩数据库
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInstancesNewDbShrink(setInstancesNewDbShrinkRequest?: SetInstancesNewDbShrinkRequest): Promise<SetInstancesNewDbShrinkResponse> {
+        const options = ParamCreater().setInstancesNewDbShrink(setInstancesNewDbShrinkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10395,6 +10439,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 停止创建备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBackup(stopBackupRequest?: StopBackupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (stopBackupRequest !== null && stopBackupRequest !== undefined) {
+                if (stopBackupRequest instanceof StopBackupRequest) {
+                    instanceId = stopBackupRequest.instanceId;
+                    xLanguage = stopBackupRequest.xLanguage;
+                } else {
+                    instanceId = stopBackupRequest['instance_id'];
+                    xLanguage = stopBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling stopBackup.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实例进行关机，通过暂时停止按需实例以节省费用，实例默认停止七天。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14394,6 +14482,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesDbShrink.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 收缩数据库日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInstancesNewDbShrink(setInstancesNewDbShrinkRequest?: SetInstancesNewDbShrinkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.1/{project_id}/instances/{instance_id}/db-shrink",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setInstancesNewDbShrinkRequest !== null && setInstancesNewDbShrinkRequest !== undefined) {
+                if (setInstancesNewDbShrinkRequest instanceof SetInstancesNewDbShrinkRequest) {
+                    instanceId = setInstancesNewDbShrinkRequest.instanceId;
+                    body = setInstancesNewDbShrinkRequest.body
+                } else {
+                    instanceId = setInstancesNewDbShrinkRequest['instance_id'];
+                    body = setInstancesNewDbShrinkRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesNewDbShrink.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

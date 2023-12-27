@@ -13,8 +13,9 @@ export class LiveVideoScriptInfo {
     private 'background_config'?: Array<BackgroundConfigInfo>;
     private 'layer_config'?: Array<LayerConfig>;
     private 'shoot_scripts'?: Array<LiveShootScriptItem>;
-    public constructor(scriptName?: string) { 
+    public constructor(scriptName?: string, shootScripts?: Array<LiveShootScriptItem>) { 
         this['script_name'] = scriptName;
+        this['shoot_scripts'] = shootScripts;
     }
     public withScriptName(scriptName: string): LiveVideoScriptInfo {
         this['script_name'] = scriptName;

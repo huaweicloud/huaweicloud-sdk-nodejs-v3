@@ -276,6 +276,8 @@ import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkReq
 import { ShowBackupDownloadLinkResponse } from './model/ShowBackupDownloadLinkResponse';
 import { ShowBackupPolicyRequest } from './model/ShowBackupPolicyRequest';
 import { ShowBackupPolicyResponse } from './model/ShowBackupPolicyResponse';
+import { ShowClientNetworkRequest } from './model/ShowClientNetworkRequest';
+import { ShowClientNetworkResponse } from './model/ShowClientNetworkResponse';
 import { ShowConfigurationAppliedHistoryRequest } from './model/ShowConfigurationAppliedHistoryRequest';
 import { ShowConfigurationAppliedHistoryResponse } from './model/ShowConfigurationAppliedHistoryResponse';
 import { ShowConfigurationModifyHistoryRequest } from './model/ShowConfigurationModifyHistoryRequest';
@@ -1936,6 +1938,25 @@ export class DdsClient {
      */
     public showBackupPolicy(showBackupPolicyRequest?: ShowBackupPolicyRequest): Promise<ShowBackupPolicyResponse> {
         const options = ParamCreater().showBackupPolicy(showBackupPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询副本集跨网段访问配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询副本集跨网段访问配置
+     * @param {string} instanceId 实例ID，可以调用“[查询实例列表和详情](x-wc://file&#x3D;zh-cn_topic_0000001369935045.xml)”接口获取。如果未申请实例，可以调用“[创建实例](x-wc://file&#x3D;zh-cn_topic_0000001369734929.xml)”接口创建。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClientNetwork(showClientNetworkRequest?: ShowClientNetworkRequest): Promise<ShowClientNetworkResponse> {
+        const options = ParamCreater().showClientNetwork(showClientNetworkRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6383,6 +6404,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBackupPolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询副本集跨网段访问配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClientNetwork(showClientNetworkRequest?: ShowClientNetworkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/client-network",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showClientNetworkRequest !== null && showClientNetworkRequest !== undefined) {
+                if (showClientNetworkRequest instanceof ShowClientNetworkRequest) {
+                    instanceId = showClientNetworkRequest.instanceId;
+                } else {
+                    instanceId = showClientNetworkRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showClientNetwork.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };

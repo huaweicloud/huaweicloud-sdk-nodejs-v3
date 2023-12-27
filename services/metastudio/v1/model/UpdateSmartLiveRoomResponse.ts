@@ -1,7 +1,11 @@
 import { CreateSmartLiveRoomReq } from './CreateSmartLiveRoomReq';
+import { ErrorResponse } from './ErrorResponse';
 import { InteractionRuleInfo } from './InteractionRuleInfo';
+import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
 import { PlayPolicy } from './PlayPolicy';
+import { ReviewConfig } from './ReviewConfig';
+import { SharedConfig } from './SharedConfig';
 import { VideoConfig } from './VideoConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -15,10 +19,17 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'play_policy'?: PlayPolicy;
     private 'video_config'?: VideoConfig;
     private 'output_urls'?: Array<string>;
+    private 'stream_keys'?: Array<string>;
+    private 'backup_model_asset_ids'?: Array<string>;
+    private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'review_config'?: ReviewConfig;
+    private 'shared_config'?: SharedConfig;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'cover_url'?: string;
+    private 'room_state'?: UpdateSmartLiveRoomResponseRoomStateEnum | string;
+    private 'error_info'?: ErrorResponse;
     private 'X-Request-Id'?: string;
     public constructor(roomName?: string) { 
         super();
@@ -104,6 +115,56 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get outputUrls(): Array<string> | undefined {
         return this['output_urls'];
     }
+    public withStreamKeys(streamKeys: Array<string>): UpdateSmartLiveRoomResponse {
+        this['stream_keys'] = streamKeys;
+        return this;
+    }
+    public set streamKeys(streamKeys: Array<string>  | undefined) {
+        this['stream_keys'] = streamKeys;
+    }
+    public get streamKeys(): Array<string> | undefined {
+        return this['stream_keys'];
+    }
+    public withBackupModelAssetIds(backupModelAssetIds: Array<string>): UpdateSmartLiveRoomResponse {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+        return this;
+    }
+    public set backupModelAssetIds(backupModelAssetIds: Array<string>  | undefined) {
+        this['backup_model_asset_ids'] = backupModelAssetIds;
+    }
+    public get backupModelAssetIds(): Array<string> | undefined {
+        return this['backup_model_asset_ids'];
+    }
+    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig): UpdateSmartLiveRoomResponse {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+        return this;
+    }
+    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig  | undefined) {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+    }
+    public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
+        return this['live_event_callback_config'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): UpdateSmartLiveRoomResponse {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
+    public withSharedConfig(sharedConfig: SharedConfig): UpdateSmartLiveRoomResponse {
+        this['shared_config'] = sharedConfig;
+        return this;
+    }
+    public set sharedConfig(sharedConfig: SharedConfig  | undefined) {
+        this['shared_config'] = sharedConfig;
+    }
+    public get sharedConfig(): SharedConfig | undefined {
+        return this['shared_config'];
+    }
     public withRoomId(roomId: string): UpdateSmartLiveRoomResponse {
         this['room_id'] = roomId;
         return this;
@@ -144,6 +205,26 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get coverUrl(): string | undefined {
         return this['cover_url'];
     }
+    public withRoomState(roomState: UpdateSmartLiveRoomResponseRoomStateEnum | string): UpdateSmartLiveRoomResponse {
+        this['room_state'] = roomState;
+        return this;
+    }
+    public set roomState(roomState: UpdateSmartLiveRoomResponseRoomStateEnum | string  | undefined) {
+        this['room_state'] = roomState;
+    }
+    public get roomState(): UpdateSmartLiveRoomResponseRoomStateEnum | string | undefined {
+        return this['room_state'];
+    }
+    public withErrorInfo(errorInfo: ErrorResponse): UpdateSmartLiveRoomResponse {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorResponse  | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo(): ErrorResponse | undefined {
+        return this['error_info'];
+    }
     public withXRequestId(xRequestId: string): UpdateSmartLiveRoomResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -162,5 +243,15 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     */
 export enum UpdateSmartLiveRoomResponseRoomTypeEnum {
     NORMAL = 'NORMAL',
-    TEMP = 'TEMP'
+    TEMP = 'TEMP',
+    TEMPLATE = 'TEMPLATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateSmartLiveRoomResponseRoomStateEnum {
+    ENABLE = 'ENABLE',
+    DISABLE = 'DISABLE',
+    BLOCKED = 'BLOCKED'
 }

@@ -2,18 +2,19 @@
 
 export class CreateTTSAReq {
     private 'voice_asset_id'?: string;
+    private 'script_type'?: CreateTTSAReqScriptTypeEnum | string;
     public text?: string;
+    private 'audio_file_download_url'?: string;
     public speed?: number;
     public pitch?: number;
     public volume?: number;
     public emotion?: string;
-    private 'parent_job_id'?: string;
-    private 'auto_motion'?: boolean;
     private 'style_id'?: string;
     private 'camera_position'?: string;
-    public constructor(voiceAssetId?: string, text?: string) { 
+    private 'job_type'?: CreateTTSAReqJobTypeEnum | string;
+    public constructor(voiceAssetId?: string, styleId?: string) { 
         this['voice_asset_id'] = voiceAssetId;
-        this['text'] = text;
+        this['style_id'] = styleId;
     }
     public withVoiceAssetId(voiceAssetId: string): CreateTTSAReq {
         this['voice_asset_id'] = voiceAssetId;
@@ -25,9 +26,29 @@ export class CreateTTSAReq {
     public get voiceAssetId(): string | undefined {
         return this['voice_asset_id'];
     }
+    public withScriptType(scriptType: CreateTTSAReqScriptTypeEnum | string): CreateTTSAReq {
+        this['script_type'] = scriptType;
+        return this;
+    }
+    public set scriptType(scriptType: CreateTTSAReqScriptTypeEnum | string  | undefined) {
+        this['script_type'] = scriptType;
+    }
+    public get scriptType(): CreateTTSAReqScriptTypeEnum | string | undefined {
+        return this['script_type'];
+    }
     public withText(text: string): CreateTTSAReq {
         this['text'] = text;
         return this;
+    }
+    public withAudioFileDownloadUrl(audioFileDownloadUrl: string): CreateTTSAReq {
+        this['audio_file_download_url'] = audioFileDownloadUrl;
+        return this;
+    }
+    public set audioFileDownloadUrl(audioFileDownloadUrl: string  | undefined) {
+        this['audio_file_download_url'] = audioFileDownloadUrl;
+    }
+    public get audioFileDownloadUrl(): string | undefined {
+        return this['audio_file_download_url'];
     }
     public withSpeed(speed: number): CreateTTSAReq {
         this['speed'] = speed;
@@ -44,26 +65,6 @@ export class CreateTTSAReq {
     public withEmotion(emotion: string): CreateTTSAReq {
         this['emotion'] = emotion;
         return this;
-    }
-    public withParentJobId(parentJobId: string): CreateTTSAReq {
-        this['parent_job_id'] = parentJobId;
-        return this;
-    }
-    public set parentJobId(parentJobId: string  | undefined) {
-        this['parent_job_id'] = parentJobId;
-    }
-    public get parentJobId(): string | undefined {
-        return this['parent_job_id'];
-    }
-    public withAutoMotion(autoMotion: boolean): CreateTTSAReq {
-        this['auto_motion'] = autoMotion;
-        return this;
-    }
-    public set autoMotion(autoMotion: boolean  | undefined) {
-        this['auto_motion'] = autoMotion;
-    }
-    public get autoMotion(): boolean | undefined {
-        return this['auto_motion'];
     }
     public withStyleId(styleId: string): CreateTTSAReq {
         this['style_id'] = styleId;
@@ -85,4 +86,31 @@ export class CreateTTSAReq {
     public get cameraPosition(): string | undefined {
         return this['camera_position'];
     }
+    public withJobType(jobType: CreateTTSAReqJobTypeEnum | string): CreateTTSAReq {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: CreateTTSAReqJobTypeEnum | string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): CreateTTSAReqJobTypeEnum | string | undefined {
+        return this['job_type'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTTSAReqScriptTypeEnum {
+    TEXT = 'TEXT',
+    AUDIO = 'AUDIO'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTTSAReqJobTypeEnum {
+    REAL_JOB = 'REAL_JOB',
+    UNREAL_JOB = 'UNREAL_JOB'
 }

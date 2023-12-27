@@ -1,14 +1,27 @@
 import { HitCondition } from './HitCondition';
+import { ReviewConfig } from './ReviewConfig';
 import { TriggerProcess } from './TriggerProcess';
 
 
 export class InteractionRuleInfo {
+    private 'rule_index'?: string;
     private 'rule_name'?: string;
     public enabled?: boolean;
     private 'event_type'?: number;
     private 'hit_condition'?: HitCondition;
     public trigger?: TriggerProcess;
+    private 'review_config'?: ReviewConfig;
     public constructor() { 
+    }
+    public withRuleIndex(ruleIndex: string): InteractionRuleInfo {
+        this['rule_index'] = ruleIndex;
+        return this;
+    }
+    public set ruleIndex(ruleIndex: string  | undefined) {
+        this['rule_index'] = ruleIndex;
+    }
+    public get ruleIndex(): string | undefined {
+        return this['rule_index'];
     }
     public withRuleName(ruleName: string): InteractionRuleInfo {
         this['rule_name'] = ruleName;
@@ -47,5 +60,15 @@ export class InteractionRuleInfo {
     public withTrigger(trigger: TriggerProcess): InteractionRuleInfo {
         this['trigger'] = trigger;
         return this;
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): InteractionRuleInfo {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
     }
 }

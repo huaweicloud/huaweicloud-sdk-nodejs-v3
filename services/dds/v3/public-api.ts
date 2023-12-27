@@ -274,6 +274,8 @@ export * from './model/ShowBackupDownloadLinkRequest';
 export * from './model/ShowBackupDownloadLinkResponse';
 export * from './model/ShowBackupPolicyRequest';
 export * from './model/ShowBackupPolicyResponse';
+export * from './model/ShowClientNetworkRequest';
+export * from './model/ShowClientNetworkResponse';
 export * from './model/ShowConfigurationAppliedHistoryRequest';
 export * from './model/ShowConfigurationAppliedHistoryResponse';
 export * from './model/ShowConfigurationModifyHistoryRequest';

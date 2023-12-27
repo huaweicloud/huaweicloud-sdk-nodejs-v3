@@ -1,5 +1,6 @@
 import { BusinessCardImageConfig } from './BusinessCardImageConfig';
 import { BusinessCardTextConfig } from './BusinessCardTextConfig';
+import { ReviewConfig } from './ReviewConfig';
 
 
 export class CreateDigitalHumanBusinessCardReq {
@@ -7,17 +8,18 @@ export class CreateDigitalHumanBusinessCardReq {
     private 'card_templet_asset_id'?: string;
     private 'card_text_config'?: BusinessCardTextConfig;
     private 'card_image_config'?: BusinessCardImageConfig;
+    private 'introduction_type'?: CreateDigitalHumanBusinessCardReqIntroductionTypeEnum | string;
     private 'introduction_text'?: string;
     private 'voice_asset_id'?: string;
+    private 'introduction_audio_asset_id'?: string;
     private 'video_asset_name'?: string;
     public gender?: CreateDigitalHumanBusinessCardReqGenderEnum | string;
-    public constructor(businessCardType?: string, cardTempletAssetId?: string, cardTextConfig?: BusinessCardTextConfig, cardImageConfig?: BusinessCardImageConfig, introductionText?: string, voiceAssetId?: string) { 
+    private 'review_config'?: ReviewConfig;
+    public constructor(businessCardType?: string, cardTempletAssetId?: string, cardTextConfig?: BusinessCardTextConfig, cardImageConfig?: BusinessCardImageConfig) { 
         this['business_card_type'] = businessCardType;
         this['card_templet_asset_id'] = cardTempletAssetId;
         this['card_text_config'] = cardTextConfig;
         this['card_image_config'] = cardImageConfig;
-        this['introduction_text'] = introductionText;
-        this['voice_asset_id'] = voiceAssetId;
     }
     public withBusinessCardType(businessCardType: CreateDigitalHumanBusinessCardReqBusinessCardTypeEnum | string): CreateDigitalHumanBusinessCardReq {
         this['business_card_type'] = businessCardType;
@@ -59,6 +61,16 @@ export class CreateDigitalHumanBusinessCardReq {
     public get cardImageConfig(): BusinessCardImageConfig | undefined {
         return this['card_image_config'];
     }
+    public withIntroductionType(introductionType: CreateDigitalHumanBusinessCardReqIntroductionTypeEnum | string): CreateDigitalHumanBusinessCardReq {
+        this['introduction_type'] = introductionType;
+        return this;
+    }
+    public set introductionType(introductionType: CreateDigitalHumanBusinessCardReqIntroductionTypeEnum | string  | undefined) {
+        this['introduction_type'] = introductionType;
+    }
+    public get introductionType(): CreateDigitalHumanBusinessCardReqIntroductionTypeEnum | string | undefined {
+        return this['introduction_type'];
+    }
     public withIntroductionText(introductionText: string): CreateDigitalHumanBusinessCardReq {
         this['introduction_text'] = introductionText;
         return this;
@@ -79,6 +91,16 @@ export class CreateDigitalHumanBusinessCardReq {
     public get voiceAssetId(): string | undefined {
         return this['voice_asset_id'];
     }
+    public withIntroductionAudioAssetId(introductionAudioAssetId: string): CreateDigitalHumanBusinessCardReq {
+        this['introduction_audio_asset_id'] = introductionAudioAssetId;
+        return this;
+    }
+    public set introductionAudioAssetId(introductionAudioAssetId: string  | undefined) {
+        this['introduction_audio_asset_id'] = introductionAudioAssetId;
+    }
+    public get introductionAudioAssetId(): string | undefined {
+        return this['introduction_audio_asset_id'];
+    }
     public withVideoAssetName(videoAssetName: string): CreateDigitalHumanBusinessCardReq {
         this['video_asset_name'] = videoAssetName;
         return this;
@@ -93,6 +115,16 @@ export class CreateDigitalHumanBusinessCardReq {
         this['gender'] = gender;
         return this;
     }
+    public withReviewConfig(reviewConfig: ReviewConfig): CreateDigitalHumanBusinessCardReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
 }
 
 /**
@@ -101,6 +133,14 @@ export class CreateDigitalHumanBusinessCardReq {
     */
 export enum CreateDigitalHumanBusinessCardReqBusinessCardTypeEnum {
     E_2D_DIGITAL_HUMAN_CARD = '2D_DIGITAL_HUMAN_CARD'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateDigitalHumanBusinessCardReqIntroductionTypeEnum {
+    TEXT = 'TEXT',
+    AUDIO = 'AUDIO'
 }
 /**
     * @export

@@ -1,8 +1,10 @@
+import { ReviewConfig } from './ReviewConfig';
 
 
 export class ControlSmartLiveReq {
     public command?: ControlSmartLiveReqCommandEnum | string;
     public params?: object;
+    private 'review_config'?: ReviewConfig;
     public constructor(command?: string) { 
         this['command'] = command;
     }
@@ -14,6 +16,16 @@ export class ControlSmartLiveReq {
         this['params'] = params;
         return this;
     }
+    public withReviewConfig(reviewConfig: ReviewConfig): ControlSmartLiveReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
 }
 
 /**
@@ -23,5 +35,6 @@ export class ControlSmartLiveReq {
 export enum ControlSmartLiveReqCommandEnum {
     INSERT_PLAY_SCRIPT = 'INSERT_PLAY_SCRIPT',
     REWRITE_PLAY_SCRIPT = 'REWRITE_PLAY_SCRIPT',
-    INSERT_PLAY_AUDIO = 'INSERT_PLAY_AUDIO'
+    INSERT_PLAY_AUDIO = 'INSERT_PLAY_AUDIO',
+    GET_CURRENT_PLAYING_SCRIPTS = 'GET_CURRENT_PLAYING_SCRIPTS'
 }

@@ -4,7 +4,6 @@ export class PhotoVideoConfig {
     public codec?: PhotoVideoConfigCodecEnum | string;
     public bitrate?: number;
     private 'frame_rate'?: PhotoVideoConfigFrameRateEnum | string;
-    private 'disable_system_watermark'?: boolean;
     public constructor(codec?: string) { 
         this['codec'] = codec;
     }
@@ -25,16 +24,6 @@ export class PhotoVideoConfig {
     }
     public get frameRate(): PhotoVideoConfigFrameRateEnum | string | undefined {
         return this['frame_rate'];
-    }
-    public withDisableSystemWatermark(disableSystemWatermark: boolean): PhotoVideoConfig {
-        this['disable_system_watermark'] = disableSystemWatermark;
-        return this;
-    }
-    public set disableSystemWatermark(disableSystemWatermark: boolean  | undefined) {
-        this['disable_system_watermark'] = disableSystemWatermark;
-    }
-    public get disableSystemWatermark(): boolean | undefined {
-        return this['disable_system_watermark'];
     }
 }
 

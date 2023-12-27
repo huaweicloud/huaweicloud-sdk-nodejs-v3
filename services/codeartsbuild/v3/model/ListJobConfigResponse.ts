@@ -3,13 +3,13 @@ import { CreateBuildJobRequestBody } from './CreateBuildJobRequestBody';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListJobConfigResponse extends SdkResponse {
-    public result?: Array<CreateBuildJobRequestBody>;
+    public result?: CreateBuildJobRequestBody;
     public error?: string;
     public status?: string;
     public constructor() { 
         super();
     }
-    public withResult(result: Array<CreateBuildJobRequestBody>): ListJobConfigResponse {
+    public withResult(result: CreateBuildJobRequestBody): ListJobConfigResponse {
         this['result'] = result;
         return this;
     }

@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     private 'sql_alarm_rule_name'?: string;
+    private 'alarm_rule_alias'?: string;
     private 'is_css_sql'?: boolean;
     public indexId?: string;
     public projectId?: string;
@@ -36,6 +37,16 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     }
     public get sqlAlarmRuleName(): string | undefined {
         return this['sql_alarm_rule_name'];
+    }
+    public withAlarmRuleAlias(alarmRuleAlias: string): UpdateSqlAlarmRuleResponse {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+        return this;
+    }
+    public set alarmRuleAlias(alarmRuleAlias: string  | undefined) {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+    }
+    public get alarmRuleAlias(): string | undefined {
+        return this['alarm_rule_alias'];
     }
     public withIsCssSql(isCssSql: boolean): UpdateSqlAlarmRuleResponse {
         this['is_css_sql'] = isCssSql;

@@ -3,13 +3,13 @@ import { QueryTemplatesResult } from './QueryTemplatesResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTemplatesResponse extends SdkResponse {
-    public result?: Array<QueryTemplatesResult>;
+    public result?: QueryTemplatesResult;
     public error?: string;
     public status?: string;
     public constructor() { 
         super();
     }
-    public withResult(result: Array<QueryTemplatesResult>): ListTemplatesResponse {
+    public withResult(result: QueryTemplatesResult): ListTemplatesResponse {
         this['result'] = result;
         return this;
     }

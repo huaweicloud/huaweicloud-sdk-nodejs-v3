@@ -1,9 +1,13 @@
+import { ErrorResponse } from './ErrorResponse';
 import { ModelInfo } from './ModelInfo';
 
 
 export class SmartLiveRoomBaseInfo {
     private 'room_id'?: string;
     private 'room_name'?: string;
+    private 'room_type'?: SmartLiveRoomBaseInfoRoomTypeEnum | string;
+    private 'room_state'?: SmartLiveRoomBaseInfoRoomStateEnum | string;
+    private 'error_info'?: ErrorResponse;
     private 'room_description'?: string;
     private 'cover_url'?: string;
     private 'model_infos'?: Array<ModelInfo>;
@@ -33,6 +37,36 @@ export class SmartLiveRoomBaseInfo {
     }
     public get roomName(): string | undefined {
         return this['room_name'];
+    }
+    public withRoomType(roomType: SmartLiveRoomBaseInfoRoomTypeEnum | string): SmartLiveRoomBaseInfo {
+        this['room_type'] = roomType;
+        return this;
+    }
+    public set roomType(roomType: SmartLiveRoomBaseInfoRoomTypeEnum | string  | undefined) {
+        this['room_type'] = roomType;
+    }
+    public get roomType(): SmartLiveRoomBaseInfoRoomTypeEnum | string | undefined {
+        return this['room_type'];
+    }
+    public withRoomState(roomState: SmartLiveRoomBaseInfoRoomStateEnum | string): SmartLiveRoomBaseInfo {
+        this['room_state'] = roomState;
+        return this;
+    }
+    public set roomState(roomState: SmartLiveRoomBaseInfoRoomStateEnum | string  | undefined) {
+        this['room_state'] = roomState;
+    }
+    public get roomState(): SmartLiveRoomBaseInfoRoomStateEnum | string | undefined {
+        return this['room_state'];
+    }
+    public withErrorInfo(errorInfo: ErrorResponse): SmartLiveRoomBaseInfo {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorResponse  | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo(): ErrorResponse | undefined {
+        return this['error_info'];
     }
     public withRoomDescription(roomDescription: string): SmartLiveRoomBaseInfo {
         this['room_description'] = roomDescription;
@@ -116,6 +150,24 @@ export class SmartLiveRoomBaseInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartLiveRoomBaseInfoRoomTypeEnum {
+    NORMAL = 'NORMAL',
+    TEMP = 'TEMP',
+    TEMPLATE = 'TEMPLATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartLiveRoomBaseInfoRoomStateEnum {
+    ENABLE = 'ENABLE',
+    DISABLE = 'DISABLE',
+    BLOCKED = 'BLOCKED'
+}
 /**
     * @export
     * @enum {string}

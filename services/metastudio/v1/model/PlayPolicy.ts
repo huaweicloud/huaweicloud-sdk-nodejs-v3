@@ -4,6 +4,7 @@ export class PlayPolicy {
     private 'repeat_count'?: number;
     private 'auto_play_script'?: boolean;
     private 'play_mode'?: PlayPolicyPlayModeEnum | string;
+    private 'random_play_mode'?: PlayPolicyRandomPlayModeEnum | string;
     public constructor() { 
     }
     public withRepeatCount(repeatCount: number): PlayPolicy {
@@ -36,6 +37,16 @@ export class PlayPolicy {
     public get playMode(): PlayPolicyPlayModeEnum | string | undefined {
         return this['play_mode'];
     }
+    public withRandomPlayMode(randomPlayMode: PlayPolicyRandomPlayModeEnum | string): PlayPolicy {
+        this['random_play_mode'] = randomPlayMode;
+        return this;
+    }
+    public set randomPlayMode(randomPlayMode: PlayPolicyRandomPlayModeEnum | string  | undefined) {
+        this['random_play_mode'] = randomPlayMode;
+    }
+    public get randomPlayMode(): PlayPolicyRandomPlayModeEnum | string | undefined {
+        return this['random_play_mode'];
+    }
 }
 
 /**
@@ -45,4 +56,14 @@ export class PlayPolicy {
 export enum PlayPolicyPlayModeEnum {
     TEXT = 'TEXT',
     AUDIO = 'AUDIO'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PlayPolicyRandomPlayModeEnum {
+    NONE = 'NONE',
+    SCENE = 'SCENE',
+    SCRIPT_ITEM = 'SCRIPT_ITEM',
+    SCENE_AND_SCRIPT_ITEM = 'SCENE_AND_SCRIPT_ITEM'
 }

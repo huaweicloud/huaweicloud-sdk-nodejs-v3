@@ -65,5 +65,6 @@ export enum DigitalAssetSummaryAssetTypeEnum {
     VOICE_MODEL = 'VOICE_MODEL',
     HUMAN_MODEL_2D = 'HUMAN_MODEL_2D',
     BUSINESS_CARD_TEMPLET = 'BUSINESS_CARD_TEMPLET',
-    MUSIC = 'MUSIC'
+    MUSIC = 'MUSIC',
+    AUDIO = 'AUDIO'
 }

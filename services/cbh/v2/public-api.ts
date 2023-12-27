@@ -1,5 +1,6 @@
 export * from './CbhClient';
 
+export * from './model/AgencyAuthorizeInfo';
 export * from './model/AuthorizeCsmsAndKmsRequestBody';
 export * from './model/AvailabilityZones';
 export * from './model/BatchCreateInstanceTagRequest';
@@ -40,6 +41,7 @@ export * from './model/ListTagsResponse';
 export * from './model/LoginInstanceRequest';
 export * from './model/LoginInstanceResponse';
 export * from './model/Match';
+export * from './model/NetworkInfoCreate';
 export * from './model/OperateEipRequestBody';
 export * from './model/RebootCbhRequestBody';
 export * from './model/RebootInstanceRequest';
@@ -58,6 +60,7 @@ export * from './model/Resources';
 export * from './model/RollbackInstanceRequest';
 export * from './model/RollbackInstanceRequestBody';
 export * from './model/RollbackInstanceResponse';
+export * from './model/SecurityGroup';
 export * from './model/ShowAuthorizationRequest';
 export * from './model/ShowAuthorizationResponse';
 export * from './model/ShowEcsQuotaRequest';

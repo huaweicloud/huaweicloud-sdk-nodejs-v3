@@ -15,7 +15,7 @@ export class ListApisV2Request {
     public type?: number;
     private 'precise_search'?: string;
     private 'vpc_channel_name'?: string;
-    private 'return_data_mode'?: ListApisV2RequestReturnDataModeEnum | string;
+    private 'return_data_mode'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -129,24 +129,14 @@ export class ListApisV2Request {
     public get vpcChannelName(): string | undefined {
         return this['vpc_channel_name'];
     }
-    public withReturnDataMode(returnDataMode: ListApisV2RequestReturnDataModeEnum | string): ListApisV2Request {
+    public withReturnDataMode(returnDataMode: string): ListApisV2Request {
         this['return_data_mode'] = returnDataMode;
         return this;
     }
-    public set returnDataMode(returnDataMode: ListApisV2RequestReturnDataModeEnum | string  | undefined) {
+    public set returnDataMode(returnDataMode: string  | undefined) {
         this['return_data_mode'] = returnDataMode;
     }
-    public get returnDataMode(): ListApisV2RequestReturnDataModeEnum | string | undefined {
+    public get returnDataMode(): string | undefined {
         return this['return_data_mode'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListApisV2RequestReturnDataModeEnum {
-    BRIEF = 'brief',
-    INCLUDE_GROUP = 'include_group',
-    INCLUDE_GROUP_BACKEND = 'include_group_backend'
 }

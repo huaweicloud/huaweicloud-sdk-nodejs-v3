@@ -1,12 +1,11 @@
-import { ExternalVoiceAssetMeta } from './ExternalVoiceAssetMeta';
 
 
 export class VoiceModelAssetMeta {
     private 'model_type'?: VoiceModelAssetMetaModelTypeEnum | string;
     public sex?: VoiceModelAssetMetaSexEnum | string;
     public language?: VoiceModelAssetMetaLanguageEnum | string;
-    private 'tts_mode'?: VoiceModelAssetMetaTtsModeEnum | string;
-    private 'external_voice_meta'?: ExternalVoiceAssetMeta;
+    private 'speed_ratio'?: number;
+    private 'volume_ratio'?: number;
     public constructor() { 
     }
     public withModelType(modelType: VoiceModelAssetMetaModelTypeEnum | string): VoiceModelAssetMeta {
@@ -27,25 +26,25 @@ export class VoiceModelAssetMeta {
         this['language'] = language;
         return this;
     }
-    public withTtsMode(ttsMode: VoiceModelAssetMetaTtsModeEnum | string): VoiceModelAssetMeta {
-        this['tts_mode'] = ttsMode;
+    public withSpeedRatio(speedRatio: number): VoiceModelAssetMeta {
+        this['speed_ratio'] = speedRatio;
         return this;
     }
-    public set ttsMode(ttsMode: VoiceModelAssetMetaTtsModeEnum | string  | undefined) {
-        this['tts_mode'] = ttsMode;
+    public set speedRatio(speedRatio: number  | undefined) {
+        this['speed_ratio'] = speedRatio;
     }
-    public get ttsMode(): VoiceModelAssetMetaTtsModeEnum | string | undefined {
-        return this['tts_mode'];
+    public get speedRatio(): number | undefined {
+        return this['speed_ratio'];
     }
-    public withExternalVoiceMeta(externalVoiceMeta: ExternalVoiceAssetMeta): VoiceModelAssetMeta {
-        this['external_voice_meta'] = externalVoiceMeta;
+    public withVolumeRatio(volumeRatio: number): VoiceModelAssetMeta {
+        this['volume_ratio'] = volumeRatio;
         return this;
     }
-    public set externalVoiceMeta(externalVoiceMeta: ExternalVoiceAssetMeta  | undefined) {
-        this['external_voice_meta'] = externalVoiceMeta;
+    public set volumeRatio(volumeRatio: number  | undefined) {
+        this['volume_ratio'] = volumeRatio;
     }
-    public get externalVoiceMeta(): ExternalVoiceAssetMeta | undefined {
-        return this['external_voice_meta'];
+    public get volumeRatio(): number | undefined {
+        return this['volume_ratio'];
     }
 }
 
@@ -73,14 +72,29 @@ export enum VoiceModelAssetMetaSexEnum {
 export enum VoiceModelAssetMetaLanguageEnum {
     UNKNOW = 'UNKNOW',
     CN = 'CN',
-    EN = 'EN'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VoiceModelAssetMetaTtsModeEnum {
-    UNKNOW = 'UNKNOW',
-    TTS_V1 = 'TTS_V1',
-    TTS_V2 = 'TTS_V2'
+    EN = 'EN',
+    GER = 'GER',
+    FR = 'fr',
+    KR = 'Kr',
+    POR = 'por',
+    JPN = 'JPN',
+    ITA = 'Ita',
+    ESP = 'ESP',
+    DBH = 'DBH',
+    GT = 'GT',
+    GXH = 'GXH',
+    HBH = 'HBH',
+    SXH = 'SXH',
+    SCH = 'SCH',
+    YY = 'YY',
+    RUSSIAN = 'Russian',
+    FILIPINO = 'Filipino',
+    DUTCH = 'Dutch',
+    INDONESIAN = 'Indonesian',
+    VIETNAMESE = 'Vietnamese',
+    ARABIC = 'Arabic',
+    TURKISH = 'Turkish',
+    MALAY = 'Malay',
+    THAI = 'Thai',
+    FINNISH = 'Finnish'
 }

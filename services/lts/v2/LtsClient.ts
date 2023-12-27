@@ -55,6 +55,8 @@ import { CreateLogDumpObsResponse } from './model/CreateLogDumpObsResponse';
 import { CreateLogGroupParams } from './model/CreateLogGroupParams';
 import { CreateLogGroupRequest } from './model/CreateLogGroupRequest';
 import { CreateLogGroupResponse } from './model/CreateLogGroupResponse';
+import { CreateLogStreamIndexRequest } from './model/CreateLogStreamIndexRequest';
+import { CreateLogStreamIndexResponse } from './model/CreateLogStreamIndexResponse';
 import { CreateLogStreamParams } from './model/CreateLogStreamParams';
 import { CreateLogStreamRequest } from './model/CreateLogStreamRequest';
 import { CreateLogStreamResponse } from './model/CreateLogStreamResponse';
@@ -146,6 +148,9 @@ import { KeywordsAlarmRuleRespList } from './model/KeywordsAlarmRuleRespList';
 import { KeywordsRequest } from './model/KeywordsRequest';
 import { KeywordsResBody } from './model/KeywordsResBody';
 import { LTSAccessConfigInfoRespon200 } from './model/LTSAccessConfigInfoRespon200';
+import { LTSFieldsInfo } from './model/LTSFieldsInfo';
+import { LTSFullTextIndexInfo } from './model/LTSFullTextIndexInfo';
+import { LTSIndexConfigInfo } from './model/LTSIndexConfigInfo';
 import { ListAccessConfigRequest } from './model/ListAccessConfigRequest';
 import { ListAccessConfigResponse } from './model/ListAccessConfigResponse';
 import { ListActiveOrHistoryAlarmsRequest } from './model/ListActiveOrHistoryAlarmsRequest';
@@ -217,6 +222,7 @@ import { QueryLogKeyWordCountRequestBody } from './model/QueryLogKeyWordCountReq
 import { QueryLtsLogParams } from './model/QueryLtsLogParams';
 import { QueryLtsStructLogParams } from './model/QueryLtsStructLogParams';
 import { QueryLtsStructLogParamsNew } from './model/QueryLtsStructLogParamsNew';
+import { QueryLtsStructLogResponseBodyNew } from './model/QueryLtsStructLogResponseBodyNew';
 import { RegisterDmsKafkaInstanceRequest } from './model/RegisterDmsKafkaInstanceRequest';
 import { RegisterDmsKafkaInstanceRequestBody } from './model/RegisterDmsKafkaInstanceRequestBody';
 import { RegisterDmsKafkaInstanceRequestBodyConnectInfo } from './model/RegisterDmsKafkaInstanceRequestBodyConnectInfo';
@@ -490,6 +496,28 @@ export class LtsClient {
      */
     public createLogStream(createLogStreamRequest?: CreateLogStreamRequest): Promise<CreateLogStreamResponse> {
         const options = ParamCreater().createLogStream(createLogStreamRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 向指定流创建索引
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 向指定流创建索引
+     * @param {string} groupId \&#39;项目ID，账号ID，日志组ID、日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID\&#39;
+     * @param {string} streamId \&#39;项目ID，账号ID，日志组ID、日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID\&#39;
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8
+     * @param {LTSIndexConfigInfo} requestBody 全文索引和字段索引至少开启一种
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLogStreamIndex(createLogStreamIndexRequest?: CreateLogStreamIndexRequest): Promise<CreateLogStreamIndexResponse> {
+        const options = ParamCreater().createLogStreamIndex(createLogStreamIndexRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2372,6 +2400,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'log_group_id': logGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 向指定流创建索引
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLogStreamIndex(createLogStreamIndexRequest?: CreateLogStreamIndexRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/groups/{group_id}/stream/{stream_id}/index/config",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let contentType;
+
+            if (createLogStreamIndexRequest !== null && createLogStreamIndexRequest !== undefined) {
+                if (createLogStreamIndexRequest instanceof CreateLogStreamIndexRequest) {
+                    groupId = createLogStreamIndexRequest.groupId;
+                    streamId = createLogStreamIndexRequest.streamId;
+                    contentType = createLogStreamIndexRequest.contentType;
+                    body = createLogStreamIndexRequest.body
+                } else {
+                    groupId = createLogStreamIndexRequest['group_id'];
+                    streamId = createLogStreamIndexRequest['stream_id'];
+                    contentType = createLogStreamIndexRequest['Content-Type'];
+                    body = createLogStreamIndexRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createLogStreamIndex.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling createLogStreamIndex.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

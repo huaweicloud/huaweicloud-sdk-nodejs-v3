@@ -1,4 +1,5 @@
 import { ErrorResponse } from './ErrorResponse';
+import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -14,6 +15,9 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'lastupdate_time'?: string;
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'live_event_report_url'?: string;
+    private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'stream_duration'?: number;
+    private 'block_reason'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -106,6 +110,36 @@ export class ShowSmartLiveResponse extends SdkResponse {
     public get liveEventReportUrl(): string | undefined {
         return this['live_event_report_url'];
     }
+    public withLiveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig): ShowSmartLiveResponse {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+        return this;
+    }
+    public set liveEventCallbackConfig(liveEventCallbackConfig: LiveEventCallBackConfig  | undefined) {
+        this['live_event_callback_config'] = liveEventCallbackConfig;
+    }
+    public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
+        return this['live_event_callback_config'];
+    }
+    public withStreamDuration(streamDuration: number): ShowSmartLiveResponse {
+        this['stream_duration'] = streamDuration;
+        return this;
+    }
+    public set streamDuration(streamDuration: number  | undefined) {
+        this['stream_duration'] = streamDuration;
+    }
+    public get streamDuration(): number | undefined {
+        return this['stream_duration'];
+    }
+    public withBlockReason(blockReason: string): ShowSmartLiveResponse {
+        this['block_reason'] = blockReason;
+        return this;
+    }
+    public set blockReason(blockReason: string  | undefined) {
+        this['block_reason'] = blockReason;
+    }
+    public get blockReason(): string | undefined {
+        return this['block_reason'];
+    }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -126,5 +160,6 @@ export enum ShowSmartLiveResponseStateEnum {
     WAITING = 'WAITING',
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
-    FAILED = 'FAILED'
+    FAILED = 'FAILED',
+    BLOCKED = 'BLOCKED'
 }

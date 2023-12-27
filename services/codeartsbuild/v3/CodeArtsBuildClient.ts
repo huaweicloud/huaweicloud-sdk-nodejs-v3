@@ -271,13 +271,13 @@ export class CodeArtsBuildClient {
     }
 
     /**
-     * 下载全量构建步骤日志
+     * 下载构建步骤日志
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 下载全量构建步骤日志
+     * @summary 下载构建步骤日志
      * @param {string} recordId 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
-     * @param {string} taskName 记录ID,36位数字、小写字母、\&#39;-\&#39;组组合。
+     * @param {string} taskName 步骤名称
      * @param {string} [logLevel] 日志等级 值为INFO | DEBUG。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1046,7 +1046,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 下载全量构建步骤日志
+         * 下载构建步骤日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,6 +1,7 @@
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
 import { OutputAssetConfig } from './OutputAssetConfig';
 import { PhotoVideoConfig } from './PhotoVideoConfig';
+import { ReviewConfig } from './ReviewConfig';
 import { ShootScriptItem } from './ShootScriptItem';
 import { VoiceConfig } from './VoiceConfig';
 
@@ -13,6 +14,7 @@ export class CreatePhotoDigitalHumanVideoReq {
     private 'shoot_scripts'?: Array<ShootScriptItem>;
     private 'output_asset_config'?: OutputAssetConfig;
     private 'background_music_config'?: BackgroundMusicConfig;
+    private 'review_config'?: ReviewConfig;
     public constructor(humanImage?: string, shootScripts?: Array<ShootScriptItem>, outputAssetConfig?: OutputAssetConfig) { 
         this['human_image'] = humanImage;
         this['shoot_scripts'] = shootScripts;
@@ -87,5 +89,15 @@ export class CreatePhotoDigitalHumanVideoReq {
     }
     public get backgroundMusicConfig(): BackgroundMusicConfig | undefined {
         return this['background_music_config'];
+    }
+    public withReviewConfig(reviewConfig: ReviewConfig): CreatePhotoDigitalHumanVideoReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
     }
 }

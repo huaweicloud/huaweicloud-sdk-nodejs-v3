@@ -6,6 +6,7 @@ import { SqlRequest } from './SqlRequest';
 export class UpdateSqlAlarmRuleRequestBody {
     private 'sql_alarm_rule_id'?: string;
     private 'sql_alarm_rule_name'?: string;
+    private 'alarm_rule_alias'?: string;
     private 'is_css_sql'?: boolean;
     private 'sql_alarm_rule_description'?: string;
     private 'sql_requests'?: Array<SqlRequest>;
@@ -53,6 +54,16 @@ export class UpdateSqlAlarmRuleRequestBody {
     }
     public get sqlAlarmRuleName(): string | undefined {
         return this['sql_alarm_rule_name'];
+    }
+    public withAlarmRuleAlias(alarmRuleAlias: string): UpdateSqlAlarmRuleRequestBody {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+        return this;
+    }
+    public set alarmRuleAlias(alarmRuleAlias: string  | undefined) {
+        this['alarm_rule_alias'] = alarmRuleAlias;
+    }
+    public get alarmRuleAlias(): string | undefined {
+        return this['alarm_rule_alias'];
     }
     public withIsCssSql(isCssSql: boolean): UpdateSqlAlarmRuleRequestBody {
         this['is_css_sql'] = isCssSql;

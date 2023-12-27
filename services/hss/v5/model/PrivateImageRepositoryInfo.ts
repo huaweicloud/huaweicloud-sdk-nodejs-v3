@@ -21,6 +21,9 @@ export class PrivateImageRepositoryInfo {
     private 'domain_name'?: string;
     private 'shared_status'?: string;
     public scannable?: boolean;
+    private 'instance_name'?: string;
+    private 'instance_id'?: string;
+    private 'instance_url'?: string;
     private 'association_images'?: Array<AssociateImages>;
     public constructor() { 
     }
@@ -195,6 +198,36 @@ export class PrivateImageRepositoryInfo {
     public withScannable(scannable: boolean): PrivateImageRepositoryInfo {
         this['scannable'] = scannable;
         return this;
+    }
+    public withInstanceName(instanceName: string): PrivateImageRepositoryInfo {
+        this['instance_name'] = instanceName;
+        return this;
+    }
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
+    }
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
+    }
+    public withInstanceId(instanceId: string): PrivateImageRepositoryInfo {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withInstanceUrl(instanceUrl: string): PrivateImageRepositoryInfo {
+        this['instance_url'] = instanceUrl;
+        return this;
+    }
+    public set instanceUrl(instanceUrl: string  | undefined) {
+        this['instance_url'] = instanceUrl;
+    }
+    public get instanceUrl(): string | undefined {
+        return this['instance_url'];
     }
     public withAssociationImages(associationImages: Array<AssociateImages>): PrivateImageRepositoryInfo {
         this['association_images'] = associationImages;

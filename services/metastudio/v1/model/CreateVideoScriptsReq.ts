@@ -1,26 +1,24 @@
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
+import { ReviewConfig } from './ReviewConfig';
 import { ShootScriptItem } from './ShootScriptItem';
 import { VideoConfig } from './VideoConfig';
+import { VideoScriptsCreateInfo } from './VideoScriptsCreateInfo';
 import { VoiceConfig } from './VoiceConfig';
 
 
 export class CreateVideoScriptsReq {
     private 'script_name'?: string;
     private 'script_description'?: string;
-    private 'video_making_type'?: CreateVideoScriptsReqVideoMakingTypeEnum | string;
     private 'model_asset_id'?: string;
     private 'model_asset_type'?: CreateVideoScriptsReqModelAssetTypeEnum | string;
-    private 'human_image'?: string;
     private 'voice_config'?: VoiceConfig;
     private 'video_config'?: VideoConfig;
     private 'scene_asset_id'?: string;
-    private 'shoot_scripts'?: Array<ShootScriptItem>;
     private 'priv_data'?: string;
     private 'background_music_config'?: BackgroundMusicConfig;
-    public constructor(scriptName?: string, voiceConfig?: VoiceConfig, shootScripts?: Array<ShootScriptItem>) { 
-        this['script_name'] = scriptName;
-        this['voice_config'] = voiceConfig;
-        this['shoot_scripts'] = shootScripts;
+    private 'review_config'?: ReviewConfig;
+    private 'shoot_scripts'?: Array<ShootScriptItem>;
+    public constructor() { 
     }
     public withScriptName(scriptName: string): CreateVideoScriptsReq {
         this['script_name'] = scriptName;
@@ -42,16 +40,6 @@ export class CreateVideoScriptsReq {
     public get scriptDescription(): string | undefined {
         return this['script_description'];
     }
-    public withVideoMakingType(videoMakingType: CreateVideoScriptsReqVideoMakingTypeEnum | string): CreateVideoScriptsReq {
-        this['video_making_type'] = videoMakingType;
-        return this;
-    }
-    public set videoMakingType(videoMakingType: CreateVideoScriptsReqVideoMakingTypeEnum | string  | undefined) {
-        this['video_making_type'] = videoMakingType;
-    }
-    public get videoMakingType(): CreateVideoScriptsReqVideoMakingTypeEnum | string | undefined {
-        return this['video_making_type'];
-    }
     public withModelAssetId(modelAssetId: string): CreateVideoScriptsReq {
         this['model_asset_id'] = modelAssetId;
         return this;
@@ -71,16 +59,6 @@ export class CreateVideoScriptsReq {
     }
     public get modelAssetType(): CreateVideoScriptsReqModelAssetTypeEnum | string | undefined {
         return this['model_asset_type'];
-    }
-    public withHumanImage(humanImage: string): CreateVideoScriptsReq {
-        this['human_image'] = humanImage;
-        return this;
-    }
-    public set humanImage(humanImage: string  | undefined) {
-        this['human_image'] = humanImage;
-    }
-    public get humanImage(): string | undefined {
-        return this['human_image'];
     }
     public withVoiceConfig(voiceConfig: VoiceConfig): CreateVideoScriptsReq {
         this['voice_config'] = voiceConfig;
@@ -112,16 +90,6 @@ export class CreateVideoScriptsReq {
     public get sceneAssetId(): string | undefined {
         return this['scene_asset_id'];
     }
-    public withShootScripts(shootScripts: Array<ShootScriptItem>): CreateVideoScriptsReq {
-        this['shoot_scripts'] = shootScripts;
-        return this;
-    }
-    public set shootScripts(shootScripts: Array<ShootScriptItem>  | undefined) {
-        this['shoot_scripts'] = shootScripts;
-    }
-    public get shootScripts(): Array<ShootScriptItem> | undefined {
-        return this['shoot_scripts'];
-    }
     public withPrivData(privData: string): CreateVideoScriptsReq {
         this['priv_data'] = privData;
         return this;
@@ -142,16 +110,28 @@ export class CreateVideoScriptsReq {
     public get backgroundMusicConfig(): BackgroundMusicConfig | undefined {
         return this['background_music_config'];
     }
+    public withReviewConfig(reviewConfig: ReviewConfig): CreateVideoScriptsReq {
+        this['review_config'] = reviewConfig;
+        return this;
+    }
+    public set reviewConfig(reviewConfig: ReviewConfig  | undefined) {
+        this['review_config'] = reviewConfig;
+    }
+    public get reviewConfig(): ReviewConfig | undefined {
+        return this['review_config'];
+    }
+    public withShootScripts(shootScripts: Array<ShootScriptItem>): CreateVideoScriptsReq {
+        this['shoot_scripts'] = shootScripts;
+        return this;
+    }
+    public set shootScripts(shootScripts: Array<ShootScriptItem>  | undefined) {
+        this['shoot_scripts'] = shootScripts;
+    }
+    public get shootScripts(): Array<ShootScriptItem> | undefined {
+        return this['shoot_scripts'];
+    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateVideoScriptsReqVideoMakingTypeEnum {
-    MODEL = 'MODEL',
-    PICTURE = 'PICTURE'
-}
 /**
     * @export
     * @enum {string}
