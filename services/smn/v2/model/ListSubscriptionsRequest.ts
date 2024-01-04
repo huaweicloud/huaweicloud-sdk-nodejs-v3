@@ -6,6 +6,7 @@ export class ListSubscriptionsRequest {
     public protocol?: string;
     public status?: number;
     public endpoint?: string;
+    private 'fuzzy_remark'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListSubscriptionsRequest {
@@ -27,5 +28,15 @@ export class ListSubscriptionsRequest {
     public withEndpoint(endpoint: string): ListSubscriptionsRequest {
         this['endpoint'] = endpoint;
         return this;
+    }
+    public withFuzzyRemark(fuzzyRemark: string): ListSubscriptionsRequest {
+        this['fuzzy_remark'] = fuzzyRemark;
+        return this;
+    }
+    public set fuzzyRemark(fuzzyRemark: string  | undefined) {
+        this['fuzzy_remark'] = fuzzyRemark;
+    }
+    public get fuzzyRemark(): string | undefined {
+        return this['fuzzy_remark'];
     }
 }

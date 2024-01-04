@@ -5,6 +5,7 @@ export class ResizeEngineInstanceReq {
     private 'new_storage_space'?: number;
     private 'new_product_id'?: string;
     private 'new_broker_num'?: number;
+    private 'publicip_id'?: string;
     public constructor(operType?: string) { 
         this['oper_type'] = operType;
     }
@@ -47,5 +48,15 @@ export class ResizeEngineInstanceReq {
     }
     public get newBrokerNum(): number | undefined {
         return this['new_broker_num'];
+    }
+    public withPublicipId(publicipId: string): ResizeEngineInstanceReq {
+        this['publicip_id'] = publicipId;
+        return this;
+    }
+    public set publicipId(publicipId: string  | undefined) {
+        this['publicip_id'] = publicipId;
+    }
+    public get publicipId(): string | undefined {
+        return this['publicip_id'];
     }
 }

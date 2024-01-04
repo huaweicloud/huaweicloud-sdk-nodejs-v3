@@ -3,6 +3,7 @@
 export class CreateFASReq {
     private 'audio_file_download_url'?: string;
     private 'frame_rate'?: number;
+    public emotion?: number;
     public constructor(audioFileDownloadUrl?: string, frameRate?: number) { 
         this['audio_file_download_url'] = audioFileDownloadUrl;
         this['frame_rate'] = frameRate;
@@ -26,5 +27,9 @@ export class CreateFASReq {
     }
     public get frameRate(): number | undefined {
         return this['frame_rate'];
+    }
+    public withEmotion(emotion: number): CreateFASReq {
+        this['emotion'] = emotion;
+        return this;
     }
 }

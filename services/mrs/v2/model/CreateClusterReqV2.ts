@@ -4,6 +4,7 @@ import { ChargeInfo } from './ChargeInfo';
 import { ClusterDataConnectorMap } from './ClusterDataConnectorMap';
 import { ComponentConfig } from './ComponentConfig';
 import { NodeGroupV2 } from './NodeGroupV2';
+import { SmnNotify } from './SmnNotify';
 import { Tag } from './Tag';
 
 
@@ -39,6 +40,7 @@ export class CreateClusterReqV2 {
     private 'add_jobs'?: Array<AddJobsReqV11>;
     private 'log_uri'?: string;
     private 'component_configs'?: Array<ComponentConfig>;
+    private 'smn_notify'?: SmnNotify;
     public constructor(clusterVersion?: string, clusterName?: string, clusterType?: string, region?: string, vpcName?: string, subnetName?: string, components?: string, availabilityZone?: string, safeMode?: string, managerAdminPassword?: string, loginMode?: string, nodeGroups?: Array<NodeGroupV2>) { 
         this['cluster_version'] = clusterVersion;
         this['cluster_name'] = clusterName;
@@ -344,6 +346,16 @@ export class CreateClusterReqV2 {
     }
     public get componentConfigs(): Array<ComponentConfig> | undefined {
         return this['component_configs'];
+    }
+    public withSmnNotify(smnNotify: SmnNotify): CreateClusterReqV2 {
+        this['smn_notify'] = smnNotify;
+        return this;
+    }
+    public set smnNotify(smnNotify: SmnNotify  | undefined) {
+        this['smn_notify'] = smnNotify;
+    }
+    public get smnNotify(): SmnNotify | undefined {
+        return this['smn_notify'];
     }
 }
 

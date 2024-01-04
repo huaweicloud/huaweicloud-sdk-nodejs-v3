@@ -127,6 +127,8 @@ export * from './model/ResetManagerPasswordResponse';
 export * from './model/ResetMessageOffsetReq';
 export * from './model/ResetMessageOffsetRequest';
 export * from './model/ResetMessageOffsetResponse';
+export * from './model/ResetMessageOffsetWithEngineRequest';
+export * from './model/ResetMessageOffsetWithEngineResponse';
 export * from './model/ResetPasswordReq';
 export * from './model/ResetPasswordRequest';
 export * from './model/ResetPasswordResponse';

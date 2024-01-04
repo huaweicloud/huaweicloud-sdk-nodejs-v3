@@ -1,3 +1,4 @@
+import { SubscriptionsFilterPolicy } from './SubscriptionsFilterPolicy';
 
 
 export class ListSubscriptionsItem {
@@ -8,6 +9,7 @@ export class ListSubscriptionsItem {
     public endpoint?: string;
     public remark?: string;
     public status?: number;
+    private 'filter_polices'?: Array<SubscriptionsFilterPolicy>;
     public constructor(topicUrn?: string, protocol?: string, subscriptionUrn?: string, owner?: string, endpoint?: string, remark?: string, status?: number) { 
         this['topic_urn'] = topicUrn;
         this['protocol'] = protocol;
@@ -56,5 +58,15 @@ export class ListSubscriptionsItem {
     public withStatus(status: number): ListSubscriptionsItem {
         this['status'] = status;
         return this;
+    }
+    public withFilterPolices(filterPolices: Array<SubscriptionsFilterPolicy>): ListSubscriptionsItem {
+        this['filter_polices'] = filterPolices;
+        return this;
+    }
+    public set filterPolices(filterPolices: Array<SubscriptionsFilterPolicy>  | undefined) {
+        this['filter_polices'] = filterPolices;
+    }
+    public get filterPolices(): Array<SubscriptionsFilterPolicy> | undefined {
+        return this['filter_polices'];
     }
 }

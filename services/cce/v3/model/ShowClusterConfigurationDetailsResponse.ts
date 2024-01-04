@@ -3,12 +3,12 @@ import { PackageOptions } from './PackageOptions';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowClusterConfigurationDetailsResponse extends SdkResponse {
-    public responses?: { [key: string]: Array<PackageOptions>; };
+    public body?: { [key: string]: Array<PackageOptions>; };
     public constructor() { 
         super();
     }
-    public withResponses(responses: { [key: string]: Array<PackageOptions>; }): ShowClusterConfigurationDetailsResponse {
-        this['responses'] = responses;
+    public withBody(body: { [key: string]: Array<PackageOptions>; }): ShowClusterConfigurationDetailsResponse {
+        this['body'] = body;
         return this;
     }
 }

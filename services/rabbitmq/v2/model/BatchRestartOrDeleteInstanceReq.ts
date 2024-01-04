@@ -32,7 +32,6 @@ export class BatchRestartOrDeleteInstanceReq {
     * @enum {string}
     */
 export enum BatchRestartOrDeleteInstanceReqActionEnum {
-    RESTART = 'restart',
     DELETE = 'delete'
 }
 /**

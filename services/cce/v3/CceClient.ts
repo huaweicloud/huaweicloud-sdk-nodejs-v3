@@ -9,10 +9,12 @@ import { AddNode } from './model/AddNode';
 import { AddNodeList } from './model/AddNodeList';
 import { AddNodeRequest } from './model/AddNodeRequest';
 import { AddNodeResponse } from './model/AddNodeResponse';
+import { AddonCheckStatus } from './model/AddonCheckStatus';
 import { AddonInstance } from './model/AddonInstance';
 import { AddonInstanceRollbackRequest } from './model/AddonInstanceRollbackRequest';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
 import { AddonMetadata } from './model/AddonMetadata';
+import { AddonRisks } from './model/AddonRisks';
 import { AddonTemplate } from './model/AddonTemplate';
 import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
@@ -29,6 +31,8 @@ import { ChartResp } from './model/ChartResp';
 import { ChartValueValues } from './model/ChartValueValues';
 import { Cluster } from './model/Cluster';
 import { ClusterCert } from './model/ClusterCert';
+import { ClusterCheckStatus } from './model/ClusterCheckStatus';
+import { ClusterConfigDetailRespBody } from './model/ClusterConfigDetailRespBody';
 import { ClusterConfigurationsSpec } from './model/ClusterConfigurationsSpec';
 import { ClusterConfigurationsSpecPackages } from './model/ClusterConfigurationsSpecPackages';
 import { ClusterEndpoints } from './model/ClusterEndpoints';
@@ -49,6 +53,7 @@ import { ClusterUpgradeResponseAction } from './model/ClusterUpgradeResponseActi
 import { Clusters } from './model/Clusters';
 import { ConfigurationItem } from './model/ConfigurationItem';
 import { ConfigurationMetadata } from './model/ConfigurationMetadata';
+import { ConfigurationRisks } from './model/ConfigurationRisks';
 import { ContainerCIDR } from './model/ContainerCIDR';
 import { ContainerNetwork } from './model/ContainerNetwork';
 import { ContainerNetworkUpdate } from './model/ContainerNetworkUpdate';
@@ -60,6 +65,8 @@ import { CreateAddonInstanceRequest } from './model/CreateAddonInstanceRequest';
 import { CreateAddonInstanceResponse } from './model/CreateAddonInstanceResponse';
 import { CreateCloudPersistentVolumeClaimsRequest } from './model/CreateCloudPersistentVolumeClaimsRequest';
 import { CreateCloudPersistentVolumeClaimsResponse } from './model/CreateCloudPersistentVolumeClaimsResponse';
+import { CreateClusterMasterSnapshotRequest } from './model/CreateClusterMasterSnapshotRequest';
+import { CreateClusterMasterSnapshotResponse } from './model/CreateClusterMasterSnapshotResponse';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
 import { CreateKubernetesClusterCertRequest } from './model/CreateKubernetesClusterCertRequest';
@@ -70,10 +77,17 @@ import { CreateNodeRequest } from './model/CreateNodeRequest';
 import { CreateNodeResponse } from './model/CreateNodeResponse';
 import { CreatePartitionRequest } from './model/CreatePartitionRequest';
 import { CreatePartitionResponse } from './model/CreatePartitionResponse';
+import { CreatePostCheckRequest } from './model/CreatePostCheckRequest';
+import { CreatePostCheckResponse } from './model/CreatePostCheckResponse';
+import { CreatePreCheckRequest } from './model/CreatePreCheckRequest';
+import { CreatePreCheckResponse } from './model/CreatePreCheckResponse';
 import { CreateReleaseReqBody } from './model/CreateReleaseReqBody';
 import { CreateReleaseReqBodyValues } from './model/CreateReleaseReqBodyValues';
 import { CreateReleaseRequest } from './model/CreateReleaseRequest';
 import { CreateReleaseResponse } from './model/CreateReleaseResponse';
+import { CreateUpgradeWorkFlowRequest } from './model/CreateUpgradeWorkFlowRequest';
+import { CreateUpgradeWorkFlowRequestBody } from './model/CreateUpgradeWorkFlowRequestBody';
+import { CreateUpgradeWorkFlowResponse } from './model/CreateUpgradeWorkFlowResponse';
 import { DeleteAddonInstanceRequest } from './model/DeleteAddonInstanceRequest';
 import { DeleteAddonInstanceResponse } from './model/DeleteAddonInstanceResponse';
 import { DeleteChartRequest } from './model/DeleteChartRequest';
@@ -89,6 +103,7 @@ import { DeleteNodeResponse } from './model/DeleteNodeResponse';
 import { DeleteReleaseRequest } from './model/DeleteReleaseRequest';
 import { DeleteReleaseResponse } from './model/DeleteReleaseResponse';
 import { DeleteStatus } from './model/DeleteStatus';
+import { DeprecatedAPIRisks } from './model/DeprecatedAPIRisks';
 import { DownloadChartRequest } from './model/DownloadChartRequest';
 import { DownloadChartResponse } from './model/DownloadChartResponse';
 import { EipSpec } from './model/EipSpec';
@@ -108,12 +123,19 @@ import { JobMetadata } from './model/JobMetadata';
 import { JobSpec } from './model/JobSpec';
 import { JobStatus } from './model/JobStatus';
 import { LVMConfig } from './model/LVMConfig';
+import { LineStatus } from './model/LineStatus';
 import { ListAddonInstancesRequest } from './model/ListAddonInstancesRequest';
 import { ListAddonInstancesResponse } from './model/ListAddonInstancesResponse';
 import { ListAddonTemplatesRequest } from './model/ListAddonTemplatesRequest';
 import { ListAddonTemplatesResponse } from './model/ListAddonTemplatesResponse';
 import { ListChartsRequest } from './model/ListChartsRequest';
 import { ListChartsResponse } from './model/ListChartsResponse';
+import { ListClusterMasterSnapshotTasksRequest } from './model/ListClusterMasterSnapshotTasksRequest';
+import { ListClusterMasterSnapshotTasksResponse } from './model/ListClusterMasterSnapshotTasksResponse';
+import { ListClusterUpgradeFeatureGatesRequest } from './model/ListClusterUpgradeFeatureGatesRequest';
+import { ListClusterUpgradeFeatureGatesResponse } from './model/ListClusterUpgradeFeatureGatesResponse';
+import { ListClusterUpgradePathsRequest } from './model/ListClusterUpgradePathsRequest';
+import { ListClusterUpgradePathsResponse } from './model/ListClusterUpgradePathsResponse';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
 import { ListNodePoolsRequest } from './model/ListNodePoolsRequest';
@@ -122,8 +144,14 @@ import { ListNodesRequest } from './model/ListNodesRequest';
 import { ListNodesResponse } from './model/ListNodesResponse';
 import { ListPartitionsRequest } from './model/ListPartitionsRequest';
 import { ListPartitionsResponse } from './model/ListPartitionsResponse';
+import { ListPreCheckTasksRequest } from './model/ListPreCheckTasksRequest';
+import { ListPreCheckTasksResponse } from './model/ListPreCheckTasksResponse';
 import { ListReleasesRequest } from './model/ListReleasesRequest';
 import { ListReleasesResponse } from './model/ListReleasesResponse';
+import { ListUpgradeClusterTasksRequest } from './model/ListUpgradeClusterTasksRequest';
+import { ListUpgradeClusterTasksResponse } from './model/ListUpgradeClusterTasksResponse';
+import { ListUpgradeWorkFlowsRequest } from './model/ListUpgradeWorkFlowsRequest';
+import { ListUpgradeWorkFlowsResponse } from './model/ListUpgradeWorkFlowsResponse';
 import { Login } from './model/Login';
 import { MasterEIPRequest } from './model/MasterEIPRequest';
 import { MasterEIPRequestSpec } from './model/MasterEIPRequestSpec';
@@ -142,9 +170,11 @@ import { NetworkSubnet } from './model/NetworkSubnet';
 import { NicSpec } from './model/NicSpec';
 import { Node } from './model/Node';
 import { NodeBandwidth } from './model/NodeBandwidth';
+import { NodeCheckStatus } from './model/NodeCheckStatus';
 import { NodeCreateRequest } from './model/NodeCreateRequest';
 import { NodeEIPSpec } from './model/NodeEIPSpec';
 import { NodeExtendParam } from './model/NodeExtendParam';
+import { NodeInfo } from './model/NodeInfo';
 import { NodeItem } from './model/NodeItem';
 import { NodeLifecycleConfig } from './model/NodeLifecycleConfig';
 import { NodeManagement } from './model/NodeManagement';
@@ -161,9 +191,11 @@ import { NodePoolStatus } from './model/NodePoolStatus';
 import { NodePoolUpdate } from './model/NodePoolUpdate';
 import { NodePriority } from './model/NodePriority';
 import { NodePublicIP } from './model/NodePublicIP';
+import { NodeRisks } from './model/NodeRisks';
 import { NodeSelector } from './model/NodeSelector';
 import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
+import { NodeStageStatus } from './model/NodeStageStatus';
 import { NodeStatus } from './model/NodeStatus';
 import { OpenAPISpec } from './model/OpenAPISpec';
 import { OpenAPISpecSpec } from './model/OpenAPISpecSpec';
@@ -182,6 +214,19 @@ import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
 import { PersistentVolumeClaimStatus } from './model/PersistentVolumeClaimStatus';
+import { Point } from './model/Point';
+import { PointStatus } from './model/PointStatus';
+import { PostcheckCluserResponseMetadata } from './model/PostcheckCluserResponseMetadata';
+import { PostcheckClusterRequestBody } from './model/PostcheckClusterRequestBody';
+import { PostcheckClusterResponseBodyStatus } from './model/PostcheckClusterResponseBodyStatus';
+import { PostcheckSpec } from './model/PostcheckSpec';
+import { PreCheckItemStatus } from './model/PreCheckItemStatus';
+import { PrecheckCluserResponseMetadata } from './model/PrecheckCluserResponseMetadata';
+import { PrecheckClusterRequestBody } from './model/PrecheckClusterRequestBody';
+import { PrecheckClusterTask } from './model/PrecheckClusterTask';
+import { PrecheckSpec } from './model/PrecheckSpec';
+import { PrecheckStatus } from './model/PrecheckStatus';
+import { PrecheckTaskMetadata } from './model/PrecheckTaskMetadata';
 import { QuotaResource } from './model/QuotaResource';
 import { QuotaRespQuotas } from './model/QuotaRespQuotas';
 import { QuotaRespQuotasResources } from './model/QuotaRespQuotasResources';
@@ -208,9 +253,11 @@ import { ResizeClusterRequestBodyExtendParam } from './model/ResizeClusterReques
 import { ResizeClusterResponse } from './model/ResizeClusterResponse';
 import { ResourceDeleteTag } from './model/ResourceDeleteTag';
 import { ResourceRequirements } from './model/ResourceRequirements';
+import { ResourceSelector } from './model/ResourceSelector';
 import { ResourceTag } from './model/ResourceTag';
 import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
 import { RetryUpgradeClusterTaskResponse } from './model/RetryUpgradeClusterTaskResponse';
+import { RiskSource } from './model/RiskSource';
 import { RollbackAddonInstanceRequest } from './model/RollbackAddonInstanceRequest';
 import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResponse';
 import { Runtime } from './model/Runtime';
@@ -231,6 +278,8 @@ import { ShowClusterEndpointsRequest } from './model/ShowClusterEndpointsRequest
 import { ShowClusterEndpointsResponse } from './model/ShowClusterEndpointsResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
+import { ShowClusterUpgradeInfoRequest } from './model/ShowClusterUpgradeInfoRequest';
+import { ShowClusterUpgradeInfoResponse } from './model/ShowClusterUpgradeInfoResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowNodePoolConfigurationsRequest } from './model/ShowNodePoolConfigurationsRequest';
@@ -241,6 +290,8 @@ import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
 import { ShowPartitionRequest } from './model/ShowPartitionRequest';
 import { ShowPartitionResponse } from './model/ShowPartitionResponse';
+import { ShowPreCheckRequest } from './model/ShowPreCheckRequest';
+import { ShowPreCheckResponse } from './model/ShowPreCheckResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowReleaseHistoryRequest } from './model/ShowReleaseHistoryRequest';
@@ -249,10 +300,20 @@ import { ShowReleaseRequest } from './model/ShowReleaseRequest';
 import { ShowReleaseResponse } from './model/ShowReleaseResponse';
 import { ShowUpgradeClusterTaskRequest } from './model/ShowUpgradeClusterTaskRequest';
 import { ShowUpgradeClusterTaskResponse } from './model/ShowUpgradeClusterTaskResponse';
+import { ShowUpgradeWorkFlowRequest } from './model/ShowUpgradeWorkFlowRequest';
+import { ShowUpgradeWorkFlowResponse } from './model/ShowUpgradeWorkFlowResponse';
 import { ShowUserChartsQuotasRequest } from './model/ShowUserChartsQuotasRequest';
 import { ShowUserChartsQuotasResponse } from './model/ShowUserChartsQuotasResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
 import { ShowVersionResponse } from './model/ShowVersionResponse';
+import { SkippedCheckItemList } from './model/SkippedCheckItemList';
+import { SnapshotCluserResponseMetadata } from './model/SnapshotCluserResponseMetadata';
+import { SnapshotSpec } from './model/SnapshotSpec';
+import { SnapshotSpecItems } from './model/SnapshotSpecItems';
+import { SnapshotStatus } from './model/SnapshotStatus';
+import { SnapshotTask } from './model/SnapshotTask';
+import { SnapshotTaskMetadata } from './model/SnapshotTaskMetadata';
+import { SnapshotTaskStatus } from './model/SnapshotTaskStatus';
 import { Storage } from './model/Storage';
 import { StorageGroups } from './model/StorageGroups';
 import { StorageSelectors } from './model/StorageSelectors';
@@ -260,6 +321,7 @@ import { StorageSelectorsMatchLabels } from './model/StorageSelectorsMatchLabels
 import { SupportVersions } from './model/SupportVersions';
 import { Taint } from './model/Taint';
 import { TaskStatus } from './model/TaskStatus';
+import { TaskType } from './model/TaskType';
 import { Templatespec } from './model/Templatespec';
 import { UpdateAddonInstanceRequest } from './model/UpdateAddonInstanceRequest';
 import { UpdateAddonInstanceResponse } from './model/UpdateAddonInstanceResponse';
@@ -290,12 +352,24 @@ import { UpgradeClusterRequest } from './model/UpgradeClusterRequest';
 import { UpgradeClusterRequestBody } from './model/UpgradeClusterRequestBody';
 import { UpgradeClusterRequestMetadata } from './model/UpgradeClusterRequestMetadata';
 import { UpgradeClusterResponse } from './model/UpgradeClusterResponse';
+import { UpgradeFeatureGates } from './model/UpgradeFeatureGates';
+import { UpgradeInfoSpec } from './model/UpgradeInfoSpec';
+import { UpgradeInfoStatus } from './model/UpgradeInfoStatus';
+import { UpgradePath } from './model/UpgradePath';
 import { UpgradeResponseSpec } from './model/UpgradeResponseSpec';
 import { UpgradeSpec } from './model/UpgradeSpec';
 import { UpgradeStrategy } from './model/UpgradeStrategy';
 import { UpgradeTaskMetadata } from './model/UpgradeTaskMetadata';
+import { UpgradeTaskResponseBody } from './model/UpgradeTaskResponseBody';
 import { UpgradeTaskSpec } from './model/UpgradeTaskSpec';
 import { UpgradeTaskStatus } from './model/UpgradeTaskStatus';
+import { UpgradeVersionInfo } from './model/UpgradeVersionInfo';
+import { UpgradeWorkFlow } from './model/UpgradeWorkFlow';
+import { UpgradeWorkFlowUpdateRequest } from './model/UpgradeWorkFlowUpdateRequest';
+import { UpgradeWorkFlowUpdateRequestBody } from './model/UpgradeWorkFlowUpdateRequestBody';
+import { UpgradeWorkFlowUpdateRequestBodyStatus } from './model/UpgradeWorkFlowUpdateRequestBodyStatus';
+import { UpgradeWorkFlowUpdateResponse } from './model/UpgradeWorkFlowUpdateResponse';
+import { UpgradeWorkflowTaskStatus } from './model/UpgradeWorkflowTaskStatus';
 import { UploadChartRequest } from './model/UploadChartRequest';
 import { UploadChartRequestBody } from './model/UploadChartRequestBody';
 import { UploadChartResponse } from './model/UploadChartResponse';
@@ -307,6 +381,9 @@ import { Versions } from './model/Versions';
 import { VirtualSpace } from './model/VirtualSpace';
 import { Volume } from './model/Volume';
 import { VolumeMetadata } from './model/VolumeMetadata';
+import { WorkFlowPhase } from './model/WorkFlowPhase';
+import { WorkFlowSpec } from './model/WorkFlowSpec';
+import { WorkFlowStatus } from './model/WorkFlowStatus';
 
 export class CceClient {
     public static newBuilder(): ClientBuilder<CceClient> {
@@ -501,6 +578,25 @@ export class CceClient {
     }
 
     /**
+     * 集群备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群备份
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClusterMasterSnapshot(createClusterMasterSnapshotRequest?: CreateClusterMasterSnapshotRequest): Promise<CreateClusterMasterSnapshotResponse> {
+        const options = ParamCreater().createClusterMasterSnapshot(createClusterMasterSnapshotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于获取指定集群的证书信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -594,6 +690,46 @@ export class CceClient {
     }
 
     /**
+     * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级后确认
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {PostcheckClusterRequestBody} postcheckClusterRequestBody 集群升级后确认请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPostCheck(createPostCheckRequest?: CreatePostCheckRequest): Promise<CreatePostCheckResponse> {
+        const options = ParamCreater().createPostCheck(createPostCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群升级前检查
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级前检查
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {PrecheckClusterRequestBody} precheckClusterRequestBody 集群升级前检查请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPreCheck(createPreCheckRequest?: CreatePreCheckRequest): Promise<CreatePreCheckResponse> {
+        const options = ParamCreater().createPreCheck(createPreCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建模板实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -607,6 +743,28 @@ export class CceClient {
      */
     public createRelease(createReleaseRequest?: CreateReleaseRequest): Promise<CreateReleaseResponse> {
         const options = ParamCreater().createRelease(createReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于创建一个集群升级流程引导任务。请在调用本接口完成引导任务创建之后，通过集群升级前检查开始检查任务。
+     * 升级流程任务用于控制集群升级任务的执行流程，执行流程为 升级前检查 &#x3D;&gt; 集群升级 &#x3D;&gt; 升级后检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启集群升级流程引导任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {CreateUpgradeWorkFlowRequestBody} createUpgradeWorkFlowRequestBody 集群升级流程引导任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUpgradeWorkFlow(createUpgradeWorkFlowRequest?: CreateUpgradeWorkFlowRequest): Promise<CreateUpgradeWorkFlowResponse> {
+        const options = ParamCreater().createUpgradeWorkFlow(createUpgradeWorkFlowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -878,6 +1036,63 @@ export class CceClient {
     }
 
     /**
+     * 获取集群备份任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群备份任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterMasterSnapshotTasks(listClusterMasterSnapshotTasksRequest?: ListClusterMasterSnapshotTasksRequest): Promise<ListClusterMasterSnapshotTasksResponse> {
+        const options = ParamCreater().listClusterMasterSnapshotTasks(listClusterMasterSnapshotTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级特性开关配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级特性开关配置
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterUpgradeFeatureGates(listClusterUpgradeFeatureGatesRequest?: ListClusterUpgradeFeatureGatesRequest): Promise<ListClusterUpgradeFeatureGatesResponse> {
+        const options = ParamCreater().listClusterUpgradeFeatureGates(listClusterUpgradeFeatureGatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级路径
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级路径
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterUpgradePaths(listClusterUpgradePathsRequest?: ListClusterUpgradePathsRequest): Promise<ListClusterUpgradePathsResponse> {
+        const options = ParamCreater().listClusterUpgradePaths(listClusterUpgradePathsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于获取指定项目下所有集群的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -964,6 +1179,25 @@ export class CceClient {
     }
 
     /**
+     * 获取集群升级前检查任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级前检查任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPreCheckTasks(listPreCheckTasksRequest?: ListPreCheckTasksRequest): Promise<ListPreCheckTasksResponse> {
+        const options = ParamCreater().listPreCheckTasks(listPreCheckTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取模板实例列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -978,6 +1212,45 @@ export class CceClient {
      */
     public listReleases(listReleasesRequest?: ListReleasesRequest): Promise<ListReleasesResponse> {
         const options = ParamCreater().listReleases(listReleasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpgradeClusterTasks(listUpgradeClusterTasksRequest?: ListUpgradeClusterTasksRequest): Promise<ListUpgradeClusterTasksResponse> {
+        const options = ParamCreater().listUpgradeClusterTasks(listUpgradeClusterTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取历史集群升级引导任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取UpgradeWorkFlows列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpgradeWorkFlows(listUpgradeWorkFlowsRequest?: ListUpgradeWorkFlowsRequest): Promise<ListUpgradeWorkFlowsResponse> {
+        const options = ParamCreater().listUpgradeWorkFlows(listUpgradeWorkFlowsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1286,6 +1559,25 @@ export class CceClient {
     }
 
     /**
+     * 获取集群升级相关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级相关信息
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterUpgradeInfo(showClusterUpgradeInfoRequest?: ShowClusterUpgradeInfoRequest): Promise<ShowClusterUpgradeInfoResponse> {
+        const options = ParamCreater().showClusterUpgradeInfo(showClusterUpgradeInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
      * &gt; - 该接口通常使用场景为：
@@ -1395,6 +1687,26 @@ export class CceClient {
     }
 
     /**
+     * 获取集群升级前检查任务详情，任务ID由调用集群检查API后从响应体中uid字段获取。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级前检查任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} taskId 升级任务ID，调用集群升级API后从响应体中uid字段获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPreCheck(showPreCheckRequest?: ShowPreCheckRequest): Promise<ShowPreCheckResponse> {
+        const options = ParamCreater().showPreCheck(showPreCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于查询CCE服务下的资源配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1472,6 +1784,27 @@ export class CceClient {
      */
     public showUpgradeClusterTask(showUpgradeClusterTaskRequest?: ShowUpgradeClusterTaskRequest): Promise<ShowUpgradeClusterTaskResponse> {
         const options = ParamCreater().showUpgradeClusterTask(showUpgradeClusterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于通过升级引导任务ID获取任务的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定集群升级引导任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUpgradeWorkFlow(showUpgradeWorkFlowRequest?: ShowUpgradeWorkFlowRequest): Promise<ShowUpgradeWorkFlowResponse> {
+        const options = ParamCreater().showUpgradeWorkFlow(showUpgradeWorkFlowRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1738,6 +2071,29 @@ export class CceClient {
      */
     public upgradeCluster(upgradeClusterRequest?: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
         const options = ParamCreater().upgradeCluster(upgradeClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新指定集群升级引导任务状态，当前仅适用于取消升级流程
+     * 调用该API时升级流程引导任务状态不能为进行中(running) 已完成(success) 已取消(cancel),升级子任务状态不能为running(进行中) init(已初始化) pause(任务被暂停) queue(队列中)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定集群升级引导任务状态
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UpgradeWorkFlowUpdateRequestBody} upgradeWorkFlowUpdateRequestBody 更新集群升级流程引导任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeWorkFlowUpdate(upgradeWorkFlowUpdateRequest?: UpgradeWorkFlowUpdateRequest): Promise<UpgradeWorkFlowUpdateResponse> {
+        const options = ParamCreater().upgradeWorkFlowUpdate(upgradeWorkFlowUpdateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2192,6 +2548,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 集群备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClusterMasterSnapshot(createClusterMasterSnapshotRequest?: CreateClusterMasterSnapshotRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3.1/projects/{project_id}/clusters/{cluster_id}/operation/snapshot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (createClusterMasterSnapshotRequest !== null && createClusterMasterSnapshotRequest !== undefined) {
+                if (createClusterMasterSnapshotRequest instanceof CreateClusterMasterSnapshotRequest) {
+                    clusterId = createClusterMasterSnapshotRequest.clusterId;
+                } else {
+                    clusterId = createClusterMasterSnapshotRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createClusterMasterSnapshot.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取指定集群的证书信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2414,6 +2807,98 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPostCheck(createPostCheckRequest?: CreatePostCheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/postcheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createPostCheckRequest !== null && createPostCheckRequest !== undefined) {
+                if (createPostCheckRequest instanceof CreatePostCheckRequest) {
+                    clusterId = createPostCheckRequest.clusterId;
+                    body = createPostCheckRequest.body
+                } else {
+                    clusterId = createPostCheckRequest['cluster_id'];
+                    body = createPostCheckRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createPostCheck.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群升级前检查
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPreCheck(createPreCheckRequest?: CreatePreCheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createPreCheckRequest !== null && createPreCheckRequest !== undefined) {
+                if (createPreCheckRequest instanceof CreatePreCheckRequest) {
+                    clusterId = createPreCheckRequest.clusterId;
+                    body = createPreCheckRequest.body
+                } else {
+                    clusterId = createPreCheckRequest['cluster_id'];
+                    body = createPreCheckRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createPreCheck.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建模板实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2451,6 +2936,60 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createRelease.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于创建一个集群升级流程引导任务。请在调用本接口完成引导任务创建之后，通过集群升级前检查开始检查任务。
+         * 升级流程任务用于控制集群升级任务的执行流程，执行流程为 升级前检查 &#x3D;&gt; 集群升级 &#x3D;&gt; 升级后检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUpgradeWorkFlow(createUpgradeWorkFlowRequest?: CreateUpgradeWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (createUpgradeWorkFlowRequest !== null && createUpgradeWorkFlowRequest !== undefined) {
+                if (createUpgradeWorkFlowRequest instanceof CreateUpgradeWorkFlowRequest) {
+                    clusterId = createUpgradeWorkFlowRequest.clusterId;
+                    contentType = createUpgradeWorkFlowRequest.contentType;
+                    body = createUpgradeWorkFlowRequest.body
+                } else {
+                    clusterId = createUpgradeWorkFlowRequest['cluster_id'];
+                    contentType = createUpgradeWorkFlowRequest['Content-Type'];
+                    body = createUpgradeWorkFlowRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createUpgradeWorkFlow.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3138,6 +3677,115 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群备份任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterMasterSnapshotTasks(listClusterMasterSnapshotTasksRequest?: ListClusterMasterSnapshotTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3.1/projects/{project_id}/clusters/{cluster_id}/operation/snapshot/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterMasterSnapshotTasksRequest !== null && listClusterMasterSnapshotTasksRequest !== undefined) {
+                if (listClusterMasterSnapshotTasksRequest instanceof ListClusterMasterSnapshotTasksRequest) {
+                    clusterId = listClusterMasterSnapshotTasksRequest.clusterId;
+                } else {
+                    clusterId = listClusterMasterSnapshotTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterMasterSnapshotTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级特性开关配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterUpgradeFeatureGates(listClusterUpgradeFeatureGatesRequest?: ListClusterUpgradeFeatureGatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/clusterupgradefeaturegates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listClusterUpgradeFeatureGatesRequest !== null && listClusterUpgradeFeatureGatesRequest !== undefined) {
+                if (listClusterUpgradeFeatureGatesRequest instanceof ListClusterUpgradeFeatureGatesRequest) {
+                    contentType = listClusterUpgradeFeatureGatesRequest.contentType;
+                } else {
+                    contentType = listClusterUpgradeFeatureGatesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级路径
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterUpgradePaths(listClusterUpgradePathsRequest?: ListClusterUpgradePathsRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/clusterupgradepaths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listClusterUpgradePathsRequest !== null && listClusterUpgradePathsRequest !== undefined) {
+                if (listClusterUpgradePathsRequest instanceof ListClusterUpgradePathsRequest) {
+                    contentType = listClusterUpgradePathsRequest.contentType;
+                } else {
+                    contentType = listClusterUpgradePathsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取指定项目下所有集群的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3339,6 +3987,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群升级前检查任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPreCheckTasks(listPreCheckTasksRequest?: ListPreCheckTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listPreCheckTasksRequest !== null && listPreCheckTasksRequest !== undefined) {
+                if (listPreCheckTasksRequest instanceof ListPreCheckTasksRequest) {
+                    clusterId = listPreCheckTasksRequest.clusterId;
+                } else {
+                    clusterId = listPreCheckTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listPreCheckTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取模板实例列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3392,6 +4077,87 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpgradeClusterTasks(listUpgradeClusterTasksRequest?: ListUpgradeClusterTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listUpgradeClusterTasksRequest !== null && listUpgradeClusterTasksRequest !== undefined) {
+                if (listUpgradeClusterTasksRequest instanceof ListUpgradeClusterTasksRequest) {
+                    clusterId = listUpgradeClusterTasksRequest.clusterId;
+                } else {
+                    clusterId = listUpgradeClusterTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listUpgradeClusterTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取历史集群升级引导任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpgradeWorkFlows(listUpgradeWorkFlowsRequest?: ListUpgradeWorkFlowsRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (listUpgradeWorkFlowsRequest !== null && listUpgradeWorkFlowsRequest !== undefined) {
+                if (listUpgradeWorkFlowsRequest instanceof ListUpgradeWorkFlowsRequest) {
+                    clusterId = listUpgradeWorkFlowsRequest.clusterId;
+                    contentType = listUpgradeWorkFlowsRequest.contentType;
+                } else {
+                    clusterId = listUpgradeWorkFlowsRequest['cluster_id'];
+                    contentType = listUpgradeWorkFlowsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listUpgradeWorkFlows.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4083,6 +4849,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群升级相关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterUpgradeInfo(showClusterUpgradeInfoRequest?: ShowClusterUpgradeInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/upgradeinfo",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showClusterUpgradeInfoRequest !== null && showClusterUpgradeInfoRequest !== undefined) {
+                if (showClusterUpgradeInfoRequest instanceof ShowClusterUpgradeInfoRequest) {
+                    clusterId = showClusterUpgradeInfoRequest.clusterId;
+                } else {
+                    clusterId = showClusterUpgradeInfoRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterUpgradeInfo.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
          * &gt; - 该接口通常使用场景为：
@@ -4330,6 +5133,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群升级前检查任务详情，任务ID由调用集群检查API后从响应体中uid字段获取。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPreCheck(showPreCheckRequest?: ShowPreCheckRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let taskId;
+
+            if (showPreCheckRequest !== null && showPreCheckRequest !== undefined) {
+                if (showPreCheckRequest instanceof ShowPreCheckRequest) {
+                    clusterId = showPreCheckRequest.clusterId;
+                    taskId = showPreCheckRequest.taskId;
+                } else {
+                    clusterId = showPreCheckRequest['cluster_id'];
+                    taskId = showPreCheckRequest['task_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showPreCheck.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showPreCheck.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于查询CCE服务下的资源配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4523,6 +5370,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于通过升级引导任务ID获取任务的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUpgradeWorkFlow(showUpgradeWorkFlowRequest?: ShowUpgradeWorkFlowRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows/{upgrade_workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let upgradeWorkflowId;
+            
+            let contentType;
+
+            if (showUpgradeWorkFlowRequest !== null && showUpgradeWorkFlowRequest !== undefined) {
+                if (showUpgradeWorkFlowRequest instanceof ShowUpgradeWorkFlowRequest) {
+                    clusterId = showUpgradeWorkFlowRequest.clusterId;
+                    upgradeWorkflowId = showUpgradeWorkFlowRequest.upgradeWorkflowId;
+                    contentType = showUpgradeWorkFlowRequest.contentType;
+                } else {
+                    clusterId = showUpgradeWorkFlowRequest['cluster_id'];
+                    upgradeWorkflowId = showUpgradeWorkFlowRequest['upgrade_workflow_id'];
+                    contentType = showUpgradeWorkFlowRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showUpgradeWorkFlow.');
+            }
+            if (upgradeWorkflowId === null || upgradeWorkflowId === undefined) {
+            throw new RequiredError('upgradeWorkflowId','Required parameter upgradeWorkflowId was null or undefined when calling showUpgradeWorkFlow.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_workflow_id': upgradeWorkflowId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5193,6 +6091,67 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新指定集群升级引导任务状态，当前仅适用于取消升级流程
+         * 调用该API时升级流程引导任务状态不能为进行中(running) 已完成(success) 已取消(cancel),升级子任务状态不能为running(进行中) init(已初始化) pause(任务被暂停) queue(队列中)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeWorkFlowUpdate(upgradeWorkFlowUpdateRequest?: UpgradeWorkFlowUpdateRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows/{upgrade_workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let upgradeWorkflowId;
+            
+            let contentType;
+
+            if (upgradeWorkFlowUpdateRequest !== null && upgradeWorkFlowUpdateRequest !== undefined) {
+                if (upgradeWorkFlowUpdateRequest instanceof UpgradeWorkFlowUpdateRequest) {
+                    clusterId = upgradeWorkFlowUpdateRequest.clusterId;
+                    upgradeWorkflowId = upgradeWorkFlowUpdateRequest.upgradeWorkflowId;
+                    contentType = upgradeWorkFlowUpdateRequest.contentType;
+                    body = upgradeWorkFlowUpdateRequest.body
+                } else {
+                    clusterId = upgradeWorkFlowUpdateRequest['cluster_id'];
+                    upgradeWorkflowId = upgradeWorkFlowUpdateRequest['upgrade_workflow_id'];
+                    contentType = upgradeWorkFlowUpdateRequest['Content-Type'];
+                    body = upgradeWorkFlowUpdateRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeWorkFlowUpdate.');
+            }
+            if (upgradeWorkflowId === null || upgradeWorkflowId === undefined) {
+            throw new RequiredError('upgradeWorkflowId','Required parameter upgradeWorkflowId was null or undefined when calling upgradeWorkFlowUpdate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_workflow_id': upgradeWorkflowId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

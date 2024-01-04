@@ -1,3 +1,4 @@
+import { Login } from './Login';
 import { Taint } from './Taint';
 import { UserTag } from './UserTag';
 
@@ -7,6 +8,7 @@ export class NodeSpecUpdate {
     public k8sTags?: { [key: string]: string; };
     public userTags?: Array<UserTag>;
     public initializedConditions?: Array<string>;
+    public login?: Login;
     public constructor(taints?: Array<Taint>, k8sTags?: { [key: string]: string; }, userTags?: Array<UserTag>) { 
         this['taints'] = taints;
         this['k8sTags'] = k8sTags;
@@ -26,6 +28,10 @@ export class NodeSpecUpdate {
     }
     public withInitializedConditions(initializedConditions: Array<string>): NodeSpecUpdate {
         this['initializedConditions'] = initializedConditions;
+        return this;
+    }
+    public withLogin(login: Login): NodeSpecUpdate {
+        this['login'] = login;
         return this;
     }
 }

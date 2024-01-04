@@ -52,5 +52,5 @@ export class Event2alarmRuleBodyTriggerPolicies {
     */
 export enum Event2alarmRuleBodyTriggerPoliciesTriggerTypeEnum {
     ACCUMULATIVE = 'accumulative',
-    NOTIFICATION = 'notification'
+    IMMEDIATELY = 'immediately'
 }

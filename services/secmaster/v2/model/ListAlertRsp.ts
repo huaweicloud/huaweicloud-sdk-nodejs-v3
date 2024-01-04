@@ -12,7 +12,7 @@ import { ShowAlertRspUserInfo } from './ShowAlertRspUserInfo';
 export class ListAlertRsp {
     public version?: string;
     public environment?: ShowAlertRspEnvironment;
-    public datasource?: ShowAlertRspDatasource;
+    private 'data_source'?: ShowAlertRspDatasource;
     private 'first_observed_time'?: string;
     private 'last_observed_time'?: string;
     private 'create_time'?: string;
@@ -22,7 +22,7 @@ export class ListAlertRsp {
     private 'source_url'?: string;
     public count?: number;
     public confidence?: number;
-    public serverity?: string;
+    public severity?: string;
     public criticality?: number;
     private 'alert_type'?: object;
     private 'network_list'?: Array<ListAlertRspNetworkList>;
@@ -39,7 +39,7 @@ export class ListAlertRsp {
     public simulation?: string;
     public actor?: string;
     public owner?: string;
-    public cteator?: string;
+    public creator?: string;
     private 'close_reason'?: string;
     private 'close_comment'?: string;
     public malware?: ShowAlertRspMalware;
@@ -60,9 +60,15 @@ export class ListAlertRsp {
         this['environment'] = environment;
         return this;
     }
-    public withDatasource(datasource: ShowAlertRspDatasource): ListAlertRsp {
-        this['datasource'] = datasource;
+    public withDataSource(dataSource: ShowAlertRspDatasource): ListAlertRsp {
+        this['data_source'] = dataSource;
         return this;
+    }
+    public set dataSource(dataSource: ShowAlertRspDatasource  | undefined) {
+        this['data_source'] = dataSource;
+    }
+    public get dataSource(): ShowAlertRspDatasource | undefined {
+        return this['data_source'];
     }
     public withFirstObservedTime(firstObservedTime: string): ListAlertRsp {
         this['first_observed_time'] = firstObservedTime;
@@ -130,8 +136,8 @@ export class ListAlertRsp {
         this['confidence'] = confidence;
         return this;
     }
-    public withServerity(serverity: string): ListAlertRsp {
-        this['serverity'] = serverity;
+    public withSeverity(severity: string): ListAlertRsp {
+        this['severity'] = severity;
         return this;
     }
     public withCriticality(criticality: number): ListAlertRsp {
@@ -258,8 +264,8 @@ export class ListAlertRsp {
         this['owner'] = owner;
         return this;
     }
-    public withCteator(cteator: string): ListAlertRsp {
-        this['cteator'] = cteator;
+    public withCreator(creator: string): ListAlertRsp {
+        this['creator'] = creator;
         return this;
     }
     public withCloseReason(closeReason: string): ListAlertRsp {

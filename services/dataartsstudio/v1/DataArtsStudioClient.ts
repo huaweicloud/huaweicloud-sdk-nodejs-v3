@@ -391,6 +391,13 @@ import { ListFactoryAlarmInfoRequest } from './model/ListFactoryAlarmInfoRequest
 import { ListFactoryAlarmInfoResponse } from './model/ListFactoryAlarmInfoResponse';
 import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
 import { ListFactoryJobsResponse } from './model/ListFactoryJobsResponse';
+import { ListFactoryTaskCompletionRequest } from './model/ListFactoryTaskCompletionRequest';
+import { ListFactoryTaskCompletionResAverage } from './model/ListFactoryTaskCompletionResAverage';
+import { ListFactoryTaskCompletionResToday } from './model/ListFactoryTaskCompletionResToday';
+import { ListFactoryTaskCompletionResYesterday } from './model/ListFactoryTaskCompletionResYesterday';
+import { ListFactoryTaskCompletionResponse } from './model/ListFactoryTaskCompletionResponse';
+import { ListFactoryTaskOverviewRequest } from './model/ListFactoryTaskOverviewRequest';
+import { ListFactoryTaskOverviewResponse } from './model/ListFactoryTaskOverviewResponse';
 import { ListInstanceListRequest } from './model/ListInstanceListRequest';
 import { ListInstanceListResponse } from './model/ListInstanceListResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
@@ -3141,6 +3148,47 @@ export class DataArtsStudioClient {
      */
     public listFactoryJobs(listFactoryJobsRequest?: ListFactoryJobsRequest): Promise<ListFactoryJobsResponse> {
         const options = ParamCreater().listFactoryJobs(listFactoryJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务完成情况
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务完成情况
+     * @param {string} [workspace] 工作空间ID
+     * @param {string} [type] 查询任务的类型，默认为all，查询所有任务。 类型有：Dummy、CDM Job、MRS Hive SQL、MRS Spark SQL、MRS Impala SQL、DLI SQL、DLI Spark、Python、DWS SQL、Shell、MRS ClickHouse、MRS HetuEngine
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryTaskCompletion(listFactoryTaskCompletionRequest?: ListFactoryTaskCompletionRequest): Promise<ListFactoryTaskCompletionResponse> {
+        const options = ParamCreater().listFactoryTaskCompletion(listFactoryTaskCompletionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例运行状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例运行状态
+     * @param {string} [workspace] 工作空间ID
+     * @param {string} [isOwn] 是否查询当前用户的实例，默认为false，表示查询全部用户实例，为true时，表示查询当前用户的实例。
+     * @param {string} [queryDays] 查询的天数，取值范围为：today、yesterday、before_yesterday、all，默认为today，表示查询今天的数据，支持查询近7天的数据。 today：查询当天的实例状态数量， yesterday：查询昨天的实例状态数量， before_yesterday：查询前天的实例状态数量， all：查询7天前到当天的实例状态总量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryTaskOverview(listFactoryTaskOverviewRequest?: ListFactoryTaskOverviewRequest): Promise<ListFactoryTaskOverviewResponse> {
+        const options = ParamCreater().listFactoryTaskOverview(listFactoryTaskOverviewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12569,6 +12617,101 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务完成情况
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryTaskCompletion(listFactoryTaskCompletionRequest?: ListFactoryTaskCompletionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/monitor/task-completion-data",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let type;
+
+            if (listFactoryTaskCompletionRequest !== null && listFactoryTaskCompletionRequest !== undefined) {
+                if (listFactoryTaskCompletionRequest instanceof ListFactoryTaskCompletionRequest) {
+                    workspace = listFactoryTaskCompletionRequest.workspace;
+                    type = listFactoryTaskCompletionRequest.type;
+                } else {
+                    workspace = listFactoryTaskCompletionRequest['workspace'];
+                    type = listFactoryTaskCompletionRequest['type'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例运行状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryTaskOverview(listFactoryTaskOverviewRequest?: ListFactoryTaskOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/monitor/task-statistics-overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let isOwn;
+            
+            let queryDays;
+
+            if (listFactoryTaskOverviewRequest !== null && listFactoryTaskOverviewRequest !== undefined) {
+                if (listFactoryTaskOverviewRequest instanceof ListFactoryTaskOverviewRequest) {
+                    workspace = listFactoryTaskOverviewRequest.workspace;
+                    isOwn = listFactoryTaskOverviewRequest.isOwn;
+                    queryDays = listFactoryTaskOverviewRequest.queryDays;
+                } else {
+                    workspace = listFactoryTaskOverviewRequest['workspace'];
+                    isOwn = listFactoryTaskOverviewRequest['is_own'];
+                    queryDays = listFactoryTaskOverviewRequest['query_days'];
+                }
+            }
+
+        
+            if (isOwn !== null && isOwn !== undefined) {
+                localVarQueryParameter['is_own'] = isOwn;
+            }
+            if (queryDays !== null && queryDays !== undefined) {
+                localVarQueryParameter['query_days'] = queryDays;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);

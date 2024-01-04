@@ -2,7 +2,7 @@
 
 export class MuteConfig {
     private 'ends_at'?: number;
-    public scope?: Array<string>;
+    public scope?: Array<number>;
     private 'starts_at'?: number;
     public type?: MuteConfigTypeEnum | string;
     public constructor(startsAt?: number, type?: string) { 
@@ -19,7 +19,7 @@ export class MuteConfig {
     public get endsAt(): number | undefined {
         return this['ends_at'];
     }
-    public withScope(scope: Array<string>): MuteConfig {
+    public withScope(scope: Array<number>): MuteConfig {
         this['scope'] = scope;
         return this;
     }

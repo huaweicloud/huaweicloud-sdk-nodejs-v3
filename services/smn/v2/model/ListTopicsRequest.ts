@@ -7,6 +7,7 @@ export class ListTopicsRequest {
     public name?: string;
     private 'fuzzy_name'?: string;
     private 'topic_id'?: string;
+    private 'fuzzy_display_name'?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListTopicsRequest {
@@ -50,5 +51,15 @@ export class ListTopicsRequest {
     }
     public get topicId(): string | undefined {
         return this['topic_id'];
+    }
+    public withFuzzyDisplayName(fuzzyDisplayName: string): ListTopicsRequest {
+        this['fuzzy_display_name'] = fuzzyDisplayName;
+        return this;
+    }
+    public set fuzzyDisplayName(fuzzyDisplayName: string  | undefined) {
+        this['fuzzy_display_name'] = fuzzyDisplayName;
+    }
+    public get fuzzyDisplayName(): string | undefined {
+        return this['fuzzy_display_name'];
     }
 }

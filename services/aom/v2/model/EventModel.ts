@@ -4,9 +4,9 @@ export class EventModel {
     private 'starts_at'?: number;
     private 'ends_at'?: number;
     public timeout?: number;
-    public metadata?: object;
-    public annotations?: object;
-    private 'attach_rule'?: object;
+    public metadata?: { [key: string]: string; };
+    public annotations?: { [key: string]: string; };
+    private 'attach_rule'?: { [key: string]: string; };
     public id?: string;
     public constructor() { 
     }
@@ -34,22 +34,22 @@ export class EventModel {
         this['timeout'] = timeout;
         return this;
     }
-    public withMetadata(metadata: object): EventModel {
+    public withMetadata(metadata: { [key: string]: string; }): EventModel {
         this['metadata'] = metadata;
         return this;
     }
-    public withAnnotations(annotations: object): EventModel {
+    public withAnnotations(annotations: { [key: string]: string; }): EventModel {
         this['annotations'] = annotations;
         return this;
     }
-    public withAttachRule(attachRule: object): EventModel {
+    public withAttachRule(attachRule: { [key: string]: string; }): EventModel {
         this['attach_rule'] = attachRule;
         return this;
     }
-    public set attachRule(attachRule: object  | undefined) {
+    public set attachRule(attachRule: { [key: string]: string; }  | undefined) {
         this['attach_rule'] = attachRule;
     }
-    public get attachRule(): object | undefined {
+    public get attachRule(): { [key: string]: string; } | undefined {
         return this['attach_rule'];
     }
     public withId(id: string): EventModel {

@@ -222,7 +222,6 @@ import { QueryLogKeyWordCountRequestBody } from './model/QueryLogKeyWordCountReq
 import { QueryLtsLogParams } from './model/QueryLtsLogParams';
 import { QueryLtsStructLogParams } from './model/QueryLtsStructLogParams';
 import { QueryLtsStructLogParamsNew } from './model/QueryLtsStructLogParamsNew';
-import { QueryLtsStructLogResponseBodyNew } from './model/QueryLtsStructLogResponseBodyNew';
 import { RegisterDmsKafkaInstanceRequest } from './model/RegisterDmsKafkaInstanceRequest';
 import { RegisterDmsKafkaInstanceRequestBody } from './model/RegisterDmsKafkaInstanceRequestBody';
 import { RegisterDmsKafkaInstanceRequestBodyConnectInfo } from './model/RegisterDmsKafkaInstanceRequestBodyConnectInfo';

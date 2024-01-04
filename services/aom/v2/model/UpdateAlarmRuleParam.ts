@@ -8,20 +8,30 @@ export class UpdateAlarmRuleParam {
     private 'alarm_description'?: string;
     private 'alarm_level'?: UpdateAlarmRuleParamAlarmLevelEnum | number;
     private 'alarm_rule_name'?: string;
-    private 'comparison_operator'?: string;
+    private 'comparison_operator'?: UpdateAlarmRuleParamComparisonOperatorEnum | string;
     public dimensions?: Array<Dimension>;
     private 'evaluation_periods'?: number;
-    private 'id_turn_on'?: boolean;
+    private 'is_turn_on'?: boolean;
     private 'insufficient_data_actions'?: Array<string>;
     private 'metric_name'?: string;
     public namespace?: string;
     private 'ok_actions'?: Array<string>;
-    public period?: number;
+    public period?: UpdateAlarmRuleParamPeriodEnum | number;
     public statistic?: UpdateAlarmRuleParamStatisticEnum | string;
     public threshold?: string;
     public unit?: string;
-    public constructor(alarmRuleName?: string) { 
+    public constructor(alarmLevel?: number, alarmRuleName?: string, comparisonOperator?: string, dimensions?: Array<Dimension>, evaluationPeriods?: number, metricName?: string, namespace?: string, period?: number, statistic?: string, threshold?: string, unit?: string) { 
+        this['alarm_level'] = alarmLevel;
         this['alarm_rule_name'] = alarmRuleName;
+        this['comparison_operator'] = comparisonOperator;
+        this['dimensions'] = dimensions;
+        this['evaluation_periods'] = evaluationPeriods;
+        this['metric_name'] = metricName;
+        this['namespace'] = namespace;
+        this['period'] = period;
+        this['statistic'] = statistic;
+        this['threshold'] = threshold;
+        this['unit'] = unit;
     }
     public withActionEnabled(actionEnabled: boolean): UpdateAlarmRuleParam {
         this['action_enabled'] = actionEnabled;
@@ -83,14 +93,14 @@ export class UpdateAlarmRuleParam {
     public get alarmRuleName(): string | undefined {
         return this['alarm_rule_name'];
     }
-    public withComparisonOperator(comparisonOperator: string): UpdateAlarmRuleParam {
+    public withComparisonOperator(comparisonOperator: UpdateAlarmRuleParamComparisonOperatorEnum | string): UpdateAlarmRuleParam {
         this['comparison_operator'] = comparisonOperator;
         return this;
     }
-    public set comparisonOperator(comparisonOperator: string  | undefined) {
+    public set comparisonOperator(comparisonOperator: UpdateAlarmRuleParamComparisonOperatorEnum | string  | undefined) {
         this['comparison_operator'] = comparisonOperator;
     }
-    public get comparisonOperator(): string | undefined {
+    public get comparisonOperator(): UpdateAlarmRuleParamComparisonOperatorEnum | string | undefined {
         return this['comparison_operator'];
     }
     public withDimensions(dimensions: Array<Dimension>): UpdateAlarmRuleParam {
@@ -107,15 +117,15 @@ export class UpdateAlarmRuleParam {
     public get evaluationPeriods(): number | undefined {
         return this['evaluation_periods'];
     }
-    public withIdTurnOn(idTurnOn: boolean): UpdateAlarmRuleParam {
-        this['id_turn_on'] = idTurnOn;
+    public withIsTurnOn(isTurnOn: boolean): UpdateAlarmRuleParam {
+        this['is_turn_on'] = isTurnOn;
         return this;
     }
-    public set idTurnOn(idTurnOn: boolean  | undefined) {
-        this['id_turn_on'] = idTurnOn;
+    public set isTurnOn(isTurnOn: boolean  | undefined) {
+        this['is_turn_on'] = isTurnOn;
     }
-    public get idTurnOn(): boolean | undefined {
-        return this['id_turn_on'];
+    public get isTurnOn(): boolean | undefined {
+        return this['is_turn_on'];
     }
     public withInsufficientDataActions(insufficientDataActions: Array<string>): UpdateAlarmRuleParam {
         this['insufficient_data_actions'] = insufficientDataActions;
@@ -151,7 +161,7 @@ export class UpdateAlarmRuleParam {
     public get okActions(): Array<string> | undefined {
         return this['ok_actions'];
     }
-    public withPeriod(period: number): UpdateAlarmRuleParam {
+    public withPeriod(period: UpdateAlarmRuleParamPeriodEnum | number): UpdateAlarmRuleParam {
         this['period'] = period;
         return this;
     }
@@ -178,6 +188,26 @@ export enum UpdateAlarmRuleParamAlarmLevelEnum {
     NUMBER_2 = 2,
     NUMBER_3 = 3,
     NUMBER_4 = 4
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateAlarmRuleParamComparisonOperatorEnum {
+    LessThan = '<',
+    GreaterThan = '>',
+    LessThanOrEqualTo = '<=',
+    GreaterThanOrEqualTo = '>='
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateAlarmRuleParamPeriodEnum {
+    NUMBER_60000 = 60000,
+    NUMBER_300000 = 300000,
+    NUMBER_900000 = 900000,
+    NUMBER_36000000 = 36000000
 }
 /**
     * @export

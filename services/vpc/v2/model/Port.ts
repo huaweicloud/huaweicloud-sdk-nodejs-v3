@@ -29,7 +29,8 @@ export class Port {
     private 'port_security_enabled'?: boolean;
     private 'zone_id'?: string;
     private 'enable_efi'?: boolean;
-    public constructor(id?: string, name?: string, networkId?: string, adminStateUp?: boolean, macAddress?: string, fixedIps?: Array<FixedIp>, deviceId?: string, deviceOwner?: string, tenantId?: string, status?: string, securityGroups?: Array<string>, allowedAddressPairs?: Array<AllowedAddressPair>, extraDhcpOpts?: Array<ExtraDhcpOpt>, bindingVnicType?: string, dnsAssignment?: Array<DnsAssignMent>, dnsName?: string, bindingVifDetails?: BindingVifDetails, bindingProfile?: object, instanceId?: string, instanceType?: string, portSecurityEnabled?: boolean, zoneId?: string, enableEfi?: boolean) { 
+    private 'ipv6_bandwidth_id'?: string;
+    public constructor(id?: string, name?: string, networkId?: string, adminStateUp?: boolean, macAddress?: string, fixedIps?: Array<FixedIp>, deviceId?: string, deviceOwner?: string, tenantId?: string, status?: string, securityGroups?: Array<string>, allowedAddressPairs?: Array<AllowedAddressPair>, extraDhcpOpts?: Array<ExtraDhcpOpt>, bindingVnicType?: string, dnsAssignment?: Array<DnsAssignMent>, dnsName?: string, bindingVifDetails?: BindingVifDetails, bindingProfile?: object, instanceId?: string, instanceType?: string, portSecurityEnabled?: boolean, zoneId?: string, enableEfi?: boolean, ipv6BandwidthId?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['network_id'] = networkId;
@@ -53,6 +54,7 @@ export class Port {
         this['port_security_enabled'] = portSecurityEnabled;
         this['zone_id'] = zoneId;
         this['enable_efi'] = enableEfi;
+        this['ipv6_bandwidth_id'] = ipv6BandwidthId;
     }
     public withId(id: string): Port {
         this['id'] = id;
@@ -265,6 +267,16 @@ export class Port {
     }
     public get enableEfi(): boolean | undefined {
         return this['enable_efi'];
+    }
+    public withIpv6BandwidthId(ipv6BandwidthId: string): Port {
+        this['ipv6_bandwidth_id'] = ipv6BandwidthId;
+        return this;
+    }
+    public set ipv6BandwidthId(ipv6BandwidthId: string  | undefined) {
+        this['ipv6_bandwidth_id'] = ipv6BandwidthId;
+    }
+    public get ipv6BandwidthId(): string | undefined {
+        return this['ipv6_bandwidth_id'];
     }
 }
 

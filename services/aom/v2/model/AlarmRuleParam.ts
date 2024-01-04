@@ -8,15 +8,15 @@ export class AlarmRuleParam {
     private 'alarm_description'?: string;
     private 'alarm_level'?: AlarmRuleParamAlarmLevelEnum | number;
     private 'alarm_rule_name'?: string;
-    private 'comparison_operator'?: string;
+    private 'comparison_operator'?: AlarmRuleParamComparisonOperatorEnum | string;
     public dimensions?: Array<Dimension>;
     private 'evaluation_periods'?: number;
-    private 'id_turn_on'?: boolean;
+    private 'is_turn_on'?: boolean;
     private 'insufficient_data_actions'?: Array<string>;
     private 'metric_name'?: string;
     public namespace?: string;
     private 'ok_actions'?: Array<string>;
-    public period?: number;
+    public period?: AlarmRuleParamPeriodEnum | number;
     public statistic?: AlarmRuleParamStatisticEnum | string;
     public threshold?: string;
     public unit?: string;
@@ -93,14 +93,14 @@ export class AlarmRuleParam {
     public get alarmRuleName(): string | undefined {
         return this['alarm_rule_name'];
     }
-    public withComparisonOperator(comparisonOperator: string): AlarmRuleParam {
+    public withComparisonOperator(comparisonOperator: AlarmRuleParamComparisonOperatorEnum | string): AlarmRuleParam {
         this['comparison_operator'] = comparisonOperator;
         return this;
     }
-    public set comparisonOperator(comparisonOperator: string  | undefined) {
+    public set comparisonOperator(comparisonOperator: AlarmRuleParamComparisonOperatorEnum | string  | undefined) {
         this['comparison_operator'] = comparisonOperator;
     }
-    public get comparisonOperator(): string | undefined {
+    public get comparisonOperator(): AlarmRuleParamComparisonOperatorEnum | string | undefined {
         return this['comparison_operator'];
     }
     public withDimensions(dimensions: Array<Dimension>): AlarmRuleParam {
@@ -117,15 +117,15 @@ export class AlarmRuleParam {
     public get evaluationPeriods(): number | undefined {
         return this['evaluation_periods'];
     }
-    public withIdTurnOn(idTurnOn: boolean): AlarmRuleParam {
-        this['id_turn_on'] = idTurnOn;
+    public withIsTurnOn(isTurnOn: boolean): AlarmRuleParam {
+        this['is_turn_on'] = isTurnOn;
         return this;
     }
-    public set idTurnOn(idTurnOn: boolean  | undefined) {
-        this['id_turn_on'] = idTurnOn;
+    public set isTurnOn(isTurnOn: boolean  | undefined) {
+        this['is_turn_on'] = isTurnOn;
     }
-    public get idTurnOn(): boolean | undefined {
-        return this['id_turn_on'];
+    public get isTurnOn(): boolean | undefined {
+        return this['is_turn_on'];
     }
     public withInsufficientDataActions(insufficientDataActions: Array<string>): AlarmRuleParam {
         this['insufficient_data_actions'] = insufficientDataActions;
@@ -161,7 +161,7 @@ export class AlarmRuleParam {
     public get okActions(): Array<string> | undefined {
         return this['ok_actions'];
     }
-    public withPeriod(period: number): AlarmRuleParam {
+    public withPeriod(period: AlarmRuleParamPeriodEnum | number): AlarmRuleParam {
         this['period'] = period;
         return this;
     }
@@ -188,6 +188,26 @@ export enum AlarmRuleParamAlarmLevelEnum {
     NUMBER_2 = 2,
     NUMBER_3 = 3,
     NUMBER_4 = 4
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AlarmRuleParamComparisonOperatorEnum {
+    LessThan = '<',
+    GreaterThan = '>',
+    LessThanOrEqualTo = '<=',
+    GreaterThanOrEqualTo = '>='
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AlarmRuleParamPeriodEnum {
+    NUMBER_60000 = 60000,
+    NUMBER_300000 = 300000,
+    NUMBER_900000 = 900000,
+    NUMBER_36000000 = 36000000
 }
 /**
     * @export

@@ -1,25 +1,20 @@
-import { Notifications } from './Notifications';
+import { NotifiedHistoriesResult } from './NotifiedHistoriesResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListNotifiedHistoriesResponse extends SdkResponse {
-    private 'event_sn'?: string;
-    public notifications?: Array<Notifications>;
+    private 'notified_histories'?: Array<NotifiedHistoriesResult>;
     public constructor() { 
         super();
     }
-    public withEventSn(eventSn: string): ListNotifiedHistoriesResponse {
-        this['event_sn'] = eventSn;
+    public withNotifiedHistories(notifiedHistories: Array<NotifiedHistoriesResult>): ListNotifiedHistoriesResponse {
+        this['notified_histories'] = notifiedHistories;
         return this;
     }
-    public set eventSn(eventSn: string  | undefined) {
-        this['event_sn'] = eventSn;
+    public set notifiedHistories(notifiedHistories: Array<NotifiedHistoriesResult>  | undefined) {
+        this['notified_histories'] = notifiedHistories;
     }
-    public get eventSn(): string | undefined {
-        return this['event_sn'];
-    }
-    public withNotifications(notifications: Array<Notifications>): ListNotifiedHistoriesResponse {
-        this['notifications'] = notifications;
-        return this;
+    public get notifiedHistories(): Array<NotifiedHistoriesResult> | undefined {
+        return this['notified_histories'];
     }
 }

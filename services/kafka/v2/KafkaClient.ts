@@ -129,6 +129,8 @@ import { ResetManagerPasswordResponse } from './model/ResetManagerPasswordRespon
 import { ResetMessageOffsetReq } from './model/ResetMessageOffsetReq';
 import { ResetMessageOffsetRequest } from './model/ResetMessageOffsetRequest';
 import { ResetMessageOffsetResponse } from './model/ResetMessageOffsetResponse';
+import { ResetMessageOffsetWithEngineRequest } from './model/ResetMessageOffsetWithEngineRequest';
+import { ResetMessageOffsetWithEngineResponse } from './model/ResetMessageOffsetWithEngineResponse';
 import { ResetPasswordReq } from './model/ResetPasswordReq';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
@@ -995,6 +997,30 @@ export class KafkaClient {
      */
     public resetMessageOffset(resetMessageOffsetRequest?: ResetMessageOffsetRequest): Promise<ResetMessageOffsetResponse> {
         const options = ParamCreater().resetMessageOffset(resetMessageOffsetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Kafka实例不支持在线重置消费进度。在执行重置消费进度之前，必须停止被重置消费组客户端。
+     * 
+     * 停止待重置消费组客户端，然后等待一段时间（即ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG配置的时间，默认为1000毫秒）后，服务端才认为此消费组客户端已下线。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置消费组消费进度到指定位置
+     * @param {string} engine 引擎。
+     * @param {string} instanceId 实例ID。
+     * @param {string} group 消费组名称。
+     * @param {ResetMessageOffsetReq} resetMessageOffsetWithEngineRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetMessageOffsetWithEngine(resetMessageOffsetWithEngineRequest?: ResetMessageOffsetWithEngineRequest): Promise<ResetMessageOffsetWithEngineResponse> {
+        const options = ParamCreater().resetMessageOffsetWithEngine(resetMessageOffsetWithEngineRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3493,6 +3519,68 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Kafka实例不支持在线重置消费进度。在执行重置消费进度之前，必须停止被重置消费组客户端。
+         * 
+         * 停止待重置消费组客户端，然后等待一段时间（即ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG配置的时间，默认为1000毫秒）后，服务端才认为此消费组客户端已下线。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetMessageOffsetWithEngine(resetMessageOffsetWithEngineRequest?: ResetMessageOffsetWithEngineRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/groups/{group}/reset-message-offset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+            
+            let group;
+
+            if (resetMessageOffsetWithEngineRequest !== null && resetMessageOffsetWithEngineRequest !== undefined) {
+                if (resetMessageOffsetWithEngineRequest instanceof ResetMessageOffsetWithEngineRequest) {
+                    engine = resetMessageOffsetWithEngineRequest.engine;
+                    instanceId = resetMessageOffsetWithEngineRequest.instanceId;
+                    group = resetMessageOffsetWithEngineRequest.group;
+                    body = resetMessageOffsetWithEngineRequest.body
+                } else {
+                    engine = resetMessageOffsetWithEngineRequest['engine'];
+                    instanceId = resetMessageOffsetWithEngineRequest['instance_id'];
+                    group = resetMessageOffsetWithEngineRequest['group'];
+                    body = resetMessageOffsetWithEngineRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling resetMessageOffsetWithEngine.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetMessageOffsetWithEngine.');
+            }
+            if (group === null || group === undefined) {
+            throw new RequiredError('group','Required parameter group was null or undefined when calling resetMessageOffsetWithEngine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId,'group': group, };
             options.headers = localVarHeaderParameter;
             return options;
         },

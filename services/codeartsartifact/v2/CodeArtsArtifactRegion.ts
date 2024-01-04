@@ -8,10 +8,11 @@ interface RegionMap {
 export class CodeArtsArtifactRegion {
     public static CN_EAST_3 = new Region("cn-east-3", ["https://cloudartifacts-ext.cn-east-3.myhuaweicloud.com"]);
     public static CN_EAST_2 = new Region("cn-east-2", ["https://cloudartifacts-ext.cn-east-2.myhuaweicloud.com"]);
-    public static CN_NORTH_1 = new Region("cn-north-1", ["https://cloudartifacts-ext.cn-north-1.myhuaweicloud.com"]);
-    public static CN_NORTH_4 = new Region("cn-north-4", ["https://cloudartifacts-ext.cn-north-4.myhuaweicloud.com"]);
-    public static CN_SOUTH_1 = new Region("cn-south-1", ["https://cloudartifacts-ext.cn-south-1.myhuaweicloud.com"]);
-    public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://cloudartifacts-ext.cn-southwest-2.myhuaweicloud.com"]);
+    public static CN_NORTH_1 = new Region("cn-north-1", ["https://artifact.cn-north-1.myhuaweicloud.com"]);
+    public static CN_NORTH_4 = new Region("cn-north-4", ["https://artifact.cn-north-4.myhuaweicloud.com"]);
+    public static CN_SOUTH_1 = new Region("cn-south-1", ["https://artifact.cn-south-1.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://artifact.cn-southwest-2.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://artifact.ap-southeast-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -20,7 +21,8 @@ export class CodeArtsArtifactRegion {
         "cn-north-1":CodeArtsArtifactRegion.CN_NORTH_1,
         "cn-north-4":CodeArtsArtifactRegion.CN_NORTH_4,
         "cn-south-1":CodeArtsArtifactRegion.CN_SOUTH_1,
-        "cn-southwest-2":CodeArtsArtifactRegion.CN_SOUTHWEST_2
+        "cn-southwest-2":CodeArtsArtifactRegion.CN_SOUTHWEST_2,
+        "ap-southeast-3":CodeArtsArtifactRegion.AP_SOUTHEAST_3
     };
   
     public static valueOf(regionId: string) {

@@ -31,6 +31,9 @@ import { CreateFsTaskResponse } from './model/CreateFsTaskResponse';
 import { CreateHpcCacheTaskReq } from './model/CreateHpcCacheTaskReq';
 import { CreateHpcCacheTaskRequest } from './model/CreateHpcCacheTaskRequest';
 import { CreateHpcCacheTaskResponse } from './model/CreateHpcCacheTaskResponse';
+import { CreateLdapConfigRequest } from './model/CreateLdapConfigRequest';
+import { CreateLdapConfigRequestBody } from './model/CreateLdapConfigRequestBody';
+import { CreateLdapConfigResponse } from './model/CreateLdapConfigResponse';
 import { CreatePermRuleRequest } from './model/CreatePermRuleRequest';
 import { CreatePermRuleResponse } from './model/CreatePermRuleResponse';
 import { CreatePermRulesRequestBody } from './model/CreatePermRulesRequestBody';
@@ -50,6 +53,8 @@ import { DeleteFsDirRequestBody } from './model/DeleteFsDirRequestBody';
 import { DeleteFsDirResponse } from './model/DeleteFsDirResponse';
 import { DeleteFsTaskRequest } from './model/DeleteFsTaskRequest';
 import { DeleteFsTaskResponse } from './model/DeleteFsTaskResponse';
+import { DeleteLdapConfigRequest } from './model/DeleteLdapConfigRequest';
+import { DeleteLdapConfigResponse } from './model/DeleteLdapConfigResponse';
 import { DeletePermRuleRequest } from './model/DeletePermRuleRequest';
 import { DeletePermRuleResponse } from './model/DeletePermRuleResponse';
 import { DeleteShareRequest } from './model/DeleteShareRequest';
@@ -65,6 +70,7 @@ import { FsDirReq } from './model/FsDirReq';
 import { FsDirUasge } from './model/FsDirUasge';
 import { FsDuInfo } from './model/FsDuInfo';
 import { FsFileCount } from './model/FsFileCount';
+import { GetSubJobDetail } from './model/GetSubJobDetail';
 import { ListBackendTargetsRequest } from './model/ListBackendTargetsRequest';
 import { ListBackendTargetsResponse } from './model/ListBackendTargetsResponse';
 import { ListFsTasksRequest } from './model/ListFsTasksRequest';
@@ -105,6 +111,10 @@ import { ShowFsTaskRequest } from './model/ShowFsTaskRequest';
 import { ShowFsTaskResponse } from './model/ShowFsTaskResponse';
 import { ShowHpcCacheTaskRequest } from './model/ShowHpcCacheTaskRequest';
 import { ShowHpcCacheTaskResponse } from './model/ShowHpcCacheTaskResponse';
+import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
+import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
+import { ShowLdapConfigRequest } from './model/ShowLdapConfigRequest';
+import { ShowLdapConfigResponse } from './model/ShowLdapConfigResponse';
 import { ShowPermRuleRequest } from './model/ShowPermRuleRequest';
 import { ShowPermRuleResponse } from './model/ShowPermRuleResponse';
 import { ShowShareRequest } from './model/ShowShareRequest';
@@ -118,6 +128,9 @@ import { UpdateFsDirQuotaResponse } from './model/UpdateFsDirQuotaResponse';
 import { UpdateHpcShareRequest } from './model/UpdateHpcShareRequest';
 import { UpdateHpcShareRequestBody } from './model/UpdateHpcShareRequestBody';
 import { UpdateHpcShareResponse } from './model/UpdateHpcShareResponse';
+import { UpdateLdapConfigRequest } from './model/UpdateLdapConfigRequest';
+import { UpdateLdapConfigRequestBody } from './model/UpdateLdapConfigRequestBody';
+import { UpdateLdapConfigResponse } from './model/UpdateLdapConfigResponse';
 import { UpdatePermRuleRequest } from './model/UpdatePermRuleRequest';
 import { UpdatePermRuleResponse } from './model/UpdatePermRuleResponse';
 
@@ -302,6 +315,26 @@ export class SFSTurboClient {
     }
 
     /**
+     * 创建并绑定ldap配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建并绑定ldap配置
+     * @param {string} shareId 文件系统id
+     * @param {CreateLdapConfigRequestBody} createLdapConfigRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLdapConfig(createLdapConfigRequest?: CreateLdapConfigRequest): Promise<CreateLdapConfigResponse> {
+        const options = ParamCreater().createLdapConfig(createLdapConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建权限规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -438,6 +471,25 @@ export class SFSTurboClient {
      */
     public deleteFsTask(deleteFsTaskRequest?: DeleteFsTaskRequest): Promise<DeleteFsTaskResponse> {
         const options = ParamCreater().deleteFsTask(deleteFsTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除ldap配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除ldap配置
+     * @param {string} shareId 文件系统id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLdapConfig(deleteLdapConfigRequest?: DeleteLdapConfigRequest): Promise<DeleteLdapConfigResponse> {
+        const options = ParamCreater().deleteLdapConfig(deleteLdapConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -789,6 +841,44 @@ export class SFSTurboClient {
     }
 
     /**
+     * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询job的状态详情
+     * @param {string} jobId job ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobDetail(showJobDetailRequest?: ShowJobDetailRequest): Promise<ShowJobDetailResponse> {
+        const options = ParamCreater().showJobDetail(showJobDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Ldap的配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Ldap的配置
+     * @param {string} shareId 文件系统id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLdapConfig(showLdapConfigRequest?: ShowLdapConfigRequest): Promise<ShowLdapConfigResponse> {
+        const options = ParamCreater().showLdapConfig(showLdapConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询文件系统的某一个权限规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -882,6 +972,26 @@ export class SFSTurboClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改ldap配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改ldap配置
+     * @param {string} shareId 文件系统id
+     * @param {UpdateLdapConfigRequestBody} updateLdapConfigRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLdapConfig(updateLdapConfigRequest?: UpdateLdapConfigRequest): Promise<UpdateLdapConfigResponse> {
+        const options = ParamCreater().updateLdapConfig(updateLdapConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1288,6 +1398,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建并绑定ldap配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLdapConfig(createLdapConfigRequest?: CreateLdapConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/ldap",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (createLdapConfigRequest !== null && createLdapConfigRequest !== undefined) {
+                if (createLdapConfigRequest instanceof CreateLdapConfigRequest) {
+                    shareId = createLdapConfigRequest.shareId;
+                    body = createLdapConfigRequest.body
+                } else {
+                    shareId = createLdapConfigRequest['share_id'];
+                    body = createLdapConfigRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling createLdapConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建权限规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1611,6 +1767,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'share_id': shareId,'feature': feature,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除ldap配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLdapConfig(deleteLdapConfigRequest?: DeleteLdapConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/ldap",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let shareId;
+
+            if (deleteLdapConfigRequest !== null && deleteLdapConfigRequest !== undefined) {
+                if (deleteLdapConfigRequest instanceof DeleteLdapConfigRequest) {
+                    shareId = deleteLdapConfigRequest.shareId;
+                } else {
+                    shareId = deleteLdapConfigRequest['share_id'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling deleteLdapConfig.');
+            }
+
+            options.pathParams = { 'share_id': shareId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2395,6 +2588,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询job的执行状态。 可用于查询SFS Turbo异步API的执行状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobDetail(showJobDetailRequest?: ShowJobDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sfs-turbo/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobDetailRequest !== null && showJobDetailRequest !== undefined) {
+                if (showJobDetailRequest instanceof ShowJobDetailRequest) {
+                    jobId = showJobDetailRequest.jobId;
+                } else {
+                    jobId = showJobDetailRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobDetail.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Ldap的配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLdapConfig(showLdapConfigRequest?: ShowLdapConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/ldap",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let shareId;
+
+            if (showLdapConfigRequest !== null && showLdapConfigRequest !== undefined) {
+                if (showLdapConfigRequest instanceof ShowLdapConfigRequest) {
+                    shareId = showLdapConfigRequest.shareId;
+                } else {
+                    shareId = showLdapConfigRequest['share_id'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling showLdapConfig.');
+            }
+
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询文件系统的某一个权限规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2592,6 +2859,52 @@ export const ParamCreater = function () {
         
             if (shareId === null || shareId === undefined) {
             throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling updateHpcShare.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'share_id': shareId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改ldap配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLdapConfig(updateLdapConfigRequest?: UpdateLdapConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/sfs-turbo/shares/{share_id}/fs/ldap",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let shareId;
+
+            if (updateLdapConfigRequest !== null && updateLdapConfigRequest !== undefined) {
+                if (updateLdapConfigRequest instanceof UpdateLdapConfigRequest) {
+                    shareId = updateLdapConfigRequest.shareId;
+                    body = updateLdapConfigRequest.body
+                } else {
+                    shareId = updateLdapConfigRequest['share_id'];
+                    body = updateLdapConfigRequest['body'];
+                }
+            }
+
+        
+            if (shareId === null || shareId === undefined) {
+            throw new RequiredError('shareId','Required parameter shareId was null or undefined when calling updateLdapConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

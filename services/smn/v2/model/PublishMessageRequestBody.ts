@@ -1,3 +1,4 @@
+import { MessageAttribute } from './MessageAttribute';
 
 
 export class PublishMessageRequestBody {
@@ -7,6 +8,7 @@ export class PublishMessageRequestBody {
     private 'message_template_name'?: string;
     public tags?: { [key: string]: string; };
     private 'time_to_live'?: string;
+    private 'message_attributes'?: Array<MessageAttribute>;
     public constructor() { 
     }
     public withSubject(subject: string): PublishMessageRequestBody {
@@ -50,5 +52,15 @@ export class PublishMessageRequestBody {
     }
     public get timeToLive(): string | undefined {
         return this['time_to_live'];
+    }
+    public withMessageAttributes(messageAttributes: Array<MessageAttribute>): PublishMessageRequestBody {
+        this['message_attributes'] = messageAttributes;
+        return this;
+    }
+    public set messageAttributes(messageAttributes: Array<MessageAttribute>  | undefined) {
+        this['message_attributes'] = messageAttributes;
+    }
+    public get messageAttributes(): Array<MessageAttribute> | undefined {
+        return this['message_attributes'];
     }
 }

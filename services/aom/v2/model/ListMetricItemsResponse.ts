@@ -1,15 +1,15 @@
-import { MetaData } from './MetaData';
+import { MetaDataSeries } from './MetaDataSeries';
 import { MetricItemResultAPI } from './MetricItemResultAPI';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListMetricItemsResponse extends SdkResponse {
-    public metaData?: MetaData;
+    public metaData?: MetaDataSeries;
     public metrics?: Array<MetricItemResultAPI>;
     public constructor() { 
         super();
     }
-    public withMetaData(metaData: MetaData): ListMetricItemsResponse {
+    public withMetaData(metaData: MetaDataSeries): ListMetricItemsResponse {
         this['metaData'] = metaData;
         return this;
     }

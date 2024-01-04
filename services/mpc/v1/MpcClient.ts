@@ -199,6 +199,8 @@ import { RemuxTask } from './model/RemuxTask';
 import { ResetTracksTaskInfo } from './model/ResetTracksTaskInfo';
 import { ShowAgenciesTaskRequest } from './model/ShowAgenciesTaskRequest';
 import { ShowAgenciesTaskResponse } from './model/ShowAgenciesTaskResponse';
+import { ShowTenantAccessInfoRequest } from './model/ShowTenantAccessInfoRequest';
+import { ShowTenantAccessInfoResponse } from './model/ShowTenantAccessInfoResponse';
 import { SourceInfo } from './model/SourceInfo';
 import { StatSummary } from './model/StatSummary';
 import { SubAudioFile } from './model/SubAudioFile';
@@ -222,6 +224,9 @@ import { UpdateQualityEnhanceTemplateRequest } from './model/UpdateQualityEnhanc
 import { UpdateQualityEnhanceTemplateResponse } from './model/UpdateQualityEnhanceTemplateResponse';
 import { UpdateTemplateGroupRequest } from './model/UpdateTemplateGroupRequest';
 import { UpdateTemplateGroupResponse } from './model/UpdateTemplateGroupResponse';
+import { UpdateTenantAccessInfoReq } from './model/UpdateTenantAccessInfoReq';
+import { UpdateTenantAccessInfoRequest } from './model/UpdateTenantAccessInfoRequest';
+import { UpdateTenantAccessInfoResponse } from './model/UpdateTenantAccessInfoResponse';
 import { UpdateTransTemplateRequest } from './model/UpdateTransTemplateRequest';
 import { UpdateTransTemplateResponse } from './model/UpdateTransTemplateResponse';
 import { UpdateWatermarkTemplateRequest } from './model/UpdateWatermarkTemplateRequest';
@@ -1195,6 +1200,45 @@ export class MpcClient {
      */
     public updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest): Promise<UpdateTemplateGroupResponse> {
         const options = ParamCreater().updateTemplateGroup(updateTemplateGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户查询媒体转码服务开通状态信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户查询服务开通状态信息
+     * @param {string} [xLanguage] 客户端语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantAccessInfo(showTenantAccessInfoRequest?: ShowTenantAccessInfoRequest): Promise<ShowTenantAccessInfoResponse> {
+        const options = ParamCreater().showTenantAccessInfo(showTenantAccessInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户开通媒体转码服务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户开通媒体转码服务
+     * @param {string} [xLanguage] 客户端语言
+     * @param {UpdateTenantAccessInfoReq} [updateTenantAccessInfoRequestBody] 租户开通请求体 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTenantAccessInfo(updateTenantAccessInfoRequest?: UpdateTenantAccessInfoRequest): Promise<UpdateTenantAccessInfoResponse> {
+        const options = ParamCreater().updateTenantAccessInfo(updateTenantAccessInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3555,6 +3599,84 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户查询媒体转码服务开通状态信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTenantAccessInfo(showTenantAccessInfoRequest?: ShowTenantAccessInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/tenant/access",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (showTenantAccessInfoRequest !== null && showTenantAccessInfoRequest !== undefined) {
+                if (showTenantAccessInfoRequest instanceof ShowTenantAccessInfoRequest) {
+                    xLanguage = showTenantAccessInfoRequest.xLanguage;
+                } else {
+                    xLanguage = showTenantAccessInfoRequest['x-language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['x-language'] = String(xLanguage);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户开通媒体转码服务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTenantAccessInfo(updateTenantAccessInfoRequest?: UpdateTenantAccessInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/tenant/access",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (updateTenantAccessInfoRequest !== null && updateTenantAccessInfoRequest !== undefined) {
+                if (updateTenantAccessInfoRequest instanceof UpdateTenantAccessInfoRequest) {
+                    xLanguage = updateTenantAccessInfoRequest.xLanguage;
+                    body = updateTenantAccessInfoRequest.body
+                } else {
+                    xLanguage = updateTenantAccessInfoRequest['x-language'];
+                    body = updateTenantAccessInfoRequest['body'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['x-language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

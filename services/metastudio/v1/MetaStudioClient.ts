@@ -3,11 +3,16 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
+import { ActionMarkItem } from './model/ActionMarkItem';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
 import { AnimationConfig } from './model/AnimationConfig';
 import { AnimationItem } from './model/AnimationItem';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
+import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult';
+import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
+import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';
+import { AuditionFile } from './model/AuditionFile';
 import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
 import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
 import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
@@ -20,15 +25,24 @@ import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalH
 import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { CheckTextLanguageRequest } from './model/CheckTextLanguageRequest';
 import { CheckTextLanguageResponse } from './model/CheckTextLanguageResponse';
+import { CommentData } from './model/CommentData';
+import { CommentLogInfo } from './model/CommentLogInfo';
+import { CommitVoiceTrainingJobRequest } from './model/CommitVoiceTrainingJobRequest';
+import { CommitVoiceTrainingJobResponse } from './model/CommitVoiceTrainingJobResponse';
 import { ComponentInfo } from './model/ComponentInfo';
 import { ConfirmFileUploadRequest } from './model/ConfirmFileUploadRequest';
 import { ConfirmFileUploadRequestBody } from './model/ConfirmFileUploadRequestBody';
 import { ConfirmFileUploadResponse } from './model/ConfirmFileUploadResponse';
+import { ConfirmTrainingSegmentRequest } from './model/ConfirmTrainingSegmentRequest';
+import { ConfirmTrainingSegmentResponse } from './model/ConfirmTrainingSegmentResponse';
 import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
 import { ControlSmartLiveReq } from './model/ControlSmartLiveReq';
 import { Create2DDigitalHumanVideoReq } from './model/Create2DDigitalHumanVideoReq';
 import { Create2DDigitalHumanVideoRequest } from './model/Create2DDigitalHumanVideoRequest';
 import { Create2DDigitalHumanVideoResponse } from './model/Create2DDigitalHumanVideoResponse';
+import { Create2dModelTrainingJobReq } from './model/Create2dModelTrainingJobReq';
+import { Create2dModelTrainingJobRequest } from './model/Create2dModelTrainingJobRequest';
+import { Create2dModelTrainingJobResponse } from './model/Create2dModelTrainingJobResponse';
 import { CreateDigitalAssetRequest } from './model/CreateDigitalAssetRequest';
 import { CreateDigitalAssetRequestBody } from './model/CreateDigitalAssetRequestBody';
 import { CreateDigitalAssetResponse } from './model/CreateDigitalAssetResponse';
@@ -58,13 +72,27 @@ import { CreateSmartLiveRoomRequest } from './model/CreateSmartLiveRoomRequest';
 import { CreateSmartLiveRoomResponse } from './model/CreateSmartLiveRoomResponse';
 import { CreateStyleRequestBody } from './model/CreateStyleRequestBody';
 import { CreateTTSAReq } from './model/CreateTTSAReq';
+import { CreateTrainingAdvanceJobRequest } from './model/CreateTrainingAdvanceJobRequest';
+import { CreateTrainingAdvanceJobResponse } from './model/CreateTrainingAdvanceJobResponse';
+import { CreateTrainingBasicJobRequest } from './model/CreateTrainingBasicJobRequest';
+import { CreateTrainingBasicJobResponse } from './model/CreateTrainingBasicJobResponse';
+import { CreateTrainingJobReq } from './model/CreateTrainingJobReq';
+import { CreateTrainingJobRspSegmentUploadingUrl } from './model/CreateTrainingJobRspSegmentUploadingUrl';
+import { CreateTrainingMiddleJobRequest } from './model/CreateTrainingMiddleJobRequest';
+import { CreateTrainingMiddleJobResponse } from './model/CreateTrainingMiddleJobResponse';
+import { CreateTtsAuditionRequest } from './model/CreateTtsAuditionRequest';
+import { CreateTtsAuditionRequestBody } from './model/CreateTtsAuditionRequestBody';
+import { CreateTtsAuditionResponse } from './model/CreateTtsAuditionResponse';
 import { CreateTtsaRequest } from './model/CreateTtsaRequest';
 import { CreateTtsaResponse } from './model/CreateTtsaResponse';
+import { CreateType } from './model/CreateType';
 import { CreateVideoMotionCaptureJobRequest } from './model/CreateVideoMotionCaptureJobRequest';
 import { CreateVideoMotionCaptureJobResponse } from './model/CreateVideoMotionCaptureJobResponse';
 import { CreateVideoScriptsReq } from './model/CreateVideoScriptsReq';
 import { CreateVideoScriptsRequest } from './model/CreateVideoScriptsRequest';
 import { CreateVideoScriptsResponse } from './model/CreateVideoScriptsResponse';
+import { Delete2dModelTrainingJobRequest } from './model/Delete2dModelTrainingJobRequest';
+import { Delete2dModelTrainingJobResponse } from './model/Delete2dModelTrainingJobResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
 import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
@@ -77,6 +105,8 @@ import { DeleteSmartLiveRoomRequest } from './model/DeleteSmartLiveRoomRequest';
 import { DeleteSmartLiveRoomResponse } from './model/DeleteSmartLiveRoomResponse';
 import { DeleteVideoScriptRequest } from './model/DeleteVideoScriptRequest';
 import { DeleteVideoScriptResponse } from './model/DeleteVideoScriptResponse';
+import { DeleteVoiceTrainingJobRequest } from './model/DeleteVoiceTrainingJobRequest';
+import { DeleteVoiceTrainingJobResponse } from './model/DeleteVoiceTrainingJobResponse';
 import { DigitalAssetInfo } from './model/DigitalAssetInfo';
 import { DigitalAssetSummary } from './model/DigitalAssetSummary';
 import { DigitalHumanBusinessCardJobInfo } from './model/DigitalHumanBusinessCardJobInfo';
@@ -84,6 +114,9 @@ import { DigitalHumanModelingJobInfo } from './model/DigitalHumanModelingJobInfo
 import { DigitalHumanVideo } from './model/DigitalHumanVideo';
 import { EmotionConfig } from './model/EmotionConfig';
 import { ErrorResponse } from './model/ErrorResponse';
+import { Execute2dModelTrainingCommandByUserReq } from './model/Execute2dModelTrainingCommandByUserReq';
+import { Execute2dModelTrainingCommandByUserRequest } from './model/Execute2dModelTrainingCommandByUserRequest';
+import { Execute2dModelTrainingCommandByUserResponse } from './model/Execute2dModelTrainingCommandByUserResponse';
 import { ExecuteSmartLiveCommandRequest } from './model/ExecuteSmartLiveCommandRequest';
 import { ExecuteSmartLiveCommandResponse } from './model/ExecuteSmartLiveCommandResponse';
 import { ExecuteVideoMotionCaptureCommandRequest } from './model/ExecuteVideoMotionCaptureCommandRequest';
@@ -97,15 +130,22 @@ import { HumanModelMetaProperties } from './model/HumanModelMetaProperties';
 import { HumanPosition2D } from './model/HumanPosition2D';
 import { HumanSize2D } from './model/HumanSize2D';
 import { ImageLayerConfig } from './model/ImageLayerConfig';
+import { InferenceActionMarkInfo } from './model/InferenceActionMarkInfo';
+import { InferenceVideoMarkInfo } from './model/InferenceVideoMarkInfo';
 import { InputInfo } from './model/InputInfo';
 import { InteractionRuleDetailInfo } from './model/InteractionRuleDetailInfo';
 import { InteractionRuleGroup } from './model/InteractionRuleGroup';
 import { InteractionRuleGroupDetail } from './model/InteractionRuleGroupDetail';
 import { InteractionRuleInfo } from './model/InteractionRuleInfo';
+import { JobState } from './model/JobState';
+import { JobTag } from './model/JobTag';
+import { JobType } from './model/JobType';
 import { LanguageCheckInfoReq } from './model/LanguageCheckInfoReq';
 import { LayerConfig } from './model/LayerConfig';
 import { LayerPositionConfig } from './model/LayerPositionConfig';
 import { LayerSizeConfig } from './model/LayerSizeConfig';
+import { List2dModelTrainingJobRequest } from './model/List2dModelTrainingJobRequest';
+import { List2dModelTrainingJobResponse } from './model/List2dModelTrainingJobResponse';
 import { ListAssetSummaryRequest } from './model/ListAssetSummaryRequest';
 import { ListAssetSummaryResponse } from './model/ListAssetSummaryResponse';
 import { ListAssetSummarysReq } from './model/ListAssetSummarysReq';
@@ -135,6 +175,8 @@ import { ListVideoMotionCaptureJobsRequest } from './model/ListVideoMotionCaptur
 import { ListVideoMotionCaptureJobsResponse } from './model/ListVideoMotionCaptureJobsResponse';
 import { ListVideoScriptsRequest } from './model/ListVideoScriptsRequest';
 import { ListVideoScriptsResponse } from './model/ListVideoScriptsResponse';
+import { ListVoiceTrainingJobRequest } from './model/ListVoiceTrainingJobRequest';
+import { ListVoiceTrainingJobResponse } from './model/ListVoiceTrainingJobResponse';
 import { LiveAudioConfig } from './model/LiveAudioConfig';
 import { LiveEvent } from './model/LiveEvent';
 import { LiveEventCallBackConfig } from './model/LiveEventCallBackConfig';
@@ -147,6 +189,8 @@ import { MaterialAssetMeta } from './model/MaterialAssetMeta';
 import { MaterialComponentInfo } from './model/MaterialComponentInfo';
 import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
+import { MultipartUploadInfo } from './model/MultipartUploadInfo';
+import { OperationLogInfo } from './model/OperationLogInfo';
 import { OutputAssetConfig } from './model/OutputAssetConfig';
 import { OutputAssetInfo } from './model/OutputAssetInfo';
 import { OutputInfo } from './model/OutputInfo';
@@ -175,10 +219,18 @@ import { ShootScriptItemBaseInfo } from './model/ShootScriptItemBaseInfo';
 import { ShootScriptShowItem } from './model/ShootScriptShowItem';
 import { Show2DDigitalHumanVideoRequest } from './model/Show2DDigitalHumanVideoRequest';
 import { Show2DDigitalHumanVideoResponse } from './model/Show2DDigitalHumanVideoResponse';
+import { Show2dModelTrainingJobRequest } from './model/Show2dModelTrainingJobRequest';
+import { Show2dModelTrainingJobResponse } from './model/Show2dModelTrainingJobResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
+import { ShowJobAuditResultRequest } from './model/ShowJobAuditResultRequest';
+import { ShowJobAuditResultResponse } from './model/ShowJobAuditResultResponse';
+import { ShowJobUploadingAddressRequest } from './model/ShowJobUploadingAddressRequest';
+import { ShowJobUploadingAddressResponse } from './model/ShowJobUploadingAddressResponse';
+import { ShowJobUploadingAddressRspPackageUrl } from './model/ShowJobUploadingAddressRspPackageUrl';
+import { ShowJobUploadingAddressRspSegmentUrl } from './model/ShowJobUploadingAddressRspSegmentUrl';
 import { ShowPhotoDetectionRequest } from './model/ShowPhotoDetectionRequest';
 import { ShowPhotoDetectionResponse } from './model/ShowPhotoDetectionResponse';
 import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHumanVideoRequest';
@@ -189,10 +241,16 @@ import { ShowSmartLiveRequest } from './model/ShowSmartLiveRequest';
 import { ShowSmartLiveResponse } from './model/ShowSmartLiveResponse';
 import { ShowSmartLiveRoomRequest } from './model/ShowSmartLiveRoomRequest';
 import { ShowSmartLiveRoomResponse } from './model/ShowSmartLiveRoomResponse';
+import { ShowTrainingSegmentInfoRequest } from './model/ShowTrainingSegmentInfoRequest';
+import { ShowTrainingSegmentInfoResponse } from './model/ShowTrainingSegmentInfoResponse';
+import { ShowTtsAuditionFileRequest } from './model/ShowTtsAuditionFileRequest';
+import { ShowTtsAuditionFileResponse } from './model/ShowTtsAuditionFileResponse';
 import { ShowVideoMotionCaptureJobRequest } from './model/ShowVideoMotionCaptureJobRequest';
 import { ShowVideoMotionCaptureJobResponse } from './model/ShowVideoMotionCaptureJobResponse';
 import { ShowVideoScriptRequest } from './model/ShowVideoScriptRequest';
 import { ShowVideoScriptResponse } from './model/ShowVideoScriptResponse';
+import { ShowVoiceTrainingJobRequest } from './model/ShowVoiceTrainingJobRequest';
+import { ShowVoiceTrainingJobResponse } from './model/ShowVoiceTrainingJobResponse';
 import { SmartImageLayerConfig } from './model/SmartImageLayerConfig';
 import { SmartLayerConfig } from './model/SmartLayerConfig';
 import { SmartLiveJob } from './model/SmartLiveJob';
@@ -213,7 +271,11 @@ import { SystemProperty } from './model/SystemProperty';
 import { TTSAJob } from './model/TTSAJob';
 import { TextConfig } from './model/TextConfig';
 import { TextLayerConfig } from './model/TextLayerConfig';
+import { TrainingJobBasicInfo } from './model/TrainingJobBasicInfo';
+import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TriggerProcess } from './model/TriggerProcess';
+import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
+import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
 import { UpdateDigitalAssetRequest } from './model/UpdateDigitalAssetRequest';
 import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequestBody';
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
@@ -1359,6 +1421,411 @@ export class MetaStudioClient {
     }
 
     /**
+     * 提交训练任务,执行该接口后,任务会进入审核状态,审核完成后会等待训练。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 提交语音训练任务
+     * @param {string} jobId 任务id。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public commitVoiceTrainingJob(commitVoiceTrainingJobRequest?: CommitVoiceTrainingJobRequest): Promise<CommitVoiceTrainingJobResponse> {
+        const options = ParamCreater().commitVoiceTrainingJob(commitVoiceTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 确认在线录音结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 确认在线录音结果
+     * @param {string} jobId 任务id。
+     * @param {number} index 语句索引。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public confirmTrainingSegment(confirmTrainingSegmentRequest?: ConfirmTrainingSegmentRequest): Promise<ConfirmTrainingSegmentResponse> {
+        const options = ParamCreater().confirmTrainingSegment(confirmTrainingSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+     * 仅支持zip包方式上传语音文件：
+     * * 语音文件打包成zip上传：上传的训练数据为一个zip格式压缩文件,其中包含一段wav格式的长音频文件。
+     * 
+     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建高级版语音训练任务
+     * @param {CreateTrainingJobReq} createTrainingAdvanceJobRequestBody 创建任务请求。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTrainingAdvanceJob(createTrainingAdvanceJobRequest?: CreateTrainingAdvanceJobRequest): Promise<CreateTrainingAdvanceJobResponse> {
+        const options = ParamCreater().createTrainingAdvanceJob(createTrainingAdvanceJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+     * 支持2种方式上传语音文件：
+     * * 语音文件和文本文件打包成zip上传：语音文件已经切分成20个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~19.wav；文本文件命名规则：0.txt~19.txt。
+     * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
+     * 
+     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建基础版语音训练任务
+     * @param {CreateTrainingJobReq} createTrainingBasicJobRequestBody 创建任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTrainingBasicJob(createTrainingBasicJobRequest?: CreateTrainingBasicJobRequest): Promise<CreateTrainingBasicJobResponse> {
+        const options = ParamCreater().createTrainingBasicJob(createTrainingBasicJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+     * 支持2种方式上传语音文件：
+     * * 语音文件和文本文件打包成zip上传：语音文件已经切分成100个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~99.wav；文本文件命名规则：0.txt~99.txt。
+     * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
+     * 
+     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建进阶版语音训练任务
+     * @param {CreateTrainingJobReq} createTrainingMiddleJobRequestBody 创建任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTrainingMiddleJob(createTrainingMiddleJobRequest?: CreateTrainingMiddleJobRequest): Promise<CreateTrainingMiddleJobResponse> {
+        const options = ParamCreater().createTrainingMiddleJob(createTrainingMiddleJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除语音训练任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除语音训练任务
+     * @param {string} jobId 任务id。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVoiceTrainingJob(deleteVoiceTrainingJobRequest?: DeleteVoiceTrainingJobRequest): Promise<DeleteVoiceTrainingJobResponse> {
+        const options = ParamCreater().deleteVoiceTrainingJob(deleteVoiceTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询语音训练任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询语音训练任务列表
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {string} [state] 任务状态，默认所有状态。 可多个状态查询，使用英文逗号分隔。 如state&#x3D;FAILED,WAITING
+     * @param {string} [jobId] 任务id。
+     * @param {string} [voiceName] 声音名称。
+     * @param {string} [tag] 任务标签。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVoiceTrainingJob(listVoiceTrainingJobRequest?: ListVoiceTrainingJobRequest): Promise<ListVoiceTrainingJobResponse> {
+        const options = ParamCreater().listVoiceTrainingJob(listVoiceTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取语音训练任务审核结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取语音训练任务审核结果
+     * @param {string} jobId 任务id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobAuditResult(showJobAuditResultRequest?: ShowJobAuditResultRequest): Promise<ShowJobAuditResultResponse> {
+        const options = ParamCreater().showJobAuditResult(showJobAuditResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取语音文件上传地址
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取语音文件上传地址
+     * @param {string} jobId 任务id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobUploadingAddress(showJobUploadingAddressRequest?: ShowJobUploadingAddressRequest): Promise<ShowJobUploadingAddressResponse> {
+        const options = ParamCreater().showJobUploadingAddress(showJobUploadingAddressRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取在线录音确认结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取在线录音确认结果
+     * @param {string} jobId 任务id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrainingSegmentInfo(showTrainingSegmentInfoRequest?: ShowTrainingSegmentInfoRequest): Promise<ShowTrainingSegmentInfoResponse> {
+        const options = ParamCreater().showTrainingSegmentInfo(showTrainingSegmentInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询语音训练任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询语音训练任务详情
+     * @param {string} jobId 任务id。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVoiceTrainingJob(showVoiceTrainingJobRequest?: ShowVoiceTrainingJobRequest): Promise<ShowVoiceTrainingJobResponse> {
+        const options = ParamCreater().showVoiceTrainingJob(showVoiceTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建分身数字人模型训练任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分身数字人模型训练任务
+     * @param {Create2dModelTrainingJobReq} create2dModelTrainingJobRequestBody 创建分身数字人模型训练任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public create2dModelTrainingJob(create2dModelTrainingJobRequest?: Create2dModelTrainingJobRequest): Promise<Create2dModelTrainingJobResponse> {
+        const options = ParamCreater().create2dModelTrainingJob(create2dModelTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除分身数字人模型训练任务。同时需要删除训练任务相关的训练视频、身份证照片、授权文件、模型资产等。
+     * &gt; * 该接口应当在任务处于以下状态时调用：WAIT_FILE_UPLOAD、AUTO_VERIFY_FAILED、MANUAL_VERIFYING、MANUAL_VERIFY_FAILED、TRAINING_DATA_PREPROCESS_FAILED、TRAIN_FAILED、INFERENCE_DATA_PREPROCESS_FAILED、JOB_SUCCESS、WAIT_USER_CONFIRM、JOB_REJECT、JOB_FINISH
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分身数字人模型训练任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public delete2dModelTrainingJob(delete2dModelTrainingJobRequest?: Delete2dModelTrainingJobRequest): Promise<Delete2dModelTrainingJobResponse> {
+        const options = ParamCreater().delete2dModelTrainingJob(delete2dModelTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于租户执行分身数字人模型训练任务命令，如提交训练审核等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户执行分身数字人模型训练任务命令
+     * @param {string} jobId 任务ID。
+     * @param {Execute2dModelTrainingCommandByUserReq} execute2dModelTrainingCommandByUserRequestBody 租户执行分身数字人模型训练任务命令请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public execute2dModelTrainingCommandByUser(execute2dModelTrainingCommandByUserRequest?: Execute2dModelTrainingCommandByUserRequest): Promise<Execute2dModelTrainingCommandByUserResponse> {
+        const options = ParamCreater().execute2dModelTrainingCommandByUser(execute2dModelTrainingCommandByUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询分身数字人模型训练任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分身数字人模型训练任务列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [batchName] 任务批次名称。
+     * @param {string} [tag] 任务标签。
+     * @param {string} [jobId] 任务ID。
+     * @param {string} [name] 分身数字人模型名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public list2dModelTrainingJob(list2dModelTrainingJobRequest?: List2dModelTrainingJobRequest): Promise<List2dModelTrainingJobResponse> {
+        const options = ParamCreater().list2dModelTrainingJob(list2dModelTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询分身数字人模型训练任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分身数字人模型训练任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public show2dModelTrainingJob(show2dModelTrainingJobRequest?: Show2dModelTrainingJobRequest): Promise<Show2dModelTrainingJobResponse> {
+        const options = ParamCreater().show2dModelTrainingJob(show2dModelTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于更新分身数字人模型训练任务。用于在自动审核或者人工审核不通过情况下，更新训练视频、身份证照片等。
+     * &gt; * 该接口只能在AUTO_VERIFY_FAILED或者MANUAL_VERIFY_FAILED状态下调用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新分身数字人模型训练任务
+     * @param {string} jobId 任务ID。
+     * @param {Create2dModelTrainingJobReq} update2dModelTrainingJobRequestBody 更新分身数字人模型训练任务请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; *不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public update2dModelTrainingJob(update2dModelTrainingJobRequest?: Update2dModelTrainingJobRequest): Promise<Update2dModelTrainingJobResponse> {
+        const options = ParamCreater().update2dModelTrainingJob(update2dModelTrainingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建驱动数字人表情的任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1462,6 +1929,54 @@ export class MetaStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建生成播报内容的语音试听文件任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建TTS试听任务
+     * @param {CreateTtsAuditionRequestBody} createTtsAuditionRequestBody 创建文本转音频试听请求。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTtsAudition(createTtsAuditionRequest?: CreateTtsAuditionRequest): Promise<CreateTtsAuditionResponse> {
+        const options = ParamCreater().createTtsAudition(createTtsAuditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取TTS试听文件
+     * @param {string} jobId 任务ID。
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用uuId，若不携带，则后台自动生成
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest): Promise<ShowTtsAuditionFileResponse> {
+        const options = ParamCreater().showTtsAuditionFile(showTtsAuditionFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5157,6 +5672,1130 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 提交训练任务,执行该接口后,任务会进入审核状态,审核完成后会等待训练。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        commitVoiceTrainingJob(commitVoiceTrainingJobRequest?: CommitVoiceTrainingJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (commitVoiceTrainingJobRequest !== null && commitVoiceTrainingJobRequest !== undefined) {
+                if (commitVoiceTrainingJobRequest instanceof CommitVoiceTrainingJobRequest) {
+                    jobId = commitVoiceTrainingJobRequest.jobId;
+                    authorization = commitVoiceTrainingJobRequest.authorization;
+                    xSdkDate = commitVoiceTrainingJobRequest.xSdkDate;
+                    xProjectId = commitVoiceTrainingJobRequest.xProjectId;
+                    xAppUserId = commitVoiceTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = commitVoiceTrainingJobRequest['job_id'];
+                    authorization = commitVoiceTrainingJobRequest['Authorization'];
+                    xSdkDate = commitVoiceTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = commitVoiceTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = commitVoiceTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling commitVoiceTrainingJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 确认在线录音结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        confirmTrainingSegment(confirmTrainingSegmentRequest?: ConfirmTrainingSegmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/voice-training-manage/user/training-segment",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let index;
+
+            if (confirmTrainingSegmentRequest !== null && confirmTrainingSegmentRequest !== undefined) {
+                if (confirmTrainingSegmentRequest instanceof ConfirmTrainingSegmentRequest) {
+                    jobId = confirmTrainingSegmentRequest.jobId;
+                    index = confirmTrainingSegmentRequest.index;
+                } else {
+                    jobId = confirmTrainingSegmentRequest['job_id'];
+                    index = confirmTrainingSegmentRequest['index'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling confirmTrainingSegment.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (index === null || index === undefined) {
+                throw new RequiredError('index','Required parameter index was null or undefined when calling confirmTrainingSegment.');
+            }
+            if (index !== null && index !== undefined) {
+                localVarQueryParameter['index'] = index;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+         * 仅支持zip包方式上传语音文件：
+         * * 语音文件打包成zip上传：上传的训练数据为一个zip格式压缩文件,其中包含一段wav格式的长音频文件。
+         * 
+         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTrainingAdvanceJob(createTrainingAdvanceJobRequest?: CreateTrainingAdvanceJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/voice-training-manage/user/advance-jobs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xAppUserId;
+
+            if (createTrainingAdvanceJobRequest !== null && createTrainingAdvanceJobRequest !== undefined) {
+                if (createTrainingAdvanceJobRequest instanceof CreateTrainingAdvanceJobRequest) {
+                    body = createTrainingAdvanceJobRequest.body
+                    xAppUserId = createTrainingAdvanceJobRequest.xAppUserId;
+                } else {
+                    body = createTrainingAdvanceJobRequest['body'];
+                    xAppUserId = createTrainingAdvanceJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+         * 支持2种方式上传语音文件：
+         * * 语音文件和文本文件打包成zip上传：语音文件已经切分成20个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~19.wav；文本文件命名规则：0.txt~19.txt。
+         * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
+         * 
+         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTrainingBasicJob(createTrainingBasicJobRequest?: CreateTrainingBasicJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/voice-training-manage/user/basic-jobs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createTrainingBasicJobRequest !== null && createTrainingBasicJobRequest !== undefined) {
+                if (createTrainingBasicJobRequest instanceof CreateTrainingBasicJobRequest) {
+                    body = createTrainingBasicJobRequest.body
+                    authorization = createTrainingBasicJobRequest.authorization;
+                    xSdkDate = createTrainingBasicJobRequest.xSdkDate;
+                    xProjectId = createTrainingBasicJobRequest.xProjectId;
+                    xAppUserId = createTrainingBasicJobRequest.xAppUserId;
+                } else {
+                    body = createTrainingBasicJobRequest['body'];
+                    authorization = createTrainingBasicJobRequest['Authorization'];
+                    xSdkDate = createTrainingBasicJobRequest['X-Sdk-Date'];
+                    xProjectId = createTrainingBasicJobRequest['X-Project-Id'];
+                    xAppUserId = createTrainingBasicJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+         * 支持2种方式上传语音文件：
+         * * 语音文件和文本文件打包成zip上传：语音文件已经切分成100个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~99.wav；文本文件命名规则：0.txt~99.txt。
+         * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
+         * 
+         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTrainingMiddleJob(createTrainingMiddleJobRequest?: CreateTrainingMiddleJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/voice-training-manage/user/middle-jobs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createTrainingMiddleJobRequest !== null && createTrainingMiddleJobRequest !== undefined) {
+                if (createTrainingMiddleJobRequest instanceof CreateTrainingMiddleJobRequest) {
+                    body = createTrainingMiddleJobRequest.body
+                    authorization = createTrainingMiddleJobRequest.authorization;
+                    xSdkDate = createTrainingMiddleJobRequest.xSdkDate;
+                    xProjectId = createTrainingMiddleJobRequest.xProjectId;
+                    xAppUserId = createTrainingMiddleJobRequest.xAppUserId;
+                } else {
+                    body = createTrainingMiddleJobRequest['body'];
+                    authorization = createTrainingMiddleJobRequest['Authorization'];
+                    xSdkDate = createTrainingMiddleJobRequest['X-Sdk-Date'];
+                    xProjectId = createTrainingMiddleJobRequest['X-Project-Id'];
+                    xAppUserId = createTrainingMiddleJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除语音训练任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVoiceTrainingJob(deleteVoiceTrainingJobRequest?: DeleteVoiceTrainingJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteVoiceTrainingJobRequest !== null && deleteVoiceTrainingJobRequest !== undefined) {
+                if (deleteVoiceTrainingJobRequest instanceof DeleteVoiceTrainingJobRequest) {
+                    jobId = deleteVoiceTrainingJobRequest.jobId;
+                    authorization = deleteVoiceTrainingJobRequest.authorization;
+                    xSdkDate = deleteVoiceTrainingJobRequest.xSdkDate;
+                    xProjectId = deleteVoiceTrainingJobRequest.xProjectId;
+                    xAppUserId = deleteVoiceTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = deleteVoiceTrainingJobRequest['job_id'];
+                    authorization = deleteVoiceTrainingJobRequest['Authorization'];
+                    xSdkDate = deleteVoiceTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = deleteVoiceTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = deleteVoiceTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteVoiceTrainingJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询语音训练任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVoiceTrainingJob(listVoiceTrainingJobRequest?: ListVoiceTrainingJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let createUntil;
+            
+            let createSince;
+            
+            let xAppUserId;
+            
+            let state;
+            
+            let jobId;
+            
+            let voiceName;
+            
+            let tag;
+
+            if (listVoiceTrainingJobRequest !== null && listVoiceTrainingJobRequest !== undefined) {
+                if (listVoiceTrainingJobRequest instanceof ListVoiceTrainingJobRequest) {
+                    offset = listVoiceTrainingJobRequest.offset;
+                    limit = listVoiceTrainingJobRequest.limit;
+                    createUntil = listVoiceTrainingJobRequest.createUntil;
+                    createSince = listVoiceTrainingJobRequest.createSince;
+                    xAppUserId = listVoiceTrainingJobRequest.xAppUserId;
+                    state = listVoiceTrainingJobRequest.state;
+                    jobId = listVoiceTrainingJobRequest.jobId;
+                    voiceName = listVoiceTrainingJobRequest.voiceName;
+                    tag = listVoiceTrainingJobRequest.tag;
+                } else {
+                    offset = listVoiceTrainingJobRequest['offset'];
+                    limit = listVoiceTrainingJobRequest['limit'];
+                    createUntil = listVoiceTrainingJobRequest['create_until'];
+                    createSince = listVoiceTrainingJobRequest['create_since'];
+                    xAppUserId = listVoiceTrainingJobRequest['X-App-UserId'];
+                    state = listVoiceTrainingJobRequest['state'];
+                    jobId = listVoiceTrainingJobRequest['job_id'];
+                    voiceName = listVoiceTrainingJobRequest['voice_name'];
+                    tag = listVoiceTrainingJobRequest['tag'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (voiceName !== null && voiceName !== undefined) {
+                localVarQueryParameter['voice_name'] = voiceName;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取语音训练任务审核结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobAuditResult(showJobAuditResultRequest?: ShowJobAuditResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}/audit-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobAuditResultRequest !== null && showJobAuditResultRequest !== undefined) {
+                if (showJobAuditResultRequest instanceof ShowJobAuditResultRequest) {
+                    jobId = showJobAuditResultRequest.jobId;
+                } else {
+                    jobId = showJobAuditResultRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobAuditResult.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取语音文件上传地址
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobUploadingAddress(showJobUploadingAddressRequest?: ShowJobUploadingAddressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}/uploading-address-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobUploadingAddressRequest !== null && showJobUploadingAddressRequest !== undefined) {
+                if (showJobUploadingAddressRequest instanceof ShowJobUploadingAddressRequest) {
+                    jobId = showJobUploadingAddressRequest.jobId;
+                } else {
+                    jobId = showJobUploadingAddressRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobUploadingAddress.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取在线录音确认结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrainingSegmentInfo(showTrainingSegmentInfoRequest?: ShowTrainingSegmentInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/training-segment",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+
+            if (showTrainingSegmentInfoRequest !== null && showTrainingSegmentInfoRequest !== undefined) {
+                if (showTrainingSegmentInfoRequest instanceof ShowTrainingSegmentInfoRequest) {
+                    jobId = showTrainingSegmentInfoRequest.jobId;
+                } else {
+                    jobId = showTrainingSegmentInfoRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTrainingSegmentInfo.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询语音训练任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVoiceTrainingJob(showVoiceTrainingJobRequest?: ShowVoiceTrainingJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/voice-training-manage/user/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showVoiceTrainingJobRequest !== null && showVoiceTrainingJobRequest !== undefined) {
+                if (showVoiceTrainingJobRequest instanceof ShowVoiceTrainingJobRequest) {
+                    jobId = showVoiceTrainingJobRequest.jobId;
+                    authorization = showVoiceTrainingJobRequest.authorization;
+                    xSdkDate = showVoiceTrainingJobRequest.xSdkDate;
+                    xProjectId = showVoiceTrainingJobRequest.xProjectId;
+                    xAppUserId = showVoiceTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = showVoiceTrainingJobRequest['job_id'];
+                    authorization = showVoiceTrainingJobRequest['Authorization'];
+                    xSdkDate = showVoiceTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = showVoiceTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = showVoiceTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showVoiceTrainingJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建分身数字人模型训练任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        create2dModelTrainingJob(create2dModelTrainingJobRequest?: Create2dModelTrainingJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (create2dModelTrainingJobRequest !== null && create2dModelTrainingJobRequest !== undefined) {
+                if (create2dModelTrainingJobRequest instanceof Create2dModelTrainingJobRequest) {
+                    body = create2dModelTrainingJobRequest.body
+                    authorization = create2dModelTrainingJobRequest.authorization;
+                    xSdkDate = create2dModelTrainingJobRequest.xSdkDate;
+                    xProjectId = create2dModelTrainingJobRequest.xProjectId;
+                    xAppUserId = create2dModelTrainingJobRequest.xAppUserId;
+                } else {
+                    body = create2dModelTrainingJobRequest['body'];
+                    authorization = create2dModelTrainingJobRequest['Authorization'];
+                    xSdkDate = create2dModelTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = create2dModelTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = create2dModelTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除分身数字人模型训练任务。同时需要删除训练任务相关的训练视频、身份证照片、授权文件、模型资产等。
+         * &gt; * 该接口应当在任务处于以下状态时调用：WAIT_FILE_UPLOAD、AUTO_VERIFY_FAILED、MANUAL_VERIFYING、MANUAL_VERIFY_FAILED、TRAINING_DATA_PREPROCESS_FAILED、TRAIN_FAILED、INFERENCE_DATA_PREPROCESS_FAILED、JOB_SUCCESS、WAIT_USER_CONFIRM、JOB_REJECT、JOB_FINISH
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        delete2dModelTrainingJob(delete2dModelTrainingJobRequest?: Delete2dModelTrainingJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (delete2dModelTrainingJobRequest !== null && delete2dModelTrainingJobRequest !== undefined) {
+                if (delete2dModelTrainingJobRequest instanceof Delete2dModelTrainingJobRequest) {
+                    jobId = delete2dModelTrainingJobRequest.jobId;
+                    authorization = delete2dModelTrainingJobRequest.authorization;
+                    xSdkDate = delete2dModelTrainingJobRequest.xSdkDate;
+                    xProjectId = delete2dModelTrainingJobRequest.xProjectId;
+                    xAppUserId = delete2dModelTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = delete2dModelTrainingJobRequest['job_id'];
+                    authorization = delete2dModelTrainingJobRequest['Authorization'];
+                    xSdkDate = delete2dModelTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = delete2dModelTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = delete2dModelTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling delete2dModelTrainingJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于租户执行分身数字人模型训练任务命令，如提交训练审核等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        execute2dModelTrainingCommandByUser(execute2dModelTrainingCommandByUserRequest?: Execute2dModelTrainingCommandByUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}/command",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (execute2dModelTrainingCommandByUserRequest !== null && execute2dModelTrainingCommandByUserRequest !== undefined) {
+                if (execute2dModelTrainingCommandByUserRequest instanceof Execute2dModelTrainingCommandByUserRequest) {
+                    jobId = execute2dModelTrainingCommandByUserRequest.jobId;
+                    body = execute2dModelTrainingCommandByUserRequest.body
+                    authorization = execute2dModelTrainingCommandByUserRequest.authorization;
+                    xSdkDate = execute2dModelTrainingCommandByUserRequest.xSdkDate;
+                    xProjectId = execute2dModelTrainingCommandByUserRequest.xProjectId;
+                    xAppUserId = execute2dModelTrainingCommandByUserRequest.xAppUserId;
+                } else {
+                    jobId = execute2dModelTrainingCommandByUserRequest['job_id'];
+                    body = execute2dModelTrainingCommandByUserRequest['body'];
+                    authorization = execute2dModelTrainingCommandByUserRequest['Authorization'];
+                    xSdkDate = execute2dModelTrainingCommandByUserRequest['X-Sdk-Date'];
+                    xProjectId = execute2dModelTrainingCommandByUserRequest['X-Project-Id'];
+                    xAppUserId = execute2dModelTrainingCommandByUserRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling execute2dModelTrainingCommandByUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询分身数字人模型训练任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        list2dModelTrainingJob(list2dModelTrainingJobRequest?: List2dModelTrainingJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let state;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let createUntil;
+            
+            let createSince;
+            
+            let batchName;
+            
+            let tag;
+            
+            let jobId;
+            
+            let name;
+
+            if (list2dModelTrainingJobRequest !== null && list2dModelTrainingJobRequest !== undefined) {
+                if (list2dModelTrainingJobRequest instanceof List2dModelTrainingJobRequest) {
+                    authorization = list2dModelTrainingJobRequest.authorization;
+                    xSdkDate = list2dModelTrainingJobRequest.xSdkDate;
+                    xProjectId = list2dModelTrainingJobRequest.xProjectId;
+                    xAppUserId = list2dModelTrainingJobRequest.xAppUserId;
+                    offset = list2dModelTrainingJobRequest.offset;
+                    limit = list2dModelTrainingJobRequest.limit;
+                    state = list2dModelTrainingJobRequest.state;
+                    sortKey = list2dModelTrainingJobRequest.sortKey;
+                    sortDir = list2dModelTrainingJobRequest.sortDir;
+                    createUntil = list2dModelTrainingJobRequest.createUntil;
+                    createSince = list2dModelTrainingJobRequest.createSince;
+                    batchName = list2dModelTrainingJobRequest.batchName;
+                    tag = list2dModelTrainingJobRequest.tag;
+                    jobId = list2dModelTrainingJobRequest.jobId;
+                    name = list2dModelTrainingJobRequest.name;
+                } else {
+                    authorization = list2dModelTrainingJobRequest['Authorization'];
+                    xSdkDate = list2dModelTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = list2dModelTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = list2dModelTrainingJobRequest['X-App-UserId'];
+                    offset = list2dModelTrainingJobRequest['offset'];
+                    limit = list2dModelTrainingJobRequest['limit'];
+                    state = list2dModelTrainingJobRequest['state'];
+                    sortKey = list2dModelTrainingJobRequest['sort_key'];
+                    sortDir = list2dModelTrainingJobRequest['sort_dir'];
+                    createUntil = list2dModelTrainingJobRequest['create_until'];
+                    createSince = list2dModelTrainingJobRequest['create_since'];
+                    batchName = list2dModelTrainingJobRequest['batch_name'];
+                    tag = list2dModelTrainingJobRequest['tag'];
+                    jobId = list2dModelTrainingJobRequest['job_id'];
+                    name = list2dModelTrainingJobRequest['name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (batchName !== null && batchName !== undefined) {
+                localVarQueryParameter['batch_name'] = batchName;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询分身数字人模型训练任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        show2dModelTrainingJob(show2dModelTrainingJobRequest?: Show2dModelTrainingJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (show2dModelTrainingJobRequest !== null && show2dModelTrainingJobRequest !== undefined) {
+                if (show2dModelTrainingJobRequest instanceof Show2dModelTrainingJobRequest) {
+                    jobId = show2dModelTrainingJobRequest.jobId;
+                    authorization = show2dModelTrainingJobRequest.authorization;
+                    xSdkDate = show2dModelTrainingJobRequest.xSdkDate;
+                    xProjectId = show2dModelTrainingJobRequest.xProjectId;
+                    xAppUserId = show2dModelTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = show2dModelTrainingJobRequest['job_id'];
+                    authorization = show2dModelTrainingJobRequest['Authorization'];
+                    xSdkDate = show2dModelTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = show2dModelTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = show2dModelTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling show2dModelTrainingJob.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于更新分身数字人模型训练任务。用于在自动审核或者人工审核不通过情况下，更新训练视频、身份证照片等。
+         * &gt; * 该接口只能在AUTO_VERIFY_FAILED或者MANUAL_VERIFY_FAILED状态下调用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        update2dModelTrainingJob(update2dModelTrainingJobRequest?: Update2dModelTrainingJobRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (update2dModelTrainingJobRequest !== null && update2dModelTrainingJobRequest !== undefined) {
+                if (update2dModelTrainingJobRequest instanceof Update2dModelTrainingJobRequest) {
+                    jobId = update2dModelTrainingJobRequest.jobId;
+                    body = update2dModelTrainingJobRequest.body
+                    authorization = update2dModelTrainingJobRequest.authorization;
+                    xSdkDate = update2dModelTrainingJobRequest.xSdkDate;
+                    xProjectId = update2dModelTrainingJobRequest.xProjectId;
+                    xAppUserId = update2dModelTrainingJobRequest.xAppUserId;
+                } else {
+                    jobId = update2dModelTrainingJobRequest['job_id'];
+                    body = update2dModelTrainingJobRequest['body'];
+                    authorization = update2dModelTrainingJobRequest['Authorization'];
+                    xSdkDate = update2dModelTrainingJobRequest['X-Sdk-Date'];
+                    xProjectId = update2dModelTrainingJobRequest['X-Project-Id'];
+                    xAppUserId = update2dModelTrainingJobRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling update2dModelTrainingJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建驱动数字人表情的任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5428,6 +7067,151 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建生成播报内容的语音试听文件任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTtsAudition(createTtsAuditionRequest?: CreateTtsAuditionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ttsc/audition",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createTtsAuditionRequest !== null && createTtsAuditionRequest !== undefined) {
+                if (createTtsAuditionRequest instanceof CreateTtsAuditionRequest) {
+                    body = createTtsAuditionRequest.body
+                    xRequestId = createTtsAuditionRequest.xRequestId;
+                    authorization = createTtsAuditionRequest.authorization;
+                    xSdkDate = createTtsAuditionRequest.xSdkDate;
+                    xProjectId = createTtsAuditionRequest.xProjectId;
+                    xAppUserId = createTtsAuditionRequest.xAppUserId;
+                } else {
+                    body = createTtsAuditionRequest['body'];
+                    xRequestId = createTtsAuditionRequest['X-Request-Id'];
+                    authorization = createTtsAuditionRequest['Authorization'];
+                    xSdkDate = createTtsAuditionRequest['X-Sdk-Date'];
+                    xProjectId = createTtsAuditionRequest['X-Project-Id'];
+                    xAppUserId = createTtsAuditionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于获取TTS试听文件下载链接，返回List中包含当前已生产的试听文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTtsAuditionFile(showTtsAuditionFileRequest?: ShowTtsAuditionFileRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ttsc/audition-file/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xRequestId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showTtsAuditionFileRequest !== null && showTtsAuditionFileRequest !== undefined) {
+                if (showTtsAuditionFileRequest instanceof ShowTtsAuditionFileRequest) {
+                    jobId = showTtsAuditionFileRequest.jobId;
+                    xRequestId = showTtsAuditionFileRequest.xRequestId;
+                    authorization = showTtsAuditionFileRequest.authorization;
+                    xSdkDate = showTtsAuditionFileRequest.xSdkDate;
+                    xProjectId = showTtsAuditionFileRequest.xProjectId;
+                    xAppUserId = showTtsAuditionFileRequest.xAppUserId;
+                } else {
+                    jobId = showTtsAuditionFileRequest['job_id'];
+                    xRequestId = showTtsAuditionFileRequest['X-Request-Id'];
+                    authorization = showTtsAuditionFileRequest['Authorization'];
+                    xSdkDate = showTtsAuditionFileRequest['X-Sdk-Date'];
+                    xProjectId = showTtsAuditionFileRequest['X-Project-Id'];
+                    xAppUserId = showTtsAuditionFileRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showTtsAuditionFile.');
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

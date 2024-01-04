@@ -10,6 +10,7 @@ export class AppRules {
     public name?: string;
     public projectid?: string;
     public spec?: AppRulesSpec;
+    public desc?: string;
     public constructor(enable?: boolean, eventName?: string, id?: string, name?: string, projectid?: string, spec?: AppRulesSpec) { 
         this['enable'] = enable;
         this['eventName'] = eventName;
@@ -48,6 +49,10 @@ export class AppRules {
     }
     public withSpec(spec: AppRulesSpec): AppRules {
         this['spec'] = spec;
+        return this;
+    }
+    public withDesc(desc: string): AppRules {
+        this['desc'] = desc;
         return this;
     }
 }

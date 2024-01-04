@@ -115,6 +115,6 @@ export class ActionRule {
     * @enum {string}
     */
 export enum ActionRuleTypeEnum {
-    E_1 = '\"1\"',
-    E_2 = '\"2\"'
+    E_1 = '1',
+    E_2 = '2'
 }

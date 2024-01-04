@@ -118,6 +118,7 @@ export * from './model/MuteConfig';
 export * from './model/MuteRule';
 export * from './model/NameRule';
 export * from './model/Notifications';
+export * from './model/NotifiedHistoriesResult';
 export * from './model/PromConfigModel';
 export * from './model/PromInstanceEpsModel';
 export * from './model/PushEventsRequest';

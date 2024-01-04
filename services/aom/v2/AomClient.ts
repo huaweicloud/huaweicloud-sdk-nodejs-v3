@@ -120,6 +120,7 @@ import { MuteConfig } from './model/MuteConfig';
 import { MuteRule } from './model/MuteRule';
 import { NameRule } from './model/NameRule';
 import { Notifications } from './model/Notifications';
+import { NotifiedHistoriesResult } from './model/NotifiedHistoriesResult';
 import { PromConfigModel } from './model/PromConfigModel';
 import { PromInstanceEpsModel } from './model/PromInstanceEpsModel';
 import { PushEventsRequest } from './model/PushEventsRequest';
@@ -174,7 +175,7 @@ export class AomClient {
 
 
     /**
-     * 新增告警行动规则。（注：接口目前开放的region为：上海一）。
+     * 新增告警行动规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -193,7 +194,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于添加一条阈值规则。
+     * 该接口用于添加一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -212,7 +213,7 @@ export class AomClient {
     }
 
     /**
-     * 新增一条事件类告警规则。（注：接口目前开放的region为：上海一）。
+     * 新增一条事件类告警规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -231,7 +232,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于向服务端添加一条或多条监控数据。
+     * 该接口用于向服务端添加一条或多条监控数据。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -250,7 +251,7 @@ export class AomClient {
     }
 
     /**
-     * 新增静默规则。（注：接口目前开放的region为：上海一）。
+     * 新增静默规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -269,7 +270,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。
+     * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -308,7 +309,7 @@ export class AomClient {
     }
 
     /**
-     * 删除告警行动规则。（注：接口目前开放的region为：上海一）。
+     * 删除告警行动规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -327,7 +328,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于删除阈值规则。
+     * 该接口用于删除阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -346,12 +347,12 @@ export class AomClient {
     }
 
     /**
-     * 批量删除阈值规则
+     * 批量删除阈值规则[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除阈值规则
-     * @param {DeleteAlarmRulesBody} alarmRules 阈值规则列表。
+     * @param {DeleteAlarmRulesBody} alarmRules 要删除的规则名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -365,7 +366,7 @@ export class AomClient {
     }
 
     /**
-     * 删除一条事件类告警规则。（注：接口目前开放的region为：上海一）。
+     * 删除一条事件类告警规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -384,7 +385,7 @@ export class AomClient {
     }
 
     /**
-     * 删除静默规则。（注：接口目前开放的region为：上海一）。
+     * 删除静默规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -403,12 +404,12 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于删除服务发现规则。
+     * 该接口用于删除服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务发现规则
-     * @param {Array<string>} appRulesIds 发现规则ID,传多个时以逗号分隔。
+     * @param {Array<string>} appRulesIds 发现规则ID，传多个时以逗号分隔。不允许为空。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -422,7 +423,7 @@ export class AomClient {
     }
 
     /**
-     * 获取告警行动规则列表。（注：接口目前开放的region为：上海一）。
+     * 获取告警行动规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -460,13 +461,13 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询阈值规则列表。
+     * 该接口用于查询阈值规则列表。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询阈值规则列表
      * @param {string} [offset] 分页信息。
-     * @param {number} [limit] 用于限制结果数据条数。 取值范围(0,1000],默认值为1000。
+     * @param {number} [limit] 用于限制结果数据条数。 取值范围(0,1000]，默认值为1000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -480,7 +481,7 @@ export class AomClient {
     }
 
     /**
-     * 查询事件类告警规则列表。（注：接口目前开放的region为：上海一）。
+     * 查询事件类告警规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -538,7 +539,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
+     * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -560,7 +561,7 @@ export class AomClient {
     }
 
     /**
-     * 获取静默规则列表。（注：接口目前开放的region为：上海一）。
+     * 获取静默规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -578,7 +579,7 @@ export class AomClient {
     }
 
     /**
-     * 获取告警发送结果。（注：接口目前开放的region为：上海一）。
+     * 获取告警发送结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -615,13 +616,13 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。
+     * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询时序数据
      * @param {QuerySampleParam} listSampleRequestBody 查询时序数据所需参数。
-     * @param {string} [fillValue] 用于对查询到的时序数据进行断点插值，默认值为-1。 -1：断点处使用-1进行表示。 0 ：断点处使用0进行表示。 null：断点处使用null进行表示。 average：断点处使用前后邻近的有效数据的平均值进行表示，如果不存在有效数据则使用null进行表示。
+     * @param {string} [fillValue] 用于对查询到的时序数据进行断点插值，默认值为-1。-1：断点处使用-1进行表示。0 ：断点处使用0进行表示。null：断点处使用null进行表示。average：断点处使用前后邻近的有效数据的平均值进行表示，如果不存在有效数据则使用null进行表示。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -635,7 +636,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
+     * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -656,12 +657,12 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前已存在的服务发现规则。
+     * 该接口用于查询系统当前已存在的服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询系统中已有服务发现规则
-     * @param {string} [id] 具体的服务发现规则ID,可以精确匹配到一条服务发现规则。不传时返回project下所有服务发现规则的列表。
+     * @param {string} [id] 具体的服务发现规则ID，可以精确匹配到一条服务发现规则。不传时返回project下所有服务发现规则的列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -696,7 +697,7 @@ export class AomClient {
     }
 
     /**
-     * 通过规则名称获取告警行动规则。（注：接口目前开放的region为：上海一）。
+     * 通过规则名称获取告警行动规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -715,7 +716,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询单条阈值规则。
+     * 该接口用于查询单条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -734,7 +735,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。
+     * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -754,7 +755,7 @@ export class AomClient {
     }
 
     /**
-     * 修改告警行动规则。（注：接口目前开放的region为：上海一）。
+     * 修改告警行动规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -773,7 +774,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于修改一条阈值规则。
+     * 该接口用于修改一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -792,7 +793,7 @@ export class AomClient {
     }
 
     /**
-     * 更新事件类告警规则。（注：接口目前开放的region为：上海一）。
+     * 更新事件类告警规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -811,7 +812,7 @@ export class AomClient {
     }
 
     /**
-     * 修改静默规则。（注：接口目前开放的region为：上海一）。
+     * 修改静默规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1089,7 +1090,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 新增告警行动规则。（注：接口目前开放的region为：上海一）。
+         * 新增告警行动规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1127,7 +1128,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于添加一条阈值规则。
+         * 该接口用于添加一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1165,7 +1166,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新增一条事件类告警规则。（注：接口目前开放的region为：上海一）。
+         * 新增一条事件类告警规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1203,7 +1204,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向服务端添加一条或多条监控数据。
+         * 该接口用于向服务端添加一条或多条监控数据。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1241,7 +1242,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新增静默规则。（注：接口目前开放的region为：上海一）。
+         * 新增静默规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1279,7 +1280,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。
+         * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1360,7 +1361,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除告警行动规则。（注：接口目前开放的region为：上海一）。
+         * 删除告警行动规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1398,7 +1399,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除阈值规则。
+         * 该接口用于删除阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1435,7 +1436,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除阈值规则
+         * 批量删除阈值规则[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1473,7 +1474,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除一条事件类告警规则。（注：接口目前开放的region为：上海一）。
+         * 删除一条事件类告警规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1511,7 +1512,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除静默规则。（注：接口目前开放的region为：上海一）。
+         * 删除静默规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1549,7 +1550,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除服务发现规则。
+         * 该接口用于删除服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1589,7 +1590,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取告警行动规则列表。（注：接口目前开放的region为：上海一）。
+         * 获取告警行动规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1654,7 +1655,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询阈值规则列表。
+         * 该接口用于查询阈值规则列表。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1698,7 +1699,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询事件类告警规则列表。（注：接口目前开放的region为：上海一）。
+         * 查询事件类告警规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1814,7 +1815,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
+         * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1874,7 +1875,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取静默规则列表。（注：接口目前开放的region为：上海一）。
+         * 获取静默规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1895,7 +1896,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取告警发送结果。（注：接口目前开放的region为：上海一）。
+         * 获取告警发送结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1953,7 +1954,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。
+         * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1999,7 +2000,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
+         * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2052,7 +2053,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前已存在的服务发现规则。
+         * 该接口用于查询系统当前已存在的服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2142,7 +2143,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过规则名称获取告警行动规则。（注：接口目前开放的region为：上海一）。
+         * 通过规则名称获取告警行动规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2179,7 +2180,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询单条阈值规则。
+         * 该接口用于查询单条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2216,7 +2217,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。
+         * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2262,7 +2263,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改告警行动规则。（注：接口目前开放的region为：上海一）。
+         * 修改告警行动规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2300,7 +2301,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改一条阈值规则。
+         * 该接口用于修改一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2338,7 +2339,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新事件类告警规则。（注：接口目前开放的region为：上海一）。
+         * 更新事件类告警规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2373,7 +2374,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改静默规则。（注：接口目前开放的region为：上海一）。
+         * 修改静默规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

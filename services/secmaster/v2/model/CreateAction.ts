@@ -6,7 +6,9 @@ export class CreateAction {
     private 'action_type'?: string;
     private 'action_id'?: string;
     private 'sort_order'?: string;
-    public constructor() { 
+    public constructor(actionType?: string, actionId?: string) { 
+        this['action_type'] = actionType;
+        this['action_id'] = actionId;
     }
     public withName(name: string): CreateAction {
         this['name'] = name;

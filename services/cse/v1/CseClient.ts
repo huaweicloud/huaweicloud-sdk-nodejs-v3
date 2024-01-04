@@ -39,6 +39,7 @@ import { EngineConfigureReq } from './model/EngineConfigureReq';
 import { EngineCreateReq } from './model/EngineCreateReq';
 import { EngineExternalEntrypoint } from './model/EngineExternalEntrypoint';
 import { EngineModifyReq } from './model/EngineModifyReq';
+import { EngineQuotaV2Quotas } from './model/EngineQuotaV2Quotas';
 import { EngineRbacPwd } from './model/EngineRbacPwd';
 import { EngineReference } from './model/EngineReference';
 import { EngineSimpleInfo } from './model/EngineSimpleInfo';
@@ -68,6 +69,8 @@ import { RetryEngineRequest } from './model/RetryEngineRequest';
 import { RetryEngineResponse } from './model/RetryEngineResponse';
 import { ShowEngineJobRequest } from './model/ShowEngineJobRequest';
 import { ShowEngineJobResponse } from './model/ShowEngineJobResponse';
+import { ShowEngineQuotasRequest } from './model/ShowEngineQuotasRequest';
+import { ShowEngineQuotasResponse } from './model/ShowEngineQuotasResponse';
 import { ShowEngineRequest } from './model/ShowEngineRequest';
 import { ShowEngineResponse } from './model/ShowEngineResponse';
 import { Spec } from './model/Spec';
@@ -75,6 +78,7 @@ import { SpecClusterNode } from './model/SpecClusterNode';
 import { Task } from './model/Task';
 import { TaskExecutorBrief } from './model/TaskExecutorBrief';
 import { TaskSteps } from './model/TaskSteps';
+import { TenantQuotaUsed } from './model/TenantQuotaUsed';
 import { UpdateGovernancePolicyRequest } from './model/UpdateGovernancePolicyRequest';
 import { UpdateGovernancePolicyResponse } from './model/UpdateGovernancePolicyResponse';
 import { UpdateNacosNamespacesRequest } from './model/UpdateNacosNamespacesRequest';
@@ -469,6 +473,24 @@ export class CseClient {
      */
     public showEngineJob(showEngineJobRequest?: ShowEngineJobRequest): Promise<ShowEngineJobResponse> {
         const options = ParamCreater().showEngineJob(showEngineJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询微服务引擎配额。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询微服务引擎配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEngineQuotas(showEngineQuotasRequest?: ShowEngineQuotasRequest): Promise<ShowEngineQuotasResponse> {
+        const options = ParamCreater().showEngineQuotas();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1653,6 +1675,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'engine_id': engineId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询微服务引擎配额。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEngineQuotas() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/enginemgr/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

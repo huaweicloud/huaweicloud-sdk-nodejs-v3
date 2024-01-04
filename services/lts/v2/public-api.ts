@@ -220,7 +220,6 @@ export * from './model/QueryLogKeyWordCountRequestBody';
 export * from './model/QueryLtsLogParams';
 export * from './model/QueryLtsStructLogParams';
 export * from './model/QueryLtsStructLogParamsNew';
-export * from './model/QueryLtsStructLogResponseBodyNew';
 export * from './model/RegisterDmsKafkaInstanceRequest';
 export * from './model/RegisterDmsKafkaInstanceRequestBody';
 export * from './model/RegisterDmsKafkaInstanceRequestBodyConnectInfo';

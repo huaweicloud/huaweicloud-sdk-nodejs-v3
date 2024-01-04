@@ -3,6 +3,10 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccessPolicy } from './model/AccessPolicy';
+import { AddSubscriptionFromSubscriptionUserRequest } from './model/AddSubscriptionFromSubscriptionUserRequest';
+import { AddSubscriptionFromSubscriptionUserRequestBody } from './model/AddSubscriptionFromSubscriptionUserRequestBody';
+import { AddSubscriptionFromSubscriptionUserResponse } from './model/AddSubscriptionFromSubscriptionUserResponse';
+import { AddSubscriptionFromSubscriptionUserResponseItem } from './model/AddSubscriptionFromSubscriptionUserResponseItem';
 import { AddSubscriptionRequest } from './model/AddSubscriptionRequest';
 import { AddSubscriptionRequestBody } from './model/AddSubscriptionRequestBody';
 import { AddSubscriptionResponse } from './model/AddSubscriptionResponse';
@@ -11,6 +15,16 @@ import { ApplicationItem } from './model/ApplicationItem';
 import { BatchCreateOrDeleteResourceTagsRequest } from './model/BatchCreateOrDeleteResourceTagsRequest';
 import { BatchCreateOrDeleteResourceTagsRequestBody } from './model/BatchCreateOrDeleteResourceTagsRequestBody';
 import { BatchCreateOrDeleteResourceTagsResponse } from './model/BatchCreateOrDeleteResourceTagsResponse';
+import { BatchCreateSubscriptionsFilterPolicesRequest } from './model/BatchCreateSubscriptionsFilterPolicesRequest';
+import { BatchCreateSubscriptionsFilterPolicesResponse } from './model/BatchCreateSubscriptionsFilterPolicesResponse';
+import { BatchDeleteSubscriptionsFilterPolicesRequest } from './model/BatchDeleteSubscriptionsFilterPolicesRequest';
+import { BatchDeleteSubscriptionsFilterPolicesRequestBody } from './model/BatchDeleteSubscriptionsFilterPolicesRequestBody';
+import { BatchDeleteSubscriptionsFilterPolicesResponse } from './model/BatchDeleteSubscriptionsFilterPolicesResponse';
+import { BatchResult } from './model/BatchResult';
+import { BatchSubscriptionsFilterPolicesRequestBody } from './model/BatchSubscriptionsFilterPolicesRequestBody';
+import { BatchSubscriptionsFilterPolicesRequestBodyPolices } from './model/BatchSubscriptionsFilterPolicesRequestBodyPolices';
+import { BatchUpdateSubscriptionsFilterPolicesRequest } from './model/BatchUpdateSubscriptionsFilterPolicesRequest';
+import { BatchUpdateSubscriptionsFilterPolicesResponse } from './model/BatchUpdateSubscriptionsFilterPolicesResponse';
 import { CancelSubscriptionRequest } from './model/CancelSubscriptionRequest';
 import { CancelSubscriptionResponse } from './model/CancelSubscriptionResponse';
 import { CreateApplicationEndpointRequest } from './model/CreateApplicationEndpointRequest';
@@ -47,6 +61,9 @@ import { DeleteTopicAttributesRequest } from './model/DeleteTopicAttributesReque
 import { DeleteTopicAttributesResponse } from './model/DeleteTopicAttributesResponse';
 import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
+import { GetHttpDetectResponseBodyDetail } from './model/GetHttpDetectResponseBodyDetail';
+import { HttpDetectRequestBody } from './model/HttpDetectRequestBody';
+import { HttpDetectRequestBodyExtension } from './model/HttpDetectRequestBodyExtension';
 import { LinksItem } from './model/LinksItem';
 import { ListApplicationAttributesRequest } from './model/ListApplicationAttributesRequest';
 import { ListApplicationAttributesResponse } from './model/ListApplicationAttributesResponse';
@@ -88,18 +105,24 @@ import { ListVersionResponse } from './model/ListVersionResponse';
 import { ListVersionsRequest } from './model/ListVersionsRequest';
 import { ListVersionsResponse } from './model/ListVersionsResponse';
 import { LogtankItem } from './model/LogtankItem';
+import { MessageAttribute } from './model/MessageAttribute';
 import { MessageTemplate } from './model/MessageTemplate';
 import { PublishAppMessageRequest } from './model/PublishAppMessageRequest';
 import { PublishAppMessageRequestBody } from './model/PublishAppMessageRequestBody';
 import { PublishAppMessageResponse } from './model/PublishAppMessageResponse';
+import { PublishHttpDetectRequest } from './model/PublishHttpDetectRequest';
+import { PublishHttpDetectResponse } from './model/PublishHttpDetectResponse';
 import { PublishMessageRequest } from './model/PublishMessageRequest';
 import { PublishMessageRequestBody } from './model/PublishMessageRequestBody';
 import { PublishMessageResponse } from './model/PublishMessageResponse';
 import { ResourceDetail } from './model/ResourceDetail';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
+import { ShowHttpDetectResultRequest } from './model/ShowHttpDetectResultRequest';
+import { ShowHttpDetectResultResponse } from './model/ShowHttpDetectResultResponse';
 import { Statement } from './model/Statement';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
+import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
 import { TagMatch } from './model/TagMatch';
 import { TagResource } from './model/TagResource';
 import { TopicAttribute } from './model/TopicAttribute';
@@ -162,6 +185,26 @@ export class SmnClient {
     }
 
     /**
+     * 为指定的Topic添加订阅者，订阅者信息来源为订阅用户列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入订阅
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {AddSubscriptionFromSubscriptionUserRequestBody} addSubscriptionFromSubscriptionUserRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addSubscriptionFromSubscriptionUser(addSubscriptionFromSubscriptionUserRequest?: AddSubscriptionFromSubscriptionUserRequest): Promise<AddSubscriptionFromSubscriptionUserResponse> {
+        const options = ParamCreater().addSubscriptionFromSubscriptionUser(addSubscriptionFromSubscriptionUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定实例批量添加或删除标签。一个资源上最多有10个标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。
      * 创建时，不允许重复key，如果数据库存在就覆盖。
@@ -178,6 +221,63 @@ export class SmnClient {
      */
     public batchCreateOrDeleteResourceTags(batchCreateOrDeleteResourceTagsRequest?: BatchCreateOrDeleteResourceTagsRequest): Promise<BatchCreateOrDeleteResourceTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteResourceTags(batchCreateOrDeleteResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建订阅者的消息过滤策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建订阅过滤策略
+     * @param {BatchSubscriptionsFilterPolicesRequestBody} createSubscriptionsFilterPolicesRequestBody 批量创建订阅者过滤策略结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSubscriptionsFilterPolices(batchCreateSubscriptionsFilterPolicesRequest?: BatchCreateSubscriptionsFilterPolicesRequest): Promise<BatchCreateSubscriptionsFilterPolicesResponse> {
+        const options = ParamCreater().batchCreateSubscriptionsFilterPolices(batchCreateSubscriptionsFilterPolicesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除订阅者的消息过滤策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除订阅过滤策略
+     * @param {BatchDeleteSubscriptionsFilterPolicesRequestBody} updateSubscriptionsFilterPolicesRequestBody 批量删除订阅者过滤策略结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSubscriptionsFilterPolices(batchDeleteSubscriptionsFilterPolicesRequest?: BatchDeleteSubscriptionsFilterPolicesRequest): Promise<BatchDeleteSubscriptionsFilterPolicesResponse> {
+        const options = ParamCreater().batchDeleteSubscriptionsFilterPolices(batchDeleteSubscriptionsFilterPolicesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新订阅者的消息过滤策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新订阅过滤策略
+     * @param {BatchSubscriptionsFilterPolicesRequestBody} updateSubscriptionsFilterPolicesRequestBody 批量更新订阅者过滤策略结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateSubscriptionsFilterPolices(batchUpdateSubscriptionsFilterPolicesRequest?: BatchUpdateSubscriptionsFilterPolicesRequest): Promise<BatchUpdateSubscriptionsFilterPolicesResponse> {
+        const options = ParamCreater().batchUpdateSubscriptionsFilterPolices(batchUpdateSubscriptionsFilterPolicesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -533,6 +633,7 @@ export class SmnClient {
      * @param {string} [protocol] 协议名称， 枚举值：http、https、sms、email、functionstage、dms、application。
      * @param {number} [status] 状态。 0：未确认 1：已确认 2：不需要确认 3：已取消确认 4：已经删除。
      * @param {string} [endpoint] 订阅终端。
+     * @param {string} [fuzzyRemark] 检索的订阅备注字段，模糊匹配。最大长度限制为128个字节。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -554,6 +655,7 @@ export class SmnClient {
      * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit] 查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
+     * @param {string} [fuzzyRemark] 检索的订阅备注字段，模糊匹配。最大长度限制为128字节。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -615,8 +717,9 @@ export class SmnClient {
      * @param {number} [limit]  查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
      * @param {string} [enterpriseProjectId] 企业项目id，默认企业项目id为0。
      * @param {string} [name] 检索的主题名称，完全匹配。
-     * @param {string} [fuzzyName] 检索的主题名称，模糊匹配，按照startwith模式进行匹配。
+     * @param {string} [fuzzyName] 检索的主题名称，模糊匹配。
      * @param {string} [topicId] 检索的主题ID，完全匹配。
+     * @param {string} [fuzzyDisplayName] 检索的主题显示名。模糊匹配。参数字节长度不能大于192字节。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -666,6 +769,26 @@ export class SmnClient {
     }
 
     /**
+     * 基于主题发送http/https探测消息，探测当前http/https 终端是否可用，SMN出口是否能够正常访问该终端。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 发布探测消息
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {HttpDetectRequestBody} httpDetectRequestBody Http探测请求参数，不能为空。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public publishHttpDetect(publishHttpDetectRequest?: PublishHttpDetectRequest): Promise<PublishHttpDetectResponse> {
+        const options = ParamCreater().publishHttpDetect(publishHttpDetectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 将消息发送给Topic的所有订阅端点。当返回消息ID时，该消息已被保存并开始尝试将其推送给Topic的订阅者。三种消息发送方式
      * 
      * message
@@ -687,6 +810,26 @@ export class SmnClient {
      */
     public publishMessage(publishMessageRequest?: PublishMessageRequest): Promise<PublishMessageResponse> {
         const options = ParamCreater().publishMessage(publishMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据http探测发送返回的task_id查询探测结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取http探测结果
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} taskId http探测任务id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHttpDetectResult(showHttpDetectResultRequest?: ShowHttpDetectResultRequest): Promise<ShowHttpDetectResultResponse> {
+        const options = ParamCreater().showHttpDetectResult(showHttpDetectResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1066,6 +1209,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的Topic添加订阅者，订阅者信息来源为订阅用户列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addSubscriptionFromSubscriptionUser(addSubscriptionFromSubscriptionUserRequest?: AddSubscriptionFromSubscriptionUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/subscriptions/from-subscription-users",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (addSubscriptionFromSubscriptionUserRequest !== null && addSubscriptionFromSubscriptionUserRequest !== undefined) {
+                if (addSubscriptionFromSubscriptionUserRequest instanceof AddSubscriptionFromSubscriptionUserRequest) {
+                    topicUrn = addSubscriptionFromSubscriptionUserRequest.topicUrn;
+                    body = addSubscriptionFromSubscriptionUserRequest.body
+                } else {
+                    topicUrn = addSubscriptionFromSubscriptionUserRequest['topic_urn'];
+                    body = addSubscriptionFromSubscriptionUserRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling addSubscriptionFromSubscriptionUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定实例批量添加或删除标签。一个资源上最多有10个标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。
          * 创建时，不允许重复key，如果数据库存在就覆盖。
@@ -1114,6 +1303,120 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建订阅者的消息过滤策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSubscriptionsFilterPolices(batchCreateSubscriptionsFilterPolicesRequest?: BatchCreateSubscriptionsFilterPolicesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/subscriptions/filter_polices",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchCreateSubscriptionsFilterPolicesRequest !== null && batchCreateSubscriptionsFilterPolicesRequest !== undefined) {
+                if (batchCreateSubscriptionsFilterPolicesRequest instanceof BatchCreateSubscriptionsFilterPolicesRequest) {
+                    body = batchCreateSubscriptionsFilterPolicesRequest.body
+                } else {
+                    body = batchCreateSubscriptionsFilterPolicesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除订阅者的消息过滤策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSubscriptionsFilterPolices(batchDeleteSubscriptionsFilterPolicesRequest?: BatchDeleteSubscriptionsFilterPolicesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/subscriptions/filter_polices",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteSubscriptionsFilterPolicesRequest !== null && batchDeleteSubscriptionsFilterPolicesRequest !== undefined) {
+                if (batchDeleteSubscriptionsFilterPolicesRequest instanceof BatchDeleteSubscriptionsFilterPolicesRequest) {
+                    body = batchDeleteSubscriptionsFilterPolicesRequest.body
+                } else {
+                    body = batchDeleteSubscriptionsFilterPolicesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新订阅者的消息过滤策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateSubscriptionsFilterPolices(batchUpdateSubscriptionsFilterPolicesRequest?: BatchUpdateSubscriptionsFilterPolicesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notifications/subscriptions/filter_polices",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateSubscriptionsFilterPolicesRequest !== null && batchUpdateSubscriptionsFilterPolicesRequest !== undefined) {
+                if (batchUpdateSubscriptionsFilterPolicesRequest instanceof BatchUpdateSubscriptionsFilterPolicesRequest) {
+                    body = batchUpdateSubscriptionsFilterPolicesRequest.body
+                } else {
+                    body = batchUpdateSubscriptionsFilterPolicesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1858,6 +2161,8 @@ export const ParamCreater = function () {
             let status;
             
             let endpoint;
+            
+            let fuzzyRemark;
 
             if (listSubscriptionsRequest !== null && listSubscriptionsRequest !== undefined) {
                 if (listSubscriptionsRequest instanceof ListSubscriptionsRequest) {
@@ -1866,12 +2171,14 @@ export const ParamCreater = function () {
                     protocol = listSubscriptionsRequest.protocol;
                     status = listSubscriptionsRequest.status;
                     endpoint = listSubscriptionsRequest.endpoint;
+                    fuzzyRemark = listSubscriptionsRequest.fuzzyRemark;
                 } else {
                     offset = listSubscriptionsRequest['offset'];
                     limit = listSubscriptionsRequest['limit'];
                     protocol = listSubscriptionsRequest['protocol'];
                     status = listSubscriptionsRequest['status'];
                     endpoint = listSubscriptionsRequest['endpoint'];
+                    fuzzyRemark = listSubscriptionsRequest['fuzzy_remark'];
                 }
             }
 
@@ -1890,6 +2197,9 @@ export const ParamCreater = function () {
             }
             if (endpoint !== null && endpoint !== undefined) {
                 localVarQueryParameter['endpoint'] = endpoint;
+            }
+            if (fuzzyRemark !== null && fuzzyRemark !== undefined) {
+                localVarQueryParameter['fuzzy_remark'] = fuzzyRemark;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1919,16 +2229,20 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let fuzzyRemark;
 
             if (listSubscriptionsByTopicRequest !== null && listSubscriptionsByTopicRequest !== undefined) {
                 if (listSubscriptionsByTopicRequest instanceof ListSubscriptionsByTopicRequest) {
                     topicUrn = listSubscriptionsByTopicRequest.topicUrn;
                     offset = listSubscriptionsByTopicRequest.offset;
                     limit = listSubscriptionsByTopicRequest.limit;
+                    fuzzyRemark = listSubscriptionsByTopicRequest.fuzzyRemark;
                 } else {
                     topicUrn = listSubscriptionsByTopicRequest['topic_urn'];
                     offset = listSubscriptionsByTopicRequest['offset'];
                     limit = listSubscriptionsByTopicRequest['limit'];
+                    fuzzyRemark = listSubscriptionsByTopicRequest['fuzzy_remark'];
                 }
             }
 
@@ -1941,6 +2255,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (fuzzyRemark !== null && fuzzyRemark !== undefined) {
+                localVarQueryParameter['fuzzy_remark'] = fuzzyRemark;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2062,6 +2379,8 @@ export const ParamCreater = function () {
             let fuzzyName;
             
             let topicId;
+            
+            let fuzzyDisplayName;
 
             if (listTopicsRequest !== null && listTopicsRequest !== undefined) {
                 if (listTopicsRequest instanceof ListTopicsRequest) {
@@ -2071,6 +2390,7 @@ export const ParamCreater = function () {
                     name = listTopicsRequest.name;
                     fuzzyName = listTopicsRequest.fuzzyName;
                     topicId = listTopicsRequest.topicId;
+                    fuzzyDisplayName = listTopicsRequest.fuzzyDisplayName;
                 } else {
                     offset = listTopicsRequest['offset'];
                     limit = listTopicsRequest['limit'];
@@ -2078,6 +2398,7 @@ export const ParamCreater = function () {
                     name = listTopicsRequest['name'];
                     fuzzyName = listTopicsRequest['fuzzy_name'];
                     topicId = listTopicsRequest['topic_id'];
+                    fuzzyDisplayName = listTopicsRequest['fuzzy_display_name'];
                 }
             }
 
@@ -2099,6 +2420,9 @@ export const ParamCreater = function () {
             }
             if (topicId !== null && topicId !== undefined) {
                 localVarQueryParameter['topic_id'] = topicId;
+            }
+            if (fuzzyDisplayName !== null && fuzzyDisplayName !== undefined) {
+                localVarQueryParameter['fuzzy_display_name'] = fuzzyDisplayName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2144,6 +2468,52 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 基于主题发送http/https探测消息，探测当前http/https 终端是否可用，SMN出口是否能够正常访问该终端。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        publishHttpDetect(publishHttpDetectRequest?: PublishHttpDetectRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/detection",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (publishHttpDetectRequest !== null && publishHttpDetectRequest !== undefined) {
+                if (publishHttpDetectRequest instanceof PublishHttpDetectRequest) {
+                    topicUrn = publishHttpDetectRequest.topicUrn;
+                    body = publishHttpDetectRequest.body
+                } else {
+                    topicUrn = publishHttpDetectRequest['topic_urn'];
+                    body = publishHttpDetectRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling publishHttpDetect.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2196,6 +2566,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据http探测发送返回的task_id查询探测结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHttpDetectResult(showHttpDetectResultRequest?: ShowHttpDetectResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/detection/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+            
+            let taskId;
+
+            if (showHttpDetectResultRequest !== null && showHttpDetectResultRequest !== undefined) {
+                if (showHttpDetectResultRequest instanceof ShowHttpDetectResultRequest) {
+                    topicUrn = showHttpDetectResultRequest.topicUrn;
+                    taskId = showHttpDetectResultRequest.taskId;
+                } else {
+                    topicUrn = showHttpDetectResultRequest['topic_urn'];
+                    taskId = showHttpDetectResultRequest['task_id'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling showHttpDetectResult.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showHttpDetectResult.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

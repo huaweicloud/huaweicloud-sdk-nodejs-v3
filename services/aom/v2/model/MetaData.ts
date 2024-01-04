@@ -2,7 +2,7 @@
 
 export class MetaData {
     public count?: number;
-    public start?: number;
+    public start?: string;
     public total?: number;
     public constructor() { 
     }
@@ -10,7 +10,7 @@ export class MetaData {
         this['count'] = count;
         return this;
     }
-    public withStart(start: number): MetaData {
+    public withStart(start: string): MetaData {
         this['start'] = start;
         return this;
     }

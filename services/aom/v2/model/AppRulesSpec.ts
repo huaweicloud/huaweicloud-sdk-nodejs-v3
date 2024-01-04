@@ -14,6 +14,9 @@ export class AppRulesSpec {
     public logPathRule?: Array<LogPathRule>;
     public nameRule?: NameRule;
     public priority?: number;
+    public dataSource?: string;
+    public editable?: string;
+    private 'aom_metric_relabel_configs'?: object;
     public constructor(appType?: string, detectLog?: string, discoveryRule?: Array<DiscoveryRule>, isDefaultRule?: string, isDetect?: string, logFileFix?: Array<string>, nameRule?: NameRule, priority?: number) { 
         this['appType'] = appType;
         this['detectLog'] = detectLog;
@@ -63,5 +66,23 @@ export class AppRulesSpec {
     public withPriority(priority: number): AppRulesSpec {
         this['priority'] = priority;
         return this;
+    }
+    public withDataSource(dataSource: string): AppRulesSpec {
+        this['dataSource'] = dataSource;
+        return this;
+    }
+    public withEditable(editable: string): AppRulesSpec {
+        this['editable'] = editable;
+        return this;
+    }
+    public withAomMetricRelabelConfigs(aomMetricRelabelConfigs: object): AppRulesSpec {
+        this['aom_metric_relabel_configs'] = aomMetricRelabelConfigs;
+        return this;
+    }
+    public set aomMetricRelabelConfigs(aomMetricRelabelConfigs: object  | undefined) {
+        this['aom_metric_relabel_configs'] = aomMetricRelabelConfigs;
+    }
+    public get aomMetricRelabelConfigs(): object | undefined {
+        return this['aom_metric_relabel_configs'];
     }
 }

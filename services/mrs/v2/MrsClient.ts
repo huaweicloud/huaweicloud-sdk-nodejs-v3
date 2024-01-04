@@ -13,11 +13,15 @@ import { AutoScalingPolicy } from './model/AutoScalingPolicy';
 import { AutoScalingPolicyDeleteReq } from './model/AutoScalingPolicyDeleteReq';
 import { AutoScalingPolicyInfo } from './model/AutoScalingPolicyInfo';
 import { AutoScalingPolicyV2 } from './model/AutoScalingPolicyV2';
+import { AzFlavors } from './model/AzFlavors';
 import { BatchDeleteJobsRequest } from './model/BatchDeleteJobsRequest';
 import { BatchDeleteJobsResponse } from './model/BatchDeleteJobsResponse';
 import { BootstrapScript } from './model/BootstrapScript';
 import { CancelSqlRequest } from './model/CancelSqlRequest';
 import { CancelSqlResponse } from './model/CancelSqlResponse';
+import { CancelSyncIamUserRequest } from './model/CancelSyncIamUserRequest';
+import { CancelSyncIamUserResponse } from './model/CancelSyncIamUserResponse';
+import { CancelSyncRequest } from './model/CancelSyncRequest';
 import { ChargeInfo } from './model/ChargeInfo';
 import { ClusterDataConnectorMap } from './model/ClusterDataConnectorMap';
 import { ComponentConfig } from './model/ComponentConfig';
@@ -45,6 +49,7 @@ import { ExpandClusterRequest } from './model/ExpandClusterRequest';
 import { ExpandClusterResponse } from './model/ExpandClusterResponse';
 import { ExpandParam } from './model/ExpandParam';
 import { FileStatusV2 } from './model/FileStatusV2';
+import { Flavor } from './model/Flavor';
 import { JobBatchDelete } from './model/JobBatchDelete';
 import { JobExecution } from './model/JobExecution';
 import { JobQueryBean } from './model/JobQueryBean';
@@ -67,6 +72,8 @@ import { ShowHdfsFileListRequest } from './model/ShowHdfsFileListRequest';
 import { ShowHdfsFileListResponse } from './model/ShowHdfsFileListResponse';
 import { ShowJobExeListNewRequest } from './model/ShowJobExeListNewRequest';
 import { ShowJobExeListNewResponse } from './model/ShowJobExeListNewResponse';
+import { ShowMrsFlavorsRequest } from './model/ShowMrsFlavorsRequest';
+import { ShowMrsFlavorsResponse } from './model/ShowMrsFlavorsResponse';
 import { ShowMrsVersionListRequest } from './model/ShowMrsVersionListRequest';
 import { ShowMrsVersionListResponse } from './model/ShowMrsVersionListResponse';
 import { ShowSingleJobExeRequest } from './model/ShowSingleJobExeRequest';
@@ -75,6 +82,8 @@ import { ShowSqlResultRequest } from './model/ShowSqlResultRequest';
 import { ShowSqlResultResponse } from './model/ShowSqlResultResponse';
 import { ShowSqlResultWithJobRequest } from './model/ShowSqlResultWithJobRequest';
 import { ShowSqlResultWithJobResponse } from './model/ShowSqlResultWithJobResponse';
+import { ShowSyncIamUserRequest } from './model/ShowSyncIamUserRequest';
+import { ShowSyncIamUserResponse } from './model/ShowSyncIamUserResponse';
 import { ShowTagQuotaRequest } from './model/ShowTagQuotaRequest';
 import { ShowTagQuotaResponse } from './model/ShowTagQuotaResponse';
 import { ShowTagStatusRequest } from './model/ShowTagStatusRequest';
@@ -82,6 +91,7 @@ import { ShowTagStatusResponse } from './model/ShowTagStatusResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
 import { ShrinkParam } from './model/ShrinkParam';
+import { SmnNotify } from './model/SmnNotify';
 import { SqlExecutionReq } from './model/SqlExecutionReq';
 import { StepConfig } from './model/StepConfig';
 import { StopJobRequest } from './model/StopJobRequest';
@@ -99,6 +109,9 @@ import { UpdateClusterNameResponse } from './model/UpdateClusterNameResponse';
 import { UpdateClusterReq } from './model/UpdateClusterReq';
 import { UpdateDataConnectorRequest } from './model/UpdateDataConnectorRequest';
 import { UpdateDataConnectorResponse } from './model/UpdateDataConnectorResponse';
+import { UpdateSyncIamUserRequest } from './model/UpdateSyncIamUserRequest';
+import { UpdateSyncIamUserResponse } from './model/UpdateSyncIamUserResponse';
+import { UpdateSyncRequest } from './model/UpdateSyncRequest';
 import { Volume } from './model/Volume';
 
 export class MrsClient {
@@ -604,6 +617,65 @@ export class MrsClient {
     }
 
     /**
+     * 指定用户、用户组取消同步
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 指定用户、用户组取消同步
+     * @param {string} clusterId 集群ID
+     * @param {CancelSyncRequest} [cancelSyncIAMUserRequestBody] 需要取消同步的用户、用户组信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelSyncIamUser(cancelSyncIamUserRequest?: CancelSyncIamUserRequest): Promise<CancelSyncIamUserResponse> {
+        const options = ParamCreater().cancelSyncIamUser(cancelSyncIamUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取已经同步的IAM用户和用户组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取已经同步的IAM用户和用户组
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSyncIamUser(showSyncIamUserRequest?: ShowSyncIamUserRequest): Promise<ShowSyncIamUserResponse> {
+        const options = ParamCreater().showSyncIamUser(showSyncIamUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将IAM用户和用户组同步到manager，指定用户的情况下，会将该用户关联的IAM用户组也同步到manager。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary IAM同步
+     * @param {string} clusterId 集群ID
+     * @param {UpdateSyncRequest} [updateSyncIAMUserRequestBody] IAM同步的请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSyncIamUser(updateSyncIamUserRequest?: UpdateSyncIamUserRequest): Promise<UpdateSyncIamUserResponse> {
+        const options = ParamCreater().updateSyncIamUser(updateSyncIamUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 在MRS集群中取消一条SQL的执行任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -715,6 +787,25 @@ export class MrsClient {
      */
     public switchClusterTags(switchClusterTagsRequest?: SwitchClusterTagsRequest): Promise<SwitchClusterTagsResponse> {
         const options = ParamCreater().switchClusterTags(switchClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询MRS集群版本可用的规格
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询MRS集群版本可用的规格
+     * @param {string} versionName MRS集群版本，不支持多版本查询 ，例如 MRS%203.1.5.1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMrsFlavors(showMrsFlavorsRequest?: ShowMrsFlavorsRequest): Promise<ShowMrsFlavorsResponse> {
+        const options = ParamCreater().showMrsFlavors(showMrsFlavorsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1886,6 +1977,129 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 指定用户、用户组取消同步
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelSyncIamUser(cancelSyncIamUserRequest?: CancelSyncIamUserRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/clusters/{cluster_id}/iam-sync-user",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (cancelSyncIamUserRequest !== null && cancelSyncIamUserRequest !== undefined) {
+                if (cancelSyncIamUserRequest instanceof CancelSyncIamUserRequest) {
+                    clusterId = cancelSyncIamUserRequest.clusterId;
+                    body = cancelSyncIamUserRequest.body
+                } else {
+                    clusterId = cancelSyncIamUserRequest['cluster_id'];
+                    body = cancelSyncIamUserRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling cancelSyncIamUser.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取已经同步的IAM用户和用户组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSyncIamUser(showSyncIamUserRequest?: ShowSyncIamUserRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/iam-sync-user",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showSyncIamUserRequest !== null && showSyncIamUserRequest !== undefined) {
+                if (showSyncIamUserRequest instanceof ShowSyncIamUserRequest) {
+                    clusterId = showSyncIamUserRequest.clusterId;
+                } else {
+                    clusterId = showSyncIamUserRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showSyncIamUser.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将IAM用户和用户组同步到manager，指定用户的情况下，会将该用户关联的IAM用户组也同步到manager。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSyncIamUser(updateSyncIamUserRequest?: UpdateSyncIamUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/iam-sync-user",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateSyncIamUserRequest !== null && updateSyncIamUserRequest !== undefined) {
+                if (updateSyncIamUserRequest instanceof UpdateSyncIamUserRequest) {
+                    clusterId = updateSyncIamUserRequest.clusterId;
+                    body = updateSyncIamUserRequest.body
+                } else {
+                    clusterId = updateSyncIamUserRequest['cluster_id'];
+                    body = updateSyncIamUserRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateSyncIamUser.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在MRS集群中取消一条SQL的执行任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2143,6 +2357,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询MRS集群版本可用的规格
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMrsFlavors(showMrsFlavorsRequest?: ShowMrsFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/metadata/version/{version_name}/available-flavor",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let versionName;
+
+            if (showMrsFlavorsRequest !== null && showMrsFlavorsRequest !== undefined) {
+                if (showMrsFlavorsRequest instanceof ShowMrsFlavorsRequest) {
+                    versionName = showMrsFlavorsRequest.versionName;
+                } else {
+                    versionName = showMrsFlavorsRequest['version_name'];
+                }
+            }
+
+        
+            if (versionName === null || versionName === undefined) {
+            throw new RequiredError('versionName','Required parameter versionName was null or undefined when calling showMrsFlavors.');
+            }
+
+            options.pathParams = { 'version_name': versionName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -111,6 +111,6 @@ export class ShowActionRuleResponse extends SdkResponse {
     * @enum {string}
     */
 export enum ShowActionRuleResponseTypeEnum {
-    E_1 = '\"1\"',
-    E_2 = '\"2\"'
+    E_1 = '1',
+    E_2 = '2'
 }

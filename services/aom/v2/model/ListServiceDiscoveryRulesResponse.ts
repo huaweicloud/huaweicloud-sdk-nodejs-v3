@@ -6,6 +6,7 @@ export class ListServiceDiscoveryRulesResponse extends SdkResponse {
     public appRules?: Array<AppRules>;
     public errorCode?: string;
     public errorMessage?: string;
+    public id?: Array<string>;
     public constructor() { 
         super();
     }
@@ -19,6 +20,10 @@ export class ListServiceDiscoveryRulesResponse extends SdkResponse {
     }
     public withErrorMessage(errorMessage: string): ListServiceDiscoveryRulesResponse {
         this['errorMessage'] = errorMessage;
+        return this;
+    }
+    public withId(id: Array<string>): ListServiceDiscoveryRulesResponse {
+        this['id'] = id;
         return this;
     }
 }

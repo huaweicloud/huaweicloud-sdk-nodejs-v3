@@ -1,5 +1,6 @@
 import { Event2alarmRuleBodyMetadata } from './Event2alarmRuleBodyMetadata';
 import { Event2alarmRuleBodyTriggerPolicies } from './Event2alarmRuleBodyTriggerPolicies';
+import { SmnTopics } from './SmnTopics';
 
 
 export class Event2alarmRuleBody {
@@ -12,10 +13,13 @@ export class Event2alarmRuleBody {
     public metadata?: Event2alarmRuleBodyMetadata;
     public enable?: boolean;
     private 'trigger_policies'?: Array<Event2alarmRuleBodyTriggerPolicies>;
-    private 'alarm_type'?: string;
+    private 'alarm_type'?: Event2alarmRuleBodyAlarmTypeEnum | string;
     private 'action_rule'?: string;
     private 'inhibit_rule'?: string;
     private 'route_group_rule'?: string;
+    private 'event_names'?: Array<string>;
+    public migrated?: boolean;
+    public topics?: Array<SmnTopics>;
     public constructor(userId?: string, name?: string, createTime?: number, metadata?: Event2alarmRuleBodyMetadata, enable?: boolean, triggerPolicies?: Array<Event2alarmRuleBodyTriggerPolicies>, alarmType?: string, actionRule?: string) { 
         this['user_id'] = userId;
         this['name'] = name;
@@ -92,14 +96,14 @@ export class Event2alarmRuleBody {
     public get triggerPolicies(): Array<Event2alarmRuleBodyTriggerPolicies> | undefined {
         return this['trigger_policies'];
     }
-    public withAlarmType(alarmType: string): Event2alarmRuleBody {
+    public withAlarmType(alarmType: Event2alarmRuleBodyAlarmTypeEnum | string): Event2alarmRuleBody {
         this['alarm_type'] = alarmType;
         return this;
     }
-    public set alarmType(alarmType: string  | undefined) {
+    public set alarmType(alarmType: Event2alarmRuleBodyAlarmTypeEnum | string  | undefined) {
         this['alarm_type'] = alarmType;
     }
-    public get alarmType(): string | undefined {
+    public get alarmType(): Event2alarmRuleBodyAlarmTypeEnum | string | undefined {
         return this['alarm_type'];
     }
     public withActionRule(actionRule: string): Event2alarmRuleBody {
@@ -132,4 +136,31 @@ export class Event2alarmRuleBody {
     public get routeGroupRule(): string | undefined {
         return this['route_group_rule'];
     }
+    public withEventNames(eventNames: Array<string>): Event2alarmRuleBody {
+        this['event_names'] = eventNames;
+        return this;
+    }
+    public set eventNames(eventNames: Array<string>  | undefined) {
+        this['event_names'] = eventNames;
+    }
+    public get eventNames(): Array<string> | undefined {
+        return this['event_names'];
+    }
+    public withMigrated(migrated: boolean): Event2alarmRuleBody {
+        this['migrated'] = migrated;
+        return this;
+    }
+    public withTopics(topics: Array<SmnTopics>): Event2alarmRuleBody {
+        this['topics'] = topics;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Event2alarmRuleBodyAlarmTypeEnum {
+    NOTIFICATION = 'notification',
+    DENOISING = 'denoising'
 }

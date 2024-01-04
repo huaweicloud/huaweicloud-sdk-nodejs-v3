@@ -19,8 +19,6 @@ import { CodeSourceParams } from './model/CodeSourceParams';
 import { Constraint } from './model/Constraint';
 import { CreateBasicPluginRequest } from './model/CreateBasicPluginRequest';
 import { CreateBasicPluginResponse } from './model/CreateBasicPluginResponse';
-import { CreateOpenSourceStrategyRequest } from './model/CreateOpenSourceStrategyRequest';
-import { CreateOpenSourceStrategyResponse } from './model/CreateOpenSourceStrategyResponse';
 import { CreatePipelineByTemplateIdRequest } from './model/CreatePipelineByTemplateIdRequest';
 import { CreatePipelineByTemplateIdResponse } from './model/CreatePipelineByTemplateIdResponse';
 import { CreatePipelineByTemplateRequest } from './model/CreatePipelineByTemplateRequest';
@@ -46,8 +44,6 @@ import { CreateStrategyResponse } from './model/CreateStrategyResponse';
 import { CustomVariable } from './model/CustomVariable';
 import { DeleteBasicPluginRequest } from './model/DeleteBasicPluginRequest';
 import { DeleteBasicPluginResponse } from './model/DeleteBasicPluginResponse';
-import { DeleteOpenSourceStrategyRequest } from './model/DeleteOpenSourceStrategyRequest';
-import { DeleteOpenSourceStrategyResponse } from './model/DeleteOpenSourceStrategyResponse';
 import { DeletePipelineGroupRequest } from './model/DeletePipelineGroupRequest';
 import { DeletePipelineGroupResponse } from './model/DeletePipelineGroupResponse';
 import { DeletePipelineRequest } from './model/DeletePipelineRequest';
@@ -69,16 +65,12 @@ import { FullStagePluginsRelationVOAllSteps } from './model/FullStagePluginsRela
 import { FullStagePluginsRelationVOFullStagePluginsItemList } from './model/FullStagePluginsRelationVOFullStagePluginsItemList';
 import { FullStagePluginsRelationVOPluginsList } from './model/FullStagePluginsRelationVOPluginsList';
 import { JobRun } from './model/JobRun';
-import { LicenseProperty } from './model/LicenseProperty';
-import { LicensePropertyRules } from './model/LicensePropertyRules';
 import { ListAvailablePublisherRequest } from './model/ListAvailablePublisherRequest';
 import { ListAvailablePublisherResponse } from './model/ListAvailablePublisherResponse';
 import { ListBasePluginsNewPostRequest } from './model/ListBasePluginsNewPostRequest';
 import { ListBasePluginsNewPostResponse } from './model/ListBasePluginsNewPostResponse';
 import { ListBasePluginsRequest } from './model/ListBasePluginsRequest';
 import { ListBasePluginsResponse } from './model/ListBasePluginsResponse';
-import { ListOpenSourceStrategyRequest } from './model/ListOpenSourceStrategyRequest';
-import { ListOpenSourceStrategyResponse } from './model/ListOpenSourceStrategyResponse';
 import { ListPLuginVersionRequest } from './model/ListPLuginVersionRequest';
 import { ListPLuginVersionResponse } from './model/ListPLuginVersionResponse';
 import { ListPipelineQuery } from './model/ListPipelineQuery';
@@ -107,8 +99,6 @@ import { ListPluginVersionNumberRequest } from './model/ListPluginVersionNumberR
 import { ListPluginVersionNumberResponse } from './model/ListPluginVersionNumberResponse';
 import { ListPluginsRequest } from './model/ListPluginsRequest';
 import { ListPluginsResponse } from './model/ListPluginsResponse';
-import { ListProjectOpenSourceStrategyRequest } from './model/ListProjectOpenSourceStrategyRequest';
-import { ListProjectOpenSourceStrategyResponse } from './model/ListProjectOpenSourceStrategyResponse';
 import { ListProjectStrategyRequest } from './model/ListProjectStrategyRequest';
 import { ListProjectStrategyResponse } from './model/ListProjectStrategyResponse';
 import { ListPublisherRequest } from './model/ListPublisherRequest';
@@ -125,8 +115,6 @@ import { LogQuery } from './model/LogQuery';
 import { NewExtensionExecution } from './model/NewExtensionExecution';
 import { NewExtensionInputs } from './model/NewExtensionInputs';
 import { NewExtensionOutputs } from './model/NewExtensionOutputs';
-import { OpenSourceRuleContent } from './model/OpenSourceRuleContent';
-import { OpenSourceRuleSetCreateVO } from './model/OpenSourceRuleSetCreateVO';
 import { PackageInfo } from './model/PackageInfo';
 import { PageInfoBusinessTypeDefinitionVOData } from './model/PageInfoBusinessTypeDefinitionVOData';
 import { PageInfoBusinessTypeDefinitionVOPluginsList } from './model/PageInfoBusinessTypeDefinitionVOPluginsList';
@@ -201,16 +189,10 @@ import { RunPipelineResponse } from './model/RunPipelineResponse';
 import { RunPipelineSource } from './model/RunPipelineSource';
 import { RunPipelineSourceParams } from './model/RunPipelineSourceParams';
 import { RunPipelineSourceParamsBuildParams } from './model/RunPipelineSourceParamsBuildParams';
-import { SecurityProperty } from './model/SecurityProperty';
-import { SecurityRule } from './model/SecurityRule';
-import { SecurityRuleCve } from './model/SecurityRuleCve';
-import { SecurityRuleSeverity } from './model/SecurityRuleSeverity';
 import { ShowBasicPluginRequest } from './model/ShowBasicPluginRequest';
 import { ShowBasicPluginResponse } from './model/ShowBasicPluginResponse';
 import { ShowInstanceStatusRequest } from './model/ShowInstanceStatusRequest';
 import { ShowInstanceStatusResponse } from './model/ShowInstanceStatusResponse';
-import { ShowOpenSourceStrategyRequest } from './model/ShowOpenSourceStrategyRequest';
-import { ShowOpenSourceStrategyResponse } from './model/ShowOpenSourceStrategyResponse';
 import { ShowPipelineDetailRequest } from './model/ShowPipelineDetailRequest';
 import { ShowPipelineDetailResponse } from './model/ShowPipelineDetailResponse';
 import { ShowPipelineGroupTreeRequest } from './model/ShowPipelineGroupTreeRequest';
@@ -231,8 +213,6 @@ import { ShowPluginOutputsRequest } from './model/ShowPluginOutputsRequest';
 import { ShowPluginOutputsResponse } from './model/ShowPluginOutputsResponse';
 import { ShowPluginVersionRequest } from './model/ShowPluginVersionRequest';
 import { ShowPluginVersionResponse } from './model/ShowPluginVersionResponse';
-import { ShowProjectOpenSourceStrategyRequest } from './model/ShowProjectOpenSourceStrategyRequest';
-import { ShowProjectOpenSourceStrategyResponse } from './model/ShowProjectOpenSourceStrategyResponse';
 import { ShowProjectStrategyRequest } from './model/ShowProjectStrategyRequest';
 import { ShowProjectStrategyResponse } from './model/ShowProjectStrategyResponse';
 import { ShowPublisherRequest } from './model/ShowPublisherRequest';
@@ -243,7 +223,6 @@ import { ShowStrategyRequest } from './model/ShowStrategyRequest';
 import { ShowStrategyResponse } from './model/ShowStrategyResponse';
 import { ShowTemplateDetailRequest } from './model/ShowTemplateDetailRequest';
 import { ShowTemplateDetailResponse } from './model/ShowTemplateDetailResponse';
-import { SimpleOpenSourceRuleSetVO } from './model/SimpleOpenSourceRuleSetVO';
 import { Source } from './model/Source';
 import { StagePluginsQueryDTO } from './model/StagePluginsQueryDTO';
 import { StageRun } from './model/StageRun';
@@ -258,19 +237,14 @@ import { StopPipelineNewRequest } from './model/StopPipelineNewRequest';
 import { StopPipelineNewResponse } from './model/StopPipelineNewResponse';
 import { StopPipelineRunRequest } from './model/StopPipelineRunRequest';
 import { StopPipelineRunResponse } from './model/StopPipelineRunResponse';
-import { SwitchOpenSourceStrategyRequest } from './model/SwitchOpenSourceStrategyRequest';
-import { SwitchOpenSourceStrategyResponse } from './model/SwitchOpenSourceStrategyResponse';
 import { SwitchStrategyRequest } from './model/SwitchStrategyRequest';
 import { SwitchStrategyResponse } from './model/SwitchStrategyResponse';
 import { TemplateCddl } from './model/TemplateCddl';
 import { TemplateParam } from './model/TemplateParam';
 import { TemplateState } from './model/TemplateState';
 import { TemplateView } from './model/TemplateView';
-import { TenantOpenSourceRuleSetCreateVO } from './model/TenantOpenSourceRuleSetCreateVO';
 import { UpdateBasicPluginRequest } from './model/UpdateBasicPluginRequest';
 import { UpdateBasicPluginResponse } from './model/UpdateBasicPluginResponse';
-import { UpdateOpenSourceStrategyRequest } from './model/UpdateOpenSourceStrategyRequest';
-import { UpdateOpenSourceStrategyResponse } from './model/UpdateOpenSourceStrategyResponse';
 import { UpdatePipelineGroupRequest } from './model/UpdatePipelineGroupRequest';
 import { UpdatePipelineGroupResponse } from './model/UpdatePipelineGroupResponse';
 import { UpdatePipelineTemplateRequest } from './model/UpdatePipelineTemplateRequest';
@@ -296,8 +270,6 @@ import { UploadPluginIconResponse } from './model/UploadPluginIconResponse';
 import { UploadPublisherIconRequest } from './model/UploadPublisherIconRequest';
 import { UploadPublisherIconRequestBody } from './model/UploadPublisherIconRequestBody';
 import { UploadPublisherIconResponse } from './model/UploadPublisherIconResponse';
-import { VersionSetProperty } from './model/VersionSetProperty';
-import { VersionSetRule } from './model/VersionSetRule';
 import { Workflow } from './model/Workflow';
 
 export class CodeArtsPipelineClient {
@@ -407,26 +379,6 @@ export class CodeArtsPipelineClient {
      */
     public createBasicPlugin(createBasicPluginRequest?: CreateBasicPluginRequest): Promise<CreateBasicPluginResponse> {
         const options = ParamCreater().createBasicPlugin(createBasicPluginRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建租户级开源治理策略
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建租户级开源治理策略
-     * @param {string} domainId 租户ID
-     * @param {TenantOpenSourceRuleSetCreateVO} body 开源治理策略实例详情
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createOpenSourceStrategy(createOpenSourceStrategyRequest?: CreateOpenSourceStrategyRequest): Promise<CreateOpenSourceStrategyResponse> {
-        const options = ParamCreater().createOpenSourceStrategy(createOpenSourceStrategyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -654,26 +606,6 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 删除租户级开源治理策略
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除租户级开源治理策略
-     * @param {string} domainId 租户ID
-     * @param {string} ruleSetId 策略ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteOpenSourceStrategy(deleteOpenSourceStrategyRequest?: DeleteOpenSourceStrategyRequest): Promise<DeleteOpenSourceStrategyResponse> {
-        const options = ParamCreater().deleteOpenSourceStrategy(deleteOpenSourceStrategyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 删除流水线
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -876,29 +808,6 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 查询租户级开源治理策略列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户级开源治理策略列表
-     * @param {string} domainId 租户ID
-     * @param {string} [name] 策略名称
-     * @param {string} [creatorName] 策略创建人名称
-     * @param {number} [limit] 分页参数，默认15
-     * @param {number} [offset] 分页参数，默认0
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listOpenSourceStrategy(listOpenSourceStrategyRequest?: ListOpenSourceStrategyRequest): Promise<ListOpenSourceStrategyResponse> {
-        const options = ParamCreater().listOpenSourceStrategy(listOpenSourceStrategyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询插件所有版本信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1057,29 +966,6 @@ export class CodeArtsPipelineClient {
      */
     public listPlugins(listPluginsRequest?: ListPluginsRequest): Promise<ListPluginsResponse> {
         const options = ParamCreater().listPlugins(listPluginsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询项目级开源治理策略列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询项目级开源治理策略列表
-     * @param {boolean} includeTenantRuleSet 是否包含当前项目所属租户的策略
-     * @param {string} [name] 策略名称
-     * @param {string} [creatorName] 策略创建人名称
-     * @param {number} [limit] 分页参数，默认15
-     * @param {number} [offset] 分页参数，默认0
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProjectOpenSourceStrategy(listProjectOpenSourceStrategyRequest?: ListProjectOpenSourceStrategyRequest): Promise<ListProjectOpenSourceStrategyResponse> {
-        const options = ParamCreater().listProjectOpenSourceStrategy(listProjectOpenSourceStrategyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1410,26 +1296,6 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 查询租户级开源治理策略详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户级开源治理策略详情
-     * @param {string} domainId 租户ID
-     * @param {string} ruleSetId 规则集ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showOpenSourceStrategy(showOpenSourceStrategyRequest?: ShowOpenSourceStrategyRequest): Promise<ShowOpenSourceStrategyResponse> {
-        const options = ParamCreater().showOpenSourceStrategy(showOpenSourceStrategyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询流水线详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1631,25 +1497,6 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 查询项目级开源治理策略详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询项目级开源治理策略详情
-     * @param {string} ruleSetId 策略ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProjectOpenSourceStrategy(showProjectOpenSourceStrategyRequest?: ShowProjectOpenSourceStrategyRequest): Promise<ShowProjectOpenSourceStrategyResponse> {
-        const options = ParamCreater().showProjectOpenSourceStrategy(showProjectOpenSourceStrategyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询项目级策略详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1811,27 +1658,6 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 修改租户级开源治理策略启用状态
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改租户级开源治理策略启用状态
-     * @param {string} domainId 租户ID
-     * @param {string} ruleSetId 策略ID
-     * @param {UpdateRuleSetStatusReq} body 规则模版实例状态
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public switchOpenSourceStrategy(switchOpenSourceStrategyRequest?: SwitchOpenSourceStrategyRequest): Promise<SwitchOpenSourceStrategyResponse> {
-        const options = ParamCreater().switchOpenSourceStrategy(switchOpenSourceStrategyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 修改规则集状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1865,27 +1691,6 @@ export class CodeArtsPipelineClient {
      */
     public updateBasicPlugin(updateBasicPluginRequest?: UpdateBasicPluginRequest): Promise<UpdateBasicPluginResponse> {
         const options = ParamCreater().updateBasicPlugin(updateBasicPluginRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改租户级开源治理策略
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改租户级开源治理策略
-     * @param {string} domainId 租户ID
-     * @param {string} ruleSetId 规则集ID
-     * @param {OpenSourceRuleSetCreateVO} body 修改开源治理策略实例详情
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateOpenSourceStrategy(updateOpenSourceStrategyRequest?: UpdateOpenSourceStrategyRequest): Promise<UpdateOpenSourceStrategyResponse> {
-        const options = ParamCreater().updateOpenSourceStrategy(updateOpenSourceStrategyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2291,52 +2096,6 @@ export const ParamCreater = function () {
         
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling createBasicPlugin.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'domain_id': domainId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建租户级开源治理策略
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createOpenSourceStrategy(createOpenSourceStrategyRequest?: CreateOpenSourceStrategyRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/create",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let domainId;
-
-            if (createOpenSourceStrategyRequest !== null && createOpenSourceStrategyRequest !== undefined) {
-                if (createOpenSourceStrategyRequest instanceof CreateOpenSourceStrategyRequest) {
-                    domainId = createOpenSourceStrategyRequest.domainId;
-                    body = createOpenSourceStrategyRequest.body
-                } else {
-                    domainId = createOpenSourceStrategyRequest['domain_id'];
-                    body = createOpenSourceStrategyRequest['body'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling createOpenSourceStrategy.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2835,50 +2594,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除租户级开源治理策略
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteOpenSourceStrategy(deleteOpenSourceStrategyRequest?: DeleteOpenSourceStrategyRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/{rule_set_id}/delete",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let domainId;
-            
-            let ruleSetId;
-
-            if (deleteOpenSourceStrategyRequest !== null && deleteOpenSourceStrategyRequest !== undefined) {
-                if (deleteOpenSourceStrategyRequest instanceof DeleteOpenSourceStrategyRequest) {
-                    domainId = deleteOpenSourceStrategyRequest.domainId;
-                    ruleSetId = deleteOpenSourceStrategyRequest.ruleSetId;
-                } else {
-                    domainId = deleteOpenSourceStrategyRequest['domain_id'];
-                    ruleSetId = deleteOpenSourceStrategyRequest['rule_set_id'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteOpenSourceStrategy.');
-            }
-            if (ruleSetId === null || ruleSetId === undefined) {
-            throw new RequiredError('ruleSetId','Required parameter ruleSetId was null or undefined when calling deleteOpenSourceStrategy.');
-            }
-
-            options.pathParams = { 'domain_id': domainId,'rule_set_id': ruleSetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 删除流水线
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3348,72 +3063,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户级开源治理策略列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listOpenSourceStrategy(listOpenSourceStrategyRequest?: ListOpenSourceStrategyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/query",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let domainId;
-            
-            let name;
-            
-            let creatorName;
-            
-            let limit;
-            
-            let offset;
-
-            if (listOpenSourceStrategyRequest !== null && listOpenSourceStrategyRequest !== undefined) {
-                if (listOpenSourceStrategyRequest instanceof ListOpenSourceStrategyRequest) {
-                    domainId = listOpenSourceStrategyRequest.domainId;
-                    name = listOpenSourceStrategyRequest.name;
-                    creatorName = listOpenSourceStrategyRequest.creatorName;
-                    limit = listOpenSourceStrategyRequest.limit;
-                    offset = listOpenSourceStrategyRequest.offset;
-                } else {
-                    domainId = listOpenSourceStrategyRequest['domain_id'];
-                    name = listOpenSourceStrategyRequest['name'];
-                    creatorName = listOpenSourceStrategyRequest['creator_name'];
-                    limit = listOpenSourceStrategyRequest['limit'];
-                    offset = listOpenSourceStrategyRequest['offset'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listOpenSourceStrategy.');
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (creatorName !== null && creatorName !== undefined) {
-                localVarQueryParameter['creator_name'] = creatorName;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'domain_id': domainId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询插件所有版本信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3811,74 +3460,6 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询项目级开源治理策略列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProjectOpenSourceStrategy(listProjectOpenSourceStrategyRequest?: ListProjectOpenSourceStrategyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/open-source/rule-sets/query",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let includeTenantRuleSet;
-            
-            let name;
-            
-            let creatorName;
-            
-            let limit;
-            
-            let offset;
-
-            if (listProjectOpenSourceStrategyRequest !== null && listProjectOpenSourceStrategyRequest !== undefined) {
-                if (listProjectOpenSourceStrategyRequest instanceof ListProjectOpenSourceStrategyRequest) {
-                    includeTenantRuleSet = listProjectOpenSourceStrategyRequest.includeTenantRuleSet;
-                    name = listProjectOpenSourceStrategyRequest.name;
-                    creatorName = listProjectOpenSourceStrategyRequest.creatorName;
-                    limit = listProjectOpenSourceStrategyRequest.limit;
-                    offset = listProjectOpenSourceStrategyRequest.offset;
-                } else {
-                    includeTenantRuleSet = listProjectOpenSourceStrategyRequest['include_tenant_rule_set'];
-                    name = listProjectOpenSourceStrategyRequest['name'];
-                    creatorName = listProjectOpenSourceStrategyRequest['creator_name'];
-                    limit = listProjectOpenSourceStrategyRequest['limit'];
-                    offset = listProjectOpenSourceStrategyRequest['offset'];
-                }
-            }
-
-        
-            if (includeTenantRuleSet === null || includeTenantRuleSet === undefined) {
-                throw new RequiredError('includeTenantRuleSet','Required parameter includeTenantRuleSet was null or undefined when calling listProjectOpenSourceStrategy.');
-            }
-            if (includeTenantRuleSet !== null && includeTenantRuleSet !== undefined) {
-                localVarQueryParameter['include_tenant_rule_set'] = includeTenantRuleSet;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (creatorName !== null && creatorName !== undefined) {
-                localVarQueryParameter['creator_name'] = creatorName;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4727,50 +4308,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户级开源治理策略详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showOpenSourceStrategy(showOpenSourceStrategyRequest?: ShowOpenSourceStrategyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/{rule_set_id}/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let domainId;
-            
-            let ruleSetId;
-
-            if (showOpenSourceStrategyRequest !== null && showOpenSourceStrategyRequest !== undefined) {
-                if (showOpenSourceStrategyRequest instanceof ShowOpenSourceStrategyRequest) {
-                    domainId = showOpenSourceStrategyRequest.domainId;
-                    ruleSetId = showOpenSourceStrategyRequest.ruleSetId;
-                } else {
-                    domainId = showOpenSourceStrategyRequest['domain_id'];
-                    ruleSetId = showOpenSourceStrategyRequest['rule_set_id'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showOpenSourceStrategy.');
-            }
-            if (ruleSetId === null || ruleSetId === undefined) {
-            throw new RequiredError('ruleSetId','Required parameter ruleSetId was null or undefined when calling showOpenSourceStrategy.');
-            }
-
-            options.pathParams = { 'domain_id': domainId,'rule_set_id': ruleSetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询流水线详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5211,43 +4748,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询项目级开源治理策略详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProjectOpenSourceStrategy(showProjectOpenSourceStrategyRequest?: ShowProjectOpenSourceStrategyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/open-source/rule-sets/{rule_set_id}/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let ruleSetId;
-
-            if (showProjectOpenSourceStrategyRequest !== null && showProjectOpenSourceStrategyRequest !== undefined) {
-                if (showProjectOpenSourceStrategyRequest instanceof ShowProjectOpenSourceStrategyRequest) {
-                    ruleSetId = showProjectOpenSourceStrategyRequest.ruleSetId;
-                } else {
-                    ruleSetId = showProjectOpenSourceStrategyRequest['rule_set_id'];
-                }
-            }
-
-        
-            if (ruleSetId === null || ruleSetId === undefined) {
-            throw new RequiredError('ruleSetId','Required parameter ruleSetId was null or undefined when calling showProjectOpenSourceStrategy.');
-            }
-
-            options.pathParams = { 'rule_set_id': ruleSetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询项目级策略详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5622,59 +5122,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改租户级开源治理策略启用状态
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        switchOpenSourceStrategy(switchOpenSourceStrategyRequest?: SwitchOpenSourceStrategyRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/{rule_set_id}/switch",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let domainId;
-            
-            let ruleSetId;
-
-            if (switchOpenSourceStrategyRequest !== null && switchOpenSourceStrategyRequest !== undefined) {
-                if (switchOpenSourceStrategyRequest instanceof SwitchOpenSourceStrategyRequest) {
-                    domainId = switchOpenSourceStrategyRequest.domainId;
-                    ruleSetId = switchOpenSourceStrategyRequest.ruleSetId;
-                    body = switchOpenSourceStrategyRequest.body
-                } else {
-                    domainId = switchOpenSourceStrategyRequest['domain_id'];
-                    ruleSetId = switchOpenSourceStrategyRequest['rule_set_id'];
-                    body = switchOpenSourceStrategyRequest['body'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling switchOpenSourceStrategy.');
-            }
-            if (ruleSetId === null || ruleSetId === undefined) {
-            throw new RequiredError('ruleSetId','Required parameter ruleSetId was null or undefined when calling switchOpenSourceStrategy.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'domain_id': domainId,'rule_set_id': ruleSetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 修改规则集状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5766,59 +5213,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'domain_id': domainId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改租户级开源治理策略
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateOpenSourceStrategy(updateOpenSourceStrategyRequest?: UpdateOpenSourceStrategyRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{domain_id}/tenant/open-source/rule-sets/{rule_set_id}/update",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let domainId;
-            
-            let ruleSetId;
-
-            if (updateOpenSourceStrategyRequest !== null && updateOpenSourceStrategyRequest !== undefined) {
-                if (updateOpenSourceStrategyRequest instanceof UpdateOpenSourceStrategyRequest) {
-                    domainId = updateOpenSourceStrategyRequest.domainId;
-                    ruleSetId = updateOpenSourceStrategyRequest.ruleSetId;
-                    body = updateOpenSourceStrategyRequest.body
-                } else {
-                    domainId = updateOpenSourceStrategyRequest['domain_id'];
-                    ruleSetId = updateOpenSourceStrategyRequest['rule_set_id'];
-                    body = updateOpenSourceStrategyRequest['body'];
-                }
-            }
-
-        
-            if (domainId === null || domainId === undefined) {
-            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateOpenSourceStrategy.');
-            }
-            if (ruleSetId === null || ruleSetId === undefined) {
-            throw new RequiredError('ruleSetId','Required parameter ruleSetId was null or undefined when calling updateOpenSourceStrategy.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'domain_id': domainId,'rule_set_id': ruleSetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

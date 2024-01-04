@@ -7,12 +7,14 @@ export class CreateReleaseReqBody {
     public description?: string;
     public name?: string;
     public namespace?: string;
+    public version?: string;
     public parameters?: ReleaseReqBodyParams;
     public values?: CreateReleaseReqBodyValues;
-    public constructor(chartId?: string, name?: string, namespace?: string, values?: CreateReleaseReqBodyValues) { 
+    public constructor(chartId?: string, name?: string, namespace?: string, version?: string, values?: CreateReleaseReqBodyValues) { 
         this['chart_id'] = chartId;
         this['name'] = name;
         this['namespace'] = namespace;
+        this['version'] = version;
         this['values'] = values;
     }
     public withChartId(chartId: string): CreateReleaseReqBody {
@@ -35,6 +37,10 @@ export class CreateReleaseReqBody {
     }
     public withNamespace(namespace: string): CreateReleaseReqBody {
         this['namespace'] = namespace;
+        return this;
+    }
+    public withVersion(version: string): CreateReleaseReqBody {
+        this['version'] = version;
         return this;
     }
     public withParameters(parameters: ReleaseReqBodyParams): CreateReleaseReqBody {
