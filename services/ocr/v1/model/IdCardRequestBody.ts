@@ -9,6 +9,12 @@ export class IdCardRequestBody {
     private 'detect_reproduce'?: boolean;
     private 'detect_copy'?: boolean;
     private 'return_portrait_location'?: boolean;
+    private 'detect_tampering'?: boolean;
+    private 'detect_border_integrity'?: boolean;
+    private 'detect_blocking_within_border'?: boolean;
+    private 'detect_blur'?: boolean;
+    private 'detect_interim'?: boolean;
+    private 'detect_glare'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): IdCardRequestBody {
@@ -72,5 +78,65 @@ export class IdCardRequestBody {
     }
     public get returnPortraitLocation(): boolean | undefined {
         return this['return_portrait_location'];
+    }
+    public withDetectTampering(detectTampering: boolean): IdCardRequestBody {
+        this['detect_tampering'] = detectTampering;
+        return this;
+    }
+    public set detectTampering(detectTampering: boolean  | undefined) {
+        this['detect_tampering'] = detectTampering;
+    }
+    public get detectTampering(): boolean | undefined {
+        return this['detect_tampering'];
+    }
+    public withDetectBorderIntegrity(detectBorderIntegrity: boolean): IdCardRequestBody {
+        this['detect_border_integrity'] = detectBorderIntegrity;
+        return this;
+    }
+    public set detectBorderIntegrity(detectBorderIntegrity: boolean  | undefined) {
+        this['detect_border_integrity'] = detectBorderIntegrity;
+    }
+    public get detectBorderIntegrity(): boolean | undefined {
+        return this['detect_border_integrity'];
+    }
+    public withDetectBlockingWithinBorder(detectBlockingWithinBorder: boolean): IdCardRequestBody {
+        this['detect_blocking_within_border'] = detectBlockingWithinBorder;
+        return this;
+    }
+    public set detectBlockingWithinBorder(detectBlockingWithinBorder: boolean  | undefined) {
+        this['detect_blocking_within_border'] = detectBlockingWithinBorder;
+    }
+    public get detectBlockingWithinBorder(): boolean | undefined {
+        return this['detect_blocking_within_border'];
+    }
+    public withDetectBlur(detectBlur: boolean): IdCardRequestBody {
+        this['detect_blur'] = detectBlur;
+        return this;
+    }
+    public set detectBlur(detectBlur: boolean  | undefined) {
+        this['detect_blur'] = detectBlur;
+    }
+    public get detectBlur(): boolean | undefined {
+        return this['detect_blur'];
+    }
+    public withDetectInterim(detectInterim: boolean): IdCardRequestBody {
+        this['detect_interim'] = detectInterim;
+        return this;
+    }
+    public set detectInterim(detectInterim: boolean  | undefined) {
+        this['detect_interim'] = detectInterim;
+    }
+    public get detectInterim(): boolean | undefined {
+        return this['detect_interim'];
+    }
+    public withDetectGlare(detectGlare: boolean): IdCardRequestBody {
+        this['detect_glare'] = detectGlare;
+        return this;
+    }
+    public set detectGlare(detectGlare: boolean  | undefined) {
+        this['detect_glare'] = detectGlare;
+    }
+    public get detectGlare(): boolean | undefined {
+        return this['detect_glare'];
     }
 }

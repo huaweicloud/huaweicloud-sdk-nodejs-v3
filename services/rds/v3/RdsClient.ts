@@ -1501,6 +1501,7 @@ export class RdsClient {
      * @param {string} [name] 实例名称。  “\\*”为系统保留字符，如果name是以“\\*”起始，表示按照\\*后面的值模糊匹配，否则，按照name精确匹配查询。不能只传入“\\*”。
      * @param {'Single' | 'Ha' | 'Replica'} [type] 按照实例类型查询。取值Single、Ha、Replica，分别对应于单实例、主备实例和只读实例。
      * @param {'MySQL' | 'PostgreSQL' | 'SQLServer' | 'MariaDB'} [datastoreType] 数据库类型，区分大小写。 - MySQL - PostgreSQL - SQLServer - MariaDB
+     * @param {string} [epsId] 企业项目id。
      * @param {string} [vpcId] 虚拟私有云ID。
      * @param {string} [subnetId] 子网ID。
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
@@ -6821,6 +6822,8 @@ export const ParamCreater = function () {
             
             let datastoreType;
             
+            let epsId;
+            
             let vpcId;
             
             let subnetId;
@@ -6839,6 +6842,7 @@ export const ParamCreater = function () {
                     name = listInstancesRequest.name;
                     type = listInstancesRequest.type;
                     datastoreType = listInstancesRequest.datastoreType;
+                    epsId = listInstancesRequest.epsId;
                     vpcId = listInstancesRequest.vpcId;
                     subnetId = listInstancesRequest.subnetId;
                     offset = listInstancesRequest.offset;
@@ -6851,6 +6855,7 @@ export const ParamCreater = function () {
                     name = listInstancesRequest['name'];
                     type = listInstancesRequest['type'];
                     datastoreType = listInstancesRequest['datastore_type'];
+                    epsId = listInstancesRequest['eps_id'];
                     vpcId = listInstancesRequest['vpc_id'];
                     subnetId = listInstancesRequest['subnet_id'];
                     offset = listInstancesRequest['offset'];
@@ -6871,6 +6876,9 @@ export const ParamCreater = function () {
             }
             if (datastoreType !== null && datastoreType !== undefined) {
                 localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (epsId !== null && epsId !== undefined) {
+                localVarQueryParameter['eps_id'] = epsId;
             }
             if (vpcId !== null && vpcId !== undefined) {
                 localVarQueryParameter['vpc_id'] = vpcId;

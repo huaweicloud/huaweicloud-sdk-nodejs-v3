@@ -2,7 +2,8 @@
 
 export class BatchDeleteGroupReq {
     private 'group_ids'?: Array<string>;
-    public constructor() { 
+    public constructor(groupIds?: Array<string>) { 
+        this['group_ids'] = groupIds;
     }
     public withGroupIds(groupIds: Array<string>): BatchDeleteGroupReq {
         this['group_ids'] = groupIds;

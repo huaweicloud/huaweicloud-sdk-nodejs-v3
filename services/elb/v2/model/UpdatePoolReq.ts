@@ -7,6 +7,8 @@ export class UpdatePoolReq {
     public description?: string;
     private 'admin_state_up'?: boolean;
     private 'session_persistence'?: SessionPersistence;
+    private 'protection_status'?: UpdatePoolReqProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withLbAlgorithm(lbAlgorithm: string): UpdatePoolReq {
@@ -47,4 +49,33 @@ export class UpdatePoolReq {
     public get sessionPersistence(): SessionPersistence | undefined {
         return this['session_persistence'];
     }
+    public withProtectionStatus(protectionStatus: UpdatePoolReqProtectionStatusEnum | string): UpdatePoolReq {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdatePoolReqProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): UpdatePoolReqProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdatePoolReq {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePoolReqProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

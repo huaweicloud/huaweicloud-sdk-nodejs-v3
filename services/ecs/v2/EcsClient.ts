@@ -193,6 +193,8 @@ import { NovaServerSecurityGroup } from './model/NovaServerSecurityGroup';
 import { NovaServerVolume } from './model/NovaServerVolume';
 import { NovaShowKeypairRequest } from './model/NovaShowKeypairRequest';
 import { NovaShowKeypairResponse } from './model/NovaShowKeypairResponse';
+import { NovaShowServerInterfaceRequest } from './model/NovaShowServerInterfaceRequest';
+import { NovaShowServerInterfaceResponse } from './model/NovaShowServerInterfaceResponse';
 import { NovaShowServerRequest } from './model/NovaShowServerRequest';
 import { NovaShowServerResponse } from './model/NovaShowServerResponse';
 import { NovaSimpleKeypair } from './model/NovaSimpleKeypair';
@@ -1404,6 +1406,26 @@ export class EcsClient {
      */
     public novaShowServer(novaShowServerRequest?: NovaShowServerRequest): Promise<NovaShowServerResponse> {
         const options = ParamCreater().novaShowServer(novaShowServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据网卡ID，查询云服务器网卡信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定云服务器网卡信息
+     * @param {string} portId 网卡port id
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaShowServerInterface(novaShowServerInterfaceRequest?: NovaShowServerInterfaceRequest): Promise<NovaShowServerInterfaceResponse> {
+        const options = ParamCreater().novaShowServerInterface(novaShowServerInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4227,6 +4249,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据网卡ID，查询云服务器网卡信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaShowServerInterface(novaShowServerInterfaceRequest?: NovaShowServerInterfaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.1/{project_id}/servers/{server_id}/os-interface/{port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+            
+            let serverId;
+
+            if (novaShowServerInterfaceRequest !== null && novaShowServerInterfaceRequest !== undefined) {
+                if (novaShowServerInterfaceRequest instanceof NovaShowServerInterfaceRequest) {
+                    portId = novaShowServerInterfaceRequest.portId;
+                    serverId = novaShowServerInterfaceRequest.serverId;
+                } else {
+                    portId = novaShowServerInterfaceRequest['port_id'];
+                    serverId = novaShowServerInterfaceRequest['server_id'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling novaShowServerInterface.');
+            }
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaShowServerInterface.');
+            }
+
+            options.pathParams = { 'port_id': portId,'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

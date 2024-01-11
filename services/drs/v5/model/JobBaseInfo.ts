@@ -145,7 +145,9 @@ export enum JobBaseInfoJobTypeEnum {
     * @enum {string}
     */
 export enum JobBaseInfoEngineTypeEnum {
-    ORACLE_TO_GAUSSDBV5 = 'oracle-to-gaussdbv5'
+    ORACLE_TO_GAUSSDBV5 = 'oracle-to-gaussdbv5',
+    REDIS_TO_GAUSSREDIS = 'redis-to-gaussredis',
+    REDISCLUSTER_TO_GAUSSREDIS = 'rediscluster-to-gaussredis'
 }
 /**
     * @export

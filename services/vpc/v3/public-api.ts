@@ -96,6 +96,8 @@ export * from './model/FirewallRuleDetail';
 export * from './model/FirewallUpdateRuleItemOption';
 export * from './model/FirewallUpdateRuleOption';
 export * from './model/InsertSecurityGroupOption';
+export * from './model/IpExtraSetOption';
+export * from './model/IpExtraSetRespOption';
 export * from './model/ListAddressGroupRequest';
 export * from './model/ListAddressGroupResponse';
 export * from './model/ListFirewallDetail';

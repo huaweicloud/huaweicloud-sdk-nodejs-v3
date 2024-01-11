@@ -13,6 +13,8 @@ export class UpdateListenerReq {
     private 'insert_headers'?: InsertHeader;
     private 'tls_ciphers_policy'?: string;
     private 'admin_state_up'?: boolean;
+    private 'protection_status'?: UpdateListenerReqProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateListenerReq {
@@ -113,4 +115,33 @@ export class UpdateListenerReq {
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
+    public withProtectionStatus(protectionStatus: UpdateListenerReqProtectionStatusEnum | string): UpdateListenerReq {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdateListenerReqProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): UpdateListenerReqProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdateListenerReq {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateListenerReqProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

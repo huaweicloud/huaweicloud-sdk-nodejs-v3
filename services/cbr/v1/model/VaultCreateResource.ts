@@ -29,6 +29,7 @@ export class VaultCreateResource {
     private 'demand_billing'?: boolean;
     private 'cbc_delete_count'?: number;
     public frozen?: boolean;
+    private 'sys_lock_source_service'?: string;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>) { 
         this['billing'] = billing;
         this['id'] = id;
@@ -200,5 +201,15 @@ export class VaultCreateResource {
     public withFrozen(frozen: boolean): VaultCreateResource {
         this['frozen'] = frozen;
         return this;
+    }
+    public withSysLockSourceService(sysLockSourceService: string): VaultCreateResource {
+        this['sys_lock_source_service'] = sysLockSourceService;
+        return this;
+    }
+    public set sysLockSourceService(sysLockSourceService: string  | undefined) {
+        this['sys_lock_source_service'] = sysLockSourceService;
+    }
+    public get sysLockSourceService(): string | undefined {
+        return this['sys_lock_source_service'];
     }
 }

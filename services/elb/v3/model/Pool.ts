@@ -1,3 +1,4 @@
+import { ConnectionDrain } from './ConnectionDrain';
 import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { MemberRef } from './MemberRef';
@@ -28,6 +29,7 @@ export class Pool {
     private 'protection_status'?: PoolProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
+    private 'connection_drain'?: ConnectionDrain;
     public constructor(adminStateUp?: boolean, description?: string, healthmonitorId?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MemberRef>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, slowStart?: SlowStart, memberDeletionProtectionEnable?: boolean, vpcId?: string, type?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
@@ -218,6 +220,16 @@ export class Pool {
     }
     public get anyPortEnable(): boolean | undefined {
         return this['any_port_enable'];
+    }
+    public withConnectionDrain(connectionDrain: ConnectionDrain): Pool {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: ConnectionDrain  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): ConnectionDrain | undefined {
+        return this['connection_drain'];
     }
 }
 

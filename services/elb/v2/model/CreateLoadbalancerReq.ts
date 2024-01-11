@@ -9,6 +9,8 @@ export class CreateLoadbalancerReq {
     public provider?: CreateLoadbalancerReqProviderEnum | string;
     private 'admin_state_up'?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'protection_status'?: CreateLoadbalancerReqProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(vipSubnetId?: string) { 
         this['vip_subnet_id'] = vipSubnetId;
     }
@@ -74,6 +76,26 @@ export class CreateLoadbalancerReq {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withProtectionStatus(protectionStatus: CreateLoadbalancerReqProtectionStatusEnum | string): CreateLoadbalancerReq {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateLoadbalancerReqProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreateLoadbalancerReqProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateLoadbalancerReq {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -82,4 +104,12 @@ export class CreateLoadbalancerReq {
     */
 export enum CreateLoadbalancerReqProviderEnum {
     VLB = 'vlb'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateLoadbalancerReqProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

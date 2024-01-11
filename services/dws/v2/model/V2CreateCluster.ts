@@ -13,7 +13,7 @@ export class V2CreateCluster {
     private 'db_port'?: number;
     private 'dss_pool_id'?: string;
     private 'availability_zones'?: Array<string>;
-    public tags?: Tags;
+    public tags?: Array<Tags>;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     private 'security_group_id'?: string;
@@ -115,7 +115,7 @@ export class V2CreateCluster {
     public get availabilityZones(): Array<string> | undefined {
         return this['availability_zones'];
     }
-    public withTags(tags: Tags): V2CreateCluster {
+    public withTags(tags: Array<Tags>): V2CreateCluster {
         this['tags'] = tags;
         return this;
     }

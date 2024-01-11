@@ -22,6 +22,7 @@ export class ListPoolsRequest {
     private 'vpc_id'?: Array<string>;
     public type?: Array<string>;
     private 'protection_status'?: Array<string>;
+    private 'connection_drain'?: boolean;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -191,5 +192,15 @@ export class ListPoolsRequest {
     }
     public get protectionStatus(): Array<string> | undefined {
         return this['protection_status'];
+    }
+    public withConnectionDrain(connectionDrain: boolean): ListPoolsRequest {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: boolean  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): boolean | undefined {
+        return this['connection_drain'];
     }
 }

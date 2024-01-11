@@ -19,6 +19,7 @@ export class ListMasterSlavePoolsRequest {
     private 'member_instance_id'?: Array<string>;
     private 'vpc_id'?: Array<string>;
     public type?: Array<string>;
+    private 'connection_drain'?: boolean;
     public constructor() { 
     }
     public withMarker(marker: string): ListMasterSlavePoolsRequest {
@@ -158,5 +159,15 @@ export class ListMasterSlavePoolsRequest {
     public withType(type: Array<string>): ListMasterSlavePoolsRequest {
         this['type'] = type;
         return this;
+    }
+    public withConnectionDrain(connectionDrain: boolean): ListMasterSlavePoolsRequest {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: boolean  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): boolean | undefined {
+        return this['connection_drain'];
     }
 }

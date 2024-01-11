@@ -1,3 +1,4 @@
+import { CustomizedDns } from './CustomizedDns';
 import { KafkaSecurity } from './KafkaSecurity';
 
 
@@ -22,6 +23,7 @@ export class TestEndPoint {
     private 'project_id'?: string;
     private 'db_name'?: string;
     private 'kafka_security_config'?: KafkaSecurity;
+    private 'customized_dns'?: CustomizedDns;
     public constructor(id?: string, netType?: string, dbType?: string, ip?: string, dbUser?: string, dbPassword?: string, endPointType?: string) { 
         this['id'] = id;
         this['net_type'] = netType;
@@ -212,6 +214,16 @@ export class TestEndPoint {
     }
     public get kafkaSecurityConfig(): KafkaSecurity | undefined {
         return this['kafka_security_config'];
+    }
+    public withCustomizedDns(customizedDns: CustomizedDns): TestEndPoint {
+        this['customized_dns'] = customizedDns;
+        return this;
+    }
+    public set customizedDns(customizedDns: CustomizedDns  | undefined) {
+        this['customized_dns'] = customizedDns;
+    }
+    public get customizedDns(): CustomizedDns | undefined {
+        return this['customized_dns'];
     }
 }
 

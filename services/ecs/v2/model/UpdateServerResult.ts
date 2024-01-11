@@ -24,6 +24,7 @@ export class UpdateServerResult {
     public description?: string;
     public tags?: Array<string>;
     public status?: string;
+    private 'OS-EXT-SRV-ATTR:user_data'?: string;
     private 'OS-EXT-SRV-ATTR:hostname'?: string;
     public constructor(tenantId?: string, image?: string, accessIPv4?: string, accessIPv6?: string, metadata?: { [key: string]: string; }, addresses?: { [key: string]: Array<UpdateServerAddress>; }, created?: string, hostId?: string, flavor?: SimpleFlavor, userId?: string, name?: string, progress?: number, links?: Array<Link>, id?: string, updated?: string, tags?: Array<string>, status?: string, oSEXTSRVATTRHostname?: string) { 
         this['tenant_id'] = tenantId;
@@ -142,6 +143,16 @@ export class UpdateServerResult {
     public withStatus(status: string): UpdateServerResult {
         this['status'] = status;
         return this;
+    }
+    public withOSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string): UpdateServerResult {
+        this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
+        return this;
+    }
+    public set oSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string  | undefined) {
+        this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
+    }
+    public get oSEXTSRVATTRUserData(): string | undefined {
+        return this['OS-EXT-SRV-ATTR:user_data'];
     }
     public withOSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string): UpdateServerResult {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;

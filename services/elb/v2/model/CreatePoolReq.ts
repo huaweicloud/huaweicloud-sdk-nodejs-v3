@@ -11,6 +11,8 @@ export class CreatePoolReq {
     public description?: string;
     private 'admin_state_up'?: boolean;
     private 'session_persistence'?: SessionPersistence;
+    private 'protection_status'?: CreatePoolReqProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(protocol?: string, lbAlgorithm?: string) { 
         this['protocol'] = protocol;
         this['lb_algorithm'] = lbAlgorithm;
@@ -87,6 +89,26 @@ export class CreatePoolReq {
     public get sessionPersistence(): SessionPersistence | undefined {
         return this['session_persistence'];
     }
+    public withProtectionStatus(protectionStatus: CreatePoolReqProtectionStatusEnum | string): CreatePoolReq {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreatePoolReqProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreatePoolReqProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreatePoolReq {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -97,4 +119,12 @@ export enum CreatePoolReqProtocolEnum {
     UDP = 'UDP',
     TCP = 'TCP',
     HTTP = 'HTTP'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreatePoolReqProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

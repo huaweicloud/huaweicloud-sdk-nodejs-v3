@@ -1,3 +1,6 @@
+import { IdcardBackResult } from './IdcardBackResult';
+import { IdcardFrontResult } from './IdcardFrontResult';
+import { IdcardScoreInfoResult } from './IdcardScoreInfoResult';
 import { IdcardVerificationResult } from './IdcardVerificationResult';
 
 
@@ -13,9 +16,18 @@ export class IdCardResult {
     private 'valid_to'?: string;
     private 'verification_result'?: IdcardVerificationResult;
     private 'text_location'?: object;
+    private 'portrait_location'?: Array<Array<number>>;
     private 'detect_reproduce_result'?: boolean;
     private 'detect_copy_result'?: boolean;
-    private 'portrait_location'?: Array<Array<number>>;
+    private 'detect_tampering_result'?: boolean;
+    private 'detect_border_integrity_result'?: boolean;
+    private 'detect_blocking_within_border_result'?: boolean;
+    private 'detect_blur_result'?: boolean;
+    private 'detect_interim_result'?: boolean;
+    private 'detect_glare_result'?: boolean;
+    private 'score_info'?: IdcardScoreInfoResult;
+    public front?: IdcardFrontResult;
+    public back?: IdcardBackResult;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -92,6 +104,16 @@ export class IdCardResult {
     public get textLocation(): object | undefined {
         return this['text_location'];
     }
+    public withPortraitLocation(portraitLocation: Array<Array<number>>): IdCardResult {
+        this['portrait_location'] = portraitLocation;
+        return this;
+    }
+    public set portraitLocation(portraitLocation: Array<Array<number>>  | undefined) {
+        this['portrait_location'] = portraitLocation;
+    }
+    public get portraitLocation(): Array<Array<number>> | undefined {
+        return this['portrait_location'];
+    }
     public withDetectReproduceResult(detectReproduceResult: boolean): IdCardResult {
         this['detect_reproduce_result'] = detectReproduceResult;
         return this;
@@ -112,14 +134,82 @@ export class IdCardResult {
     public get detectCopyResult(): boolean | undefined {
         return this['detect_copy_result'];
     }
-    public withPortraitLocation(portraitLocation: Array<Array<number>>): IdCardResult {
-        this['portrait_location'] = portraitLocation;
+    public withDetectTamperingResult(detectTamperingResult: boolean): IdCardResult {
+        this['detect_tampering_result'] = detectTamperingResult;
         return this;
     }
-    public set portraitLocation(portraitLocation: Array<Array<number>>  | undefined) {
-        this['portrait_location'] = portraitLocation;
+    public set detectTamperingResult(detectTamperingResult: boolean  | undefined) {
+        this['detect_tampering_result'] = detectTamperingResult;
     }
-    public get portraitLocation(): Array<Array<number>> | undefined {
-        return this['portrait_location'];
+    public get detectTamperingResult(): boolean | undefined {
+        return this['detect_tampering_result'];
+    }
+    public withDetectBorderIntegrityResult(detectBorderIntegrityResult: boolean): IdCardResult {
+        this['detect_border_integrity_result'] = detectBorderIntegrityResult;
+        return this;
+    }
+    public set detectBorderIntegrityResult(detectBorderIntegrityResult: boolean  | undefined) {
+        this['detect_border_integrity_result'] = detectBorderIntegrityResult;
+    }
+    public get detectBorderIntegrityResult(): boolean | undefined {
+        return this['detect_border_integrity_result'];
+    }
+    public withDetectBlockingWithinBorderResult(detectBlockingWithinBorderResult: boolean): IdCardResult {
+        this['detect_blocking_within_border_result'] = detectBlockingWithinBorderResult;
+        return this;
+    }
+    public set detectBlockingWithinBorderResult(detectBlockingWithinBorderResult: boolean  | undefined) {
+        this['detect_blocking_within_border_result'] = detectBlockingWithinBorderResult;
+    }
+    public get detectBlockingWithinBorderResult(): boolean | undefined {
+        return this['detect_blocking_within_border_result'];
+    }
+    public withDetectBlurResult(detectBlurResult: boolean): IdCardResult {
+        this['detect_blur_result'] = detectBlurResult;
+        return this;
+    }
+    public set detectBlurResult(detectBlurResult: boolean  | undefined) {
+        this['detect_blur_result'] = detectBlurResult;
+    }
+    public get detectBlurResult(): boolean | undefined {
+        return this['detect_blur_result'];
+    }
+    public withDetectInterimResult(detectInterimResult: boolean): IdCardResult {
+        this['detect_interim_result'] = detectInterimResult;
+        return this;
+    }
+    public set detectInterimResult(detectInterimResult: boolean  | undefined) {
+        this['detect_interim_result'] = detectInterimResult;
+    }
+    public get detectInterimResult(): boolean | undefined {
+        return this['detect_interim_result'];
+    }
+    public withDetectGlareResult(detectGlareResult: boolean): IdCardResult {
+        this['detect_glare_result'] = detectGlareResult;
+        return this;
+    }
+    public set detectGlareResult(detectGlareResult: boolean  | undefined) {
+        this['detect_glare_result'] = detectGlareResult;
+    }
+    public get detectGlareResult(): boolean | undefined {
+        return this['detect_glare_result'];
+    }
+    public withScoreInfo(scoreInfo: IdcardScoreInfoResult): IdCardResult {
+        this['score_info'] = scoreInfo;
+        return this;
+    }
+    public set scoreInfo(scoreInfo: IdcardScoreInfoResult  | undefined) {
+        this['score_info'] = scoreInfo;
+    }
+    public get scoreInfo(): IdcardScoreInfoResult | undefined {
+        return this['score_info'];
+    }
+    public withFront(front: IdcardFrontResult): IdCardResult {
+        this['front'] = front;
+        return this;
+    }
+    public withBack(back: IdcardBackResult): IdCardResult {
+        this['back'] = back;
+        return this;
     }
 }

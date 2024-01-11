@@ -1,3 +1,4 @@
+import { ConnectionDrain } from './ConnectionDrain';
 import { CreatePoolSessionPersistenceOption } from './CreatePoolSessionPersistenceOption';
 import { CreatePoolSlowStartOption } from './CreatePoolSlowStartOption';
 
@@ -20,6 +21,7 @@ export class CreatePoolOption {
     private 'protection_status'?: CreatePoolOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
+    private 'connection_drain'?: ConnectionDrain;
     public constructor(lbAlgorithm?: string, protocol?: string) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -169,6 +171,16 @@ export class CreatePoolOption {
     }
     public get anyPortEnable(): boolean | undefined {
         return this['any_port_enable'];
+    }
+    public withConnectionDrain(connectionDrain: ConnectionDrain): CreatePoolOption {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: ConnectionDrain  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): ConnectionDrain | undefined {
+        return this['connection_drain'];
     }
 }
 

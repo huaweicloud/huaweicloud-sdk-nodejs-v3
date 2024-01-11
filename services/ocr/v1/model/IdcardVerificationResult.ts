@@ -5,6 +5,7 @@ export class IdcardVerificationResult {
     private 'valid_birth'?: boolean;
     private 'valid_sex'?: boolean;
     private 'valid_date'?: boolean;
+    private 'valid_validity_period'?: boolean;
     public constructor() { 
     }
     public withValidNumber(validNumber: boolean): IdcardVerificationResult {
@@ -46,5 +47,15 @@ export class IdcardVerificationResult {
     }
     public get validDate(): boolean | undefined {
         return this['valid_date'];
+    }
+    public withValidValidityPeriod(validValidityPeriod: boolean): IdcardVerificationResult {
+        this['valid_validity_period'] = validValidityPeriod;
+        return this;
+    }
+    public set validValidityPeriod(validValidityPeriod: boolean  | undefined) {
+        this['valid_validity_period'] = validValidityPeriod;
+    }
+    public get validValidityPeriod(): boolean | undefined {
+        return this['valid_validity_period'];
     }
 }

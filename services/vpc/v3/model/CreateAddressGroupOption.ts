@@ -1,3 +1,4 @@
+import { IpExtraSetOption } from './IpExtraSetOption';
 
 
 export class CreateAddressGroupOption {
@@ -7,6 +8,7 @@ export class CreateAddressGroupOption {
     private 'ip_set'?: Array<string>;
     private 'max_capacity'?: number;
     private 'enterprise_project_id'?: string;
+    private 'ip_extra_set'?: Array<IpExtraSetOption>;
     public constructor(name?: string, ipVersion?: number) { 
         this['name'] = name;
         this['ip_version'] = ipVersion;
@@ -58,5 +60,15 @@ export class CreateAddressGroupOption {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIpExtraSet(ipExtraSet: Array<IpExtraSetOption>): CreateAddressGroupOption {
+        this['ip_extra_set'] = ipExtraSet;
+        return this;
+    }
+    public set ipExtraSet(ipExtraSet: Array<IpExtraSetOption>  | undefined) {
+        this['ip_extra_set'] = ipExtraSet;
+    }
+    public get ipExtraSet(): Array<IpExtraSetOption> | undefined {
+        return this['ip_extra_set'];
     }
 }

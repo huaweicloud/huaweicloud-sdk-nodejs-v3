@@ -19,6 +19,8 @@ export class ServiceStageRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://servicestage.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://servicestage.la-south-2.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://servicestage.la-north-2.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://servicestage.tr-west-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://servicestage.ap-southeast-4.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -34,7 +36,9 @@ export class ServiceStageRegion {
         "ap-southeast-3":ServiceStageRegion.AP_SOUTHEAST_3,
         "sa-brazil-1":ServiceStageRegion.SA_BRAZIL_1,
         "la-south-2":ServiceStageRegion.LA_SOUTH_2,
-        "la-north-2":ServiceStageRegion.LA_NORTH_2
+        "la-north-2":ServiceStageRegion.LA_NORTH_2,
+        "tr-west-1":ServiceStageRegion.TR_WEST_1,
+        "ap-southeast-4":ServiceStageRegion.AP_SOUTHEAST_4
     };
   
     public static valueOf(regionId: string) {

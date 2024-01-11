@@ -1,3 +1,4 @@
+import { IpExtraSetRespOption } from './IpExtraSetRespOption';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -15,7 +16,8 @@ export class AddressGroup {
     public tags?: Array<ResourceTag>;
     public status?: string;
     private 'status_message'?: string;
-    public constructor(id?: string, name?: string, description?: string, maxCapacity?: number, ipSet?: Array<string>, ipVersion?: number, createdAt?: Date, updatedAt?: Date, tenantId?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, status?: string, statusMessage?: string) { 
+    private 'ip_extra_set'?: Array<IpExtraSetRespOption>;
+    public constructor(id?: string, name?: string, description?: string, maxCapacity?: number, ipSet?: Array<string>, ipVersion?: number, createdAt?: Date, updatedAt?: Date, tenantId?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, status?: string, statusMessage?: string, ipExtraSet?: Array<IpExtraSetRespOption>) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -29,6 +31,7 @@ export class AddressGroup {
         this['tags'] = tags;
         this['status'] = status;
         this['status_message'] = statusMessage;
+        this['ip_extra_set'] = ipExtraSet;
     }
     public withId(id: string): AddressGroup {
         this['id'] = id;
@@ -129,5 +132,15 @@ export class AddressGroup {
     }
     public get statusMessage(): string | undefined {
         return this['status_message'];
+    }
+    public withIpExtraSet(ipExtraSet: Array<IpExtraSetRespOption>): AddressGroup {
+        this['ip_extra_set'] = ipExtraSet;
+        return this;
+    }
+    public set ipExtraSet(ipExtraSet: Array<IpExtraSetRespOption>  | undefined) {
+        this['ip_extra_set'] = ipExtraSet;
+    }
+    public get ipExtraSet(): Array<IpExtraSetRespOption> | undefined {
+        return this['ip_extra_set'];
     }
 }

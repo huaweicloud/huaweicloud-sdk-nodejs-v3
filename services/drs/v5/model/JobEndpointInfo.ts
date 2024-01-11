@@ -2,6 +2,7 @@ import { BaseEndpoint } from './BaseEndpoint';
 import { BaseEndpointConfig } from './BaseEndpointConfig';
 import { CloudBaseInfo } from './CloudBaseInfo';
 import { CloudVpcInfo } from './CloudVpcInfo';
+import { CustomizedDns } from './CustomizedDns';
 import { EndpointSslConfig } from './EndpointSslConfig';
 
 
@@ -14,6 +15,7 @@ export class JobEndpointInfo {
     public vpc?: CloudVpcInfo;
     public config?: BaseEndpointConfig;
     public ssl?: EndpointSslConfig;
+    private 'customized_dns'?: CustomizedDns;
     public constructor(dbType?: string, endpointType?: string, endpointRole?: string, endpoint?: BaseEndpoint) { 
         this['db_type'] = dbType;
         this['endpoint_type'] = endpointType;
@@ -70,6 +72,16 @@ export class JobEndpointInfo {
         this['ssl'] = ssl;
         return this;
     }
+    public withCustomizedDns(customizedDns: CustomizedDns): JobEndpointInfo {
+        this['customized_dns'] = customizedDns;
+        return this;
+    }
+    public set customizedDns(customizedDns: CustomizedDns  | undefined) {
+        this['customized_dns'] = customizedDns;
+    }
+    public get customizedDns(): CustomizedDns | undefined {
+        return this['customized_dns'];
+    }
 }
 
 /**
@@ -78,7 +90,10 @@ export class JobEndpointInfo {
     */
 export enum JobEndpointInfoDbTypeEnum {
     ORACLE = 'oracle',
-    GAUSSDBV5 = 'gaussdbv5'
+    GAUSSDBV5 = 'gaussdbv5',
+    REDIS = 'redis',
+    REDISCLUSTER = 'rediscluster',
+    GAUSSREDIS = 'gaussredis'
 }
 /**
     * @export

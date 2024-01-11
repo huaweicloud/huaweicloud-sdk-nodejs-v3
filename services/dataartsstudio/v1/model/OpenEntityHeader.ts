@@ -4,7 +4,7 @@ import { TagHeader } from './TagHeader';
 
 export class OpenEntityHeader {
     public attributes?: object;
-    public connection?: Array<Connection>;
+    public connection?: Connection;
     private 'display_text'?: string;
     public guid?: string;
     private 'type_name'?: string;
@@ -16,7 +16,7 @@ export class OpenEntityHeader {
         this['attributes'] = attributes;
         return this;
     }
-    public withConnection(connection: Array<Connection>): OpenEntityHeader {
+    public withConnection(connection: Connection): OpenEntityHeader {
         this['connection'] = connection;
         return this;
     }

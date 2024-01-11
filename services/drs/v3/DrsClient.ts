@@ -104,6 +104,7 @@ import { CreateCompareTaskResult } from './model/CreateCompareTaskResult';
 import { CreateDataLevelCompareReq } from './model/CreateDataLevelCompareReq';
 import { CreateJobReq } from './model/CreateJobReq';
 import { CreateJobResp } from './model/CreateJobResp';
+import { CustomizedDns } from './model/CustomizedDns';
 import { DataTransformationInfo } from './model/DataTransformationInfo';
 import { DataTransformationObjectVO } from './model/DataTransformationObjectVO';
 import { DataTransformationResp } from './model/DataTransformationResp';

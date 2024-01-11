@@ -27,6 +27,7 @@ export class CreateGraphReqGraph {
     private 'product_type'?: string;
     private 'vertex_id_type'?: CreateGraphReqGraphVertexIdType;
     private 'enable_multi_label'?: boolean;
+    private 'capacity_ratio'?: number;
     public constructor(name?: string, graphSizeTypeIndex?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, cryptAlgorithm?: string, enableHttps?: boolean) { 
         this['name'] = name;
         this['graph_size_type_index'] = graphSizeTypeIndex;
@@ -211,5 +212,15 @@ export class CreateGraphReqGraph {
     }
     public get enableMultiLabel(): boolean | undefined {
         return this['enable_multi_label'];
+    }
+    public withCapacityRatio(capacityRatio: number): CreateGraphReqGraph {
+        this['capacity_ratio'] = capacityRatio;
+        return this;
+    }
+    public set capacityRatio(capacityRatio: number  | undefined) {
+        this['capacity_ratio'] = capacityRatio;
+    }
+    public get capacityRatio(): number | undefined {
+        return this['capacity_ratio'];
     }
 }

@@ -98,6 +98,8 @@ import { FirewallRuleDetail } from './model/FirewallRuleDetail';
 import { FirewallUpdateRuleItemOption } from './model/FirewallUpdateRuleItemOption';
 import { FirewallUpdateRuleOption } from './model/FirewallUpdateRuleOption';
 import { InsertSecurityGroupOption } from './model/InsertSecurityGroupOption';
+import { IpExtraSetOption } from './model/IpExtraSetOption';
+import { IpExtraSetRespOption } from './model/IpExtraSetRespOption';
 import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
 import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
 import { ListFirewallDetail } from './model/ListFirewallDetail';

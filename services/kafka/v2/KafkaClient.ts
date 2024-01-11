@@ -545,7 +545,7 @@ export class KafkaClient {
     }
 
     /**
-     * [创建按需计费类型的Kafka实例。](tag:sbc,hk_sbc,cmcc)[创建kafka实例。](tag:otc)
+     * 创建按需计费类型的Kafka实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1012,7 +1012,6 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重置消费组消费进度到指定位置
-     * @param {string} engine 引擎。
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费组名称。
      * @param {ResetMessageOffsetReq} resetMessageOffsetWithEngineRequestBody 请求消息。
@@ -2449,7 +2448,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * [创建按需计费类型的Kafka实例。](tag:sbc,hk_sbc,cmcc)[创建kafka实例。](tag:otc)
+         * 创建按需计费类型的Kafka实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3533,7 +3532,7 @@ export const ParamCreater = function () {
         resetMessageOffsetWithEngine(resetMessageOffsetWithEngineRequest?: ResetMessageOffsetWithEngineRequest) {
             const options = {
                 method: "PUT",
-                url: "/v2/{engine}/{project_id}/instances/{instance_id}/groups/{group}/reset-message-offset",
+                url: "/v2/kafka/{project_id}/instances/{instance_id}/groups/{group}/reset-message-offset",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3544,20 +3543,16 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let engine;
-            
             let instanceId;
             
             let group;
 
             if (resetMessageOffsetWithEngineRequest !== null && resetMessageOffsetWithEngineRequest !== undefined) {
                 if (resetMessageOffsetWithEngineRequest instanceof ResetMessageOffsetWithEngineRequest) {
-                    engine = resetMessageOffsetWithEngineRequest.engine;
                     instanceId = resetMessageOffsetWithEngineRequest.instanceId;
                     group = resetMessageOffsetWithEngineRequest.group;
                     body = resetMessageOffsetWithEngineRequest.body
                 } else {
-                    engine = resetMessageOffsetWithEngineRequest['engine'];
                     instanceId = resetMessageOffsetWithEngineRequest['instance_id'];
                     group = resetMessageOffsetWithEngineRequest['group'];
                     body = resetMessageOffsetWithEngineRequest['body'];
@@ -3565,9 +3560,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling resetMessageOffsetWithEngine.');
-            }
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetMessageOffsetWithEngine.');
             }
@@ -3580,7 +3572,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'engine': engine,'instance_id': instanceId,'group': group, };
+            options.pathParams = { 'instance_id': instanceId,'group': group, };
             options.headers = localVarHeaderParameter;
             return options;
         },

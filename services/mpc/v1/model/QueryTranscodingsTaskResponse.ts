@@ -7,6 +7,7 @@ import { TranscodeDetail } from './TranscodeDetail';
 export class QueryTranscodingsTaskResponse {
     private 'task_id'?: string;
     public status?: QueryTranscodingsTaskResponseStatusEnum | string;
+    public progress?: number;
     private 'create_time'?: string;
     private 'end_time'?: string;
     private 'trans_template_id'?: Array<number>;
@@ -36,6 +37,10 @@ export class QueryTranscodingsTaskResponse {
     }
     public withStatus(status: QueryTranscodingsTaskResponseStatusEnum | string): QueryTranscodingsTaskResponse {
         this['status'] = status;
+        return this;
+    }
+    public withProgress(progress: number): QueryTranscodingsTaskResponse {
+        this['progress'] = progress;
         return this;
     }
     public withCreateTime(createTime: string): QueryTranscodingsTaskResponse {

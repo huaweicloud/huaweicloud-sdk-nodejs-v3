@@ -22,6 +22,7 @@ export class VaultGet {
     private 'auto_expand'?: boolean;
     private 'smn_notify'?: boolean;
     public threshold?: number;
+    private 'sys_lock_source_service'?: string;
     private 'updated_at'?: string;
     public version?: string;
     public constructor(billing?: Billing, id?: string, name?: string, projectId?: string, providerId?: string, resources?: Array<ResourceResp>, updatedAt?: string) { 
@@ -150,6 +151,16 @@ export class VaultGet {
     public withThreshold(threshold: number): VaultGet {
         this['threshold'] = threshold;
         return this;
+    }
+    public withSysLockSourceService(sysLockSourceService: string): VaultGet {
+        this['sys_lock_source_service'] = sysLockSourceService;
+        return this;
+    }
+    public set sysLockSourceService(sysLockSourceService: string  | undefined) {
+        this['sys_lock_source_service'] = sysLockSourceService;
+    }
+    public get sysLockSourceService(): string | undefined {
+        return this['sys_lock_source_service'];
     }
     public withUpdatedAt(updatedAt: string): VaultGet {
         this['updated_at'] = updatedAt;

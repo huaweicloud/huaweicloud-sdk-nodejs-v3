@@ -1,6 +1,6 @@
+import { DeleteNodePoolStatus } from './DeleteNodePoolStatus';
 import { NodePoolMetadata } from './NodePoolMetadata';
 import { NodePoolSpec } from './NodePoolSpec';
-import { NodePoolStatus } from './NodePoolStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -9,7 +9,7 @@ export class DeleteNodePoolResponse extends SdkResponse {
     public apiVersion?: string;
     public metadata?: NodePoolMetadata;
     public spec?: NodePoolSpec;
-    public status?: NodePoolStatus;
+    public status?: DeleteNodePoolStatus;
     public constructor() { 
         super();
     }
@@ -29,7 +29,7 @@ export class DeleteNodePoolResponse extends SdkResponse {
         this['spec'] = spec;
         return this;
     }
-    public withStatus(status: NodePoolStatus): DeleteNodePoolResponse {
+    public withStatus(status: DeleteNodePoolStatus): DeleteNodePoolResponse {
         this['status'] = status;
         return this;
     }

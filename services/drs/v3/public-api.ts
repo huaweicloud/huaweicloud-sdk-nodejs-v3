@@ -102,6 +102,7 @@ export * from './model/CreateCompareTaskResult';
 export * from './model/CreateDataLevelCompareReq';
 export * from './model/CreateJobReq';
 export * from './model/CreateJobResp';
+export * from './model/CustomizedDns';
 export * from './model/DataTransformationInfo';
 export * from './model/DataTransformationObjectVO';
 export * from './model/DataTransformationResp';

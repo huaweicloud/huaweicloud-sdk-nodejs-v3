@@ -37,6 +37,7 @@ export * from './model/CertificateInfo';
 export * from './model/ChangeLoadbalancerChargeModeRequest';
 export * from './model/ChangeLoadbalancerChargeModeRequestBody';
 export * from './model/ChangeLoadbalancerChargeModeResponse';
+export * from './model/ConnectionDrain';
 export * from './model/CountPreoccupyIpNumRequest';
 export * from './model/CountPreoccupyIpNumResponse';
 export * from './model/CreateCertificateOption';

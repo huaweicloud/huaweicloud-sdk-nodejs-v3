@@ -191,6 +191,8 @@ export * from './model/NovaServerSecurityGroup';
 export * from './model/NovaServerVolume';
 export * from './model/NovaShowKeypairRequest';
 export * from './model/NovaShowKeypairResponse';
+export * from './model/NovaShowServerInterfaceRequest';
+export * from './model/NovaShowServerInterfaceResponse';
 export * from './model/NovaShowServerRequest';
 export * from './model/NovaShowServerResponse';
 export * from './model/NovaSimpleKeypair';

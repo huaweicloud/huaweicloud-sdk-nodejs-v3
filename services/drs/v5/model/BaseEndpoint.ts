@@ -116,5 +116,10 @@ export enum BaseEndpointEndpointNameEnum {
     CLOUD_GAUSSDBV5 = 'cloud_gaussdbv5',
     MYSQL = 'mysql',
     ECS_MYSQL = 'ecs_mysql',
-    CLOUD_MYSQL = 'cloud_mysql'
+    CLOUD_MYSQL = 'cloud_mysql',
+    REDIS = 'redis',
+    ECS_REDIS = 'ecs_redis',
+    REDISCLUSTER = 'rediscluster',
+    ECS_REDISCLUSTER = 'ecs_rediscluster',
+    CLOUD_GAUSSDB_REDIS = 'cloud_gaussdb_redis'
 }

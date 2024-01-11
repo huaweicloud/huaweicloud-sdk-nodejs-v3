@@ -7,6 +7,7 @@ export class ListInstancesRequest {
     public name?: string;
     public type?: ListInstancesRequestTypeEnum | string;
     private 'datastore_type'?: ListInstancesRequestDatastoreTypeEnum | string;
+    private 'eps_id'?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     public offset?: number;
@@ -55,6 +56,16 @@ export class ListInstancesRequest {
     }
     public get datastoreType(): ListInstancesRequestDatastoreTypeEnum | string | undefined {
         return this['datastore_type'];
+    }
+    public withEpsId(epsId: string): ListInstancesRequest {
+        this['eps_id'] = epsId;
+        return this;
+    }
+    public set epsId(epsId: string  | undefined) {
+        this['eps_id'] = epsId;
+    }
+    public get epsId(): string | undefined {
+        return this['eps_id'];
     }
     public withVpcId(vpcId: string): ListInstancesRequest {
         this['vpc_id'] = vpcId;

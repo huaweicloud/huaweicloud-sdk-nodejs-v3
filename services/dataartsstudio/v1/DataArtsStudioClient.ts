@@ -1,6 +1,7 @@
 import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+import FormData from 'form-data';
 
 import { AddTagToAssetRequest } from './model/AddTagToAssetRequest';
 import { AddTagToAssetResponse } from './model/AddTagToAssetResponse';
@@ -125,7 +126,9 @@ import { CodeTableFieldVO } from './model/CodeTableFieldVO';
 import { CodeTableFieldValueUpdateVO } from './model/CodeTableFieldValueUpdateVO';
 import { CodeTableFieldValueVO } from './model/CodeTableFieldValueVO';
 import { CodeTableVO } from './model/CodeTableVO';
+import { ColumnDetails } from './model/ColumnDetails';
 import { ColumnInfo } from './model/ColumnInfo';
+import { ColumnLineage } from './model/ColumnLineage';
 import { ColumnsList } from './model/ColumnsList';
 import { CommonConditionVO } from './model/CommonConditionVO';
 import { CompoundMetricVO } from './model/CompoundMetricVO';
@@ -299,6 +302,14 @@ import { GlossaryInfo } from './model/GlossaryInfo';
 import { Group } from './model/Group';
 import { HierarchiesAttrVO } from './model/HierarchiesAttrVO';
 import { IdsParam } from './model/IdsParam';
+import { ImportCatalogsRequest } from './model/ImportCatalogsRequest';
+import { ImportCatalogsRequestBody } from './model/ImportCatalogsRequestBody';
+import { ImportCatalogsResponse } from './model/ImportCatalogsResponse';
+import { ImportLineageRequest } from './model/ImportLineageRequest';
+import { ImportLineageResponse } from './model/ImportLineageResponse';
+import { ImportModelsRequest } from './model/ImportModelsRequest';
+import { ImportModelsRequestBody } from './model/ImportModelsRequestBody';
+import { ImportModelsResponse } from './model/ImportModelsResponse';
 import { ImportResultRequest } from './model/ImportResultRequest';
 import { ImportResultResponse } from './model/ImportResultResponse';
 import { InitializeStandardTemplateRequest } from './model/InitializeStandardTemplateRequest';
@@ -325,6 +336,8 @@ import { ListAllCatalogListRequest } from './model/ListAllCatalogListRequest';
 import { ListAllCatalogListResponse } from './model/ListAllCatalogListResponse';
 import { ListAllStandardsRequest } from './model/ListAllStandardsRequest';
 import { ListAllStandardsResponse } from './model/ListAllStandardsResponse';
+import { ListAllTablesRequest } from './model/ListAllTablesRequest';
+import { ListAllTablesResponse } from './model/ListAllTablesResponse';
 import { ListApiCatalogListRequest } from './model/ListApiCatalogListRequest';
 import { ListApiCatalogListResponse } from './model/ListApiCatalogListResponse';
 import { ListApiTopNRequest } from './model/ListApiTopNRequest';
@@ -456,6 +469,7 @@ import { ModifyCustomizedFieldsRequest } from './model/ModifyCustomizedFieldsReq
 import { ModifyCustomizedFieldsResponse } from './model/ModifyCustomizedFieldsResponse';
 import { Namespace } from './model/Namespace';
 import { Node } from './model/Node';
+import { ObjectIdInfo } from './model/ObjectIdInfo';
 import { ObsFolder } from './model/ObsFolder';
 import { OpenApiParaForCheckMessage } from './model/OpenApiParaForCheckMessage';
 import { OpenApiParaForPublish } from './model/OpenApiParaForPublish';
@@ -673,6 +687,8 @@ import { SupplementDataRespRows } from './model/SupplementDataRespRows';
 import { SupplementDataRespSupplementDataInstanceTime } from './model/SupplementDataRespSupplementDataInstanceTime';
 import { SupplementDataRespSupplementDataRunTime } from './model/SupplementDataRespSupplementDataRunTime';
 import { SyncStatusEnum } from './model/SyncStatusEnum';
+import { TableInfo } from './model/TableInfo';
+import { TableLineage } from './model/TableLineage';
 import { TableMappingDetailVO } from './model/TableMappingDetailVO';
 import { TableMappingVO } from './model/TableMappingVO';
 import { TableModelAttributeVO } from './model/TableModelAttributeVO';
@@ -902,7 +918,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除识别规则接口
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {BatchDeleteRulesBaseDTO} batchDeleteSecurityDataClassificationRuleRequestBody 识别规则id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -923,7 +939,7 @@ export class DataArtsStudioClient {
      *
      * @summary 批量删除权限集成员
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {BatchDeleteBaseDTO} batchDeleteSecurityPermissionSetMembersRequestBody 权限集成员批量删除参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -944,7 +960,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除权限集的权限
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {BatchDeleteBaseDTO} batchDeleteSecurityPermissionSetPermissionsRequestBody 权限删除参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -964,7 +980,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除规则模板
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {TemplateListRO} templateIds 模板id列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1506,7 +1522,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建识别规则
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {DataClassificationRuleOperateDTO} createSecurityDataClassificationRuleRequestBody 敏感数据识别规则传输层DTO对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1526,7 +1542,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建权限集
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {PermissionSetCreateDTO} createSecurityPermissionSetRequestBody 权限集创建参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1547,7 +1563,7 @@ export class DataArtsStudioClient {
      *
      * @summary 添加权限集成员
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {PermissionSetMemberCreateDTO} createSecurityPermissionSetMemberRequestBody 权限集成员创建参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1568,7 +1584,7 @@ export class DataArtsStudioClient {
      *
      * @summary 添加权限集的权限
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {PermissionSetPermissionCreateDTO} createSecurityPermissionSetPermissionRequestBody 权限创建参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1730,7 +1746,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建规则模板
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {TemplateRO} templateRO 模板参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1973,7 +1989,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除识别规则
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} id 需要删除的规则id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2014,7 +2030,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除权限集
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2231,6 +2247,72 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 用于导入主题
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入主题
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} actionId 需要执行的动作
+     * @param {any} file 导入主题用的excel文件，大小必须小于4MB，且行数小于3000行
+     * @param {boolean} [skipExist] 是否需要覆盖更新已有的主题
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importCatalogs(importCatalogsRequest?: ImportCatalogsRequest): Promise<ImportCatalogsResponse> {
+        const options = ParamCreater().importCatalogs(importCatalogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 血缘查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 血缘导入
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {Array<TableLineage>} importLineageRequestBody 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importLineage(importLineageRequest?: ImportLineageRequest): Promise<ImportLineageResponse> {
+        const options = ParamCreater().importLineage(importLineageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {'import_relation' | 'import_dimension' | 'import_codetable' | 'import_datastandard' | 'import_bizmetric' | 'import_bizcatalog' | 'import_atomic' | 'import_derivative' | 'import_compound' | 'import_aggregation'} actionId 需要执行的动作，根据导入的对象不同而选择不同的导入动作
+     * @param {any} file 导入用的excel文件，大小必须小于4MB，且行数小于3000行
+     * @param {string} [modelId] 模型id，在导入模型（import_relation）时必填
+     * @param {string} [directoryId] 导入的目录id，在导入码表（import_datastandard）和数据标准（import_datastandard）时生效，选填
+     * @param {boolean} [skipExist] 是否需要覆盖更新已有的实体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importModels(importModelsRequest?: ImportModelsRequest): Promise<ImportModelsResponse> {
+        const options = ParamCreater().importModels(importModelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询导入excel的处理结果
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2345,6 +2427,37 @@ export class DataArtsStudioClient {
      */
     public listAllStandards(listAllStandardsRequest?: ListAllStandardsRequest): Promise<ListAllStandardsResponse> {
         const options = ParamCreater().listAllStandards(listAllStandardsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询多种类型的表信息
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {Array<'TABLE_MODEL_LOGIC' | 'TABLE_MODEL' | 'DIMENSION_LOGIC_TABLE' | 'FACT_LOGIC_TABLE' | 'AGGREGATION_LOGIC_TABLE'>} bizTypeList 查询的表类型，必填
+     * @param {string} [name] 按名称或编码模糊查询
+     * @param {string} [createBy] 按创建者查询
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
+     * @param {string} [bizCatalogId] 所属的业务分层的id
+     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
+     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {Array<number>} [bizCatalogIdList] 所属主题的id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllTables(listAllTablesRequest?: ListAllTablesRequest): Promise<ListAllTablesResponse> {
+        const options = ParamCreater().listAllTables(listAllTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2720,7 +2833,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取作业目录
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} accept application/json
      * @param {number} [limit] 分页时每页的条数,最大值为100
      * @param {number} [offset] 分页偏移量
@@ -2822,7 +2935,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取对账作业列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [categoryId] 目录ID
      * @param {string} [name] name
      * @param {'UNKNOWN' | 'NOT_START' | 'SCHEDULING' | 'FINISH_SUCCESS' | 'KILL' | 'RUNNING_EXCEPTION'} [scheduleStatus] 调度状态 UNKNOWN:未知,NOT_START:未启动,SCHEDULING:调度中,FINISH_SUCCESS:正常结束,KILL:手动停止,RUNNING_EXCEPTION:运行失败
@@ -3202,7 +3315,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取任务执行结果列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} [name] 规则名称
      * @param {'QUALITY_TASK' | 'CONSISTENCY_TASK'} [taskType] 任务实例类型 QUALITY_TASK:质量作业 CONSISTENCY_TASK:对账作业
      * @param {'SUCCESS' | 'FAILED' | 'RUNNING' | 'ALARMING'} [runStatus] 状态, RUNNING:运行中,FAILED:失败,ALARMING:报警,SUCCESS:正常,SUSPENDING:暂停中,UNKNOWN:未定义
@@ -3295,7 +3408,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取质量作业列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [categoryId] 目录ID
      * @param {string} [name] name
      * @param {'UNKNOWN' | 'NOT_START' | 'SCHEDULING' | 'FINISH_SUCCESS' | 'KILL' | 'RUNNING_EXCEPTION'} [scheduleStatus] 调度状态 UNKNOWN:未知,NOT_START:未启动,SCHEDULING:调度中,FINISH_SUCCESS:正常结束,KILL:手动停止,RUNNING_EXCEPTION:运行失败
@@ -3352,7 +3465,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取规则模板列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [categoryId] category id
      * @param {string} [name] name
      * @param {boolean} [systemTemplate] 是否只查询系统模板
@@ -3425,7 +3538,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规则组列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {string} [name] 规则组名称
@@ -3450,7 +3563,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询识别规则列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [offset] 查询偏移
      * @param {number} [limit] 查询一页限制
      * @param {string} [secrecyLevel] 密级
@@ -3480,7 +3593,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询权限集成员列表
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {string} [memberName] 成员名称
@@ -3506,7 +3619,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询权限集的权限列表
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {'DENY' | 'ALLOW'} [permissionType] 权限类型,DENY,ALLOW
@@ -3538,7 +3651,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询权限集列表
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {string} [name] 名称
@@ -4620,7 +4733,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取对账作业详情
      * @param {string} id 对账作业ID
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4923,7 +5036,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取实例结果
      * @param {string} instanceId projectId
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5074,7 +5187,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取质量作业详情
      * @param {string} id 质量作业ID
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5114,7 +5227,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特定识别规则
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} id 需要查询的规则ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5134,7 +5247,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规则组
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} id 需要查询的规则组ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5155,7 +5268,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询权限集
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5319,7 +5432,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取规则模板详情
      * @param {number} id id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5591,7 +5704,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改识别规则接口
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} id 识别规则id
      * @param {DataClassificationRuleOperateDTO} updateSecurityDataClassificationRuleRequestBody 需要修改的识别规则DTO
      * @param {*} [options] Override http request option.
@@ -5613,7 +5726,7 @@ export class DataArtsStudioClient {
      *
      * @summary 更新权限集
      * @param {string} permissionSetId 权限集id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {PermissionSetCreateDTO} updateSecurityPermissionSetRequestBody 权限集创建参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5635,7 +5748,7 @@ export class DataArtsStudioClient {
      * @summary 更新权限集的权限
      * @param {string} permissionSetId 权限集id
      * @param {string} permissionId 权限id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {PermissionSetPermissionUpdateDTO} updateSecurityPermissionSetPermissionRequestBody 权限更新参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5655,7 +5768,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改识别规则状态接口
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {string} id 识别规则id
      * @param {DataClassificationRuleEnableDTO} updateSecurityRuleEnableStatusRequestBody 需要修改的识别规则DTO
      * @param {*} [options] Override http request option.
@@ -5799,7 +5912,7 @@ export class DataArtsStudioClient {
      *
      * @summary 更新规则模板
      * @param {string} id id
-     * @param {string} workspace workspace 信息
+     * @param {string} workspace DataArts Studio工作空间ID
      * @param {TemplateRO} templateRO 模板参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9633,6 +9746,201 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于导入主题
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importCatalogs(importCatalogsRequest?: ImportCatalogsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/catalogs/action",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let workspace;
+            
+            let actionId;
+            let file;
+            
+            
+            let skipExist;
+
+            if (importCatalogsRequest !== null && importCatalogsRequest !== undefined) {
+                if (importCatalogsRequest instanceof ImportCatalogsRequest) {
+                    workspace = importCatalogsRequest.workspace;
+                    actionId = importCatalogsRequest.actionId;
+                    file = importCatalogsRequest.body?.file;
+                    skipExist = importCatalogsRequest.skipExist;
+                } else {
+                    workspace = importCatalogsRequest['workspace'];
+                    actionId = importCatalogsRequest['action-id'];
+                    file = importCatalogsRequest['body']['file'];
+                    skipExist = importCatalogsRequest['skip-exist'];
+                }
+            }
+
+        
+            if (actionId === null || actionId === undefined) {
+                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling importCatalogs.');
+            }
+            if (actionId !== null && actionId !== undefined) {
+                localVarQueryParameter['action-id'] = actionId;
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling importCatalogs.');
+            }
+            if (skipExist !== null && skipExist !== undefined) {
+                localVarQueryParameter['skip-exist'] = skipExist;
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 血缘查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importLineage(importLineageRequest?: ImportLineageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/lineage/import",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (importLineageRequest !== null && importLineageRequest !== undefined) {
+                if (importLineageRequest instanceof ImportLineageRequest) {
+                    workspace = importLineageRequest.workspace;
+                    body = importLineageRequest.body
+                } else {
+                    workspace = importLineageRequest['workspace'];
+                    body = importLineageRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importModels(importModelsRequest?: ImportModelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/models/action",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let workspace;
+            
+            let actionId;
+            let file;
+            
+            
+            let modelId;
+            
+            let directoryId;
+            
+            let skipExist;
+
+            if (importModelsRequest !== null && importModelsRequest !== undefined) {
+                if (importModelsRequest instanceof ImportModelsRequest) {
+                    workspace = importModelsRequest.workspace;
+                    actionId = importModelsRequest.actionId;
+                    file = importModelsRequest.body?.file;
+                    modelId = importModelsRequest.modelId;
+                    directoryId = importModelsRequest.directoryId;
+                    skipExist = importModelsRequest.skipExist;
+                } else {
+                    workspace = importModelsRequest['workspace'];
+                    actionId = importModelsRequest['action-id'];
+                    file = importModelsRequest['body']['file'];
+                    modelId = importModelsRequest['model_id'];
+                    directoryId = importModelsRequest['directory_id'];
+                    skipExist = importModelsRequest['skip-exist'];
+                }
+            }
+
+        
+            if (actionId === null || actionId === undefined) {
+                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling importModels.');
+            }
+            if (actionId !== null && actionId !== undefined) {
+                localVarQueryParameter['action-id'] = actionId;
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling importModels.');
+            }
+            if (modelId !== null && modelId !== undefined) {
+                localVarQueryParameter['model_id'] = modelId;
+            }
+            if (directoryId !== null && directoryId !== undefined) {
+                localVarQueryParameter['directory_id'] = directoryId;
+            }
+            if (skipExist !== null && skipExist !== undefined) {
+                localVarQueryParameter['skip-exist'] = skipExist;
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询导入excel的处理结果
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10005,6 +10313,130 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllTables(listAllTablesRequest?: ListAllTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/design/all-tables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let bizTypeList;
+            
+            let name;
+            
+            let createBy;
+            
+            let status;
+            
+            let syncStatus;
+            
+            let syncKey;
+            
+            let bizCatalogId;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let limit;
+            
+            let offset;
+            
+            let bizCatalogIdList;
+
+            if (listAllTablesRequest !== null && listAllTablesRequest !== undefined) {
+                if (listAllTablesRequest instanceof ListAllTablesRequest) {
+                    workspace = listAllTablesRequest.workspace;
+                    bizTypeList = listAllTablesRequest.bizTypeList;
+                    name = listAllTablesRequest.name;
+                    createBy = listAllTablesRequest.createBy;
+                    status = listAllTablesRequest.status;
+                    syncStatus = listAllTablesRequest.syncStatus;
+                    syncKey = listAllTablesRequest.syncKey;
+                    bizCatalogId = listAllTablesRequest.bizCatalogId;
+                    beginTime = listAllTablesRequest.beginTime;
+                    endTime = listAllTablesRequest.endTime;
+                    limit = listAllTablesRequest.limit;
+                    offset = listAllTablesRequest.offset;
+                    bizCatalogIdList = listAllTablesRequest.bizCatalogIdList;
+                } else {
+                    workspace = listAllTablesRequest['workspace'];
+                    bizTypeList = listAllTablesRequest['biz_type_list'];
+                    name = listAllTablesRequest['name'];
+                    createBy = listAllTablesRequest['create_by'];
+                    status = listAllTablesRequest['status'];
+                    syncStatus = listAllTablesRequest['sync_status'];
+                    syncKey = listAllTablesRequest['sync_key'];
+                    bizCatalogId = listAllTablesRequest['biz_catalog_id'];
+                    beginTime = listAllTablesRequest['begin_time'];
+                    endTime = listAllTablesRequest['end_time'];
+                    limit = listAllTablesRequest['limit'];
+                    offset = listAllTablesRequest['offset'];
+                    bizCatalogIdList = listAllTablesRequest['biz_catalog_id_list'];
+                }
+            }
+
+        
+            if (bizTypeList === null || bizTypeList === undefined) {
+                throw new RequiredError('bizTypeList','Required parameter bizTypeList was null or undefined when calling listAllTables.');
+            }
+            if (bizTypeList !== null && bizTypeList !== undefined) {
+                localVarQueryParameter['biz_type_list'] = bizTypeList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (createBy !== null && createBy !== undefined) {
+                localVarQueryParameter['create_by'] = createBy;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (syncStatus !== null && syncStatus !== undefined) {
+                localVarQueryParameter['sync_status'] = syncStatus;
+            }
+            if (syncKey !== null && syncKey !== undefined) {
+                localVarQueryParameter['sync_key'] = syncKey;
+            }
+            if (bizCatalogId !== null && bizCatalogId !== undefined) {
+                localVarQueryParameter['biz_catalog_id'] = bizCatalogId;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (bizCatalogIdList !== null && bizCatalogIdList !== undefined) {
+                localVarQueryParameter['biz_catalog_id_list'] = bizCatalogIdList;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);

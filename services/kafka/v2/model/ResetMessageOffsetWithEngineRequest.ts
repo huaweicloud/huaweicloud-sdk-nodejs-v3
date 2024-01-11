@@ -2,18 +2,12 @@ import { ResetMessageOffsetReq } from './ResetMessageOffsetReq';
 
 
 export class ResetMessageOffsetWithEngineRequest {
-    public engine?: string;
     private 'instance_id'?: string;
     public group?: string;
     public body?: ResetMessageOffsetReq;
-    public constructor(engine?: string, instanceId?: string, group?: string) { 
-        this['engine'] = engine;
+    public constructor(instanceId?: string, group?: string) { 
         this['instance_id'] = instanceId;
         this['group'] = group;
-    }
-    public withEngine(engine: string): ResetMessageOffsetWithEngineRequest {
-        this['engine'] = engine;
-        return this;
     }
     public withInstanceId(instanceId: string): ResetMessageOffsetWithEngineRequest {
         this['instance_id'] = instanceId;

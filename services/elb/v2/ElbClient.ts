@@ -125,6 +125,7 @@ import { MemberResp } from './model/MemberResp';
 import { MembersInStatusResp } from './model/MembersInStatusResp';
 import { PoolResp } from './model/PoolResp';
 import { PoolsInStatusResp } from './model/PoolsInStatusResp';
+import { PublicIpInfo } from './model/PublicIpInfo';
 import { ResourceList } from './model/ResourceList';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourcesByTag } from './model/ResourcesByTag';
@@ -878,7 +879,7 @@ export class ElbClient {
      * @param {string} [provisioningStatus] 负载均衡器的配置状态。取值范围：可以为ACTIVE、PENDING_CREATE 或者ERROR。
      * @param {string} [vipAddress] 负载均衡器的内网IP。
      * @param {string} [vipPortId] 负载均衡器内网IP对应的端口ID。
-     * @param {string} [vipSubnetId] 负载均衡器所在的子网IPv4网络ID。
+     * @param {string} [vipSubnetId] 负载均衡器所在的子网IPv4子网ID。
      * @param {string} [vpcId] 负载均衡器所在的虚拟私有云ID。
      * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {boolean} [adminStateUp] 负载均衡器的管理状态。负载均衡器停用时不再接收流量。取值范围：true：启用负载均衡器；false：停用负载均衡器。

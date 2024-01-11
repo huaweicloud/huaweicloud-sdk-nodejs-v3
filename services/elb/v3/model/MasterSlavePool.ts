@@ -1,3 +1,4 @@
+import { ConnectionDrain } from './ConnectionDrain';
 import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { MasterSlaveHealthMonitor } from './MasterSlaveHealthMonitor';
@@ -24,6 +25,7 @@ export class MasterSlavePool {
     private 'enterprise_project_id'?: string;
     public healthmonitor?: MasterSlaveHealthMonitor;
     private 'any_port_enable'?: boolean;
+    private 'connection_drain'?: ConnectionDrain;
     public constructor(description?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MasterSlaveMember>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, createdAt?: string, updatedAt?: string, vpcId?: string, type?: string, enterpriseProjectId?: string, healthmonitor?: MasterSlaveHealthMonitor) { 
         this['description'] = description;
         this['id'] = id;
@@ -168,5 +170,15 @@ export class MasterSlavePool {
     }
     public get anyPortEnable(): boolean | undefined {
         return this['any_port_enable'];
+    }
+    public withConnectionDrain(connectionDrain: ConnectionDrain): MasterSlavePool {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: ConnectionDrain  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): ConnectionDrain | undefined {
+        return this['connection_drain'];
     }
 }

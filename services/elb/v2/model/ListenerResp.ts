@@ -23,7 +23,9 @@ export class ListenerResp {
     private 'insert_headers'?: InsertHeader;
     private 'project_id'?: string;
     private 'tls_ciphers_policy'?: string;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, connectionLimit?: number, http2Enable?: boolean, protocol?: string, protocolPort?: number, defaultPoolId?: string, defaultTlsContainerRef?: string, clientCaTlsContainerRef?: string, sniContainerRefs?: Array<string>, tags?: Array<string>, createdAt?: string, updatedAt?: string, insertHeaders?: InsertHeader, projectId?: string, tlsCiphersPolicy?: string) { 
+    private 'protection_status'?: ListenerRespProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, connectionLimit?: number, http2Enable?: boolean, protocol?: string, protocolPort?: number, defaultPoolId?: string, defaultTlsContainerRef?: string, clientCaTlsContainerRef?: string, sniContainerRefs?: Array<string>, tags?: Array<string>, createdAt?: string, updatedAt?: string, insertHeaders?: InsertHeader, projectId?: string, tlsCiphersPolicy?: string, protectionStatus?: string, protectionReason?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -44,6 +46,8 @@ export class ListenerResp {
         this['insert_headers'] = insertHeaders;
         this['project_id'] = projectId;
         this['tls_ciphers_policy'] = tlsCiphersPolicy;
+        this['protection_status'] = protectionStatus;
+        this['protection_reason'] = protectionReason;
     }
     public withId(id: string): ListenerResp {
         this['id'] = id;
@@ -209,6 +213,26 @@ export class ListenerResp {
     public get tlsCiphersPolicy(): string | undefined {
         return this['tls_ciphers_policy'];
     }
+    public withProtectionStatus(protectionStatus: ListenerRespProtectionStatusEnum | string): ListenerResp {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: ListenerRespProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): ListenerRespProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): ListenerResp {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -220,4 +244,12 @@ export enum ListenerRespProtocolEnum {
     TCP = 'TCP',
     HTTP = 'HTTP',
     TERMINATED_HTTPS = 'TERMINATED_HTTPS'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListenerRespProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

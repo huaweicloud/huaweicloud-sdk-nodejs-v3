@@ -1,3 +1,4 @@
+import { PublicIpInfo } from './PublicIpInfo';
 import { ResourceList } from './ResourceList';
 
 
@@ -20,7 +21,10 @@ export class LoadbalancerResp {
     private 'enterprise_project_id'?: string;
     private 'project_id'?: string;
     public tags?: Array<string>;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, vipSubnetId?: string, vipPortId?: string, vipAddress?: string, listeners?: Array<ResourceList>, pools?: Array<ResourceList>, provider?: string, operatingStatus?: string, provisioningStatus?: string, adminStateUp?: boolean, createdAt?: string, updatedAt?: string, enterpriseProjectId?: string, projectId?: string, tags?: Array<string>) { 
+    public publicips?: Array<PublicIpInfo>;
+    private 'charge_mode'?: string;
+    private 'frozen_scene'?: string;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, vipSubnetId?: string, vipPortId?: string, vipAddress?: string, listeners?: Array<ResourceList>, pools?: Array<ResourceList>, provider?: string, operatingStatus?: string, provisioningStatus?: string, adminStateUp?: boolean, createdAt?: string, updatedAt?: string, enterpriseProjectId?: string, projectId?: string, tags?: Array<string>, publicips?: Array<PublicIpInfo>, chargeMode?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -39,6 +43,8 @@ export class LoadbalancerResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         this['project_id'] = projectId;
         this['tags'] = tags;
+        this['publicips'] = publicips;
+        this['charge_mode'] = chargeMode;
     }
     public withId(id: string): LoadbalancerResp {
         this['id'] = id;
@@ -177,6 +183,30 @@ export class LoadbalancerResp {
     public withTags(tags: Array<string>): LoadbalancerResp {
         this['tags'] = tags;
         return this;
+    }
+    public withPublicips(publicips: Array<PublicIpInfo>): LoadbalancerResp {
+        this['publicips'] = publicips;
+        return this;
+    }
+    public withChargeMode(chargeMode: string): LoadbalancerResp {
+        this['charge_mode'] = chargeMode;
+        return this;
+    }
+    public set chargeMode(chargeMode: string  | undefined) {
+        this['charge_mode'] = chargeMode;
+    }
+    public get chargeMode(): string | undefined {
+        return this['charge_mode'];
+    }
+    public withFrozenScene(frozenScene: string): LoadbalancerResp {
+        this['frozen_scene'] = frozenScene;
+        return this;
+    }
+    public set frozenScene(frozenScene: string  | undefined) {
+        this['frozen_scene'] = frozenScene;
+    }
+    public get frozenScene(): string | undefined {
+        return this['frozen_scene'];
     }
 }
 

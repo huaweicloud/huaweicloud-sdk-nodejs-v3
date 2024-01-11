@@ -39,6 +39,7 @@ import { CertificateInfo } from './model/CertificateInfo';
 import { ChangeLoadbalancerChargeModeRequest } from './model/ChangeLoadbalancerChargeModeRequest';
 import { ChangeLoadbalancerChargeModeRequestBody } from './model/ChangeLoadbalancerChargeModeRequestBody';
 import { ChangeLoadbalancerChargeModeResponse } from './model/ChangeLoadbalancerChargeModeResponse';
+import { ConnectionDrain } from './model/ConnectionDrain';
 import { CountPreoccupyIpNumRequest } from './model/CountPreoccupyIpNumRequest';
 import { CountPreoccupyIpNumResponse } from './model/CountPreoccupyIpNumResponse';
 import { CreateCertificateOption } from './model/CreateCertificateOption';
@@ -576,6 +577,7 @@ export class ElbClient {
      * 4. 若要创建内网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id。
      * 5. 若要创建公网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id和ipv6_bandwidth。
      * 6. 不支持绑定已有未使用的内网IPv4、内网IPv6或公网IPv6地址。
+     * 7. l4_flavor_id需要传入网络型规格id，l7_flavor_id需要传入应用型规格id。
      * 
      * [&gt; 关于计费：
      * - 若billing_info非空时，包周期。
@@ -896,7 +898,7 @@ export class ElbClient {
      *
      * @summary 删除后端服务器
      * @param {string} poolId 后端服务器组ID。
-     * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。  member ID可以通过查询后端云服务器列表接口获取。
+     * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。  member ID可以通过[查询后端云服务器列表](ListMembers.xml)获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1045,7 +1047,7 @@ export class ElbClient {
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 规格ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 规格名称。   支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
-     * @param {Array<string>} [type] 规格类别。  取值： - L4和L7 表示四层和七层flavor。 - L4_elastic和L7_elastic 表示弹性扩缩容实例的下限规格。 - L4_elastic_max和L7_elastic_max 表示弹性扩缩容实例的上限规格。  支持多值查询，查询条件格式：*type&#x3D;xxx&amp;type&#x3D;xxx*。
+     * @param {Array<string>} [type] 规格类别。  取值： - L4和L7 表示四层网络型和七层应用型flavor。 - L4_elastic和L7_elastic 表示弹性扩缩容实例的下限规格。 - L4_elastic_max和L7_elastic_max 表示弹性扩缩容实例的上限规格。  支持多值查询，查询条件格式：*type&#x3D;xxx&amp;type&#x3D;xxx*。
      * @param {boolean} [shared] 是否查询公共规格。true表示公共规格，所有租户可见。false表示私有规格，为当前租户所有。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1188,7 +1190,7 @@ export class ElbClient {
      * @param {boolean} [enableMemberRetry] 是否开启后端服务器的重试。  取值：true 开启重试，false 不开启重试。
      * @param {Array<number>} [memberTimeout] 等待后端服务器响应超时时间。请求转发后端服务器后，在等待超时member_timeout时长没有响应，负载均衡将终止等待，并返回 HTTP504错误码。  取值：1-300s。  支持多值查询，查询条件格式：*member_timeout&#x3D;xxx&amp;member_timeout&#x3D;xxx*。
      * @param {Array<number>} [clientTimeout] 等待客户端请求超时时间，包括两种情况： - 读取整个客户端请求头的超时时长：如果客户端未在超时时长内发送完整个请求头，则请求将被中断 - 两个连续body体的数据包到达LB的时间间隔，超出client_timeout将会断开连接。  取值：1-300s。  支持多值查询，查询条件格式：*client_timeout&#x3D;xxx&amp;client_timeout&#x3D;xxx*。
-     * @param {Array<number>} [keepaliveTimeout] 客户端连接空闲超时时间。在超过keepalive_timeout时长一直没有请求， 负载均衡会暂时中断当前连接，直到下一次请求时重新建立新的连接。  取值： - TCP监听器：10-4000s。 - HTTP/HTTPS/TERMINATED_HTTPS监听器：0-4000s。 - UDP监听器不支持此字段。  支持多值查询，查询条件格式：*keepalive_timeout&#x3D;xxx&amp;keepalive_timeout&#x3D;xxx*。
+     * @param {Array<number>} [keepaliveTimeout] 客户端连接空闲超时时间。在超过keepalive_timeout时长一直没有请求， 负载均衡会暂时中断当前连接，直到下一次请求时重新建立新的连接。  取值： - TCP监听器：10-4000s。 - HTTP/HTTPS/TERMINATED_HTTPS监听器：0-4000s。 - 共享型实例的UDP监听器不支持此字段。  支持多值查询，查询条件格式：*keepalive_timeout&#x3D;xxx&amp;keepalive_timeout&#x3D;xxx*。
      * @param {boolean} [transparentClientIpEnable] 是否透传客户端IP地址。开启后客户端IP地址将透传到后端服务器。  [仅作用于共享型LB的TCP/UDP监听器。取值：true开启，false不开启。 ](tag:hws,hws_hk,ocb,ctc,g42,tm,cmcc,hk_g42,hws_ocb,fcs,dt,hk_tm)
      * @param {boolean} [proxyProtocolEnable] 是否开启proxy_protocol。仅tcpssl监听器可指定，其他协议的监听器该字段不生效，proxy_protocol不开启。
      * @param {boolean} [enhanceL7policyEnable] 是否开启高级转发策略功能。开启高级转发策略后，支持更灵活的转发策略和转发规则设置。  取值：true开启，false不开启。  [荷兰region不支持该字段，请勿使用。](tag:dt)
@@ -1232,9 +1234,9 @@ export class ElbClient {
      * @param {Array<string>} [eips] 负载均衡器绑定的EIP。示例如下： \&quot;eips\&quot;: [             {                 \&quot;eip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,                 \&quot;eip_address\&quot;: \&quot;88.88.14.122\&quot;,                 \&quot;ip_version\&quot;: 4             }         ]  支持多值查询，查询条件格式： - eip_id作为查询条件：*eips&#x3D;eip_id&#x3D;xxx&amp;eips&#x3D;eip_id&#x3D;xxx*。 - eip_address作为查询条件：*eips&#x3D;eip_address&#x3D;xxx&amp;eips&#x3D;eip_address&#x3D;xxx*。 - ip_version作为查询条件：*eips&#x3D;ip_version&#x3D;xxx&amp;eips&#x3D;ip_version&#x3D;xxx*。  注：该字段与publicips字段一致。
      * @param {Array<string>} [publicips] 负载均衡器绑定的公网IP。示例如下：  \&quot;publicips\&quot;: [                 {                     \&quot;publicip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,                     \&quot;publicip_address\&quot;: \&quot;88.88.14.122\&quot;,                     \&quot;ip_version\&quot;: 4                 }             ]  支持多值查询，查询条件格式： - publicip_id作为查询条件： *publicips&#x3D;publicip_id&#x3D;xxx&amp;publicips&#x3D;publicip_id&#x3D;xxx* - publicip_address作为查询条件： *publicips&#x3D;publicip_address&#x3D;xxx&amp;publicips&#x3D;publicip_address&#x3D;xxx* - ip_version作为查询条件： *publicips&#x3D;ip_version&#x3D;xxx&amp;publicips&#x3D;ip_version&#x3D;xxx*  注：该字段与eips字段一致。
      * @param {Array<string>} [availabilityZoneList] 负载均衡器所在可用区列表。  支持多值查询，查询条件格式： *availability_zone_list&#x3D;xxx&amp;availability_zone_list&#x3D;xxx*。
-     * @param {Array<string>} [l4FlavorId] 四层Flavor ID。  支持多值查询，查询条件格式：*l4_flavor_id&#x3D;xxx&amp;l4_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [l4FlavorId] 网络型规格ID。  支持多值查询，查询条件格式：*l4_flavor_id&#x3D;xxx&amp;l4_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * @param {Array<string>} [l4ScaleFlavorId] 四层弹性Flavor ID。  支持多值查询，查询条件格式：*l4_scale_flavor_id&#x3D;xxx&amp;l4_scale_flavor_id&#x3D;xxx*。  不支持该字段，请勿使用。
-     * @param {Array<string>} [l7FlavorId] 七层Flavor ID。  支持多值查询，查询条件格式：*l7_flavor_id&#x3D;xxx&amp;l7_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [l7FlavorId] 应用型规格ID。  支持多值查询，查询条件格式：*l7_flavor_id&#x3D;xxx&amp;l7_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * @param {Array<string>} [l7ScaleFlavorId] 七层弹性Flavor ID。  支持多值查询，查询条件格式：*l7_scale_flavor_id&#x3D;xxx&amp;l7_scale_flavor_id&#x3D;xxx*。  不支持该字段，请勿使用。
      * @param {Array<string>} [billingInfo] 资源账单信息。  支持多值查询，查询条件格式：*billing_info&#x3D;xxx&amp;billing_info&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hws_hk,hws_eu,hws_test,hcs,hcs_sm,hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b,hcso_dt,dt,dt_test,ocb,ctc,cmcc,tm,sbc,g42,hws_ocb,hk_sbc,hk_tm,hk_g42)
      * @param {Array<string>} [memberDeviceId] 负载均衡器中的后端云服务器对应的弹性云服务器的ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_device_id&#x3D;xxx&amp;member_device_id&#x3D;xxx*。
@@ -1310,6 +1312,7 @@ export class ElbClient {
      * @param {Array<string>} [memberInstanceId] 后端云服务器ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_instance_id&#x3D;xxx&amp;member_instance_id&#x3D;xxx*。
      * @param {Array<string>} [vpcId] 后端云服务器组关联的虚拟私有云的ID。
      * @param {Array<string>} [type] 后端服务器组的类型。  取值： - instance：允许任意类型的后端，type指定为该类型时，vpc_id是必选字段。 - ip：只能添加跨VPC后端，type指定为该类型时，vpc_id不允许指定。 - 空字符串（\&quot;\&quot;）：允许任意类型的后端
+     * @param {boolean} [connectionDrain] 查询是否开启延迟注销的功能，查询条件格式：*connection_drain&#x3D;true或者*connection_drain&#x3D;false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1383,6 +1386,7 @@ export class ElbClient {
      * @param {Array<string>} [vpcId] 后端云服务器组关联的虚拟私有云的ID。
      * @param {Array<string>} [type] 后端服务器组的类型。  取值： - instance：允许任意类型的后端，type指定为该类型时，vpc_id是必选字段。 - ip：只能添加跨VPC后端，type指定为该类型时，vpc_id不允许指定。 - 空字符串（\&quot;\&quot;）：允许任意类型的后端
      * @param {Array<string>} [protectionStatus] 修改保护状态, 取值： - nonProtection: 不保护，默认值为nonProtection - consoleProtection: 控制台修改保护
+     * @param {boolean} [connectionDrain] 查询是否开启延迟注销的功能，查询条件格式：*connection_drain&#x3D;true或者*connection_drain&#x3D;false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2657,6 +2661,7 @@ export const ParamCreater = function () {
          * 4. 若要创建内网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id。
          * 5. 若要创建公网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id和ipv6_bandwidth。
          * 6. 不支持绑定已有未使用的内网IPv4、内网IPv6或公网IPv6地址。
+         * 7. l4_flavor_id需要传入网络型规格id，l7_flavor_id需要传入应用型规格id。
          * 
          * [&gt; 关于计费：
          * - 若billing_info非空时，包周期。
@@ -4813,6 +4818,8 @@ export const ParamCreater = function () {
             let vpcId;
             
             let type;
+            
+            let connectionDrain;
 
             if (listMasterSlavePoolsRequest !== null && listMasterSlavePoolsRequest !== undefined) {
                 if (listMasterSlavePoolsRequest instanceof ListMasterSlavePoolsRequest) {
@@ -4834,6 +4841,7 @@ export const ParamCreater = function () {
                     memberInstanceId = listMasterSlavePoolsRequest.memberInstanceId;
                     vpcId = listMasterSlavePoolsRequest.vpcId;
                     type = listMasterSlavePoolsRequest.type;
+                    connectionDrain = listMasterSlavePoolsRequest.connectionDrain;
                 } else {
                     marker = listMasterSlavePoolsRequest['marker'];
                     limit = listMasterSlavePoolsRequest['limit'];
@@ -4853,6 +4861,7 @@ export const ParamCreater = function () {
                     memberInstanceId = listMasterSlavePoolsRequest['member_instance_id'];
                     vpcId = listMasterSlavePoolsRequest['vpc_id'];
                     type = listMasterSlavePoolsRequest['type'];
+                    connectionDrain = listMasterSlavePoolsRequest['connection_drain'];
                 }
             }
 
@@ -4910,6 +4919,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (connectionDrain !== null && connectionDrain !== undefined) {
+                localVarQueryParameter['connection_drain'] = connectionDrain;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5118,6 +5130,8 @@ export const ParamCreater = function () {
             let type;
             
             let protectionStatus;
+            
+            let connectionDrain;
 
             if (listPoolsRequest !== null && listPoolsRequest !== undefined) {
                 if (listPoolsRequest instanceof ListPoolsRequest) {
@@ -5142,6 +5156,7 @@ export const ParamCreater = function () {
                     vpcId = listPoolsRequest.vpcId;
                     type = listPoolsRequest.type;
                     protectionStatus = listPoolsRequest.protectionStatus;
+                    connectionDrain = listPoolsRequest.connectionDrain;
                 } else {
                     marker = listPoolsRequest['marker'];
                     limit = listPoolsRequest['limit'];
@@ -5164,6 +5179,7 @@ export const ParamCreater = function () {
                     vpcId = listPoolsRequest['vpc_id'];
                     type = listPoolsRequest['type'];
                     protectionStatus = listPoolsRequest['protection_status'];
+                    connectionDrain = listPoolsRequest['connection_drain'];
                 }
             }
 
@@ -5230,6 +5246,9 @@ export const ParamCreater = function () {
             }
             if (protectionStatus !== null && protectionStatus !== undefined) {
                 localVarQueryParameter['protection_status'] = protectionStatus;
+            }
+            if (connectionDrain !== null && connectionDrain !== undefined) {
+                localVarQueryParameter['connection_drain'] = connectionDrain;
             }
 
             options.queryParams = localVarQueryParameter;

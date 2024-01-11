@@ -47,6 +47,7 @@ export class ShowGraphRespGraph {
     private 'expand_time'?: string;
     private 'resize_time'?: string;
     private 'enable_multi_label'?: boolean;
+    private 'capacity_ratio'?: number;
     public constructor() { 
     }
     public withId(id: string): ShowGraphRespGraph {
@@ -424,5 +425,15 @@ export class ShowGraphRespGraph {
     }
     public get enableMultiLabel(): boolean | undefined {
         return this['enable_multi_label'];
+    }
+    public withCapacityRatio(capacityRatio: number): ShowGraphRespGraph {
+        this['capacity_ratio'] = capacityRatio;
+        return this;
+    }
+    public set capacityRatio(capacityRatio: number  | undefined) {
+        this['capacity_ratio'] = capacityRatio;
+    }
+    public get capacityRatio(): number | undefined {
+        return this['capacity_ratio'];
     }
 }

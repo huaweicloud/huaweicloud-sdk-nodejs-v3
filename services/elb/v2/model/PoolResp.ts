@@ -16,7 +16,9 @@ export class PoolResp {
     private 'session_persistence'?: SessionPersistence;
     public protocol?: PoolRespProtocolEnum | string;
     private 'lb_algorithm'?: PoolRespLbAlgorithmEnum | string;
-    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, listeners?: Array<ResourceList>, members?: Array<ResourceList>, healthmonitorId?: string, sessionPersistence?: SessionPersistence, protocol?: string, lbAlgorithm?: string) { 
+    private 'protection_status'?: PoolRespProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
+    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, listeners?: Array<ResourceList>, members?: Array<ResourceList>, healthmonitorId?: string, sessionPersistence?: SessionPersistence, protocol?: string, lbAlgorithm?: string, protectionStatus?: string, protectionReason?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['tenant_id'] = tenantId;
@@ -30,6 +32,8 @@ export class PoolResp {
         this['session_persistence'] = sessionPersistence;
         this['protocol'] = protocol;
         this['lb_algorithm'] = lbAlgorithm;
+        this['protection_status'] = protectionStatus;
+        this['protection_reason'] = protectionReason;
     }
     public withId(id: string): PoolResp {
         this['id'] = id;
@@ -119,6 +123,26 @@ export class PoolResp {
     public get lbAlgorithm(): PoolRespLbAlgorithmEnum | string | undefined {
         return this['lb_algorithm'];
     }
+    public withProtectionStatus(protectionStatus: PoolRespProtectionStatusEnum | string): PoolResp {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: PoolRespProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): PoolRespProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): PoolResp {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -138,4 +162,12 @@ export enum PoolRespLbAlgorithmEnum {
     ROUND_ROBIN = 'ROUND_ROBIN',
     LEAST_CONNECTIONS = 'LEAST_CONNECTIONS',
     SOURCE_IP = 'SOURCE_IP'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PoolRespProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

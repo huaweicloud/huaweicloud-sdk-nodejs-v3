@@ -3,9 +3,13 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionInfo } from './model/ActionInfo';
+import { AddQueueUserListRequest } from './model/AddQueueUserListRequest';
+import { AddQueueUserListResponse } from './model/AddQueueUserListResponse';
 import { AddSnapshotCrossRegionPolicyRequest } from './model/AddSnapshotCrossRegionPolicyRequest';
 import { AddSnapshotCrossRegionPolicyRequestBody } from './model/AddSnapshotCrossRegionPolicyRequestBody';
 import { AddSnapshotCrossRegionPolicyResponse } from './model/AddSnapshotCrossRegionPolicyResponse';
+import { AddWorkloadPlanStageRequest } from './model/AddWorkloadPlanStageRequest';
+import { AddWorkloadPlanStageResponse } from './model/AddWorkloadPlanStageResponse';
 import { AddWorkloadQueueRequest } from './model/AddWorkloadQueueRequest';
 import { AddWorkloadQueueResponse } from './model/AddWorkloadQueueResponse';
 import { AlarmConfigResponse } from './model/AlarmConfigResponse';
@@ -135,6 +139,8 @@ import { DeleteEventSubRequest } from './model/DeleteEventSubRequest';
 import { DeleteEventSubResponse } from './model/DeleteEventSubResponse';
 import { DeleteLogicalClusterRequest } from './model/DeleteLogicalClusterRequest';
 import { DeleteLogicalClusterResponse } from './model/DeleteLogicalClusterResponse';
+import { DeleteQueueUserListRequest } from './model/DeleteQueueUserListRequest';
+import { DeleteQueueUserListResponse } from './model/DeleteQueueUserListResponse';
 import { DeleteSnapshotCrossRegionPolicyRequest } from './model/DeleteSnapshotCrossRegionPolicyRequest';
 import { DeleteSnapshotCrossRegionPolicyResponse } from './model/DeleteSnapshotCrossRegionPolicyResponse';
 import { DeleteSnapshotPolicyRequest } from './model/DeleteSnapshotPolicyRequest';
@@ -143,6 +149,8 @@ import { DeleteSnapshotRequest } from './model/DeleteSnapshotRequest';
 import { DeleteSnapshotResponse } from './model/DeleteSnapshotResponse';
 import { DeleteWorkloadPlanRequest } from './model/DeleteWorkloadPlanRequest';
 import { DeleteWorkloadPlanResponse } from './model/DeleteWorkloadPlanResponse';
+import { DeleteWorkloadPlanStageRequest } from './model/DeleteWorkloadPlanStageRequest';
+import { DeleteWorkloadPlanStageResponse } from './model/DeleteWorkloadPlanStageResponse';
 import { DeleteWorkloadQueueRequest } from './model/DeleteWorkloadQueueRequest';
 import { DeleteWorkloadQueueResponse } from './model/DeleteWorkloadQueueResponse';
 import { Detail } from './model/Detail';
@@ -266,6 +274,8 @@ import { ListMonitorIndicatorsRequest } from './model/ListMonitorIndicatorsReque
 import { ListMonitorIndicatorsResponse } from './model/ListMonitorIndicatorsResponse';
 import { ListNodeTypesRequest } from './model/ListNodeTypesRequest';
 import { ListNodeTypesResponse } from './model/ListNodeTypesResponse';
+import { ListPlanExecLogsRequest } from './model/ListPlanExecLogsRequest';
+import { ListPlanExecLogsResponse } from './model/ListPlanExecLogsResponse';
 import { ListQueriesCondition } from './model/ListQueriesCondition';
 import { ListQueriesData } from './model/ListQueriesData';
 import { ListQueriesDto } from './model/ListQueriesDto';
@@ -275,6 +285,8 @@ import { ListQueriesResponse } from './model/ListQueriesResponse';
 import { ListQueriesStatus } from './model/ListQueriesStatus';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
+import { ListSchemasRequest } from './model/ListSchemasRequest';
+import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListSnapshotCrossRegionPolicyRequest } from './model/ListSnapshotCrossRegionPolicyRequest';
 import { ListSnapshotCrossRegionPolicyResponse } from './model/ListSnapshotCrossRegionPolicyResponse';
 import { ListSnapshotCrossRegionRequest } from './model/ListSnapshotCrossRegionRequest';
@@ -302,6 +314,8 @@ import { ListUpdateRecordRequest } from './model/ListUpdateRecordRequest';
 import { ListUpdateRecordResponse } from './model/ListUpdateRecordResponse';
 import { ListWorkloadQueueRequest } from './model/ListWorkloadQueueRequest';
 import { ListWorkloadQueueResponse } from './model/ListWorkloadQueueResponse';
+import { ListWorkloadQueueUsersRequest } from './model/ListWorkloadQueueUsersRequest';
+import { ListWorkloadQueueUsersResponse } from './model/ListWorkloadQueueUsersResponse';
 import { LogicalClusterInfo } from './model/LogicalClusterInfo';
 import { LogicalClusterRingInfo } from './model/LogicalClusterRingInfo';
 import { LogicalClusterTaskInfo } from './model/LogicalClusterTaskInfo';
@@ -318,10 +332,12 @@ import { NodeTypeElasticVolumeSpecs } from './model/NodeTypeElasticVolumeSpecs';
 import { NodeTypes } from './model/NodeTypes';
 import { Nodes } from './model/Nodes';
 import { ObjectAuthority } from './model/ObjectAuthority';
+import { OccupyResource } from './model/OccupyResource';
 import { OpenPublicIp } from './model/OpenPublicIp';
 import { ParameterGroup } from './model/ParameterGroup';
 import { PauseDisasterRecoveryRequest } from './model/PauseDisasterRecoveryRequest';
 import { PauseDisasterRecoveryResponse } from './model/PauseDisasterRecoveryResponse';
+import { PlanLog } from './model/PlanLog';
 import { PlanStage } from './model/PlanStage';
 import { ProjectTag } from './model/ProjectTag';
 import { PublicEndpoints } from './model/PublicEndpoints';
@@ -373,6 +389,7 @@ import { SaveClusterDescriptionInfoRequest } from './model/SaveClusterDescriptio
 import { SaveClusterDescriptionInfoResponse } from './model/SaveClusterDescriptionInfoResponse';
 import { ScaleOut } from './model/ScaleOut';
 import { ScheduleConf } from './model/ScheduleConf';
+import { SchemaInfo } from './model/SchemaInfo';
 import { ShowClusterRedistributionRequest } from './model/ShowClusterRedistributionRequest';
 import { ShowClusterRedistributionResponse } from './model/ShowClusterRedistributionResponse';
 import { ShowDatabaseAuthorityRequest } from './model/ShowDatabaseAuthorityRequest';
@@ -389,8 +406,14 @@ import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowQueryDetailRequest } from './model/ShowQueryDetailRequest';
 import { ShowQueryDetailResponse } from './model/ShowQueryDetailResponse';
+import { ShowResourceStatisticsRequest } from './model/ShowResourceStatisticsRequest';
+import { ShowResourceStatisticsResponse } from './model/ShowResourceStatisticsResponse';
 import { ShowWorkloadPlanRequest } from './model/ShowWorkloadPlanRequest';
 import { ShowWorkloadPlanResponse } from './model/ShowWorkloadPlanResponse';
+import { ShowWorkloadPlanStageRequest } from './model/ShowWorkloadPlanStageRequest';
+import { ShowWorkloadPlanStageResponse } from './model/ShowWorkloadPlanStageResponse';
+import { ShowWorkloadQueueRequest } from './model/ShowWorkloadQueueRequest';
+import { ShowWorkloadQueueResponse } from './model/ShowWorkloadQueueResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
 import { Snapshot } from './model/Snapshot';
@@ -404,6 +427,7 @@ import { StartDisasterRecoveryResponse } from './model/StartDisasterRecoveryResp
 import { StartWorkloadPlanRequest } from './model/StartWorkloadPlanRequest';
 import { StartWorkloadPlanResponse } from './model/StartWorkloadPlanResponse';
 import { Statistic } from './model/Statistic';
+import { StatusStatistics } from './model/StatusStatistics';
 import { StopRedistributionRequest } from './model/StopRedistributionRequest';
 import { StopRedistributionResponse } from './model/StopRedistributionResponse';
 import { StopWorkloadPlanRequest } from './model/StopWorkloadPlanRequest';
@@ -412,6 +436,8 @@ import { SwitchFailoverDisasterRequest } from './model/SwitchFailoverDisasterReq
 import { SwitchFailoverDisasterResponse } from './model/SwitchFailoverDisasterResponse';
 import { SwitchOverClusterRequest } from './model/SwitchOverClusterRequest';
 import { SwitchOverClusterResponse } from './model/SwitchOverClusterResponse';
+import { SwitchPlanStageRequest } from './model/SwitchPlanStageRequest';
+import { SwitchPlanStageResponse } from './model/SwitchPlanStageResponse';
 import { SwitchoverDisasterRecoveryRequest } from './model/SwitchoverDisasterRecoveryRequest';
 import { SwitchoverDisasterRecoveryResponse } from './model/SwitchoverDisasterRecoveryResponse';
 import { SyncIamUsersRequest } from './model/SyncIamUsersRequest';
@@ -447,16 +473,30 @@ import { UpdateLogicalClusterRequestBody } from './model/UpdateLogicalClusterReq
 import { UpdateLogicalClusterResponse } from './model/UpdateLogicalClusterResponse';
 import { UpdateMaintenanceWindowRequest } from './model/UpdateMaintenanceWindowRequest';
 import { UpdateMaintenanceWindowResponse } from './model/UpdateMaintenanceWindowResponse';
+import { UpdateQueueResourcesRequest } from './model/UpdateQueueResourcesRequest';
+import { UpdateQueueResourcesResponse } from './model/UpdateQueueResourcesResponse';
+import { UpdateSchemasRequest } from './model/UpdateSchemasRequest';
+import { UpdateSchemasResponse } from './model/UpdateSchemasResponse';
 import { V2CreateCluster } from './model/V2CreateCluster';
 import { V2CreateClusterReq } from './model/V2CreateClusterReq';
 import { Volume } from './model/Volume';
 import { VolumeResp } from './model/VolumeResp';
 import { WorkloadPlanInfo } from './model/WorkloadPlanInfo';
 import { WorkloadPlanReq } from './model/WorkloadPlanReq';
+import { WorkloadPlanStageIdReq } from './model/WorkloadPlanStageIdReq';
+import { WorkloadPlanStageReq } from './model/WorkloadPlanStageReq';
+import { WorkloadPlanStageReqWorkloadPlanStage } from './model/WorkloadPlanStageReqWorkloadPlanStage';
 import { WorkloadQueue } from './model/WorkloadQueue';
+import { WorkloadQueueInfo } from './model/WorkloadQueueInfo';
+import { WorkloadQueueItem } from './model/WorkloadQueueItem';
 import { WorkloadQueueReq } from './model/WorkloadQueueReq';
+import { WorkloadQueueRequest } from './model/WorkloadQueueRequest';
+import { WorkloadQueueUser } from './model/WorkloadQueueUser';
+import { WorkloadQueueUserReq } from './model/WorkloadQueueUserReq';
+import { WorkloadQueueUserReqUserList } from './model/WorkloadQueueUserReqUserList';
 import { WorkloadResource } from './model/WorkloadResource';
 import { WorkloadResourceItem } from './model/WorkloadResourceItem';
+import { WorkloadSchemaReq } from './model/WorkloadSchemaReq';
 import { WorkloadStatus } from './model/WorkloadStatus';
 import { WorkloadStatusReq } from './model/WorkloadStatusReq';
 
@@ -476,6 +516,27 @@ export class DwsClient {
 
 
     /**
+     * 添加工作负载队列的绑定用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加工作负载队列的绑定用户
+     * @param {string} clusterId 集群ID
+     * @param {string} queueName 队列名称
+     * @param {WorkloadQueueUserReq} addQueueUserListRequestBody 新增资源用户请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addQueueUserList(addQueueUserListRequest?: AddQueueUserListRequest): Promise<AddQueueUserListResponse> {
+        const options = ParamCreater().addQueueUserList(addQueueUserListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于设置跨区域备份配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -487,6 +548,27 @@ export class DwsClient {
      */
     public addSnapshotCrossRegionPolicy(addSnapshotCrossRegionPolicyRequest?: AddSnapshotCrossRegionPolicyRequest): Promise<AddSnapshotCrossRegionPolicyResponse> {
         const options = ParamCreater().addSnapshotCrossRegionPolicy(addSnapshotCrossRegionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加工作负载计划阶段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加工作负载计划阶段
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {WorkloadPlanStageReq} addWorkloadPlanStageRequestBody 资源管理计划阶段
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addWorkloadPlanStage(addWorkloadPlanStageRequest?: AddWorkloadPlanStageRequest): Promise<AddWorkloadPlanStageResponse> {
+        const options = ParamCreater().addWorkloadPlanStage(addWorkloadPlanStageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1157,6 +1239,27 @@ export class DwsClient {
     }
 
     /**
+     * 删除工作负载队列的绑定用户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除工作负载队列的绑定用户
+     * @param {string} clusterId 集群ID
+     * @param {string} queueName 队列名称
+     * @param {WorkloadQueueUserReq} deleteQueueUserListRequestBody 删除资源队列用户请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteQueueUserList(deleteQueueUserListRequest?: DeleteQueueUserListRequest): Promise<DeleteQueueUserListResponse> {
+        const options = ParamCreater().deleteQueueUserList(deleteQueueUserListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于删除一个指定手动快照。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1227,6 +1330,27 @@ export class DwsClient {
      */
     public deleteWorkloadPlan(deleteWorkloadPlanRequest?: DeleteWorkloadPlanRequest): Promise<DeleteWorkloadPlanResponse> {
         const options = ParamCreater().deleteWorkloadPlan(deleteWorkloadPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除工作负载计划删除工作负载计划阶段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除工作负载计划阶段
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {string} stageId 计划阶段ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWorkloadPlanStage(deleteWorkloadPlanStageRequest?: DeleteWorkloadPlanStageRequest): Promise<DeleteWorkloadPlanStageResponse> {
+        const options = ParamCreater().deleteWorkloadPlanStage(deleteWorkloadPlanStageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2220,6 +2344,28 @@ export class DwsClient {
     }
 
     /**
+     * 查看计划执行日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看计划执行日志
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPlanExecLogs(listPlanExecLogsRequest?: ListPlanExecLogsRequest): Promise<ListPlanExecLogsResponse> {
+        const options = ParamCreater().listPlanExecLogs(listPlanExecLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询实时SQL列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2250,6 +2396,31 @@ export class DwsClient {
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群模式空间信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群模式空间信息
+     * @param {string} clusterId 集群ID
+     * @param {string} databaseName 数据库名称
+     * @param {string} [sortKey] 排序字段
+     * @param {string} [sortDir] 排序字段
+     * @param {string} [keywords] 查询关键词
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSchemas(listSchemasRequest?: ListSchemasRequest): Promise<ListSchemasResponse> {
+        const options = ParamCreater().listSchemas(listSchemasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2510,6 +2681,28 @@ export class DwsClient {
      */
     public listWorkloadQueue(listWorkloadQueueRequest?: ListWorkloadQueueRequest): Promise<ListWorkloadQueueResponse> {
         const options = ParamCreater().listWorkloadQueue(listWorkloadQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获得工作负载队列的绑定用户列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获得工作负载队列的绑定用户列表
+     * @param {string} clusterId 集群ID
+     * @param {string} queueName 队列名称
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkloadQueueUsers(listWorkloadQueueUsersRequest?: ListWorkloadQueueUsersRequest): Promise<ListWorkloadQueueUsersResponse> {
+        const options = ParamCreater().listWorkloadQueueUsers(listWorkloadQueueUsersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2901,6 +3094,25 @@ export class DwsClient {
     }
 
     /**
+     * 该接口用于查询资源统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源统计
+     * @param {string} [namespace] 命名空间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceStatistics(showResourceStatisticsRequest?: ShowResourceStatisticsRequest): Promise<ShowResourceStatisticsResponse> {
+        const options = ParamCreater().showResourceStatistics(showResourceStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询某个工作负载计划详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2913,6 +3125,47 @@ export class DwsClient {
      */
     public showWorkloadPlan(showWorkloadPlanRequest?: ShowWorkloadPlanRequest): Promise<ShowWorkloadPlanResponse> {
         const options = ParamCreater().showWorkloadPlan(showWorkloadPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工作负载计划阶段详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作负载计划阶段详细信息
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {string} stageId 计划阶段ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkloadPlanStage(showWorkloadPlanStageRequest?: ShowWorkloadPlanStageRequest): Promise<ShowWorkloadPlanStageResponse> {
+        const options = ParamCreater().showWorkloadPlanStage(showWorkloadPlanStageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获得工作负载队列详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获得工作负载队列详细信息
+     * @param {string} clusterId 集群ID
+     * @param {string} queueName 资源队列名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkloadQueue(showWorkloadQueueRequest?: ShowWorkloadQueueRequest): Promise<ShowWorkloadQueueResponse> {
+        const options = ParamCreater().showWorkloadQueue(showWorkloadQueueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3051,6 +3304,27 @@ export class DwsClient {
      */
     public switchOverCluster(switchOverClusterRequest?: SwitchOverClusterRequest): Promise<SwitchOverClusterResponse> {
         const options = ParamCreater().switchOverCluster(switchOverClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 切换工作负载计划阶段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换工作负载计划阶段
+     * @param {string} clusterId 集群ID
+     * @param {string} planId 计划ID
+     * @param {WorkloadPlanStageIdReq} switchPlanStageRequestBody 资源管理计划阶段ID信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchPlanStage(switchPlanStageRequest?: SwitchPlanStageRequest): Promise<SwitchPlanStageResponse> {
+        const options = ParamCreater().switchPlanStage(switchPlanStageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3299,10 +3573,105 @@ export class DwsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 更新工作负载队列资源配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新工作负载队列资源配置信息
+     * @param {string} clusterId 集群ID
+     * @param {string} queueName 队列名称
+     * @param {WorkloadQueueRequest} updateQueueResourcesRequestBody 资源池请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateQueueResources(updateQueueResourcesRequest?: UpdateQueueResourcesRequest): Promise<UpdateQueueResourcesResponse> {
+        const options = ParamCreater().updateQueueResources(updateQueueResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新模式空间限额。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新模式空间限额
+     * @param {string} clusterId 集群ID
+     * @param {string} databaseName 数据库名称
+     * @param {WorkloadSchemaReq} updateSchemasRequestBody 资源管理计划
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSchemas(updateSchemasRequest?: UpdateSchemasRequest): Promise<UpdateSchemasResponse> {
+        const options = ParamCreater().updateSchemas(updateSchemasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 添加工作负载队列的绑定用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addQueueUserList(addQueueUserListRequest?: AddQueueUserListRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}/users/batch-create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let queueName;
+
+            if (addQueueUserListRequest !== null && addQueueUserListRequest !== undefined) {
+                if (addQueueUserListRequest instanceof AddQueueUserListRequest) {
+                    clusterId = addQueueUserListRequest.clusterId;
+                    queueName = addQueueUserListRequest.queueName;
+                    body = addQueueUserListRequest.body
+                } else {
+                    clusterId = addQueueUserListRequest['cluster_id'];
+                    queueName = addQueueUserListRequest['queue_name'];
+                    body = addQueueUserListRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addQueueUserList.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling addQueueUserList.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 该接口用于设置跨区域备份配置
@@ -3338,6 +3707,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加工作负载计划阶段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addWorkloadPlanStage(addWorkloadPlanStageRequest?: AddWorkloadPlanStageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/stages",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let planId;
+
+            if (addWorkloadPlanStageRequest !== null && addWorkloadPlanStageRequest !== undefined) {
+                if (addWorkloadPlanStageRequest instanceof AddWorkloadPlanStageRequest) {
+                    clusterId = addWorkloadPlanStageRequest.clusterId;
+                    planId = addWorkloadPlanStageRequest.planId;
+                    body = addWorkloadPlanStageRequest.body
+                } else {
+                    clusterId = addWorkloadPlanStageRequest['cluster_id'];
+                    planId = addWorkloadPlanStageRequest['plan_id'];
+                    body = addWorkloadPlanStageRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addWorkloadPlanStage.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling addWorkloadPlanStage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4778,6 +5200,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除工作负载队列的绑定用户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteQueueUserList(deleteQueueUserListRequest?: DeleteQueueUserListRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}/users/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let queueName;
+
+            if (deleteQueueUserListRequest !== null && deleteQueueUserListRequest !== undefined) {
+                if (deleteQueueUserListRequest instanceof DeleteQueueUserListRequest) {
+                    clusterId = deleteQueueUserListRequest.clusterId;
+                    queueName = deleteQueueUserListRequest.queueName;
+                    body = deleteQueueUserListRequest.body
+                } else {
+                    clusterId = deleteQueueUserListRequest['cluster_id'];
+                    queueName = deleteQueueUserListRequest['queue_name'];
+                    body = deleteQueueUserListRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteQueueUserList.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling deleteQueueUserList.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于删除一个指定手动快照。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4938,6 +5413,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除工作负载计划删除工作负载计划阶段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteWorkloadPlanStage(deleteWorkloadPlanStageRequest?: DeleteWorkloadPlanStageRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/stages/{stage_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let planId;
+            
+            let stageId;
+
+            if (deleteWorkloadPlanStageRequest !== null && deleteWorkloadPlanStageRequest !== undefined) {
+                if (deleteWorkloadPlanStageRequest instanceof DeleteWorkloadPlanStageRequest) {
+                    clusterId = deleteWorkloadPlanStageRequest.clusterId;
+                    planId = deleteWorkloadPlanStageRequest.planId;
+                    stageId = deleteWorkloadPlanStageRequest.stageId;
+                } else {
+                    clusterId = deleteWorkloadPlanStageRequest['cluster_id'];
+                    planId = deleteWorkloadPlanStageRequest['plan_id'];
+                    stageId = deleteWorkloadPlanStageRequest['stage_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteWorkloadPlanStage.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling deleteWorkloadPlanStage.');
+            }
+            if (stageId === null || stageId === undefined) {
+            throw new RequiredError('stageId','Required parameter stageId was null or undefined when calling deleteWorkloadPlanStage.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId,'stage_id': stageId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7228,6 +7754,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看计划执行日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPlanExecLogs(listPlanExecLogsRequest?: ListPlanExecLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let planId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listPlanExecLogsRequest !== null && listPlanExecLogsRequest !== undefined) {
+                if (listPlanExecLogsRequest instanceof ListPlanExecLogsRequest) {
+                    clusterId = listPlanExecLogsRequest.clusterId;
+                    planId = listPlanExecLogsRequest.planId;
+                    limit = listPlanExecLogsRequest.limit;
+                    offset = listPlanExecLogsRequest.offset;
+                } else {
+                    clusterId = listPlanExecLogsRequest['cluster_id'];
+                    planId = listPlanExecLogsRequest['plan_id'];
+                    limit = listPlanExecLogsRequest['limit'];
+                    offset = listPlanExecLogsRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listPlanExecLogs.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling listPlanExecLogs.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询实时SQL列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7290,6 +7875,86 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群模式空间信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSchemas(listSchemasRequest?: ListSchemasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/databases/{database_name}/schemas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let databaseName;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let keywords;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSchemasRequest !== null && listSchemasRequest !== undefined) {
+                if (listSchemasRequest instanceof ListSchemasRequest) {
+                    clusterId = listSchemasRequest.clusterId;
+                    databaseName = listSchemasRequest.databaseName;
+                    sortKey = listSchemasRequest.sortKey;
+                    sortDir = listSchemasRequest.sortDir;
+                    keywords = listSchemasRequest.keywords;
+                    limit = listSchemasRequest.limit;
+                    offset = listSchemasRequest.offset;
+                } else {
+                    clusterId = listSchemasRequest['cluster_id'];
+                    databaseName = listSchemasRequest['database_name'];
+                    sortKey = listSchemasRequest['sort_key'];
+                    sortDir = listSchemasRequest['sort_dir'];
+                    keywords = listSchemasRequest['keywords'];
+                    limit = listSchemasRequest['limit'];
+                    offset = listSchemasRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listSchemas.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling listSchemas.');
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (keywords !== null && keywords !== undefined) {
+                localVarQueryParameter['keywords'] = keywords;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'database_name': databaseName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7848,6 +8513,65 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获得工作负载队列的绑定用户列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWorkloadQueueUsers(listWorkloadQueueUsersRequest?: ListWorkloadQueueUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let queueName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listWorkloadQueueUsersRequest !== null && listWorkloadQueueUsersRequest !== undefined) {
+                if (listWorkloadQueueUsersRequest instanceof ListWorkloadQueueUsersRequest) {
+                    clusterId = listWorkloadQueueUsersRequest.clusterId;
+                    queueName = listWorkloadQueueUsersRequest.queueName;
+                    limit = listWorkloadQueueUsersRequest.limit;
+                    offset = listWorkloadQueueUsersRequest.offset;
+                } else {
+                    clusterId = listWorkloadQueueUsersRequest['cluster_id'];
+                    queueName = listWorkloadQueueUsersRequest['queue_name'];
+                    limit = listWorkloadQueueUsersRequest['limit'];
+                    offset = listWorkloadQueueUsersRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listWorkloadQueueUsers.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling listWorkloadQueueUsers.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8734,6 +9458,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询资源统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceStatistics(showResourceStatisticsRequest?: ShowResourceStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/resource-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let namespace;
+
+            if (showResourceStatisticsRequest !== null && showResourceStatisticsRequest !== undefined) {
+                if (showResourceStatisticsRequest instanceof ShowResourceStatisticsRequest) {
+                    namespace = showResourceStatisticsRequest.namespace;
+                } else {
+                    namespace = showResourceStatisticsRequest['namespace'];
+                }
+            }
+
+        
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询某个工作负载计划详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8773,6 +9534,101 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作负载计划阶段详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWorkloadPlanStage(showWorkloadPlanStageRequest?: ShowWorkloadPlanStageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/stages/{stage_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let planId;
+            
+            let stageId;
+
+            if (showWorkloadPlanStageRequest !== null && showWorkloadPlanStageRequest !== undefined) {
+                if (showWorkloadPlanStageRequest instanceof ShowWorkloadPlanStageRequest) {
+                    clusterId = showWorkloadPlanStageRequest.clusterId;
+                    planId = showWorkloadPlanStageRequest.planId;
+                    stageId = showWorkloadPlanStageRequest.stageId;
+                } else {
+                    clusterId = showWorkloadPlanStageRequest['cluster_id'];
+                    planId = showWorkloadPlanStageRequest['plan_id'];
+                    stageId = showWorkloadPlanStageRequest['stage_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showWorkloadPlanStage.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling showWorkloadPlanStage.');
+            }
+            if (stageId === null || stageId === undefined) {
+            throw new RequiredError('stageId','Required parameter stageId was null or undefined when calling showWorkloadPlanStage.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId,'stage_id': stageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获得工作负载队列详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWorkloadQueue(showWorkloadQueueRequest?: ShowWorkloadQueueRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let queueName;
+
+            if (showWorkloadQueueRequest !== null && showWorkloadQueueRequest !== undefined) {
+                if (showWorkloadQueueRequest instanceof ShowWorkloadQueueRequest) {
+                    clusterId = showWorkloadQueueRequest.clusterId;
+                    queueName = showWorkloadQueueRequest.queueName;
+                } else {
+                    clusterId = showWorkloadQueueRequest['cluster_id'];
+                    queueName = showWorkloadQueueRequest['queue_name'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showWorkloadQueue.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showWorkloadQueue.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9057,6 +9913,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换工作负载计划阶段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchPlanStage(switchPlanStageRequest?: SwitchPlanStageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans/{plan_id}/stage-switch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let planId;
+
+            if (switchPlanStageRequest !== null && switchPlanStageRequest !== undefined) {
+                if (switchPlanStageRequest instanceof SwitchPlanStageRequest) {
+                    clusterId = switchPlanStageRequest.clusterId;
+                    planId = switchPlanStageRequest.planId;
+                    body = switchPlanStageRequest.body
+                } else {
+                    clusterId = switchPlanStageRequest['cluster_id'];
+                    planId = switchPlanStageRequest['plan_id'];
+                    body = switchPlanStageRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling switchPlanStage.');
+            }
+            if (planId === null || planId === undefined) {
+            throw new RequiredError('planId','Required parameter planId was null or undefined when calling switchPlanStage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'plan_id': planId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9613,6 +10522,112 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新工作负载队列资源配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateQueueResources(updateQueueResourcesRequest?: UpdateQueueResourcesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}/resources",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let queueName;
+
+            if (updateQueueResourcesRequest !== null && updateQueueResourcesRequest !== undefined) {
+                if (updateQueueResourcesRequest instanceof UpdateQueueResourcesRequest) {
+                    clusterId = updateQueueResourcesRequest.clusterId;
+                    queueName = updateQueueResourcesRequest.queueName;
+                    body = updateQueueResourcesRequest.body
+                } else {
+                    clusterId = updateQueueResourcesRequest['cluster_id'];
+                    queueName = updateQueueResourcesRequest['queue_name'];
+                    body = updateQueueResourcesRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateQueueResources.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateQueueResources.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新模式空间限额。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSchemas(updateSchemasRequest?: UpdateSchemasRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/databases/{database_name}/schemas",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let databaseName;
+
+            if (updateSchemasRequest !== null && updateSchemasRequest !== undefined) {
+                if (updateSchemasRequest instanceof UpdateSchemasRequest) {
+                    clusterId = updateSchemasRequest.clusterId;
+                    databaseName = updateSchemasRequest.databaseName;
+                    body = updateSchemasRequest.body
+                } else {
+                    clusterId = updateSchemasRequest['cluster_id'];
+                    databaseName = updateSchemasRequest['database_name'];
+                    body = updateSchemasRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateSchemas.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling updateSchemas.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'database_name': databaseName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

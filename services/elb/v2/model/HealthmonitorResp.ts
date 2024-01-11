@@ -17,7 +17,8 @@ export class HealthmonitorResp {
     public delay?: number;
     private 'max_retries'?: number;
     public pools?: Array<ResourceList>;
-    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, adminStateUp?: boolean, monitorPort?: number, timeout?: number, type?: string, expectedCodes?: string, domainName?: string, urlPath?: string, httpMethod?: string, delay?: number, maxRetries?: number, pools?: Array<ResourceList>) { 
+    private 'max_retries_down'?: number;
+    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, adminStateUp?: boolean, monitorPort?: number, timeout?: number, type?: string, expectedCodes?: string, domainName?: string, urlPath?: string, httpMethod?: string, delay?: number, maxRetries?: number, pools?: Array<ResourceList>, maxRetriesDown?: number) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['tenant_id'] = tenantId;
@@ -33,6 +34,7 @@ export class HealthmonitorResp {
         this['delay'] = delay;
         this['max_retries'] = maxRetries;
         this['pools'] = pools;
+        this['max_retries_down'] = maxRetriesDown;
     }
     public withId(id: string): HealthmonitorResp {
         this['id'] = id;
@@ -147,6 +149,16 @@ export class HealthmonitorResp {
     public withPools(pools: Array<ResourceList>): HealthmonitorResp {
         this['pools'] = pools;
         return this;
+    }
+    public withMaxRetriesDown(maxRetriesDown: number): HealthmonitorResp {
+        this['max_retries_down'] = maxRetriesDown;
+        return this;
+    }
+    public set maxRetriesDown(maxRetriesDown: number  | undefined) {
+        this['max_retries_down'] = maxRetriesDown;
+    }
+    public get maxRetriesDown(): number | undefined {
+        return this['max_retries_down'];
     }
 }
 

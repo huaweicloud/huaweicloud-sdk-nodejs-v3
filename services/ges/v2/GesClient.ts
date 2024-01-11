@@ -40,10 +40,16 @@ import { ExpandGraph2Request } from './model/ExpandGraph2Request';
 import { ExpandGraph2Response } from './model/ExpandGraph2Response';
 import { ExpandGraphReq } from './model/ExpandGraphReq';
 import { ExpandGraphReqExpand } from './model/ExpandGraphReqExpand';
+import { ExportBackup2Request } from './model/ExportBackup2Request';
+import { ExportBackup2Response } from './model/ExportBackup2Response';
+import { ExportBackupReq } from './model/ExportBackupReq';
 import { ExportGraph2Request } from './model/ExportGraph2Request';
 import { ExportGraph2Response } from './model/ExportGraph2Response';
 import { ExportGraphReq } from './model/ExportGraphReq';
 import { ExportGraphReqPaginate } from './model/ExportGraphReqPaginate';
+import { ImportBackup2Request } from './model/ImportBackup2Request';
+import { ImportBackup2Response } from './model/ImportBackup2Response';
+import { ImportBackupReq } from './model/ImportBackupReq';
 import { ImportGraph2Request } from './model/ImportGraph2Request';
 import { ImportGraph2Response } from './model/ImportGraph2Response';
 import { ImportGraphReq } from './model/ImportGraphReq';
@@ -322,6 +328,26 @@ export class GesClient {
     }
 
     /**
+     * 导出备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出备份
+     * @param {string} graphId 图ID。
+     * @param {ExportBackupReq} exportBackupReq 导出备份请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportBackup2(exportBackup2Request?: ExportBackup2Request): Promise<ExportBackup2Response> {
+        const options = ParamCreater().exportBackup2(exportBackup2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 导出图。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -334,6 +360,26 @@ export class GesClient {
      */
     public exportGraph2(exportGraph2Request?: ExportGraph2Request): Promise<ExportGraph2Response> {
         const options = ParamCreater().exportGraph2(exportGraph2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入备份
+     * @param {string} graphId 图ID。
+     * @param {ImportBackupReq} importBackupReq 导入备份请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importBackup2(importBackup2Request?: ImportBackup2Request): Promise<ImportBackup2Response> {
+        const options = ParamCreater().importBackup2(importBackup2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1154,6 +1200,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 导出备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportBackup2(exportBackup2Request?: ExportBackup2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/graphs/{graph_id}/backups/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let graphId;
+
+            if (exportBackup2Request !== null && exportBackup2Request !== undefined) {
+                if (exportBackup2Request instanceof ExportBackup2Request) {
+                    graphId = exportBackup2Request.graphId;
+                    body = exportBackup2Request.body
+                } else {
+                    graphId = exportBackup2Request['graph_id'];
+                    body = exportBackup2Request['body'];
+                }
+            }
+
+        
+            if (graphId === null || graphId === undefined) {
+            throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling exportBackup2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'graph_id': graphId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 导出图。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1187,6 +1279,52 @@ export const ParamCreater = function () {
         
             if (graphId === null || graphId === undefined) {
             throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling exportGraph2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'graph_id': graphId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importBackup2(importBackup2Request?: ImportBackup2Request) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/graphs/{graph_id}/backups/import",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let graphId;
+
+            if (importBackup2Request !== null && importBackup2Request !== undefined) {
+                if (importBackup2Request instanceof ImportBackup2Request) {
+                    graphId = importBackup2Request.graphId;
+                    body = importBackup2Request.body
+                } else {
+                    graphId = importBackup2Request['graph_id'];
+                    body = importBackup2Request['body'];
+                }
+            }
+
+        
+            if (graphId === null || graphId === undefined) {
+            throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling importBackup2.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

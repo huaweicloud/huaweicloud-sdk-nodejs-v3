@@ -19,14 +19,20 @@ import { AsyncUpdateJobResp } from './model/AsyncUpdateJobResp';
 import { BaseEndpoint } from './model/BaseEndpoint';
 import { BaseEndpointConfig } from './model/BaseEndpointConfig';
 import { BaseResp } from './model/BaseResp';
+import { BatchAddTagReq } from './model/BatchAddTagReq';
 import { BatchAsyncCreateJobReq } from './model/BatchAsyncCreateJobReq';
 import { BatchAsyncUpdateJobReq } from './model/BatchAsyncUpdateJobReq';
 import { BatchCreateJobsAsyncRequest } from './model/BatchCreateJobsAsyncRequest';
 import { BatchCreateJobsAsyncResponse } from './model/BatchCreateJobsAsyncResponse';
+import { BatchCreateTagsRequest } from './model/BatchCreateTagsRequest';
+import { BatchCreateTagsResponse } from './model/BatchCreateTagsResponse';
 import { BatchDealResourceTagReq } from './model/BatchDealResourceTagReq';
 import { BatchDeleteJobReq } from './model/BatchDeleteJobReq';
 import { BatchDeleteJobsByIdRequest } from './model/BatchDeleteJobsByIdRequest';
 import { BatchDeleteJobsByIdResponse } from './model/BatchDeleteJobsByIdResponse';
+import { BatchDeleteTagReq } from './model/BatchDeleteTagReq';
+import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
+import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
 import { BatchExecuteJobActionsRequest } from './model/BatchExecuteJobActionsRequest';
 import { BatchExecuteJobActionsResponse } from './model/BatchExecuteJobActionsResponse';
 import { BatchJobActionReq } from './model/BatchJobActionReq';
@@ -62,10 +68,13 @@ import { ContentCompareDetailInfo } from './model/ContentCompareDetailInfo';
 import { ContentCompareOverviewInfo } from './model/ContentCompareOverviewInfo';
 import { CopyJobRequest } from './model/CopyJobRequest';
 import { CopyJobResponse } from './model/CopyJobResponse';
+import { CountInstanceByTagsRequest } from './model/CountInstanceByTagsRequest';
+import { CountInstanceByTagsResponse } from './model/CountInstanceByTagsResponse';
 import { CreateJobReq } from './model/CreateJobReq';
 import { CreateJobRequest } from './model/CreateJobRequest';
 import { CreateJobResp } from './model/CreateJobResp';
 import { CreateJobResponse } from './model/CreateJobResponse';
+import { CustomizedDns } from './model/CustomizedDns';
 import { DataFilteringCondition } from './model/DataFilteringCondition';
 import { DataProcessInfo } from './model/DataProcessInfo';
 import { DataProcessReq } from './model/DataProcessReq';
@@ -123,20 +132,34 @@ import { ListAsyncJobsRequest } from './model/ListAsyncJobsRequest';
 import { ListAsyncJobsResponse } from './model/ListAsyncJobsResponse';
 import { ListDbObjectsRequest } from './model/ListDbObjectsRequest';
 import { ListDbObjectsResponse } from './model/ListDbObjectsResponse';
+import { ListInstanceByTagsRequest } from './model/ListInstanceByTagsRequest';
+import { ListInstanceByTagsResponse } from './model/ListInstanceByTagsResponse';
+import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
+import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListJdbcDriversRequest } from './model/ListJdbcDriversRequest';
 import { ListJdbcDriversResponse } from './model/ListJdbcDriversResponse';
+import { ListJobHistoryParameter } from './model/ListJobHistoryParameter';
+import { ListJobHistoryParametersRequest } from './model/ListJobHistoryParametersRequest';
+import { ListJobHistoryParametersResponse } from './model/ListJobHistoryParametersResponse';
+import { ListJobParametersRequest } from './model/ListJobParametersRequest';
+import { ListJobParametersResponse } from './model/ListJobParametersResponse';
 import { ListJobsRequest } from './model/ListJobsRequest';
 import { ListJobsResponse } from './model/ListJobsResponse';
 import { ListLinksRequest } from './model/ListLinksRequest';
 import { ListLinksResponse } from './model/ListLinksResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListTagsRequest } from './model/ListTagsRequest';
+import { ListTagsResponse } from './model/ListTagsResponse';
 import { MigrationObjectOverviewInfo } from './model/MigrationObjectOverviewInfo';
+import { ModifyParameterReq } from './model/ModifyParameterReq';
 import { ModifyStartPositionReq } from './model/ModifyStartPositionReq';
 import { ModifyTuningParams } from './model/ModifyTuningParams';
 import { ObjectsCompareDetailInfo } from './model/ObjectsCompareDetailInfo';
 import { ObjectsCompareOverviewInfo } from './model/ObjectsCompareOverviewInfo';
 import { ObjectsCompareTaskInfo } from './model/ObjectsCompareTaskInfo';
+import { ParameterConfig } from './model/ParameterConfig';
+import { ParameterInfo } from './model/ParameterInfo';
 import { PeriodOrderInfo } from './model/PeriodOrderInfo';
 import { PolicyConfig } from './model/PolicyConfig';
 import { PrecheckFailSubJobResult } from './model/PrecheckFailSubJobResult';
@@ -147,13 +170,16 @@ import { ProjectTag } from './model/ProjectTag';
 import { QueryColumnInfo } from './model/QueryColumnInfo';
 import { QueryColumnReq } from './model/QueryColumnReq';
 import { QueryDbPositionReq } from './model/QueryDbPositionReq';
+import { QueryInstanceByTagReq } from './model/QueryInstanceByTagReq';
 import { QueryMetricResult } from './model/QueryMetricResult';
 import { QueryMigrationObjectProgressInfo } from './model/QueryMigrationObjectProgressInfo';
 import { QueryNetworkResult } from './model/QueryNetworkResult';
 import { QueryPreCheckResult } from './model/QueryPreCheckResult';
 import { QuerySelectObjectInfoReq } from './model/QuerySelectObjectInfoReq';
 import { QueryUserSelectedObjectInfoReq } from './model/QueryUserSelectedObjectInfoReq';
+import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTagInfo } from './model/ResourceTagInfo';
 import { SchemaObject } from './model/SchemaObject';
 import { SelectDbTableObjectInfo } from './model/SelectDbTableObjectInfo';
 import { ShowActionsRequest } from './model/ShowActionsRequest';
@@ -215,6 +241,8 @@ import { SyncJdbcDriverRequest } from './model/SyncJdbcDriverRequest';
 import { SyncJdbcDriverResponse } from './model/SyncJdbcDriverResponse';
 import { TableLineCompareDetailInfo } from './model/TableLineCompareDetailInfo';
 import { TableObject } from './model/TableObject';
+import { Tag } from './model/Tag';
+import { TagMatch } from './model/TagMatch';
 import { TargetRootDb } from './model/TargetRootDb';
 import { TaskLogInfo } from './model/TaskLogInfo';
 import { TuningParamInfo } from './model/TuningParamInfo';
@@ -225,6 +253,8 @@ import { UpdateDataProgressRequest } from './model/UpdateDataProgressRequest';
 import { UpdateDataProgressResponse } from './model/UpdateDataProgressResponse';
 import { UpdateDriverReq } from './model/UpdateDriverReq';
 import { UpdateJob } from './model/UpdateJob';
+import { UpdateJobConfigurationsRequest } from './model/UpdateJobConfigurationsRequest';
+import { UpdateJobConfigurationsResponse } from './model/UpdateJobConfigurationsResponse';
 import { UpdateJobReq } from './model/UpdateJobReq';
 import { UpdateJobRequest } from './model/UpdateJobRequest';
 import { UpdateJobResponse } from './model/UpdateJobResponse';
@@ -278,6 +308,28 @@ export class DrsClient {
     }
 
     /**
+     * 批量添加资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加资源标签
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {string} resourceId 资源ID，即DRS任务ID。
+     * @param {BatchAddTagReq} batchCreateTagsRequestBody 批量添加标签请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateTags(batchCreateTagsRequest?: BatchCreateTagsRequest): Promise<BatchCreateTagsResponse> {
+        const options = ParamCreater().batchCreateTags(batchCreateTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除租户指定ID任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -290,6 +342,28 @@ export class DrsClient {
      */
     public batchDeleteJobsById(batchDeleteJobsByIdRequest?: BatchDeleteJobsByIdRequest): Promise<BatchDeleteJobsByIdResponse> {
         const options = ParamCreater().batchDeleteJobsById(batchDeleteJobsByIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定实例批量删除标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除资源标签
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {string} resourceId 资源ID，即DRS任务ID。
+     * @param {BatchDeleteTagReq} batchDeleteTagsRequestBody 批量删除资源标签请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<BatchDeleteTagsResponse> {
+        const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -507,6 +581,27 @@ export class DrsClient {
      */
     public copyJob(copyJobRequest?: CopyJobRequest): Promise<CopyJobResponse> {
         const options = ParamCreater().copyJob(copyJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例数量
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {QueryInstanceByTagReq} countInstanceByTagsRequestBody 查询资源实例数量请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countInstanceByTags(countInstanceByTagsRequest?: CountInstanceByTagsRequest): Promise<CountInstanceByTagsResponse> {
+        const options = ParamCreater().countInstanceByTags(countInstanceByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -749,6 +844,50 @@ export class DrsClient {
     }
 
     /**
+     * 查询资源实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例列表
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {QueryInstanceByTagReq} listInstanceByTagsRequestBody 查询资源实例请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [limit] 查询记录数，默认为1000，limit最多为1000,不能为负数，最小值为1。
+     * @param {number} [offset] 索引位置，偏移量从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceByTags(listInstanceByTagsRequest?: ListInstanceByTagsRequest): Promise<ListInstanceByTagsResponse> {
+        const options = ParamCreater().listInstanceByTags(listInstanceByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的标签信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {string} resourceId 资源ID，即DRS任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceTags(listInstanceTagsRequest?: ListInstanceTagsRequest): Promise<ListInstanceTagsResponse> {
+        const options = ParamCreater().listInstanceTags(listInstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询驱动文件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -770,6 +909,56 @@ export class DrsClient {
     }
 
     /**
+     * 查询任务的参数配置修改历史
+     * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务的参数配置修改历史
+     * @param {string} jobId 任务ID。
+     * @param {string} [xLanguage] 请求语言类型。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset 大于等于 0。默认为0
+     * @param {number} [limit] 每页显示的条目数量。默认为10，取值范围【1-1000】
+     * @param {string} [beginTime] 开始时间，UTC时间，例如：2020-09-01T18:50:20Z
+     * @param {string} [endTime] 结束时间，UTC时间，例如：2020-09-01T19:50:20Z
+     * @param {string} [name] 参数名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobHistoryParameters(listJobHistoryParametersRequest?: ListJobHistoryParametersRequest): Promise<ListJobHistoryParametersResponse> {
+        const options = ParamCreater().listJobHistoryParameters(listJobHistoryParametersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务的参数配置列表信息
+     * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务参数配置列表
+     * @param {string} jobId 任务ID。
+     * @param {string} [xLanguage] 请求语言类型。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset 大于等于 0。默认为0
+     * @param {number} [limit] 每页显示的条目数量。默认为10，取值范围【1-1000】
+     * @param {string} [name] 根据参数名查询。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobParameters(listJobParametersRequest?: ListJobParametersRequest): Promise<ListJobParametersResponse> {
+        const options = ParamCreater().listJobParameters(listJobParametersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户任务列表，可以根据企业项目，引擎类型，网络类型，任务状态，任务名称，任务ID进行查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -779,7 +968,7 @@ export class DrsClient {
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {string} [name] 任务ID或名称。
      * @param {'CREATING' | 'CREATE_FAILED' | 'CONFIGURATION' | 'STARTJOBING' | 'WAITING_FOR_START' | 'START_JOB_FAILED' | 'FULL_TRANSFER_STARTED' | 'FULL_TRANSFER_FAILED' | 'FULL_TRANSFER_COMPLETE' | 'INCRE_TRANSFER_STARTED' | 'INCRE_TRANSFER_FAILED' | 'RELEASE_RESOURCE_STARTED' | 'RELEASE_RESOURCE_FAILED' | 'RELEASE_RESOURCE_COMPLETE' | 'CHANGE_JOB_STARTED' | 'CHANGE_JOB_FAILED' | 'CHILD_TRANSFER_STARTING' | 'CHILD_TRANSFER_STARTED' | 'CHILD_TRANSFER_COMPLETE' | 'CHILD_TRANSFER_FAILED' | 'RELEASE_CHILD_TRANSFER_STARTED' | 'RELEASE_CHILD_TRANSFER_COMPLETE'} [status] 任务状态。取值： - CREATING：创建中。 - CREATE_FAILED：创建失败。 - CONFIGURATION：配置中。 - STARTJOBING：启动中。 - WAITING_FOR_START：等待启动中。 - START_JOB_FAILED：任务启动失败。 - FULL_TRANSFER_STARTED：全量迁移中，灾备场景为初始化。 - FULL_TRANSFER_FAILED：全量迁移失败，灾备场景为初始化失败。 - FULL_TRANSFER_COMPLETE：全量迁移完成，灾备场景为初始化完成。 - INCRE_TRANSFER_STARTED：增量迁移中，灾备场景为灾备中。 - INCRE_TRANSFER_FAILED：增量迁移失败，灾备场景为灾备异常。 - RELEASE_RESOURCE_STARTED：结束任务中。 - RELEASE_RESOURCE_FAILED：结束任务失败。 - RELEASE_RESOURCE_COMPLETE：已结束。 - CHANGE_JOB_STARTED：任务变更中。 - CHANGE_JOB_FAILED：任务变更失败。 - CHILD_TRANSFER_STARTING：子任务启动中。 - CHILD_TRANSFER_STARTED：子任务迁移中。 - CHILD_TRANSFER_COMPLETE：子任务迁移完成。 - CHILD_TRANSFER_FAILED：子任务迁移失败。 - RELEASE_CHILD_TRANSFER_STARTED：子任务结束中。 - RELEASE_CHILD_TRANSFER_COMPLETE：子任务已结束。 其中，异常状态可单独查询，也可以通过以下方式查询全部异常任务： CREATE_FAILED,START_JOB_FAILED,FULL_TRANSFER_FAILED,INCRE_TRANSFER_FAILED,RELEASE_RESOURCE_FAILED,CHANGE_JOB_FAILED,CHILD_TRANSFER_FAILED
-     * @param {'oracle-to-gaussdbv5'} [engineType] 引擎类型。取值： - oracle-to-gaussdbv5：Oracle同步到GaussDB分布式版，实时同步场景使用。
+     * @param {'oracle-to-gaussdbv5' | 'redis-to-gaussredis' | 'rediscluster-to-gaussredis'} [engineType] 引擎类型。取值： - oracle-to-gaussdbv5：Oracle同步到GaussDB分布式版，实时同步场景使用。 - redis-to-gaussredis：Redis同步到GeminiDB Redis，实时迁移场景使用。 - rediscluster-to-gaussredis：Redis集群同步到GeminiDB Redis，实时迁移场景使用。
      * @param {'eip' | 'vpc' | 'vpn'} [netType] 网络类型。取值： - eip：公网网络。 - vpc：VPC网络。 - vpn：VPN、专线网络。
      * @param {string} [enterpriseProjectId] 企业项目ID。 缺省值：\&quot;\&quot;，表示查询所有企业项目任务。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。
@@ -835,6 +1024,26 @@ export class DrsClient {
      */
     public listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest): Promise<ListProjectTagsResponse> {
         const options = ParamCreater().listProjectTags(listProjectTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户在指定Project中实例类型的所有资源标签集合。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目标签
+     * @param {'migration' | 'sync' | 'cloudDataGuard' | 'subscription' | 'backupMigration' | 'replay'} resourceType 资源类型。 - migration：实时迁移 - sync：实时同步 - cloudDataGuard：实时灾备 - subscription：数据订阅 - backupMigration：备份迁移 - replay：录制回放
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
+        const options = ParamCreater().listTags(listTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1283,7 +1492,7 @@ export class DrsClient {
     /**
      * 查询不同迁移对象类型的迁移进度。
      * 说明：
-     * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MongoDB-&gt;DDS、DDS-&gt;MongoDB的迁移支持查看迁移明细。
+     * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MongoDB-&gt;DDS、DDS-&gt;MongoDB的实时迁移和所有实时同步链路支持查看迁移明细。
      * - 在任务未结束前，不能修改源库和目标库的所有用户、密码和用户权限等。
      * - 全量、增量完成不代表任务结束，如果存在触发器和事件将会进行迁移。
      * 
@@ -1455,6 +1664,28 @@ export class DrsClient {
     }
 
     /**
+     * 更新任务的参数信息。
+     * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新任务的参数信息
+     * @param {string} jobId 任务ID。
+     * @param {ModifyParameterReq} updateJobConfigurationsRequestBody 更新任务参数的请求体。
+     * @param {string} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateJobConfigurations(updateJobConfigurationsRequest?: UpdateJobConfigurationsRequest): Promise<UpdateJobConfigurationsResponse> {
+        const options = ParamCreater().updateJobConfigurations(updateJobConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新增量任务的启动位点。
      * - 仅engine_type为mysql,mysql-to-dws,mysql-to-taurus,taurus,mysql-to-oracle,taurus-to-oracle,taurus-to-mysql,mysql-to-kafka,taurus-to-kafka,mongodb-to-kafka,mongodb且为单增量实时同步任务支持。
      * 
@@ -1588,6 +1819,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量添加资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateTags(batchCreateTagsRequest?: BatchCreateTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let xLanguage;
+
+            if (batchCreateTagsRequest !== null && batchCreateTagsRequest !== undefined) {
+                if (batchCreateTagsRequest instanceof BatchCreateTagsRequest) {
+                    resourceType = batchCreateTagsRequest.resourceType;
+                    resourceId = batchCreateTagsRequest.resourceId;
+                    body = batchCreateTagsRequest.body
+                    xLanguage = batchCreateTagsRequest.xLanguage;
+                } else {
+                    resourceType = batchCreateTagsRequest['resource_type'];
+                    resourceId = batchCreateTagsRequest['resource_id'];
+                    body = batchCreateTagsRequest['body'];
+                    xLanguage = batchCreateTagsRequest['X-Language'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchCreateTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除租户指定ID任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1628,6 +1919,66 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定实例批量删除标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let xLanguage;
+
+            if (batchDeleteTagsRequest !== null && batchDeleteTagsRequest !== undefined) {
+                if (batchDeleteTagsRequest instanceof BatchDeleteTagsRequest) {
+                    resourceType = batchDeleteTagsRequest.resourceType;
+                    resourceId = batchDeleteTagsRequest.resourceId;
+                    body = batchDeleteTagsRequest.body
+                    xLanguage = batchDeleteTagsRequest.xLanguage;
+                } else {
+                    resourceType = batchDeleteTagsRequest['resource_type'];
+                    resourceId = batchDeleteTagsRequest['resource_id'];
+                    body = batchDeleteTagsRequest['body'];
+                    xLanguage = batchDeleteTagsRequest['X-Language'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchDeleteTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchDeleteTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2168,6 +2519,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countInstanceByTags(countInstanceByTagsRequest?: CountInstanceByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/{resource_type}/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let xLanguage;
+
+            if (countInstanceByTagsRequest !== null && countInstanceByTagsRequest !== undefined) {
+                if (countInstanceByTagsRequest instanceof CountInstanceByTagsRequest) {
+                    resourceType = countInstanceByTagsRequest.resourceType;
+                    body = countInstanceByTagsRequest.body
+                    xLanguage = countInstanceByTagsRequest.xLanguage;
+                } else {
+                    resourceType = countInstanceByTagsRequest['resource_type'];
+                    body = countInstanceByTagsRequest['body'];
+                    xLanguage = countInstanceByTagsRequest['X-Language'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling countInstanceByTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2770,6 +3174,125 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资源实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceByTags(listInstanceByTagsRequest?: ListInstanceByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/{resource_type}/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceType;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (listInstanceByTagsRequest !== null && listInstanceByTagsRequest !== undefined) {
+                if (listInstanceByTagsRequest instanceof ListInstanceByTagsRequest) {
+                    resourceType = listInstanceByTagsRequest.resourceType;
+                    body = listInstanceByTagsRequest.body
+                    xLanguage = listInstanceByTagsRequest.xLanguage;
+                    limit = listInstanceByTagsRequest.limit;
+                    offset = listInstanceByTagsRequest.offset;
+                } else {
+                    resourceType = listInstanceByTagsRequest['resource_type'];
+                    body = listInstanceByTagsRequest['body'];
+                    xLanguage = listInstanceByTagsRequest['X-Language'];
+                    limit = listInstanceByTagsRequest['limit'];
+                    offset = listInstanceByTagsRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listInstanceByTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的标签信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceTags(listInstanceTagsRequest?: ListInstanceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let xLanguage;
+
+            if (listInstanceTagsRequest !== null && listInstanceTagsRequest !== undefined) {
+                if (listInstanceTagsRequest instanceof ListInstanceTagsRequest) {
+                    resourceType = listInstanceTagsRequest.resourceType;
+                    resourceId = listInstanceTagsRequest.resourceId;
+                    xLanguage = listInstanceTagsRequest.xLanguage;
+                } else {
+                    resourceType = listInstanceTagsRequest['resource_type'];
+                    resourceId = listInstanceTagsRequest['resource_id'];
+                    xLanguage = listInstanceTagsRequest['X-Language'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listInstanceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listInstanceTags.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询驱动文件列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2816,6 +3339,154 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务的参数配置修改历史
+         * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobHistoryParameters(listJobHistoryParametersRequest?: ListJobHistoryParametersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/configuration-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let name;
+
+            if (listJobHistoryParametersRequest !== null && listJobHistoryParametersRequest !== undefined) {
+                if (listJobHistoryParametersRequest instanceof ListJobHistoryParametersRequest) {
+                    jobId = listJobHistoryParametersRequest.jobId;
+                    xLanguage = listJobHistoryParametersRequest.xLanguage;
+                    offset = listJobHistoryParametersRequest.offset;
+                    limit = listJobHistoryParametersRequest.limit;
+                    beginTime = listJobHistoryParametersRequest.beginTime;
+                    endTime = listJobHistoryParametersRequest.endTime;
+                    name = listJobHistoryParametersRequest.name;
+                } else {
+                    jobId = listJobHistoryParametersRequest['job_id'];
+                    xLanguage = listJobHistoryParametersRequest['X-Language'];
+                    offset = listJobHistoryParametersRequest['offset'];
+                    limit = listJobHistoryParametersRequest['limit'];
+                    beginTime = listJobHistoryParametersRequest['begin_time'];
+                    endTime = listJobHistoryParametersRequest['end_time'];
+                    name = listJobHistoryParametersRequest['name'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listJobHistoryParameters.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务的参数配置列表信息
+         * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobParameters(listJobParametersRequest?: ListJobParametersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listJobParametersRequest !== null && listJobParametersRequest !== undefined) {
+                if (listJobParametersRequest instanceof ListJobParametersRequest) {
+                    jobId = listJobParametersRequest.jobId;
+                    xLanguage = listJobParametersRequest.xLanguage;
+                    offset = listJobParametersRequest.offset;
+                    limit = listJobParametersRequest.limit;
+                    name = listJobParametersRequest.name;
+                } else {
+                    jobId = listJobParametersRequest['job_id'];
+                    xLanguage = listJobParametersRequest['X-Language'];
+                    offset = listJobParametersRequest['offset'];
+                    limit = listJobParametersRequest['limit'];
+                    name = listJobParametersRequest['name'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listJobParameters.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3039,6 +3710,50 @@ export const ParamCreater = function () {
         
             if (resourceType === null || resourceType === undefined) {
             throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listProjectTags.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户在指定Project中实例类型的所有资源标签集合。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTags(listTagsRequest?: ListTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let xLanguage;
+
+            if (listTagsRequest !== null && listTagsRequest !== undefined) {
+                if (listTagsRequest instanceof ListTagsRequest) {
+                    resourceType = listTagsRequest.resourceType;
+                    xLanguage = listTagsRequest.xLanguage;
+                } else {
+                    resourceType = listTagsRequest['resource_type'];
+                    xLanguage = listTagsRequest['X-Language'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTags.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -4224,7 +4939,7 @@ export const ParamCreater = function () {
         /**
          * 查询不同迁移对象类型的迁移进度。
          * 说明：
-         * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MongoDB-&gt;DDS、DDS-&gt;MongoDB的迁移支持查看迁移明细。
+         * - 目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MongoDB-&gt;DDS、DDS-&gt;MongoDB的实时迁移和所有实时同步链路支持查看迁移明细。
          * - 在任务未结束前，不能修改源库和目标库的所有用户、密码和用户权限等。
          * - 全量、增量完成不代表任务结束，如果存在触发器和事件将会进行迁移。
          * 
@@ -4641,6 +5356,60 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新任务的参数信息。
+         * - 仅engine_type为mysql、mysql-to-pgl、mysql-to-gaussdbv5、mysql-to-gaussdbv5ha、mysql-to-dws、mysql-to-taurus、mysql-to-kafka、mysql-to-elasticsearch、mysql-to-oracle且任务状态只能为配置中、全量中、增量中、全量失败、增量失败、暂停中的实时同步任务支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateJobConfigurations(updateJobConfigurationsRequest?: UpdateJobConfigurationsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/jobs/{job_id}/modify-configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (updateJobConfigurationsRequest !== null && updateJobConfigurationsRequest !== undefined) {
+                if (updateJobConfigurationsRequest instanceof UpdateJobConfigurationsRequest) {
+                    jobId = updateJobConfigurationsRequest.jobId;
+                    body = updateJobConfigurationsRequest.body
+                    xLanguage = updateJobConfigurationsRequest.xLanguage;
+                } else {
+                    jobId = updateJobConfigurationsRequest['job_id'];
+                    body = updateJobConfigurationsRequest['body'];
+                    xLanguage = updateJobConfigurationsRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateJobConfigurations.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

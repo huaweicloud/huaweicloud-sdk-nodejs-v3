@@ -1,3 +1,4 @@
+import { ConnectionDrain } from './ConnectionDrain';
 import { CreateMasterSlaveHealthMonitorOption } from './CreateMasterSlaveHealthMonitorOption';
 import { CreateMasterSlaveMemberOption } from './CreateMasterSlaveMemberOption';
 import { CreatePoolSessionPersistenceOption } from './CreatePoolSessionPersistenceOption';
@@ -18,6 +19,7 @@ export class CreateMasterSlavePoolOption {
     public members?: Array<CreateMasterSlaveMemberOption>;
     public healthmonitor?: CreateMasterSlaveHealthMonitorOption;
     private 'any_port_enable'?: boolean;
+    private 'connection_drain'?: ConnectionDrain;
     public constructor(lbAlgorithm?: string, protocol?: string, type?: string, members?: Array<CreateMasterSlaveMemberOption>, healthmonitor?: CreateMasterSlaveHealthMonitorOption) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -128,5 +130,15 @@ export class CreateMasterSlavePoolOption {
     }
     public get anyPortEnable(): boolean | undefined {
         return this['any_port_enable'];
+    }
+    public withConnectionDrain(connectionDrain: ConnectionDrain): CreateMasterSlavePoolOption {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: ConnectionDrain  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): ConnectionDrain | undefined {
+        return this['connection_drain'];
     }
 }

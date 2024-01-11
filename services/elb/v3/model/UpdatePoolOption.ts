@@ -1,3 +1,4 @@
+import { ConnectionDrain } from './ConnectionDrain';
 import { UpdatePoolSessionPersistenceOption } from './UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './UpdatePoolSlowStartOption';
 
@@ -15,6 +16,7 @@ export class UpdatePoolOption {
     private 'protection_status'?: UpdatePoolOptionProtectionStatusEnum | string;
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
+    private 'connection_drain'?: ConnectionDrain;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -118,6 +120,16 @@ export class UpdatePoolOption {
     }
     public get anyPortEnable(): boolean | undefined {
         return this['any_port_enable'];
+    }
+    public withConnectionDrain(connectionDrain: ConnectionDrain): UpdatePoolOption {
+        this['connection_drain'] = connectionDrain;
+        return this;
+    }
+    public set connectionDrain(connectionDrain: ConnectionDrain  | undefined) {
+        this['connection_drain'] = connectionDrain;
+    }
+    public get connectionDrain(): ConnectionDrain | undefined {
+        return this['connection_drain'];
     }
 }
 

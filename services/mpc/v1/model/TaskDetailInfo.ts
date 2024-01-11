@@ -6,6 +6,7 @@ import { ObsObjInfo } from './ObsObjInfo';
 export class TaskDetailInfo {
     private 'task_id'?: string;
     public status?: TaskDetailInfoStatusEnum | string;
+    public progress?: number;
     private 'create_time'?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
@@ -30,6 +31,10 @@ export class TaskDetailInfo {
     }
     public withStatus(status: TaskDetailInfoStatusEnum | string): TaskDetailInfo {
         this['status'] = status;
+        return this;
+    }
+    public withProgress(progress: number): TaskDetailInfo {
+        this['progress'] = progress;
         return this;
     }
     public withCreateTime(createTime: string): TaskDetailInfo {

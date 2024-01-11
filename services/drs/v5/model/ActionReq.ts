@@ -54,5 +54,7 @@ export enum ActionReqActionNameEnum {
     TERMINATE = 'terminate',
     SKIP_PRECHECK = 'skip_precheck',
     CREATE_COMPARE = 'create_compare',
-    CANCEL_COMPARE = 'cancel_compare'
+    CANCEL_COMPARE = 'cancel_compare',
+    COLUMN_LIMIT = 'column_limit',
+    RELOAD_PARAMETERS = 'reload_parameters'
 }
