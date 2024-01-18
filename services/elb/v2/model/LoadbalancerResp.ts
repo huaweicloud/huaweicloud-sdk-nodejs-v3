@@ -23,8 +23,11 @@ export class LoadbalancerResp {
     public tags?: Array<string>;
     public publicips?: Array<PublicIpInfo>;
     private 'charge_mode'?: string;
+    private 'billing_info'?: string;
     private 'frozen_scene'?: string;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, vipSubnetId?: string, vipPortId?: string, vipAddress?: string, listeners?: Array<ResourceList>, pools?: Array<ResourceList>, provider?: string, operatingStatus?: string, provisioningStatus?: string, adminStateUp?: boolean, createdAt?: string, updatedAt?: string, enterpriseProjectId?: string, projectId?: string, tags?: Array<string>, publicips?: Array<PublicIpInfo>, chargeMode?: string) { 
+    private 'protection_status'?: LoadbalancerRespProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, vipSubnetId?: string, vipPortId?: string, vipAddress?: string, listeners?: Array<ResourceList>, pools?: Array<ResourceList>, provider?: string, operatingStatus?: string, provisioningStatus?: string, adminStateUp?: boolean, createdAt?: string, updatedAt?: string, enterpriseProjectId?: string, projectId?: string, tags?: Array<string>, publicips?: Array<PublicIpInfo>, chargeMode?: string, billingInfo?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -45,6 +48,7 @@ export class LoadbalancerResp {
         this['tags'] = tags;
         this['publicips'] = publicips;
         this['charge_mode'] = chargeMode;
+        this['billing_info'] = billingInfo;
     }
     public withId(id: string): LoadbalancerResp {
         this['id'] = id;
@@ -198,6 +202,16 @@ export class LoadbalancerResp {
     public get chargeMode(): string | undefined {
         return this['charge_mode'];
     }
+    public withBillingInfo(billingInfo: string): LoadbalancerResp {
+        this['billing_info'] = billingInfo;
+        return this;
+    }
+    public set billingInfo(billingInfo: string  | undefined) {
+        this['billing_info'] = billingInfo;
+    }
+    public get billingInfo(): string | undefined {
+        return this['billing_info'];
+    }
     public withFrozenScene(frozenScene: string): LoadbalancerResp {
         this['frozen_scene'] = frozenScene;
         return this;
@@ -207,6 +221,26 @@ export class LoadbalancerResp {
     }
     public get frozenScene(): string | undefined {
         return this['frozen_scene'];
+    }
+    public withProtectionStatus(protectionStatus: LoadbalancerRespProtectionStatusEnum | string): LoadbalancerResp {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: LoadbalancerRespProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): LoadbalancerRespProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): LoadbalancerResp {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
     }
 }
 
@@ -229,4 +263,12 @@ export enum LoadbalancerRespProvisioningStatusEnum {
     ACTIVE = 'ACTIVE',
     PENDING_CREATE = 'PENDING_CREATE',
     ERROR = 'ERROR'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LoadbalancerRespProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

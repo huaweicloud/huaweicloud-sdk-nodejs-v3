@@ -25,7 +25,7 @@ export class ListenerResp {
     private 'tls_ciphers_policy'?: string;
     private 'protection_status'?: ListenerRespProtectionStatusEnum | string;
     private 'protection_reason'?: string;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, connectionLimit?: number, http2Enable?: boolean, protocol?: string, protocolPort?: number, defaultPoolId?: string, defaultTlsContainerRef?: string, clientCaTlsContainerRef?: string, sniContainerRefs?: Array<string>, tags?: Array<string>, createdAt?: string, updatedAt?: string, insertHeaders?: InsertHeader, projectId?: string, tlsCiphersPolicy?: string, protectionStatus?: string, protectionReason?: string) { 
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, connectionLimit?: number, http2Enable?: boolean, protocol?: string, protocolPort?: number, defaultPoolId?: string, defaultTlsContainerRef?: string, clientCaTlsContainerRef?: string, sniContainerRefs?: Array<string>, tags?: Array<string>, createdAt?: string, updatedAt?: string, insertHeaders?: InsertHeader, projectId?: string, tlsCiphersPolicy?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -46,8 +46,6 @@ export class ListenerResp {
         this['insert_headers'] = insertHeaders;
         this['project_id'] = projectId;
         this['tls_ciphers_policy'] = tlsCiphersPolicy;
-        this['protection_status'] = protectionStatus;
-        this['protection_reason'] = protectionReason;
     }
     public withId(id: string): ListenerResp {
         this['id'] = id;

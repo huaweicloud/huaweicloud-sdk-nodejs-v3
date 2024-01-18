@@ -76,6 +76,7 @@ export enum ListPromInstanceRequestCceClusterEnableEnum {
     * @enum {string}
     */
 export enum ListPromInstanceRequestPromStatusEnum {
-    TRUE = 'true',
-    FALSE = 'false'
+    DELETED = 'DELETED',
+    NORMAL = 'NORMAL',
+    ALL = 'ALL'
 }

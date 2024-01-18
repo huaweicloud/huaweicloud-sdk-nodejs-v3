@@ -310,6 +310,8 @@ export * from './model/ListUpdatableVersionRequest';
 export * from './model/ListUpdatableVersionResponse';
 export * from './model/ListUpdateRecordRequest';
 export * from './model/ListUpdateRecordResponse';
+export * from './model/ListWorkloadPlansRequest';
+export * from './model/ListWorkloadPlansResponse';
 export * from './model/ListWorkloadQueueRequest';
 export * from './model/ListWorkloadQueueResponse';
 export * from './model/ListWorkloadQueueUsersRequest';

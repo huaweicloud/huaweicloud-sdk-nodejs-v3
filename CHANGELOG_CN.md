@@ -1,3 +1,271 @@
+# 3.1.75 2024-01-18
+
+### HuaweiCloud SDK AOM
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListPromInstance**
+    - 请求参数变更
+      - `+ prom_status: enum value [DELETED,NORMAL,ALL]`
+      - `+ prom_status: enum value [true,false]`
+    - 响应参数变更
+      - `- prometheus.cce_spec`
+      - `- prometheus.prom_config`
+      - `- prometheus.application`
+      - `+ prometheus.prom_status: enum value [DELETED,NORMAL,ALL]`
+  - **CreatePromInstance**
+    - 请求参数变更
+      - `- prom_id`
+      - `- cce_spec`
+      - `- prom_config`
+      - `- prom_create_timestamp`
+      - `- prom_update_timestamp`
+      - `- prom_status`
+      - `- is_deleted_tag`
+      - `- deleted_time`
+      - `- prom_spec_config`
+      - `- cce_spec_config`
+      - `- application`
+      - `- prom_type: enum value [DEFAULT]`
+      - `* body: object<PromInstanceEpsModel> -> object<PromInstanceRequestModel>`
+    - 响应参数变更
+      - `- prometheus.cce_spec`
+      - `- prometheus.prom_config`
+      - `- prometheus.is_deleted_tag`
+      - `- prometheus.application`
+      - `- prometheus.prom_type: enum value [DEFAULT]`
+      - `+ prometheus.prom_status: enum value [DELETED,NORMAL,ALL]`
+      - `* prometheus: list<PromInstanceEpsModel> -> list<PromInstanceEpsCreateModel>`
+  - **AddOrUpdateServiceDiscoveryRules**
+    - 响应参数变更
+      - `+ id`
+      - `+ results`
+
+### HuaweiCloud SDK APIG
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowDetailsOfInstanceV2**
+    - 响应参数变更
+      - `- public_ipv6_ips`
+      - `- unreliable_ips`
+      - `- node_ipv6_ips`
+      - `- enable_fullstack_ipv6`
+      - `- publicips.ipv6_address`
+  - **UpdateInstanceV2**
+    - 响应参数变更
+      - `- public_ipv6_ips`
+      - `- unreliable_ips`
+      - `- node_ipv6_ips`
+      - `- enable_fullstack_ipv6`
+      - `- publicips.ipv6_address`
+  - **CreateInstanceV2**
+    - 请求参数变更
+      - `+ spec_id: enum value [BASIC_IPV6,PROFESSIONAL_IPV6,ENTERPRISE_IPV6,PLATINUM_IPV6]`
+  - **CreateOrder**
+    - 请求参数变更
+      - `+ instance_info.spec_id: enum value [BASIC_IPV6,PROFESSIONAL_IPV6,ENTERPRISE_IPV6,PLATINUM_IPV6]`
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowCluster**
+    - 响应参数变更
+      - `+ spec.enableAutopilot`
+  - **UpdateCluster**
+    - 响应参数变更
+      - `+ spec.enableAutopilot`
+  - **DeleteCluster**
+    - 响应参数变更
+      - `+ spec.enableAutopilot`
+  - **CreateCluster**
+    - 请求参数变更
+      - `+ spec.enableAutopilot`
+    - 响应参数变更
+      - `+ spec.enableAutopilot`
+  - **ListClusters**
+    - 响应参数变更
+      - `+ items.spec.enableAutopilot`
+
+### HuaweiCloud SDK CDN
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowTopUrl**
+    - 请求参数变更
+      - `+ service_area: enum value [global]`
+
+### HuaweiCloud SDK CDN
+
+- _新增特性_
+  - 支持接口`ListCdnDomainTopRefers`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _新增特性_
+  - 支持以下接口：
+    - `ShowDataDetail`
+    - `ShowDatamapLineage`
+    - `ShowLineageBulk`
+    - `ShowNodes`
+    - `ShowInstanceInfos`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 支持接口`ChangeMasterStandbyAsync`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DSC
+
+- _新增特性_
+  - 支持接口`DeleteScanJob`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DWS
+
+- _新增特性_
+  - 支持接口`ListWorkloadPlans`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowWorkloadPlan**
+    - 响应参数变更
+      - `* workload_plan.status: string -> int32`
+
+### HuaweiCloud SDK ELB
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateListener**
+    - 请求参数变更
+      - `+ listener.protection_status`
+      - `+ listener.protection_reason`
+  - **ListLoadbalancers**
+    - 响应参数变更
+      - `+ loadbalancers.billing_info`
+      - `+ loadbalancers.protection_status`
+      - `+ loadbalancers.protection_reason`
+  - **CreateLoadbalancer**
+    - 响应参数变更
+      - `+ loadbalancer_id`
+      - `+ order_id`
+      - `+ loadbalancer.billing_info`
+      - `+ loadbalancer.protection_status`
+      - `+ loadbalancer.protection_reason`
+  - **ShowLoadbalancer**
+    - 响应参数变更
+      - `+ loadbalancer.billing_info`
+      - `+ loadbalancer.protection_status`
+      - `+ loadbalancer.protection_reason`
+  - **UpdateLoadbalancer**
+    - 响应参数变更
+      - `+ loadbalancer.billing_info`
+      - `+ loadbalancer.protection_status`
+      - `+ loadbalancer.protection_reason`
+
+### HuaweiCloud SDK MetaStudio
+
+- _新增特性_
+  - 支持以下接口：
+    - `CreateDialogUrl`
+    - `StartSmartChatJob`
+    - `StopSmartChatJob`
+    - `ShowSmartChatJob`
+    - `CreateOnceCode`
+    - `ListRobot`
+    - `CreateRobot`
+    - `ShowRobot`
+    - `UpdateRobot`
+    - `DeleteRobot`
+    - `ListSmartChatRooms`
+    - `CreateSmartChatRoom`
+    - `ShowSmartChatRoom`
+    - `UpdateSmartChatRoom`
+    - `DeleteSmartChatRoom`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListDigitalHumanVideo**
+    - 请求参数变更
+      - `+ job_type`
+  - **ListSmartLiveRooms**
+    - 响应参数变更
+      - `+ smart_live_rooms.last_job_status: enum value [BLOCKED]`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 支持接口`RecognizeSeal`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **RecognizeFlightItinerary**
+    - 响应参数变更
+      - `+ result.tax`
+      - `+ result.tax_rate`
+      - `+ result.buyer_name`
+      - `+ result.buyer_id`
+      - `+ result.number`
+      - `+ result.international_flag`
+      - `+ result.issue_status`
+
+### HuaweiCloud SDK RDS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowAuditlogPolicy**
+    - 响应参数变更
+      - `+ all_audit_log_action`
+      - `+ audit_types`
+  - **ListRecycleInstances**
+    - 响应参数变更
+      - `+ instances.is_serverless`
+
+### HuaweiCloud SDK RocketMQ
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ValidateConsumedMessage**
+    - 请求参数变更
+      - `+ topic`
+
 # 3.1.74 2024-01-11
 
 ### HuaweiCloud SDK APIG

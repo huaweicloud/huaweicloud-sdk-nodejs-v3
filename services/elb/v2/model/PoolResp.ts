@@ -18,7 +18,7 @@ export class PoolResp {
     private 'lb_algorithm'?: PoolRespLbAlgorithmEnum | string;
     private 'protection_status'?: PoolRespProtectionStatusEnum | string;
     private 'protection_reason'?: string;
-    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, listeners?: Array<ResourceList>, members?: Array<ResourceList>, healthmonitorId?: string, sessionPersistence?: SessionPersistence, protocol?: string, lbAlgorithm?: string, protectionStatus?: string, protectionReason?: string) { 
+    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, listeners?: Array<ResourceList>, members?: Array<ResourceList>, healthmonitorId?: string, sessionPersistence?: SessionPersistence, protocol?: string, lbAlgorithm?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['tenant_id'] = tenantId;
@@ -32,8 +32,6 @@ export class PoolResp {
         this['session_persistence'] = sessionPersistence;
         this['protocol'] = protocol;
         this['lb_algorithm'] = lbAlgorithm;
-        this['protection_status'] = protectionStatus;
-        this['protection_reason'] = protectionReason;
     }
     public withId(id: string): PoolResp {
         this['id'] = id;

@@ -46,6 +46,8 @@ import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
 import { IpFrequencyLimit } from './model/IpFrequencyLimit';
 import { IpFrequencyLimitQuery } from './model/IpFrequencyLimitQuery';
+import { ListCdnDomainTopRefersRequest } from './model/ListCdnDomainTopRefersRequest';
+import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
@@ -88,6 +90,7 @@ import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
 import { TasksObject } from './model/TasksObject';
+import { TopReferSummary } from './model/TopReferSummary';
 import { TopUrlSummary } from './model/TopUrlSummary';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
 import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
@@ -241,6 +244,37 @@ export class CdnClient {
      */
     public downloadStatisticsExcel(downloadStatisticsExcelRequest?: DownloadStatisticsExcelRequest): Promise<DownloadStatisticsExcelResponse> {
         const options = ParamCreater().downloadStatisticsExcel(downloadStatisticsExcelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询TOP100 referer数据。
+     * 
+     * - 支持查询90天内的数据。
+     * 
+     * - 查询跨度不能超过31天。
+     * 
+     * - 单租户调用频率：2次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询统计TOP100 referer数据明细
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType - 统计指标类型 - 目前只支持flux（流量），req_num（请求数）
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnDomainTopRefers(listCdnDomainTopRefersRequest?: ListCdnDomainTopRefersRequest): Promise<ListCdnDomainTopRefersResponse> {
+        const options = ParamCreater().listCdnDomainTopRefers(listCdnDomainTopRefersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -599,7 +633,7 @@ export class CdnClient {
      * @param {number} endTime 查询结束时间戳，只能传0点毫秒时间戳
      * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
      * @param {string} statType - 参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1018,6 +1052,103 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询TOP100 referer数据。
+         * 
+         * - 支持查询90天内的数据。
+         * 
+         * - 查询跨度不能超过31天。
+         * 
+         * - 单租户调用频率：2次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnDomainTopRefers(listCdnDomainTopRefersRequest?: ListCdnDomainTopRefersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/top-refers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let serviceArea;
+            
+            let enterpriseProjectId;
+            
+            let includeRatio;
+
+            if (listCdnDomainTopRefersRequest !== null && listCdnDomainTopRefersRequest !== undefined) {
+                if (listCdnDomainTopRefersRequest instanceof ListCdnDomainTopRefersRequest) {
+                    startTime = listCdnDomainTopRefersRequest.startTime;
+                    endTime = listCdnDomainTopRefersRequest.endTime;
+                    domainName = listCdnDomainTopRefersRequest.domainName;
+                    statType = listCdnDomainTopRefersRequest.statType;
+                    serviceArea = listCdnDomainTopRefersRequest.serviceArea;
+                    enterpriseProjectId = listCdnDomainTopRefersRequest.enterpriseProjectId;
+                    includeRatio = listCdnDomainTopRefersRequest.includeRatio;
+                } else {
+                    startTime = listCdnDomainTopRefersRequest['start_time'];
+                    endTime = listCdnDomainTopRefersRequest['end_time'];
+                    domainName = listCdnDomainTopRefersRequest['domain_name'];
+                    statType = listCdnDomainTopRefersRequest['stat_type'];
+                    serviceArea = listCdnDomainTopRefersRequest['service_area'];
+                    enterpriseProjectId = listCdnDomainTopRefersRequest['enterprise_project_id'];
+                    includeRatio = listCdnDomainTopRefersRequest['include_ratio'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnDomainTopRefers.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnDomainTopRefers.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listCdnDomainTopRefers.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnDomainTopRefers.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (includeRatio !== null && includeRatio !== undefined) {
+                localVarQueryParameter['include_ratio'] = includeRatio;
             }
 
             options.queryParams = localVarQueryParameter;

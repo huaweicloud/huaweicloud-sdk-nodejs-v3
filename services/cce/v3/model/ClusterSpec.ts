@@ -13,6 +13,7 @@ export class ClusterSpec {
     public category?: ClusterSpecCategoryEnum | string;
     public type?: ClusterSpecTypeEnum | string;
     public flavor?: string;
+    public enableAutopilot?: boolean;
     public version?: string;
     public platformVersion?: string;
     public description?: string;
@@ -48,6 +49,10 @@ export class ClusterSpec {
     }
     public withFlavor(flavor: string): ClusterSpec {
         this['flavor'] = flavor;
+        return this;
+    }
+    public withEnableAutopilot(enableAutopilot: boolean): ClusterSpec {
+        this['enableAutopilot'] = enableAutopilot;
         return this;
     }
     public withVersion(version: string): ClusterSpec {

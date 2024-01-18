@@ -21,7 +21,6 @@ import { AppNameRule } from './model/AppNameRule';
 import { AppRules } from './model/AppRules';
 import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
-import { ApplicationModel } from './model/ApplicationModel';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
@@ -122,7 +121,9 @@ import { NameRule } from './model/NameRule';
 import { Notifications } from './model/Notifications';
 import { NotifiedHistoriesResult } from './model/NotifiedHistoriesResult';
 import { PromConfigModel } from './model/PromConfigModel';
+import { PromInstanceEpsCreateModel } from './model/PromInstanceEpsCreateModel';
 import { PromInstanceEpsModel } from './model/PromInstanceEpsModel';
+import { PromInstanceRequestModel } from './model/PromInstanceRequestModel';
 import { PushEventsRequest } from './model/PushEventsRequest';
 import { PushEventsResponse } from './model/PushEventsResponse';
 import { QueryAlarmResult } from './model/QueryAlarmResult';
@@ -836,7 +837,7 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增Prometheus实例
-     * @param {PromInstanceEpsModel} createPromInstanceRequestBody Prometheus实例信息
+     * @param {PromInstanceRequestModel} createPromInstanceRequestBody Prometheus实例信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1025,10 +1026,10 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Prometheus实例
-     * @param {string} [promId] Prometheus实例id。
-     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型。
+     * @param {string} [promId] Prometheus实例id(prom_id与prom_type同时存在时，仅prom_id生效)。
+     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型（暂时不支持VPC、KUBERNETES）。
      * @param {'true' | 'false'} [cceClusterEnable] cce集群开关。
-     * @param {'true' | 'false'} [promStatus] Prometheus实例状态。
+     * @param {'DELETED' | 'NORMAL' | 'ALL'} [promStatus] Prometheus实例状态。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

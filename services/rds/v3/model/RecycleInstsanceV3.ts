@@ -17,6 +17,7 @@ export class RecycleInstsanceV3 {
     private 'retained_until'?: string;
     private 'recycle_backup_id'?: string;
     private 'recycle_status'?: string;
+    private 'is_serverless'?: boolean;
     public constructor() { 
     }
     public withId(id: string): RecycleInstsanceV3 {
@@ -166,5 +167,15 @@ export class RecycleInstsanceV3 {
     }
     public get recycleStatus(): string | undefined {
         return this['recycle_status'];
+    }
+    public withIsServerless(isServerless: boolean): RecycleInstsanceV3 {
+        this['is_serverless'] = isServerless;
+        return this;
+    }
+    public set isServerless(isServerless: boolean  | undefined) {
+        this['is_serverless'] = isServerless;
+    }
+    public get isServerless(): boolean | undefined {
+        return this['is_serverless'];
     }
 }

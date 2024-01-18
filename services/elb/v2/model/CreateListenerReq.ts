@@ -17,6 +17,8 @@ export class CreateListenerReq {
     private 'sni_container_refs'?: Array<string>;
     private 'insert_headers'?: InsertHeader;
     private 'tls_ciphers_policy'?: CreateListenerReqTlsCiphersPolicyEnum | string;
+    private 'protection_status'?: CreateListenerReqProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor(loadbalancerId?: string, protocol?: string, protocolPort?: number) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['protocol'] = protocol;
@@ -154,6 +156,26 @@ export class CreateListenerReq {
     public get tlsCiphersPolicy(): CreateListenerReqTlsCiphersPolicyEnum | string | undefined {
         return this['tls_ciphers_policy'];
     }
+    public withProtectionStatus(protectionStatus: CreateListenerReqProtectionStatusEnum | string): CreateListenerReq {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateListenerReqProtectionStatusEnum | string  | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus(): CreateListenerReqProtectionStatusEnum | string | undefined {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateListenerReq {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string  | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason(): string | undefined {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -175,4 +197,12 @@ export enum CreateListenerReqTlsCiphersPolicyEnum {
     TLS_1_1 = 'tls-1-1',
     TLS_1_2 = 'tls-1-2',
     TLS_1_2_STRICT = 'tls-1-2-strict'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateListenerReqProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

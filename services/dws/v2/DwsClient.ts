@@ -312,6 +312,8 @@ import { ListUpdatableVersionRequest } from './model/ListUpdatableVersionRequest
 import { ListUpdatableVersionResponse } from './model/ListUpdatableVersionResponse';
 import { ListUpdateRecordRequest } from './model/ListUpdateRecordRequest';
 import { ListUpdateRecordResponse } from './model/ListUpdateRecordResponse';
+import { ListWorkloadPlansRequest } from './model/ListWorkloadPlansRequest';
+import { ListWorkloadPlansResponse } from './model/ListWorkloadPlansResponse';
 import { ListWorkloadQueueRequest } from './model/ListWorkloadQueueRequest';
 import { ListWorkloadQueueResponse } from './model/ListWorkloadQueueResponse';
 import { ListWorkloadQueueUsersRequest } from './model/ListWorkloadQueueUsersRequest';
@@ -2662,6 +2664,28 @@ export class DwsClient {
      */
     public listUpdateRecord(listUpdateRecordRequest?: ListUpdateRecordRequest): Promise<ListUpdateRecordResponse> {
         const options = ParamCreater().listUpdateRecord(listUpdateRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群中所有资源管理计划。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源管理计划列表
+     * @param {string} clusterId 集群ID
+     * @param {string} [logicalClusterName] 逻辑集群名称
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkloadPlans(listWorkloadPlansRequest?: ListWorkloadPlansRequest): Promise<ListWorkloadPlansResponse> {
+        const options = ParamCreater().listWorkloadPlans(listWorkloadPlansRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8472,6 +8496,65 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群中所有资源管理计划。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWorkloadPlans(listWorkloadPlansRequest?: ListWorkloadPlansRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/plans",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let logicalClusterName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listWorkloadPlansRequest !== null && listWorkloadPlansRequest !== undefined) {
+                if (listWorkloadPlansRequest instanceof ListWorkloadPlansRequest) {
+                    clusterId = listWorkloadPlansRequest.clusterId;
+                    logicalClusterName = listWorkloadPlansRequest.logicalClusterName;
+                    limit = listWorkloadPlansRequest.limit;
+                    offset = listWorkloadPlansRequest.offset;
+                } else {
+                    clusterId = listWorkloadPlansRequest['cluster_id'];
+                    logicalClusterName = listWorkloadPlansRequest['logical_cluster_name'];
+                    limit = listWorkloadPlansRequest['limit'];
+                    offset = listWorkloadPlansRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listWorkloadPlans.');
+            }
+            if (logicalClusterName !== null && logicalClusterName !== undefined) {
+                localVarQueryParameter['logical_cluster_name'] = logicalClusterName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;

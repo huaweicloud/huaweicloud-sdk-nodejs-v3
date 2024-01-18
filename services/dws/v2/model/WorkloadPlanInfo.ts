@@ -2,7 +2,7 @@ import { PlanStage } from './PlanStage';
 
 
 export class WorkloadPlanInfo {
-    public status?: string;
+    public status?: number;
     private 'project_id'?: string;
     private 'cluster_id'?: string;
     private 'plan_id'?: string;
@@ -16,7 +16,7 @@ export class WorkloadPlanInfo {
         this['plan_id'] = planId;
         this['plan_name'] = planName;
     }
-    public withStatus(status: string): WorkloadPlanInfo {
+    public withStatus(status: number): WorkloadPlanInfo {
         this['status'] = status;
         return this;
     }

@@ -49,6 +49,8 @@ import { DeleteRuleGroupRequest } from './model/DeleteRuleGroupRequest';
 import { DeleteRuleGroupResponse } from './model/DeleteRuleGroupResponse';
 import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
+import { DeleteScanJobRequest } from './model/DeleteScanJobRequest';
+import { DeleteScanJobResponse } from './model/DeleteScanJobResponse';
 import { DynamicDataMask } from './model/DynamicDataMask';
 import { EmbeddedDatabaseWatermark } from './model/EmbeddedDatabaseWatermark';
 import { EsMatchInfo } from './model/EsMatchInfo';
@@ -453,6 +455,25 @@ export class DscClient {
      */
     public deleteRuleGroup(deleteRuleGroupRequest?: DeleteRuleGroupRequest): Promise<DeleteRuleGroupResponse> {
         const options = ParamCreater().deleteRuleGroup(deleteRuleGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除扫描任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除扫描任务
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScanJob(deleteScanJobRequest?: DeleteScanJobRequest): Promise<DeleteScanJobResponse> {
+        const options = ParamCreater().deleteScanJob(deleteScanJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1676,6 +1697,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除扫描任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScanJob(deleteScanJobRequest?: DeleteScanJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/sdg/scan/job/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (deleteScanJobRequest !== null && deleteScanJobRequest !== undefined) {
+                if (deleteScanJobRequest instanceof DeleteScanJobRequest) {
+                    jobId = deleteScanJobRequest.jobId;
+                } else {
+                    jobId = deleteScanJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteScanJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

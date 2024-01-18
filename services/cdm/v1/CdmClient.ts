@@ -14,6 +14,7 @@ import { CdmRandomCreateAndStartJobJsonReq } from './model/CdmRandomCreateAndSta
 import { CdmRestartClusterReq } from './model/CdmRestartClusterReq';
 import { CdmRestartClusterReqRestart } from './model/CdmRestartClusterReqRestart';
 import { CdmStartClusterReq } from './model/CdmStartClusterReq';
+import { CdmStartJobReq } from './model/CdmStartJobReq';
 import { CdmStopClusterReq } from './model/CdmStopClusterReq';
 import { CdmStopClusterReqStop } from './model/CdmStopClusterReqStop';
 import { CdmUpdateJobJsonReq } from './model/CdmUpdateJobJsonReq';
@@ -415,6 +416,7 @@ export class CdmClient {
      * @summary 启动作业
      * @param {string} clusterId 集群ID
      * @param {string} jobName 作业名称
+     * @param {CdmStartJobReq} cdmStartJobReq 运行作业请求json
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1205,13 +1207,15 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v1.1/{project_id}/clusters/{cluster_id}/cdm/job/{job_name}/start",
-                contentType: "application/json",
+                contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let clusterId;
             
@@ -1221,9 +1225,11 @@ export const ParamCreater = function () {
                 if (startJobRequest instanceof StartJobRequest) {
                     clusterId = startJobRequest.clusterId;
                     jobName = startJobRequest.jobName;
+                    body = startJobRequest.body
                 } else {
                     clusterId = startJobRequest['cluster_id'];
                     jobName = startJobRequest['job_name'];
+                    body = startJobRequest['body'];
                 }
             }
 
@@ -1234,7 +1240,12 @@ export const ParamCreater = function () {
             if (jobName === null || jobName === undefined) {
             throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling startJob.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;

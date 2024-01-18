@@ -14,6 +14,7 @@ export class ListDigitalHumanVideoRequest {
     private 'create_since'?: string;
     private 'script_id'?: string;
     private 'asset_name'?: string;
+    private 'job_type'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListDigitalHumanVideoRequest {
@@ -127,5 +128,15 @@ export class ListDigitalHumanVideoRequest {
     }
     public get assetName(): string | undefined {
         return this['asset_name'];
+    }
+    public withJobType(jobType: string): ListDigitalHumanVideoRequest {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): string | undefined {
+        return this['job_type'];
     }
 }

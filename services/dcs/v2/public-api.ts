@@ -28,6 +28,8 @@ export * from './model/BigkeysBody';
 export * from './model/BssParam';
 export * from './model/BssParamEntity';
 export * from './model/ChangeInstanceStatusBody';
+export * from './model/ChangeMasterStandbyAsyncRequest';
+export * from './model/ChangeMasterStandbyAsyncResponse';
 export * from './model/ChangeMasterStandbyRequest';
 export * from './model/ChangeMasterStandbyResponse';
 export * from './model/ClusterRedisNodeMonitoredObject';

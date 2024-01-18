@@ -317,6 +317,7 @@ import { InitializeStandardTemplateResponse } from './model/InitializeStandardTe
 import { InstanceForApiActionDTO } from './model/InstanceForApiActionDTO';
 import { InstanceHostDTO } from './model/InstanceHostDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
+import { JobAndNodeInfo } from './model/JobAndNodeInfo';
 import { JobInfoRequest } from './model/JobInfoRequest';
 import { JobLogRequest } from './model/JobLogRequest';
 import { JobParam } from './model/JobParam';
@@ -328,6 +329,7 @@ import { L2Id } from './model/L2Id';
 import { L2Statistic } from './model/L2Statistic';
 import { L3 } from './model/L3';
 import { LayerPath } from './model/LayerPath';
+import { Lineage } from './model/Lineage';
 import { LineageRelation } from './model/LineageRelation';
 import { LinkAttributeAndElementVO } from './model/LinkAttributeAndElementVO';
 import { ListAggregationLogicTablesRequest } from './model/ListAggregationLogicTablesRequest';
@@ -597,12 +599,16 @@ import { ShowConditionByIdRequest } from './model/ShowConditionByIdRequest';
 import { ShowConditionByIdResponse } from './model/ShowConditionByIdResponse';
 import { ShowConsistencyTaskDetailRequest } from './model/ShowConsistencyTaskDetailRequest';
 import { ShowConsistencyTaskDetailResponse } from './model/ShowConsistencyTaskDetailResponse';
+import { ShowDataDetailRequest } from './model/ShowDataDetailRequest';
+import { ShowDataDetailResponse } from './model/ShowDataDetailResponse';
 import { ShowDataProfileRequest } from './model/ShowDataProfileRequest';
 import { ShowDataProfileResponse } from './model/ShowDataProfileResponse';
 import { ShowDataSetsRequest } from './model/ShowDataSetsRequest';
 import { ShowDataSetsResponse } from './model/ShowDataSetsResponse';
 import { ShowDataconnectionRequest } from './model/ShowDataconnectionRequest';
 import { ShowDataconnectionResponse } from './model/ShowDataconnectionResponse';
+import { ShowDatamapLineageRequest } from './model/ShowDatamapLineageRequest';
+import { ShowDatamapLineageResponse } from './model/ShowDatamapLineageResponse';
 import { ShowDerivativeIndexByIdRequest } from './model/ShowDerivativeIndexByIdRequest';
 import { ShowDerivativeIndexByIdResponse } from './model/ShowDerivativeIndexByIdResponse';
 import { ShowDimensionByIdRequest } from './model/ShowDimensionByIdRequest';
@@ -621,10 +627,14 @@ import { ShowFactorySupplementDataRequest } from './model/ShowFactorySupplementD
 import { ShowFactorySupplementDataResponse } from './model/ShowFactorySupplementDataResponse';
 import { ShowGlossaryListRequest } from './model/ShowGlossaryListRequest';
 import { ShowGlossaryListResponse } from './model/ShowGlossaryListResponse';
+import { ShowInstanceInfosRequest } from './model/ShowInstanceInfosRequest';
+import { ShowInstanceInfosResponse } from './model/ShowInstanceInfosResponse';
 import { ShowInstanceLogRequest } from './model/ShowInstanceLogRequest';
 import { ShowInstanceLogResponse } from './model/ShowInstanceLogResponse';
 import { ShowInstanceResultRequest } from './model/ShowInstanceResultRequest';
 import { ShowInstanceResultResponse } from './model/ShowInstanceResultResponse';
+import { ShowLineageBulkRequest } from './model/ShowLineageBulkRequest';
+import { ShowLineageBulkResponse } from './model/ShowLineageBulkResponse';
 import { ShowLineageRequest } from './model/ShowLineageRequest';
 import { ShowLineageResponse } from './model/ShowLineageResponse';
 import { ShowMessageDetailRequest } from './model/ShowMessageDetailRequest';
@@ -633,6 +643,8 @@ import { ShowMetricAssetsRequest } from './model/ShowMetricAssetsRequest';
 import { ShowMetricAssetsResponse } from './model/ShowMetricAssetsResponse';
 import { ShowMetricTreeRequest } from './model/ShowMetricTreeRequest';
 import { ShowMetricTreeResponse } from './model/ShowMetricTreeResponse';
+import { ShowNodesRequest } from './model/ShowNodesRequest';
+import { ShowNodesResponse } from './model/ShowNodesResponse';
 import { ShowPathByIdRequest } from './model/ShowPathByIdRequest';
 import { ShowPathByIdResponse } from './model/ShowPathByIdResponse';
 import { ShowPathObjectByIdRequest } from './model/ShowPathObjectByIdRequest';
@@ -689,6 +701,7 @@ import { SupplementDataRespSupplementDataRunTime } from './model/SupplementDataR
 import { SyncStatusEnum } from './model/SyncStatusEnum';
 import { TableInfo } from './model/TableInfo';
 import { TableLineage } from './model/TableLineage';
+import { TableLineageInfo } from './model/TableLineageInfo';
 import { TableMappingDetailVO } from './model/TableMappingDetailVO';
 import { TableMappingVO } from './model/TableMappingVO';
 import { TableModelAttributeVO } from './model/TableModelAttributeVO';
@@ -4747,6 +4760,27 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 资产详情接口，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产详情(邀测)
+     * @param {string} instance 实例id
+     * @param {string} guid 资产guid
+     * @param {boolean} [ignoreRelationships] 是否忽略关联资产 缺省值：false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDataDetail(showDataDetailRequest?: ShowDataDetailRequest): Promise<ShowDataDetailResponse> {
+        const options = ParamCreater().showDataDetail(showDataDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询概要
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4802,6 +4836,32 @@ export class DataArtsStudioClient {
      */
     public showDataconnection(showDataconnectionRequest?: ShowDataconnectionRequest): Promise<ShowDataconnectionResponse> {
         const options = ParamCreater().showDataconnection(showDataconnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产血缘接口，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产血缘(邀测)
+     * @param {string} instance 实例id
+     * @param {string} guid 资产guid
+     * @param {string} [direction] 血缘查询方向，默认值:BOTH。枚举值[IN OUT BOTH]
+     * @param {Array<string>} [relationshipTypes] 关联关系类型列表，默认空
+     * @param {Array<string>} [relationshipTypeCategories] 关联关系类型类别，默认空。血缘查询使用DATA_FLOW
+     * @param {Array<string>} [relatedEntityTypes] 关联实体类型，默认空
+     * @param {boolean} [extendProcessDataFlow] 是否扩展数据，默认false
+     * @param {boolean} [includeParentEntity] 是否包含父类实体，默认false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDatamapLineage(showDatamapLineageRequest?: ShowDatamapLineageRequest): Promise<ShowDatamapLineageResponse> {
+        const options = ParamCreater().showDatamapLineage(showDatamapLineageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5008,6 +5068,32 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询表相关的作业算子运行实例信息，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 产出信息(邀测)
+     * @param {string} instance 实例id
+     * @param {string} taskId 作业算子id
+     * @param {string} jobName 作业算子名称
+     * @param {number} startTime 搜索参数时间范围的开始时间，例：1705248000000
+     * @param {number} endTime 搜索参数时间范围的结束时间,例：1705311669796
+     * @param {number} offset 分页参数偏移量
+     * @param {number} limit 分页参每页数量
+     * @param {string} [workspaceId] 空间id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceInfos(showInstanceInfosRequest?: ShowInstanceInfosRequest): Promise<ShowInstanceInfosResponse> {
+        const options = ParamCreater().showInstanceInfos(showInstanceInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取任务日志
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5072,6 +5158,27 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 批量血缘接口，根据作业算子分页批量查询血缘。该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量血缘(邀测)
+     * @param {string} instance 实例id
+     * @param {number} [offset] 分页参数偏移量，默认值0
+     * @param {number} [limit] 分页参每页数量，默认值100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLineageBulk(showLineageBulkRequest?: ShowLineageBulkRequest): Promise<ShowLineageBulkResponse> {
+        const options = ParamCreater().showLineageBulk(showLineageBulkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取消息详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5125,6 +5232,26 @@ export class DataArtsStudioClient {
      */
     public showMetricTree(showMetricTreeRequest?: ShowMetricTreeRequest): Promise<ShowMetricTreeResponse> {
         const options = ParamCreater().showMetricTree(showMetricTreeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询表相关的作业算子列表，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表关联作业算子列表(邀测)
+     * @param {string} instance 实例id
+     * @param {string} guid 资产guid
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNodes(showNodesRequest?: ShowNodesRequest): Promise<ShowNodesResponse> {
+        const options = ParamCreater().showNodes(showNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -17570,6 +17697,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 资产详情接口，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDataDetail(showDataDetailRequest?: ShowDataDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/entities/guid/{guid}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instance;
+            
+            let guid;
+            
+            let ignoreRelationships;
+
+            if (showDataDetailRequest !== null && showDataDetailRequest !== undefined) {
+                if (showDataDetailRequest instanceof ShowDataDetailRequest) {
+                    instance = showDataDetailRequest.instance;
+                    guid = showDataDetailRequest.guid;
+                    ignoreRelationships = showDataDetailRequest.ignoreRelationships;
+                } else {
+                    instance = showDataDetailRequest['instance'];
+                    guid = showDataDetailRequest['guid'];
+                    ignoreRelationships = showDataDetailRequest['ignore_relationships'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showDataDetail.');
+            }
+            if (ignoreRelationships !== null && ignoreRelationships !== undefined) {
+                localVarQueryParameter['ignore_relationships'] = ignoreRelationships;
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询概要
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17731,6 +17910,93 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'data_connection_id': dataConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产血缘接口，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDatamapLineage(showDatamapLineageRequest?: ShowDatamapLineageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/datamap/lineage/guid/{guid}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instance;
+            
+            let guid;
+            
+            let direction;
+            
+            let relationshipTypes;
+            
+            let relationshipTypeCategories;
+            
+            let relatedEntityTypes;
+            
+            let extendProcessDataFlow;
+            
+            let includeParentEntity;
+
+            if (showDatamapLineageRequest !== null && showDatamapLineageRequest !== undefined) {
+                if (showDatamapLineageRequest instanceof ShowDatamapLineageRequest) {
+                    instance = showDatamapLineageRequest.instance;
+                    guid = showDatamapLineageRequest.guid;
+                    direction = showDatamapLineageRequest.direction;
+                    relationshipTypes = showDatamapLineageRequest.relationshipTypes;
+                    relationshipTypeCategories = showDatamapLineageRequest.relationshipTypeCategories;
+                    relatedEntityTypes = showDatamapLineageRequest.relatedEntityTypes;
+                    extendProcessDataFlow = showDatamapLineageRequest.extendProcessDataFlow;
+                    includeParentEntity = showDatamapLineageRequest.includeParentEntity;
+                } else {
+                    instance = showDatamapLineageRequest['instance'];
+                    guid = showDatamapLineageRequest['guid'];
+                    direction = showDatamapLineageRequest['direction'];
+                    relationshipTypes = showDatamapLineageRequest['relationship_types'];
+                    relationshipTypeCategories = showDatamapLineageRequest['relationship_type_categories'];
+                    relatedEntityTypes = showDatamapLineageRequest['related_entity_types'];
+                    extendProcessDataFlow = showDatamapLineageRequest['extend_process_data_flow'];
+                    includeParentEntity = showDatamapLineageRequest['include_parent_entity'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showDatamapLineage.');
+            }
+            if (direction !== null && direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+            if (relationshipTypes !== null && relationshipTypes !== undefined) {
+                localVarQueryParameter['relationship_types'] = relationshipTypes;
+            }
+            if (relationshipTypeCategories !== null && relationshipTypeCategories !== undefined) {
+                localVarQueryParameter['relationship_type_categories'] = relationshipTypeCategories;
+            }
+            if (relatedEntityTypes !== null && relatedEntityTypes !== undefined) {
+                localVarQueryParameter['related_entity_types'] = relatedEntityTypes;
+            }
+            if (extendProcessDataFlow !== null && extendProcessDataFlow !== undefined) {
+                localVarQueryParameter['extend_process_data_flow'] = extendProcessDataFlow;
+            }
+            if (includeParentEntity !== null && includeParentEntity !== undefined) {
+                localVarQueryParameter['include_parent_entity'] = includeParentEntity;
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18262,6 +18528,108 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询表相关的作业算子运行实例信息，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceInfos(showInstanceInfosRequest?: ShowInstanceInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/node/{task_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instance;
+            
+            let taskId;
+            
+            let jobName;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+            
+            let workspaceId;
+
+            if (showInstanceInfosRequest !== null && showInstanceInfosRequest !== undefined) {
+                if (showInstanceInfosRequest instanceof ShowInstanceInfosRequest) {
+                    instance = showInstanceInfosRequest.instance;
+                    taskId = showInstanceInfosRequest.taskId;
+                    jobName = showInstanceInfosRequest.jobName;
+                    startTime = showInstanceInfosRequest.startTime;
+                    endTime = showInstanceInfosRequest.endTime;
+                    offset = showInstanceInfosRequest.offset;
+                    limit = showInstanceInfosRequest.limit;
+                    workspaceId = showInstanceInfosRequest.workspaceId;
+                } else {
+                    instance = showInstanceInfosRequest['instance'];
+                    taskId = showInstanceInfosRequest['task_id'];
+                    jobName = showInstanceInfosRequest['job_name'];
+                    startTime = showInstanceInfosRequest['start_time'];
+                    endTime = showInstanceInfosRequest['end_time'];
+                    offset = showInstanceInfosRequest['offset'];
+                    limit = showInstanceInfosRequest['limit'];
+                    workspaceId = showInstanceInfosRequest['workspace_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showInstanceInfos.');
+            }
+            if (jobName === null || jobName === undefined) {
+                throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling showInstanceInfos.');
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling showInstanceInfos.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showInstanceInfos.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling showInstanceInfos.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling showInstanceInfos.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取任务日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18425,6 +18793,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量血缘接口，根据作业算子分页批量查询血缘。该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLineageBulk(showLineageBulkRequest?: ShowLineageBulkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/lineage/bulk",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instance;
+            
+            let offset;
+            
+            let limit;
+
+            if (showLineageBulkRequest !== null && showLineageBulkRequest !== undefined) {
+                if (showLineageBulkRequest instanceof ShowLineageBulkRequest) {
+                    instance = showLineageBulkRequest.instance;
+                    offset = showLineageBulkRequest.offset;
+                    limit = showLineageBulkRequest.limit;
+                } else {
+                    instance = showLineageBulkRequest['instance'];
+                    offset = showLineageBulkRequest['offset'];
+                    limit = showLineageBulkRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取消息详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18559,6 +18978,50 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询表相关的作业算子列表，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNodes(showNodesRequest?: ShowNodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/datamap/table/{guid}/node",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instance;
+            
+            let guid;
+
+            if (showNodesRequest !== null && showNodesRequest !== undefined) {
+                if (showNodesRequest instanceof ShowNodesRequest) {
+                    instance = showNodesRequest.instance;
+                    guid = showNodesRequest.guid;
+                } else {
+                    instance = showNodesRequest['instance'];
+                    guid = showNodesRequest['guid'];
+                }
+            }
+
+        
+            if (guid === null || guid === undefined) {
+            throw new RequiredError('guid','Required parameter guid was null or undefined when calling showNodes.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
+            }
+
+            options.pathParams = { 'guid': guid, };
             options.headers = localVarHeaderParameter;
             return options;
         },

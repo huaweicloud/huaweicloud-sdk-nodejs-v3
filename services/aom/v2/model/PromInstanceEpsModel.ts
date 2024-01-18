@@ -1,4 +1,3 @@
-import { ApplicationModel } from './ApplicationModel';
 import { PromConfigModel } from './PromConfigModel';
 
 
@@ -7,18 +6,15 @@ export class PromInstanceEpsModel {
     private 'prom_id'?: string;
     private 'prom_type'?: PromInstanceEpsModelPromTypeEnum | string;
     private 'prom_version'?: string;
-    private 'cce_spec'?: string;
-    private 'prom_config'?: PromConfigModel;
     private 'prom_create_timestamp'?: number;
     private 'prom_update_timestamp'?: number;
-    private 'prom_status'?: string;
+    private 'prom_status'?: PromInstanceEpsModelPromStatusEnum | string;
     private 'enterprise_project_id'?: string;
     private 'project_id'?: string;
     private 'is_deleted_tag'?: number;
     private 'deleted_time'?: number;
     private 'prom_spec_config'?: PromConfigModel;
     private 'cce_spec_config'?: string;
-    public application?: ApplicationModel;
     public constructor(promName?: string, promType?: string) { 
         this['prom_name'] = promName;
         this['prom_type'] = promType;
@@ -63,26 +59,6 @@ export class PromInstanceEpsModel {
     public get promVersion(): string | undefined {
         return this['prom_version'];
     }
-    public withCceSpec(cceSpec: string): PromInstanceEpsModel {
-        this['cce_spec'] = cceSpec;
-        return this;
-    }
-    public set cceSpec(cceSpec: string  | undefined) {
-        this['cce_spec'] = cceSpec;
-    }
-    public get cceSpec(): string | undefined {
-        return this['cce_spec'];
-    }
-    public withPromConfig(promConfig: PromConfigModel): PromInstanceEpsModel {
-        this['prom_config'] = promConfig;
-        return this;
-    }
-    public set promConfig(promConfig: PromConfigModel  | undefined) {
-        this['prom_config'] = promConfig;
-    }
-    public get promConfig(): PromConfigModel | undefined {
-        return this['prom_config'];
-    }
     public withPromCreateTimestamp(promCreateTimestamp: number): PromInstanceEpsModel {
         this['prom_create_timestamp'] = promCreateTimestamp;
         return this;
@@ -103,14 +79,14 @@ export class PromInstanceEpsModel {
     public get promUpdateTimestamp(): number | undefined {
         return this['prom_update_timestamp'];
     }
-    public withPromStatus(promStatus: string): PromInstanceEpsModel {
+    public withPromStatus(promStatus: PromInstanceEpsModelPromStatusEnum | string): PromInstanceEpsModel {
         this['prom_status'] = promStatus;
         return this;
     }
-    public set promStatus(promStatus: string  | undefined) {
+    public set promStatus(promStatus: PromInstanceEpsModelPromStatusEnum | string  | undefined) {
         this['prom_status'] = promStatus;
     }
-    public get promStatus(): string | undefined {
+    public get promStatus(): PromInstanceEpsModelPromStatusEnum | string | undefined {
         return this['prom_status'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): PromInstanceEpsModel {
@@ -173,10 +149,6 @@ export class PromInstanceEpsModel {
     public get cceSpecConfig(): string | undefined {
         return this['cce_spec_config'];
     }
-    public withApplication(application: ApplicationModel): PromInstanceEpsModel {
-        this['application'] = application;
-        return this;
-    }
 }
 
 /**
@@ -192,4 +164,13 @@ export enum PromInstanceEpsModelPromTypeEnum {
     KUBERNETES = 'KUBERNETES',
     CLOUD_SERVICE = 'CLOUD_SERVICE',
     ACROSS_ACCOUNT = 'ACROSS_ACCOUNT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PromInstanceEpsModelPromStatusEnum {
+    DELETED = 'DELETED',
+    NORMAL = 'NORMAL',
+    ALL = 'ALL'
 }

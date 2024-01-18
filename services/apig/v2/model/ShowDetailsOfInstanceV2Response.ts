@@ -44,12 +44,8 @@ export class ShowDetailsOfInstanceV2Response extends SdkResponse {
     private 'endpoint_service'?: EndpointService;
     private 'endpoint_services'?: Array<EndpointService>;
     private 'node_ips'?: NodeIps;
-    private 'node_ipv6_ips'?: NodeIps;
-    private 'public_ipv6_ips'?: Array<string>;
     public publicips?: Array<IpDetails>;
     public privateips?: Array<IpDetails>;
-    private 'unreliable_ips'?: Array<string>;
-    private 'enable_fullstack_ipv6'?: boolean;
     private 'is_releasable'?: boolean;
     private 'ingress_bandwidth_charging_mode'?: string;
     public constructor() { 
@@ -389,26 +385,6 @@ export class ShowDetailsOfInstanceV2Response extends SdkResponse {
     public get nodeIps(): NodeIps | undefined {
         return this['node_ips'];
     }
-    public withNodeIpv6Ips(nodeIpv6Ips: NodeIps): ShowDetailsOfInstanceV2Response {
-        this['node_ipv6_ips'] = nodeIpv6Ips;
-        return this;
-    }
-    public set nodeIpv6Ips(nodeIpv6Ips: NodeIps  | undefined) {
-        this['node_ipv6_ips'] = nodeIpv6Ips;
-    }
-    public get nodeIpv6Ips(): NodeIps | undefined {
-        return this['node_ipv6_ips'];
-    }
-    public withPublicIpv6Ips(publicIpv6Ips: Array<string>): ShowDetailsOfInstanceV2Response {
-        this['public_ipv6_ips'] = publicIpv6Ips;
-        return this;
-    }
-    public set publicIpv6Ips(publicIpv6Ips: Array<string>  | undefined) {
-        this['public_ipv6_ips'] = publicIpv6Ips;
-    }
-    public get publicIpv6Ips(): Array<string> | undefined {
-        return this['public_ipv6_ips'];
-    }
     public withPublicips(publicips: Array<IpDetails>): ShowDetailsOfInstanceV2Response {
         this['publicips'] = publicips;
         return this;
@@ -416,26 +392,6 @@ export class ShowDetailsOfInstanceV2Response extends SdkResponse {
     public withPrivateips(privateips: Array<IpDetails>): ShowDetailsOfInstanceV2Response {
         this['privateips'] = privateips;
         return this;
-    }
-    public withUnreliableIps(unreliableIps: Array<string>): ShowDetailsOfInstanceV2Response {
-        this['unreliable_ips'] = unreliableIps;
-        return this;
-    }
-    public set unreliableIps(unreliableIps: Array<string>  | undefined) {
-        this['unreliable_ips'] = unreliableIps;
-    }
-    public get unreliableIps(): Array<string> | undefined {
-        return this['unreliable_ips'];
-    }
-    public withEnableFullstackIpv6(enableFullstackIpv6: boolean): ShowDetailsOfInstanceV2Response {
-        this['enable_fullstack_ipv6'] = enableFullstackIpv6;
-        return this;
-    }
-    public set enableFullstackIpv6(enableFullstackIpv6: boolean  | undefined) {
-        this['enable_fullstack_ipv6'] = enableFullstackIpv6;
-    }
-    public get enableFullstackIpv6(): boolean | undefined {
-        return this['enable_fullstack_ipv6'];
     }
     public withIsReleasable(isReleasable: boolean): ShowDetailsOfInstanceV2Response {
         this['is_releasable'] = isReleasable;

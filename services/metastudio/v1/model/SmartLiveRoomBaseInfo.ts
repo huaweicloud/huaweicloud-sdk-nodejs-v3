@@ -177,5 +177,6 @@ export enum SmartLiveRoomBaseInfoLastJobStatusEnum {
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
-    CANCELED = 'CANCELED'
+    CANCELED = 'CANCELED',
+    BLOCKED = 'BLOCKED'
 }

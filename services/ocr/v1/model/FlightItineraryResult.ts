@@ -19,6 +19,13 @@ export class FlightItineraryResult {
     private 'agent_code'?: string;
     private 'issue_organization'?: string;
     private 'issue_date'?: string;
+    public tax?: string;
+    private 'tax_rate'?: string;
+    private 'buyer_name'?: string;
+    private 'buyer_id'?: string;
+    private 'number'?: string;
+    private 'international_flag'?: string;
+    private 'issue_status'?: string;
     private 'itinerary_list'?: Array<ItineraryList>;
     public confidence?: object;
     public constructor() { 
@@ -174,6 +181,70 @@ export class FlightItineraryResult {
     }
     public get issueDate(): string | undefined {
         return this['issue_date'];
+    }
+    public withTax(tax: string): FlightItineraryResult {
+        this['tax'] = tax;
+        return this;
+    }
+    public withTaxRate(taxRate: string): FlightItineraryResult {
+        this['tax_rate'] = taxRate;
+        return this;
+    }
+    public set taxRate(taxRate: string  | undefined) {
+        this['tax_rate'] = taxRate;
+    }
+    public get taxRate(): string | undefined {
+        return this['tax_rate'];
+    }
+    public withBuyerName(buyerName: string): FlightItineraryResult {
+        this['buyer_name'] = buyerName;
+        return this;
+    }
+    public set buyerName(buyerName: string  | undefined) {
+        this['buyer_name'] = buyerName;
+    }
+    public get buyerName(): string | undefined {
+        return this['buyer_name'];
+    }
+    public withBuyerId(buyerId: string): FlightItineraryResult {
+        this['buyer_id'] = buyerId;
+        return this;
+    }
+    public set buyerId(buyerId: string  | undefined) {
+        this['buyer_id'] = buyerId;
+    }
+    public get buyerId(): string | undefined {
+        return this['buyer_id'];
+    }
+    public withModelNumber(modelNumber: string): FlightItineraryResult {
+        this['number'] = modelNumber;
+        return this;
+    }
+    public set modelNumber(modelNumber: string  | undefined) {
+        this['number'] = modelNumber;
+    }
+    public get modelNumber(): string | undefined {
+        return this['number'];
+    }
+    public withInternationalFlag(internationalFlag: string): FlightItineraryResult {
+        this['international_flag'] = internationalFlag;
+        return this;
+    }
+    public set internationalFlag(internationalFlag: string  | undefined) {
+        this['international_flag'] = internationalFlag;
+    }
+    public get internationalFlag(): string | undefined {
+        return this['international_flag'];
+    }
+    public withIssueStatus(issueStatus: string): FlightItineraryResult {
+        this['issue_status'] = issueStatus;
+        return this;
+    }
+    public set issueStatus(issueStatus: string  | undefined) {
+        this['issue_status'] = issueStatus;
+    }
+    public get issueStatus(): string | undefined {
+        return this['issue_status'];
     }
     public withItineraryList(itineraryList: Array<ItineraryList>): FlightItineraryResult {
         this['itinerary_list'] = itineraryList;

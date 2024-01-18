@@ -81,7 +81,8 @@ export class ShowTopUrlRequest {
     */
 export enum ShowTopUrlRequestServiceAreaEnum {
     MAINLAND_CHINA = 'mainland_china',
-    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china'
+    OUTSIDE_MAINLAND_CHINA = 'outside_mainland_china',
+    GLOBAL = 'global'
 }
 /**
     * @export

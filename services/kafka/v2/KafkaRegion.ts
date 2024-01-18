@@ -30,6 +30,7 @@ export class KafkaRegion {
     public static AE_AD_1 = new Region("ae-ad-1", ["https://dms.ae-ad-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://dms.eu-west-0.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://dms.me-east-1.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://dms.cn-east-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class KafkaRegion {
         "tr-west-1":KafkaRegion.TR_WEST_1,
         "ae-ad-1":KafkaRegion.AE_AD_1,
         "eu-west-0":KafkaRegion.EU_WEST_0,
-        "me-east-1":KafkaRegion.ME_EAST_1
+        "me-east-1":KafkaRegion.ME_EAST_1,
+        "cn-east-5":KafkaRegion.CN_EAST_5
     };
   
     public static valueOf(regionId: string) {

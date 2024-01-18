@@ -1,8 +1,10 @@
+import { CdmStartJobReq } from './CdmStartJobReq';
 
 
 export class StartJobRequest {
     private 'cluster_id'?: string;
     private 'job_name'?: string;
+    public body?: CdmStartJobReq;
     public constructor(clusterId?: string, jobName?: string) { 
         this['cluster_id'] = clusterId;
         this['job_name'] = jobName;
@@ -26,5 +28,9 @@ export class StartJobRequest {
     }
     public get jobName(): string | undefined {
         return this['job_name'];
+    }
+    public withBody(body: CdmStartJobReq): StartJobRequest {
+        this['body'] = body;
+        return this;
     }
 }

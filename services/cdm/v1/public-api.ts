@@ -12,6 +12,7 @@ export * from './model/CdmRandomCreateAndStartJobJsonReq';
 export * from './model/CdmRestartClusterReq';
 export * from './model/CdmRestartClusterReqRestart';
 export * from './model/CdmStartClusterReq';
+export * from './model/CdmStartJobReq';
 export * from './model/CdmStopClusterReq';
 export * from './model/CdmStopClusterReqStop';
 export * from './model/CdmUpdateJobJsonReq';

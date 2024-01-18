@@ -30,6 +30,8 @@ import { BigkeysBody } from './model/BigkeysBody';
 import { BssParam } from './model/BssParam';
 import { BssParamEntity } from './model/BssParamEntity';
 import { ChangeInstanceStatusBody } from './model/ChangeInstanceStatusBody';
+import { ChangeMasterStandbyAsyncRequest } from './model/ChangeMasterStandbyAsyncRequest';
+import { ChangeMasterStandbyAsyncResponse } from './model/ChangeMasterStandbyAsyncResponse';
 import { ChangeMasterStandbyRequest } from './model/ChangeMasterStandbyRequest';
 import { ChangeMasterStandbyResponse } from './model/ChangeMasterStandbyResponse';
 import { ClusterRedisNodeMonitoredObject } from './model/ClusterRedisNodeMonitoredObject';
@@ -448,6 +450,25 @@ export class DcsClient {
      */
     public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<ChangeMasterStandbyResponse> {
         const options = ParamCreater().changeMasterStandby(changeMasterStandbyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步交换实例主备节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 异步交换实例主备节点
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeMasterStandbyAsync(changeMasterStandbyAsyncRequest?: ChangeMasterStandbyAsyncRequest): Promise<ChangeMasterStandbyAsyncResponse> {
+        const options = ParamCreater().changeMasterStandbyAsync(changeMasterStandbyAsyncRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2834,6 +2855,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeMasterStandby.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步交换实例主备节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeMasterStandbyAsync(changeMasterStandbyAsyncRequest?: ChangeMasterStandbyAsyncRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/async-swap",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (changeMasterStandbyAsyncRequest !== null && changeMasterStandbyAsyncRequest !== undefined) {
+                if (changeMasterStandbyAsyncRequest instanceof ChangeMasterStandbyAsyncRequest) {
+                    instanceId = changeMasterStandbyAsyncRequest.instanceId;
+                } else {
+                    instanceId = changeMasterStandbyAsyncRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeMasterStandbyAsync.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };

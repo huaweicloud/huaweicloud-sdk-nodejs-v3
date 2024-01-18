@@ -46,6 +46,8 @@ export * from './model/DeleteRuleGroupRequest';
 export * from './model/DeleteRuleGroupResponse';
 export * from './model/DeleteRuleRequest';
 export * from './model/DeleteRuleResponse';
+export * from './model/DeleteScanJobRequest';
+export * from './model/DeleteScanJobResponse';
 export * from './model/DynamicDataMask';
 export * from './model/EmbeddedDatabaseWatermark';
 export * from './model/EsMatchInfo';
