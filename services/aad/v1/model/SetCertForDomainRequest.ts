@@ -1,11 +1,11 @@
 import { CertificateBody } from './CertificateBody';
 
 
-export class CreateCertificateRequest {
+export class SetCertForDomainRequest {
     public body?: CertificateBody;
     public constructor() { 
     }
-    public withBody(body: CertificateBody): CreateCertificateRequest {
+    public withBody(body: CertificateBody): SetCertForDomainRequest {
         this['body'] = body;
         return this;
     }

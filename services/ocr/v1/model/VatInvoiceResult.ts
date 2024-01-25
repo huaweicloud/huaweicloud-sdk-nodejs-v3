@@ -1,3 +1,4 @@
+import { BelongItemList } from './BelongItemList';
 import { ItemList } from './ItemList';
 
 
@@ -36,8 +37,26 @@ export class VatInvoiceResult {
     public issuer?: string;
     private 'seller_seal'?: Array<string>;
     private 'item_list'?: Array<ItemList>;
+    public province?: string;
+    public city?: string;
     public confidence?: object;
     private 'text_location'?: object;
+    private 'belong_buyer_name'?: string;
+    private 'belong_seller_name'?: string;
+    private 'belong_vat_code'?: string;
+    private 'belong_number'?: string;
+    private 'belong_pages'?: string;
+    private 'belong_current_page'?: string;
+    private 'belong_remarks'?: string;
+    private 'belong_issue_date'?: string;
+    private 'sales_mark'?: boolean;
+    private 'belong_sum_amount'?: string;
+    private 'belong_sum_tax'?: string;
+    private 'belong_subtotal_amount'?: string;
+    private 'belong_subtotal_tax'?: string;
+    private 'belong_discount_amount'?: string;
+    private 'belong_discount_tax'?: string;
+    private 'belong_item_list'?: Array<BelongItemList>;
     public constructor() { 
     }
     public withTitle(title: string): VatInvoiceResult {
@@ -326,6 +345,14 @@ export class VatInvoiceResult {
     public get itemList(): Array<ItemList> | undefined {
         return this['item_list'];
     }
+    public withProvince(province: string): VatInvoiceResult {
+        this['province'] = province;
+        return this;
+    }
+    public withCity(city: string): VatInvoiceResult {
+        this['city'] = city;
+        return this;
+    }
     public withConfidence(confidence: object): VatInvoiceResult {
         this['confidence'] = confidence;
         return this;
@@ -339,5 +366,165 @@ export class VatInvoiceResult {
     }
     public get textLocation(): object | undefined {
         return this['text_location'];
+    }
+    public withBelongBuyerName(belongBuyerName: string): VatInvoiceResult {
+        this['belong_buyer_name'] = belongBuyerName;
+        return this;
+    }
+    public set belongBuyerName(belongBuyerName: string  | undefined) {
+        this['belong_buyer_name'] = belongBuyerName;
+    }
+    public get belongBuyerName(): string | undefined {
+        return this['belong_buyer_name'];
+    }
+    public withBelongSellerName(belongSellerName: string): VatInvoiceResult {
+        this['belong_seller_name'] = belongSellerName;
+        return this;
+    }
+    public set belongSellerName(belongSellerName: string  | undefined) {
+        this['belong_seller_name'] = belongSellerName;
+    }
+    public get belongSellerName(): string | undefined {
+        return this['belong_seller_name'];
+    }
+    public withBelongVatCode(belongVatCode: string): VatInvoiceResult {
+        this['belong_vat_code'] = belongVatCode;
+        return this;
+    }
+    public set belongVatCode(belongVatCode: string  | undefined) {
+        this['belong_vat_code'] = belongVatCode;
+    }
+    public get belongVatCode(): string | undefined {
+        return this['belong_vat_code'];
+    }
+    public withBelongNumber(belongNumber: string): VatInvoiceResult {
+        this['belong_number'] = belongNumber;
+        return this;
+    }
+    public set belongNumber(belongNumber: string  | undefined) {
+        this['belong_number'] = belongNumber;
+    }
+    public get belongNumber(): string | undefined {
+        return this['belong_number'];
+    }
+    public withBelongPages(belongPages: string): VatInvoiceResult {
+        this['belong_pages'] = belongPages;
+        return this;
+    }
+    public set belongPages(belongPages: string  | undefined) {
+        this['belong_pages'] = belongPages;
+    }
+    public get belongPages(): string | undefined {
+        return this['belong_pages'];
+    }
+    public withBelongCurrentPage(belongCurrentPage: string): VatInvoiceResult {
+        this['belong_current_page'] = belongCurrentPage;
+        return this;
+    }
+    public set belongCurrentPage(belongCurrentPage: string  | undefined) {
+        this['belong_current_page'] = belongCurrentPage;
+    }
+    public get belongCurrentPage(): string | undefined {
+        return this['belong_current_page'];
+    }
+    public withBelongRemarks(belongRemarks: string): VatInvoiceResult {
+        this['belong_remarks'] = belongRemarks;
+        return this;
+    }
+    public set belongRemarks(belongRemarks: string  | undefined) {
+        this['belong_remarks'] = belongRemarks;
+    }
+    public get belongRemarks(): string | undefined {
+        return this['belong_remarks'];
+    }
+    public withBelongIssueDate(belongIssueDate: string): VatInvoiceResult {
+        this['belong_issue_date'] = belongIssueDate;
+        return this;
+    }
+    public set belongIssueDate(belongIssueDate: string  | undefined) {
+        this['belong_issue_date'] = belongIssueDate;
+    }
+    public get belongIssueDate(): string | undefined {
+        return this['belong_issue_date'];
+    }
+    public withSalesMark(salesMark: boolean): VatInvoiceResult {
+        this['sales_mark'] = salesMark;
+        return this;
+    }
+    public set salesMark(salesMark: boolean  | undefined) {
+        this['sales_mark'] = salesMark;
+    }
+    public get salesMark(): boolean | undefined {
+        return this['sales_mark'];
+    }
+    public withBelongSumAmount(belongSumAmount: string): VatInvoiceResult {
+        this['belong_sum_amount'] = belongSumAmount;
+        return this;
+    }
+    public set belongSumAmount(belongSumAmount: string  | undefined) {
+        this['belong_sum_amount'] = belongSumAmount;
+    }
+    public get belongSumAmount(): string | undefined {
+        return this['belong_sum_amount'];
+    }
+    public withBelongSumTax(belongSumTax: string): VatInvoiceResult {
+        this['belong_sum_tax'] = belongSumTax;
+        return this;
+    }
+    public set belongSumTax(belongSumTax: string  | undefined) {
+        this['belong_sum_tax'] = belongSumTax;
+    }
+    public get belongSumTax(): string | undefined {
+        return this['belong_sum_tax'];
+    }
+    public withBelongSubtotalAmount(belongSubtotalAmount: string): VatInvoiceResult {
+        this['belong_subtotal_amount'] = belongSubtotalAmount;
+        return this;
+    }
+    public set belongSubtotalAmount(belongSubtotalAmount: string  | undefined) {
+        this['belong_subtotal_amount'] = belongSubtotalAmount;
+    }
+    public get belongSubtotalAmount(): string | undefined {
+        return this['belong_subtotal_amount'];
+    }
+    public withBelongSubtotalTax(belongSubtotalTax: string): VatInvoiceResult {
+        this['belong_subtotal_tax'] = belongSubtotalTax;
+        return this;
+    }
+    public set belongSubtotalTax(belongSubtotalTax: string  | undefined) {
+        this['belong_subtotal_tax'] = belongSubtotalTax;
+    }
+    public get belongSubtotalTax(): string | undefined {
+        return this['belong_subtotal_tax'];
+    }
+    public withBelongDiscountAmount(belongDiscountAmount: string): VatInvoiceResult {
+        this['belong_discount_amount'] = belongDiscountAmount;
+        return this;
+    }
+    public set belongDiscountAmount(belongDiscountAmount: string  | undefined) {
+        this['belong_discount_amount'] = belongDiscountAmount;
+    }
+    public get belongDiscountAmount(): string | undefined {
+        return this['belong_discount_amount'];
+    }
+    public withBelongDiscountTax(belongDiscountTax: string): VatInvoiceResult {
+        this['belong_discount_tax'] = belongDiscountTax;
+        return this;
+    }
+    public set belongDiscountTax(belongDiscountTax: string  | undefined) {
+        this['belong_discount_tax'] = belongDiscountTax;
+    }
+    public get belongDiscountTax(): string | undefined {
+        return this['belong_discount_tax'];
+    }
+    public withBelongItemList(belongItemList: Array<BelongItemList>): VatInvoiceResult {
+        this['belong_item_list'] = belongItemList;
+        return this;
+    }
+    public set belongItemList(belongItemList: Array<BelongItemList>  | undefined) {
+        this['belong_item_list'] = belongItemList;
+    }
+    public get belongItemList(): Array<BelongItemList> | undefined {
+        return this['belong_item_list'];
     }
 }

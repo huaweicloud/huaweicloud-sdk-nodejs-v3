@@ -11,6 +11,8 @@ import { CreateEngineResponse } from './model/CreateEngineResponse';
 import { CreateGovPolicy } from './model/CreateGovPolicy';
 import { CreateGovernancePolicyRequest } from './model/CreateGovernancePolicyRequest';
 import { CreateGovernancePolicyResponse } from './model/CreateGovernancePolicyResponse';
+import { CreateHttp2RpcRequest } from './model/CreateHttp2RpcRequest';
+import { CreateHttp2RpcResponse } from './model/CreateHttp2RpcResponse';
 import { CreateKieReq } from './model/CreateKieReq';
 import { CreateMatch } from './model/CreateMatch';
 import { CreateMatchHeaders } from './model/CreateMatchHeaders';
@@ -19,6 +21,8 @@ import { CreateMicroserviceRouteRuleRequest } from './model/CreateMicroserviceRo
 import { CreateMicroserviceRouteRuleResponse } from './model/CreateMicroserviceRouteRuleResponse';
 import { CreateNacosNamespacesRequest } from './model/CreateNacosNamespacesRequest';
 import { CreateNacosNamespacesResponse } from './model/CreateNacosNamespacesResponse';
+import { CreatePluginRequest } from './model/CreatePluginRequest';
+import { CreatePluginResponse } from './model/CreatePluginResponse';
 import { CreateRoute } from './model/CreateRoute';
 import { CreateRouteTags } from './model/CreateRouteTags';
 import { CreateRules } from './model/CreateRules';
@@ -26,14 +30,21 @@ import { DeleteEngineRequest } from './model/DeleteEngineRequest';
 import { DeleteEngineResponse } from './model/DeleteEngineResponse';
 import { DeleteGovernancePolicyRequest } from './model/DeleteGovernancePolicyRequest';
 import { DeleteGovernancePolicyResponse } from './model/DeleteGovernancePolicyResponse';
+import { DeleteHttp2RpcRequest } from './model/DeleteHttp2RpcRequest';
+import { DeleteHttp2RpcResponse } from './model/DeleteHttp2RpcResponse';
 import { DeleteMicroserviceRouteRuleRequest } from './model/DeleteMicroserviceRouteRuleRequest';
 import { DeleteMicroserviceRouteRuleResponse } from './model/DeleteMicroserviceRouteRuleResponse';
 import { DeleteNacosNamespacesRequest } from './model/DeleteNacosNamespacesRequest';
 import { DeleteNacosNamespacesResponse } from './model/DeleteNacosNamespacesResponse';
+import { DeletePluginRequest } from './model/DeletePluginRequest';
+import { DeletePluginResponse } from './model/DeletePluginResponse';
 import { DownloadKieReqBody } from './model/DownloadKieReqBody';
 import { DownloadKieRequest } from './model/DownloadKieRequest';
 import { DownloadKieResponse } from './model/DownloadKieResponse';
 import { DownloadKieResponseBodyMetadata } from './model/DownloadKieResponseBodyMetadata';
+import { Dubbo } from './model/Dubbo';
+import { DubboMethod } from './model/DubboMethod';
+import { DubboMethodParam } from './model/DubboMethodParam';
 import { EngineAdditionalActionReq } from './model/EngineAdditionalActionReq';
 import { EngineConfigureReq } from './model/EngineConfigureReq';
 import { EngineCreateReq } from './model/EngineCreateReq';
@@ -49,6 +60,7 @@ import { FlavorBrief } from './model/FlavorBrief';
 import { GovPolicyDetail } from './model/GovPolicyDetail';
 import { GovPolicyDetailPolicies } from './model/GovPolicyDetailPolicies';
 import { GovSelector } from './model/GovSelector';
+import { Http2Rpc } from './model/Http2Rpc';
 import { ListEnginesRequest } from './model/ListEnginesRequest';
 import { ListEnginesResponse } from './model/ListEnginesResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
@@ -63,6 +75,10 @@ import { ListMicroserviceRouteRuleRequest } from './model/ListMicroserviceRouteR
 import { ListMicroserviceRouteRuleResponse } from './model/ListMicroserviceRouteRuleResponse';
 import { ListNacosNamespacesRequest } from './model/ListNacosNamespacesRequest';
 import { ListNacosNamespacesResponse } from './model/ListNacosNamespacesResponse';
+import { ModifyHttp2RpcRequest } from './model/ModifyHttp2RpcRequest';
+import { ModifyHttp2RpcResponse } from './model/ModifyHttp2RpcResponse';
+import { ModifyPluginRequest } from './model/ModifyPluginRequest';
+import { ModifyPluginResponse } from './model/ModifyPluginResponse';
 import { ResizeEngineRequest } from './model/ResizeEngineRequest';
 import { ResizeEngineResponse } from './model/ResizeEngineResponse';
 import { RetryEngineRequest } from './model/RetryEngineRequest';
@@ -73,6 +89,12 @@ import { ShowEngineQuotasRequest } from './model/ShowEngineQuotasRequest';
 import { ShowEngineQuotasResponse } from './model/ShowEngineQuotasResponse';
 import { ShowEngineRequest } from './model/ShowEngineRequest';
 import { ShowEngineResponse } from './model/ShowEngineResponse';
+import { ShowHttp2RpcsRequest } from './model/ShowHttp2RpcsRequest';
+import { ShowHttp2RpcsResponse } from './model/ShowHttp2RpcsResponse';
+import { ShowPluginsRequest } from './model/ShowPluginsRequest';
+import { ShowPluginsResponse } from './model/ShowPluginsResponse';
+import { ShowSinglePluginRequest } from './model/ShowSinglePluginRequest';
+import { ShowSinglePluginResponse } from './model/ShowSinglePluginResponse';
 import { Spec } from './model/Spec';
 import { SpecClusterNode } from './model/SpecClusterNode';
 import { Task } from './model/Task';
@@ -87,6 +109,7 @@ import { UpgradeEngineConfigRequest } from './model/UpgradeEngineConfigRequest';
 import { UpgradeEngineConfigResponse } from './model/UpgradeEngineConfigResponse';
 import { UpgradeEngineRequest } from './model/UpgradeEngineRequest';
 import { UpgradeEngineResponse } from './model/UpgradeEngineResponse';
+import { WasmPlugin } from './model/WasmPlugin';
 
 export class CseClient {
     public static newBuilder(): ClientBuilder<CseClient> {
@@ -558,6 +581,195 @@ export class CseClient {
      */
     public upgradeEngineConfig(upgradeEngineConfigRequest?: UpgradeEngineConfigRequest): Promise<UpgradeEngineConfigResponse> {
         const options = ParamCreater().upgradeEngineConfig(upgradeEngineConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建http转rpc方法。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建http转rpc方法
+     * @param {string} gatewayId 网关实例id
+     * @param {Http2Rpc} body 创建http2Rpc参数
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHttp2Rpc(createHttp2RpcRequest?: CreateHttp2RpcRequest): Promise<CreateHttp2RpcResponse> {
+        const options = ParamCreater().createHttp2Rpc(createHttp2RpcRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建插件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建插件
+     * @param {string} gatewayId 网关实例id
+     * @param {WasmPlugin} body 创建插件参数
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPlugin(createPluginRequest?: CreatePluginRequest): Promise<CreatePluginResponse> {
+        const options = ParamCreater().createPlugin(createPluginRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除http转rpc方法。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除http转rpc方法
+     * @param {string} gatewayId 网关实例id
+     * @param {string} http2RpcId 插件id
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHttp2Rpc(deleteHttp2RpcRequest?: DeleteHttp2RpcRequest): Promise<DeleteHttp2RpcResponse> {
+        const options = ParamCreater().deleteHttp2Rpc(deleteHttp2RpcRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除插件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除插件
+     * @param {string} gatewayId 网关实例id
+     * @param {string} pluginId 插件id
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePlugin(deletePluginRequest?: DeletePluginRequest): Promise<DeletePluginResponse> {
+        const options = ParamCreater().deletePlugin(deletePluginRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改http转rpc方法。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改http转rpc方法
+     * @param {string} gatewayId 网关实例id
+     * @param {string} http2RpcId http2Rpc id
+     * @param {Http2Rpc} body 修改http2Rpc参数
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyHttp2Rpc(modifyHttp2RpcRequest?: ModifyHttp2RpcRequest): Promise<ModifyHttp2RpcResponse> {
+        const options = ParamCreater().modifyHttp2Rpc(modifyHttp2RpcRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改插件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改插件
+     * @param {string} gatewayId 网关实例id
+     * @param {string} pluginId 插件id
+     * @param {WasmPlugin} body 修改插件参数
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyPlugin(modifyPluginRequest?: ModifyPluginRequest): Promise<ModifyPluginResponse> {
+        const options = ParamCreater().modifyPlugin(modifyPluginRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询http转rpc资源列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询http2rpc资源列表
+     * @param {string} gatewayId 网关实例id
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHttp2Rpcs(showHttp2RpcsRequest?: ShowHttp2RpcsRequest): Promise<ShowHttp2RpcsResponse> {
+        const options = ParamCreater().showHttp2Rpcs(showHttp2RpcsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询插件列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询插件列表
+     * @param {string} gatewayId 网关实例id
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPlugins(showPluginsRequest?: ShowPluginsRequest): Promise<ShowPluginsResponse> {
+        const options = ParamCreater().showPlugins(showPluginsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单个插件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单个插件
+     * @param {string} gatewayId 网关实例id
+     * @param {string} pluginId 插件id
+     * @param {string} [accept] 该字段内容填为 \&quot;application/json\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSinglePlugin(showSinglePluginRequest?: ShowSinglePluginRequest): Promise<ShowSinglePluginResponse> {
+        const options = ParamCreater().showSinglePlugin(showSinglePluginRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1883,6 +2095,473 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'engine_id': engineId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建http转rpc方法。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHttp2Rpc(createHttp2RpcRequest?: CreateHttp2RpcRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/http2Rpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let gatewayId;
+            
+            let accept;
+
+            if (createHttp2RpcRequest !== null && createHttp2RpcRequest !== undefined) {
+                if (createHttp2RpcRequest instanceof CreateHttp2RpcRequest) {
+                    gatewayId = createHttp2RpcRequest.gatewayId;
+                    body = createHttp2RpcRequest.body
+                    accept = createHttp2RpcRequest.accept;
+                } else {
+                    gatewayId = createHttp2RpcRequest['gateway_id'];
+                    body = createHttp2RpcRequest['body'];
+                    accept = createHttp2RpcRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling createHttp2Rpc.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'gateway_id': gatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建插件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPlugin(createPluginRequest?: CreatePluginRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/plugins",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let gatewayId;
+            
+            let accept;
+
+            if (createPluginRequest !== null && createPluginRequest !== undefined) {
+                if (createPluginRequest instanceof CreatePluginRequest) {
+                    gatewayId = createPluginRequest.gatewayId;
+                    body = createPluginRequest.body
+                    accept = createPluginRequest.accept;
+                } else {
+                    gatewayId = createPluginRequest['gateway_id'];
+                    body = createPluginRequest['body'];
+                    accept = createPluginRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling createPlugin.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'gateway_id': gatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除http转rpc方法。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHttp2Rpc(deleteHttp2RpcRequest?: DeleteHttp2RpcRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/http2Rpcs/{http2Rpc_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let gatewayId;
+            
+            let http2RpcId;
+            
+            let accept;
+
+            if (deleteHttp2RpcRequest !== null && deleteHttp2RpcRequest !== undefined) {
+                if (deleteHttp2RpcRequest instanceof DeleteHttp2RpcRequest) {
+                    gatewayId = deleteHttp2RpcRequest.gatewayId;
+                    http2RpcId = deleteHttp2RpcRequest.http2RpcId;
+                    accept = deleteHttp2RpcRequest.accept;
+                } else {
+                    gatewayId = deleteHttp2RpcRequest['gateway_id'];
+                    http2RpcId = deleteHttp2RpcRequest['http2Rpc_id'];
+                    accept = deleteHttp2RpcRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling deleteHttp2Rpc.');
+            }
+            if (http2RpcId === null || http2RpcId === undefined) {
+            throw new RequiredError('http2RpcId','Required parameter http2RpcId was null or undefined when calling deleteHttp2Rpc.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+
+            options.pathParams = { 'gateway_id': gatewayId,'http2Rpc_id': http2RpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除插件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePlugin(deletePluginRequest?: DeletePluginRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/plugins/{plugin_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let gatewayId;
+            
+            let pluginId;
+            
+            let accept;
+
+            if (deletePluginRequest !== null && deletePluginRequest !== undefined) {
+                if (deletePluginRequest instanceof DeletePluginRequest) {
+                    gatewayId = deletePluginRequest.gatewayId;
+                    pluginId = deletePluginRequest.pluginId;
+                    accept = deletePluginRequest.accept;
+                } else {
+                    gatewayId = deletePluginRequest['gateway_id'];
+                    pluginId = deletePluginRequest['plugin_id'];
+                    accept = deletePluginRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling deletePlugin.');
+            }
+            if (pluginId === null || pluginId === undefined) {
+            throw new RequiredError('pluginId','Required parameter pluginId was null or undefined when calling deletePlugin.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+
+            options.pathParams = { 'gateway_id': gatewayId,'plugin_id': pluginId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改http转rpc方法。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyHttp2Rpc(modifyHttp2RpcRequest?: ModifyHttp2RpcRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/http2Rpcs/{http2Rpc_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let gatewayId;
+            
+            let http2RpcId;
+            
+            let accept;
+
+            if (modifyHttp2RpcRequest !== null && modifyHttp2RpcRequest !== undefined) {
+                if (modifyHttp2RpcRequest instanceof ModifyHttp2RpcRequest) {
+                    gatewayId = modifyHttp2RpcRequest.gatewayId;
+                    http2RpcId = modifyHttp2RpcRequest.http2RpcId;
+                    body = modifyHttp2RpcRequest.body
+                    accept = modifyHttp2RpcRequest.accept;
+                } else {
+                    gatewayId = modifyHttp2RpcRequest['gateway_id'];
+                    http2RpcId = modifyHttp2RpcRequest['http2Rpc_id'];
+                    body = modifyHttp2RpcRequest['body'];
+                    accept = modifyHttp2RpcRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling modifyHttp2Rpc.');
+            }
+            if (http2RpcId === null || http2RpcId === undefined) {
+            throw new RequiredError('http2RpcId','Required parameter http2RpcId was null or undefined when calling modifyHttp2Rpc.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'gateway_id': gatewayId,'http2Rpc_id': http2RpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改插件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyPlugin(modifyPluginRequest?: ModifyPluginRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/plugins/{plugin_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let gatewayId;
+            
+            let pluginId;
+            
+            let accept;
+
+            if (modifyPluginRequest !== null && modifyPluginRequest !== undefined) {
+                if (modifyPluginRequest instanceof ModifyPluginRequest) {
+                    gatewayId = modifyPluginRequest.gatewayId;
+                    pluginId = modifyPluginRequest.pluginId;
+                    body = modifyPluginRequest.body
+                    accept = modifyPluginRequest.accept;
+                } else {
+                    gatewayId = modifyPluginRequest['gateway_id'];
+                    pluginId = modifyPluginRequest['plugin_id'];
+                    body = modifyPluginRequest['body'];
+                    accept = modifyPluginRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling modifyPlugin.');
+            }
+            if (pluginId === null || pluginId === undefined) {
+            throw new RequiredError('pluginId','Required parameter pluginId was null or undefined when calling modifyPlugin.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'gateway_id': gatewayId,'plugin_id': pluginId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询http转rpc资源列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHttp2Rpcs(showHttp2RpcsRequest?: ShowHttp2RpcsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/http2Rpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let gatewayId;
+            
+            let accept;
+
+            if (showHttp2RpcsRequest !== null && showHttp2RpcsRequest !== undefined) {
+                if (showHttp2RpcsRequest instanceof ShowHttp2RpcsRequest) {
+                    gatewayId = showHttp2RpcsRequest.gatewayId;
+                    accept = showHttp2RpcsRequest.accept;
+                } else {
+                    gatewayId = showHttp2RpcsRequest['gateway_id'];
+                    accept = showHttp2RpcsRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling showHttp2Rpcs.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+
+            options.pathParams = { 'gateway_id': gatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询插件列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPlugins(showPluginsRequest?: ShowPluginsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/plugins",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let gatewayId;
+            
+            let accept;
+
+            if (showPluginsRequest !== null && showPluginsRequest !== undefined) {
+                if (showPluginsRequest instanceof ShowPluginsRequest) {
+                    gatewayId = showPluginsRequest.gatewayId;
+                    accept = showPluginsRequest.accept;
+                } else {
+                    gatewayId = showPluginsRequest['gateway_id'];
+                    accept = showPluginsRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling showPlugins.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+
+            options.pathParams = { 'gateway_id': gatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单个插件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSinglePlugin(showSinglePluginRequest?: ShowSinglePluginRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/enginemgr/gateways/{gateway_id}/plugins/{plugin_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let gatewayId;
+            
+            let pluginId;
+            
+            let accept;
+
+            if (showSinglePluginRequest !== null && showSinglePluginRequest !== undefined) {
+                if (showSinglePluginRequest instanceof ShowSinglePluginRequest) {
+                    gatewayId = showSinglePluginRequest.gatewayId;
+                    pluginId = showSinglePluginRequest.pluginId;
+                    accept = showSinglePluginRequest.accept;
+                } else {
+                    gatewayId = showSinglePluginRequest['gateway_id'];
+                    pluginId = showSinglePluginRequest['plugin_id'];
+                    accept = showSinglePluginRequest['Accept'];
+                }
+            }
+
+        
+            if (gatewayId === null || gatewayId === undefined) {
+            throw new RequiredError('gatewayId','Required parameter gatewayId was null or undefined when calling showSinglePlugin.');
+            }
+            if (pluginId === null || pluginId === undefined) {
+            throw new RequiredError('pluginId','Required parameter pluginId was null or undefined when calling showSinglePlugin.');
+            }
+            if (accept !== undefined && accept !== null) {
+                localVarHeaderParameter['Accept'] = String(accept);
+            }
+
+            options.pathParams = { 'gateway_id': gatewayId,'plugin_id': pluginId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -3,6 +3,7 @@ import { ChargeInfo } from './ChargeInfo';
 import { Datastore } from './Datastore';
 import { Ha } from './Ha';
 import { RestorePoint } from './RestorePoint';
+import { ServerlessInfo } from './ServerlessInfo';
 import { TagWithKeyValue } from './TagWithKeyValue';
 import { UnchangeableParam } from './UnchangeableParam';
 import { Volume } from './Volume';
@@ -34,6 +35,7 @@ export class CreateRestoreInstanceRequestBody {
     public collation?: string;
     public tags?: Array<TagWithKeyValue>;
     private 'unchangeable_param'?: UnchangeableParam;
+    private 'serverless_info'?: ServerlessInfo;
     private 'dry_run'?: boolean;
     public constructor(name?: string, datastore?: Datastore, flavorRef?: string, volume?: Volume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
         this['name'] = name;
@@ -241,6 +243,16 @@ export class CreateRestoreInstanceRequestBody {
     }
     public get unchangeableParam(): UnchangeableParam | undefined {
         return this['unchangeable_param'];
+    }
+    public withServerlessInfo(serverlessInfo: ServerlessInfo): CreateRestoreInstanceRequestBody {
+        this['serverless_info'] = serverlessInfo;
+        return this;
+    }
+    public set serverlessInfo(serverlessInfo: ServerlessInfo  | undefined) {
+        this['serverless_info'] = serverlessInfo;
+    }
+    public get serverlessInfo(): ServerlessInfo | undefined {
+        return this['serverless_info'];
     }
     public withDryRun(dryRun: boolean): CreateRestoreInstanceRequestBody {
         this['dry_run'] = dryRun;

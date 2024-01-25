@@ -5,6 +5,7 @@ export class AutoClassificationRequestBody {
     public url?: string;
     private 'type_list'?: Array<string>;
     private 'extended_parameters'?: object;
+    private 'detect_seal'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): AutoClassificationRequestBody {
@@ -34,5 +35,15 @@ export class AutoClassificationRequestBody {
     }
     public get extendedParameters(): object | undefined {
         return this['extended_parameters'];
+    }
+    public withDetectSeal(detectSeal: boolean): AutoClassificationRequestBody {
+        this['detect_seal'] = detectSeal;
+        return this;
+    }
+    public set detectSeal(detectSeal: boolean  | undefined) {
+        this['detect_seal'] = detectSeal;
+    }
+    public get detectSeal(): boolean | undefined {
+        return this['detect_seal'];
     }
 }

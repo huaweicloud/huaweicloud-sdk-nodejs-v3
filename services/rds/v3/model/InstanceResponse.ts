@@ -4,6 +4,7 @@ import { Datastore } from './Datastore';
 import { HaResponse } from './HaResponse';
 import { NodeResponse } from './NodeResponse';
 import { RelatedInstance } from './RelatedInstance';
+import { ServerlessInfoResponse } from './ServerlessInfoResponse';
 import { TagResponse } from './TagResponse';
 import { Volume } from './Volume';
 
@@ -50,6 +51,7 @@ export class InstanceResponse {
     public alias?: string;
     private 'max_iops'?: number;
     private 'expiration_time'?: string;
+    private 'serverless_info'?: ServerlessInfoResponse;
     public constructor(id?: string, status?: string, enableSsl?: boolean, privateIps?: Array<string>, publicIps?: Array<string>, type?: string, created?: string, updated?: string, dbUserName?: string, switchStrategy?: string, maintenanceWindow?: string, nodes?: Array<NodeResponse>, relatedInstance?: Array<RelatedInstance>, name?: string, datastore?: Datastore, port?: number, backupStrategy?: BackupStrategyForResponse, enterpriseProjectId?: string, diskEncryptionId?: string, flavorRef?: string, volume?: Volume, region?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, chargeInfo?: ChargeInfoResponse, timeZone?: string, tags?: Array<TagResponse>) { 
         this['id'] = id;
         this['status'] = status;
@@ -393,5 +395,15 @@ export class InstanceResponse {
     }
     public get expirationTime(): string | undefined {
         return this['expiration_time'];
+    }
+    public withServerlessInfo(serverlessInfo: ServerlessInfoResponse): InstanceResponse {
+        this['serverless_info'] = serverlessInfo;
+        return this;
+    }
+    public set serverlessInfo(serverlessInfo: ServerlessInfoResponse  | undefined) {
+        this['serverless_info'] = serverlessInfo;
+    }
+    public get serverlessInfo(): ServerlessInfoResponse | undefined {
+        return this['serverless_info'];
     }
 }

@@ -5,6 +5,7 @@ export class DeleteserviceDiscoveryRulesResponse extends SdkResponse {
     public errorCode?: string;
     public errorMessage?: string;
     public responseStatus?: number;
+    public id?: Array<string>;
     public constructor() { 
         super();
     }
@@ -18,6 +19,10 @@ export class DeleteserviceDiscoveryRulesResponse extends SdkResponse {
     }
     public withResponseStatus(responseStatus: number): DeleteserviceDiscoveryRulesResponse {
         this['responseStatus'] = responseStatus;
+        return this;
+    }
+    public withId(id: Array<string>): DeleteserviceDiscoveryRulesResponse {
+        this['id'] = id;
         return this;
     }
 }

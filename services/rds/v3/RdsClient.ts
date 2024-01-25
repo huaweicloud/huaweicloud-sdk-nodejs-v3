@@ -409,6 +409,8 @@ import { SearchQueryScaleFlavorsRequest } from './model/SearchQueryScaleFlavorsR
 import { SearchQueryScaleFlavorsResponse } from './model/SearchQueryScaleFlavorsResponse';
 import { SecondMonitor } from './model/SecondMonitor';
 import { SecurityGroupRequest } from './model/SecurityGroupRequest';
+import { ServerlessInfo } from './model/ServerlessInfo';
+import { ServerlessInfoResponse } from './model/ServerlessInfoResponse';
 import { SetAuditlogPolicyRequest } from './model/SetAuditlogPolicyRequest';
 import { SetAuditlogPolicyRequestBody } from './model/SetAuditlogPolicyRequestBody';
 import { SetAuditlogPolicyResponse } from './model/SetAuditlogPolicyResponse';
@@ -1368,6 +1370,7 @@ export class RdsClient {
      * @param {string} [xLanguage] 语言
      * @param {string} [versionName] 数据库版本号，获取方法请参见5.1查询数据库引擎的版本。（可输入小版本号）
      * @param {string} [specCode] 规格编码
+     * @param {string} [isServerless] 是否查询serverless规格。取值范围如下，区分大小写： true：查询serverless规格 false：查询非serverless规格 默认值 false。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6461,6 +6464,8 @@ export const ParamCreater = function () {
             let versionName;
             
             let specCode;
+            
+            let isServerless;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
                 if (listFlavorsRequest instanceof ListFlavorsRequest) {
@@ -6468,11 +6473,13 @@ export const ParamCreater = function () {
                     xLanguage = listFlavorsRequest.xLanguage;
                     versionName = listFlavorsRequest.versionName;
                     specCode = listFlavorsRequest.specCode;
+                    isServerless = listFlavorsRequest.isServerless;
                 } else {
                     databaseName = listFlavorsRequest['database_name'];
                     xLanguage = listFlavorsRequest['X-Language'];
                     versionName = listFlavorsRequest['version_name'];
                     specCode = listFlavorsRequest['spec_code'];
+                    isServerless = listFlavorsRequest['is_serverless'];
                 }
             }
 
@@ -6485,6 +6492,9 @@ export const ParamCreater = function () {
             }
             if (specCode !== null && specCode !== undefined) {
                 localVarQueryParameter['spec_code'] = specCode;
+            }
+            if (isServerless !== null && isServerless !== undefined) {
+                localVarQueryParameter['is_serverless'] = isServerless;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

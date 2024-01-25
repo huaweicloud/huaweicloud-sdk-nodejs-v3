@@ -2,6 +2,7 @@
 
 export class ListOverviewsClassificationRequest {
     private 'Content-Type'?: string;
+    private 'X-Language'?: string;
     private 'enterprise_project_id'?: string;
     public from?: number;
     public to?: number;
@@ -22,6 +23,16 @@ export class ListOverviewsClassificationRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXLanguage(xLanguage: string): ListOverviewsClassificationRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): string | undefined {
+        return this['X-Language'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListOverviewsClassificationRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

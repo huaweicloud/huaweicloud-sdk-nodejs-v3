@@ -6,6 +6,7 @@ export class AutoClassificationResult {
     public content?: object;
     public type?: string;
     public location?: Array<Array<number>>;
+    private 'seal_mark'?: boolean;
     public constructor(status?: AutoClassificationResultStatus, content?: object, type?: string, location?: Array<Array<number>>) { 
         this['status'] = status;
         this['content'] = content;
@@ -27,5 +28,15 @@ export class AutoClassificationResult {
     public withLocation(location: Array<Array<number>>): AutoClassificationResult {
         this['location'] = location;
         return this;
+    }
+    public withSealMark(sealMark: boolean): AutoClassificationResult {
+        this['seal_mark'] = sealMark;
+        return this;
+    }
+    public set sealMark(sealMark: boolean  | undefined) {
+        this['seal_mark'] = sealMark;
+    }
+    public get sealMark(): boolean | undefined {
+        return this['seal_mark'];
     }
 }

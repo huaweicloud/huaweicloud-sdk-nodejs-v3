@@ -6,7 +6,6 @@ export class AssetSummary {
     public title?: string;
     public description?: string;
     public duration?: number;
-    private 'duration_ms'?: number;
     public size?: number;
     private 'original_url'?: string;
     public category?: string;
@@ -46,16 +45,6 @@ export class AssetSummary {
     public withDuration(duration: number): AssetSummary {
         this['duration'] = duration;
         return this;
-    }
-    public withDurationMs(durationMs: number): AssetSummary {
-        this['duration_ms'] = durationMs;
-        return this;
-    }
-    public set durationMs(durationMs: number  | undefined) {
-        this['duration_ms'] = durationMs;
-    }
-    public get durationMs(): number | undefined {
-        return this['duration_ms'];
     }
     public withSize(size: number): AssetSummary {
         this['size'] = size;

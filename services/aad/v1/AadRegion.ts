@@ -7,10 +7,12 @@ interface RegionMap {
 
 export class AadRegion {
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://aad.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://aad.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
-        "cn-north-4":AadRegion.CN_NORTH_4
+        "cn-north-4":AadRegion.CN_NORTH_4,
+        "ap-southeast-1":AadRegion.AP_SOUTHEAST_1
     };
   
     public static valueOf(regionId: string) {

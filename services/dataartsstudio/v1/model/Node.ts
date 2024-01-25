@@ -160,6 +160,7 @@ export enum NodeTypeEnum {
     MRSSPARK = 'MRSSpark',
     MAPREDUCE = 'MapReduce',
     MRSFLINK = 'MRSFlink',
+    MRSFLINKJOB = 'MRSFlinkJob',
     MRSHETUENGINE = 'MRSHetuEngine'
 }
 /**

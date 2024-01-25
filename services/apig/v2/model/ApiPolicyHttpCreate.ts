@@ -148,6 +148,7 @@ export class ApiPolicyHttpCreate {
 export enum ApiPolicyHttpCreateReqProtocolEnum {
     HTTP = 'HTTP',
     HTTPS = 'HTTPS',
+    GRPC = 'GRPC',
     GRPCS = 'GRPCS'
 }
 /**

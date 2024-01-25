@@ -8,7 +8,7 @@ export class CreateAssetByFileUploadReq {
     public description?: string;
     private 'video_name'?: string;
     private 'video_type'?: string;
-    private 'category_id'?: string;
+    private 'category_id'?: number;
     private 'video_md5'?: string;
     private 'cover_type'?: CreateAssetByFileUploadReqCoverTypeEnum | string;
     private 'cover_md5'?: string;
@@ -54,14 +54,14 @@ export class CreateAssetByFileUploadReq {
     public get videoType(): string | undefined {
         return this['video_type'];
     }
-    public withCategoryId(categoryId: string): CreateAssetByFileUploadReq {
+    public withCategoryId(categoryId: number): CreateAssetByFileUploadReq {
         this['category_id'] = categoryId;
         return this;
     }
-    public set categoryId(categoryId: string  | undefined) {
+    public set categoryId(categoryId: number  | undefined) {
         this['category_id'] = categoryId;
     }
-    public get categoryId(): string | undefined {
+    public get categoryId(): number | undefined {
         return this['category_id'];
     }
     public withVideoMd5(videoMd5: string): CreateAssetByFileUploadReq {

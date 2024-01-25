@@ -9,6 +9,7 @@ import { AutoClassificationResult } from './model/AutoClassificationResult';
 import { AutoClassificationResultStatus } from './model/AutoClassificationResultStatus';
 import { BankcardRequestBody } from './model/BankcardRequestBody';
 import { BankcardResult } from './model/BankcardResult';
+import { BelongItemList } from './model/BelongItemList';
 import { BeneficiaryItem } from './model/BeneficiaryItem';
 import { BusinessCardRequestBody } from './model/BusinessCardRequestBody';
 import { BusinessCardResult } from './model/BusinessCardResult';

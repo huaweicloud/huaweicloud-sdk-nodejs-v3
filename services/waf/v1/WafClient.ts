@@ -1604,6 +1604,7 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {number} [top] 要查询的前几的结果，最大值为10，默认值为5。
      * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
@@ -6296,6 +6297,8 @@ export const ParamCreater = function () {
             
             let to;
             
+            let xLanguage;
+            
             let enterpriseProjectId;
             
             let top;
@@ -6309,6 +6312,7 @@ export const ParamCreater = function () {
                     contentType = listOverviewsClassificationRequest.contentType;
                     from = listOverviewsClassificationRequest.from;
                     to = listOverviewsClassificationRequest.to;
+                    xLanguage = listOverviewsClassificationRequest.xLanguage;
                     enterpriseProjectId = listOverviewsClassificationRequest.enterpriseProjectId;
                     top = listOverviewsClassificationRequest.top;
                     hosts = listOverviewsClassificationRequest.hosts;
@@ -6317,6 +6321,7 @@ export const ParamCreater = function () {
                     contentType = listOverviewsClassificationRequest['Content-Type'];
                     from = listOverviewsClassificationRequest['from'];
                     to = listOverviewsClassificationRequest['to'];
+                    xLanguage = listOverviewsClassificationRequest['X-Language'];
                     enterpriseProjectId = listOverviewsClassificationRequest['enterprise_project_id'];
                     top = listOverviewsClassificationRequest['top'];
                     hosts = listOverviewsClassificationRequest['hosts'];
@@ -6351,6 +6356,9 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;

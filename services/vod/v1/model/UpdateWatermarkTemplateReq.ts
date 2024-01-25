@@ -12,8 +12,9 @@ export class UpdateWatermarkTemplateReq {
     private 'image_process'?: UpdateWatermarkTemplateReqImageProcessEnum | string;
     private 'timeline_start'?: string;
     private 'timeline_duration'?: string;
-    public constructor(id?: string) { 
+    public constructor(id?: string, name?: string) { 
         this['id'] = id;
+        this['name'] = name;
     }
     public withId(id: string): UpdateWatermarkTemplateReq {
         this['id'] = id;

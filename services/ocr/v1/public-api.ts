@@ -7,6 +7,7 @@ export * from './model/AutoClassificationResult';
 export * from './model/AutoClassificationResultStatus';
 export * from './model/BankcardRequestBody';
 export * from './model/BankcardResult';
+export * from './model/BelongItemList';
 export * from './model/BeneficiaryItem';
 export * from './model/BusinessCardRequestBody';
 export * from './model/BusinessCardResult';

@@ -23,8 +23,6 @@ import { CadDomainSwitchRequest } from './model/CadDomainSwitchRequest';
 import { CertificateBody } from './model/CertificateBody';
 import { CreateAadDomainRequest } from './model/CreateAadDomainRequest';
 import { CreateAadDomainResponse } from './model/CreateAadDomainResponse';
-import { CreateCertificateRequest } from './model/CreateCertificateRequest';
-import { CreateCertificateResponse } from './model/CreateCertificateResponse';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyRequestBody } from './model/CreatePolicyRequestBody';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
@@ -78,6 +76,8 @@ import { PackageResponse } from './model/PackageResponse';
 import { PolicyResponse } from './model/PolicyResponse';
 import { PopPolicy } from './model/PopPolicy';
 import { ProtectedIpResponse } from './model/ProtectedIpResponse';
+import { SetCertForDomainRequest } from './model/SetCertForDomainRequest';
+import { SetCertForDomainResponse } from './model/SetCertForDomainResponse';
 import { ShowAlarmConfigRequest } from './model/ShowAlarmConfigRequest';
 import { ShowAlarmConfigResponse } from './model/ShowAlarmConfigResponse';
 import { ShowBlockStatisticsRequest } from './model/ShowBlockStatisticsRequest';
@@ -335,25 +335,6 @@ export class AadClient {
      */
     public createAadDomain(createAadDomainRequest?: CreateAadDomainRequest): Promise<CreateAadDomainResponse> {
         const options = ParamCreater().createAadDomain(createAadDomainRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 上传/修改域名对应证书
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 上传/修改域名对应证书
-     * @param {CertificateBody} certificateBody 证书信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createCertificate(createCertificateRequest?: CreateCertificateRequest): Promise<CreateCertificateResponse> {
-        const options = ParamCreater().createCertificate(createCertificateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -687,6 +668,25 @@ export class AadClient {
      */
     public modifyDomainWebSwitch(modifyDomainWebSwitchRequest?: ModifyDomainWebSwitchRequest): Promise<ModifyDomainWebSwitchResponse> {
         const options = ParamCreater().modifyDomainWebSwitch(modifyDomainWebSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传/修改域名对应证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传/修改域名对应证书
+     * @param {CertificateBody} certificateBody 证书信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setCertForDomain(setCertForDomainRequest?: SetCertForDomainRequest): Promise<SetCertForDomainResponse> {
+        const options = ParamCreater().setCertForDomain(setCertForDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1365,44 +1365,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 上传/修改域名对应证书
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createCertificate(createCertificateRequest?: CreateCertificateRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/aad/external/domains/certificate",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createCertificateRequest !== null && createCertificateRequest !== undefined) {
-                if (createCertificateRequest instanceof CreateCertificateRequest) {
-                    body = createCertificateRequest.body
-                } else {
-                    body = createCertificateRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2057,6 +2019,44 @@ export const ParamCreater = function () {
                     body = modifyDomainWebSwitchRequest.body
                 } else {
                     body = modifyDomainWebSwitchRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传/修改域名对应证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setCertForDomain(setCertForDomainRequest?: SetCertForDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aad/external/domains/certificate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setCertForDomainRequest !== null && setCertForDomainRequest !== undefined) {
+                if (setCertForDomainRequest instanceof SetCertForDomainRequest) {
+                    body = setCertForDomainRequest.body
+                } else {
+                    body = setCertForDomainRequest['body'];
                 }
             }
 

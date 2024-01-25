@@ -3,6 +3,7 @@ import { Thumbnail } from './Thumbnail';
 
 export class AssetProcessReq {
     private 'asset_id'?: string;
+    private 'hls_storage_type'?: AssetProcessReqHlsStorageTypeEnum | string;
     private 'template_group_name'?: string;
     private 'auto_encrypt'?: number;
     public thumbnail?: Thumbnail;
@@ -19,6 +20,16 @@ export class AssetProcessReq {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withHlsStorageType(hlsStorageType: AssetProcessReqHlsStorageTypeEnum | string): AssetProcessReq {
+        this['hls_storage_type'] = hlsStorageType;
+        return this;
+    }
+    public set hlsStorageType(hlsStorageType: AssetProcessReqHlsStorageTypeEnum | string  | undefined) {
+        this['hls_storage_type'] = hlsStorageType;
+    }
+    public get hlsStorageType(): AssetProcessReqHlsStorageTypeEnum | string | undefined {
+        return this['hls_storage_type'];
     }
     public withTemplateGroupName(templateGroupName: string): AssetProcessReq {
         this['template_group_name'] = templateGroupName;
@@ -54,4 +65,13 @@ export class AssetProcessReq {
     public get subtitleId(): Array<number> | undefined {
         return this['subtitle_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AssetProcessReqHlsStorageTypeEnum {
+    COMPOSITE = 'composite',
+    SEPARATE = 'separate'
 }

@@ -34,6 +34,7 @@ export class PostSourceServerBody {
     private 'migration_cycle'?: PostSourceServerBodyMigrationCycleEnum | string;
     public state?: PostSourceServerBodyStateEnum | string;
     private 'oem_system'?: boolean;
+    private 'start_type'?: PostSourceServerBodyStartTypeEnum | string;
     public constructor(ip?: string, name?: string, osType?: string, agentVersion?: string) { 
         this['ip'] = ip;
         this['name'] = name;
@@ -270,6 +271,16 @@ export class PostSourceServerBody {
     public get oemSystem(): boolean | undefined {
         return this['oem_system'];
     }
+    public withStartType(startType: PostSourceServerBodyStartTypeEnum | string): PostSourceServerBody {
+        this['start_type'] = startType;
+        return this;
+    }
+    public set startType(startType: PostSourceServerBodyStartTypeEnum | string  | undefined) {
+        this['start_type'] = startType;
+    }
+    public get startType(): PostSourceServerBodyStartTypeEnum | string | undefined {
+        return this['start_type'];
+    }
 }
 
 /**
@@ -325,4 +336,13 @@ export enum PostSourceServerBodyStateEnum {
     CLONING = 'cloning',
     CUTOVERING = 'cutovering',
     FINISHED = 'finished'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PostSourceServerBodyStartTypeEnum {
+    MANUAL = 'MANUAL',
+    MGC = 'MGC',
+    Empty = ''
 }

@@ -407,6 +407,8 @@ export * from './model/SearchQueryScaleFlavorsRequest';
 export * from './model/SearchQueryScaleFlavorsResponse';
 export * from './model/SecondMonitor';
 export * from './model/SecurityGroupRequest';
+export * from './model/ServerlessInfo';
+export * from './model/ServerlessInfoResponse';
 export * from './model/SetAuditlogPolicyRequest';
 export * from './model/SetAuditlogPolicyRequestBody';
 export * from './model/SetAuditlogPolicyResponse';

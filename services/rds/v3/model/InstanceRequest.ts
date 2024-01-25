@@ -3,6 +3,7 @@ import { ChargeInfo } from './ChargeInfo';
 import { Datastore } from './Datastore';
 import { Ha } from './Ha';
 import { RestorePoint } from './RestorePoint';
+import { ServerlessInfo } from './ServerlessInfo';
 import { TagWithKeyValue } from './TagWithKeyValue';
 import { UnchangeableParam } from './UnchangeableParam';
 import { Volume } from './Volume';
@@ -36,6 +37,7 @@ export class InstanceRequest {
     private 'unchangeable_param'?: UnchangeableParam;
     private 'dry_run'?: boolean;
     public count?: number;
+    private 'serverless_info'?: ServerlessInfo;
     public constructor(name?: string, datastore?: Datastore, flavorRef?: string, volume?: Volume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -256,5 +258,15 @@ export class InstanceRequest {
     public withCount(count: number): InstanceRequest {
         this['count'] = count;
         return this;
+    }
+    public withServerlessInfo(serverlessInfo: ServerlessInfo): InstanceRequest {
+        this['serverless_info'] = serverlessInfo;
+        return this;
+    }
+    public set serverlessInfo(serverlessInfo: ServerlessInfo  | undefined) {
+        this['serverless_info'] = serverlessInfo;
+    }
+    public get serverlessInfo(): ServerlessInfo | undefined {
+        return this['serverless_info'];
     }
 }

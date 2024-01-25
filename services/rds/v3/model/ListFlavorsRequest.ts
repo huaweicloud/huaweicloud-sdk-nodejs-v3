@@ -5,6 +5,7 @@ export class ListFlavorsRequest {
     private 'database_name'?: ListFlavorsRequestDatabaseNameEnum | string;
     private 'version_name'?: string;
     private 'spec_code'?: string;
+    private 'is_serverless'?: string;
     public constructor(databaseName?: string) { 
         this['database_name'] = databaseName;
     }
@@ -47,6 +48,16 @@ export class ListFlavorsRequest {
     }
     public get specCode(): string | undefined {
         return this['spec_code'];
+    }
+    public withIsServerless(isServerless: string): ListFlavorsRequest {
+        this['is_serverless'] = isServerless;
+        return this;
+    }
+    public set isServerless(isServerless: string  | undefined) {
+        this['is_serverless'] = isServerless;
+    }
+    public get isServerless(): string | undefined {
+        return this['is_serverless'];
     }
 }
 

@@ -4,7 +4,6 @@ export class MetaData {
     private 'pack_type'?: MetaDataPackTypeEnum | string;
     public codec?: MetaDataCodecEnum | string;
     public duration?: number;
-    private 'duration_ms'?: number;
     private 'video_size'?: number;
     public width?: number;
     public hight?: number;
@@ -31,16 +30,6 @@ export class MetaData {
     public withDuration(duration: number): MetaData {
         this['duration'] = duration;
         return this;
-    }
-    public withDurationMs(durationMs: number): MetaData {
-        this['duration_ms'] = durationMs;
-        return this;
-    }
-    public set durationMs(durationMs: number  | undefined) {
-        this['duration_ms'] = durationMs;
-    }
-    public get durationMs(): number | undefined {
-        return this['duration_ms'];
     }
     public withVideoSize(videoSize: number): MetaData {
         this['video_size'] = videoSize;
