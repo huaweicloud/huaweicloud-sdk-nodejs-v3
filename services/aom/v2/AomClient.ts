@@ -442,13 +442,13 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询集群主机安装的ICAgent信息。
+     * 该接口用于查询集群主机或用户自定义主机安装的ICAgent信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询集群主机安装的ICAgent信息
-     * @param {string} clusterId 集群id。
-     * @param {string} namespace 命名空间。
+     * @summary 查询主机安装的ICAgent信息
+     * @param {string} clusterId - 查询集群主机时，填写集群id。 - 查询用户自定义主机时，填写“apm”。
+     * @param {string} namespace - 查询集群主机时，填写命名空间。 - 查询用户自定义主机时，填写“apm”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -837,6 +837,7 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增Prometheus实例
+     * @param {string} region Prometheus实例所属Region，一般为承载REST服务端点的服务器域名或IP，不同服务不同区域的名称不同。
      * @param {PromInstanceRequestModel} createPromInstanceRequestBody Prometheus实例信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -908,11 +909,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 瞬时数据查询
+     * @summary GET方法查询瞬时数据
      * @param {string} query PromQL表达式(参考https://prometheus.io/docs/prometheus/latest/querying/basics/)。
      * @param {string} [time] 指定用于计算 PromQL 的时间戳，(Unix时间戳格式，单位：秒）。
      * @param {*} [options] Override http request option.
@@ -928,11 +929,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
+     * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 瞬时数据查询
+     * @summary （推荐）POST方法查询瞬时数据
      * @param {string} query PromQL表达式(参考https://prometheus.io/docs/prometheus/latest/querying/basics/)。
      * @param {string} [time] 指定用于计算 PromQL 的时间戳，(Unix时间戳格式，单位：秒）。
      * @param {*} [options] Override http request option.
@@ -967,11 +968,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取标签名列表
+     * @summary GET方法获取标签名列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -985,11 +986,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用POST方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取标签名列表
+     * @summary （推荐）POST方法获取标签名列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1043,11 +1044,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 区间数据查询
+     * @summary GET方法查询区间数据
      * @param {string} query PromQL表达式(参考https://prometheus.io/docs/prometheus/latest/querying/basics/)。
      * @param {string} start 起始时间戳(Unix时间戳格式，单位：秒）。
      * @param {string} end 结束时间戳(Unix时间戳格式，单位：秒）。
@@ -1065,11 +1066,11 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 区间数据查询
+     * @summary （推荐）POST方法查询区间数据
      * @param {string} query PromQL表达式(参考https://prometheus.io/docs/prometheus/latest/querying/basics/)。
      * @param {string} start 起始时间戳(Unix时间戳格式，单位：秒）。
      * @param {string} end 结束时间戳(Unix时间戳格式，单位：秒）。
@@ -1612,7 +1613,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询集群主机安装的ICAgent信息。
+         * 该接口用于查询集群主机或用户自定义主机安装的ICAgent信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2430,11 +2431,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let region;
 
             if (createPromInstanceRequest !== null && createPromInstanceRequest !== undefined) {
                 if (createPromInstanceRequest instanceof CreatePromInstanceRequest) {
+                    region = createPromInstanceRequest.region;
                     body = createPromInstanceRequest.body
                 } else {
+                    region = createPromInstanceRequest['region'];
                     body = createPromInstanceRequest['body'];
                 }
             }
@@ -2442,6 +2447,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2558,7 +2566,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2605,7 +2613,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
+         * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2689,7 +2697,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2710,7 +2718,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用POST方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2810,7 +2818,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2880,7 +2888,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -3,6 +3,7 @@
 export class VideoLayerConfig {
     private 'video_url'?: string;
     private 'video_cover_url'?: string;
+    private 'loop_count'?: number;
     public constructor() { 
     }
     public withVideoUrl(videoUrl: string): VideoLayerConfig {
@@ -24,5 +25,15 @@ export class VideoLayerConfig {
     }
     public get videoCoverUrl(): string | undefined {
         return this['video_cover_url'];
+    }
+    public withLoopCount(loopCount: number): VideoLayerConfig {
+        this['loop_count'] = loopCount;
+        return this;
+    }
+    public set loopCount(loopCount: number  | undefined) {
+        this['loop_count'] = loopCount;
+    }
+    public get loopCount(): number | undefined {
+        return this['loop_count'];
     }
 }

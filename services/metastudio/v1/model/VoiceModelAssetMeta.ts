@@ -1,12 +1,19 @@
+import { ExternalVoiceAssetMeta } from './ExternalVoiceAssetMeta';
 
 
 export class VoiceModelAssetMeta {
+    public order?: number;
     private 'model_type'?: VoiceModelAssetMetaModelTypeEnum | string;
     public sex?: VoiceModelAssetMetaSexEnum | string;
     public language?: VoiceModelAssetMetaLanguageEnum | string;
     private 'speed_ratio'?: number;
     private 'volume_ratio'?: number;
+    private 'external_voice_meta'?: ExternalVoiceAssetMeta;
     public constructor() { 
+    }
+    public withOrder(order: number): VoiceModelAssetMeta {
+        this['order'] = order;
+        return this;
     }
     public withModelType(modelType: VoiceModelAssetMetaModelTypeEnum | string): VoiceModelAssetMeta {
         this['model_type'] = modelType;
@@ -45,6 +52,16 @@ export class VoiceModelAssetMeta {
     }
     public get volumeRatio(): number | undefined {
         return this['volume_ratio'];
+    }
+    public withExternalVoiceMeta(externalVoiceMeta: ExternalVoiceAssetMeta): VoiceModelAssetMeta {
+        this['external_voice_meta'] = externalVoiceMeta;
+        return this;
+    }
+    public set externalVoiceMeta(externalVoiceMeta: ExternalVoiceAssetMeta  | undefined) {
+        this['external_voice_meta'] = externalVoiceMeta;
+    }
+    public get externalVoiceMeta(): ExternalVoiceAssetMeta | undefined {
+        return this['external_voice_meta'];
     }
 }
 

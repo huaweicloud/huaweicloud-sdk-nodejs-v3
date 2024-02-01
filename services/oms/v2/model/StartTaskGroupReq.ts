@@ -3,6 +3,7 @@
 export class StartTaskGroupReq {
     private 'src_ak'?: string;
     private 'src_sk'?: string;
+    private 'json_auth_file'?: string;
     private 'dst_ak'?: string;
     private 'dst_sk'?: string;
     private 'source_cdn_authentication_key'?: string;
@@ -29,6 +30,16 @@ export class StartTaskGroupReq {
     }
     public get srcSk(): string | undefined {
         return this['src_sk'];
+    }
+    public withJsonAuthFile(jsonAuthFile: string): StartTaskGroupReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withDstAk(dstAk: string): StartTaskGroupReq {
         this['dst_ak'] = dstAk;

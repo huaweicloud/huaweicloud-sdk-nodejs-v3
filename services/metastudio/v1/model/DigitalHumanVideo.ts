@@ -5,6 +5,7 @@ import { OutputAssetInfo } from './OutputAssetInfo';
 export class DigitalHumanVideo {
     private 'job_id'?: string;
     public state?: DigitalHumanVideoStateEnum | string;
+    private 'job_type'?: DigitalHumanVideoJobTypeEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     public duration?: number;
@@ -29,6 +30,16 @@ export class DigitalHumanVideo {
     public withState(state: DigitalHumanVideoStateEnum | string): DigitalHumanVideo {
         this['state'] = state;
         return this;
+    }
+    public withJobType(jobType: DigitalHumanVideoJobTypeEnum | string): DigitalHumanVideo {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: DigitalHumanVideoJobTypeEnum | string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): DigitalHumanVideoJobTypeEnum | string | undefined {
+        return this['job_type'];
     }
     public withStartTime(startTime: string): DigitalHumanVideo {
         this['start_time'] = startTime;
@@ -106,4 +117,12 @@ export enum DigitalHumanVideoStateEnum {
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
     CANCELED = 'CANCELED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DigitalHumanVideoJobTypeEnum {
+    E_2D_DIGITAL_HUMAN_VIDEO = '2D_DIGITAL_HUMAN_VIDEO',
+    DIGITAL_HUMAN_PHOTO_VIDEO = 'DIGITAL_HUMAN_PHOTO_VIDEO'
 }

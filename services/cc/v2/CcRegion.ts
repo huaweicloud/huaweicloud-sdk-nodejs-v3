@@ -7,12 +7,10 @@ interface RegionMap {
 
 export class CcRegion {
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://cc.myhuaweicloud.com"]);
-    public static CN_NORTH_1 = new Region("cn-north-1", ["https://ccaas.cn-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
-        "cn-north-4":CcRegion.CN_NORTH_4,
-        "cn-north-1":CcRegion.CN_NORTH_1
+        "cn-north-4":CcRegion.CN_NORTH_4
     };
   
     public static valueOf(regionId: string) {

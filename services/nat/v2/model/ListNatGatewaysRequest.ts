@@ -12,6 +12,7 @@ export class ListNatGatewaysRequest {
     private 'internal_network_id'?: string;
     private 'router_id'?: string;
     public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListNatGatewaysRequest {
@@ -86,6 +87,10 @@ export class ListNatGatewaysRequest {
     }
     public withLimit(limit: number): ListNatGatewaysRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListNatGatewaysRequest {
+        this['marker'] = marker;
         return this;
     }
 }

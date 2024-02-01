@@ -5,6 +5,7 @@ export class CheckPrefixReq {
     private 'cloud_type'?: string;
     public ak?: string;
     public sk?: string;
+    private 'json_auth_file'?: string;
     private 'app_id'?: string;
     private 'bucket_name'?: string;
     private 'file_name'?: string;
@@ -33,6 +34,16 @@ export class CheckPrefixReq {
     public withSk(sk: string): CheckPrefixReq {
         this['sk'] = sk;
         return this;
+    }
+    public withJsonAuthFile(jsonAuthFile: string): CheckPrefixReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withAppId(appId: string): CheckPrefixReq {
         this['app_id'] = appId;

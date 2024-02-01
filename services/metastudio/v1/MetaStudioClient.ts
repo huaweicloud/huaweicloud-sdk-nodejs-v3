@@ -39,6 +39,8 @@ import { ConfirmTrainingSegmentRequest } from './model/ConfirmTrainingSegmentReq
 import { ConfirmTrainingSegmentResponse } from './model/ConfirmTrainingSegmentResponse';
 import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
 import { ControlSmartLiveReq } from './model/ControlSmartLiveReq';
+import { CopyVideoScriptsRequest } from './model/CopyVideoScriptsRequest';
+import { CopyVideoScriptsResponse } from './model/CopyVideoScriptsResponse';
 import { Create2DDigitalHumanVideoReq } from './model/Create2DDigitalHumanVideoReq';
 import { Create2DDigitalHumanVideoRequest } from './model/Create2DDigitalHumanVideoRequest';
 import { Create2DDigitalHumanVideoResponse } from './model/Create2DDigitalHumanVideoResponse';
@@ -138,6 +140,7 @@ import { ExecuteSmartLiveCommandRequest } from './model/ExecuteSmartLiveCommandR
 import { ExecuteSmartLiveCommandResponse } from './model/ExecuteSmartLiveCommandResponse';
 import { ExecuteVideoMotionCaptureCommandRequest } from './model/ExecuteVideoMotionCaptureCommandRequest';
 import { ExecuteVideoMotionCaptureCommandResponse } from './model/ExecuteVideoMotionCaptureCommandResponse';
+import { ExternalVoiceAssetMeta } from './model/ExternalVoiceAssetMeta';
 import { FilesCreateReq } from './model/FilesCreateReq';
 import { HitCondition } from './model/HitCondition';
 import { HitConditionTag } from './model/HitConditionTag';
@@ -161,6 +164,7 @@ import { JobState } from './model/JobState';
 import { JobTag } from './model/JobTag';
 import { JobType } from './model/JobType';
 import { LanguageCheckInfoReq } from './model/LanguageCheckInfoReq';
+import { LanguageEnum } from './model/LanguageEnum';
 import { LayerConfig } from './model/LayerConfig';
 import { LayerPositionConfig } from './model/LayerPositionConfig';
 import { LayerSizeConfig } from './model/LayerSizeConfig';
@@ -185,6 +189,8 @@ import { ListRobotRequest } from './model/ListRobotRequest';
 import { ListRobotResponse } from './model/ListRobotResponse';
 import { ListSmartChatRoomsRequest } from './model/ListSmartChatRoomsRequest';
 import { ListSmartChatRoomsResponse } from './model/ListSmartChatRoomsResponse';
+import { ListSmartLiveJobsRequest } from './model/ListSmartLiveJobsRequest';
+import { ListSmartLiveJobsResponse } from './model/ListSmartLiveJobsResponse';
 import { ListSmartLiveRequest } from './model/ListSmartLiveRequest';
 import { ListSmartLiveResponse } from './model/ListSmartLiveResponse';
 import { ListSmartLiveRoomsRequest } from './model/ListSmartLiveRoomsRequest';
@@ -211,6 +217,7 @@ import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
 import { LiveWarningItem } from './model/LiveWarningItem';
 import { MaterialAssetMeta } from './model/MaterialAssetMeta';
 import { MaterialComponentInfo } from './model/MaterialComponentInfo';
+import { MobvoiVoiceAssetMeta } from './model/MobvoiVoiceAssetMeta';
 import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
 import { MultipartUploadInfo } from './model/MultipartUploadInfo';
@@ -308,6 +315,7 @@ import { SystemProperty } from './model/SystemProperty';
 import { TTSAJob } from './model/TTSAJob';
 import { TextConfig } from './model/TextConfig';
 import { TextLayerConfig } from './model/TextLayerConfig';
+import { ThirdPartyModelConfig } from './model/ThirdPartyModelConfig';
 import { TrainingJobBasicInfo } from './model/TrainingJobBasicInfo';
 import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TriggerProcess } from './model/TriggerProcess';
@@ -364,9 +372,9 @@ export class MetaStudioClient {
      * @summary 创建对话链接
      * @param {CreateDialogUrlReq} createDialogUrlRequestBody 创建对话链接请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -385,12 +393,12 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数字人智能交互任务
-     * @param {string} roomId 直播间ID。
+     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -409,12 +417,12 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动数字人智能交互任务
-     * @param {string} roomId 直播间ID。
-     * @param {string} robotId 机器人ID。
+     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} robotId 应用ID，获取方法请参考[[创建应用](https://support.huaweicloud.com/api-metastudio/CreateRobot.html)](tag:hc,hk)[“创建应用”](tag:cmcc)。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -433,12 +441,12 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 结束数字人智能交互任务
-     * @param {string} roomId 直播间ID。
+     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -477,7 +485,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除资产库中的媒体资产。第一次调用删除接口，将指定资产放入回收站；第二次调用删除接口，将指定资产彻底删除。
+     * 该接口用于删除资产库中的媒体资产。调用该接口删除媒体资产时，媒体资产会放入回收站中，不会彻底删除。如需彻底删除资产，需增加“mode&#x3D;force”参数配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -546,6 +554,9 @@ export class MetaStudioClient {
      * @param {string} [language] 语言。多选使用英文逗号分隔。
      * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes * TO_BE_TRANSLATED_VIDEO: 视频翻译的源视频。可取值Yes  3D数字人资产属性： * STYLE_ID：风格Id * RENDER_ENGINE：引擎类型，可取值UE或MetaEngine * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）
      * @param {boolean} [actionEditable] 动作是否可编辑。仅在分身数字人模型查询时有效。
+     * @param {boolean} [isMovable] 分身数字人是否资产走动。仅在分身数字人模型查询时有效。
+     * @param {string} [voiceProvider] 可取值HUAWEI_METASTUDIO, MOBVOI。 HUAWEI_METASTUDIO：MetaStudio自研音色 MOBVOI：出门问问音色
+     * @param {'SHARER' | 'SHAREE'} [role] 角色。 SHARER：共享方，SHAREE：被共享方
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1034,15 +1045,15 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建一次性鉴权码。
+     * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建一次性鉴权码
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1164,9 +1175,9 @@ export class MetaStudioClient {
      * @summary 创建应用
      * @param {CreateRobotReq} createRobotRequestBody 创建应用请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1187,9 +1198,9 @@ export class MetaStudioClient {
      * @summary 删除应用
      * @param {Array<string>} deleteRobotRequestBody 应用ID列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1209,9 +1220,9 @@ export class MetaStudioClient {
      *
      * @summary 查询应用列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {*} [options] Override http request option.
@@ -1234,9 +1245,9 @@ export class MetaStudioClient {
      * @summary 查询应用详情
      * @param {string} robotId 应用ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1258,9 +1269,9 @@ export class MetaStudioClient {
      * @param {string} robotId 应用ID。
      * @param {UpdateRobotReq} updateRobotRequestBody 修改应用请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1442,6 +1453,36 @@ export class MetaStudioClient {
      */
     public listSmartLive(listSmartLiveRequest?: ListSmartLiveRequest): Promise<ListSmartLiveResponse> {
         const options = ParamCreater().listSmartLive(listSmartLiveRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询数字人智能直播任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数字人智能直播任务列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [roomName] 按直播间名称模糊查询。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmartLiveJobs(listSmartLiveJobsRequest?: ListSmartLiveJobsRequest): Promise<ListSmartLiveJobsResponse> {
+        const options = ParamCreater().listSmartLiveJobs(listSmartLiveJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1706,6 +1747,7 @@ export class MetaStudioClient {
      * @param {string} [startTime] 最近直播任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
      * @param {string} [endTime] 最近直播任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
      * @param {string} [roomType] 按直播间类型查询。直播间类型。 * NORMAL: 普通直播间，直播间一直存在，可以反复开播 * TEMP: 临时直播间,直播任务结束后自动清理直播间。 * TEMPLATE: 直播间模板。
+     * @param {string} [templateOwnType] 按照自己拥有的和别人分享以及公共的模板进行查询 * OWNED 自己拥有且暂未共享的 * SHARED_TO_OHTERS 分享给别人的 * SHARED_FROM_OHTERS 别人分享给我的 * PUBLIC 公共模板
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2332,7 +2374,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建生成播报内容的语音试听文件任务。
+     * 该接口用于创建生成播报内容的语音试听文件任务。第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2490,6 +2532,29 @@ export class MetaStudioClient {
      */
     public stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest?: StopVideoMotionCaptureJobRequest): Promise<StopVideoMotionCaptureJobResponse> {
         const options = ParamCreater().stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于复制视频制作剧本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制视频制作剧本
+     * @param {string} scriptId 剧本ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyVideoScripts(copyVideoScriptsRequest?: CopyVideoScriptsRequest): Promise<CopyVideoScriptsResponse> {
+        const options = ParamCreater().copyVideoScripts(copyVideoScriptsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2970,7 +3035,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除资产库中的媒体资产。第一次调用删除接口，将指定资产放入回收站；第二次调用删除接口，将指定资产彻底删除。
+         * 该接口用于删除资产库中的媒体资产。调用该接口删除媒体资产时，媒体资产会放入回收站中，不会彻底删除。如需彻底删除资产，需增加“mode&#x3D;force”参数配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3143,6 +3208,12 @@ export const ParamCreater = function () {
             let systemProperty;
             
             let actionEditable;
+            
+            let isMovable;
+            
+            let voiceProvider;
+            
+            let role;
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
@@ -3166,6 +3237,9 @@ export const ParamCreater = function () {
                     language = listAssetsRequest.language;
                     systemProperty = listAssetsRequest.systemProperty;
                     actionEditable = listAssetsRequest.actionEditable;
+                    isMovable = listAssetsRequest.isMovable;
+                    voiceProvider = listAssetsRequest.voiceProvider;
+                    role = listAssetsRequest.role;
                 } else {
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
@@ -3187,6 +3261,9 @@ export const ParamCreater = function () {
                     language = listAssetsRequest['language'];
                     systemProperty = listAssetsRequest['system_property'];
                     actionEditable = listAssetsRequest['action_editable'];
+                    isMovable = listAssetsRequest['is_movable'];
+                    voiceProvider = listAssetsRequest['voice_provider'];
+                    role = listAssetsRequest['role'];
                 }
             }
 
@@ -3241,6 +3318,15 @@ export const ParamCreater = function () {
             }
             if (actionEditable !== null && actionEditable !== undefined) {
                 localVarQueryParameter['action_editable'] = actionEditable;
+            }
+            if (isMovable !== null && isMovable !== undefined) {
+                localVarQueryParameter['is_movable'] = isMovable;
+            }
+            if (voiceProvider !== null && voiceProvider !== undefined) {
+                localVarQueryParameter['voice_provider'] = voiceProvider;
+            }
+            if (role !== null && role !== undefined) {
+                localVarQueryParameter['role'] = role;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -4676,7 +4762,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建一次性鉴权码。
+         * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5978,6 +6064,120 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于查询数字人智能直播任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmartLiveJobs(listSmartLiveJobsRequest?: ListSmartLiveJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/smart-live-jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let state;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let createSince;
+            
+            let createUntil;
+            
+            let roomName;
+
+            if (listSmartLiveJobsRequest !== null && listSmartLiveJobsRequest !== undefined) {
+                if (listSmartLiveJobsRequest instanceof ListSmartLiveJobsRequest) {
+                    authorization = listSmartLiveJobsRequest.authorization;
+                    xSdkDate = listSmartLiveJobsRequest.xSdkDate;
+                    xProjectId = listSmartLiveJobsRequest.xProjectId;
+                    xAppUserId = listSmartLiveJobsRequest.xAppUserId;
+                    offset = listSmartLiveJobsRequest.offset;
+                    limit = listSmartLiveJobsRequest.limit;
+                    state = listSmartLiveJobsRequest.state;
+                    sortKey = listSmartLiveJobsRequest.sortKey;
+                    sortDir = listSmartLiveJobsRequest.sortDir;
+                    createSince = listSmartLiveJobsRequest.createSince;
+                    createUntil = listSmartLiveJobsRequest.createUntil;
+                    roomName = listSmartLiveJobsRequest.roomName;
+                } else {
+                    authorization = listSmartLiveJobsRequest['Authorization'];
+                    xSdkDate = listSmartLiveJobsRequest['X-Sdk-Date'];
+                    xProjectId = listSmartLiveJobsRequest['X-Project-Id'];
+                    xAppUserId = listSmartLiveJobsRequest['X-App-UserId'];
+                    offset = listSmartLiveJobsRequest['offset'];
+                    limit = listSmartLiveJobsRequest['limit'];
+                    state = listSmartLiveJobsRequest['state'];
+                    sortKey = listSmartLiveJobsRequest['sort_key'];
+                    sortDir = listSmartLiveJobsRequest['sort_dir'];
+                    createSince = listSmartLiveJobsRequest['create_since'];
+                    createUntil = listSmartLiveJobsRequest['create_until'];
+                    roomName = listSmartLiveJobsRequest['room_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (roomName !== null && roomName !== undefined) {
+                localVarQueryParameter['room_name'] = roomName;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于上报直播间事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6733,6 +6933,8 @@ export const ParamCreater = function () {
             let endTime;
             
             let roomType;
+            
+            let templateOwnType;
 
             if (listSmartLiveRoomsRequest !== null && listSmartLiveRoomsRequest !== undefined) {
                 if (listSmartLiveRoomsRequest instanceof ListSmartLiveRoomsRequest) {
@@ -6749,6 +6951,7 @@ export const ParamCreater = function () {
                     startTime = listSmartLiveRoomsRequest.startTime;
                     endTime = listSmartLiveRoomsRequest.endTime;
                     roomType = listSmartLiveRoomsRequest.roomType;
+                    templateOwnType = listSmartLiveRoomsRequest.templateOwnType;
                 } else {
                     authorization = listSmartLiveRoomsRequest['Authorization'];
                     xSdkDate = listSmartLiveRoomsRequest['X-Sdk-Date'];
@@ -6763,6 +6966,7 @@ export const ParamCreater = function () {
                     startTime = listSmartLiveRoomsRequest['start_time'];
                     endTime = listSmartLiveRoomsRequest['end_time'];
                     roomType = listSmartLiveRoomsRequest['room_type'];
+                    templateOwnType = listSmartLiveRoomsRequest['template_own_type'];
                 }
             }
 
@@ -6793,6 +6997,9 @@ export const ParamCreater = function () {
             }
             if (roomType !== null && roomType !== undefined) {
                 localVarQueryParameter['room_type'] = roomType;
+            }
+            if (templateOwnType !== null && templateOwnType !== undefined) {
+                localVarQueryParameter['template_own_type'] = templateOwnType;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -8533,7 +8740,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建生成播报内容的语音试听文件任务。
+         * 该接口用于创建生成播报内容的语音试听文件任务。第三方音色试听需要收费，收费标准参考：https://marketplace.huaweicloud.com/product/OFFI919400645308506112#productid&#x3D;OFFI919400645308506112
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9022,6 +9229,71 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于复制视频制作剧本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyVideoScripts(copyVideoScriptsRequest?: CopyVideoScriptsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-video-scripts/{script_id}/copy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scriptId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (copyVideoScriptsRequest !== null && copyVideoScriptsRequest !== undefined) {
+                if (copyVideoScriptsRequest instanceof CopyVideoScriptsRequest) {
+                    scriptId = copyVideoScriptsRequest.scriptId;
+                    authorization = copyVideoScriptsRequest.authorization;
+                    xSdkDate = copyVideoScriptsRequest.xSdkDate;
+                    xProjectId = copyVideoScriptsRequest.xProjectId;
+                    xAppUserId = copyVideoScriptsRequest.xAppUserId;
+                } else {
+                    scriptId = copyVideoScriptsRequest['script_id'];
+                    authorization = copyVideoScriptsRequest['Authorization'];
+                    xSdkDate = copyVideoScriptsRequest['X-Sdk-Date'];
+                    xProjectId = copyVideoScriptsRequest['X-Project-Id'];
+                    xAppUserId = copyVideoScriptsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (scriptId === null || scriptId === undefined) {
+            throw new RequiredError('scriptId','Required parameter scriptId was null or undefined when calling copyVideoScripts.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'script_id': scriptId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,6 +4,7 @@ export class ExecutionPlanSummary {
     private 'resource_add'?: number;
     private 'resource_update'?: number;
     private 'resource_delete'?: number;
+    private 'resource_import'?: number;
     public constructor() { 
     }
     public withResourceAdd(resourceAdd: number): ExecutionPlanSummary {
@@ -35,5 +36,15 @@ export class ExecutionPlanSummary {
     }
     public get resourceDelete(): number | undefined {
         return this['resource_delete'];
+    }
+    public withResourceImport(resourceImport: number): ExecutionPlanSummary {
+        this['resource_import'] = resourceImport;
+        return this;
+    }
+    public set resourceImport(resourceImport: number  | undefined) {
+        this['resource_import'] = resourceImport;
+    }
+    public get resourceImport(): number | undefined {
+        return this['resource_import'];
     }
 }

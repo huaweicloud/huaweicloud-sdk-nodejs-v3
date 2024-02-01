@@ -1,13 +1,15 @@
+import { PrivateIp } from './PrivateIp';
+import { PublicIp } from './PublicIp';
 import { SecurityGroup } from './SecurityGroup';
 
 
 export class NetworkInfoCreate {
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
-    private 'public_ip'?: object;
+    private 'public_ip'?: PublicIp;
     private 'security_groups'?: Array<SecurityGroup>;
-    private 'private_ip'?: object;
-    public constructor(vpcId?: string, subnetId?: string, publicIp?: object, securityGroups?: Array<SecurityGroup>) { 
+    private 'private_ip'?: PrivateIp;
+    public constructor(vpcId?: string, subnetId?: string, publicIp?: PublicIp, securityGroups?: Array<SecurityGroup>) { 
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
         this['public_ip'] = publicIp;
@@ -33,14 +35,14 @@ export class NetworkInfoCreate {
     public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
-    public withPublicIp(publicIp: object): NetworkInfoCreate {
+    public withPublicIp(publicIp: PublicIp): NetworkInfoCreate {
         this['public_ip'] = publicIp;
         return this;
     }
-    public set publicIp(publicIp: object  | undefined) {
+    public set publicIp(publicIp: PublicIp  | undefined) {
         this['public_ip'] = publicIp;
     }
-    public get publicIp(): object | undefined {
+    public get publicIp(): PublicIp | undefined {
         return this['public_ip'];
     }
     public withSecurityGroups(securityGroups: Array<SecurityGroup>): NetworkInfoCreate {
@@ -53,14 +55,14 @@ export class NetworkInfoCreate {
     public get securityGroups(): Array<SecurityGroup> | undefined {
         return this['security_groups'];
     }
-    public withPrivateIp(privateIp: object): NetworkInfoCreate {
+    public withPrivateIp(privateIp: PrivateIp): NetworkInfoCreate {
         this['private_ip'] = privateIp;
         return this;
     }
-    public set privateIp(privateIp: object  | undefined) {
+    public set privateIp(privateIp: PrivateIp  | undefined) {
         this['private_ip'] = privateIp;
     }
-    public get privateIp(): object | undefined {
+    public get privateIp(): PrivateIp | undefined {
         return this['private_ip'];
     }
 }

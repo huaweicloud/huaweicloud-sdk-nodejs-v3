@@ -21,6 +21,7 @@ export class CreateSmartLiveRoomReq {
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
+    private 'view_mode'?: CreateSmartLiveRoomReqViewModeEnum | string;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -154,6 +155,16 @@ export class CreateSmartLiveRoomReq {
     public get sharedConfig(): SharedConfig | undefined {
         return this['shared_config'];
     }
+    public withViewMode(viewMode: CreateSmartLiveRoomReqViewModeEnum | string): CreateSmartLiveRoomReq {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: CreateSmartLiveRoomReqViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): CreateSmartLiveRoomReqViewModeEnum | string | undefined {
+        return this['view_mode'];
+    }
 }
 
 /**
@@ -164,4 +175,12 @@ export enum CreateSmartLiveRoomReqRoomTypeEnum {
     NORMAL = 'NORMAL',
     TEMP = 'TEMP',
     TEMPLATE = 'TEMPLATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSmartLiveRoomReqViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
 }

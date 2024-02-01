@@ -3,6 +3,7 @@
 export class SetAuditlogPolicyRequestBody {
     private 'keep_days'?: number;
     private 'reserve_auditlogs'?: boolean;
+    private 'audit_types'?: Array<string>;
     public constructor(keepDays?: number) { 
         this['keep_days'] = keepDays;
     }
@@ -25,5 +26,15 @@ export class SetAuditlogPolicyRequestBody {
     }
     public get reserveAuditlogs(): boolean | undefined {
         return this['reserve_auditlogs'];
+    }
+    public withAuditTypes(auditTypes: Array<string>): SetAuditlogPolicyRequestBody {
+        this['audit_types'] = auditTypes;
+        return this;
+    }
+    public set auditTypes(auditTypes: Array<string>  | undefined) {
+        this['audit_types'] = auditTypes;
+    }
+    public get auditTypes(): Array<string> | undefined {
+        return this['audit_types'];
     }
 }

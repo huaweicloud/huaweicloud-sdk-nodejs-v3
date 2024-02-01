@@ -13,6 +13,7 @@ export class ExecutionPlanItem {
     private 'provider_name'?: string;
     public mode?: ExecutionPlanItemModeEnum | string;
     public drifted?: boolean;
+    public imported?: boolean;
     private 'resource_id'?: string;
     public attributes?: Array<ExecutionPlanDiffAttribute>;
     public constructor() { 
@@ -71,6 +72,10 @@ export class ExecutionPlanItem {
     }
     public withDrifted(drifted: boolean): ExecutionPlanItem {
         this['drifted'] = drifted;
+        return this;
+    }
+    public withImported(imported: boolean): ExecutionPlanItem {
+        this['imported'] = imported;
         return this;
     }
     public withResourceId(resourceId: string): ExecutionPlanItem {

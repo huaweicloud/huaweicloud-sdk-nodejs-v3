@@ -5,6 +5,8 @@ import { RTCRoomInfoList } from './RTCRoomInfoList';
 
 export class SmartLiveJob {
     private 'job_id'?: string;
+    private 'room_id'?: string;
+    private 'room_name'?: string;
     public state?: SmartLiveJobStateEnum | string;
     public duration?: number;
     private 'start_time'?: string;
@@ -17,6 +19,7 @@ export class SmartLiveJob {
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'stream_duration'?: number;
     private 'block_reason'?: string;
+    private 'cover_url'?: string;
     public constructor() { 
     }
     public withJobId(jobId: string): SmartLiveJob {
@@ -28,6 +31,26 @@ export class SmartLiveJob {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withRoomId(roomId: string): SmartLiveJob {
+        this['room_id'] = roomId;
+        return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
+    }
+    public withRoomName(roomName: string): SmartLiveJob {
+        this['room_name'] = roomName;
+        return this;
+    }
+    public set roomName(roomName: string  | undefined) {
+        this['room_name'] = roomName;
+    }
+    public get roomName(): string | undefined {
+        return this['room_name'];
     }
     public withState(state: SmartLiveJobStateEnum | string): SmartLiveJob {
         this['state'] = state;
@@ -136,6 +159,16 @@ export class SmartLiveJob {
     }
     public get blockReason(): string | undefined {
         return this['block_reason'];
+    }
+    public withCoverUrl(coverUrl: string): SmartLiveJob {
+        this['cover_url'] = coverUrl;
+        return this;
+    }
+    public set coverUrl(coverUrl: string  | undefined) {
+        this['cover_url'] = coverUrl;
+    }
+    public get coverUrl(): string | undefined {
+        return this['cover_url'];
     }
 }
 

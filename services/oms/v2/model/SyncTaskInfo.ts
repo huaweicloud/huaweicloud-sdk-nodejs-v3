@@ -15,10 +15,10 @@ export class SyncTaskInfo {
     private 'enable_kms'?: boolean;
     private 'enable_metadata_migration'?: boolean;
     private 'enable_restore'?: boolean;
-    private 'app_id'?: string;
-    private 'source_cdn'?: SourceCdnResp;
     private 'object_overwrite_mode'?: SyncTaskInfoObjectOverwriteModeEnum | string;
     private 'dst_storage_policy'?: SyncTaskInfoDstStoragePolicyEnum | string;
+    private 'app_id'?: string;
+    private 'source_cdn'?: SourceCdnResp;
     private 'consistency_check'?: SyncTaskInfoConsistencyCheckEnum | string;
     public constructor() { 
     }
@@ -140,26 +140,6 @@ export class SyncTaskInfo {
     public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
     }
-    public withAppId(appId: string): SyncTaskInfo {
-        this['app_id'] = appId;
-        return this;
-    }
-    public set appId(appId: string  | undefined) {
-        this['app_id'] = appId;
-    }
-    public get appId(): string | undefined {
-        return this['app_id'];
-    }
-    public withSourceCdn(sourceCdn: SourceCdnResp): SyncTaskInfo {
-        this['source_cdn'] = sourceCdn;
-        return this;
-    }
-    public set sourceCdn(sourceCdn: SourceCdnResp  | undefined) {
-        this['source_cdn'] = sourceCdn;
-    }
-    public get sourceCdn(): SourceCdnResp | undefined {
-        return this['source_cdn'];
-    }
     public withObjectOverwriteMode(objectOverwriteMode: SyncTaskInfoObjectOverwriteModeEnum | string): SyncTaskInfo {
         this['object_overwrite_mode'] = objectOverwriteMode;
         return this;
@@ -179,6 +159,26 @@ export class SyncTaskInfo {
     }
     public get dstStoragePolicy(): SyncTaskInfoDstStoragePolicyEnum | string | undefined {
         return this['dst_storage_policy'];
+    }
+    public withAppId(appId: string): SyncTaskInfo {
+        this['app_id'] = appId;
+        return this;
+    }
+    public set appId(appId: string  | undefined) {
+        this['app_id'] = appId;
+    }
+    public get appId(): string | undefined {
+        return this['app_id'];
+    }
+    public withSourceCdn(sourceCdn: SourceCdnResp): SyncTaskInfo {
+        this['source_cdn'] = sourceCdn;
+        return this;
+    }
+    public set sourceCdn(sourceCdn: SourceCdnResp  | undefined) {
+        this['source_cdn'] = sourceCdn;
+    }
+    public get sourceCdn(): SourceCdnResp | undefined {
+        return this['source_cdn'];
     }
     public withConsistencyCheck(consistencyCheck: SyncTaskInfoConsistencyCheckEnum | string): SyncTaskInfo {
         this['consistency_check'] = consistencyCheck;

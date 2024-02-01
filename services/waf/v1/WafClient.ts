@@ -1417,6 +1417,7 @@ export class WafClient {
      *
      * @summary 查询攻击事件列表
      * @param {string} contentType 内容类型
+     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] 查询日志的时间范围（不能和from、to同时使用，同时使用以recent为准），且recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准
      * @param {number} [from] 起始时间(13位时间戳)，需要和to同时使用，不能和recent参数同时使用
@@ -2084,6 +2085,7 @@ export class WafClient {
      * @summary 查询指定事件id的防护事件详情
      * @param {string} contentType 内容类型
      * @param {string} eventid 防护事件id,通过调用查询攻击事件列表(ListEvent)接口获取防护事件id
+     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5763,6 +5765,8 @@ export const ParamCreater = function () {
             
             let contentType;
             
+            let xLanguage;
+            
             let enterpriseProjectId;
             
             let recent;
@@ -5782,6 +5786,7 @@ export const ParamCreater = function () {
             if (listEventRequest !== null && listEventRequest !== undefined) {
                 if (listEventRequest instanceof ListEventRequest) {
                     contentType = listEventRequest.contentType;
+                    xLanguage = listEventRequest.xLanguage;
                     enterpriseProjectId = listEventRequest.enterpriseProjectId;
                     recent = listEventRequest.recent;
                     from = listEventRequest.from;
@@ -5792,6 +5797,7 @@ export const ParamCreater = function () {
                     pagesize = listEventRequest.pagesize;
                 } else {
                     contentType = listEventRequest['Content-Type'];
+                    xLanguage = listEventRequest['X-Language'];
                     enterpriseProjectId = listEventRequest['enterprise_project_id'];
                     recent = listEventRequest['recent'];
                     from = listEventRequest['from'];
@@ -5830,6 +5836,9 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -7696,16 +7705,20 @@ export const ParamCreater = function () {
             
             let eventid;
             
+            let xLanguage;
+            
             let enterpriseProjectId;
 
             if (showEventRequest !== null && showEventRequest !== undefined) {
                 if (showEventRequest instanceof ShowEventRequest) {
                     contentType = showEventRequest.contentType;
                     eventid = showEventRequest.eventid;
+                    xLanguage = showEventRequest.xLanguage;
                     enterpriseProjectId = showEventRequest.enterpriseProjectId;
                 } else {
                     contentType = showEventRequest['Content-Type'];
                     eventid = showEventRequest['eventid'];
+                    xLanguage = showEventRequest['X-Language'];
                     enterpriseProjectId = showEventRequest['enterprise_project_id'];
                 }
             }
@@ -7719,6 +7732,9 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;

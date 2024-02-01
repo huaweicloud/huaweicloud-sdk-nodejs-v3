@@ -2,6 +2,7 @@
 
 export class ShowEventRequest {
     private 'Content-Type'?: string;
+    private 'X-Language'?: string;
     private 'enterprise_project_id'?: string;
     public eventid?: string;
     public constructor(contentType?: string, eventid?: string) { 
@@ -17,6 +18,16 @@ export class ShowEventRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXLanguage(xLanguage: string): ShowEventRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): string | undefined {
+        return this['X-Language'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowEventRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

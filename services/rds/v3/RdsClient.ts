@@ -84,6 +84,7 @@ import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
+import { CreateMysqlMultiProxyRequest } from './model/CreateMysqlMultiProxyRequest';
 import { CreatePostgresqlDatabaseRequest } from './model/CreatePostgresqlDatabaseRequest';
 import { CreatePostgresqlDatabaseResponse } from './model/CreatePostgresqlDatabaseResponse';
 import { CreatePostgresqlDatabaseSchemaRequest } from './model/CreatePostgresqlDatabaseSchemaRequest';
@@ -92,6 +93,8 @@ import { CreatePostgresqlDbUserRequest } from './model/CreatePostgresqlDbUserReq
 import { CreatePostgresqlDbUserResponse } from './model/CreatePostgresqlDbUserResponse';
 import { CreatePostgresqlExtensionRequest } from './model/CreatePostgresqlExtensionRequest';
 import { CreatePostgresqlExtensionResponse } from './model/CreatePostgresqlExtensionResponse';
+import { CreateRdSforMySqlProxyRequest } from './model/CreateRdSforMySqlProxyRequest';
+import { CreateRdSforMySqlProxyResponse } from './model/CreateRdSforMySqlProxyResponse';
 import { CreateRestoreInstanceRequest } from './model/CreateRestoreInstanceRequest';
 import { CreateRestoreInstanceRequestBody } from './model/CreateRestoreInstanceRequestBody';
 import { CreateRestoreInstanceResponse } from './model/CreateRestoreInstanceResponse';
@@ -139,6 +142,8 @@ import { DeletePostgresqlExtensionRequest } from './model/DeletePostgresqlExtens
 import { DeletePostgresqlExtensionResponse } from './model/DeletePostgresqlExtensionResponse';
 import { DeletePostgresqlHbaConfRequest } from './model/DeletePostgresqlHbaConfRequest';
 import { DeletePostgresqlHbaConfResponse } from './model/DeletePostgresqlHbaConfResponse';
+import { DeleteRdSforMySqlProxyRequest } from './model/DeleteRdSforMySqlProxyRequest';
+import { DeleteRdSforMySqlProxyResponse } from './model/DeleteRdSforMySqlProxyResponse';
 import { DeleteSqlserverDatabaseExRequest } from './model/DeleteSqlserverDatabaseExRequest';
 import { DeleteSqlserverDatabaseExResponse } from './model/DeleteSqlserverDatabaseExResponse';
 import { DeleteSqlserverDatabaseRequest } from './model/DeleteSqlserverDatabaseRequest';
@@ -160,6 +165,7 @@ import { EnlargeVolumeRequestBody } from './model/EnlargeVolumeRequestBody';
 import { ErrorLog } from './model/ErrorLog';
 import { ErrorLogItem } from './model/ErrorLogItem';
 import { ErrorResponse } from './model/ErrorResponse';
+import { ErrorRsp } from './model/ErrorRsp';
 import { ErrorlogForLtsRequest } from './model/ErrorlogForLtsRequest';
 import { ExtensionRequest } from './model/ExtensionRequest';
 import { ExtensionsResponse } from './model/ExtensionsResponse';
@@ -182,9 +188,11 @@ import { HistoryDatabaseInfo } from './model/HistoryDatabaseInfo';
 import { HistoryDatabaseInstance } from './model/HistoryDatabaseInstance';
 import { InspectionReports } from './model/InspectionReports';
 import { InstanceDrRelation } from './model/InstanceDrRelation';
+import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
 import { InstanceRestartRequsetBody } from './model/InstanceRestartRequsetBody';
+import { InstancesWeight } from './model/InstancesWeight';
 import { LDatastore } from './model/LDatastore';
 import { LinksInfoResponse } from './model/LinksInfoResponse';
 import { ListApiVersionNewRequest } from './model/ListApiVersionNewRequest';
@@ -272,6 +280,10 @@ import { ListPredefinedTagRequest } from './model/ListPredefinedTagRequest';
 import { ListPredefinedTagResponse } from './model/ListPredefinedTagResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListRdSforMySqlProxyRequest } from './model/ListRdSforMySqlProxyRequest';
+import { ListRdSforMySqlProxyResponse } from './model/ListRdSforMySqlProxyResponse';
+import { ListRdSforMysqlProxyFlavorsRequest } from './model/ListRdSforMysqlProxyFlavorsRequest';
+import { ListRdSforMysqlProxyFlavorsResponse } from './model/ListRdSforMysqlProxyFlavorsResponse';
 import { ListRecycleInstancesRequest } from './model/ListRecycleInstancesRequest';
 import { ListRecycleInstancesResponse } from './model/ListRecycleInstancesResponse';
 import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
@@ -311,11 +323,17 @@ import { ModifyCollationRequest } from './model/ModifyCollationRequest';
 import { ModifyCollationRequestBody } from './model/ModifyCollationRequestBody';
 import { ModifyCollationResponse } from './model/ModifyCollationResponse';
 import { ModifyDnsNameRequestBody } from './model/ModifyDnsNameRequestBody';
+import { ModifyMySqlProxyRouteModeRequest } from './model/ModifyMySqlProxyRouteModeRequest';
 import { ModifyParamRequest } from './model/ModifyParamRequest';
 import { ModifyPostgresqlHbaConfRequest } from './model/ModifyPostgresqlHbaConfRequest';
 import { ModifyPostgresqlHbaConfResponse } from './model/ModifyPostgresqlHbaConfResponse';
 import { ModifyProxyWeightRequest } from './model/ModifyProxyWeightRequest';
+import { ModifyRdSforMySqlProxyRouteModeRequest } from './model/ModifyRdSforMySqlProxyRouteModeRequest';
+import { ModifyRdSforMySqlProxyRouteModeResponse } from './model/ModifyRdSforMySqlProxyRouteModeResponse';
 import { MsdtcHostOption } from './model/MsdtcHostOption';
+import { MysqlAvailableZoneInfo } from './model/MysqlAvailableZoneInfo';
+import { MysqlProxyFlavorsResponseComputeFlavorGroups } from './model/MysqlProxyFlavorsResponseComputeFlavorGroups';
+import { MysqlProxyFlavorsResponseComputeFlavors } from './model/MysqlProxyFlavorsResponseComputeFlavors';
 import { MysqlReadOnlySwitch } from './model/MysqlReadOnlySwitch';
 import { MysqlSlowLogDetailsItem } from './model/MysqlSlowLogDetailsItem';
 import { MysqlSlowLogStatisticsItem } from './model/MysqlSlowLogStatisticsItem';
@@ -353,14 +371,20 @@ import { PostgresqlUserForList } from './model/PostgresqlUserForList';
 import { PostgresqlUserWithPrivilege } from './model/PostgresqlUserWithPrivilege';
 import { ProjectTagInfoResponse } from './model/ProjectTagInfoResponse';
 import { Proxy } from './model/Proxy';
+import { ProxyInfo } from './model/ProxyInfo';
+import { ProxyInfoFlavorInfo } from './model/ProxyInfoFlavorInfo';
+import { ProxyInfoNodes } from './model/ProxyInfoNodes';
 import { ProxyNode } from './model/ProxyNode';
 import { ProxyReadonlyInstances } from './model/ProxyReadonlyInstances';
 import { PwdResetRequest } from './model/PwdResetRequest';
+import { QueryProxyResponseV3 } from './model/QueryProxyResponseV3';
 import { Quotas } from './model/Quotas';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
 import { RecycleInstsanceV3 } from './model/RecycleInstsanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
+import { ReduceVolumeObject } from './model/ReduceVolumeObject';
+import { ReduceVolumeRequestBody } from './model/ReduceVolumeRequestBody';
 import { RelatedInstance } from './model/RelatedInstance';
 import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
@@ -368,6 +392,8 @@ import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
+import { RestartRdSforMysqlProxyRequest } from './model/RestartRdSforMysqlProxyRequest';
+import { RestartRdSforMysqlProxyResponse } from './model/RestartRdSforMysqlProxyResponse';
 import { RestoreDatabaseInfo } from './model/RestoreDatabaseInfo';
 import { RestoreDatabaseInstance } from './model/RestoreDatabaseInstance';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
@@ -426,6 +452,7 @@ import { SetDatabaseUserPrivilegeRequest } from './model/SetDatabaseUserPrivileg
 import { SetDatabaseUserPrivilegeResponse } from './model/SetDatabaseUserPrivilegeResponse';
 import { SetDbUserPwdRequest } from './model/SetDbUserPwdRequest';
 import { SetDbUserPwdResponse } from './model/SetDbUserPwdResponse';
+import { SetHostPrivilegeRequestV3 } from './model/SetHostPrivilegeRequestV3';
 import { SetInstancesDbShrinkRequest } from './model/SetInstancesDbShrinkRequest';
 import { SetInstancesDbShrinkResponse } from './model/SetInstancesDbShrinkResponse';
 import { SetInstancesNewDbShrinkRequest } from './model/SetInstancesNewDbShrinkRequest';
@@ -469,6 +496,9 @@ import { ShowDomainNameRequest } from './model/ShowDomainNameRequest';
 import { ShowDomainNameResponse } from './model/ShowDomainNameResponse';
 import { ShowDrReplicaStatusRequest } from './model/ShowDrReplicaStatusRequest';
 import { ShowDrReplicaStatusResponse } from './model/ShowDrReplicaStatusResponse';
+import { ShowIncreBackupPolicy1Request } from './model/ShowIncreBackupPolicy1Request';
+import { ShowIncreBackupPolicy1Response } from './model/ShowIncreBackupPolicy1Response';
+import { ShowIncreBackupPolicyRespBodyIncreBackupPolicy } from './model/ShowIncreBackupPolicyRespBodyIncreBackupPolicy';
 import { ShowInformationAboutDatabaseProxyRequest } from './model/ShowInformationAboutDatabaseProxyRequest';
 import { ShowInformationAboutDatabaseProxyResponse } from './model/ShowInformationAboutDatabaseProxyResponse';
 import { ShowInstanceConfigurationRequest } from './model/ShowInstanceConfigurationRequest';
@@ -514,6 +544,8 @@ import { StartFailoverRequest } from './model/StartFailoverRequest';
 import { StartFailoverResponse } from './model/StartFailoverResponse';
 import { StartInstanceEnlargeVolumeActionRequest } from './model/StartInstanceEnlargeVolumeActionRequest';
 import { StartInstanceEnlargeVolumeActionResponse } from './model/StartInstanceEnlargeVolumeActionResponse';
+import { StartInstanceReduceVolumeActionRequest } from './model/StartInstanceReduceVolumeActionRequest';
+import { StartInstanceReduceVolumeActionResponse } from './model/StartInstanceReduceVolumeActionResponse';
 import { StartInstanceRestartActionRequest } from './model/StartInstanceRestartActionRequest';
 import { StartInstanceRestartActionResponse } from './model/StartInstanceRestartActionResponse';
 import { StartInstanceSingleToHaActionRequest } from './model/StartInstanceSingleToHaActionRequest';
@@ -557,6 +589,11 @@ import { UpdateDbUserPrivilegeResponse } from './model/UpdateDbUserPrivilegeResp
 import { UpdateDbUserReq } from './model/UpdateDbUserReq';
 import { UpdateDnsNameRequest } from './model/UpdateDnsNameRequest';
 import { UpdateDnsNameResponse } from './model/UpdateDnsNameResponse';
+import { UpdateHostPrivilegeRequest } from './model/UpdateHostPrivilegeRequest';
+import { UpdateHostPrivilegeResponse } from './model/UpdateHostPrivilegeResponse';
+import { UpdateIncreBackupPolicy1Request } from './model/UpdateIncreBackupPolicy1Request';
+import { UpdateIncreBackupPolicy1RequestBody } from './model/UpdateIncreBackupPolicy1RequestBody';
+import { UpdateIncreBackupPolicy1Response } from './model/UpdateIncreBackupPolicy1Response';
 import { UpdateInstanceConfigurationAsyncRequest } from './model/UpdateInstanceConfigurationAsyncRequest';
 import { UpdateInstanceConfigurationAsyncResponse } from './model/UpdateInstanceConfigurationAsyncResponse';
 import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
@@ -938,6 +975,28 @@ export class RdsClient {
     }
 
     /**
+     * 开启数据库代理。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启数据库代理
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {CreateMysqlMultiProxyRequest} createRDSforMySqlProxyRequestBody 请求体。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRdSforMySqlProxy(createRdSforMySqlProxyRequest?: CreateRdSforMySqlProxyRequest): Promise<CreateRdSforMySqlProxyResponse> {
+        const options = ParamCreater().createRdSforMySqlProxy(createRdSforMySqlProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 恢复到新实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1089,6 +1148,28 @@ export class RdsClient {
      */
     public deletePostgresqlHbaConf(deletePostgresqlHbaConfRequest?: DeletePostgresqlHbaConfRequest): Promise<DeletePostgresqlHbaConfResponse> {
         const options = ParamCreater().deletePostgresqlHbaConf(deletePostgresqlHbaConfRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭数据库代理。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭数据库代理
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRdSforMySqlProxy(deleteRdSforMySqlProxyRequest?: DeleteRdSforMySqlProxyRequest): Promise<DeleteRdSforMySqlProxyResponse> {
+        const options = ParamCreater().deleteRdSforMySqlProxy(deleteRdSforMySqlProxyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1803,6 +1884,50 @@ export class RdsClient {
     }
 
     /**
+     * 查询数据库代理信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库代理信息列表
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRdSforMySqlProxy(listRdSforMySqlProxyRequest?: ListRdSforMySqlProxyRequest): Promise<ListRdSforMySqlProxyResponse> {
+        const options = ParamCreater().listRdSforMySqlProxy(listRdSforMySqlProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库代理规格信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库代理规格信息
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRdSforMysqlProxyFlavors(listRdSforMysqlProxyFlavorsRequest?: ListRdSforMysqlProxyFlavorsRequest): Promise<ListRdSforMysqlProxyFlavorsResponse> {
+        const options = ParamCreater().listRdSforMysqlProxyFlavors(listRdSforMysqlProxyFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询回收站实例信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2125,6 +2250,51 @@ export class RdsClient {
      */
     public modifyPostgresqlHbaConf(modifyPostgresqlHbaConfRequest?: ModifyPostgresqlHbaConfRequest): Promise<ModifyPostgresqlHbaConfResponse> {
         const options = ParamCreater().modifyPostgresqlHbaConf(modifyPostgresqlHbaConfRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置读写分离路由模式。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置读写分离路由模式
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {ModifyMySqlProxyRouteModeRequest} modifyRDSforMySqlProxyRouteModeRequestBody 请求体。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyRdSforMySqlProxyRouteMode(modifyRdSforMySqlProxyRouteModeRequest?: ModifyRdSforMySqlProxyRouteModeRequest): Promise<ModifyRdSforMySqlProxyRouteModeResponse> {
+        const options = ParamCreater().modifyRdSforMySqlProxyRouteMode(modifyRdSforMySqlProxyRouteModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启数据库代理。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启数据库代理
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest?: RestartRdSforMysqlProxyRequest): Promise<RestartRdSforMysqlProxyResponse> {
+        const options = ParamCreater().restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2628,6 +2798,25 @@ export class RdsClient {
     }
 
     /**
+     * 获取增备策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取增备策略
+     * @param {string} instanceId instance id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIncreBackupPolicy1(showIncreBackupPolicy1Request?: ShowIncreBackupPolicy1Request): Promise<ShowIncreBackupPolicy1Response> {
+        const options = ParamCreater().showIncreBackupPolicy1(showIncreBackupPolicy1Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定实例的参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2819,6 +3008,27 @@ export class RdsClient {
      */
     public startInstanceEnlargeVolumeAction(startInstanceEnlargeVolumeActionRequest?: StartInstanceEnlargeVolumeActionRequest): Promise<StartInstanceEnlargeVolumeActionResponse> {
         const options = ParamCreater().startInstanceEnlargeVolumeAction(startInstanceEnlargeVolumeActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据库实例的磁盘空间缩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据库实例的磁盘空间缩容
+     * @param {string} instanceId 实例ID。
+     * @param {ReduceVolumeRequestBody} reduceVolumeRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startInstanceReduceVolumeAction(startInstanceReduceVolumeActionRequest?: StartInstanceReduceVolumeActionRequest): Promise<StartInstanceReduceVolumeActionResponse> {
+        const options = ParamCreater().startInstanceReduceVolumeAction(startInstanceReduceVolumeActionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3046,6 +3256,26 @@ export class RdsClient {
      */
     public updateDnsName(updateDnsNameRequest?: UpdateDnsNameRequest): Promise<UpdateDnsNameResponse> {
         const options = ParamCreater().updateDnsName(updateDnsNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改增备策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改增备策略
+     * @param {string} instanceId instance id
+     * @param {UpdateIncreBackupPolicy1RequestBody} updateIncreBackupPolicyRequestBody UpdateIncreBackupPolicyRequestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIncreBackupPolicy1(updateIncreBackupPolicy1Request?: UpdateIncreBackupPolicy1Request): Promise<UpdateIncreBackupPolicy1Response> {
+        const options = ParamCreater().updateIncreBackupPolicy1(updateIncreBackupPolicy1Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3628,6 +3858,26 @@ export class RdsClient {
      */
     public updateDbUserComment(updateDbUserCommentRequest?: UpdateDbUserCommentRequest): Promise<UpdateDbUserCommentResponse> {
         const options = ParamCreater().updateDbUserComment(updateDbUserCommentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例下用户host信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例下用户host信息
+     * @param {string} instanceId 实例id
+     * @param {SetHostPrivilegeRequestV3} updateHostPrivilegeRequestBody 需要修改的host信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHostPrivilege(updateHostPrivilegeRequest?: UpdateHostPrivilegeRequest): Promise<UpdateHostPrivilegeResponse> {
+        const options = ParamCreater().updateHostPrivilege(updateHostPrivilegeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5326,6 +5576,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启数据库代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRdSforMySqlProxy(createRdSforMySqlProxyRequest?: CreateRdSforMySqlProxyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/open",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (createRdSforMySqlProxyRequest !== null && createRdSforMySqlProxyRequest !== undefined) {
+                if (createRdSforMySqlProxyRequest instanceof CreateRdSforMySqlProxyRequest) {
+                    instanceId = createRdSforMySqlProxyRequest.instanceId;
+                    body = createRdSforMySqlProxyRequest.body
+                    contentType = createRdSforMySqlProxyRequest.contentType;
+                    xLanguage = createRdSforMySqlProxyRequest.xLanguage;
+                } else {
+                    instanceId = createRdSforMySqlProxyRequest['instance_id'];
+                    body = createRdSforMySqlProxyRequest['body'];
+                    contentType = createRdSforMySqlProxyRequest['Content-Type'];
+                    xLanguage = createRdSforMySqlProxyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createRdSforMySqlProxy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 恢复到新实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5686,6 +5996,64 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭数据库代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRdSforMySqlProxy(deleteRdSforMySqlProxyRequest?: DeleteRdSforMySqlProxyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (deleteRdSforMySqlProxyRequest !== null && deleteRdSforMySqlProxyRequest !== undefined) {
+                if (deleteRdSforMySqlProxyRequest instanceof DeleteRdSforMySqlProxyRequest) {
+                    instanceId = deleteRdSforMySqlProxyRequest.instanceId;
+                    proxyId = deleteRdSforMySqlProxyRequest.proxyId;
+                    contentType = deleteRdSforMySqlProxyRequest.contentType;
+                    xLanguage = deleteRdSforMySqlProxyRequest.xLanguage;
+                } else {
+                    instanceId = deleteRdSforMySqlProxyRequest['instance_id'];
+                    proxyId = deleteRdSforMySqlProxyRequest['proxy_id'];
+                    contentType = deleteRdSforMySqlProxyRequest['Content-Type'];
+                    xLanguage = deleteRdSforMySqlProxyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteRdSforMySqlProxy.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling deleteRdSforMySqlProxy.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7643,6 +8011,123 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据库代理信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRdSforMySqlProxy(listRdSforMySqlProxyRequest?: ListRdSforMySqlProxyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (listRdSforMySqlProxyRequest !== null && listRdSforMySqlProxyRequest !== undefined) {
+                if (listRdSforMySqlProxyRequest instanceof ListRdSforMySqlProxyRequest) {
+                    instanceId = listRdSforMySqlProxyRequest.instanceId;
+                    contentType = listRdSforMySqlProxyRequest.contentType;
+                    xLanguage = listRdSforMySqlProxyRequest.xLanguage;
+                } else {
+                    instanceId = listRdSforMySqlProxyRequest['instance_id'];
+                    contentType = listRdSforMySqlProxyRequest['Content-Type'];
+                    xLanguage = listRdSforMySqlProxyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRdSforMySqlProxy.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库代理规格信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRdSforMysqlProxyFlavors(listRdSforMysqlProxyFlavorsRequest?: ListRdSforMysqlProxyFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let contentType;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRdSforMysqlProxyFlavorsRequest !== null && listRdSforMysqlProxyFlavorsRequest !== undefined) {
+                if (listRdSforMysqlProxyFlavorsRequest instanceof ListRdSforMysqlProxyFlavorsRequest) {
+                    instanceId = listRdSforMysqlProxyFlavorsRequest.instanceId;
+                    contentType = listRdSforMysqlProxyFlavorsRequest.contentType;
+                    xLanguage = listRdSforMysqlProxyFlavorsRequest.xLanguage;
+                    offset = listRdSforMysqlProxyFlavorsRequest.offset;
+                    limit = listRdSforMysqlProxyFlavorsRequest.limit;
+                } else {
+                    instanceId = listRdSforMysqlProxyFlavorsRequest['instance_id'];
+                    contentType = listRdSforMysqlProxyFlavorsRequest['Content-Type'];
+                    xLanguage = listRdSforMysqlProxyFlavorsRequest['X-Language'];
+                    offset = listRdSforMysqlProxyFlavorsRequest['offset'];
+                    limit = listRdSforMysqlProxyFlavorsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listRdSforMysqlProxyFlavors.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询回收站实例信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8568,6 +9053,131 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置读写分离路由模式。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyRdSforMySqlProxyRouteMode(modifyRdSforMySqlProxyRouteModeRequest?: ModifyRdSforMySqlProxyRouteModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/route-mode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (modifyRdSforMySqlProxyRouteModeRequest !== null && modifyRdSforMySqlProxyRouteModeRequest !== undefined) {
+                if (modifyRdSforMySqlProxyRouteModeRequest instanceof ModifyRdSforMySqlProxyRouteModeRequest) {
+                    instanceId = modifyRdSforMySqlProxyRouteModeRequest.instanceId;
+                    proxyId = modifyRdSforMySqlProxyRouteModeRequest.proxyId;
+                    body = modifyRdSforMySqlProxyRouteModeRequest.body
+                    contentType = modifyRdSforMySqlProxyRouteModeRequest.contentType;
+                    xLanguage = modifyRdSforMySqlProxyRouteModeRequest.xLanguage;
+                } else {
+                    instanceId = modifyRdSforMySqlProxyRouteModeRequest['instance_id'];
+                    proxyId = modifyRdSforMySqlProxyRouteModeRequest['proxy_id'];
+                    body = modifyRdSforMySqlProxyRouteModeRequest['body'];
+                    contentType = modifyRdSforMySqlProxyRouteModeRequest['Content-Type'];
+                    xLanguage = modifyRdSforMySqlProxyRouteModeRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyRdSforMySqlProxyRouteMode.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling modifyRdSforMySqlProxyRouteMode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启数据库代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest?: RestartRdSforMysqlProxyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (restartRdSforMysqlProxyRequest !== null && restartRdSforMysqlProxyRequest !== undefined) {
+                if (restartRdSforMysqlProxyRequest instanceof RestartRdSforMysqlProxyRequest) {
+                    instanceId = restartRdSforMysqlProxyRequest.instanceId;
+                    proxyId = restartRdSforMysqlProxyRequest.proxyId;
+                    contentType = restartRdSforMysqlProxyRequest.contentType;
+                    xLanguage = restartRdSforMysqlProxyRequest.xLanguage;
+                } else {
+                    instanceId = restartRdSforMysqlProxyRequest['instance_id'];
+                    proxyId = restartRdSforMysqlProxyRequest['proxy_id'];
+                    contentType = restartRdSforMysqlProxyRequest['Content-Type'];
+                    xLanguage = restartRdSforMysqlProxyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartRdSforMysqlProxy.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling restartRdSforMysqlProxy.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9766,6 +10376,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取增备策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIncreBackupPolicy1(showIncreBackupPolicy1Request?: ShowIncreBackupPolicy1Request) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/incre-backup/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showIncreBackupPolicy1Request !== null && showIncreBackupPolicy1Request !== undefined) {
+                if (showIncreBackupPolicy1Request instanceof ShowIncreBackupPolicy1Request) {
+                    instanceId = showIncreBackupPolicy1Request.instanceId;
+                } else {
+                    instanceId = showIncreBackupPolicy1Request['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showIncreBackupPolicy1.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定实例的参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10193,6 +10840,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startInstanceEnlargeVolumeAction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据库实例的磁盘空间缩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startInstanceReduceVolumeAction(startInstanceReduceVolumeActionRequest?: StartInstanceReduceVolumeActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (startInstanceReduceVolumeActionRequest !== null && startInstanceReduceVolumeActionRequest !== undefined) {
+                if (startInstanceReduceVolumeActionRequest instanceof StartInstanceReduceVolumeActionRequest) {
+                    instanceId = startInstanceReduceVolumeActionRequest.instanceId;
+                    body = startInstanceReduceVolumeActionRequest.body
+                    xLanguage = startInstanceReduceVolumeActionRequest.xLanguage;
+                } else {
+                    instanceId = startInstanceReduceVolumeActionRequest['instance_id'];
+                    body = startInstanceReduceVolumeActionRequest['body'];
+                    xLanguage = startInstanceReduceVolumeActionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startInstanceReduceVolumeAction.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -10747,6 +11447,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改增备策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIncreBackupPolicy1(updateIncreBackupPolicy1Request?: UpdateIncreBackupPolicy1Request) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/incre-backup/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateIncreBackupPolicy1Request !== null && updateIncreBackupPolicy1Request !== undefined) {
+                if (updateIncreBackupPolicy1Request instanceof UpdateIncreBackupPolicy1Request) {
+                    instanceId = updateIncreBackupPolicy1Request.instanceId;
+                    body = updateIncreBackupPolicy1Request.body
+                } else {
+                    instanceId = updateIncreBackupPolicy1Request['instance_id'];
+                    body = updateIncreBackupPolicy1Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateIncreBackupPolicy1.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -12197,6 +12943,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例下用户host信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHostPrivilege(updateHostPrivilegeRequest?: UpdateHostPrivilegeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/host-privilege",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateHostPrivilegeRequest !== null && updateHostPrivilegeRequest !== undefined) {
+                if (updateHostPrivilegeRequest instanceof UpdateHostPrivilegeRequest) {
+                    instanceId = updateHostPrivilegeRequest.instanceId;
+                    body = updateHostPrivilegeRequest.body
+                } else {
+                    instanceId = updateHostPrivilegeRequest['instance_id'];
+                    body = updateHostPrivilegeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateHostPrivilege.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

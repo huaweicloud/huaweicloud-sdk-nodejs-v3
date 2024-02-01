@@ -7,7 +7,9 @@ export class ConsumerGroup {
     public name?: string;
     private 'group_desc'?: string;
     private 'retry_max_time'?: number;
-    private 'from_beginning'?: boolean;
+    public createdAt?: string;
+    public permissions?: Array<string>;
+    private 'consume_orderly'?: boolean;
     public constructor() { 
     }
     public withEnabled(enabled: boolean): ConsumerGroup {
@@ -46,14 +48,22 @@ export class ConsumerGroup {
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
     }
-    public withFromBeginning(fromBeginning: boolean): ConsumerGroup {
-        this['from_beginning'] = fromBeginning;
+    public withCreatedAt(createdAt: string): ConsumerGroup {
+        this['createdAt'] = createdAt;
         return this;
     }
-    public set fromBeginning(fromBeginning: boolean  | undefined) {
-        this['from_beginning'] = fromBeginning;
+    public withPermissions(permissions: Array<string>): ConsumerGroup {
+        this['permissions'] = permissions;
+        return this;
     }
-    public get fromBeginning(): boolean | undefined {
-        return this['from_beginning'];
+    public withConsumeOrderly(consumeOrderly: boolean): ConsumerGroup {
+        this['consume_orderly'] = consumeOrderly;
+        return this;
+    }
+    public set consumeOrderly(consumeOrderly: boolean  | undefined) {
+        this['consume_orderly'] = consumeOrderly;
+    }
+    public get consumeOrderly(): boolean | undefined {
+        return this['consume_orderly'];
     }
 }

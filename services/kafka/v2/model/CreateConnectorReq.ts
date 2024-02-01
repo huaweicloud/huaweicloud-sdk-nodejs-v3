@@ -4,8 +4,7 @@ export class CreateConnectorReq {
     public specification?: CreateConnectorReqSpecificationEnum | string;
     private 'node_cnt'?: string;
     private 'spec_code'?: string;
-    public constructor(specCode?: string) { 
-        this['spec_code'] = specCode;
+    public constructor() { 
     }
     public withSpecification(specification: CreateConnectorReqSpecificationEnum | string): CreateConnectorReq {
         this['specification'] = specification;

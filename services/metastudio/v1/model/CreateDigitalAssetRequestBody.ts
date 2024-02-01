@@ -1,5 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
 import { ReviewConfig } from './ReviewConfig';
+import { SharedConfig } from './SharedConfig';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -8,11 +9,11 @@ export class CreateDigitalAssetRequestBody {
     private 'asset_description'?: string;
     private 'asset_type'?: CreateDigitalAssetRequestBodyAssetTypeEnum | string;
     private 'asset_owner'?: string;
-    private 'is_need_generate_cover'?: boolean;
     private 'review_config'?: ReviewConfig;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
+    private 'shared_config'?: SharedConfig;
     public constructor(assetName?: string, assetType?: string) { 
         this['asset_name'] = assetName;
         this['asset_type'] = assetType;
@@ -57,16 +58,6 @@ export class CreateDigitalAssetRequestBody {
     public get assetOwner(): string | undefined {
         return this['asset_owner'];
     }
-    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): CreateDigitalAssetRequestBody {
-        this['is_need_generate_cover'] = isNeedGenerateCover;
-        return this;
-    }
-    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
-        this['is_need_generate_cover'] = isNeedGenerateCover;
-    }
-    public get isNeedGenerateCover(): boolean | undefined {
-        return this['is_need_generate_cover'];
-    }
     public withReviewConfig(reviewConfig: ReviewConfig): CreateDigitalAssetRequestBody {
         this['review_config'] = reviewConfig;
         return this;
@@ -100,6 +91,16 @@ export class CreateDigitalAssetRequestBody {
     }
     public get systemProperties(): Array<SystemProperty> | undefined {
         return this['system_properties'];
+    }
+    public withSharedConfig(sharedConfig: SharedConfig): CreateDigitalAssetRequestBody {
+        this['shared_config'] = sharedConfig;
+        return this;
+    }
+    public set sharedConfig(sharedConfig: SharedConfig  | undefined) {
+        this['shared_config'] = sharedConfig;
+    }
+    public get sharedConfig(): SharedConfig | undefined {
+        return this['shared_config'];
     }
 }
 

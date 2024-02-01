@@ -13,6 +13,7 @@ export class ListNatGatewaySnatRulesRequest {
     private 'network_id'?: string;
     private 'source_type'?: number;
     public status?: ListNatGatewaySnatRulesRequestStatusEnum | string;
+    public marker?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): ListNatGatewaySnatRulesRequest {
@@ -103,6 +104,10 @@ export class ListNatGatewaySnatRulesRequest {
     }
     public withStatus(status: ListNatGatewaySnatRulesRequestStatusEnum | string): ListNatGatewaySnatRulesRequest {
         this['status'] = status;
+        return this;
+    }
+    public withMarker(marker: string): ListNatGatewaySnatRulesRequest {
+        this['marker'] = marker;
         return this;
     }
 }

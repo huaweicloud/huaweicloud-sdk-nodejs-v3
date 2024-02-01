@@ -1,15 +1,19 @@
 import { HuaweiEiCbs } from './HuaweiEiCbs';
 import { IflytekAiuiConfig } from './IflytekAiuiConfig';
 import { IflytekSpark } from './IflytekSpark';
+import { LanguageEnum } from './LanguageEnum';
+import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
 
 
 export class UpdateRobotReq {
     public name?: string;
     private 'app_type'?: number;
     public concurrency?: number;
+    public language?: LanguageEnum;
     private 'huawei_ei_cbs'?: HuaweiEiCbs;
     private 'iflytek_aiui_config'?: IflytekAiuiConfig;
     private 'iflytek_spark'?: IflytekSpark;
+    private 'third_party_model_config'?: ThirdPartyModelConfig;
     public constructor() { 
     }
     public withName(name: string): UpdateRobotReq {
@@ -28,6 +32,10 @@ export class UpdateRobotReq {
     }
     public withConcurrency(concurrency: number): UpdateRobotReq {
         this['concurrency'] = concurrency;
+        return this;
+    }
+    public withLanguage(language: LanguageEnum): UpdateRobotReq {
+        this['language'] = language;
         return this;
     }
     public withHuaweiEiCbs(huaweiEiCbs: HuaweiEiCbs): UpdateRobotReq {
@@ -59,5 +67,15 @@ export class UpdateRobotReq {
     }
     public get iflytekSpark(): IflytekSpark | undefined {
         return this['iflytek_spark'];
+    }
+    public withThirdPartyModelConfig(thirdPartyModelConfig: ThirdPartyModelConfig): UpdateRobotReq {
+        this['third_party_model_config'] = thirdPartyModelConfig;
+        return this;
+    }
+    public set thirdPartyModelConfig(thirdPartyModelConfig: ThirdPartyModelConfig  | undefined) {
+        this['third_party_model_config'] = thirdPartyModelConfig;
+    }
+    public get thirdPartyModelConfig(): ThirdPartyModelConfig | undefined {
+        return this['third_party_model_config'];
     }
 }

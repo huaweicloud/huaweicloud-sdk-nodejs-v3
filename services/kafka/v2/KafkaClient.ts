@@ -53,9 +53,6 @@ import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceReq
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
 import { CreateReassignmentTaskRequest } from './model/CreateReassignmentTaskRequest';
 import { CreateReassignmentTaskResponse } from './model/CreateReassignmentTaskResponse';
-import { CreateShrinkageJobRequest } from './model/CreateShrinkageJobRequest';
-import { CreateShrinkageJobRequestBody } from './model/CreateShrinkageJobRequestBody';
-import { CreateShrinkageJobResponse } from './model/CreateShrinkageJobResponse';
 import { CreateSinkTaskReq } from './model/CreateSinkTaskReq';
 import { CreateSinkTaskRequest } from './model/CreateSinkTaskRequest';
 import { CreateSinkTaskResponse } from './model/CreateSinkTaskResponse';
@@ -216,10 +213,6 @@ import { ShowPartitionEndMessageResponse } from './model/ShowPartitionEndMessage
 import { ShowPartitionMessageEntity } from './model/ShowPartitionMessageEntity';
 import { ShowPartitionMessageRequest } from './model/ShowPartitionMessageRequest';
 import { ShowPartitionMessageResponse } from './model/ShowPartitionMessageResponse';
-import { ShowShrinkCheckRequestBody } from './model/ShowShrinkCheckRequestBody';
-import { ShowShrinkCheckResponseBodyCheckDetail } from './model/ShowShrinkCheckResponseBodyCheckDetail';
-import { ShowShrinkCheckResultRequest } from './model/ShowShrinkCheckResultRequest';
-import { ShowShrinkCheckResultResponse } from './model/ShowShrinkCheckResultResponse';
 import { ShowSinkTaskDetailRequest } from './model/ShowSinkTaskDetailRequest';
 import { ShowSinkTaskDetailRespObsDestinationDescriptor } from './model/ShowSinkTaskDetailRespObsDestinationDescriptor';
 import { ShowSinkTaskDetailRespPartitions } from './model/ShowSinkTaskDetailRespPartitions';
@@ -253,9 +246,6 @@ import { UpdateInstanceUserResponse } from './model/UpdateInstanceUserResponse';
 import { UpdateKafkaUserClientQuotaTaskReq } from './model/UpdateKafkaUserClientQuotaTaskReq';
 import { UpdateKafkaUserClientQuotaTaskRequest } from './model/UpdateKafkaUserClientQuotaTaskRequest';
 import { UpdateKafkaUserClientQuotaTaskResponse } from './model/UpdateKafkaUserClientQuotaTaskResponse';
-import { UpdateSinkTaskQuotaReq } from './model/UpdateSinkTaskQuotaReq';
-import { UpdateSinkTaskQuotaRequest } from './model/UpdateSinkTaskQuotaRequest';
-import { UpdateSinkTaskQuotaResponse } from './model/UpdateSinkTaskQuotaResponse';
 import { UpdateTopicAccessPolicyReq } from './model/UpdateTopicAccessPolicyReq';
 import { UpdateTopicAccessPolicyRequest } from './model/UpdateTopicAccessPolicyRequest';
 import { UpdateTopicAccessPolicyResponse } from './model/UpdateTopicAccessPolicyResponse';
@@ -401,13 +391,13 @@ export class KafkaClient {
     }
 
     /**
-     * 创建实例的转储节点。
+     * 创建Smart Connect节点。
      * 
-     * **当前通过调用API，只支持按需实例创建转储节点。**
+     * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建实例的转储节点
+     * @summary 创建实例的Smart Connect节点
      * @param {string} instanceId 实例ID。
      * @param {CreateConnectorReq} createConnectorRequestBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -584,27 +574,6 @@ export class KafkaClient {
     }
 
     /**
-     * 实例缩容
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 实例缩容
-     * @param {'kafka'} engine 消息引擎。
-     * @param {string} instanceId 实例ID。
-     * @param {CreateShrinkageJobRequestBody} createShrinkageJobRequestBody 创建缩容任务请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createShrinkageJob(createShrinkageJobRequest?: CreateShrinkageJobRequest): Promise<CreateShrinkageJobResponse> {
-        const options = ParamCreater().createShrinkageJob(createShrinkageJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建转储任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -651,6 +620,7 @@ export class KafkaClient {
      *
      * @summary 关闭Smart Connect（按需实例）
      * @param {string} instanceId 实例ID。
+     * @param {object} [deleteConnectorRequestBody] 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1585,27 +1555,6 @@ export class KafkaClient {
     }
 
     /**
-     * 实例缩容前置检查。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 实例缩容前置检查
-     * @param {'kafka'} engine 消息引擎。
-     * @param {string} instanceId 实例ID。
-     * @param {ShowShrinkCheckRequestBody} showShrinkCheckRequestBody 实例缩容前置检查请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showShrinkCheckResult(showShrinkCheckResultRequest?: ShowShrinkCheckResultRequest): Promise<ShowShrinkCheckResultResponse> {
-        const options = ParamCreater().showShrinkCheckResult(showShrinkCheckResultRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询单个转储任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1785,28 +1734,6 @@ export class KafkaClient {
      */
     public updateKafkaUserClientQuotaTask(updateKafkaUserClientQuotaTaskRequest?: UpdateKafkaUserClientQuotaTaskRequest): Promise<UpdateKafkaUserClientQuotaTaskResponse> {
         const options = ParamCreater().updateKafkaUserClientQuotaTask(updateKafkaUserClientQuotaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改转储任务的配额。
-     * 
-     * 2022年9月前创建的实例支持调用此接口新增转储任务配额，2022年9月及以后创建的实例，转储任务配额默认为最大值，由于转储任务配额不支持减少，调用此接口修改转储任务配额会报错。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改转储任务的配额
-     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
-     * @param {UpdateSinkTaskQuotaReq} updateSinkTaskQuotaRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateSinkTaskQuota(updateSinkTaskQuotaRequest?: UpdateSinkTaskQuotaRequest): Promise<UpdateSinkTaskQuotaResponse> {
-        const options = ParamCreater().updateSinkTaskQuota(updateSinkTaskQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2125,9 +2052,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建实例的转储节点。
+         * 创建Smart Connect节点。
          * 
-         * **当前通过调用API，只支持按需实例创建转储节点。**
+         * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2532,59 +2459,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例缩容
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createShrinkageJob(createShrinkageJobRequest?: CreateShrinkageJobRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{engine}/{project_id}/instances/{instance_id}/shrink",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let engine;
-            
-            let instanceId;
-
-            if (createShrinkageJobRequest !== null && createShrinkageJobRequest !== undefined) {
-                if (createShrinkageJobRequest instanceof CreateShrinkageJobRequest) {
-                    engine = createShrinkageJobRequest.engine;
-                    instanceId = createShrinkageJobRequest.instanceId;
-                    body = createShrinkageJobRequest.body
-                } else {
-                    engine = createShrinkageJobRequest['engine'];
-                    instanceId = createShrinkageJobRequest['instance_id'];
-                    body = createShrinkageJobRequest['body'];
-                }
-            }
-
-        
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling createShrinkageJob.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createShrinkageJob.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建转储任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2686,18 +2560,22 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let instanceId;
 
             if (deleteConnectorRequest !== null && deleteConnectorRequest !== undefined) {
                 if (deleteConnectorRequest instanceof DeleteConnectorRequest) {
                     instanceId = deleteConnectorRequest.instanceId;
+                    body = deleteConnectorRequest.body
                 } else {
                     instanceId = deleteConnectorRequest['instance_id'];
+                    body = deleteConnectorRequest['body'];
                 }
             }
 
@@ -2705,7 +2583,9 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteConnector.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4885,59 +4765,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例缩容前置检查。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showShrinkCheckResult(showShrinkCheckResultRequest?: ShowShrinkCheckResultRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{engine}/{project_id}/instances/{instance_id}/shrink-check",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let engine;
-            
-            let instanceId;
-
-            if (showShrinkCheckResultRequest !== null && showShrinkCheckResultRequest !== undefined) {
-                if (showShrinkCheckResultRequest instanceof ShowShrinkCheckResultRequest) {
-                    engine = showShrinkCheckResultRequest.engine;
-                    instanceId = showShrinkCheckResultRequest.instanceId;
-                    body = showShrinkCheckResultRequest.body
-                } else {
-                    engine = showShrinkCheckResultRequest['engine'];
-                    instanceId = showShrinkCheckResultRequest['instance_id'];
-                    body = showShrinkCheckResultRequest['body'];
-                }
-            }
-
-        
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling showShrinkCheckResult.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showShrinkCheckResult.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询单个转储任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5381,54 +5208,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改转储任务的配额。
-         * 
-         * 2022年9月前创建的实例支持调用此接口新增转储任务配额，2022年9月及以后创建的实例，转储任务配额默认为最大值，由于转储任务配额不支持减少，调用此接口修改转储任务配额会报错。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateSinkTaskQuota(updateSinkTaskQuotaRequest?: UpdateSinkTaskQuotaRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/connectors/{connector_id}/sink-tasks",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let connectorId;
-
-            if (updateSinkTaskQuotaRequest !== null && updateSinkTaskQuotaRequest !== undefined) {
-                if (updateSinkTaskQuotaRequest instanceof UpdateSinkTaskQuotaRequest) {
-                    connectorId = updateSinkTaskQuotaRequest.connectorId;
-                    body = updateSinkTaskQuotaRequest.body
-                } else {
-                    connectorId = updateSinkTaskQuotaRequest['connector_id'];
-                    body = updateSinkTaskQuotaRequest['body'];
-                }
-            }
-
-        
-            if (connectorId === null || connectorId === undefined) {
-            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling updateSinkTaskQuota.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'connector_id': connectorId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

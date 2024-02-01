@@ -3,6 +3,7 @@ import { MysqlChargeInfo } from './MysqlChargeInfo';
 import { MysqlDatastoreInReq } from './MysqlDatastoreInReq';
 import { MysqlRestorePoint } from './MysqlRestorePoint';
 import { MysqlTags } from './MysqlTags';
+import { MysqlTdeInfo } from './MysqlTdeInfo';
 import { MysqlVolume } from './MysqlVolume';
 
 
@@ -29,6 +30,7 @@ export class MysqlInstanceRequest {
     private 'enterprise_project_id'?: string;
     private 'dedicated_resource_id'?: string;
     private 'restore_point'?: MysqlRestorePoint;
+    private 'tde_info'?: MysqlTdeInfo;
     public constructor(region?: string, name?: string, datastore?: MysqlDatastoreInReq, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, availabilityZoneMode?: string, slaveCount?: number) { 
         this['region'] = region;
         this['name'] = name;
@@ -218,5 +220,15 @@ export class MysqlInstanceRequest {
     }
     public get restorePoint(): MysqlRestorePoint | undefined {
         return this['restore_point'];
+    }
+    public withTdeInfo(tdeInfo: MysqlTdeInfo): MysqlInstanceRequest {
+        this['tde_info'] = tdeInfo;
+        return this;
+    }
+    public set tdeInfo(tdeInfo: MysqlTdeInfo  | undefined) {
+        this['tde_info'] = tdeInfo;
+    }
+    public get tdeInfo(): MysqlTdeInfo | undefined {
+        return this['tde_info'];
     }
 }

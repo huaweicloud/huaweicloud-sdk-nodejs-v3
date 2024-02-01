@@ -14,6 +14,7 @@ export class ListSmartLiveRoomsRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'room_type'?: string;
+    private 'template_own_type'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListSmartLiveRoomsRequest {
@@ -133,5 +134,15 @@ export class ListSmartLiveRoomsRequest {
     }
     public get roomType(): string | undefined {
         return this['room_type'];
+    }
+    public withTemplateOwnType(templateOwnType: string): ListSmartLiveRoomsRequest {
+        this['template_own_type'] = templateOwnType;
+        return this;
+    }
+    public set templateOwnType(templateOwnType: string  | undefined) {
+        this['template_own_type'] = templateOwnType;
+    }
+    public get templateOwnType(): string | undefined {
+        return this['template_own_type'];
     }
 }

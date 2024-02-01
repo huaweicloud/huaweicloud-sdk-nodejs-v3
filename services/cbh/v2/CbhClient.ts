@@ -45,6 +45,8 @@ import { LoginInstanceResponse } from './model/LoginInstanceResponse';
 import { Match } from './model/Match';
 import { NetworkInfoCreate } from './model/NetworkInfoCreate';
 import { OperateEipRequestBody } from './model/OperateEipRequestBody';
+import { PrivateIp } from './model/PrivateIp';
+import { PublicIp } from './model/PublicIp';
 import { RebootCbhRequestBody } from './model/RebootCbhRequestBody';
 import { RebootInstanceRequest } from './model/RebootInstanceRequest';
 import { RebootInstanceResponse } from './model/RebootInstanceResponse';
@@ -166,7 +168,7 @@ export class CbhClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除故障和按需云堡垒机实例
+     * @summary 删除故障云堡垒机实例
      * @param {number} [instanceId] 删除故障云堡垒机实例id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

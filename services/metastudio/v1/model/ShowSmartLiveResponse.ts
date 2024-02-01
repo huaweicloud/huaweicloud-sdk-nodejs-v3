@@ -6,6 +6,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSmartLiveResponse extends SdkResponse {
     private 'job_id'?: string;
+    private 'room_id'?: string;
+    private 'room_name'?: string;
     public state?: ShowSmartLiveResponseStateEnum | string;
     public duration?: number;
     private 'start_time'?: string;
@@ -18,6 +20,7 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'stream_duration'?: number;
     private 'block_reason'?: string;
+    private 'cover_url'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -31,6 +34,26 @@ export class ShowSmartLiveResponse extends SdkResponse {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withRoomId(roomId: string): ShowSmartLiveResponse {
+        this['room_id'] = roomId;
+        return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
+    }
+    public withRoomName(roomName: string): ShowSmartLiveResponse {
+        this['room_name'] = roomName;
+        return this;
+    }
+    public set roomName(roomName: string  | undefined) {
+        this['room_name'] = roomName;
+    }
+    public get roomName(): string | undefined {
+        return this['room_name'];
     }
     public withState(state: ShowSmartLiveResponseStateEnum | string): ShowSmartLiveResponse {
         this['state'] = state;
@@ -139,6 +162,16 @@ export class ShowSmartLiveResponse extends SdkResponse {
     }
     public get blockReason(): string | undefined {
         return this['block_reason'];
+    }
+    public withCoverUrl(coverUrl: string): ShowSmartLiveResponse {
+        this['cover_url'] = coverUrl;
+        return this;
+    }
+    public set coverUrl(coverUrl: string  | undefined) {
+        this['cover_url'] = coverUrl;
+    }
+    public get coverUrl(): string | undefined {
+        return this['cover_url'];
     }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;

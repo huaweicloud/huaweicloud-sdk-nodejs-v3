@@ -24,6 +24,7 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
+    private 'view_mode'?: UpdateSmartLiveRoomResponseViewModeEnum | string;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -165,6 +166,16 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get sharedConfig(): SharedConfig | undefined {
         return this['shared_config'];
     }
+    public withViewMode(viewMode: UpdateSmartLiveRoomResponseViewModeEnum | string): UpdateSmartLiveRoomResponse {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: UpdateSmartLiveRoomResponseViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): UpdateSmartLiveRoomResponseViewModeEnum | string | undefined {
+        return this['view_mode'];
+    }
     public withRoomId(roomId: string): UpdateSmartLiveRoomResponse {
         this['room_id'] = roomId;
         return this;
@@ -245,6 +256,14 @@ export enum UpdateSmartLiveRoomResponseRoomTypeEnum {
     NORMAL = 'NORMAL',
     TEMP = 'TEMP',
     TEMPLATE = 'TEMPLATE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateSmartLiveRoomResponseViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
 }
 /**
     * @export

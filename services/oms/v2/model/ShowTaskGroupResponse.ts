@@ -44,6 +44,7 @@ export class ShowTaskGroupResponse extends SdkResponse {
     private 'complete_size'?: number;
     private 'failed_object_record'?: FailedObjectRecordDto;
     private 'object_overwrite_mode'?: ShowTaskGroupResponseObjectOverwriteModeEnum | string;
+    private 'dst_storage_policy'?: ShowTaskGroupResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowTaskGroupResponseConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
     public constructor() { 
@@ -387,6 +388,16 @@ export class ShowTaskGroupResponse extends SdkResponse {
     public get objectOverwriteMode(): ShowTaskGroupResponseObjectOverwriteModeEnum | string | undefined {
         return this['object_overwrite_mode'];
     }
+    public withDstStoragePolicy(dstStoragePolicy: ShowTaskGroupResponseDstStoragePolicyEnum | string): ShowTaskGroupResponse {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: ShowTaskGroupResponseDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): ShowTaskGroupResponseDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withConsistencyCheck(consistencyCheck: ShowTaskGroupResponseConsistencyCheckEnum | string): ShowTaskGroupResponse {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -427,6 +438,17 @@ export enum ShowTaskGroupResponseObjectOverwriteModeEnum {
     SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
     CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
     FULL_OVERWRITE = 'FULL_OVERWRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowTaskGroupResponseDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
 }
 /**
     * @export

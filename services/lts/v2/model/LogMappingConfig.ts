@@ -6,7 +6,9 @@ export class LogMappingConfig {
     private 'target_log_group_id'?: string;
     private 'target_log_group_name'?: string;
     private 'log_stream_config'?: Array<LogMappingStreamInfo>;
-    public constructor() { 
+    public constructor(sourceLogGroupId?: string, targetLogGroupName?: string) { 
+        this['source_log_group_id'] = sourceLogGroupId;
+        this['target_log_group_name'] = targetLogGroupName;
     }
     public withSourceLogGroupId(sourceLogGroupId: string): LogMappingConfig {
         this['source_log_group_id'] = sourceLogGroupId;

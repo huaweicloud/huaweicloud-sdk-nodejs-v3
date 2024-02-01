@@ -13,6 +13,11 @@ import { AssociateBandwidthPackageRequestBody } from './model/AssociateBandwidth
 import { AssociateBandwidthPackageResponse } from './model/AssociateBandwidthPackageResponse';
 import { AssociateErInstanceDocument } from './model/AssociateErInstanceDocument';
 import { AssociateErTableDocument } from './model/AssociateErTableDocument';
+import { AssociateGlobalConnectionBandwidthInstanceRequest } from './model/AssociateGlobalConnectionBandwidthInstanceRequest';
+import { AssociateGlobalConnectionBandwidthInstanceRequestBody } from './model/AssociateGlobalConnectionBandwidthInstanceRequestBody';
+import { AssociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/AssociateGlobalConnectionBandwidthInstanceRequestInfo';
+import { AssociateGlobalConnectionBandwidthInstanceResponse } from './model/AssociateGlobalConnectionBandwidthInstanceResponse';
+import { AssociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/AssociateGlobalConnectionBandwidthInstanceResponseInfo';
 import { AttachmentInstanceId } from './model/AttachmentInstanceId';
 import { AttachmentInstanceType } from './model/AttachmentInstanceType';
 import { AttachmentInstanceTypeEnum } from './model/AttachmentInstanceTypeEnum';
@@ -82,6 +87,10 @@ import { CreateCloudConnection } from './model/CreateCloudConnection';
 import { CreateCloudConnectionRequest } from './model/CreateCloudConnectionRequest';
 import { CreateCloudConnectionRequestBody } from './model/CreateCloudConnectionRequestBody';
 import { CreateCloudConnectionResponse } from './model/CreateCloudConnectionResponse';
+import { CreateGlobalConnectionBandwidth } from './model/CreateGlobalConnectionBandwidth';
+import { CreateGlobalConnectionBandwidthRequest } from './model/CreateGlobalConnectionBandwidthRequest';
+import { CreateGlobalConnectionBandwidthRequestBody } from './model/CreateGlobalConnectionBandwidthRequestBody';
+import { CreateGlobalConnectionBandwidthResponse } from './model/CreateGlobalConnectionBandwidthResponse';
 import { CreateInterRegionBandwidth } from './model/CreateInterRegionBandwidth';
 import { CreateInterRegionBandwidthRequest } from './model/CreateInterRegionBandwidthRequest';
 import { CreateInterRegionBandwidthRequestBody } from './model/CreateInterRegionBandwidthRequestBody';
@@ -103,6 +112,8 @@ import { DeleteCentralNetworkRequest } from './model/DeleteCentralNetworkRequest
 import { DeleteCentralNetworkResponse } from './model/DeleteCentralNetworkResponse';
 import { DeleteCloudConnectionRequest } from './model/DeleteCloudConnectionRequest';
 import { DeleteCloudConnectionResponse } from './model/DeleteCloudConnectionResponse';
+import { DeleteGlobalConnectionBandwidthRequest } from './model/DeleteGlobalConnectionBandwidthRequest';
+import { DeleteGlobalConnectionBandwidthResponse } from './model/DeleteGlobalConnectionBandwidthResponse';
 import { DeleteInterRegionBandwidthRequest } from './model/DeleteInterRegionBandwidthRequest';
 import { DeleteInterRegionBandwidthResponse } from './model/DeleteInterRegionBandwidthResponse';
 import { DeleteNetworkInstanceRequest } from './model/DeleteNetworkInstanceRequest';
@@ -112,6 +123,11 @@ import { DisassociateBandwidthPackage } from './model/DisassociateBandwidthPacka
 import { DisassociateBandwidthPackageRequest } from './model/DisassociateBandwidthPackageRequest';
 import { DisassociateBandwidthPackageRequestBody } from './model/DisassociateBandwidthPackageRequestBody';
 import { DisassociateBandwidthPackageResponse } from './model/DisassociateBandwidthPackageResponse';
+import { DisassociateGlobalConnectionBandwidthInstanceRequest } from './model/DisassociateGlobalConnectionBandwidthInstanceRequest';
+import { DisassociateGlobalConnectionBandwidthInstanceRequestBody } from './model/DisassociateGlobalConnectionBandwidthInstanceRequestBody';
+import { DisassociateGlobalConnectionBandwidthInstanceRequestInfo } from './model/DisassociateGlobalConnectionBandwidthInstanceRequestInfo';
+import { DisassociateGlobalConnectionBandwidthInstanceResponse } from './model/DisassociateGlobalConnectionBandwidthInstanceResponse';
+import { DisassociateGlobalConnectionBandwidthInstanceResponseInfo } from './model/DisassociateGlobalConnectionBandwidthInstanceResponseInfo';
 import { DocumentTemplateVersion } from './model/DocumentTemplateVersion';
 import { DocumentTemplateVersionEnum } from './model/DocumentTemplateVersionEnum';
 import { DomainId } from './model/DomainId';
@@ -122,7 +138,30 @@ import { EnterpriseRouterId } from './model/EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './model/EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './model/EnterpriseRouterRegionId';
 import { EnterpriseRouterTableId } from './model/EnterpriseRouterTableId';
+import { GcbBindingServiceAll } from './model/GcbBindingServiceAll';
+import { GcbBorderCross } from './model/GcbBorderCross';
+import { GcbChargeMode } from './model/GcbChargeMode';
+import { GcbFrozen } from './model/GcbFrozen';
+import { GcbLocalArea } from './model/GcbLocalArea';
+import { GcbLocalSiteCode } from './model/GcbLocalSiteCode';
+import { GcbProjectId } from './model/GcbProjectId';
+import { GcbRegionId } from './model/GcbRegionId';
+import { GcbRemoteArea } from './model/GcbRemoteArea';
+import { GcbRemoteSiteCode } from './model/GcbRemoteSiteCode';
+import { GcbResourceId } from './model/GcbResourceId';
+import { GcbResourceType } from './model/GcbResourceType';
+import { GcbSize } from './model/GcbSize';
+import { GcbSlaLevel } from './model/GcbSlaLevel';
+import { GcbSpecCodeId } from './model/GcbSpecCodeId';
+import { GcbType } from './model/GcbType';
+import { GlobalConnectionBandwidth } from './model/GlobalConnectionBandwidth';
+import { GlobalConnectionBandwidthAssociatedInstance } from './model/GlobalConnectionBandwidthAssociatedInstance';
 import { GlobalConnectionBandwidthId } from './model/GlobalConnectionBandwidthId';
+import { GlobalConnectionBandwidthLineLevel } from './model/GlobalConnectionBandwidthLineLevel';
+import { GlobalConnectionBandwidthQuotas } from './model/GlobalConnectionBandwidthQuotas';
+import { GlobalConnectionBandwidthSites } from './model/GlobalConnectionBandwidthSites';
+import { GlobalConnectionBandwidthSizeRange } from './model/GlobalConnectionBandwidthSizeRange';
+import { GlobalConnectionBandwidthSpecCode } from './model/GlobalConnectionBandwidthSpecCode';
 import { GlobalDcGatewayId } from './model/GlobalDcGatewayId';
 import { GlobalDcGatewayPeerLinkId } from './model/GlobalDcGatewayPeerLinkId';
 import { HostedCloudEnum } from './model/HostedCloudEnum';
@@ -169,6 +208,17 @@ import { ListCloudConnectionsByTagsRequestBody } from './model/ListCloudConnecti
 import { ListCloudConnectionsByTagsResponse } from './model/ListCloudConnectionsByTagsResponse';
 import { ListCloudConnectionsRequest } from './model/ListCloudConnectionsRequest';
 import { ListCloudConnectionsResponse } from './model/ListCloudConnectionsResponse';
+import { ListGlobalConnectionBandwidthConfigs } from './model/ListGlobalConnectionBandwidthConfigs';
+import { ListGlobalConnectionBandwidthConfigsRequest } from './model/ListGlobalConnectionBandwidthConfigsRequest';
+import { ListGlobalConnectionBandwidthConfigsResponse } from './model/ListGlobalConnectionBandwidthConfigsResponse';
+import { ListGlobalConnectionBandwidthLineLevelsRequest } from './model/ListGlobalConnectionBandwidthLineLevelsRequest';
+import { ListGlobalConnectionBandwidthLineLevelsResponse } from './model/ListGlobalConnectionBandwidthLineLevelsResponse';
+import { ListGlobalConnectionBandwidthSitesRequest } from './model/ListGlobalConnectionBandwidthSitesRequest';
+import { ListGlobalConnectionBandwidthSitesResponse } from './model/ListGlobalConnectionBandwidthSitesResponse';
+import { ListGlobalConnectionBandwidthSpecCodesRequest } from './model/ListGlobalConnectionBandwidthSpecCodesRequest';
+import { ListGlobalConnectionBandwidthSpecCodesResponse } from './model/ListGlobalConnectionBandwidthSpecCodesResponse';
+import { ListGlobalConnectionBandwidthsRequest } from './model/ListGlobalConnectionBandwidthsRequest';
+import { ListGlobalConnectionBandwidthsResponse } from './model/ListGlobalConnectionBandwidthsResponse';
 import { ListInterRegionBandwidthsRequest } from './model/ListInterRegionBandwidthsRequest';
 import { ListInterRegionBandwidthsResponse } from './model/ListInterRegionBandwidthsResponse';
 import { ListNetworkInstancesRequest } from './model/ListNetworkInstancesRequest';
@@ -176,6 +226,8 @@ import { ListNetworkInstancesResponse } from './model/ListNetworkInstancesRespon
 import { ListPermissionsRequest } from './model/ListPermissionsRequest';
 import { ListPermissionsResponse } from './model/ListPermissionsResponse';
 import { ListResponseBody } from './model/ListResponseBody';
+import { ListSupportBindingConnectionBandwidthsRequest } from './model/ListSupportBindingConnectionBandwidthsRequest';
+import { ListSupportBindingConnectionBandwidthsResponse } from './model/ListSupportBindingConnectionBandwidthsResponse';
 import { LocalAreaId } from './model/LocalAreaId';
 import { MultivaluedTag } from './model/MultivaluedTag';
 import { Name } from './model/Name';
@@ -208,12 +260,15 @@ import { ShowCloudConnectionRequest } from './model/ShowCloudConnectionRequest';
 import { ShowCloudConnectionResponse } from './model/ShowCloudConnectionResponse';
 import { ShowCloudConnectionRoutesRequest } from './model/ShowCloudConnectionRoutesRequest';
 import { ShowCloudConnectionRoutesResponse } from './model/ShowCloudConnectionRoutesResponse';
+import { ShowGlobalConnectionBandwidthRequest } from './model/ShowGlobalConnectionBandwidthRequest';
+import { ShowGlobalConnectionBandwidthResponse } from './model/ShowGlobalConnectionBandwidthResponse';
 import { ShowInterRegionBandwidthRequest } from './model/ShowInterRegionBandwidthRequest';
 import { ShowInterRegionBandwidthResponse } from './model/ShowInterRegionBandwidthResponse';
 import { ShowNetworkInstanceRequest } from './model/ShowNetworkInstanceRequest';
 import { ShowNetworkInstanceResponse } from './model/ShowNetworkInstanceResponse';
 import { SiteCode } from './model/SiteCode';
 import { SiteCodeDef } from './model/SiteCodeDef';
+import { SiteGroupReferenceInfo } from './model/SiteGroupReferenceInfo';
 import { SortDir } from './model/SortDir';
 import { SpecCode } from './model/SpecCode';
 import { Tag } from './model/Tag';
@@ -264,6 +319,10 @@ import { UpdateCloudConnection } from './model/UpdateCloudConnection';
 import { UpdateCloudConnectionRequest } from './model/UpdateCloudConnectionRequest';
 import { UpdateCloudConnectionRequestBody } from './model/UpdateCloudConnectionRequestBody';
 import { UpdateCloudConnectionResponse } from './model/UpdateCloudConnectionResponse';
+import { UpdateGlobalConnectionBandwidth } from './model/UpdateGlobalConnectionBandwidth';
+import { UpdateGlobalConnectionBandwidthRequest } from './model/UpdateGlobalConnectionBandwidthRequest';
+import { UpdateGlobalConnectionBandwidthRequestBody } from './model/UpdateGlobalConnectionBandwidthRequestBody';
+import { UpdateGlobalConnectionBandwidthResponse } from './model/UpdateGlobalConnectionBandwidthResponse';
 import { UpdateInterRegionBandwidth } from './model/UpdateInterRegionBandwidth';
 import { UpdateInterRegionBandwidthRequest } from './model/UpdateInterRegionBandwidthRequest';
 import { UpdateInterRegionBandwidthRequestBody } from './model/UpdateInterRegionBandwidthRequestBody';
@@ -1369,6 +1428,267 @@ export class CcClient {
      */
     public showCloudConnectionRoutes(showCloudConnectionRoutesRequest?: ShowCloudConnectionRoutesRequest): Promise<ShowCloudConnectionRoutesResponse> {
         const options = ParamCreater().showCloudConnectionRoutes(showCloudConnectionRoutesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 全域互联带宽绑定实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全域互联带宽绑定实例
+     * @param {string} id 资源的Id。
+     * @param {AssociateGlobalConnectionBandwidthInstanceRequestBody} associateGlobalConnectionBandwidthInstanceRequestBody 全域互联带宽绑定实例的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateGlobalConnectionBandwidthInstance(associateGlobalConnectionBandwidthInstanceRequest?: AssociateGlobalConnectionBandwidthInstanceRequest): Promise<AssociateGlobalConnectionBandwidthInstanceResponse> {
+        const options = ParamCreater().associateGlobalConnectionBandwidthInstance(associateGlobalConnectionBandwidthInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建全域互联带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建全域互联带宽
+     * @param {CreateGlobalConnectionBandwidthRequestBody} createGlobalConnectionBandwidthRequestBody 创建全域互联带宽的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGlobalConnectionBandwidth(createGlobalConnectionBandwidthRequest?: CreateGlobalConnectionBandwidthRequest): Promise<CreateGlobalConnectionBandwidthResponse> {
+        const options = ParamCreater().createGlobalConnectionBandwidth(createGlobalConnectionBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除全域互联带宽。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除全域互联带宽
+     * @param {string} id 资源的Id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGlobalConnectionBandwidth(deleteGlobalConnectionBandwidthRequest?: DeleteGlobalConnectionBandwidthRequest): Promise<DeleteGlobalConnectionBandwidthResponse> {
+        const options = ParamCreater().deleteGlobalConnectionBandwidth(deleteGlobalConnectionBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 全域互联带宽解绑实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全域互联带宽解绑实例
+     * @param {string} id 资源的Id。
+     * @param {DisassociateGlobalConnectionBandwidthInstanceRequestBody} disassociateGlobalConnectionBandwidthInstanceRequestBody 全域互联带宽解绑实例的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateGlobalConnectionBandwidthInstance(disassociateGlobalConnectionBandwidthInstanceRequest?: DisassociateGlobalConnectionBandwidthInstanceRequest): Promise<DisassociateGlobalConnectionBandwidthInstanceResponse> {
+        const options = ParamCreater().disassociateGlobalConnectionBandwidthInstance(disassociateGlobalConnectionBandwidthInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全域互联带宽租户配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全域互联带宽租户配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConnectionBandwidthConfigs(listGlobalConnectionBandwidthConfigsRequest?: ListGlobalConnectionBandwidthConfigsRequest): Promise<ListGlobalConnectionBandwidthConfigsResponse> {
+        const options = ParamCreater().listGlobalConnectionBandwidthConfigs();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询线路等级列表。
+     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询线路等级列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [localArea] 线路规格本端接入点编码信息。
+     * @param {string} [remoteArea] 线路规格远端接入点编码信息。
+     * @param {Array<'Pt' | 'Ag'>} [levels] 带宽等级信息： - Pt: 铂金 - Ag: 银
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConnectionBandwidthLineLevels(listGlobalConnectionBandwidthLineLevelsRequest?: ListGlobalConnectionBandwidthLineLevelsRequest): Promise<ListGlobalConnectionBandwidthLineLevelsResponse> {
+        const options = ParamCreater().listGlobalConnectionBandwidthLineLevels(listGlobalConnectionBandwidthLineLevelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询站点列表。
+     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询站点列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [siteCode] 站点编码。
+     * @param {'Area' | 'SubArea' | 'Region'} [siteType] 站点类型： - Area: 大区 - SubArea: 区域 - Region: 城域
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConnectionBandwidthSites(listGlobalConnectionBandwidthSitesRequest?: ListGlobalConnectionBandwidthSitesRequest): Promise<ListGlobalConnectionBandwidthSitesResponse> {
+        const options = ParamCreater().listGlobalConnectionBandwidthSites(listGlobalConnectionBandwidthSitesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询线路规格列表。租户白名单控制，默认为空。
+     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询线路规格列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {string} [localArea] 线路规格本端接入点编码信息。
+     * @param {string} [remoteArea] 线路规格远端接入点编码信息。
+     * @param {Array<'Pt' | 'Au' | 'Ag'>} [level] 带宽等级： - Pt: 铂金 - Au: 金 - Ag: 银
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConnectionBandwidthSpecCodes(listGlobalConnectionBandwidthSpecCodesRequest?: ListGlobalConnectionBandwidthSpecCodesRequest): Promise<ListGlobalConnectionBandwidthSpecCodesResponse> {
+        const options = ParamCreater().listGlobalConnectionBandwidthSpecCodes(listGlobalConnectionBandwidthSpecCodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全域互联带宽列表。
+     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全域互联带宽列表
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
+     * @param {Array<'CC' | 'GEIP' | 'GCN' | 'GSN'>} [bindingService] 根据支持绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
+     * @param {Array<'TrsArea' | 'Area' | 'SubArea' | 'Region'>} [type] 根据带宽类型过滤全域互联带宽列表。带宽类型： - TrsArea: 跨区带宽 - Area: 大区带宽 - SubArea: 区域带宽 - Region: 城域带宽
+     * @param {Array<'bwd' | '95'>} [chargeMode] 根据计费方式过滤全域互联带宽列表： - bwd: 按带宽计费 - 95: 按传统型95计费
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConnectionBandwidths(listGlobalConnectionBandwidthsRequest?: ListGlobalConnectionBandwidthsRequest): Promise<ListGlobalConnectionBandwidthsResponse> {
+        const options = ParamCreater().listGlobalConnectionBandwidths(listGlobalConnectionBandwidthsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询符合绑定条件的全域互联带宽列表。
+     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询符合绑定条件的全域互联带宽列表
+     * @param {'CC' | 'GEIP' | 'GCN' | 'GSN'} bindingService 根据支持绑定实例类型过滤全域互联带宽列表。实例类型： - CC: 云连接 - GEIP: 全域弹性公网IP - GCN: 中心网络 - GSN: 分支网络
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤列表。
+     * @param {string} [localArea] 功能说明：本端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的local_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
+     * @param {string} [remoteArea] 功能说明：远端接入点。   如果是region类型，则返回所有满足条件的城域带宽，不进行该字段的匹配过滤   如果是其他类型，则会用该字段跟全域互联带宽的remote_area进行匹配过滤   附带过滤条件：会通过local_area和remote_area推算最佳全域互联带宽类型进行过滤查询   限制：local_area和remote_area同为空或者同不为空，且站点类型需一致
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupportBindingConnectionBandwidths(listSupportBindingConnectionBandwidthsRequest?: ListSupportBindingConnectionBandwidthsRequest): Promise<ListSupportBindingConnectionBandwidthsResponse> {
+        const options = ParamCreater().listSupportBindingConnectionBandwidths(listSupportBindingConnectionBandwidthsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询全域互联带宽详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询全域互联带宽详情
+     * @param {string} id 资源的Id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGlobalConnectionBandwidth(showGlobalConnectionBandwidthRequest?: ShowGlobalConnectionBandwidthRequest): Promise<ShowGlobalConnectionBandwidthResponse> {
+        const options = ParamCreater().showGlobalConnectionBandwidth(showGlobalConnectionBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新全域互联带宽详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新全域互联带宽详情
+     * @param {string} id 资源的Id。
+     * @param {UpdateGlobalConnectionBandwidthRequestBody} updateGlobalConnectionBandwidthRequestBody 更新全域互联带宽详情的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGlobalConnectionBandwidth(updateGlobalConnectionBandwidthRequest?: UpdateGlobalConnectionBandwidthRequest): Promise<UpdateGlobalConnectionBandwidthResponse> {
+        const options = ParamCreater().updateGlobalConnectionBandwidth(updateGlobalConnectionBandwidthRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4240,6 +4560,652 @@ export const ParamCreater = function () {
             throw new RequiredError('id','Required parameter id was null or undefined when calling showCloudConnectionRoutes.');
             }
 
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 全域互联带宽绑定实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateGlobalConnectionBandwidthInstance(associateGlobalConnectionBandwidthInstanceRequest?: AssociateGlobalConnectionBandwidthInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/{id}/associate-instance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (associateGlobalConnectionBandwidthInstanceRequest !== null && associateGlobalConnectionBandwidthInstanceRequest !== undefined) {
+                if (associateGlobalConnectionBandwidthInstanceRequest instanceof AssociateGlobalConnectionBandwidthInstanceRequest) {
+                    id = associateGlobalConnectionBandwidthInstanceRequest.id;
+                    body = associateGlobalConnectionBandwidthInstanceRequest.body
+                } else {
+                    id = associateGlobalConnectionBandwidthInstanceRequest['id'];
+                    body = associateGlobalConnectionBandwidthInstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling associateGlobalConnectionBandwidthInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建全域互联带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGlobalConnectionBandwidth(createGlobalConnectionBandwidthRequest?: CreateGlobalConnectionBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/gcb/gcbandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createGlobalConnectionBandwidthRequest !== null && createGlobalConnectionBandwidthRequest !== undefined) {
+                if (createGlobalConnectionBandwidthRequest instanceof CreateGlobalConnectionBandwidthRequest) {
+                    body = createGlobalConnectionBandwidthRequest.body
+                } else {
+                    body = createGlobalConnectionBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除全域互联带宽。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGlobalConnectionBandwidth(deleteGlobalConnectionBandwidthRequest?: DeleteGlobalConnectionBandwidthRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteGlobalConnectionBandwidthRequest !== null && deleteGlobalConnectionBandwidthRequest !== undefined) {
+                if (deleteGlobalConnectionBandwidthRequest instanceof DeleteGlobalConnectionBandwidthRequest) {
+                    id = deleteGlobalConnectionBandwidthRequest.id;
+                } else {
+                    id = deleteGlobalConnectionBandwidthRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteGlobalConnectionBandwidth.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 全域互联带宽解绑实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateGlobalConnectionBandwidthInstance(disassociateGlobalConnectionBandwidthInstanceRequest?: DisassociateGlobalConnectionBandwidthInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/{id}/disassociate-instance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (disassociateGlobalConnectionBandwidthInstanceRequest !== null && disassociateGlobalConnectionBandwidthInstanceRequest !== undefined) {
+                if (disassociateGlobalConnectionBandwidthInstanceRequest instanceof DisassociateGlobalConnectionBandwidthInstanceRequest) {
+                    id = disassociateGlobalConnectionBandwidthInstanceRequest.id;
+                    body = disassociateGlobalConnectionBandwidthInstanceRequest.body
+                } else {
+                    id = disassociateGlobalConnectionBandwidthInstanceRequest['id'];
+                    body = disassociateGlobalConnectionBandwidthInstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling disassociateGlobalConnectionBandwidthInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全域互联带宽租户配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConnectionBandwidthConfigs() {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询线路等级列表。
+         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConnectionBandwidthLineLevels(listGlobalConnectionBandwidthLineLevelsRequest?: ListGlobalConnectionBandwidthLineLevelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/line-levels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let localArea;
+            
+            let remoteArea;
+            
+            let levels;
+
+            if (listGlobalConnectionBandwidthLineLevelsRequest !== null && listGlobalConnectionBandwidthLineLevelsRequest !== undefined) {
+                if (listGlobalConnectionBandwidthLineLevelsRequest instanceof ListGlobalConnectionBandwidthLineLevelsRequest) {
+                    limit = listGlobalConnectionBandwidthLineLevelsRequest.limit;
+                    marker = listGlobalConnectionBandwidthLineLevelsRequest.marker;
+                    id = listGlobalConnectionBandwidthLineLevelsRequest.id;
+                    localArea = listGlobalConnectionBandwidthLineLevelsRequest.localArea;
+                    remoteArea = listGlobalConnectionBandwidthLineLevelsRequest.remoteArea;
+                    levels = listGlobalConnectionBandwidthLineLevelsRequest.levels;
+                } else {
+                    limit = listGlobalConnectionBandwidthLineLevelsRequest['limit'];
+                    marker = listGlobalConnectionBandwidthLineLevelsRequest['marker'];
+                    id = listGlobalConnectionBandwidthLineLevelsRequest['id'];
+                    localArea = listGlobalConnectionBandwidthLineLevelsRequest['local_area'];
+                    remoteArea = listGlobalConnectionBandwidthLineLevelsRequest['remote_area'];
+                    levels = listGlobalConnectionBandwidthLineLevelsRequest['levels'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (localArea !== null && localArea !== undefined) {
+                localVarQueryParameter['local_area'] = localArea;
+            }
+            if (remoteArea !== null && remoteArea !== undefined) {
+                localVarQueryParameter['remote_area'] = remoteArea;
+            }
+            if (levels !== null && levels !== undefined) {
+                localVarQueryParameter['levels'] = levels;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询站点列表。
+         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConnectionBandwidthSites(listGlobalConnectionBandwidthSitesRequest?: ListGlobalConnectionBandwidthSitesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/sites",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let siteCode;
+            
+            let siteType;
+
+            if (listGlobalConnectionBandwidthSitesRequest !== null && listGlobalConnectionBandwidthSitesRequest !== undefined) {
+                if (listGlobalConnectionBandwidthSitesRequest instanceof ListGlobalConnectionBandwidthSitesRequest) {
+                    limit = listGlobalConnectionBandwidthSitesRequest.limit;
+                    marker = listGlobalConnectionBandwidthSitesRequest.marker;
+                    id = listGlobalConnectionBandwidthSitesRequest.id;
+                    siteCode = listGlobalConnectionBandwidthSitesRequest.siteCode;
+                    siteType = listGlobalConnectionBandwidthSitesRequest.siteType;
+                } else {
+                    limit = listGlobalConnectionBandwidthSitesRequest['limit'];
+                    marker = listGlobalConnectionBandwidthSitesRequest['marker'];
+                    id = listGlobalConnectionBandwidthSitesRequest['id'];
+                    siteCode = listGlobalConnectionBandwidthSitesRequest['site_code'];
+                    siteType = listGlobalConnectionBandwidthSitesRequest['site_type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (siteCode !== null && siteCode !== undefined) {
+                localVarQueryParameter['site_code'] = siteCode;
+            }
+            if (siteType !== null && siteType !== undefined) {
+                localVarQueryParameter['site_type'] = siteType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询线路规格列表。租户白名单控制，默认为空。
+         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConnectionBandwidthSpecCodes(listGlobalConnectionBandwidthSpecCodesRequest?: ListGlobalConnectionBandwidthSpecCodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/spec-codes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let localArea;
+            
+            let remoteArea;
+            
+            let level;
+
+            if (listGlobalConnectionBandwidthSpecCodesRequest !== null && listGlobalConnectionBandwidthSpecCodesRequest !== undefined) {
+                if (listGlobalConnectionBandwidthSpecCodesRequest instanceof ListGlobalConnectionBandwidthSpecCodesRequest) {
+                    limit = listGlobalConnectionBandwidthSpecCodesRequest.limit;
+                    marker = listGlobalConnectionBandwidthSpecCodesRequest.marker;
+                    id = listGlobalConnectionBandwidthSpecCodesRequest.id;
+                    localArea = listGlobalConnectionBandwidthSpecCodesRequest.localArea;
+                    remoteArea = listGlobalConnectionBandwidthSpecCodesRequest.remoteArea;
+                    level = listGlobalConnectionBandwidthSpecCodesRequest.level;
+                } else {
+                    limit = listGlobalConnectionBandwidthSpecCodesRequest['limit'];
+                    marker = listGlobalConnectionBandwidthSpecCodesRequest['marker'];
+                    id = listGlobalConnectionBandwidthSpecCodesRequest['id'];
+                    localArea = listGlobalConnectionBandwidthSpecCodesRequest['local_area'];
+                    remoteArea = listGlobalConnectionBandwidthSpecCodesRequest['remote_area'];
+                    level = listGlobalConnectionBandwidthSpecCodesRequest['level'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (localArea !== null && localArea !== undefined) {
+                localVarQueryParameter['local_area'] = localArea;
+            }
+            if (remoteArea !== null && remoteArea !== undefined) {
+                localVarQueryParameter['remote_area'] = remoteArea;
+            }
+            if (level !== null && level !== undefined) {
+                localVarQueryParameter['level'] = level;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全域互联带宽列表。
+         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConnectionBandwidths(listGlobalConnectionBandwidthsRequest?: ListGlobalConnectionBandwidthsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/gcbandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let enterpriseProjectId;
+            
+            let bindingService;
+            
+            let type;
+            
+            let chargeMode;
+
+            if (listGlobalConnectionBandwidthsRequest !== null && listGlobalConnectionBandwidthsRequest !== undefined) {
+                if (listGlobalConnectionBandwidthsRequest instanceof ListGlobalConnectionBandwidthsRequest) {
+                    limit = listGlobalConnectionBandwidthsRequest.limit;
+                    marker = listGlobalConnectionBandwidthsRequest.marker;
+                    id = listGlobalConnectionBandwidthsRequest.id;
+                    name = listGlobalConnectionBandwidthsRequest.name;
+                    enterpriseProjectId = listGlobalConnectionBandwidthsRequest.enterpriseProjectId;
+                    bindingService = listGlobalConnectionBandwidthsRequest.bindingService;
+                    type = listGlobalConnectionBandwidthsRequest.type;
+                    chargeMode = listGlobalConnectionBandwidthsRequest.chargeMode;
+                } else {
+                    limit = listGlobalConnectionBandwidthsRequest['limit'];
+                    marker = listGlobalConnectionBandwidthsRequest['marker'];
+                    id = listGlobalConnectionBandwidthsRequest['id'];
+                    name = listGlobalConnectionBandwidthsRequest['name'];
+                    enterpriseProjectId = listGlobalConnectionBandwidthsRequest['enterprise_project_id'];
+                    bindingService = listGlobalConnectionBandwidthsRequest['binding_service'];
+                    type = listGlobalConnectionBandwidthsRequest['type'];
+                    chargeMode = listGlobalConnectionBandwidthsRequest['charge_mode'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (bindingService !== null && bindingService !== undefined) {
+                localVarQueryParameter['binding_service'] = bindingService;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询符合绑定条件的全域互联带宽列表。
+         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupportBindingConnectionBandwidths(listSupportBindingConnectionBandwidthsRequest?: ListSupportBindingConnectionBandwidthsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/support-bindings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let bindingService;
+            
+            let limit;
+            
+            let marker;
+            
+            let enterpriseProjectId;
+            
+            let localArea;
+            
+            let remoteArea;
+
+            if (listSupportBindingConnectionBandwidthsRequest !== null && listSupportBindingConnectionBandwidthsRequest !== undefined) {
+                if (listSupportBindingConnectionBandwidthsRequest instanceof ListSupportBindingConnectionBandwidthsRequest) {
+                    bindingService = listSupportBindingConnectionBandwidthsRequest.bindingService;
+                    limit = listSupportBindingConnectionBandwidthsRequest.limit;
+                    marker = listSupportBindingConnectionBandwidthsRequest.marker;
+                    enterpriseProjectId = listSupportBindingConnectionBandwidthsRequest.enterpriseProjectId;
+                    localArea = listSupportBindingConnectionBandwidthsRequest.localArea;
+                    remoteArea = listSupportBindingConnectionBandwidthsRequest.remoteArea;
+                } else {
+                    bindingService = listSupportBindingConnectionBandwidthsRequest['binding_service'];
+                    limit = listSupportBindingConnectionBandwidthsRequest['limit'];
+                    marker = listSupportBindingConnectionBandwidthsRequest['marker'];
+                    enterpriseProjectId = listSupportBindingConnectionBandwidthsRequest['enterprise_project_id'];
+                    localArea = listSupportBindingConnectionBandwidthsRequest['local_area'];
+                    remoteArea = listSupportBindingConnectionBandwidthsRequest['remote_area'];
+                }
+            }
+
+        
+            if (bindingService === null || bindingService === undefined) {
+                throw new RequiredError('bindingService','Required parameter bindingService was null or undefined when calling listSupportBindingConnectionBandwidths.');
+            }
+            if (bindingService !== null && bindingService !== undefined) {
+                localVarQueryParameter['binding_service'] = bindingService;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (localArea !== null && localArea !== undefined) {
+                localVarQueryParameter['local_area'] = localArea;
+            }
+            if (remoteArea !== null && remoteArea !== undefined) {
+                localVarQueryParameter['remote_area'] = remoteArea;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询全域互联带宽详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGlobalConnectionBandwidth(showGlobalConnectionBandwidthRequest?: ShowGlobalConnectionBandwidthRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showGlobalConnectionBandwidthRequest !== null && showGlobalConnectionBandwidthRequest !== undefined) {
+                if (showGlobalConnectionBandwidthRequest instanceof ShowGlobalConnectionBandwidthRequest) {
+                    id = showGlobalConnectionBandwidthRequest.id;
+                } else {
+                    id = showGlobalConnectionBandwidthRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showGlobalConnectionBandwidth.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新全域互联带宽详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGlobalConnectionBandwidth(updateGlobalConnectionBandwidthRequest?: UpdateGlobalConnectionBandwidthRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{domain_id}/gcb/gcbandwidths/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateGlobalConnectionBandwidthRequest !== null && updateGlobalConnectionBandwidthRequest !== undefined) {
+                if (updateGlobalConnectionBandwidthRequest instanceof UpdateGlobalConnectionBandwidthRequest) {
+                    id = updateGlobalConnectionBandwidthRequest.id;
+                    body = updateGlobalConnectionBandwidthRequest.body
+                } else {
+                    id = updateGlobalConnectionBandwidthRequest['id'];
+                    body = updateGlobalConnectionBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateGlobalConnectionBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;

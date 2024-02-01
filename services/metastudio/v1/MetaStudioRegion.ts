@@ -7,10 +7,12 @@ interface RegionMap {
 
 export class MetaStudioRegion {
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://metastudio.cn-north-4.myhuaweicloud.com"]);
+    public static CN_EAST_3 = new Region("cn-east-3", ["https://metastudio.cn-east-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
-        "cn-north-4":MetaStudioRegion.CN_NORTH_4
+        "cn-north-4":MetaStudioRegion.CN_NORTH_4,
+        "cn-east-3":MetaStudioRegion.CN_EAST_3
     };
   
     public static valueOf(regionId: string) {

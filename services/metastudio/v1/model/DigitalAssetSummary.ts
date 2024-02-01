@@ -5,6 +5,7 @@ export class DigitalAssetSummary {
     private 'asset_name'?: string;
     private 'asset_type'?: DigitalAssetSummaryAssetTypeEnum | string;
     private 'cover_url'?: string;
+    private 'thumbnail_url'?: string;
     public constructor() { 
     }
     public withAssetId(assetId: string): DigitalAssetSummary {
@@ -46,6 +47,16 @@ export class DigitalAssetSummary {
     }
     public get coverUrl(): string | undefined {
         return this['cover_url'];
+    }
+    public withThumbnailUrl(thumbnailUrl: string): DigitalAssetSummary {
+        this['thumbnail_url'] = thumbnailUrl;
+        return this;
+    }
+    public set thumbnailUrl(thumbnailUrl: string  | undefined) {
+        this['thumbnail_url'] = thumbnailUrl;
+    }
+    public get thumbnailUrl(): string | undefined {
+        return this['thumbnail_url'];
     }
 }
 

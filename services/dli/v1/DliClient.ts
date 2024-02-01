@@ -7481,7 +7481,7 @@ export const ParamCreater = function () {
                     clusterName = listSparkJobsRequest['cluster_name'];
                     end = listSparkJobsRequest['end'];
                     from = listSparkJobsRequest['from'];
-                    jobName = listSparkJobsRequest['job-name'];
+                    jobName = listSparkJobsRequest['job_name'];
                     jobId = listSparkJobsRequest['job-id'];
                     order = listSparkJobsRequest['order'];
                     queueName = listSparkJobsRequest['queue_name'];
@@ -7502,7 +7502,7 @@ export const ParamCreater = function () {
                 localVarQueryParameter['from'] = from;
             }
             if (jobName !== null && jobName !== undefined) {
-                localVarQueryParameter['job-name'] = jobName;
+                localVarQueryParameter['job_name'] = jobName;
             }
             if (jobId !== null && jobId !== undefined) {
                 localVarQueryParameter['job-id'] = jobId;

@@ -11,6 +11,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class Show2DDigitalHumanVideoResponse extends SdkResponse {
     private 'job_id'?: string;
     public state?: Show2DDigitalHumanVideoResponseStateEnum | string;
+    private 'job_type'?: Show2DDigitalHumanVideoResponseJobTypeEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     public duration?: number;
@@ -45,6 +46,16 @@ export class Show2DDigitalHumanVideoResponse extends SdkResponse {
     public withState(state: Show2DDigitalHumanVideoResponseStateEnum | string): Show2DDigitalHumanVideoResponse {
         this['state'] = state;
         return this;
+    }
+    public withJobType(jobType: Show2DDigitalHumanVideoResponseJobTypeEnum | string): Show2DDigitalHumanVideoResponse {
+        this['job_type'] = jobType;
+        return this;
+    }
+    public set jobType(jobType: Show2DDigitalHumanVideoResponseJobTypeEnum | string  | undefined) {
+        this['job_type'] = jobType;
+    }
+    public get jobType(): Show2DDigitalHumanVideoResponseJobTypeEnum | string | undefined {
+        return this['job_type'];
     }
     public withStartTime(startTime: string): Show2DDigitalHumanVideoResponse {
         this['start_time'] = startTime;
@@ -212,6 +223,14 @@ export enum Show2DDigitalHumanVideoResponseStateEnum {
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
     CANCELED = 'CANCELED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Show2DDigitalHumanVideoResponseJobTypeEnum {
+    E_2D_DIGITAL_HUMAN_VIDEO = '2D_DIGITAL_HUMAN_VIDEO',
+    DIGITAL_HUMAN_PHOTO_VIDEO = 'DIGITAL_HUMAN_PHOTO_VIDEO'
 }
 /**
     * @export

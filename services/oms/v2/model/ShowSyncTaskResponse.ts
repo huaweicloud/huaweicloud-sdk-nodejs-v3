@@ -15,6 +15,7 @@ export class ShowSyncTaskResponse extends SdkResponse {
     private 'enable_kms'?: boolean;
     private 'enable_metadata_migration'?: boolean;
     private 'enable_restore'?: boolean;
+    private 'dst_storage_policy'?: ShowSyncTaskResponseDstStoragePolicyEnum | string;
     private 'app_id'?: string;
     private 'monthly_acceptance_request'?: number;
     private 'monthly_success_object'?: number;
@@ -22,7 +23,6 @@ export class ShowSyncTaskResponse extends SdkResponse {
     private 'monthly_skip_object'?: number;
     private 'monthly_size'?: number;
     private 'object_overwrite_mode'?: ShowSyncTaskResponseObjectOverwriteModeEnum | string;
-    private 'dst_storage_policy'?: ShowSyncTaskResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowSyncTaskResponseConsistencyCheckEnum | string;
     public constructor() { 
         super();
@@ -145,6 +145,16 @@ export class ShowSyncTaskResponse extends SdkResponse {
     public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
     }
+    public withDstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string): ShowSyncTaskResponse {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): ShowSyncTaskResponseDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withAppId(appId: string): ShowSyncTaskResponse {
         this['app_id'] = appId;
         return this;
@@ -215,16 +225,6 @@ export class ShowSyncTaskResponse extends SdkResponse {
     public get objectOverwriteMode(): ShowSyncTaskResponseObjectOverwriteModeEnum | string | undefined {
         return this['object_overwrite_mode'];
     }
-    public withDstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string): ShowSyncTaskResponse {
-        this['dst_storage_policy'] = dstStoragePolicy;
-        return this;
-    }
-    public set dstStoragePolicy(dstStoragePolicy: ShowSyncTaskResponseDstStoragePolicyEnum | string  | undefined) {
-        this['dst_storage_policy'] = dstStoragePolicy;
-    }
-    public get dstStoragePolicy(): ShowSyncTaskResponseDstStoragePolicyEnum | string | undefined {
-        return this['dst_storage_policy'];
-    }
     public withConsistencyCheck(consistencyCheck: ShowSyncTaskResponseConsistencyCheckEnum | string): ShowSyncTaskResponse {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -265,22 +265,22 @@ export enum ShowSyncTaskResponseStatusEnum {
     * @export
     * @enum {string}
     */
-export enum ShowSyncTaskResponseObjectOverwriteModeEnum {
-    NO_OVERWRITE = 'NO_OVERWRITE',
-    SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
-    CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
-    FULL_OVERWRITE = 'FULL_OVERWRITE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
 export enum ShowSyncTaskResponseDstStoragePolicyEnum {
     STANDARD = 'STANDARD',
     IA = 'IA',
     ARCHIVE = 'ARCHIVE',
     DEEP_ARCHIVE = 'DEEP_ARCHIVE',
     SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSyncTaskResponseObjectOverwriteModeEnum {
+    NO_OVERWRITE = 'NO_OVERWRITE',
+    SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
+    CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
+    FULL_OVERWRITE = 'FULL_OVERWRITE'
 }
 /**
     * @export

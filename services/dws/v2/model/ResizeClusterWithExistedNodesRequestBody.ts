@@ -1,33 +1,18 @@
-import { BuildTaskInfo } from './BuildTaskInfo';
-import { RedisConf } from './RedisConf';
-import { Resize } from './Resize';
+import { RedisConfReq } from './RedisConfReq';
 import { ScaleOut } from './ScaleOut';
 
 
 export class ResizeClusterWithExistedNodesRequestBody {
     private 'scale_out'?: ScaleOut;
-    public resize?: Resize;
     private 'force_backup'?: boolean;
     public mode?: string;
     private 'logical_cluster_name'?: string;
     private 'expand_with_existed_node'?: boolean;
-    private 'create_node_only'?: boolean;
     private 'auto_redistribute'?: boolean;
-    private 'is_scheduler_build_mode'?: boolean;
-    private 'redis_conf'?: RedisConf;
-    private 'build_task_info'?: BuildTaskInfo;
-    private 'order_id'?: string;
-    public constructor(scaleOut?: ScaleOut, forceBackup?: boolean, mode?: string, logicalClusterName?: string, expandWithExistedNode?: boolean, createNodeOnly?: boolean, autoRedistribute?: boolean, isSchedulerBuildMode?: boolean, redisConf?: RedisConf, buildTaskInfo?: BuildTaskInfo) { 
+    private 'redis_conf'?: RedisConfReq;
+    public constructor(scaleOut?: ScaleOut, expandWithExistedNode?: boolean) { 
         this['scale_out'] = scaleOut;
-        this['force_backup'] = forceBackup;
-        this['mode'] = mode;
-        this['logical_cluster_name'] = logicalClusterName;
         this['expand_with_existed_node'] = expandWithExistedNode;
-        this['create_node_only'] = createNodeOnly;
-        this['auto_redistribute'] = autoRedistribute;
-        this['is_scheduler_build_mode'] = isSchedulerBuildMode;
-        this['redis_conf'] = redisConf;
-        this['build_task_info'] = buildTaskInfo;
     }
     public withScaleOut(scaleOut: ScaleOut): ResizeClusterWithExistedNodesRequestBody {
         this['scale_out'] = scaleOut;
@@ -38,10 +23,6 @@ export class ResizeClusterWithExistedNodesRequestBody {
     }
     public get scaleOut(): ScaleOut | undefined {
         return this['scale_out'];
-    }
-    public withResize(resize: Resize): ResizeClusterWithExistedNodesRequestBody {
-        this['resize'] = resize;
-        return this;
     }
     public withForceBackup(forceBackup: boolean): ResizeClusterWithExistedNodesRequestBody {
         this['force_backup'] = forceBackup;
@@ -77,16 +58,6 @@ export class ResizeClusterWithExistedNodesRequestBody {
     public get expandWithExistedNode(): boolean | undefined {
         return this['expand_with_existed_node'];
     }
-    public withCreateNodeOnly(createNodeOnly: boolean): ResizeClusterWithExistedNodesRequestBody {
-        this['create_node_only'] = createNodeOnly;
-        return this;
-    }
-    public set createNodeOnly(createNodeOnly: boolean  | undefined) {
-        this['create_node_only'] = createNodeOnly;
-    }
-    public get createNodeOnly(): boolean | undefined {
-        return this['create_node_only'];
-    }
     public withAutoRedistribute(autoRedistribute: boolean): ResizeClusterWithExistedNodesRequestBody {
         this['auto_redistribute'] = autoRedistribute;
         return this;
@@ -97,44 +68,14 @@ export class ResizeClusterWithExistedNodesRequestBody {
     public get autoRedistribute(): boolean | undefined {
         return this['auto_redistribute'];
     }
-    public withIsSchedulerBuildMode(isSchedulerBuildMode: boolean): ResizeClusterWithExistedNodesRequestBody {
-        this['is_scheduler_build_mode'] = isSchedulerBuildMode;
-        return this;
-    }
-    public set isSchedulerBuildMode(isSchedulerBuildMode: boolean  | undefined) {
-        this['is_scheduler_build_mode'] = isSchedulerBuildMode;
-    }
-    public get isSchedulerBuildMode(): boolean | undefined {
-        return this['is_scheduler_build_mode'];
-    }
-    public withRedisConf(redisConf: RedisConf): ResizeClusterWithExistedNodesRequestBody {
+    public withRedisConf(redisConf: RedisConfReq): ResizeClusterWithExistedNodesRequestBody {
         this['redis_conf'] = redisConf;
         return this;
     }
-    public set redisConf(redisConf: RedisConf  | undefined) {
+    public set redisConf(redisConf: RedisConfReq  | undefined) {
         this['redis_conf'] = redisConf;
     }
-    public get redisConf(): RedisConf | undefined {
+    public get redisConf(): RedisConfReq | undefined {
         return this['redis_conf'];
-    }
-    public withBuildTaskInfo(buildTaskInfo: BuildTaskInfo): ResizeClusterWithExistedNodesRequestBody {
-        this['build_task_info'] = buildTaskInfo;
-        return this;
-    }
-    public set buildTaskInfo(buildTaskInfo: BuildTaskInfo  | undefined) {
-        this['build_task_info'] = buildTaskInfo;
-    }
-    public get buildTaskInfo(): BuildTaskInfo | undefined {
-        return this['build_task_info'];
-    }
-    public withOrderId(orderId: string): ResizeClusterWithExistedNodesRequestBody {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
     }
 }

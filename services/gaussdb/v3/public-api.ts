@@ -228,6 +228,7 @@ export * from './model/MysqlResizeFlavor';
 export * from './model/MysqlRestorePoint';
 export * from './model/MysqlShowProxyResponseV3';
 export * from './model/MysqlTags';
+export * from './model/MysqlTdeInfo';
 export * from './model/MysqlUpdateBackupPolicyRequest';
 export * from './model/MysqlUpdateInstanceNameRequest';
 export * from './model/MysqlVolume';

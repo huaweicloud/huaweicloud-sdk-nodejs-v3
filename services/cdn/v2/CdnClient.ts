@@ -50,6 +50,7 @@ import { ListCdnDomainTopRefersRequest } from './model/ListCdnDomainTopRefersReq
 import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
+import { LogObject } from './model/LogObject';
 import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
@@ -80,6 +81,8 @@ import { ShowHistoryTaskDetailsRequest } from './model/ShowHistoryTaskDetailsReq
 import { ShowHistoryTaskDetailsResponse } from './model/ShowHistoryTaskDetailsResponse';
 import { ShowHistoryTasksRequest } from './model/ShowHistoryTasksRequest';
 import { ShowHistoryTasksResponse } from './model/ShowHistoryTasksResponse';
+import { ShowLogsRequest } from './model/ShowLogsRequest';
+import { ShowLogsResponse } from './model/ShowLogsResponse';
 import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
 import { ShowTopDomainNamesResponse } from './model/ShowTopDomainNamesResponse';
 import { ShowTopUrlRequest } from './model/ShowTopUrlRequest';
@@ -568,6 +571,30 @@ export class CdnClient {
      */
     public showHistoryTasks(showHistoryTasksRequest?: ShowHistoryTasksRequest): Promise<ShowHistoryTasksResponse> {
         const options = ParamCreater().showHistoryTasks(showHistoryTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询日志下载链接，支持查询30天内的日志信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 日志查询
+     * @param {string} domainName 只支持单个域名，如：www.test1.com。
+     * @param {number} [startTime] 查询开始时间，时间格式为整点毫秒时间戳，此参数传空值时默认为当天0点。
+     * @param {number} [endTime] 查询结束时间（不包含结束时间），时间格式为整点毫秒时间戳，与开始时间的最大跨度为30天，此参数传空值时默认为开始时间加1天。
+     * @param {number} [pageSize] 单页最大数量，取值范围为1-10000，默认值：10。
+     * @param {number} [pageNumber] 当前查询第几页，取值范围为1-65535，默认值：1。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLogs(showLogsRequest?: ShowLogsRequest): Promise<ShowLogsResponse> {
+        const options = ParamCreater().showLogs(showLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1977,6 +2004,81 @@ export const ParamCreater = function () {
             }
             if (taskType !== null && taskType !== undefined) {
                 localVarQueryParameter['task_type'] = taskType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询日志下载链接，支持查询30天内的日志信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLogs(showLogsRequest?: ShowLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let enterpriseProjectId;
+
+            if (showLogsRequest !== null && showLogsRequest !== undefined) {
+                if (showLogsRequest instanceof ShowLogsRequest) {
+                    domainName = showLogsRequest.domainName;
+                    startTime = showLogsRequest.startTime;
+                    endTime = showLogsRequest.endTime;
+                    pageSize = showLogsRequest.pageSize;
+                    pageNumber = showLogsRequest.pageNumber;
+                    enterpriseProjectId = showLogsRequest.enterpriseProjectId;
+                } else {
+                    domainName = showLogsRequest['domain_name'];
+                    startTime = showLogsRequest['start_time'];
+                    endTime = showLogsRequest['end_time'];
+                    pageSize = showLogsRequest['page_size'];
+                    pageNumber = showLogsRequest['page_number'];
+                    enterpriseProjectId = showLogsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling showLogs.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;

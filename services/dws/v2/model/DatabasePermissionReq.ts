@@ -9,6 +9,7 @@ export class DatabasePermissionReq {
     private 'revoke_list'?: Array<Revoke>;
     private 'role_list'?: Array<string>;
     private 'object_list'?: object;
+    private 'all_object'?: boolean;
     public cascade?: boolean;
     public database?: string;
     public schema?: string;
@@ -73,6 +74,16 @@ export class DatabasePermissionReq {
     }
     public get objectList(): object | undefined {
         return this['object_list'];
+    }
+    public withAllObject(allObject: boolean): DatabasePermissionReq {
+        this['all_object'] = allObject;
+        return this;
+    }
+    public set allObject(allObject: boolean  | undefined) {
+        this['all_object'] = allObject;
+    }
+    public get allObject(): boolean | undefined {
+        return this['all_object'];
     }
     public withCascade(cascade: boolean): DatabasePermissionReq {
         this['cascade'] = cascade;

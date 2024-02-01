@@ -4,6 +4,7 @@ export class SmnConfig {
     public language?: SmnConfigLanguageEnum | string;
     private 'topic_urn'?: string;
     private 'trigger_conditions'?: Array<string>;
+    private 'message_template_name'?: string;
     public constructor(topicUrn?: string, triggerConditions?: Array<string>) { 
         this['topic_urn'] = topicUrn;
         this['trigger_conditions'] = triggerConditions;
@@ -31,6 +32,16 @@ export class SmnConfig {
     }
     public get triggerConditions(): Array<string> | undefined {
         return this['trigger_conditions'];
+    }
+    public withMessageTemplateName(messageTemplateName: string): SmnConfig {
+        this['message_template_name'] = messageTemplateName;
+        return this;
+    }
+    public set messageTemplateName(messageTemplateName: string  | undefined) {
+        this['message_template_name'] = messageTemplateName;
+    }
+    public get messageTemplateName(): string | undefined {
+        return this['message_template_name'];
     }
 }
 

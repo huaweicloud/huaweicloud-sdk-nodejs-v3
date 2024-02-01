@@ -8,13 +8,13 @@ export class ShowAssetResponse extends SdkResponse {
     private 'asset_id'?: string;
     private 'asset_name'?: string;
     private 'asset_description'?: string;
+    private 'app_user_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'asset_type'?: ShowAssetResponseAssetTypeEnum | string;
     private 'asset_state'?: ShowAssetResponseAssetStateEnum | string;
     private 'fail_type'?: ShowAssetResponseFailTypeEnum | string;
     public reason?: string;
-    private 'is_need_generate_cover'?: boolean;
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
@@ -52,6 +52,16 @@ export class ShowAssetResponse extends SdkResponse {
     }
     public get assetDescription(): string | undefined {
         return this['asset_description'];
+    }
+    public withAppUserId(appUserId: string): ShowAssetResponse {
+        this['app_user_id'] = appUserId;
+        return this;
+    }
+    public set appUserId(appUserId: string  | undefined) {
+        this['app_user_id'] = appUserId;
+    }
+    public get appUserId(): string | undefined {
+        return this['app_user_id'];
     }
     public withCreateTime(createTime: string): ShowAssetResponse {
         this['create_time'] = createTime;
@@ -106,16 +116,6 @@ export class ShowAssetResponse extends SdkResponse {
     public withReason(reason: string): ShowAssetResponse {
         this['reason'] = reason;
         return this;
-    }
-    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): ShowAssetResponse {
-        this['is_need_generate_cover'] = isNeedGenerateCover;
-        return this;
-    }
-    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
-        this['is_need_generate_cover'] = isNeedGenerateCover;
-    }
-    public get isNeedGenerateCover(): boolean | undefined {
-        return this['is_need_generate_cover'];
     }
     public withTags(tags: Array<string>): ShowAssetResponse {
         this['tags'] = tags;

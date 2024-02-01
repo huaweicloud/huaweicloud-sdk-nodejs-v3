@@ -75,5 +75,6 @@ export enum SrcNodeRespCloudTypeEnum {
     BAIDU = 'Baidu',
     QINIU = 'Qiniu',
     URLSOURCE = 'URLSource',
-    UCLOUD = 'UCloud'
+    UCLOUD = 'UCloud',
+    GOOGLE = 'Google'
 }

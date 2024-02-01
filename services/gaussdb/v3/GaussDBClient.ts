@@ -230,6 +230,7 @@ import { MysqlResizeFlavor } from './model/MysqlResizeFlavor';
 import { MysqlRestorePoint } from './model/MysqlRestorePoint';
 import { MysqlShowProxyResponseV3 } from './model/MysqlShowProxyResponseV3';
 import { MysqlTags } from './model/MysqlTags';
+import { MysqlTdeInfo } from './model/MysqlTdeInfo';
 import { MysqlUpdateBackupPolicyRequest } from './model/MysqlUpdateBackupPolicyRequest';
 import { MysqlUpdateInstanceNameRequest } from './model/MysqlUpdateInstanceNameRequest';
 import { MysqlVolume } from './model/MysqlVolume';

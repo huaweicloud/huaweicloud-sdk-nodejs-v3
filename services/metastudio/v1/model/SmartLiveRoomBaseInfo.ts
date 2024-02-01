@@ -1,13 +1,16 @@
 import { ErrorResponse } from './ErrorResponse';
 import { ModelInfo } from './ModelInfo';
+import { SharedConfig } from './SharedConfig';
 
 
 export class SmartLiveRoomBaseInfo {
     private 'room_id'?: string;
+    private 'project_id'?: string;
     private 'room_name'?: string;
     private 'room_type'?: SmartLiveRoomBaseInfoRoomTypeEnum | string;
     private 'room_state'?: SmartLiveRoomBaseInfoRoomStateEnum | string;
     private 'error_info'?: ErrorResponse;
+    private 'shared_config'?: SharedConfig;
     private 'room_description'?: string;
     private 'cover_url'?: string;
     private 'model_infos'?: Array<ModelInfo>;
@@ -27,6 +30,16 @@ export class SmartLiveRoomBaseInfo {
     }
     public get roomId(): string | undefined {
         return this['room_id'];
+    }
+    public withProjectId(projectId: string): SmartLiveRoomBaseInfo {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withRoomName(roomName: string): SmartLiveRoomBaseInfo {
         this['room_name'] = roomName;
@@ -67,6 +80,16 @@ export class SmartLiveRoomBaseInfo {
     }
     public get errorInfo(): ErrorResponse | undefined {
         return this['error_info'];
+    }
+    public withSharedConfig(sharedConfig: SharedConfig): SmartLiveRoomBaseInfo {
+        this['shared_config'] = sharedConfig;
+        return this;
+    }
+    public set sharedConfig(sharedConfig: SharedConfig  | undefined) {
+        this['shared_config'] = sharedConfig;
+    }
+    public get sharedConfig(): SharedConfig | undefined {
+        return this['shared_config'];
     }
     public withRoomDescription(roomDescription: string): SmartLiveRoomBaseInfo {
         this['room_description'] = roomDescription;

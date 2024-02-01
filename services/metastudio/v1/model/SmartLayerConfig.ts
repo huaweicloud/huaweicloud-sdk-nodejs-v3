@@ -6,6 +6,7 @@ import { SmartVideoLayerConfig } from './SmartVideoLayerConfig';
 
 export class SmartLayerConfig {
     private 'layer_type'?: SmartLayerConfigLayerTypeEnum | string;
+    private 'asset_id'?: string;
     public position?: LayerPositionConfig;
     public size?: LayerSizeConfig;
     private 'image_config'?: SmartImageLayerConfig;
@@ -23,6 +24,16 @@ export class SmartLayerConfig {
     }
     public get layerType(): SmartLayerConfigLayerTypeEnum | string | undefined {
         return this['layer_type'];
+    }
+    public withAssetId(assetId: string): SmartLayerConfig {
+        this['asset_id'] = assetId;
+        return this;
+    }
+    public set assetId(assetId: string  | undefined) {
+        this['asset_id'] = assetId;
+    }
+    public get assetId(): string | undefined {
+        return this['asset_id'];
     }
     public withPosition(position: LayerPositionConfig): SmartLayerConfig {
         this['position'] = position;

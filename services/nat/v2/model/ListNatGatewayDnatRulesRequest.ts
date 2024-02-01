@@ -15,6 +15,7 @@ export class ListNatGatewayDnatRulesRequest {
     private 'port_id'?: string;
     private 'private_ip'?: string;
     public protocol?: Array<string>;
+    public marker?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): ListNatGatewayDnatRulesRequest {
@@ -125,6 +126,10 @@ export class ListNatGatewayDnatRulesRequest {
     }
     public withProtocol(protocol: Array<string>): ListNatGatewayDnatRulesRequest {
         this['protocol'] = protocol;
+        return this;
+    }
+    public withMarker(marker: string): ListNatGatewayDnatRulesRequest {
+        this['marker'] = marker;
         return this;
     }
 }

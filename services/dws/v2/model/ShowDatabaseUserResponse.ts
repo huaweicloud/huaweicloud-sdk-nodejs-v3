@@ -2,6 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDatabaseUserResponse extends SdkResponse {
+    public name?: string;
     public login?: boolean;
     public createrole?: boolean;
     public createdb?: boolean;
@@ -14,8 +15,15 @@ export class ShowDatabaseUserResponse extends SdkResponse {
     private 'valid_begin'?: number;
     private 'valid_until'?: number;
     public lock?: boolean;
+    public desc?: string;
+    private 'user_type'?: string;
+    private 'logical_cluster'?: string;
     public constructor() { 
         super();
+    }
+    public withName(name: string): ShowDatabaseUserResponse {
+        this['name'] = name;
+        return this;
     }
     public withLogin(login: boolean): ShowDatabaseUserResponse {
         this['login'] = login;
@@ -82,5 +90,29 @@ export class ShowDatabaseUserResponse extends SdkResponse {
     public withLock(lock: boolean): ShowDatabaseUserResponse {
         this['lock'] = lock;
         return this;
+    }
+    public withDesc(desc: string): ShowDatabaseUserResponse {
+        this['desc'] = desc;
+        return this;
+    }
+    public withUserType(userType: string): ShowDatabaseUserResponse {
+        this['user_type'] = userType;
+        return this;
+    }
+    public set userType(userType: string  | undefined) {
+        this['user_type'] = userType;
+    }
+    public get userType(): string | undefined {
+        return this['user_type'];
+    }
+    public withLogicalCluster(logicalCluster: string): ShowDatabaseUserResponse {
+        this['logical_cluster'] = logicalCluster;
+        return this;
+    }
+    public set logicalCluster(logicalCluster: string  | undefined) {
+        this['logical_cluster'] = logicalCluster;
+    }
+    public get logicalCluster(): string | undefined {
+        return this['logical_cluster'];
     }
 }

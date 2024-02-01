@@ -15,6 +15,7 @@ export class CreateSyncTaskReq {
     private 'enable_metadata_migration'?: boolean;
     private 'enable_kms'?: boolean;
     private 'enable_restore'?: boolean;
+    private 'dst_storage_policy'?: CreateSyncTaskReqDstStoragePolicyEnum | string;
     private 'app_id'?: string;
     private 'source_cdn'?: SourceCdnReq;
     private 'consistency_check'?: CreateSyncTaskReqConsistencyCheckEnum | string;
@@ -152,6 +153,16 @@ export class CreateSyncTaskReq {
     public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
     }
+    public withDstStoragePolicy(dstStoragePolicy: CreateSyncTaskReqDstStoragePolicyEnum | string): CreateSyncTaskReq {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: CreateSyncTaskReqDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): CreateSyncTaskReqDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withAppId(appId: string): CreateSyncTaskReq {
         this['app_id'] = appId;
         return this;
@@ -184,6 +195,17 @@ export class CreateSyncTaskReq {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSyncTaskReqDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
+}
 /**
     * @export
     * @enum {string}

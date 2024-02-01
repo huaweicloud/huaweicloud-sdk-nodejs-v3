@@ -4,6 +4,7 @@ import { MysqlInstanceChargeInfo } from './MysqlInstanceChargeInfo';
 import { MysqlInstanceNodeInfo } from './MysqlInstanceNodeInfo';
 import { MysqlProxyInfo } from './MysqlProxyInfo';
 import { MysqlTags } from './MysqlTags';
+import { MysqlTdeInfo } from './MysqlTdeInfo';
 
 
 export class MysqlInstanceInfoDetailUnifyStatus {
@@ -38,6 +39,7 @@ export class MysqlInstanceInfoDetailUnifyStatus {
     public tags?: Array<MysqlTags>;
     private 'dedicated_resource_id'?: string;
     public proxies?: Array<MysqlProxyInfo>;
+    private 'tde_info'?: MysqlTdeInfo;
     public constructor(id?: string, name?: string, projectId?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -280,5 +282,15 @@ export class MysqlInstanceInfoDetailUnifyStatus {
     public withProxies(proxies: Array<MysqlProxyInfo>): MysqlInstanceInfoDetailUnifyStatus {
         this['proxies'] = proxies;
         return this;
+    }
+    public withTdeInfo(tdeInfo: MysqlTdeInfo): MysqlInstanceInfoDetailUnifyStatus {
+        this['tde_info'] = tdeInfo;
+        return this;
+    }
+    public set tdeInfo(tdeInfo: MysqlTdeInfo  | undefined) {
+        this['tde_info'] = tdeInfo;
+    }
+    public get tdeInfo(): MysqlTdeInfo | undefined {
+        return this['tde_info'];
     }
 }

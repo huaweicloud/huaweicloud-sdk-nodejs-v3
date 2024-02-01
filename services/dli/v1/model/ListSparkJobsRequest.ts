@@ -4,7 +4,7 @@ export class ListSparkJobsRequest {
     private 'cluster_name'?: string;
     public end?: number;
     public from?: number;
-    private 'job-name'?: string;
+    private 'job_name'?: string;
     private 'job-id'?: string;
     public order?: string;
     private 'queue_name'?: string;
@@ -32,14 +32,14 @@ export class ListSparkJobsRequest {
         return this;
     }
     public withJobName(jobName: string): ListSparkJobsRequest {
-        this['job-name'] = jobName;
+        this['job_name'] = jobName;
         return this;
     }
     public set jobName(jobName: string  | undefined) {
-        this['job-name'] = jobName;
+        this['job_name'] = jobName;
     }
     public get jobName(): string | undefined {
-        return this['job-name'];
+        return this['job_name'];
     }
     public withJobId(jobId: string): ListSparkJobsRequest {
         this['job-id'] = jobId;

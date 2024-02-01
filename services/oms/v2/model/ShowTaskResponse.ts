@@ -44,6 +44,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'success_record_error_reason'?: string;
     private 'skip_record_error_reason'?: string;
     private 'object_overwrite_mode'?: ShowTaskResponseObjectOverwriteModeEnum | string;
+    private 'dst_storage_policy'?: ShowTaskResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowTaskResponseConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
     public constructor() { 
@@ -369,6 +370,16 @@ export class ShowTaskResponse extends SdkResponse {
     public get objectOverwriteMode(): ShowTaskResponseObjectOverwriteModeEnum | string | undefined {
         return this['object_overwrite_mode'];
     }
+    public withDstStoragePolicy(dstStoragePolicy: ShowTaskResponseDstStoragePolicyEnum | string): ShowTaskResponse {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: ShowTaskResponseDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): ShowTaskResponseDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withConsistencyCheck(consistencyCheck: ShowTaskResponseConsistencyCheckEnum | string): ShowTaskResponse {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -419,6 +430,17 @@ export enum ShowTaskResponseObjectOverwriteModeEnum {
     SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
     CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
     FULL_OVERWRITE = 'FULL_OVERWRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowTaskResponseDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
 }
 /**
     * @export

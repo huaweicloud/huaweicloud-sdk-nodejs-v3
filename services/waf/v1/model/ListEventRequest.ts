@@ -2,6 +2,7 @@
 
 export class ListEventRequest {
     private 'Content-Type'?: string;
+    private 'X-Language'?: string;
     private 'enterprise_project_id'?: string;
     public recent?: ListEventRequestRecentEnum | string;
     public from?: number;
@@ -22,6 +23,16 @@ export class ListEventRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXLanguage(xLanguage: string): ListEventRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): string | undefined {
+        return this['X-Language'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListEventRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

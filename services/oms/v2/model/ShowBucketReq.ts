@@ -5,6 +5,7 @@ export class ShowBucketReq {
     private 'file_path'?: string;
     public ak?: string;
     public sk?: string;
+    private 'json_auth_file'?: string;
     private 'data_center'?: string;
     private 'page_size'?: number;
     private 'behind_filename'?: string;
@@ -45,6 +46,16 @@ export class ShowBucketReq {
     public withSk(sk: string): ShowBucketReq {
         this['sk'] = sk;
         return this;
+    }
+    public withJsonAuthFile(jsonAuthFile: string): ShowBucketReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withDataCenter(dataCenter: string): ShowBucketReq {
         this['data_center'] = dataCenter;

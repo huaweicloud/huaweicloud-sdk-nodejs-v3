@@ -3,6 +3,7 @@
 export class StartTaskReq {
     private 'src_ak'?: string;
     private 'src_sk'?: string;
+    private 'json_auth_file'?: string;
     private 'src_security_token'?: string;
     private 'dst_ak'?: string;
     private 'dst_sk'?: string;
@@ -32,6 +33,16 @@ export class StartTaskReq {
     }
     public get srcSk(): string | undefined {
         return this['src_sk'];
+    }
+    public withJsonAuthFile(jsonAuthFile: string): StartTaskReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withSrcSecurityToken(srcSecurityToken: string): StartTaskReq {
         this['src_security_token'] = srcSecurityToken;

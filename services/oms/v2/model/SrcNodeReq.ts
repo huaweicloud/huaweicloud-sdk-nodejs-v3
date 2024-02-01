@@ -6,6 +6,7 @@ export class SrcNodeReq {
     public region?: string;
     public ak?: string;
     public sk?: string;
+    private 'json_auth_file'?: string;
     private 'security_token'?: string;
     private 'app_id'?: string;
     public bucket?: string;
@@ -34,6 +35,16 @@ export class SrcNodeReq {
     public withSk(sk: string): SrcNodeReq {
         this['sk'] = sk;
         return this;
+    }
+    public withJsonAuthFile(jsonAuthFile: string): SrcNodeReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withSecurityToken(securityToken: string): SrcNodeReq {
         this['security_token'] = securityToken;

@@ -5,10 +5,9 @@ export class CbsGetResourceIdTags {
     public action?: string;
     public tags?: Array<ResourceTag>;
     private 'sys_tags'?: Array<ResourceTag>;
-    public constructor(action?: string, tags?: Array<ResourceTag>, sysTags?: Array<ResourceTag>) { 
+    public constructor(action?: string, tags?: Array<ResourceTag>) { 
         this['action'] = action;
         this['tags'] = tags;
-        this['sys_tags'] = sysTags;
     }
     public withAction(action: string): CbsGetResourceIdTags {
         this['action'] = action;

@@ -19,6 +19,7 @@ export class CreateTaskReq {
     private 'enable_restore'?: boolean;
     private 'enable_failed_object_recording'?: boolean;
     private 'object_overwrite_mode'?: CreateTaskReqObjectOverwriteModeEnum | string;
+    private 'dst_storage_policy'?: CreateTaskReqDstStoragePolicyEnum | string;
     private 'consistency_check'?: CreateTaskReqConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
     public constructor(srcNode?: SrcNodeReq, dstNode?: DstNodeReq) { 
@@ -149,6 +150,16 @@ export class CreateTaskReq {
     public get objectOverwriteMode(): CreateTaskReqObjectOverwriteModeEnum | string | undefined {
         return this['object_overwrite_mode'];
     }
+    public withDstStoragePolicy(dstStoragePolicy: CreateTaskReqDstStoragePolicyEnum | string): CreateTaskReq {
+        this['dst_storage_policy'] = dstStoragePolicy;
+        return this;
+    }
+    public set dstStoragePolicy(dstStoragePolicy: CreateTaskReqDstStoragePolicyEnum | string  | undefined) {
+        this['dst_storage_policy'] = dstStoragePolicy;
+    }
+    public get dstStoragePolicy(): CreateTaskReqDstStoragePolicyEnum | string | undefined {
+        return this['dst_storage_policy'];
+    }
     public withConsistencyCheck(consistencyCheck: CreateTaskReqConsistencyCheckEnum | string): CreateTaskReq {
         this['consistency_check'] = consistencyCheck;
         return this;
@@ -190,6 +201,17 @@ export enum CreateTaskReqObjectOverwriteModeEnum {
     SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE = 'SIZE_LAST_MODIFIED_COMPARISON_OVERWRITE',
     CRC64_COMPARISON_OVERWRITE = 'CRC64_COMPARISON_OVERWRITE',
     FULL_OVERWRITE = 'FULL_OVERWRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTaskReqDstStoragePolicyEnum {
+    STANDARD = 'STANDARD',
+    IA = 'IA',
+    ARCHIVE = 'ARCHIVE',
+    DEEP_ARCHIVE = 'DEEP_ARCHIVE',
+    SRC_STORAGE_MAPPING = 'SRC_STORAGE_MAPPING'
 }
 /**
     * @export

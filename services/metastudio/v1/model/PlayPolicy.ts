@@ -55,7 +55,8 @@ export class PlayPolicy {
     */
 export enum PlayPolicyPlayModeEnum {
     TEXT = 'TEXT',
-    AUDIO = 'AUDIO'
+    AUDIO = 'AUDIO',
+    NO_PRESET = 'NO_PRESET'
 }
 /**
     * @export

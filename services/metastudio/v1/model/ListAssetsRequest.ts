@@ -21,6 +21,9 @@ export class ListAssetsRequest {
     public language?: string;
     private 'system_property'?: string;
     private 'action_editable'?: boolean;
+    private 'is_movable'?: boolean;
+    private 'voice_provider'?: string;
+    public role?: ListAssetsRequestRoleEnum | string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
@@ -187,6 +190,30 @@ export class ListAssetsRequest {
     public get actionEditable(): boolean | undefined {
         return this['action_editable'];
     }
+    public withIsMovable(isMovable: boolean): ListAssetsRequest {
+        this['is_movable'] = isMovable;
+        return this;
+    }
+    public set isMovable(isMovable: boolean  | undefined) {
+        this['is_movable'] = isMovable;
+    }
+    public get isMovable(): boolean | undefined {
+        return this['is_movable'];
+    }
+    public withVoiceProvider(voiceProvider: string): ListAssetsRequest {
+        this['voice_provider'] = voiceProvider;
+        return this;
+    }
+    public set voiceProvider(voiceProvider: string  | undefined) {
+        this['voice_provider'] = voiceProvider;
+    }
+    public get voiceProvider(): string | undefined {
+        return this['voice_provider'];
+    }
+    public withRole(role: ListAssetsRequestRoleEnum | string): ListAssetsRequest {
+        this['role'] = role;
+        return this;
+    }
 }
 
 /**
@@ -197,4 +224,12 @@ export enum ListAssetsRequestAssetSourceEnum {
     SYSTEM = 'SYSTEM',
     CUSTOMIZATION = 'CUSTOMIZATION',
     ALL = 'ALL'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAssetsRequestRoleEnum {
+    SHARER = 'SHARER',
+    SHAREE = 'SHAREE'
 }

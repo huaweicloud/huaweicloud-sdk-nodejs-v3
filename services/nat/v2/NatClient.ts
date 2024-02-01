@@ -300,6 +300,7 @@ export class NatClient {
      * @param {string} [portId] 虚拟机或者裸机的Port ID，对应虚拟私有云场景，与private_ip参数二选一。
      * @param {string} [privateIp] 用户私有IP地址，对应专线、云连接场景，与port_id参数二选一。
      * @param {Array<string>} [protocol] 协议类型，目前支持TCP/tcp、UDP/udp、ANY/any。 对应协议号6、17、0。
+     * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -804,6 +805,7 @@ export class NatClient {
      * @param {string} [internalNetworkId] 公网NAT网关下行口（DVR的下一跳）所属的network id。
      * @param {string} [routerId] VPC的id。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1181,6 +1183,7 @@ export class NatClient {
      * @param {string} [networkId] 规则使用的网络id。与cidr参数二选一。
      * @param {number} [sourceType] 0：VPC侧，可以指定network_id 或者cidr 1：专线侧，只能指定cidr 不输入默认为0（VPC）
      * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;EIP_FREEZED\&quot;：EIP冻结 \&quot;INACTIVE\&quot;：不可用
+     * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1543,6 +1546,8 @@ export const ParamCreater = function () {
             let privateIp;
             
             let protocol;
+            
+            let marker;
 
             if (listNatGatewayDnatRulesRequest !== null && listNatGatewayDnatRulesRequest !== undefined) {
                 if (listNatGatewayDnatRulesRequest instanceof ListNatGatewayDnatRulesRequest) {
@@ -1560,6 +1565,7 @@ export const ParamCreater = function () {
                     portId = listNatGatewayDnatRulesRequest.portId;
                     privateIp = listNatGatewayDnatRulesRequest.privateIp;
                     protocol = listNatGatewayDnatRulesRequest.protocol;
+                    marker = listNatGatewayDnatRulesRequest.marker;
                 } else {
                     adminStateUp = listNatGatewayDnatRulesRequest['admin_state_up'];
                     externalServicePort = listNatGatewayDnatRulesRequest['external_service_port'];
@@ -1575,6 +1581,7 @@ export const ParamCreater = function () {
                     portId = listNatGatewayDnatRulesRequest['port_id'];
                     privateIp = listNatGatewayDnatRulesRequest['private_ip'];
                     protocol = listNatGatewayDnatRulesRequest['protocol'];
+                    marker = listNatGatewayDnatRulesRequest['marker'];
                 }
             }
 
@@ -1620,6 +1627,9 @@ export const ParamCreater = function () {
             }
             if (protocol !== null && protocol !== undefined) {
                 localVarQueryParameter['protocol'] = protocol;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2676,6 +2686,8 @@ export const ParamCreater = function () {
             let routerId;
             
             let limit;
+            
+            let marker;
 
             if (listNatGatewaysRequest !== null && listNatGatewaysRequest !== undefined) {
                 if (listNatGatewaysRequest instanceof ListNatGatewaysRequest) {
@@ -2690,6 +2702,7 @@ export const ParamCreater = function () {
                     internalNetworkId = listNatGatewaysRequest.internalNetworkId;
                     routerId = listNatGatewaysRequest.routerId;
                     limit = listNatGatewaysRequest.limit;
+                    marker = listNatGatewaysRequest.marker;
                 } else {
                     id = listNatGatewaysRequest['id'];
                     enterpriseProjectId = listNatGatewaysRequest['enterprise_project_id'];
@@ -2702,6 +2715,7 @@ export const ParamCreater = function () {
                     internalNetworkId = listNatGatewaysRequest['internal_network_id'];
                     routerId = listNatGatewaysRequest['router_id'];
                     limit = listNatGatewaysRequest['limit'];
+                    marker = listNatGatewaysRequest['marker'];
                 }
             }
 
@@ -2738,6 +2752,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3557,6 +3574,8 @@ export const ParamCreater = function () {
             let sourceType;
             
             let status;
+            
+            let marker;
 
             if (listNatGatewaySnatRulesRequest !== null && listNatGatewaySnatRulesRequest !== undefined) {
                 if (listNatGatewaySnatRulesRequest instanceof ListNatGatewaySnatRulesRequest) {
@@ -3572,6 +3591,7 @@ export const ParamCreater = function () {
                     networkId = listNatGatewaySnatRulesRequest.networkId;
                     sourceType = listNatGatewaySnatRulesRequest.sourceType;
                     status = listNatGatewaySnatRulesRequest.status;
+                    marker = listNatGatewaySnatRulesRequest.marker;
                 } else {
                     adminStateUp = listNatGatewaySnatRulesRequest['admin_state_up'];
                     cidr = listNatGatewaySnatRulesRequest['cidr'];
@@ -3585,6 +3605,7 @@ export const ParamCreater = function () {
                     networkId = listNatGatewaySnatRulesRequest['network_id'];
                     sourceType = listNatGatewaySnatRulesRequest['source_type'];
                     status = listNatGatewaySnatRulesRequest['status'];
+                    marker = listNatGatewaySnatRulesRequest['marker'];
                 }
             }
 
@@ -3624,6 +3645,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

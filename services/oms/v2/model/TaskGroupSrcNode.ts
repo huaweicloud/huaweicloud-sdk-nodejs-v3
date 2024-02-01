@@ -4,6 +4,7 @@ import { ListFile } from './ListFile';
 export class TaskGroupSrcNode {
     public ak?: string;
     public sk?: string;
+    private 'json_auth_file'?: string;
     private 'app_id'?: string;
     public region?: string;
     private 'object_key'?: Array<string>;
@@ -19,6 +20,16 @@ export class TaskGroupSrcNode {
     public withSk(sk: string): TaskGroupSrcNode {
         this['sk'] = sk;
         return this;
+    }
+    public withJsonAuthFile(jsonAuthFile: string): TaskGroupSrcNode {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withAppId(appId: string): TaskGroupSrcNode {
         this['app_id'] = appId;

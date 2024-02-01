@@ -75,5 +75,6 @@ export enum TaskGroupSrcNodeRespCloudTypeEnum {
     BAIDU = 'BAIDU',
     QINIU = 'QINIU',
     URLSOURCE = 'URLSOURCE',
-    UCLOUD = 'UCLOUD'
+    UCLOUD = 'UCLOUD',
+    GOOGLE = 'GOOGLE'
 }

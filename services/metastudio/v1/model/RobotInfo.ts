@@ -1,3 +1,4 @@
+import { LanguageEnum } from './LanguageEnum';
 
 
 export class RobotInfo {
@@ -6,10 +7,14 @@ export class RobotInfo {
     private 'app_id'?: string;
     private 'app_type'?: number;
     public concurrency?: number;
+    public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public region?: number;
     private 'cbs_project_id'?: string;
+    private 'llm_url'?: string;
+    private 'is_stream'?: boolean;
+    private 'chat_rounds'?: number;
     public constructor() { 
     }
     public withRobotId(robotId: string): RobotInfo {
@@ -50,6 +55,10 @@ export class RobotInfo {
         this['concurrency'] = concurrency;
         return this;
     }
+    public withLanguage(language: LanguageEnum): RobotInfo {
+        this['language'] = language;
+        return this;
+    }
     public withCreateTime(createTime: string): RobotInfo {
         this['create_time'] = createTime;
         return this;
@@ -83,5 +92,35 @@ export class RobotInfo {
     }
     public get cbsProjectId(): string | undefined {
         return this['cbs_project_id'];
+    }
+    public withLlmUrl(llmUrl: string): RobotInfo {
+        this['llm_url'] = llmUrl;
+        return this;
+    }
+    public set llmUrl(llmUrl: string  | undefined) {
+        this['llm_url'] = llmUrl;
+    }
+    public get llmUrl(): string | undefined {
+        return this['llm_url'];
+    }
+    public withIsStream(isStream: boolean): RobotInfo {
+        this['is_stream'] = isStream;
+        return this;
+    }
+    public set isStream(isStream: boolean  | undefined) {
+        this['is_stream'] = isStream;
+    }
+    public get isStream(): boolean | undefined {
+        return this['is_stream'];
+    }
+    public withChatRounds(chatRounds: number): RobotInfo {
+        this['chat_rounds'] = chatRounds;
+        return this;
+    }
+    public set chatRounds(chatRounds: number  | undefined) {
+        this['chat_rounds'] = chatRounds;
+    }
+    public get chatRounds(): number | undefined {
+        return this['chat_rounds'];
     }
 }

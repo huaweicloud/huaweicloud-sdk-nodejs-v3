@@ -10,6 +10,7 @@ export class StartSmartLiveReq {
     private 'stream_keys'?: Array<string>;
     private 'interaction_callback_url'?: string;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'view_mode'?: StartSmartLiveReqViewModeEnum | string;
     public constructor() { 
     }
     public withVideoConfig(videoConfig: VideoConfig): StartSmartLiveReq {
@@ -72,4 +73,23 @@ export class StartSmartLiveReq {
     public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
         return this['live_event_callback_config'];
     }
+    public withViewMode(viewMode: StartSmartLiveReqViewModeEnum | string): StartSmartLiveReq {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: StartSmartLiveReqViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): StartSmartLiveReqViewModeEnum | string | undefined {
+        return this['view_mode'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StartSmartLiveReqViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
 }

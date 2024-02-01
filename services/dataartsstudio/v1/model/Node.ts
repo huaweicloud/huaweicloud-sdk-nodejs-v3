@@ -161,7 +161,8 @@ export enum NodeTypeEnum {
     MAPREDUCE = 'MapReduce',
     MRSFLINK = 'MRSFlink',
     MRSFLINKJOB = 'MRSFlinkJob',
-    MRSHETUENGINE = 'MRSHetuEngine'
+    MRSHETUENGINE = 'MRSHetuEngine',
+    DATAMIGRATION = 'DataMigration'
 }
 /**
     * @export

@@ -4,6 +4,7 @@ export class ListBucketsReq {
     private 'cloud_type'?: string;
     public ak?: string;
     public sk?: string;
+    private 'json_auth_file'?: string;
     private 'app_id'?: string;
     public constructor(cloudType?: string) { 
         this['cloud_type'] = cloudType;
@@ -25,6 +26,16 @@ export class ListBucketsReq {
     public withSk(sk: string): ListBucketsReq {
         this['sk'] = sk;
         return this;
+    }
+    public withJsonAuthFile(jsonAuthFile: string): ListBucketsReq {
+        this['json_auth_file'] = jsonAuthFile;
+        return this;
+    }
+    public set jsonAuthFile(jsonAuthFile: string  | undefined) {
+        this['json_auth_file'] = jsonAuthFile;
+    }
+    public get jsonAuthFile(): string | undefined {
+        return this['json_auth_file'];
     }
     public withAppId(appId: string): ListBucketsReq {
         this['app_id'] = appId;

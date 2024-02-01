@@ -43,6 +43,8 @@ export * from './model/LoginInstanceResponse';
 export * from './model/Match';
 export * from './model/NetworkInfoCreate';
 export * from './model/OperateEipRequestBody';
+export * from './model/PrivateIp';
+export * from './model/PublicIp';
 export * from './model/RebootCbhRequestBody';
 export * from './model/RebootInstanceRequest';
 export * from './model/RebootInstanceResponse';

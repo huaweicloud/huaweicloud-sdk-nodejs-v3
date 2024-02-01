@@ -10,7 +10,9 @@ export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
     public name?: string;
     private 'group_desc'?: string;
     private 'retry_max_time'?: number;
-    private 'from_beginning'?: boolean;
+    public createdAt?: string;
+    public permissions?: Array<string>;
+    private 'consume_orderly'?: boolean;
     public constructor() { 
     }
     public withGroups(groups: Array<string>): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
@@ -53,14 +55,22 @@ export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
     }
-    public withFromBeginning(fromBeginning: boolean): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
-        this['from_beginning'] = fromBeginning;
+    public withCreatedAt(createdAt: string): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
+        this['createdAt'] = createdAt;
         return this;
     }
-    public set fromBeginning(fromBeginning: boolean  | undefined) {
-        this['from_beginning'] = fromBeginning;
+    public withPermissions(permissions: Array<string>): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
+        this['permissions'] = permissions;
+        return this;
     }
-    public get fromBeginning(): boolean | undefined {
-        return this['from_beginning'];
+    public withConsumeOrderly(consumeOrderly: boolean): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
+        this['consume_orderly'] = consumeOrderly;
+        return this;
+    }
+    public set consumeOrderly(consumeOrderly: boolean  | undefined) {
+        this['consume_orderly'] = consumeOrderly;
+    }
+    public get consumeOrderly(): boolean | undefined {
+        return this['consume_orderly'];
     }
 }
