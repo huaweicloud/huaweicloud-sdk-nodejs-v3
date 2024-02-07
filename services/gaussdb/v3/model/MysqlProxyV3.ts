@@ -25,6 +25,8 @@ export class MysqlProxyV3 {
     private 'consistence_mode'?: string;
     private 'subnet_id'?: string;
     private 'ssl_option'?: string;
+    private 'new_node_auto_add_status'?: string;
+    private 'new_node_weight'?: number;
     public constructor() { 
     }
     public withPoolId(poolId: string): MysqlProxyV3 {
@@ -202,5 +204,25 @@ export class MysqlProxyV3 {
     }
     public get sslOption(): string | undefined {
         return this['ssl_option'];
+    }
+    public withNewNodeAutoAddStatus(newNodeAutoAddStatus: string): MysqlProxyV3 {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+        return this;
+    }
+    public set newNodeAutoAddStatus(newNodeAutoAddStatus: string  | undefined) {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+    }
+    public get newNodeAutoAddStatus(): string | undefined {
+        return this['new_node_auto_add_status'];
+    }
+    public withNewNodeWeight(newNodeWeight: number): MysqlProxyV3 {
+        this['new_node_weight'] = newNodeWeight;
+        return this;
+    }
+    public set newNodeWeight(newNodeWeight: number  | undefined) {
+        this['new_node_weight'] = newNodeWeight;
+    }
+    public get newNodeWeight(): number | undefined {
+        return this['new_node_weight'];
     }
 }

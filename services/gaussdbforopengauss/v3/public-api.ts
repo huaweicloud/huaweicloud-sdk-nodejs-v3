@@ -240,6 +240,8 @@ export * from './model/ShowRecyclePolicyRequest';
 export * from './model/ShowRecyclePolicyResponse';
 export * from './model/ShowSslCertDownloadLinkRequest';
 export * from './model/ShowSslCertDownloadLinkResponse';
+export * from './model/StopBackupRequest';
+export * from './model/StopBackupResponse';
 export * from './model/Storage';
 export * from './model/SwitchConfigurationRequest';
 export * from './model/SwitchConfigurationResponse';

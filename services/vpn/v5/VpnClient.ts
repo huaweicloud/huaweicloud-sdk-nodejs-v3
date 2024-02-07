@@ -35,6 +35,8 @@ import { CreateVpnConnectionRequest } from './model/CreateVpnConnectionRequest';
 import { CreateVpnConnectionRequestBody } from './model/CreateVpnConnectionRequestBody';
 import { CreateVpnConnectionRequestBodyContent } from './model/CreateVpnConnectionRequestBodyContent';
 import { CreateVpnConnectionResponse } from './model/CreateVpnConnectionResponse';
+import { CreateVpnGatewayCertificateRequestBody } from './model/CreateVpnGatewayCertificateRequestBody';
+import { CreateVpnGatewayCertificateRequestBodyContent } from './model/CreateVpnGatewayCertificateRequestBodyContent';
 import { DeleteCgwRequest } from './model/DeleteCgwRequest';
 import { DeleteCgwResponse } from './model/DeleteCgwResponse';
 import { DeleteConnectionMonitorRequest } from './model/DeleteConnectionMonitorRequest';
@@ -66,7 +68,7 @@ import { PageInfo } from './model/PageInfo';
 import { PolicyRule } from './model/PolicyRule';
 import { PolicyTemplate } from './model/PolicyTemplate';
 import { QueryResourcesRequestBody } from './model/QueryResourcesRequestBody';
-import { Quota } from './model/Quota';
+import { QuotaInfo } from './model/QuotaInfo';
 import { Quotas } from './model/Quotas';
 import { Resource } from './model/Resource';
 import { ResourceTag } from './model/ResourceTag';
@@ -111,13 +113,13 @@ import { UpdateVpnConnectionRequest } from './model/UpdateVpnConnectionRequest';
 import { UpdateVpnConnectionRequestBody } from './model/UpdateVpnConnectionRequestBody';
 import { UpdateVpnConnectionRequestBodyContent } from './model/UpdateVpnConnectionRequestBodyContent';
 import { UpdateVpnConnectionResponse } from './model/UpdateVpnConnectionResponse';
+import { UpdateVpnGatewayCertificateRequestBody } from './model/UpdateVpnGatewayCertificateRequestBody';
+import { UpdateVpnGatewayCertificateRequestBodyContent } from './model/UpdateVpnGatewayCertificateRequestBodyContent';
 import { VgwIkePolicy } from './model/VgwIkePolicy';
 import { VgwIpsecPolicy } from './model/VgwIpsecPolicy';
 import { VpnGatewayAvailabilityZones } from './model/VpnGatewayAvailabilityZones';
 import { VpnGatewayCertificate } from './model/VpnGatewayCertificate';
 import { VpnGatewayCertificateConfig } from './model/VpnGatewayCertificateConfig';
-import { VpnGatewayCertificateRequestBody } from './model/VpnGatewayCertificateRequestBody';
-import { VpnGatewayCertificateRequestBodyContent } from './model/VpnGatewayCertificateRequestBodyContent';
 import { VpnResourceTag } from './model/VpnResourceTag';
 
 export class VpnClient {
@@ -311,7 +313,7 @@ export class VpnClient {
     }
 
     /**
-     * 为指定实例批量添加标签,标签管理服务需要使用该接口批量管理实例的标签.一个资源上最多有20个标签
+     * 为指定实例批量添加标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -332,7 +334,7 @@ export class VpnClient {
     }
 
     /**
-     * 为指定实例批量删除标签,标签管理服务需要使用该接口批量管理实例的标签.
+     * 为指定实例批量删除标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -353,11 +355,11 @@ export class VpnClient {
     }
 
     /**
-     * 使用标签过滤实例,并查询实例数量,需要各服务提供查询
+     * 根据标签查询资源实例数量
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询标签下资源实例数量
+     * @summary 查询资源实例数量
      * @param {'vpn-gateway' | 'vpn-connection' | 'customer-gateway'} resourceType 资源类型
      * @param {QueryResourcesRequestBody} queryResourcesRequestBody 
      * @param {*} [options] Override http request option.
@@ -373,11 +375,11 @@ export class VpnClient {
     }
 
     /**
-     * 查询租户在指定Project中实例类型的所有资源标签集合
+     * 查询租户在指定项目中指定资源类型下的所有标签
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询项目下标签
+     * @summary 查询项目标签
      * @param {'vpn-gateway' | 'vpn-connection' | 'customer-gateway'} resourceType 资源类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -392,11 +394,11 @@ export class VpnClient {
     }
 
     /**
-     * 使用标签过滤实例,并查询实例数量,需要各服务提供查询
+     * 根据标签查询资源实例列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 按标签查询资源
+     * @summary 查询资源实例列表
      * @param {'vpn-gateway' | 'vpn-connection' | 'customer-gateway'} resourceType 资源类型
      * @param {QueryResourcesRequestBody} queryResourcesRequestBody 
      * @param {string} [limit] limit
@@ -414,7 +416,7 @@ export class VpnClient {
     }
 
     /**
-     * 查询指定实例的标签信息,标签管理服务需要使用该接口查询指定实例的全部标签数据
+     * 查询指定实例的标签信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -657,7 +659,7 @@ export class VpnClient {
      *
      * @summary 导入VPN网关证书
      * @param {string} vgwId VPN网关实例ID
-     * @param {VpnGatewayCertificateRequestBody} vpnGatewayCertificateRequestBody 请求参数对象
+     * @param {CreateVpnGatewayCertificateRequestBody} createVpnGatewayCertificateRequestBody 请求参数对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -697,7 +699,7 @@ export class VpnClient {
      * @summary 更新VPN网关证书
      * @param {string} vgwId VPN网关实例ID
      * @param {string} certificateId VPN网关证书ID
-     * @param {VpnGatewayCertificateRequestBody} vpnGatewayCertificateRequestBody 请求参数对象
+     * @param {UpdateVpnGatewayCertificateRequestBody} updateVpnGatewayCertificateRequestBody 请求参数对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1098,7 +1100,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为指定实例批量添加标签,标签管理服务需要使用该接口批量管理实例的标签.一个资源上最多有20个标签
+         * 为指定实例批量添加标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1151,7 +1153,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为指定实例批量删除标签,标签管理服务需要使用该接口批量管理实例的标签.
+         * 为指定实例批量删除标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1204,7 +1206,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用标签过滤实例,并查询实例数量,需要各服务提供查询
+         * 根据标签查询资源实例数量
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1250,7 +1252,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户在指定Project中实例类型的所有资源标签集合
+         * 查询租户在指定项目中指定资源类型下的所有标签
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1287,7 +1289,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用标签过滤实例,并查询实例数量,需要各服务提供查询
+         * 根据标签查询资源实例列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1348,7 +1350,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定实例的标签信息,标签管理服务需要使用该接口查询指定实例的全部标签数据
+         * 查询指定实例的标签信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

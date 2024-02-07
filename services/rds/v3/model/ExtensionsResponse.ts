@@ -4,6 +4,7 @@ export class ExtensionsResponse {
     public name?: string;
     private 'database_name'?: string;
     public version?: string;
+    private 'version_update'?: string;
     private 'shared_preload_libraries'?: string;
     public created?: boolean;
     public description?: string;
@@ -26,6 +27,16 @@ export class ExtensionsResponse {
     public withVersion(version: string): ExtensionsResponse {
         this['version'] = version;
         return this;
+    }
+    public withVersionUpdate(versionUpdate: string): ExtensionsResponse {
+        this['version_update'] = versionUpdate;
+        return this;
+    }
+    public set versionUpdate(versionUpdate: string  | undefined) {
+        this['version_update'] = versionUpdate;
+    }
+    public get versionUpdate(): string | undefined {
+        return this['version_update'];
     }
     public withSharedPreloadLibraries(sharedPreloadLibraries: string): ExtensionsResponse {
         this['shared_preload_libraries'] = sharedPreloadLibraries;

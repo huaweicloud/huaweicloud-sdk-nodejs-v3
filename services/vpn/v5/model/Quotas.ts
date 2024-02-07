@@ -1,11 +1,11 @@
-import { Quota } from './Quota';
+import { QuotaInfo } from './QuotaInfo';
 
 
 export class Quotas {
-    public resources?: Array<Quota>;
+    public resources?: Array<QuotaInfo>;
     public constructor() { 
     }
-    public withResources(resources: Array<Quota>): Quotas {
+    public withResources(resources: Array<QuotaInfo>): Quotas {
         this['resources'] = resources;
         return this;
     }

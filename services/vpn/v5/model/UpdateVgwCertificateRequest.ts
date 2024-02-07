@@ -1,10 +1,10 @@
-import { VpnGatewayCertificateRequestBody } from './VpnGatewayCertificateRequestBody';
+import { UpdateVpnGatewayCertificateRequestBody } from './UpdateVpnGatewayCertificateRequestBody';
 
 
 export class UpdateVgwCertificateRequest {
     private 'vgw_id'?: string;
     private 'certificate_id'?: string;
-    public body?: VpnGatewayCertificateRequestBody;
+    public body?: UpdateVpnGatewayCertificateRequestBody;
     public constructor(vgwId?: string, certificateId?: string) { 
         this['vgw_id'] = vgwId;
         this['certificate_id'] = certificateId;
@@ -29,7 +29,7 @@ export class UpdateVgwCertificateRequest {
     public get certificateId(): string | undefined {
         return this['certificate_id'];
     }
-    public withBody(body: VpnGatewayCertificateRequestBody): UpdateVgwCertificateRequest {
+    public withBody(body: UpdateVpnGatewayCertificateRequestBody): UpdateVgwCertificateRequest {
         this['body'] = body;
         return this;
     }

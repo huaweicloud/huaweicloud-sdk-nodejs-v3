@@ -1,9 +1,9 @@
-import { VpnGatewayCertificateRequestBody } from './VpnGatewayCertificateRequestBody';
+import { CreateVpnGatewayCertificateRequestBody } from './CreateVpnGatewayCertificateRequestBody';
 
 
 export class CreateVgwCertificateRequest {
     private 'vgw_id'?: string;
-    public body?: VpnGatewayCertificateRequestBody;
+    public body?: CreateVpnGatewayCertificateRequestBody;
     public constructor(vgwId?: string) { 
         this['vgw_id'] = vgwId;
     }
@@ -17,7 +17,7 @@ export class CreateVgwCertificateRequest {
     public get vgwId(): string | undefined {
         return this['vgw_id'];
     }
-    public withBody(body: VpnGatewayCertificateRequestBody): CreateVgwCertificateRequest {
+    public withBody(body: CreateVpnGatewayCertificateRequestBody): CreateVgwCertificateRequest {
         this['body'] = body;
         return this;
     }

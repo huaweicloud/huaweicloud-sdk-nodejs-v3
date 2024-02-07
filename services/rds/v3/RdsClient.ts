@@ -112,6 +112,7 @@ import { CustomerUpgradeDatabaseVersionReqNew } from './model/CustomerUpgradeDat
 import { DBSInstanceHostInfoResult } from './model/DBSInstanceHostInfoResult';
 import { DataIpRequest } from './model/DataIpRequest';
 import { DatabaseForCreation } from './model/DatabaseForCreation';
+import { DatabaseUserRoleRequest } from './model/DatabaseUserRoleRequest';
 import { DatabaseWithPrivilege } from './model/DatabaseWithPrivilege';
 import { DatabaseWithPrivilegeObject } from './model/DatabaseWithPrivilegeObject';
 import { Datastore } from './model/Datastore';
@@ -167,6 +168,10 @@ import { ErrorLogItem } from './model/ErrorLogItem';
 import { ErrorResponse } from './model/ErrorResponse';
 import { ErrorRsp } from './model/ErrorRsp';
 import { ErrorlogForLtsRequest } from './model/ErrorlogForLtsRequest';
+import { ExecutePrivilegeDatabaseUserRoleRequest } from './model/ExecutePrivilegeDatabaseUserRoleRequest';
+import { ExecutePrivilegeDatabaseUserRoleResponse } from './model/ExecutePrivilegeDatabaseUserRoleResponse';
+import { ExecuteRevokeDatabaseUserRoleRequest } from './model/ExecuteRevokeDatabaseUserRoleRequest';
+import { ExecuteRevokeDatabaseUserRoleResponse } from './model/ExecuteRevokeDatabaseUserRoleResponse';
 import { ExtensionRequest } from './model/ExtensionRequest';
 import { ExtensionsResponse } from './model/ExtensionsResponse';
 import { FailoverModeRequest } from './model/FailoverModeRequest';
@@ -213,6 +218,8 @@ import { ListCollationsRequest } from './model/ListCollationsRequest';
 import { ListCollationsResponse } from './model/ListCollationsResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
 import { ListConfigurationsResponse } from './model/ListConfigurationsResponse';
+import { ListDatabaseUserRoleRequest } from './model/ListDatabaseUserRoleRequest';
+import { ListDatabaseUserRoleResponse } from './model/ListDatabaseUserRoleResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
 import { ListDatabasesResponse } from './model/ListDatabasesResponse';
 import { ListDatastoresRequest } from './model/ListDatastoresRequest';
@@ -392,8 +399,6 @@ import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResourceTag } from './model/ResourceTag';
 import { Resources } from './model/Resources';
-import { RestartRdSforMysqlProxyRequest } from './model/RestartRdSforMysqlProxyRequest';
-import { RestartRdSforMysqlProxyResponse } from './model/RestartRdSforMysqlProxyResponse';
 import { RestoreDatabaseInfo } from './model/RestoreDatabaseInfo';
 import { RestoreDatabaseInstance } from './model/RestoreDatabaseInstance';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
@@ -457,6 +462,8 @@ import { SetInstancesDbShrinkRequest } from './model/SetInstancesDbShrinkRequest
 import { SetInstancesDbShrinkResponse } from './model/SetInstancesDbShrinkResponse';
 import { SetInstancesNewDbShrinkRequest } from './model/SetInstancesNewDbShrinkRequest';
 import { SetInstancesNewDbShrinkResponse } from './model/SetInstancesNewDbShrinkResponse';
+import { SetInstancesProxyRestartRequest } from './model/SetInstancesProxyRestartRequest';
+import { SetInstancesProxyRestartResponse } from './model/SetInstancesProxyRestartResponse';
 import { SetLogLtsConfigsRequest } from './model/SetLogLtsConfigsRequest';
 import { SetLogLtsConfigsResponse } from './model/SetLogLtsConfigsResponse';
 import { SetOffSiteBackupPolicyRequest } from './model/SetOffSiteBackupPolicyRequest';
@@ -578,6 +585,9 @@ import { UpdateConfigurationRspConfiguration } from './model/UpdateConfiguration
 import { UpdateDBShrinkRequestBody } from './model/UpdateDBShrinkRequestBody';
 import { UpdateDataIpRequest } from './model/UpdateDataIpRequest';
 import { UpdateDataIpResponse } from './model/UpdateDataIpResponse';
+import { UpdateDatabaseOwnerRequest } from './model/UpdateDatabaseOwnerRequest';
+import { UpdateDatabaseOwnerRequestBody } from './model/UpdateDatabaseOwnerRequestBody';
+import { UpdateDatabaseOwnerResponse } from './model/UpdateDatabaseOwnerResponse';
 import { UpdateDatabaseReq } from './model/UpdateDatabaseReq';
 import { UpdateDatabaseRequest } from './model/UpdateDatabaseRequest';
 import { UpdateDatabaseResponse } from './model/UpdateDatabaseResponse';
@@ -607,6 +617,8 @@ import { UpdatePostgresqlDatabaseRequest } from './model/UpdatePostgresqlDatabas
 import { UpdatePostgresqlDatabaseResponse } from './model/UpdatePostgresqlDatabaseResponse';
 import { UpdatePostgresqlDbUserCommentRequest } from './model/UpdatePostgresqlDbUserCommentRequest';
 import { UpdatePostgresqlDbUserCommentResponse } from './model/UpdatePostgresqlDbUserCommentResponse';
+import { UpdatePostgresqlExtensionRequest } from './model/UpdatePostgresqlExtensionRequest';
+import { UpdatePostgresqlExtensionResponse } from './model/UpdatePostgresqlExtensionResponse';
 import { UpdatePostgresqlInstanceAliasRequest } from './model/UpdatePostgresqlInstanceAliasRequest';
 import { UpdatePostgresqlInstanceAliasResponse } from './model/UpdatePostgresqlInstanceAliasResponse';
 import { UpdatePostgresqlParameterValueRequest } from './model/UpdatePostgresqlParameterValueRequest';
@@ -2281,28 +2293,6 @@ export class RdsClient {
     }
 
     /**
-     * 重启数据库代理。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 重启数据库代理
-     * @param {string} instanceId 实例ID，严格匹配UUID规则。
-     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
-     * @param {string} [contentType] 
-     * @param {string} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest?: RestartRdSforMysqlProxyRequest): Promise<RestartRdSforMysqlProxyResponse> {
-        const options = ParamCreater().restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 恢复到已有实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2463,6 +2453,28 @@ export class RdsClient {
      */
     public setBinlogClearPolicy(setBinlogClearPolicyRequest?: SetBinlogClearPolicyRequest): Promise<SetBinlogClearPolicyResponse> {
         const options = ParamCreater().setBinlogClearPolicy(setBinlogClearPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启数据库代理。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启数据库代理
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {string} [contentType] 
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInstancesProxyRestart(setInstancesProxyRestartRequest?: SetInstancesProxyRestartRequest): Promise<SetInstancesProxyRestartResponse> {
+        const options = ParamCreater().setInstancesProxyRestart(setInstancesProxyRestartRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4098,6 +4110,66 @@ export class RdsClient {
     }
 
     /**
+     * 授予用户角色
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 授予用户角色
+     * @param {string} instanceId 实例ID
+     * @param {DatabaseUserRoleRequest} [executePrivilegeDatabaseUserRoleRequestBody] 请求信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executePrivilegeDatabaseUserRole(executePrivilegeDatabaseUserRoleRequest?: ExecutePrivilegeDatabaseUserRoleRequest): Promise<ExecutePrivilegeDatabaseUserRoleResponse> {
+        const options = ParamCreater().executePrivilegeDatabaseUserRole(executePrivilegeDatabaseUserRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 撤回用户角色
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 撤回用户角色
+     * @param {string} instanceId 实例ID
+     * @param {DatabaseUserRoleRequest} [executeRevokeDatabaseUserRoleRequestBody] 请求信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeRevokeDatabaseUserRole(executeRevokeDatabaseUserRoleRequest?: ExecuteRevokeDatabaseUserRoleRequest): Promise<ExecuteRevokeDatabaseUserRoleResponse> {
+        const options = ParamCreater().executeRevokeDatabaseUserRole(executeRevokeDatabaseUserRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库角色信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库角色信息
+     * @param {string} instanceId 实例ID
+     * @param {string} [userName] 用户名，有值时返回该账号可以授权的角色集合
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDatabaseUserRole(listDatabaseUserRoleRequest?: ListDatabaseUserRoleRequest): Promise<ListDatabaseUserRoleResponse> {
+        const options = ParamCreater().listDatabaseUserRole(listDatabaseUserRoleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定实例的数据库SCHEMA列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4378,6 +4450,26 @@ export class RdsClient {
     }
 
     /**
+     * 修改数据库owner
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据库owner
+     * @param {string} instanceId 实例ID
+     * @param {UpdateDatabaseOwnerRequestBody} [updateDatabaseOwnerRequestBody] 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDatabaseOwner(updateDatabaseOwnerRequest?: UpdateDatabaseOwnerRequest): Promise<UpdateDatabaseOwnerResponse> {
+        const options = ParamCreater().updateDatabaseOwner(updateDatabaseOwnerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 数据库帐号授权。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4431,6 +4523,27 @@ export class RdsClient {
      */
     public updatePostgresqlDbUserComment(updatePostgresqlDbUserCommentRequest?: UpdatePostgresqlDbUserCommentRequest): Promise<UpdatePostgresqlDbUserCommentResponse> {
         const options = ParamCreater().updatePostgresqlDbUserComment(updatePostgresqlDbUserCommentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在指定数据库上更新插件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新插件
+     * @param {string} instanceId 实例ID。
+     * @param {ExtensionRequest} updatePostgresqlExtensionRequestBody 更新插件入参
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePostgresqlExtension(updatePostgresqlExtensionRequest?: UpdatePostgresqlExtensionRequest): Promise<UpdatePostgresqlExtensionResponse> {
+        const options = ParamCreater().updatePostgresqlExtension(updatePostgresqlExtensionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9125,64 +9238,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重启数据库代理。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        restartRdSforMysqlProxy(restartRdSforMysqlProxyRequest?: RestartRdSforMysqlProxyRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/restart",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let proxyId;
-            
-            let contentType;
-            
-            let xLanguage;
-
-            if (restartRdSforMysqlProxyRequest !== null && restartRdSforMysqlProxyRequest !== undefined) {
-                if (restartRdSforMysqlProxyRequest instanceof RestartRdSforMysqlProxyRequest) {
-                    instanceId = restartRdSforMysqlProxyRequest.instanceId;
-                    proxyId = restartRdSforMysqlProxyRequest.proxyId;
-                    contentType = restartRdSforMysqlProxyRequest.contentType;
-                    xLanguage = restartRdSforMysqlProxyRequest.xLanguage;
-                } else {
-                    instanceId = restartRdSforMysqlProxyRequest['instance_id'];
-                    proxyId = restartRdSforMysqlProxyRequest['proxy_id'];
-                    contentType = restartRdSforMysqlProxyRequest['Content-Type'];
-                    xLanguage = restartRdSforMysqlProxyRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartRdSforMysqlProxy.');
-            }
-            if (proxyId === null || proxyId === undefined) {
-            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling restartRdSforMysqlProxy.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
-            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 恢复到已有实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9588,6 +9643,64 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启数据库代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInstancesProxyRestart(setInstancesProxyRestartRequest?: SetInstancesProxyRestartRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (setInstancesProxyRestartRequest !== null && setInstancesProxyRestartRequest !== undefined) {
+                if (setInstancesProxyRestartRequest instanceof SetInstancesProxyRestartRequest) {
+                    instanceId = setInstancesProxyRestartRequest.instanceId;
+                    proxyId = setInstancesProxyRestartRequest.proxyId;
+                    contentType = setInstancesProxyRestartRequest.contentType;
+                    xLanguage = setInstancesProxyRestartRequest.xLanguage;
+                } else {
+                    instanceId = setInstancesProxyRestartRequest['instance_id'];
+                    proxyId = setInstancesProxyRestartRequest['proxy_id'];
+                    contentType = setInstancesProxyRestartRequest['Content-Type'];
+                    xLanguage = setInstancesProxyRestartRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstancesProxyRestart.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling setInstancesProxyRestart.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13522,6 +13635,137 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 授予用户角色
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executePrivilegeDatabaseUserRole(executePrivilegeDatabaseUserRoleRequest?: ExecutePrivilegeDatabaseUserRoleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db-user-role",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (executePrivilegeDatabaseUserRoleRequest !== null && executePrivilegeDatabaseUserRoleRequest !== undefined) {
+                if (executePrivilegeDatabaseUserRoleRequest instanceof ExecutePrivilegeDatabaseUserRoleRequest) {
+                    instanceId = executePrivilegeDatabaseUserRoleRequest.instanceId;
+                    body = executePrivilegeDatabaseUserRoleRequest.body
+                } else {
+                    instanceId = executePrivilegeDatabaseUserRoleRequest['instance_id'];
+                    body = executePrivilegeDatabaseUserRoleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executePrivilegeDatabaseUserRole.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 撤回用户角色
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeRevokeDatabaseUserRole(executeRevokeDatabaseUserRoleRequest?: ExecuteRevokeDatabaseUserRoleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/db-user-role",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (executeRevokeDatabaseUserRoleRequest !== null && executeRevokeDatabaseUserRoleRequest !== undefined) {
+                if (executeRevokeDatabaseUserRoleRequest instanceof ExecuteRevokeDatabaseUserRoleRequest) {
+                    instanceId = executeRevokeDatabaseUserRoleRequest.instanceId;
+                    body = executeRevokeDatabaseUserRoleRequest.body
+                } else {
+                    instanceId = executeRevokeDatabaseUserRoleRequest['instance_id'];
+                    body = executeRevokeDatabaseUserRoleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeRevokeDatabaseUserRole.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库角色信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDatabaseUserRole(listDatabaseUserRoleRequest?: ListDatabaseUserRoleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/roles",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let userName;
+
+            if (listDatabaseUserRoleRequest !== null && listDatabaseUserRoleRequest !== undefined) {
+                if (listDatabaseUserRoleRequest instanceof ListDatabaseUserRoleRequest) {
+                    instanceId = listDatabaseUserRoleRequest.instanceId;
+                    userName = listDatabaseUserRoleRequest.userName;
+                } else {
+                    instanceId = listDatabaseUserRoleRequest['instance_id'];
+                    userName = listDatabaseUserRoleRequest['user_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDatabaseUserRole.');
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定实例的数据库SCHEMA列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14247,6 +14491,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改数据库owner
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDatabaseOwner(updateDatabaseOwnerRequest?: UpdateDatabaseOwnerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/database/owner",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateDatabaseOwnerRequest !== null && updateDatabaseOwnerRequest !== undefined) {
+                if (updateDatabaseOwnerRequest instanceof UpdateDatabaseOwnerRequest) {
+                    instanceId = updateDatabaseOwnerRequest.instanceId;
+                    body = updateDatabaseOwnerRequest.body
+                } else {
+                    instanceId = updateDatabaseOwnerRequest['instance_id'];
+                    body = updateDatabaseOwnerRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDatabaseOwner.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 数据库帐号授权。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14394,6 +14681,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在指定数据库上更新插件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePostgresqlExtension(updatePostgresqlExtensionRequest?: UpdatePostgresqlExtensionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/extensions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updatePostgresqlExtensionRequest !== null && updatePostgresqlExtensionRequest !== undefined) {
+                if (updatePostgresqlExtensionRequest instanceof UpdatePostgresqlExtensionRequest) {
+                    instanceId = updatePostgresqlExtensionRequest.instanceId;
+                    body = updatePostgresqlExtensionRequest.body
+                    xLanguage = updatePostgresqlExtensionRequest.xLanguage;
+                } else {
+                    instanceId = updatePostgresqlExtensionRequest['instance_id'];
+                    body = updatePostgresqlExtensionRequest['body'];
+                    xLanguage = updatePostgresqlExtensionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePostgresqlExtension.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

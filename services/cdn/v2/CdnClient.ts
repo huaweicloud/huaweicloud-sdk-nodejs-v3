@@ -10,37 +10,58 @@ import { BatchCopyDomainResponse } from './model/BatchCopyDomainResponse';
 import { BatchCopyErrorRsp } from './model/BatchCopyErrorRsp';
 import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
+import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
+import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
 import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
 import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterGetBody';
+import { CdnIps } from './model/CdnIps';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
+import { CreateDomainRequest } from './model/CreateDomainRequest';
+import { CreateDomainRequestBody } from './model/CreateDomainRequestBody';
+import { CreateDomainResponse } from './model/CreateDomainResponse';
+import { CreateDomainResponseBodyContent } from './model/CreateDomainResponseBodyContent';
 import { CreatePreheatingTasksRequest } from './model/CreatePreheatingTasksRequest';
 import { CreatePreheatingTasksResponse } from './model/CreatePreheatingTasksResponse';
 import { CreateRefreshTasksRequest } from './model/CreateRefreshTasksRequest';
 import { CreateRefreshTasksResponse } from './model/CreateRefreshTasksResponse';
+import { CreateTagsRequest } from './model/CreateTagsRequest';
+import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
+import { CreateTagsResponse } from './model/CreateTagsResponse';
 import { CustomArgs } from './model/CustomArgs';
+import { DeleteDomainRequest } from './model/DeleteDomainRequest';
+import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
+import { DisableDomainRequest } from './model/DisableDomainRequest';
+import { DisableDomainResponse } from './model/DisableDomainResponse';
+import { DomainBody } from './model/DomainBody';
 import { DomainOriginHost } from './model/DomainOriginHost';
 import { Domains } from './model/Domains';
+import { DomainsDetail } from './model/DomainsDetail';
 import { DomainsWithPort } from './model/DomainsWithPort';
 import { DownloadRegionCarrierExcelRequest } from './model/DownloadRegionCarrierExcelRequest';
 import { DownloadRegionCarrierExcelResponse } from './model/DownloadRegionCarrierExcelResponse';
 import { DownloadStatisticsExcelRequest } from './model/DownloadStatisticsExcelRequest';
 import { DownloadStatisticsExcelResponse } from './model/DownloadStatisticsExcelResponse';
+import { EnableDomainRequest } from './model/EnableDomainRequest';
+import { EnableDomainResponse } from './model/EnableDomainResponse';
 import { EpResourceTag } from './model/EpResourceTag';
 import { ErrMsg } from './model/ErrMsg';
 import { ErrRsp } from './model/ErrRsp';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './model/FlexibleOrigins';
+import { ForceRedirect } from './model/ForceRedirect';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
 import { Hsts } from './model/Hsts';
 import { HstsQuery } from './model/HstsQuery';
 import { HttpGetBody } from './model/HttpGetBody';
 import { HttpPutBody } from './model/HttpPutBody';
 import { HttpResponseHeader } from './model/HttpResponseHeader';
+import { HttpsDetail } from './model/HttpsDetail';
 import { InheritConfig } from './model/InheritConfig';
 import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
@@ -67,6 +88,8 @@ import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
 import { ShowBandwidthCalcRequest } from './model/ShowBandwidthCalcRequest';
 import { ShowBandwidthCalcResponse } from './model/ShowBandwidthCalcResponse';
+import { ShowCertificatesHttpsInfoRequest } from './model/ShowCertificatesHttpsInfoRequest';
+import { ShowCertificatesHttpsInfoResponse } from './model/ShowCertificatesHttpsInfoResponse';
 import { ShowChargeModesRequest } from './model/ShowChargeModesRequest';
 import { ShowChargeModesResponse } from './model/ShowChargeModesResponse';
 import { ShowDomainDetailByNameRequest } from './model/ShowDomainDetailByNameRequest';
@@ -81,27 +104,46 @@ import { ShowHistoryTaskDetailsRequest } from './model/ShowHistoryTaskDetailsReq
 import { ShowHistoryTaskDetailsResponse } from './model/ShowHistoryTaskDetailsResponse';
 import { ShowHistoryTasksRequest } from './model/ShowHistoryTasksRequest';
 import { ShowHistoryTasksResponse } from './model/ShowHistoryTasksResponse';
+import { ShowIpInfoRequest } from './model/ShowIpInfoRequest';
+import { ShowIpInfoResponse } from './model/ShowIpInfoResponse';
 import { ShowLogsRequest } from './model/ShowLogsRequest';
 import { ShowLogsResponse } from './model/ShowLogsResponse';
+import { ShowTagsRequest } from './model/ShowTagsRequest';
+import { ShowTagsResponse } from './model/ShowTagsResponse';
 import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
 import { ShowTopDomainNamesResponse } from './model/ShowTopDomainNamesResponse';
 import { ShowTopUrlRequest } from './model/ShowTopUrlRequest';
 import { ShowTopUrlResponse } from './model/ShowTopUrlResponse';
 import { ShowUrlTaskInfoRequest } from './model/ShowUrlTaskInfoRequest';
 import { ShowUrlTaskInfoResponse } from './model/ShowUrlTaskInfoResponse';
+import { ShowVerifyDomainOwnerInfoRequest } from './model/ShowVerifyDomainOwnerInfoRequest';
+import { ShowVerifyDomainOwnerInfoResponse } from './model/ShowVerifyDomainOwnerInfoResponse';
+import { SourceWithPort } from './model/SourceWithPort';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
+import { TagMap } from './model/TagMap';
 import { TasksObject } from './model/TasksObject';
 import { TopReferSummary } from './model/TopReferSummary';
 import { TopUrlSummary } from './model/TopUrlSummary';
 import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
 import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
+import { UpdateDomainMultiCertificatesRequest } from './model/UpdateDomainMultiCertificatesRequest';
+import { UpdateDomainMultiCertificatesRequestBody } from './model/UpdateDomainMultiCertificatesRequestBody';
+import { UpdateDomainMultiCertificatesRequestBodyContent } from './model/UpdateDomainMultiCertificatesRequestBodyContent';
+import { UpdateDomainMultiCertificatesResponse } from './model/UpdateDomainMultiCertificatesResponse';
+import { UpdateDomainMultiCertificatesResponseBodyContent } from './model/UpdateDomainMultiCertificatesResponseBodyContent';
+import { UpdatePrivateBucketAccessBody } from './model/UpdatePrivateBucketAccessBody';
+import { UpdatePrivateBucketAccessRequest } from './model/UpdatePrivateBucketAccessRequest';
+import { UpdatePrivateBucketAccessResponse } from './model/UpdatePrivateBucketAccessResponse';
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
 import { Urls } from './model/Urls';
 import { UserAgentFilter } from './model/UserAgentFilter';
+import { VerifyDomainOwnerRequest } from './model/VerifyDomainOwnerRequest';
+import { VerifyDomainOwnerRequestBody } from './model/VerifyDomainOwnerRequestBody';
+import { VerifyDomainOwnerResponse } from './model/VerifyDomainOwnerResponse';
 import { VideoSeek } from './model/VideoSeek';
 import { WebSocketSeek } from './model/WebSocketSeek';
 
@@ -133,6 +175,44 @@ export class CdnClient {
      */
     public batchCopyDomain(batchCopyDomainRequest?: BatchCopyDomainRequest): Promise<BatchCopyDomainResponse> {
         const options = ParamCreater().batchCopyDomain(batchCopyDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于删除资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源标签配置接口
+     * @param {DeleteTagsRequestBody} [deleteTagsRequestBody] DeleteTags对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<BatchDeleteTagsResponse> {
+        const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建加速域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建加速域名
+     * @param {CreateDomainRequestBody} [createDomainRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDomain(createDomainRequest?: CreateDomainRequest): Promise<CreateDomainResponse> {
+        const options = ParamCreater().createDomain(createDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -173,6 +253,65 @@ export class CdnClient {
      */
     public createRefreshTasks(createRefreshTasksRequest?: CreateRefreshTasksRequest): Promise<CreateRefreshTasksResponse> {
         const options = ParamCreater().createRefreshTasks(createRefreshTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于创建资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源标签配置接口
+     * @param {CreateTagsRequestBody} [createTagsRequestBody] CreateTags对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTags(createTagsRequest?: CreateTagsRequest): Promise<CreateTagsResponse> {
+        const options = ParamCreater().createTags(createTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除加速域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除加速域名
+     * @param {string} domainId 加速域名ID。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDomain(deleteDomainRequest?: DeleteDomainRequest): Promise<DeleteDomainResponse> {
+        const options = ParamCreater().deleteDomain(deleteDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停用加速域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停用加速域名
+     * @param {string} domainId 加速域名ID。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableDomain(disableDomainRequest?: DisableDomainRequest): Promise<DisableDomainResponse> {
+        const options = ParamCreater().disableDomain(disableDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -247,6 +386,26 @@ export class CdnClient {
      */
     public downloadStatisticsExcel(downloadStatisticsExcelRequest?: DownloadStatisticsExcelRequest): Promise<DownloadStatisticsExcelResponse> {
         const options = ParamCreater().downloadStatisticsExcel(downloadStatisticsExcelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用加速域名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用加速域名
+     * @param {string} domainId 加速域名ID。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDomain(enableDomainRequest?: EnableDomainRequest): Promise<EnableDomainResponse> {
+        const options = ParamCreater().enableDomain(enableDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -368,6 +527,29 @@ export class CdnClient {
      */
     public showBandwidthCalc(showBandwidthCalcRequest?: ShowBandwidthCalcRequest): Promise<ShowBandwidthCalcResponse> {
         const options = ParamCreater().showBandwidthCalc(showBandwidthCalcRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有绑定HTTPS证书的域名信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有绑定HTTPS证书的域名信息
+     * @param {number} [pageSize] 每页的数量，取值范围1-10000，不设值时默认值为30。
+     * @param {number} [pageNumber] 查询的页码。取值范围1-65535，不设值时默认值为1。
+     * @param {string} [domainName] 加速域名。
+     * @param {string} [userDomainId] 域名所属用户的domain_id。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCertificatesHttpsInfo(showCertificatesHttpsInfoRequest?: ShowCertificatesHttpsInfoRequest): Promise<ShowCertificatesHttpsInfoResponse> {
+        const options = ParamCreater().showCertificatesHttpsInfo(showCertificatesHttpsInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -579,6 +761,26 @@ export class CdnClient {
     }
 
     /**
+     * 查询IP归属信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP归属信息
+     * @param {string} ips IP地址列表，以“，”分割，最多20个。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpInfo(showIpInfoRequest?: ShowIpInfoRequest): Promise<ShowIpInfoResponse> {
+        const options = ParamCreater().showIpInfo(showIpInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询日志下载链接，支持查询30天内的日志信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -595,6 +797,25 @@ export class CdnClient {
      */
     public showLogs(showLogsRequest?: ShowLogsRequest): Promise<ShowLogsResponse> {
         const options = ParamCreater().showLogs(showLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于查询资源标签列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签列表配置接口
+     * @param {string} resourceId 资源id。  &gt; 域名ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTags(showTagsRequest?: ShowTagsRequest): Promise<ShowTagsResponse> {
+        const options = ParamCreater().showTags(showTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -701,6 +922,25 @@ export class CdnClient {
     }
 
     /**
+     * 用于查询域名归属校验信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名归属校验信息
+     * @param {string} domainName 域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVerifyDomainOwnerInfo(showVerifyDomainOwnerInfoRequest?: ShowVerifyDomainOwnerInfoRequest): Promise<ShowVerifyDomainOwnerInfoResponse> {
+        const options = ParamCreater().showVerifyDomainOwnerInfo(showVerifyDomainOwnerInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -714,6 +954,67 @@ export class CdnClient {
      */
     public updateDomainFullConfig(updateDomainFullConfigRequest?: UpdateDomainFullConfigRequest): Promise<UpdateDomainFullConfigResponse> {
         const options = ParamCreater().updateDomainFullConfig(updateDomainFullConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 一个证书配置多个域名，设置域名强制https回源参数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一个证书批量设置多个域名
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {UpdateDomainMultiCertificatesRequestBody} [updateDomainMultiCertificatesRequestBody] https配置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainMultiCertificates(updateDomainMultiCertificatesRequest?: UpdateDomainMultiCertificatesRequest): Promise<UpdateDomainMultiCertificatesResponse> {
+        const options = ParamCreater().updateDomainMultiCertificates(updateDomainMultiCertificatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改私有桶开启关闭状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改私有桶开启关闭状态
+     * @param {string} domainId 加速域名id。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {UpdatePrivateBucketAccessBody} [updatePrivateBucketAccessBody] 桶开启关闭状态（true：开启；false：关闭），默认为关闭
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivateBucketAccess(updatePrivateBucketAccessRequest?: UpdatePrivateBucketAccessRequest): Promise<UpdatePrivateBucketAccessResponse> {
+        const options = ParamCreater().updatePrivateBucketAccess(updatePrivateBucketAccessRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于域名归属校验
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 域名归属校验
+     * @param {string} domainName 域名
+     * @param {VerifyDomainOwnerRequestBody} [verifyDomainOwnerRequestBody] todo
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public verifyDomainOwner(verifyDomainOwnerRequest?: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
+        const options = ParamCreater().verifyDomainOwner(verifyDomainOwnerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -757,6 +1058,76 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于删除资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/tags/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteTagsRequest !== null && batchDeleteTagsRequest !== undefined) {
+                if (batchDeleteTagsRequest instanceof BatchDeleteTagsRequest) {
+                    body = batchDeleteTagsRequest.body
+                } else {
+                    body = batchDeleteTagsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建加速域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDomain(createDomainRequest?: CreateDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDomainRequest !== null && createDomainRequest !== undefined) {
+                if (createDomainRequest instanceof CreateDomainRequest) {
+                    body = createDomainRequest.body
+                } else {
+                    body = createDomainRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -852,6 +1223,131 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于创建资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTags(createTagsRequest?: CreateTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createTagsRequest !== null && createTagsRequest !== undefined) {
+                if (createTagsRequest instanceof CreateTagsRequest) {
+                    body = createTagsRequest.body
+                } else {
+                    body = createTagsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除加速域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDomain(deleteDomainRequest?: DeleteDomainRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/cdn/domains/{domain_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+            
+            let enterpriseProjectId;
+
+            if (deleteDomainRequest !== null && deleteDomainRequest !== undefined) {
+                if (deleteDomainRequest instanceof DeleteDomainRequest) {
+                    domainId = deleteDomainRequest.domainId;
+                    enterpriseProjectId = deleteDomainRequest.enterpriseProjectId;
+                } else {
+                    domainId = deleteDomainRequest['domain_id'];
+                    enterpriseProjectId = deleteDomainRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteDomain.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停用加速域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableDomain(disableDomainRequest?: DisableDomainRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/domains/{domain_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+            
+            let enterpriseProjectId;
+
+            if (disableDomainRequest !== null && disableDomainRequest !== undefined) {
+                if (disableDomainRequest instanceof DisableDomainRequest) {
+                    domainId = disableDomainRequest.domainId;
+                    enterpriseProjectId = disableDomainRequest.enterpriseProjectId;
+                } else {
+                    domainId = disableDomainRequest['domain_id'];
+                    enterpriseProjectId = disableDomainRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling disableDomain.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1082,6 +1578,51 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用加速域名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDomain(enableDomainRequest?: EnableDomainRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/domains/{domain_id}/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+            
+            let enterpriseProjectId;
+
+            if (enableDomainRequest !== null && enableDomainRequest !== undefined) {
+                if (enableDomainRequest instanceof EnableDomainRequest) {
+                    domainId = enableDomainRequest.domainId;
+                    enterpriseProjectId = enableDomainRequest.enterpriseProjectId;
+                } else {
+                    domainId = enableDomainRequest['domain_id'];
+                    enterpriseProjectId = enableDomainRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling enableDomain.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1408,6 +1949,71 @@ export const ParamCreater = function () {
             }
             if (serviceArea !== null && serviceArea !== undefined) {
                 localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有绑定HTTPS证书的域名信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCertificatesHttpsInfo(showCertificatesHttpsInfoRequest?: ShowCertificatesHttpsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/domains/https-certificate-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let domainName;
+            
+            let userDomainId;
+            
+            let enterpriseProjectId;
+
+            if (showCertificatesHttpsInfoRequest !== null && showCertificatesHttpsInfoRequest !== undefined) {
+                if (showCertificatesHttpsInfoRequest instanceof ShowCertificatesHttpsInfoRequest) {
+                    pageSize = showCertificatesHttpsInfoRequest.pageSize;
+                    pageNumber = showCertificatesHttpsInfoRequest.pageNumber;
+                    domainName = showCertificatesHttpsInfoRequest.domainName;
+                    userDomainId = showCertificatesHttpsInfoRequest.userDomainId;
+                    enterpriseProjectId = showCertificatesHttpsInfoRequest.enterpriseProjectId;
+                } else {
+                    pageSize = showCertificatesHttpsInfoRequest['page_size'];
+                    pageNumber = showCertificatesHttpsInfoRequest['page_number'];
+                    domainName = showCertificatesHttpsInfoRequest['domain_name'];
+                    userDomainId = showCertificatesHttpsInfoRequest['user_domain_id'];
+                    enterpriseProjectId = showCertificatesHttpsInfoRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (userDomainId !== null && userDomainId !== undefined) {
+                localVarQueryParameter['user_domain_id'] = userDomainId;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -2012,6 +2618,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询IP归属信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpInfo(showIpInfoRequest?: ShowIpInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/ip-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let ips;
+            
+            let enterpriseProjectId;
+
+            if (showIpInfoRequest !== null && showIpInfoRequest !== undefined) {
+                if (showIpInfoRequest instanceof ShowIpInfoRequest) {
+                    ips = showIpInfoRequest.ips;
+                    enterpriseProjectId = showIpInfoRequest.enterpriseProjectId;
+                } else {
+                    ips = showIpInfoRequest['ips'];
+                    enterpriseProjectId = showIpInfoRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (ips === null || ips === undefined) {
+                throw new RequiredError('ips','Required parameter ips was null or undefined when calling showIpInfo.');
+            }
+            if (ips !== null && ips !== undefined) {
+                localVarQueryParameter['ips'] = ips;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询日志下载链接，支持查询30天内的日志信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2079,6 +2732,46 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于查询资源标签列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTags(showTagsRequest?: ShowTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceId;
+
+            if (showTagsRequest !== null && showTagsRequest !== undefined) {
+                if (showTagsRequest instanceof ShowTagsRequest) {
+                    resourceId = showTagsRequest.resourceId;
+                } else {
+                    resourceId = showTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+                throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showTags.');
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2362,6 +3055,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于查询域名归属校验信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVerifyDomainOwnerInfo(showVerifyDomainOwnerInfoRequest?: ShowVerifyDomainOwnerInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/domain-verifies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainName;
+
+            if (showVerifyDomainOwnerInfoRequest !== null && showVerifyDomainOwnerInfoRequest !== undefined) {
+                if (showVerifyDomainOwnerInfoRequest instanceof ShowVerifyDomainOwnerInfoRequest) {
+                    domainName = showVerifyDomainOwnerInfoRequest.domainName;
+                } else {
+                    domainName = showVerifyDomainOwnerInfoRequest['domain_name'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling showVerifyDomainOwnerInfo.');
+            }
+
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2407,6 +3137,143 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 一个证书配置多个域名，设置域名强制https回源参数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainMultiCertificates(updateDomainMultiCertificatesRequest?: UpdateDomainMultiCertificatesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/domains/config-https-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateDomainMultiCertificatesRequest !== null && updateDomainMultiCertificatesRequest !== undefined) {
+                if (updateDomainMultiCertificatesRequest instanceof UpdateDomainMultiCertificatesRequest) {
+                    enterpriseProjectId = updateDomainMultiCertificatesRequest.enterpriseProjectId;
+                    body = updateDomainMultiCertificatesRequest.body
+                } else {
+                    enterpriseProjectId = updateDomainMultiCertificatesRequest['enterprise_project_id'];
+                    body = updateDomainMultiCertificatesRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改私有桶开启关闭状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivateBucketAccess(updatePrivateBucketAccessRequest?: UpdatePrivateBucketAccessRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/cdn/domains/{domain_id}/private-bucket-access",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let domainId;
+            
+            let enterpriseProjectId;
+
+            if (updatePrivateBucketAccessRequest !== null && updatePrivateBucketAccessRequest !== undefined) {
+                if (updatePrivateBucketAccessRequest instanceof UpdatePrivateBucketAccessRequest) {
+                    domainId = updatePrivateBucketAccessRequest.domainId;
+                    enterpriseProjectId = updatePrivateBucketAccessRequest.enterpriseProjectId;
+                    body = updatePrivateBucketAccessRequest.body
+                } else {
+                    domainId = updatePrivateBucketAccessRequest['domain_id'];
+                    enterpriseProjectId = updatePrivateBucketAccessRequest['enterprise_project_id'];
+                    body = updatePrivateBucketAccessRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updatePrivateBucketAccess.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于域名归属校验
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        verifyDomainOwner(verifyDomainOwnerRequest?: VerifyDomainOwnerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}/verify-owner",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainName;
+
+            if (verifyDomainOwnerRequest !== null && verifyDomainOwnerRequest !== undefined) {
+                if (verifyDomainOwnerRequest instanceof VerifyDomainOwnerRequest) {
+                    domainName = verifyDomainOwnerRequest.domainName;
+                    body = verifyDomainOwnerRequest.body
+                } else {
+                    domainName = verifyDomainOwnerRequest['domain_name'];
+                    body = verifyDomainOwnerRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling verifyDomainOwner.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'domain_name': domainName, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -6,11 +6,7 @@ export class Resource {
     private 'resource_detail'?: object;
     public tags?: Array<ResourceTag>;
     private 'resource_name'?: string;
-    public constructor(resourceId?: string, resourceDetail?: object, tags?: Array<ResourceTag>, resourceName?: string) { 
-        this['resource_id'] = resourceId;
-        this['resource_detail'] = resourceDetail;
-        this['tags'] = tags;
-        this['resource_name'] = resourceName;
+    public constructor() { 
     }
     public withResourceId(resourceId: string): Resource {
         this['resource_id'] = resourceId;

@@ -399,6 +399,9 @@ import { SetMultiPictureResponse } from './model/SetMultiPictureResponse';
 import { SetPacketThresholdData } from './model/SetPacketThresholdData';
 import { SetParticipantViewRequest } from './model/SetParticipantViewRequest';
 import { SetParticipantViewResponse } from './model/SetParticipantViewResponse';
+import { SetProfileImageRequest } from './model/SetProfileImageRequest';
+import { SetProfileImageRequestBody } from './model/SetProfileImageRequestBody';
+import { SetProfileImageResponse } from './model/SetProfileImageResponse';
 import { SetQosThresholdReq } from './model/SetQosThresholdReq';
 import { SetQosThresholdRequest } from './model/SetQosThresholdRequest';
 import { SetQosThresholdResponse } from './model/SetQosThresholdResponse';
@@ -407,6 +410,9 @@ import { SetRoleResponse } from './model/SetRoleResponse';
 import { SetSsoConfigRequest } from './model/SetSsoConfigRequest';
 import { SetSsoConfigResponse } from './model/SetSsoConfigResponse';
 import { SetThresholdData } from './model/SetThresholdData';
+import { SetUserProfileImageRequest } from './model/SetUserProfileImageRequest';
+import { SetUserProfileImageRequestBody } from './model/SetUserProfileImageRequestBody';
+import { SetUserProfileImageResponse } from './model/SetUserProfileImageResponse';
 import { SetWebHookConfigRequest } from './model/SetWebHookConfigRequest';
 import { SetWebHookConfigResponse } from './model/SetWebHookConfigResponse';
 import { ShowAudienceCountInfo } from './model/ShowAudienceCountInfo';
@@ -3079,6 +3085,26 @@ export class MeetingClient {
     }
 
     /**
+     * 用户设置头像
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 用户设置头像
+     * @param {any} file 上传的头像图片，图片文件不超过10MB，尺寸不超过4096*4096
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setProfileImage(setProfileImageRequest?: SetProfileImageRequest): Promise<SetProfileImageResponse> {
+        const options = ParamCreater().setProfileImage(setProfileImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于设置主持人或释放主持人。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3114,6 +3140,27 @@ export class MeetingClient {
      */
     public setSsoConfig(setSsoConfigRequest?: SetSsoConfigRequest): Promise<SetSsoConfigResponse> {
         const options = ParamCreater().setSsoConfig(setSsoConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为企业内的用户设置头像（只允许管理员调用）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 企业管理员设置企业成员头像
+     * @param {string} userId 设置头像的企业用户id
+     * @param {any} file 上传的头像图片，图片文件不超过10MB，尺寸不超过4096*4096
+     * @param {string} [xRequestId] 请求requestId，用来标识一路请求，用于问题跟踪定位，建议使用UUID，若不携带，则后台自动生成。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setUserProfileImage(setUserProfileImageRequest?: SetUserProfileImageRequest): Promise<SetUserProfileImageResponse> {
+        const options = ParamCreater().setUserProfileImage(setUserProfileImageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11617,6 +11664,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用户设置头像
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setProfileImage(setProfileImageRequest?: SetProfileImageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/usg/abs/profile-images",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            let file;
+            
+            
+            let xRequestId;
+
+            if (setProfileImageRequest !== null && setProfileImageRequest !== undefined) {
+                if (setProfileImageRequest instanceof SetProfileImageRequest) {
+                    file = setProfileImageRequest.body?.file;
+                    xRequestId = setProfileImageRequest.xRequestId;
+                } else {
+                    file = setProfileImageRequest['body']['file'];
+                    xRequestId = setProfileImageRequest['X-Request-Id'];
+                }
+            }
+
+        
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling setProfileImage.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于设置主持人或释放主持人。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11730,6 +11827,64 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为企业内的用户设置头像（只允许管理员调用）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setUserProfileImage(setUserProfileImageRequest?: SetUserProfileImageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/usg/abs/profile-images/{user_id}",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let userId;
+            let file;
+            
+            
+            let xRequestId;
+
+            if (setUserProfileImageRequest !== null && setUserProfileImageRequest !== undefined) {
+                if (setUserProfileImageRequest instanceof SetUserProfileImageRequest) {
+                    userId = setUserProfileImageRequest.userId;
+                    file = setUserProfileImageRequest.body?.file;
+                    xRequestId = setUserProfileImageRequest.xRequestId;
+                } else {
+                    userId = setUserProfileImageRequest['user_id'];
+                    file = setUserProfileImageRequest['body']['file'];
+                    xRequestId = setUserProfileImageRequest['X-Request-Id'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling setUserProfileImage.');
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling setUserProfileImage.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (xRequestId !== undefined && xRequestId !== null) {
+                localVarHeaderParameter['X-Request-Id'] = String(xRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

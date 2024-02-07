@@ -397,6 +397,9 @@ import { UpdateInstanceConfigurationsRequestBody } from './model/UpdateInstanceC
 import { UpdateInstanceConfigurationsResponse } from './model/UpdateInstanceConfigurationsResponse';
 import { UpdateInstanceMonitorRequest } from './model/UpdateInstanceMonitorRequest';
 import { UpdateInstanceMonitorResponse } from './model/UpdateInstanceMonitorResponse';
+import { UpdateNewNodeAutoAddSwitchRequest } from './model/UpdateNewNodeAutoAddSwitchRequest';
+import { UpdateNewNodeAutoAddSwitchRequestBody } from './model/UpdateNewNodeAutoAddSwitchRequestBody';
+import { UpdateNewNodeAutoAddSwitchResponse } from './model/UpdateNewNodeAutoAddSwitchResponse';
 import { UpdateProxyConfigurationItem } from './model/UpdateProxyConfigurationItem';
 import { UpdateProxyConnectionPoolTypeRequest } from './model/UpdateProxyConnectionPoolTypeRequest';
 import { UpdateProxyConnectionPoolTypeResponse } from './model/UpdateProxyConnectionPoolTypeResponse';
@@ -2730,6 +2733,28 @@ export class GaussDBClient {
      */
     public updateInstanceMonitor(updateInstanceMonitorRequest?: UpdateInstanceMonitorRequest): Promise<UpdateInstanceMonitorResponse> {
         const options = ParamCreater().updateInstanceMonitor(updateInstanceMonitorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭新增节点自动加入该Proxy。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭新增节点自动加入该Proxy
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {UpdateNewNodeAutoAddSwitchRequestBody} updateNewNodeAutoAddSwitchRequestBody 请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNewNodeAutoAddSwitch(updateNewNodeAutoAddSwitchRequest?: UpdateNewNodeAutoAddSwitchRequest): Promise<UpdateNewNodeAutoAddSwitchResponse> {
+        const options = ParamCreater().updateNewNodeAutoAddSwitch(updateNewNodeAutoAddSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8873,6 +8898,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭新增节点自动加入该Proxy。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNewNodeAutoAddSwitch(updateNewNodeAutoAddSwitchRequest?: UpdateNewNodeAutoAddSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/new-node-auto-add",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (updateNewNodeAutoAddSwitchRequest !== null && updateNewNodeAutoAddSwitchRequest !== undefined) {
+                if (updateNewNodeAutoAddSwitchRequest instanceof UpdateNewNodeAutoAddSwitchRequest) {
+                    instanceId = updateNewNodeAutoAddSwitchRequest.instanceId;
+                    proxyId = updateNewNodeAutoAddSwitchRequest.proxyId;
+                    body = updateNewNodeAutoAddSwitchRequest.body
+                    xLanguage = updateNewNodeAutoAddSwitchRequest.xLanguage;
+                } else {
+                    instanceId = updateNewNodeAutoAddSwitchRequest['instance_id'];
+                    proxyId = updateNewNodeAutoAddSwitchRequest['proxy_id'];
+                    body = updateNewNodeAutoAddSwitchRequest['body'];
+                    xLanguage = updateNewNodeAutoAddSwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateNewNodeAutoAddSwitch.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateNewNodeAutoAddSwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

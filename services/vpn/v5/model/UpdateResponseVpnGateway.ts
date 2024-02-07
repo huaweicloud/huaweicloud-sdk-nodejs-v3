@@ -1,5 +1,6 @@
 import { PolicyTemplate } from './PolicyTemplate';
 import { ResponseEip } from './ResponseEip';
+import { VpnResourceTag } from './VpnResourceTag';
 
 
 export class UpdateResponseVpnGateway {
@@ -29,6 +30,7 @@ export class UpdateResponseVpnGateway {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'policy_template'?: PolicyTemplate;
+    public tags?: Array<VpnResourceTag>;
     public constructor() { 
     }
     public withId(id: string): UpdateResponseVpnGateway {
@@ -260,6 +262,10 @@ export class UpdateResponseVpnGateway {
     }
     public get policyTemplate(): PolicyTemplate | undefined {
         return this['policy_template'];
+    }
+    public withTags(tags: Array<VpnResourceTag>): UpdateResponseVpnGateway {
+        this['tags'] = tags;
+        return this;
     }
 }
 

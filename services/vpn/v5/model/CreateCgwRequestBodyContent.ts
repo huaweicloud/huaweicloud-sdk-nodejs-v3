@@ -9,7 +9,8 @@ export class CreateCgwRequestBodyContent {
     private 'bgp_asn'?: number;
     private 'ca_certificate'?: CaCertificateRequest;
     public tags?: Array<VpnResourceTag>;
-    public constructor() { 
+    public constructor(idValue?: string) { 
+        this['id_value'] = idValue;
     }
     public withName(name: string): CreateCgwRequestBodyContent {
         this['name'] = name;

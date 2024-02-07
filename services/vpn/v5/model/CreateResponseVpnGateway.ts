@@ -1,4 +1,5 @@
 import { PolicyTemplate } from './PolicyTemplate';
+import { VpnResourceTag } from './VpnResourceTag';
 
 
 export class CreateResponseVpnGateway {
@@ -21,6 +22,7 @@ export class CreateResponseVpnGateway {
     private 'enterprise_project_id'?: string;
     private 'ha_mode'?: string;
     private 'policy_template'?: PolicyTemplate;
+    public tags?: Array<VpnResourceTag>;
     public constructor() { 
     }
     public withId(id: string): CreateResponseVpnGateway {
@@ -194,6 +196,10 @@ export class CreateResponseVpnGateway {
     }
     public get policyTemplate(): PolicyTemplate | undefined {
         return this['policy_template'];
+    }
+    public withTags(tags: Array<VpnResourceTag>): CreateResponseVpnGateway {
+        this['tags'] = tags;
+        return this;
     }
 }
 

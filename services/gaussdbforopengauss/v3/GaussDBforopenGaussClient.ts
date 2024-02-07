@@ -242,6 +242,8 @@ import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowSslCertDownloadLinkRequest } from './model/ShowSslCertDownloadLinkRequest';
 import { ShowSslCertDownloadLinkResponse } from './model/ShowSslCertDownloadLinkResponse';
+import { StopBackupRequest } from './model/StopBackupRequest';
+import { StopBackupResponse } from './model/StopBackupResponse';
 import { Storage } from './model/Storage';
 import { SwitchConfigurationRequest } from './model/SwitchConfigurationRequest';
 import { SwitchConfigurationResponse } from './model/SwitchConfigurationResponse';
@@ -1717,6 +1719,26 @@ export class GaussDBforopenGaussClient {
      */
     public showSslCertDownloadLink(showSslCertDownloadLinkRequest?: ShowSslCertDownloadLinkRequest): Promise<ShowSslCertDownloadLinkResponse> {
         const options = ParamCreater().showSslCertDownloadLink(showSslCertDownloadLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止进行中的备份，包括全备和差备。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止备份
+     * @param {string} instanceId 实例ID。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBackup(stopBackupRequest?: StopBackupRequest): Promise<StopBackupResponse> {
+        const options = ParamCreater().stopBackup(stopBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5495,6 +5517,50 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSslCertDownloadLink.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止进行中的备份，包括全备和差备。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBackup(stopBackupRequest?: StopBackupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (stopBackupRequest !== null && stopBackupRequest !== undefined) {
+                if (stopBackupRequest instanceof StopBackupRequest) {
+                    instanceId = stopBackupRequest.instanceId;
+                    xLanguage = stopBackupRequest.xLanguage;
+                } else {
+                    instanceId = stopBackupRequest['instance_id'];
+                    xLanguage = stopBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling stopBackup.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

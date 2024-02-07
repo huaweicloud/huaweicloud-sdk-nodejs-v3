@@ -8,13 +8,9 @@ export class FuncVpc {
     public cidr?: string;
     public gateway?: string;
     private 'security_groups'?: Array<string>;
-    public constructor(vpcName?: string, vpcId?: string, subnetName?: string, subnetId?: string, cidr?: string, gateway?: string) { 
-        this['vpc_name'] = vpcName;
+    public constructor(vpcId?: string, subnetId?: string) { 
         this['vpc_id'] = vpcId;
-        this['subnet_name'] = subnetName;
         this['subnet_id'] = subnetId;
-        this['cidr'] = cidr;
-        this['gateway'] = gateway;
     }
     public withVpcName(vpcName: string): FuncVpc {
         this['vpc_name'] = vpcName;

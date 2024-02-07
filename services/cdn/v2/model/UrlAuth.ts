@@ -12,11 +12,8 @@ export class UrlAuth {
     private 'backup_key'?: string;
     private 'sign_arg'?: string;
     private 'time_format'?: string;
-    public constructor(status?: string, type?: string, expireTime?: number, timeFormat?: string) { 
+    public constructor(status?: string) { 
         this['status'] = status;
-        this['type'] = type;
-        this['expire_time'] = expireTime;
-        this['time_format'] = timeFormat;
     }
     public withStatus(status: string): UrlAuth {
         this['status'] = status;

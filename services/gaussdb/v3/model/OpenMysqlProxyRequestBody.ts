@@ -9,6 +9,8 @@ export class OpenMysqlProxyRequestBody {
     private 'route_mode'?: number;
     private 'nodes_read_weight'?: Array<NodesWeight>;
     private 'subnet_id'?: string;
+    private 'new_node_auto_add_status'?: string;
+    private 'new_node_weight'?: number;
     public constructor(flavorRef?: string, nodeNum?: number) { 
         this['flavor_ref'] = flavorRef;
         this['node_num'] = nodeNum;
@@ -82,6 +84,26 @@ export class OpenMysqlProxyRequestBody {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withNewNodeAutoAddStatus(newNodeAutoAddStatus: string): OpenMysqlProxyRequestBody {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+        return this;
+    }
+    public set newNodeAutoAddStatus(newNodeAutoAddStatus: string  | undefined) {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+    }
+    public get newNodeAutoAddStatus(): string | undefined {
+        return this['new_node_auto_add_status'];
+    }
+    public withNewNodeWeight(newNodeWeight: number): OpenMysqlProxyRequestBody {
+        this['new_node_weight'] = newNodeWeight;
+        return this;
+    }
+    public set newNodeWeight(newNodeWeight: number  | undefined) {
+        this['new_node_weight'] = newNodeWeight;
+    }
+    public get newNodeWeight(): number | undefined {
+        return this['new_node_weight'];
     }
 }
 

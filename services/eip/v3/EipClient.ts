@@ -24,6 +24,12 @@ import { CommonPoolDict } from './model/CommonPoolDict';
 import { CommonPoolsWithBorderGroupDict } from './model/CommonPoolsWithBorderGroupDict';
 import { CountEipAvailableResourcesRequest } from './model/CountEipAvailableResourcesRequest';
 import { CountEipAvailableResourcesResponse } from './model/CountEipAvailableResourcesResponse';
+import { CreateTenantVpcIgwRequest } from './model/CreateTenantVpcIgwRequest';
+import { CreateTenantVpcIgwRequestBody } from './model/CreateTenantVpcIgwRequestBody';
+import { CreateTenantVpcIgwRequestBodyVpcIgw } from './model/CreateTenantVpcIgwRequestBodyVpcIgw';
+import { CreateTenantVpcIgwResponse } from './model/CreateTenantVpcIgwResponse';
+import { DeleteTenantVpcIgwRequest } from './model/DeleteTenantVpcIgwRequest';
+import { DeleteTenantVpcIgwResponse } from './model/DeleteTenantVpcIgwResponse';
 import { DetachBatchPublicIpRequest } from './model/DetachBatchPublicIpRequest';
 import { DetachBatchPublicIpResponse } from './model/DetachBatchPublicIpResponse';
 import { DetachBatchSharedbwReq } from './model/DetachBatchSharedbwReq';
@@ -42,6 +48,8 @@ import { EipResourcesAvailableV3RequestBody } from './model/EipResourcesAvailabl
 import { EnableNat64Request } from './model/EnableNat64Request';
 import { EnableNat64Response } from './model/EnableNat64Response';
 import { ExtLimitPojo } from './model/ExtLimitPojo';
+import { GeipBindingsInternalResp } from './model/GeipBindingsInternalResp';
+import { InstancevirtualListResp } from './model/InstancevirtualListResp';
 import { ListBandwidthRequest } from './model/ListBandwidthRequest';
 import { ListBandwidthResponse } from './model/ListBandwidthResponse';
 import { ListBandwidthsLimitRequest } from './model/ListBandwidthsLimitRequest';
@@ -50,6 +58,8 @@ import { ListCommonPoolsRequest } from './model/ListCommonPoolsRequest';
 import { ListCommonPoolsResponse } from './model/ListCommonPoolsResponse';
 import { ListEipBandwidthsRequest } from './model/ListEipBandwidthsRequest';
 import { ListEipBandwidthsResponse } from './model/ListEipBandwidthsResponse';
+import { ListProjectGeipBindingsRequest } from './model/ListProjectGeipBindingsRequest';
+import { ListProjectGeipBindingsResponse } from './model/ListProjectGeipBindingsResponse';
 import { ListPublicBorderGroupsRequest } from './model/ListPublicBorderGroupsRequest';
 import { ListPublicBorderGroupsResponse } from './model/ListPublicBorderGroupsResponse';
 import { ListPublicipPoolRequest } from './model/ListPublicipPoolRequest';
@@ -58,6 +68,9 @@ import { ListPublicipsRequest } from './model/ListPublicipsRequest';
 import { ListPublicipsResponse } from './model/ListPublicipsResponse';
 import { ListShareBandwidthTypesRequest } from './model/ListShareBandwidthTypesRequest';
 import { ListShareBandwidthTypesResponse } from './model/ListShareBandwidthTypesResponse';
+import { ListTenantVpcIgwsRequest } from './model/ListTenantVpcIgwsRequest';
+import { ListTenantVpcIgwsResponse } from './model/ListTenantVpcIgwsResponse';
+import { NexthopDict } from './model/NexthopDict';
 import { PageInfoDict } from './model/PageInfoDict';
 import { PageInfoOption } from './model/PageInfoOption';
 import { ProfileInfo } from './model/ProfileInfo';
@@ -69,6 +82,8 @@ import { PublicipResp } from './model/PublicipResp';
 import { PublicipSingleShowResp } from './model/PublicipSingleShowResp';
 import { PublicipUpdateResp } from './model/PublicipUpdateResp';
 import { ShareBandwidthTypeShowResp } from './model/ShareBandwidthTypeShowResp';
+import { ShowInternalVpcIgwRequest } from './model/ShowInternalVpcIgwRequest';
+import { ShowInternalVpcIgwResponse } from './model/ShowInternalVpcIgwResponse';
 import { ShowPublicipPoolRequest } from './model/ShowPublicipPoolRequest';
 import { ShowPublicipPoolResponse } from './model/ShowPublicipPoolResponse';
 import { ShowPublicipRequest } from './model/ShowPublicipRequest';
@@ -79,8 +94,13 @@ import { UpdatePublicipOption } from './model/UpdatePublicipOption';
 import { UpdatePublicipRequest } from './model/UpdatePublicipRequest';
 import { UpdatePublicipResponse } from './model/UpdatePublicipResponse';
 import { UpdatePublicipsRequestBody } from './model/UpdatePublicipsRequestBody';
+import { UpdateTenantVpcIgwRequest } from './model/UpdateTenantVpcIgwRequest';
+import { UpdateTenantVpcIgwRequestBody } from './model/UpdateTenantVpcIgwRequestBody';
+import { UpdateTenantVpcIgwRequestBodyVpcIgw } from './model/UpdateTenantVpcIgwRequestBodyVpcIgw';
+import { UpdateTenantVpcIgwResponse } from './model/UpdateTenantVpcIgwResponse';
 import { VnicInfo } from './model/VnicInfo';
 import { VnicResp } from './model/VnicResp';
+import { VpcIgwsTenantResp } from './model/VpcIgwsTenantResp';
 
 export class EipClient {
     public static newBuilder(): ClientBuilder<EipClient> {
@@ -304,6 +324,152 @@ export class EipClient {
      */
     public showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest): Promise<ShowPublicipPoolResponse> {
         const options = ParamCreater().showPublicipPool(showPublicipPoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GEIP与实例绑定关系的租户列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询GEIP与实例绑定关系的租户列表
+     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;geip_id&amp;fields&#x3D;geip_ip_address&amp;...\\\&quot;，支持字段：geip_id/geip_ip_address/instance_type/instance_id/vnic/vn_list/public_border_group/gcbandwidth/version/created_at/updated_at/instance_vpc_id
+     * @param {string} [geipId] GEIP的uuid
+     * @param {string} [geipIpAddress] GEIP的ip地址
+     * @param {string} [publicBorderGroup] GEIP所处的出口位置
+     * @param {string} [instanceType] 绑定的实例类型
+     * @param {string} [instanceId] 绑定的实例id
+     * @param {string} [instanceVpcId] 绑定的实例vpcid
+     * @param {string} [gcbandwidthId] 骨干带宽的uuid
+     * @param {string} [gcbandwidthAdminStatus] 骨干带宽的状态
+     * @param {number} [gcbandwidthSize] 骨干带宽的大小
+     * @param {string} [gcbandwidthSlaLevel] 描述网络等级，从高到低分为铂金、金、银、铜
+     * @param {number} [gcbandwidthDscp] 线路质量金银铜对应的DSCP值
+     * @param {string} [vnicPrivateIpAddress] 绑定实例的ip地址
+     * @param {string} [vnicVpcId] 绑定实例所在的vpcid
+     * @param {string} [vnicPortId] 绑定实例port的uuid
+     * @param {string} [vnicDeviceId] 绑定实例port对应的实例id
+     * @param {string} [vnicDeviceOwner] 绑定实例port对应的实例所有者
+     * @param {string} [vnicDeviceOwnerPrefixlike] 绑定实例port对应的实例所有者的前缀
+     * @param {string} [vnicInstanceType] 绑定实例port对应的实例类型
+     * @param {string} [vnicInstanceId] 绑定实例port对应的实例id
+     * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;geip_id&amp;sort_dir&#x3D;asc\&quot;  支持字段：geip_id/version/public_border_group/ geip_ip_address/created_at/updated_at
+     * @param {string} [sortDir] 排序方向  取值范围：asc、desc
+     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectGeipBindings(listProjectGeipBindingsRequest?: ListProjectGeipBindingsRequest): Promise<ListProjectGeipBindingsResponse> {
+        const options = ParamCreater().listProjectGeipBindings(listProjectGeipBindingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建虚拟igw
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建虚拟igw
+     * @param {CreateTenantVpcIgwRequestBody} createTenantVpcIgwRequestBody 创建虚拟igw对象
+     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTenantVpcIgw(createTenantVpcIgwRequest?: CreateTenantVpcIgwRequest): Promise<CreateTenantVpcIgwResponse> {
+        const options = ParamCreater().createTenantVpcIgw(createTenantVpcIgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除虚拟igw
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除虚拟igw
+     * @param {string} vpcIgwId 虚拟igw的uuid
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTenantVpcIgw(deleteTenantVpcIgwRequest?: DeleteTenantVpcIgwRequest): Promise<DeleteTenantVpcIgwResponse> {
+        const options = ParamCreater().deleteTenantVpcIgw(deleteTenantVpcIgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定租户下的虚拟igw列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定租户下的虚拟igw列表
+     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {string} [id] 虚拟IGW的uuid
+     * @param {string} [vpcId] 虚拟igw所在的vpcid
+     * @param {string} [name] 虚拟igw的名称
+     * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;i2a_id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/created_at/updated_at
+     * @param {string} [sortDir] 排序方向  取值范围：asc、desc
+     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantVpcIgws(listTenantVpcIgwsRequest?: ListTenantVpcIgwsRequest): Promise<ListTenantVpcIgwsResponse> {
+        const options = ParamCreater().listTenantVpcIgws(listTenantVpcIgwsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询虚拟igw详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟igw详情
+     * @param {string} vpcIgwId 虚拟igw的uuid
+     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/igw_cluster
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInternalVpcIgw(showInternalVpcIgwRequest?: ShowInternalVpcIgwRequest): Promise<ShowInternalVpcIgwResponse> {
+        const options = ParamCreater().showInternalVpcIgw(showInternalVpcIgwRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改虚拟igw
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改虚拟igw
+     * @param {string} vpcIgwId vpc-igw的uuid
+     * @param {UpdateTenantVpcIgwRequestBody} updateTenantVpcIgwRequestBody 修改虚拟igw
+     * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;project_id&amp;...\\\&quot;，支持字段：id/project_id/vpc_id/created_at/updated_at/name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTenantVpcIgw(updateTenantVpcIgwRequest?: UpdateTenantVpcIgwRequest): Promise<UpdateTenantVpcIgwResponse> {
+        const options = ParamCreater().updateTenantVpcIgw(updateTenantVpcIgwRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1315,6 +1481,458 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'publicip_pool_id': publicipPoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GEIP与实例绑定关系的租户列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectGeipBindings(listProjectGeipBindingsRequest?: ListProjectGeipBindingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/geip/bindings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let fields;
+            
+            let geipId;
+            
+            let geipIpAddress;
+            
+            let publicBorderGroup;
+            
+            let instanceType;
+            
+            let instanceId;
+            
+            let instanceVpcId;
+            
+            let gcbandwidthId;
+            
+            let gcbandwidthAdminStatus;
+            
+            let gcbandwidthSize;
+            
+            let gcbandwidthSlaLevel;
+            
+            let gcbandwidthDscp;
+            
+            let vnicPrivateIpAddress;
+            
+            let vnicVpcId;
+            
+            let vnicPortId;
+            
+            let vnicDeviceId;
+            
+            let vnicDeviceOwner;
+            
+            let vnicDeviceOwnerPrefixlike;
+            
+            let vnicInstanceType;
+            
+            let vnicInstanceId;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let limit;
+
+            if (listProjectGeipBindingsRequest !== null && listProjectGeipBindingsRequest !== undefined) {
+                if (listProjectGeipBindingsRequest instanceof ListProjectGeipBindingsRequest) {
+                    fields = listProjectGeipBindingsRequest.fields;
+                    geipId = listProjectGeipBindingsRequest.geipId;
+                    geipIpAddress = listProjectGeipBindingsRequest.geipIpAddress;
+                    publicBorderGroup = listProjectGeipBindingsRequest.publicBorderGroup;
+                    instanceType = listProjectGeipBindingsRequest.instanceType;
+                    instanceId = listProjectGeipBindingsRequest.instanceId;
+                    instanceVpcId = listProjectGeipBindingsRequest.instanceVpcId;
+                    gcbandwidthId = listProjectGeipBindingsRequest.gcbandwidthId;
+                    gcbandwidthAdminStatus = listProjectGeipBindingsRequest.gcbandwidthAdminStatus;
+                    gcbandwidthSize = listProjectGeipBindingsRequest.gcbandwidthSize;
+                    gcbandwidthSlaLevel = listProjectGeipBindingsRequest.gcbandwidthSlaLevel;
+                    gcbandwidthDscp = listProjectGeipBindingsRequest.gcbandwidthDscp;
+                    vnicPrivateIpAddress = listProjectGeipBindingsRequest.vnicPrivateIpAddress;
+                    vnicVpcId = listProjectGeipBindingsRequest.vnicVpcId;
+                    vnicPortId = listProjectGeipBindingsRequest.vnicPortId;
+                    vnicDeviceId = listProjectGeipBindingsRequest.vnicDeviceId;
+                    vnicDeviceOwner = listProjectGeipBindingsRequest.vnicDeviceOwner;
+                    vnicDeviceOwnerPrefixlike = listProjectGeipBindingsRequest.vnicDeviceOwnerPrefixlike;
+                    vnicInstanceType = listProjectGeipBindingsRequest.vnicInstanceType;
+                    vnicInstanceId = listProjectGeipBindingsRequest.vnicInstanceId;
+                    sortKey = listProjectGeipBindingsRequest.sortKey;
+                    sortDir = listProjectGeipBindingsRequest.sortDir;
+                    limit = listProjectGeipBindingsRequest.limit;
+                } else {
+                    fields = listProjectGeipBindingsRequest['fields'];
+                    geipId = listProjectGeipBindingsRequest['geip_id'];
+                    geipIpAddress = listProjectGeipBindingsRequest['geip_ip_address'];
+                    publicBorderGroup = listProjectGeipBindingsRequest['public_border_group'];
+                    instanceType = listProjectGeipBindingsRequest['instance_type'];
+                    instanceId = listProjectGeipBindingsRequest['instance_id'];
+                    instanceVpcId = listProjectGeipBindingsRequest['instance_vpc_id'];
+                    gcbandwidthId = listProjectGeipBindingsRequest['gcbandwidth.id'];
+                    gcbandwidthAdminStatus = listProjectGeipBindingsRequest['gcbandwidth.admin_status'];
+                    gcbandwidthSize = listProjectGeipBindingsRequest['gcbandwidth.size'];
+                    gcbandwidthSlaLevel = listProjectGeipBindingsRequest['gcbandwidth.sla_level'];
+                    gcbandwidthDscp = listProjectGeipBindingsRequest['gcbandwidth.dscp'];
+                    vnicPrivateIpAddress = listProjectGeipBindingsRequest['vnic.private_ip_address'];
+                    vnicVpcId = listProjectGeipBindingsRequest['vnic.vpc_id'];
+                    vnicPortId = listProjectGeipBindingsRequest['vnic.port_id'];
+                    vnicDeviceId = listProjectGeipBindingsRequest['vnic.device_id'];
+                    vnicDeviceOwner = listProjectGeipBindingsRequest['vnic.device_owner'];
+                    vnicDeviceOwnerPrefixlike = listProjectGeipBindingsRequest['vnic.device_owner_prefixlike'];
+                    vnicInstanceType = listProjectGeipBindingsRequest['vnic.instance_type'];
+                    vnicInstanceId = listProjectGeipBindingsRequest['vnic.instance_id'];
+                    sortKey = listProjectGeipBindingsRequest['sort_key'];
+                    sortDir = listProjectGeipBindingsRequest['sort_dir'];
+                    limit = listProjectGeipBindingsRequest['limit'];
+                }
+            }
+
+        
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (geipId !== null && geipId !== undefined) {
+                localVarQueryParameter['geip_id'] = geipId;
+            }
+            if (geipIpAddress !== null && geipIpAddress !== undefined) {
+                localVarQueryParameter['geip_ip_address'] = geipIpAddress;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceVpcId !== null && instanceVpcId !== undefined) {
+                localVarQueryParameter['instance_vpc_id'] = instanceVpcId;
+            }
+            if (gcbandwidthId !== null && gcbandwidthId !== undefined) {
+                localVarQueryParameter['gcbandwidth.id'] = gcbandwidthId;
+            }
+            if (gcbandwidthAdminStatus !== null && gcbandwidthAdminStatus !== undefined) {
+                localVarQueryParameter['gcbandwidth.admin_status'] = gcbandwidthAdminStatus;
+            }
+            if (gcbandwidthSize !== null && gcbandwidthSize !== undefined) {
+                localVarQueryParameter['gcbandwidth.size'] = gcbandwidthSize;
+            }
+            if (gcbandwidthSlaLevel !== null && gcbandwidthSlaLevel !== undefined) {
+                localVarQueryParameter['gcbandwidth.sla_level'] = gcbandwidthSlaLevel;
+            }
+            if (gcbandwidthDscp !== null && gcbandwidthDscp !== undefined) {
+                localVarQueryParameter['gcbandwidth.dscp'] = gcbandwidthDscp;
+            }
+            if (vnicPrivateIpAddress !== null && vnicPrivateIpAddress !== undefined) {
+                localVarQueryParameter['vnic.private_ip_address'] = vnicPrivateIpAddress;
+            }
+            if (vnicVpcId !== null && vnicVpcId !== undefined) {
+                localVarQueryParameter['vnic.vpc_id'] = vnicVpcId;
+            }
+            if (vnicPortId !== null && vnicPortId !== undefined) {
+                localVarQueryParameter['vnic.port_id'] = vnicPortId;
+            }
+            if (vnicDeviceId !== null && vnicDeviceId !== undefined) {
+                localVarQueryParameter['vnic.device_id'] = vnicDeviceId;
+            }
+            if (vnicDeviceOwner !== null && vnicDeviceOwner !== undefined) {
+                localVarQueryParameter['vnic.device_owner'] = vnicDeviceOwner;
+            }
+            if (vnicDeviceOwnerPrefixlike !== null && vnicDeviceOwnerPrefixlike !== undefined) {
+                localVarQueryParameter['vnic.device_owner_prefixlike'] = vnicDeviceOwnerPrefixlike;
+            }
+            if (vnicInstanceType !== null && vnicInstanceType !== undefined) {
+                localVarQueryParameter['vnic.instance_type'] = vnicInstanceType;
+            }
+            if (vnicInstanceId !== null && vnicInstanceId !== undefined) {
+                localVarQueryParameter['vnic.instance_id'] = vnicInstanceId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建虚拟igw
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTenantVpcIgw(createTenantVpcIgwRequest?: CreateTenantVpcIgwRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/geip/vpc-igws",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let fields;
+
+            if (createTenantVpcIgwRequest !== null && createTenantVpcIgwRequest !== undefined) {
+                if (createTenantVpcIgwRequest instanceof CreateTenantVpcIgwRequest) {
+                    body = createTenantVpcIgwRequest.body
+                    fields = createTenantVpcIgwRequest.fields;
+                } else {
+                    body = createTenantVpcIgwRequest['body'];
+                    fields = createTenantVpcIgwRequest['fields'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除虚拟igw
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTenantVpcIgw(deleteTenantVpcIgwRequest?: DeleteTenantVpcIgwRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/geip/vpc-igws/{vpc_igw_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpcIgwId;
+
+            if (deleteTenantVpcIgwRequest !== null && deleteTenantVpcIgwRequest !== undefined) {
+                if (deleteTenantVpcIgwRequest instanceof DeleteTenantVpcIgwRequest) {
+                    vpcIgwId = deleteTenantVpcIgwRequest.vpcIgwId;
+                } else {
+                    vpcIgwId = deleteTenantVpcIgwRequest['vpc_igw_id'];
+                }
+            }
+
+        
+            if (vpcIgwId === null || vpcIgwId === undefined) {
+            throw new RequiredError('vpcIgwId','Required parameter vpcIgwId was null or undefined when calling deleteTenantVpcIgw.');
+            }
+
+            options.pathParams = { 'vpc_igw_id': vpcIgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定租户下的虚拟igw列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantVpcIgws(listTenantVpcIgwsRequest?: ListTenantVpcIgwsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/geip/vpc-igws",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let fields;
+            
+            let id;
+            
+            let vpcId;
+            
+            let name;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let limit;
+
+            if (listTenantVpcIgwsRequest !== null && listTenantVpcIgwsRequest !== undefined) {
+                if (listTenantVpcIgwsRequest instanceof ListTenantVpcIgwsRequest) {
+                    fields = listTenantVpcIgwsRequest.fields;
+                    id = listTenantVpcIgwsRequest.id;
+                    vpcId = listTenantVpcIgwsRequest.vpcId;
+                    name = listTenantVpcIgwsRequest.name;
+                    sortKey = listTenantVpcIgwsRequest.sortKey;
+                    sortDir = listTenantVpcIgwsRequest.sortDir;
+                    limit = listTenantVpcIgwsRequest.limit;
+                } else {
+                    fields = listTenantVpcIgwsRequest['fields'];
+                    id = listTenantVpcIgwsRequest['id'];
+                    vpcId = listTenantVpcIgwsRequest['vpc_id'];
+                    name = listTenantVpcIgwsRequest['name'];
+                    sortKey = listTenantVpcIgwsRequest['sort_key'];
+                    sortDir = listTenantVpcIgwsRequest['sort_dir'];
+                    limit = listTenantVpcIgwsRequest['limit'];
+                }
+            }
+
+        
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询虚拟igw详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInternalVpcIgw(showInternalVpcIgwRequest?: ShowInternalVpcIgwRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/geip/vpc-igws/{vpc_igw_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vpcIgwId;
+            
+            let fields;
+
+            if (showInternalVpcIgwRequest !== null && showInternalVpcIgwRequest !== undefined) {
+                if (showInternalVpcIgwRequest instanceof ShowInternalVpcIgwRequest) {
+                    vpcIgwId = showInternalVpcIgwRequest.vpcIgwId;
+                    fields = showInternalVpcIgwRequest.fields;
+                } else {
+                    vpcIgwId = showInternalVpcIgwRequest['vpc_igw_id'];
+                    fields = showInternalVpcIgwRequest['fields'];
+                }
+            }
+
+        
+            if (vpcIgwId === null || vpcIgwId === undefined) {
+            throw new RequiredError('vpcIgwId','Required parameter vpcIgwId was null or undefined when calling showInternalVpcIgw.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'vpc_igw_id': vpcIgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改虚拟igw
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTenantVpcIgw(updateTenantVpcIgwRequest?: UpdateTenantVpcIgwRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/geip/vpc-igws/{vpc_igw_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let vpcIgwId;
+            
+            let fields;
+
+            if (updateTenantVpcIgwRequest !== null && updateTenantVpcIgwRequest !== undefined) {
+                if (updateTenantVpcIgwRequest instanceof UpdateTenantVpcIgwRequest) {
+                    vpcIgwId = updateTenantVpcIgwRequest.vpcIgwId;
+                    body = updateTenantVpcIgwRequest.body
+                    fields = updateTenantVpcIgwRequest.fields;
+                } else {
+                    vpcIgwId = updateTenantVpcIgwRequest['vpc_igw_id'];
+                    body = updateTenantVpcIgwRequest['body'];
+                    fields = updateTenantVpcIgwRequest['fields'];
+                }
+            }
+
+        
+            if (vpcIgwId === null || vpcIgwId === undefined) {
+            throw new RequiredError('vpcIgwId','Required parameter vpcIgwId was null or undefined when calling updateTenantVpcIgw.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'vpc_igw_id': vpcIgwId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

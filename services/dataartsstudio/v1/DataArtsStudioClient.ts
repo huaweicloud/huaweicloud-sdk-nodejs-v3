@@ -4310,6 +4310,29 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置作业标签
+     * @param {string} jobName 作业名称.
+     * @param {SetJobTagsRequestBody} body 请求body体
+     * @param {string} [workspace] 工作空间id
+     * @param {string} [contentType] 有Body体的情况下必选，无Body体的情况下则无需填写和校验
+     * @param {string} [authorization] 使用AK/SK进行认证时该字段必选
+     * @param {string} [host] 使用AK/SK进行认证时该字段必选
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest): Promise<SetFactoryJobTagsResponse> {
+        const options = ParamCreater().setFactoryJobTags(setFactoryJobTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过id查看汇总表的详情信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6372,29 +6395,6 @@ export class DataArtsStudioClient {
      */
     public searchPublishInfo(searchPublishInfoRequest?: SearchPublishInfoRequest): Promise<SearchPublishInfoResponse> {
         const options = ParamCreater().searchPublishInfo(searchPublishInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 设置作业标签
-     * @param {string} jobName 作业名称.
-     * @param {SetJobTagsRequestBody} body 请求body体
-     * @param {string} [workspace] 工作空间id
-     * @param {string} [contentType] 有Body体的情况下必选，无Body体的情况下则无需填写和校验
-     * @param {string} [authorization] 使用AK/SK进行认证时该字段必选
-     * @param {string} [host] 使用AK/SK进行认证时该字段必选
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest): Promise<SetFactoryJobTagsResponse> {
-        const options = ParamCreater().setFactoryJobTags(setFactoryJobTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16395,6 +16395,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobName;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let authorization;
+            
+            let host;
+
+            if (setFactoryJobTagsRequest !== null && setFactoryJobTagsRequest !== undefined) {
+                if (setFactoryJobTagsRequest instanceof SetFactoryJobTagsRequest) {
+                    jobName = setFactoryJobTagsRequest.jobName;
+                    body = setFactoryJobTagsRequest.body
+                    workspace = setFactoryJobTagsRequest.workspace;
+                    contentType = setFactoryJobTagsRequest.contentType;
+                    authorization = setFactoryJobTagsRequest.authorization;
+                    host = setFactoryJobTagsRequest.host;
+                } else {
+                    jobName = setFactoryJobTagsRequest['job_name'];
+                    body = setFactoryJobTagsRequest['body'];
+                    workspace = setFactoryJobTagsRequest['workspace'];
+                    contentType = setFactoryJobTagsRequest['Content-Type'];
+                    authorization = setFactoryJobTagsRequest['Authorization'];
+                    host = setFactoryJobTagsRequest['Host'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling setFactoryJobTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (host !== undefined && host !== null) {
+                localVarHeaderParameter['Host'] = String(host);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_name': jobName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过id查看汇总表的详情信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21927,79 +22000,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'api_id': apiId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        setFactoryJobTags(setFactoryJobTagsRequest?: SetFactoryJobTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/factory/jobs/{job_name}/tags",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let jobName;
-            
-            let workspace;
-            
-            let contentType;
-            
-            let authorization;
-            
-            let host;
-
-            if (setFactoryJobTagsRequest !== null && setFactoryJobTagsRequest !== undefined) {
-                if (setFactoryJobTagsRequest instanceof SetFactoryJobTagsRequest) {
-                    jobName = setFactoryJobTagsRequest.jobName;
-                    body = setFactoryJobTagsRequest.body
-                    workspace = setFactoryJobTagsRequest.workspace;
-                    contentType = setFactoryJobTagsRequest.contentType;
-                    authorization = setFactoryJobTagsRequest.authorization;
-                    host = setFactoryJobTagsRequest.host;
-                } else {
-                    jobName = setFactoryJobTagsRequest['job_name'];
-                    body = setFactoryJobTagsRequest['body'];
-                    workspace = setFactoryJobTagsRequest['workspace'];
-                    contentType = setFactoryJobTagsRequest['Content-Type'];
-                    authorization = setFactoryJobTagsRequest['Authorization'];
-                    host = setFactoryJobTagsRequest['Host'];
-                }
-            }
-
-        
-            if (jobName === null || jobName === undefined) {
-            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling setFactoryJobTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (workspace !== undefined && workspace !== null) {
-                localVarHeaderParameter['workspace'] = String(workspace);
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (host !== undefined && host !== null) {
-                localVarHeaderParameter['Host'] = String(host);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

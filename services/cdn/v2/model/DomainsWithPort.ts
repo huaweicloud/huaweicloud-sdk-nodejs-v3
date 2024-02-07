@@ -1,19 +1,29 @@
-import { SourcesDomainConfig } from './SourcesDomainConfig';
+import { DomainOriginHost } from './DomainOriginHost';
+import { SourceWithPort } from './SourceWithPort';
 
 
 export class DomainsWithPort {
     public id?: string;
     private 'domain_name'?: string;
     private 'business_type'?: string;
+    private 'user_domain_id'?: string;
     private 'domain_status'?: string;
     public cname?: string;
-    public sources?: Array<SourcesDomainConfig>;
+    public sources?: Array<SourceWithPort>;
+    private 'domain_origin_host'?: DomainOriginHost;
     private 'https_status'?: number;
     private 'create_time'?: number;
-    private 'update_time'?: number;
+    private 'modify_time'?: number;
     public disabled?: number;
     public locked?: number;
+    private 'auto_refresh_preheat'?: number;
     private 'service_area'?: DomainsWithPortServiceAreaEnum | string;
+    private 'range_status'?: string;
+    private 'follow_status'?: string;
+    private 'origin_status'?: string;
+    private 'banned_reason'?: string;
+    private 'locked_reason'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withId(id: string): DomainsWithPort {
@@ -40,6 +50,16 @@ export class DomainsWithPort {
     public get businessType(): string | undefined {
         return this['business_type'];
     }
+    public withUserDomainId(userDomainId: string): DomainsWithPort {
+        this['user_domain_id'] = userDomainId;
+        return this;
+    }
+    public set userDomainId(userDomainId: string  | undefined) {
+        this['user_domain_id'] = userDomainId;
+    }
+    public get userDomainId(): string | undefined {
+        return this['user_domain_id'];
+    }
     public withDomainStatus(domainStatus: string): DomainsWithPort {
         this['domain_status'] = domainStatus;
         return this;
@@ -54,9 +74,19 @@ export class DomainsWithPort {
         this['cname'] = cname;
         return this;
     }
-    public withSources(sources: Array<SourcesDomainConfig>): DomainsWithPort {
+    public withSources(sources: Array<SourceWithPort>): DomainsWithPort {
         this['sources'] = sources;
         return this;
+    }
+    public withDomainOriginHost(domainOriginHost: DomainOriginHost): DomainsWithPort {
+        this['domain_origin_host'] = domainOriginHost;
+        return this;
+    }
+    public set domainOriginHost(domainOriginHost: DomainOriginHost  | undefined) {
+        this['domain_origin_host'] = domainOriginHost;
+    }
+    public get domainOriginHost(): DomainOriginHost | undefined {
+        return this['domain_origin_host'];
     }
     public withHttpsStatus(httpsStatus: number): DomainsWithPort {
         this['https_status'] = httpsStatus;
@@ -78,15 +108,15 @@ export class DomainsWithPort {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withUpdateTime(updateTime: number): DomainsWithPort {
-        this['update_time'] = updateTime;
+    public withModifyTime(modifyTime: number): DomainsWithPort {
+        this['modify_time'] = modifyTime;
         return this;
     }
-    public set updateTime(updateTime: number  | undefined) {
-        this['update_time'] = updateTime;
+    public set modifyTime(modifyTime: number  | undefined) {
+        this['modify_time'] = modifyTime;
     }
-    public get updateTime(): number | undefined {
-        return this['update_time'];
+    public get modifyTime(): number | undefined {
+        return this['modify_time'];
     }
     public withDisabled(disabled: number): DomainsWithPort {
         this['disabled'] = disabled;
@@ -95,6 +125,16 @@ export class DomainsWithPort {
     public withLocked(locked: number): DomainsWithPort {
         this['locked'] = locked;
         return this;
+    }
+    public withAutoRefreshPreheat(autoRefreshPreheat: number): DomainsWithPort {
+        this['auto_refresh_preheat'] = autoRefreshPreheat;
+        return this;
+    }
+    public set autoRefreshPreheat(autoRefreshPreheat: number  | undefined) {
+        this['auto_refresh_preheat'] = autoRefreshPreheat;
+    }
+    public get autoRefreshPreheat(): number | undefined {
+        return this['auto_refresh_preheat'];
     }
     public withServiceArea(serviceArea: DomainsWithPortServiceAreaEnum | string): DomainsWithPort {
         this['service_area'] = serviceArea;
@@ -105,6 +145,66 @@ export class DomainsWithPort {
     }
     public get serviceArea(): DomainsWithPortServiceAreaEnum | string | undefined {
         return this['service_area'];
+    }
+    public withRangeStatus(rangeStatus: string): DomainsWithPort {
+        this['range_status'] = rangeStatus;
+        return this;
+    }
+    public set rangeStatus(rangeStatus: string  | undefined) {
+        this['range_status'] = rangeStatus;
+    }
+    public get rangeStatus(): string | undefined {
+        return this['range_status'];
+    }
+    public withFollowStatus(followStatus: string): DomainsWithPort {
+        this['follow_status'] = followStatus;
+        return this;
+    }
+    public set followStatus(followStatus: string  | undefined) {
+        this['follow_status'] = followStatus;
+    }
+    public get followStatus(): string | undefined {
+        return this['follow_status'];
+    }
+    public withOriginStatus(originStatus: string): DomainsWithPort {
+        this['origin_status'] = originStatus;
+        return this;
+    }
+    public set originStatus(originStatus: string  | undefined) {
+        this['origin_status'] = originStatus;
+    }
+    public get originStatus(): string | undefined {
+        return this['origin_status'];
+    }
+    public withBannedReason(bannedReason: string): DomainsWithPort {
+        this['banned_reason'] = bannedReason;
+        return this;
+    }
+    public set bannedReason(bannedReason: string  | undefined) {
+        this['banned_reason'] = bannedReason;
+    }
+    public get bannedReason(): string | undefined {
+        return this['banned_reason'];
+    }
+    public withLockedReason(lockedReason: string): DomainsWithPort {
+        this['locked_reason'] = lockedReason;
+        return this;
+    }
+    public set lockedReason(lockedReason: string  | undefined) {
+        this['locked_reason'] = lockedReason;
+    }
+    public get lockedReason(): string | undefined {
+        return this['locked_reason'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): DomainsWithPort {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

@@ -26,6 +26,9 @@ export class DliRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://dli.tr-west-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://dli.ap-southeast-4.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://dli.eu-west-101.myhuaweicloud.eu"]);
+    public static AE_AD_1 = new Region("ae-ad-1", ["https://dli.ae-ad-1.myhuaweicloud.com"]);
+    public static EU_WEST_0 = new Region("eu-west-0", ["https://dli.eu-west-0.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://dli.me-east-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -48,7 +51,10 @@ export class DliRegion {
         "la-north-2":DliRegion.LA_NORTH_2,
         "tr-west-1":DliRegion.TR_WEST_1,
         "ap-southeast-4":DliRegion.AP_SOUTHEAST_4,
-        "eu-west-101":DliRegion.EU_WEST_101
+        "eu-west-101":DliRegion.EU_WEST_101,
+        "ae-ad-1":DliRegion.AE_AD_1,
+        "eu-west-0":DliRegion.EU_WEST_0,
+        "me-east-1":DliRegion.ME_EAST_1
     };
   
     public static valueOf(regionId: string) {

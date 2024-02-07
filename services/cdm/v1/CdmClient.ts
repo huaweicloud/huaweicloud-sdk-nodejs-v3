@@ -416,7 +416,7 @@ export class CdmClient {
      * @summary 启动作业
      * @param {string} clusterId 集群ID
      * @param {string} jobName 作业名称
-     * @param {CdmStartJobReq} cdmStartJobReq 运行作业请求json
+     * @param {CdmStartJobReq} [cdmStartJobReq] 运行作业请求json
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1239,9 +1239,6 @@ export const ParamCreater = function () {
             }
             if (jobName === null || jobName === undefined) {
             throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling startJob.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
