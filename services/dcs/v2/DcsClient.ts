@@ -34,6 +34,7 @@ import { ChangeMasterStandbyAsyncRequest } from './model/ChangeMasterStandbyAsyn
 import { ChangeMasterStandbyAsyncResponse } from './model/ChangeMasterStandbyAsyncResponse';
 import { ChangeMasterStandbyRequest } from './model/ChangeMasterStandbyRequest';
 import { ChangeMasterStandbyResponse } from './model/ChangeMasterStandbyResponse';
+import { ClientInfo } from './model/ClientInfo';
 import { ClusterRedisNodeMonitoredObject } from './model/ClusterRedisNodeMonitoredObject';
 import { CommandTimeTaken } from './model/CommandTimeTaken';
 import { CommandTimeTakenList } from './model/CommandTimeTakenList';
@@ -126,6 +127,12 @@ import { Features } from './model/Features';
 import { Files } from './model/Files';
 import { FlavorAzObject } from './model/FlavorAzObject';
 import { FlavorsItems } from './model/FlavorsItems';
+import { HangUpClientsRequest } from './model/HangUpClientsRequest';
+import { HangUpClientsRequestBody } from './model/HangUpClientsRequestBody';
+import { HangUpClientsResponse } from './model/HangUpClientsResponse';
+import { HangUpKillAllClientsRequest } from './model/HangUpKillAllClientsRequest';
+import { HangUpKillAllClientsRequestBody } from './model/HangUpKillAllClientsRequestBody';
+import { HangUpKillAllClientsResponse } from './model/HangUpKillAllClientsResponse';
 import { HistoryInfo } from './model/HistoryInfo';
 import { HotkeysBody } from './model/HotkeysBody';
 import { InstanceBackupPolicy } from './model/InstanceBackupPolicy';
@@ -156,6 +163,8 @@ import { ListBigkeyScanTasksResponse } from './model/ListBigkeyScanTasksResponse
 import { ListCenterTaskRequest } from './model/ListCenterTaskRequest';
 import { ListCenterTaskResponse } from './model/ListCenterTaskResponse';
 import { ListCenterTasksResp } from './model/ListCenterTasksResp';
+import { ListClientsRequest } from './model/ListClientsRequest';
+import { ListClientsResponse } from './model/ListClientsResponse';
 import { ListConfigHistoriesRequest } from './model/ListConfigHistoriesRequest';
 import { ListConfigHistoriesResponse } from './model/ListConfigHistoriesResponse';
 import { ListConfigTemplatesRequest } from './model/ListConfigTemplatesRequest';
@@ -237,6 +246,9 @@ import { RestoreInstanceBody } from './model/RestoreInstanceBody';
 import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
 import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
 import { RunlogItem } from './model/RunlogItem';
+import { ScanClientsRequest } from './model/ScanClientsRequest';
+import { ScanClientsRequestBody } from './model/ScanClientsRequestBody';
+import { ScanClientsResponse } from './model/ScanClientsResponse';
 import { ScanExpireKeyRequest } from './model/ScanExpireKeyRequest';
 import { ScanExpireKeyResponse } from './model/ScanExpireKeyResponse';
 import { SetOnlineMigrationTaskBody } from './model/SetOnlineMigrationTaskBody';
@@ -1077,6 +1089,46 @@ export class DcsClient {
     }
 
     /**
+     * kill指定的会话
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary kill指定的会话
+     * @param {string} instanceId 实例ID。
+     * @param {HangUpClientsRequestBody} hangUpClientsRequestBody 删除指定会话请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public hangUpClients(hangUpClientsRequest?: HangUpClientsRequest): Promise<HangUpClientsResponse> {
+        const options = ParamCreater().hangUpClients(hangUpClientsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下发kill指定节点或实例的全部会话任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下发kill指定节点或实例的全部会话任务
+     * @param {string} instanceId 实例ID。
+     * @param {HangUpKillAllClientsRequestBody} hangUpKillAllClientsRequestBody 删除指定节点全部会话请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public hangUpKillAllClients(hangUpKillAllClientsRequest?: HangUpKillAllClientsRequest): Promise<HangUpKillAllClientsResponse> {
+        const options = ParamCreater().hangUpKillAllClients(hangUpKillAllClientsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询ACL账户列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1217,6 +1269,31 @@ export class DcsClient {
      */
     public listCenterTask(listCenterTaskRequest?: ListCenterTaskRequest): Promise<ListCenterTaskResponse> {
         const options = ParamCreater().listCenterTask(listCenterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取会话列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取会话列表
+     * @param {string} instanceId 实例ID。
+     * @param {string} nodeId 节点ID。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， 偏移量大于等于0。
+     * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10.
+     * @param {string} [addr] 按客户端连接地址过滤。
+     * @param {string} [sort] 排序字段。
+     * @param {'asc' | 'desc'} [order] 排序方式
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClients(listClientsRequest?: ListClientsRequest): Promise<ListClientsResponse> {
+        const options = ParamCreater().listClients(listClientsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1791,6 +1868,26 @@ export class DcsClient {
      */
     public restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
         const options = ParamCreater().restoreInstance(restoreInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下发查询会话列表任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下发查询会话列表任务
+     * @param {string} instanceId 实例ID。
+     * @param {ScanClientsRequestBody} scanClientsRequestBody 下发查询会话列表任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public scanClients(scanClientsRequest?: ScanClientsRequest): Promise<ScanClientsResponse> {
+        const options = ParamCreater().scanClients(scanClientsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4177,6 +4274,98 @@ export const ParamCreater = function () {
         },
     
         /**
+         * kill指定的会话
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        hangUpClients(hangUpClientsRequest?: HangUpClientsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/clients/kill",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (hangUpClientsRequest !== null && hangUpClientsRequest !== undefined) {
+                if (hangUpClientsRequest instanceof HangUpClientsRequest) {
+                    instanceId = hangUpClientsRequest.instanceId;
+                    body = hangUpClientsRequest.body
+                } else {
+                    instanceId = hangUpClientsRequest['instance_id'];
+                    body = hangUpClientsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling hangUpClients.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下发kill指定节点或实例的全部会话任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        hangUpKillAllClients(hangUpKillAllClientsRequest?: HangUpKillAllClientsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/clients/kill-all",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (hangUpKillAllClientsRequest !== null && hangUpKillAllClientsRequest !== undefined) {
+                if (hangUpKillAllClientsRequest instanceof HangUpKillAllClientsRequest) {
+                    instanceId = hangUpKillAllClientsRequest.instanceId;
+                    body = hangUpKillAllClientsRequest.body
+                } else {
+                    instanceId = hangUpKillAllClientsRequest['instance_id'];
+                    body = hangUpKillAllClientsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling hangUpKillAllClients.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询ACL账户列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4532,6 +4721,89 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取会话列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClients(listClientsRequest?: ListClientsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/clients",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let offset;
+            
+            let limit;
+            
+            let addr;
+            
+            let sort;
+            
+            let order;
+
+            if (listClientsRequest !== null && listClientsRequest !== undefined) {
+                if (listClientsRequest instanceof ListClientsRequest) {
+                    instanceId = listClientsRequest.instanceId;
+                    nodeId = listClientsRequest.nodeId;
+                    offset = listClientsRequest.offset;
+                    limit = listClientsRequest.limit;
+                    addr = listClientsRequest.addr;
+                    sort = listClientsRequest.sort;
+                    order = listClientsRequest.order;
+                } else {
+                    instanceId = listClientsRequest['instance_id'];
+                    nodeId = listClientsRequest['node_id'];
+                    offset = listClientsRequest['offset'];
+                    limit = listClientsRequest['limit'];
+                    addr = listClientsRequest['addr'];
+                    sort = listClientsRequest['sort'];
+                    order = listClientsRequest['order'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClients.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listClients.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (addr !== null && addr !== undefined) {
+                localVarQueryParameter['addr'] = addr;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5933,6 +6205,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restoreInstance.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下发查询会话列表任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        scanClients(scanClientsRequest?: ScanClientsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/clients",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (scanClientsRequest !== null && scanClientsRequest !== undefined) {
+                if (scanClientsRequest instanceof ScanClientsRequest) {
+                    instanceId = scanClientsRequest.instanceId;
+                    body = scanClientsRequest.body
+                } else {
+                    instanceId = scanClientsRequest['instance_id'];
+                    body = scanClientsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling scanClients.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

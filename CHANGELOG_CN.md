@@ -1,3 +1,26 @@
+# 3.1.79 2024-02-20
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 支持接口`ListClients`、`ScanClients`、`HangUpClients`、`HangUpKillAllClients`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DLI
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListSqlJobs**
+    - 响应参数变更
+      - `* jobs.duration: int32 -> int64`
+      - `* jobs.result_count: int32 -> int64`
+
 # 3.1.78 2024-02-07
 
 ### HuaweiCloud SDK EIP
