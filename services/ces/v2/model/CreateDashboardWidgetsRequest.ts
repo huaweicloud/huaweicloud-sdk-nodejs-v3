@@ -1,9 +1,8 @@
-import { BaseWidgetInfo } from './BaseWidgetInfo';
 
 
 export class CreateDashboardWidgetsRequest {
     private 'dashboard_id'?: string;
-    public body?: Array<BaseWidgetInfo>;
+    public body?: Array<object>;
     public constructor(dashboardId?: string) { 
         this['dashboard_id'] = dashboardId;
     }
@@ -17,7 +16,7 @@ export class CreateDashboardWidgetsRequest {
     public get dashboardId(): string | undefined {
         return this['dashboard_id'];
     }
-    public withBody(body: Array<BaseWidgetInfo>): CreateDashboardWidgetsRequest {
+    public withBody(body: Array<object>): CreateDashboardWidgetsRequest {
         this['body'] = body;
         return this;
     }

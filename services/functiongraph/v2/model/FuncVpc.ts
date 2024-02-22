@@ -1,6 +1,8 @@
 
 
 export class FuncVpc {
+    private 'domain_id'?: string;
+    public namespace?: string;
     private 'vpc_name'?: string;
     private 'vpc_id'?: string;
     private 'subnet_name'?: string;
@@ -11,6 +13,20 @@ export class FuncVpc {
     public constructor(vpcId?: string, subnetId?: string) { 
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
+    }
+    public withDomainId(domainId: string): FuncVpc {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
+    }
+    public withNamespace(namespace: string): FuncVpc {
+        this['namespace'] = namespace;
+        return this;
     }
     public withVpcName(vpcName: string): FuncVpc {
         this['vpc_name'] = vpcName;

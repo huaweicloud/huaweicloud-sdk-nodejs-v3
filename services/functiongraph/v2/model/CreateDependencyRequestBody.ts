@@ -75,8 +75,9 @@ export enum CreateDependencyRequestBodyRuntimeEnum {
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
+    CUSTOM = 'Custom',
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
-    CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }

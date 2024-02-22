@@ -2,7 +2,7 @@
 
 export class MetricConfig {
     public name?: string;
-    public type?: string;
+    public type?: MetricConfigTypeEnum | string;
     public threshold?: number;
     public min?: number;
     public constructor() { 
@@ -11,7 +11,7 @@ export class MetricConfig {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): MetricConfig {
+    public withType(type: MetricConfigTypeEnum | string): MetricConfig {
         this['type'] = type;
         return this;
     }
@@ -23,4 +23,12 @@ export class MetricConfig {
         this['min'] = min;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MetricConfigTypeEnum {
+    CONCURRENCY = 'Concurrency'
 }

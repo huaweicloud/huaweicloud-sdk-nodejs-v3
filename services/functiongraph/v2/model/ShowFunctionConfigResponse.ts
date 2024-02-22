@@ -2,6 +2,7 @@ import { CustomImage } from './CustomImage';
 import { Dependency } from './Dependency';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
+import { NetworkControlConfig } from './NetworkControlConfig';
 import { StrategyConfig } from './StrategyConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -50,10 +51,19 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'log_group_id'?: string;
     private 'log_stream_id'?: string;
     public type?: ShowFunctionConfigResponseTypeEnum | string;
+    private 'enable_cloud_debug'?: string;
     private 'enable_dynamic_memory'?: boolean;
     private 'is_stateful_function'?: boolean;
+    private 'is_bridge_function'?: boolean;
     private 'enable_auth_in_header'?: boolean;
     private 'custom_image'?: CustomImage;
+    private 'reserved_instance_idle_mode'?: boolean;
+    private 'apig_route_enable'?: boolean;
+    private 'heartbeat_handler'?: string;
+    private 'enable_class_isolation'?: boolean;
+    private 'gpu_type'?: string;
+    private 'allow_ephemeral_storage'?: boolean;
+    private 'network_controller'?: NetworkControlConfig;
     public constructor() { 
         super();
     }
@@ -421,6 +431,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
         this['type'] = type;
         return this;
     }
+    public withEnableCloudDebug(enableCloudDebug: string): ShowFunctionConfigResponse {
+        this['enable_cloud_debug'] = enableCloudDebug;
+        return this;
+    }
+    public set enableCloudDebug(enableCloudDebug: string  | undefined) {
+        this['enable_cloud_debug'] = enableCloudDebug;
+    }
+    public get enableCloudDebug(): string | undefined {
+        return this['enable_cloud_debug'];
+    }
     public withEnableDynamicMemory(enableDynamicMemory: boolean): ShowFunctionConfigResponse {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
@@ -441,6 +461,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     public get isStatefulFunction(): boolean | undefined {
         return this['is_stateful_function'];
     }
+    public withIsBridgeFunction(isBridgeFunction: boolean): ShowFunctionConfigResponse {
+        this['is_bridge_function'] = isBridgeFunction;
+        return this;
+    }
+    public set isBridgeFunction(isBridgeFunction: boolean  | undefined) {
+        this['is_bridge_function'] = isBridgeFunction;
+    }
+    public get isBridgeFunction(): boolean | undefined {
+        return this['is_bridge_function'];
+    }
     public withEnableAuthInHeader(enableAuthInHeader: boolean): ShowFunctionConfigResponse {
         this['enable_auth_in_header'] = enableAuthInHeader;
         return this;
@@ -460,6 +490,76 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get customImage(): CustomImage | undefined {
         return this['custom_image'];
+    }
+    public withReservedInstanceIdleMode(reservedInstanceIdleMode: boolean): ShowFunctionConfigResponse {
+        this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
+        return this;
+    }
+    public set reservedInstanceIdleMode(reservedInstanceIdleMode: boolean  | undefined) {
+        this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
+    }
+    public get reservedInstanceIdleMode(): boolean | undefined {
+        return this['reserved_instance_idle_mode'];
+    }
+    public withApigRouteEnable(apigRouteEnable: boolean): ShowFunctionConfigResponse {
+        this['apig_route_enable'] = apigRouteEnable;
+        return this;
+    }
+    public set apigRouteEnable(apigRouteEnable: boolean  | undefined) {
+        this['apig_route_enable'] = apigRouteEnable;
+    }
+    public get apigRouteEnable(): boolean | undefined {
+        return this['apig_route_enable'];
+    }
+    public withHeartbeatHandler(heartbeatHandler: string): ShowFunctionConfigResponse {
+        this['heartbeat_handler'] = heartbeatHandler;
+        return this;
+    }
+    public set heartbeatHandler(heartbeatHandler: string  | undefined) {
+        this['heartbeat_handler'] = heartbeatHandler;
+    }
+    public get heartbeatHandler(): string | undefined {
+        return this['heartbeat_handler'];
+    }
+    public withEnableClassIsolation(enableClassIsolation: boolean): ShowFunctionConfigResponse {
+        this['enable_class_isolation'] = enableClassIsolation;
+        return this;
+    }
+    public set enableClassIsolation(enableClassIsolation: boolean  | undefined) {
+        this['enable_class_isolation'] = enableClassIsolation;
+    }
+    public get enableClassIsolation(): boolean | undefined {
+        return this['enable_class_isolation'];
+    }
+    public withGpuType(gpuType: string): ShowFunctionConfigResponse {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
+    }
+    public withAllowEphemeralStorage(allowEphemeralStorage: boolean): ShowFunctionConfigResponse {
+        this['allow_ephemeral_storage'] = allowEphemeralStorage;
+        return this;
+    }
+    public set allowEphemeralStorage(allowEphemeralStorage: boolean  | undefined) {
+        this['allow_ephemeral_storage'] = allowEphemeralStorage;
+    }
+    public get allowEphemeralStorage(): boolean | undefined {
+        return this['allow_ephemeral_storage'];
+    }
+    public withNetworkController(networkController: NetworkControlConfig): ShowFunctionConfigResponse {
+        this['network_controller'] = networkController;
+        return this;
+    }
+    public set networkController(networkController: NetworkControlConfig  | undefined) {
+        this['network_controller'] = networkController;
+    }
+    public get networkController(): NetworkControlConfig | undefined {
+        return this['network_controller'];
     }
 }
 
@@ -485,7 +585,8 @@ export enum ShowFunctionConfigResponseRuntimeEnum {
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
     CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }
 /**
     * @export
@@ -495,7 +596,8 @@ export enum ShowFunctionConfigResponseCodeTypeEnum {
     INLINE = 'inline',
     ZIP = 'zip',
     OBS = 'obs',
-    JAR = 'jar'
+    JAR = 'jar',
+    CUSTOM_IMAGE_SWR = 'Custom-Image-Swr'
 }
 /**
     * @export

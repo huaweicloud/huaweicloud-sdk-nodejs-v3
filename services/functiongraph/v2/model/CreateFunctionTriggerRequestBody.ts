@@ -1,11 +1,12 @@
+import { TriggerEventDataRequestBody } from './TriggerEventDataRequestBody';
 
 
 export class CreateFunctionTriggerRequestBody {
     private 'trigger_type_code'?: CreateFunctionTriggerRequestBodyTriggerTypeCodeEnum | string;
     private 'trigger_status'?: CreateFunctionTriggerRequestBodyTriggerStatusEnum | string;
     private 'event_type_code'?: string;
-    private 'event_data'?: object;
-    public constructor(triggerTypeCode?: string, eventData?: object) { 
+    private 'event_data'?: TriggerEventDataRequestBody;
+    public constructor(triggerTypeCode?: string, eventData?: TriggerEventDataRequestBody) { 
         this['trigger_type_code'] = triggerTypeCode;
         this['event_data'] = eventData;
     }
@@ -39,14 +40,14 @@ export class CreateFunctionTriggerRequestBody {
     public get eventTypeCode(): string | undefined {
         return this['event_type_code'];
     }
-    public withEventData(eventData: object): CreateFunctionTriggerRequestBody {
+    public withEventData(eventData: TriggerEventDataRequestBody): CreateFunctionTriggerRequestBody {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: object  | undefined) {
+    public set eventData(eventData: TriggerEventDataRequestBody  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData(): object | undefined {
+    public get eventData(): TriggerEventDataRequestBody | undefined {
         return this['event_data'];
     }
 }

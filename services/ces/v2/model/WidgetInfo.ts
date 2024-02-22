@@ -1,6 +1,6 @@
 import { BaseWidgetInfo } from './BaseWidgetInfo';
-import { BaseWidgetInfoLocation } from './BaseWidgetInfoLocation';
-import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
+import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
+import { UpdateWidgetInfoProperties } from './UpdateWidgetInfoProperties';
 import { WidgetMetric } from './WidgetMetric';
 
 
@@ -11,8 +11,8 @@ export class WidgetInfo {
     private 'threshold_enabled'?: boolean;
     public view?: WidgetInfoViewEnum | string;
     private 'metric_display_mode'?: WidgetInfoMetricDisplayModeEnum | string;
-    public properties?: BaseWidgetInfoProperties;
-    public location?: BaseWidgetInfoLocation;
+    public properties?: UpdateWidgetInfoProperties;
+    public location?: UpdateWidgetInfoLocation;
     public unit?: string;
     private 'create_time'?: number;
     public constructor() { 
@@ -53,11 +53,11 @@ export class WidgetInfo {
     public get metricDisplayMode(): WidgetInfoMetricDisplayModeEnum | string | undefined {
         return this['metric_display_mode'];
     }
-    public withProperties(properties: BaseWidgetInfoProperties): WidgetInfo {
+    public withProperties(properties: UpdateWidgetInfoProperties): WidgetInfo {
         this['properties'] = properties;
         return this;
     }
-    public withLocation(location: BaseWidgetInfoLocation): WidgetInfo {
+    public withLocation(location: UpdateWidgetInfoLocation): WidgetInfo {
         this['location'] = location;
         return this;
     }

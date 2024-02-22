@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { Action } from './model/Action';
+import { ApigTriggerFuncInfo } from './model/ApigTriggerFuncInfo';
 import { AppTemplateResourceDetail } from './model/AppTemplateResourceDetail';
 import { AsyncInvokeFunctionRequest } from './model/AsyncInvokeFunctionRequest';
 import { AsyncInvokeFunctionResponse } from './model/AsyncInvokeFunctionResponse';
@@ -108,6 +109,7 @@ import { ListDependenciesResponse } from './model/ListDependenciesResponse';
 import { ListDependenciesResult } from './model/ListDependenciesResult';
 import { ListDependencyVersionRequest } from './model/ListDependencyVersionRequest';
 import { ListDependencyVersionResponse } from './model/ListDependencyVersionResponse';
+import { ListDependencyVersionsResult } from './model/ListDependencyVersionsResult';
 import { ListEnterpriseResourceDetail } from './model/ListEnterpriseResourceDetail';
 import { ListEnterpriseResourceRequestBody } from './model/ListEnterpriseResourceRequestBody';
 import { ListEnterpriseResourceResult } from './model/ListEnterpriseResourceResult';
@@ -236,7 +238,8 @@ import { TacticsConfig } from './model/TacticsConfig';
 import { TagItem } from './model/TagItem';
 import { TempDetail } from './model/TempDetail';
 import { Trigger } from './model/Trigger';
-import { TriggerEventData } from './model/TriggerEventData';
+import { TriggerEventDataRequestBody } from './model/TriggerEventDataRequestBody';
+import { TriggerEventDataResponseBody } from './model/TriggerEventDataResponseBody';
 import { TriggerMetadataList } from './model/TriggerMetadataList';
 import { UpdateEventRequest } from './model/UpdateEventRequest';
 import { UpdateEventRequestBody } from './model/UpdateEventRequestBody';
@@ -272,6 +275,9 @@ import { UpdateVersionAliasRequestBody } from './model/UpdateVersionAliasRequest
 import { UpdateVersionAliasResponse } from './model/UpdateVersionAliasResponse';
 import { UpdateWorkFlowRequest } from './model/UpdateWorkFlowRequest';
 import { UpdateWorkFlowResponse } from './model/UpdateWorkFlowResponse';
+import { UpdateriggerEventData } from './model/UpdateriggerEventData';
+import { VersionStrategy } from './model/VersionStrategy';
+import { VersionStrategyRules } from './model/VersionStrategyRules';
 import { VpcConfig } from './model/VpcConfig';
 import { WorkflowCreateBody } from './model/WorkflowCreateBody';
 import { WorkflowDeleteBody } from './model/WorkflowDeleteBody';
@@ -1253,7 +1259,7 @@ export class FunctionGraphClient {
      * @summary 获取函数列表
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [maxitems] 每次查询获取的最大函数记录数量 最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
-     * @param {string} [packageName] 应用名称。
+     * @param {string} [packageName] 自定义分组名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

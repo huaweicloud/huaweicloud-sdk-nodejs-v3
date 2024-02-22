@@ -407,7 +407,8 @@ export enum UpdateFunctionMaxInstanceConfigResponseRuntimeEnum {
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
     CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }
 /**
     * @export
@@ -417,7 +418,8 @@ export enum UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum {
     INLINE = 'inline',
     ZIP = 'zip',
     OBS = 'obs',
-    JAR = 'jar'
+    JAR = 'jar',
+    CUSTOM_IMAGE_SWR = 'Custom-Image-Swr'
 }
 /**
     * @export

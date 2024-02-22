@@ -82,5 +82,6 @@ export enum UpdateFunctionCodeRequestBodyCodeTypeEnum {
     INLINE = 'inline',
     ZIP = 'zip',
     OBS = 'obs',
-    JAR = 'jar'
+    JAR = 'jar',
+    CUSTOM_IMAGE_SWR = 'Custom-Image-Swr'
 }

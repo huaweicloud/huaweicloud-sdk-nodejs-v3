@@ -1,3 +1,4 @@
+import { VersionStrategy } from './VersionStrategy';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,6 +9,7 @@ export class CreateVersionAliasResponse extends SdkResponse {
     private 'last_modified'?: Date;
     private 'alias_urn'?: string;
     private 'additional_version_weights'?: { [key: string]: number; };
+    private 'additional_version_strategy'?: { [key: string]: VersionStrategy; };
     public constructor() { 
         super();
     }
@@ -52,5 +54,15 @@ export class CreateVersionAliasResponse extends SdkResponse {
     }
     public get additionalVersionWeights(): { [key: string]: number; } | undefined {
         return this['additional_version_weights'];
+    }
+    public withAdditionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }): CreateVersionAliasResponse {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+        return this;
+    }
+    public set additionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }  | undefined) {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+    }
+    public get additionalVersionStrategy(): { [key: string]: VersionStrategy; } | undefined {
+        return this['additional_version_strategy'];
     }
 }

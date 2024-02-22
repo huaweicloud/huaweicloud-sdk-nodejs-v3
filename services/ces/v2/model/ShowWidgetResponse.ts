@@ -1,5 +1,5 @@
-import { BaseWidgetInfoLocation } from './BaseWidgetInfoLocation';
-import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
+import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
+import { UpdateWidgetInfoProperties } from './UpdateWidgetInfoProperties';
 import { WidgetIdItem } from './WidgetIdItem';
 import { WidgetInfo } from './WidgetInfo';
 import { WidgetMetric } from './WidgetMetric';
@@ -14,8 +14,8 @@ export class ShowWidgetResponse extends SdkResponse {
     private 'threshold_enabled'?: boolean;
     public view?: ShowWidgetResponseViewEnum | string;
     private 'metric_display_mode'?: ShowWidgetResponseMetricDisplayModeEnum | string;
-    public properties?: BaseWidgetInfoProperties;
-    public location?: BaseWidgetInfoLocation;
+    public properties?: UpdateWidgetInfoProperties;
+    public location?: UpdateWidgetInfoLocation;
     public unit?: string;
     private 'create_time'?: number;
     public constructor() { 
@@ -67,11 +67,11 @@ export class ShowWidgetResponse extends SdkResponse {
     public get metricDisplayMode(): ShowWidgetResponseMetricDisplayModeEnum | string | undefined {
         return this['metric_display_mode'];
     }
-    public withProperties(properties: BaseWidgetInfoProperties): ShowWidgetResponse {
+    public withProperties(properties: UpdateWidgetInfoProperties): ShowWidgetResponse {
         this['properties'] = properties;
         return this;
     }
-    public withLocation(location: BaseWidgetInfoLocation): ShowWidgetResponse {
+    public withLocation(location: UpdateWidgetInfoLocation): ShowWidgetResponse {
         this['location'] = location;
         return this;
     }

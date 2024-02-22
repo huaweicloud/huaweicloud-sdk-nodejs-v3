@@ -19,8 +19,6 @@ import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';
 import { AlarmTemplates } from './model/AlarmTemplates';
 import { AlarmType } from './model/AlarmType';
 import { BaseWidgetInfo } from './model/BaseWidgetInfo';
-import { BaseWidgetInfoLocation } from './model/BaseWidgetInfoLocation';
-import { BaseWidgetInfoProperties } from './model/BaseWidgetInfoProperties';
 import { BatchCreateResourcesRequest } from './model/BatchCreateResourcesRequest';
 import { BatchCreateResourcesResponse } from './model/BatchCreateResourcesResponse';
 import { BatchDeleteAlarmRulesRequest } from './model/BatchDeleteAlarmRulesRequest';
@@ -216,6 +214,8 @@ import { UpdatePolicy } from './model/UpdatePolicy';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
 import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse';
 import { UpdateWidgetInfo } from './model/UpdateWidgetInfo';
+import { UpdateWidgetInfoLocation } from './model/UpdateWidgetInfoLocation';
+import { UpdateWidgetInfoProperties } from './model/UpdateWidgetInfoProperties';
 import { Value } from './model/Value';
 import { WidgetDisplayMode } from './model/WidgetDisplayMode';
 import { WidgetIdItem } from './model/WidgetIdItem';
@@ -555,7 +555,7 @@ export class CesClient {
      *
      * @summary 创建/复制/批量创建监控视图到指定的监控看板
      * @param {string} dashboardId 监控看板id，以db开头，包含22个字母和数字例：db16564943172807wjOmoLyn\&#39;
-     * @param {Array<BaseWidgetInfo>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
+     * @param {Array<object>} [createDashboardWidgetsRequestBody] 创建单指标条形图类型监控视图到指定监控看板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

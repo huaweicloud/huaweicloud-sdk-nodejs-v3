@@ -1,9 +1,9 @@
-import { TriggerEventData } from './TriggerEventData';
+import { UpdateriggerEventData } from './UpdateriggerEventData';
 
 
 export class UpdateTriggerRequestBody {
     private 'trigger_status'?: UpdateTriggerRequestBodyTriggerStatusEnum | string;
-    private 'event_data'?: Array<TriggerEventData>;
+    private 'event_data'?: Array<UpdateriggerEventData>;
     public constructor() { 
     }
     public withTriggerStatus(triggerStatus: UpdateTriggerRequestBodyTriggerStatusEnum | string): UpdateTriggerRequestBody {
@@ -16,14 +16,14 @@ export class UpdateTriggerRequestBody {
     public get triggerStatus(): UpdateTriggerRequestBodyTriggerStatusEnum | string | undefined {
         return this['trigger_status'];
     }
-    public withEventData(eventData: Array<TriggerEventData>): UpdateTriggerRequestBody {
+    public withEventData(eventData: Array<UpdateriggerEventData>): UpdateTriggerRequestBody {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: Array<TriggerEventData>  | undefined) {
+    public set eventData(eventData: Array<UpdateriggerEventData>  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData(): Array<TriggerEventData> | undefined {
+    public get eventData(): Array<UpdateriggerEventData> | undefined {
         return this['event_data'];
     }
 }

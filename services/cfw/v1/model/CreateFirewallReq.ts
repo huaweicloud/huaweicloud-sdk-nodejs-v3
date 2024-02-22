@@ -9,9 +9,8 @@ export class CreateFirewallReq {
     public tags?: Array<CreateFirewallReqTags>;
     public flavor?: CreateFirewallReqFlavor;
     private 'charge_info'?: CreateFirewallReqChargeInfo;
-    public constructor(name?: string, enterpriseProjectId?: string, chargeInfo?: CreateFirewallReqChargeInfo) { 
+    public constructor(name?: string, chargeInfo?: CreateFirewallReqChargeInfo) { 
         this['name'] = name;
-        this['enterprise_project_id'] = enterpriseProjectId;
         this['charge_info'] = chargeInfo;
     }
     public withName(name: string): CreateFirewallReq {

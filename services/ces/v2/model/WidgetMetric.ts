@@ -8,7 +8,10 @@ export class WidgetMetric {
     private 'metric_name'?: string;
     public alias?: Array<string>;
     private 'extra_info'?: ExtraInfo;
-    public constructor() { 
+    public constructor(namespace?: string, dimensions?: DimensionInfo, metricName?: string) { 
+        this['namespace'] = namespace;
+        this['dimensions'] = dimensions;
+        this['metric_name'] = metricName;
     }
     public withNamespace(namespace: string): WidgetMetric {
         this['namespace'] = namespace;

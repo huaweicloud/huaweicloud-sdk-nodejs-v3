@@ -1,11 +1,14 @@
 import { CustomImage } from './CustomImage';
+import { Dependency } from './Dependency';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
+import { NetworkControlConfig } from './NetworkControlConfig';
 import { StrategyConfig } from './StrategyConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateFunctionResponse extends SdkResponse {
+    private 'func_id'?: string;
     private 'func_urn'?: string;
     private 'func_name'?: string;
     private 'domain_id'?: string;
@@ -22,6 +25,7 @@ export class CreateFunctionResponse extends SdkResponse {
     private 'code_url'?: string;
     private 'code_filename'?: string;
     private 'code_size'?: number;
+    private 'domain_names'?: string;
     private 'user_data'?: string;
     private 'encrypted_user_data'?: string;
     public digest?: string;
@@ -33,21 +37,47 @@ export class CreateFunctionResponse extends SdkResponse {
     private 'last_modified'?: Date;
     private 'func_vpc'?: FuncVpc;
     private 'mount_config'?: MountConfig;
+    private 'reserved_instance_count'?: number;
     private 'depend_list'?: Array<string>;
     private 'depend_version_list'?: Array<string>;
     private 'strategy_config'?: StrategyConfig;
     private 'extend_config'?: string;
+    public dependencies?: Array<Dependency>;
     private 'initializer_handler'?: string;
     private 'initializer_timeout'?: number;
     private 'pre_stop_handler'?: string;
     private 'pre_stop_timeout'?: number;
     private 'enterprise_project_id'?: string;
+    private 'long_time'?: boolean;
+    private 'log_group_id'?: string;
+    private 'log_stream_id'?: string;
+    public type?: CreateFunctionResponseTypeEnum | string;
+    private 'enable_cloud_debug'?: string;
     private 'enable_dynamic_memory'?: boolean;
     private 'is_stateful_function'?: boolean;
     private 'enable_auth_in_header'?: boolean;
     private 'custom_image'?: CustomImage;
+    private 'is_bridge_function'?: boolean;
+    private 'apig_route_enable'?: boolean;
+    private 'heartbeat_handler'?: string;
+    private 'enable_class_isolation'?: boolean;
+    private 'gpu_type'?: string;
+    private 'allow_ephemeral_storage'?: boolean;
+    private 'ephemeral_storage'?: number;
+    private 'network_controller'?: NetworkControlConfig;
+    private 'resource_id'?: string;
     public constructor() { 
         super();
+    }
+    public withFuncId(funcId: string): CreateFunctionResponse {
+        this['func_id'] = funcId;
+        return this;
+    }
+    public set funcId(funcId: string  | undefined) {
+        this['func_id'] = funcId;
+    }
+    public get funcId(): string | undefined {
+        return this['func_id'];
     }
     public withFuncUrn(funcUrn: string): CreateFunctionResponse {
         this['func_urn'] = funcUrn;
@@ -179,6 +209,16 @@ export class CreateFunctionResponse extends SdkResponse {
     public get codeSize(): number | undefined {
         return this['code_size'];
     }
+    public withDomainNames(domainNames: string): CreateFunctionResponse {
+        this['domain_names'] = domainNames;
+        return this;
+    }
+    public set domainNames(domainNames: string  | undefined) {
+        this['domain_names'] = domainNames;
+    }
+    public get domainNames(): string | undefined {
+        return this['domain_names'];
+    }
     public withUserData(userData: string): CreateFunctionResponse {
         this['user_data'] = userData;
         return this;
@@ -265,6 +305,16 @@ export class CreateFunctionResponse extends SdkResponse {
     public get mountConfig(): MountConfig | undefined {
         return this['mount_config'];
     }
+    public withReservedInstanceCount(reservedInstanceCount: number): CreateFunctionResponse {
+        this['reserved_instance_count'] = reservedInstanceCount;
+        return this;
+    }
+    public set reservedInstanceCount(reservedInstanceCount: number  | undefined) {
+        this['reserved_instance_count'] = reservedInstanceCount;
+    }
+    public get reservedInstanceCount(): number | undefined {
+        return this['reserved_instance_count'];
+    }
     public withDependList(dependList: Array<string>): CreateFunctionResponse {
         this['depend_list'] = dependList;
         return this;
@@ -304,6 +354,10 @@ export class CreateFunctionResponse extends SdkResponse {
     }
     public get extendConfig(): string | undefined {
         return this['extend_config'];
+    }
+    public withDependencies(dependencies: Array<Dependency>): CreateFunctionResponse {
+        this['dependencies'] = dependencies;
+        return this;
     }
     public withInitializerHandler(initializerHandler: string): CreateFunctionResponse {
         this['initializer_handler'] = initializerHandler;
@@ -355,6 +409,50 @@ export class CreateFunctionResponse extends SdkResponse {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withLongTime(longTime: boolean): CreateFunctionResponse {
+        this['long_time'] = longTime;
+        return this;
+    }
+    public set longTime(longTime: boolean  | undefined) {
+        this['long_time'] = longTime;
+    }
+    public get longTime(): boolean | undefined {
+        return this['long_time'];
+    }
+    public withLogGroupId(logGroupId: string): CreateFunctionResponse {
+        this['log_group_id'] = logGroupId;
+        return this;
+    }
+    public set logGroupId(logGroupId: string  | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId(): string | undefined {
+        return this['log_group_id'];
+    }
+    public withLogStreamId(logStreamId: string): CreateFunctionResponse {
+        this['log_stream_id'] = logStreamId;
+        return this;
+    }
+    public set logStreamId(logStreamId: string  | undefined) {
+        this['log_stream_id'] = logStreamId;
+    }
+    public get logStreamId(): string | undefined {
+        return this['log_stream_id'];
+    }
+    public withType(type: CreateFunctionResponseTypeEnum | string): CreateFunctionResponse {
+        this['type'] = type;
+        return this;
+    }
+    public withEnableCloudDebug(enableCloudDebug: string): CreateFunctionResponse {
+        this['enable_cloud_debug'] = enableCloudDebug;
+        return this;
+    }
+    public set enableCloudDebug(enableCloudDebug: string  | undefined) {
+        this['enable_cloud_debug'] = enableCloudDebug;
+    }
+    public get enableCloudDebug(): string | undefined {
+        return this['enable_cloud_debug'];
+    }
     public withEnableDynamicMemory(enableDynamicMemory: boolean): CreateFunctionResponse {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
@@ -395,6 +493,96 @@ export class CreateFunctionResponse extends SdkResponse {
     public get customImage(): CustomImage | undefined {
         return this['custom_image'];
     }
+    public withIsBridgeFunction(isBridgeFunction: boolean): CreateFunctionResponse {
+        this['is_bridge_function'] = isBridgeFunction;
+        return this;
+    }
+    public set isBridgeFunction(isBridgeFunction: boolean  | undefined) {
+        this['is_bridge_function'] = isBridgeFunction;
+    }
+    public get isBridgeFunction(): boolean | undefined {
+        return this['is_bridge_function'];
+    }
+    public withApigRouteEnable(apigRouteEnable: boolean): CreateFunctionResponse {
+        this['apig_route_enable'] = apigRouteEnable;
+        return this;
+    }
+    public set apigRouteEnable(apigRouteEnable: boolean  | undefined) {
+        this['apig_route_enable'] = apigRouteEnable;
+    }
+    public get apigRouteEnable(): boolean | undefined {
+        return this['apig_route_enable'];
+    }
+    public withHeartbeatHandler(heartbeatHandler: string): CreateFunctionResponse {
+        this['heartbeat_handler'] = heartbeatHandler;
+        return this;
+    }
+    public set heartbeatHandler(heartbeatHandler: string  | undefined) {
+        this['heartbeat_handler'] = heartbeatHandler;
+    }
+    public get heartbeatHandler(): string | undefined {
+        return this['heartbeat_handler'];
+    }
+    public withEnableClassIsolation(enableClassIsolation: boolean): CreateFunctionResponse {
+        this['enable_class_isolation'] = enableClassIsolation;
+        return this;
+    }
+    public set enableClassIsolation(enableClassIsolation: boolean  | undefined) {
+        this['enable_class_isolation'] = enableClassIsolation;
+    }
+    public get enableClassIsolation(): boolean | undefined {
+        return this['enable_class_isolation'];
+    }
+    public withGpuType(gpuType: string): CreateFunctionResponse {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
+    }
+    public withAllowEphemeralStorage(allowEphemeralStorage: boolean): CreateFunctionResponse {
+        this['allow_ephemeral_storage'] = allowEphemeralStorage;
+        return this;
+    }
+    public set allowEphemeralStorage(allowEphemeralStorage: boolean  | undefined) {
+        this['allow_ephemeral_storage'] = allowEphemeralStorage;
+    }
+    public get allowEphemeralStorage(): boolean | undefined {
+        return this['allow_ephemeral_storage'];
+    }
+    public withEphemeralStorage(ephemeralStorage: number): CreateFunctionResponse {
+        this['ephemeral_storage'] = ephemeralStorage;
+        return this;
+    }
+    public set ephemeralStorage(ephemeralStorage: number  | undefined) {
+        this['ephemeral_storage'] = ephemeralStorage;
+    }
+    public get ephemeralStorage(): number | undefined {
+        return this['ephemeral_storage'];
+    }
+    public withNetworkController(networkController: NetworkControlConfig): CreateFunctionResponse {
+        this['network_controller'] = networkController;
+        return this;
+    }
+    public set networkController(networkController: NetworkControlConfig  | undefined) {
+        this['network_controller'] = networkController;
+    }
+    public get networkController(): NetworkControlConfig | undefined {
+        return this['network_controller'];
+    }
+    public withResourceId(resourceId: string): CreateFunctionResponse {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
 }
 
 /**
@@ -419,7 +607,8 @@ export enum CreateFunctionResponseRuntimeEnum {
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
     CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }
 /**
     * @export
@@ -429,5 +618,14 @@ export enum CreateFunctionResponseCodeTypeEnum {
     INLINE = 'inline',
     ZIP = 'zip',
     OBS = 'obs',
-    JAR = 'jar'
+    JAR = 'jar',
+    CUSTOM_IMAGE_SWR = 'Custom-Image-Swr'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateFunctionResponseTypeEnum {
+    V1 = 'v1',
+    V2 = 'v2'
 }

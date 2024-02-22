@@ -1,13 +1,14 @@
+import { TriggerEventDataResponseBody } from './TriggerEventDataResponseBody';
 
 
 export class ListFunctionTriggerResult {
     private 'trigger_id'?: string;
     private 'trigger_type_code'?: ListFunctionTriggerResultTriggerTypeCodeEnum | string;
     private 'trigger_status'?: ListFunctionTriggerResultTriggerStatusEnum | string;
-    private 'event_data'?: object;
+    private 'event_data'?: TriggerEventDataResponseBody;
     private 'last_updated_time'?: Date;
     private 'created_time'?: Date;
-    public constructor(triggerId?: string, triggerTypeCode?: string, triggerStatus?: string, eventData?: object, lastUpdatedTime?: Date, createdTime?: Date) { 
+    public constructor(triggerId?: string, triggerTypeCode?: string, triggerStatus?: string, eventData?: TriggerEventDataResponseBody, lastUpdatedTime?: Date, createdTime?: Date) { 
         this['trigger_id'] = triggerId;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_status'] = triggerStatus;
@@ -45,14 +46,14 @@ export class ListFunctionTriggerResult {
     public get triggerStatus(): ListFunctionTriggerResultTriggerStatusEnum | string | undefined {
         return this['trigger_status'];
     }
-    public withEventData(eventData: object): ListFunctionTriggerResult {
+    public withEventData(eventData: TriggerEventDataResponseBody): ListFunctionTriggerResult {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: object  | undefined) {
+    public set eventData(eventData: TriggerEventDataResponseBody  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData(): object | undefined {
+    public get eventData(): TriggerEventDataResponseBody | undefined {
         return this['event_data'];
     }
     public withLastUpdatedTime(lastUpdatedTime: Date): ListFunctionTriggerResult {

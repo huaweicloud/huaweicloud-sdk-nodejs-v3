@@ -1,6 +1,7 @@
 
 
 export class Dependency {
+    public id?: string;
     public owner?: string;
     public link?: string;
     public runtime?: DependencyRuntimeEnum | string;
@@ -9,6 +10,9 @@ export class Dependency {
     public name?: string;
     public description?: string;
     private 'file_name'?: string;
+    public version?: number;
+    private 'dep_id'?: string;
+    private 'last_modified'?: Date;
     public constructor(owner?: string, link?: string, runtime?: string, etag?: string, size?: number, name?: string, description?: string) { 
         this['owner'] = owner;
         this['link'] = link;
@@ -17,6 +21,10 @@ export class Dependency {
         this['size'] = size;
         this['name'] = name;
         this['description'] = description;
+    }
+    public withId(id: string): Dependency {
+        this['id'] = id;
+        return this;
     }
     public withOwner(owner: string): Dependency {
         this['owner'] = owner;
@@ -56,6 +64,30 @@ export class Dependency {
     public get fileName(): string | undefined {
         return this['file_name'];
     }
+    public withVersion(version: number): Dependency {
+        this['version'] = version;
+        return this;
+    }
+    public withDepId(depId: string): Dependency {
+        this['dep_id'] = depId;
+        return this;
+    }
+    public set depId(depId: string  | undefined) {
+        this['dep_id'] = depId;
+    }
+    public get depId(): string | undefined {
+        return this['dep_id'];
+    }
+    public withLastModified(lastModified: Date): Dependency {
+        this['last_modified'] = lastModified;
+        return this;
+    }
+    public set lastModified(lastModified: Date  | undefined) {
+        this['last_modified'] = lastModified;
+    }
+    public get lastModified(): Date | undefined {
+        return this['last_modified'];
+    }
 }
 
 /**
@@ -80,5 +112,6 @@ export enum DependencyRuntimeEnum {
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
     CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }

@@ -1,13 +1,13 @@
 
 
-export class TriggerEventData {
+export class UpdateriggerEventData {
     private 'is_serial'?: boolean;
     private 'max_fetch_bytes'?: number;
     private 'polling_interval'?: number;
-    private 'polling_unit'?: TriggerEventDataPollingUnitEnum | string;
+    private 'polling_unit'?: UpdateriggerEventDataPollingUnitEnum | string;
     public constructor() { 
     }
-    public withIsSerial(isSerial: boolean): TriggerEventData {
+    public withIsSerial(isSerial: boolean): UpdateriggerEventData {
         this['is_serial'] = isSerial;
         return this;
     }
@@ -17,7 +17,7 @@ export class TriggerEventData {
     public get isSerial(): boolean | undefined {
         return this['is_serial'];
     }
-    public withMaxFetchBytes(maxFetchBytes: number): TriggerEventData {
+    public withMaxFetchBytes(maxFetchBytes: number): UpdateriggerEventData {
         this['max_fetch_bytes'] = maxFetchBytes;
         return this;
     }
@@ -27,7 +27,7 @@ export class TriggerEventData {
     public get maxFetchBytes(): number | undefined {
         return this['max_fetch_bytes'];
     }
-    public withPollingInterval(pollingInterval: number): TriggerEventData {
+    public withPollingInterval(pollingInterval: number): UpdateriggerEventData {
         this['polling_interval'] = pollingInterval;
         return this;
     }
@@ -37,14 +37,14 @@ export class TriggerEventData {
     public get pollingInterval(): number | undefined {
         return this['polling_interval'];
     }
-    public withPollingUnit(pollingUnit: TriggerEventDataPollingUnitEnum | string): TriggerEventData {
+    public withPollingUnit(pollingUnit: UpdateriggerEventDataPollingUnitEnum | string): UpdateriggerEventData {
         this['polling_unit'] = pollingUnit;
         return this;
     }
-    public set pollingUnit(pollingUnit: TriggerEventDataPollingUnitEnum | string  | undefined) {
+    public set pollingUnit(pollingUnit: UpdateriggerEventDataPollingUnitEnum | string  | undefined) {
         this['polling_unit'] = pollingUnit;
     }
-    public get pollingUnit(): TriggerEventDataPollingUnitEnum | string | undefined {
+    public get pollingUnit(): UpdateriggerEventDataPollingUnitEnum | string | undefined {
         return this['polling_unit'];
     }
 }
@@ -53,7 +53,7 @@ export class TriggerEventData {
     * @export
     * @enum {string}
     */
-export enum TriggerEventDataPollingUnitEnum {
+export enum UpdateriggerEventDataPollingUnitEnum {
     MS = 'ms',
     S = 's'
 }

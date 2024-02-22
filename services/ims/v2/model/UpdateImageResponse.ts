@@ -60,6 +60,7 @@ export class UpdateImageResponse extends SdkResponse {
     private '__sequence_num'?: string;
     private 'active_at'?: string;
     private '__support_agent_list'?: string;
+    private '__image_displayname'?: string;
     private '__support_amd'?: string;
     public constructor() { 
         super();
@@ -577,6 +578,16 @@ export class UpdateImageResponse extends SdkResponse {
     }
     public get supportAgentList(): string | undefined {
         return this['__support_agent_list'];
+    }
+    public withImageDisplayname(imageDisplayname: string): UpdateImageResponse {
+        this['__image_displayname'] = imageDisplayname;
+        return this;
+    }
+    public set imageDisplayname(imageDisplayname: string  | undefined) {
+        this['__image_displayname'] = imageDisplayname;
+    }
+    public get imageDisplayname(): string | undefined {
+        return this['__image_displayname'];
     }
     public withSupportAmd(supportAmd: string): UpdateImageResponse {
         this['__support_amd'] = supportAmd;

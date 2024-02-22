@@ -1,15 +1,15 @@
-import { ListDependenciesResult } from './ListDependenciesResult';
+import { ListDependencyVersionsResult } from './ListDependencyVersionsResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDependencyVersionResponse extends SdkResponse {
-    public dependencies?: Array<ListDependenciesResult>;
+    public dependencies?: Array<ListDependencyVersionsResult>;
     private 'next_marker'?: number;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withDependencies(dependencies: Array<ListDependenciesResult>): ListDependencyVersionResponse {
+    public withDependencies(dependencies: Array<ListDependencyVersionsResult>): ListDependencyVersionResponse {
         this['dependencies'] = dependencies;
         return this;
     }

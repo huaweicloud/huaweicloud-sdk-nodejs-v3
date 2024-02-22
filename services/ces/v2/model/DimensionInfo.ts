@@ -4,7 +4,9 @@ export class DimensionInfo {
     public name?: string;
     private 'filter_type'?: DimensionInfoFilterTypeEnum | string;
     public values?: Array<string>;
-    public constructor() { 
+    public constructor(name?: string, filterType?: string) { 
+        this['name'] = name;
+        this['filter_type'] = filterType;
     }
     public withName(name: string): DimensionInfo {
         this['name'] = name;

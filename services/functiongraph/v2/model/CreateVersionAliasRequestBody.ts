@@ -1,3 +1,4 @@
+import { VersionStrategy } from './VersionStrategy';
 
 
 export class CreateVersionAliasRequestBody {
@@ -5,6 +6,7 @@ export class CreateVersionAliasRequestBody {
     public version?: string;
     public description?: string;
     private 'additional_version_weights'?: { [key: string]: number; };
+    private 'additional_version_strategy'?: { [key: string]: VersionStrategy; };
     public constructor(name?: string, version?: string) { 
         this['name'] = name;
         this['version'] = version;
@@ -30,5 +32,15 @@ export class CreateVersionAliasRequestBody {
     }
     public get additionalVersionWeights(): { [key: string]: number; } | undefined {
         return this['additional_version_weights'];
+    }
+    public withAdditionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }): CreateVersionAliasRequestBody {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+        return this;
+    }
+    public set additionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }  | undefined) {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+    }
+    public get additionalVersionStrategy(): { [key: string]: VersionStrategy; } | undefined {
+        return this['additional_version_strategy'];
     }
 }

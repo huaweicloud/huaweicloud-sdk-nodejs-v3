@@ -101,5 +101,6 @@ export enum ListDependenciesResultRuntimeEnum {
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
     CUSTOM = 'Custom',
-    HTTP = 'http'
+    HTTP = 'http',
+    CUSTOM_IMAGE = 'Custom Image'
 }

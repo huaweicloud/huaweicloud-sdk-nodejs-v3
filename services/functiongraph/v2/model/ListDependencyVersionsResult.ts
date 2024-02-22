@@ -1,55 +1,56 @@
 
-import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class CreateDependencyVersionResponse extends SdkResponse {
+export class ListDependencyVersionsResult {
     public id?: string;
     public owner?: string;
     public link?: string;
-    public runtime?: CreateDependencyVersionResponseRuntimeEnum | string;
+    public runtime?: ListDependencyVersionsResultRuntimeEnum | string;
     public etag?: string;
     public size?: number;
     public name?: string;
-    public description?: string;
     private 'file_name'?: string;
+    public description?: string;
     public version?: number;
-    private 'dep_id'?: string;
     private 'last_modified'?: number;
-    public constructor() { 
-        super();
+    private 'dep_id'?: string;
+    public constructor(id?: string, owner?: string, link?: string, runtime?: string, etag?: string, size?: number, name?: string) { 
+        this['id'] = id;
+        this['owner'] = owner;
+        this['link'] = link;
+        this['runtime'] = runtime;
+        this['etag'] = etag;
+        this['size'] = size;
+        this['name'] = name;
     }
-    public withId(id: string): CreateDependencyVersionResponse {
+    public withId(id: string): ListDependencyVersionsResult {
         this['id'] = id;
         return this;
     }
-    public withOwner(owner: string): CreateDependencyVersionResponse {
+    public withOwner(owner: string): ListDependencyVersionsResult {
         this['owner'] = owner;
         return this;
     }
-    public withLink(link: string): CreateDependencyVersionResponse {
+    public withLink(link: string): ListDependencyVersionsResult {
         this['link'] = link;
         return this;
     }
-    public withRuntime(runtime: CreateDependencyVersionResponseRuntimeEnum | string): CreateDependencyVersionResponse {
+    public withRuntime(runtime: ListDependencyVersionsResultRuntimeEnum | string): ListDependencyVersionsResult {
         this['runtime'] = runtime;
         return this;
     }
-    public withEtag(etag: string): CreateDependencyVersionResponse {
+    public withEtag(etag: string): ListDependencyVersionsResult {
         this['etag'] = etag;
         return this;
     }
-    public withSize(size: number): CreateDependencyVersionResponse {
+    public withSize(size: number): ListDependencyVersionsResult {
         this['size'] = size;
         return this;
     }
-    public withName(name: string): CreateDependencyVersionResponse {
+    public withName(name: string): ListDependencyVersionsResult {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): CreateDependencyVersionResponse {
-        this['description'] = description;
-        return this;
-    }
-    public withFileName(fileName: string): CreateDependencyVersionResponse {
+    public withFileName(fileName: string): ListDependencyVersionsResult {
         this['file_name'] = fileName;
         return this;
     }
@@ -59,21 +60,15 @@ export class CreateDependencyVersionResponse extends SdkResponse {
     public get fileName(): string | undefined {
         return this['file_name'];
     }
-    public withVersion(version: number): CreateDependencyVersionResponse {
+    public withDescription(description: string): ListDependencyVersionsResult {
+        this['description'] = description;
+        return this;
+    }
+    public withVersion(version: number): ListDependencyVersionsResult {
         this['version'] = version;
         return this;
     }
-    public withDepId(depId: string): CreateDependencyVersionResponse {
-        this['dep_id'] = depId;
-        return this;
-    }
-    public set depId(depId: string  | undefined) {
-        this['dep_id'] = depId;
-    }
-    public get depId(): string | undefined {
-        return this['dep_id'];
-    }
-    public withLastModified(lastModified: number): CreateDependencyVersionResponse {
+    public withLastModified(lastModified: number): ListDependencyVersionsResult {
         this['last_modified'] = lastModified;
         return this;
     }
@@ -83,13 +78,23 @@ export class CreateDependencyVersionResponse extends SdkResponse {
     public get lastModified(): number | undefined {
         return this['last_modified'];
     }
+    public withDepId(depId: string): ListDependencyVersionsResult {
+        this['dep_id'] = depId;
+        return this;
+    }
+    public set depId(depId: string  | undefined) {
+        this['dep_id'] = depId;
+    }
+    public get depId(): string | undefined {
+        return this['dep_id'];
+    }
 }
 
 /**
     * @export
     * @enum {string}
     */
-export enum CreateDependencyVersionResponseRuntimeEnum {
+export enum ListDependencyVersionsResultRuntimeEnum {
     JAVA8 = 'Java8',
     JAVA11 = 'Java11',
     NODE_JS6_10 = 'Node.js6.10',

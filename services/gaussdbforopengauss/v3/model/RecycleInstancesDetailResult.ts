@@ -4,13 +4,17 @@ export class RecycleInstancesDetailResult {
     public id?: string;
     public name?: string;
     private 'ha_mode'?: RecycleInstancesDetailResultHaModeEnum | string;
+    private 'engine_name'?: string;
     private 'engine_version'?: string;
     private 'pay_model'?: RecycleInstancesDetailResultPayModelEnum | string;
     private 'created_at'?: string;
     private 'deleted_at'?: string;
     private 'volume_type'?: RecycleInstancesDetailResultVolumeTypeEnum | string;
+    private 'volume_size'?: string;
     private 'data_vip'?: string;
     private 'enterprise_project_id'?: string;
+    private 'enterprise_project_name'?: string;
+    private 'backup_level'?: string;
     private 'recycle_backup_id'?: string;
     private 'recycle_status'?: RecycleInstancesDetailResultRecycleStatusEnum | string;
     public mode?: RecycleInstancesDetailResultModeEnum | string;
@@ -46,6 +50,16 @@ export class RecycleInstancesDetailResult {
     }
     public get haMode(): RecycleInstancesDetailResultHaModeEnum | string | undefined {
         return this['ha_mode'];
+    }
+    public withEngineName(engineName: string): RecycleInstancesDetailResult {
+        this['engine_name'] = engineName;
+        return this;
+    }
+    public set engineName(engineName: string  | undefined) {
+        this['engine_name'] = engineName;
+    }
+    public get engineName(): string | undefined {
+        return this['engine_name'];
     }
     public withEngineVersion(engineVersion: string): RecycleInstancesDetailResult {
         this['engine_version'] = engineVersion;
@@ -97,6 +111,16 @@ export class RecycleInstancesDetailResult {
     public get volumeType(): RecycleInstancesDetailResultVolumeTypeEnum | string | undefined {
         return this['volume_type'];
     }
+    public withVolumeSize(volumeSize: string): RecycleInstancesDetailResult {
+        this['volume_size'] = volumeSize;
+        return this;
+    }
+    public set volumeSize(volumeSize: string  | undefined) {
+        this['volume_size'] = volumeSize;
+    }
+    public get volumeSize(): string | undefined {
+        return this['volume_size'];
+    }
     public withDataVip(dataVip: string): RecycleInstancesDetailResult {
         this['data_vip'] = dataVip;
         return this;
@@ -116,6 +140,26 @@ export class RecycleInstancesDetailResult {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withEnterpriseProjectName(enterpriseProjectName: string): RecycleInstancesDetailResult {
+        this['enterprise_project_name'] = enterpriseProjectName;
+        return this;
+    }
+    public set enterpriseProjectName(enterpriseProjectName: string  | undefined) {
+        this['enterprise_project_name'] = enterpriseProjectName;
+    }
+    public get enterpriseProjectName(): string | undefined {
+        return this['enterprise_project_name'];
+    }
+    public withBackupLevel(backupLevel: string): RecycleInstancesDetailResult {
+        this['backup_level'] = backupLevel;
+        return this;
+    }
+    public set backupLevel(backupLevel: string  | undefined) {
+        this['backup_level'] = backupLevel;
+    }
+    public get backupLevel(): string | undefined {
+        return this['backup_level'];
     }
     public withRecycleBackupId(recycleBackupId: string): RecycleInstancesDetailResult {
         this['recycle_backup_id'] = recycleBackupId;

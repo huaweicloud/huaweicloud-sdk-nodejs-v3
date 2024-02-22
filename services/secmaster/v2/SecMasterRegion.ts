@@ -6,7 +6,7 @@ interface RegionMap {
 }
 
 export class SecMasterRegion {
-    public static CN_NORTH_4 = new Region("cn-north-4", ["https://sa.myhuaweicloud.com"]);
+    public static CN_NORTH_4 = new Region("cn-north-4", ["https://secmaster.cn-north-4.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://secmaster.cn-east-3.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://secmaster.cn-south-1.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://secmaster.cn-north-9.myhuaweicloud.com"]);

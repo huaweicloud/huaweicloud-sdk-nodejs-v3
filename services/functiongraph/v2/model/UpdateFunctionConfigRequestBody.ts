@@ -37,6 +37,9 @@ export class UpdateFunctionConfigRequestBody {
     private 'domain_names'?: string;
     private 'restore_hook_handler'?: string;
     private 'restore_hook_timeout'?: number;
+    private 'heartbeat_handler'?: string;
+    private 'enable_class_isolation'?: boolean;
+    private 'gpu_type'?: string;
     public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -313,6 +316,36 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get restoreHookTimeout(): number | undefined {
         return this['restore_hook_timeout'];
+    }
+    public withHeartbeatHandler(heartbeatHandler: string): UpdateFunctionConfigRequestBody {
+        this['heartbeat_handler'] = heartbeatHandler;
+        return this;
+    }
+    public set heartbeatHandler(heartbeatHandler: string  | undefined) {
+        this['heartbeat_handler'] = heartbeatHandler;
+    }
+    public get heartbeatHandler(): string | undefined {
+        return this['heartbeat_handler'];
+    }
+    public withEnableClassIsolation(enableClassIsolation: boolean): UpdateFunctionConfigRequestBody {
+        this['enable_class_isolation'] = enableClassIsolation;
+        return this;
+    }
+    public set enableClassIsolation(enableClassIsolation: boolean  | undefined) {
+        this['enable_class_isolation'] = enableClassIsolation;
+    }
+    public get enableClassIsolation(): boolean | undefined {
+        return this['enable_class_isolation'];
+    }
+    public withGpuType(gpuType: string): UpdateFunctionConfigRequestBody {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
     }
 }
 

@@ -662,7 +662,7 @@ export class SecMasterClient {
      *
      * @summary 删除告警规则
      * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} deleteAlertRuleRequestBody DeleteAlertRuleRequestBody
+     * @param {Array<string>} deleteAlertRuleRequestBody 告警规则ID数组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

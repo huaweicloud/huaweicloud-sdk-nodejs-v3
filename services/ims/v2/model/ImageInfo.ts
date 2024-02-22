@@ -59,6 +59,7 @@ export class ImageInfo {
     private '__sequence_num'?: string;
     private 'active_at'?: string;
     private '__support_agent_list'?: string;
+    private '__image_displayname'?: string;
     private '__support_amd'?: string;
     public constructor(imageSize?: string, imageSourceType?: string, imagetype?: string, isregistered?: string, osType?: string, containerFormat?: string, createdAt?: string, id?: string, minDisk?: number, minRam?: number, name?: string, owner?: string, _protected?: boolean, self?: string, status?: string, tags?: Array<string>, updatedAt?: string, virtualEnvType?: string, visibility?: string, activeAt?: string) { 
         this['__image_size'] = imageSize;
@@ -595,6 +596,16 @@ export class ImageInfo {
     }
     public get supportAgentList(): string | undefined {
         return this['__support_agent_list'];
+    }
+    public withImageDisplayname(imageDisplayname: string): ImageInfo {
+        this['__image_displayname'] = imageDisplayname;
+        return this;
+    }
+    public set imageDisplayname(imageDisplayname: string  | undefined) {
+        this['__image_displayname'] = imageDisplayname;
+    }
+    public get imageDisplayname(): string | undefined {
+        return this['__image_displayname'];
     }
     public withSupportAmd(supportAmd: string): ImageInfo {
         this['__support_amd'] = supportAmd;

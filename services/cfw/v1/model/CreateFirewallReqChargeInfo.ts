@@ -6,8 +6,10 @@ export class CreateFirewallReqChargeInfo {
     private 'period_num'?: number;
     private 'is_auto_renew'?: boolean;
     private 'is_auto_pay'?: boolean;
-    public constructor(chargeMode?: string) { 
+    public constructor(chargeMode?: string, isAutoRenew?: boolean, isAutoPay?: boolean) { 
         this['charge_mode'] = chargeMode;
+        this['is_auto_renew'] = isAutoRenew;
+        this['is_auto_pay'] = isAutoPay;
     }
     public withChargeMode(chargeMode: string): CreateFirewallReqChargeInfo {
         this['charge_mode'] = chargeMode;

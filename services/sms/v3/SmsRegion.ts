@@ -8,11 +8,13 @@ interface RegionMap {
 export class SmsRegion {
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://sms.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://sms.ap-southeast-3.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://sms.eu-west-101.myhuaweicloud.eu"]);
     
 
     private static REGION_MAP: RegionMap = {
         "ap-southeast-1":SmsRegion.AP_SOUTHEAST_1,
-        "ap-southeast-3":SmsRegion.AP_SOUTHEAST_3
+        "ap-southeast-3":SmsRegion.AP_SOUTHEAST_3,
+        "eu-west-101":SmsRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

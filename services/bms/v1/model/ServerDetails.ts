@@ -13,8 +13,8 @@ export class ServerDetails {
     public id?: string;
     private 'user_id'?: string;
     public name?: string;
-    public created?: Date;
-    public updated?: Date;
+    public created?: string;
+    public updated?: string;
     private 'tenant_id'?: string;
     public hostId?: string;
     public addresses?: { [key: string]: Array<AddressInfo>; };
@@ -79,11 +79,11 @@ export class ServerDetails {
         this['name'] = name;
         return this;
     }
-    public withCreated(created: Date): ServerDetails {
+    public withCreated(created: string): ServerDetails {
         this['created'] = created;
         return this;
     }
-    public withUpdated(updated: Date): ServerDetails {
+    public withUpdated(updated: string): ServerDetails {
         this['updated'] = updated;
         return this;
     }

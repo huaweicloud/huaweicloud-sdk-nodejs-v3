@@ -1,7 +1,5 @@
-import { BaseWidgetInfo } from './BaseWidgetInfo';
-import { BaseWidgetInfoLocation } from './BaseWidgetInfoLocation';
-import { BaseWidgetInfoProperties } from './BaseWidgetInfoProperties';
-import { WidgetIdItem } from './WidgetIdItem';
+import { UpdateWidgetInfoLocation } from './UpdateWidgetInfoLocation';
+import { UpdateWidgetInfoProperties } from './UpdateWidgetInfoProperties';
 import { WidgetMetric } from './WidgetMetric';
 
 
@@ -13,10 +11,11 @@ export class UpdateWidgetInfo {
     private 'threshold_enabled'?: boolean;
     public view?: UpdateWidgetInfoViewEnum | string;
     private 'metric_display_mode'?: UpdateWidgetInfoMetricDisplayModeEnum | string;
-    public properties?: BaseWidgetInfoProperties;
-    public location?: BaseWidgetInfoLocation;
+    public properties?: UpdateWidgetInfoProperties;
+    public location?: UpdateWidgetInfoLocation;
     public unit?: string;
-    public constructor() { 
+    public constructor(widgetId?: string) { 
+        this['widget_id'] = widgetId;
     }
     public withWidgetId(widgetId: string): UpdateWidgetInfo {
         this['widget_id'] = widgetId;
@@ -64,11 +63,11 @@ export class UpdateWidgetInfo {
     public get metricDisplayMode(): UpdateWidgetInfoMetricDisplayModeEnum | string | undefined {
         return this['metric_display_mode'];
     }
-    public withProperties(properties: BaseWidgetInfoProperties): UpdateWidgetInfo {
+    public withProperties(properties: UpdateWidgetInfoProperties): UpdateWidgetInfo {
         this['properties'] = properties;
         return this;
     }
-    public withLocation(location: BaseWidgetInfoLocation): UpdateWidgetInfo {
+    public withLocation(location: UpdateWidgetInfoLocation): UpdateWidgetInfo {
         this['location'] = location;
         return this;
     }

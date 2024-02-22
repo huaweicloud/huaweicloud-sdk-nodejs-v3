@@ -5,6 +5,8 @@ export class ModifyGaussMySqlProxyRouteModeRequestBody {
     private 'route_mode'?: number;
     private 'master_weight'?: number;
     private 'readonly_nodes'?: Array<ModifyProxyRouteWeightReadonlyNode>;
+    private 'new_node_auto_add_status'?: string;
+    private 'new_node_weight'?: number;
     public constructor(routeMode?: number) { 
         this['route_mode'] = routeMode;
     }
@@ -37,5 +39,25 @@ export class ModifyGaussMySqlProxyRouteModeRequestBody {
     }
     public get readonlyNodes(): Array<ModifyProxyRouteWeightReadonlyNode> | undefined {
         return this['readonly_nodes'];
+    }
+    public withNewNodeAutoAddStatus(newNodeAutoAddStatus: string): ModifyGaussMySqlProxyRouteModeRequestBody {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+        return this;
+    }
+    public set newNodeAutoAddStatus(newNodeAutoAddStatus: string  | undefined) {
+        this['new_node_auto_add_status'] = newNodeAutoAddStatus;
+    }
+    public get newNodeAutoAddStatus(): string | undefined {
+        return this['new_node_auto_add_status'];
+    }
+    public withNewNodeWeight(newNodeWeight: number): ModifyGaussMySqlProxyRouteModeRequestBody {
+        this['new_node_weight'] = newNodeWeight;
+        return this;
+    }
+    public set newNodeWeight(newNodeWeight: number  | undefined) {
+        this['new_node_weight'] = newNodeWeight;
+    }
+    public get newNodeWeight(): number | undefined {
+        return this['new_node_weight'];
     }
 }
