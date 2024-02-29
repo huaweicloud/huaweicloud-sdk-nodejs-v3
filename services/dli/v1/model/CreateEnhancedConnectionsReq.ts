@@ -6,6 +6,7 @@ export class CreateEnhancedConnectionsReq {
     public name?: string;
     private 'dest_vpc_id'?: string;
     private 'dest_network_id'?: string;
+    private 'elastic_resource_pools'?: Array<string>;
     public queues?: Array<string>;
     public hosts?: Array<EnhancedConnectionsHost>;
     private 'routetable_id'?: string;
@@ -38,6 +39,16 @@ export class CreateEnhancedConnectionsReq {
     }
     public get destNetworkId(): string | undefined {
         return this['dest_network_id'];
+    }
+    public withElasticResourcePools(elasticResourcePools: Array<string>): CreateEnhancedConnectionsReq {
+        this['elastic_resource_pools'] = elasticResourcePools;
+        return this;
+    }
+    public set elasticResourcePools(elasticResourcePools: Array<string>  | undefined) {
+        this['elastic_resource_pools'] = elasticResourcePools;
+    }
+    public get elasticResourcePools(): Array<string> | undefined {
+        return this['elastic_resource_pools'];
     }
     public withQueues(queues: Array<string>): CreateEnhancedConnectionsReq {
         this['queues'] = queues;

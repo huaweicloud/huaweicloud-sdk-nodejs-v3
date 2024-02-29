@@ -218,6 +218,7 @@ import { UpdateAclRuleResponse } from './model/UpdateAclRuleResponse';
 import { UpdateAddressSetDto } from './model/UpdateAddressSetDto';
 import { UpdateAddressSetRequest } from './model/UpdateAddressSetRequest';
 import { UpdateAddressSetResponse } from './model/UpdateAddressSetResponse';
+import { UpdateAddressSetResponseData } from './model/UpdateAddressSetResponseData';
 import { UpdateBlackWhiteListDto } from './model/UpdateBlackWhiteListDto';
 import { UpdateBlackWhiteListRequest } from './model/UpdateBlackWhiteListRequest';
 import { UpdateBlackWhiteListResponse } from './model/UpdateBlackWhiteListResponse';
@@ -789,6 +790,7 @@ export class CfwClient {
      * @param {string} setId 地址组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -816,6 +818,7 @@ export class CfwClient {
      * @param {0 | 1} [addressType] 地址类型0 ipv4,1 ipv6
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3345,6 +3348,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryAddressSetType;
 
             if (listAddressSetDetailRequest !== null && listAddressSetDetailRequest !== undefined) {
                 if (listAddressSetDetailRequest instanceof ListAddressSetDetailRequest) {
@@ -3352,11 +3357,13 @@ export const ParamCreater = function () {
                     setId = listAddressSetDetailRequest.setId;
                     enterpriseProjectId = listAddressSetDetailRequest.enterpriseProjectId;
                     fwInstanceId = listAddressSetDetailRequest.fwInstanceId;
+                    queryAddressSetType = listAddressSetDetailRequest.queryAddressSetType;
                 } else {
                     projectId = listAddressSetDetailRequest['project_id'];
                     setId = listAddressSetDetailRequest['set_id'];
                     enterpriseProjectId = listAddressSetDetailRequest['enterprise_project_id'];
                     fwInstanceId = listAddressSetDetailRequest['fw_instance_id'];
+                    queryAddressSetType = listAddressSetDetailRequest['query_address_set_type'];
                 }
             }
 
@@ -3372,6 +3379,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (queryAddressSetType !== null && queryAddressSetType !== undefined) {
+                localVarQueryParameter['query_address_set_type'] = queryAddressSetType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3414,6 +3424,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryAddressSetType;
 
             if (listAddressSetsRequest !== null && listAddressSetsRequest !== undefined) {
                 if (listAddressSetsRequest instanceof ListAddressSetsRequest) {
@@ -3426,6 +3438,7 @@ export const ParamCreater = function () {
                     addressType = listAddressSetsRequest.addressType;
                     enterpriseProjectId = listAddressSetsRequest.enterpriseProjectId;
                     fwInstanceId = listAddressSetsRequest.fwInstanceId;
+                    queryAddressSetType = listAddressSetsRequest.queryAddressSetType;
                 } else {
                     projectId = listAddressSetsRequest['project_id'];
                     objectId = listAddressSetsRequest['object_id'];
@@ -3436,6 +3449,7 @@ export const ParamCreater = function () {
                     addressType = listAddressSetsRequest['address_type'];
                     enterpriseProjectId = listAddressSetsRequest['enterprise_project_id'];
                     fwInstanceId = listAddressSetsRequest['fw_instance_id'];
+                    queryAddressSetType = listAddressSetsRequest['query_address_set_type'];
                 }
             }
 
@@ -3475,6 +3489,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (queryAddressSetType !== null && queryAddressSetType !== undefined) {
+                localVarQueryParameter['query_address_set_type'] = queryAddressSetType;
             }
 
             options.queryParams = localVarQueryParameter;

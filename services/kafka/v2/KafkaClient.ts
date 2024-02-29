@@ -29,6 +29,8 @@ import { ConnectorOrderRequestBody } from './model/ConnectorOrderRequestBody';
 import { CreateConnectorReq } from './model/CreateConnectorReq';
 import { CreateConnectorRequest } from './model/CreateConnectorRequest';
 import { CreateConnectorResponse } from './model/CreateConnectorResponse';
+import { CreateConnectorTaskRequest } from './model/CreateConnectorTaskRequest';
+import { CreateConnectorTaskResponse } from './model/CreateConnectorTaskResponse';
 import { CreateDeleteConnectorOrderRequest } from './model/CreateDeleteConnectorOrderRequest';
 import { CreateDeleteConnectorOrderResponse } from './model/CreateDeleteConnectorOrderResponse';
 import { CreateGroupReq } from './model/CreateGroupReq';
@@ -56,10 +58,13 @@ import { CreateReassignmentTaskResponse } from './model/CreateReassignmentTaskRe
 import { CreateSinkTaskReq } from './model/CreateSinkTaskReq';
 import { CreateSinkTaskRequest } from './model/CreateSinkTaskRequest';
 import { CreateSinkTaskResponse } from './model/CreateSinkTaskResponse';
+import { CreateSmartConnectTaskReq } from './model/CreateSmartConnectTaskReq';
 import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
 import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
 import { DeleteConnectorRequest } from './model/DeleteConnectorRequest';
 import { DeleteConnectorResponse } from './model/DeleteConnectorResponse';
+import { DeleteConnectorTaskRequest } from './model/DeleteConnectorTaskRequest';
+import { DeleteConnectorTaskResponse } from './model/DeleteConnectorTaskResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteKafkaUserClientQuotaTaskReq } from './model/DeleteKafkaUserClientQuotaTaskReq';
@@ -83,6 +88,8 @@ import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListBackgroundTasksRequest } from './model/ListBackgroundTasksRequest';
 import { ListBackgroundTasksRespTasks } from './model/ListBackgroundTasksRespTasks';
 import { ListBackgroundTasksResponse } from './model/ListBackgroundTasksResponse';
+import { ListConnectorTasksRequest } from './model/ListConnectorTasksRequest';
+import { ListConnectorTasksResponse } from './model/ListConnectorTasksResponse';
 import { ListEngineIosEntity } from './model/ListEngineIosEntity';
 import { ListEngineProductsEntity } from './model/ListEngineProductsEntity';
 import { ListEngineProductsRequest } from './model/ListEngineProductsRequest';
@@ -118,6 +125,8 @@ import { ModifyInstanceConfigsResponse } from './model/ModifyInstanceConfigsResp
 import { ObsDestinationDescriptor } from './model/ObsDestinationDescriptor';
 import { PartitionReassignEntity } from './model/PartitionReassignEntity';
 import { PartitionReassignRequest } from './model/PartitionReassignRequest';
+import { PauseConnectorTaskRequest } from './model/PauseConnectorTaskRequest';
+import { PauseConnectorTaskResponse } from './model/PauseConnectorTaskResponse';
 import { PolicyEntity } from './model/PolicyEntity';
 import { Quota } from './model/Quota';
 import { ResetManagerPasswordReq } from './model/ResetManagerPasswordReq';
@@ -142,8 +151,12 @@ import { ResizeEngineInstanceResponse } from './model/ResizeEngineInstanceRespon
 import { ResizeInstanceReq } from './model/ResizeInstanceReq';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RestartConnectorTaskRequest } from './model/RestartConnectorTaskRequest';
+import { RestartConnectorTaskResponse } from './model/RestartConnectorTaskResponse';
 import { RestartManagerRequest } from './model/RestartManagerRequest';
 import { RestartManagerResponse } from './model/RestartManagerResponse';
+import { ResumeConnectorTaskRequest } from './model/ResumeConnectorTaskRequest';
+import { ResumeConnectorTaskResponse } from './model/ResumeConnectorTaskResponse';
 import { SendKafkaMessageRequest } from './model/SendKafkaMessageRequest';
 import { SendKafkaMessageRequestBody } from './model/SendKafkaMessageRequestBody';
 import { SendKafkaMessageResponse } from './model/SendKafkaMessageResponse';
@@ -163,6 +176,8 @@ import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterRespCluster } from './model/ShowClusterRespCluster';
 import { ShowClusterRespClusterBrokers } from './model/ShowClusterRespClusterBrokers';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
+import { ShowConnectorTaskRequest } from './model/ShowConnectorTaskRequest';
+import { ShowConnectorTaskResponse } from './model/ShowConnectorTaskResponse';
 import { ShowCoordinatorsRequest } from './model/ShowCoordinatorsRequest';
 import { ShowCoordinatorsRespCoordinators } from './model/ShowCoordinatorsRespCoordinators';
 import { ShowCoordinatorsResponse } from './model/ShowCoordinatorsResponse';
@@ -220,6 +235,11 @@ import { ShowSinkTaskDetailRespTopicsInfo } from './model/ShowSinkTaskDetailResp
 import { ShowSinkTaskDetailResponse } from './model/ShowSinkTaskDetailResponse';
 import { ShowTopicAccessPolicyRequest } from './model/ShowTopicAccessPolicyRequest';
 import { ShowTopicAccessPolicyResponse } from './model/ShowTopicAccessPolicyResponse';
+import { SmartConnectTaskEntity } from './model/SmartConnectTaskEntity';
+import { SmartConnectTaskReqSinkConfig } from './model/SmartConnectTaskReqSinkConfig';
+import { SmartConnectTaskReqSourceConfig } from './model/SmartConnectTaskReqSourceConfig';
+import { SmartConnectTaskRespSinkConfig } from './model/SmartConnectTaskRespSinkConfig';
+import { SmartConnectTaskRespSourceConfig } from './model/SmartConnectTaskRespSourceConfig';
 import { TagEntity } from './model/TagEntity';
 import { TagMultyValueEntity } from './model/TagMultyValueEntity';
 import { TopicAssignment } from './model/TopicAssignment';
@@ -383,28 +403,6 @@ export class KafkaClient {
      */
     public closeKafkaManager(closeKafkaManagerRequest?: CloseKafkaManagerRequest): Promise<CloseKafkaManagerResponse> {
         const options = ParamCreater().closeKafkaManager(closeKafkaManagerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建Smart Connect节点。
-     * 
-     * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建实例的Smart Connect节点
-     * @param {string} instanceId 实例ID。
-     * @param {CreateConnectorReq} createConnectorRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createConnector(createConnectorRequest?: CreateConnectorRequest): Promise<CreateConnectorResponse> {
-        const options = ParamCreater().createConnector(createConnectorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -606,26 +604,6 @@ export class KafkaClient {
      */
     public deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest): Promise<DeleteBackgroundTaskResponse> {
         const options = ParamCreater().deleteBackgroundTask(deleteBackgroundTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 介绍按需实例如何关闭Smart Connect。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 关闭Smart Connect（按需实例）
-     * @param {string} instanceId 实例ID。
-     * @param {object} [deleteConnectorRequestBody] 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteConnector(deleteConnectorRequest?: DeleteConnectorRequest): Promise<DeleteConnectorResponse> {
-        const options = ParamCreater().deleteConnector(deleteConnectorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1783,6 +1761,189 @@ export class KafkaClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 开启Smart Connect，提交创建Smart Connect节点任务。
+     * 
+     * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启Smart Connect（按需实例）
+     * @param {string} instanceId 实例ID。
+     * @param {CreateConnectorReq} createConnectorRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConnector(createConnectorRequest?: CreateConnectorRequest): Promise<CreateConnectorResponse> {
+        const options = ParamCreater().createConnector(createConnectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Smart Connect任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Smart Connect任务
+     * @param {string} instanceId 实例ID。
+     * @param {CreateSmartConnectTaskReq} createSmartConnectTaskRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConnectorTask(createConnectorTaskRequest?: CreateConnectorTaskRequest): Promise<CreateConnectorTaskResponse> {
+        const options = ParamCreater().createConnectorTask(createConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 介绍按需实例如何关闭Smart Connect。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭Smart Connect（按需实例）
+     * @param {string} instanceId 实例ID。
+     * @param {object} [deleteConnectorRequestBody] 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConnector(deleteConnectorRequest?: DeleteConnectorRequest): Promise<DeleteConnectorResponse> {
+        const options = ParamCreater().deleteConnector(deleteConnectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Smart Connector任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Smart Connector任务
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId Smart Connector任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConnectorTask(deleteConnectorTaskRequest?: DeleteConnectorTaskRequest): Promise<DeleteConnectorTaskResponse> {
+        const options = ParamCreater().deleteConnectorTask(deleteConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Smart Connect任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Smart Connect任务列表
+     * @param {string} instanceId 实例ID。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
+     * @param {number} [limit] 当次查询返回的最大实例个数，默认值为10，取值范围为1~50。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConnectorTasks(listConnectorTasksRequest?: ListConnectorTasksRequest): Promise<ListConnectorTasksResponse> {
+        const options = ParamCreater().listConnectorTasks(listConnectorTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 暂停Smart Connect任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 暂停Smart Connect任务
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId Smart Connect任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseConnectorTask(pauseConnectorTaskRequest?: PauseConnectorTaskRequest): Promise<PauseConnectorTaskResponse> {
+        const options = ParamCreater().pauseConnectorTask(pauseConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于**启动未启动的Smart Connect任务**以及**重启已暂停或者运行中的Smart Connect任务**。注意，重启Smart Connect任务将重置同步进度，并重新开始同步任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动未启动的Smart Connect任务/重启已暂停或者运行中的Smart Connect任务
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId Smart Connect任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartConnectorTask(restartConnectorTaskRequest?: RestartConnectorTaskRequest): Promise<RestartConnectorTaskResponse> {
+        const options = ParamCreater().restartConnectorTask(restartConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启动已暂停的Smart Connect任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动已暂停的Smart Connect任务
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId Smart Connect任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumeConnectorTask(resumeConnectorTaskRequest?: ResumeConnectorTaskRequest): Promise<ResumeConnectorTaskResponse> {
+        const options = ParamCreater().resumeConnectorTask(resumeConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Smart Connector任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Smart Connector任务详情
+     * @param {string} instanceId 实例ID。
+     * @param {string} taskId Smart Connector任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConnectorTask(showConnectorTaskRequest?: ShowConnectorTaskRequest): Promise<ShowConnectorTaskResponse> {
+        const options = ParamCreater().showConnectorTask(showConnectorTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -2046,54 +2207,6 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling closeKafkaManager.');
             }
 
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建Smart Connect节点。
-         * 
-         * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createConnector(createConnectorRequest?: CreateConnectorRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances/{instance_id}/connector",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (createConnectorRequest !== null && createConnectorRequest !== undefined) {
-                if (createConnectorRequest instanceof CreateConnectorRequest) {
-                    instanceId = createConnectorRequest.instanceId;
-                    body = createConnectorRequest.body
-                } else {
-                    instanceId = createConnectorRequest['instance_id'];
-                    body = createConnectorRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createConnector.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2544,49 +2657,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 介绍按需实例如何关闭Smart Connect。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteConnector(deleteConnectorRequest?: DeleteConnectorRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/kafka/instances/{instance_id}/delete-connector",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (deleteConnectorRequest !== null && deleteConnectorRequest !== undefined) {
-                if (deleteConnectorRequest instanceof DeleteConnectorRequest) {
-                    instanceId = deleteConnectorRequest.instanceId;
-                    body = deleteConnectorRequest.body
-                } else {
-                    instanceId = deleteConnectorRequest['instance_id'];
-                    body = deleteConnectorRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteConnector.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5309,6 +5379,415 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'topic': topic, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启Smart Connect，提交创建Smart Connect节点任务。
+         * 
+         * **当前通过调用API，只支持按需实例创建Smart Connect节点。**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConnector(createConnectorRequest?: CreateConnectorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/connector",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createConnectorRequest !== null && createConnectorRequest !== undefined) {
+                if (createConnectorRequest instanceof CreateConnectorRequest) {
+                    instanceId = createConnectorRequest.instanceId;
+                    body = createConnectorRequest.body
+                } else {
+                    instanceId = createConnectorRequest['instance_id'];
+                    body = createConnectorRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createConnector.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Smart Connect任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConnectorTask(createConnectorTaskRequest?: CreateConnectorTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createConnectorTaskRequest !== null && createConnectorTaskRequest !== undefined) {
+                if (createConnectorTaskRequest instanceof CreateConnectorTaskRequest) {
+                    instanceId = createConnectorTaskRequest.instanceId;
+                    body = createConnectorTaskRequest.body
+                } else {
+                    instanceId = createConnectorTaskRequest['instance_id'];
+                    body = createConnectorTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createConnectorTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 介绍按需实例如何关闭Smart Connect。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConnector(deleteConnectorRequest?: DeleteConnectorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/delete-connector",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteConnectorRequest !== null && deleteConnectorRequest !== undefined) {
+                if (deleteConnectorRequest instanceof DeleteConnectorRequest) {
+                    instanceId = deleteConnectorRequest.instanceId;
+                    body = deleteConnectorRequest.body
+                } else {
+                    instanceId = deleteConnectorRequest['instance_id'];
+                    body = deleteConnectorRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteConnector.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Smart Connector任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConnectorTask(deleteConnectorTaskRequest?: DeleteConnectorTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (deleteConnectorTaskRequest !== null && deleteConnectorTaskRequest !== undefined) {
+                if (deleteConnectorTaskRequest instanceof DeleteConnectorTaskRequest) {
+                    instanceId = deleteConnectorTaskRequest.instanceId;
+                    taskId = deleteConnectorTaskRequest.taskId;
+                } else {
+                    instanceId = deleteConnectorTaskRequest['instance_id'];
+                    taskId = deleteConnectorTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteConnectorTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Smart Connect任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConnectorTasks(listConnectorTasksRequest?: ListConnectorTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listConnectorTasksRequest !== null && listConnectorTasksRequest !== undefined) {
+                if (listConnectorTasksRequest instanceof ListConnectorTasksRequest) {
+                    instanceId = listConnectorTasksRequest.instanceId;
+                    offset = listConnectorTasksRequest.offset;
+                    limit = listConnectorTasksRequest.limit;
+                } else {
+                    instanceId = listConnectorTasksRequest['instance_id'];
+                    offset = listConnectorTasksRequest['offset'];
+                    limit = listConnectorTasksRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listConnectorTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 暂停Smart Connect任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseConnectorTask(pauseConnectorTaskRequest?: PauseConnectorTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks/{task_id}/pause",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (pauseConnectorTaskRequest !== null && pauseConnectorTaskRequest !== undefined) {
+                if (pauseConnectorTaskRequest instanceof PauseConnectorTaskRequest) {
+                    instanceId = pauseConnectorTaskRequest.instanceId;
+                    taskId = pauseConnectorTaskRequest.taskId;
+                } else {
+                    instanceId = pauseConnectorTaskRequest['instance_id'];
+                    taskId = pauseConnectorTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling pauseConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling pauseConnectorTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于**启动未启动的Smart Connect任务**以及**重启已暂停或者运行中的Smart Connect任务**。注意，重启Smart Connect任务将重置同步进度，并重新开始同步任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartConnectorTask(restartConnectorTaskRequest?: RestartConnectorTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/connector/tasks/{task_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (restartConnectorTaskRequest !== null && restartConnectorTaskRequest !== undefined) {
+                if (restartConnectorTaskRequest instanceof RestartConnectorTaskRequest) {
+                    instanceId = restartConnectorTaskRequest.instanceId;
+                    taskId = restartConnectorTaskRequest.taskId;
+                } else {
+                    instanceId = restartConnectorTaskRequest['instance_id'];
+                    taskId = restartConnectorTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling restartConnectorTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启动已暂停的Smart Connect任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumeConnectorTask(resumeConnectorTaskRequest?: ResumeConnectorTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks/{task_id}/resume",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (resumeConnectorTaskRequest !== null && resumeConnectorTaskRequest !== undefined) {
+                if (resumeConnectorTaskRequest instanceof ResumeConnectorTaskRequest) {
+                    instanceId = resumeConnectorTaskRequest.instanceId;
+                    taskId = resumeConnectorTaskRequest.taskId;
+                } else {
+                    instanceId = resumeConnectorTaskRequest['instance_id'];
+                    taskId = resumeConnectorTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resumeConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling resumeConnectorTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Smart Connector任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConnectorTask(showConnectorTaskRequest?: ShowConnectorTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/connector/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (showConnectorTaskRequest !== null && showConnectorTaskRequest !== undefined) {
+                if (showConnectorTaskRequest instanceof ShowConnectorTaskRequest) {
+                    instanceId = showConnectorTaskRequest.instanceId;
+                    taskId = showConnectorTaskRequest.taskId;
+                } else {
+                    instanceId = showConnectorTaskRequest['instance_id'];
+                    taskId = showConnectorTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showConnectorTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showConnectorTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

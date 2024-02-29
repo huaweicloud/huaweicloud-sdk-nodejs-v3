@@ -216,6 +216,7 @@ export * from './model/UpdateAclRuleResponse';
 export * from './model/UpdateAddressSetDto';
 export * from './model/UpdateAddressSetRequest';
 export * from './model/UpdateAddressSetResponse';
+export * from './model/UpdateAddressSetResponseData';
 export * from './model/UpdateBlackWhiteListDto';
 export * from './model/UpdateBlackWhiteListRequest';
 export * from './model/UpdateBlackWhiteListResponse';

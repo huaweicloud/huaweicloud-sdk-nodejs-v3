@@ -8,6 +8,7 @@ export class VPCProtectsVo {
     private 'protect_vpcs'?: Array<VpcAttachmentDetail>;
     private 'self_protect_vpcs'?: Array<VpcAttachmentDetail>;
     private 'other_protect_vpcs'?: Array<VpcAttachmentDetail>;
+    private 'total_assets'?: number;
     public constructor() { 
     }
     public withTotal(total: number): VPCProtectsVo {
@@ -63,5 +64,15 @@ export class VPCProtectsVo {
     }
     public get otherProtectVpcs(): Array<VpcAttachmentDetail> | undefined {
         return this['other_protect_vpcs'];
+    }
+    public withTotalAssets(totalAssets: number): VPCProtectsVo {
+        this['total_assets'] = totalAssets;
+        return this;
+    }
+    public set totalAssets(totalAssets: number  | undefined) {
+        this['total_assets'] = totalAssets;
+    }
+    public get totalAssets(): number | undefined {
+        return this['total_assets'];
     }
 }

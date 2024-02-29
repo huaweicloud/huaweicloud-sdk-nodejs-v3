@@ -1,4 +1,4 @@
-import { TriggerEventDataRequestBody } from './TriggerEventDataRequestBody';
+import { TriggerEventDataResponseBody } from './TriggerEventDataResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class CreateFunctionTriggerResponse extends SdkResponse {
     private 'trigger_id'?: string;
     private 'trigger_type_code'?: CreateFunctionTriggerResponseTriggerTypeCodeEnum | string;
     private 'trigger_status'?: CreateFunctionTriggerResponseTriggerStatusEnum | string;
-    private 'event_data'?: TriggerEventDataRequestBody;
+    private 'event_data'?: TriggerEventDataResponseBody;
     private 'last_updated_time'?: Date;
     private 'created_time'?: Date;
     public constructor() { 
@@ -42,14 +42,14 @@ export class CreateFunctionTriggerResponse extends SdkResponse {
     public get triggerStatus(): CreateFunctionTriggerResponseTriggerStatusEnum | string | undefined {
         return this['trigger_status'];
     }
-    public withEventData(eventData: TriggerEventDataRequestBody): CreateFunctionTriggerResponse {
+    public withEventData(eventData: TriggerEventDataResponseBody): CreateFunctionTriggerResponse {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: TriggerEventDataRequestBody  | undefined) {
+    public set eventData(eventData: TriggerEventDataResponseBody  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData(): TriggerEventDataRequestBody | undefined {
+    public get eventData(): TriggerEventDataResponseBody | undefined {
         return this['event_data'];
     }
     public withLastUpdatedTime(lastUpdatedTime: Date): CreateFunctionTriggerResponse {

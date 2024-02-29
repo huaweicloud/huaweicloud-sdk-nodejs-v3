@@ -9,16 +9,17 @@ export class ObsDestinationDescriptor {
     private 'secret_key'?: string;
     private 'obs_bucket_name'?: string;
     private 'obs_path'?: string;
-    private 'partition_format'?: string;
+    private 'partition_format'?: ObsDestinationDescriptorPartitionFormatEnum | string;
     private 'record_delimiter'?: string;
     private 'deliver_time_interval'?: number;
-    public constructor(topics?: string, consumerStrategy?: string, destinationFileType?: string, accessKey?: string, secretKey?: string, obsBucketName?: string, deliverTimeInterval?: number) { 
+    public constructor(topics?: string, consumerStrategy?: string, destinationFileType?: string, accessKey?: string, secretKey?: string, obsBucketName?: string, partitionFormat?: string, deliverTimeInterval?: number) { 
         this['topics'] = topics;
         this['consumer_strategy'] = consumerStrategy;
         this['destination_file_type'] = destinationFileType;
         this['access_key'] = accessKey;
         this['secret_key'] = secretKey;
         this['obs_bucket_name'] = obsBucketName;
+        this['partition_format'] = partitionFormat;
         this['deliver_time_interval'] = deliverTimeInterval;
     }
     public withTopics(topics: string): ObsDestinationDescriptor {
@@ -95,14 +96,14 @@ export class ObsDestinationDescriptor {
     public get obsPath(): string | undefined {
         return this['obs_path'];
     }
-    public withPartitionFormat(partitionFormat: string): ObsDestinationDescriptor {
+    public withPartitionFormat(partitionFormat: ObsDestinationDescriptorPartitionFormatEnum | string): ObsDestinationDescriptor {
         this['partition_format'] = partitionFormat;
         return this;
     }
-    public set partitionFormat(partitionFormat: string  | undefined) {
+    public set partitionFormat(partitionFormat: ObsDestinationDescriptorPartitionFormatEnum | string  | undefined) {
         this['partition_format'] = partitionFormat;
     }
-    public get partitionFormat(): string | undefined {
+    public get partitionFormat(): ObsDestinationDescriptorPartitionFormatEnum | string | undefined {
         return this['partition_format'];
     }
     public withRecordDelimiter(recordDelimiter: string): ObsDestinationDescriptor {
@@ -141,4 +142,15 @@ export enum ObsDestinationDescriptorConsumerStrategyEnum {
     */
 export enum ObsDestinationDescriptorDestinationFileTypeEnum {
     TEXT = 'TEXT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ObsDestinationDescriptorPartitionFormatEnum {
+    YYYY = 'yyyy',
+    YYYY_MM = 'yyyy/MM',
+    YYYY_MM_DD = 'yyyy/MM/dd',
+    YYYY_MM_DD_HH = 'yyyy/MM/dd/HH',
+    YYYY_MM_DD_HH_MM = 'yyyy/MM/dd/HH/mm'
 }

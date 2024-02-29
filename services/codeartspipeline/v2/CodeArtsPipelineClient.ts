@@ -140,6 +140,7 @@ import { PipelineParam } from './model/PipelineParam';
 import { PipelineParameter } from './model/PipelineParameter';
 import { PipelineSchedule } from './model/PipelineSchedule';
 import { PipelineSource } from './model/PipelineSource';
+import { PipelineSourceParam } from './model/PipelineSourceParam';
 import { PipelineStateStatus } from './model/PipelineStateStatus';
 import { PipelineTemplateDTO } from './model/PipelineTemplateDTO';
 import { PipelineTemplateSimpleVO } from './model/PipelineTemplateSimpleVO';
@@ -566,11 +567,11 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 创建规则集
+     * 创建策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建规则集
+     * @summary 创建策略
      * @param {string} domainId 租户ID
      * @param {CreateRuleSetReq} body 规则模板实例详情
      * @param {*} [options] Override http request option.
@@ -725,12 +726,12 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 删除规则集
+     * 删除策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除规则集
-     * @param {string} ruleSetId 规则集ID
+     * @summary 删除策略
+     * @param {string} ruleSetId 策略ID
      * @param {string} domainId 租户ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -974,7 +975,7 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 获取规则集列表
+     * 获取策略列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -984,7 +985,7 @@ export class CodeArtsPipelineClient {
      * @param {boolean} includeTenantRuleSet 是否包含租户级规则
      * @param {string} [name] 策略名称，用于模糊查询
      * @param {boolean} [isValid] 是否有效
-     * @param {string} [type] 规则集类型
+     * @param {string} [type] 策略类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1064,18 +1065,18 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 获取规则集列表
+     * 获取策略列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取规则集列表
+     * @summary 获取策略列表
      * @param {string} domainId 租户ID
      * @param {number} offset 偏移量，表示从此偏移量开始查询，offset大于等于0
      * @param {number} limit 每页显示的条目数量
      * @param {boolean} includeTenantRuleSet 是否包含租户级规则
      * @param {string} [name] 策略名称，用于模糊查询
      * @param {boolean} [isValid] 是否有效
-     * @param {string} [type] 规则集类型
+     * @param {string} [type] 策略类型
      * @param {string} [cloudProjectId] 项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1556,12 +1557,12 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 获取规则集详情
+     * 获取策略详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取规则集详情
-     * @param {string} ruleSetId 规则集ID
+     * @summary 获取策略详情
+     * @param {string} ruleSetId 策略ID
      * @param {string} domainId 租户ID
      * @param {string} [cloudProjectId] 项目ID
      * @param {*} [options] Override http request option.
@@ -1658,12 +1659,12 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 修改规则集状态
+     * 修改策略状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 开关规则集
-     * @param {string} ruleSetId 规则集ID
+     * @summary 开关策略
+     * @param {string} ruleSetId 策略ID
      * @param {string} domainId 租户ID
      * @param {UpdateRuleSetStatusReq} body 规则模版实例状态
      * @param {*} [options] Override http request option.
@@ -1800,12 +1801,12 @@ export class CodeArtsPipelineClient {
     }
 
     /**
-     * 修改规则集
+     * 修改策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改规则集
-     * @param {string} ruleSetId 规则集ID
+     * @summary 修改策略
+     * @param {string} ruleSetId 策略ID
      * @param {string} domainId 租户ID
      * @param {UpdateRuleSetReq} body 规则模版实例详情
      * @param {*} [options] Override http request option.
@@ -2503,7 +2504,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建规则集
+         * 创建策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2856,7 +2857,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除规则集
+         * 删除策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3465,7 +3466,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取规则集列表
+         * 获取策略列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3727,7 +3728,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取规则集列表
+         * 获取策略列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4880,7 +4881,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取规则集详情
+         * 获取策略详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5122,7 +5123,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改规则集状态
+         * 修改策略状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5445,7 +5446,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改规则集
+         * 修改策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

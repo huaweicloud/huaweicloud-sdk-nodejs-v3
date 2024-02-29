@@ -4,8 +4,11 @@ export class ServiceSet {
     private 'set_id'?: string;
     public name?: string;
     public description?: string;
+    private 'service_set_type'?: number;
     private 'ref_count'?: number;
     public status?: string;
+    private 'project_id'?: string;
+    public protocols?: Array<number>;
     public constructor() { 
     }
     public withSetId(setId: string): ServiceSet {
@@ -26,6 +29,16 @@ export class ServiceSet {
         this['description'] = description;
         return this;
     }
+    public withServiceSetType(serviceSetType: number): ServiceSet {
+        this['service_set_type'] = serviceSetType;
+        return this;
+    }
+    public set serviceSetType(serviceSetType: number  | undefined) {
+        this['service_set_type'] = serviceSetType;
+    }
+    public get serviceSetType(): number | undefined {
+        return this['service_set_type'];
+    }
     public withRefCount(refCount: number): ServiceSet {
         this['ref_count'] = refCount;
         return this;
@@ -38,6 +51,20 @@ export class ServiceSet {
     }
     public withStatus(status: string): ServiceSet {
         this['status'] = status;
+        return this;
+    }
+    public withProjectId(projectId: string): ServiceSet {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
+    }
+    public withProtocols(protocols: Array<number>): ServiceSet {
+        this['protocols'] = protocols;
         return this;
     }
 }

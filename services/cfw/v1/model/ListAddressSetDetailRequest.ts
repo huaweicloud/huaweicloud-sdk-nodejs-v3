@@ -5,6 +5,7 @@ export class ListAddressSetDetailRequest {
     private 'set_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
+    private 'query_address_set_type'?: number;
     public constructor(projectId?: string, setId?: string) { 
         this['project_id'] = projectId;
         this['set_id'] = setId;
@@ -48,5 +49,15 @@ export class ListAddressSetDetailRequest {
     }
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
+    }
+    public withQueryAddressSetType(queryAddressSetType: number): ListAddressSetDetailRequest {
+        this['query_address_set_type'] = queryAddressSetType;
+        return this;
+    }
+    public set queryAddressSetType(queryAddressSetType: number  | undefined) {
+        this['query_address_set_type'] = queryAddressSetType;
+    }
+    public get queryAddressSetType(): number | undefined {
+        return this['query_address_set_type'];
     }
 }

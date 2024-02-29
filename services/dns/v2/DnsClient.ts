@@ -3,9 +3,6 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AliasTarget } from './model/AliasTarget';
-import { AssociateHealthCheckReq } from './model/AssociateHealthCheckReq';
-import { AssociateHealthCheckRequest } from './model/AssociateHealthCheckRequest';
-import { AssociateHealthCheckResponse } from './model/AssociateHealthCheckResponse';
 import { AssociateRouterRequest } from './model/AssociateRouterRequest';
 import { AssociateRouterRequestBody } from './model/AssociateRouterRequestBody';
 import { AssociateRouterResponse } from './model/AssociateRouterResponse';
@@ -62,8 +59,6 @@ import { DeleteRecordSetsRequest } from './model/DeleteRecordSetsRequest';
 import { DeleteRecordSetsResponse } from './model/DeleteRecordSetsResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
-import { DisassociateHealthCheckRequest } from './model/DisassociateHealthCheckRequest';
-import { DisassociateHealthCheckResponse } from './model/DisassociateHealthCheckResponse';
 import { DisassociateRouterRequest } from './model/DisassociateRouterRequest';
 import { DisassociateRouterResponse } from './model/DisassociateRouterResponse';
 import { DisassociaterouterRequestBody } from './model/DisassociaterouterRequestBody';
@@ -552,26 +547,6 @@ export class DnsClient {
     }
 
     /**
-     * Record Set关联健康检查。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary Record Set关联健康检查
-     * @param {string} recordsetId 待查询的recordset ID。
-     * @param {AssociateHealthCheckReq} associateHealthCheckReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public associateHealthCheck(associateHealthCheckRequest?: AssociateHealthCheckRequest): Promise<AssociateHealthCheckResponse> {
-        const options = ParamCreater().associateHealthCheck(associateHealthCheckRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 批量删除某个Zone下的Record Set资源，当删除的资源不存在时，则默认删除成功。
      * 响应结果中只包含本次实际删除的资源。
      * 
@@ -706,26 +681,6 @@ export class DnsClient {
      */
     public deleteRecordSets(deleteRecordSetsRequest?: DeleteRecordSetsRequest): Promise<DeleteRecordSetsResponse> {
         const options = ParamCreater().deleteRecordSets(deleteRecordSetsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Record Set解关联健康检查。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary Record Set解关联健康检查
-     * @param {string} recordsetId Record Set关联健康检查。
-     * @param {AssociateHealthCheckReq} associateHealthCheckReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public disassociateHealthCheck(disassociateHealthCheckRequest?: DisassociateHealthCheckRequest): Promise<DisassociateHealthCheckResponse> {
-        const options = ParamCreater().disassociateHealthCheck(disassociateHealthCheckRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2200,52 +2155,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Record Set关联健康检查。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        associateHealthCheck(associateHealthCheckRequest?: AssociateHealthCheckRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2.1/recordsets/{recordset_id}/associatehealthcheck",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let recordsetId;
-
-            if (associateHealthCheckRequest !== null && associateHealthCheckRequest !== undefined) {
-                if (associateHealthCheckRequest instanceof AssociateHealthCheckRequest) {
-                    recordsetId = associateHealthCheckRequest.recordsetId;
-                    body = associateHealthCheckRequest.body
-                } else {
-                    recordsetId = associateHealthCheckRequest['recordset_id'];
-                    body = associateHealthCheckRequest['body'];
-                }
-            }
-
-        
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling associateHealthCheck.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'recordset_id': recordsetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 批量删除某个Zone下的Record Set资源，当删除的资源不存在时，则默认删除成功。
          * 响应结果中只包含本次实际删除的资源。
          * 
@@ -2561,52 +2470,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'zone_id': zoneId,'recordset_id': recordsetId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Record Set解关联健康检查。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        disassociateHealthCheck(disassociateHealthCheckRequest?: DisassociateHealthCheckRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2.1/recordsets/{recordset_id}/disassociatehealthcheck",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let recordsetId;
-
-            if (disassociateHealthCheckRequest !== null && disassociateHealthCheckRequest !== undefined) {
-                if (disassociateHealthCheckRequest instanceof DisassociateHealthCheckRequest) {
-                    recordsetId = disassociateHealthCheckRequest.recordsetId;
-                    body = disassociateHealthCheckRequest.body
-                } else {
-                    recordsetId = disassociateHealthCheckRequest['recordset_id'];
-                    body = disassociateHealthCheckRequest['body'];
-                }
-            }
-
-        
-            if (recordsetId === null || recordsetId === undefined) {
-            throw new RequiredError('recordsetId','Required parameter recordsetId was null or undefined when calling disassociateHealthCheck.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'recordset_id': recordsetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

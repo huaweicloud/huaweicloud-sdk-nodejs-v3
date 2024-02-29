@@ -6,13 +6,13 @@ export class ActionSmnForwarding {
     private 'theme_name'?: string;
     private 'topic_urn'?: string;
     private 'message_content'?: string;
+    private 'message_template_name'?: string;
     private 'message_title'?: string;
-    public constructor(regionName?: string, projectId?: string, themeName?: string, topicUrn?: string, messageContent?: string, messageTitle?: string) { 
+    public constructor(regionName?: string, projectId?: string, themeName?: string, topicUrn?: string, messageTitle?: string) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
         this['theme_name'] = themeName;
         this['topic_urn'] = topicUrn;
-        this['message_content'] = messageContent;
         this['message_title'] = messageTitle;
     }
     public withRegionName(regionName: string): ActionSmnForwarding {
@@ -64,6 +64,16 @@ export class ActionSmnForwarding {
     }
     public get messageContent(): string | undefined {
         return this['message_content'];
+    }
+    public withMessageTemplateName(messageTemplateName: string): ActionSmnForwarding {
+        this['message_template_name'] = messageTemplateName;
+        return this;
+    }
+    public set messageTemplateName(messageTemplateName: string  | undefined) {
+        this['message_template_name'] = messageTemplateName;
+    }
+    public get messageTemplateName(): string | undefined {
+        return this['message_template_name'];
     }
     public withMessageTitle(messageTitle: string): ActionSmnForwarding {
         this['message_title'] = messageTitle;

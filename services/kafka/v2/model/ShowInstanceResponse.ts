@@ -62,6 +62,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'ipv6_enable'?: boolean;
     private 'ipv6_connect_addresses'?: Array<string>;
     private 'connector_enable'?: boolean;
+    private 'connector_node_num'?: number;
     private 'connector_id'?: string;
     private 'rest_enable'?: boolean;
     private 'rest_connect_address'?: string;
@@ -633,6 +634,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get connectorEnable(): boolean | undefined {
         return this['connector_enable'];
+    }
+    public withConnectorNodeNum(connectorNodeNum: number): ShowInstanceResponse {
+        this['connector_node_num'] = connectorNodeNum;
+        return this;
+    }
+    public set connectorNodeNum(connectorNodeNum: number  | undefined) {
+        this['connector_node_num'] = connectorNodeNum;
+    }
+    public get connectorNodeNum(): number | undefined {
+        return this['connector_node_num'];
     }
     public withConnectorId(connectorId: string): ShowInstanceResponse {
         this['connector_id'] = connectorId;

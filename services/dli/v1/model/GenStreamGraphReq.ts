@@ -2,6 +2,7 @@
 
 export class GenStreamGraphReq {
     private 'sql_body'?: string;
+    private 'flink_version'?: string;
     private 'cu_number'?: number;
     private 'manager_cu_number'?: number;
     private 'parallel_number'?: number;
@@ -24,6 +25,16 @@ export class GenStreamGraphReq {
     }
     public get sqlBody(): string | undefined {
         return this['sql_body'];
+    }
+    public withFlinkVersion(flinkVersion: string): GenStreamGraphReq {
+        this['flink_version'] = flinkVersion;
+        return this;
+    }
+    public set flinkVersion(flinkVersion: string  | undefined) {
+        this['flink_version'] = flinkVersion;
+    }
+    public get flinkVersion(): string | undefined {
+        return this['flink_version'];
     }
     public withCuNumber(cuNumber: number): GenStreamGraphReq {
         this['cu_number'] = cuNumber;

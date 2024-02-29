@@ -101,6 +101,9 @@ import { BizTypeEnum } from './model/BizTypeEnum';
 import { BizVersionManageVO } from './model/BizVersionManageVO';
 import { BulkSecurityLevel } from './model/BulkSecurityLevel';
 import { BusinessAssetRequest } from './model/BusinessAssetRequest';
+import { CancelFactoryPackagesRequest } from './model/CancelFactoryPackagesRequest';
+import { CancelFactoryPackagesRequestBody } from './model/CancelFactoryPackagesRequestBody';
+import { CancelFactoryPackagesResponse } from './model/CancelFactoryPackagesResponse';
 import { CatalogAttributeVO } from './model/CatalogAttributeVO';
 import { CatalogAttributeVOParent } from './model/CatalogAttributeVOParent';
 import { CatalogEntityVO } from './model/CatalogEntityVO';
@@ -180,6 +183,8 @@ import { CreateManagerWorkSpaceRequest } from './model/CreateManagerWorkSpaceReq
 import { CreateManagerWorkSpaceResponse } from './model/CreateManagerWorkSpaceResponse';
 import { CreateOrUpdateAssetRequest } from './model/CreateOrUpdateAssetRequest';
 import { CreateOrUpdateAssetResponse } from './model/CreateOrUpdateAssetResponse';
+import { CreateOrUpdateEntitiesRequest } from './model/CreateOrUpdateEntitiesRequest';
+import { CreateOrUpdateEntitiesResponse } from './model/CreateOrUpdateEntitiesResponse';
 import { CreateSecurityDataClassificationRuleRequest } from './model/CreateSecurityDataClassificationRuleRequest';
 import { CreateSecurityDataClassificationRuleResponse } from './model/CreateSecurityDataClassificationRuleResponse';
 import { CreateSecurityPermissionSetMemberRequest } from './model/CreateSecurityPermissionSetMemberRequest';
@@ -216,6 +221,7 @@ import { DataClassificationGroupQueryDTO } from './model/DataClassificationGroup
 import { DataClassificationRuleEnableDTO } from './model/DataClassificationRuleEnableDTO';
 import { DataClassificationRuleOperateDTO } from './model/DataClassificationRuleOperateDTO';
 import { DataClassificationRuleQueryDTO } from './model/DataClassificationRuleQueryDTO';
+import { DataEntityWithExtInfo } from './model/DataEntityWithExtInfo';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
 import { DataSource } from './model/DataSource';
 import { DataType } from './model/DataType';
@@ -273,6 +279,10 @@ import { DeleteWorkspacesResponse } from './model/DeleteWorkspacesResponse';
 import { DeleteWorkspaceusersRequest } from './model/DeleteWorkspaceusersRequest';
 import { DeleteWorkspaceusersResponse } from './model/DeleteWorkspaceusersResponse';
 import { DependJob } from './model/DependJob';
+import { DeployFactoryPackagesRequest } from './model/DeployFactoryPackagesRequest';
+import { DeployFactoryPackagesRequestBody } from './model/DeployFactoryPackagesRequestBody';
+import { DeployFactoryPackagesResponse } from './model/DeployFactoryPackagesResponse';
+import { DeployPackagesResponseDeployPackageDetails } from './model/DeployPackagesResponseDeployPackageDetails';
 import { DerivativeIndexDimensionVO } from './model/DerivativeIndexDimensionVO';
 import { DerivativeIndexVO } from './model/DerivativeIndexVO';
 import { DerivativeIndexVODetailData } from './model/DerivativeIndexVODetailData';
@@ -319,6 +329,7 @@ import { InstanceHostDTO } from './model/InstanceHostDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
 import { JobAndNodeInfo } from './model/JobAndNodeInfo';
 import { JobInfoRequest } from './model/JobInfoRequest';
+import { JobInstance } from './model/JobInstance';
 import { JobLogRequest } from './model/JobLogRequest';
 import { JobParam } from './model/JobParam';
 import { JobResp } from './model/JobResp';
@@ -404,8 +415,12 @@ import { ListFactLogicTablesRequest } from './model/ListFactLogicTablesRequest';
 import { ListFactLogicTablesResponse } from './model/ListFactLogicTablesResponse';
 import { ListFactoryAlarmInfoRequest } from './model/ListFactoryAlarmInfoRequest';
 import { ListFactoryAlarmInfoResponse } from './model/ListFactoryAlarmInfoResponse';
+import { ListFactoryJobInstancesByNameRequest } from './model/ListFactoryJobInstancesByNameRequest';
+import { ListFactoryJobInstancesByNameResponse } from './model/ListFactoryJobInstancesByNameResponse';
 import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
 import { ListFactoryJobsResponse } from './model/ListFactoryJobsResponse';
+import { ListFactoryReleasePackagesRequest } from './model/ListFactoryReleasePackagesRequest';
+import { ListFactoryReleasePackagesResponse } from './model/ListFactoryReleasePackagesResponse';
 import { ListFactoryTaskCompletionRequest } from './model/ListFactoryTaskCompletionRequest';
 import { ListFactoryTaskCompletionResAverage } from './model/ListFactoryTaskCompletionResAverage';
 import { ListFactoryTaskCompletionResToday } from './model/ListFactoryTaskCompletionResToday';
@@ -431,6 +446,9 @@ import { ListQualityTemplatesRequest } from './model/ListQualityTemplatesRequest
 import { ListQualityTemplatesResponse } from './model/ListQualityTemplatesResponse';
 import { ListRelationsRequest } from './model/ListRelationsRequest';
 import { ListRelationsResponse } from './model/ListRelationsResponse';
+import { ListReleasePackagesRequestBody } from './model/ListReleasePackagesRequestBody';
+import { ListReleasePackagesRespData } from './model/ListReleasePackagesRespData';
+import { ListReleasePackagesRespPackageApprovers } from './model/ListReleasePackagesRespPackageApprovers';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListSecurityDataClassificationRuleGroupsRequest } from './model/ListSecurityDataClassificationRuleGroupsRequest';
@@ -623,6 +641,8 @@ import { ShowFactLogicTableByIdRequest } from './model/ShowFactLogicTableByIdReq
 import { ShowFactLogicTableByIdResponse } from './model/ShowFactLogicTableByIdResponse';
 import { ShowFactoryEnvRequest } from './model/ShowFactoryEnvRequest';
 import { ShowFactoryEnvResponse } from './model/ShowFactoryEnvResponse';
+import { ShowFactoryPackageDetailRequest } from './model/ShowFactoryPackageDetailRequest';
+import { ShowFactoryPackageDetailResponse } from './model/ShowFactoryPackageDetailResponse';
 import { ShowFactorySupplementDataRequest } from './model/ShowFactorySupplementDataRequest';
 import { ShowFactorySupplementDataResponse } from './model/ShowFactorySupplementDataResponse';
 import { ShowGlossaryListRequest } from './model/ShowGlossaryListRequest';
@@ -645,6 +665,9 @@ import { ShowMetricTreeRequest } from './model/ShowMetricTreeRequest';
 import { ShowMetricTreeResponse } from './model/ShowMetricTreeResponse';
 import { ShowNodesRequest } from './model/ShowNodesRequest';
 import { ShowNodesResponse } from './model/ShowNodesResponse';
+import { ShowPackageDetailRespReleasePackage } from './model/ShowPackageDetailRespReleasePackage';
+import { ShowPackageDetailRespReleasePackagePackageApprovers } from './model/ShowPackageDetailRespReleasePackagePackageApprovers';
+import { ShowPackageDetailRespTaskDetails } from './model/ShowPackageDetailRespTaskDetails';
 import { ShowPathByIdRequest } from './model/ShowPathByIdRequest';
 import { ShowPathByIdResponse } from './model/ShowPathByIdResponse';
 import { ShowPathObjectByIdRequest } from './model/ShowPathObjectByIdRequest';
@@ -1067,6 +1090,27 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 撤销任务包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 撤销任务包
+     * @param {string} [workspace] 工作空间ID
+     * @param {string} [contentType] 有Body体的情况下必须，无Body体的情况下则无需填写和校验，默认值：application/json
+     * @param {CancelFactoryPackagesRequestBody} [cancelFactoryPackagesRequestBody] 发布包id列表信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelFactoryPackages(cancelFactoryPackagesRequest?: CancelFactoryPackagesRequest): Promise<CancelFactoryPackagesResponse> {
+        const options = ParamCreater().cancelFactoryPackages(cancelFactoryPackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改流程架构
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1469,11 +1513,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建一个补数据实例
+     * 创建补数据实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建补数据实例的接口
+     * @summary 创建补数据实例
      * @param {string} contentType 定义消息体类型的请求头
      * @param {CreateFactorySupplementDataInstanceRequestBody} createFactorySupplementDataInstanceRequestBody 补数据实例请求参数体
      * @param {string} [workspace] 当前作业的空间ID
@@ -1522,6 +1566,26 @@ export class DataArtsStudioClient {
      */
     public createOrUpdateAsset(createOrUpdateAssetRequest?: CreateOrUpdateAssetRequest): Promise<CreateOrUpdateAssetResponse> {
         const options = ParamCreater().createOrUpdateAsset(createOrUpdateAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建或修改资产，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建或修改资产(邀测)
+     * @param {string} instance 实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)
+     * @param {DataEntityWithExtInfo} createOrUpdateEntitiesRequestBody 待创建或修改资产信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrUpdateEntities(createOrUpdateEntitiesRequest?: CreateOrUpdateEntitiesRequest): Promise<CreateOrUpdateEntitiesResponse> {
+        const options = ParamCreater().createOrUpdateEntities(createOrUpdateEntitiesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2231,6 +2295,27 @@ export class DataArtsStudioClient {
      */
     public deleteWorkspaceusers(deleteWorkspaceusersRequest?: DeleteWorkspaceusersRequest): Promise<DeleteWorkspaceusersResponse> {
         const options = ParamCreater().deleteWorkspaceusers(deleteWorkspaceusersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 发布任务包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 发布任务包
+     * @param {string} [workspace] 工作空间ID
+     * @param {string} [contentType] 有Body体的情况下必须，无Body体的情况下则无需填写和校验，默认值：application/json
+     * @param {DeployFactoryPackagesRequestBody} [deployFactoryPackagesRequestBody] 发布任务时请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deployFactoryPackages(deployFactoryPackagesRequest?: DeployFactoryPackagesRequest): Promise<DeployFactoryPackagesResponse> {
+        const options = ParamCreater().deployFactoryPackages(deployFactoryPackagesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3258,6 +3343,35 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询指定作业的实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定作业的实例列表
+     * @param {string} jobName 作业名称
+     * @param {string} [workspace] 工作空间ID
+     * @param {string} [contentType] 有Body体的情况下必须，无Body体的情况下则无需填写和校验，默认值：application/json
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数。 范围[1,1000] 默认值：10
+     * @param {number} [offset] 分页的起始页，默认值为0。取值范围大于等于0。
+     * @param {number} [minPlanTime] 返回作业实例开始时间大于min_plain_time的作业实例，单位为毫秒ms，默认设置为查询当天0点，最大可支持查询一个月。
+     * @param {number} [maxPlanTime] 返回作业实例开始时间小于max_plain_time的作业实例，单位为毫秒ms，默认设置为当前时间。
+     * @param {'waiting' | 'running' | 'success' | 'fail' | 'running-exception' | 'pause' | 'manual-stop' | 'skip-by-depend' | 'freeze'} [status] 实例运行状态: - waiting：等待运行 - running：运行中 - success：运行成功 - fail： 运行失败 - running-exception：运行异常 - pause： 暂停 - manual-stop：取消 - skip-by-depend：跳过 - freeze：冻结 默认查全部
+     * @param {boolean} [forceSuccess] status为success的时候使用，true则筛选出强制成功的作业实例默认值：false
+     * @param {boolean} [ignoreSuccess] status为success的时候使用，true则筛选出忽略失败的作业实例默认值：false
+     * @param {string} [instanceType] 作业调度方式: -0:正常调度 -2:手工调度 -5:补数据 -6:子作业调度 -7:单次调度
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryJobInstancesByName(listFactoryJobInstancesByNameRequest?: ListFactoryJobInstancesByNameRequest): Promise<ListFactoryJobInstancesByNameResponse> {
+        const options = ParamCreater().listFactoryJobInstancesByName(listFactoryJobInstancesByNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询作业列表清单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3277,6 +3391,27 @@ export class DataArtsStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询发布包列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询发布包列表
+     * @param {ListReleasePackagesRequestBody} listFactoryReleasePackagesRequestBody 发布包管理-列表查询请求Body体参数
+     * @param {string} [workspace] 工作空间ID，默认查询default空间
+     * @param {string} [contentType] 有Body体的情况下必须，无Body体的情况下则无需填写和校验，默认值：application/json
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryReleasePackages(listFactoryReleasePackagesRequest?: ListFactoryReleasePackagesRequest): Promise<ListFactoryReleasePackagesResponse> {
+        const options = ParamCreater().listFactoryReleasePackages(listFactoryReleasePackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5036,11 +5171,32 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询所有的补数据实例
+     * 查询指定发布包详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询所有的补数据实例
+     * @summary 查询指定发布包详情
+     * @param {string} packageId 发布包ID
+     * @param {string} [workspace] 工作空间ID，默认查询default
+     * @param {string} [contentType] 有Body体的情况下必须，无Body体的情况下则无需填写和校验，默认值：application/json
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFactoryPackageDetail(showFactoryPackageDetailRequest?: ShowFactoryPackageDetailRequest): Promise<ShowFactoryPackageDetailResponse> {
+        const options = ParamCreater().showFactoryPackageDetail(showFactoryPackageDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询补数据实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询补数据实例
      * @param {string} [workspace] 工作空间ID
      * @param {string} [sort] 排序字段:desc：创建时间按照降序展示asc ：创建时间按照升序展示默认值：desc
      * @param {string} [page] 分页列表的起始页，默认值为0。取值范围大于等于0。
@@ -5656,11 +5812,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 停止一个补数据实例
+     * 停止补数据实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 停止一个补数据实例
+     * @summary 停止补数据实例
      * @param {string} instanceName 补数据名称
      * @param {string} [workspace] 工作空间ID
      * @param {*} [options] Override http request option.
@@ -7126,6 +7282,55 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 撤销任务包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelFactoryPackages(cancelFactoryPackagesRequest?: CancelFactoryPackagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/release-packages/unpack",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let contentType;
+
+            if (cancelFactoryPackagesRequest !== null && cancelFactoryPackagesRequest !== undefined) {
+                if (cancelFactoryPackagesRequest instanceof CancelFactoryPackagesRequest) {
+                    workspace = cancelFactoryPackagesRequest.workspace;
+                    contentType = cancelFactoryPackagesRequest.contentType;
+                    body = cancelFactoryPackagesRequest.body
+                } else {
+                    workspace = cancelFactoryPackagesRequest['workspace'];
+                    contentType = cancelFactoryPackagesRequest['Content-Type'];
+                    body = cancelFactoryPackagesRequest['body'];
+                }
+            }
+
+        
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改流程架构
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8032,7 +8237,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建一个补数据实例
+         * 创建补数据实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8166,6 +8371,51 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建或修改资产，该接口功能处于邀测阶段，后续将随功能公测将逐步开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrUpdateEntities(createOrUpdateEntitiesRequest?: CreateOrUpdateEntitiesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/datamap/entities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instance;
+
+            if (createOrUpdateEntitiesRequest !== null && createOrUpdateEntitiesRequest !== undefined) {
+                if (createOrUpdateEntitiesRequest instanceof CreateOrUpdateEntitiesRequest) {
+                    instance = createOrUpdateEntitiesRequest.instance;
+                    body = createOrUpdateEntitiesRequest.body
+                } else {
+                    instance = createOrUpdateEntitiesRequest['instance'];
+                    body = createOrUpdateEntitiesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instance !== undefined && instance !== null) {
+                localVarHeaderParameter['instance'] = String(instance);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9813,6 +10063,55 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 发布任务包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deployFactoryPackages(deployFactoryPackagesRequest?: DeployFactoryPackagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/release-packages/deploy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let contentType;
+
+            if (deployFactoryPackagesRequest !== null && deployFactoryPackagesRequest !== undefined) {
+                if (deployFactoryPackagesRequest instanceof DeployFactoryPackagesRequest) {
+                    workspace = deployFactoryPackagesRequest.workspace;
+                    contentType = deployFactoryPackagesRequest.contentType;
+                    body = deployFactoryPackagesRequest.body
+                } else {
+                    workspace = deployFactoryPackagesRequest['workspace'];
+                    contentType = deployFactoryPackagesRequest['Content-Type'];
+                    body = deployFactoryPackagesRequest['body'];
+                }
+            }
+
+        
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13115,6 +13414,114 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定作业的实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryJobInstancesByName(listFactoryJobInstancesByNameRequest?: ListFactoryJobInstancesByNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/instances/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobName;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let limit;
+            
+            let offset;
+            
+            let minPlanTime;
+            
+            let maxPlanTime;
+            
+            let status;
+            
+            let forceSuccess;
+            
+            let ignoreSuccess;
+            
+            let instanceType;
+
+            if (listFactoryJobInstancesByNameRequest !== null && listFactoryJobInstancesByNameRequest !== undefined) {
+                if (listFactoryJobInstancesByNameRequest instanceof ListFactoryJobInstancesByNameRequest) {
+                    jobName = listFactoryJobInstancesByNameRequest.jobName;
+                    workspace = listFactoryJobInstancesByNameRequest.workspace;
+                    contentType = listFactoryJobInstancesByNameRequest.contentType;
+                    limit = listFactoryJobInstancesByNameRequest.limit;
+                    offset = listFactoryJobInstancesByNameRequest.offset;
+                    minPlanTime = listFactoryJobInstancesByNameRequest.minPlanTime;
+                    maxPlanTime = listFactoryJobInstancesByNameRequest.maxPlanTime;
+                    status = listFactoryJobInstancesByNameRequest.status;
+                    forceSuccess = listFactoryJobInstancesByNameRequest.forceSuccess;
+                    ignoreSuccess = listFactoryJobInstancesByNameRequest.ignoreSuccess;
+                    instanceType = listFactoryJobInstancesByNameRequest.instanceType;
+                } else {
+                    jobName = listFactoryJobInstancesByNameRequest['job_name'];
+                    workspace = listFactoryJobInstancesByNameRequest['workspace'];
+                    contentType = listFactoryJobInstancesByNameRequest['Content-Type'];
+                    limit = listFactoryJobInstancesByNameRequest['limit'];
+                    offset = listFactoryJobInstancesByNameRequest['offset'];
+                    minPlanTime = listFactoryJobInstancesByNameRequest['min_plan_time'];
+                    maxPlanTime = listFactoryJobInstancesByNameRequest['max_plan_time'];
+                    status = listFactoryJobInstancesByNameRequest['status'];
+                    forceSuccess = listFactoryJobInstancesByNameRequest['force_success'];
+                    ignoreSuccess = listFactoryJobInstancesByNameRequest['ignore_success'];
+                    instanceType = listFactoryJobInstancesByNameRequest['instance_type'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling listFactoryJobInstancesByName.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (minPlanTime !== null && minPlanTime !== undefined) {
+                localVarQueryParameter['min_plan_time'] = minPlanTime;
+            }
+            if (maxPlanTime !== null && maxPlanTime !== undefined) {
+                localVarQueryParameter['max_plan_time'] = maxPlanTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (forceSuccess !== null && forceSuccess !== undefined) {
+                localVarQueryParameter['force_success'] = forceSuccess;
+            }
+            if (ignoreSuccess !== null && ignoreSuccess !== undefined) {
+                localVarQueryParameter['ignore_success'] = ignoreSuccess;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_name': jobName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询作业列表清单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13182,6 +13589,58 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询发布包列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryReleasePackages(listFactoryReleasePackagesRequest?: ListFactoryReleasePackagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/release-packages",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let contentType;
+
+            if (listFactoryReleasePackagesRequest !== null && listFactoryReleasePackagesRequest !== undefined) {
+                if (listFactoryReleasePackagesRequest instanceof ListFactoryReleasePackagesRequest) {
+                    body = listFactoryReleasePackagesRequest.body
+                    workspace = listFactoryReleasePackagesRequest.workspace;
+                    contentType = listFactoryReleasePackagesRequest.contentType;
+                } else {
+                    body = listFactoryReleasePackagesRequest['body'];
+                    workspace = listFactoryReleasePackagesRequest['workspace'];
+                    contentType = listFactoryReleasePackagesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18408,7 +18867,58 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询所有的补数据实例
+         * 查询指定发布包详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFactoryPackageDetail(showFactoryPackageDetailRequest?: ShowFactoryPackageDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/release-packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let packageId;
+            
+            let workspace;
+            
+            let contentType;
+
+            if (showFactoryPackageDetailRequest !== null && showFactoryPackageDetailRequest !== undefined) {
+                if (showFactoryPackageDetailRequest instanceof ShowFactoryPackageDetailRequest) {
+                    packageId = showFactoryPackageDetailRequest.packageId;
+                    workspace = showFactoryPackageDetailRequest.workspace;
+                    contentType = showFactoryPackageDetailRequest.contentType;
+                } else {
+                    packageId = showFactoryPackageDetailRequest['package_id'];
+                    workspace = showFactoryPackageDetailRequest['workspace'];
+                    contentType = showFactoryPackageDetailRequest['Content-Type'];
+                }
+            }
+
+        
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling showFactoryPackageDetail.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询补数据实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19990,7 +20500,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 停止一个补数据实例
+         * 停止补数据实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -27,6 +27,7 @@ export class DrsRegion {
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://drs.cn-south-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://drs.tr-west-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://drs.ap-southeast-4.myhuaweicloud.com"]);
+    public static EU_WEST_0 = new Region("eu-west-0", ["https://drs.eu-west-0.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +51,8 @@ export class DrsRegion {
         "cn-south-2":DrsRegion.CN_SOUTH_2,
         "cn-south-4":DrsRegion.CN_SOUTH_4,
         "tr-west-1":DrsRegion.TR_WEST_1,
-        "ap-southeast-4":DrsRegion.AP_SOUTHEAST_4
+        "ap-southeast-4":DrsRegion.AP_SOUTHEAST_4,
+        "eu-west-0":DrsRegion.EU_WEST_0
     };
   
     public static valueOf(regionId: string) {

@@ -31,6 +31,7 @@ export class NatRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://nat.ap-southeast-4.myhuaweicloud.cn"]);
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://nat.cn-south-4.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://nat.eu-west-101.myhuaweicloud.eu"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://nat.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +59,8 @@ export class NatRegion {
         "tr-west-1":NatRegion.TR_WEST_1,
         "ap-southeast-4":NatRegion.AP_SOUTHEAST_4,
         "cn-south-4":NatRegion.CN_SOUTH_4,
-        "eu-west-101":NatRegion.EU_WEST_101
+        "eu-west-101":NatRegion.EU_WEST_101,
+        "my-kualalumpur-1":NatRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

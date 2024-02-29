@@ -49,6 +49,5 @@ export class CreateFirewallReqFlavor {
     */
 export enum CreateFirewallReqFlavorVersionEnum {
     STANDARD = 'Standard',
-    PROFESSIONAL = 'Professional',
-    PLATINUM = 'Platinum'
+    PROFESSIONAL = 'Professional'
 }

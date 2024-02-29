@@ -7,7 +7,7 @@ export class CreateSqlJobResponse extends SdkResponse {
     private 'job_id'?: string;
     private 'job_type'?: CreateSqlJobResponseJobTypeEnum | string;
     public schema?: Array<object>;
-    public rows?: Array<Array<string>>;
+    public rows?: Array<Array<object>>;
     private 'job_mode'?: string;
     public constructor() { 
         super();
@@ -50,7 +50,7 @@ export class CreateSqlJobResponse extends SdkResponse {
         this['schema'] = schema;
         return this;
     }
-    public withRows(rows: Array<Array<string>>): CreateSqlJobResponse {
+    public withRows(rows: Array<Array<object>>): CreateSqlJobResponse {
         this['rows'] = rows;
         return this;
     }

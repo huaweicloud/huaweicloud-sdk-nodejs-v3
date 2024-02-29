@@ -22,6 +22,8 @@ export class RuleAclListResponseDTODataRecords {
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
     public type?: RuleAclListResponseDTODataRecordsTypeEnum | number;
+    private 'created_date'?: string;
+    private 'last_open_time'?: string;
     public tag?: TagsVO;
     public constructor() { 
     }
@@ -140,6 +142,26 @@ export class RuleAclListResponseDTODataRecords {
     public withType(type: RuleAclListResponseDTODataRecordsTypeEnum | number): RuleAclListResponseDTODataRecords {
         this['type'] = type;
         return this;
+    }
+    public withCreatedDate(createdDate: string): RuleAclListResponseDTODataRecords {
+        this['created_date'] = createdDate;
+        return this;
+    }
+    public set createdDate(createdDate: string  | undefined) {
+        this['created_date'] = createdDate;
+    }
+    public get createdDate(): string | undefined {
+        return this['created_date'];
+    }
+    public withLastOpenTime(lastOpenTime: string): RuleAclListResponseDTODataRecords {
+        this['last_open_time'] = lastOpenTime;
+        return this;
+    }
+    public set lastOpenTime(lastOpenTime: string  | undefined) {
+        this['last_open_time'] = lastOpenTime;
+    }
+    public get lastOpenTime(): string | undefined {
+        return this['last_open_time'];
     }
     public withTag(tag: TagsVO): RuleAclListResponseDTODataRecords {
         this['tag'] = tag;

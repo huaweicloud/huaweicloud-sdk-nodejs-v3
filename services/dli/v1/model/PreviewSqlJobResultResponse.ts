@@ -9,7 +9,7 @@ export class PreviewSqlJobResultResponse extends SdkResponse {
     private 'row_count'?: number;
     private 'input_size'?: number;
     public schema?: Array<object>;
-    public rows?: Array<Array<string>>;
+    public rows?: Array<Array<object>>;
     public constructor() { 
         super();
     }
@@ -71,7 +71,7 @@ export class PreviewSqlJobResultResponse extends SdkResponse {
         this['schema'] = schema;
         return this;
     }
-    public withRows(rows: Array<Array<string>>): PreviewSqlJobResultResponse {
+    public withRows(rows: Array<Array<object>>): PreviewSqlJobResultResponse {
         this['rows'] = rows;
         return this;
     }

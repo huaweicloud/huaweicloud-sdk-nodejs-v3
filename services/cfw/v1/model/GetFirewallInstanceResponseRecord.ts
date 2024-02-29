@@ -14,6 +14,8 @@ export class GetFirewallInstanceResponseRecord {
     private 'protect_objects'?: Array<ProtectObjectVO>;
     public status?: GetFirewallInstanceResponseRecordStatusEnum | number;
     private 'is_old_firewall_instance'?: boolean;
+    private 'is_available_obs'?: boolean;
+    private 'is_support_threat_tags'?: boolean;
     private 'support_ipv6'?: boolean;
     private 'feature_toggle'?: { [key: string]: boolean; };
     public resources?: Array<FirewallInstanceResource>;
@@ -104,6 +106,26 @@ export class GetFirewallInstanceResponseRecord {
     }
     public get isOldFirewallInstance(): boolean | undefined {
         return this['is_old_firewall_instance'];
+    }
+    public withIsAvailableObs(isAvailableObs: boolean): GetFirewallInstanceResponseRecord {
+        this['is_available_obs'] = isAvailableObs;
+        return this;
+    }
+    public set isAvailableObs(isAvailableObs: boolean  | undefined) {
+        this['is_available_obs'] = isAvailableObs;
+    }
+    public get isAvailableObs(): boolean | undefined {
+        return this['is_available_obs'];
+    }
+    public withIsSupportThreatTags(isSupportThreatTags: boolean): GetFirewallInstanceResponseRecord {
+        this['is_support_threat_tags'] = isSupportThreatTags;
+        return this;
+    }
+    public set isSupportThreatTags(isSupportThreatTags: boolean  | undefined) {
+        this['is_support_threat_tags'] = isSupportThreatTags;
+    }
+    public get isSupportThreatTags(): boolean | undefined {
+        return this['is_support_threat_tags'];
     }
     public withSupportIpv6(supportIpv6: boolean): GetFirewallInstanceResponseRecord {
         this['support_ipv6'] = supportIpv6;

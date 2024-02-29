@@ -28,6 +28,7 @@ export class AntiDDoSRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://antiddos.ap-southeast-4.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://antiddos.ae-ad-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://antiddos.eu-west-0.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://antiddos.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -52,7 +53,8 @@ export class AntiDDoSRegion {
         "cn-north-9":AntiDDoSRegion.CN_NORTH_9,
         "ap-southeast-4":AntiDDoSRegion.AP_SOUTHEAST_4,
         "ae-ad-1":AntiDDoSRegion.AE_AD_1,
-        "eu-west-0":AntiDDoSRegion.EU_WEST_0
+        "eu-west-0":AntiDDoSRegion.EU_WEST_0,
+        "my-kualalumpur-1":AntiDDoSRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

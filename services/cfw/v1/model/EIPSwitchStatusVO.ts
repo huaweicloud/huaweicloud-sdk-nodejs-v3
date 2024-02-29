@@ -3,6 +3,7 @@
 export class EIPSwitchStatusVO {
     private 'object_id'?: string;
     private 'fail_eip_id_list'?: Array<string>;
+    public id?: string;
     public constructor() { 
     }
     public withObjectId(objectId: string): EIPSwitchStatusVO {
@@ -24,5 +25,9 @@ export class EIPSwitchStatusVO {
     }
     public get failEipIdList(): Array<string> | undefined {
         return this['fail_eip_id_list'];
+    }
+    public withId(id: string): EIPSwitchStatusVO {
+        this['id'] = id;
+        return this;
     }
 }

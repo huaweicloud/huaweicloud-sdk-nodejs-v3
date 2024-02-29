@@ -6,6 +6,8 @@ export class AddressSetListResponseDTODataRecords {
     public description?: string;
     public name?: string;
     private 'address_type'?: number;
+    private 'object_id'?: string;
+    private 'address_set_type'?: number;
     public constructor() { 
     }
     public withSetId(setId: string): AddressSetListResponseDTODataRecords {
@@ -45,5 +47,25 @@ export class AddressSetListResponseDTODataRecords {
     }
     public get addressType(): number | undefined {
         return this['address_type'];
+    }
+    public withObjectId(objectId: string): AddressSetListResponseDTODataRecords {
+        this['object_id'] = objectId;
+        return this;
+    }
+    public set objectId(objectId: string  | undefined) {
+        this['object_id'] = objectId;
+    }
+    public get objectId(): string | undefined {
+        return this['object_id'];
+    }
+    public withAddressSetType(addressSetType: number): AddressSetListResponseDTODataRecords {
+        this['address_set_type'] = addressSetType;
+        return this;
+    }
+    public set addressSetType(addressSetType: number  | undefined) {
+        this['address_set_type'] = addressSetType;
+    }
+    public get addressSetType(): number | undefined {
+        return this['address_set_type'];
     }
 }

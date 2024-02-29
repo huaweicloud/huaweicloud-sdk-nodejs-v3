@@ -137,6 +137,7 @@ export * from './model/PipelineParam';
 export * from './model/PipelineParameter';
 export * from './model/PipelineSchedule';
 export * from './model/PipelineSource';
+export * from './model/PipelineSourceParam';
 export * from './model/PipelineStateStatus';
 export * from './model/PipelineTemplateDTO';
 export * from './model/PipelineTemplateSimpleVO';

@@ -1,9 +1,6 @@
 export * from './DnsClient';
 
 export * from './model/AliasTarget';
-export * from './model/AssociateHealthCheckReq';
-export * from './model/AssociateHealthCheckRequest';
-export * from './model/AssociateHealthCheckResponse';
 export * from './model/AssociateRouterRequest';
 export * from './model/AssociateRouterRequestBody';
 export * from './model/AssociateRouterResponse';
@@ -60,8 +57,6 @@ export * from './model/DeleteRecordSetsRequest';
 export * from './model/DeleteRecordSetsResponse';
 export * from './model/DeleteTagRequest';
 export * from './model/DeleteTagResponse';
-export * from './model/DisassociateHealthCheckRequest';
-export * from './model/DisassociateHealthCheckResponse';
 export * from './model/DisassociateRouterRequest';
 export * from './model/DisassociateRouterResponse';
 export * from './model/DisassociaterouterRequestBody';

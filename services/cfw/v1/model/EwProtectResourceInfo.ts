@@ -8,6 +8,7 @@ export class EwProtectResourceInfo {
     private 'protected_resource_nat_id'?: string;
     private 'protected_resource_project_id'?: string;
     private 'protected_resource_mode'?: string;
+    public status?: number;
     public constructor(protectedResourceType?: number, protectedResourceName?: string, protectedResourceId?: string) { 
         this['protected_resource_type'] = protectedResourceType;
         this['protected_resource_name'] = protectedResourceName;
@@ -82,5 +83,9 @@ export class EwProtectResourceInfo {
     }
     public get protectedResourceMode(): string | undefined {
         return this['protected_resource_mode'];
+    }
+    public withStatus(status: number): EwProtectResourceInfo {
+        this['status'] = status;
+        return this;
     }
 }
