@@ -3,6 +3,7 @@
 export class ClientInfo {
     public id?: string;
     public addr?: string;
+    public fd?: string;
     public name?: string;
     public cmd?: string;
     public age?: number;
@@ -18,6 +19,9 @@ export class ClientInfo {
     public oll?: number;
     public omem?: number;
     public events?: ClientInfoEventsEnum | string;
+    public network?: string;
+    public peer?: string;
+    public user?: string;
     public constructor() { 
     }
     public withId(id: string): ClientInfo {
@@ -26,6 +30,10 @@ export class ClientInfo {
     }
     public withAddr(addr: string): ClientInfo {
         this['addr'] = addr;
+        return this;
+    }
+    public withFd(fd: string): ClientInfo {
+        this['fd'] = fd;
         return this;
     }
     public withName(name: string): ClientInfo {
@@ -92,6 +100,18 @@ export class ClientInfo {
     }
     public withEvents(events: ClientInfoEventsEnum | string): ClientInfo {
         this['events'] = events;
+        return this;
+    }
+    public withNetwork(network: string): ClientInfo {
+        this['network'] = network;
+        return this;
+    }
+    public withPeer(peer: string): ClientInfo {
+        this['peer'] = peer;
+        return this;
+    }
+    public withUser(user: string): ClientInfo {
+        this['user'] = user;
         return this;
     }
 }

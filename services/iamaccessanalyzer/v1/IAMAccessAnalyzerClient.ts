@@ -116,7 +116,7 @@ export class IAMAccessAnalyzerClient {
 
 
     /**
-     * 为您的帐号或者组织创建分析器。
+     * 为您的账号或者组织创建分析器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -336,11 +336,11 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 检索指定分析器生成的查找结果列表。
+     * 检索指定分析器生成的访问分析结果列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 检索指定分析器生成的结果列表
+     * @summary 检索指定分析器生成的访问分析结果列表
      * @param {string} analyzerId 分析器的唯一标识符。
      * @param {ListFindingsReqBody} listFindingsReqBody 
      * @param {*} [options] Override http request option.
@@ -362,7 +362,7 @@ export class IAMAccessAnalyzerClient {
      *
      * @summary 检索有关指定结果的信息
      * @param {string} analyzerId 分析器的唯一标识符。
-     * @param {string} findingId 要检索的结果的ID。
+     * @param {string} findingId 访问分析结果的唯一标识符。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -376,7 +376,7 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 更新指定调查结果的状态。
+     * 更新指定访问分析结果的状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -422,7 +422,7 @@ export class IAMAccessAnalyzerClient {
      *
      * @summary 获取相关访问预览的信息
      * @param {string} analyzerId 分析器的唯一标识符。
-     * @param {string} accessPreviewId 分析预览的唯一标识符。
+     * @param {string} accessPreviewId 访问预览的唯一标识符。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -457,13 +457,13 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 获取指定预览生成的findings
+     * 获取相关预览生成的分析结果
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取相关预览生成的findings
+     * @summary 获取相关预览生成的分析结果
      * @param {string} analyzerId 分析器的唯一标识符。
-     * @param {string} accessPreviewId 分析预览的唯一标识符。
+     * @param {string} accessPreviewId 访问预览的唯一标识符。
      * @param {ListPreviewFindingsReqBody} listPreviewFindingsReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -546,7 +546,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 为您的帐号或者组织创建分析器。
+         * 为您的账号或者组织创建分析器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1038,7 +1038,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 检索指定分析器生成的查找结果列表。
+         * 检索指定分析器生成的访问分析结果列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1128,7 +1128,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新指定调查结果的状态。
+         * 更新指定访问分析结果的状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1316,7 +1316,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定预览生成的findings
+         * 获取相关预览生成的分析结果
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

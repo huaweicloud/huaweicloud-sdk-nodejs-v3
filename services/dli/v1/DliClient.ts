@@ -9,6 +9,7 @@ import { AssociateQueueToElasticResourcePoolResponse } from './model/AssociateQu
 import { AssociateQueueToEnhancedConnectionRequest } from './model/AssociateQueueToEnhancedConnectionRequest';
 import { AssociateQueueToEnhancedConnectionResponse } from './model/AssociateQueueToEnhancedConnectionResponse';
 import { AuthInfos } from './model/AuthInfos';
+import { AuthorizationPrivilege } from './model/AuthorizationPrivilege';
 import { AuthorizeResourceRequestBody } from './model/AuthorizeResourceRequestBody';
 import { AvailableQueueInfo } from './model/AvailableQueueInfo';
 import { BatchDeleteFlinkJobsRequest } from './model/BatchDeleteFlinkJobsRequest';

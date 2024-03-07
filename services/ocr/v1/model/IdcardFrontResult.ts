@@ -9,6 +9,8 @@ export class IdcardFrontResult {
     public ethnicity?: string;
     public address?: string;
     private 'number'?: string;
+    private 'portrait_image'?: string;
+    private 'adjusted_image'?: string;
     private 'verification_result'?: IdcardFrontVerificationResult;
     private 'text_location'?: object;
     private 'portrait_location'?: Array<Array<number>>;
@@ -52,6 +54,26 @@ export class IdcardFrontResult {
     }
     public get modelNumber(): string | undefined {
         return this['number'];
+    }
+    public withPortraitImage(portraitImage: string): IdcardFrontResult {
+        this['portrait_image'] = portraitImage;
+        return this;
+    }
+    public set portraitImage(portraitImage: string  | undefined) {
+        this['portrait_image'] = portraitImage;
+    }
+    public get portraitImage(): string | undefined {
+        return this['portrait_image'];
+    }
+    public withAdjustedImage(adjustedImage: string): IdcardFrontResult {
+        this['adjusted_image'] = adjustedImage;
+        return this;
+    }
+    public set adjustedImage(adjustedImage: string  | undefined) {
+        this['adjusted_image'] = adjustedImage;
+    }
+    public get adjustedImage(): string | undefined {
+        return this['adjusted_image'];
     }
     public withVerificationResult(verificationResult: IdcardFrontVerificationResult): IdcardFrontResult {
         this['verification_result'] = verificationResult;

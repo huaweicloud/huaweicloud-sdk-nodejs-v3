@@ -1,4 +1,4 @@
-import { ShowDatabaseUsersPrivilege } from './ShowDatabaseUsersPrivilege';
+import { AuthorizationPrivilege } from './AuthorizationPrivilege';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,7 +8,7 @@ export class ListAuthorizationPrivilegesResponse extends SdkResponse {
     private 'object_name'?: string;
     private 'object_type'?: string;
     public count?: number;
-    public privileges?: Array<ShowDatabaseUsersPrivilege>;
+    public privileges?: Array<AuthorizationPrivilege>;
     public constructor() { 
         super();
     }
@@ -50,7 +50,7 @@ export class ListAuthorizationPrivilegesResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withPrivileges(privileges: Array<ShowDatabaseUsersPrivilege>): ListAuthorizationPrivilegesResponse {
+    public withPrivileges(privileges: Array<AuthorizationPrivilege>): ListAuthorizationPrivilegesResponse {
         this['privileges'] = privileges;
         return this;
     }

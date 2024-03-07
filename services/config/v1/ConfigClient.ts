@@ -1155,11 +1155,14 @@ export class ConfigClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出合规规则
+     * @param {string} [policyAssignmentName] 合规规则名称
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listPolicyAssignments(listPolicyAssignmentsRequest?: ListPolicyAssignmentsRequest): Promise<ListPolicyAssignmentsResponse> {
-        const options = ParamCreater().listPolicyAssignments();
+        const options = ParamCreater().listPolicyAssignments(listPolicyAssignmentsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1344,6 +1347,7 @@ export class ConfigClient {
      *
      * @summary 查询组织合规规则部署状态
      * @param {string} organizationId 组织ID。
+     * @param {string} [organizationPolicyAssignmentId] 组织合规规则ID
      * @param {string} [organizationPolicyAssignmentName] 组织合规规则名称。
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
@@ -3992,7 +3996,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPolicyAssignments() {
+        listPolicyAssignments(listPolicyAssignmentsRequest?: ListPolicyAssignmentsRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/resource-manager/domains/{domain_id}/policy-assignments",
@@ -4002,8 +4006,38 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyAssignmentName;
+            
+            let limit;
+            
+            let marker;
 
+            if (listPolicyAssignmentsRequest !== null && listPolicyAssignmentsRequest !== undefined) {
+                if (listPolicyAssignmentsRequest instanceof ListPolicyAssignmentsRequest) {
+                    policyAssignmentName = listPolicyAssignmentsRequest.policyAssignmentName;
+                    limit = listPolicyAssignmentsRequest.limit;
+                    marker = listPolicyAssignmentsRequest.marker;
+                } else {
+                    policyAssignmentName = listPolicyAssignmentsRequest['policy_assignment_name'];
+                    limit = listPolicyAssignmentsRequest['limit'];
+                    marker = listPolicyAssignmentsRequest['marker'];
+                }
+            }
 
+        
+            if (policyAssignmentName !== null && policyAssignmentName !== undefined) {
+                localVarQueryParameter['policy_assignment_name'] = policyAssignmentName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4455,6 +4489,8 @@ export const ParamCreater = function () {
             
             let organizationId;
             
+            let organizationPolicyAssignmentId;
+            
             let organizationPolicyAssignmentName;
             
             let limit;
@@ -4464,11 +4500,13 @@ export const ParamCreater = function () {
             if (showOrganizationPolicyAssignmentStatusesRequest !== null && showOrganizationPolicyAssignmentStatusesRequest !== undefined) {
                 if (showOrganizationPolicyAssignmentStatusesRequest instanceof ShowOrganizationPolicyAssignmentStatusesRequest) {
                     organizationId = showOrganizationPolicyAssignmentStatusesRequest.organizationId;
+                    organizationPolicyAssignmentId = showOrganizationPolicyAssignmentStatusesRequest.organizationPolicyAssignmentId;
                     organizationPolicyAssignmentName = showOrganizationPolicyAssignmentStatusesRequest.organizationPolicyAssignmentName;
                     limit = showOrganizationPolicyAssignmentStatusesRequest.limit;
                     marker = showOrganizationPolicyAssignmentStatusesRequest.marker;
                 } else {
                     organizationId = showOrganizationPolicyAssignmentStatusesRequest['organization_id'];
+                    organizationPolicyAssignmentId = showOrganizationPolicyAssignmentStatusesRequest['organization_policy_assignment_id'];
                     organizationPolicyAssignmentName = showOrganizationPolicyAssignmentStatusesRequest['organization_policy_assignment_name'];
                     limit = showOrganizationPolicyAssignmentStatusesRequest['limit'];
                     marker = showOrganizationPolicyAssignmentStatusesRequest['marker'];
@@ -4478,6 +4516,9 @@ export const ParamCreater = function () {
         
             if (organizationId === null || organizationId === undefined) {
             throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling showOrganizationPolicyAssignmentStatuses.');
+            }
+            if (organizationPolicyAssignmentId !== null && organizationPolicyAssignmentId !== undefined) {
+                localVarQueryParameter['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
             }
             if (organizationPolicyAssignmentName !== null && organizationPolicyAssignmentName !== undefined) {
                 localVarQueryParameter['organization_policy_assignment_name'] = organizationPolicyAssignmentName;

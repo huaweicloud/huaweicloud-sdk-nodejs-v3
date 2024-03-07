@@ -25,14 +25,11 @@ import { BatchRestartOrDeleteInstancesResponse } from './model/BatchRestartOrDel
 import { BssParam } from './model/BssParam';
 import { CloseKafkaManagerRequest } from './model/CloseKafkaManagerRequest';
 import { CloseKafkaManagerResponse } from './model/CloseKafkaManagerResponse';
-import { ConnectorOrderRequestBody } from './model/ConnectorOrderRequestBody';
 import { CreateConnectorReq } from './model/CreateConnectorReq';
 import { CreateConnectorRequest } from './model/CreateConnectorRequest';
 import { CreateConnectorResponse } from './model/CreateConnectorResponse';
 import { CreateConnectorTaskRequest } from './model/CreateConnectorTaskRequest';
 import { CreateConnectorTaskResponse } from './model/CreateConnectorTaskResponse';
-import { CreateDeleteConnectorOrderRequest } from './model/CreateDeleteConnectorOrderRequest';
-import { CreateDeleteConnectorOrderResponse } from './model/CreateDeleteConnectorOrderResponse';
 import { CreateGroupReq } from './model/CreateGroupReq';
 import { CreateGroupResp } from './model/CreateGroupResp';
 import { CreateInstanceByEngineReq } from './model/CreateInstanceByEngineReq';
@@ -55,9 +52,6 @@ import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceReq
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
 import { CreateReassignmentTaskRequest } from './model/CreateReassignmentTaskRequest';
 import { CreateReassignmentTaskResponse } from './model/CreateReassignmentTaskResponse';
-import { CreateSinkTaskReq } from './model/CreateSinkTaskReq';
-import { CreateSinkTaskRequest } from './model/CreateSinkTaskRequest';
-import { CreateSinkTaskResponse } from './model/CreateSinkTaskResponse';
 import { CreateSmartConnectTaskReq } from './model/CreateSmartConnectTaskReq';
 import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
 import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
@@ -70,8 +64,6 @@ import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteKafkaUserClientQuotaTaskReq } from './model/DeleteKafkaUserClientQuotaTaskReq';
 import { DeleteKafkaUserClientQuotaTaskRequest } from './model/DeleteKafkaUserClientQuotaTaskRequest';
 import { DeleteKafkaUserClientQuotaTaskResponse } from './model/DeleteKafkaUserClientQuotaTaskResponse';
-import { DeleteSinkTaskRequest } from './model/DeleteSinkTaskRequest';
-import { DeleteSinkTaskResponse } from './model/DeleteSinkTaskResponse';
 import { DiskusageEntity } from './model/DiskusageEntity';
 import { DiskusageTopicEntity } from './model/DiskusageTopicEntity';
 import { ExtendProductInfoEntity } from './model/ExtendProductInfoEntity';
@@ -109,9 +101,6 @@ import { ListProductsRespHourly } from './model/ListProductsRespHourly';
 import { ListProductsRespIo } from './model/ListProductsRespIo';
 import { ListProductsRespValues } from './model/ListProductsRespValues';
 import { ListProductsResponse } from './model/ListProductsResponse';
-import { ListSinkTasksRequest } from './model/ListSinkTasksRequest';
-import { ListSinkTasksRespTasks } from './model/ListSinkTasksRespTasks';
-import { ListSinkTasksResponse } from './model/ListSinkTasksResponse';
 import { ListTopicPartitionsRequest } from './model/ListTopicPartitionsRequest';
 import { ListTopicPartitionsResponse } from './model/ListTopicPartitionsResponse';
 import { ListTopicProducersRequest } from './model/ListTopicProducersRequest';
@@ -122,7 +111,6 @@ import { ModifyInstanceConfig } from './model/ModifyInstanceConfig';
 import { ModifyInstanceConfigsReq } from './model/ModifyInstanceConfigsReq';
 import { ModifyInstanceConfigsRequest } from './model/ModifyInstanceConfigsRequest';
 import { ModifyInstanceConfigsResponse } from './model/ModifyInstanceConfigsResponse';
-import { ObsDestinationDescriptor } from './model/ObsDestinationDescriptor';
 import { PartitionReassignEntity } from './model/PartitionReassignEntity';
 import { PartitionReassignRequest } from './model/PartitionReassignRequest';
 import { PauseConnectorTaskRequest } from './model/PauseConnectorTaskRequest';
@@ -159,6 +147,7 @@ import { ResumeConnectorTaskRequest } from './model/ResumeConnectorTaskRequest';
 import { ResumeConnectorTaskResponse } from './model/ResumeConnectorTaskResponse';
 import { SendKafkaMessageRequest } from './model/SendKafkaMessageRequest';
 import { SendKafkaMessageRequestBody } from './model/SendKafkaMessageRequestBody';
+import { SendKafkaMessageRequestBodyPropertyList } from './model/SendKafkaMessageRequestBodyPropertyList';
 import { SendKafkaMessageResponse } from './model/SendKafkaMessageResponse';
 import { ShowBackgroundTaskRequest } from './model/ShowBackgroundTaskRequest';
 import { ShowBackgroundTaskResponse } from './model/ShowBackgroundTaskResponse';
@@ -228,11 +217,6 @@ import { ShowPartitionEndMessageResponse } from './model/ShowPartitionEndMessage
 import { ShowPartitionMessageEntity } from './model/ShowPartitionMessageEntity';
 import { ShowPartitionMessageRequest } from './model/ShowPartitionMessageRequest';
 import { ShowPartitionMessageResponse } from './model/ShowPartitionMessageResponse';
-import { ShowSinkTaskDetailRequest } from './model/ShowSinkTaskDetailRequest';
-import { ShowSinkTaskDetailRespObsDestinationDescriptor } from './model/ShowSinkTaskDetailRespObsDestinationDescriptor';
-import { ShowSinkTaskDetailRespPartitions } from './model/ShowSinkTaskDetailRespPartitions';
-import { ShowSinkTaskDetailRespTopicsInfo } from './model/ShowSinkTaskDetailRespTopicsInfo';
-import { ShowSinkTaskDetailResponse } from './model/ShowSinkTaskDetailResponse';
 import { ShowTopicAccessPolicyRequest } from './model/ShowTopicAccessPolicyRequest';
 import { ShowTopicAccessPolicyResponse } from './model/ShowTopicAccessPolicyResponse';
 import { SmartConnectTaskEntity } from './model/SmartConnectTaskEntity';
@@ -411,26 +395,6 @@ export class KafkaClient {
     }
 
     /**
-     * 创建删除实例转储节点的订单。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建关闭实例转储节点的订单
-     * @param {string} instanceId 实例ID。
-     * @param {ConnectorOrderRequestBody} [createDeleteConnectorOrderRequestBody] 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createDeleteConnectorOrder(createDeleteConnectorOrderRequest?: CreateDeleteConnectorOrderRequest): Promise<CreateDeleteConnectorOrderResponse> {
-        const options = ParamCreater().createDeleteConnectorOrder(createDeleteConnectorOrderRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建实例。
      * 
      * 该接口支持创建按需和包周期两种计费方式的实例。
@@ -572,26 +536,6 @@ export class KafkaClient {
     }
 
     /**
-     * 创建转储任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建转储任务
-     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
-     * @param {CreateSinkTaskReq} createSinkTaskRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createSinkTask(createSinkTaskRequest?: CreateSinkTaskRequest): Promise<CreateSinkTaskResponse> {
-        const options = ParamCreater().createSinkTask(createSinkTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 删除后台任务管理中的指定记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -643,26 +587,6 @@ export class KafkaClient {
      */
     public deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest?: DeleteKafkaUserClientQuotaTaskRequest): Promise<DeleteKafkaUserClientQuotaTaskResponse> {
         const options = ParamCreater().deleteKafkaUserClientQuotaTask(deleteKafkaUserClientQuotaTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除单个转储任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除单个转储任务
-     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
-     * @param {string} taskId 转储任务ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteSinkTask(deleteSinkTaskRequest?: DeleteSinkTaskRequest): Promise<DeleteSinkTaskResponse> {
-        const options = ParamCreater().deleteSinkTask(deleteSinkTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -819,25 +743,6 @@ export class KafkaClient {
      */
     public listProducts(listProductsRequest?: ListProductsRequest): Promise<ListProductsResponse> {
         const options = ParamCreater().listProducts(listProductsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询转储任务列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询转储任务列表
-     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listSinkTasks(listSinkTasksRequest?: ListSinkTasksRequest): Promise<ListSinkTasksResponse> {
-        const options = ParamCreater().listSinkTasks(listSinkTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1533,27 +1438,6 @@ export class KafkaClient {
     }
 
     /**
-     * 查询单个转储任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单个转储任务
-     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
-     * @param {string} taskId 转储任务ID。
-     * @param {'true' | 'false'} [topicInfo] 是否包含topic信息。默认是false。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSinkTaskDetail(showSinkTaskDetailRequest?: ShowSinkTaskDetailRequest): Promise<ShowSinkTaskDetailResponse> {
-        const options = ParamCreater().showSinkTaskDetail(showSinkTaskDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询用户权限。
      * 
      * Kafka实例开启SASL功能时，才支持多用户管理的功能。
@@ -2213,49 +2097,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建删除实例转储节点的订单。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createDeleteConnectorOrder(createDeleteConnectorOrderRequest?: CreateDeleteConnectorOrderRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/kafka/instances/{instance_id}/delete-connector-order",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (createDeleteConnectorOrderRequest !== null && createDeleteConnectorOrderRequest !== undefined) {
-                if (createDeleteConnectorOrderRequest instanceof CreateDeleteConnectorOrderRequest) {
-                    instanceId = createDeleteConnectorOrderRequest.instanceId;
-                    body = createDeleteConnectorOrderRequest.body
-                } else {
-                    instanceId = createDeleteConnectorOrderRequest['instance_id'];
-                    body = createDeleteConnectorOrderRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createDeleteConnectorOrder.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建实例。
          * 
          * 该接口支持创建按需和包周期两种计费方式的实例。
@@ -2572,52 +2413,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建转储任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createSinkTask(createSinkTaskRequest?: CreateSinkTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/connectors/{connector_id}/sink-tasks",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let connectorId;
-
-            if (createSinkTaskRequest !== null && createSinkTaskRequest !== undefined) {
-                if (createSinkTaskRequest instanceof CreateSinkTaskRequest) {
-                    connectorId = createSinkTaskRequest.connectorId;
-                    body = createSinkTaskRequest.body
-                } else {
-                    connectorId = createSinkTaskRequest['connector_id'];
-                    body = createSinkTaskRequest['body'];
-                }
-            }
-
-        
-            if (connectorId === null || connectorId === undefined) {
-            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling createSinkTask.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'connector_id': connectorId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 删除后台任务管理中的指定记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2740,50 +2535,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除单个转储任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteSinkTask(deleteSinkTaskRequest?: DeleteSinkTaskRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/connectors/{connector_id}/sink-tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let connectorId;
-            
-            let taskId;
-
-            if (deleteSinkTaskRequest !== null && deleteSinkTaskRequest !== undefined) {
-                if (deleteSinkTaskRequest instanceof DeleteSinkTaskRequest) {
-                    connectorId = deleteSinkTaskRequest.connectorId;
-                    taskId = deleteSinkTaskRequest.taskId;
-                } else {
-                    connectorId = deleteSinkTaskRequest['connector_id'];
-                    taskId = deleteSinkTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (connectorId === null || connectorId === undefined) {
-            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling deleteSinkTask.');
-            }
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteSinkTask.');
-            }
-
-            options.pathParams = { 'connector_id': connectorId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3166,43 +2917,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询转储任务列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listSinkTasks(listSinkTasksRequest?: ListSinkTasksRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/connectors/{connector_id}/sink-tasks",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let connectorId;
-
-            if (listSinkTasksRequest !== null && listSinkTasksRequest !== undefined) {
-                if (listSinkTasksRequest instanceof ListSinkTasksRequest) {
-                    connectorId = listSinkTasksRequest.connectorId;
-                } else {
-                    connectorId = listSinkTasksRequest['connector_id'];
-                }
-            }
-
-        
-            if (connectorId === null || connectorId === undefined) {
-            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling listSinkTasks.');
-            }
-
-            options.pathParams = { 'connector_id': connectorId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4830,58 +4544,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'topic': topic,'partition': partition, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单个转储任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSinkTaskDetail(showSinkTaskDetailRequest?: ShowSinkTaskDetailRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/connectors/{connector_id}/sink-tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let connectorId;
-            
-            let taskId;
-            
-            let topicInfo;
-
-            if (showSinkTaskDetailRequest !== null && showSinkTaskDetailRequest !== undefined) {
-                if (showSinkTaskDetailRequest instanceof ShowSinkTaskDetailRequest) {
-                    connectorId = showSinkTaskDetailRequest.connectorId;
-                    taskId = showSinkTaskDetailRequest.taskId;
-                    topicInfo = showSinkTaskDetailRequest.topicInfo;
-                } else {
-                    connectorId = showSinkTaskDetailRequest['connector_id'];
-                    taskId = showSinkTaskDetailRequest['task_id'];
-                    topicInfo = showSinkTaskDetailRequest['topic-info'];
-                }
-            }
-
-        
-            if (connectorId === null || connectorId === undefined) {
-            throw new RequiredError('connectorId','Required parameter connectorId was null or undefined when calling showSinkTaskDetail.');
-            }
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showSinkTaskDetail.');
-            }
-            if (topicInfo !== null && topicInfo !== undefined) {
-                localVarQueryParameter['topic-info'] = topicInfo;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'connector_id': connectorId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -6,6 +6,7 @@ export class IdcardBackResult {
     public issue?: string;
     private 'valid_from'?: string;
     private 'valid_to'?: string;
+    private 'adjusted_image'?: string;
     private 'verification_result'?: IdcardBackVerificationResult;
     private 'text_location'?: object;
     private 'detect_reproduce_result'?: boolean;
@@ -42,6 +43,16 @@ export class IdcardBackResult {
     }
     public get validTo(): string | undefined {
         return this['valid_to'];
+    }
+    public withAdjustedImage(adjustedImage: string): IdcardBackResult {
+        this['adjusted_image'] = adjustedImage;
+        return this;
+    }
+    public set adjustedImage(adjustedImage: string  | undefined) {
+        this['adjusted_image'] = adjustedImage;
+    }
+    public get adjustedImage(): string | undefined {
+        return this['adjusted_image'];
     }
     public withVerificationResult(verificationResult: IdcardBackVerificationResult): IdcardBackResult {
         this['verification_result'] = verificationResult;

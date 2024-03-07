@@ -5,6 +5,7 @@ import { PolicyParameterDefinition } from './PolicyParameterDefinition';
 export class PolicyDefinition {
     public id?: string;
     public name?: string;
+    private 'display_name'?: string;
     private 'policy_type'?: string;
     public description?: string;
     private 'policy_rule_type'?: string;
@@ -22,6 +23,16 @@ export class PolicyDefinition {
     public withName(name: string): PolicyDefinition {
         this['name'] = name;
         return this;
+    }
+    public withDisplayName(displayName: string): PolicyDefinition {
+        this['display_name'] = displayName;
+        return this;
+    }
+    public set displayName(displayName: string  | undefined) {
+        this['display_name'] = displayName;
+    }
+    public get displayName(): string | undefined {
+        return this['display_name'];
     }
     public withPolicyType(policyType: string): PolicyDefinition {
         this['policy_type'] = policyType;

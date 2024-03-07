@@ -7,6 +7,7 @@ export * from './model/AssociateQueueToElasticResourcePoolResponse';
 export * from './model/AssociateQueueToEnhancedConnectionRequest';
 export * from './model/AssociateQueueToEnhancedConnectionResponse';
 export * from './model/AuthInfos';
+export * from './model/AuthorizationPrivilege';
 export * from './model/AuthorizeResourceRequestBody';
 export * from './model/AvailableQueueInfo';
 export * from './model/BatchDeleteFlinkJobsRequest';

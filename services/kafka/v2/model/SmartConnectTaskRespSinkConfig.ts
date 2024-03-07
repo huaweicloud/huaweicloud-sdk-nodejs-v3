@@ -4,7 +4,7 @@ export class SmartConnectTaskRespSinkConfig {
     private 'redis_address'?: string;
     private 'redis_type'?: string;
     private 'dcs_instance_id'?: string;
-    private 'target_db'?: string;
+    private 'target_db'?: number;
     private 'consumer_strategy'?: string;
     private 'destination_file_type'?: string;
     private 'deliver_time_interval'?: number;
@@ -56,14 +56,14 @@ export class SmartConnectTaskRespSinkConfig {
     public get dcsInstanceId(): string | undefined {
         return this['dcs_instance_id'];
     }
-    public withTargetDb(targetDb: string): SmartConnectTaskRespSinkConfig {
+    public withTargetDb(targetDb: number): SmartConnectTaskRespSinkConfig {
         this['target_db'] = targetDb;
         return this;
     }
-    public set targetDb(targetDb: string  | undefined) {
+    public set targetDb(targetDb: number  | undefined) {
         this['target_db'] = targetDb;
     }
-    public get targetDb(): string | undefined {
+    public get targetDb(): number | undefined {
         return this['target_db'];
     }
     public withConsumerStrategy(consumerStrategy: string): SmartConnectTaskRespSinkConfig {

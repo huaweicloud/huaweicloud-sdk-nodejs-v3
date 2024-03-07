@@ -5,6 +5,13 @@ export class PolicyParameterDefinition {
     public description?: string;
     private 'allowed_values'?: Array<object>;
     private 'default_value'?: string;
+    public minimum?: number;
+    public maximum?: number;
+    private 'min_items'?: number;
+    private 'max_items'?: number;
+    private 'min_length'?: number;
+    private 'max_length'?: number;
+    public pattern?: string;
     public type?: PolicyParameterDefinitionTypeEnum | string;
     public constructor() { 
     }
@@ -35,6 +42,58 @@ export class PolicyParameterDefinition {
     }
     public get defaultValue(): string | undefined {
         return this['default_value'];
+    }
+    public withMinimum(minimum: number): PolicyParameterDefinition {
+        this['minimum'] = minimum;
+        return this;
+    }
+    public withMaximum(maximum: number): PolicyParameterDefinition {
+        this['maximum'] = maximum;
+        return this;
+    }
+    public withMinItems(minItems: number): PolicyParameterDefinition {
+        this['min_items'] = minItems;
+        return this;
+    }
+    public set minItems(minItems: number  | undefined) {
+        this['min_items'] = minItems;
+    }
+    public get minItems(): number | undefined {
+        return this['min_items'];
+    }
+    public withMaxItems(maxItems: number): PolicyParameterDefinition {
+        this['max_items'] = maxItems;
+        return this;
+    }
+    public set maxItems(maxItems: number  | undefined) {
+        this['max_items'] = maxItems;
+    }
+    public get maxItems(): number | undefined {
+        return this['max_items'];
+    }
+    public withMinLength(minLength: number): PolicyParameterDefinition {
+        this['min_length'] = minLength;
+        return this;
+    }
+    public set minLength(minLength: number  | undefined) {
+        this['min_length'] = minLength;
+    }
+    public get minLength(): number | undefined {
+        return this['min_length'];
+    }
+    public withMaxLength(maxLength: number): PolicyParameterDefinition {
+        this['max_length'] = maxLength;
+        return this;
+    }
+    public set maxLength(maxLength: number  | undefined) {
+        this['max_length'] = maxLength;
+    }
+    public get maxLength(): number | undefined {
+        return this['max_length'];
+    }
+    public withPattern(pattern: string): PolicyParameterDefinition {
+        this['pattern'] = pattern;
+        return this;
     }
     public withType(type: PolicyParameterDefinitionTypeEnum | string): PolicyParameterDefinition {
         this['type'] = type;

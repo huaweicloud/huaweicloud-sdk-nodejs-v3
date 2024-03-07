@@ -1,13 +1,13 @@
-import { ConnectorOrderRequestBody } from './ConnectorOrderRequestBody';
+import { DeleteSqlLimitRuleReqV3 } from './DeleteSqlLimitRuleReqV3';
 
 
-export class CreateDeleteConnectorOrderRequest {
+export class DeleteSqlLimitRequest {
     private 'instance_id'?: string;
-    public body?: ConnectorOrderRequestBody;
+    public body?: DeleteSqlLimitRuleReqV3;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
-    public withInstanceId(instanceId: string): CreateDeleteConnectorOrderRequest {
+    public withInstanceId(instanceId: string): DeleteSqlLimitRequest {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -17,7 +17,7 @@ export class CreateDeleteConnectorOrderRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: ConnectorOrderRequestBody): CreateDeleteConnectorOrderRequest {
+    public withBody(body: DeleteSqlLimitRuleReqV3): DeleteSqlLimitRequest {
         this['body'] = body;
         return this;
     }

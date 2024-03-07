@@ -6,7 +6,7 @@ import { NodeResponse } from './NodeResponse';
 import { RelatedInstance } from './RelatedInstance';
 import { ServerlessInfoResponse } from './ServerlessInfoResponse';
 import { TagResponse } from './TagResponse';
-import { Volume } from './Volume';
+import { VolumeForInstanceResponse } from './VolumeForInstanceResponse';
 
 
 export class InstanceResponse {
@@ -36,7 +36,7 @@ export class InstanceResponse {
     private 'flavor_ref'?: string;
     public cpu?: string;
     public mem?: string;
-    public volume?: Volume;
+    public volume?: VolumeForInstanceResponse;
     public region?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
@@ -52,7 +52,7 @@ export class InstanceResponse {
     private 'max_iops'?: number;
     private 'expiration_time'?: string;
     private 'serverless_info'?: ServerlessInfoResponse;
-    public constructor(id?: string, status?: string, enableSsl?: boolean, privateIps?: Array<string>, publicIps?: Array<string>, type?: string, created?: string, updated?: string, dbUserName?: string, switchStrategy?: string, maintenanceWindow?: string, nodes?: Array<NodeResponse>, relatedInstance?: Array<RelatedInstance>, name?: string, datastore?: Datastore, port?: number, backupStrategy?: BackupStrategyForResponse, enterpriseProjectId?: string, diskEncryptionId?: string, flavorRef?: string, volume?: Volume, region?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, chargeInfo?: ChargeInfoResponse, timeZone?: string, tags?: Array<TagResponse>) { 
+    public constructor(id?: string, status?: string, enableSsl?: boolean, privateIps?: Array<string>, publicIps?: Array<string>, type?: string, created?: string, updated?: string, dbUserName?: string, switchStrategy?: string, maintenanceWindow?: string, nodes?: Array<NodeResponse>, relatedInstance?: Array<RelatedInstance>, name?: string, datastore?: Datastore, port?: number, backupStrategy?: BackupStrategyForResponse, enterpriseProjectId?: string, diskEncryptionId?: string, flavorRef?: string, volume?: VolumeForInstanceResponse, region?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, chargeInfo?: ChargeInfoResponse, timeZone?: string, tags?: Array<TagResponse>) { 
         this['id'] = id;
         this['status'] = status;
         this['enable_ssl'] = enableSsl;
@@ -270,7 +270,7 @@ export class InstanceResponse {
         this['mem'] = mem;
         return this;
     }
-    public withVolume(volume: Volume): InstanceResponse {
+    public withVolume(volume: VolumeForInstanceResponse): InstanceResponse {
         this['volume'] = volume;
         return this;
     }

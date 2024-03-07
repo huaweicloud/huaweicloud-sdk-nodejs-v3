@@ -17,8 +17,8 @@ export class SmartConnectTaskRespSourceConfig {
     private 'security_protocol'?: string;
     public direction?: string;
     private 'sync_consumer_offsets_enabled'?: boolean;
-    private 'replication_factor'?: string;
-    private 'task_num'?: string;
+    private 'replication_factor'?: number;
+    private 'task_num'?: number;
     private 'rename_topic_enable'?: boolean;
     private 'provenance_header_enabled'?: boolean;
     private 'consumer_strategy'?: string;
@@ -174,24 +174,24 @@ export class SmartConnectTaskRespSourceConfig {
     public get syncConsumerOffsetsEnabled(): boolean | undefined {
         return this['sync_consumer_offsets_enabled'];
     }
-    public withReplicationFactor(replicationFactor: string): SmartConnectTaskRespSourceConfig {
+    public withReplicationFactor(replicationFactor: number): SmartConnectTaskRespSourceConfig {
         this['replication_factor'] = replicationFactor;
         return this;
     }
-    public set replicationFactor(replicationFactor: string  | undefined) {
+    public set replicationFactor(replicationFactor: number  | undefined) {
         this['replication_factor'] = replicationFactor;
     }
-    public get replicationFactor(): string | undefined {
+    public get replicationFactor(): number | undefined {
         return this['replication_factor'];
     }
-    public withTaskNum(taskNum: string): SmartConnectTaskRespSourceConfig {
+    public withTaskNum(taskNum: number): SmartConnectTaskRespSourceConfig {
         this['task_num'] = taskNum;
         return this;
     }
-    public set taskNum(taskNum: string  | undefined) {
+    public set taskNum(taskNum: number  | undefined) {
         this['task_num'] = taskNum;
     }
-    public get taskNum(): string | undefined {
+    public get taskNum(): number | undefined {
         return this['task_num'];
     }
     public withRenameTopicEnable(renameTopicEnable: boolean): SmartConnectTaskRespSourceConfig {

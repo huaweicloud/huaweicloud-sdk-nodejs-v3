@@ -1,12 +1,13 @@
+import { UpdateDatabasesRequestBody } from './UpdateDatabasesRequestBody';
 
 
-export class ConnectorOrderRequestBody {
+export class UpdateDatabasesRequest {
     private 'instance_id'?: string;
-    public url?: string;
+    public body?: UpdateDatabasesRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
-    public withInstanceId(instanceId: string): ConnectorOrderRequestBody {
+    public withInstanceId(instanceId: string): UpdateDatabasesRequest {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -16,8 +17,8 @@ export class ConnectorOrderRequestBody {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withUrl(url: string): ConnectorOrderRequestBody {
-        this['url'] = url;
+    public withBody(body: UpdateDatabasesRequestBody): UpdateDatabasesRequest {
+        this['body'] = body;
         return this;
     }
 }

@@ -7,6 +7,8 @@ export class AddCertificateResponse extends SdkResponse {
     public owner?: string;
     public status?: boolean;
     private 'verify_code'?: string;
+    private 'provision_enable'?: boolean;
+    private 'template_id'?: string;
     private 'create_date'?: string;
     private 'effective_date'?: string;
     private 'expiry_date'?: string;
@@ -50,6 +52,26 @@ export class AddCertificateResponse extends SdkResponse {
     }
     public get verifyCode(): string | undefined {
         return this['verify_code'];
+    }
+    public withProvisionEnable(provisionEnable: boolean): AddCertificateResponse {
+        this['provision_enable'] = provisionEnable;
+        return this;
+    }
+    public set provisionEnable(provisionEnable: boolean  | undefined) {
+        this['provision_enable'] = provisionEnable;
+    }
+    public get provisionEnable(): boolean | undefined {
+        return this['provision_enable'];
+    }
+    public withTemplateId(templateId: string): AddCertificateResponse {
+        this['template_id'] = templateId;
+        return this;
+    }
+    public set templateId(templateId: string  | undefined) {
+        this['template_id'] = templateId;
+    }
+    public get templateId(): string | undefined {
+        return this['template_id'];
     }
     public withCreateDate(createDate: string): AddCertificateResponse {
         this['create_date'] = createDate;

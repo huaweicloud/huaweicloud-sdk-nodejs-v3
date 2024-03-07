@@ -334,6 +334,9 @@ import { UpdateClientNetworkResponse } from './model/UpdateClientNetworkResponse
 import { UpdateConfigurationRequest } from './model/UpdateConfigurationRequest';
 import { UpdateConfigurationRequestBody } from './model/UpdateConfigurationRequestBody';
 import { UpdateConfigurationResponse } from './model/UpdateConfigurationResponse';
+import { UpdateDatabasesRequest } from './model/UpdateDatabasesRequest';
+import { UpdateDatabasesRequestBody } from './model/UpdateDatabasesRequestBody';
+import { UpdateDatabasesResponse } from './model/UpdateDatabasesResponse';
 import { UpdateHighRiskCommandsRequest } from './model/UpdateHighRiskCommandsRequest';
 import { UpdateHighRiskCommandsResponse } from './model/UpdateHighRiskCommandsResponse';
 import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
@@ -2347,6 +2350,26 @@ export class GaussDBforNoSQLClient {
      */
     public updateConfiguration(updateConfigurationRequest?: UpdateConfigurationRequest): Promise<UpdateConfigurationResponse> {
         const options = ParamCreater().updateConfiguration(updateConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 操作GeminDB实例数据库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 操作GeminDB实例数据库
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateDatabasesRequestBody} updateDatabasesRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDatabases(updateDatabasesRequest?: UpdateDatabasesRequest): Promise<UpdateDatabasesResponse> {
+        const options = ParamCreater().updateDatabases(updateDatabasesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7085,6 +7108,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 操作GeminDB实例数据库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDatabases(updateDatabasesRequest?: UpdateDatabasesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateDatabasesRequest !== null && updateDatabasesRequest !== undefined) {
+                if (updateDatabasesRequest instanceof UpdateDatabasesRequest) {
+                    instanceId = updateDatabasesRequest.instanceId;
+                    body = updateDatabasesRequest.body
+                } else {
+                    instanceId = updateDatabasesRequest['instance_id'];
+                    body = updateDatabasesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDatabases.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1365,14 +1365,14 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于删除工作负载队列。
+     * 该接口用于删除资源池。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除工作负载队列
+     * @summary 删除资源池
      * @param {string} clusterId 集群ID。
      * @param {string} workloadQueueName 工作负载队列名称。
-     * @param {string} [logicalClusterName] 逻辑集群名称。
+     * @param {string} [logicalClusterName] 逻辑集群名称。逻辑集群模式下该字段必填。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2710,6 +2710,7 @@ export class DwsClient {
      *
      * @summary 查询工作负载队列
      * @param {string} clusterId 集群ID
+     * @param {string} [logicalClusterName] 逻辑集群名称。逻辑集群模式下该字段必填。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3202,6 +3203,7 @@ export class DwsClient {
      * @summary 获得工作负载队列详细信息
      * @param {string} clusterId 集群ID
      * @param {string} queueName 资源队列名
+     * @param {string} [logicalClusterName] 逻辑集群名称。非逻辑集群模式下该字段不填,逻辑集群模式下需指定逻辑集群名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5533,7 +5535,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除工作负载队列。
+         * 该接口用于删除资源池。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8624,15 +8626,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
+            
+            let logicalClusterName;
 
             if (listWorkloadQueueRequest !== null && listWorkloadQueueRequest !== undefined) {
                 if (listWorkloadQueueRequest instanceof ListWorkloadQueueRequest) {
                     clusterId = listWorkloadQueueRequest.clusterId;
+                    logicalClusterName = listWorkloadQueueRequest.logicalClusterName;
                 } else {
                     clusterId = listWorkloadQueueRequest['cluster_id'];
+                    logicalClusterName = listWorkloadQueueRequest['logical_cluster_name'];
                 }
             }
 
@@ -8640,7 +8646,11 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listWorkloadQueue.');
             }
+            if (logicalClusterName !== null && logicalClusterName !== undefined) {
+                localVarQueryParameter['logical_cluster_name'] = logicalClusterName;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -9740,19 +9750,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
             
             let queueName;
+            
+            let logicalClusterName;
 
             if (showWorkloadQueueRequest !== null && showWorkloadQueueRequest !== undefined) {
                 if (showWorkloadQueueRequest instanceof ShowWorkloadQueueRequest) {
                     clusterId = showWorkloadQueueRequest.clusterId;
                     queueName = showWorkloadQueueRequest.queueName;
+                    logicalClusterName = showWorkloadQueueRequest.logicalClusterName;
                 } else {
                     clusterId = showWorkloadQueueRequest['cluster_id'];
                     queueName = showWorkloadQueueRequest['queue_name'];
+                    logicalClusterName = showWorkloadQueueRequest['logical_cluster_name'];
                 }
             }
 
@@ -9763,7 +9777,11 @@ export const ParamCreater = function () {
             if (queueName === null || queueName === undefined) {
             throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling showWorkloadQueue.');
             }
+            if (logicalClusterName !== null && logicalClusterName !== undefined) {
+                localVarQueryParameter['logical_cluster_name'] = logicalClusterName;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -37,8 +37,8 @@ export class ServerDetails {
     private 'OS-EXT-AZ:availability_zone'?: string;
     private 'OS-DCF:diskConfig'?: ServerDetailsOSDCFDiskConfigEnum | string;
     public fault?: Fault;
-    private 'OS-SRV-USG:launched_at'?: Date;
-    private 'OS-SRV-USG:terminated_at'?: Date;
+    private 'OS-SRV-USG:launched_at'?: string;
+    private 'OS-SRV-USG:terminated_at'?: string;
     private 'os-extended-volumes:volumes_attached'?: Array<OsExtendedVolumesInfo>;
     public description?: string;
     private 'host_status'?: ServerDetailsHostStatusEnum | string;
@@ -247,24 +247,24 @@ export class ServerDetails {
         this['fault'] = fault;
         return this;
     }
-    public withOSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: Date): ServerDetails {
+    public withOSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string): ServerDetails {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
         return this;
     }
-    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: Date  | undefined) {
+    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string  | undefined) {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
     }
-    public get oSSRVUSGLaunchedAt(): Date | undefined {
+    public get oSSRVUSGLaunchedAt(): string | undefined {
         return this['OS-SRV-USG:launched_at'];
     }
-    public withOSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: Date): ServerDetails {
+    public withOSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string): ServerDetails {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
         return this;
     }
-    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: Date  | undefined) {
+    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string  | undefined) {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
     }
-    public get oSSRVUSGTerminatedAt(): Date | undefined {
+    public get oSSRVUSGTerminatedAt(): string | undefined {
         return this['OS-SRV-USG:terminated_at'];
     }
     public withOsExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<OsExtendedVolumesInfo>): ServerDetails {

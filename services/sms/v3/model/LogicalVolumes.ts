@@ -5,7 +5,7 @@ export class LogicalVolumes {
     private 'block_size'?: number;
     private 'file_system'?: string;
     private 'inode_size'?: number;
-    private 'device_use'?: number;
+    private 'device_use'?: string;
     private 'mount_point'?: string;
     public name?: string;
     public size?: number;
@@ -60,14 +60,14 @@ export class LogicalVolumes {
     public get inodeSize(): number | undefined {
         return this['inode_size'];
     }
-    public withDeviceUse(deviceUse: number): LogicalVolumes {
+    public withDeviceUse(deviceUse: string): LogicalVolumes {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: number  | undefined) {
+    public set deviceUse(deviceUse: string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse(): number | undefined {
+    public get deviceUse(): string | undefined {
         return this['device_use'];
     }
     public withMountPoint(mountPoint: string): LogicalVolumes {

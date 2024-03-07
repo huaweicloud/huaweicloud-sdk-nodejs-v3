@@ -5,7 +5,6 @@ import { Ha } from './Ha';
 import { RestorePoint } from './RestorePoint';
 import { ServerlessInfo } from './ServerlessInfo';
 import { TagWithKeyValue } from './TagWithKeyValue';
-import { UnchangeableParam } from './UnchangeableParam';
 import { Volume } from './Volume';
 
 
@@ -30,23 +29,16 @@ export class CreateRestoreInstanceRequestBody {
     private 'charge_info'?: ChargeInfo;
     private 'time_zone'?: string;
     private 'dsspool_id'?: string;
-    private 'replica_of_id'?: string;
     private 'restore_point'?: RestorePoint;
     public collation?: string;
     public tags?: Array<TagWithKeyValue>;
-    private 'unchangeable_param'?: UnchangeableParam;
     private 'serverless_info'?: ServerlessInfo;
     private 'dry_run'?: boolean;
-    public constructor(name?: string, datastore?: Datastore, flavorRef?: string, volume?: Volume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
+    public constructor(name?: string, flavorRef?: string, volume?: Volume, availabilityZone?: string) { 
         this['name'] = name;
-        this['datastore'] = datastore;
         this['flavor_ref'] = flavorRef;
         this['volume'] = volume;
-        this['region'] = region;
         this['availability_zone'] = availabilityZone;
-        this['vpc_id'] = vpcId;
-        this['subnet_id'] = subnetId;
-        this['security_group_id'] = securityGroupId;
     }
     public withName(name: string): CreateRestoreInstanceRequestBody {
         this['name'] = name;
@@ -206,16 +198,6 @@ export class CreateRestoreInstanceRequestBody {
     public get dsspoolId(): string | undefined {
         return this['dsspool_id'];
     }
-    public withReplicaOfId(replicaOfId: string): CreateRestoreInstanceRequestBody {
-        this['replica_of_id'] = replicaOfId;
-        return this;
-    }
-    public set replicaOfId(replicaOfId: string  | undefined) {
-        this['replica_of_id'] = replicaOfId;
-    }
-    public get replicaOfId(): string | undefined {
-        return this['replica_of_id'];
-    }
     public withRestorePoint(restorePoint: RestorePoint): CreateRestoreInstanceRequestBody {
         this['restore_point'] = restorePoint;
         return this;
@@ -233,16 +215,6 @@ export class CreateRestoreInstanceRequestBody {
     public withTags(tags: Array<TagWithKeyValue>): CreateRestoreInstanceRequestBody {
         this['tags'] = tags;
         return this;
-    }
-    public withUnchangeableParam(unchangeableParam: UnchangeableParam): CreateRestoreInstanceRequestBody {
-        this['unchangeable_param'] = unchangeableParam;
-        return this;
-    }
-    public set unchangeableParam(unchangeableParam: UnchangeableParam  | undefined) {
-        this['unchangeable_param'] = unchangeableParam;
-    }
-    public get unchangeableParam(): UnchangeableParam | undefined {
-        return this['unchangeable_param'];
     }
     public withServerlessInfo(serverlessInfo: ServerlessInfo): CreateRestoreInstanceRequestBody {
         this['serverless_info'] = serverlessInfo;

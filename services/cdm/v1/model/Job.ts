@@ -37,12 +37,16 @@ export class Job {
     private 'is_incrementing'?: boolean;
     private 'execute_create_date'?: number;
     public status?: string;
-    public constructor(fromConnectorName?: string, toConfigValues?: ConfigValues, toLinkName?: string, driverConfigValues?: ConfigValues, fromConfigValues?: ConfigValues) { 
+    public constructor(jobType?: string, fromConnectorName?: string, toConfigValues?: ConfigValues, toLinkName?: string, driverConfigValues?: ConfigValues, fromConfigValues?: ConfigValues, toConnectorName?: string, name?: string, fromLinkName?: string) { 
+        this['job_type'] = jobType;
         this['from-connector-name'] = fromConnectorName;
         this['to-config-values'] = toConfigValues;
         this['to-link-name'] = toLinkName;
         this['driver-config-values'] = driverConfigValues;
         this['from-config-values'] = fromConfigValues;
+        this['to-connector-name'] = toConnectorName;
+        this['name'] = name;
+        this['from-link-name'] = fromLinkName;
     }
     public withJobType(jobType: JobJobTypeEnum | string): Job {
         this['job_type'] = jobType;

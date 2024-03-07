@@ -6,6 +6,8 @@ import FormData from 'form-data';
 import { AcceptManualReviewRequest } from './model/AcceptManualReviewRequest';
 import { AcceptManualReviewResponse } from './model/AcceptManualReviewResponse';
 import { AgentPluginInfoQueryDTO } from './model/AgentPluginInfoQueryDTO';
+import { Artifact } from './model/Artifact';
+import { ArtifactHashCode } from './model/ArtifactHashCode';
 import { BatchMovePipelineToGroupRequest } from './model/BatchMovePipelineToGroupRequest';
 import { BatchMovePipelineToGroupResponse } from './model/BatchMovePipelineToGroupResponse';
 import { BatchShowPipelinesLatestStatusRequest } from './model/BatchShowPipelinesLatestStatusRequest';
@@ -115,6 +117,8 @@ import { LogQuery } from './model/LogQuery';
 import { NewExtensionExecution } from './model/NewExtensionExecution';
 import { NewExtensionInputs } from './model/NewExtensionInputs';
 import { NewExtensionOutputs } from './model/NewExtensionOutputs';
+import { OutputRespOutputResult } from './model/OutputRespOutputResult';
+import { OutputRespStepOutputs } from './model/OutputRespStepOutputs';
 import { PackageInfo } from './model/PackageInfo';
 import { PageInfoBusinessTypeDefinitionVOData } from './model/PageInfoBusinessTypeDefinitionVOData';
 import { PageInfoBusinessTypeDefinitionVOPluginsList } from './model/PageInfoBusinessTypeDefinitionVOPluginsList';
@@ -194,6 +198,8 @@ import { ShowBasicPluginRequest } from './model/ShowBasicPluginRequest';
 import { ShowBasicPluginResponse } from './model/ShowBasicPluginResponse';
 import { ShowInstanceStatusRequest } from './model/ShowInstanceStatusRequest';
 import { ShowInstanceStatusResponse } from './model/ShowInstanceStatusResponse';
+import { ShowPipelineArtifactsRequest } from './model/ShowPipelineArtifactsRequest';
+import { ShowPipelineArtifactsResponse } from './model/ShowPipelineArtifactsResponse';
 import { ShowPipelineDetailRequest } from './model/ShowPipelineDetailRequest';
 import { ShowPipelineDetailResponse } from './model/ShowPipelineDetailResponse';
 import { ShowPipelineGroupTreeRequest } from './model/ShowPipelineGroupTreeRequest';
@@ -220,6 +226,8 @@ import { ShowPublisherRequest } from './model/ShowPublisherRequest';
 import { ShowPublisherResponse } from './model/ShowPublisherResponse';
 import { ShowRuleRequest } from './model/ShowRuleRequest';
 import { ShowRuleResponse } from './model/ShowRuleResponse';
+import { ShowStepOutputsRequest } from './model/ShowStepOutputsRequest';
+import { ShowStepOutputsResponse } from './model/ShowStepOutputsResponse';
 import { ShowStrategyRequest } from './model/ShowStrategyRequest';
 import { ShowStrategyResponse } from './model/ShowStrategyResponse';
 import { ShowTemplateDetailRequest } from './model/ShowTemplateDetailRequest';
@@ -1297,6 +1305,26 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 查询流水线上的构建产物
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流水线上的构建产物
+     * @param {string} pipelineId 流水线ID
+     * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPipelineArtifacts(showPipelineArtifactsRequest?: ShowPipelineArtifactsRequest): Promise<ShowPipelineArtifactsResponse> {
+        const options = ParamCreater().showPipelineArtifacts(showPipelineArtifactsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询流水线详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1549,6 +1577,27 @@ export class CodeArtsPipelineClient {
      */
     public showRule(showRuleRequest?: ShowRuleRequest): Promise<ShowRuleResponse> {
         const options = ParamCreater().showRule(showRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取流水线步骤执行输出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取流水线步骤执行输出
+     * @param {string} pipelineId 流水线ID
+     * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {string} [stepRunIds] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStepOutputs(showStepOutputsRequest?: ShowStepOutputsRequest): Promise<ShowStepOutputsResponse> {
+        const options = ParamCreater().showStepOutputs(showStepOutputsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4309,6 +4358,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询流水线上的构建产物
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPipelineArtifacts(showPipelineArtifactsRequest?: ShowPipelineArtifactsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}/pipeline-runs/{pipeline_run_id}/artifacts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+
+            if (showPipelineArtifactsRequest !== null && showPipelineArtifactsRequest !== undefined) {
+                if (showPipelineArtifactsRequest instanceof ShowPipelineArtifactsRequest) {
+                    pipelineId = showPipelineArtifactsRequest.pipelineId;
+                    pipelineRunId = showPipelineArtifactsRequest.pipelineRunId;
+                } else {
+                    pipelineId = showPipelineArtifactsRequest['pipeline_id'];
+                    pipelineRunId = showPipelineArtifactsRequest['pipeline_run_id'];
+                }
+            }
+
+        
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showPipelineArtifacts.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling showPipelineArtifacts.');
+            }
+
+            options.pathParams = { 'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询流水线详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4876,6 +4969,58 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取流水线步骤执行输出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStepOutputs(showStepOutputsRequest?: ShowStepOutputsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}/pipeline-runs/{pipeline_run_id}/steps/outputs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+            
+            let stepRunIds;
+
+            if (showStepOutputsRequest !== null && showStepOutputsRequest !== undefined) {
+                if (showStepOutputsRequest instanceof ShowStepOutputsRequest) {
+                    pipelineId = showStepOutputsRequest.pipelineId;
+                    pipelineRunId = showStepOutputsRequest.pipelineRunId;
+                    stepRunIds = showStepOutputsRequest.stepRunIds;
+                } else {
+                    pipelineId = showStepOutputsRequest['pipeline_id'];
+                    pipelineRunId = showStepOutputsRequest['pipeline_run_id'];
+                    stepRunIds = showStepOutputsRequest['step_run_ids'];
+                }
+            }
+
+        
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showStepOutputs.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling showStepOutputs.');
+            }
+            if (stepRunIds !== null && stepRunIds !== undefined) {
+                localVarQueryParameter['step_run_ids'] = stepRunIds;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

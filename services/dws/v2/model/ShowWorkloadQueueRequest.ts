@@ -3,6 +3,7 @@
 export class ShowWorkloadQueueRequest {
     private 'cluster_id'?: string;
     private 'queue_name'?: string;
+    private 'logical_cluster_name'?: string;
     public constructor(clusterId?: string, queueName?: string) { 
         this['cluster_id'] = clusterId;
         this['queue_name'] = queueName;
@@ -26,5 +27,15 @@ export class ShowWorkloadQueueRequest {
     }
     public get queueName(): string | undefined {
         return this['queue_name'];
+    }
+    public withLogicalClusterName(logicalClusterName: string): ShowWorkloadQueueRequest {
+        this['logical_cluster_name'] = logicalClusterName;
+        return this;
+    }
+    public set logicalClusterName(logicalClusterName: string  | undefined) {
+        this['logical_cluster_name'] = logicalClusterName;
+    }
+    public get logicalClusterName(): string | undefined {
+        return this['logical_cluster_name'];
     }
 }

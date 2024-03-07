@@ -9,6 +9,8 @@ export class IdCardRequestBody {
     private 'detect_reproduce'?: boolean;
     private 'detect_copy'?: boolean;
     private 'return_portrait_location'?: boolean;
+    private 'return_portrait_image'?: boolean;
+    private 'return_adjusted_image'?: boolean;
     private 'detect_tampering'?: boolean;
     private 'detect_border_integrity'?: boolean;
     private 'detect_blocking_within_border'?: boolean;
@@ -78,6 +80,26 @@ export class IdCardRequestBody {
     }
     public get returnPortraitLocation(): boolean | undefined {
         return this['return_portrait_location'];
+    }
+    public withReturnPortraitImage(returnPortraitImage: boolean): IdCardRequestBody {
+        this['return_portrait_image'] = returnPortraitImage;
+        return this;
+    }
+    public set returnPortraitImage(returnPortraitImage: boolean  | undefined) {
+        this['return_portrait_image'] = returnPortraitImage;
+    }
+    public get returnPortraitImage(): boolean | undefined {
+        return this['return_portrait_image'];
+    }
+    public withReturnAdjustedImage(returnAdjustedImage: boolean): IdCardRequestBody {
+        this['return_adjusted_image'] = returnAdjustedImage;
+        return this;
+    }
+    public set returnAdjustedImage(returnAdjustedImage: boolean  | undefined) {
+        this['return_adjusted_image'] = returnAdjustedImage;
+    }
+    public get returnAdjustedImage(): boolean | undefined {
+        return this['return_adjusted_image'];
     }
     public withDetectTampering(detectTampering: boolean): IdCardRequestBody {
         this['detect_tampering'] = detectTampering;

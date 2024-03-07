@@ -16,6 +16,8 @@ export class IdCardResult {
     private 'valid_to'?: string;
     private 'verification_result'?: IdcardVerificationResult;
     private 'text_location'?: object;
+    private 'portrait_image'?: string;
+    private 'adjusted_image'?: string;
     private 'portrait_location'?: Array<Array<number>>;
     private 'detect_reproduce_result'?: boolean;
     private 'detect_copy_result'?: boolean;
@@ -103,6 +105,26 @@ export class IdCardResult {
     }
     public get textLocation(): object | undefined {
         return this['text_location'];
+    }
+    public withPortraitImage(portraitImage: string): IdCardResult {
+        this['portrait_image'] = portraitImage;
+        return this;
+    }
+    public set portraitImage(portraitImage: string  | undefined) {
+        this['portrait_image'] = portraitImage;
+    }
+    public get portraitImage(): string | undefined {
+        return this['portrait_image'];
+    }
+    public withAdjustedImage(adjustedImage: string): IdCardResult {
+        this['adjusted_image'] = adjustedImage;
+        return this;
+    }
+    public set adjustedImage(adjustedImage: string  | undefined) {
+        this['adjusted_image'] = adjustedImage;
+    }
+    public get adjustedImage(): string | undefined {
+        return this['adjusted_image'];
     }
     public withPortraitLocation(portraitLocation: Array<Array<number>>): IdCardResult {
         this['portrait_location'] = portraitLocation;

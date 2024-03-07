@@ -2,6 +2,7 @@
 
 export class ShowOrganizationPolicyAssignmentStatusesRequest {
     private 'organization_id'?: string;
+    private 'organization_policy_assignment_id'?: string;
     private 'organization_policy_assignment_name'?: string;
     public limit?: number;
     public marker?: string;
@@ -17,6 +18,16 @@ export class ShowOrganizationPolicyAssignmentStatusesRequest {
     }
     public get organizationId(): string | undefined {
         return this['organization_id'];
+    }
+    public withOrganizationPolicyAssignmentId(organizationPolicyAssignmentId: string): ShowOrganizationPolicyAssignmentStatusesRequest {
+        this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
+        return this;
+    }
+    public set organizationPolicyAssignmentId(organizationPolicyAssignmentId: string  | undefined) {
+        this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
+    }
+    public get organizationPolicyAssignmentId(): string | undefined {
+        return this['organization_policy_assignment_id'];
     }
     public withOrganizationPolicyAssignmentName(organizationPolicyAssignmentName: string): ShowOrganizationPolicyAssignmentStatusesRequest {
         this['organization_policy_assignment_name'] = organizationPolicyAssignmentName;

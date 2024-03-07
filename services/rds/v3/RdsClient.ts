@@ -98,6 +98,9 @@ import { CreateRdSforMySqlProxyResponse } from './model/CreateRdSforMySqlProxyRe
 import { CreateRestoreInstanceRequest } from './model/CreateRestoreInstanceRequest';
 import { CreateRestoreInstanceRequestBody } from './model/CreateRestoreInstanceRequestBody';
 import { CreateRestoreInstanceResponse } from './model/CreateRestoreInstanceResponse';
+import { CreateSqlLimitRequest } from './model/CreateSqlLimitRequest';
+import { CreateSqlLimitResponse } from './model/CreateSqlLimitResponse';
+import { CreateSqlLimitRuleReqV3 } from './model/CreateSqlLimitRuleReqV3';
 import { CreateSqlserverDatabaseRequest } from './model/CreateSqlserverDatabaseRequest';
 import { CreateSqlserverDatabaseResponse } from './model/CreateSqlserverDatabaseResponse';
 import { CreateSqlserverDbUserRequest } from './model/CreateSqlserverDbUserRequest';
@@ -145,6 +148,9 @@ import { DeletePostgresqlHbaConfRequest } from './model/DeletePostgresqlHbaConfR
 import { DeletePostgresqlHbaConfResponse } from './model/DeletePostgresqlHbaConfResponse';
 import { DeleteRdSforMySqlProxyRequest } from './model/DeleteRdSforMySqlProxyRequest';
 import { DeleteRdSforMySqlProxyResponse } from './model/DeleteRdSforMySqlProxyResponse';
+import { DeleteSqlLimitRequest } from './model/DeleteSqlLimitRequest';
+import { DeleteSqlLimitResponse } from './model/DeleteSqlLimitResponse';
+import { DeleteSqlLimitRuleReqV3 } from './model/DeleteSqlLimitRuleReqV3';
 import { DeleteSqlserverDatabaseExRequest } from './model/DeleteSqlserverDatabaseExRequest';
 import { DeleteSqlserverDatabaseExResponse } from './model/DeleteSqlserverDatabaseExResponse';
 import { DeleteSqlserverDatabaseRequest } from './model/DeleteSqlserverDatabaseRequest';
@@ -309,6 +315,8 @@ import { ListSlowlogForLtsRequest } from './model/ListSlowlogForLtsRequest';
 import { ListSlowlogForLtsResponse } from './model/ListSlowlogForLtsResponse';
 import { ListSlowlogStatisticsRequest } from './model/ListSlowlogStatisticsRequest';
 import { ListSlowlogStatisticsResponse } from './model/ListSlowlogStatisticsResponse';
+import { ListSqlLimitRequest } from './model/ListSqlLimitRequest';
+import { ListSqlLimitResponse } from './model/ListSqlLimitResponse';
 import { ListSqlserverDatabasesRequest } from './model/ListSqlserverDatabasesRequest';
 import { ListSqlserverDatabasesResponse } from './model/ListSqlserverDatabasesResponse';
 import { ListSqlserverDbUsersRequest } from './model/ListSqlserverDbUsersRequest';
@@ -522,6 +530,8 @@ import { ShowReplicationStatusRequest } from './model/ShowReplicationStatusReque
 import { ShowReplicationStatusResponse } from './model/ShowReplicationStatusResponse';
 import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitoringRequest';
 import { ShowSecondLevelMonitoringResponse } from './model/ShowSecondLevelMonitoringResponse';
+import { ShowStorageUsedSpaceRequest } from './model/ShowStorageUsedSpaceRequest';
+import { ShowStorageUsedSpaceResponse } from './model/ShowStorageUsedSpaceResponse';
 import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
 import { ShowTdeStatusResponse } from './model/ShowTdeStatusResponse';
 import { ShowUpgradeDbMajorVersionStatusRequest } from './model/ShowUpgradeDbMajorVersionStatusRequest';
@@ -538,6 +548,7 @@ import { SlowLogStatisticsForLtsRequest } from './model/SlowLogStatisticsForLtsR
 import { SlowlogDownloadInfo } from './model/SlowlogDownloadInfo';
 import { SlowlogDownloadRequest } from './model/SlowlogDownloadRequest';
 import { SlowlogForLtsRequest } from './model/SlowlogForLtsRequest';
+import { SqlLimitObject } from './model/SqlLimitObject';
 import { SqlserverDatabaseForCreation } from './model/SqlserverDatabaseForCreation';
 import { SqlserverDatabaseForDetail } from './model/SqlserverDatabaseForDetail';
 import { SqlserverGrantRequest } from './model/SqlserverGrantRequest';
@@ -571,6 +582,9 @@ import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
 import { SupportFastRestoreList } from './model/SupportFastRestoreList';
+import { SwitchSqlLimitControlReqV3 } from './model/SwitchSqlLimitControlReqV3';
+import { SwitchSqlLimitRequest } from './model/SwitchSqlLimitRequest';
+import { SwitchSqlLimitResponse } from './model/SwitchSqlLimitResponse';
 import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
 import { TagDelWithKeyValue } from './model/TagDelWithKeyValue';
@@ -626,6 +640,9 @@ import { UpdatePostgresqlParameterValueResponse } from './model/UpdatePostgresql
 import { UpdateRdsInstanceAliasRequest } from './model/UpdateRdsInstanceAliasRequest';
 import { UpdateReadWeightRequest } from './model/UpdateReadWeightRequest';
 import { UpdateReadWeightResponse } from './model/UpdateReadWeightResponse';
+import { UpdateSqlLimitRequest } from './model/UpdateSqlLimitRequest';
+import { UpdateSqlLimitResponse } from './model/UpdateSqlLimitResponse';
+import { UpdateSqlLimitRuleReqV3 } from './model/UpdateSqlLimitRuleReqV3';
 import { UpdateTdeStatusRequest } from './model/UpdateTdeStatusRequest';
 import { UpdateTdeStatusRequestBody } from './model/UpdateTdeStatusRequestBody';
 import { UpdateTdeStatusResponse } from './model/UpdateTdeStatusResponse';
@@ -643,6 +660,7 @@ import { UserForCreation } from './model/UserForCreation';
 import { UserForList } from './model/UserForList';
 import { UserWithPrivilege } from './model/UserWithPrivilege';
 import { Volume } from './model/Volume';
+import { VolumeForInstanceResponse } from './model/VolumeForInstanceResponse';
 
 export class RdsClient {
     public static newBuilder(): ClientBuilder<RdsClient> {
@@ -1029,6 +1047,26 @@ export class RdsClient {
     }
 
     /**
+     * 新增SQL限流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增SQL限流
+     * @param {string} instanceId 实例ID
+     * @param {CreateSqlLimitRuleReqV3} createSqlLimitRequestBody 新增SQL限流请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSqlLimit(createSqlLimitRequest?: CreateSqlLimitRequest): Promise<CreateSqlLimitResponse> {
+        const options = ParamCreater().createSqlLimit(createSqlLimitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取扩展日志下载信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1182,6 +1220,26 @@ export class RdsClient {
      */
     public deleteRdSforMySqlProxy(deleteRdSforMySqlProxyRequest?: DeleteRdSforMySqlProxyRequest): Promise<DeleteRdSforMySqlProxyResponse> {
         const options = ParamCreater().deleteRdSforMySqlProxy(deleteRdSforMySqlProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除SQL限流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除SQL限流
+     * @param {string} instanceId 实例ID
+     * @param {DeleteSqlLimitRuleReqV3} deleteSqlLimitRequestBody 删除Sql限流请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSqlLimit(deleteSqlLimitRequest?: DeleteSqlLimitRequest): Promise<DeleteSqlLimitResponse> {
+        const options = ParamCreater().deleteSqlLimit(deleteSqlLimitRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2141,6 +2199,28 @@ export class RdsClient {
     }
 
     /**
+     * 查询SQL限流列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SQL限流列表
+     * @param {string} instanceId 实例ID
+     * @param {string} dbName 数据库名称
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlLimit(listSqlLimitRequest?: ListSqlLimitRequest): Promise<ListSqlLimitResponse> {
+        const options = ParamCreater().listSqlLimit(listSqlLimitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取SSL证书下载地址
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2947,6 +3027,25 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例磁盘空间使用量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例磁盘空间使用量
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStorageUsedSpace(showStorageUsedSpaceRequest?: ShowStorageUsedSpaceRequest): Promise<ShowStorageUsedSpaceResponse> {
+        const options = ParamCreater().showStorageUsedSpace(showStorageUsedSpaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据实例id查询sqlserver TDE状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3192,6 +3291,26 @@ export class RdsClient {
     }
 
     /**
+     * 开启/关闭/禁用所有SQL限流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭/禁用所有SQL限流
+     * @param {string} instanceId 实例ID
+     * @param {SwitchSqlLimitControlReqV3} switchSqlLimitRequestBody 开启/关闭/禁用所有SQL限流请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchSqlLimit(switchSqlLimitRequest?: SwitchSqlLimitRequest): Promise<SwitchSqlLimitResponse> {
+        const options = ParamCreater().switchSqlLimit(switchSqlLimitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置SSL数据加密。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3393,6 +3512,26 @@ export class RdsClient {
      */
     public updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest?: UpdatePostgresqlInstanceAliasRequest): Promise<UpdatePostgresqlInstanceAliasResponse> {
         const options = ParamCreater().updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改SQL限流
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改SQL限流
+     * @param {string} instanceId 实例ID
+     * @param {UpdateSqlLimitRuleReqV3} updateSqlLimitRequestBody 修改Sql限流请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSqlLimit(updateSqlLimitRequest?: UpdateSqlLimitRequest): Promise<UpdateSqlLimitResponse> {
+        const options = ParamCreater().updateSqlLimit(updateSqlLimitRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5794,6 +5933,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 新增SQL限流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSqlLimit(createSqlLimitRequest?: CreateSqlLimitRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limit",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createSqlLimitRequest !== null && createSqlLimitRequest !== undefined) {
+                if (createSqlLimitRequest instanceof CreateSqlLimitRequest) {
+                    instanceId = createSqlLimitRequest.instanceId;
+                    body = createSqlLimitRequest.body
+                } else {
+                    instanceId = createSqlLimitRequest['instance_id'];
+                    body = createSqlLimitRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createSqlLimit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取扩展日志下载信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6167,6 +6352,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除SQL限流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSqlLimit(deleteSqlLimitRequest?: DeleteSqlLimitRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limit",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteSqlLimitRequest !== null && deleteSqlLimitRequest !== undefined) {
+                if (deleteSqlLimitRequest instanceof DeleteSqlLimitRequest) {
+                    instanceId = deleteSqlLimitRequest.instanceId;
+                    body = deleteSqlLimitRequest.body
+                } else {
+                    instanceId = deleteSqlLimitRequest['instance_id'];
+                    body = deleteSqlLimitRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteSqlLimit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8836,6 +9067,68 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询SQL限流列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlLimit(listSqlLimitRequest?: ListSqlLimitRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limit",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSqlLimitRequest !== null && listSqlLimitRequest !== undefined) {
+                if (listSqlLimitRequest instanceof ListSqlLimitRequest) {
+                    instanceId = listSqlLimitRequest.instanceId;
+                    dbName = listSqlLimitRequest.dbName;
+                    offset = listSqlLimitRequest.offset;
+                    limit = listSqlLimitRequest.limit;
+                } else {
+                    instanceId = listSqlLimitRequest['instance_id'];
+                    dbName = listSqlLimitRequest['db_name'];
+                    offset = listSqlLimitRequest['offset'];
+                    limit = listSqlLimitRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSqlLimit.');
+            }
+            if (dbName === null || dbName === undefined) {
+                throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling listSqlLimit.');
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取SSL证书下载地址
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10774,6 +11067,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例磁盘空间使用量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStorageUsedSpace(showStorageUsedSpaceRequest?: ShowStorageUsedSpaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/storage-used-space",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showStorageUsedSpaceRequest !== null && showStorageUsedSpaceRequest !== undefined) {
+                if (showStorageUsedSpaceRequest instanceof ShowStorageUsedSpaceRequest) {
+                    instanceId = showStorageUsedSpaceRequest.instanceId;
+                } else {
+                    instanceId = showStorageUsedSpaceRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showStorageUsedSpace.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据实例id查询sqlserver TDE状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11358,6 +11688,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启/关闭/禁用所有SQL限流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchSqlLimit(switchSqlLimitRequest?: SwitchSqlLimitRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limit/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (switchSqlLimitRequest !== null && switchSqlLimitRequest !== undefined) {
+                if (switchSqlLimitRequest instanceof SwitchSqlLimitRequest) {
+                    instanceId = switchSqlLimitRequest.instanceId;
+                    body = switchSqlLimitRequest.body
+                } else {
+                    instanceId = switchSqlLimitRequest['instance_id'];
+                    body = switchSqlLimitRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchSqlLimit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置SSL数据加密。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11871,6 +12247,52 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改SQL限流
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSqlLimit(updateSqlLimitRequest?: UpdateSqlLimitRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limit/update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateSqlLimitRequest !== null && updateSqlLimitRequest !== undefined) {
+                if (updateSqlLimitRequest instanceof UpdateSqlLimitRequest) {
+                    instanceId = updateSqlLimitRequest.instanceId;
+                    body = updateSqlLimitRequest.body
+                } else {
+                    instanceId = updateSqlLimitRequest['instance_id'];
+                    body = updateSqlLimitRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSqlLimit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

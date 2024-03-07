@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowBuiltInPolicyDefinitionResponse extends SdkResponse {
     public id?: string;
     public name?: string;
+    private 'display_name'?: string;
     private 'policy_type'?: string;
     public description?: string;
     private 'policy_rule_type'?: string;
@@ -24,6 +25,16 @@ export class ShowBuiltInPolicyDefinitionResponse extends SdkResponse {
     public withName(name: string): ShowBuiltInPolicyDefinitionResponse {
         this['name'] = name;
         return this;
+    }
+    public withDisplayName(displayName: string): ShowBuiltInPolicyDefinitionResponse {
+        this['display_name'] = displayName;
+        return this;
+    }
+    public set displayName(displayName: string  | undefined) {
+        this['display_name'] = displayName;
+    }
+    public get displayName(): string | undefined {
+        return this['display_name'];
     }
     public withPolicyType(policyType: string): ShowBuiltInPolicyDefinitionResponse {
         this['policy_type'] = policyType;

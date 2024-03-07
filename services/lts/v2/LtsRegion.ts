@@ -28,6 +28,7 @@ export class LtsRegion {
     public static EU_WEST_101 = new Region("eu-west-101", ["https://lts.eu-west-101.myhuaweicloud.eu"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://lts.tr-west-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://lts.me-east-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://lts.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -52,7 +53,8 @@ export class LtsRegion {
         "ae-ad-1":LtsRegion.AE_AD_1,
         "eu-west-101":LtsRegion.EU_WEST_101,
         "tr-west-1":LtsRegion.TR_WEST_1,
-        "me-east-1":LtsRegion.ME_EAST_1
+        "me-east-1":LtsRegion.ME_EAST_1,
+        "my-kualalumpur-1":LtsRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {
