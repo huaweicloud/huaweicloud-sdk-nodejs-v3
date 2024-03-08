@@ -1,4 +1,3 @@
-import { Array&lt;PackageOptions&gt; } from './Array&lt;PackageOptions&gt;';
 import { PackageOptions } from './PackageOptions';
 
 
