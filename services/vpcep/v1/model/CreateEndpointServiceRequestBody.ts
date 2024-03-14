@@ -7,7 +7,7 @@ export class CreateEndpointServiceRequestBody {
     private 'service_name'?: string;
     private 'vpc_id'?: string;
     private 'approval_enabled'?: boolean;
-    private 'service_type'?: string;
+    private 'service_type'?: CreateEndpointServiceRequestBodyServiceTypeEnum | string;
     private 'server_type'?: CreateEndpointServiceRequestBodyServerTypeEnum | string;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | string;
@@ -60,14 +60,14 @@ export class CreateEndpointServiceRequestBody {
     public get approvalEnabled(): boolean | undefined {
         return this['approval_enabled'];
     }
-    public withServiceType(serviceType: string): CreateEndpointServiceRequestBody {
+    public withServiceType(serviceType: CreateEndpointServiceRequestBodyServiceTypeEnum | string): CreateEndpointServiceRequestBody {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: string  | undefined) {
+    public set serviceType(serviceType: CreateEndpointServiceRequestBodyServiceTypeEnum | string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): string | undefined {
+    public get serviceType(): CreateEndpointServiceRequestBodyServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
     public withServerType(serverType: CreateEndpointServiceRequestBodyServerTypeEnum | string): CreateEndpointServiceRequestBody {
@@ -114,6 +114,14 @@ export class CreateEndpointServiceRequestBody {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateEndpointServiceRequestBodyServiceTypeEnum {
+    GATEWAY = 'gateway',
+    INTERFACE = 'interface'
+}
 /**
     * @export
     * @enum {string}

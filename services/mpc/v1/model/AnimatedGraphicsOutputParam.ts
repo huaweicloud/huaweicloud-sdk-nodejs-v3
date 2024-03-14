@@ -7,7 +7,8 @@ export class AnimatedGraphicsOutputParam {
     public start?: number;
     public end?: number;
     private 'frame_rate'?: number;
-    public constructor(width?: number, height?: number, start?: number, end?: number) { 
+    public constructor(format?: string, width?: number, height?: number, start?: number, end?: number) { 
+        this['format'] = format;
         this['width'] = width;
         this['height'] = height;
         this['start'] = start;

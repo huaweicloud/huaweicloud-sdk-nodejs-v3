@@ -1,3 +1,4 @@
+import { CoStreamerConfig } from './CoStreamerConfig';
 import { CreateSmartLiveRoomReq } from './CreateSmartLiveRoomReq';
 import { ErrorResponse } from './ErrorResponse';
 import { InteractionRuleInfo } from './InteractionRuleInfo';
@@ -25,10 +26,12 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
     private 'view_mode'?: UpdateSmartLiveRoomResponseViewModeEnum | string;
+    private 'co_streamer_config'?: CoStreamerConfig;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'cover_url'?: string;
+    public thumbnail?: string;
     private 'room_state'?: UpdateSmartLiveRoomResponseRoomStateEnum | string;
     private 'error_info'?: ErrorResponse;
     private 'X-Request-Id'?: string;
@@ -176,6 +179,16 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     public get viewMode(): UpdateSmartLiveRoomResponseViewModeEnum | string | undefined {
         return this['view_mode'];
     }
+    public withCoStreamerConfig(coStreamerConfig: CoStreamerConfig): UpdateSmartLiveRoomResponse {
+        this['co_streamer_config'] = coStreamerConfig;
+        return this;
+    }
+    public set coStreamerConfig(coStreamerConfig: CoStreamerConfig  | undefined) {
+        this['co_streamer_config'] = coStreamerConfig;
+    }
+    public get coStreamerConfig(): CoStreamerConfig | undefined {
+        return this['co_streamer_config'];
+    }
     public withRoomId(roomId: string): UpdateSmartLiveRoomResponse {
         this['room_id'] = roomId;
         return this;
@@ -215,6 +228,10 @@ export class UpdateSmartLiveRoomResponse extends SdkResponse {
     }
     public get coverUrl(): string | undefined {
         return this['cover_url'];
+    }
+    public withThumbnail(thumbnail: string): UpdateSmartLiveRoomResponse {
+        this['thumbnail'] = thumbnail;
+        return this;
     }
     public withRoomState(roomState: UpdateSmartLiveRoomResponseRoomStateEnum | string): UpdateSmartLiveRoomResponse {
         this['room_state'] = roomState;

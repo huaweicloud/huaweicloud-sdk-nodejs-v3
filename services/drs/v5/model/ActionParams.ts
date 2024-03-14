@@ -1,5 +1,6 @@
 import { CompareTaskParams } from './CompareTaskParams';
 import { JobEndpointInfo } from './JobEndpointInfo';
+import { PublicIpConfig } from './PublicIpConfig';
 import { SkipPreCheckInfo } from './SkipPreCheckInfo';
 
 
@@ -12,6 +13,7 @@ export class ActionParams {
     private 'compare_task_param'?: CompareTaskParams;
     private 'is_sync_re_edit'?: boolean;
     private 'force_delete'?: boolean;
+    private 'public_ip_config'?: PublicIpConfig;
     public constructor() { 
     }
     public withEndpoints(endpoints: Array<JobEndpointInfo>): ActionParams {
@@ -87,5 +89,15 @@ export class ActionParams {
     }
     public get forceDelete(): boolean | undefined {
         return this['force_delete'];
+    }
+    public withPublicIpConfig(publicIpConfig: PublicIpConfig): ActionParams {
+        this['public_ip_config'] = publicIpConfig;
+        return this;
+    }
+    public set publicIpConfig(publicIpConfig: PublicIpConfig  | undefined) {
+        this['public_ip_config'] = publicIpConfig;
+    }
+    public get publicIpConfig(): PublicIpConfig | undefined {
+        return this['public_ip_config'];
     }
 }

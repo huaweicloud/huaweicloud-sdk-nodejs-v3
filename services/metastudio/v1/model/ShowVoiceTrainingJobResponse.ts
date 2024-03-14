@@ -13,6 +13,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     public sex?: string;
     public language?: string;
     public state?: JobState;
+    private 'reject_times'?: number;
     private 'asset_id'?: string;
     private 'job_failed_code'?: string;
     private 'job_failed_reason'?: string;
@@ -75,6 +76,16 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     public withState(state: JobState): ShowVoiceTrainingJobResponse {
         this['state'] = state;
         return this;
+    }
+    public withRejectTimes(rejectTimes: number): ShowVoiceTrainingJobResponse {
+        this['reject_times'] = rejectTimes;
+        return this;
+    }
+    public set rejectTimes(rejectTimes: number  | undefined) {
+        this['reject_times'] = rejectTimes;
+    }
+    public get rejectTimes(): number | undefined {
+        return this['reject_times'];
     }
     public withAssetId(assetId: string): ShowVoiceTrainingJobResponse {
         this['asset_id'] = assetId;

@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListServiceDescribeDetailsResponse extends SdkResponse {
     public id?: string;
     private 'service_name'?: string;
-    private 'service_type'?: ListServiceDescribeDetailsResponseServiceTypeEnum | string;
-    private 'created_at'?: string;
+    private 'service_type'?: string;
+    private 'created_at'?: Date;
     private 'is_charge'?: boolean;
     private 'public_border_group'?: string;
     private 'enable_policy'?: boolean;
@@ -26,24 +26,24 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     public get serviceName(): string | undefined {
         return this['service_name'];
     }
-    public withServiceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum | string): ListServiceDescribeDetailsResponse {
+    public withServiceType(serviceType: string): ListServiceDescribeDetailsResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): ListServiceDescribeDetailsResponseServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withCreatedAt(createdAt: string): ListServiceDescribeDetailsResponse {
+    public withCreatedAt(createdAt: Date): ListServiceDescribeDetailsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withIsCharge(isCharge: boolean): ListServiceDescribeDetailsResponse {
@@ -76,12 +76,4 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListServiceDescribeDetailsResponseServiceTypeEnum {
-    INTERFACE = 'interface'
 }

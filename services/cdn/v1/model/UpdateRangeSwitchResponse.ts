@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateRangeSwitchResponse extends SdkResponse {
     private 'origin_range'?: OriginRangeBody;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -16,5 +17,15 @@ export class UpdateRangeSwitchResponse extends SdkResponse {
     }
     public get originRange(): OriginRangeBody | undefined {
         return this['origin_range'];
+    }
+    public withXRequestId(xRequestId: string): UpdateRangeSwitchResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

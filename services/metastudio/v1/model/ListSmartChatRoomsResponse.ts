@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSmartChatRoomsResponse extends SdkResponse {
     public count?: number;
+    private 'count_concurrency'?: number;
     private 'smart_chat_rooms'?: Array<SmartChatRoomBaseInfo>;
     private 'X-Request-Id'?: string;
     public constructor() { 
@@ -12,6 +13,16 @@ export class ListSmartChatRoomsResponse extends SdkResponse {
     public withCount(count: number): ListSmartChatRoomsResponse {
         this['count'] = count;
         return this;
+    }
+    public withCountConcurrency(countConcurrency: number): ListSmartChatRoomsResponse {
+        this['count_concurrency'] = countConcurrency;
+        return this;
+    }
+    public set countConcurrency(countConcurrency: number  | undefined) {
+        this['count_concurrency'] = countConcurrency;
+    }
+    public get countConcurrency(): number | undefined {
+        return this['count_concurrency'];
     }
     public withSmartChatRooms(smartChatRooms: Array<SmartChatRoomBaseInfo>): ListSmartChatRoomsResponse {
         this['smart_chat_rooms'] = smartChatRooms;

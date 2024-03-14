@@ -10,7 +10,7 @@ export class QueryResourceInstanceTagsBody {
     private 'sys_tags'?: Array<TagValuesList>;
     public limit?: string;
     public offset?: string;
-    public action?: string;
+    public action?: QueryResourceInstanceTagsBodyActionEnum | string;
     public matches?: Array<Match>;
     private 'without_any_tag'?: boolean;
     public constructor(action?: string) { 
@@ -68,7 +68,7 @@ export class QueryResourceInstanceTagsBody {
         this['offset'] = offset;
         return this;
     }
-    public withAction(action: string): QueryResourceInstanceTagsBody {
+    public withAction(action: QueryResourceInstanceTagsBodyActionEnum | string): QueryResourceInstanceTagsBody {
         this['action'] = action;
         return this;
     }
@@ -86,4 +86,13 @@ export class QueryResourceInstanceTagsBody {
     public get withoutAnyTag(): boolean | undefined {
         return this['without_any_tag'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QueryResourceInstanceTagsBodyActionEnum {
+    FILTER = 'filter',
+    COUNT = 'count'
 }

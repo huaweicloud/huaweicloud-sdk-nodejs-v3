@@ -1,3 +1,4 @@
+import { PolicyStatement } from './PolicyStatement';
 import { QueryError } from './QueryError';
 import { TagList } from './TagList';
 
@@ -5,10 +6,10 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public id?: string;
-    private 'service_type'?: ListEndpointInfoDetailsResponseServiceTypeEnum | string;
-    public status?: ListEndpointInfoDetailsResponseStatusEnum | string;
+    private 'service_type'?: string;
+    public status?: string;
     private 'active_status'?: Array<string>;
-    private 'enable_status'?: ListEndpointInfoDetailsResponseEnableStatusEnum | string;
+    private 'enable_status'?: string;
     private 'specification_name'?: string;
     private 'endpoint_service_name'?: string;
     private 'marker_id'?: number;
@@ -18,8 +19,8 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public ip?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     public tags?: Array<TagList>;
     public error?: QueryError;
@@ -27,7 +28,7 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     private 'enable_whitelist'?: boolean;
     public routetables?: Array<string>;
     public description?: string;
-    private 'policy_statement'?: Array<string>;
+    private 'policy_statement'?: Array<PolicyStatement>;
     private 'endpoint_pool_id'?: string;
     private 'public_border_group'?: string;
     public constructor() { 
@@ -37,17 +38,17 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withServiceType(serviceType: ListEndpointInfoDetailsResponseServiceTypeEnum | string): ListEndpointInfoDetailsResponse {
+    public withServiceType(serviceType: string): ListEndpointInfoDetailsResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListEndpointInfoDetailsResponseServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): ListEndpointInfoDetailsResponseServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withStatus(status: ListEndpointInfoDetailsResponseStatusEnum | string): ListEndpointInfoDetailsResponse {
+    public withStatus(status: string): ListEndpointInfoDetailsResponse {
         this['status'] = status;
         return this;
     }
@@ -61,14 +62,14 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public get activeStatus(): Array<string> | undefined {
         return this['active_status'];
     }
-    public withEnableStatus(enableStatus: ListEndpointInfoDetailsResponseEnableStatusEnum | string): ListEndpointInfoDetailsResponse {
+    public withEnableStatus(enableStatus: string): ListEndpointInfoDetailsResponse {
         this['enable_status'] = enableStatus;
         return this;
     }
-    public set enableStatus(enableStatus: ListEndpointInfoDetailsResponseEnableStatusEnum | string  | undefined) {
+    public set enableStatus(enableStatus: string  | undefined) {
         this['enable_status'] = enableStatus;
     }
-    public get enableStatus(): ListEndpointInfoDetailsResponseEnableStatusEnum | string | undefined {
+    public get enableStatus(): string | undefined {
         return this['enable_status'];
     }
     public withSpecificationName(specificationName: string): ListEndpointInfoDetailsResponse {
@@ -155,24 +156,24 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
-    public withCreatedAt(createdAt: string): ListEndpointInfoDetailsResponse {
+    public withCreatedAt(createdAt: Date): ListEndpointInfoDetailsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): ListEndpointInfoDetailsResponse {
+    public withUpdatedAt(updatedAt: Date): ListEndpointInfoDetailsResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): ListEndpointInfoDetailsResponse {
@@ -215,14 +216,14 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-    public withPolicyStatement(policyStatement: Array<string>): ListEndpointInfoDetailsResponse {
+    public withPolicyStatement(policyStatement: Array<PolicyStatement>): ListEndpointInfoDetailsResponse {
         this['policy_statement'] = policyStatement;
         return this;
     }
-    public set policyStatement(policyStatement: Array<string>  | undefined) {
+    public set policyStatement(policyStatement: Array<PolicyStatement>  | undefined) {
         this['policy_statement'] = policyStatement;
     }
-    public get policyStatement(): Array<string> | undefined {
+    public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
     public withEndpointPoolId(endpointPoolId: string): ListEndpointInfoDetailsResponse {
@@ -245,33 +246,4 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListEndpointInfoDetailsResponseServiceTypeEnum {
-    INTERFACE = 'interface',
-    GATEWAY = 'gateway'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListEndpointInfoDetailsResponseStatusEnum {
-    PENDINGACCEPTANCE = 'pendingAcceptance',
-    CREATING = 'creating',
-    ACCEPTED = 'accepted',
-    REJECTED = 'rejected',
-    FAILED = 'failed',
-    DELETING = 'deleting'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListEndpointInfoDetailsResponseEnableStatusEnum {
-    ENABLE = 'enable',
-    DISABLE = 'disable'
 }

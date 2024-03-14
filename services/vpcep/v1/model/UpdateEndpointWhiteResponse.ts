@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateEndpointWhiteResponse extends SdkResponse {
     public id?: string;
-    private 'service_type'?: UpdateEndpointWhiteResponseServiceTypeEnum | string;
-    public status?: UpdateEndpointWhiteResponseStatusEnum | string;
+    private 'service_type'?: string;
+    public status?: string;
     public ip?: string;
     private 'active_status'?: Array<string>;
     private 'endpoint_service_name'?: string;
@@ -15,8 +15,8 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     private 'dns_names'?: Array<string>;
     private 'subnet_id'?: string;
     private 'vpc_id'?: string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     public tags?: Array<TagList>;
     public whitelist?: Array<string>;
@@ -28,17 +28,17 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withServiceType(serviceType: UpdateEndpointWhiteResponseServiceTypeEnum | string): UpdateEndpointWhiteResponse {
+    public withServiceType(serviceType: string): UpdateEndpointWhiteResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: UpdateEndpointWhiteResponseServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): UpdateEndpointWhiteResponseServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withStatus(status: UpdateEndpointWhiteResponseStatusEnum | string): UpdateEndpointWhiteResponse {
+    public withStatus(status: string): UpdateEndpointWhiteResponse {
         this['status'] = status;
         return this;
     }
@@ -126,24 +126,24 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
-    public withCreatedAt(createdAt: string): UpdateEndpointWhiteResponse {
+    public withCreatedAt(createdAt: Date): UpdateEndpointWhiteResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): UpdateEndpointWhiteResponse {
+    public withUpdatedAt(updatedAt: Date): UpdateEndpointWhiteResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): UpdateEndpointWhiteResponse {
@@ -174,25 +174,4 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     public get enableWhitelist(): boolean | undefined {
         return this['enable_whitelist'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateEndpointWhiteResponseServiceTypeEnum {
-    INTERFACE = 'interface',
-    GATEWAY = 'gateway'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateEndpointWhiteResponseStatusEnum {
-    PENDINGACCEPTANCE = 'pendingAcceptance',
-    CREATING = 'creating',
-    ACCEPTED = 'accepted',
-    REJECTED = 'rejected',
-    FAILED = 'failed',
-    DELETING = 'deleting'
 }

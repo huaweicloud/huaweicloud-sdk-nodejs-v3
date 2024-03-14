@@ -3,10 +3,10 @@ import { QueryError } from './QueryError';
 import { TagList } from './TagList';
 
 
-export class EndpointResp {
+export class EndpointResponseBody {
     public id?: string;
-    private 'service_type'?: EndpointRespServiceTypeEnum | string;
-    public status?: EndpointRespStatusEnum | string;
+    private 'service_type'?: string;
+    public status?: string;
     private 'active_status'?: Array<string>;
     private 'endpoint_service_name'?: string;
     private 'marker_id'?: number;
@@ -16,8 +16,8 @@ export class EndpointResp {
     public ip?: string;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     public tags?: Array<TagList>;
     public error?: Array<QueryError>;
@@ -30,25 +30,25 @@ export class EndpointResp {
     private 'public_border_group'?: string;
     public constructor() { 
     }
-    public withId(id: string): EndpointResp {
+    public withId(id: string): EndpointResponseBody {
         this['id'] = id;
         return this;
     }
-    public withServiceType(serviceType: EndpointRespServiceTypeEnum | string): EndpointResp {
+    public withServiceType(serviceType: string): EndpointResponseBody {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: EndpointRespServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): EndpointRespServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withStatus(status: EndpointRespStatusEnum | string): EndpointResp {
+    public withStatus(status: string): EndpointResponseBody {
         this['status'] = status;
         return this;
     }
-    public withActiveStatus(activeStatus: Array<string>): EndpointResp {
+    public withActiveStatus(activeStatus: Array<string>): EndpointResponseBody {
         this['active_status'] = activeStatus;
         return this;
     }
@@ -58,7 +58,7 @@ export class EndpointResp {
     public get activeStatus(): Array<string> | undefined {
         return this['active_status'];
     }
-    public withEndpointServiceName(endpointServiceName: string): EndpointResp {
+    public withEndpointServiceName(endpointServiceName: string): EndpointResponseBody {
         this['endpoint_service_name'] = endpointServiceName;
         return this;
     }
@@ -68,7 +68,7 @@ export class EndpointResp {
     public get endpointServiceName(): string | undefined {
         return this['endpoint_service_name'];
     }
-    public withMarkerId(markerId: number): EndpointResp {
+    public withMarkerId(markerId: number): EndpointResponseBody {
         this['marker_id'] = markerId;
         return this;
     }
@@ -78,7 +78,7 @@ export class EndpointResp {
     public get markerId(): number | undefined {
         return this['marker_id'];
     }
-    public withEndpointServiceId(endpointServiceId: string): EndpointResp {
+    public withEndpointServiceId(endpointServiceId: string): EndpointResponseBody {
         this['endpoint_service_id'] = endpointServiceId;
         return this;
     }
@@ -88,7 +88,7 @@ export class EndpointResp {
     public get endpointServiceId(): string | undefined {
         return this['endpoint_service_id'];
     }
-    public withEnableDns(enableDns: boolean): EndpointResp {
+    public withEnableDns(enableDns: boolean): EndpointResponseBody {
         this['enable_dns'] = enableDns;
         return this;
     }
@@ -98,7 +98,7 @@ export class EndpointResp {
     public get enableDns(): boolean | undefined {
         return this['enable_dns'];
     }
-    public withDnsNames(dnsNames: Array<string>): EndpointResp {
+    public withDnsNames(dnsNames: Array<string>): EndpointResponseBody {
         this['dns_names'] = dnsNames;
         return this;
     }
@@ -108,11 +108,11 @@ export class EndpointResp {
     public get dnsNames(): Array<string> | undefined {
         return this['dns_names'];
     }
-    public withIp(ip: string): EndpointResp {
+    public withIp(ip: string): EndpointResponseBody {
         this['ip'] = ip;
         return this;
     }
-    public withVpcId(vpcId: string): EndpointResp {
+    public withVpcId(vpcId: string): EndpointResponseBody {
         this['vpc_id'] = vpcId;
         return this;
     }
@@ -122,7 +122,7 @@ export class EndpointResp {
     public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
-    public withSubnetId(subnetId: string): EndpointResp {
+    public withSubnetId(subnetId: string): EndpointResponseBody {
         this['subnet_id'] = subnetId;
         return this;
     }
@@ -132,27 +132,27 @@ export class EndpointResp {
     public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
-    public withCreatedAt(createdAt: string): EndpointResp {
+    public withCreatedAt(createdAt: Date): EndpointResponseBody {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): EndpointResp {
+    public withUpdatedAt(updatedAt: Date): EndpointResponseBody {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
-    public withProjectId(projectId: string): EndpointResp {
+    public withProjectId(projectId: string): EndpointResponseBody {
         this['project_id'] = projectId;
         return this;
     }
@@ -162,19 +162,19 @@ export class EndpointResp {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withTags(tags: Array<TagList>): EndpointResp {
+    public withTags(tags: Array<TagList>): EndpointResponseBody {
         this['tags'] = tags;
         return this;
     }
-    public withError(error: Array<QueryError>): EndpointResp {
+    public withError(error: Array<QueryError>): EndpointResponseBody {
         this['error'] = error;
         return this;
     }
-    public withWhitelist(whitelist: Array<string>): EndpointResp {
+    public withWhitelist(whitelist: Array<string>): EndpointResponseBody {
         this['whitelist'] = whitelist;
         return this;
     }
-    public withEnableWhitelist(enableWhitelist: boolean): EndpointResp {
+    public withEnableWhitelist(enableWhitelist: boolean): EndpointResponseBody {
         this['enable_whitelist'] = enableWhitelist;
         return this;
     }
@@ -184,15 +184,15 @@ export class EndpointResp {
     public get enableWhitelist(): boolean | undefined {
         return this['enable_whitelist'];
     }
-    public withRoutetables(routetables: Array<string>): EndpointResp {
+    public withRoutetables(routetables: Array<string>): EndpointResponseBody {
         this['routetables'] = routetables;
         return this;
     }
-    public withDescription(description: string): EndpointResp {
+    public withDescription(description: string): EndpointResponseBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyStatement(policyStatement: Array<PolicyStatement>): EndpointResp {
+    public withPolicyStatement(policyStatement: Array<PolicyStatement>): EndpointResponseBody {
         this['policy_statement'] = policyStatement;
         return this;
     }
@@ -202,7 +202,7 @@ export class EndpointResp {
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
-    public withEndpointPoolId(endpointPoolId: string): EndpointResp {
+    public withEndpointPoolId(endpointPoolId: string): EndpointResponseBody {
         this['endpoint_pool_id'] = endpointPoolId;
         return this;
     }
@@ -212,7 +212,7 @@ export class EndpointResp {
     public get endpointPoolId(): string | undefined {
         return this['endpoint_pool_id'];
     }
-    public withPublicBorderGroup(publicBorderGroup: string): EndpointResp {
+    public withPublicBorderGroup(publicBorderGroup: string): EndpointResponseBody {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
@@ -222,25 +222,4 @@ export class EndpointResp {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EndpointRespServiceTypeEnum {
-    INTERFACE = 'interface',
-    GATEWAY = 'gateway'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EndpointRespStatusEnum {
-    PENDINGACCEPTANCE = 'pendingAcceptance',
-    CREATING = 'creating',
-    ACCEPTED = 'accepted',
-    REJECTED = 'rejected',
-    FAILED = 'failed',
-    DELETING = 'deleting'
 }

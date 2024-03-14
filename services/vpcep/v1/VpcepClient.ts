@@ -9,14 +9,14 @@ import { AddOrRemoveServicePermissionsRequest } from './model/AddOrRemoveService
 import { AddOrRemoveServicePermissionsRequestBody } from './model/AddOrRemoveServicePermissionsRequestBody';
 import { AddOrRemoveServicePermissionsResponse } from './model/AddOrRemoveServicePermissionsResponse';
 import { BatchAddEndpointServicePermissionsRequest } from './model/BatchAddEndpointServicePermissionsRequest';
+import { BatchAddEndpointServicePermissionsRequestBody } from './model/BatchAddEndpointServicePermissionsRequestBody';
 import { BatchAddEndpointServicePermissionsResponse } from './model/BatchAddEndpointServicePermissionsResponse';
-import { BatchAddOrRemoveResourceInstanceBody } from './model/BatchAddOrRemoveResourceInstanceBody';
 import { BatchAddOrRemoveResourceInstanceRequest } from './model/BatchAddOrRemoveResourceInstanceRequest';
+import { BatchAddOrRemoveResourceInstanceRequestBody } from './model/BatchAddOrRemoveResourceInstanceRequestBody';
 import { BatchAddOrRemoveResourceInstanceResponse } from './model/BatchAddOrRemoveResourceInstanceResponse';
-import { BatchAddPermissionRequest } from './model/BatchAddPermissionRequest';
 import { BatchRemoveEndpointServicePermissionsRequest } from './model/BatchRemoveEndpointServicePermissionsRequest';
+import { BatchRemoveEndpointServicePermissionsRequestBody } from './model/BatchRemoveEndpointServicePermissionsRequestBody';
 import { BatchRemoveEndpointServicePermissionsResponse } from './model/BatchRemoveEndpointServicePermissionsResponse';
-import { BatchRemovePermissionRequest } from './model/BatchRemovePermissionRequest';
 import { ConnectionEndpoints } from './model/ConnectionEndpoints';
 import { ConnectionsDesc } from './model/ConnectionsDesc';
 import { CreateEndpointRequest } from './model/CreateEndpointRequest';
@@ -31,7 +31,7 @@ import { DeleteEndpointRequest } from './model/DeleteEndpointRequest';
 import { DeleteEndpointResponse } from './model/DeleteEndpointResponse';
 import { DeleteEndpointServiceRequest } from './model/DeleteEndpointServiceRequest';
 import { DeleteEndpointServiceResponse } from './model/DeleteEndpointServiceResponse';
-import { EndpointResp } from './model/EndpointResp';
+import { EndpointResponseBody } from './model/EndpointResponseBody';
 import { EndpointService } from './model/EndpointService';
 import { EpsAddPermissionRequest } from './model/EpsAddPermissionRequest';
 import { EpsPermission } from './model/EpsPermission';
@@ -74,13 +74,14 @@ import { QueryResourceInstanceTagsBody } from './model/QueryResourceInstanceTags
 import { Quotas } from './model/Quotas';
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceTag } from './model/ResourceTag';
-import { ResourcesResp } from './model/ResourcesResp';
+import { ResourcesResponseBody } from './model/ResourcesResponseBody';
 import { RoutetableInfoError } from './model/RoutetableInfoError';
 import { RoutetableInfoErrorDetial } from './model/RoutetableInfoErrorDetial';
 import { ServiceList } from './model/ServiceList';
 import { TagList } from './model/TagList';
 import { TagValuesList } from './model/TagValuesList';
 import { UpdateEndpointConnectionsDescRequest } from './model/UpdateEndpointConnectionsDescRequest';
+import { UpdateEndpointConnectionsDescRequestBody } from './model/UpdateEndpointConnectionsDescRequestBody';
 import { UpdateEndpointConnectionsDescResponse } from './model/UpdateEndpointConnectionsDescResponse';
 import { UpdateEndpointPolicyRequest } from './model/UpdateEndpointPolicyRequest';
 import { UpdateEndpointPolicyRequestBody } from './model/UpdateEndpointPolicyRequestBody';
@@ -88,10 +89,11 @@ import { UpdateEndpointPolicyResponse } from './model/UpdateEndpointPolicyRespon
 import { UpdateEndpointRoutetableRequest } from './model/UpdateEndpointRoutetableRequest';
 import { UpdateEndpointRoutetableRequestBody } from './model/UpdateEndpointRoutetableRequestBody';
 import { UpdateEndpointRoutetableResponse } from './model/UpdateEndpointRoutetableResponse';
-import { UpdateEndpointServiceNameMode } from './model/UpdateEndpointServiceNameMode';
 import { UpdateEndpointServiceNameRequest } from './model/UpdateEndpointServiceNameRequest';
+import { UpdateEndpointServiceNameRequestBody } from './model/UpdateEndpointServiceNameRequestBody';
 import { UpdateEndpointServiceNameResponse } from './model/UpdateEndpointServiceNameResponse';
 import { UpdateEndpointServicePermissionDescRequest } from './model/UpdateEndpointServicePermissionDescRequest';
+import { UpdateEndpointServicePermissionDescRequestBody } from './model/UpdateEndpointServicePermissionDescRequestBody';
 import { UpdateEndpointServicePermissionDescResponse } from './model/UpdateEndpointServicePermissionDescResponse';
 import { UpdateEndpointServiceRequest } from './model/UpdateEndpointServiceRequest';
 import { UpdateEndpointServiceRequestBody } from './model/UpdateEndpointServiceRequestBody';
@@ -99,8 +101,6 @@ import { UpdateEndpointServiceResponse } from './model/UpdateEndpointServiceResp
 import { UpdateEndpointWhiteRequest } from './model/UpdateEndpointWhiteRequest';
 import { UpdateEndpointWhiteRequestBody } from './model/UpdateEndpointWhiteRequestBody';
 import { UpdateEndpointWhiteResponse } from './model/UpdateEndpointWhiteResponse';
-import { UpdateEpConnections } from './model/UpdateEpConnections';
-import { UpdatePermissionDescRequest } from './model/UpdatePermissionDescRequest';
 import { VersionObject } from './model/VersionObject';
 
 export class VpcepClient {
@@ -171,7 +171,7 @@ export class VpcepClient {
      *
      * @summary 批量添加终端节点服务的白名单
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
-     * @param {BatchAddPermissionRequest} batchAddPermission 批量添加终端节点服务白名单接口的请求结构体
+     * @param {BatchAddEndpointServicePermissionsRequestBody} batchAddEndpointServicePermissionsRequestBody 批量添加终端节点服务白名单接口的请求结构体
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -192,7 +192,7 @@ export class VpcepClient {
      *
      * @summary 批量删除终端节点服务的白名单
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
-     * @param {BatchRemovePermissionRequest} batchRemovePermissionRequest 批量删除终端节点服务白名单接口的请求结构体
+     * @param {BatchRemoveEndpointServicePermissionsRequestBody} batchRemoveEndpointServicePermissionsRequestBody 批量删除终端节点服务白名单接口的请求结构体
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -339,9 +339,9 @@ export class VpcepClient {
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [endpointServiceName] 终端节点服务的名称，支持大小写，前后模糊匹配。
      * @param {string} [id] 终端节点服务的ID，唯一标识。
-     * @param {'creating' | 'available' | 'failed' | 'deleting'} [status] 终端节点服务的状态。 ● creating：创建中 ● available：可连接 ● failed：失败 ● deleting：删除中
-     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为： ● create_at：终端节点服务的创建时间 ● update_at：终端节点服务的更新时间 默认值为create_at。
-     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点服务列表的排序方式，取值为： ● desc：降序排序 ● asc：升序排序 默认值为desc。
+     * @param {'creating' | 'available' | 'failed' | 'deleting'} [status] 终端节点服务的状态。  - creating：创建中  - available：可连接  - failed：失败  - deleting：删除中
+     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为：  - create_at：终端节点服务的创建时间  - update_at：终端节点服务的更新时间 默认值为create_at。
+     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点服务列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
      * @param {number} [limit] 查询返回的终端节点服务数量限制，即每页返回的终端节点服务的个数。 取值范围：0~1000，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {string} [publicBorderGroup] 筛选结果中匹配边缘属性的EPS
@@ -369,8 +369,8 @@ export class VpcepClient {
      * @param {string} [id] 终端节点的ID，唯一标识。
      * @param {number} [limit] 查询返回终端节点的数量限制，即每页返回的资源个数。 取值范围：0~1000，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
-     * @param {string} [sortKey] 查询结果中终端节点列表的排序字段，取值为： ● create_at：终端节点的创建时间 ● update_at：终端节点的更新时间 默认值为create_at。
-     * @param {string} [sortDir] 查询结果中终端节点列表的排序方式，取值为： ● desc：降序排序 ● asc：升序排序 默认值为desc。
+     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点列表的排序字段，取值为：  - create_at：终端节点的创建时间  - update_at：终端节点的更新时间 默认值为create_at。
+     * @param {'desc' | 'asc'} [sortDir] 查询结果中终端节点列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
      * @param {string} [publicBorderGroup] 筛选结果中匹配边缘属性的EPS
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -391,7 +391,7 @@ export class VpcepClient {
      *
      * @summary 查询配额
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
-     * @param {'endpoint_service' | 'endpoint'} [type] 资源类型。 ● endpoint_service：终端节点服务 ● endpoint：终端节点
+     * @param {'endpoint_service' | 'endpoint'} [type] 资源类型。  - endpoint_service：终端节点服务  - endpoint：终端节点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -414,9 +414,9 @@ export class VpcepClient {
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [id] 终端节点的ID，唯一标识。
      * @param {string} [markerId] 终端节点的报文标识。
-     * @param {string} [status] 终端节点的连接状态。 ● pendingAcceptance：待接受 ● accepted：已接受 ● rejected：已拒绝 ● failed：失败
-     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点列表的排序字段，取值为： ● create_at：终端节点的创建时间 ● update_at：终端节点的更新时间 默认值为create_at。
-     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点列表的排序方式，取值为： ● desc：降序排序 ● asc：升序排序 默认值为desc。
+     * @param {'pendingAcceptance' | 'accepted' | 'rejected' | 'failed'} [status] 终端节点的连接状态。  - pendingAcceptance：待接受  - accepted：已接受  - rejected：已拒绝  - failed：失败
+     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点列表的排序字段，取值为：  - create_at：终端节点的创建时间  - update_at：终端节点的更新时间 默认值为create_at。
+     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
      * @param {number} [limit] 查询返回终端节点服务的连接列表限制每页个数，即每页返回的个数。 取值范围：0~1000，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {*} [options] Override http request option.
@@ -485,8 +485,8 @@ export class VpcepClient {
      * @param {string} [permission] 权限帐号ID，格式为“iam:domain::domain_id”。 其中“domain_id”为授权用户的帐号ID， 例如“iam:domain::6e9dfd51d1124e8d8498dce894923a0d”，支持模糊搜索。
      * @param {number} [limit] 查询返回终端节点服务的白名单数量限制，即每页返回的个数。 取值范围：0~500，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
-     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中白名单列表的排序字段，取值为create_at，表示白名单的添加时间。
-     * @param {'asc' | 'desc'} [sortDir] 查询结果中白名单列表的排序方式，取值为： ● desc：降序排序 ● asc：升序排序 默认值为desc。
+     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为：  - create_at：终端节点服务的创建时间  - update_at：终端节点服务的更新时间 默认值为create_at。
+     * @param {'asc' | 'desc'} [sortDir] 查询结果中白名单列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -511,8 +511,8 @@ export class VpcepClient {
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {string} [endpointServiceName] 公共终端节点服务的名称，支持大小写以及模糊匹配。
      * @param {string} [id] 公共终端节点服务的ID，唯一标识。
-     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为： ● create_at：终端节点服务的创建时间 ● update_at：终端节点服务的更新时间 默认值为create_at。
-     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点服务列表的排序方式，取值为： ● desc：降序排序 ● asc：升序排序 默认值为desc。
+     * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为：  - create_at：终端节点服务的创建时间  - update_at：终端节点服务的更新时间 默认值为create_at。
+     * @param {'asc' | 'desc'} [sortDir] 查询结果中终端节点服务列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -571,7 +571,7 @@ export class VpcepClient {
      *
      * @summary 更新终端节点连接描述
      * @param {string} vpcEndpointServiceId 终端节点服务ID
-     * @param {UpdateEpConnections} updateEpConnections 更新终端节点连接描述请求体
+     * @param {UpdateEndpointConnectionsDescRequestBody} updateEndpointConnectionsDescRequestBody 更新终端节点连接描述请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -654,7 +654,7 @@ export class VpcepClient {
      *
      * @summary 修改终端节点服务名称
      * @param {string} vpcEndpointServiceId 终端节点服务ID
-     * @param {UpdateEndpointServiceNameMode} [updateEndpointServiceNameMode] 
+     * @param {UpdateEndpointServiceNameRequestBody} [updateEndpointServiceNameRequestBody] 修改终端节点服务名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -675,7 +675,7 @@ export class VpcepClient {
      * @summary 更新终端节点服务白名单描述
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {string} permissionId 白名单的ID。
-     * @param {UpdatePermissionDescRequest} updatePermissionDescRequest 更新终端节点服务白名单描述接口的请求结构体
+     * @param {UpdateEndpointServicePermissionDescRequestBody} updateEndpointServicePermissionDescRequestBody 更新终端节点服务白名单描述接口的请求结构体
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -712,15 +712,15 @@ export class VpcepClient {
 
     /**
      * 为指定Endpoint Service或Endpoint批量添加或删除标签。
-     * ● 一个资源上最多有10个标签。
+     *  - 一个资源上最多有10个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或删除资源标签接口
-     * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
-     * @param {string} resourceId 资源ID，Endpoint ServiceID或Endpoint ID。
+     * @param {'endpoint_service' | 'endpoint'} resourceType 资源类型。  - endpoint_service：终端节点服务  - endpoint：终端节点
+     * @param {string} resourceId 资源ID，Endpoint Service ID或Endpoint ID。
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
-     * @param {BatchAddOrRemoveResourceInstanceBody} [batchAddOrRemoveResourceInstanceBody] 批量添加或删除资源标签请求结构体
+     * @param {BatchAddOrRemoveResourceInstanceRequestBody} [batchAddOrRemoveResourceInstanceRequestBody] 批量添加或删除资源标签请求结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -739,7 +739,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户资源标签接口
-     * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
+     * @param {'endpoint_service' | 'endpoint'} resourceType 资源类型。  - endpoint_service：终端节点服务  - endpoint：终端节点
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -759,8 +759,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例接口
-     * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
-     * @param {QueryResourceInstanceTagsBody} queryResourceInstanceTagsBody 查询资源实例接口请求接口体
+     * @param {'endpoint_service' | 'endpoint'} resourceType 资源类型，值为：endpoint_service或endpoint。 - endpoint_service：云服务器，适用于作为服务器使用。 - endpoint：虚拟IP，适用于作为虚IP场景使用
+     * @param {QueryResourceInstanceTagsBody} listResourceInstancesRequestBody 查询资源实例接口请求接口体
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2288,7 +2288,7 @@ export const ParamCreater = function () {
     
         /**
          * 为指定Endpoint Service或Endpoint批量添加或删除标签。
-         * ● 一个资源上最多有10个标签。
+         *  - 一个资源上最多有10个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

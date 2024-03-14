@@ -2,6 +2,7 @@ import { JobBaseInfo } from './JobBaseInfo';
 import { JobEndpointInfo } from './JobEndpointInfo';
 import { JobNodeInfo } from './JobNodeInfo';
 import { PeriodOrderInfo } from './PeriodOrderInfo';
+import { PublicIpConfig } from './PublicIpConfig';
 
 
 export class CreateJobReq {
@@ -10,6 +11,7 @@ export class CreateJobReq {
     private 'target_endpoint'?: Array<JobEndpointInfo>;
     private 'period_order'?: PeriodOrderInfo;
     private 'node_info'?: JobNodeInfo;
+    private 'public_ip_list'?: Array<PublicIpConfig>;
     public constructor(baseInfo?: JobBaseInfo, sourceEndpoint?: Array<JobEndpointInfo>, targetEndpoint?: Array<JobEndpointInfo>, nodeInfo?: JobNodeInfo) { 
         this['base_info'] = baseInfo;
         this['source_endpoint'] = sourceEndpoint;
@@ -65,5 +67,15 @@ export class CreateJobReq {
     }
     public get nodeInfo(): JobNodeInfo | undefined {
         return this['node_info'];
+    }
+    public withPublicIpList(publicIpList: Array<PublicIpConfig>): CreateJobReq {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: Array<PublicIpConfig>  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): Array<PublicIpConfig> | undefined {
+        return this['public_ip_list'];
     }
 }

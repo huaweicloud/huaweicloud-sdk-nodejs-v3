@@ -7,17 +7,17 @@ export class ListServiceDetailsResponse extends SdkResponse {
     public id?: string;
     private 'port_id'?: string;
     private 'service_name'?: string;
-    private 'server_type'?: ListServiceDetailsResponseServerTypeEnum | string;
+    private 'server_type'?: string;
     private 'vpc_id'?: string;
     private 'approval_enabled'?: boolean;
-    public status?: ListServiceDetailsResponseStatusEnum | string;
-    private 'service_type'?: ListServiceDetailsResponseServiceTypeEnum | string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    public status?: string;
+    private 'service_type'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     private 'cidr_type'?: string;
     public ports?: Array<PortList>;
-    private 'tcp_proxy'?: ListServiceDetailsResponseTcpProxyEnum | string;
+    private 'tcp_proxy'?: string;
     public tags?: Array<TagList>;
     public error?: Array<Error>;
     private 'enable_policy'?: boolean;
@@ -49,14 +49,14 @@ export class ListServiceDetailsResponse extends SdkResponse {
     public get serviceName(): string | undefined {
         return this['service_name'];
     }
-    public withServerType(serverType: ListServiceDetailsResponseServerTypeEnum | string): ListServiceDetailsResponse {
+    public withServerType(serverType: string): ListServiceDetailsResponse {
         this['server_type'] = serverType;
         return this;
     }
-    public set serverType(serverType: ListServiceDetailsResponseServerTypeEnum | string  | undefined) {
+    public set serverType(serverType: string  | undefined) {
         this['server_type'] = serverType;
     }
-    public get serverType(): ListServiceDetailsResponseServerTypeEnum | string | undefined {
+    public get serverType(): string | undefined {
         return this['server_type'];
     }
     public withVpcId(vpcId: string): ListServiceDetailsResponse {
@@ -79,38 +79,38 @@ export class ListServiceDetailsResponse extends SdkResponse {
     public get approvalEnabled(): boolean | undefined {
         return this['approval_enabled'];
     }
-    public withStatus(status: ListServiceDetailsResponseStatusEnum | string): ListServiceDetailsResponse {
+    public withStatus(status: string): ListServiceDetailsResponse {
         this['status'] = status;
         return this;
     }
-    public withServiceType(serviceType: ListServiceDetailsResponseServiceTypeEnum | string): ListServiceDetailsResponse {
+    public withServiceType(serviceType: string): ListServiceDetailsResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListServiceDetailsResponseServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): ListServiceDetailsResponseServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withCreatedAt(createdAt: string): ListServiceDetailsResponse {
+    public withCreatedAt(createdAt: Date): ListServiceDetailsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): ListServiceDetailsResponse {
+    public withUpdatedAt(updatedAt: Date): ListServiceDetailsResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): ListServiceDetailsResponse {
@@ -137,14 +137,14 @@ export class ListServiceDetailsResponse extends SdkResponse {
         this['ports'] = ports;
         return this;
     }
-    public withTcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum | string): ListServiceDetailsResponse {
+    public withTcpProxy(tcpProxy: string): ListServiceDetailsResponse {
         this['tcp_proxy'] = tcpProxy;
         return this;
     }
-    public set tcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum | string  | undefined) {
+    public set tcpProxy(tcpProxy: string  | undefined) {
         this['tcp_proxy'] = tcpProxy;
     }
-    public get tcpProxy(): ListServiceDetailsResponseTcpProxyEnum | string | undefined {
+    public get tcpProxy(): string | undefined {
         return this['tcp_proxy'];
     }
     public withTags(tags: Array<TagList>): ListServiceDetailsResponse {
@@ -169,42 +169,4 @@ export class ListServiceDetailsResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListServiceDetailsResponseServerTypeEnum {
-    VM = 'VM',
-    VIP = 'VIP',
-    LB = 'LB'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListServiceDetailsResponseStatusEnum {
-    CREATING = 'creating',
-    AVAILABLE = 'available',
-    FAILED = 'failed'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListServiceDetailsResponseServiceTypeEnum {
-    GATAWAY = 'gataway',
-    INTERFACE = 'interface'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListServiceDetailsResponseTcpProxyEnum {
-    CLOSE = 'close',
-    TOA_OPEN = 'toa_open',
-    PROXY_OPEN = 'proxy_open',
-    OPEN = 'open',
-    PROXY_VNI = 'proxy_vni'
 }

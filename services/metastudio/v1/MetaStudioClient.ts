@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
 import { ActionMarkItem } from './model/ActionMarkItem';
+import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
 import { AnimationConfig } from './model/AnimationConfig';
 import { AnimationItem } from './model/AnimationItem';
@@ -27,6 +28,7 @@ import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
 import { ChatVideoConfigRsp } from './model/ChatVideoConfigRsp';
 import { CheckTextLanguageRequest } from './model/CheckTextLanguageRequest';
 import { CheckTextLanguageResponse } from './model/CheckTextLanguageResponse';
+import { CoStreamerConfig } from './model/CoStreamerConfig';
 import { CommentData } from './model/CommentData';
 import { CommentLogInfo } from './model/CommentLogInfo';
 import { CommitVoiceTrainingJobRequest } from './model/CommitVoiceTrainingJobRequest';
@@ -47,6 +49,11 @@ import { Create2DDigitalHumanVideoResponse } from './model/Create2DDigitalHumanV
 import { Create2dModelTrainingJobReq } from './model/Create2dModelTrainingJobReq';
 import { Create2dModelTrainingJobRequest } from './model/Create2dModelTrainingJobRequest';
 import { Create2dModelTrainingJobResponse } from './model/Create2dModelTrainingJobResponse';
+import { CreateActiveCodeReq } from './model/CreateActiveCodeReq';
+import { CreateActiveCodeRequest } from './model/CreateActiveCodeRequest';
+import { CreateActiveCodeResponse } from './model/CreateActiveCodeResponse';
+import { CreateAssetbyReplicationInfoRequest } from './model/CreateAssetbyReplicationInfoRequest';
+import { CreateAssetbyReplicationInfoResponse } from './model/CreateAssetbyReplicationInfoResponse';
 import { CreateDialogUrlReq } from './model/CreateDialogUrlReq';
 import { CreateDialogUrlRequest } from './model/CreateDialogUrlRequest';
 import { CreateDialogUrlResponse } from './model/CreateDialogUrlResponse';
@@ -108,6 +115,8 @@ import { CreateVideoScriptsRequest } from './model/CreateVideoScriptsRequest';
 import { CreateVideoScriptsResponse } from './model/CreateVideoScriptsResponse';
 import { Delete2dModelTrainingJobRequest } from './model/Delete2dModelTrainingJobRequest';
 import { Delete2dModelTrainingJobResponse } from './model/Delete2dModelTrainingJobResponse';
+import { DeleteActiveCodeRequest } from './model/DeleteActiveCodeRequest';
+import { DeleteActiveCodeResponse } from './model/DeleteActiveCodeResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
 import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
@@ -170,6 +179,8 @@ import { LayerPositionConfig } from './model/LayerPositionConfig';
 import { LayerSizeConfig } from './model/LayerSizeConfig';
 import { List2dModelTrainingJobRequest } from './model/List2dModelTrainingJobRequest';
 import { List2dModelTrainingJobResponse } from './model/List2dModelTrainingJobResponse';
+import { ListActiveCodeRequest } from './model/ListActiveCodeRequest';
+import { ListActiveCodeResponse } from './model/ListActiveCodeResponse';
 import { ListAssetSummaryRequest } from './model/ListAssetSummaryRequest';
 import { ListAssetSummaryResponse } from './model/ListAssetSummaryResponse';
 import { ListAssetSummarysReq } from './model/ListAssetSummarysReq';
@@ -212,6 +223,7 @@ import { LiveEvent } from './model/LiveEvent';
 import { LiveEventCallBackConfig } from './model/LiveEventCallBackConfig';
 import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
+import { LiveJobLog } from './model/LiveJobLog';
 import { LiveShootScriptItem } from './model/LiveShootScriptItem';
 import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
 import { LiveWarningItem } from './model/LiveWarningItem';
@@ -234,8 +246,12 @@ import { PictureModelingInfo } from './model/PictureModelingInfo';
 import { PlayPolicy } from './model/PlayPolicy';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
+import { ReplicationAssetInfo } from './model/ReplicationAssetInfo';
+import { ReplicationEncInfo } from './model/ReplicationEncInfo';
 import { ReplyAudioInfo } from './model/ReplyAudioInfo';
 import { ReportLiveEventReq } from './model/ReportLiveEventReq';
+import { ResetActiveCodeRequest } from './model/ResetActiveCodeRequest';
+import { ResetActiveCodeResponse } from './model/ResetActiveCodeResponse';
 import { RestoreAssetRequest } from './model/RestoreAssetRequest';
 import { RestoreAssetResponse } from './model/RestoreAssetResponse';
 import { ReviewConfig } from './model/ReviewConfig';
@@ -254,6 +270,10 @@ import { Show2DDigitalHumanVideoRequest } from './model/Show2DDigitalHumanVideoR
 import { Show2DDigitalHumanVideoResponse } from './model/Show2DDigitalHumanVideoResponse';
 import { Show2dModelTrainingJobRequest } from './model/Show2dModelTrainingJobRequest';
 import { Show2dModelTrainingJobResponse } from './model/Show2dModelTrainingJobResponse';
+import { ShowActiveCodeRequest } from './model/ShowActiveCodeRequest';
+import { ShowActiveCodeResponse } from './model/ShowActiveCodeResponse';
+import { ShowAssetReplicationInfoRequest } from './model/ShowAssetReplicationInfoRequest';
+import { ShowAssetReplicationInfoResponse } from './model/ShowAssetReplicationInfoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
 import { ShowAssetResponse } from './model/ShowAssetResponse';
 import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBusinessCardRequest';
@@ -321,6 +341,9 @@ import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TriggerProcess } from './model/TriggerProcess';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
 import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
+import { UpdateActiveCodeReq } from './model/UpdateActiveCodeReq';
+import { UpdateActiveCodeRequest } from './model/UpdateActiveCodeRequest';
+import { UpdateActiveCodeResponse } from './model/UpdateActiveCodeResponse';
 import { UpdateDigitalAssetRequest } from './model/UpdateDigitalAssetRequest';
 import { UpdateDigitalAssetRequestBody } from './model/UpdateDigitalAssetRequestBody';
 import { UpdateDigitalAssetResponse } from './model/UpdateDigitalAssetResponse';
@@ -365,6 +388,147 @@ export class MetaStudioClient {
 
 
     /**
+     * 该接口用于创建激活码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建激活码
+     * @param {CreateActiveCodeReq} createActiveCodeRequestBody 创建激活码请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createActiveCode(createActiveCodeRequest?: CreateActiveCodeRequest): Promise<CreateActiveCodeResponse> {
+        const options = ParamCreater().createActiveCode(createActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除激活码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除激活码
+     * @param {Array<string>} deleteActiveCodeRequestBody 激活码ID列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteActiveCode(deleteActiveCodeRequest?: DeleteActiveCodeRequest): Promise<DeleteActiveCodeResponse> {
+        const options = ParamCreater().deleteActiveCode(deleteActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询激活码列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询激活码列表
+     * @param {string} robotId 应用ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listActiveCode(listActiveCodeRequest?: ListActiveCodeRequest): Promise<ListActiveCodeResponse> {
+        const options = ParamCreater().listActiveCode(listActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于重置激活码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置激活码
+     * @param {string} activeCodeId 激活码ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetActiveCode(resetActiveCodeRequest?: ResetActiveCodeRequest): Promise<ResetActiveCodeResponse> {
+        const options = ParamCreater().resetActiveCode(resetActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询激活码详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询激活码详情
+     * @param {string} activeCodeId 激活码ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showActiveCode(showActiveCodeRequest?: ShowActiveCodeRequest): Promise<ShowActiveCodeResponse> {
+        const options = ParamCreater().showActiveCode(showActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改激活码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改激活码
+     * @param {string} activeCodeId 激活码ID。
+     * @param {UpdateActiveCodeReq} updateActiveCodeRequestBody 修改激活码请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateActiveCode(updateActiveCodeRequest?: UpdateActiveCodeRequest): Promise<UpdateActiveCodeResponse> {
+        const options = ParamCreater().updateActiveCode(updateActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于创建对话链接。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -393,7 +557,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数字人智能交互任务
-     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -417,7 +581,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动数字人智能交互任务
-     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
      * @param {string} robotId 应用ID，获取方法请参考[[创建应用](https://support.huaweicloud.com/api-metastudio/CreateRobot.html)](tag:hc,hk)[“创建应用”](tag:cmcc)。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -441,7 +605,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 结束数字人智能交互任务
-     * @param {string} roomId 直播间ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
+     * @param {string} roomId 智能交互对话ID，获取方法请参考[[创建智能交互对话直播间](https://support.huaweicloud.com/api-metastudio/CreateSmartChatRoom.html)](tag:hc,hk)[“创建智能交互对话直播间”](tag:cmcc)。
      * @param {string} jobId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
@@ -452,6 +616,28 @@ export class MetaStudioClient {
      */
     public stopSmartChatJob(stopSmartChatJobRequest?: StopSmartChatJobRequest): Promise<StopSmartChatJobResponse> {
         const options = ParamCreater().stopSmartChatJob(stopSmartChatJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于在Region B复制Region A的指定资产。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制资产
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {ReplicationAssetInfo} [createAssetbyReplicationInfoRequestBody] 资产复制信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest?: CreateAssetbyReplicationInfoRequest): Promise<CreateAssetbyReplicationInfoResponse> {
+        const options = ParamCreater().createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -534,6 +720,7 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资产列表
+     * @param {string} [X_REAL_IP] 客户端IP
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
@@ -606,6 +793,28 @@ export class MetaStudioClient {
      */
     public showAsset(showAssetRequest?: ShowAssetRequest): Promise<ShowAssetResponse> {
         const options = ParamCreater().showAsset(showAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当需要将资产从A Region复制到B Region时，先要在A Region调用该接口用于查询资产复制信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产复制信息
+     * @param {string} assetId 资产ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetReplicationInfo(showAssetReplicationInfoRequest?: ShowAssetReplicationInfoRequest): Promise<ShowAssetReplicationInfoResponse> {
+        const options = ParamCreater().showAssetReplicationInfo(showAssetReplicationInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1046,6 +1255,7 @@ export class MetaStudioClient {
 
     /**
      * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
+     * &gt; 接口只能通过第三方后台调用，不能在浏览器前台直接调用，否则会有跨域问题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1285,12 +1495,12 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于创建智能交互对话直播间。
+     * 该接口用于创建智能交互对话。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建智能交互对话直播间
-     * @param {CreateSmartChatRoomReq} createSmartChatRoomRequestBody 创建智能交互对话直播间请求。
+     * @summary 创建智能交互对话
+     * @param {CreateSmartChatRoomReq} createSmartChatRoomRequestBody 创建智能交互对话请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -1308,11 +1518,11 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于删除智能交互对话直播间。
+     * 该接口用于删除智能交互对话。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除智能交互对话直播间
+     * @summary 删除智能交互对话
      * @param {string} roomId 剧本ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -1331,18 +1541,18 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于智能交互对话直播间列表。
+     * 该接口用于智能交互对话列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询智能交互对话直播间列表
+     * @summary 查询智能交互对话列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {string} [roomName] 按智能交互对话直播间名称模糊查询。
+     * @param {string} [roomName] 按智能交互对话名称模糊查询。
      * @param {string} [modelName] 按形象名称模糊查询。
      * @param {string} [startTime] 最近智能交互对话任务起始时间。格式遵循：RFC 3339 如\&quot;2021-01-10T08:43:17Z\&quot;。
      * @param {string} [endTime] 最近智能交互对话任务结束时间。格式遵循：RFC 3339 如\&quot;2021-01-10T10:43:17Z\&quot;。
@@ -1359,11 +1569,11 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询智能交互对话直播间详情。
+     * 该接口用于查询智能交互对话详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询智能交互对话直播间详情
+     * @summary 查询智能交互对话详情
      * @param {string} roomId 剧本ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
@@ -1382,13 +1592,13 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于智能交互对话直播间信息。
+     * 该接口用于智能交互对话信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新智能交互对话直播间信息
+     * @summary 更新智能交互对话信息
      * @param {string} roomId 剧本ID。
-     * @param {CreateSmartChatRoomReq} updateSmartChatRoomRequestBody 更新智能交互对话直播间请求。
+     * @param {CreateSmartChatRoomReq} updateSmartChatRoomRequestBody 更新智能交互对话请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -2687,6 +2897,424 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 该接口用于创建激活码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createActiveCode(createActiveCodeRequest?: CreateActiveCodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/active-code",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createActiveCodeRequest !== null && createActiveCodeRequest !== undefined) {
+                if (createActiveCodeRequest instanceof CreateActiveCodeRequest) {
+                    body = createActiveCodeRequest.body
+                    authorization = createActiveCodeRequest.authorization;
+                    xSdkDate = createActiveCodeRequest.xSdkDate;
+                    xProjectId = createActiveCodeRequest.xProjectId;
+                    xAppUserId = createActiveCodeRequest.xAppUserId;
+                } else {
+                    body = createActiveCodeRequest['body'];
+                    authorization = createActiveCodeRequest['Authorization'];
+                    xSdkDate = createActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = createActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = createActiveCodeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除激活码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteActiveCode(deleteActiveCodeRequest?: DeleteActiveCodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/active-code/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteActiveCodeRequest !== null && deleteActiveCodeRequest !== undefined) {
+                if (deleteActiveCodeRequest instanceof DeleteActiveCodeRequest) {
+                    body = deleteActiveCodeRequest.body
+                    authorization = deleteActiveCodeRequest.authorization;
+                    xSdkDate = deleteActiveCodeRequest.xSdkDate;
+                    xProjectId = deleteActiveCodeRequest.xProjectId;
+                    xAppUserId = deleteActiveCodeRequest.xAppUserId;
+                } else {
+                    body = deleteActiveCodeRequest['body'];
+                    authorization = deleteActiveCodeRequest['Authorization'];
+                    xSdkDate = deleteActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = deleteActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = deleteActiveCodeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询激活码列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listActiveCode(listActiveCodeRequest?: ListActiveCodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/active-code",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listActiveCodeRequest !== null && listActiveCodeRequest !== undefined) {
+                if (listActiveCodeRequest instanceof ListActiveCodeRequest) {
+                    robotId = listActiveCodeRequest.robotId;
+                    authorization = listActiveCodeRequest.authorization;
+                    xSdkDate = listActiveCodeRequest.xSdkDate;
+                    xProjectId = listActiveCodeRequest.xProjectId;
+                    xAppUserId = listActiveCodeRequest.xAppUserId;
+                    offset = listActiveCodeRequest.offset;
+                    limit = listActiveCodeRequest.limit;
+                } else {
+                    robotId = listActiveCodeRequest['robot_id'];
+                    authorization = listActiveCodeRequest['Authorization'];
+                    xSdkDate = listActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = listActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = listActiveCodeRequest['X-App-UserId'];
+                    offset = listActiveCodeRequest['offset'];
+                    limit = listActiveCodeRequest['limit'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling listActiveCode.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于重置激活码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetActiveCode(resetActiveCodeRequest?: ResetActiveCodeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/active-code/{active_code_id}/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let activeCodeId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (resetActiveCodeRequest !== null && resetActiveCodeRequest !== undefined) {
+                if (resetActiveCodeRequest instanceof ResetActiveCodeRequest) {
+                    activeCodeId = resetActiveCodeRequest.activeCodeId;
+                    authorization = resetActiveCodeRequest.authorization;
+                    xSdkDate = resetActiveCodeRequest.xSdkDate;
+                    xProjectId = resetActiveCodeRequest.xProjectId;
+                    xAppUserId = resetActiveCodeRequest.xAppUserId;
+                } else {
+                    activeCodeId = resetActiveCodeRequest['active_code_id'];
+                    authorization = resetActiveCodeRequest['Authorization'];
+                    xSdkDate = resetActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = resetActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = resetActiveCodeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (activeCodeId === null || activeCodeId === undefined) {
+            throw new RequiredError('activeCodeId','Required parameter activeCodeId was null or undefined when calling resetActiveCode.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'active_code_id': activeCodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询激活码详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showActiveCode(showActiveCodeRequest?: ShowActiveCodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/active-code/{active_code_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let activeCodeId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showActiveCodeRequest !== null && showActiveCodeRequest !== undefined) {
+                if (showActiveCodeRequest instanceof ShowActiveCodeRequest) {
+                    activeCodeId = showActiveCodeRequest.activeCodeId;
+                    authorization = showActiveCodeRequest.authorization;
+                    xSdkDate = showActiveCodeRequest.xSdkDate;
+                    xProjectId = showActiveCodeRequest.xProjectId;
+                    xAppUserId = showActiveCodeRequest.xAppUserId;
+                } else {
+                    activeCodeId = showActiveCodeRequest['active_code_id'];
+                    authorization = showActiveCodeRequest['Authorization'];
+                    xSdkDate = showActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = showActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = showActiveCodeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (activeCodeId === null || activeCodeId === undefined) {
+            throw new RequiredError('activeCodeId','Required parameter activeCodeId was null or undefined when calling showActiveCode.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'active_code_id': activeCodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改激活码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateActiveCode(updateActiveCodeRequest?: UpdateActiveCodeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/active-code/{active_code_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let activeCodeId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateActiveCodeRequest !== null && updateActiveCodeRequest !== undefined) {
+                if (updateActiveCodeRequest instanceof UpdateActiveCodeRequest) {
+                    activeCodeId = updateActiveCodeRequest.activeCodeId;
+                    body = updateActiveCodeRequest.body
+                    authorization = updateActiveCodeRequest.authorization;
+                    xSdkDate = updateActiveCodeRequest.xSdkDate;
+                    xProjectId = updateActiveCodeRequest.xProjectId;
+                    xAppUserId = updateActiveCodeRequest.xAppUserId;
+                } else {
+                    activeCodeId = updateActiveCodeRequest['active_code_id'];
+                    body = updateActiveCodeRequest['body'];
+                    authorization = updateActiveCodeRequest['Authorization'];
+                    xSdkDate = updateActiveCodeRequest['X-Sdk-Date'];
+                    xProjectId = updateActiveCodeRequest['X-Project-Id'];
+                    xAppUserId = updateActiveCodeRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (activeCodeId === null || activeCodeId === undefined) {
+            throw new RequiredError('activeCodeId','Required parameter activeCodeId was null or undefined when calling updateActiveCode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'active_code_id': activeCodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建对话链接。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2973,6 +3601,62 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于在Region B复制Region A的指定资产。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest?: CreateAssetbyReplicationInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-assets-by-replication-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xAppUserId;
+
+            if (createAssetbyReplicationInfoRequest !== null && createAssetbyReplicationInfoRequest !== undefined) {
+                if (createAssetbyReplicationInfoRequest instanceof CreateAssetbyReplicationInfoRequest) {
+                    authorization = createAssetbyReplicationInfoRequest.authorization;
+                    xSdkDate = createAssetbyReplicationInfoRequest.xSdkDate;
+                    xAppUserId = createAssetbyReplicationInfoRequest.xAppUserId;
+                    body = createAssetbyReplicationInfoRequest.body
+                } else {
+                    authorization = createAssetbyReplicationInfoRequest['Authorization'];
+                    xSdkDate = createAssetbyReplicationInfoRequest['X-Sdk-Date'];
+                    xAppUserId = createAssetbyReplicationInfoRequest['X-App-UserId'];
+                    body = createAssetbyReplicationInfoRequest['body'];
+                }
+            }
+
+        
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于在资产库中添加上传新的媒体资产。可上传的资产类型包括：分身数字人模型、背景图片、素材图片、素材视频、PPT等。
          * * &gt; 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
          * * &gt; 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
@@ -3169,6 +3853,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let X_REAL_IP;
+            
             let authorization;
             
             let xSdkDate;
@@ -3217,6 +3903,7 @@ export const ParamCreater = function () {
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
+                    X_REAL_IP = listAssetsRequest.X_REAL_IP;
                     authorization = listAssetsRequest.authorization;
                     xSdkDate = listAssetsRequest.xSdkDate;
                     xAppUserId = listAssetsRequest.xAppUserId;
@@ -3241,6 +3928,7 @@ export const ParamCreater = function () {
                     voiceProvider = listAssetsRequest.voiceProvider;
                     role = listAssetsRequest.role;
                 } else {
+                    X_REAL_IP = listAssetsRequest['X-REAL-IP'];
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
                     xAppUserId = listAssetsRequest['X-App-UserId'];
@@ -3327,6 +4015,9 @@ export const ParamCreater = function () {
             }
             if (role !== null && role !== undefined) {
                 localVarQueryParameter['role'] = role;
+            }
+            if (X_REAL_IP !== undefined && X_REAL_IP !== null) {
+                localVarHeaderParameter['X-REAL-IP'] = String(X_REAL_IP);
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -3443,6 +4134,64 @@ export const ParamCreater = function () {
         
             if (assetId === null || assetId === undefined) {
             throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAsset.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当需要将资产从A Region复制到B Region时，先要在A Region调用该接口用于查询资产复制信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetReplicationInfo(showAssetReplicationInfoRequest?: ShowAssetReplicationInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-assets/{asset_id}/replication-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let assetId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xAppUserId;
+
+            if (showAssetReplicationInfoRequest !== null && showAssetReplicationInfoRequest !== undefined) {
+                if (showAssetReplicationInfoRequest instanceof ShowAssetReplicationInfoRequest) {
+                    assetId = showAssetReplicationInfoRequest.assetId;
+                    authorization = showAssetReplicationInfoRequest.authorization;
+                    xSdkDate = showAssetReplicationInfoRequest.xSdkDate;
+                    xAppUserId = showAssetReplicationInfoRequest.xAppUserId;
+                } else {
+                    assetId = showAssetReplicationInfoRequest['asset_id'];
+                    authorization = showAssetReplicationInfoRequest['Authorization'];
+                    xSdkDate = showAssetReplicationInfoRequest['X-Sdk-Date'];
+                    xAppUserId = showAssetReplicationInfoRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAssetReplicationInfo.');
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -4112,7 +4861,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/2d-digital-human-videos",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -4162,7 +4911,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -4316,7 +5065,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/photo-detection",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -4366,7 +5115,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -4382,7 +5131,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/photo-digital-human-videos",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -4432,7 +5181,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -4586,7 +5335,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/files/{file_id}/complete",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -4636,7 +5385,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'file_id': fileId, };
@@ -4653,7 +5402,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/files",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -4696,7 +5445,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -4763,6 +5512,7 @@ export const ParamCreater = function () {
     
         /**
          * 该接口用于创建一次性鉴权码，有效期5分钟，鉴权码只能使用一次，每次使用后需要重新获取。
+         * &gt; 接口只能通过第三方后台调用，不能在浏览器前台直接调用，否则会有跨域问题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5498,7 +6248,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于创建智能交互对话直播间。
+         * 该接口用于创建智能交互对话。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5564,7 +6314,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除智能交互对话直播间。
+         * 该接口用于删除智能交互对话。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5629,7 +6379,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于智能交互对话直播间列表。
+         * 该接口用于智能交互对话列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5729,7 +6479,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询智能交互对话直播间详情。
+         * 该接口用于查询智能交互对话详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5794,7 +6544,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于智能交互对话直播间信息。
+         * 该接口用于智能交互对话信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7467,7 +8217,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/voice-training-manage/user/advance-jobs",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -7496,7 +8246,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -7517,7 +8267,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/voice-training-manage/user/basic-jobs",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -7567,7 +8317,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -7588,7 +8338,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/voice-training-manage/user/middle-jobs",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -7638,7 +8388,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -7991,7 +8741,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/digital-human-training-manage/user/jobs",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -8041,7 +8791,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -8123,7 +8873,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}/command",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -8180,7 +8930,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
@@ -8398,7 +9148,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v1/{project_id}/digital-human-training-manage/user/jobs/{job_id}",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -8455,7 +9205,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
@@ -8966,7 +9716,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/video-motion-capture-jobs/{job_id}/command",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -9023,7 +9773,7 @@ export const ParamCreater = function () {
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };

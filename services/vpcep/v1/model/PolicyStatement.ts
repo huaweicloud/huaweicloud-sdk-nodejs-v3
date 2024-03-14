@@ -1,7 +1,7 @@
 
 
 export class PolicyStatement {
-    private 'Effect'?: string;
+    private 'Effect'?: PolicyStatementEffectEnum | string;
     private 'Action'?: Array<string>;
     private 'Resource'?: Array<string>;
     public constructor(effect?: string, action?: Array<string>, resource?: Array<string>) { 
@@ -9,14 +9,14 @@ export class PolicyStatement {
         this['Action'] = action;
         this['Resource'] = resource;
     }
-    public withEffect(effect: string): PolicyStatement {
+    public withEffect(effect: PolicyStatementEffectEnum | string): PolicyStatement {
         this['Effect'] = effect;
         return this;
     }
-    public set effect(effect: string  | undefined) {
+    public set effect(effect: PolicyStatementEffectEnum | string  | undefined) {
         this['Effect'] = effect;
     }
-    public get effect(): string | undefined {
+    public get effect(): PolicyStatementEffectEnum | string | undefined {
         return this['Effect'];
     }
     public withAction(action: Array<string>): PolicyStatement {
@@ -39,4 +39,13 @@ export class PolicyStatement {
     public get resource(): Array<string> | undefined {
         return this['Resource'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PolicyStatementEffectEnum {
+    ALLOW = 'Allow',
+    REFUSE = 'Refuse'
 }

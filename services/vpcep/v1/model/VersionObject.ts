@@ -2,23 +2,23 @@ import { Link } from './Link';
 
 
 export class VersionObject {
-    public status?: VersionObjectStatusEnum | string;
-    public id?: VersionObjectIdEnum | string;
-    public updated?: string;
+    public status?: string;
+    public id?: string;
+    public updated?: Date;
     public version?: string;
     private 'min_version'?: string;
     public links?: Array<Link>;
     public constructor() { 
     }
-    public withStatus(status: VersionObjectStatusEnum | string): VersionObject {
+    public withStatus(status: string): VersionObject {
         this['status'] = status;
         return this;
     }
-    public withId(id: VersionObjectIdEnum | string): VersionObject {
+    public withId(id: string): VersionObject {
         this['id'] = id;
         return this;
     }
-    public withUpdated(updated: string): VersionObject {
+    public withUpdated(updated: Date): VersionObject {
         this['updated'] = updated;
         return this;
     }
@@ -40,21 +40,4 @@ export class VersionObject {
         this['links'] = links;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VersionObjectStatusEnum {
-    CURRENT = 'CURRENT',
-    SUPPORT = 'SUPPORT',
-    DEPRECATED = 'DEPRECATED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VersionObjectIdEnum {
-    V1 = 'v1'
 }

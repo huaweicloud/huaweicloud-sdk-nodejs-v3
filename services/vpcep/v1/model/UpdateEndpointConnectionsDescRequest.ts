@@ -1,9 +1,9 @@
-import { UpdateEpConnections } from './UpdateEpConnections';
+import { UpdateEndpointConnectionsDescRequestBody } from './UpdateEndpointConnectionsDescRequestBody';
 
 
 export class UpdateEndpointConnectionsDescRequest {
     private 'vpc_endpoint_service_id'?: string;
-    public body?: UpdateEpConnections;
+    public body?: UpdateEndpointConnectionsDescRequestBody;
     public constructor(vpcEndpointServiceId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
@@ -17,7 +17,7 @@ export class UpdateEndpointConnectionsDescRequest {
     public get vpcEndpointServiceId(): string | undefined {
         return this['vpc_endpoint_service_id'];
     }
-    public withBody(body: UpdateEpConnections): UpdateEndpointConnectionsDescRequest {
+    public withBody(body: UpdateEndpointConnectionsDescRequestBody): UpdateEndpointConnectionsDescRequest {
         this['body'] = body;
         return this;
     }

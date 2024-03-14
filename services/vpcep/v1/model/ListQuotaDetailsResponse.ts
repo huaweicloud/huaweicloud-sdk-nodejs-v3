@@ -1,13 +1,13 @@
-import { ResourcesResp } from './ResourcesResp';
+import { ResourcesResponseBody } from './ResourcesResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListQuotaDetailsResponse extends SdkResponse {
-    public quotas?: ResourcesResp;
+    public quotas?: ResourcesResponseBody;
     public constructor() { 
         super();
     }
-    public withQuotas(quotas: ResourcesResp): ListQuotaDetailsResponse {
+    public withQuotas(quotas: ResourcesResponseBody): ListQuotaDetailsResponse {
         this['quotas'] = quotas;
         return this;
     }

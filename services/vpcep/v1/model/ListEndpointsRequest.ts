@@ -7,8 +7,8 @@ export class ListEndpointsRequest {
     public id?: string;
     public limit?: number;
     public offset?: number;
-    private 'sort_key'?: string;
-    private 'sort_dir'?: string;
+    private 'sort_key'?: ListEndpointsRequestSortKeyEnum | string;
+    private 'sort_dir'?: ListEndpointsRequestSortDirEnum | string;
     private 'public_border_group'?: string;
     public constructor() { 
     }
@@ -54,24 +54,24 @@ export class ListEndpointsRequest {
         this['offset'] = offset;
         return this;
     }
-    public withSortKey(sortKey: string): ListEndpointsRequest {
+    public withSortKey(sortKey: ListEndpointsRequestSortKeyEnum | string): ListEndpointsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string  | undefined) {
+    public set sortKey(sortKey: ListEndpointsRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey(): string | undefined {
+    public get sortKey(): ListEndpointsRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: string): ListEndpointsRequest {
+    public withSortDir(sortDir: ListEndpointsRequestSortDirEnum | string): ListEndpointsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string  | undefined) {
+    public set sortDir(sortDir: ListEndpointsRequestSortDirEnum | string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir(): string | undefined {
+    public get sortDir(): ListEndpointsRequestSortDirEnum | string | undefined {
         return this['sort_dir'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): ListEndpointsRequest {
@@ -84,4 +84,21 @@ export class ListEndpointsRequest {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEndpointsRequestSortKeyEnum {
+    CREATE_AT = 'create_at',
+    UPDATE_AT = 'update_at'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEndpointsRequestSortDirEnum {
+    DESC = 'desc',
+    ASC = 'asc'
 }

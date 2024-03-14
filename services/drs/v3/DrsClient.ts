@@ -117,6 +117,7 @@ import { DeleteJobReq } from './model/DeleteJobReq';
 import { DeleteJobResp } from './model/DeleteJobResp';
 import { Endpoint } from './model/Endpoint';
 import { EndpointVO } from './model/EndpointVO';
+import { FailedToBindEipChildInfo } from './model/FailedToBindEipChildInfo';
 import { GetDataTransformationResp } from './model/GetDataTransformationResp';
 import { ImportSmnResp } from './model/ImportSmnResp';
 import { InstInfo } from './model/InstInfo';
@@ -129,6 +130,8 @@ import { LineCompareDetail } from './model/LineCompareDetail';
 import { LineCompareResult } from './model/LineCompareResult';
 import { LineCompareResultDetails } from './model/LineCompareResultDetails';
 import { LineCompareResultOverview } from './model/LineCompareResultOverview';
+import { ListAvailableNodeTypesRequest } from './model/ListAvailableNodeTypesRequest';
+import { ListAvailableNodeTypesResponse } from './model/ListAvailableNodeTypesResponse';
 import { ListAvailableZoneRequest } from './model/ListAvailableZoneRequest';
 import { ListAvailableZoneResponse } from './model/ListAvailableZoneResponse';
 import { ListCompareResultRequest } from './model/ListCompareResultRequest';
@@ -156,6 +159,7 @@ import { PreCheckInfo } from './model/PreCheckInfo';
 import { PrecheckFailSubJobVO } from './model/PrecheckFailSubJobVO';
 import { PrecheckResult } from './model/PrecheckResult';
 import { ProgressInfo } from './model/ProgressInfo';
+import { PublicIpConfig } from './model/PublicIpConfig';
 import { QueryAvailableNodeTypeReq } from './model/QueryAvailableNodeTypeReq';
 import { QueryCompareResultReq } from './model/QueryCompareResultReq';
 import { QueryDataGuardMonitorAndChartResp } from './model/QueryDataGuardMonitorAndChartResp';
@@ -173,6 +177,7 @@ import { QueryRpoAndRtoResp } from './model/QueryRpoAndRtoResp';
 import { QuerySmnInfoResp } from './model/QuerySmnInfoResp';
 import { QueryStructDetailResp } from './model/QueryStructDetailResp';
 import { QueryStructProcessResp } from './model/QueryStructProcessResp';
+import { QuerySupportNodeTypeBean } from './model/QuerySupportNodeTypeBean';
 import { QueryUserDetailResp } from './model/QueryUserDetailResp';
 import { QueryUserResp } from './model/QueryUserResp';
 import { QuotaResource } from './model/QuotaResource';
@@ -740,7 +745,7 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量测试连接
-     * @param {BatchTestConnectionReq} requestBody 批量测试连接任务请求体
+     * @param {BatchTestConnectionReq} requestBody 批量测试连接任务请求体。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -767,6 +772,30 @@ export class DrsClient {
      */
     public createCompareTask(createCompareTaskRequest?: CreateCompareTaskRequest): Promise<CreateCompareTaskResponse> {
         const options = ParamCreater().createCompareTask(createCompareTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用的Node规格
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用的Node规格
+     * @param {string} engineType 引擎类型
+     * @param {'migration' | 'sync' | 'cloudDataGuard'} dbUseType 迁移场景。 - migration:实时迁移 - sync:实时同步 - cloudDataGuard:实时灾备
+     * @param {'up' | 'down' | 'non-dbs'} jobDirection 迁移方向，up：入云 ，down：出云，non-dbs：自建。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {boolean} [isUseSelloutInfo] 是否查询资源售罄情况
+     * @param {boolean} [isMultiWrite] 是否是双主灾备
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAvailableNodeTypes(listAvailableNodeTypesRequest?: ListAvailableNodeTypesRequest): Promise<ListAvailableNodeTypesResponse> {
+        const options = ParamCreater().listAvailableNodeTypes(listAvailableNodeTypesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2165,6 +2194,87 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用的Node规格
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAvailableNodeTypes(listAvailableNodeTypesRequest?: ListAvailableNodeTypesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/node-type",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engineType;
+            
+            let dbUseType;
+            
+            let jobDirection;
+            
+            let xLanguage;
+            
+            let isUseSelloutInfo;
+            
+            let isMultiWrite;
+
+            if (listAvailableNodeTypesRequest !== null && listAvailableNodeTypesRequest !== undefined) {
+                if (listAvailableNodeTypesRequest instanceof ListAvailableNodeTypesRequest) {
+                    engineType = listAvailableNodeTypesRequest.engineType;
+                    dbUseType = listAvailableNodeTypesRequest.dbUseType;
+                    jobDirection = listAvailableNodeTypesRequest.jobDirection;
+                    xLanguage = listAvailableNodeTypesRequest.xLanguage;
+                    isUseSelloutInfo = listAvailableNodeTypesRequest.isUseSelloutInfo;
+                    isMultiWrite = listAvailableNodeTypesRequest.isMultiWrite;
+                } else {
+                    engineType = listAvailableNodeTypesRequest['engine_type'];
+                    dbUseType = listAvailableNodeTypesRequest['db_use_type'];
+                    jobDirection = listAvailableNodeTypesRequest['job_direction'];
+                    xLanguage = listAvailableNodeTypesRequest['X-Language'];
+                    isUseSelloutInfo = listAvailableNodeTypesRequest['is_use_sellout_info'];
+                    isMultiWrite = listAvailableNodeTypesRequest['is_multi_write'];
+                }
+            }
+
+        
+            if (engineType === null || engineType === undefined) {
+                throw new RequiredError('engineType','Required parameter engineType was null or undefined when calling listAvailableNodeTypes.');
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+            if (dbUseType === null || dbUseType === undefined) {
+                throw new RequiredError('dbUseType','Required parameter dbUseType was null or undefined when calling listAvailableNodeTypes.');
+            }
+            if (dbUseType !== null && dbUseType !== undefined) {
+                localVarQueryParameter['db_use_type'] = dbUseType;
+            }
+            if (jobDirection === null || jobDirection === undefined) {
+                throw new RequiredError('jobDirection','Required parameter jobDirection was null or undefined when calling listAvailableNodeTypes.');
+            }
+            if (jobDirection !== null && jobDirection !== undefined) {
+                localVarQueryParameter['job_direction'] = jobDirection;
+            }
+            if (isUseSelloutInfo !== null && isUseSelloutInfo !== undefined) {
+                localVarQueryParameter['is_use_sellout_info'] = isUseSelloutInfo;
+            }
+            if (isMultiWrite !== null && isMultiWrite !== undefined) {
+                localVarQueryParameter['is_multi_write'] = isMultiWrite;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

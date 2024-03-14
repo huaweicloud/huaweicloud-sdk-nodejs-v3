@@ -4,11 +4,11 @@ import { QueryError } from './QueryError';
 export class ConnectionEndpoints {
     public id?: string;
     private 'marker_id'?: number;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'domain_id'?: string;
     public error?: Array<QueryError>;
-    public status?: ConnectionEndpointsStatusEnum | string;
+    public status?: string;
     public description?: string;
     public constructor() { 
     }
@@ -26,24 +26,24 @@ export class ConnectionEndpoints {
     public get markerId(): number | undefined {
         return this['marker_id'];
     }
-    public withCreatedAt(createdAt: string): ConnectionEndpoints {
+    public withCreatedAt(createdAt: Date): ConnectionEndpoints {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): ConnectionEndpoints {
+    public withUpdatedAt(updatedAt: Date): ConnectionEndpoints {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withDomainId(domainId: string): ConnectionEndpoints {
@@ -60,7 +60,7 @@ export class ConnectionEndpoints {
         this['error'] = error;
         return this;
     }
-    public withStatus(status: ConnectionEndpointsStatusEnum | string): ConnectionEndpoints {
+    public withStatus(status: string): ConnectionEndpoints {
         this['status'] = status;
         return this;
     }
@@ -68,17 +68,4 @@ export class ConnectionEndpoints {
         this['description'] = description;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ConnectionEndpointsStatusEnum {
-    PENDINGACCEPTANCE = 'pendingAcceptance',
-    CREATING = 'creating',
-    ACCEPTED = 'accepted',
-    REJECTED = 'rejected',
-    FAILED = 'failed',
-    DELETING = 'deleting'
 }

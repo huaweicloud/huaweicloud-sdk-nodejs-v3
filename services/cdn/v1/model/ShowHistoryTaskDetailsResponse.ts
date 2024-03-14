@@ -13,6 +13,7 @@ export class ShowHistoryTaskDetailsResponse extends SdkResponse {
     public failed?: number;
     public total?: number;
     private 'file_type'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -73,5 +74,15 @@ export class ShowHistoryTaskDetailsResponse extends SdkResponse {
     }
     public get fileType(): string | undefined {
         return this['file_type'];
+    }
+    public withXRequestId(xRequestId: string): ShowHistoryTaskDetailsResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

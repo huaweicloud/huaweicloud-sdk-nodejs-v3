@@ -6,6 +6,7 @@ import { JobEndpointInfo } from './JobEndpointInfo';
 import { JobNodeInfo } from './JobNodeInfo';
 import { PeriodOrderInfo } from './PeriodOrderInfo';
 import { PolicyConfig } from './PolicyConfig';
+import { PublicIpConfig } from './PublicIpConfig';
 import { SpeedLimitInfo } from './SpeedLimitInfo';
 import { TuningParamInfo } from './TuningParamInfo';
 import { UserMigrationInfo } from './UserMigrationInfo';
@@ -24,6 +25,7 @@ export class AsyncCreateJobReq {
     private 'tuning_params'?: TuningParamInfo;
     private 'period_order'?: PeriodOrderInfo;
     private 'node_info'?: JobNodeInfo;
+    private 'public_ip_list'?: Array<PublicIpConfig>;
     public constructor(baseInfo?: JobBaseInfo, sourceEndpoint?: Array<JobEndpointInfo>, targetEndpoint?: Array<JobEndpointInfo>, policyConfig?: PolicyConfig, dbObject?: DbObject, nodeInfo?: JobNodeInfo) { 
         this['base_info'] = baseInfo;
         this['source_endpoint'] = sourceEndpoint;
@@ -151,5 +153,15 @@ export class AsyncCreateJobReq {
     }
     public get nodeInfo(): JobNodeInfo | undefined {
         return this['node_info'];
+    }
+    public withPublicIpList(publicIpList: Array<PublicIpConfig>): AsyncCreateJobReq {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: Array<PublicIpConfig>  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): Array<PublicIpConfig> | undefined {
+        return this['public_ip_list'];
     }
 }

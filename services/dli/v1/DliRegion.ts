@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class DliRegion {
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dli.my-kualalumpur-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://dli.cn-north-2.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://dli.cn-north-4.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://dli.cn-north-1.myhuaweicloud.com"]);
@@ -32,6 +33,7 @@ export class DliRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "my-kualalumpur-1":DliRegion.MY_KUALALUMPUR_1,
         "cn-north-2":DliRegion.CN_NORTH_2,
         "cn-north-4":DliRegion.CN_NORTH_4,
         "cn-north-1":DliRegion.CN_NORTH_1,

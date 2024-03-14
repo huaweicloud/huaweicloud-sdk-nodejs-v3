@@ -1,23 +1,23 @@
-import { BatchAddOrRemoveResourceInstanceBody } from './BatchAddOrRemoveResourceInstanceBody';
+import { BatchAddOrRemoveResourceInstanceRequestBody } from './BatchAddOrRemoveResourceInstanceRequestBody';
 
 
 export class BatchAddOrRemoveResourceInstanceRequest {
-    private 'resource_type'?: string;
+    private 'resource_type'?: BatchAddOrRemoveResourceInstanceRequestResourceTypeEnum | string;
     private 'resource_id'?: string;
     private 'Content-Type'?: string;
-    public body?: BatchAddOrRemoveResourceInstanceBody;
+    public body?: BatchAddOrRemoveResourceInstanceRequestBody;
     public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
     }
-    public withResourceType(resourceType: string): BatchAddOrRemoveResourceInstanceRequest {
+    public withResourceType(resourceType: BatchAddOrRemoveResourceInstanceRequestResourceTypeEnum | string): BatchAddOrRemoveResourceInstanceRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string  | undefined) {
+    public set resourceType(resourceType: BatchAddOrRemoveResourceInstanceRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType(): string | undefined {
+    public get resourceType(): BatchAddOrRemoveResourceInstanceRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
     public withResourceId(resourceId: string): BatchAddOrRemoveResourceInstanceRequest {
@@ -40,8 +40,17 @@ export class BatchAddOrRemoveResourceInstanceRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBody(body: BatchAddOrRemoveResourceInstanceBody): BatchAddOrRemoveResourceInstanceRequest {
+    public withBody(body: BatchAddOrRemoveResourceInstanceRequestBody): BatchAddOrRemoveResourceInstanceRequest {
         this['body'] = body;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchAddOrRemoveResourceInstanceRequestResourceTypeEnum {
+    ENDPOINT_SERVICE = 'endpoint_service',
+    ENDPOINT = 'endpoint'
 }

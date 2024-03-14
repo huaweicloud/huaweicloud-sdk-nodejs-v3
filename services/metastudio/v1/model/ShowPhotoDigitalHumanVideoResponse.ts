@@ -188,7 +188,8 @@ export enum ShowPhotoDigitalHumanVideoResponseStateEnum {
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
-    CANCELED = 'CANCELED'
+    CANCELED = 'CANCELED',
+    BLOCK = 'BLOCK'
 }
 /**
     * @export

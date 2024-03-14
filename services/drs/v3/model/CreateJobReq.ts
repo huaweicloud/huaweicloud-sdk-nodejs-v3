@@ -1,5 +1,6 @@
 import { Endpoint } from './Endpoint';
 import { PeriodOrderInfo } from './PeriodOrderInfo';
+import { PublicIpConfig } from './PublicIpConfig';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -27,6 +28,7 @@ export class CreateJobReq {
     private 'slave_az'?: string;
     private 'charging_mode'?: CreateJobReqChargingModeEnum | string;
     private 'period_order'?: PeriodOrderInfo;
+    private 'public_ip_list'?: Array<PublicIpConfig>;
     public constructor(dbUseType?: string, name?: string, engineType?: string, jobDirection?: string, netType?: string, nodeType?: string, sourceEndpoint?: Endpoint, targetEndpoint?: Endpoint, taskType?: string, customizeSutnetId?: string) { 
         this['db_use_type'] = dbUseType;
         this['name'] = name;
@@ -250,6 +252,16 @@ export class CreateJobReq {
     }
     public get periodOrder(): PeriodOrderInfo | undefined {
         return this['period_order'];
+    }
+    public withPublicIpList(publicIpList: Array<PublicIpConfig>): CreateJobReq {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: Array<PublicIpConfig>  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): Array<PublicIpConfig> | undefined {
+        return this['public_ip_list'];
     }
 }
 

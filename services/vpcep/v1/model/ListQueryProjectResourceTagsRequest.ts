@@ -1,19 +1,19 @@
 
 
 export class ListQueryProjectResourceTagsRequest {
-    private 'resource_type'?: string;
+    private 'resource_type'?: ListQueryProjectResourceTagsRequestResourceTypeEnum | string;
     private 'Content-Type'?: string;
     public constructor(resourceType?: string) { 
         this['resource_type'] = resourceType;
     }
-    public withResourceType(resourceType: string): ListQueryProjectResourceTagsRequest {
+    public withResourceType(resourceType: ListQueryProjectResourceTagsRequestResourceTypeEnum | string): ListQueryProjectResourceTagsRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string  | undefined) {
+    public set resourceType(resourceType: ListQueryProjectResourceTagsRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType(): string | undefined {
+    public get resourceType(): ListQueryProjectResourceTagsRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
     public withContentType(contentType: string): ListQueryProjectResourceTagsRequest {
@@ -26,4 +26,13 @@ export class ListQueryProjectResourceTagsRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListQueryProjectResourceTagsRequestResourceTypeEnum {
+    ENDPOINT_SERVICE = 'endpoint_service',
+    ENDPOINT = 'endpoint'
 }

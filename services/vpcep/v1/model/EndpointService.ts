@@ -4,8 +4,8 @@ export class EndpointService {
     public id?: string;
     public owner?: string;
     private 'service_name'?: string;
-    private 'service_type'?: EndpointServiceServiceTypeEnum | string;
-    private 'created_at'?: string;
+    private 'service_type'?: string;
+    private 'created_at'?: Date;
     private 'is_charge'?: boolean;
     private 'enable_policy'?: boolean;
     public constructor() { 
@@ -28,24 +28,24 @@ export class EndpointService {
     public get serviceName(): string | undefined {
         return this['service_name'];
     }
-    public withServiceType(serviceType: EndpointServiceServiceTypeEnum | string): EndpointService {
+    public withServiceType(serviceType: string): EndpointService {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: EndpointServiceServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): EndpointServiceServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withCreatedAt(createdAt: string): EndpointService {
+    public withCreatedAt(createdAt: Date): EndpointService {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withIsCharge(isCharge: boolean): EndpointService {
@@ -68,13 +68,4 @@ export class EndpointService {
     public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EndpointServiceServiceTypeEnum {
-    INTERFACE = 'interface',
-    GATEWAY = 'gateway'
 }

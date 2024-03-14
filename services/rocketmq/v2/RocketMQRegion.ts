@@ -30,6 +30,7 @@ export class RocketMQRegion {
     public static ME_EAST_1 = new Region("me-east-1", ["https://dms.me-east-1.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://dms.na-mexico-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://dms.cn-east-5.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dms.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class RocketMQRegion {
         "eu-west-0":RocketMQRegion.EU_WEST_0,
         "me-east-1":RocketMQRegion.ME_EAST_1,
         "na-mexico-1":RocketMQRegion.NA_MEXICO_1,
-        "cn-east-5":RocketMQRegion.CN_EAST_5
+        "cn-east-5":RocketMQRegion.CN_EAST_5,
+        "my-kualalumpur-1":RocketMQRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

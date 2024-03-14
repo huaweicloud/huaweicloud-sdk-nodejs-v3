@@ -5,7 +5,7 @@ export class ListServiceConnectionsRequest {
     private 'vpc_endpoint_service_id'?: string;
     public id?: string;
     private 'marker_id'?: string;
-    public status?: string;
+    public status?: ListServiceConnectionsRequestStatusEnum | string;
     private 'sort_key'?: ListServiceConnectionsRequestSortKeyEnum | string;
     private 'sort_dir'?: ListServiceConnectionsRequestSortDirEnum | string;
     public limit?: number;
@@ -47,7 +47,7 @@ export class ListServiceConnectionsRequest {
     public get markerId(): string | undefined {
         return this['marker_id'];
     }
-    public withStatus(status: string): ListServiceConnectionsRequest {
+    public withStatus(status: ListServiceConnectionsRequestStatusEnum | string): ListServiceConnectionsRequest {
         this['status'] = status;
         return this;
     }
@@ -81,6 +81,16 @@ export class ListServiceConnectionsRequest {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListServiceConnectionsRequestStatusEnum {
+    PENDINGACCEPTANCE = 'pendingAcceptance',
+    ACCEPTED = 'accepted',
+    REJECTED = 'rejected',
+    FAILED = 'failed'
+}
 /**
     * @export
     * @enum {string}

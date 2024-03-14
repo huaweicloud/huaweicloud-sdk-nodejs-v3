@@ -1,3 +1,4 @@
+import { CoStreamerConfig } from './CoStreamerConfig';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { PlayPolicy } from './PlayPolicy';
 import { VideoConfig } from './VideoConfig';
@@ -11,6 +12,7 @@ export class StartSmartLiveReq {
     private 'interaction_callback_url'?: string;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
     private 'view_mode'?: StartSmartLiveReqViewModeEnum | string;
+    private 'co_streamer_config'?: CoStreamerConfig;
     public constructor() { 
     }
     public withVideoConfig(videoConfig: VideoConfig): StartSmartLiveReq {
@@ -82,6 +84,16 @@ export class StartSmartLiveReq {
     }
     public get viewMode(): StartSmartLiveReqViewModeEnum | string | undefined {
         return this['view_mode'];
+    }
+    public withCoStreamerConfig(coStreamerConfig: CoStreamerConfig): StartSmartLiveReq {
+        this['co_streamer_config'] = coStreamerConfig;
+        return this;
+    }
+    public set coStreamerConfig(coStreamerConfig: CoStreamerConfig  | undefined) {
+        this['co_streamer_config'] = coStreamerConfig;
+    }
+    public get coStreamerConfig(): CoStreamerConfig | undefined {
+        return this['co_streamer_config'];
     }
 }
 

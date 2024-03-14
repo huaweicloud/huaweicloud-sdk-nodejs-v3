@@ -1,9 +1,11 @@
 import { DatabaseObjectInfo } from './DatabaseObjectInfo';
 import { DefaultRootDb } from './DefaultRootDb';
 import { Endpoint } from './Endpoint';
+import { FailedToBindEipChildInfo } from './FailedToBindEipChildInfo';
 import { GetDataTransformationResp } from './GetDataTransformationResp';
 import { InstInfo } from './InstInfo';
 import { PeriodOrderResp } from './PeriodOrderResp';
+import { PublicIpConfig } from './PublicIpConfig';
 import { QuerySmnInfoResp } from './QuerySmnInfoResp';
 import { SpeedLimitInfo } from './SpeedLimitInfo';
 import { Tag } from './Tag';
@@ -67,6 +69,9 @@ export class QueryJobResp {
     private 'original_job_direction'?: QueryJobRespOriginalJobDirectionEnum | string;
     private 'data_transformation'?: GetDataTransformationResp;
     public tags?: Array<Tag>;
+    private 'public_ip_list'?: Array<PublicIpConfig>;
+    private 'bind_public_ip_state'?: string;
+    public children?: Array<FailedToBindEipChildInfo>;
     public constructor() { 
     }
     public withId(id: string): QueryJobResp {
@@ -601,6 +606,30 @@ export class QueryJobResp {
     }
     public withTags(tags: Array<Tag>): QueryJobResp {
         this['tags'] = tags;
+        return this;
+    }
+    public withPublicIpList(publicIpList: Array<PublicIpConfig>): QueryJobResp {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: Array<PublicIpConfig>  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): Array<PublicIpConfig> | undefined {
+        return this['public_ip_list'];
+    }
+    public withBindPublicIpState(bindPublicIpState: string): QueryJobResp {
+        this['bind_public_ip_state'] = bindPublicIpState;
+        return this;
+    }
+    public set bindPublicIpState(bindPublicIpState: string  | undefined) {
+        this['bind_public_ip_state'] = bindPublicIpState;
+    }
+    public get bindPublicIpState(): string | undefined {
+        return this['bind_public_ip_state'];
+    }
+    public withChildren(children: Array<FailedToBindEipChildInfo>): QueryJobResp {
+        this['children'] = children;
         return this;
     }
 }

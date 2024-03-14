@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddOrRemoveServicePermissionsResponse extends SdkResponse {
     public permissions?: Array<string>;
-    private 'permission_type'?: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string;
+    private 'permission_type'?: string;
     public constructor() { 
         super();
     }
@@ -11,23 +11,14 @@ export class AddOrRemoveServicePermissionsResponse extends SdkResponse {
         this['permissions'] = permissions;
         return this;
     }
-    public withPermissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string): AddOrRemoveServicePermissionsResponse {
+    public withPermissionType(permissionType: string): AddOrRemoveServicePermissionsResponse {
         this['permission_type'] = permissionType;
         return this;
     }
-    public set permissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string  | undefined) {
+    public set permissionType(permissionType: string  | undefined) {
         this['permission_type'] = permissionType;
     }
-    public get permissionType(): AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string | undefined {
+    public get permissionType(): string | undefined {
         return this['permission_type'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AddOrRemoveServicePermissionsResponsePermissionTypeEnum {
-    DOMAINID = 'domainId',
-    ORGPATH = 'orgPath'
 }

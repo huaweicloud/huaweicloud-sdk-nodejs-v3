@@ -1,3 +1,4 @@
+import { CoStreamerConfig } from './CoStreamerConfig';
 import { InteractionRuleInfo } from './InteractionRuleInfo';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
@@ -22,6 +23,7 @@ export class CreateSmartLiveRoomReq {
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
     private 'view_mode'?: CreateSmartLiveRoomReqViewModeEnum | string;
+    private 'co_streamer_config'?: CoStreamerConfig;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -164,6 +166,16 @@ export class CreateSmartLiveRoomReq {
     }
     public get viewMode(): CreateSmartLiveRoomReqViewModeEnum | string | undefined {
         return this['view_mode'];
+    }
+    public withCoStreamerConfig(coStreamerConfig: CoStreamerConfig): CreateSmartLiveRoomReq {
+        this['co_streamer_config'] = coStreamerConfig;
+        return this;
+    }
+    public set coStreamerConfig(coStreamerConfig: CoStreamerConfig  | undefined) {
+        this['co_streamer_config'] = coStreamerConfig;
+    }
+    public get coStreamerConfig(): CoStreamerConfig | undefined {
+        return this['co_streamer_config'];
     }
 }
 

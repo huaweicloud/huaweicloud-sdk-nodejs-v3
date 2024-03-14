@@ -6,19 +6,16 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteEndpointPolicyResponse extends SdkResponse {
     public id?: string;
-    private 'service_type'?: DeleteEndpointPolicyResponseServiceTypeEnum | string;
-    public status?: DeleteEndpointPolicyResponseStatusEnum | string;
+    private 'service_type'?: string;
+    public status?: string;
     private 'active_status'?: Array<string>;
     private 'endpoint_service_name'?: string;
     private 'marker_id'?: number;
     private 'endpoint_service_id'?: string;
-    private 'enable_dns'?: boolean;
-    private 'dns_names'?: Array<string>;
     public ip?: string;
     private 'vpc_id'?: string;
-    private 'subnet_id'?: string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     public tags?: Array<TagList>;
     public error?: Array<QueryError>;
@@ -36,17 +33,17 @@ export class DeleteEndpointPolicyResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withServiceType(serviceType: DeleteEndpointPolicyResponseServiceTypeEnum | string): DeleteEndpointPolicyResponse {
+    public withServiceType(serviceType: string): DeleteEndpointPolicyResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: DeleteEndpointPolicyResponseServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): DeleteEndpointPolicyResponseServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withStatus(status: DeleteEndpointPolicyResponseStatusEnum | string): DeleteEndpointPolicyResponse {
+    public withStatus(status: string): DeleteEndpointPolicyResponse {
         this['status'] = status;
         return this;
     }
@@ -90,26 +87,6 @@ export class DeleteEndpointPolicyResponse extends SdkResponse {
     public get endpointServiceId(): string | undefined {
         return this['endpoint_service_id'];
     }
-    public withEnableDns(enableDns: boolean): DeleteEndpointPolicyResponse {
-        this['enable_dns'] = enableDns;
-        return this;
-    }
-    public set enableDns(enableDns: boolean  | undefined) {
-        this['enable_dns'] = enableDns;
-    }
-    public get enableDns(): boolean | undefined {
-        return this['enable_dns'];
-    }
-    public withDnsNames(dnsNames: Array<string>): DeleteEndpointPolicyResponse {
-        this['dns_names'] = dnsNames;
-        return this;
-    }
-    public set dnsNames(dnsNames: Array<string>  | undefined) {
-        this['dns_names'] = dnsNames;
-    }
-    public get dnsNames(): Array<string> | undefined {
-        return this['dns_names'];
-    }
     public withIp(ip: string): DeleteEndpointPolicyResponse {
         this['ip'] = ip;
         return this;
@@ -124,34 +101,24 @@ export class DeleteEndpointPolicyResponse extends SdkResponse {
     public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
-    public withSubnetId(subnetId: string): DeleteEndpointPolicyResponse {
-        this['subnet_id'] = subnetId;
-        return this;
-    }
-    public set subnetId(subnetId: string  | undefined) {
-        this['subnet_id'] = subnetId;
-    }
-    public get subnetId(): string | undefined {
-        return this['subnet_id'];
-    }
-    public withCreatedAt(createdAt: string): DeleteEndpointPolicyResponse {
+    public withCreatedAt(createdAt: Date): DeleteEndpointPolicyResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): DeleteEndpointPolicyResponse {
+    public withUpdatedAt(updatedAt: Date): DeleteEndpointPolicyResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): DeleteEndpointPolicyResponse {
@@ -224,25 +191,4 @@ export class DeleteEndpointPolicyResponse extends SdkResponse {
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum DeleteEndpointPolicyResponseServiceTypeEnum {
-    INTERFACE = 'interface',
-    GATEWAY = 'gateway'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum DeleteEndpointPolicyResponseStatusEnum {
-    PENDINGACCEPTANCE = 'pendingAcceptance',
-    CREATING = 'creating',
-    ACCEPTED = 'accepted',
-    REJECTED = 'rejected',
-    FAILED = 'failed',
-    DELETING = 'deleting'
 }

@@ -1,12 +1,12 @@
 
 
 export class Quotas {
-    public type?: QuotasTypeEnum | string;
+    public type?: string;
     public used?: number;
     public quota?: number;
     public constructor() { 
     }
-    public withType(type: QuotasTypeEnum | string): Quotas {
+    public withType(type: string): Quotas {
         this['type'] = type;
         return this;
     }
@@ -18,13 +18,4 @@ export class Quotas {
         this['quota'] = quota;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum QuotasTypeEnum {
-    ENDPOINT_SERVICE = 'endpoint_service',
-    ENDPOINT = 'endpoint'
 }

@@ -5,7 +5,7 @@ export class EpsPermission {
     public permission?: string;
     private 'permission_type'?: EpsPermissionPermissionTypeEnum | string;
     public description?: string;
-    private 'created_at'?: string;
+    private 'created_at'?: Date;
     public constructor() { 
     }
     public withId(id: string): EpsPermission {
@@ -30,14 +30,14 @@ export class EpsPermission {
         this['description'] = description;
         return this;
     }
-    public withCreatedAt(createdAt: string): EpsPermission {
+    public withCreatedAt(createdAt: Date): EpsPermission {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
 }

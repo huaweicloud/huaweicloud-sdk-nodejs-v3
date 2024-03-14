@@ -1,10 +1,10 @@
 
 
-export class UpdateEndpointServiceNameMode {
+export class UpdateEndpointServiceNameRequestBody {
     private 'endpoint_service_name'?: string;
     public constructor() { 
     }
-    public withEndpointServiceName(endpointServiceName: string): UpdateEndpointServiceNameMode {
+    public withEndpointServiceName(endpointServiceName: string): UpdateEndpointServiceNameRequestBody {
         this['endpoint_service_name'] = endpointServiceName;
         return this;
     }

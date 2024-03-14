@@ -5,6 +5,7 @@ import { VoiceConfig } from './VoiceConfig';
 
 
 export class LiveVideoScriptInfo {
+    private 'script_id'?: string;
     private 'script_name'?: string;
     private 'script_description'?: string;
     private 'dh_id'?: string;
@@ -16,6 +17,16 @@ export class LiveVideoScriptInfo {
     public constructor(scriptName?: string, shootScripts?: Array<LiveShootScriptItem>) { 
         this['script_name'] = scriptName;
         this['shoot_scripts'] = shootScripts;
+    }
+    public withScriptId(scriptId: string): LiveVideoScriptInfo {
+        this['script_id'] = scriptId;
+        return this;
+    }
+    public set scriptId(scriptId: string  | undefined) {
+        this['script_id'] = scriptId;
+    }
+    public get scriptId(): string | undefined {
+        return this['script_id'];
     }
     public withScriptName(scriptName: string): LiveVideoScriptInfo {
         this['script_name'] = scriptName;

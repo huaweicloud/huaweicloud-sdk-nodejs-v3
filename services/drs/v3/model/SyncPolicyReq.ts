@@ -18,6 +18,7 @@ export class SyncPolicyReq {
     private 'slot_name'?: string;
     private 'file_and_position'?: string;
     private 'gtid_set'?: string;
+    private 'ddl_topic'?: string;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -184,6 +185,16 @@ export class SyncPolicyReq {
     }
     public get gtidSet(): string | undefined {
         return this['gtid_set'];
+    }
+    public withDdlTopic(ddlTopic: string): SyncPolicyReq {
+        this['ddl_topic'] = ddlTopic;
+        return this;
+    }
+    public set ddlTopic(ddlTopic: string  | undefined) {
+        this['ddl_topic'] = ddlTopic;
+    }
+    public get ddlTopic(): string | undefined {
+        return this['ddl_topic'];
     }
 }
 

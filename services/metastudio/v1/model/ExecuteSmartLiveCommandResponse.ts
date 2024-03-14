@@ -2,11 +2,22 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ExecuteSmartLiveCommandResponse extends SdkResponse {
+    private 'command_id'?: string;
     public command?: ExecuteSmartLiveCommandResponseCommandEnum | string;
     public result?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
+    }
+    public withCommandId(commandId: string): ExecuteSmartLiveCommandResponse {
+        this['command_id'] = commandId;
+        return this;
+    }
+    public set commandId(commandId: string  | undefined) {
+        this['command_id'] = commandId;
+    }
+    public get commandId(): string | undefined {
+        return this['command_id'];
     }
     public withCommand(command: ExecuteSmartLiveCommandResponseCommandEnum | string): ExecuteSmartLiveCommandResponse {
         this['command'] = command;
@@ -36,5 +47,7 @@ export enum ExecuteSmartLiveCommandResponseCommandEnum {
     INSERT_PLAY_SCRIPT = 'INSERT_PLAY_SCRIPT',
     REWRITE_PLAY_SCRIPT = 'REWRITE_PLAY_SCRIPT',
     INSERT_PLAY_AUDIO = 'INSERT_PLAY_AUDIO',
-    GET_CURRENT_PLAYING_SCRIPTS = 'GET_CURRENT_PLAYING_SCRIPTS'
+    GET_CURRENT_PLAYING_SCRIPTS = 'GET_CURRENT_PLAYING_SCRIPTS',
+    REWRITE_INTERACTION_RULES = 'REWRITE_INTERACTION_RULES',
+    GET_LIVE_JOB_CONFIG_INFO = 'GET_LIVE_JOB_CONFIG_INFO'
 }

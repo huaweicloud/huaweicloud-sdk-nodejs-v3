@@ -9,6 +9,7 @@ export class TriggerProcess {
     private 'reply_texts'?: Array<string>;
     private 'reply_audios'?: Array<ReplyAudioInfo>;
     private 'reply_order'?: TriggerProcessReplyOrderEnum | string;
+    private 'reply_role'?: TriggerProcessReplyRoleEnum | string;
     public constructor() { 
     }
     public withTimeWindow(timeWindow: number): TriggerProcess {
@@ -71,6 +72,16 @@ export class TriggerProcess {
     public get replyOrder(): TriggerProcessReplyOrderEnum | string | undefined {
         return this['reply_order'];
     }
+    public withReplyRole(replyRole: TriggerProcessReplyRoleEnum | string): TriggerProcess {
+        this['reply_role'] = replyRole;
+        return this;
+    }
+    public set replyRole(replyRole: TriggerProcessReplyRoleEnum | string  | undefined) {
+        this['reply_role'] = replyRole;
+    }
+    public get replyRole(): TriggerProcessReplyRoleEnum | string | undefined {
+        return this['reply_role'];
+    }
 }
 
 /**
@@ -89,4 +100,12 @@ export enum TriggerProcessReplyModeEnum {
 export enum TriggerProcessReplyOrderEnum {
     RANDOM = 'RANDOM',
     ORDER = 'ORDER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TriggerProcessReplyRoleEnum {
+    STREAMER = 'STREAMER',
+    CO_STREAMER = 'CO_STREAMER'
 }

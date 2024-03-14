@@ -1,11 +1,11 @@
-import { UpdatePermissionDescRequest } from './UpdatePermissionDescRequest';
+import { UpdateEndpointServicePermissionDescRequestBody } from './UpdateEndpointServicePermissionDescRequestBody';
 
 
 export class UpdateEndpointServicePermissionDescRequest {
     private 'Content-Type'?: string;
     private 'vpc_endpoint_service_id'?: string;
     private 'permission_id'?: string;
-    public body?: UpdatePermissionDescRequest;
+    public body?: UpdateEndpointServicePermissionDescRequestBody;
     public constructor(vpcEndpointServiceId?: string, permissionId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
         this['permission_id'] = permissionId;
@@ -40,7 +40,7 @@ export class UpdateEndpointServicePermissionDescRequest {
     public get permissionId(): string | undefined {
         return this['permission_id'];
     }
-    public withBody(body: UpdatePermissionDescRequest): UpdateEndpointServicePermissionDescRequest {
+    public withBody(body: UpdateEndpointServicePermissionDescRequestBody): UpdateEndpointServicePermissionDescRequest {
         this['body'] = body;
         return this;
     }

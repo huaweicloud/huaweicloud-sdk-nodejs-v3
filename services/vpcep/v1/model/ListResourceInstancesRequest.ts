@@ -2,20 +2,20 @@ import { QueryResourceInstanceTagsBody } from './QueryResourceInstanceTagsBody';
 
 
 export class ListResourceInstancesRequest {
-    private 'resource_type'?: string;
+    private 'resource_type'?: ListResourceInstancesRequestResourceTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: QueryResourceInstanceTagsBody;
     public constructor(resourceType?: string) { 
         this['resource_type'] = resourceType;
     }
-    public withResourceType(resourceType: string): ListResourceInstancesRequest {
+    public withResourceType(resourceType: ListResourceInstancesRequestResourceTypeEnum | string): ListResourceInstancesRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string  | undefined) {
+    public set resourceType(resourceType: ListResourceInstancesRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType(): string | undefined {
+    public get resourceType(): ListResourceInstancesRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
     public withContentType(contentType: string): ListResourceInstancesRequest {
@@ -32,4 +32,13 @@ export class ListResourceInstancesRequest {
         this['body'] = body;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListResourceInstancesRequestResourceTypeEnum {
+    ENDPOINT_SERVICE = 'endpoint_service',
+    ENDPOINT = 'endpoint'
 }

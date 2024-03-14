@@ -56,5 +56,7 @@ export enum ActionReqActionNameEnum {
     CREATE_COMPARE = 'create_compare',
     CANCEL_COMPARE = 'cancel_compare',
     COLUMN_LIMIT = 'column_limit',
-    RELOAD_PARAMETERS = 'reload_parameters'
+    RELOAD_PARAMETERS = 'reload_parameters',
+    BIND_EIP = 'bind_eip',
+    UNBIND_EIP = 'unbind_eip'
 }

@@ -1,14 +1,14 @@
-import { EndpointResp } from './EndpointResp';
+import { EndpointResponseBody } from './EndpointResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListEndpointsResponse extends SdkResponse {
-    public endpoints?: Array<EndpointResp>;
+    public endpoints?: Array<EndpointResponseBody>;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withEndpoints(endpoints: Array<EndpointResp>): ListEndpointsResponse {
+    public withEndpoints(endpoints: Array<EndpointResponseBody>): ListEndpointsResponse {
         this['endpoints'] = endpoints;
         return this;
     }

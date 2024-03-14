@@ -10,6 +10,7 @@ export class SmartChatRoomBaseInfo {
     private 'cover_url'?: string;
     private 'model_infos'?: ModelInfo;
     private 'voice_config'?: VoiceConfig;
+    public concurrency?: number;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -83,6 +84,10 @@ export class SmartChatRoomBaseInfo {
     }
     public get voiceConfig(): VoiceConfig | undefined {
         return this['voice_config'];
+    }
+    public withConcurrency(concurrency: number): SmartChatRoomBaseInfo {
+        this['concurrency'] = concurrency;
+        return this;
     }
     public withCreateTime(createTime: string): SmartChatRoomBaseInfo {
         this['create_time'] = createTime;

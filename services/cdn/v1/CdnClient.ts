@@ -204,7 +204,7 @@ export class CdnClient {
         const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -223,7 +223,7 @@ export class CdnClient {
         const options = ParamCreater().createDomain(createDomainRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -243,7 +243,7 @@ export class CdnClient {
         const options = ParamCreater().createPreheatingTasks(createPreheatingTasksRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -263,7 +263,7 @@ export class CdnClient {
         const options = ParamCreater().createRefreshTasks(createRefreshTasksRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -282,7 +282,7 @@ export class CdnClient {
         const options = ParamCreater().createTags(createTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -302,7 +302,7 @@ export class CdnClient {
         const options = ParamCreater().deleteDomain(deleteDomainRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -322,7 +322,7 @@ export class CdnClient {
         const options = ParamCreater().disableDomain(disableDomainRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -342,7 +342,7 @@ export class CdnClient {
         const options = ParamCreater().enableDomain(enableDomainRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -369,7 +369,7 @@ export class CdnClient {
         const options = ParamCreater().listDomains(listDomainsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -389,7 +389,7 @@ export class CdnClient {
         const options = ParamCreater().showBlackWhiteList(showBlackWhiteListRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -409,7 +409,7 @@ export class CdnClient {
         const options = ParamCreater().showCacheRules(showCacheRulesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -432,7 +432,7 @@ export class CdnClient {
         const options = ParamCreater().showCertificatesHttpsInfo(showCertificatesHttpsInfoRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -452,7 +452,7 @@ export class CdnClient {
         const options = ParamCreater().showDomainDetail(showDomainDetailRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -473,7 +473,7 @@ export class CdnClient {
         const options = ParamCreater().showDomainFullConfig(showDomainFullConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -646,7 +646,7 @@ export class CdnClient {
         const options = ParamCreater().showHistoryTaskDetails(showHistoryTaskDetailsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -674,7 +674,7 @@ export class CdnClient {
         const options = ParamCreater().showHistoryTasks(showHistoryTasksRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -694,7 +694,7 @@ export class CdnClient {
         const options = ParamCreater().showHttpInfo(showHttpInfoRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -714,7 +714,7 @@ export class CdnClient {
         const options = ParamCreater().showIpInfo(showIpInfoRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -758,7 +758,7 @@ export class CdnClient {
         const options = ParamCreater().showOriginHost(showOriginHostRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -796,7 +796,7 @@ export class CdnClient {
         const options = ParamCreater().showRefer(showReferRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -816,7 +816,7 @@ export class CdnClient {
         const options = ParamCreater().showResponseHeader(showResponseHeaderRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -835,7 +835,7 @@ export class CdnClient {
         const options = ParamCreater().showTags(showTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -919,7 +919,7 @@ export class CdnClient {
         const options = ParamCreater().updateBlackWhiteList(updateBlackWhiteListRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -940,7 +940,7 @@ export class CdnClient {
         const options = ParamCreater().updateCacheRules(updateCacheRulesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -962,7 +962,7 @@ export class CdnClient {
         const options = ParamCreater().updateDomainFullConfig(updateDomainFullConfigRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -982,7 +982,7 @@ export class CdnClient {
         const options = ParamCreater().updateDomainMultiCertificates(updateDomainMultiCertificatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1003,7 +1003,7 @@ export class CdnClient {
         const options = ParamCreater().updateDomainOrigin(updateDomainOriginRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1024,7 +1024,7 @@ export class CdnClient {
         const options = ParamCreater().updateFollow302Switch(updateFollow302SwitchRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1045,7 +1045,7 @@ export class CdnClient {
         const options = ParamCreater().updateHttpsInfo(updateHttpsInfoRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1066,7 +1066,7 @@ export class CdnClient {
         const options = ParamCreater().updateOriginHost(updateOriginHostRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1087,7 +1087,7 @@ export class CdnClient {
         const options = ParamCreater().updatePrivateBucketAccess(updatePrivateBucketAccessRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1110,7 +1110,7 @@ export class CdnClient {
         const options = ParamCreater().updateRangeSwitch(updateRangeSwitchRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1131,7 +1131,7 @@ export class CdnClient {
         const options = ParamCreater().updateRefer(updateReferRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1152,7 +1152,7 @@ export class CdnClient {
         const options = ParamCreater().updateResponseHeader(updateResponseHeaderRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }

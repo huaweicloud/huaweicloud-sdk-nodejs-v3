@@ -1,5 +1,7 @@
+import { CoStreamerConfig } from './CoStreamerConfig';
 import { ErrorResponse } from './ErrorResponse';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
+import { LiveJobLog } from './LiveJobLog';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -21,6 +23,8 @@ export class ShowSmartLiveResponse extends SdkResponse {
     private 'stream_duration'?: number;
     private 'block_reason'?: string;
     private 'cover_url'?: string;
+    private 'co_streamer_config'?: CoStreamerConfig;
+    private 'live_job_log'?: LiveJobLog;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -172,6 +176,26 @@ export class ShowSmartLiveResponse extends SdkResponse {
     }
     public get coverUrl(): string | undefined {
         return this['cover_url'];
+    }
+    public withCoStreamerConfig(coStreamerConfig: CoStreamerConfig): ShowSmartLiveResponse {
+        this['co_streamer_config'] = coStreamerConfig;
+        return this;
+    }
+    public set coStreamerConfig(coStreamerConfig: CoStreamerConfig  | undefined) {
+        this['co_streamer_config'] = coStreamerConfig;
+    }
+    public get coStreamerConfig(): CoStreamerConfig | undefined {
+        return this['co_streamer_config'];
+    }
+    public withLiveJobLog(liveJobLog: LiveJobLog): ShowSmartLiveResponse {
+        this['live_job_log'] = liveJobLog;
+        return this;
+    }
+    public set liveJobLog(liveJobLog: LiveJobLog  | undefined) {
+        this['live_job_log'] = liveJobLog;
+    }
+    public get liveJobLog(): LiveJobLog | undefined {
+        return this['live_job_log'];
     }
     public withXRequestId(xRequestId: string): ShowSmartLiveResponse {
         this['X-Request-Id'] = xRequestId;

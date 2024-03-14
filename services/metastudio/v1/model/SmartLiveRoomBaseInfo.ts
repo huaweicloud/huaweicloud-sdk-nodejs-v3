@@ -9,10 +9,12 @@ export class SmartLiveRoomBaseInfo {
     private 'room_name'?: string;
     private 'room_type'?: SmartLiveRoomBaseInfoRoomTypeEnum | string;
     private 'room_state'?: SmartLiveRoomBaseInfoRoomStateEnum | string;
+    private 'view_mode'?: SmartLiveRoomBaseInfoViewModeEnum | string;
     private 'error_info'?: ErrorResponse;
     private 'shared_config'?: SharedConfig;
     private 'room_description'?: string;
     private 'cover_url'?: string;
+    public thumbnail?: string;
     private 'model_infos'?: Array<ModelInfo>;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -71,6 +73,16 @@ export class SmartLiveRoomBaseInfo {
     public get roomState(): SmartLiveRoomBaseInfoRoomStateEnum | string | undefined {
         return this['room_state'];
     }
+    public withViewMode(viewMode: SmartLiveRoomBaseInfoViewModeEnum | string): SmartLiveRoomBaseInfo {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: SmartLiveRoomBaseInfoViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): SmartLiveRoomBaseInfoViewModeEnum | string | undefined {
+        return this['view_mode'];
+    }
     public withErrorInfo(errorInfo: ErrorResponse): SmartLiveRoomBaseInfo {
         this['error_info'] = errorInfo;
         return this;
@@ -110,6 +122,10 @@ export class SmartLiveRoomBaseInfo {
     }
     public get coverUrl(): string | undefined {
         return this['cover_url'];
+    }
+    public withThumbnail(thumbnail: string): SmartLiveRoomBaseInfo {
+        this['thumbnail'] = thumbnail;
+        return this;
     }
     public withModelInfos(modelInfos: Array<ModelInfo>): SmartLiveRoomBaseInfo {
         this['model_infos'] = modelInfos;
@@ -190,6 +206,14 @@ export enum SmartLiveRoomBaseInfoRoomStateEnum {
     ENABLE = 'ENABLE',
     DISABLE = 'DISABLE',
     BLOCKED = 'BLOCKED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SmartLiveRoomBaseInfoViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
 }
 /**
     * @export

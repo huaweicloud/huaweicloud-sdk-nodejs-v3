@@ -1,10 +1,10 @@
-import { BatchAddPermissionRequest } from './BatchAddPermissionRequest';
+import { BatchAddEndpointServicePermissionsRequestBody } from './BatchAddEndpointServicePermissionsRequestBody';
 
 
 export class BatchAddEndpointServicePermissionsRequest {
     private 'Content-Type'?: string;
     private 'vpc_endpoint_service_id'?: string;
-    public body?: BatchAddPermissionRequest;
+    public body?: BatchAddEndpointServicePermissionsRequestBody;
     public constructor(vpcEndpointServiceId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
@@ -28,7 +28,7 @@ export class BatchAddEndpointServicePermissionsRequest {
     public get vpcEndpointServiceId(): string | undefined {
         return this['vpc_endpoint_service_id'];
     }
-    public withBody(body: BatchAddPermissionRequest): BatchAddEndpointServicePermissionsRequest {
+    public withBody(body: BatchAddEndpointServicePermissionsRequestBody): BatchAddEndpointServicePermissionsRequest {
         this['body'] = body;
         return this;
     }

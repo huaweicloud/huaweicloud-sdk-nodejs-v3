@@ -1,10 +1,10 @@
-import { BatchRemovePermissionRequest } from './BatchRemovePermissionRequest';
+import { BatchRemoveEndpointServicePermissionsRequestBody } from './BatchRemoveEndpointServicePermissionsRequestBody';
 
 
 export class BatchRemoveEndpointServicePermissionsRequest {
     private 'Content-Type'?: string;
     private 'vpc_endpoint_service_id'?: string;
-    public body?: BatchRemovePermissionRequest;
+    public body?: BatchRemoveEndpointServicePermissionsRequestBody;
     public constructor(vpcEndpointServiceId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
@@ -28,7 +28,7 @@ export class BatchRemoveEndpointServicePermissionsRequest {
     public get vpcEndpointServiceId(): string | undefined {
         return this['vpc_endpoint_service_id'];
     }
-    public withBody(body: BatchRemovePermissionRequest): BatchRemoveEndpointServicePermissionsRequest {
+    public withBody(body: BatchRemoveEndpointServicePermissionsRequestBody): BatchRemoveEndpointServicePermissionsRequest {
         this['body'] = body;
         return this;
     }

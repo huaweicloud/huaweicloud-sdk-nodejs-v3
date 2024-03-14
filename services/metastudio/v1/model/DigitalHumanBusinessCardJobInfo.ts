@@ -111,7 +111,8 @@ export enum DigitalHumanBusinessCardJobInfoStateEnum {
     PROCESSING = 'PROCESSING',
     SUCCEED = 'SUCCEED',
     FAILED = 'FAILED',
-    CANCELED = 'CANCELED'
+    CANCELED = 'CANCELED',
+    BLOCK = 'BLOCK'
 }
 /**
     * @export

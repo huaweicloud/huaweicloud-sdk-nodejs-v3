@@ -2,12 +2,14 @@ import { AlarmNotifyConfig } from './AlarmNotifyConfig';
 import { CompareResultInfo } from './CompareResultInfo';
 import { ConnectionManagement } from './ConnectionManagement';
 import { DbParamInfo } from './DbParamInfo';
+import { FailedToBindEipChildInfo } from './FailedToBindEipChildInfo';
 import { JobBaseInfo } from './JobBaseInfo';
 import { JobEndpointInfo } from './JobEndpointInfo';
 import { JobNodeInfo } from './JobNodeInfo';
 import { JobProgressInfo } from './JobProgressInfo';
 import { PeriodOrderInfo } from './PeriodOrderInfo';
 import { PolicyConfig } from './PolicyConfig';
+import { PublicIpConfig } from './PublicIpConfig';
 import { QueryMetricResult } from './QueryMetricResult';
 import { QueryMigrationObjectProgressInfo } from './QueryMigrationObjectProgressInfo';
 import { QueryNetworkResult } from './QueryNetworkResult';
@@ -47,6 +49,9 @@ export class JobDetailResp {
     private 'instance_features'?: { [key: string]: string; };
     private 'task_version'?: string;
     private 'connection_management'?: ConnectionManagement;
+    private 'public_ip_list'?: Array<PublicIpConfig>;
+    private 'bind_public_ip_state'?: string;
+    public children?: Array<FailedToBindEipChildInfo>;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -294,5 +299,29 @@ export class JobDetailResp {
     }
     public get connectionManagement(): ConnectionManagement | undefined {
         return this['connection_management'];
+    }
+    public withPublicIpList(publicIpList: Array<PublicIpConfig>): JobDetailResp {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: Array<PublicIpConfig>  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): Array<PublicIpConfig> | undefined {
+        return this['public_ip_list'];
+    }
+    public withBindPublicIpState(bindPublicIpState: string): JobDetailResp {
+        this['bind_public_ip_state'] = bindPublicIpState;
+        return this;
+    }
+    public set bindPublicIpState(bindPublicIpState: string  | undefined) {
+        this['bind_public_ip_state'] = bindPublicIpState;
+    }
+    public get bindPublicIpState(): string | undefined {
+        return this['bind_public_ip_state'];
+    }
+    public withChildren(children: Array<FailedToBindEipChildInfo>): JobDetailResp {
+        this['children'] = children;
+        return this;
     }
 }

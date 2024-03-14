@@ -3,8 +3,8 @@
 export class PermissionObject {
     public id?: string;
     public permission?: string;
-    private 'permission_type'?: PermissionObjectPermissionTypeEnum | string;
-    private 'created_at'?: string;
+    private 'permission_type'?: string;
+    private 'created_at'?: Date;
     public constructor() { 
     }
     public withId(id: string): PermissionObject {
@@ -15,33 +15,24 @@ export class PermissionObject {
         this['permission'] = permission;
         return this;
     }
-    public withPermissionType(permissionType: PermissionObjectPermissionTypeEnum | string): PermissionObject {
+    public withPermissionType(permissionType: string): PermissionObject {
         this['permission_type'] = permissionType;
         return this;
     }
-    public set permissionType(permissionType: PermissionObjectPermissionTypeEnum | string  | undefined) {
+    public set permissionType(permissionType: string  | undefined) {
         this['permission_type'] = permissionType;
     }
-    public get permissionType(): PermissionObjectPermissionTypeEnum | string | undefined {
+    public get permissionType(): string | undefined {
         return this['permission_type'];
     }
-    public withCreatedAt(createdAt: string): PermissionObject {
+    public withCreatedAt(createdAt: Date): PermissionObject {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PermissionObjectPermissionTypeEnum {
-    DOMAINID = 'domainId',
-    ORGPATH = 'orgPath'
 }

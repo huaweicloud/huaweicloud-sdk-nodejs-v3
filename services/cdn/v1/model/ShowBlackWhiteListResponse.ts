@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowBlackWhiteListResponse extends SdkResponse {
     public type?: number;
     private 'ip_list'?: Array<string>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -20,5 +21,15 @@ export class ShowBlackWhiteListResponse extends SdkResponse {
     }
     public get ipList(): Array<string> | undefined {
         return this['ip_list'];
+    }
+    public withXRequestId(xRequestId: string): ShowBlackWhiteListResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

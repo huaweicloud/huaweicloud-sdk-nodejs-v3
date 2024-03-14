@@ -9,16 +9,16 @@ export class ServiceList {
     private 'server_type'?: string;
     private 'vpc_id'?: string;
     private 'approval_enabled'?: boolean;
-    public status?: ServiceListStatusEnum | string;
-    private 'service_type'?: ServiceListServiceTypeEnum | string;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
+    public status?: string;
+    private 'service_type'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'project_id'?: string;
     private 'domain_id'?: string;
     public ports?: Array<PortList>;
     public tags?: Array<TagList>;
     private 'connection_count'?: number;
-    private 'tcp_proxy'?: ServiceListTcpProxyEnum | string;
+    private 'tcp_proxy'?: string;
     public error?: Array<Error>;
     public description?: string;
     private 'public_border_group'?: string;
@@ -79,38 +79,38 @@ export class ServiceList {
     public get approvalEnabled(): boolean | undefined {
         return this['approval_enabled'];
     }
-    public withStatus(status: ServiceListStatusEnum | string): ServiceList {
+    public withStatus(status: string): ServiceList {
         this['status'] = status;
         return this;
     }
-    public withServiceType(serviceType: ServiceListServiceTypeEnum | string): ServiceList {
+    public withServiceType(serviceType: string): ServiceList {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ServiceListServiceTypeEnum | string  | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType(): ServiceListServiceTypeEnum | string | undefined {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withCreatedAt(createdAt: string): ServiceList {
+    public withCreatedAt(createdAt: Date): ServiceList {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withUpdatedAt(updatedAt: string): ServiceList {
+    public withUpdatedAt(updatedAt: Date): ServiceList {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string  | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt(): string | undefined {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): ServiceList {
@@ -151,14 +151,14 @@ export class ServiceList {
     public get connectionCount(): number | undefined {
         return this['connection_count'];
     }
-    public withTcpProxy(tcpProxy: ServiceListTcpProxyEnum | string): ServiceList {
+    public withTcpProxy(tcpProxy: string): ServiceList {
         this['tcp_proxy'] = tcpProxy;
         return this;
     }
-    public set tcpProxy(tcpProxy: ServiceListTcpProxyEnum | string  | undefined) {
+    public set tcpProxy(tcpProxy: string  | undefined) {
         this['tcp_proxy'] = tcpProxy;
     }
-    public get tcpProxy(): ServiceListTcpProxyEnum | string | undefined {
+    public get tcpProxy(): string | undefined {
         return this['tcp_proxy'];
     }
     public withError(error: Array<Error>): ServiceList {
@@ -189,34 +189,4 @@ export class ServiceList {
     public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ServiceListStatusEnum {
-    CREATING = 'creating',
-    AVAILABLE = 'available',
-    FAILED = 'failed'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ServiceListServiceTypeEnum {
-    VM = 'VM',
-    VIP = 'VIP',
-    LB = 'LB'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ServiceListTcpProxyEnum {
-    CLOSE = 'close',
-    TOA_OPEN = 'toa_open',
-    PROXY_OPEN = 'proxy_open',
-    OPEN = 'open',
-    PROXY_VNI = 'proxy_vni'
 }

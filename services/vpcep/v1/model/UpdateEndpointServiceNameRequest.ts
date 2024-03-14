@@ -1,9 +1,9 @@
-import { UpdateEndpointServiceNameMode } from './UpdateEndpointServiceNameMode';
+import { UpdateEndpointServiceNameRequestBody } from './UpdateEndpointServiceNameRequestBody';
 
 
 export class UpdateEndpointServiceNameRequest {
     private 'vpc_endpoint_service_id'?: string;
-    public body?: UpdateEndpointServiceNameMode;
+    public body?: UpdateEndpointServiceNameRequestBody;
     public constructor(vpcEndpointServiceId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
@@ -17,7 +17,7 @@ export class UpdateEndpointServiceNameRequest {
     public get vpcEndpointServiceId(): string | undefined {
         return this['vpc_endpoint_service_id'];
     }
-    public withBody(body: UpdateEndpointServiceNameMode): UpdateEndpointServiceNameRequest {
+    public withBody(body: UpdateEndpointServiceNameRequestBody): UpdateEndpointServiceNameRequest {
         this['body'] = body;
         return this;
     }

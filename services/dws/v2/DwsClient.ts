@@ -60,6 +60,7 @@ import { ClusterDisasterRecovery } from './model/ClusterDisasterRecovery';
 import { ClusterElbInfo } from './model/ClusterElbInfo';
 import { ClusterFlavorResp } from './model/ClusterFlavorResp';
 import { ClusterInfo } from './model/ClusterInfo';
+import { ClusterMetric } from './model/ClusterMetric';
 import { ClusterNodeInfo } from './model/ClusterNodeInfo';
 import { ClusterRecoveryProgress } from './model/ClusterRecoveryProgress';
 import { ClusterRing } from './model/ClusterRing';
@@ -267,6 +268,10 @@ import { ListLogicalClustersRequest } from './model/ListLogicalClustersRequest';
 import { ListLogicalClustersResponse } from './model/ListLogicalClustersResponse';
 import { ListLtsLogsRequest } from './model/ListLtsLogsRequest';
 import { ListLtsLogsResponse } from './model/ListLtsLogsResponse';
+import { ListMetricsDataRequest } from './model/ListMetricsDataRequest';
+import { ListMetricsDataResponse } from './model/ListMetricsDataResponse';
+import { ListMetricsRequest } from './model/ListMetricsRequest';
+import { ListMetricsResponse } from './model/ListMetricsResponse';
 import { ListMonitorIndicatorDataRequest } from './model/ListMonitorIndicatorDataRequest';
 import { ListMonitorIndicatorDataResponse } from './model/ListMonitorIndicatorDataResponse';
 import { ListMonitorIndicatorsRequest } from './model/ListMonitorIndicatorsRequest';
@@ -417,6 +422,7 @@ import { ShowWorkloadQueueRequest } from './model/ShowWorkloadQueueRequest';
 import { ShowWorkloadQueueResponse } from './model/ShowWorkloadQueueResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
+import { SimpleFieldDto } from './model/SimpleFieldDto';
 import { Snapshot } from './model/Snapshot';
 import { SnapshotDetail } from './model/SnapshotDetail';
 import { SnapshotRegion } from './model/SnapshotRegion';
@@ -2287,6 +2293,55 @@ export class DwsClient {
      */
     public listLtsLogs(listLtsLogsRequest?: ListLtsLogsRequest): Promise<ListLtsLogsResponse> {
         const options = ParamCreater().listLtsLogs(listLtsLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群使用指标列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群使用指标列表
+     * @param {string} clusterId 集群ID
+     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset&gt;&#x3D;0。
+     * @param {number} limit 每页显示的条目数量，最大1000。
+     * @param {string} [orderBy] 排序字段。固定取值。 create_time：创建时间。
+     * @param {string} [sortBy] 正序还是倒叙。固定取值。 asc：正序。 desc：倒序。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMetrics(listMetricsRequest?: ListMetricsRequest): Promise<ListMetricsResponse> {
+        const options = ParamCreater().listMetrics(listMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定指标相关采集数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定指标相关采集数据
+     * @param {string} clusterId 集群ID。
+     * @param {string} metricName 指标名称。
+     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset&gt;&#x3D;0。
+     * @param {number} limit 每页显示的条目数量，最大1000。
+     * @param {number} from 采集开始时间，13位时间戳。
+     * @param {number} to 采集结束时间，13位时间戳。开始时间到结束时间最多不超过一天。
+     * @param {string} [orderBy] 排序字段。固定取值。 ctime：采集时间。
+     * @param {string} [sortBy] 正序还是倒叙。固定取值。 asc：正序。 desc：倒序。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMetricsData(listMetricsDataRequest?: ListMetricsDataRequest): Promise<ListMetricsDataResponse> {
+        const options = ParamCreater().listMetricsData(listMetricsDataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7688,6 +7743,177 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群使用指标列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMetrics(listMetricsRequest?: ListMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/dms/metrics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let sortBy;
+
+            if (listMetricsRequest !== null && listMetricsRequest !== undefined) {
+                if (listMetricsRequest instanceof ListMetricsRequest) {
+                    clusterId = listMetricsRequest.clusterId;
+                    offset = listMetricsRequest.offset;
+                    limit = listMetricsRequest.limit;
+                    orderBy = listMetricsRequest.orderBy;
+                    sortBy = listMetricsRequest.sortBy;
+                } else {
+                    clusterId = listMetricsRequest['cluster_id'];
+                    offset = listMetricsRequest['offset'];
+                    limit = listMetricsRequest['limit'];
+                    orderBy = listMetricsRequest['order_by'];
+                    sortBy = listMetricsRequest['sort_by'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listMetrics.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listMetrics.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listMetrics.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sortBy !== null && sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定指标相关采集数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMetricsData(listMetricsDataRequest?: ListMetricsDataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/dms/metrics/{metric_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let metricName;
+            
+            let offset;
+            
+            let limit;
+            
+            let from;
+            
+            let to;
+            
+            let orderBy;
+            
+            let sortBy;
+
+            if (listMetricsDataRequest !== null && listMetricsDataRequest !== undefined) {
+                if (listMetricsDataRequest instanceof ListMetricsDataRequest) {
+                    clusterId = listMetricsDataRequest.clusterId;
+                    metricName = listMetricsDataRequest.metricName;
+                    offset = listMetricsDataRequest.offset;
+                    limit = listMetricsDataRequest.limit;
+                    from = listMetricsDataRequest.from;
+                    to = listMetricsDataRequest.to;
+                    orderBy = listMetricsDataRequest.orderBy;
+                    sortBy = listMetricsDataRequest.sortBy;
+                } else {
+                    clusterId = listMetricsDataRequest['cluster_id'];
+                    metricName = listMetricsDataRequest['metric_name'];
+                    offset = listMetricsDataRequest['offset'];
+                    limit = listMetricsDataRequest['limit'];
+                    from = listMetricsDataRequest['from'];
+                    to = listMetricsDataRequest['to'];
+                    orderBy = listMetricsDataRequest['order_by'];
+                    sortBy = listMetricsDataRequest['sort_by'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listMetricsData.');
+            }
+            if (metricName === null || metricName === undefined) {
+            throw new RequiredError('metricName','Required parameter metricName was null or undefined when calling listMetricsData.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listMetricsData.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listMetricsData.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (from === null || from === undefined) {
+                throw new RequiredError('from','Required parameter from was null or undefined when calling listMetricsData.');
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to === null || to === undefined) {
+                throw new RequiredError('to','Required parameter to was null or undefined when calling listMetricsData.');
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sortBy !== null && sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'metric_name': metricName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

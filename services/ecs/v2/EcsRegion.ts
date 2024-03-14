@@ -31,6 +31,7 @@ export class EcsRegion {
     public static EU_WEST_101 = new Region("eu-west-101", ["https://ecs.eu-west-101.myhuaweicloud.eu"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://ecs.cn-east-5.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://ecs.eu-west-0.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://ecs.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +59,8 @@ export class EcsRegion {
         "ae-ad-1":EcsRegion.AE_AD_1,
         "eu-west-101":EcsRegion.EU_WEST_101,
         "cn-east-5":EcsRegion.CN_EAST_5,
-        "eu-west-0":EcsRegion.EU_WEST_0
+        "eu-west-0":EcsRegion.EU_WEST_0,
+        "my-kualalumpur-1":EcsRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {
