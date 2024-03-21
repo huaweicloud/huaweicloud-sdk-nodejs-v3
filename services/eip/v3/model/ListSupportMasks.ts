@@ -2,7 +2,7 @@
 
 export class ListSupportMasks {
     public id?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: ListSupportMasksIpVersionEnum | number;
     public mask?: number;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
@@ -12,14 +12,14 @@ export class ListSupportMasks {
         this['id'] = id;
         return this;
     }
-    public withIpVersion(ipVersion: number): ListSupportMasks {
+    public withIpVersion(ipVersion: ListSupportMasksIpVersionEnum | number): ListSupportMasks {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: ListSupportMasksIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): ListSupportMasksIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withMask(mask: number): ListSupportMasks {
@@ -46,4 +46,13 @@ export class ListSupportMasks {
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListSupportMasksIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
 }

@@ -1,9 +1,10 @@
+import { ElasticResourcePoolScaleRecord } from './ElasticResourcePoolScaleRecord';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListElasticResourcePoolScaleRecordsResponse extends SdkResponse {
     public count?: number;
-    public items?: Array<Array<object>>;
+    public items?: Array<ElasticResourcePoolScaleRecord>;
     private 'X-Auth-Token'?: string;
     public constructor() { 
         super();
@@ -12,7 +13,7 @@ export class ListElasticResourcePoolScaleRecordsResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withItems(items: Array<Array<object>>): ListElasticResourcePoolScaleRecordsResponse {
+    public withItems(items: Array<ElasticResourcePoolScaleRecord>): ListElasticResourcePoolScaleRecordsResponse {
         this['items'] = items;
         return this;
     }

@@ -1,4 +1,4 @@
-import { AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags } from './AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags';
+import { CreateGlobalEipRequestBodyGlobalEipTags } from './CreateGlobalEipRequestBodyGlobalEipTags';
 
 
 export class CreateGlobalEipSegmentRequestBodyGlobalEipSegmentInternetBandwidth {
@@ -7,7 +7,7 @@ export class CreateGlobalEipSegmentRequestBodyGlobalEipSegmentInternetBandwidth 
     private 'charge_mode'?: string;
     public size?: number;
     public name?: string;
-    public tags?: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>;
+    public tags?: Array<CreateGlobalEipRequestBodyGlobalEipTags>;
     public type?: string;
     public constructor() { 
     }
@@ -43,7 +43,7 @@ export class CreateGlobalEipSegmentRequestBodyGlobalEipSegmentInternetBandwidth 
         this['name'] = name;
         return this;
     }
-    public withTags(tags: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>): CreateGlobalEipSegmentRequestBodyGlobalEipSegmentInternetBandwidth {
+    public withTags(tags: Array<CreateGlobalEipRequestBodyGlobalEipTags>): CreateGlobalEipSegmentRequestBodyGlobalEipSegmentInternetBandwidth {
         this['tags'] = tags;
         return this;
     }

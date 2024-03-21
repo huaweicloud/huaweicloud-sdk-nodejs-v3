@@ -12,6 +12,9 @@ export class EventProcessResponseInfo {
     private 'process_gid'?: number;
     private 'process_egid'?: number;
     private 'process_euid'?: number;
+    private 'ancestor_process_path'?: string;
+    private 'ancestor_process_pid'?: number;
+    private 'ancestor_process_cmdline'?: string;
     private 'parent_process_name'?: string;
     private 'parent_process_path'?: string;
     private 'parent_process_pid'?: number;
@@ -148,6 +151,36 @@ export class EventProcessResponseInfo {
     }
     public get processEuid(): number | undefined {
         return this['process_euid'];
+    }
+    public withAncestorProcessPath(ancestorProcessPath: string): EventProcessResponseInfo {
+        this['ancestor_process_path'] = ancestorProcessPath;
+        return this;
+    }
+    public set ancestorProcessPath(ancestorProcessPath: string  | undefined) {
+        this['ancestor_process_path'] = ancestorProcessPath;
+    }
+    public get ancestorProcessPath(): string | undefined {
+        return this['ancestor_process_path'];
+    }
+    public withAncestorProcessPid(ancestorProcessPid: number): EventProcessResponseInfo {
+        this['ancestor_process_pid'] = ancestorProcessPid;
+        return this;
+    }
+    public set ancestorProcessPid(ancestorProcessPid: number  | undefined) {
+        this['ancestor_process_pid'] = ancestorProcessPid;
+    }
+    public get ancestorProcessPid(): number | undefined {
+        return this['ancestor_process_pid'];
+    }
+    public withAncestorProcessCmdline(ancestorProcessCmdline: string): EventProcessResponseInfo {
+        this['ancestor_process_cmdline'] = ancestorProcessCmdline;
+        return this;
+    }
+    public set ancestorProcessCmdline(ancestorProcessCmdline: string  | undefined) {
+        this['ancestor_process_cmdline'] = ancestorProcessCmdline;
+    }
+    public get ancestorProcessCmdline(): string | undefined {
+        return this['ancestor_process_cmdline'];
     }
     public withParentProcessName(parentProcessName: string): EventProcessResponseInfo {
         this['parent_process_name'] = parentProcessName;

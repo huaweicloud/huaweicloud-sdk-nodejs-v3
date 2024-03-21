@@ -4,8 +4,10 @@ export class ListDependencyVersionRequest {
     private 'depend_id'?: string;
     public marker?: string;
     public maxitems?: string;
-    public constructor(dependId?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(dependId?: string, contentType?: string) { 
         this['depend_id'] = dependId;
+        this['Content-Type'] = contentType;
     }
     public withDependId(dependId: string): ListDependencyVersionRequest {
         this['depend_id'] = dependId;
@@ -24,5 +26,15 @@ export class ListDependencyVersionRequest {
     public withMaxitems(maxitems: string): ListDependencyVersionRequest {
         this['maxitems'] = maxitems;
         return this;
+    }
+    public withContentType(contentType: string): ListDependencyVersionRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

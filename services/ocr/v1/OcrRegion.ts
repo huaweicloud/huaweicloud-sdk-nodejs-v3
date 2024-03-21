@@ -15,6 +15,7 @@ export class OcrRegion {
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://ocr.ap-southeast-3.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://ocr.la-south-2.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://ocr.af-south-1.myhuaweicloud.com"]);
+    public static LA_NORTH_2 = new Region("la-north-2", ["https://ocr.la-north-2.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -26,7 +27,8 @@ export class OcrRegion {
         "ap-southeast-1":OcrRegion.AP_SOUTHEAST_1,
         "ap-southeast-3":OcrRegion.AP_SOUTHEAST_3,
         "la-south-2":OcrRegion.LA_SOUTH_2,
-        "af-south-1":OcrRegion.AF_SOUTH_1
+        "af-south-1":OcrRegion.AF_SOUTH_1,
+        "la-north-2":OcrRegion.LA_NORTH_2
     };
   
     public static valueOf(regionId: string) {

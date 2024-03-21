@@ -6,7 +6,9 @@ export class ListAppTemplatesRequest {
     public runtime?: string;
     public category?: string;
     private 'X-Language'?: string;
-    public constructor() { 
+    private 'Content-Type'?: string;
+    public constructor(contentType?: string) { 
+        this['Content-Type'] = contentType;
     }
     public withMarker(marker: string): ListAppTemplatesRequest {
         this['marker'] = marker;
@@ -33,5 +35,15 @@ export class ListAppTemplatesRequest {
     }
     public get xLanguage(): string | undefined {
         return this['X-Language'];
+    }
+    public withContentType(contentType: string): ListAppTemplatesRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

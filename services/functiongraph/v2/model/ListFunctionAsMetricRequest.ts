@@ -5,7 +5,9 @@ export class ListFunctionAsMetricRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     public limit?: string;
-    public constructor() { 
+    private 'Content-Type'?: string;
+    public constructor(contentType?: string) { 
+        this['Content-Type'] = contentType;
     }
     public withType(type: string): ListFunctionAsMetricRequest {
         this['type'] = type;
@@ -34,5 +36,15 @@ export class ListFunctionAsMetricRequest {
     public withLimit(limit: string): ListFunctionAsMetricRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withContentType(contentType: string): ListFunctionAsMetricRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

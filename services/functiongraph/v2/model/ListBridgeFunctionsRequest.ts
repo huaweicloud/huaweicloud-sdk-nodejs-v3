@@ -3,8 +3,10 @@
 export class ListBridgeFunctionsRequest {
     private 'function_urn'?: string;
     public type?: string;
-    public constructor(functionUrn?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ListBridgeFunctionsRequest {
         this['function_urn'] = functionUrn;
@@ -19,5 +21,15 @@ export class ListBridgeFunctionsRequest {
     public withType(type: string): ListBridgeFunctionsRequest {
         this['type'] = type;
         return this;
+    }
+    public withContentType(contentType: string): ListBridgeFunctionsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

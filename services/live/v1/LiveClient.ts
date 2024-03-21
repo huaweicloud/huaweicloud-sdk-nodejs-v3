@@ -11,6 +11,10 @@ import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
+import { CreateOttChannelInfoReq } from './model/CreateOttChannelInfoReq';
+import { CreateOttChannelInfoReqRecordSettings } from './model/CreateOttChannelInfoReqRecordSettings';
+import { CreateOttChannelInfoRequest } from './model/CreateOttChannelInfoRequest';
+import { CreateOttChannelInfoResponse } from './model/CreateOttChannelInfoResponse';
 import { CreateRecordCallbackConfigRequest } from './model/CreateRecordCallbackConfigRequest';
 import { CreateRecordCallbackConfigResponse } from './model/CreateRecordCallbackConfigResponse';
 import { CreateRecordIndexRequest } from './model/CreateRecordIndexRequest';
@@ -26,6 +30,7 @@ import { CreateTranscodingsTemplateResponse } from './model/CreateTranscodingsTe
 import { CreateUrlAuthchainReq } from './model/CreateUrlAuthchainReq';
 import { CreateUrlAuthchainRequest } from './model/CreateUrlAuthchainRequest';
 import { CreateUrlAuthchainResponse } from './model/CreateUrlAuthchainResponse';
+import { DashPackageItem } from './model/DashPackageItem';
 import { DecoupledLiveDomainInfo } from './model/DecoupledLiveDomainInfo';
 import { DefaultRecordConfig } from './model/DefaultRecordConfig';
 import { DelayConfig } from './model/DelayConfig';
@@ -37,6 +42,8 @@ import { DeleteDomainMappingRequest } from './model/DeleteDomainMappingRequest';
 import { DeleteDomainMappingResponse } from './model/DeleteDomainMappingResponse';
 import { DeleteDomainRequest } from './model/DeleteDomainRequest';
 import { DeleteDomainResponse } from './model/DeleteDomainResponse';
+import { DeleteOttChannelInfoRequest } from './model/DeleteOttChannelInfoRequest';
+import { DeleteOttChannelInfoResponse } from './model/DeleteOttChannelInfoResponse';
 import { DeletePublishTemplateRequest } from './model/DeletePublishTemplateRequest';
 import { DeletePublishTemplateResponse } from './model/DeletePublishTemplateResponse';
 import { DeleteRecordCallbackConfigRequest } from './model/DeleteRecordCallbackConfigRequest';
@@ -52,10 +59,15 @@ import { DeleteTranscodingsTemplateResponse } from './model/DeleteTranscodingsTe
 import { DomainHttpsCertInfo } from './model/DomainHttpsCertInfo';
 import { DomainIpv6SwitchReq } from './model/DomainIpv6SwitchReq';
 import { DomainMapping } from './model/DomainMapping';
+import { Encryption } from './model/Encryption';
+import { EndpointItem } from './model/EndpointItem';
 import { FLVRecordConfig } from './model/FLVRecordConfig';
+import { FailoverConditions } from './model/FailoverConditions';
 import { GeoBlockingConfigInfo } from './model/GeoBlockingConfigInfo';
 import { HLSRecordConfig } from './model/HLSRecordConfig';
+import { HlsPackageItem } from './model/HlsPackageItem';
 import { IPAuthInfo } from './model/IPAuthInfo';
+import { InputStreamInfo } from './model/InputStreamInfo';
 import { KeyChainInfo } from './model/KeyChainInfo';
 import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
 import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
@@ -67,6 +79,8 @@ import { ListLiveSampleLogsRequest } from './model/ListLiveSampleLogsRequest';
 import { ListLiveSampleLogsResponse } from './model/ListLiveSampleLogsResponse';
 import { ListLiveStreamsOnlineRequest } from './model/ListLiveStreamsOnlineRequest';
 import { ListLiveStreamsOnlineResponse } from './model/ListLiveStreamsOnlineResponse';
+import { ListOttChannelInfoRequest } from './model/ListOttChannelInfoRequest';
+import { ListOttChannelInfoResponse } from './model/ListOttChannelInfoResponse';
 import { ListPublishTemplateRequest } from './model/ListPublishTemplateRequest';
 import { ListPublishTemplateResponse } from './model/ListPublishTemplateResponse';
 import { ListRecordCallbackConfigsRequest } from './model/ListRecordCallbackConfigsRequest';
@@ -81,14 +95,37 @@ import { ListStreamForbiddenRequest } from './model/ListStreamForbiddenRequest';
 import { ListStreamForbiddenResponse } from './model/ListStreamForbiddenResponse';
 import { LiveDomainCreateReq } from './model/LiveDomainCreateReq';
 import { LiveDomainModifyReq } from './model/LiveDomainModifyReq';
+import { LiveRequestArgs } from './model/LiveRequestArgs';
 import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyOttChannelEncoderSettings } from './model/ModifyOttChannelEncoderSettings';
+import { ModifyOttChannelEncoderSettingsEncoderSettings } from './model/ModifyOttChannelEncoderSettingsEncoderSettings';
+import { ModifyOttChannelEndPointsReq } from './model/ModifyOttChannelEndPointsReq';
+import { ModifyOttChannelGeneral } from './model/ModifyOttChannelGeneral';
+import { ModifyOttChannelInfoEncoderSettingsRequest } from './model/ModifyOttChannelInfoEncoderSettingsRequest';
+import { ModifyOttChannelInfoEncoderSettingsResponse } from './model/ModifyOttChannelInfoEncoderSettingsResponse';
+import { ModifyOttChannelInfoEndPointsRequest } from './model/ModifyOttChannelInfoEndPointsRequest';
+import { ModifyOttChannelInfoEndPointsResponse } from './model/ModifyOttChannelInfoEndPointsResponse';
+import { ModifyOttChannelInfoGeneralRequest } from './model/ModifyOttChannelInfoGeneralRequest';
+import { ModifyOttChannelInfoGeneralResponse } from './model/ModifyOttChannelInfoGeneralResponse';
+import { ModifyOttChannelInfoInputRequest } from './model/ModifyOttChannelInfoInputRequest';
+import { ModifyOttChannelInfoInputResponse } from './model/ModifyOttChannelInfoInputResponse';
+import { ModifyOttChannelInfoRecordSettingsRequest } from './model/ModifyOttChannelInfoRecordSettingsRequest';
+import { ModifyOttChannelInfoRecordSettingsResponse } from './model/ModifyOttChannelInfoRecordSettingsResponse';
+import { ModifyOttChannelInfoStatsRequest } from './model/ModifyOttChannelInfoStatsRequest';
+import { ModifyOttChannelInfoStatsResponse } from './model/ModifyOttChannelInfoStatsResponse';
+import { ModifyOttChannelInputReq } from './model/ModifyOttChannelInputReq';
+import { ModifyOttChannelRecordSettings } from './model/ModifyOttChannelRecordSettings';
+import { ModifyOttChannelRecordSettingsRecordSettings } from './model/ModifyOttChannelRecordSettingsRecordSettings';
+import { ModifyOttChannelState } from './model/ModifyOttChannelState';
 import { ModifyPullSourcesConfig } from './model/ModifyPullSourcesConfig';
+import { MssPackageItem } from './model/MssPackageItem';
 import { ObsAuthorityConfigV2 } from './model/ObsAuthorityConfigV2';
 import { ObsFileAddr } from './model/ObsFileAddr';
 import { OnlineInfo } from './model/OnlineInfo';
+import { PackageRequestArgs } from './model/PackageRequestArgs';
 import { QualityInfo } from './model/QualityInfo';
 import { RecordCallbackConfig } from './model/RecordCallbackConfig';
 import { RecordCallbackConfigRequest } from './model/RecordCallbackConfigRequest';
@@ -96,10 +133,12 @@ import { RecordContentInfoV2 } from './model/RecordContentInfoV2';
 import { RecordControlInfo } from './model/RecordControlInfo';
 import { RecordIndexRequestBody } from './model/RecordIndexRequestBody';
 import { RecordObsFileAddr } from './model/RecordObsFileAddr';
+import { RecordRequestArgs } from './model/RecordRequestArgs';
 import { RecordRule } from './model/RecordRule';
 import { RecordRuleRequest } from './model/RecordRuleRequest';
 import { RunRecordRequest } from './model/RunRecordRequest';
 import { RunRecordResponse } from './model/RunRecordResponse';
+import { SecondarySourcesInfo } from './model/SecondarySourcesInfo';
 import { ShowDomainHttpsCertRequest } from './model/ShowDomainHttpsCertRequest';
 import { ShowDomainHttpsCertResponse } from './model/ShowDomainHttpsCertResponse';
 import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
@@ -114,9 +153,13 @@ import { ShowRecordRuleRequest } from './model/ShowRecordRuleRequest';
 import { ShowRecordRuleResponse } from './model/ShowRecordRuleResponse';
 import { ShowTranscodingsTemplateRequest } from './model/ShowTranscodingsTemplateRequest';
 import { ShowTranscodingsTemplateResponse } from './model/ShowTranscodingsTemplateResponse';
+import { SourceRsp } from './model/SourceRsp';
+import { SourcesInfo } from './model/SourcesInfo';
 import { StreamForbiddenList } from './model/StreamForbiddenList';
 import { StreamForbiddenSetting } from './model/StreamForbiddenSetting';
+import { StreamSelectionItem } from './model/StreamSelectionItem';
 import { StreamTranscodingTemplate } from './model/StreamTranscodingTemplate';
+import { TimeshiftRequestArgs } from './model/TimeshiftRequestArgs';
 import { UpdateDelayConfigRequest } from './model/UpdateDelayConfigRequest';
 import { UpdateDelayConfigResponse } from './model/UpdateDelayConfigResponse';
 import { UpdateDomainHttpsCertRequest } from './model/UpdateDomainHttpsCertRequest';
@@ -1234,6 +1277,201 @@ export class LiveClient {
      */
     public updateObsBucketAuthorityPublic(updateObsBucketAuthorityPublicRequest?: UpdateObsBucketAuthorityPublicRequest): Promise<UpdateObsBucketAuthorityPublicResponse> {
         const options = ParamCreater().updateObsBucketAuthorityPublic(updateObsBucketAuthorityPublicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建频道接口，支持创建OTT频道。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建OTT频道
+     * @param {CreateOttChannelInfoReq} createOttChannelInfoRequestBody DemoInfo object that needs to be created
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOttChannelInfo(createOttChannelInfoRequest?: CreateOttChannelInfoRequest): Promise<CreateOttChannelInfoResponse> {
+        const options = ParamCreater().createOttChannelInfo(createOttChannelInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除频道信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除频道信息
+     * @param {string} domain 推流域名
+     * @param {string} appName 组名或应用名
+     * @param {string} id 频道ID
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOttChannelInfo(deleteOttChannelInfoRequest?: DeleteOttChannelInfoRequest): Promise<DeleteOttChannelInfoResponse> {
+        const options = ParamCreater().deleteOttChannelInfo(deleteOttChannelInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询频道信息，支持批量查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询频道信息
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {string} [domain] 推流域名
+     * @param {string} [appName] 组名或应用名
+     * @param {string} [id] 频道ID
+     * @param {number} [limit] 每页记录数，取值范围[1,100]，默认值10
+     * @param {number} [offset] 偏移量。表示从此偏移量开始查询，offset大于等于0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOttChannelInfo(listOttChannelInfoRequest?: ListOttChannelInfoRequest): Promise<ListOttChannelInfoResponse> {
+        const options = ParamCreater().listOttChannelInfo(listOttChannelInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道转码模板信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道转码模板信息
+     * @param {ModifyOttChannelEncoderSettings} modifyOttChannelInfoEncoderSettingsRequestBody ModifyOttChannelInfoEncoderSettingsRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoEncoderSettings(modifyOttChannelInfoEncoderSettingsRequest?: ModifyOttChannelInfoEncoderSettingsRequest): Promise<ModifyOttChannelInfoEncoderSettingsResponse> {
+        const options = ParamCreater().modifyOttChannelInfoEncoderSettings(modifyOttChannelInfoEncoderSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道打包信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道打包信息
+     * @param {ModifyOttChannelEndPointsReq} modifyOttChannelInfoEndPointsRequestBody ModifyOttChannelInfoEndPointsRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoEndPoints(modifyOttChannelInfoEndPointsRequest?: ModifyOttChannelInfoEndPointsRequest): Promise<ModifyOttChannelInfoEndPointsResponse> {
+        const options = ParamCreater().modifyOttChannelInfoEndPoints(modifyOttChannelInfoEndPointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道通用信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道通用信息
+     * @param {ModifyOttChannelGeneral} modifyOttChannelInfoGeneralRequestBody ModifyOttChannelInfoGeneralRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoGeneral(modifyOttChannelInfoGeneralRequest?: ModifyOttChannelInfoGeneralRequest): Promise<ModifyOttChannelInfoGeneralResponse> {
+        const options = ParamCreater().modifyOttChannelInfoGeneral(modifyOttChannelInfoGeneralRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道入流信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道入流信息
+     * @param {ModifyOttChannelInputReq} modifyOttChannelInfoInputRequestBody ModifyOttChannelInfoInputRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoInput(modifyOttChannelInfoInputRequest?: ModifyOttChannelInfoInputRequest): Promise<ModifyOttChannelInfoInputResponse> {
+        const options = ParamCreater().modifyOttChannelInfoInput(modifyOttChannelInfoInputRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道录制信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道录制信息
+     * @param {ModifyOttChannelRecordSettings} modifyOttChannelInfoRecordSettingsRequestBody ModifyOttChannelInfoRecordSettingsRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoRecordSettings(modifyOttChannelInfoRecordSettingsRequest?: ModifyOttChannelInfoRecordSettingsRequest): Promise<ModifyOttChannelInfoRecordSettingsResponse> {
+        const options = ParamCreater().modifyOttChannelInfoRecordSettings(modifyOttChannelInfoRecordSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改频道状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改频道状态
+     * @param {ModifyOttChannelState} modifyOttChannelInfoStatsRequestBody ModifyOttChannelInfoStatsRequestBody
+     * @param {string} [accessControlAllowInternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-Internal访问服务。
+     * @param {string} [accessControlAllowExternal] 服务鉴权Token，服务开启鉴权，必须携带Access-Control-Allow-External访问服务。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyOttChannelInfoStats(modifyOttChannelInfoStatsRequest?: ModifyOttChannelInfoStatsRequest): Promise<ModifyOttChannelInfoStatsResponse> {
+        const options = ParamCreater().modifyOttChannelInfoStats(modifyOttChannelInfoStatsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3677,6 +3915,523 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建频道接口，支持创建OTT频道。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOttChannelInfo(createOttChannelInfoRequest?: CreateOttChannelInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/ott/channels",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (createOttChannelInfoRequest !== null && createOttChannelInfoRequest !== undefined) {
+                if (createOttChannelInfoRequest instanceof CreateOttChannelInfoRequest) {
+                    body = createOttChannelInfoRequest.body
+                    accessControlAllowInternal = createOttChannelInfoRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = createOttChannelInfoRequest.accessControlAllowExternal;
+                } else {
+                    body = createOttChannelInfoRequest['body'];
+                    accessControlAllowInternal = createOttChannelInfoRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = createOttChannelInfoRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除频道信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOttChannelInfo(deleteOttChannelInfoRequest?: DeleteOttChannelInfoRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/ott/channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+            
+            let appName;
+            
+            let id;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (deleteOttChannelInfoRequest !== null && deleteOttChannelInfoRequest !== undefined) {
+                if (deleteOttChannelInfoRequest instanceof DeleteOttChannelInfoRequest) {
+                    domain = deleteOttChannelInfoRequest.domain;
+                    appName = deleteOttChannelInfoRequest.appName;
+                    id = deleteOttChannelInfoRequest.id;
+                    accessControlAllowInternal = deleteOttChannelInfoRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = deleteOttChannelInfoRequest.accessControlAllowExternal;
+                } else {
+                    domain = deleteOttChannelInfoRequest['domain'];
+                    appName = deleteOttChannelInfoRequest['app_name'];
+                    id = deleteOttChannelInfoRequest['id'];
+                    accessControlAllowInternal = deleteOttChannelInfoRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = deleteOttChannelInfoRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling deleteOttChannelInfo.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (appName === null || appName === undefined) {
+                throw new RequiredError('appName','Required parameter appName was null or undefined when calling deleteOttChannelInfo.');
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteOttChannelInfo.');
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询频道信息，支持批量查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOttChannelInfo(listOttChannelInfoRequest?: ListOttChannelInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/ott/channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+            
+            let domain;
+            
+            let appName;
+            
+            let id;
+            
+            let limit;
+            
+            let offset;
+
+            if (listOttChannelInfoRequest !== null && listOttChannelInfoRequest !== undefined) {
+                if (listOttChannelInfoRequest instanceof ListOttChannelInfoRequest) {
+                    accessControlAllowInternal = listOttChannelInfoRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = listOttChannelInfoRequest.accessControlAllowExternal;
+                    domain = listOttChannelInfoRequest.domain;
+                    appName = listOttChannelInfoRequest.appName;
+                    id = listOttChannelInfoRequest.id;
+                    limit = listOttChannelInfoRequest.limit;
+                    offset = listOttChannelInfoRequest.offset;
+                } else {
+                    accessControlAllowInternal = listOttChannelInfoRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = listOttChannelInfoRequest['Access-Control-Allow-External'];
+                    domain = listOttChannelInfoRequest['domain'];
+                    appName = listOttChannelInfoRequest['app_name'];
+                    id = listOttChannelInfoRequest['id'];
+                    limit = listOttChannelInfoRequest['limit'];
+                    offset = listOttChannelInfoRequest['offset'];
+                }
+            }
+
+        
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道转码模板信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoEncoderSettings(modifyOttChannelInfoEncoderSettingsRequest?: ModifyOttChannelInfoEncoderSettingsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/encorder-settings",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoEncoderSettingsRequest !== null && modifyOttChannelInfoEncoderSettingsRequest !== undefined) {
+                if (modifyOttChannelInfoEncoderSettingsRequest instanceof ModifyOttChannelInfoEncoderSettingsRequest) {
+                    body = modifyOttChannelInfoEncoderSettingsRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoEncoderSettingsRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoEncoderSettingsRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoEncoderSettingsRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoEncoderSettingsRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoEncoderSettingsRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道打包信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoEndPoints(modifyOttChannelInfoEndPointsRequest?: ModifyOttChannelInfoEndPointsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/endpoints",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoEndPointsRequest !== null && modifyOttChannelInfoEndPointsRequest !== undefined) {
+                if (modifyOttChannelInfoEndPointsRequest instanceof ModifyOttChannelInfoEndPointsRequest) {
+                    body = modifyOttChannelInfoEndPointsRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoEndPointsRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoEndPointsRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoEndPointsRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoEndPointsRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoEndPointsRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道通用信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoGeneral(modifyOttChannelInfoGeneralRequest?: ModifyOttChannelInfoGeneralRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/general",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoGeneralRequest !== null && modifyOttChannelInfoGeneralRequest !== undefined) {
+                if (modifyOttChannelInfoGeneralRequest instanceof ModifyOttChannelInfoGeneralRequest) {
+                    body = modifyOttChannelInfoGeneralRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoGeneralRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoGeneralRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoGeneralRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoGeneralRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoGeneralRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道入流信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoInput(modifyOttChannelInfoInputRequest?: ModifyOttChannelInfoInputRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/input",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoInputRequest !== null && modifyOttChannelInfoInputRequest !== undefined) {
+                if (modifyOttChannelInfoInputRequest instanceof ModifyOttChannelInfoInputRequest) {
+                    body = modifyOttChannelInfoInputRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoInputRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoInputRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoInputRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoInputRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoInputRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道录制信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoRecordSettings(modifyOttChannelInfoRecordSettingsRequest?: ModifyOttChannelInfoRecordSettingsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/record-settings",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoRecordSettingsRequest !== null && modifyOttChannelInfoRecordSettingsRequest !== undefined) {
+                if (modifyOttChannelInfoRecordSettingsRequest instanceof ModifyOttChannelInfoRecordSettingsRequest) {
+                    body = modifyOttChannelInfoRecordSettingsRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoRecordSettingsRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoRecordSettingsRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoRecordSettingsRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoRecordSettingsRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoRecordSettingsRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改频道状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyOttChannelInfoStats(modifyOttChannelInfoStatsRequest?: ModifyOttChannelInfoStatsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/ott/channels/state",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let accessControlAllowInternal;
+            
+            let accessControlAllowExternal;
+
+            if (modifyOttChannelInfoStatsRequest !== null && modifyOttChannelInfoStatsRequest !== undefined) {
+                if (modifyOttChannelInfoStatsRequest instanceof ModifyOttChannelInfoStatsRequest) {
+                    body = modifyOttChannelInfoStatsRequest.body
+                    accessControlAllowInternal = modifyOttChannelInfoStatsRequest.accessControlAllowInternal;
+                    accessControlAllowExternal = modifyOttChannelInfoStatsRequest.accessControlAllowExternal;
+                } else {
+                    body = modifyOttChannelInfoStatsRequest['body'];
+                    accessControlAllowInternal = modifyOttChannelInfoStatsRequest['Access-Control-Allow-Internal'];
+                    accessControlAllowExternal = modifyOttChannelInfoStatsRequest['Access-Control-Allow-External'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (accessControlAllowInternal !== undefined && accessControlAllowInternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-Internal'] = String(accessControlAllowInternal);
+            }
+            if (accessControlAllowExternal !== undefined && accessControlAllowExternal !== null) {
+                localVarHeaderParameter['Access-Control-Allow-External'] = String(accessControlAllowExternal);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
 

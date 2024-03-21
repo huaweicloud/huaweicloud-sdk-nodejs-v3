@@ -2,6 +2,7 @@ import { CustomImage } from './CustomImage';
 import { FuncCode } from './FuncCode';
 import { FuncLogConfig } from './FuncLogConfig';
 import { FuncVpc } from './FuncVpc';
+import { MountConfig } from './MountConfig';
 import { NetworkControlConfig } from './NetworkControlConfig';
 
 
@@ -20,10 +21,12 @@ export class CreateFunctionRequestBody {
     private 'code_filename'?: string;
     private 'custom_image'?: CustomImage;
     private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
     public xrole?: string;
     private 'app_xrole'?: string;
     public description?: string;
     private 'func_code'?: FuncCode;
+    private 'mount_config'?: MountConfig;
     private 'initializer_handler'?: string;
     private 'initializer_timeout'?: number;
     private 'pre_stop_handler'?: string;
@@ -32,6 +35,8 @@ export class CreateFunctionRequestBody {
     public type?: CreateFunctionRequestBodyTypeEnum | string;
     private 'log_config'?: FuncLogConfig;
     private 'network_controller'?: NetworkControlConfig;
+    private 'is_stateful_function'?: boolean;
+    private 'enable_dynamic_memory'?: boolean;
     public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number, codeType?: string) { 
         this['func_name'] = funcName;
         this['package'] = _package;
@@ -163,6 +168,16 @@ export class CreateFunctionRequestBody {
     public get userData(): string | undefined {
         return this['user_data'];
     }
+    public withEncryptedUserData(encryptedUserData: string): CreateFunctionRequestBody {
+        this['encrypted_user_data'] = encryptedUserData;
+        return this;
+    }
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
+        this['encrypted_user_data'] = encryptedUserData;
+    }
+    public get encryptedUserData(): string | undefined {
+        return this['encrypted_user_data'];
+    }
     public withXrole(xrole: string): CreateFunctionRequestBody {
         this['xrole'] = xrole;
         return this;
@@ -190,6 +205,16 @@ export class CreateFunctionRequestBody {
     }
     public get funcCode(): FuncCode | undefined {
         return this['func_code'];
+    }
+    public withMountConfig(mountConfig: MountConfig): CreateFunctionRequestBody {
+        this['mount_config'] = mountConfig;
+        return this;
+    }
+    public set mountConfig(mountConfig: MountConfig  | undefined) {
+        this['mount_config'] = mountConfig;
+    }
+    public get mountConfig(): MountConfig | undefined {
+        return this['mount_config'];
     }
     public withInitializerHandler(initializerHandler: string): CreateFunctionRequestBody {
         this['initializer_handler'] = initializerHandler;
@@ -264,6 +289,26 @@ export class CreateFunctionRequestBody {
     }
     public get networkController(): NetworkControlConfig | undefined {
         return this['network_controller'];
+    }
+    public withIsStatefulFunction(isStatefulFunction: boolean): CreateFunctionRequestBody {
+        this['is_stateful_function'] = isStatefulFunction;
+        return this;
+    }
+    public set isStatefulFunction(isStatefulFunction: boolean  | undefined) {
+        this['is_stateful_function'] = isStatefulFunction;
+    }
+    public get isStatefulFunction(): boolean | undefined {
+        return this['is_stateful_function'];
+    }
+    public withEnableDynamicMemory(enableDynamicMemory: boolean): CreateFunctionRequestBody {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+        return this;
+    }
+    public set enableDynamicMemory(enableDynamicMemory: boolean  | undefined) {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+    }
+    public get enableDynamicMemory(): boolean | undefined {
+        return this['enable_dynamic_memory'];
     }
 }
 

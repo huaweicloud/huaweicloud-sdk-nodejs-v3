@@ -5,6 +5,7 @@ export class ListPromInstanceRequest {
     private 'prom_type'?: ListPromInstanceRequestPromTypeEnum | string;
     private 'cce_cluster_enable'?: ListPromInstanceRequestCceClusterEnableEnum | string;
     private 'prom_status'?: ListPromInstanceRequestPromStatusEnum | string;
+    private 'Enterprise-Project-Id'?: string;
     public constructor() { 
     }
     public withPromId(promId: string): ListPromInstanceRequest {
@@ -47,6 +48,16 @@ export class ListPromInstanceRequest {
     public get promStatus(): ListPromInstanceRequestPromStatusEnum | string | undefined {
         return this['prom_status'];
     }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListPromInstanceRequest {
+        this['Enterprise-Project-Id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['Enterprise-Project-Id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['Enterprise-Project-Id'];
+    }
 }
 
 /**
@@ -54,7 +65,7 @@ export class ListPromInstanceRequest {
     * @enum {string}
     */
 export enum ListPromInstanceRequestPromTypeEnum {
-    DEFAULT = 'DEFAULT',
+    DEFAULT = 'default',
     ECS = 'ECS',
     VPC = 'VPC',
     CCE = 'CCE',

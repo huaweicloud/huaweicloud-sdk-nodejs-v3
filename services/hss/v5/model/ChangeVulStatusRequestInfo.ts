@@ -12,9 +12,8 @@ export class ChangeVulStatusRequestInfo {
     private 'host_data_list'?: Array<HostVulOperateInfo>;
     private 'backup_info_id'?: string;
     private 'custom_backup_hosts'?: Array<ChangeVulStatusRequestInfoCustomBackupHosts>;
-    public constructor(operateType?: string, dataList?: Array<VulOperateInfo>) { 
+    public constructor(operateType?: string) { 
         this['operate_type'] = operateType;
-        this['data_list'] = dataList;
     }
     public withOperateType(operateType: string): ChangeVulStatusRequestInfo {
         this['operate_type'] = operateType;

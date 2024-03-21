@@ -1009,7 +1009,7 @@ export class CdnClient {
      *
      * @summary 域名归属校验
      * @param {string} domainName 域名
-     * @param {VerifyDomainOwnerRequestBody} [verifyDomainOwnerRequestBody] todo
+     * @param {VerifyDomainOwnerRequestBody} [verifyDomainOwnerRequestBody] 域名归属校验
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

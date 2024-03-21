@@ -13,13 +13,13 @@ export class CreateInstanceRequestBody {
     private 'security_group'?: Array<string>;
     public count?: number;
     private 'res_tenant'?: boolean;
-    public constructor(region?: string, availableZone?: string, arch?: string, instancename?: string, specification?: string, cpuFlavor?: string, vpcId?: string, subnetId?: string, securityGroup?: Array<string>, count?: number) { 
+    private 'anti_affinity'?: boolean;
+    public constructor(region?: string, availableZone?: string, arch?: string, instancename?: string, specification?: string, vpcId?: string, subnetId?: string, securityGroup?: Array<string>, count?: number) { 
         this['region'] = region;
         this['available_zone'] = availableZone;
         this['arch'] = arch;
         this['instancename'] = instancename;
         this['specification'] = specification;
-        this['cpu_flavor'] = cpuFlavor;
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
         this['security_group'] = securityGroup;
@@ -108,5 +108,15 @@ export class CreateInstanceRequestBody {
     }
     public get resTenant(): boolean | undefined {
         return this['res_tenant'];
+    }
+    public withAntiAffinity(antiAffinity: boolean): CreateInstanceRequestBody {
+        this['anti_affinity'] = antiAffinity;
+        return this;
+    }
+    public set antiAffinity(antiAffinity: boolean  | undefined) {
+        this['anti_affinity'] = antiAffinity;
+    }
+    public get antiAffinity(): boolean | undefined {
+        return this['anti_affinity'];
     }
 }

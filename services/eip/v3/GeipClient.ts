@@ -15,7 +15,6 @@ import { AssociateInstanceGlobalEipRequestBody } from './model/AssociateInstance
 import { AssociateInstanceGlobalEipRequestBodyGlobalEip } from './model/AssociateInstanceGlobalEipRequestBodyGlobalEip';
 import { AssociateInstanceGlobalEipRequestBodyGlobalEipAssociateInstanceInfo } from './model/AssociateInstanceGlobalEipRequestBodyGlobalEipAssociateInstanceInfo';
 import { AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo } from './model/AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo';
-import { AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags } from './model/AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags';
 import { AssociateInstanceGlobalEipSegmentRequestBody } from './model/AssociateInstanceGlobalEipSegmentRequestBody';
 import { AssociateInstanceGlobalEipSegmentRequestBodyGlobalEipSegment } from './model/AssociateInstanceGlobalEipSegmentRequestBodyGlobalEipSegment';
 import { AssociateInstanceRequest } from './model/AssociateInstanceRequest';
@@ -50,8 +49,6 @@ import { BatchCreateInternetBandwidthResponse } from './model/BatchCreateInterne
 import { BatchCreateInternetBandwidthTagsRequest } from './model/BatchCreateInternetBandwidthTagsRequest';
 import { BatchCreateInternetBandwidthTagsResponse } from './model/BatchCreateInternetBandwidthTagsResponse';
 import { BatchCreateV2RequestBody } from './model/BatchCreateV2RequestBody';
-import { BatchCreateV2RequestBodySysTags } from './model/BatchCreateV2RequestBodySysTags';
-import { BatchCreateV2RequestBodyTags } from './model/BatchCreateV2RequestBodyTags';
 import { BatchDeleteGeipSegmentTagsRequest } from './model/BatchDeleteGeipSegmentTagsRequest';
 import { BatchDeleteGeipSegmentTagsResponse } from './model/BatchDeleteGeipSegmentTagsResponse';
 import { BatchDeleteGlobalEipTagsRequest } from './model/BatchDeleteGlobalEipTagsRequest';
@@ -59,7 +56,6 @@ import { BatchDeleteGlobalEipTagsResponse } from './model/BatchDeleteGlobalEipTa
 import { BatchDeleteInternetBandwidthTagsRequest } from './model/BatchDeleteInternetBandwidthTagsRequest';
 import { BatchDeleteInternetBandwidthTagsResponse } from './model/BatchDeleteInternetBandwidthTagsResponse';
 import { BatchDeleteV2RequestBody } from './model/BatchDeleteV2RequestBody';
-import { BatchDeleteV2RequestBodySysTags } from './model/BatchDeleteV2RequestBodySysTags';
 import { BatchDeleteV2RequestBodyTags } from './model/BatchDeleteV2RequestBodyTags';
 import { BatchDetachGeipSegmentInternetBandwidthRequest } from './model/BatchDetachGeipSegmentInternetBandwidthRequest';
 import { BatchDetachGeipSegmentInternetBandwidthResponse } from './model/BatchDetachGeipSegmentInternetBandwidthResponse';
@@ -244,7 +240,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加全域公网带宽标签
-     * @param {string} resourceId 全域公网带宽的id
+     * @param {string} resourceId 
      * @param {CreateV2TagRequestBody} createV2TagRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -283,7 +279,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加全域公网带宽标签
-     * @param {string} resourceId 全域公网带宽的id
+     * @param {string} resourceId 
      * @param {BatchCreateV2RequestBody} batchCreateV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -292,7 +288,7 @@ export class GeipClient {
         const options = ParamCreater().batchCreateInternetBandwidthTags(batchCreateInternetBandwidthTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -303,7 +299,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除全域公网带宽标签
-     * @param {string} resourceId 全域公网带宽的id
+     * @param {string} resourceId 
      * @param {BatchDeleteV2RequestBody} batchDeleteV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -312,7 +308,7 @@ export class GeipClient {
         const options = ParamCreater().batchDeleteInternetBandwidthTags(batchDeleteInternetBandwidthTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -323,14 +319,14 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域公网带宽个数
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<number>} [size] 根据全域公网带宽大小过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<'freezed' | 'normal'>} [status] 根据资源状态过滤
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<number>} [size] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<'freezed' | 'normal'>} [status] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -386,7 +382,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域公网带宽
-     * @param {string} internetBandwidthId 全域公网带宽的ID
+     * @param {string} internetBandwidthId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -405,8 +401,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域公网带宽标签
-     * @param {string} resourceId 全域公网带宽的id
-     * @param {string} tagKey 待删除标签的key
+     * @param {string} resourceId 
+     * @param {string} tagKey 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -447,13 +443,13 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'name' | 'proxy_region' | 'en_name' | 'cn_name' | 'created_at' | 'updated_at'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'name' | 'proxy_region' | 'en_name' | 'cn_name' | 'created_at' | 'updated_at'>} [fields] 
      * @param {Array<'id' | 'name' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {Array<string>} [proxyRegion] 根据proxy_region过滤
-     * @param {Array<string>} [iecAzCode] 根据iec_az_code过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [name] 
+     * @param {Array<string>} [proxyRegion] 
+     * @param {Array<string>} [iecAzCode] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -476,8 +472,8 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<string>} [fields] 只显示指定的字段
-     * @param {Array<'geip' | 'geip_segment' | 'internetBandwidthIP' | 'internetBandwidth'>} [type] 根据类型过滤
+     * @param {Array<string>} [fields] 
+     * @param {Array<'geip' | 'geip_segment' | 'internetBandwidthIP' | 'internetBandwidth'>} [type] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -533,8 +529,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例列表
-     * @param {Array<number>} [limit] 每页条数
-     * @param {Array<number>} [offset] 分页起始点
+     * @param {Array<number>} [limit] 
+     * @param {Array<number>} [offset] 
      * @param {ListResourcesByTagsRequestBody} [listResourcesByTagsRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -554,11 +550,11 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全域公网带宽限制列表
-     * @param {Array<'id' | 'charge_mode' | 'min_size' | 'ext_limit' | 'max_size'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'charge_mode' | 'min_size' | 'ext_limit' | 'max_size'>} [fields] 
      * @param {Array<'id'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<'bandwidth' | '95peak_bidirection' | '95peak_plus_1000' | '95peak_guar'>} [chargeMode] 根据计费模式过滤
-     * @param {string} [type] 根据全域公网带宽类型过滤
+     * @param {Array<'bandwidth' | '95peak_bidirection' | '95peak_plus_1000' | '95peak_guar'>} [chargeMode] 
+     * @param {string} [type] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -581,19 +577,19 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'name' | 'isp' | 'ingress_size' | 'access_site' | 'size' | 'description' | 'charge_mode' | 'ratio_95peak' | 'freezen_info' | 'domain_id' | 'status' | 'created_at' | 'updated_at' | 'is_pre_paid' | 'type' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
-     * @param {Array<'geip_count' | 'geip_segment_count'>} [extFields] 在默认显示字段的基础上追加指定字段
+     * @param {Array<'id' | 'name' | 'isp' | 'ingress_size' | 'access_site' | 'size' | 'description' | 'charge_mode' | 'ratio_95peak' | 'freezen_info' | 'domain_id' | 'status' | 'created_at' | 'updated_at' | 'is_pre_paid' | 'type' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
+     * @param {Array<'geip_count' | 'geip_segment_count'>} [extFields] 
      * @param {Array<'id' | 'size' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<number>} [size] 根据全域公网带宽大小过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<'freezed' | 'normal'>} [status] 根据资源状态过滤
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
-     * @param {Array<string>} [type] 根据全域公网带宽类型过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<number>} [size] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<'freezed' | 'normal'>} [status] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
+     * @param {Array<string>} [type] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -616,12 +612,12 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'ip_version' | 'mask' | 'created_at' | 'updated_at'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'ip_version' | 'mask' | 'created_at' | 'updated_at'>} [fields] 
      * @param {Array<'id' | 'ip_version' | 'mask' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<4 | 6>} [ipVersion] 根据IP版本过滤
-     * @param {Array<number>} [mask] 根据掩码过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<4 | 6>} [ipVersion] 
+     * @param {Array<number>} [mask] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -640,8 +636,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域公网带宽详情
-     * @param {string} internetBandwidthId 全域公网带宽的ID
-     * @param {Array<'id' | 'name' | 'isp' | 'ingress_size' | 'access_site' | 'size' | 'description' | 'charge_mode' | 'ratio_95peak' | 'freezen_info' | 'domain_id' | 'status' | 'created_at' | 'updated_at' | 'is_pre_paid' | 'type' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
+     * @param {string} internetBandwidthId 
+     * @param {Array<'id' | 'name' | 'isp' | 'ingress_size' | 'access_site' | 'size' | 'description' | 'charge_mode' | 'ratio_95peak' | 'freezen_info' | 'domain_id' | 'status' | 'created_at' | 'updated_at' | 'is_pre_paid' | 'type' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -660,7 +656,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域公网带宽标签
-     * @param {string} resourceId 全域公网带宽的id
+     * @param {string} resourceId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -679,7 +675,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户签署免责条款详情
-     * @param {Array<'domain_id' | 'created_at' | 'updated_at'>} [fields] 只显示指定的字段
+     * @param {Array<'domain_id' | 'created_at' | 'updated_at'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -698,7 +694,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全域公网带宽
-     * @param {string} internetBandwidthId 全域公网带宽的ID
+     * @param {string} internetBandwidthId 
      * @param {UpdateInternetBandwidthRequestBody} updateInternetBandwidthRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -718,7 +714,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加全域弹性公网IP段标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {CreateV2TagRequestBody} createV2TagRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -738,7 +734,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加全域弹性公网IP标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {CreateV2TagRequestBody} createV2TagRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -758,7 +754,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全域弹性公网IP段绑定后端实例
-     * @param {string} globalEipSegmentId global_eip_segment_id
+     * @param {string} globalEipSegmentId 
      * @param {AssociateInstanceGlobalEipSegmentRequestBody} associateInstanceGlobalEipSegmentRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -778,7 +774,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定后端实例
-     * @param {string} globalEipId global_eip_id
+     * @param {string} globalEipId 
      * @param {AssociateInstanceGlobalEipRequestBody} associateInstanceGlobalEipRequestBody 
      * @param {string} [bindingInstanceService] 绑定接口可以加，标识请求是从哪个服务调过来的
      * @param {*} [options] Override http request option.
@@ -799,7 +795,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定全域公网带宽
-     * @param {string} globalEipId global_eip_id
+     * @param {string} globalEipId 
      * @param {AttachInternetBandwidthGlobalEipRequestBody} attachInternetBandwidthGlobalEipRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -857,7 +853,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加全域弹性公网IP段标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {BatchCreateV2RequestBody} batchCreateV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -866,7 +862,7 @@ export class GeipClient {
         const options = ParamCreater().batchCreateGeipSegmentTags(batchCreateGeipSegmentTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -896,7 +892,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加全域弹性公网IP标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {BatchCreateV2RequestBody} batchCreateV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -905,7 +901,7 @@ export class GeipClient {
         const options = ParamCreater().batchCreateGlobalEipTags(batchCreateGlobalEipTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -916,7 +912,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除全域弹性公网IP段标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {BatchDeleteV2RequestBody} batchDeleteV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -925,7 +921,7 @@ export class GeipClient {
         const options = ParamCreater().batchDeleteGeipSegmentTags(batchDeleteGeipSegmentTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -936,7 +932,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除全域弹性公网IP标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {BatchDeleteV2RequestBody} batchDeleteV2RequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -945,7 +941,7 @@ export class GeipClient {
         const options = ParamCreater().batchDeleteGlobalEipTags(batchDeleteGlobalEipTagsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['x-request-id'];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -998,28 +994,28 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'count'>} [fields] 只显示指定的字段
-     * @param {Array<string>} [id] 根据资源ID过滤
-     * @param {Array<string>} [internetBandwidthId] 根据全域公网带宽的ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [geipPoolName] 根据全域弹性公网IP池名称过滤
-     * @param {Array<string>} [isp] 根据运营商线路过滤
-     * @param {Array<4 | 6>} [ipVersion] 根据IP版本过滤
-     * @param {Array<string>} [cidr] 根据分配的CIDR过滤
-     * @param {Array<string>} [cidrV6] 根据分配的IPv6 CIDR过滤
-     * @param {Array<boolean>} [freezen] 根据是否冻结过滤
-     * @param {Array<boolean>} [internetBandwidthIsNull] 根据是否绑定全域公网带宽过滤
-     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 根据资源状态过滤
-     * @param {Array<string>} [associateInstanceRegion] 根据绑定实例所属的局点过滤
-     * @param {Array<string>} [associateInstancePublicBorderGroup] 根据绑定实例所属的边缘信息过滤
-     * @param {Array<string>} [associateInstanceInstanceSite] 根据绑定实例所在的站点过滤
-     * @param {Array<string>} [associateInstanceInstanceType] 根据绑定实例的类型过滤
-     * @param {Array<string>} [associateInstanceInstanceId] 根据绑定实例的ID过滤
-     * @param {Array<string>} [associateInstanceProjectId] 根据绑定实例所属的项目ID过滤
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
+     * @param {Array<'count'>} [fields] 
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [internetBandwidthId] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [geipPoolName] 
+     * @param {Array<string>} [isp] 
+     * @param {Array<4 | 6>} [ipVersion] 
+     * @param {Array<string>} [cidr] 
+     * @param {Array<string>} [cidrV6] 
+     * @param {Array<boolean>} [freezen] 
+     * @param {Array<boolean>} [internetBandwidthIsNull] 
+     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 
+     * @param {Array<string>} [associateInstanceRegion] 
+     * @param {Array<string>} [associateInstancePublicBorderGroup] 
+     * @param {Array<string>} [associateInstanceInstanceSite] 
+     * @param {Array<string>} [associateInstanceInstanceType] 
+     * @param {Array<string>} [associateInstanceInstanceId] 
+     * @param {Array<string>} [associateInstanceProjectId] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1038,29 +1034,29 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP个数
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<string>} [internetBandwidthId] 根据全域公网带宽的ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [geipPoolName] 根据全域弹性公网IP池名称过滤
-     * @param {Array<string>} [isp] 根据运营商线路过滤
-     * @param {Array<4 | 6>} [ipVersion] 根据IP版本过滤
-     * @param {Array<string>} [ipAddress] 根据ip地址过滤
-     * @param {Array<string>} [ipv6Address] 根据ipv6地址过滤
-     * @param {Array<boolean>} [freezen] 根据是否冻结过滤
-     * @param {Array<boolean>} [polluted] 根据是否污染过滤
-     * @param {Array<boolean>} [internetBandwidthIsNull] 根据是否绑定全域公网带宽过滤
-     * @param {Array<boolean>} [gcbBandwidthIsNull] 根据是否绑定骨干带宽过滤
-     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 根据资源状态过滤
-     * @param {Array<string>} [associateInstanceInfoRegion] 根据绑定实例所属的局点过滤
-     * @param {Array<string>} [associateInstanceInfoPublicBorderGroup] 根据绑定实例所属的边缘信息过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceSite] 根据绑定实例所在的站点过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceType] 根据绑定实例的类型过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceId] 根据绑定实例的ID过滤
-     * @param {Array<string>} [associateInstanceInfoProjectId] query by associate_instance_info.project_id
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [internetBandwidthId] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [geipPoolName] 
+     * @param {Array<string>} [isp] 
+     * @param {Array<4 | 6>} [ipVersion] 
+     * @param {Array<string>} [ipAddress] 
+     * @param {Array<string>} [ipv6Address] 
+     * @param {Array<boolean>} [freezen] 
+     * @param {Array<boolean>} [polluted] 
+     * @param {Array<boolean>} [internetBandwidthIsNull] 
+     * @param {Array<boolean>} [gcbBandwidthIsNull] 
+     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 
+     * @param {Array<string>} [associateInstanceInfoRegion] 
+     * @param {Array<string>} [associateInstanceInfoPublicBorderGroup] 
+     * @param {Array<string>} [associateInstanceInfoInstanceSite] 
+     * @param {Array<string>} [associateInstanceInfoInstanceType] 
+     * @param {Array<string>} [associateInstanceInfoInstanceId] 
+     * @param {Array<string>} [associateInstanceInfoProjectId] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1117,8 +1113,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域弹性公网IP段标签
-     * @param {string} resourceId 全域弹性公网IP的id
-     * @param {string} tagKey 待删除标签的key
+     * @param {string} resourceId 
+     * @param {string} tagKey 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1137,7 +1133,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域弹性公网IP
-     * @param {string} globalEipId global_eip_id
+     * @param {string} globalEipId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1156,7 +1152,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域弹性公网IP段
-     * @param {string} globalEipSegmentId global_eip_segment_id
+     * @param {string} globalEipSegmentId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1175,8 +1171,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全域弹性公网IP标签
-     * @param {string} resourceId 全域弹性公网IP的id
-     * @param {string} tagKey 待删除标签的key
+     * @param {string} resourceId 
+     * @param {string} tagKey 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1195,8 +1191,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解绑全域公网带宽
-     * @param {string} globalEipId global_eip_id
-     * @param {boolean} [forceUnbind] 是否强制解绑
+     * @param {string} globalEipId 
+     * @param {boolean} [forceUnbind] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1215,7 +1211,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全域弹性公网IP段解绑后端实例
-     * @param {string} globalEipSegmentId global_eip_segment_id
+     * @param {string} globalEipSegmentId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1235,7 +1231,7 @@ export class GeipClient {
      *
      * @summary 解绑后端实例
      * @param {boolean} isReserveGcb 解绑实例后是否保留GCB，false表示解绑实例后会同时删除GCB
-     * @param {string} globalEipId global_eip_id
+     * @param {string} globalEipId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1258,16 +1254,16 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'name' | 'isp' | 'access_site' | 'type' | 'ip_version' | 'en_name' | 'cn_name' | 'status' | 'created_at' | 'updated_at' | 'description'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'name' | 'isp' | 'access_site' | 'type' | 'ip_version' | 'en_name' | 'cn_name' | 'status' | 'created_at' | 'updated_at' | 'description'>} [fields] 
      * @param {Array<'id' | 'name' | 'type' | 'access_site' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [isp] 根据运营商线路过滤
-     * @param {Array<'4' | '6'>} [ipVersion] 根据IP版本过滤
-     * @param {Array<'active' | 'inactive' | 'soldout'>} [status] 根据池子状态过滤
-     * @param {Array<'GEIP' | 'GEIP_SEGMENT'>} [type] 根据池子里存的内容过滤。取值：GEIP-用于分配全域弹性公网IP单地址；GEIP_SEGMENT-用于分配全域弹性公网IP段
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [name] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [isp] 
+     * @param {Array<'4' | '6'>} [ipVersion] 
+     * @param {Array<'active' | 'inactive' | 'soldout'>} [status] 
+     * @param {Array<'GEIP' | 'GEIP_SEGMENT'>} [type] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1381,8 +1377,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例列表
-     * @param {Array<number>} [limit] 每页条数
-     * @param {Array<number>} [offset] 分页起始点
+     * @param {Array<number>} [limit] 
+     * @param {Array<number>} [offset] 
      * @param {ListResourcesByTagsRequestBody} [listResourcesByTagsRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1406,32 +1402,32 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'cidr' | 'cidr_v6' | 'freezen' | 'freezen_info' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth' | 'associate_instance' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'cidr' | 'cidr_v6' | 'freezen' | 'freezen_info' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth' | 'associate_instance' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
      * @param {Array<'id' | 'cidr' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据资源ID过滤
-     * @param {Array<string>} [internetBandwidthId] 根据全域公网带宽的ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [geipPoolName] 根据全域弹性公网IP池名称过滤
-     * @param {Array<string>} [isp] 根据运营商线路过滤
-     * @param {Array<4 | 6>} [ipVersion] 根据可分配的IP版本过滤
-     * @param {Array<string>} [cidr] 根据分配的CIDR过滤
-     * @param {Array<string>} [cidrV6] 根据分配的IPv6 CIDR过滤
-     * @param {Array<boolean>} [freezen] 根据是否冻结过滤
-     * @param {Array<boolean>} [internetBandwidthIsNull] 根据是否绑定全域公网带宽过滤
-     * @param {Array<'idle' | 'inuse'>} [status] 根据状态过滤
-     * @param {Array<string>} [associateInstanceRegion] 根据绑定实例所属的局点过滤
-     * @param {Array<string>} [associateInstanceInstanceType] 根据绑定实例的类型过滤
-     * @param {Array<string>} [associateInstancePublicBorderGroup] 根据绑定实例所属的边缘信息过滤
-     * @param {Array<string>} [associateInstanceInstanceSite] 根据绑定实例所在的站点过滤
-     * @param {Array<string>} [associateInstanceInstanceId] 根据绑定实例的ID过滤
-     * @param {Array<string>} [associateInstanceProjectId] 根据绑定实例所属的项目ID过滤
-     * @param {Array<string>} [associateInstanceServiceId] 根据绑定实例所属的服务ID过滤
-     * @param {Array<string>} [associateInstanceServiceType] 根据绑定实例的服务类型过滤
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [internetBandwidthId] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [geipPoolName] 
+     * @param {Array<string>} [isp] 
+     * @param {Array<4 | 6>} [ipVersion] 
+     * @param {Array<string>} [cidr] 
+     * @param {Array<string>} [cidrV6] 
+     * @param {Array<boolean>} [freezen] 
+     * @param {Array<boolean>} [internetBandwidthIsNull] 
+     * @param {Array<'idle' | 'inuse'>} [status] 
+     * @param {Array<string>} [associateInstanceRegion] 
+     * @param {Array<string>} [associateInstanceInstanceType] 
+     * @param {Array<string>} [associateInstancePublicBorderGroup] 
+     * @param {Array<string>} [associateInstanceInstanceSite] 
+     * @param {Array<string>} [associateInstanceInstanceId] 
+     * @param {Array<string>} [associateInstanceProjectId] 
+     * @param {Array<string>} [associateInstanceServiceId] 
+     * @param {Array<string>} [associateInstanceServiceType] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1454,34 +1450,34 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'ip_address' | 'ipv6_address' | 'freezen' | 'freezen_info' | 'polluted' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth_info' | 'global_connection_bandwidth_info' | 'associate_instance_info' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'ip_address' | 'ipv6_address' | 'freezen' | 'freezen_info' | 'polluted' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth_info' | 'global_connection_bandwidth_info' | 'associate_instance_info' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
      * @param {Array<'id' | 'ip_address' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<string>} [internetBandwidthId] 根据全域公网带宽的ID过滤
-     * @param {Array<string>} [name] 根据名称过滤
-     * @param {string} [nameLike] 根据名称模糊匹配
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [geipPoolName] 根据全域弹性公网IP池名称过滤
-     * @param {Array<string>} [isp] 根据运营商线路过滤
-     * @param {Array<4 | 6>} [ipVersion] 根据IP版本过滤
-     * @param {Array<string>} [ipAddress] 根据ip地址过滤
-     * @param {Array<string>} [ipv6Address] 根据ipv6地址过滤
-     * @param {Array<boolean>} [freezen] 根据是否冻结过滤
-     * @param {Array<boolean>} [polluted] 根据是否污染过滤
-     * @param {Array<boolean>} [internetBandwidthIsNull] 根据是否绑定全域公网带宽过滤
-     * @param {Array<boolean>} [gcbBandwidthIsNull] 根据是否绑定骨干带宽过滤
-     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 根据资源状态过滤
-     * @param {Array<string>} [associateInstanceInfoRegion] 根据绑定实例所属的局点过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceType] 根据绑定实例的类型过滤
-     * @param {Array<string>} [associateInstanceInfoPublicBorderGroup] 根据绑定实例所属的边缘信息过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceSite] 根据绑定实例所在的站点过滤
-     * @param {Array<string>} [associateInstanceInfoInstanceId] 根据绑定实例的ID过滤
-     * @param {Array<string>} [associateInstanceInfoProjectId] 根据绑定实例所属的项目ID过滤
-     * @param {Array<string>} [associateInstanceInfoServiceId] 根据绑定实例所属的服务ID过滤
-     * @param {Array<string>} [associateInstanceInfoServiceType] 根据绑定实例的服务类型过滤
-     * @param {Array<string>} [enterpriseProjectId] 根据企业项目ID过滤
-     * @param {Array<string>} [tags] 根据标签过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [internetBandwidthId] 
+     * @param {Array<string>} [name] 
+     * @param {string} [nameLike] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [geipPoolName] 
+     * @param {Array<string>} [isp] 
+     * @param {Array<4 | 6>} [ipVersion] 
+     * @param {Array<string>} [ipAddress] 
+     * @param {Array<string>} [ipv6Address] 
+     * @param {Array<boolean>} [freezen] 
+     * @param {Array<boolean>} [polluted] 
+     * @param {Array<boolean>} [internetBandwidthIsNull] 
+     * @param {Array<boolean>} [gcbBandwidthIsNull] 
+     * @param {Array<'idle' | 'inuse' | 'pending_create' | 'pending_update'>} [status] 
+     * @param {Array<string>} [associateInstanceInfoRegion] 
+     * @param {Array<string>} [associateInstanceInfoInstanceType] 
+     * @param {Array<string>} [associateInstanceInfoPublicBorderGroup] 
+     * @param {Array<string>} [associateInstanceInfoInstanceSite] 
+     * @param {Array<string>} [associateInstanceInfoInstanceId] 
+     * @param {Array<string>} [associateInstanceInfoProjectId] 
+     * @param {Array<string>} [associateInstanceInfoServiceId] 
+     * @param {Array<string>} [associateInstanceInfoServiceType] 
+     * @param {Array<string>} [enterpriseProjectId] 
+     * @param {Array<string>} [tags] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1500,7 +1496,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP段标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1519,8 +1515,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP详情
-     * @param {string} globalEipId global_eip_id
-     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'ip_address' | 'ipv6_address' | 'freezen' | 'freezen_info' | 'polluted' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth_info' | 'global_connection_bandwidth_info' | 'associate_instance_info' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
+     * @param {string} globalEipId 
+     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'ip_address' | 'ipv6_address' | 'freezen' | 'freezen_info' | 'polluted' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth_info' | 'global_connection_bandwidth_info' | 'associate_instance_info' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1539,8 +1535,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP段详情
-     * @param {string} globalEipSegmentId global_eip_segment_id
-     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'cidr' | 'cidr_v6' | 'freezen' | 'freezen_info' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth' | 'associate_instance' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 只显示指定的字段
+     * @param {string} globalEipSegmentId 
+     * @param {Array<'id' | 'name' | 'description' | 'domain_id' | 'access_site' | 'geip_pool_name' | 'isp' | 'ip_version' | 'cidr' | 'cidr_v6' | 'freezen' | 'freezen_info' | 'status' | 'created_at' | 'updated_at' | 'internet_bandwidth' | 'associate_instance' | 'is_pre_paid' | 'tags' | 'sys_tags' | 'enterprise_project_id'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1559,7 +1555,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP标签
-     * @param {string} resourceId 全域弹性公网IP的id
+     * @param {string} resourceId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1578,7 +1574,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全域弹性公网IP信息
-     * @param {string} globalEipId global_eip_id
+     * @param {string} globalEipId 
      * @param {UpdateGlobalEipRequestBody} updateGlobalEipRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1598,7 +1594,7 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全域弹性公网IP段
-     * @param {string} globalEipSegmentId global_eip_segment_id
+     * @param {string} globalEipSegmentId 
      * @param {UpdateGlobalEipSegmentRequestBody} updateGlobalEipSegmentRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1622,12 +1618,12 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'action' | 'status' | 'error_task' | 'error_code' | 'error_message' | 'start_time' | 'end_time'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'action' | 'status' | 'error_task' | 'error_code' | 'error_message' | 'start_time' | 'end_time'>} [fields] 
      * @param {Array<'id' | 'start_time' | 'end_time'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<'CreateGEIPGraph' | 'UpdateGEIPGraph' | 'BindGEIPGraph' | 'UnBindGEIPGraph' | 'BatchAttachBandwidthGraph' | 'BatchDetachBandwidthGraph' | 'CreateGeipSegmentGraph' | 'BindGeipSegmentGraph'>} [action] 根据action过滤
-     * @param {Array<'FINISH_SUCC' | 'FINISH_ROLLBACK_SUCC'>} [status] 根据job状态过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<'CreateGEIPGraph' | 'UpdateGEIPGraph' | 'BindGEIPGraph' | 'UnBindGEIPGraph' | 'BatchAttachBandwidthGraph' | 'BatchDetachBandwidthGraph' | 'CreateGeipSegmentGraph' | 'BindGeipSegmentGraph'>} [action] 
+     * @param {Array<'FINISH_SUCC' | 'FINISH_ROLLBACK_SUCC'>} [status] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1647,7 +1643,7 @@ export class GeipClient {
      *
      * @summary 查询Job详情
      * @param {string} jobId job_id
-     * @param {Array<'id' | 'action' | 'status' | 'error_task' | 'error_code' | 'error_message' | 'start_time' | 'end_time'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'action' | 'status' | 'error_task' | 'error_code' | 'error_message' | 'start_time' | 'end_time'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1670,16 +1666,16 @@ export class GeipClient {
      * @param {number} [offset] 分页起始点
      * @param {string} [marker] 分页起始点
      * @param {boolean} [pageReverse] 翻页方向
-     * @param {Array<'id' | 'instance_type' | 'access_site' | 'region_id' | 'public_border_group' | 'remote_endpoint' | 'status' | 'created_at' | 'updated_at'>} [fields] 只显示指定的字段
+     * @param {Array<'id' | 'instance_type' | 'access_site' | 'region_id' | 'public_border_group' | 'remote_endpoint' | 'status' | 'created_at' | 'updated_at'>} [fields] 
      * @param {Array<'id' | 'instance_type' | 'access_site' | 'public_border_group' | 'region_id' | 'remote_endpoint' | 'status' | 'created_at' | 'updated_at'>} [sortKey] 按照sort_key指定的字段排序
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
-     * @param {Array<string>} [id] 根据ID过滤
-     * @param {Array<string>} [instanceType] 根据实例类型过滤
-     * @param {Array<string>} [publicBorderGroup] 根据边缘信息过滤，中心站点or边缘站点
-     * @param {Array<string>} [accessSite] 根据接入点过滤
-     * @param {Array<string>} [regionId] 根据region_id过滤
-     * @param {Array<string>} [remoteEndpoint] query by remote_endpoint
-     * @param {Array<string>} [status] 根据资源状态过滤
+     * @param {Array<string>} [id] 
+     * @param {Array<string>} [instanceType] 
+     * @param {Array<string>} [publicBorderGroup] 
+     * @param {Array<string>} [accessSite] 
+     * @param {Array<string>} [regionId] 
+     * @param {Array<string>} [remoteEndpoint] 
+     * @param {Array<string>} [status] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1698,8 +1694,8 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定站点允许绑定的Region信息
-     * @param {string} accessSite 接入点信息
-     * @param {Array<'id' | 'instance_type' | 'region_id' | 'public_border_group' | 'status' | 'created_at' | 'updated_at'>} [fields] 只显示指定的字段
+     * @param {string} accessSite 
+     * @param {Array<'id' | 'instance_type' | 'region_id' | 'public_border_group' | 'status' | 'created_at' | 'updated_at'>} [fields] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

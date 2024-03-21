@@ -4,8 +4,10 @@ export class ListFunctionVersionsRequest {
     private 'function_urn'?: string;
     public marker?: string;
     public maxitems?: string;
-    public constructor(functionUrn?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ListFunctionVersionsRequest {
         this['function_urn'] = functionUrn;
@@ -24,5 +26,15 @@ export class ListFunctionVersionsRequest {
     public withMaxitems(maxitems: string): ListFunctionVersionsRequest {
         this['maxitems'] = maxitems;
         return this;
+    }
+    public withContentType(contentType: string): ListFunctionVersionsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

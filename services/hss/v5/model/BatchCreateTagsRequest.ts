@@ -2,12 +2,23 @@ import { BatchCreateTagsRequestInfo } from './BatchCreateTagsRequestInfo';
 
 
 export class BatchCreateTagsRequest {
+    private 'Content-Type'?: string;
     private 'resource_type'?: string;
     private 'resource_id'?: string;
     public body?: BatchCreateTagsRequestInfo;
     public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
+    }
+    public withContentType(contentType: string): BatchCreateTagsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withResourceType(resourceType: string): BatchCreateTagsRequest {
         this['resource_type'] = resourceType;

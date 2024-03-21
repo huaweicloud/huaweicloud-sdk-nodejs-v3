@@ -3,9 +3,11 @@
 export class DeleteVpcEndpointRequest {
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
-    public constructor(vpcId?: string, subnetId?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(vpcId?: string, subnetId?: string, contentType?: string) { 
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
+        this['Content-Type'] = contentType;
     }
     public withVpcId(vpcId: string): DeleteVpcEndpointRequest {
         this['vpc_id'] = vpcId;
@@ -26,5 +28,15 @@ export class DeleteVpcEndpointRequest {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withContentType(contentType: string): DeleteVpcEndpointRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

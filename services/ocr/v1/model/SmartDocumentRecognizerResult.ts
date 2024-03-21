@@ -1,3 +1,4 @@
+import { SmartDocumentRecognizerFormResult } from './SmartDocumentRecognizerFormResult';
 import { SmartDocumentRecognizerKvResult } from './SmartDocumentRecognizerKvResult';
 import { SmartDocumentRecognizerLayoutResult } from './SmartDocumentRecognizerLayoutResult';
 import { SmartDocumentRecognizerOcrResult } from './SmartDocumentRecognizerOcrResult';
@@ -9,6 +10,7 @@ export class SmartDocumentRecognizerResult {
     private 'kv_result'?: SmartDocumentRecognizerKvResult;
     private 'table_result'?: SmartDocumentRecognizerTableResult;
     private 'layout_result'?: SmartDocumentRecognizerLayoutResult;
+    private 'form_result'?: SmartDocumentRecognizerFormResult;
     public constructor(ocrResult?: SmartDocumentRecognizerOcrResult) { 
         this['ocr_result'] = ocrResult;
     }
@@ -51,5 +53,15 @@ export class SmartDocumentRecognizerResult {
     }
     public get layoutResult(): SmartDocumentRecognizerLayoutResult | undefined {
         return this['layout_result'];
+    }
+    public withFormResult(formResult: SmartDocumentRecognizerFormResult): SmartDocumentRecognizerResult {
+        this['form_result'] = formResult;
+        return this;
+    }
+    public set formResult(formResult: SmartDocumentRecognizerFormResult  | undefined) {
+        this['form_result'] = formResult;
+    }
+    public get formResult(): SmartDocumentRecognizerFormResult | undefined {
+        return this['form_result'];
     }
 }

@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowPositionResultResponse extends SdkResponse {
     private 'job_id'?: string;
     public position?: string;
+    public status?: ShowPositionResultResponseStatusEnum | string;
     public constructor() { 
         super();
     }
@@ -21,4 +22,18 @@ export class ShowPositionResultResponse extends SdkResponse {
         this['position'] = position;
         return this;
     }
+    public withStatus(status: ShowPositionResultResponseStatusEnum | string): ShowPositionResultResponse {
+        this['status'] = status;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowPositionResultResponseStatusEnum {
+    PENDING = 'pending',
+    FAILED = 'failed',
+    SUCCESS = 'success'
 }

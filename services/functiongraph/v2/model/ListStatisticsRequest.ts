@@ -6,8 +6,10 @@ export class ListStatisticsRequest {
     public option?: string;
     public limit?: string;
     public marker?: string;
-    public constructor(filter?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(filter?: string, contentType?: string) { 
         this['filter'] = filter;
+        this['Content-Type'] = contentType;
     }
     public withFilter(filter: ListStatisticsRequestFilterEnum | string): ListStatisticsRequest {
         this['filter'] = filter;
@@ -28,6 +30,16 @@ export class ListStatisticsRequest {
     public withMarker(marker: string): ListStatisticsRequest {
         this['marker'] = marker;
         return this;
+    }
+    public withContentType(contentType: string): ListStatisticsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }
 

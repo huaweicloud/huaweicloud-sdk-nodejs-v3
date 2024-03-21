@@ -1,5 +1,6 @@
 import { HostVulInfoAppList } from './HostVulInfoAppList';
 import { HostVulInfoCveList } from './HostVulInfoCveList';
+import { VulHostInfoDisabledOperateTypes } from './VulHostInfoDisabledOperateTypes';
 
 
 export class HostVulInfo {
@@ -25,6 +26,8 @@ export class HostVulInfo {
     private 'app_path'?: string;
     public version?: string;
     private 'support_restore'?: boolean;
+    private 'disabled_operate_types'?: Array<VulHostInfoDisabledOperateTypes>;
+    private 'repair_priority'?: string;
     public constructor() { 
     }
     public withVulName(vulName: string): HostVulInfo {
@@ -216,5 +219,25 @@ export class HostVulInfo {
     }
     public get supportRestore(): boolean | undefined {
         return this['support_restore'];
+    }
+    public withDisabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>): HostVulInfo {
+        this['disabled_operate_types'] = disabledOperateTypes;
+        return this;
+    }
+    public set disabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>  | undefined) {
+        this['disabled_operate_types'] = disabledOperateTypes;
+    }
+    public get disabledOperateTypes(): Array<VulHostInfoDisabledOperateTypes> | undefined {
+        return this['disabled_operate_types'];
+    }
+    public withRepairPriority(repairPriority: string): HostVulInfo {
+        this['repair_priority'] = repairPriority;
+        return this;
+    }
+    public set repairPriority(repairPriority: string  | undefined) {
+        this['repair_priority'] = repairPriority;
+    }
+    public get repairPriority(): string | undefined {
+        return this['repair_priority'];
     }
 }

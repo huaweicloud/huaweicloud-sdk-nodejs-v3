@@ -306,6 +306,7 @@ export class FunctionGraphClient {
      *
      * @summary 异步执行函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {{ [key: string]: object; }} asyncInvokeFunctionRequestBody 异步执行函数请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -330,6 +331,7 @@ export class FunctionGraphClient {
      *
      * @summary 删除指定函数的所有触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -367,7 +369,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止函数异步调用请求
-     * @param {string} functionUrn 函数URN
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CancelAsyncInvocationRequestBody} cancelAsyncInvocationRequestBody 更新tags的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -409,6 +412,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建依赖包版本
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateDependencyRequestBody} createDependencyVersionRequestBody 创建依赖包版本请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -429,6 +433,7 @@ export class FunctionGraphClient {
      *
      * @summary 创建测试事件
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateEventRequestBody} createEventRequestBody 创建测试事件请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -448,6 +453,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建函数
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateFunctionRequestBody} createFunctionRequestBody 创建函数请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -467,6 +473,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建应用程序
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateFunctionAppRequestBody} createFunctionAppRequestBody 创建应用程序请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -491,6 +498,7 @@ export class FunctionGraphClient {
      *
      * @summary 创建触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateFunctionTriggerRequestBody} createFunctionTriggerRequestBody 创建触发器请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -511,6 +519,7 @@ export class FunctionGraphClient {
      *
      * @summary 发布函数版本
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateFunctionVersionRequestBody} createFunctionVersionRequestBody 发布函数版本请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -530,8 +539,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源标签
-     * @param {string} resourceType 资源类型
+     * @param {string} resourceType 资源类型，此处请填写functions
      * @param {string} resourceId 资源ID
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionTagsRequestBody} createTagsRequestBody 创建资源标签的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -551,7 +561,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建函数版本别名
-     * @param {string} functionUrn 函数的URN。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateVersionAliasRequestBody} createVersionAliasRequestBody 创建函数请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -571,6 +582,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建下沉入口
+     * @param {string} contentType 消息体的类型（格式）
      * @param {CreateVpcEndpointRequestBody} createVpcEndpointRequestBody 创建下沉入口的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -611,6 +623,7 @@ export class FunctionGraphClient {
      * @summary 删除依赖包版本
      * @param {string} dependId 依赖包的ID。
      * @param {string} version 依赖包版本号。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -630,6 +643,7 @@ export class FunctionGraphClient {
      *
      * @summary 删除指定测试事件
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} eventId 测试事件ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -653,6 +667,7 @@ export class FunctionGraphClient {
      *
      * @summary 删除函数/版本
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。  不允许删除函数的latest版本，如要删除整个函数（包含所有版本），提供不带任何版本号/别名的urn，如： urn:fss:xxxxxxxx:7aad83af3e8d42e99ac194e8419e2c9b:function:default:test
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -672,6 +687,7 @@ export class FunctionGraphClient {
      *
      * @summary 删除应用程序
      * @param {string} id 应用ID。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -690,7 +706,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除函数异步配置信息
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -710,8 +727,9 @@ export class FunctionGraphClient {
      *
      * @summary 删除触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID'} triggerTypeCode 触发器类型代码。
+     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID' | 'IOTDA'} triggerTypeCode 触发器类型代码。
      * @param {string} triggerId 触发器编码。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -730,8 +748,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
-     * @param {string} resourceType 资源类型
+     * @param {string} resourceType 资源类型，此处请填写functions
      * @param {string} resourceId 资源ID
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionTagsRequestBody} deleteTagsRequestBody 删除资源标签的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -753,6 +772,7 @@ export class FunctionGraphClient {
      * @summary 删除函数版本别名
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} aliasName 要删除的别名名称。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -773,6 +793,7 @@ export class FunctionGraphClient {
      * @summary 删除下沉入口
      * @param {string} vpcId vpc ID
      * @param {string} subnetId 子网编号
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -791,11 +812,12 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 允许异步状态通知
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public enableAsyncStatusLog(enableAsyncStatusLogRequest?: EnableAsyncStatusLogRequest): Promise<EnableAsyncStatusLogResponse> {
-        const options = ParamCreater().enableAsyncStatusLog();
+        const options = ParamCreater().enableAsyncStatusLog(enableAsyncStatusLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -809,11 +831,12 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开通lts日志上报功能
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public enableLtsLogs(enableLtsLogsRequest?: EnableLtsLogsRequest): Promise<EnableLtsLogsResponse> {
-        const options = ParamCreater().enableLtsLogs();
+        const options = ParamCreater().enableLtsLogs(enableLtsLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -828,6 +851,7 @@ export class FunctionGraphClient {
      *
      * @summary 导出函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {boolean} [config] 是否导出函数配置，默认为false。若无type参数，则必填code&#x3D;true或config&#x3D;true至少一项。
      * @param {boolean} [code] 是否导出函数代码，默认为false。若无type参数，则必填code&#x3D;true或config&#x3D;true至少一项。
      * @param {string} [type] 不兼容与code、config参数混用；type&#x3D;code代表导出代码，type&#x3D;config代码导出配置
@@ -849,6 +873,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导入函数
+     * @param {string} contentType 消息体的类型（格式）
      * @param {ImportFunctionRequestBody} importFunctionRequestBody 导入函数的请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -869,6 +894,7 @@ export class FunctionGraphClient {
      *
      * @summary 同步执行函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {{ [key: string]: object; }} invokeFunctionRequestBody 执行函数请求体
      * @param {string} [xCffLogType] 取值为：tail（返回函数执行后的4K日志），或者为空（不返回日志）。
      * @param {string} [xCFFRequestVersion] 返回体格式，取值v0,v1。 v0:默认返回文本格式 v1:默认返回json格式，sdk需要使用此值。
@@ -891,6 +917,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取函数活跃异步调用请求列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [requests] 需要查询的异步请求ID, 多个请求id使用\&#39;,\&#39;分割， 最大支持10个请求id查询。如果不指定，默认查询所有异步调用记录
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
@@ -915,6 +942,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用程序模板列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [maxitems] 本次查询最大返回的数据条数，最大值500，默认值100
      * @param {string} [runtime] 模板执行运行时
@@ -938,7 +966,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步调用请求列表
-     * @param {string} functionUrn 函数URN
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [requestId] 需要查询的异步请求ID。如果不指定，默认查询所有异步调用记录
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
@@ -964,6 +993,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数绑定的servicebridge函数列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [type] servicebridge类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -984,6 +1014,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取servicebridge可用的版本
      * @param {string} type servicebridge 类型，可选  rds, mqs 或 cache
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1002,6 +1033,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取依赖包列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
      * @param {string} [maxitems] 单次查询最大条数
      * @param {string} [ispublic] 是否为公共依赖包
@@ -1028,6 +1060,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取依赖包版本列表
      * @param {string} dependId 依赖包的ID。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
      * @param {string} [maxitems] 单次查询最大条数
      * @param {*} [options] Override http request option.
@@ -1049,6 +1082,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数的测试事件列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1067,6 +1101,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用程序列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {*} [options] Override http request option.
@@ -1089,6 +1124,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取按指定指标排序的函数列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [type] 指标类型，默认值为failcount。
      * @param {string} [startTime] 起始时间。
      * @param {string} [endTime] 结束时间。
@@ -1111,7 +1147,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步配置列表
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [limit] 每页显示的条目数量。 - 如果不提供该值或者提供的值等于0，则使用默认值：10，最大值100，大于100取值100。 - 如果该值小于0，则返回参数错误。
      * @param {*} [options] Override http request option.
@@ -1132,6 +1169,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数预留实例数量
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [limit] 每次查询获取的最大函数记录数量  最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
      * @param {string} [urn] 查询指定函数版本预留实例数的函数urn。
@@ -1153,8 +1191,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定时间段的函数运行指标
-     * @param {string} funcUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} period 获取最近多少分钟内函数执行的指标。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1173,8 +1212,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询函数标签列表
-     * @param {string} resourceType 资源类型
+     * @param {string} resourceType 资源类型，此处请填写functions
      * @param {string} resourceId 资源ID
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1193,6 +1233,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数模板列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [maxitems] 每次查询获取的最大模板数量。
      * @param {string} [ispublic] 是否为公开模板
@@ -1218,6 +1259,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数的所有触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1237,6 +1279,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数的版本列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [maxitems] 每次查询获取的最大函数记录数量。
      * @param {*} [options] Override http request option.
@@ -1257,6 +1300,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 上一次查询到的最后的记录位置。
      * @param {string} [maxitems] 每次查询获取的最大函数记录数量 最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
      * @param {string} [packageName] 自定义分组名称。
@@ -1278,11 +1322,12 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户配额
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
-        const options = ParamCreater().listQuotas();
+        const options = ParamCreater().listQuotas(listQuotasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1296,6 +1341,7 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数预留实例配置列表
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [functionUrn] 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
@@ -1321,6 +1367,7 @@ export class FunctionGraphClient {
      *
      * @summary 租户函数统计信息
      * @param {'monitor_data' | 'monthly_report'} filter 参数过滤器。 monitor_data: 查询统计信息。 monthly_report：查询月度统计信息。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [period] 时间段单位为分钟，与filter参数metric配合使用。
      * @param {string} [option] 月度统计的维度，filter参数取值为monthly_report时才生效。 当取值不在以上范围时，默认取\&quot;0\&quot;。 - \&quot;0\&quot;: 表示统计本月。 - \&quot;1\&quot;: 表示统计上月。 - \&quot;2\&quot;: 表示统计最近三个月。 - \&quot;3\&quot;: 表示统计最近六个月。
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
@@ -1343,7 +1390,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数所有版本别名列表
-     * @param {string} functionUrn 函数的URN。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1429,6 +1477,7 @@ export class FunctionGraphClient {
      *
      * @summary 查询应用程序模板详情
      * @param {string} id 应用模板ID。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1449,6 +1498,7 @@ export class FunctionGraphClient {
      * @summary 获取依赖包版本详情
      * @param {string} dependId 依赖包的ID。
      * @param {string} version 依赖包版本号。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1468,6 +1518,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取测试事件详细信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} eventId 测试事件ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1494,6 +1545,7 @@ export class FunctionGraphClient {
      *
      * @summary 查询函数实例使用情况指标
      * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
      * @param {*} [options] Override http request option.
@@ -1516,6 +1568,7 @@ export class FunctionGraphClient {
      * @summary 查询函数快照制作状态
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {'state' | 'enableSnapshot'} action 查询快照制作开关状态
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1535,6 +1588,7 @@ export class FunctionGraphClient {
      *
      * @summary 查询应用程序详情
      * @param {string} id 应用ID。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1553,7 +1607,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步配置信息
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1573,6 +1628,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数代码
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1592,6 +1648,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取函数的metadata
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1612,6 +1669,7 @@ export class FunctionGraphClient {
      * @summary 查询函数实例流量指标
      * @param {string} funcUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} period 时间间隔（单位：min）
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1631,6 +1689,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定函数模板
      * @param {string} templateId 指定模板id。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1650,8 +1709,9 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定触发器的信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID'} triggerTypeCode 触发器类型代码。
+     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID' | 'IOTDA'} triggerTypeCode 触发器类型代码。
      * @param {string} triggerId 触发器编码。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1670,7 +1730,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数的lts日志组日志流配置
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1689,11 +1750,12 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询异步日志详情
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showProjectAsyncStatusLogInfo(showProjectAsyncStatusLogInfoRequest?: ShowProjectAsyncStatusLogInfoRequest): Promise<ShowProjectAsyncStatusLogInfoResponse> {
-        const options = ParamCreater().showProjectAsyncStatusLogInfo();
+        const options = ParamCreater().showProjectAsyncStatusLogInfo(showProjectAsyncStatusLogInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1707,7 +1769,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {string} resourceType 资源类型
+     * @param {string} resourceType 资源类型，此处请填写functions
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1726,8 +1789,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例
-     * @param {string} resourceType 资源类型
+     * @param {string} resourceType 资源类型，此处请填写functions
      * @param {string} action 禁用/启用
+     * @param {string} contentType 消息体的类型（格式）
      * @param {ListEnterpriseResourceRequestBody} showResInstanceInfoRequestBody 查询资源实例请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1769,7 +1833,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数调用链配置
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1790,6 +1855,7 @@ export class FunctionGraphClient {
      * @summary 获取函数版本的指定别名信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} aliasName 要查询的别名名称。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1957,6 +2023,7 @@ export class FunctionGraphClient {
      *
      * @summary 更新测试事件详细信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {string} eventId 测试事件ID
      * @param {UpdateEventRequestBody} updateEventRequestBody 更新测试事件请求体
      * @param {*} [options] Override http request option.
@@ -1977,8 +2044,9 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 禁用/启动函数快照
-     * @param {'enable' | 'disable'} action 禁用/启用
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {'enable' | 'disable'} action 禁用/启用
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1997,7 +2065,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置函数异步配置信息
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionAsyncInvokeConfigRequestBody} updateFunctionAsyncInvokeConfigRequestBody 设置函数异步配置请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2017,7 +2086,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数代码
-     * @param {string} functionUrn 函数的URN，详细解释见表1 FunctionGraph函数字段说明表的描述。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionCodeRequestBody} updateFunctionCodeRequestBody 更新函数代码请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2039,6 +2109,7 @@ export class FunctionGraphClient {
      * @summary 更新函数置顶状态
      * @param {string} funcUrn 函数URN
      * @param {string} state 置顶状态
+     * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2057,7 +2128,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数的metadata信息
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionConfigRequestBody} updateFunctionConfigRequestBody 更新函数配置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2078,6 +2150,7 @@ export class FunctionGraphClient {
      *
      * @summary 更新函数最大实例数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionMaxInstanceConfigRequestBody} updateFunctionMaxInstanceConfigRequestBody 更新函数配置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2098,6 +2171,7 @@ export class FunctionGraphClient {
      *
      * @summary 修改函数预留实例数量
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateFunctionReservedInstancesCountRequestBody} updateFunctionReservedInstancesCountRequestBody 更新预留实例个数请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2117,7 +2191,8 @@ export class FunctionGraphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数调用链配置
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateTracingRequestBody} updateTracingRequestBody 请求body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2138,8 +2213,9 @@ export class FunctionGraphClient {
      *
      * @summary 更新触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID'} triggerTypeCode 触发器类型代码。
+     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA' | 'RABBITMQ' | 'DEDICATEDGATEWAY' | 'OPENSOURCEKAFKA' | 'APIC' | 'GAUSSMONGO' | 'EVENTGRID' | 'IOTDA'} triggerTypeCode 触发器类型代码。
      * @param {string} triggerId 触发器编码。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateTriggerRequestBody} updateTriggerRequestBody 更新触发器的请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2161,6 +2237,7 @@ export class FunctionGraphClient {
      * @summary 修改函数版本别名信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {string} aliasName 要更新的别名名称。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {UpdateVersionAliasRequestBody} updateVersionAliasRequestBody 创建函数请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2218,13 +2295,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (asyncInvokeFunctionRequest !== null && asyncInvokeFunctionRequest !== undefined) {
                 if (asyncInvokeFunctionRequest instanceof AsyncInvokeFunctionRequest) {
                     functionUrn = asyncInvokeFunctionRequest.functionUrn;
+                    contentType = asyncInvokeFunctionRequest.contentType;
                     body = asyncInvokeFunctionRequest.body
                 } else {
                     functionUrn = asyncInvokeFunctionRequest['function_urn'];
+                    contentType = asyncInvokeFunctionRequest['Content-Type'];
                     body = asyncInvokeFunctionRequest['body'];
                 }
             }
@@ -2235,6 +2316,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2266,18 +2350,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (batchDeleteFunctionTriggersRequest !== null && batchDeleteFunctionTriggersRequest !== undefined) {
                 if (batchDeleteFunctionTriggersRequest instanceof BatchDeleteFunctionTriggersRequest) {
                     functionUrn = batchDeleteFunctionTriggersRequest.functionUrn;
+                    contentType = batchDeleteFunctionTriggersRequest.contentType;
                 } else {
                     functionUrn = batchDeleteFunctionTriggersRequest['function_urn'];
+                    contentType = batchDeleteFunctionTriggersRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling batchDeleteFunctionTriggers.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2343,13 +2434,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (cancelAsyncInvocationRequest !== null && cancelAsyncInvocationRequest !== undefined) {
                 if (cancelAsyncInvocationRequest instanceof CancelAsyncInvocationRequest) {
                     functionUrn = cancelAsyncInvocationRequest.functionUrn;
+                    contentType = cancelAsyncInvocationRequest.contentType;
                     body = cancelAsyncInvocationRequest.body
                 } else {
                     functionUrn = cancelAsyncInvocationRequest['function_urn'];
+                    contentType = cancelAsyncInvocationRequest['Content-Type'];
                     body = cancelAsyncInvocationRequest['body'];
                 }
             }
@@ -2360,6 +2455,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2447,11 +2545,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let contentType;
 
             if (createDependencyVersionRequest !== null && createDependencyVersionRequest !== undefined) {
                 if (createDependencyVersionRequest instanceof CreateDependencyVersionRequest) {
+                    contentType = createDependencyVersionRequest.contentType;
                     body = createDependencyVersionRequest.body
                 } else {
+                    contentType = createDependencyVersionRequest['Content-Type'];
                     body = createDependencyVersionRequest['body'];
                 }
             }
@@ -2459,6 +2561,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2487,13 +2592,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (createEventRequest !== null && createEventRequest !== undefined) {
                 if (createEventRequest instanceof CreateEventRequest) {
                     functionUrn = createEventRequest.functionUrn;
+                    contentType = createEventRequest.contentType;
                     body = createEventRequest.body
                 } else {
                     functionUrn = createEventRequest['function_urn'];
+                    contentType = createEventRequest['Content-Type'];
                     body = createEventRequest['body'];
                 }
             }
@@ -2504,6 +2613,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2531,11 +2643,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let contentType;
 
             if (createFunctionRequest !== null && createFunctionRequest !== undefined) {
                 if (createFunctionRequest instanceof CreateFunctionRequest) {
+                    contentType = createFunctionRequest.contentType;
                     body = createFunctionRequest.body
                 } else {
+                    contentType = createFunctionRequest['Content-Type'];
                     body = createFunctionRequest['body'];
                 }
             }
@@ -2543,6 +2659,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2569,11 +2688,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let contentType;
 
             if (createFunctionAppRequest !== null && createFunctionAppRequest !== undefined) {
                 if (createFunctionAppRequest instanceof CreateFunctionAppRequest) {
+                    contentType = createFunctionAppRequest.contentType;
                     body = createFunctionAppRequest.body
                 } else {
+                    contentType = createFunctionAppRequest['Content-Type'];
                     body = createFunctionAppRequest['body'];
                 }
             }
@@ -2581,6 +2704,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2613,13 +2739,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (createFunctionTriggerRequest !== null && createFunctionTriggerRequest !== undefined) {
                 if (createFunctionTriggerRequest instanceof CreateFunctionTriggerRequest) {
                     functionUrn = createFunctionTriggerRequest.functionUrn;
+                    contentType = createFunctionTriggerRequest.contentType;
                     body = createFunctionTriggerRequest.body
                 } else {
                     functionUrn = createFunctionTriggerRequest['function_urn'];
+                    contentType = createFunctionTriggerRequest['Content-Type'];
                     body = createFunctionTriggerRequest['body'];
                 }
             }
@@ -2630,6 +2760,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2659,13 +2792,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (createFunctionVersionRequest !== null && createFunctionVersionRequest !== undefined) {
                 if (createFunctionVersionRequest instanceof CreateFunctionVersionRequest) {
                     functionUrn = createFunctionVersionRequest.functionUrn;
+                    contentType = createFunctionVersionRequest.contentType;
                     body = createFunctionVersionRequest.body
                 } else {
                     functionUrn = createFunctionVersionRequest['function_urn'];
+                    contentType = createFunctionVersionRequest['Content-Type'];
                     body = createFunctionVersionRequest['body'];
                 }
             }
@@ -2676,6 +2813,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2707,15 +2847,19 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let contentType;
 
             if (createTagsRequest !== null && createTagsRequest !== undefined) {
                 if (createTagsRequest instanceof CreateTagsRequest) {
                     resourceType = createTagsRequest.resourceType;
                     resourceId = createTagsRequest.resourceId;
+                    contentType = createTagsRequest.contentType;
                     body = createTagsRequest.body
                 } else {
                     resourceType = createTagsRequest['resource_type'];
                     resourceId = createTagsRequest['resource_id'];
+                    contentType = createTagsRequest['Content-Type'];
                     body = createTagsRequest['body'];
                 }
             }
@@ -2729,6 +2873,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2758,13 +2905,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (createVersionAliasRequest !== null && createVersionAliasRequest !== undefined) {
                 if (createVersionAliasRequest instanceof CreateVersionAliasRequest) {
                     functionUrn = createVersionAliasRequest.functionUrn;
+                    contentType = createVersionAliasRequest.contentType;
                     body = createVersionAliasRequest.body
                 } else {
                     functionUrn = createVersionAliasRequest['function_urn'];
+                    contentType = createVersionAliasRequest['Content-Type'];
                     body = createVersionAliasRequest['body'];
                 }
             }
@@ -2775,6 +2926,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2802,11 +2956,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let contentType;
 
             if (createVpcEndpointRequest !== null && createVpcEndpointRequest !== undefined) {
                 if (createVpcEndpointRequest instanceof CreateVpcEndpointRequest) {
+                    contentType = createVpcEndpointRequest.contentType;
                     body = createVpcEndpointRequest.body
                 } else {
+                    contentType = createVpcEndpointRequest['Content-Type'];
                     body = createVpcEndpointRequest['body'];
                 }
             }
@@ -2814,6 +2972,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2880,14 +3041,18 @@ export const ParamCreater = function () {
             let dependId;
             
             let version;
+            
+            let contentType;
 
             if (deleteDependencyVersionRequest !== null && deleteDependencyVersionRequest !== undefined) {
                 if (deleteDependencyVersionRequest instanceof DeleteDependencyVersionRequest) {
                     dependId = deleteDependencyVersionRequest.dependId;
                     version = deleteDependencyVersionRequest.version;
+                    contentType = deleteDependencyVersionRequest.contentType;
                 } else {
                     dependId = deleteDependencyVersionRequest['depend_id'];
                     version = deleteDependencyVersionRequest['version'];
+                    contentType = deleteDependencyVersionRequest['Content-Type'];
                 }
             }
 
@@ -2897,6 +3062,9 @@ export const ParamCreater = function () {
             }
             if (version === null || version === undefined) {
             throw new RequiredError('version','Required parameter version was null or undefined when calling deleteDependencyVersion.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'depend_id': dependId,'version': version, };
@@ -2923,14 +3091,18 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let eventId;
 
             if (deleteEventRequest !== null && deleteEventRequest !== undefined) {
                 if (deleteEventRequest instanceof DeleteEventRequest) {
                     functionUrn = deleteEventRequest.functionUrn;
+                    contentType = deleteEventRequest.contentType;
                     eventId = deleteEventRequest.eventId;
                 } else {
                     functionUrn = deleteEventRequest['function_urn'];
+                    contentType = deleteEventRequest['Content-Type'];
                     eventId = deleteEventRequest['event_id'];
                 }
             }
@@ -2941,6 +3113,9 @@ export const ParamCreater = function () {
             }
             if (eventId === null || eventId === undefined) {
             throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling deleteEvent.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'event_id': eventId, };
@@ -2969,18 +3144,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (deleteFunctionRequest !== null && deleteFunctionRequest !== undefined) {
                 if (deleteFunctionRequest instanceof DeleteFunctionRequest) {
                     functionUrn = deleteFunctionRequest.functionUrn;
+                    contentType = deleteFunctionRequest.contentType;
                 } else {
                     functionUrn = deleteFunctionRequest['function_urn'];
+                    contentType = deleteFunctionRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunction.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -3006,18 +3188,25 @@ export const ParamCreater = function () {
 
             
             let id;
+            
+            let contentType;
 
             if (deleteFunctionAppRequest !== null && deleteFunctionAppRequest !== undefined) {
                 if (deleteFunctionAppRequest instanceof DeleteFunctionAppRequest) {
                     id = deleteFunctionAppRequest.id;
+                    contentType = deleteFunctionAppRequest.contentType;
                 } else {
                     id = deleteFunctionAppRequest['id'];
+                    contentType = deleteFunctionAppRequest['Content-Type'];
                 }
             }
 
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling deleteFunctionApp.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'id': id, };
@@ -3043,18 +3232,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (deleteFunctionAsyncInvokeConfigRequest !== null && deleteFunctionAsyncInvokeConfigRequest !== undefined) {
                 if (deleteFunctionAsyncInvokeConfigRequest instanceof DeleteFunctionAsyncInvokeConfigRequest) {
                     functionUrn = deleteFunctionAsyncInvokeConfigRequest.functionUrn;
+                    contentType = deleteFunctionAsyncInvokeConfigRequest.contentType;
                 } else {
                     functionUrn = deleteFunctionAsyncInvokeConfigRequest['function_urn'];
+                    contentType = deleteFunctionAsyncInvokeConfigRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionAsyncInvokeConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -3084,16 +3280,20 @@ export const ParamCreater = function () {
             let triggerTypeCode;
             
             let triggerId;
+            
+            let contentType;
 
             if (deleteFunctionTriggerRequest !== null && deleteFunctionTriggerRequest !== undefined) {
                 if (deleteFunctionTriggerRequest instanceof DeleteFunctionTriggerRequest) {
                     functionUrn = deleteFunctionTriggerRequest.functionUrn;
                     triggerTypeCode = deleteFunctionTriggerRequest.triggerTypeCode;
                     triggerId = deleteFunctionTriggerRequest.triggerId;
+                    contentType = deleteFunctionTriggerRequest.contentType;
                 } else {
                     functionUrn = deleteFunctionTriggerRequest['function_urn'];
                     triggerTypeCode = deleteFunctionTriggerRequest['trigger_type_code'];
                     triggerId = deleteFunctionTriggerRequest['trigger_id'];
+                    contentType = deleteFunctionTriggerRequest['Content-Type'];
                 }
             }
 
@@ -3106,6 +3306,9 @@ export const ParamCreater = function () {
             }
             if (triggerId === null || triggerId === undefined) {
             throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling deleteFunctionTrigger.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
@@ -3135,15 +3338,19 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let contentType;
 
             if (deleteTagsRequest !== null && deleteTagsRequest !== undefined) {
                 if (deleteTagsRequest instanceof DeleteTagsRequest) {
                     resourceType = deleteTagsRequest.resourceType;
                     resourceId = deleteTagsRequest.resourceId;
+                    contentType = deleteTagsRequest.contentType;
                     body = deleteTagsRequest.body
                 } else {
                     resourceType = deleteTagsRequest['resource_type'];
                     resourceId = deleteTagsRequest['resource_id'];
+                    contentType = deleteTagsRequest['Content-Type'];
                     body = deleteTagsRequest['body'];
                 }
             }
@@ -3157,6 +3364,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3186,14 +3396,18 @@ export const ParamCreater = function () {
             let functionUrn;
             
             let aliasName;
+            
+            let contentType;
 
             if (deleteVersionAliasRequest !== null && deleteVersionAliasRequest !== undefined) {
                 if (deleteVersionAliasRequest instanceof DeleteVersionAliasRequest) {
                     functionUrn = deleteVersionAliasRequest.functionUrn;
                     aliasName = deleteVersionAliasRequest.aliasName;
+                    contentType = deleteVersionAliasRequest.contentType;
                 } else {
                     functionUrn = deleteVersionAliasRequest['function_urn'];
                     aliasName = deleteVersionAliasRequest['alias_name'];
+                    contentType = deleteVersionAliasRequest['Content-Type'];
                 }
             }
 
@@ -3203,6 +3417,9 @@ export const ParamCreater = function () {
             }
             if (aliasName === null || aliasName === undefined) {
             throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling deleteVersionAlias.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
@@ -3230,14 +3447,18 @@ export const ParamCreater = function () {
             let vpcId;
             
             let subnetId;
+            
+            let contentType;
 
             if (deleteVpcEndpointRequest !== null && deleteVpcEndpointRequest !== undefined) {
                 if (deleteVpcEndpointRequest instanceof DeleteVpcEndpointRequest) {
                     vpcId = deleteVpcEndpointRequest.vpcId;
                     subnetId = deleteVpcEndpointRequest.subnetId;
+                    contentType = deleteVpcEndpointRequest.contentType;
                 } else {
                     vpcId = deleteVpcEndpointRequest['vpc_id'];
                     subnetId = deleteVpcEndpointRequest['subnet_id'];
+                    contentType = deleteVpcEndpointRequest['Content-Type'];
                 }
             }
 
@@ -3247,6 +3468,9 @@ export const ParamCreater = function () {
             }
             if (subnetId === null || subnetId === undefined) {
             throw new RequiredError('subnetId','Required parameter subnetId was null or undefined when calling deleteVpcEndpoint.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'vpc_id': vpcId,'subnet_id': subnetId, };
@@ -3259,7 +3483,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        enableAsyncStatusLog() {
+        enableAsyncStatusLog(enableAsyncStatusLogRequest?: EnableAsyncStatusLogRequest) {
             const options = {
                 method: "POST",
                 url: "/v2/{project_id}/fgs/functions/enable-async-status-logs",
@@ -3270,6 +3494,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let contentType;
+
+            if (enableAsyncStatusLogRequest !== null && enableAsyncStatusLogRequest !== undefined) {
+                if (enableAsyncStatusLogRequest instanceof EnableAsyncStatusLogRequest) {
+                    contentType = enableAsyncStatusLogRequest.contentType;
+                } else {
+                    contentType = enableAsyncStatusLogRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -3280,7 +3519,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        enableLtsLogs() {
+        enableLtsLogs(enableLtsLogsRequest?: EnableLtsLogsRequest) {
             const options = {
                 method: "POST",
                 url: "/v2/{project_id}/fgs/functions/enable-lts-logs",
@@ -3291,6 +3530,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let contentType;
+
+            if (enableLtsLogsRequest !== null && enableLtsLogsRequest !== undefined) {
+                if (enableLtsLogsRequest instanceof EnableLtsLogsRequest) {
+                    contentType = enableLtsLogsRequest.contentType;
+                } else {
+                    contentType = enableLtsLogsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -3315,6 +3569,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let config;
             
             let code;
@@ -3324,11 +3580,13 @@ export const ParamCreater = function () {
             if (exportFunctionRequest !== null && exportFunctionRequest !== undefined) {
                 if (exportFunctionRequest instanceof ExportFunctionRequest) {
                     functionUrn = exportFunctionRequest.functionUrn;
+                    contentType = exportFunctionRequest.contentType;
                     config = exportFunctionRequest.config;
                     code = exportFunctionRequest.code;
                     type = exportFunctionRequest.type;
                 } else {
                     functionUrn = exportFunctionRequest['function_urn'];
+                    contentType = exportFunctionRequest['Content-Type'];
                     config = exportFunctionRequest['config'];
                     code = exportFunctionRequest['code'];
                     type = exportFunctionRequest['type'];
@@ -3347,6 +3605,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3373,11 +3634,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let contentType;
 
             if (importFunctionRequest !== null && importFunctionRequest !== undefined) {
                 if (importFunctionRequest instanceof ImportFunctionRequest) {
+                    contentType = importFunctionRequest.contentType;
                     body = importFunctionRequest.body
                 } else {
+                    contentType = importFunctionRequest['Content-Type'];
                     body = importFunctionRequest['body'];
                 }
             }
@@ -3385,6 +3650,9 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3414,6 +3682,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let xCffLogType;
             
             let xCFFRequestVersion;
@@ -3421,11 +3691,13 @@ export const ParamCreater = function () {
             if (invokeFunctionRequest !== null && invokeFunctionRequest !== undefined) {
                 if (invokeFunctionRequest instanceof InvokeFunctionRequest) {
                     functionUrn = invokeFunctionRequest.functionUrn;
+                    contentType = invokeFunctionRequest.contentType;
                     body = invokeFunctionRequest.body
                     xCffLogType = invokeFunctionRequest.xCffLogType;
                     xCFFRequestVersion = invokeFunctionRequest.xCFFRequestVersion;
                 } else {
                     functionUrn = invokeFunctionRequest['function_urn'];
+                    contentType = invokeFunctionRequest['Content-Type'];
                     body = invokeFunctionRequest['body'];
                     xCffLogType = invokeFunctionRequest['X-Cff-Log-Type'];
                     xCFFRequestVersion = invokeFunctionRequest['X-CFF-Request-Version'];
@@ -3438,6 +3710,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             if (xCffLogType !== undefined && xCffLogType !== null) {
                 localVarHeaderParameter['X-Cff-Log-Type'] = String(xCffLogType);
@@ -3472,6 +3747,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let requests;
             
             let marker;
@@ -3487,6 +3764,7 @@ export const ParamCreater = function () {
             if (listActiveAsyncInvocationsRequest !== null && listActiveAsyncInvocationsRequest !== undefined) {
                 if (listActiveAsyncInvocationsRequest instanceof ListActiveAsyncInvocationsRequest) {
                     functionUrn = listActiveAsyncInvocationsRequest.functionUrn;
+                    contentType = listActiveAsyncInvocationsRequest.contentType;
                     requests = listActiveAsyncInvocationsRequest.requests;
                     marker = listActiveAsyncInvocationsRequest.marker;
                     limit = listActiveAsyncInvocationsRequest.limit;
@@ -3495,6 +3773,7 @@ export const ParamCreater = function () {
                     queryEndTime = listActiveAsyncInvocationsRequest.queryEndTime;
                 } else {
                     functionUrn = listActiveAsyncInvocationsRequest['function_urn'];
+                    contentType = listActiveAsyncInvocationsRequest['Content-Type'];
                     requests = listActiveAsyncInvocationsRequest['requests'];
                     marker = listActiveAsyncInvocationsRequest['marker'];
                     limit = listActiveAsyncInvocationsRequest['limit'];
@@ -3526,6 +3805,9 @@ export const ParamCreater = function () {
             if (queryEndTime !== null && queryEndTime !== undefined) {
                 localVarQueryParameter['query_end_time'] = queryEndTime;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
@@ -3550,6 +3832,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -3562,12 +3846,14 @@ export const ParamCreater = function () {
 
             if (listAppTemplatesRequest !== null && listAppTemplatesRequest !== undefined) {
                 if (listAppTemplatesRequest instanceof ListAppTemplatesRequest) {
+                    contentType = listAppTemplatesRequest.contentType;
                     marker = listAppTemplatesRequest.marker;
                     maxitems = listAppTemplatesRequest.maxitems;
                     runtime = listAppTemplatesRequest.runtime;
                     category = listAppTemplatesRequest.category;
                     xLanguage = listAppTemplatesRequest.xLanguage;
                 } else {
+                    contentType = listAppTemplatesRequest['Content-Type'];
                     marker = listAppTemplatesRequest['marker'];
                     maxitems = listAppTemplatesRequest['maxitems'];
                     runtime = listAppTemplatesRequest['runtime'];
@@ -3591,6 +3877,9 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3617,6 +3906,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let requestId;
             
             let marker;
@@ -3632,6 +3923,7 @@ export const ParamCreater = function () {
             if (listAsyncInvocationsRequest !== null && listAsyncInvocationsRequest !== undefined) {
                 if (listAsyncInvocationsRequest instanceof ListAsyncInvocationsRequest) {
                     functionUrn = listAsyncInvocationsRequest.functionUrn;
+                    contentType = listAsyncInvocationsRequest.contentType;
                     requestId = listAsyncInvocationsRequest.requestId;
                     marker = listAsyncInvocationsRequest.marker;
                     limit = listAsyncInvocationsRequest.limit;
@@ -3640,6 +3932,7 @@ export const ParamCreater = function () {
                     queryEndTime = listAsyncInvocationsRequest.queryEndTime;
                 } else {
                     functionUrn = listAsyncInvocationsRequest['function_urn'];
+                    contentType = listAsyncInvocationsRequest['Content-Type'];
                     requestId = listAsyncInvocationsRequest['request_id'];
                     marker = listAsyncInvocationsRequest['marker'];
                     limit = listAsyncInvocationsRequest['limit'];
@@ -3671,6 +3964,9 @@ export const ParamCreater = function () {
             if (queryEndTime !== null && queryEndTime !== undefined) {
                 localVarQueryParameter['query_end_time'] = queryEndTime;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
@@ -3697,14 +3993,18 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let type;
 
             if (listBridgeFunctionsRequest !== null && listBridgeFunctionsRequest !== undefined) {
                 if (listBridgeFunctionsRequest instanceof ListBridgeFunctionsRequest) {
                     functionUrn = listBridgeFunctionsRequest.functionUrn;
+                    contentType = listBridgeFunctionsRequest.contentType;
                     type = listBridgeFunctionsRequest.type;
                 } else {
                     functionUrn = listBridgeFunctionsRequest['function_urn'];
+                    contentType = listBridgeFunctionsRequest['Content-Type'];
                     type = listBridgeFunctionsRequest['type'];
                 }
             }
@@ -3715,6 +4015,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3741,12 +4044,16 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let type;
+            
+            let contentType;
 
             if (listBridgeVersionsRequest !== null && listBridgeVersionsRequest !== undefined) {
                 if (listBridgeVersionsRequest instanceof ListBridgeVersionsRequest) {
                     type = listBridgeVersionsRequest.type;
+                    contentType = listBridgeVersionsRequest.contentType;
                 } else {
                     type = listBridgeVersionsRequest['type'];
+                    contentType = listBridgeVersionsRequest['Content-Type'];
                 }
             }
 
@@ -3756,6 +4063,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3780,6 +4090,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -3796,6 +4108,7 @@ export const ParamCreater = function () {
 
             if (listDependenciesRequest !== null && listDependenciesRequest !== undefined) {
                 if (listDependenciesRequest instanceof ListDependenciesRequest) {
+                    contentType = listDependenciesRequest.contentType;
                     marker = listDependenciesRequest.marker;
                     maxitems = listDependenciesRequest.maxitems;
                     ispublic = listDependenciesRequest.ispublic;
@@ -3804,6 +4117,7 @@ export const ParamCreater = function () {
                     name = listDependenciesRequest.name;
                     limit = listDependenciesRequest.limit;
                 } else {
+                    contentType = listDependenciesRequest['Content-Type'];
                     marker = listDependenciesRequest['marker'];
                     maxitems = listDependenciesRequest['maxitems'];
                     ispublic = listDependenciesRequest['ispublic'];
@@ -3836,6 +4150,9 @@ export const ParamCreater = function () {
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -3861,6 +4178,8 @@ export const ParamCreater = function () {
             
             let dependId;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -3868,10 +4187,12 @@ export const ParamCreater = function () {
             if (listDependencyVersionRequest !== null && listDependencyVersionRequest !== undefined) {
                 if (listDependencyVersionRequest instanceof ListDependencyVersionRequest) {
                     dependId = listDependencyVersionRequest.dependId;
+                    contentType = listDependencyVersionRequest.contentType;
                     marker = listDependencyVersionRequest.marker;
                     maxitems = listDependencyVersionRequest.maxitems;
                 } else {
                     dependId = listDependencyVersionRequest['depend_id'];
+                    contentType = listDependencyVersionRequest['Content-Type'];
                     marker = listDependencyVersionRequest['marker'];
                     maxitems = listDependencyVersionRequest['maxitems'];
                 }
@@ -3886,6 +4207,9 @@ export const ParamCreater = function () {
             }
             if (maxitems !== null && maxitems !== undefined) {
                 localVarQueryParameter['maxitems'] = maxitems;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3912,18 +4236,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (listEventsRequest !== null && listEventsRequest !== undefined) {
                 if (listEventsRequest instanceof ListEventsRequest) {
                     functionUrn = listEventsRequest.functionUrn;
+                    contentType = listEventsRequest.contentType;
                 } else {
                     functionUrn = listEventsRequest['function_urn'];
+                    contentType = listEventsRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listEvents.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -3948,15 +4279,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let limit;
             
             let marker;
 
             if (listFunctionApplicationsRequest !== null && listFunctionApplicationsRequest !== undefined) {
                 if (listFunctionApplicationsRequest instanceof ListFunctionApplicationsRequest) {
+                    contentType = listFunctionApplicationsRequest.contentType;
                     limit = listFunctionApplicationsRequest.limit;
                     marker = listFunctionApplicationsRequest.marker;
                 } else {
+                    contentType = listFunctionApplicationsRequest['Content-Type'];
                     limit = listFunctionApplicationsRequest['limit'];
                     marker = listFunctionApplicationsRequest['marker'];
                 }
@@ -3968,6 +4303,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3994,6 +4332,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let type;
             
             let startTime;
@@ -4004,11 +4344,13 @@ export const ParamCreater = function () {
 
             if (listFunctionAsMetricRequest !== null && listFunctionAsMetricRequest !== undefined) {
                 if (listFunctionAsMetricRequest instanceof ListFunctionAsMetricRequest) {
+                    contentType = listFunctionAsMetricRequest.contentType;
                     type = listFunctionAsMetricRequest.type;
                     startTime = listFunctionAsMetricRequest.startTime;
                     endTime = listFunctionAsMetricRequest.endTime;
                     limit = listFunctionAsMetricRequest.limit;
                 } else {
+                    contentType = listFunctionAsMetricRequest['Content-Type'];
                     type = listFunctionAsMetricRequest['type'];
                     startTime = listFunctionAsMetricRequest['start_time'];
                     endTime = listFunctionAsMetricRequest['end_time'];
@@ -4028,6 +4370,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4054,6 +4399,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let marker;
             
             let limit;
@@ -4061,10 +4408,12 @@ export const ParamCreater = function () {
             if (listFunctionAsyncInvokeConfigRequest !== null && listFunctionAsyncInvokeConfigRequest !== undefined) {
                 if (listFunctionAsyncInvokeConfigRequest instanceof ListFunctionAsyncInvokeConfigRequest) {
                     functionUrn = listFunctionAsyncInvokeConfigRequest.functionUrn;
+                    contentType = listFunctionAsyncInvokeConfigRequest.contentType;
                     marker = listFunctionAsyncInvokeConfigRequest.marker;
                     limit = listFunctionAsyncInvokeConfigRequest.limit;
                 } else {
                     functionUrn = listFunctionAsyncInvokeConfigRequest['function_urn'];
+                    contentType = listFunctionAsyncInvokeConfigRequest['Content-Type'];
                     marker = listFunctionAsyncInvokeConfigRequest['marker'];
                     limit = listFunctionAsyncInvokeConfigRequest['limit'];
                 }
@@ -4079,6 +4428,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4104,6 +4456,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let marker;
             
             let limit;
@@ -4112,10 +4466,12 @@ export const ParamCreater = function () {
 
             if (listFunctionReservedInstancesRequest !== null && listFunctionReservedInstancesRequest !== undefined) {
                 if (listFunctionReservedInstancesRequest instanceof ListFunctionReservedInstancesRequest) {
+                    contentType = listFunctionReservedInstancesRequest.contentType;
                     marker = listFunctionReservedInstancesRequest.marker;
                     limit = listFunctionReservedInstancesRequest.limit;
                     urn = listFunctionReservedInstancesRequest.urn;
                 } else {
+                    contentType = listFunctionReservedInstancesRequest['Content-Type'];
                     marker = listFunctionReservedInstancesRequest['marker'];
                     limit = listFunctionReservedInstancesRequest['limit'];
                     urn = listFunctionReservedInstancesRequest['urn'];
@@ -4131,6 +4487,9 @@ export const ParamCreater = function () {
             }
             if (urn !== null && urn !== undefined) {
                 localVarQueryParameter['urn'] = urn;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4158,14 +4517,18 @@ export const ParamCreater = function () {
             let funcUrn;
             
             let period;
+            
+            let contentType;
 
             if (listFunctionStatisticsRequest !== null && listFunctionStatisticsRequest !== undefined) {
                 if (listFunctionStatisticsRequest instanceof ListFunctionStatisticsRequest) {
                     funcUrn = listFunctionStatisticsRequest.funcUrn;
                     period = listFunctionStatisticsRequest.period;
+                    contentType = listFunctionStatisticsRequest.contentType;
                 } else {
                     funcUrn = listFunctionStatisticsRequest['func_urn'];
                     period = listFunctionStatisticsRequest['period'];
+                    contentType = listFunctionStatisticsRequest['Content-Type'];
                 }
             }
 
@@ -4175,6 +4538,9 @@ export const ParamCreater = function () {
             }
             if (period === null || period === undefined) {
             throw new RequiredError('period','Required parameter period was null or undefined when calling listFunctionStatistics.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'func_urn': funcUrn,'period': period, };
@@ -4202,14 +4568,18 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let contentType;
 
             if (listFunctionTagsRequest !== null && listFunctionTagsRequest !== undefined) {
                 if (listFunctionTagsRequest instanceof ListFunctionTagsRequest) {
                     resourceType = listFunctionTagsRequest.resourceType;
                     resourceId = listFunctionTagsRequest.resourceId;
+                    contentType = listFunctionTagsRequest.contentType;
                 } else {
                     resourceType = listFunctionTagsRequest['resource_type'];
                     resourceId = listFunctionTagsRequest['resource_id'];
+                    contentType = listFunctionTagsRequest['Content-Type'];
                 }
             }
 
@@ -4219,6 +4589,9 @@ export const ParamCreater = function () {
             }
             if (resourceId === null || resourceId === undefined) {
             throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listFunctionTags.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
@@ -4243,6 +4616,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -4257,6 +4632,7 @@ export const ParamCreater = function () {
 
             if (listFunctionTemplateRequest !== null && listFunctionTemplateRequest !== undefined) {
                 if (listFunctionTemplateRequest instanceof ListFunctionTemplateRequest) {
+                    contentType = listFunctionTemplateRequest.contentType;
                     marker = listFunctionTemplateRequest.marker;
                     maxitems = listFunctionTemplateRequest.maxitems;
                     ispublic = listFunctionTemplateRequest.ispublic;
@@ -4264,6 +4640,7 @@ export const ParamCreater = function () {
                     scene = listFunctionTemplateRequest.scene;
                     service = listFunctionTemplateRequest.service;
                 } else {
+                    contentType = listFunctionTemplateRequest['Content-Type'];
                     marker = listFunctionTemplateRequest['marker'];
                     maxitems = listFunctionTemplateRequest['maxitems'];
                     ispublic = listFunctionTemplateRequest['ispublic'];
@@ -4292,6 +4669,9 @@ export const ParamCreater = function () {
             if (service !== null && service !== undefined) {
                 localVarQueryParameter['service'] = service;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -4316,18 +4696,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (listFunctionTriggersRequest !== null && listFunctionTriggersRequest !== undefined) {
                 if (listFunctionTriggersRequest instanceof ListFunctionTriggersRequest) {
                     functionUrn = listFunctionTriggersRequest.functionUrn;
+                    contentType = listFunctionTriggersRequest.contentType;
                 } else {
                     functionUrn = listFunctionTriggersRequest['function_urn'];
+                    contentType = listFunctionTriggersRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionTriggers.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -4354,6 +4741,8 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -4361,10 +4750,12 @@ export const ParamCreater = function () {
             if (listFunctionVersionsRequest !== null && listFunctionVersionsRequest !== undefined) {
                 if (listFunctionVersionsRequest instanceof ListFunctionVersionsRequest) {
                     functionUrn = listFunctionVersionsRequest.functionUrn;
+                    contentType = listFunctionVersionsRequest.contentType;
                     marker = listFunctionVersionsRequest.marker;
                     maxitems = listFunctionVersionsRequest.maxitems;
                 } else {
                     functionUrn = listFunctionVersionsRequest['function_urn'];
+                    contentType = listFunctionVersionsRequest['Content-Type'];
                     marker = listFunctionVersionsRequest['marker'];
                     maxitems = listFunctionVersionsRequest['maxitems'];
                 }
@@ -4379,6 +4770,9 @@ export const ParamCreater = function () {
             }
             if (maxitems !== null && maxitems !== undefined) {
                 localVarQueryParameter['maxitems'] = maxitems;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4404,6 +4798,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let marker;
             
             let maxitems;
@@ -4412,10 +4808,12 @@ export const ParamCreater = function () {
 
             if (listFunctionsRequest !== null && listFunctionsRequest !== undefined) {
                 if (listFunctionsRequest instanceof ListFunctionsRequest) {
+                    contentType = listFunctionsRequest.contentType;
                     marker = listFunctionsRequest.marker;
                     maxitems = listFunctionsRequest.maxitems;
                     packageName = listFunctionsRequest.packageName;
                 } else {
+                    contentType = listFunctionsRequest['Content-Type'];
                     marker = listFunctionsRequest['marker'];
                     maxitems = listFunctionsRequest['maxitems'];
                     packageName = listFunctionsRequest['package_name'];
@@ -4432,6 +4830,9 @@ export const ParamCreater = function () {
             if (packageName !== null && packageName !== undefined) {
                 localVarQueryParameter['package_name'] = packageName;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -4443,7 +4844,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listQuotas() {
+        listQuotas(listQuotasRequest?: ListQuotasRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/fgs/quotas",
@@ -4454,6 +4855,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let contentType;
+
+            if (listQuotasRequest !== null && listQuotasRequest !== undefined) {
+                if (listQuotasRequest instanceof ListQuotasRequest) {
+                    contentType = listQuotasRequest.contentType;
+                } else {
+                    contentType = listQuotasRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -4476,6 +4892,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let functionUrn;
             
             let marker;
@@ -4484,10 +4902,12 @@ export const ParamCreater = function () {
 
             if (listReservedInstanceConfigsRequest !== null && listReservedInstanceConfigsRequest !== undefined) {
                 if (listReservedInstanceConfigsRequest instanceof ListReservedInstanceConfigsRequest) {
+                    contentType = listReservedInstanceConfigsRequest.contentType;
                     functionUrn = listReservedInstanceConfigsRequest.functionUrn;
                     marker = listReservedInstanceConfigsRequest.marker;
                     limit = listReservedInstanceConfigsRequest.limit;
                 } else {
+                    contentType = listReservedInstanceConfigsRequest['Content-Type'];
                     functionUrn = listReservedInstanceConfigsRequest['function_urn'];
                     marker = listReservedInstanceConfigsRequest['marker'];
                     limit = listReservedInstanceConfigsRequest['limit'];
@@ -4503,6 +4923,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4532,6 +4955,8 @@ export const ParamCreater = function () {
             
             let filter;
             
+            let contentType;
+            
             let period;
             
             let option;
@@ -4543,12 +4968,14 @@ export const ParamCreater = function () {
             if (listStatisticsRequest !== null && listStatisticsRequest !== undefined) {
                 if (listStatisticsRequest instanceof ListStatisticsRequest) {
                     filter = listStatisticsRequest.filter;
+                    contentType = listStatisticsRequest.contentType;
                     period = listStatisticsRequest.period;
                     option = listStatisticsRequest.option;
                     limit = listStatisticsRequest.limit;
                     marker = listStatisticsRequest.marker;
                 } else {
                     filter = listStatisticsRequest['filter'];
+                    contentType = listStatisticsRequest['Content-Type'];
                     period = listStatisticsRequest['period'];
                     option = listStatisticsRequest['option'];
                     limit = listStatisticsRequest['limit'];
@@ -4575,6 +5002,9 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -4599,18 +5029,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (listVersionAliasesRequest !== null && listVersionAliasesRequest !== undefined) {
                 if (listVersionAliasesRequest instanceof ListVersionAliasesRequest) {
                     functionUrn = listVersionAliasesRequest.functionUrn;
+                    contentType = listVersionAliasesRequest.contentType;
                 } else {
                     functionUrn = listVersionAliasesRequest['function_urn'];
+                    contentType = listVersionAliasesRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listVersionAliases.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -4811,18 +5248,25 @@ export const ParamCreater = function () {
 
             
             let id;
+            
+            let contentType;
 
             if (showAppTemplateRequest !== null && showAppTemplateRequest !== undefined) {
                 if (showAppTemplateRequest instanceof ShowAppTemplateRequest) {
                     id = showAppTemplateRequest.id;
+                    contentType = showAppTemplateRequest.contentType;
                 } else {
                     id = showAppTemplateRequest['id'];
+                    contentType = showAppTemplateRequest['Content-Type'];
                 }
             }
 
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling showAppTemplate.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'id': id, };
@@ -4850,14 +5294,18 @@ export const ParamCreater = function () {
             let dependId;
             
             let version;
+            
+            let contentType;
 
             if (showDependencyVersionRequest !== null && showDependencyVersionRequest !== undefined) {
                 if (showDependencyVersionRequest instanceof ShowDependencyVersionRequest) {
                     dependId = showDependencyVersionRequest.dependId;
                     version = showDependencyVersionRequest.version;
+                    contentType = showDependencyVersionRequest.contentType;
                 } else {
                     dependId = showDependencyVersionRequest['depend_id'];
                     version = showDependencyVersionRequest['version'];
+                    contentType = showDependencyVersionRequest['Content-Type'];
                 }
             }
 
@@ -4867,6 +5315,9 @@ export const ParamCreater = function () {
             }
             if (version === null || version === undefined) {
             throw new RequiredError('version','Required parameter version was null or undefined when calling showDependencyVersion.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'depend_id': dependId,'version': version, };
@@ -4893,14 +5344,18 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let eventId;
 
             if (showEventRequest !== null && showEventRequest !== undefined) {
                 if (showEventRequest instanceof ShowEventRequest) {
                     functionUrn = showEventRequest.functionUrn;
+                    contentType = showEventRequest.contentType;
                     eventId = showEventRequest.eventId;
                 } else {
                     functionUrn = showEventRequest['function_urn'];
+                    contentType = showEventRequest['Content-Type'];
                     eventId = showEventRequest['event_id'];
                 }
             }
@@ -4911,6 +5366,9 @@ export const ParamCreater = function () {
             }
             if (eventId === null || eventId === undefined) {
             throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling showEvent.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'event_id': eventId, };
@@ -4943,6 +5401,8 @@ export const ParamCreater = function () {
             
             let funcUrn;
             
+            let contentType;
+            
             let marker;
             
             let limit;
@@ -4950,10 +5410,12 @@ export const ParamCreater = function () {
             if (showFuncReservedInstanceMetricsRequest !== null && showFuncReservedInstanceMetricsRequest !== undefined) {
                 if (showFuncReservedInstanceMetricsRequest instanceof ShowFuncReservedInstanceMetricsRequest) {
                     funcUrn = showFuncReservedInstanceMetricsRequest.funcUrn;
+                    contentType = showFuncReservedInstanceMetricsRequest.contentType;
                     marker = showFuncReservedInstanceMetricsRequest.marker;
                     limit = showFuncReservedInstanceMetricsRequest.limit;
                 } else {
                     funcUrn = showFuncReservedInstanceMetricsRequest['func_urn'];
+                    contentType = showFuncReservedInstanceMetricsRequest['Content-Type'];
                     marker = showFuncReservedInstanceMetricsRequest['marker'];
                     limit = showFuncReservedInstanceMetricsRequest['limit'];
                 }
@@ -4968,6 +5430,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4996,14 +5461,18 @@ export const ParamCreater = function () {
             let functionUrn;
             
             let action;
+            
+            let contentType;
 
             if (showFuncSnapshotStateRequest !== null && showFuncSnapshotStateRequest !== undefined) {
                 if (showFuncSnapshotStateRequest instanceof ShowFuncSnapshotStateRequest) {
                     functionUrn = showFuncSnapshotStateRequest.functionUrn;
                     action = showFuncSnapshotStateRequest.action;
+                    contentType = showFuncSnapshotStateRequest.contentType;
                 } else {
                     functionUrn = showFuncSnapshotStateRequest['function_urn'];
                     action = showFuncSnapshotStateRequest['action'];
+                    contentType = showFuncSnapshotStateRequest['Content-Type'];
                 }
             }
 
@@ -5013,6 +5482,9 @@ export const ParamCreater = function () {
             }
             if (action === null || action === undefined) {
             throw new RequiredError('action','Required parameter action was null or undefined when calling showFuncSnapshotState.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'action': action, };
@@ -5038,18 +5510,25 @@ export const ParamCreater = function () {
 
             
             let id;
+            
+            let contentType;
 
             if (showFunctionAppRequest !== null && showFunctionAppRequest !== undefined) {
                 if (showFunctionAppRequest instanceof ShowFunctionAppRequest) {
                     id = showFunctionAppRequest.id;
+                    contentType = showFunctionAppRequest.contentType;
                 } else {
                     id = showFunctionAppRequest['id'];
+                    contentType = showFunctionAppRequest['Content-Type'];
                 }
             }
 
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling showFunctionApp.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'id': id, };
@@ -5075,18 +5554,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (showFunctionAsyncInvokeConfigRequest !== null && showFunctionAsyncInvokeConfigRequest !== undefined) {
                 if (showFunctionAsyncInvokeConfigRequest instanceof ShowFunctionAsyncInvokeConfigRequest) {
                     functionUrn = showFunctionAsyncInvokeConfigRequest.functionUrn;
+                    contentType = showFunctionAsyncInvokeConfigRequest.contentType;
                 } else {
                     functionUrn = showFunctionAsyncInvokeConfigRequest['function_urn'];
+                    contentType = showFunctionAsyncInvokeConfigRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionAsyncInvokeConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -5112,18 +5598,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (showFunctionCodeRequest !== null && showFunctionCodeRequest !== undefined) {
                 if (showFunctionCodeRequest instanceof ShowFunctionCodeRequest) {
                     functionUrn = showFunctionCodeRequest.functionUrn;
+                    contentType = showFunctionCodeRequest.contentType;
                 } else {
                     functionUrn = showFunctionCodeRequest['function_urn'];
+                    contentType = showFunctionCodeRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionCode.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -5149,18 +5642,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (showFunctionConfigRequest !== null && showFunctionConfigRequest !== undefined) {
                 if (showFunctionConfigRequest instanceof ShowFunctionConfigRequest) {
                     functionUrn = showFunctionConfigRequest.functionUrn;
+                    contentType = showFunctionConfigRequest.contentType;
                 } else {
                     functionUrn = showFunctionConfigRequest['function_urn'];
+                    contentType = showFunctionConfigRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -5188,14 +5688,18 @@ export const ParamCreater = function () {
             let funcUrn;
             
             let period;
+            
+            let contentType;
 
             if (showFunctionMetricsRequest !== null && showFunctionMetricsRequest !== undefined) {
                 if (showFunctionMetricsRequest instanceof ShowFunctionMetricsRequest) {
                     funcUrn = showFunctionMetricsRequest.funcUrn;
                     period = showFunctionMetricsRequest.period;
+                    contentType = showFunctionMetricsRequest.contentType;
                 } else {
                     funcUrn = showFunctionMetricsRequest['func_urn'];
                     period = showFunctionMetricsRequest['period'];
+                    contentType = showFunctionMetricsRequest['Content-Type'];
                 }
             }
 
@@ -5205,6 +5709,9 @@ export const ParamCreater = function () {
             }
             if (period === null || period === undefined) {
             throw new RequiredError('period','Required parameter period was null or undefined when calling showFunctionMetrics.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'func_urn': funcUrn,'period': period, };
@@ -5230,18 +5737,25 @@ export const ParamCreater = function () {
 
             
             let templateId;
+            
+            let contentType;
 
             if (showFunctionTemplateRequest !== null && showFunctionTemplateRequest !== undefined) {
                 if (showFunctionTemplateRequest instanceof ShowFunctionTemplateRequest) {
                     templateId = showFunctionTemplateRequest.templateId;
+                    contentType = showFunctionTemplateRequest.contentType;
                 } else {
                     templateId = showFunctionTemplateRequest['template_id'];
+                    contentType = showFunctionTemplateRequest['Content-Type'];
                 }
             }
 
         
             if (templateId === null || templateId === undefined) {
             throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showFunctionTemplate.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'template_id': templateId, };
@@ -5271,16 +5785,20 @@ export const ParamCreater = function () {
             let triggerTypeCode;
             
             let triggerId;
+            
+            let contentType;
 
             if (showFunctionTriggerRequest !== null && showFunctionTriggerRequest !== undefined) {
                 if (showFunctionTriggerRequest instanceof ShowFunctionTriggerRequest) {
                     functionUrn = showFunctionTriggerRequest.functionUrn;
                     triggerTypeCode = showFunctionTriggerRequest.triggerTypeCode;
                     triggerId = showFunctionTriggerRequest.triggerId;
+                    contentType = showFunctionTriggerRequest.contentType;
                 } else {
                     functionUrn = showFunctionTriggerRequest['function_urn'];
                     triggerTypeCode = showFunctionTriggerRequest['trigger_type_code'];
                     triggerId = showFunctionTriggerRequest['trigger_id'];
+                    contentType = showFunctionTriggerRequest['Content-Type'];
                 }
             }
 
@@ -5293,6 +5811,9 @@ export const ParamCreater = function () {
             }
             if (triggerId === null || triggerId === undefined) {
             throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling showFunctionTrigger.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
@@ -5318,18 +5839,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (showLtsLogDetailsRequest !== null && showLtsLogDetailsRequest !== undefined) {
                 if (showLtsLogDetailsRequest instanceof ShowLtsLogDetailsRequest) {
                     functionUrn = showLtsLogDetailsRequest.functionUrn;
+                    contentType = showLtsLogDetailsRequest.contentType;
                 } else {
                     functionUrn = showLtsLogDetailsRequest['function_urn'];
+                    contentType = showLtsLogDetailsRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showLtsLogDetails.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -5342,7 +5870,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showProjectAsyncStatusLogInfo() {
+        showProjectAsyncStatusLogInfo(showProjectAsyncStatusLogInfoRequest?: ShowProjectAsyncStatusLogInfoRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/fgs/functions/async-status-log-detail",
@@ -5353,6 +5881,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let contentType;
+
+            if (showProjectAsyncStatusLogInfoRequest !== null && showProjectAsyncStatusLogInfoRequest !== undefined) {
+                if (showProjectAsyncStatusLogInfoRequest instanceof ShowProjectAsyncStatusLogInfoRequest) {
+                    contentType = showProjectAsyncStatusLogInfoRequest.contentType;
+                } else {
+                    contentType = showProjectAsyncStatusLogInfoRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -5376,18 +5919,25 @@ export const ParamCreater = function () {
 
             
             let resourceType;
+            
+            let contentType;
 
             if (showProjectTagsListRequest !== null && showProjectTagsListRequest !== undefined) {
                 if (showProjectTagsListRequest instanceof ShowProjectTagsListRequest) {
                     resourceType = showProjectTagsListRequest.resourceType;
+                    contentType = showProjectTagsListRequest.contentType;
                 } else {
                     resourceType = showProjectTagsListRequest['resource_type'];
+                    contentType = showProjectTagsListRequest['Content-Type'];
                 }
             }
 
         
             if (resourceType === null || resourceType === undefined) {
             throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showProjectTagsList.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'resource_type': resourceType, };
@@ -5417,15 +5967,19 @@ export const ParamCreater = function () {
             let resourceType;
             
             let action;
+            
+            let contentType;
 
             if (showResInstanceInfoRequest !== null && showResInstanceInfoRequest !== undefined) {
                 if (showResInstanceInfoRequest instanceof ShowResInstanceInfoRequest) {
                     resourceType = showResInstanceInfoRequest.resourceType;
                     action = showResInstanceInfoRequest.action;
+                    contentType = showResInstanceInfoRequest.contentType;
                     body = showResInstanceInfoRequest.body
                 } else {
                     resourceType = showResInstanceInfoRequest['resource_type'];
                     action = showResInstanceInfoRequest['action'];
+                    contentType = showResInstanceInfoRequest['Content-Type'];
                     body = showResInstanceInfoRequest['body'];
                 }
             }
@@ -5439,6 +5993,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -5524,18 +6081,25 @@ export const ParamCreater = function () {
 
             
             let functionUrn;
+            
+            let contentType;
 
             if (showTracingRequest !== null && showTracingRequest !== undefined) {
                 if (showTracingRequest instanceof ShowTracingRequest) {
                     functionUrn = showTracingRequest.functionUrn;
+                    contentType = showTracingRequest.contentType;
                 } else {
                     functionUrn = showTracingRequest['function_urn'];
+                    contentType = showTracingRequest['Content-Type'];
                 }
             }
 
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showTracing.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -5563,14 +6127,18 @@ export const ParamCreater = function () {
             let functionUrn;
             
             let aliasName;
+            
+            let contentType;
 
             if (showVersionAliasRequest !== null && showVersionAliasRequest !== undefined) {
                 if (showVersionAliasRequest instanceof ShowVersionAliasRequest) {
                     functionUrn = showVersionAliasRequest.functionUrn;
                     aliasName = showVersionAliasRequest.aliasName;
+                    contentType = showVersionAliasRequest.contentType;
                 } else {
                     functionUrn = showVersionAliasRequest['function_urn'];
                     aliasName = showVersionAliasRequest['alias_name'];
+                    contentType = showVersionAliasRequest['Content-Type'];
                 }
             }
 
@@ -5580,6 +6148,9 @@ export const ParamCreater = function () {
             }
             if (aliasName === null || aliasName === undefined) {
             throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling showVersionAlias.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
@@ -5984,15 +6555,19 @@ export const ParamCreater = function () {
             
             let functionUrn;
             
+            let contentType;
+            
             let eventId;
 
             if (updateEventRequest !== null && updateEventRequest !== undefined) {
                 if (updateEventRequest instanceof UpdateEventRequest) {
                     functionUrn = updateEventRequest.functionUrn;
+                    contentType = updateEventRequest.contentType;
                     eventId = updateEventRequest.eventId;
                     body = updateEventRequest.body
                 } else {
                     functionUrn = updateEventRequest['function_urn'];
+                    contentType = updateEventRequest['Content-Type'];
                     eventId = updateEventRequest['event_id'];
                     body = updateEventRequest['body'];
                 }
@@ -6007,6 +6582,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6033,29 +6611,36 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let functionUrn;
+            
             let action;
             
-            let functionUrn;
+            let contentType;
 
             if (updateFuncSnapshotRequest !== null && updateFuncSnapshotRequest !== undefined) {
                 if (updateFuncSnapshotRequest instanceof UpdateFuncSnapshotRequest) {
-                    action = updateFuncSnapshotRequest.action;
                     functionUrn = updateFuncSnapshotRequest.functionUrn;
+                    action = updateFuncSnapshotRequest.action;
+                    contentType = updateFuncSnapshotRequest.contentType;
                 } else {
-                    action = updateFuncSnapshotRequest['action'];
                     functionUrn = updateFuncSnapshotRequest['function_urn'];
+                    action = updateFuncSnapshotRequest['action'];
+                    contentType = updateFuncSnapshotRequest['Content-Type'];
                 }
             }
 
         
-            if (action === null || action === undefined) {
-            throw new RequiredError('action','Required parameter action was null or undefined when calling updateFuncSnapshot.');
-            }
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFuncSnapshot.');
             }
+            if (action === null || action === undefined) {
+            throw new RequiredError('action','Required parameter action was null or undefined when calling updateFuncSnapshot.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
-            options.pathParams = { 'action': action,'function_urn': functionUrn, };
+            options.pathParams = { 'function_urn': functionUrn,'action': action, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6080,13 +6665,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateFunctionAsyncInvokeConfigRequest !== null && updateFunctionAsyncInvokeConfigRequest !== undefined) {
                 if (updateFunctionAsyncInvokeConfigRequest instanceof UpdateFunctionAsyncInvokeConfigRequest) {
                     functionUrn = updateFunctionAsyncInvokeConfigRequest.functionUrn;
+                    contentType = updateFunctionAsyncInvokeConfigRequest.contentType;
                     body = updateFunctionAsyncInvokeConfigRequest.body
                 } else {
                     functionUrn = updateFunctionAsyncInvokeConfigRequest['function_urn'];
+                    contentType = updateFunctionAsyncInvokeConfigRequest['Content-Type'];
                     body = updateFunctionAsyncInvokeConfigRequest['body'];
                 }
             }
@@ -6097,6 +6686,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6126,13 +6718,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateFunctionCodeRequest !== null && updateFunctionCodeRequest !== undefined) {
                 if (updateFunctionCodeRequest instanceof UpdateFunctionCodeRequest) {
                     functionUrn = updateFunctionCodeRequest.functionUrn;
+                    contentType = updateFunctionCodeRequest.contentType;
                     body = updateFunctionCodeRequest.body
                 } else {
                     functionUrn = updateFunctionCodeRequest['function_urn'];
+                    contentType = updateFunctionCodeRequest['Content-Type'];
                     body = updateFunctionCodeRequest['body'];
                 }
             }
@@ -6143,6 +6739,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6172,14 +6771,18 @@ export const ParamCreater = function () {
             let funcUrn;
             
             let state;
+            
+            let contentType;
 
             if (updateFunctionCollectStateRequest !== null && updateFunctionCollectStateRequest !== undefined) {
                 if (updateFunctionCollectStateRequest instanceof UpdateFunctionCollectStateRequest) {
                     funcUrn = updateFunctionCollectStateRequest.funcUrn;
                     state = updateFunctionCollectStateRequest.state;
+                    contentType = updateFunctionCollectStateRequest.contentType;
                 } else {
                     funcUrn = updateFunctionCollectStateRequest['func_urn'];
                     state = updateFunctionCollectStateRequest['state'];
+                    contentType = updateFunctionCollectStateRequest['Content-Type'];
                 }
             }
 
@@ -6189,6 +6792,9 @@ export const ParamCreater = function () {
             }
             if (state === null || state === undefined) {
             throw new RequiredError('state','Required parameter state was null or undefined when calling updateFunctionCollectState.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'func_urn': funcUrn,'state': state, };
@@ -6216,13 +6822,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateFunctionConfigRequest !== null && updateFunctionConfigRequest !== undefined) {
                 if (updateFunctionConfigRequest instanceof UpdateFunctionConfigRequest) {
                     functionUrn = updateFunctionConfigRequest.functionUrn;
+                    contentType = updateFunctionConfigRequest.contentType;
                     body = updateFunctionConfigRequest.body
                 } else {
                     functionUrn = updateFunctionConfigRequest['function_urn'];
+                    contentType = updateFunctionConfigRequest['Content-Type'];
                     body = updateFunctionConfigRequest['body'];
                 }
             }
@@ -6233,6 +6843,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6262,13 +6875,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateFunctionMaxInstanceConfigRequest !== null && updateFunctionMaxInstanceConfigRequest !== undefined) {
                 if (updateFunctionMaxInstanceConfigRequest instanceof UpdateFunctionMaxInstanceConfigRequest) {
                     functionUrn = updateFunctionMaxInstanceConfigRequest.functionUrn;
+                    contentType = updateFunctionMaxInstanceConfigRequest.contentType;
                     body = updateFunctionMaxInstanceConfigRequest.body
                 } else {
                     functionUrn = updateFunctionMaxInstanceConfigRequest['function_urn'];
+                    contentType = updateFunctionMaxInstanceConfigRequest['Content-Type'];
                     body = updateFunctionMaxInstanceConfigRequest['body'];
                 }
             }
@@ -6279,6 +6896,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6308,13 +6928,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateFunctionReservedInstancesCountRequest !== null && updateFunctionReservedInstancesCountRequest !== undefined) {
                 if (updateFunctionReservedInstancesCountRequest instanceof UpdateFunctionReservedInstancesCountRequest) {
                     functionUrn = updateFunctionReservedInstancesCountRequest.functionUrn;
+                    contentType = updateFunctionReservedInstancesCountRequest.contentType;
                     body = updateFunctionReservedInstancesCountRequest.body
                 } else {
                     functionUrn = updateFunctionReservedInstancesCountRequest['function_urn'];
+                    contentType = updateFunctionReservedInstancesCountRequest['Content-Type'];
                     body = updateFunctionReservedInstancesCountRequest['body'];
                 }
             }
@@ -6325,6 +6949,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6354,13 +6981,17 @@ export const ParamCreater = function () {
             let body: any;
             
             let functionUrn;
+            
+            let contentType;
 
             if (updateTracingRequest !== null && updateTracingRequest !== undefined) {
                 if (updateTracingRequest instanceof UpdateTracingRequest) {
                     functionUrn = updateTracingRequest.functionUrn;
+                    contentType = updateTracingRequest.contentType;
                     body = updateTracingRequest.body
                 } else {
                     functionUrn = updateTracingRequest['function_urn'];
+                    contentType = updateTracingRequest['Content-Type'];
                     body = updateTracingRequest['body'];
                 }
             }
@@ -6371,6 +7002,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6404,17 +7038,21 @@ export const ParamCreater = function () {
             let triggerTypeCode;
             
             let triggerId;
+            
+            let contentType;
 
             if (updateTriggerRequest !== null && updateTriggerRequest !== undefined) {
                 if (updateTriggerRequest instanceof UpdateTriggerRequest) {
                     functionUrn = updateTriggerRequest.functionUrn;
                     triggerTypeCode = updateTriggerRequest.triggerTypeCode;
                     triggerId = updateTriggerRequest.triggerId;
+                    contentType = updateTriggerRequest.contentType;
                     body = updateTriggerRequest.body
                 } else {
                     functionUrn = updateTriggerRequest['function_urn'];
                     triggerTypeCode = updateTriggerRequest['trigger_type_code'];
                     triggerId = updateTriggerRequest['trigger_id'];
+                    contentType = updateTriggerRequest['Content-Type'];
                     body = updateTriggerRequest['body'];
                 }
             }
@@ -6431,6 +7069,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -6462,15 +7103,19 @@ export const ParamCreater = function () {
             let functionUrn;
             
             let aliasName;
+            
+            let contentType;
 
             if (updateVersionAliasRequest !== null && updateVersionAliasRequest !== undefined) {
                 if (updateVersionAliasRequest instanceof UpdateVersionAliasRequest) {
                     functionUrn = updateVersionAliasRequest.functionUrn;
                     aliasName = updateVersionAliasRequest.aliasName;
+                    contentType = updateVersionAliasRequest.contentType;
                     body = updateVersionAliasRequest.body
                 } else {
                     functionUrn = updateVersionAliasRequest['function_urn'];
                     aliasName = updateVersionAliasRequest['alias_name'];
+                    contentType = updateVersionAliasRequest['Content-Type'];
                     body = updateVersionAliasRequest['body'];
                 }
             }
@@ -6484,6 +7129,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

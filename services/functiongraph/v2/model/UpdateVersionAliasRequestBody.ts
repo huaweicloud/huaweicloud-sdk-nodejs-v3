@@ -1,9 +1,11 @@
+import { VersionStrategy } from './VersionStrategy';
 
 
 export class UpdateVersionAliasRequestBody {
     public version?: string;
     public description?: string;
     private 'additional_version_weights'?: { [key: string]: number; };
+    private 'additional_version_strategy'?: { [key: string]: VersionStrategy; };
     public constructor(version?: string) { 
         this['version'] = version;
     }
@@ -24,5 +26,15 @@ export class UpdateVersionAliasRequestBody {
     }
     public get additionalVersionWeights(): { [key: string]: number; } | undefined {
         return this['additional_version_weights'];
+    }
+    public withAdditionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }): UpdateVersionAliasRequestBody {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+        return this;
+    }
+    public set additionalVersionStrategy(additionalVersionStrategy: { [key: string]: VersionStrategy; }  | undefined) {
+        this['additional_version_strategy'] = additionalVersionStrategy;
+    }
+    public get additionalVersionStrategy(): { [key: string]: VersionStrategy; } | undefined {
+        return this['additional_version_strategy'];
     }
 }

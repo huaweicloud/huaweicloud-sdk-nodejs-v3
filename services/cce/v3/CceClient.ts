@@ -285,6 +285,9 @@ import { ShowClusterUpgradeInfoRequest } from './model/ShowClusterUpgradeInfoReq
 import { ShowClusterUpgradeInfoResponse } from './model/ShowClusterUpgradeInfoResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowNodePoolConfigurationDetailsRequest } from './model/ShowNodePoolConfigurationDetailsRequest';
+import { ShowNodePoolConfigurationDetailsRespBody } from './model/ShowNodePoolConfigurationDetailsRespBody';
+import { ShowNodePoolConfigurationDetailsResponse } from './model/ShowNodePoolConfigurationDetailsResponse';
 import { ShowNodePoolConfigurationsRequest } from './model/ShowNodePoolConfigurationsRequest';
 import { ShowNodePoolConfigurationsResponse } from './model/ShowNodePoolConfigurationsResponse';
 import { ShowNodePoolRequest } from './model/ShowNodePoolRequest';
@@ -1642,6 +1645,27 @@ export class CceClient {
      */
     public showNodePool(showNodePoolRequest?: ShowNodePoolRequest): Promise<ShowNodePoolResponse> {
         const options = ParamCreater().showNodePool(showNodePoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询CCE服务下指定节点池支持配置的参数列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定节点池支持配置的参数列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodepoolId 节点池ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNodePoolConfigurationDetails(showNodePoolConfigurationDetailsRequest?: ShowNodePoolConfigurationDetailsRequest): Promise<ShowNodePoolConfigurationDetailsResponse> {
+        const options = ParamCreater().showNodePoolConfigurationDetails(showNodePoolConfigurationDetailsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5031,6 +5055,57 @@ export const ParamCreater = function () {
             }
             if (nodepoolId === null || nodepoolId === undefined) {
             throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling showNodePool.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询CCE服务下指定节点池支持配置的参数列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNodePoolConfigurationDetails(showNodePoolConfigurationDetailsRequest?: ShowNodePoolConfigurationDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodepools/{nodepool_id}/configuration/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let nodepoolId;
+            
+            let contentType;
+
+            if (showNodePoolConfigurationDetailsRequest !== null && showNodePoolConfigurationDetailsRequest !== undefined) {
+                if (showNodePoolConfigurationDetailsRequest instanceof ShowNodePoolConfigurationDetailsRequest) {
+                    clusterId = showNodePoolConfigurationDetailsRequest.clusterId;
+                    nodepoolId = showNodePoolConfigurationDetailsRequest.nodepoolId;
+                    contentType = showNodePoolConfigurationDetailsRequest.contentType;
+                } else {
+                    clusterId = showNodePoolConfigurationDetailsRequest['cluster_id'];
+                    nodepoolId = showNodePoolConfigurationDetailsRequest['nodepool_id'];
+                    contentType = showNodePoolConfigurationDetailsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showNodePoolConfigurationDetails.');
+            }
+            if (nodepoolId === null || nodepoolId === undefined) {
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling showNodePoolConfigurationDetails.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

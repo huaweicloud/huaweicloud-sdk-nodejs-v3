@@ -3,9 +3,11 @@
 export class DeleteVersionAliasRequest {
     private 'function_urn'?: string;
     private 'alias_name'?: string;
-    public constructor(functionUrn?: string, aliasName?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, aliasName?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
         this['alias_name'] = aliasName;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): DeleteVersionAliasRequest {
         this['function_urn'] = functionUrn;
@@ -26,5 +28,15 @@ export class DeleteVersionAliasRequest {
     }
     public get aliasName(): string | undefined {
         return this['alias_name'];
+    }
+    public withContentType(contentType: string): DeleteVersionAliasRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

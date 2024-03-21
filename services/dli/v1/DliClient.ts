@@ -27,6 +27,7 @@ import { CancelSparkJobRequest } from './model/CancelSparkJobRequest';
 import { CancelSparkJobResponse } from './model/CancelSparkJobResponse';
 import { CancelSqlJobRequest } from './model/CancelSqlJobRequest';
 import { CancelSqlJobResponse } from './model/CancelSqlJobResponse';
+import { CatalogEntity } from './model/CatalogEntity';
 import { ChangeAuthorizationRequest } from './model/ChangeAuthorizationRequest';
 import { ChangeAuthorizationResponse } from './model/ChangeAuthorizationResponse';
 import { ChangeFlinkJobStatusReportRequest } from './model/ChangeFlinkJobStatusReportRequest';
@@ -149,6 +150,7 @@ import { DeleteTemplateRespTemplate } from './model/DeleteTemplateRespTemplate';
 import { DisassociateConnectionQueueReq } from './model/DisassociateConnectionQueueReq';
 import { DisassociateQueueFromEnhancedConnectionRequest } from './model/DisassociateQueueFromEnhancedConnectionRequest';
 import { DisassociateQueueFromEnhancedConnectionResponse } from './model/DisassociateQueueFromEnhancedConnectionResponse';
+import { ElasticResourcePoolScaleRecord } from './model/ElasticResourcePoolScaleRecord';
 import { ElasticResourcePoolsResponse } from './model/ElasticResourcePoolsResponse';
 import { EnhancedConnectionResourceInfo } from './model/EnhancedConnectionResourceInfo';
 import { EnhancedConnectionsHost } from './model/EnhancedConnectionsHost';
@@ -193,6 +195,8 @@ import { ListAuthInfoRequest } from './model/ListAuthInfoRequest';
 import { ListAuthInfoResponse } from './model/ListAuthInfoResponse';
 import { ListAuthorizationPrivilegesRequest } from './model/ListAuthorizationPrivilegesRequest';
 import { ListAuthorizationPrivilegesResponse } from './model/ListAuthorizationPrivilegesResponse';
+import { ListCatalogsRequest } from './model/ListCatalogsRequest';
+import { ListCatalogsResponse } from './model/ListCatalogsResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
 import { ListDatabaseUsersResponse } from './model/ListDatabaseUsersResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
@@ -263,6 +267,9 @@ import { RegisterBucketRequest } from './model/RegisterBucketRequest';
 import { RegisterBucketResponse } from './model/RegisterBucketResponse';
 import { RunAuthorizationActionRequest } from './model/RunAuthorizationActionRequest';
 import { RunAuthorizationActionResponse } from './model/RunAuthorizationActionResponse';
+import { RunCatalogActionRequest } from './model/RunCatalogActionRequest';
+import { RunCatalogActionRequestBody } from './model/RunCatalogActionRequestBody';
+import { RunCatalogActionResponse } from './model/RunCatalogActionResponse';
 import { RunIefJobActionCallBackRequest } from './model/RunIefJobActionCallBackRequest';
 import { RunIefJobActionCallBackResponse } from './model/RunIefJobActionCallBackResponse';
 import { RunQueueActionReq } from './model/RunQueueActionReq';
@@ -272,6 +279,8 @@ import { SetQueuePlanReq } from './model/SetQueuePlanReq';
 import { ShowBatchJobDetailResp } from './model/ShowBatchJobDetailResp';
 import { ShowBatchLogRequest } from './model/ShowBatchLogRequest';
 import { ShowBatchLogResponse } from './model/ShowBatchLogResponse';
+import { ShowCatalogRequest } from './model/ShowCatalogRequest';
+import { ShowCatalogResponse } from './model/ShowCatalogResponse';
 import { ShowConnectivityTaskRequest } from './model/ShowConnectivityTaskRequest';
 import { ShowConnectivityTaskResponse } from './model/ShowConnectivityTaskResponse';
 import { ShowDatabaseUsersPrivilege } from './model/ShowDatabaseUsersPrivilege';
@@ -1069,6 +1078,26 @@ export class DliClient {
     }
 
     /**
+     * 该API获取指定项目下所有catalog信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下所有catalog信息
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 分页的单页数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCatalogs(listCatalogsRequest?: ListCatalogsRequest): Promise<ListCatalogsResponse> {
+        const options = ParamCreater().listCatalogs(listCatalogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于查询可以使用的指定队列的所有用户名称。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1420,6 +1449,25 @@ export class DliClient {
     }
 
     /**
+     * 该API创建DLI绑定/解绑到lakeformation等服务的元数据目录（CATALOG）相关信息，包含DLI侧CATALOG名称、外部CATALOG名称和类型，类型为预留字段，当前只支持lakeformation
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定/解绑catalog映射信息
+     * @param {RunCatalogActionRequestBody} runCatalogActionRequestBody catalog操作的请求body体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runCatalogAction(runCatalogActionRequest?: RunCatalogActionRequest): Promise<RunCatalogActionResponse> {
+        const options = ParamCreater().runCatalogAction(runCatalogActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该功能用于重新启动队列、扩容队列、缩容队列。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1432,6 +1480,25 @@ export class DliClient {
      */
     public runQueueAction(runQueueActionRequest?: RunQueueActionRequest): Promise<RunQueueActionResponse> {
         const options = ParamCreater().runQueueAction(runQueueActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于描述DLI catalog详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 描述catalog信息
+     * @param {string} catalogName catalog名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCatalog(showCatalogRequest?: ShowCatalogRequest): Promise<ShowCatalogResponse> {
+        const options = ParamCreater().showCatalog(showCatalogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1638,7 +1705,7 @@ export class DliClient {
      * @summary 修改弹性资源池关联的队列优先级
      * @param {string} elasticResourcePoolName 弹性资源池名称
      * @param {string} queueName 队列名称
-     * @param {UpdateElasticResourcePoolQueueScalingPolicyInfo} body This is a auto create Body Object
+     * @param {UpdateElasticResourcePoolQueueScalingPolicyInfo} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4478,6 +4545,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API获取指定项目下所有catalog信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCatalogs(listCatalogsRequest?: ListCatalogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/catalogs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCatalogsRequest !== null && listCatalogsRequest !== undefined) {
+                if (listCatalogsRequest instanceof ListCatalogsRequest) {
+                    offset = listCatalogsRequest.offset;
+                    limit = listCatalogsRequest.limit;
+                } else {
+                    offset = listCatalogsRequest['offset'];
+                    limit = listCatalogsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于查询可以使用的指定队列的所有用户名称。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5308,6 +5419,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API创建DLI绑定/解绑到lakeformation等服务的元数据目录（CATALOG）相关信息，包含DLI侧CATALOG名称、外部CATALOG名称和类型，类型为预留字段，当前只支持lakeformation
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runCatalogAction(runCatalogActionRequest?: RunCatalogActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/catalogs/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runCatalogActionRequest !== null && runCatalogActionRequest !== undefined) {
+                if (runCatalogActionRequest instanceof RunCatalogActionRequest) {
+                    body = runCatalogActionRequest.body
+                } else {
+                    body = runCatalogActionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该功能用于重新启动队列、扩容队列、缩容队列。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5349,6 +5498,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'queue_name': queueName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于描述DLI catalog详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCatalog(showCatalogRequest?: ShowCatalogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/catalogs/{catalog_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let catalogName;
+
+            if (showCatalogRequest !== null && showCatalogRequest !== undefined) {
+                if (showCatalogRequest instanceof ShowCatalogRequest) {
+                    catalogName = showCatalogRequest.catalogName;
+                } else {
+                    catalogName = showCatalogRequest['catalog_name'];
+                }
+            }
+
+        
+            if (catalogName === null || catalogName === undefined) {
+            throw new RequiredError('catalogName','Required parameter catalogName was null or undefined when calling showCatalog.');
+            }
+
+            options.pathParams = { 'catalog_name': catalogName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

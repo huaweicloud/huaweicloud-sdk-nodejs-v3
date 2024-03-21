@@ -4,6 +4,7 @@ export class CustomerModifyAutoEnlargePolicyReq {
     private 'switch_option'?: boolean;
     private 'limit_size'?: number;
     private 'trigger_threshold'?: CustomerModifyAutoEnlargePolicyReqTriggerThresholdEnum | number;
+    private 'step_percent'?: number;
     public constructor(switchOption?: boolean) { 
         this['switch_option'] = switchOption;
     }
@@ -36,6 +37,16 @@ export class CustomerModifyAutoEnlargePolicyReq {
     }
     public get triggerThreshold(): CustomerModifyAutoEnlargePolicyReqTriggerThresholdEnum | number | undefined {
         return this['trigger_threshold'];
+    }
+    public withStepPercent(stepPercent: number): CustomerModifyAutoEnlargePolicyReq {
+        this['step_percent'] = stepPercent;
+        return this;
+    }
+    public set stepPercent(stepPercent: number  | undefined) {
+        this['step_percent'] = stepPercent;
+    }
+    public get stepPercent(): number | undefined {
+        return this['step_percent'];
     }
 }
 

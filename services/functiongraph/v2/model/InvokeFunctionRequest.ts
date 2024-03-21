@@ -2,11 +2,13 @@
 
 export class InvokeFunctionRequest {
     private 'function_urn'?: string;
+    private 'Content-Type'?: string;
     private 'X-Cff-Log-Type'?: string;
     private 'X-CFF-Request-Version'?: string;
     public body?: { [key: string]: object; };
-    public constructor(functionUrn?: string) { 
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): InvokeFunctionRequest {
         this['function_urn'] = functionUrn;
@@ -17,6 +19,16 @@ export class InvokeFunctionRequest {
     }
     public get functionUrn(): string | undefined {
         return this['function_urn'];
+    }
+    public withContentType(contentType: string): InvokeFunctionRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withXCffLogType(xCffLogType: string): InvokeFunctionRequest {
         this['X-Cff-Log-Type'] = xCffLogType;

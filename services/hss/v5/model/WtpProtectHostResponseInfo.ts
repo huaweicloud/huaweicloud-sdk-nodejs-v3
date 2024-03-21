@@ -5,6 +5,7 @@ export class WtpProtectHostResponseInfo {
     private 'host_id'?: string;
     private 'public_ip'?: string;
     private 'private_ip'?: string;
+    public ipv6?: string;
     private 'group_name'?: string;
     private 'os_bit'?: string;
     private 'os_type'?: string;
@@ -56,6 +57,10 @@ export class WtpProtectHostResponseInfo {
     }
     public get privateIp(): string | undefined {
         return this['private_ip'];
+    }
+    public withIpv6(ipv6: string): WtpProtectHostResponseInfo {
+        this['ipv6'] = ipv6;
+        return this;
     }
     public withGroupName(groupName: string): WtpProtectHostResponseInfo {
         this['group_name'] = groupName;

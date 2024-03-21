@@ -2,18 +2,18 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchDeleteGlobalEipTagsResponse extends SdkResponse {
-    private 'x-request-id'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
     public withXRequestId(xRequestId: string): BatchDeleteGlobalEipTagsResponse {
-        this['x-request-id'] = xRequestId;
+        this['X-Request-Id'] = xRequestId;
         return this;
     }
     public set xRequestId(xRequestId: string  | undefined) {
-        this['x-request-id'] = xRequestId;
+        this['X-Request-Id'] = xRequestId;
     }
     public get xRequestId(): string | undefined {
-        return this['x-request-id'];
+        return this['X-Request-Id'];
     }
 }

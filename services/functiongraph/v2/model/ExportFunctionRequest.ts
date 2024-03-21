@@ -5,8 +5,10 @@ export class ExportFunctionRequest {
     public config?: boolean;
     public code?: boolean;
     public type?: string;
-    public constructor(functionUrn?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ExportFunctionRequest {
         this['function_urn'] = functionUrn;
@@ -29,5 +31,15 @@ export class ExportFunctionRequest {
     public withType(type: string): ExportFunctionRequest {
         this['type'] = type;
         return this;
+    }
+    public withContentType(contentType: string): ExportFunctionRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

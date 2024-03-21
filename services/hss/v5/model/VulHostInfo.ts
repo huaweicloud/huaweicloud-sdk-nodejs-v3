@@ -1,3 +1,4 @@
+import { VulHostInfoDisabledOperateTypes } from './VulHostInfoDisabledOperateTypes';
 
 
 export class VulHostInfo {
@@ -6,6 +7,7 @@ export class VulHostInfo {
     private 'host_name'?: string;
     private 'host_ip'?: string;
     private 'agent_id'?: string;
+    public version?: string;
     private 'cve_num'?: number;
     private 'cve_id_list'?: Array<string>;
     public status?: string;
@@ -22,6 +24,8 @@ export class VulHostInfo {
     private 'first_scan_time'?: number;
     private 'scan_time'?: number;
     private 'support_restore'?: boolean;
+    private 'disabled_operate_types'?: Array<VulHostInfoDisabledOperateTypes>;
+    private 'repair_priority'?: string;
     public constructor() { 
     }
     public withHostId(hostId: string): VulHostInfo {
@@ -73,6 +77,10 @@ export class VulHostInfo {
     }
     public get agentId(): string | undefined {
         return this['agent_id'];
+    }
+    public withVersion(version: string): VulHostInfo {
+        this['version'] = version;
+        return this;
     }
     public withCveNum(cveNum: number): VulHostInfo {
         this['cve_num'] = cveNum;
@@ -227,5 +235,25 @@ export class VulHostInfo {
     }
     public get supportRestore(): boolean | undefined {
         return this['support_restore'];
+    }
+    public withDisabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>): VulHostInfo {
+        this['disabled_operate_types'] = disabledOperateTypes;
+        return this;
+    }
+    public set disabledOperateTypes(disabledOperateTypes: Array<VulHostInfoDisabledOperateTypes>  | undefined) {
+        this['disabled_operate_types'] = disabledOperateTypes;
+    }
+    public get disabledOperateTypes(): Array<VulHostInfoDisabledOperateTypes> | undefined {
+        return this['disabled_operate_types'];
+    }
+    public withRepairPriority(repairPriority: string): VulHostInfo {
+        this['repair_priority'] = repairPriority;
+        return this;
+    }
+    public set repairPriority(repairPriority: string  | undefined) {
+        this['repair_priority'] = repairPriority;
+    }
+    public get repairPriority(): string | undefined {
+        return this['repair_priority'];
     }
 }

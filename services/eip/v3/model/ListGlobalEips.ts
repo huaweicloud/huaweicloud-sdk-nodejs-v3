@@ -12,7 +12,7 @@ export class ListGlobalEips {
     private 'access_site'?: string;
     private 'geip_pool_name'?: string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: ListGlobalEipsIpVersionEnum | number;
     private 'ip_address'?: string;
     private 'ipv6_address'?: string;
     public freezen?: boolean;
@@ -76,14 +76,14 @@ export class ListGlobalEips {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): ListGlobalEips {
+    public withIpVersion(ipVersion: ListGlobalEipsIpVersionEnum | number): ListGlobalEips {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: ListGlobalEipsIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): ListGlobalEipsIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withIpAddress(ipAddress: string): ListGlobalEips {
@@ -214,6 +214,14 @@ export class ListGlobalEips {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListGlobalEipsIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
+}
 /**
     * @export
     * @enum {string}

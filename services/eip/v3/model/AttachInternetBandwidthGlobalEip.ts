@@ -12,7 +12,7 @@ export class AttachInternetBandwidthGlobalEip {
     private 'access_site'?: string;
     private 'geip_pool_name'?: string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: AttachInternetBandwidthGlobalEipIpVersionEnum | number;
     private 'ip_address'?: string;
     private 'ipv6_address'?: string;
     public freezen?: boolean;
@@ -76,14 +76,14 @@ export class AttachInternetBandwidthGlobalEip {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): AttachInternetBandwidthGlobalEip {
+    public withIpVersion(ipVersion: AttachInternetBandwidthGlobalEipIpVersionEnum | number): AttachInternetBandwidthGlobalEip {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: AttachInternetBandwidthGlobalEipIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): AttachInternetBandwidthGlobalEipIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withIpAddress(ipAddress: string): AttachInternetBandwidthGlobalEip {
@@ -214,6 +214,14 @@ export class AttachInternetBandwidthGlobalEip {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AttachInternetBandwidthGlobalEipIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
+}
 /**
     * @export
     * @enum {string}

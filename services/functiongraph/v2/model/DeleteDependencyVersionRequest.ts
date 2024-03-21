@@ -3,9 +3,11 @@
 export class DeleteDependencyVersionRequest {
     private 'depend_id'?: string;
     public version?: string;
-    public constructor(dependId?: string, version?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(dependId?: string, version?: string, contentType?: string) { 
         this['depend_id'] = dependId;
         this['version'] = version;
+        this['Content-Type'] = contentType;
     }
     public withDependId(dependId: string): DeleteDependencyVersionRequest {
         this['depend_id'] = dependId;
@@ -20,5 +22,15 @@ export class DeleteDependencyVersionRequest {
     public withVersion(version: string): DeleteDependencyVersionRequest {
         this['version'] = version;
         return this;
+    }
+    public withContentType(contentType: string): DeleteDependencyVersionRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

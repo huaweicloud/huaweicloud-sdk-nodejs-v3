@@ -78,12 +78,15 @@ import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssoc
 import { BatchAssociateSecurityLevelToEntitiesResponse } from './model/BatchAssociateSecurityLevelToEntitiesResponse';
 import { BatchDeleteBaseDTO } from './model/BatchDeleteBaseDTO';
 import { BatchDeleteRulesBaseDTO } from './model/BatchDeleteRulesBaseDTO';
+import { BatchDeleteSecrecyLevelDTO } from './model/BatchDeleteSecrecyLevelDTO';
 import { BatchDeleteSecurityDataClassificationRuleRequest } from './model/BatchDeleteSecurityDataClassificationRuleRequest';
 import { BatchDeleteSecurityDataClassificationRuleResponse } from './model/BatchDeleteSecurityDataClassificationRuleResponse';
 import { BatchDeleteSecurityPermissionSetMembersRequest } from './model/BatchDeleteSecurityPermissionSetMembersRequest';
 import { BatchDeleteSecurityPermissionSetMembersResponse } from './model/BatchDeleteSecurityPermissionSetMembersResponse';
 import { BatchDeleteSecurityPermissionSetPermissionsRequest } from './model/BatchDeleteSecurityPermissionSetPermissionsRequest';
 import { BatchDeleteSecurityPermissionSetPermissionsResponse } from './model/BatchDeleteSecurityPermissionSetPermissionsResponse';
+import { BatchDeleteSecuritySecrecyLevelsRequest } from './model/BatchDeleteSecuritySecrecyLevelsRequest';
+import { BatchDeleteSecuritySecrecyLevelsResponse } from './model/BatchDeleteSecuritySecrecyLevelsResponse';
 import { BatchDeleteTemplatesRequest } from './model/BatchDeleteTemplatesRequest';
 import { BatchDeleteTemplatesResponse } from './model/BatchDeleteTemplatesResponse';
 import { BatchOfflineRequest } from './model/BatchOfflineRequest';
@@ -101,6 +104,7 @@ import { BizTypeEnum } from './model/BizTypeEnum';
 import { BizVersionManageVO } from './model/BizVersionManageVO';
 import { BulkSecurityLevel } from './model/BulkSecurityLevel';
 import { BusinessAssetRequest } from './model/BusinessAssetRequest';
+import { BusinessCatalogTreeNode } from './model/BusinessCatalogTreeNode';
 import { CancelFactoryPackagesRequest } from './model/CancelFactoryPackagesRequest';
 import { CancelFactoryPackagesRequestBody } from './model/CancelFactoryPackagesRequestBody';
 import { CancelFactoryPackagesResponse } from './model/CancelFactoryPackagesResponse';
@@ -185,6 +189,7 @@ import { CreateOrUpdateAssetRequest } from './model/CreateOrUpdateAssetRequest';
 import { CreateOrUpdateAssetResponse } from './model/CreateOrUpdateAssetResponse';
 import { CreateOrUpdateEntitiesRequest } from './model/CreateOrUpdateEntitiesRequest';
 import { CreateOrUpdateEntitiesResponse } from './model/CreateOrUpdateEntitiesResponse';
+import { CreateSecrecyLevelDTO } from './model/CreateSecrecyLevelDTO';
 import { CreateSecurityDataClassificationRuleRequest } from './model/CreateSecurityDataClassificationRuleRequest';
 import { CreateSecurityDataClassificationRuleResponse } from './model/CreateSecurityDataClassificationRuleResponse';
 import { CreateSecurityPermissionSetMemberRequest } from './model/CreateSecurityPermissionSetMemberRequest';
@@ -193,6 +198,8 @@ import { CreateSecurityPermissionSetPermissionRequest } from './model/CreateSecu
 import { CreateSecurityPermissionSetPermissionResponse } from './model/CreateSecurityPermissionSetPermissionResponse';
 import { CreateSecurityPermissionSetRequest } from './model/CreateSecurityPermissionSetRequest';
 import { CreateSecurityPermissionSetResponse } from './model/CreateSecurityPermissionSetResponse';
+import { CreateSecuritySecrecyLevelRequest } from './model/CreateSecuritySecrecyLevelRequest';
+import { CreateSecuritySecrecyLevelResponse } from './model/CreateSecuritySecrecyLevelResponse';
 import { CreateServiceCatalogRequest } from './model/CreateServiceCatalogRequest';
 import { CreateServiceCatalogResponse } from './model/CreateServiceCatalogResponse';
 import { CreateStandardRequest } from './model/CreateStandardRequest';
@@ -223,6 +230,7 @@ import { DataClassificationRuleOperateDTO } from './model/DataClassificationRule
 import { DataClassificationRuleQueryDTO } from './model/DataClassificationRuleQueryDTO';
 import { DataEntityWithExtInfo } from './model/DataEntityWithExtInfo';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
+import { DataProfileRO } from './model/DataProfileRO';
 import { DataSource } from './model/DataSource';
 import { DataType } from './model/DataType';
 import { DataTypeDomainEnum } from './model/DataTypeDomainEnum';
@@ -260,6 +268,8 @@ import { DeleteSecurityLevelFromEntityRequest } from './model/DeleteSecurityLeve
 import { DeleteSecurityLevelFromEntityResponse } from './model/DeleteSecurityLevelFromEntityResponse';
 import { DeleteSecurityPermissionSetRequest } from './model/DeleteSecurityPermissionSetRequest';
 import { DeleteSecurityPermissionSetResponse } from './model/DeleteSecurityPermissionSetResponse';
+import { DeleteSecuritySecrecyLevelRequest } from './model/DeleteSecuritySecrecyLevelRequest';
+import { DeleteSecuritySecrecyLevelResponse } from './model/DeleteSecuritySecrecyLevelResponse';
 import { DeleteServiceCatalogRequest } from './model/DeleteServiceCatalogRequest';
 import { DeleteServiceCatalogResponse } from './model/DeleteServiceCatalogResponse';
 import { DeleteStandardRequest } from './model/DeleteStandardRequest';
@@ -455,12 +465,22 @@ import { ListSecurityDataClassificationRuleGroupsRequest } from './model/ListSec
 import { ListSecurityDataClassificationRuleGroupsResponse } from './model/ListSecurityDataClassificationRuleGroupsResponse';
 import { ListSecurityDataClassificationRulesRequest } from './model/ListSecurityDataClassificationRulesRequest';
 import { ListSecurityDataClassificationRulesResponse } from './model/ListSecurityDataClassificationRulesResponse';
+import { ListSecurityDatasourceActionsRequest } from './model/ListSecurityDatasourceActionsRequest';
+import { ListSecurityDatasourceActionsResponse } from './model/ListSecurityDatasourceActionsResponse';
+import { ListSecurityDatasourceConfigurationsRequest } from './model/ListSecurityDatasourceConfigurationsRequest';
+import { ListSecurityDatasourceConfigurationsResponse } from './model/ListSecurityDatasourceConfigurationsResponse';
+import { ListSecurityDatasourceUrlsRequest } from './model/ListSecurityDatasourceUrlsRequest';
+import { ListSecurityDatasourceUrlsResponse } from './model/ListSecurityDatasourceUrlsResponse';
 import { ListSecurityPermissionSetMembersRequest } from './model/ListSecurityPermissionSetMembersRequest';
 import { ListSecurityPermissionSetMembersResponse } from './model/ListSecurityPermissionSetMembersResponse';
 import { ListSecurityPermissionSetPermissionsRequest } from './model/ListSecurityPermissionSetPermissionsRequest';
 import { ListSecurityPermissionSetPermissionsResponse } from './model/ListSecurityPermissionSetPermissionsResponse';
 import { ListSecurityPermissionSetsRequest } from './model/ListSecurityPermissionSetsRequest';
 import { ListSecurityPermissionSetsResponse } from './model/ListSecurityPermissionSetsResponse';
+import { ListSecurityRoleActionsRequest } from './model/ListSecurityRoleActionsRequest';
+import { ListSecurityRoleActionsResponse } from './model/ListSecurityRoleActionsResponse';
+import { ListSecuritySecrecyLevelsRequest } from './model/ListSecuritySecrecyLevelsRequest';
+import { ListSecuritySecrecyLevelsResponse } from './model/ListSecuritySecrecyLevelsResponse';
 import { ListSubjectLevelsRequest } from './model/ListSubjectLevelsRequest';
 import { ListSubjectLevelsResponse } from './model/ListSubjectLevelsResponse';
 import { ListTableModelRelationsRequest } from './model/ListTableModelRelationsRequest';
@@ -474,6 +494,7 @@ import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
 import { ListWorkspaceusersRequest } from './model/ListWorkspaceusersRequest';
 import { ListWorkspaceusersResponse } from './model/ListWorkspaceusersResponse';
 import { Location } from './model/Location';
+import { LogicEntityNodes } from './model/LogicEntityNodes';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
@@ -506,6 +527,8 @@ import { ParseUserBehaviorRequest } from './model/ParseUserBehaviorRequest';
 import { ParseUserBehaviorResponse } from './model/ParseUserBehaviorResponse';
 import { PayForDgcOneKeyRequest } from './model/PayForDgcOneKeyRequest';
 import { PayForDgcOneKeyResponse } from './model/PayForDgcOneKeyResponse';
+import { PermissionActions } from './model/PermissionActions';
+import { PermissionConfiguration } from './model/PermissionConfiguration';
 import { PermissionSet } from './model/PermissionSet';
 import { PermissionSetCreateDTO } from './model/PermissionSetCreateDTO';
 import { PermissionSetMember } from './model/PermissionSetMember';
@@ -530,9 +553,12 @@ import { RecordForGetAuthApp } from './model/RecordForGetAuthApp';
 import { RelationMappingVO } from './model/RelationMappingVO';
 import { RelationType } from './model/RelationType';
 import { RelationVO } from './model/RelationVO';
+import { RenewDataProfileRequest } from './model/RenewDataProfileRequest';
+import { RenewDataProfileResponse } from './model/RenewDataProfileResponse';
 import { RequestPara } from './model/RequestPara';
 import { ResetLinkAttributeAndStandardRequest } from './model/ResetLinkAttributeAndStandardRequest';
 import { ResetLinkAttributeAndStandardResponse } from './model/ResetLinkAttributeAndStandardResponse';
+import { RoleActionQueryDTO } from './model/RoleActionQueryDTO';
 import { RollbackApprovalRequest } from './model/RollbackApprovalRequest';
 import { RollbackApprovalResponse } from './model/RollbackApprovalResponse';
 import { RuleTemplateDetailVO } from './model/RuleTemplateDetailVO';
@@ -571,6 +597,7 @@ import { SearchSubjectRequest } from './model/SearchSubjectRequest';
 import { SearchSubjectResponse } from './model/SearchSubjectResponse';
 import { SearchVersionsRequest } from './model/SearchVersionsRequest';
 import { SearchVersionsResponse } from './model/SearchVersionsResponse';
+import { SecrecyLevel } from './model/SecrecyLevel';
 import { SelfDefinedFieldVO } from './model/SelfDefinedFieldVO';
 import { SetFactoryJobTagsRequest } from './model/SetFactoryJobTagsRequest';
 import { SetFactoryJobTagsResponse } from './model/SetFactoryJobTagsResponse';
@@ -607,6 +634,8 @@ import { ShowBusinessAssetsRequest } from './model/ShowBusinessAssetsRequest';
 import { ShowBusinessAssetsResponse } from './model/ShowBusinessAssetsResponse';
 import { ShowBusinessAssetsStatisticRequest } from './model/ShowBusinessAssetsStatisticRequest';
 import { ShowBusinessAssetsStatisticResponse } from './model/ShowBusinessAssetsStatisticResponse';
+import { ShowBusinessAssetsTreeRequest } from './model/ShowBusinessAssetsTreeRequest';
+import { ShowBusinessAssetsTreeResponse } from './model/ShowBusinessAssetsTreeResponse';
 import { ShowCatalogDetailRequest } from './model/ShowCatalogDetailRequest';
 import { ShowCatalogDetailResponse } from './model/ShowCatalogDetailResponse';
 import { ShowCodeTableByIdRequest } from './model/ShowCodeTableByIdRequest';
@@ -682,6 +711,8 @@ import { ShowSecurityDataClassificationRuleRequest } from './model/ShowSecurityD
 import { ShowSecurityDataClassificationRuleResponse } from './model/ShowSecurityDataClassificationRuleResponse';
 import { ShowSecurityPermissionSetRequest } from './model/ShowSecurityPermissionSetRequest';
 import { ShowSecurityPermissionSetResponse } from './model/ShowSecurityPermissionSetResponse';
+import { ShowSecuritySecrecyLevelRequest } from './model/ShowSecuritySecrecyLevelRequest';
+import { ShowSecuritySecrecyLevelResponse } from './model/ShowSecuritySecrecyLevelResponse';
 import { ShowStandardByIdRequest } from './model/ShowStandardByIdRequest';
 import { ShowStandardByIdResponse } from './model/ShowStandardByIdResponse';
 import { ShowStandardTemplateRequest } from './model/ShowStandardTemplateRequest';
@@ -722,6 +753,7 @@ import { SupplementDataRespRows } from './model/SupplementDataRespRows';
 import { SupplementDataRespSupplementDataInstanceTime } from './model/SupplementDataRespSupplementDataInstanceTime';
 import { SupplementDataRespSupplementDataRunTime } from './model/SupplementDataRespSupplementDataRunTime';
 import { SyncStatusEnum } from './model/SyncStatusEnum';
+import { TableColumnDTO } from './model/TableColumnDTO';
 import { TableInfo } from './model/TableInfo';
 import { TableLineage } from './model/TableLineage';
 import { TableLineageInfo } from './model/TableLineageInfo';
@@ -759,6 +791,7 @@ import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
 import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
 import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
 import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
+import { UpdateSecrecyLevelDTO } from './model/UpdateSecrecyLevelDTO';
 import { UpdateSecurityDataClassificationRuleRequest } from './model/UpdateSecurityDataClassificationRuleRequest';
 import { UpdateSecurityDataClassificationRuleResponse } from './model/UpdateSecurityDataClassificationRuleResponse';
 import { UpdateSecurityPermissionSetPermissionRequest } from './model/UpdateSecurityPermissionSetPermissionRequest';
@@ -767,6 +800,8 @@ import { UpdateSecurityPermissionSetRequest } from './model/UpdateSecurityPermis
 import { UpdateSecurityPermissionSetResponse } from './model/UpdateSecurityPermissionSetResponse';
 import { UpdateSecurityRuleEnableStatusRequest } from './model/UpdateSecurityRuleEnableStatusRequest';
 import { UpdateSecurityRuleEnableStatusResponse } from './model/UpdateSecurityRuleEnableStatusResponse';
+import { UpdateSecuritySecrecyLevelRequest } from './model/UpdateSecuritySecrecyLevelRequest';
+import { UpdateSecuritySecrecyLevelResponse } from './model/UpdateSecuritySecrecyLevelResponse';
 import { UpdateStandardRequest } from './model/UpdateStandardRequest';
 import { UpdateStandardResponse } from './model/UpdateStandardResponse';
 import { UpdateStandardTemplateRequest } from './model/UpdateStandardTemplateRequest';
@@ -785,6 +820,7 @@ import { UpdateWorkSpaceUserOrGroupRequest } from './model/UpdateWorkSpaceUserOr
 import { UpdateWorkSpaceUserOrGroupResponse } from './model/UpdateWorkSpaceUserOrGroupResponse';
 import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
+import { UrlDTO } from './model/UrlDTO';
 import { WorkspaceVO } from './model/WorkspaceVO';
 import { Workspacebody } from './model/Workspacebody';
 
@@ -1003,6 +1039,26 @@ export class DataArtsStudioClient {
      */
     public batchDeleteSecurityPermissionSetPermissions(batchDeleteSecurityPermissionSetPermissionsRequest?: BatchDeleteSecurityPermissionSetPermissionsRequest): Promise<BatchDeleteSecurityPermissionSetPermissionsResponse> {
         const options = ParamCreater().batchDeleteSecurityPermissionSetPermissions(batchDeleteSecurityPermissionSetPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchDeleteSecrecyLevelDTO} batchDeleteSecuritySecrecyLevelsRequestBody 需要删除的密级列表，密级id可以通过查询接口获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecuritySecrecyLevels(batchDeleteSecuritySecrecyLevelsRequest?: BatchDeleteSecuritySecrecyLevelsRequest): Promise<BatchDeleteSecuritySecrecyLevelsResponse> {
+        const options = ParamCreater().batchDeleteSecuritySecrecyLevels(batchDeleteSecuritySecrecyLevelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1676,6 +1732,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 创建密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {CreateSecrecyLevelDTO} createSecuritySecrecyLevelRequestBody 密级创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecuritySecrecyLevel(createSecuritySecrecyLevelRequest?: CreateSecuritySecrecyLevelRequest): Promise<CreateSecuritySecrecyLevelResponse> {
+        const options = ParamCreater().createSecuritySecrecyLevel(createSecuritySecrecyLevelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建服务目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2113,6 +2189,26 @@ export class DataArtsStudioClient {
      */
     public deleteSecurityPermissionSet(deleteSecurityPermissionSetRequest?: DeleteSecurityPermissionSetRequest): Promise<DeleteSecurityPermissionSetResponse> {
         const options = ParamCreater().deleteSecurityPermissionSet(deleteSecurityPermissionSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定的id的密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定的id的密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 密级id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecuritySecrecyLevel(deleteSecuritySecrecyLevelRequest?: DeleteSecuritySecrecyLevelRequest): Promise<DeleteSecuritySecrecyLevelResponse> {
+        const options = ParamCreater().deleteSecuritySecrecyLevel(deleteSecuritySecrecyLevelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3735,6 +3831,74 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询数据操作信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据操作信息
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} parentPermissionSetId 父权限集ID。获取方法请参见[查询权限集列表](ListSecurityPermissionSets.xml) 注意： * 当该值为0时，则所有库表均支持查询 * 当该值为父权限集ID时，则基于父权限集中的权限查询
+     * @param {string} clusterId 集群ID，获取方法请参见[查询单个数据连接信息](ShowDataconnection.xml) * 查询Hive和DWS数据源操作信息时该数值为必填项，当数据源为DLI时无需填写
+     * @param {'HIVE' | 'DWS' | 'DLI'} datasourceType 数据源类型 * HIVE数据源 * DWS数据源 * DLI数据源
+     * @param {string} [databaseName] 数据库名 &#x60;注意：该值作为查询关键字时，不能与url同时存在，需要指定其一进行查询&#x60;
+     * @param {string} [schemaName] schema名称
+     * @param {string} [tableName] 数据表名称
+     * @param {string} [columnName] 数据字段名称
+     * @param {string} [url] url路径名称 &#x60;注意：该值作为查询关键字时，不能与database_name同时存在，需要指定其一进行查询&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDatasourceActions(listSecurityDatasourceActionsRequest?: ListSecurityDatasourceActionsRequest): Promise<ListSecurityDatasourceActionsResponse> {
+        const options = ParamCreater().listSecurityDatasourceActions(listSecurityDatasourceActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据源可配置权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据源可配置权限
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDatasourceConfigurations(listSecurityDatasourceConfigurationsRequest?: ListSecurityDatasourceConfigurationsRequest): Promise<ListSecurityDatasourceConfigurationsResponse> {
+        const options = ParamCreater().listSecurityDatasourceConfigurations(listSecurityDatasourceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询url信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询url信息
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} [clusterId] 集群id
+     * @param {'HIVE'} [datasourceType] 数据源类型,HIVE
+     * @param {string} [parentPermissionSetId] 父权限集ID。获取方法请参见[查询权限集列表](ListSecurityPermissionSets.xml) 注意： * 当该值为父权限集ID时，则基于父权限集中的权限查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDatasourceUrls(listSecurityDatasourceUrlsRequest?: ListSecurityDatasourceUrlsRequest): Promise<ListSecurityDatasourceUrlsResponse> {
+        const options = ParamCreater().listSecurityDatasourceUrls(listSecurityDatasourceUrlsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询权限集成员列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3817,6 +3981,49 @@ export class DataArtsStudioClient {
      */
     public listSecurityPermissionSets(listSecurityPermissionSetsRequest?: ListSecurityPermissionSetsRequest): Promise<ListSecurityPermissionSetsResponse> {
         const options = ParamCreater().listSecurityPermissionSets(listSecurityPermissionSetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询角色对一组库、表的权限交集
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询角色对一组库、表的权限交集
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {RoleActionQueryDTO} listSecurityRoleActionsRequestBody 权限查询参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityRoleActions(listSecurityRoleActionsRequest?: ListSecurityRoleActionsRequest): Promise<ListSecurityRoleActionsResponse> {
+        const options = ParamCreater().listSecurityRoleActions(listSecurityRoleActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [offset] offset
+     * @param {number} [limit] limit
+     * @param {'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy' | 'name' | 'description'} [orderBy] 排序字段, createdAt, createdBy, updatedAt, updatedBy, name, description
+     * @param {boolean} [desc] 排序规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecuritySecrecyLevels(listSecuritySecrecyLevelsRequest?: ListSecuritySecrecyLevelsRequest): Promise<ListSecuritySecrecyLevelsResponse> {
+        const options = ParamCreater().listSecuritySecrecyLevels(listSecuritySecrecyLevelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4061,6 +4268,26 @@ export class DataArtsStudioClient {
      */
     public payForDgcOneKey(payForDgcOneKeyRequest?: PayForDgcOneKeyRequest): Promise<PayForDgcOneKeyResponse> {
         const options = ParamCreater().payForDgcOneKey(payForDgcOneKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 指定字段采集概要信息接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 指定字段采集概要
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)
+     * @param {DataProfileRO} renewDataProfileRequestBody 更新概要信息请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public renewDataProfile(renewDataProfileRequest?: RenewDataProfileRequest): Promise<RenewDataProfileResponse> {
+        const options = ParamCreater().renewDataProfile(renewDataProfileRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4806,6 +5033,26 @@ export class DataArtsStudioClient {
      */
     public showBusinessAssetsStatistic(showBusinessAssetsStatisticRequest?: ShowBusinessAssetsStatisticRequest): Promise<ShowBusinessAssetsStatisticResponse> {
         const options = ParamCreater().showBusinessAssetsStatistic(showBusinessAssetsStatisticRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 逐级查询业务资产目录树,包含数据规范同步过来的业务对象和逻辑实体。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询业务资产目录树
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)
+     * @param {string} [guid] 资产guid，未填充时查询LV1级别业务资产,获取方法请参见[数据开发作业ID](dataartsstudio_02_0351.xml)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBusinessAssetsTree(showBusinessAssetsTreeRequest?: ShowBusinessAssetsTreeRequest): Promise<ShowBusinessAssetsTreeResponse> {
+        const options = ParamCreater().showBusinessAssetsTree(showBusinessAssetsTreeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5588,6 +5835,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 根据指定的id查询密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据指定的id查询密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 密级id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecuritySecrecyLevel(showSecuritySecrecyLevelRequest?: ShowSecuritySecrecyLevelRequest): Promise<ShowSecuritySecrecyLevelResponse> {
+        const options = ParamCreater().showSecuritySecrecyLevel(showSecuritySecrecyLevelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过id获取数据标准详情信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6082,6 +6349,27 @@ export class DataArtsStudioClient {
      */
     public updateSecurityRuleEnableStatus(updateSecurityRuleEnableStatusRequest?: UpdateSecurityRuleEnableStatusRequest): Promise<UpdateSecurityRuleEnableStatusResponse> {
         const options = ParamCreater().updateSecurityRuleEnableStatus(updateSecurityRuleEnableStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据指定的id修改密级
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据指定的id修改密级
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 密级id
+     * @param {UpdateSecrecyLevelDTO} updateSecuritySecrecyLevelRequestBody 修改密级参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecuritySecrecyLevel(updateSecuritySecrecyLevelRequest?: UpdateSecuritySecrecyLevelRequest): Promise<UpdateSecuritySecrecyLevelResponse> {
+        const options = ParamCreater().updateSecuritySecrecyLevel(updateSecuritySecrecyLevelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7104,6 +7392,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecuritySecrecyLevels(batchDeleteSecuritySecrecyLevelsRequest?: BatchDeleteSecuritySecrecyLevelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dls/data-classification/secrecy-level/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchDeleteSecuritySecrecyLevelsRequest !== null && batchDeleteSecuritySecrecyLevelsRequest !== undefined) {
+                if (batchDeleteSecuritySecrecyLevelsRequest instanceof BatchDeleteSecuritySecrecyLevelsRequest) {
+                    workspace = batchDeleteSecuritySecrecyLevelsRequest.workspace;
+                    body = batchDeleteSecuritySecrecyLevelsRequest.body
+                } else {
+                    workspace = batchDeleteSecuritySecrecyLevelsRequest['workspace'];
+                    body = batchDeleteSecuritySecrecyLevelsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8621,6 +8954,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecuritySecrecyLevel(createSecuritySecrecyLevelRequest?: CreateSecuritySecrecyLevelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/data-classification/secrecy-level",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecuritySecrecyLevelRequest !== null && createSecuritySecrecyLevelRequest !== undefined) {
+                if (createSecuritySecrecyLevelRequest instanceof CreateSecuritySecrecyLevelRequest) {
+                    workspace = createSecuritySecrecyLevelRequest.workspace;
+                    body = createSecuritySecrecyLevelRequest.body
+                } else {
+                    workspace = createSecuritySecrecyLevelRequest['workspace'];
+                    body = createSecuritySecrecyLevelRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建服务目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9640,6 +10018,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'permission_set_id': permissionSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定的id的密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecuritySecrecyLevel(deleteSecuritySecrecyLevelRequest?: DeleteSecuritySecrecyLevelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/security/data-classification/secrecy-level/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (deleteSecuritySecrecyLevelRequest !== null && deleteSecuritySecrecyLevelRequest !== undefined) {
+                if (deleteSecuritySecrecyLevelRequest instanceof DeleteSecuritySecrecyLevelRequest) {
+                    workspace = deleteSecuritySecrecyLevelRequest.workspace;
+                    id = deleteSecuritySecrecyLevelRequest.id;
+                } else {
+                    workspace = deleteSecuritySecrecyLevelRequest['workspace'];
+                    id = deleteSecuritySecrecyLevelRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteSecuritySecrecyLevel.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14639,6 +15061,202 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据操作信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDatasourceActions(listSecurityDatasourceActionsRequest?: ListSecurityDatasourceActionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/datasource/actions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let parentPermissionSetId;
+            
+            let clusterId;
+            
+            let datasourceType;
+            
+            let databaseName;
+            
+            let schemaName;
+            
+            let tableName;
+            
+            let columnName;
+            
+            let url;
+
+            if (listSecurityDatasourceActionsRequest !== null && listSecurityDatasourceActionsRequest !== undefined) {
+                if (listSecurityDatasourceActionsRequest instanceof ListSecurityDatasourceActionsRequest) {
+                    workspace = listSecurityDatasourceActionsRequest.workspace;
+                    parentPermissionSetId = listSecurityDatasourceActionsRequest.parentPermissionSetId;
+                    clusterId = listSecurityDatasourceActionsRequest.clusterId;
+                    datasourceType = listSecurityDatasourceActionsRequest.datasourceType;
+                    databaseName = listSecurityDatasourceActionsRequest.databaseName;
+                    schemaName = listSecurityDatasourceActionsRequest.schemaName;
+                    tableName = listSecurityDatasourceActionsRequest.tableName;
+                    columnName = listSecurityDatasourceActionsRequest.columnName;
+                    url = listSecurityDatasourceActionsRequest.url;
+                } else {
+                    workspace = listSecurityDatasourceActionsRequest['workspace'];
+                    parentPermissionSetId = listSecurityDatasourceActionsRequest['parent_permission_set_id'];
+                    clusterId = listSecurityDatasourceActionsRequest['cluster_id'];
+                    datasourceType = listSecurityDatasourceActionsRequest['datasource_type'];
+                    databaseName = listSecurityDatasourceActionsRequest['database_name'];
+                    schemaName = listSecurityDatasourceActionsRequest['schema_name'];
+                    tableName = listSecurityDatasourceActionsRequest['table_name'];
+                    columnName = listSecurityDatasourceActionsRequest['column_name'];
+                    url = listSecurityDatasourceActionsRequest['url'];
+                }
+            }
+
+        
+            if (parentPermissionSetId === null || parentPermissionSetId === undefined) {
+                throw new RequiredError('parentPermissionSetId','Required parameter parentPermissionSetId was null or undefined when calling listSecurityDatasourceActions.');
+            }
+            if (parentPermissionSetId !== null && parentPermissionSetId !== undefined) {
+                localVarQueryParameter['parent_permission_set_id'] = parentPermissionSetId;
+            }
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listSecurityDatasourceActions.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (datasourceType === null || datasourceType === undefined) {
+                throw new RequiredError('datasourceType','Required parameter datasourceType was null or undefined when calling listSecurityDatasourceActions.');
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (schemaName !== null && schemaName !== undefined) {
+                localVarQueryParameter['schema_name'] = schemaName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (columnName !== null && columnName !== undefined) {
+                localVarQueryParameter['column_name'] = columnName;
+            }
+            if (url !== null && url !== undefined) {
+                localVarQueryParameter['url'] = url;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据源可配置权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDatasourceConfigurations(listSecurityDatasourceConfigurationsRequest?: ListSecurityDatasourceConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/datasource/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+
+            if (listSecurityDatasourceConfigurationsRequest !== null && listSecurityDatasourceConfigurationsRequest !== undefined) {
+                if (listSecurityDatasourceConfigurationsRequest instanceof ListSecurityDatasourceConfigurationsRequest) {
+                    workspace = listSecurityDatasourceConfigurationsRequest.workspace;
+                } else {
+                    workspace = listSecurityDatasourceConfigurationsRequest['workspace'];
+                }
+            }
+
+        
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询url信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDatasourceUrls(listSecurityDatasourceUrlsRequest?: ListSecurityDatasourceUrlsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission-sets/datasource/urls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let clusterId;
+            
+            let datasourceType;
+            
+            let parentPermissionSetId;
+
+            if (listSecurityDatasourceUrlsRequest !== null && listSecurityDatasourceUrlsRequest !== undefined) {
+                if (listSecurityDatasourceUrlsRequest instanceof ListSecurityDatasourceUrlsRequest) {
+                    workspace = listSecurityDatasourceUrlsRequest.workspace;
+                    clusterId = listSecurityDatasourceUrlsRequest.clusterId;
+                    datasourceType = listSecurityDatasourceUrlsRequest.datasourceType;
+                    parentPermissionSetId = listSecurityDatasourceUrlsRequest.parentPermissionSetId;
+                } else {
+                    workspace = listSecurityDatasourceUrlsRequest['workspace'];
+                    clusterId = listSecurityDatasourceUrlsRequest['cluster_id'];
+                    datasourceType = listSecurityDatasourceUrlsRequest['datasource_type'];
+                    parentPermissionSetId = listSecurityDatasourceUrlsRequest['parent_permission_set_id'];
+                }
+            }
+
+        
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (parentPermissionSetId !== null && parentPermissionSetId !== undefined) {
+                localVarQueryParameter['parent_permission_set_id'] = parentPermissionSetId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询权限集成员列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14972,6 +15590,116 @@ export const ParamCreater = function () {
             }
             if (orderByAsc !== null && orderByAsc !== undefined) {
                 localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询角色对一组库、表的权限交集
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityRoleActions(listSecurityRoleActionsRequest?: ListSecurityRoleActionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission-sets/datasource/role/batch-actions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (listSecurityRoleActionsRequest !== null && listSecurityRoleActionsRequest !== undefined) {
+                if (listSecurityRoleActionsRequest instanceof ListSecurityRoleActionsRequest) {
+                    workspace = listSecurityRoleActionsRequest.workspace;
+                    body = listSecurityRoleActionsRequest.body
+                } else {
+                    workspace = listSecurityRoleActionsRequest['workspace'];
+                    body = listSecurityRoleActionsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecuritySecrecyLevels(listSecuritySecrecyLevelsRequest?: ListSecuritySecrecyLevelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/secrecy-level",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let desc;
+
+            if (listSecuritySecrecyLevelsRequest !== null && listSecuritySecrecyLevelsRequest !== undefined) {
+                if (listSecuritySecrecyLevelsRequest instanceof ListSecuritySecrecyLevelsRequest) {
+                    workspace = listSecuritySecrecyLevelsRequest.workspace;
+                    offset = listSecuritySecrecyLevelsRequest.offset;
+                    limit = listSecuritySecrecyLevelsRequest.limit;
+                    orderBy = listSecuritySecrecyLevelsRequest.orderBy;
+                    desc = listSecuritySecrecyLevelsRequest.desc;
+                } else {
+                    workspace = listSecuritySecrecyLevelsRequest['workspace'];
+                    offset = listSecuritySecrecyLevelsRequest['offset'];
+                    limit = listSecuritySecrecyLevelsRequest['limit'];
+                    orderBy = listSecuritySecrecyLevelsRequest['order_by'];
+                    desc = listSecuritySecrecyLevelsRequest['desc'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (desc !== null && desc !== undefined) {
+                localVarQueryParameter['desc'] = desc;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
@@ -15637,6 +16365,51 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 指定字段采集概要信息接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        renewDataProfile(renewDataProfileRequest?: RenewDataProfileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/asset/profile/columns",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (renewDataProfileRequest !== null && renewDataProfileRequest !== undefined) {
+                if (renewDataProfileRequest instanceof RenewDataProfileRequest) {
+                    workspace = renewDataProfileRequest.workspace;
+                    body = renewDataProfileRequest.body
+                } else {
+                    workspace = renewDataProfileRequest['workspace'];
+                    body = renewDataProfileRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -17979,6 +18752,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 逐级查询业务资产目录树,包含数据规范同步过来的业务对象和逻辑实体。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBusinessAssetsTree(showBusinessAssetsTreeRequest?: ShowBusinessAssetsTreeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/business-assets/tree/subnode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let guid;
+
+            if (showBusinessAssetsTreeRequest !== null && showBusinessAssetsTreeRequest !== undefined) {
+                if (showBusinessAssetsTreeRequest instanceof ShowBusinessAssetsTreeRequest) {
+                    workspace = showBusinessAssetsTreeRequest.workspace;
+                    guid = showBusinessAssetsTreeRequest.guid;
+                } else {
+                    workspace = showBusinessAssetsTreeRequest['workspace'];
+                    guid = showBusinessAssetsTreeRequest['guid'];
+                }
+            }
+
+        
+            if (guid !== null && guid !== undefined) {
+                localVarQueryParameter['guid'] = guid;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询服务目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19984,6 +20801,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据指定的id查询密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecuritySecrecyLevel(showSecuritySecrecyLevelRequest?: ShowSecuritySecrecyLevelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/data-classification/secrecy-level/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (showSecuritySecrecyLevelRequest !== null && showSecuritySecrecyLevelRequest !== undefined) {
+                if (showSecuritySecrecyLevelRequest instanceof ShowSecuritySecrecyLevelRequest) {
+                    workspace = showSecuritySecrecyLevelRequest.workspace;
+                    id = showSecuritySecrecyLevelRequest.id;
+                } else {
+                    workspace = showSecuritySecrecyLevelRequest['workspace'];
+                    id = showSecuritySecrecyLevelRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showSecuritySecrecyLevel.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过id获取数据标准详情信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21201,6 +22062,59 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityRuleEnableStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据指定的id修改密级
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecuritySecrecyLevel(updateSecuritySecrecyLevelRequest?: UpdateSecuritySecrecyLevelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/data-classification/secrecy-level/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecuritySecrecyLevelRequest !== null && updateSecuritySecrecyLevelRequest !== undefined) {
+                if (updateSecuritySecrecyLevelRequest instanceof UpdateSecuritySecrecyLevelRequest) {
+                    workspace = updateSecuritySecrecyLevelRequest.workspace;
+                    id = updateSecuritySecrecyLevelRequest.id;
+                    body = updateSecuritySecrecyLevelRequest.body
+                } else {
+                    workspace = updateSecuritySecrecyLevelRequest['workspace'];
+                    id = updateSecuritySecrecyLevelRequest['id'];
+                    body = updateSecuritySecrecyLevelRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecuritySecrecyLevel.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

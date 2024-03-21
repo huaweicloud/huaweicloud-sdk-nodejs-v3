@@ -11,7 +11,7 @@ export class ShowGlobalEipSegment {
     private 'access_site'?: string;
     private 'geip_pool_name'?: string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: ShowGlobalEipSegmentIpVersionEnum | number;
     public cidr?: string;
     private 'cidr_v6'?: string;
     public freezen?: boolean;
@@ -73,14 +73,14 @@ export class ShowGlobalEipSegment {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): ShowGlobalEipSegment {
+    public withIpVersion(ipVersion: ShowGlobalEipSegmentIpVersionEnum | number): ShowGlobalEipSegment {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: ShowGlobalEipSegmentIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): ShowGlobalEipSegmentIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withCidr(cidr: string): ShowGlobalEipSegment {
@@ -191,6 +191,14 @@ export class ShowGlobalEipSegment {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowGlobalEipSegmentIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
+}
 /**
     * @export
     * @enum {string}

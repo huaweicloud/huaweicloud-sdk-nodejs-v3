@@ -8,7 +8,7 @@ export class ListGeipPools {
     private 'cn_name'?: string;
     public status?: ListGeipPoolsStatusEnum | string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: ListGeipPoolsIpVersionEnum | number;
     private 'access_site'?: string;
     public type?: string;
     private 'created_at'?: Date;
@@ -52,14 +52,14 @@ export class ListGeipPools {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): ListGeipPools {
+    public withIpVersion(ipVersion: ListGeipPoolsIpVersionEnum | number): ListGeipPools {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: ListGeipPoolsIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): ListGeipPoolsIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withAccessSite(accessSite: string): ListGeipPools {
@@ -116,4 +116,12 @@ export enum ListGeipPoolsStatusEnum {
     ACTIVE = 'ACTIVE',
     INACTIVE = 'INACTIVE',
     SOLDOUT = 'SOLDOUT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListGeipPoolsIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
 }

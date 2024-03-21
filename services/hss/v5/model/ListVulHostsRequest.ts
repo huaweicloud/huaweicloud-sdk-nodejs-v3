@@ -14,6 +14,7 @@ export class ListVulHostsRequest {
     private 'handle_status'?: string;
     private 'severity_level'?: string;
     private 'is_affect_business'?: boolean;
+    private 'repair_priority'?: string;
     public constructor(vulId?: string, type?: string) { 
         this['vul_id'] = vulId;
         this['type'] = type;
@@ -123,5 +124,15 @@ export class ListVulHostsRequest {
     }
     public get isAffectBusiness(): boolean | undefined {
         return this['is_affect_business'];
+    }
+    public withRepairPriority(repairPriority: string): ListVulHostsRequest {
+        this['repair_priority'] = repairPriority;
+        return this;
+    }
+    public set repairPriority(repairPriority: string  | undefined) {
+        this['repair_priority'] = repairPriority;
+    }
+    public get repairPriority(): string | undefined {
+        return this['repair_priority'];
     }
 }

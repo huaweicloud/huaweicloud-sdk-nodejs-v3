@@ -1174,8 +1174,8 @@ export class NatClient {
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {string} [cidr] 可以是网段或者主机格式，与network_id参数二选一。 Source_type&#x3D;0时，cidr必须是vpc子网网段的子集(不能相等）; Source_type&#x3D;1时，cidr必须指定专线侧网段。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
-     * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。
-     * @param {string} [floatingIpId] 功能说明：弹性公网IP的id，多个弹性公网IP使用逗号分隔。 取值范围：最大长度4096字节。
+     * @param {Array<string>} [floatingIpAddress] 功能说明：弹性公网IP。
+     * @param {Array<string>} [floatingIpId] 功能说明：弹性公网IP的id。
      * @param {string} [id] SNAT规则的ID。
      * @param {string} [description] SNAT规则的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {string} [createdAt] SNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。

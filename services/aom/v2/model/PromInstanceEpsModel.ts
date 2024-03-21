@@ -156,7 +156,7 @@ export class PromInstanceEpsModel {
     * @enum {string}
     */
 export enum PromInstanceEpsModelPromTypeEnum {
-    DEFAULT = 'DEFAULT',
+    DEFAULT = 'default',
     ECS = 'ECS',
     VPC = 'VPC',
     CCE = 'CCE',

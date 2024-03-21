@@ -1,3 +1,4 @@
+import { RepairPriorityListInfo } from './RepairPriorityListInfo';
 import { VulInfoCveList } from './VulInfoCveList';
 import { VulnerabilityHostNumberInfo } from './VulnerabilityHostNumberInfo';
 
@@ -24,6 +25,7 @@ export class VulInfo {
     private 'fixed_num'?: number;
     private 'ignored_num'?: number;
     private 'verify_num'?: number;
+    private 'repair_priority_list'?: Array<RepairPriorityListInfo>;
     public constructor() { 
     }
     public withVulName(vulName: string): VulInfo {
@@ -217,5 +219,15 @@ export class VulInfo {
     }
     public get verifyNum(): number | undefined {
         return this['verify_num'];
+    }
+    public withRepairPriorityList(repairPriorityList: Array<RepairPriorityListInfo>): VulInfo {
+        this['repair_priority_list'] = repairPriorityList;
+        return this;
+    }
+    public set repairPriorityList(repairPriorityList: Array<RepairPriorityListInfo>  | undefined) {
+        this['repair_priority_list'] = repairPriorityList;
+    }
+    public get repairPriorityList(): Array<RepairPriorityListInfo> | undefined {
+        return this['repair_priority_list'];
     }
 }

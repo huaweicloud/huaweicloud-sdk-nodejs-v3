@@ -5,6 +5,8 @@ export class WeakPwdListInfoResponseInfo {
     private 'host_id'?: string;
     private 'host_name'?: string;
     private 'host_ip'?: string;
+    private 'private_ip'?: string;
+    private 'public_ip'?: string;
     private 'weak_pwd_accounts'?: Array<WeakPwdAccountInfoResponseInfo>;
     public constructor() { 
     }
@@ -37,6 +39,26 @@ export class WeakPwdListInfoResponseInfo {
     }
     public get hostIp(): string | undefined {
         return this['host_ip'];
+    }
+    public withPrivateIp(privateIp: string): WeakPwdListInfoResponseInfo {
+        this['private_ip'] = privateIp;
+        return this;
+    }
+    public set privateIp(privateIp: string  | undefined) {
+        this['private_ip'] = privateIp;
+    }
+    public get privateIp(): string | undefined {
+        return this['private_ip'];
+    }
+    public withPublicIp(publicIp: string): WeakPwdListInfoResponseInfo {
+        this['public_ip'] = publicIp;
+        return this;
+    }
+    public set publicIp(publicIp: string  | undefined) {
+        this['public_ip'] = publicIp;
+    }
+    public get publicIp(): string | undefined {
+        return this['public_ip'];
     }
     public withWeakPwdAccounts(weakPwdAccounts: Array<WeakPwdAccountInfoResponseInfo>): WeakPwdListInfoResponseInfo {
         this['weak_pwd_accounts'] = weakPwdAccounts;

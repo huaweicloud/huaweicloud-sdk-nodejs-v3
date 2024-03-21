@@ -55,6 +55,9 @@ import { HealthCodeResult } from './model/HealthCodeResult';
 import { HealthCodeWordsBlockList } from './model/HealthCodeWordsBlockList';
 import { HkIdCardRequestBody } from './model/HkIdCardRequestBody';
 import { HkIdCardResult } from './model/HkIdCardResult';
+import { HouseholdRegisterContent } from './model/HouseholdRegisterContent';
+import { HouseholdRegisterRequestBody } from './model/HouseholdRegisterRequestBody';
+import { HouseholdRegisterResult } from './model/HouseholdRegisterResult';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
 import { IdDocumentItem } from './model/IdDocumentItem';
@@ -142,6 +145,8 @@ import { RecognizeHealthCodeRequest } from './model/RecognizeHealthCodeRequest';
 import { RecognizeHealthCodeResponse } from './model/RecognizeHealthCodeResponse';
 import { RecognizeHkIdCardRequest } from './model/RecognizeHkIdCardRequest';
 import { RecognizeHkIdCardResponse } from './model/RecognizeHkIdCardResponse';
+import { RecognizeHouseholdRegisterRequest } from './model/RecognizeHouseholdRegisterRequest';
+import { RecognizeHouseholdRegisterResponse } from './model/RecognizeHouseholdRegisterResponse';
 import { RecognizeIdCardRequest } from './model/RecognizeIdCardRequest';
 import { RecognizeIdCardResponse } from './model/RecognizeIdCardResponse';
 import { RecognizeIdDocumentRequest } from './model/RecognizeIdDocumentRequest';
@@ -208,6 +213,7 @@ import { SealList } from './model/SealList';
 import { SealRequestBody } from './model/SealRequestBody';
 import { SealResult } from './model/SealResult';
 import { SealWordsBlockList } from './model/SealWordsBlockList';
+import { SmartDocumentRecognizerFormResult } from './model/SmartDocumentRecognizerFormResult';
 import { SmartDocumentRecognizerKVBlock } from './model/SmartDocumentRecognizerKVBlock';
 import { SmartDocumentRecognizerKVWordsBlock } from './model/SmartDocumentRecognizerKVWordsBlock';
 import { SmartDocumentRecognizerKvResult } from './model/SmartDocumentRecognizerKvResult';
@@ -626,6 +632,26 @@ export class OcrClient {
     }
 
     /**
+     * 识别户口本中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 户口本识别
+     * @param {HouseholdRegisterRequestBody} recognizeHouseholdRegisterRequestBody This is a household register Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeHouseholdRegister(recognizeHouseholdRegisterRequest?: RecognizeHouseholdRegisterRequest): Promise<RecognizeHouseholdRegisterResponse> {
+        const options = ParamCreater().recognizeHouseholdRegister(recognizeHouseholdRegisterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 识别身份证图片中的文字内容，并将识别的结果返回给用户。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section5)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
      * 
      * 说明： 
@@ -825,7 +851,7 @@ export class OcrClient {
      *
      * @summary 缅文驾驶证识别
      * @param {MyanmarDriverLicenseRequestBody} recognizeMyanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
-     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-3#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2073,6 +2099,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeHkIdCardRequest['body'];
                     enterpriseProjectId = recognizeHkIdCardRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别户口本中的文字信息，并返回识别的结构化结果。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html#section11)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeHouseholdRegister(recognizeHouseholdRegisterRequest?: RecognizeHouseholdRegisterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/household-register",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeHouseholdRegisterRequest !== null && recognizeHouseholdRegisterRequest !== undefined) {
+                if (recognizeHouseholdRegisterRequest instanceof RecognizeHouseholdRegisterRequest) {
+                    body = recognizeHouseholdRegisterRequest.body
+                    enterpriseProjectId = recognizeHouseholdRegisterRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeHouseholdRegisterRequest['body'];
+                    enterpriseProjectId = recognizeHouseholdRegisterRequest['Enterprise-Project-Id'];
                 }
             }
 

@@ -1416,9 +1416,9 @@ export class SecMasterClient {
      * @param {string} contentType application/json;charset&#x3D;UTF-8
      * @param {string} workspaceId 工作空间ID
      * @param {string} playbookId 剧本ID
-     * @param {string} startTime 开始时间
+     * @param {string} startTime 开始时间。格式ISO8601：YYYY-MM-DDTHH:mm:ss.ms+timezone。例如：2021-01-30T23:00:00Z+0800。时区信息为剧本实例产生的时区，无法解析时区的时间，默认时区填东八区。
      * @param {'ALL:全部，VALID:有效的，DELETED:已删除'} versionQueryType 统计剧本版本类型（ALL:全部，VALID:有效的，DELETED:已删除）
-     * @param {string} endTime 结束时间
+     * @param {string} endTime 结束时间。格式ISO8601：YYYY-MM-DDTHH:mm:ss.ms+timezone。例如：2021-01-30T23:00:00Z+0800。时区信息为剧本实例产生的时区，无法解析时区的时间，默认时区填东八区。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

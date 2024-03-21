@@ -12,7 +12,7 @@ export class BatchCreateGlobalEip {
     private 'access_site'?: string;
     private 'geip_pool_name'?: string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: BatchCreateGlobalEipIpVersionEnum | number;
     private 'ip_address'?: string;
     private 'ipv6_address'?: string;
     public freezen?: boolean;
@@ -79,14 +79,14 @@ export class BatchCreateGlobalEip {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): BatchCreateGlobalEip {
+    public withIpVersion(ipVersion: BatchCreateGlobalEipIpVersionEnum | number): BatchCreateGlobalEip {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: BatchCreateGlobalEipIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): BatchCreateGlobalEipIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withIpAddress(ipAddress: string): BatchCreateGlobalEip {
@@ -217,6 +217,14 @@ export class BatchCreateGlobalEip {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchCreateGlobalEipIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
+}
 /**
     * @export
     * @enum {string}

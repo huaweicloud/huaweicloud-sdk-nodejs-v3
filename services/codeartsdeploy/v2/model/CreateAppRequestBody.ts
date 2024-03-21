@@ -6,6 +6,7 @@ export class CreateAppRequestBody {
     private 'project_id'?: string;
     public name?: string;
     public description?: string;
+    private 'group_id'?: string;
     private 'is_draft'?: boolean;
     private 'create_type'?: CreateAppRequestBodyCreateTypeEnum | string;
     private 'slave_cluster_id'?: string;
@@ -34,6 +35,16 @@ export class CreateAppRequestBody {
     public withDescription(description: string): CreateAppRequestBody {
         this['description'] = description;
         return this;
+    }
+    public withGroupId(groupId: string): CreateAppRequestBody {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
     public withIsDraft(isDraft: boolean): CreateAppRequestBody {
         this['is_draft'] = isDraft;

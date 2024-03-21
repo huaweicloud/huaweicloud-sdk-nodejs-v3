@@ -14,8 +14,6 @@ export class ShowAssetStatisticResponse extends SdkResponse {
     private 'web_service_num'?: number;
     private 'web_app_num'?: number;
     private 'database_num'?: number;
-    private 'core_conf_file_num'?: number;
-    private 'environment_num'?: number;
     public constructor() { 
         super();
     }
@@ -138,25 +136,5 @@ export class ShowAssetStatisticResponse extends SdkResponse {
     }
     public get databaseNum(): number | undefined {
         return this['database_num'];
-    }
-    public withCoreConfFileNum(coreConfFileNum: number): ShowAssetStatisticResponse {
-        this['core_conf_file_num'] = coreConfFileNum;
-        return this;
-    }
-    public set coreConfFileNum(coreConfFileNum: number  | undefined) {
-        this['core_conf_file_num'] = coreConfFileNum;
-    }
-    public get coreConfFileNum(): number | undefined {
-        return this['core_conf_file_num'];
-    }
-    public withEnvironmentNum(environmentNum: number): ShowAssetStatisticResponse {
-        this['environment_num'] = environmentNum;
-        return this;
-    }
-    public set environmentNum(environmentNum: number  | undefined) {
-        this['environment_num'] = environmentNum;
-    }
-    public get environmentNum(): number | undefined {
-        return this['environment_num'];
     }
 }

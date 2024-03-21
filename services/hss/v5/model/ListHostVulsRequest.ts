@@ -9,6 +9,7 @@ export class ListHostVulsRequest {
     public offset?: number;
     private 'handle_status'?: string;
     public status?: string;
+    private 'repair_priority'?: string;
     public constructor(hostId?: string) { 
         this['host_id'] = hostId;
     }
@@ -67,5 +68,15 @@ export class ListHostVulsRequest {
     public withStatus(status: string): ListHostVulsRequest {
         this['status'] = status;
         return this;
+    }
+    public withRepairPriority(repairPriority: string): ListHostVulsRequest {
+        this['repair_priority'] = repairPriority;
+        return this;
+    }
+    public set repairPriority(repairPriority: string  | undefined) {
+        this['repair_priority'] = repairPriority;
+    }
+    public get repairPriority(): string | undefined {
+        return this['repair_priority'];
     }
 }

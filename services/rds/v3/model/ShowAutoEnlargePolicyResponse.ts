@@ -5,6 +5,7 @@ export class ShowAutoEnlargePolicyResponse extends SdkResponse {
     private 'switch_option'?: boolean;
     private 'limit_size'?: number;
     private 'trigger_threshold'?: number;
+    private 'step_percent'?: number;
     public constructor() { 
         super();
     }
@@ -37,5 +38,15 @@ export class ShowAutoEnlargePolicyResponse extends SdkResponse {
     }
     public get triggerThreshold(): number | undefined {
         return this['trigger_threshold'];
+    }
+    public withStepPercent(stepPercent: number): ShowAutoEnlargePolicyResponse {
+        this['step_percent'] = stepPercent;
+        return this;
+    }
+    public set stepPercent(stepPercent: number  | undefined) {
+        this['step_percent'] = stepPercent;
+    }
+    public get stepPercent(): number | undefined {
+        return this['step_percent'];
     }
 }

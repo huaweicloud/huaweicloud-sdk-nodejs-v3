@@ -3,9 +3,11 @@
 export class ListFunctionTagsRequest {
     private 'resource_type'?: string;
     private 'resource_id'?: string;
-    public constructor(resourceType?: string, resourceId?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(resourceType?: string, resourceId?: string, contentType?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
+        this['Content-Type'] = contentType;
     }
     public withResourceType(resourceType: string): ListFunctionTagsRequest {
         this['resource_type'] = resourceType;
@@ -26,5 +28,15 @@ export class ListFunctionTagsRequest {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
+    }
+    public withContentType(contentType: string): ListFunctionTagsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

@@ -4,10 +4,12 @@ import { UpdateFunctionTagsRequestBody } from './UpdateFunctionTagsRequestBody';
 export class DeleteTagsRequest {
     private 'resource_type'?: string;
     private 'resource_id'?: string;
+    private 'Content-Type'?: string;
     public body?: UpdateFunctionTagsRequestBody;
-    public constructor(resourceType?: string, resourceId?: string) { 
+    public constructor(resourceType?: string, resourceId?: string, contentType?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
+        this['Content-Type'] = contentType;
     }
     public withResourceType(resourceType: string): DeleteTagsRequest {
         this['resource_type'] = resourceType;
@@ -28,6 +30,16 @@ export class DeleteTagsRequest {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
+    }
+    public withContentType(contentType: string): DeleteTagsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withBody(body: UpdateFunctionTagsRequestBody): DeleteTagsRequest {
         this['body'] = body;

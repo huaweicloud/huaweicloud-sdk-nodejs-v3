@@ -4,7 +4,9 @@ export class ListReservedInstanceConfigsRequest {
     private 'function_urn'?: string;
     public marker?: string;
     public limit?: string;
-    public constructor() { 
+    private 'Content-Type'?: string;
+    public constructor(contentType?: string) { 
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ListReservedInstanceConfigsRequest {
         this['function_urn'] = functionUrn;
@@ -23,5 +25,15 @@ export class ListReservedInstanceConfigsRequest {
     public withLimit(limit: string): ListReservedInstanceConfigsRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withContentType(contentType: string): ListReservedInstanceConfigsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

@@ -2,9 +2,11 @@
 
 export class DeleteEventRequest {
     private 'function_urn'?: string;
+    private 'Content-Type'?: string;
     private 'event_id'?: string;
-    public constructor(functionUrn?: string, eventId?: string) { 
+    public constructor(functionUrn?: string, contentType?: string, eventId?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
         this['event_id'] = eventId;
     }
     public withFunctionUrn(functionUrn: string): DeleteEventRequest {
@@ -16,6 +18,16 @@ export class DeleteEventRequest {
     }
     public get functionUrn(): string | undefined {
         return this['function_urn'];
+    }
+    public withContentType(contentType: string): DeleteEventRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withEventId(eventId: string): DeleteEventRequest {
         this['event_id'] = eventId;

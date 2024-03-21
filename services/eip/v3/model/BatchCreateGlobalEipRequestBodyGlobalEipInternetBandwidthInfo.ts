@@ -1,4 +1,4 @@
-import { AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags } from './AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags';
+import { CreateGlobalEipRequestBodyGlobalEipTags } from './CreateGlobalEipRequestBodyGlobalEipTags';
 
 
 export class BatchCreateGlobalEipRequestBodyGlobalEipInternetBandwidthInfo {
@@ -7,7 +7,7 @@ export class BatchCreateGlobalEipRequestBodyGlobalEipInternetBandwidthInfo {
     private 'charge_mode'?: string;
     public size?: number;
     public name?: string;
-    public tags?: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>;
+    public tags?: Array<CreateGlobalEipRequestBodyGlobalEipTags>;
     public type?: string;
     public constructor() { 
     }
@@ -43,7 +43,7 @@ export class BatchCreateGlobalEipRequestBodyGlobalEipInternetBandwidthInfo {
         this['name'] = name;
         return this;
     }
-    public withTags(tags: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>): BatchCreateGlobalEipRequestBodyGlobalEipInternetBandwidthInfo {
+    public withTags(tags: Array<CreateGlobalEipRequestBodyGlobalEipTags>): BatchCreateGlobalEipRequestBodyGlobalEipInternetBandwidthInfo {
         this['tags'] = tags;
         return this;
     }

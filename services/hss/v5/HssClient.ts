@@ -6,10 +6,13 @@ import { AddHostsGroupRequest } from './model/AddHostsGroupRequest';
 import { AddHostsGroupRequestInfo } from './model/AddHostsGroupRequestInfo';
 import { AddHostsGroupResponse } from './model/AddHostsGroupResponse';
 import { AgentId } from './model/AgentId';
+import { AgentVersion } from './model/AgentVersion';
 import { AlarmWhiteListResponseInfo } from './model/AlarmWhiteListResponseInfo';
+import { AntivirusResultDetailInfo } from './model/AntivirusResultDetailInfo';
 import { AppChangeResponseInfo } from './model/AppChangeResponseInfo';
 import { AppResponseInfo } from './model/AppResponseInfo';
 import { AppStatisticResponseInfo } from './model/AppStatisticResponseInfo';
+import { AssetValue } from './model/AssetValue';
 import { AssociateImages } from './model/AssociateImages';
 import { AssociatePolicyGroupRequest } from './model/AssociatePolicyGroupRequest';
 import { AssociatePolicyGroupRequestInfo } from './model/AssociatePolicyGroupRequestInfo';
@@ -66,6 +69,9 @@ import { CheckRuleRiskInfoResponseInfo } from './model/CheckRuleRiskInfoResponse
 import { CloseProtectionInfoRequestInfo } from './model/CloseProtectionInfoRequestInfo';
 import { ContainerName } from './model/ContainerName';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
+import { CreateQuotasOrderRequest } from './model/CreateQuotasOrderRequest';
+import { CreateQuotasOrderRequestInfo } from './model/CreateQuotasOrderRequestInfo';
+import { CreateQuotasOrderResponse } from './model/CreateQuotasOrderResponse';
 import { CreateVulnerabilityScanTaskRequest } from './model/CreateVulnerabilityScanTaskRequest';
 import { CreateVulnerabilityScanTaskResponse } from './model/CreateVulnerabilityScanTaskResponse';
 import { DefaultGroup } from './model/DefaultGroup';
@@ -89,8 +95,12 @@ import { EventType } from './model/EventType';
 import { EventUserResponseInfo } from './model/EventUserResponseInfo';
 import { EventWhiteRuleListRequestInfo } from './model/EventWhiteRuleListRequestInfo';
 import { FileAttr } from './model/FileAttr';
+import { FileCtime } from './model/FileCtime';
 import { FileHash } from './model/FileHash';
+import { FileMtime } from './model/FileMtime';
+import { FileOwner } from './model/FileOwner';
 import { FilePath } from './model/FilePath';
+import { FileSize } from './model/FileSize';
 import { GroupId } from './model/GroupId';
 import { GroupName } from './model/GroupName';
 import { HandleMethod } from './model/HandleMethod';
@@ -116,6 +126,8 @@ import { ImageRiskConfigsInfoResponseInfo } from './model/ImageRiskConfigsInfoRe
 import { ImageVulCveInfo } from './model/ImageVulCveInfo';
 import { ImageVulInfo } from './model/ImageVulInfo';
 import { IsParent } from './model/IsParent';
+import { IsolateEventResponseInfo } from './model/IsolateEventResponseInfo';
+import { IsolateSource } from './model/IsolateSource';
 import { IsolatedFileRequestInfo } from './model/IsolatedFileRequestInfo';
 import { IsolatedFileResponseInfo } from './model/IsolatedFileResponseInfo';
 import { IsolationStatus } from './model/IsolationStatus';
@@ -214,6 +226,7 @@ import { ListWtpProtectHostResponse } from './model/ListWtpProtectHostResponse';
 import { LoginIp } from './model/LoginIp';
 import { LoginType } from './model/LoginType';
 import { LoginUserName } from './model/LoginUserName';
+import { MalwareName } from './model/MalwareName';
 import { ManualVulScanRequestInfo } from './model/ManualVulScanRequestInfo';
 import { OccurTime } from './model/OccurTime';
 import { OperateEventRequestInfo } from './model/OperateEventRequestInfo';
@@ -241,9 +254,12 @@ import { PublicIp } from './model/PublicIp';
 import { PwdPolicyInfoResponseInfo } from './model/PwdPolicyInfoResponseInfo';
 import { QuotaResourcesResponseInfo } from './model/QuotaResourcesResponseInfo';
 import { QuotaStatisticsResponseInfo } from './model/QuotaStatisticsResponseInfo';
+import { RepairPriorityListInfo } from './model/RepairPriorityListInfo';
 import { ResourceInfo } from './model/ResourceInfo';
+import { ResourceProductDataObjectInfo } from './model/ResourceProductDataObjectInfo';
 import { ResourceQuotasInfo } from './model/ResourceQuotasInfo';
 import { ResourceTagInfo } from './model/ResourceTagInfo';
+import { ResultId } from './model/ResultId';
 import { RiskHostNum } from './model/RiskHostNum';
 import { RunImageSynchronizeRequest } from './model/RunImageSynchronizeRequest';
 import { RunImageSynchronizeRequestInfo } from './model/RunImageSynchronizeRequestInfo';
@@ -265,6 +281,9 @@ import { ShowCheckRuleDetailRequest } from './model/ShowCheckRuleDetailRequest';
 import { ShowCheckRuleDetailResponse } from './model/ShowCheckRuleDetailResponse';
 import { ShowImageCheckRuleDetailRequest } from './model/ShowImageCheckRuleDetailRequest';
 import { ShowImageCheckRuleDetailResponse } from './model/ShowImageCheckRuleDetailResponse';
+import { ShowPeriodResponseInfo } from './model/ShowPeriodResponseInfo';
+import { ShowProductdataOfferingInfosRequest } from './model/ShowProductdataOfferingInfosRequest';
+import { ShowProductdataOfferingInfosResponse } from './model/ShowProductdataOfferingInfosResponse';
 import { ShowResourceQuotasRequest } from './model/ShowResourceQuotasRequest';
 import { ShowResourceQuotasResponse } from './model/ShowResourceQuotasResponse';
 import { ShowRiskConfigDetailRequest } from './model/ShowRiskConfigDetailRequest';
@@ -299,6 +318,7 @@ import { UserChangeHistoryResponseInfo } from './model/UserChangeHistoryResponse
 import { UserResponseInfo } from './model/UserResponseInfo';
 import { UserStatisticInfoResponseInfo } from './model/UserStatisticInfoResponseInfo';
 import { VulHostInfo } from './model/VulHostInfo';
+import { VulHostInfoDisabledOperateTypes } from './model/VulHostInfoDisabledOperateTypes';
 import { VulInfo } from './model/VulInfo';
 import { VulInfoCveList } from './model/VulInfoCveList';
 import { VulOperateInfo } from './model/VulOperateInfo';
@@ -331,9 +351,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建服务器组
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {AddHostsGroupRequestInfo} addHostsGroupRequestBody 创建服务器组的请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -347,14 +368,15 @@ export class HssClient {
     }
 
     /**
-     * 部署策略
+     * 部署策略组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 部署策略
-     * @param {string} region region id
+     * @summary 部署策略组
+     * @param {string} region Region ID
      * @param {AssociatePolicyGroupRequestInfo} associatePolicyGroupRequestBody request
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -373,9 +395,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建标签
-     * @param {string} resourceType 资源类别，hss
-     * @param {string} resourceId 资源ID
+     * @param {string} resourceType 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss
+     * @param {string} resourceId 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID
      * @param {BatchCreateTagsRequestInfo} batchCreateTagsRequestBody 批量创建标签的请求体
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -394,7 +417,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 镜像仓库镜像批量扫描
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {BatchScanPrivateImageRequestInfo} batchScanSwrImageRequestBody request
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -415,9 +438,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解除已拦截IP
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {ChangeBlockedIpRequestInfo} changeBlockedIpRequestBody 解除拦截IP列表
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -458,9 +481,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 处理告警事件
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {ChangeEventRequestInfo} changeEventRequestBody 处理告警事件列表
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [containerName] 容器实例名称
      * @param {string} [containerId] 容器Id
      * @param {*} [options] Override http request option.
@@ -481,9 +504,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑服务器组
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {ChangeHostsGroupRequestInfo} changeHostsGroupRequestBody request
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -502,9 +526,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 恢复已隔离文件
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {ChangeIsolatedFileRequestInfo} changeIsolatedFileRequestBody 恢复已隔离文件列表
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -544,12 +568,35 @@ export class HssClient {
      *
      * @summary 修改漏洞的状态
      * @param {ChangeVulStatusRequestInfo} changeVulStatusRequestBody vul_operate请求体
-     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [enterpriseProjectId] 企业项目ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public changeVulStatus(changeVulStatusRequest?: ChangeVulStatusRequest): Promise<ChangeVulStatusResponse> {
         const options = ParamCreater().changeVulStatus(changeVulStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * HSS服务创建订单订购配额，只支持包周期计费模式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HSS服务创建订单订购配额
+     * @param {string} region Region ID
+     * @param {CreateQuotasOrderRequestInfo} createQuotasOrderRequestBody 创建订单订购配额请求体对象
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createQuotasOrder(createQuotasOrderRequest?: CreateQuotasOrderRequest): Promise<CreateQuotasOrderResponse> {
+        const options = ParamCreater().createQuotasOrder(createQuotasOrderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -583,7 +630,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务器组
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} groupId 服务器组ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -604,8 +651,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
-     * @param {string} resourceType 资源类别，hss
-     * @param {string} resourceId 资源ID
+     * @param {string} resourceType 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss
+     * @param {string} resourceId 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID
      * @param {string} key 待删除的key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -625,11 +672,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警白名单列表
-     * @param {string} region region id
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [hash] SHA256
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [hash] 事件白名单SHA256
      * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -654,11 +701,11 @@ export class HssClient {
      * @param {string} [hostName] 主机名称
      * @param {string} [appName] 软件名称
      * @param {string} [variationType] 变更类型:   - add ：新建   - delete ：删除   - modify ：修改
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {string} [sortKey] 排序的key值
-     * @param {string} [sortDir] 升序还是降序，默认升序，asc
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序
+     * @param {string} [sortDir] 排序方式，默认为降序:   - asc ：升序   - desc ：降序
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
      * @param {*} [options] Override http request option.
@@ -680,9 +727,9 @@ export class HssClient {
      *
      * @summary 查询软件列表
      * @param {string} [appName] 软件名称
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 偏移量，为页数*每页显示条数
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -706,11 +753,11 @@ export class HssClient {
      * @param {string} [hostName] 主机名称
      * @param {string} [appName] 软件名称
      * @param {string} [hostIp] 主机ip
-     * @param {string} [version] 版本号
+     * @param {string} [version] 软件版本号
      * @param {string} [installDir] 安装目录
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
@@ -737,11 +784,11 @@ export class HssClient {
      * @param {string} [autoLaunchName] 自启动项名称
      * @param {number} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
      * @param {string} [variationType] 变更类型:   - add ：新建   - delete ：删除   - modify ：修改
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {string} [sortKey] 排序的key值
-     * @param {string} [sortDir] 升序还是降序，默认升序，asc
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序
+     * @param {string} [sortDir] 排序方式，默认为降序:   - asc ：升序   - desc ：降序
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
      * @param {*} [options] Override http request option.
@@ -763,10 +810,10 @@ export class HssClient {
      *
      * @summary 查询自启动项信息
      * @param {string} [name] 自启动项名称
-     * @param {string} [type] 自启动项类型
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -789,10 +836,10 @@ export class HssClient {
      * @param {string} [hostName] 主机名称
      * @param {string} [name] 自启动项名称
      * @param {string} [hostIp] 主机ip
-     * @param {string} [type] 自启动项类型
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -812,13 +859,13 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已拦截IP列表
-     * @param {string} region region id
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
      * @param {string} [srcIp] 攻击源IP
      * @param {string} [interceptStatus] 拦截状态，包含如下:   - intercepted : 已拦截   - canceled : 已解除拦截   - cancelling : 待解除拦截
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -838,7 +885,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询容器节点列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -864,7 +911,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务器组列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -888,12 +935,12 @@ export class HssClient {
      *
      * @summary 查询主机静态网页防篡改防护动态
      * @param {string} region Region Id
-     * @param {string} hostId Host Id
-     * @param {number} startTime 起始时间
-     * @param {number} endTime 终止时间
+     * @param {number} startTime 起始时间(ms)
+     * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
      * @param {number} offset offset
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [hostId] Host Id，为空时查所有主机
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器ip
      * @param {string} [filePath] 防护文件
@@ -917,13 +964,13 @@ export class HssClient {
      *
      * @summary 查询主机动态网页防篡改防护动态
      * @param {string} region Region Id
-     * @param {string} hostId Host Id
-     * @param {number} startTime 起始时间
-     * @param {number} endTime 终止时间
+     * @param {number} startTime 起始时间(ms)
+     * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
      * @param {number} offset offset
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [alarmLevel] 告警级别
+     * @param {string} [enterpriseProjectId] 企业项目ID
+     * @param {string} [hostId] Host Id，为空时查所有主机
+     * @param {number} [alarmLevel] 告警级别 - 1 : 低危 - 2 : 中危 - 3 : 高危 - 4 : 严重
      * @param {string} [severity] 威胁等级   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [protectStatus] 防护状态   - closed : 未开启   - opened : 防护中
      * @param {*} [options] Override http request option.
@@ -958,7 +1005,7 @@ export class HssClient {
      * @param {string} [protectStatus] 防护状态，包含如下2种。   - closed ：关闭。   - opened ：开启。
      * @param {string} [groupId] 服务器组ID
      * @param {string} [groupName] 服务器组名称
-     * @param {string} [region] region id
+     * @param {string} [region] Region ID
      * @param {boolean} [hasIntrusion] 存在告警事件
      * @param {string} [policyGroupId] 策略组ID
      * @param {string} [policyGroupName] 策略组名称
@@ -998,6 +1045,7 @@ export class HssClient {
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [status] 漏洞状态，包含如下：   - vul_status_unfix : 未处理   - vul_status_ignored : 已忽略   - vul_status_verified : 验证中   - vul_status_fixing : 修复中   - vul_status_fixed : 修复成功   - vul_status_reboot : 修复成功待重启   - vul_status_failed : 修复失败   - vul_status_fix_after_reboot : 请重启主机再次修复
+     * @param {string} [repairPriority] 修复优先级,包含如下 - Critical 紧急  - High 高  - Medium 中  - Low 低
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1016,7 +1064,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像指定安全配置项的检查项列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
@@ -1048,7 +1096,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像安全配置检测结果列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
@@ -1078,7 +1126,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像的漏洞信息
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} imageId 镜像id
      * @param {string} namespace 组织名称
@@ -1110,12 +1158,15 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询已隔离文件列表
-     * @param {string} region region id
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [filePath] 文件路径
      * @param {string} [hostName] 服务器名称
-     * @param {string} [isolationStatus] 隔离状态，包含如下:   - isolated : 已隔离   - restored : 已恢复   - isolating : 已下发隔离任务   - restoring : 已下发恢复任务
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [privateIp] 服务器私有IP
+     * @param {string} [publicIp] 服务器公网IP
+     * @param {string} [fileHash] 文件hash,当前为sha256
+     * @param {string} [assetValue] 资产重要性，包含如下3种   - important ：重要资产   - common ：一般资产   - test ：测试资产
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1136,12 +1187,12 @@ export class HssClient {
      *
      * @summary 查询指定中间件的服务器列表
      * @param {string} fileName 文件名称
-     * @param {string} [enterpriseProjectId] 租户企业项目ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [category] 类别，包含如下:   - host : 主机   - container : 容器
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1161,11 +1212,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询中间件列表
-     * @param {string} [enterpriseProjectId] 租户企业项目ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [fileName] jar包名称
      * @param {string} [category] 类别，包含如下:   - host : 主机   - container : 容器
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1187,9 +1238,9 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP地址
-     * @param {string} [hostId] 服务器id，不赋值时，查租户所有主机
+     * @param {string} [hostId] 主机id，不赋值时，查租户所有主机
      * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1208,11 +1259,12 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询策略组列表
-     * @param {string} region region id
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [groupName] 策略组名
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
+     * @param {boolean} [containerMode] 是否查询容器版策略
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1232,13 +1284,13 @@ export class HssClient {
      *
      * @summary 资产指纹-端口-服务器列表
      * @param {number} port 端口号
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostName] 主机名称
      * @param {string} [hostIp] 主机ip
-     * @param {string} [type] 端口类型
+     * @param {string} [type] 端口类型：目前包括TCP，UDP两种
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1260,11 +1312,11 @@ export class HssClient {
      * @param {number} [port] 端口号，精确匹配
      * @param {string} [portString] 端口字符串，用来进行模糊匹配
      * @param {string} [type] 端口类型
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [sortKey] 排序的key值，目前支持按照端口号port排序
      * @param {string} [sortDir] 升序还是降序，默认升序，asc
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1288,10 +1340,10 @@ export class HssClient {
      * @param {string} [hostName] 主机名称
      * @param {string} [hostIp] 主机ip
      * @param {number} [port] 端口号
-     * @param {string} [type] 端口类型
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [type] 端口类型：目前包括TCP，UDP两种
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1311,10 +1363,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询进程列表
-     * @param {string} [path] 路径
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [path] 可执行进程路径
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1334,13 +1386,13 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 资产指纹-进程-服务器列表
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostName] 主机名称
      * @param {string} [hostIp] 主机ip
-     * @param {string} [path] 进程路径
+     * @param {string} [path] 进程可执行文件路径
      * @param {string} [category] 类型，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1354,18 +1406,18 @@ export class HssClient {
     }
 
     /**
-     * 查询防护策略列表
+     * 查询勒索病毒的防护策略列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询防护策略列表
-     * @param {string} region region id
+     * @summary 查询勒索病毒的防护策略列表
+     * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
      * @param {string} [policyName] 防护策略名称
      * @param {string} [protectPolicyId] 防护策略id
-     * @param {string} [operatingSystem] 策略支持的操作系统
+     * @param {string} [operatingSystem] 策略支持的操作系统，包含如下：   - Windows : Windows系统   - Linux : Linux系统
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1384,7 +1436,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询勒索防护服务器列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
@@ -1411,17 +1463,17 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额详情
-     * @param {string} [region] region id
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [version] 主机开通的版本，包含如下7种输入。   - hss.version.null ：无。   - hss.version.basic ：基础版。   - hss.version.advanced ：专业版。   - hss.version.enterprise ：企业版。   - hss.version.premium ：旗舰版。   - hss.version.wtp ：网页防篡改版。   - hss.version.container.enterprise：容器版。
      * @param {string} [category] 类别，包含如下几种：   - host_resource ：HOST_RESOURCE   - container_resource ：CONTAINER_RESOURCE
      * @param {string} [quotaStatus] 配额状态，包含如下几种：   - normal ： QUOTA_STATUS_NORMAL   - expired ：QUOTA_STATUS_EXPIRED   - freeze ：QUOTA_STATUS_FREEZE
      * @param {string} [usedStatus] 使用状态，包含如下几种：   - idle ：USED_STATUS_IDLE   - used ：USED_STATUS_USED
      * @param {string} [hostName] 服务器名称
-     * @param {string} [resourceId] 资源ID
+     * @param {string} [resourceId] HSS配额的资源ID
      * @param {string} [chargingMode] 收费模式，包含如下2种。   - packet_cycle ：包年/包月。   - on_demand ：按需。
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1440,15 +1492,15 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定安全配置项的检查项列表
-     * @param {string} checkName 基线名称
-     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
+     * @param {string} checkName 配置检查（基线）的名称，例如SSH、CentOS 7、Windows
+     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [resultType] 结果类型，包含如下： - safe ： 已通过 - unhandled : 未通过，且未忽略的 - ignored : 未通过，且已忽略的
-     * @param {string} [checkRuleName] 检查项名称，支持模糊匹配
+     * @param {string} [checkRuleName] 检查项（检查规则）名称，支持模糊匹配
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1467,13 +1519,13 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定安全配置项的受影响服务器列表
-     * @param {string} checkName 基线名称
-     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
+     * @param {string} checkName 配置检查（基线）的名称，例如SSH、CentOS 7、Windows
+     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP地址
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1493,13 +1545,13 @@ export class HssClient {
      *
      * @summary 查询租户的服务器安全配置检测结果列表
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [checkName] 基线名称
+     * @param {string} [checkName] 配置检查（基线）的名称，例如SSH、CentOS 7、Windows
      * @param {string} [groupId] 策略组ID
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危
-     * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
-     * @param {string} [hostId] 服务器id
+     * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
+     * @param {string} [hostId] 主机id
      * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1518,16 +1570,16 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查入侵事件列表
-     * @param {string} region region id
      * @param {string} category 事件类别，包含如下:   - host : 主机安全事件   - container : 容器安全事件
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
-     * @param {string} [hostId] 服务器ID
+     * @param {string} [hostId] 主机ID
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [publicIp] 服务器公网IP
      * @param {string} [containerName] 容器实例名称
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
      * @param {number} [limit] 每页显示个数
      * @param {Array<number>} [eventTypes] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3026 : crontab提权   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
@@ -1559,7 +1611,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询swr镜像仓库镜像列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [namespace] 组织名称
@@ -1571,10 +1623,10 @@ export class HssClient {
      * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - download_failed : 下载失败   - image_oversized : 镜像超大
      * @param {string} [instanceName] 企业镜像实例名称
      * @param {number} [imageSize] 镜像大小
-     * @param {number} [startLatestUpdateTime] 创建时间开始日期
-     * @param {number} [endLatestUpdateTime] 创建时间结束日期
-     * @param {number} [startLatestScanTime] 最近一次扫描完成时间开始日期
-     * @param {number} [endLatestScanTime] 最近一次扫描完成时间结束日期
+     * @param {number} [startLatestUpdateTime] 创建时间开始日期，时间单位 毫秒（ms）
+     * @param {number} [endLatestUpdateTime] 创建时间结束日期，时间单位 毫秒（ms）
+     * @param {number} [startLatestScanTime] 最近一次扫描完成时间开始日期，时间单位 毫秒（ms）
+     * @param {number} [endLatestScanTime] 最近一次扫描完成时间结束日期，时间单位 毫秒（ms）
      * @param {boolean} [hasMaliciousFile] 是否存在恶意文件
      * @param {boolean} [hasUnsafeSetting] 是否存在基线检查
      * @param {boolean} [hasVul] 是否存在软件漏洞
@@ -1602,10 +1654,10 @@ export class HssClient {
      * @param {boolean} [rootPermission] 是否有root权限
      * @param {string} [hostName] 主机名称
      * @param {string} [privateIp] 服务器私有IP
-     * @param {string} [changeType] 变更类型:   - ADD ：添加   - DELETE ：删除   - MODIFY ： 修改
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [changeType] 账号变更类型:   - ADD ：添加   - DELETE ：删除   - MODIFY ： 修改
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
      * @param {*} [options] Override http request option.
@@ -1627,9 +1679,9 @@ export class HssClient {
      *
      * @summary 查询账号信息列表
      * @param {string} [userName] 账号名称，参考windows文件命名规则，支持字母、数字、下划线、中文，特殊字符!@.-等，不包括中文标点符号
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1649,16 +1701,16 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询账号的服务器列表
-     * @param {string} [hostId] 服务器ID
+     * @param {string} [hostId] 主机ID
      * @param {string} [userName] 账号名称
-     * @param {string} [hostName] 服务器名称
+     * @param {string} [hostName] 主机名称
      * @param {string} [privateIp] 服务器私有IP
-     * @param {boolean} [loginPermission] 是否允许登陆
+     * @param {boolean} [loginPermission] 是否允许登录
      * @param {boolean} [rootPermission] 是否有root权限
-     * @param {string} [userGroup] 用户组
+     * @param {string} [userGroup] 主机用户组
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [limit] 每页显示数量，默认10
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
@@ -1681,17 +1733,18 @@ export class HssClient {
      * @summary 查询单个漏洞影响的云服务器信息
      * @param {string} vulId 漏洞ID
      * @param {string} type 漏洞类型   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞   - urgent_vul : 应急漏洞
-     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [hostName] 受影响资产名称
-     * @param {string} [hostIp] 受影响资产ip
+     * @param {string} [enterpriseProjectId] 企业项目ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [hostName] 受影响主机名称
+     * @param {string} [hostIp] 受影响主机ip
      * @param {string} [status] 漏洞状态   - vul_status_unfix : 未处理   - vul_status_ignored : 已忽略   - vul_status_verified : 验证中   - vul_status_fixing : 修复中   - vul_status_fixed : 修复成功   - vul_status_reboot : 修复成功待重启   - vul_status_failed : 修复失败   - vul_status_fix_after_reboot : 请重启主机再次修复
      * @param {number} [limit] 每页条数
-     * @param {number} [offset] 偏移
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [assetValue] 资产重要性 important:重要 common：一般 test：测试
      * @param {string} [groupName] 服务器组名称
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [severityLevel] 危险程度 ，Critical，High，Medium，Low
      * @param {boolean} [isAffectBusiness] 是否影响业务
+     * @param {string} [repairPriority] 修复优先级,包含如下 - Critical 紧急  - High 高 - Medium 中 - Low 低
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1758,7 +1811,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询漏洞列表
-     * @param {string} [enterpriseProjectId] 企业租户ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，“0”表示默认企业项目，查询所有企业项目时填写：all_granted_eps
      * @param {string} [type] 漏洞类型，包含如下：   -linux_vul : linux漏洞   -windows_vul : windows漏洞   -web_cms : Web-CMS漏洞   -app_vul : 应用漏洞
      * @param {string} [vulId] 漏洞ID
      * @param {string} [vulName] 漏洞名称
@@ -1789,7 +1842,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 漏洞对应cve信息
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} vulId 漏洞ID
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
@@ -1818,7 +1871,7 @@ export class HssClient {
      * @param {string} [userName] 弱口令账号名称
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1838,9 +1891,9 @@ export class HssClient {
      *
      * @summary 查询防护列表
      * @param {string} region Region Id
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {string} [hostName] 服务器名称
-     * @param {string} [hostId] 云服务器ID
+     * @param {string} [hostId] 主机ID
      * @param {string} [publicIp] 弹性公网IP
      * @param {string} [privateIp] 私有IP
      * @param {string} [groupName] 服务器组名称
@@ -1848,7 +1901,7 @@ export class HssClient {
      * @param {string} [protectStatus] 防护状态   - closed : 未开启   - opened : 防护中
      * @param {string} [agentStatus] 客户端状态   - not_installed : agent未安装   - online : agent在线   - offline : agent不在线
      * @param {number} [limit] 默认10
-     * @param {number} [offset] 默认是0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1867,7 +1920,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 从SWR服务同步镜像列表
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {RunImageSynchronizeRequestInfo} runImageSynchronizeRequestBody request
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -1890,7 +1943,8 @@ export class HssClient {
      * @summary 开启/关闭动态网页防篡改防护
      * @param {string} region Region Id
      * @param {SetRaspSwitchRequestInfo} setRaspSwitchRequestBody 请求体request
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1911,7 +1965,8 @@ export class HssClient {
      * @summary 开启关闭网页防篡改防护
      * @param {string} region Region Id
      * @param {SetWtpProtectionStatusRequestInfo} setWtpProtectionStatusInfoRequestBody 请求体request
-     * @param {string} [enterpriseProjectId] 企业项目
+     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1930,8 +1985,8 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 统计资产信息，账号、端口、进程等
-     * @param {string} [enterpriseProjectId] 企业项目
-     * @param {string} [hostId] host id
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [hostId] Host ID
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1951,7 +2006,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询HSS存储库绑定的备份策略信息
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1971,10 +2026,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配置检查项检测报告
-     * @param {string} checkName 基线名称
-     * @param {string} checkType 基线类型
-     * @param {string} checkRuleId 检查项ID
-     * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
+     * @param {string} checkName 配置检查（基线）的名称，例如SSH、CentOS 7、Windows
+     * @param {string} checkType 配置检查（基线）的类型,Linux系统支持的基线一般check_type和check_name相同,例如SSH、CentOS 7。 Windows系统支持的基线一般check_type和check_name不相同，例如check_name为Windows的配置检查（基线），它的check_type包含Windows Server 2019 R2、Windows Server 2016 R2等。check_type的值可以通过这个接口的返回数据获得：/v5/{project_id}/baseline/risk-configs
+     * @param {string} checkRuleId 检查项ID，值可以通过这个接口的返回数据获得：/v5/{project_id}/baseline/risk-config/{check_name}/check-rules
+     * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostId] 主机ID
      * @param {*} [options] Override http request option.
@@ -1995,7 +2050,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像配置检查项检测报告
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} checkType 基线类型
@@ -2019,12 +2074,33 @@ export class HssClient {
     }
 
     /**
+     * 查询产商品信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询产商品信息
+     * @param {string} region Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [siteCode] 站点信息：   - HWC_CN ：中国站   - HWC_HK ：国际站   - HWC_EU : 欧洲站
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProductdataOfferingInfos(showProductdataOfferingInfosRequest?: ShowProductdataOfferingInfosRequest): Promise<ShowProductdataOfferingInfosResponse> {
+        const options = ParamCreater().showProductdataOfferingInfos(showProductdataOfferingInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询配额信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额信息
-     * @param {string} [region] region id
+     * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [version] 主机开通的版本，包含如下7种输入。   - hss.version.null ：无。   - hss.version.basic ：基础版。   - hss.version.advanced ：专业版。   - hss.version.enterprise ：企业版。   - hss.version.premium ：旗舰版。   - hss.version.wtp ：网页防篡改版。   - hss.version.container.enterprise：容器版。
      * @param {string} [chargingMode] 收费模式，包含如下2种。   - packet_cycle ：包年/包月。   - on_demand ：按需。
@@ -2046,12 +2122,12 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定安全配置项的检查结果
-     * @param {string} checkName 基线名称
-     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
+     * @param {string} checkName 配置检查（基线）的名称，例如SSH、CentOS 7、Windows
+     * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2108,7 +2184,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启勒索病毒防护
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {ProtectionInfoRequestInfo} startProtectionRequestBody 开启勒索病毒防护请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -2129,7 +2205,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭勒索病毒防护
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {CloseProtectionInfoRequestInfo} stopProtectionRequestBody 关闭勒索病毒防护请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -2150,7 +2226,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换防护状态
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {SwitchHostsProtectStatusRequestInfo} switchHostsProtectStatusRequestBody 服务器列表
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -2171,7 +2247,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改存储库绑定的备份策略
-     * @param {string} region region id
+     * @param {string} region Region ID
      * @param {UpdateBackupPolicyRequestInfo} updateBackupPolicyInfoRequestBody 修改备份策略请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -2187,12 +2263,12 @@ export class HssClient {
     }
 
     /**
-     * 修改防护策略
+     * 修改勒索防护策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改防护策略
-     * @param {string} region region id
+     * @summary 修改勒索防护策略
+     * @param {string} region Region ID
      * @param {UpdateProtectionPolicyInfoRequestInfo} updateProtectionPolicyRequestBody 需要修改的防护策略的请求体
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
@@ -2233,16 +2309,20 @@ export const ParamCreater = function () {
             let region;
             
             let enterpriseProjectId;
+            
+            let contentType;
 
             if (addHostsGroupRequest !== null && addHostsGroupRequest !== undefined) {
                 if (addHostsGroupRequest instanceof AddHostsGroupRequest) {
                     region = addHostsGroupRequest.region;
                     body = addHostsGroupRequest.body
                     enterpriseProjectId = addHostsGroupRequest.enterpriseProjectId;
+                    contentType = addHostsGroupRequest.contentType;
                 } else {
                     region = addHostsGroupRequest['region'];
                     body = addHostsGroupRequest['body'];
                     enterpriseProjectId = addHostsGroupRequest['enterprise_project_id'];
+                    contentType = addHostsGroupRequest['Content-Type'];
                 }
             }
 
@@ -2256,6 +2336,9 @@ export const ParamCreater = function () {
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
             }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -2265,7 +2348,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 部署策略
+         * 部署策略组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2286,16 +2369,20 @@ export const ParamCreater = function () {
             let region;
             
             let enterpriseProjectId;
+            
+            let contentType;
 
             if (associatePolicyGroupRequest !== null && associatePolicyGroupRequest !== undefined) {
                 if (associatePolicyGroupRequest instanceof AssociatePolicyGroupRequest) {
                     region = associatePolicyGroupRequest.region;
                     body = associatePolicyGroupRequest.body
                     enterpriseProjectId = associatePolicyGroupRequest.enterpriseProjectId;
+                    contentType = associatePolicyGroupRequest.contentType;
                 } else {
                     region = associatePolicyGroupRequest['region'];
                     body = associatePolicyGroupRequest['body'];
                     enterpriseProjectId = associatePolicyGroupRequest['enterprise_project_id'];
+                    contentType = associatePolicyGroupRequest['Content-Type'];
                 }
             }
 
@@ -2308,6 +2395,9 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2339,16 +2429,20 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
+            
+            let contentType;
 
             if (batchCreateTagsRequest !== null && batchCreateTagsRequest !== undefined) {
                 if (batchCreateTagsRequest instanceof BatchCreateTagsRequest) {
                     resourceType = batchCreateTagsRequest.resourceType;
                     resourceId = batchCreateTagsRequest.resourceId;
                     body = batchCreateTagsRequest.body
+                    contentType = batchCreateTagsRequest.contentType;
                 } else {
                     resourceType = batchCreateTagsRequest['resource_type'];
                     resourceId = batchCreateTagsRequest['resource_id'];
                     body = batchCreateTagsRequest['body'];
+                    contentType = batchCreateTagsRequest['Content-Type'];
                 }
             }
 
@@ -2361,6 +2455,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2628,16 +2725,20 @@ export const ParamCreater = function () {
             let region;
             
             let enterpriseProjectId;
+            
+            let contentType;
 
             if (changeHostsGroupRequest !== null && changeHostsGroupRequest !== undefined) {
                 if (changeHostsGroupRequest instanceof ChangeHostsGroupRequest) {
                     region = changeHostsGroupRequest.region;
                     body = changeHostsGroupRequest.body
                     enterpriseProjectId = changeHostsGroupRequest.enterpriseProjectId;
+                    contentType = changeHostsGroupRequest.contentType;
                 } else {
                     region = changeHostsGroupRequest['region'];
                     body = changeHostsGroupRequest['body'];
                     enterpriseProjectId = changeHostsGroupRequest['enterprise_project_id'];
+                    contentType = changeHostsGroupRequest['Content-Type'];
                 }
             }
 
@@ -2650,6 +2751,9 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2777,14 +2881,18 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let body: any;
             
+            let contentType;
+            
             let enterpriseProjectId;
 
             if (changeVulStatusRequest !== null && changeVulStatusRequest !== undefined) {
                 if (changeVulStatusRequest instanceof ChangeVulStatusRequest) {
                     body = changeVulStatusRequest.body
+                    contentType = changeVulStatusRequest.contentType;
                     enterpriseProjectId = changeVulStatusRequest.enterpriseProjectId;
                 } else {
                     body = changeVulStatusRequest['body'];
+                    contentType = changeVulStatusRequest['Content-Type'];
                     enterpriseProjectId = changeVulStatusRequest['enterprise_project_id'];
                 }
             }
@@ -2795,6 +2903,69 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * HSS服务创建订单订购配额，只支持包周期计费模式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createQuotasOrder(createQuotasOrderRequest?: CreateQuotasOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/quotas/orders",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
+
+            if (createQuotasOrderRequest !== null && createQuotasOrderRequest !== undefined) {
+                if (createQuotasOrderRequest instanceof CreateQuotasOrderRequest) {
+                    region = createQuotasOrderRequest.region;
+                    body = createQuotasOrderRequest.body
+                    contentType = createQuotasOrderRequest.contentType;
+                    enterpriseProjectId = createQuotasOrderRequest.enterpriseProjectId;
+                } else {
+                    region = createQuotasOrderRequest['region'];
+                    body = createQuotasOrderRequest['body'];
+                    contentType = createQuotasOrderRequest['Content-Type'];
+                    enterpriseProjectId = createQuotasOrderRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3851,8 +4022,6 @@ export const ParamCreater = function () {
             
             let region;
             
-            let hostId;
-            
             let startTime;
             
             let endTime;
@@ -3862,6 +4031,8 @@ export const ParamCreater = function () {
             let offset;
             
             let enterpriseProjectId;
+            
+            let hostId;
             
             let hostName;
             
@@ -3874,24 +4045,24 @@ export const ParamCreater = function () {
             if (listHostProtectHistoryInfoRequest !== null && listHostProtectHistoryInfoRequest !== undefined) {
                 if (listHostProtectHistoryInfoRequest instanceof ListHostProtectHistoryInfoRequest) {
                     region = listHostProtectHistoryInfoRequest.region;
-                    hostId = listHostProtectHistoryInfoRequest.hostId;
                     startTime = listHostProtectHistoryInfoRequest.startTime;
                     endTime = listHostProtectHistoryInfoRequest.endTime;
                     limit = listHostProtectHistoryInfoRequest.limit;
                     offset = listHostProtectHistoryInfoRequest.offset;
                     enterpriseProjectId = listHostProtectHistoryInfoRequest.enterpriseProjectId;
+                    hostId = listHostProtectHistoryInfoRequest.hostId;
                     hostName = listHostProtectHistoryInfoRequest.hostName;
                     hostIp = listHostProtectHistoryInfoRequest.hostIp;
                     filePath = listHostProtectHistoryInfoRequest.filePath;
                     fileOperation = listHostProtectHistoryInfoRequest.fileOperation;
                 } else {
                     region = listHostProtectHistoryInfoRequest['region'];
-                    hostId = listHostProtectHistoryInfoRequest['host_id'];
                     startTime = listHostProtectHistoryInfoRequest['start_time'];
                     endTime = listHostProtectHistoryInfoRequest['end_time'];
                     limit = listHostProtectHistoryInfoRequest['limit'];
                     offset = listHostProtectHistoryInfoRequest['offset'];
                     enterpriseProjectId = listHostProtectHistoryInfoRequest['enterprise_project_id'];
+                    hostId = listHostProtectHistoryInfoRequest['host_id'];
                     hostName = listHostProtectHistoryInfoRequest['host_name'];
                     hostIp = listHostProtectHistoryInfoRequest['host_ip'];
                     filePath = listHostProtectHistoryInfoRequest['file_path'];
@@ -3900,12 +4071,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listHostProtectHistoryInfo.');
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
             if (startTime === null || startTime === undefined) {
                 throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listHostProtectHistoryInfo.');
             }
@@ -3932,6 +4097,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
             }
             if (hostName !== null && hostName !== undefined) {
                 localVarQueryParameter['host_name'] = hostName;
@@ -3973,8 +4141,6 @@ export const ParamCreater = function () {
             
             let region;
             
-            let hostId;
-            
             let startTime;
             
             let endTime;
@@ -3985,6 +4151,8 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
             
+            let hostId;
+            
             let alarmLevel;
             
             let severity;
@@ -3994,23 +4162,23 @@ export const ParamCreater = function () {
             if (listHostRaspProtectHistoryInfoRequest !== null && listHostRaspProtectHistoryInfoRequest !== undefined) {
                 if (listHostRaspProtectHistoryInfoRequest instanceof ListHostRaspProtectHistoryInfoRequest) {
                     region = listHostRaspProtectHistoryInfoRequest.region;
-                    hostId = listHostRaspProtectHistoryInfoRequest.hostId;
                     startTime = listHostRaspProtectHistoryInfoRequest.startTime;
                     endTime = listHostRaspProtectHistoryInfoRequest.endTime;
                     limit = listHostRaspProtectHistoryInfoRequest.limit;
                     offset = listHostRaspProtectHistoryInfoRequest.offset;
                     enterpriseProjectId = listHostRaspProtectHistoryInfoRequest.enterpriseProjectId;
+                    hostId = listHostRaspProtectHistoryInfoRequest.hostId;
                     alarmLevel = listHostRaspProtectHistoryInfoRequest.alarmLevel;
                     severity = listHostRaspProtectHistoryInfoRequest.severity;
                     protectStatus = listHostRaspProtectHistoryInfoRequest.protectStatus;
                 } else {
                     region = listHostRaspProtectHistoryInfoRequest['region'];
-                    hostId = listHostRaspProtectHistoryInfoRequest['host_id'];
                     startTime = listHostRaspProtectHistoryInfoRequest['start_time'];
                     endTime = listHostRaspProtectHistoryInfoRequest['end_time'];
                     limit = listHostRaspProtectHistoryInfoRequest['limit'];
                     offset = listHostRaspProtectHistoryInfoRequest['offset'];
                     enterpriseProjectId = listHostRaspProtectHistoryInfoRequest['enterprise_project_id'];
+                    hostId = listHostRaspProtectHistoryInfoRequest['host_id'];
                     alarmLevel = listHostRaspProtectHistoryInfoRequest['alarm_level'];
                     severity = listHostRaspProtectHistoryInfoRequest['severity'];
                     protectStatus = listHostRaspProtectHistoryInfoRequest['protect_status'];
@@ -4018,12 +4186,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listHostRaspProtectHistoryInfo.');
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
             if (startTime === null || startTime === undefined) {
                 throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listHostRaspProtectHistoryInfo.');
             }
@@ -4050,6 +4212,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
             }
             if (alarmLevel !== null && alarmLevel !== undefined) {
                 localVarQueryParameter['alarm_level'] = alarmLevel;
@@ -4327,6 +4492,8 @@ export const ParamCreater = function () {
             let handleStatus;
             
             let status;
+            
+            let repairPriority;
 
             if (listHostVulsRequest !== null && listHostVulsRequest !== undefined) {
                 if (listHostVulsRequest instanceof ListHostVulsRequest) {
@@ -4338,6 +4505,7 @@ export const ParamCreater = function () {
                     offset = listHostVulsRequest.offset;
                     handleStatus = listHostVulsRequest.handleStatus;
                     status = listHostVulsRequest.status;
+                    repairPriority = listHostVulsRequest.repairPriority;
                 } else {
                     hostId = listHostVulsRequest['host_id'];
                     enterpriseProjectId = listHostVulsRequest['enterprise_project_id'];
@@ -4347,6 +4515,7 @@ export const ParamCreater = function () {
                     offset = listHostVulsRequest['offset'];
                     handleStatus = listHostVulsRequest['handle_status'];
                     status = listHostVulsRequest['status'];
+                    repairPriority = listHostVulsRequest['repair_priority'];
                 }
             }
 
@@ -4374,6 +4543,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (repairPriority !== null && repairPriority !== undefined) {
+                localVarQueryParameter['repair_priority'] = repairPriority;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4796,11 +4968,17 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
             
-            let lastDays;
+            let filePath;
             
             let hostName;
             
-            let isolationStatus;
+            let privateIp;
+            
+            let publicIp;
+            
+            let fileHash;
+            
+            let assetValue;
             
             let offset;
             
@@ -4810,17 +4988,23 @@ export const ParamCreater = function () {
                 if (listIsolatedFileRequest instanceof ListIsolatedFileRequest) {
                     region = listIsolatedFileRequest.region;
                     enterpriseProjectId = listIsolatedFileRequest.enterpriseProjectId;
-                    lastDays = listIsolatedFileRequest.lastDays;
+                    filePath = listIsolatedFileRequest.filePath;
                     hostName = listIsolatedFileRequest.hostName;
-                    isolationStatus = listIsolatedFileRequest.isolationStatus;
+                    privateIp = listIsolatedFileRequest.privateIp;
+                    publicIp = listIsolatedFileRequest.publicIp;
+                    fileHash = listIsolatedFileRequest.fileHash;
+                    assetValue = listIsolatedFileRequest.assetValue;
                     offset = listIsolatedFileRequest.offset;
                     limit = listIsolatedFileRequest.limit;
                 } else {
                     region = listIsolatedFileRequest['region'];
                     enterpriseProjectId = listIsolatedFileRequest['enterprise_project_id'];
-                    lastDays = listIsolatedFileRequest['last_days'];
+                    filePath = listIsolatedFileRequest['file_path'];
                     hostName = listIsolatedFileRequest['host_name'];
-                    isolationStatus = listIsolatedFileRequest['isolation_status'];
+                    privateIp = listIsolatedFileRequest['private_ip'];
+                    publicIp = listIsolatedFileRequest['public_ip'];
+                    fileHash = listIsolatedFileRequest['file_hash'];
+                    assetValue = listIsolatedFileRequest['asset_value'];
                     offset = listIsolatedFileRequest['offset'];
                     limit = listIsolatedFileRequest['limit'];
                 }
@@ -4830,14 +5014,23 @@ export const ParamCreater = function () {
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
-            if (lastDays !== null && lastDays !== undefined) {
-                localVarQueryParameter['last_days'] = lastDays;
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
             }
             if (hostName !== null && hostName !== undefined) {
                 localVarQueryParameter['host_name'] = hostName;
             }
-            if (isolationStatus !== null && isolationStatus !== undefined) {
-                localVarQueryParameter['isolation_status'] = isolationStatus;
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
+            }
+            if (fileHash !== null && fileHash !== undefined) {
+                localVarQueryParameter['file_hash'] = fileHash;
+            }
+            if (assetValue !== null && assetValue !== undefined) {
+                localVarQueryParameter['asset_value'] = assetValue;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -5106,6 +5299,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let containerMode;
 
             if (listPolicyGroupRequest !== null && listPolicyGroupRequest !== undefined) {
                 if (listPolicyGroupRequest instanceof ListPolicyGroupRequest) {
@@ -5114,12 +5309,14 @@ export const ParamCreater = function () {
                     groupName = listPolicyGroupRequest.groupName;
                     offset = listPolicyGroupRequest.offset;
                     limit = listPolicyGroupRequest.limit;
+                    containerMode = listPolicyGroupRequest.containerMode;
                 } else {
                     region = listPolicyGroupRequest['region'];
                     enterpriseProjectId = listPolicyGroupRequest['enterprise_project_id'];
                     groupName = listPolicyGroupRequest['group_name'];
                     offset = listPolicyGroupRequest['offset'];
                     limit = listPolicyGroupRequest['limit'];
+                    containerMode = listPolicyGroupRequest['container_mode'];
                 }
             }
 
@@ -5135,6 +5332,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (containerMode !== null && containerMode !== undefined) {
+                localVarQueryParameter['container_mode'] = containerMode;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -5568,7 +5768,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询防护策略列表
+         * 查询勒索病毒的防护策略列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6129,9 +6329,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let category;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -6177,8 +6377,8 @@ export const ParamCreater = function () {
 
             if (listSecurityEventsRequest !== null && listSecurityEventsRequest !== undefined) {
                 if (listSecurityEventsRequest instanceof ListSecurityEventsRequest) {
-                    region = listSecurityEventsRequest.region;
                     category = listSecurityEventsRequest.category;
+                    region = listSecurityEventsRequest.region;
                     enterpriseProjectId = listSecurityEventsRequest.enterpriseProjectId;
                     lastDays = listSecurityEventsRequest.lastDays;
                     hostName = listSecurityEventsRequest.hostName;
@@ -6201,8 +6401,8 @@ export const ParamCreater = function () {
                     attCk = listSecurityEventsRequest.attCk;
                     eventName = listSecurityEventsRequest.eventName;
                 } else {
-                    region = listSecurityEventsRequest['region'];
                     category = listSecurityEventsRequest['category'];
+                    region = listSecurityEventsRequest['region'];
                     enterpriseProjectId = listSecurityEventsRequest['enterprise_project_id'];
                     lastDays = listSecurityEventsRequest['last_days'];
                     hostName = listSecurityEventsRequest['host_name'];
@@ -6807,6 +7007,8 @@ export const ParamCreater = function () {
             let severityLevel;
             
             let isAffectBusiness;
+            
+            let repairPriority;
 
             if (listVulHostsRequest !== null && listVulHostsRequest !== undefined) {
                 if (listVulHostsRequest instanceof ListVulHostsRequest) {
@@ -6823,6 +7025,7 @@ export const ParamCreater = function () {
                     handleStatus = listVulHostsRequest.handleStatus;
                     severityLevel = listVulHostsRequest.severityLevel;
                     isAffectBusiness = listVulHostsRequest.isAffectBusiness;
+                    repairPriority = listVulHostsRequest.repairPriority;
                 } else {
                     vulId = listVulHostsRequest['vul_id'];
                     type = listVulHostsRequest['type'];
@@ -6837,6 +7040,7 @@ export const ParamCreater = function () {
                     handleStatus = listVulHostsRequest['handle_status'];
                     severityLevel = listVulHostsRequest['severity_level'];
                     isAffectBusiness = listVulHostsRequest['is_affect_business'];
+                    repairPriority = listVulHostsRequest['repair_priority'];
                 }
             }
 
@@ -6885,6 +7089,9 @@ export const ParamCreater = function () {
             }
             if (isAffectBusiness !== null && isAffectBusiness !== undefined) {
                 localVarQueryParameter['is_affect_business'] = isAffectBusiness;
+            }
+            if (repairPriority !== null && repairPriority !== undefined) {
+                localVarQueryParameter['repair_priority'] = repairPriority;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -7491,16 +7698,20 @@ export const ParamCreater = function () {
             
             let region;
             
+            let contentType;
+            
             let enterpriseProjectId;
 
             if (setRaspSwitchRequest !== null && setRaspSwitchRequest !== undefined) {
                 if (setRaspSwitchRequest instanceof SetRaspSwitchRequest) {
                     region = setRaspSwitchRequest.region;
                     body = setRaspSwitchRequest.body
+                    contentType = setRaspSwitchRequest.contentType;
                     enterpriseProjectId = setRaspSwitchRequest.enterpriseProjectId;
                 } else {
                     region = setRaspSwitchRequest['region'];
                     body = setRaspSwitchRequest['body'];
+                    contentType = setRaspSwitchRequest['Content-Type'];
                     enterpriseProjectId = setRaspSwitchRequest['enterprise_project_id'];
                 }
             }
@@ -7511,6 +7722,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -7544,16 +7758,20 @@ export const ParamCreater = function () {
             
             let region;
             
+            let contentType;
+            
             let enterpriseProjectId;
 
             if (setWtpProtectionStatusInfoRequest !== null && setWtpProtectionStatusInfoRequest !== undefined) {
                 if (setWtpProtectionStatusInfoRequest instanceof SetWtpProtectionStatusInfoRequest) {
                     region = setWtpProtectionStatusInfoRequest.region;
                     body = setWtpProtectionStatusInfoRequest.body
+                    contentType = setWtpProtectionStatusInfoRequest.contentType;
                     enterpriseProjectId = setWtpProtectionStatusInfoRequest.enterpriseProjectId;
                 } else {
                     region = setWtpProtectionStatusInfoRequest['region'];
                     body = setWtpProtectionStatusInfoRequest['body'];
+                    contentType = setWtpProtectionStatusInfoRequest['Content-Type'];
                     enterpriseProjectId = setWtpProtectionStatusInfoRequest['enterprise_project_id'];
                 }
             }
@@ -7564,6 +7782,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -7867,6 +8088,57 @@ export const ParamCreater = function () {
             }
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询产商品信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProductdataOfferingInfos(showProductdataOfferingInfosRequest?: ShowProductdataOfferingInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/product/productdata/offering-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+            
+            let siteCode;
+
+            if (showProductdataOfferingInfosRequest !== null && showProductdataOfferingInfosRequest !== undefined) {
+                if (showProductdataOfferingInfosRequest instanceof ShowProductdataOfferingInfosRequest) {
+                    region = showProductdataOfferingInfosRequest.region;
+                    enterpriseProjectId = showProductdataOfferingInfosRequest.enterpriseProjectId;
+                    siteCode = showProductdataOfferingInfosRequest.siteCode;
+                } else {
+                    region = showProductdataOfferingInfosRequest['region'];
+                    enterpriseProjectId = showProductdataOfferingInfosRequest['enterprise_project_id'];
+                    siteCode = showProductdataOfferingInfosRequest['site_code'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (siteCode !== null && siteCode !== undefined) {
+                localVarQueryParameter['site_code'] = siteCode;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -8298,7 +8570,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改防护策略
+         * 修改勒索防护策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

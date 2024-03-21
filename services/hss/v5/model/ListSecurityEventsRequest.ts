@@ -1,6 +1,7 @@
 
 
 export class ListSecurityEventsRequest {
+    public category?: string;
     public region?: string;
     private 'enterprise_project_id'?: string;
     private 'last_days'?: number;
@@ -14,7 +15,6 @@ export class ListSecurityEventsRequest {
     private 'event_types'?: Array<number>;
     private 'handle_status'?: string;
     public severity?: string;
-    public category?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     private 'event_class_ids'?: Array<string>;
@@ -24,9 +24,13 @@ export class ListSecurityEventsRequest {
     private 'tag_list'?: Array<string>;
     private 'att_ck'?: string;
     private 'event_name'?: string;
-    public constructor(region?: string, category?: string) { 
-        this['region'] = region;
+    public constructor(category?: string, region?: string) { 
         this['category'] = category;
+        this['region'] = region;
+    }
+    public withCategory(category: string): ListSecurityEventsRequest {
+        this['category'] = category;
+        return this;
     }
     public withRegion(region: string): ListSecurityEventsRequest {
         this['region'] = region;
@@ -132,10 +136,6 @@ export class ListSecurityEventsRequest {
     }
     public withSeverity(severity: string): ListSecurityEventsRequest {
         this['severity'] = severity;
-        return this;
-    }
-    public withCategory(category: string): ListSecurityEventsRequest {
-        this['category'] = category;
         return this;
     }
     public withBeginTime(beginTime: string): ListSecurityEventsRequest {

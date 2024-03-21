@@ -12,7 +12,7 @@ export class DetachInternetBandwidthGlobalEips {
     private 'access_site'?: string;
     private 'geip_pool_name'?: string;
     public isp?: string;
-    private 'ip_version'?: number;
+    private 'ip_version'?: DetachInternetBandwidthGlobalEipsIpVersionEnum | number;
     private 'ip_address'?: string;
     private 'ipv6_address'?: string;
     public freezen?: boolean;
@@ -27,7 +27,7 @@ export class DetachInternetBandwidthGlobalEips {
     private 'is_pre_paid'?: boolean;
     public tags?: Array<Tag>;
     private 'sys_tags'?: Array<Tag>;
-    private 'enterprise_project_id'?: string;
+    private 'enterprise_project_id'?: object;
     public constructor() { 
     }
     public withId(id: string): DetachInternetBandwidthGlobalEips {
@@ -76,14 +76,14 @@ export class DetachInternetBandwidthGlobalEips {
         this['isp'] = isp;
         return this;
     }
-    public withIpVersion(ipVersion: number): DetachInternetBandwidthGlobalEips {
+    public withIpVersion(ipVersion: DetachInternetBandwidthGlobalEipsIpVersionEnum | number): DetachInternetBandwidthGlobalEips {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number  | undefined) {
+    public set ipVersion(ipVersion: DetachInternetBandwidthGlobalEipsIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion(): number | undefined {
+    public get ipVersion(): DetachInternetBandwidthGlobalEipsIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withIpAddress(ipAddress: string): DetachInternetBandwidthGlobalEips {
@@ -202,18 +202,26 @@ export class DetachInternetBandwidthGlobalEips {
     public get sysTags(): Array<Tag> | undefined {
         return this['sys_tags'];
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): DetachInternetBandwidthGlobalEips {
+    public withEnterpriseProjectId(enterpriseProjectId: object): DetachInternetBandwidthGlobalEips {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: object  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId(): string | undefined {
+    public get enterpriseProjectId(): object | undefined {
         return this['enterprise_project_id'];
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DetachInternetBandwidthGlobalEipsIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
+}
 /**
     * @export
     * @enum {string}

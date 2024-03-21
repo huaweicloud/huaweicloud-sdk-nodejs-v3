@@ -878,6 +878,7 @@ export class AomClient {
      *
      * @summary 卸载托管Prometheus实例
      * @param {string} promId Prometheus实例id。
+     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1028,9 +1029,10 @@ export class AomClient {
      *
      * @summary 查询Prometheus实例
      * @param {string} [promId] Prometheus实例id(prom_id与prom_type同时存在时，仅prom_id生效)。
-     * @param {'DEFAULT' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型（暂时不支持VPC、KUBERNETES）。
+     * @param {'default' | 'ECS' | 'VPC' | 'CCE' | 'REMOTE_WRITE' | 'KUBERNETES' | 'CLOUD_SERVICE' | 'ACROSS_ACCOUNT'} [promType] Prometheus实例类型（暂时不支持VPC、KUBERNETES）。
      * @param {'true' | 'false'} [cceClusterEnable] cce集群开关。
      * @param {'DELETED' | 'NORMAL' | 'ALL'} [promStatus] Prometheus实例状态。
+     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2522,12 +2524,16 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let promId;
+            
+            let enterpriseProjectId;
 
             if (deletePromInstanceRequest !== null && deletePromInstanceRequest !== undefined) {
                 if (deletePromInstanceRequest instanceof DeletePromInstanceRequest) {
                     promId = deletePromInstanceRequest.promId;
+                    enterpriseProjectId = deletePromInstanceRequest.enterpriseProjectId;
                 } else {
                     promId = deletePromInstanceRequest['prom_id'];
+                    enterpriseProjectId = deletePromInstanceRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2537,6 +2543,9 @@ export const ParamCreater = function () {
             }
             if (promId !== null && promId !== undefined) {
                 localVarQueryParameter['prom_id'] = promId;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2783,6 +2792,8 @@ export const ParamCreater = function () {
             let cceClusterEnable;
             
             let promStatus;
+            
+            let enterpriseProjectId;
 
             if (listPromInstanceRequest !== null && listPromInstanceRequest !== undefined) {
                 if (listPromInstanceRequest instanceof ListPromInstanceRequest) {
@@ -2790,11 +2801,13 @@ export const ParamCreater = function () {
                     promType = listPromInstanceRequest.promType;
                     cceClusterEnable = listPromInstanceRequest.cceClusterEnable;
                     promStatus = listPromInstanceRequest.promStatus;
+                    enterpriseProjectId = listPromInstanceRequest.enterpriseProjectId;
                 } else {
                     promId = listPromInstanceRequest['prom_id'];
                     promType = listPromInstanceRequest['prom_type'];
                     cceClusterEnable = listPromInstanceRequest['cce_cluster_enable'];
                     promStatus = listPromInstanceRequest['prom_status'];
+                    enterpriseProjectId = listPromInstanceRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2810,6 +2823,9 @@ export const ParamCreater = function () {
             }
             if (promStatus !== null && promStatus !== undefined) {
                 localVarQueryParameter['prom_status'] = promStatus;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;

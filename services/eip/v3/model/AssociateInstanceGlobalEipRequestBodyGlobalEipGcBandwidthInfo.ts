@@ -1,4 +1,4 @@
-import { AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags } from './AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags';
+import { CreateGlobalEipRequestBodyGlobalEipTags } from './CreateGlobalEipRequestBodyGlobalEipTags';
 
 
 export class AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
@@ -12,7 +12,7 @@ export class AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
     public size?: number;
     private 'local_area'?: string;
     private 'remote_area'?: string;
-    public tags?: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>;
+    public tags?: Array<CreateGlobalEipRequestBodyGlobalEipTags>;
     public constructor() { 
     }
     public withId(id: string): AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
@@ -79,7 +79,7 @@ export class AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
     public get remoteArea(): string | undefined {
         return this['remote_area'];
     }
-    public withTags(tags: Array<AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfoTags>): AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
+    public withTags(tags: Array<CreateGlobalEipRequestBodyGlobalEipTags>): AssociateInstanceGlobalEipRequestBodyGlobalEipGcBandwidthInfo {
         this['tags'] = tags;
         return this;
     }

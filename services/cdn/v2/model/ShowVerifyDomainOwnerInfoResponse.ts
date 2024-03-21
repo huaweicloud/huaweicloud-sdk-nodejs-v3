@@ -9,6 +9,7 @@ export class ShowVerifyDomainOwnerInfoResponse extends SdkResponse {
     private 'verify_domain_name'?: string;
     private 'file_verify_filename'?: string;
     private 'verify_content'?: string;
+    private 'file_verify_domains'?: Array<string>;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -82,6 +83,16 @@ export class ShowVerifyDomainOwnerInfoResponse extends SdkResponse {
     }
     public get verifyContent(): string | undefined {
         return this['verify_content'];
+    }
+    public withFileVerifyDomains(fileVerifyDomains: Array<string>): ShowVerifyDomainOwnerInfoResponse {
+        this['file_verify_domains'] = fileVerifyDomains;
+        return this;
+    }
+    public set fileVerifyDomains(fileVerifyDomains: Array<string>  | undefined) {
+        this['file_verify_domains'] = fileVerifyDomains;
+    }
+    public get fileVerifyDomains(): Array<string> | undefined {
+        return this['file_verify_domains'];
     }
     public withXRequestId(xRequestId: string): ShowVerifyDomainOwnerInfoResponse {
         this['X-Request-Id'] = xRequestId;

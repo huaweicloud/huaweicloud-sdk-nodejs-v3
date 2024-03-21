@@ -3,9 +3,11 @@ import { CancelAsyncInvocationRequestBody } from './CancelAsyncInvocationRequest
 
 export class CancelAsyncInvocationRequest {
     private 'function_urn'?: string;
+    private 'Content-Type'?: string;
     public body?: CancelAsyncInvocationRequestBody;
-    public constructor(functionUrn?: string) { 
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): CancelAsyncInvocationRequest {
         this['function_urn'] = functionUrn;
@@ -16,6 +18,16 @@ export class CancelAsyncInvocationRequest {
     }
     public get functionUrn(): string | undefined {
         return this['function_urn'];
+    }
+    public withContentType(contentType: string): CancelAsyncInvocationRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withBody(body: CancelAsyncInvocationRequestBody): CancelAsyncInvocationRequest {
         this['body'] = body;

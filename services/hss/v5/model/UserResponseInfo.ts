@@ -11,7 +11,6 @@ export class UserResponseInfo {
     private 'user_group_name'?: string;
     private 'user_home_dir'?: string;
     public shell?: string;
-    private 'expire_time'?: number;
     private 'recent_scan_time'?: number;
     private 'container_id'?: string;
     private 'container_name'?: string;
@@ -110,16 +109,6 @@ export class UserResponseInfo {
     public withShell(shell: string): UserResponseInfo {
         this['shell'] = shell;
         return this;
-    }
-    public withExpireTime(expireTime: number): UserResponseInfo {
-        this['expire_time'] = expireTime;
-        return this;
-    }
-    public set expireTime(expireTime: number  | undefined) {
-        this['expire_time'] = expireTime;
-    }
-    public get expireTime(): number | undefined {
-        return this['expire_time'];
     }
     public withRecentScanTime(recentScanTime: number): UserResponseInfo {
         this['recent_scan_time'] = recentScanTime;

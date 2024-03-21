@@ -4,8 +4,8 @@ export class ListNatGatewaySnatRulesRequest {
     private 'admin_state_up'?: boolean;
     public cidr?: string;
     public limit?: number;
-    private 'floating_ip_address'?: string;
-    private 'floating_ip_id'?: string;
+    private 'floating_ip_address'?: Array<string>;
+    private 'floating_ip_id'?: Array<string>;
     public id?: string;
     public description?: string;
     private 'created_at'?: string;
@@ -34,24 +34,24 @@ export class ListNatGatewaySnatRulesRequest {
         this['limit'] = limit;
         return this;
     }
-    public withFloatingIpAddress(floatingIpAddress: string): ListNatGatewaySnatRulesRequest {
+    public withFloatingIpAddress(floatingIpAddress: Array<string>): ListNatGatewaySnatRulesRequest {
         this['floating_ip_address'] = floatingIpAddress;
         return this;
     }
-    public set floatingIpAddress(floatingIpAddress: string  | undefined) {
+    public set floatingIpAddress(floatingIpAddress: Array<string>  | undefined) {
         this['floating_ip_address'] = floatingIpAddress;
     }
-    public get floatingIpAddress(): string | undefined {
+    public get floatingIpAddress(): Array<string> | undefined {
         return this['floating_ip_address'];
     }
-    public withFloatingIpId(floatingIpId: string): ListNatGatewaySnatRulesRequest {
+    public withFloatingIpId(floatingIpId: Array<string>): ListNatGatewaySnatRulesRequest {
         this['floating_ip_id'] = floatingIpId;
         return this;
     }
-    public set floatingIpId(floatingIpId: string  | undefined) {
+    public set floatingIpId(floatingIpId: Array<string>  | undefined) {
         this['floating_ip_id'] = floatingIpId;
     }
-    public get floatingIpId(): string | undefined {
+    public get floatingIpId(): Array<string> | undefined {
         return this['floating_ip_id'];
     }
     public withId(id: string): ListNatGatewaySnatRulesRequest {

@@ -13,11 +13,10 @@ export class UpdateProtectionPolicyInfoRequestInfo {
     private 'operating_system'?: string;
     private 'runtime_detection_status'?: string;
     private 'process_whitelist'?: Array<TrustProcessInfo>;
-    public constructor(policyId?: string, policyName?: string, protectionMode?: string, baitProtectionStatus?: string, protectionDirectory?: string, protectionType?: string, operatingSystem?: string) { 
+    public constructor(policyId?: string, policyName?: string, protectionMode?: string, protectionDirectory?: string, protectionType?: string, operatingSystem?: string) { 
         this['policy_id'] = policyId;
         this['policy_name'] = policyName;
         this['protection_mode'] = protectionMode;
-        this['bait_protection_status'] = baitProtectionStatus;
         this['protection_directory'] = protectionDirectory;
         this['protection_type'] = protectionType;
         this['operating_system'] = operatingSystem;

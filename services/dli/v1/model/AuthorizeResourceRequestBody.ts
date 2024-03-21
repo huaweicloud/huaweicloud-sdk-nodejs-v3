@@ -3,7 +3,7 @@ import { Privilege } from './Privilege';
 
 export class AuthorizeResourceRequestBody {
     private 'user_name'?: string;
-    public projectId?: string;
+    private 'grant_project_id'?: string;
     public action?: AuthorizeResourceRequestBodyActionEnum | string;
     public privileges?: Array<Privilege>;
     public constructor(action?: string, privileges?: Array<Privilege>) { 
@@ -20,9 +20,15 @@ export class AuthorizeResourceRequestBody {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withProjectId(projectId: string): AuthorizeResourceRequestBody {
-        this['projectId'] = projectId;
+    public withGrantProjectId(grantProjectId: string): AuthorizeResourceRequestBody {
+        this['grant_project_id'] = grantProjectId;
         return this;
+    }
+    public set grantProjectId(grantProjectId: string  | undefined) {
+        this['grant_project_id'] = grantProjectId;
+    }
+    public get grantProjectId(): string | undefined {
+        return this['grant_project_id'];
     }
     public withAction(action: AuthorizeResourceRequestBodyActionEnum | string): AuthorizeResourceRequestBody {
         this['action'] = action;

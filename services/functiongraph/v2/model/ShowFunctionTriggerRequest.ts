@@ -4,10 +4,12 @@ export class ShowFunctionTriggerRequest {
     private 'function_urn'?: string;
     private 'trigger_type_code'?: ShowFunctionTriggerRequestTriggerTypeCodeEnum | string;
     private 'trigger_id'?: string;
-    public constructor(functionUrn?: string, triggerTypeCode?: string, triggerId?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, triggerTypeCode?: string, triggerId?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_id'] = triggerId;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ShowFunctionTriggerRequest {
         this['function_urn'] = functionUrn;
@@ -39,6 +41,16 @@ export class ShowFunctionTriggerRequest {
     public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
+    public withContentType(contentType: string): ShowFunctionTriggerRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
+    }
 }
 
 /**
@@ -61,5 +73,6 @@ export enum ShowFunctionTriggerRequestTriggerTypeCodeEnum {
     OPENSOURCEKAFKA = 'OPENSOURCEKAFKA',
     APIC = 'APIC',
     GAUSSMONGO = 'GAUSSMONGO',
-    EVENTGRID = 'EVENTGRID'
+    EVENTGRID = 'EVENTGRID',
+    IOTDA = 'IOTDA'
 }

@@ -8,8 +8,10 @@ export class ListAsyncInvocationsRequest {
     public status?: string;
     private 'query_begin_time'?: Date;
     private 'query_end_time'?: Date;
-    public constructor(functionUrn?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ListAsyncInvocationsRequest {
         this['function_urn'] = functionUrn;
@@ -62,5 +64,15 @@ export class ListAsyncInvocationsRequest {
     }
     public get queryEndTime(): Date | undefined {
         return this['query_end_time'];
+    }
+    public withContentType(contentType: string): ListAsyncInvocationsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

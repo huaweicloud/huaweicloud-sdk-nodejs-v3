@@ -8,7 +8,9 @@ export class ListDependenciesRequest {
     public runtime?: string;
     public name?: string;
     public limit?: string;
-    public constructor() { 
+    private 'Content-Type'?: string;
+    public constructor(contentType?: string) { 
+        this['Content-Type'] = contentType;
     }
     public withMarker(marker: string): ListDependenciesRequest {
         this['marker'] = marker;
@@ -43,5 +45,15 @@ export class ListDependenciesRequest {
     public withLimit(limit: string): ListDependenciesRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withContentType(contentType: string): ListDependenciesRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

@@ -2,8 +2,10 @@
 
 export class ShowTracingRequest {
     private 'function_urn'?: string;
-    public constructor(functionUrn?: string) { 
+    private 'Content-Type'?: string;
+    public constructor(functionUrn?: string, contentType?: string) { 
         this['function_urn'] = functionUrn;
+        this['Content-Type'] = contentType;
     }
     public withFunctionUrn(functionUrn: string): ShowTracingRequest {
         this['function_urn'] = functionUrn;
@@ -14,5 +16,15 @@ export class ShowTracingRequest {
     }
     public get functionUrn(): string | undefined {
         return this['function_urn'];
+    }
+    public withContentType(contentType: string): ShowTracingRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
 }

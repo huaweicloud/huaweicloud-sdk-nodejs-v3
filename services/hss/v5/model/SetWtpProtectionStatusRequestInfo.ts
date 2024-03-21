@@ -5,7 +5,9 @@ export class SetWtpProtectionStatusRequestInfo {
     private 'host_id_list'?: Array<string>;
     private 'resource_id'?: string;
     private 'charging_mode'?: string;
-    public constructor() { 
+    public constructor(status?: boolean, hostIdList?: Array<string>) { 
+        this['status'] = status;
+        this['host_id_list'] = hostIdList;
     }
     public withStatus(status: boolean): SetWtpProtectionStatusRequestInfo {
         this['status'] = status;
