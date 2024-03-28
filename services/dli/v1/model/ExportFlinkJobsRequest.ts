@@ -1,11 +1,11 @@
-import { ExportFlinkJobRequestBody } from './ExportFlinkJobRequestBody';
+import { ExportFlinkJobsRequestBody } from './ExportFlinkJobsRequestBody';
 
 
 export class ExportFlinkJobsRequest {
-    public body?: ExportFlinkJobRequestBody;
+    public body?: ExportFlinkJobsRequestBody;
     public constructor() { 
     }
-    public withBody(body: ExportFlinkJobRequestBody): ExportFlinkJobsRequest {
+    public withBody(body: ExportFlinkJobsRequestBody): ExportFlinkJobsRequest {
         this['body'] = body;
         return this;
     }

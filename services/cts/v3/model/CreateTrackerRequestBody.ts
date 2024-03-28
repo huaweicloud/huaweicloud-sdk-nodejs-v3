@@ -6,6 +6,7 @@ import { TrackerObsInfo } from './TrackerObsInfo';
 export class CreateTrackerRequestBody {
     private 'tracker_type'?: CreateTrackerRequestBodyTrackerTypeEnum | string;
     private 'tracker_name'?: string;
+    private 'agency_name'?: CreateTrackerRequestBodyAgencyNameEnum | string;
     private 'is_organization_tracker'?: boolean;
     private 'management_event_selector'?: ManagementEventSelector;
     private 'is_lts_enabled'?: boolean;
@@ -37,6 +38,16 @@ export class CreateTrackerRequestBody {
     }
     public get trackerName(): string | undefined {
         return this['tracker_name'];
+    }
+    public withAgencyName(agencyName: CreateTrackerRequestBodyAgencyNameEnum | string): CreateTrackerRequestBody {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: CreateTrackerRequestBodyAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): CreateTrackerRequestBodyAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withIsOrganizationTracker(isOrganizationTracker: boolean): CreateTrackerRequestBody {
         this['is_organization_tracker'] = isOrganizationTracker;
@@ -127,4 +138,11 @@ export class CreateTrackerRequestBody {
 export enum CreateTrackerRequestBodyTrackerTypeEnum {
     SYSTEM = 'system',
     DATA = 'data'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTrackerRequestBodyAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }

@@ -1,9 +1,9 @@
-import { SetQueuePlanReq } from './SetQueuePlanReq';
+import { QueuePlanRequestBody } from './QueuePlanRequestBody';
 
 
 export class CreateQueuePlanRequest {
     private 'queue_name'?: string;
-    public body?: SetQueuePlanReq;
+    public body?: QueuePlanRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class CreateQueuePlanRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: SetQueuePlanReq): CreateQueuePlanRequest {
+    public withBody(body: QueuePlanRequestBody): CreateQueuePlanRequest {
         this['body'] = body;
         return this;
     }

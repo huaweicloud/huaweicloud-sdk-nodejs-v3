@@ -1,11 +1,11 @@
-import { CreateJobTemplatesRequestBody } from './CreateJobTemplatesRequestBody';
+import { CreateSparkJobTemplateRequestBody } from './CreateSparkJobTemplateRequestBody';
 
 
 export class CreateSparkJobTemplateRequest {
-    public body?: CreateJobTemplatesRequestBody;
+    public body?: CreateSparkJobTemplateRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateJobTemplatesRequestBody): CreateSparkJobTemplateRequest {
+    public withBody(body: CreateSparkJobTemplateRequestBody): CreateSparkJobTemplateRequest {
         this['body'] = body;
         return this;
     }

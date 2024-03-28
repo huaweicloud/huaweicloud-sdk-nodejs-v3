@@ -1,11 +1,11 @@
-import { AuthorizeResourceRequestBody } from './AuthorizeResourceRequestBody';
+import { RunAuthorizationActionRequestBody } from './RunAuthorizationActionRequestBody';
 
 
 export class RunAuthorizationActionRequest {
-    public body?: AuthorizeResourceRequestBody;
+    public body?: RunAuthorizationActionRequestBody;
     public constructor() { 
     }
-    public withBody(body: AuthorizeResourceRequestBody): RunAuthorizationActionRequest {
+    public withBody(body: RunAuthorizationActionRequestBody): RunAuthorizationActionRequest {
         this['body'] = body;
         return this;
     }

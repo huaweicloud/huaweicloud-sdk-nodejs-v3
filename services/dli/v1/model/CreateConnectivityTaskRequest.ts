@@ -1,9 +1,9 @@
-import { VerityConnectivityReq } from './VerityConnectivityReq';
+import { CreateConnectivityTaskRequestBody } from './CreateConnectivityTaskRequestBody';
 
 
 export class CreateConnectivityTaskRequest {
     private 'queue_name'?: string;
-    public body?: VerityConnectivityReq;
+    public body?: CreateConnectivityTaskRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class CreateConnectivityTaskRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: VerityConnectivityReq): CreateConnectivityTaskRequest {
+    public withBody(body: CreateConnectivityTaskRequestBody): CreateConnectivityTaskRequest {
         this['body'] = body;
         return this;
     }

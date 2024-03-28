@@ -7,6 +7,7 @@ export class ApiPolicyFunctionBase {
     public version?: string;
     private 'alias_urn'?: string;
     public timeout?: number;
+    private 'req_protocol'?: ApiPolicyFunctionBaseReqProtocolEnum | string;
     public constructor(functionUrn?: string, invocationType?: string, networkType?: string) { 
         this['function_urn'] = functionUrn;
         this['invocation_type'] = invocationType;
@@ -60,6 +61,16 @@ export class ApiPolicyFunctionBase {
         this['timeout'] = timeout;
         return this;
     }
+    public withReqProtocol(reqProtocol: ApiPolicyFunctionBaseReqProtocolEnum | string): ApiPolicyFunctionBase {
+        this['req_protocol'] = reqProtocol;
+        return this;
+    }
+    public set reqProtocol(reqProtocol: ApiPolicyFunctionBaseReqProtocolEnum | string  | undefined) {
+        this['req_protocol'] = reqProtocol;
+    }
+    public get reqProtocol(): ApiPolicyFunctionBaseReqProtocolEnum | string | undefined {
+        return this['req_protocol'];
+    }
 }
 
 /**
@@ -77,4 +88,12 @@ export enum ApiPolicyFunctionBaseInvocationTypeEnum {
 export enum ApiPolicyFunctionBaseNetworkTypeEnum {
     V1 = 'V1',
     V2 = 'V2'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiPolicyFunctionBaseReqProtocolEnum {
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }

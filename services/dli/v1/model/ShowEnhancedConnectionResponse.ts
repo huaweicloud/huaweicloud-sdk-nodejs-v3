@@ -1,5 +1,5 @@
-import { EnhancedConnectionResourceInfo } from './EnhancedConnectionResourceInfo';
-import { EnhancedConnectionsHost } from './EnhancedConnectionsHost';
+import { EnhancedConnectionHost } from './EnhancedConnectionHost';
+import { EnhancedConnectionResource } from './EnhancedConnectionResource';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -9,12 +9,12 @@ export class ShowEnhancedConnectionResponse extends SdkResponse {
     public id?: string;
     public name?: string;
     public status?: string;
-    private 'available_queue_info'?: Array<EnhancedConnectionResourceInfo>;
-    private 'elastic_resource_pools'?: Array<EnhancedConnectionResourceInfo>;
+    private 'available_queue_info'?: Array<EnhancedConnectionResource>;
+    private 'elastic_resource_pools'?: Array<EnhancedConnectionResource>;
     private 'dest_vpc_id'?: string;
     private 'dest_network_id'?: string;
     private 'create_time'?: number;
-    public hosts?: Array<EnhancedConnectionsHost>;
+    public hosts?: Array<EnhancedConnectionHost>;
     public constructor() { 
         super();
     }
@@ -44,24 +44,24 @@ export class ShowEnhancedConnectionResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
-    public withAvailableQueueInfo(availableQueueInfo: Array<EnhancedConnectionResourceInfo>): ShowEnhancedConnectionResponse {
+    public withAvailableQueueInfo(availableQueueInfo: Array<EnhancedConnectionResource>): ShowEnhancedConnectionResponse {
         this['available_queue_info'] = availableQueueInfo;
         return this;
     }
-    public set availableQueueInfo(availableQueueInfo: Array<EnhancedConnectionResourceInfo>  | undefined) {
+    public set availableQueueInfo(availableQueueInfo: Array<EnhancedConnectionResource>  | undefined) {
         this['available_queue_info'] = availableQueueInfo;
     }
-    public get availableQueueInfo(): Array<EnhancedConnectionResourceInfo> | undefined {
+    public get availableQueueInfo(): Array<EnhancedConnectionResource> | undefined {
         return this['available_queue_info'];
     }
-    public withElasticResourcePools(elasticResourcePools: Array<EnhancedConnectionResourceInfo>): ShowEnhancedConnectionResponse {
+    public withElasticResourcePools(elasticResourcePools: Array<EnhancedConnectionResource>): ShowEnhancedConnectionResponse {
         this['elastic_resource_pools'] = elasticResourcePools;
         return this;
     }
-    public set elasticResourcePools(elasticResourcePools: Array<EnhancedConnectionResourceInfo>  | undefined) {
+    public set elasticResourcePools(elasticResourcePools: Array<EnhancedConnectionResource>  | undefined) {
         this['elastic_resource_pools'] = elasticResourcePools;
     }
-    public get elasticResourcePools(): Array<EnhancedConnectionResourceInfo> | undefined {
+    public get elasticResourcePools(): Array<EnhancedConnectionResource> | undefined {
         return this['elastic_resource_pools'];
     }
     public withDestVpcId(destVpcId: string): ShowEnhancedConnectionResponse {
@@ -94,7 +94,7 @@ export class ShowEnhancedConnectionResponse extends SdkResponse {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withHosts(hosts: Array<EnhancedConnectionsHost>): ShowEnhancedConnectionResponse {
+    public withHosts(hosts: Array<EnhancedConnectionHost>): ShowEnhancedConnectionResponse {
         this['hosts'] = hosts;
         return this;
     }

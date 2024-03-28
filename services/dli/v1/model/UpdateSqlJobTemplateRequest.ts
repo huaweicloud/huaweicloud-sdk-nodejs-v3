@@ -1,9 +1,9 @@
-import { UpdateSqlTemplatesRequestBody } from './UpdateSqlTemplatesRequestBody';
+import { UpdateSqlJobTemplateRequestBody } from './UpdateSqlJobTemplateRequestBody';
 
 
 export class UpdateSqlJobTemplateRequest {
     private 'sql_id'?: string;
-    public body?: UpdateSqlTemplatesRequestBody;
+    public body?: UpdateSqlJobTemplateRequestBody;
     public constructor(sqlId?: string) { 
         this['sql_id'] = sqlId;
     }
@@ -17,7 +17,7 @@ export class UpdateSqlJobTemplateRequest {
     public get sqlId(): string | undefined {
         return this['sql_id'];
     }
-    public withBody(body: UpdateSqlTemplatesRequestBody): UpdateSqlJobTemplateRequest {
+    public withBody(body: UpdateSqlJobTemplateRequestBody): UpdateSqlJobTemplateRequest {
         this['body'] = body;
         return this;
     }

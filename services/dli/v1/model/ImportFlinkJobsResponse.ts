@@ -1,11 +1,11 @@
-import { JobMapInfo } from './JobMapInfo';
+import { JobMap } from './JobMap';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ImportFlinkJobsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    private 'job_mapping'?: Array<JobMapInfo>;
+    private 'job_mapping'?: Array<JobMap>;
     public constructor() { 
         super();
     }
@@ -23,14 +23,14 @@ export class ImportFlinkJobsResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withJobMapping(jobMapping: Array<JobMapInfo>): ImportFlinkJobsResponse {
+    public withJobMapping(jobMapping: Array<JobMap>): ImportFlinkJobsResponse {
         this['job_mapping'] = jobMapping;
         return this;
     }
-    public set jobMapping(jobMapping: Array<JobMapInfo>  | undefined) {
+    public set jobMapping(jobMapping: Array<JobMap>  | undefined) {
         this['job_mapping'] = jobMapping;
     }
-    public get jobMapping(): Array<JobMapInfo> | undefined {
+    public get jobMapping(): Array<JobMap> | undefined {
         return this['job_mapping'];
     }
 }

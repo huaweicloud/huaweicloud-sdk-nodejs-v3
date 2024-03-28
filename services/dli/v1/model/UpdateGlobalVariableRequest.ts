@@ -1,9 +1,9 @@
-import { UpdateGlobalValueReq } from './UpdateGlobalValueReq';
+import { UpdateGlobalVariableRequestBody } from './UpdateGlobalVariableRequestBody';
 
 
 export class UpdateGlobalVariableRequest {
     private 'var_name'?: string;
-    public body?: UpdateGlobalValueReq;
+    public body?: UpdateGlobalVariableRequestBody;
     public constructor(varName?: string) { 
         this['var_name'] = varName;
     }
@@ -17,7 +17,7 @@ export class UpdateGlobalVariableRequest {
     public get varName(): string | undefined {
         return this['var_name'];
     }
-    public withBody(body: UpdateGlobalValueReq): UpdateGlobalVariableRequest {
+    public withBody(body: UpdateGlobalVariableRequestBody): UpdateGlobalVariableRequest {
         this['body'] = body;
         return this;
     }

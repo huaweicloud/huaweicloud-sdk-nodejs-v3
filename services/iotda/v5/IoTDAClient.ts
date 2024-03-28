@@ -250,6 +250,9 @@ import { UnfreezeDeviceResponse } from './model/UnfreezeDeviceResponse';
 import { UntagDeviceRequest } from './model/UntagDeviceRequest';
 import { UntagDeviceResponse } from './model/UntagDeviceResponse';
 import { UpdateActionReq } from './model/UpdateActionReq';
+import { UpdateApplicationDTO } from './model/UpdateApplicationDTO';
+import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
+import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
 import { UpdateDesired } from './model/UpdateDesired';
 import { UpdateDesireds } from './model/UpdateDesireds';
 import { UpdateDevice } from './model/UpdateDevice';
@@ -466,6 +469,27 @@ export class IoTDAClient {
      */
     public showApplications(showApplicationsRequest?: ShowApplicationsRequest): Promise<ShowApplicationsResponse> {
         const options = ParamCreater().showApplications(showApplicationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可以调用此接口更新资源空间的名称
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源空间
+     * @param {string} appId **参数说明**：资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {UpdateApplicationDTO} updateApplicationRequestBody 更新资源空间信息所携带的结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateApplication(updateApplicationRequest?: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+        const options = ParamCreater().updateApplication(updateApplicationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2619,6 +2643,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可以调用此接口更新资源空间的名称
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateApplication(updateApplicationRequest?: UpdateApplicationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/apps/{app_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let appId;
+            
+            let instanceId;
+
+            if (updateApplicationRequest !== null && updateApplicationRequest !== undefined) {
+                if (updateApplicationRequest instanceof UpdateApplicationRequest) {
+                    appId = updateApplicationRequest.appId;
+                    body = updateApplicationRequest.body
+                    instanceId = updateApplicationRequest.instanceId;
+                } else {
+                    appId = updateApplicationRequest['app_id'];
+                    body = updateApplicationRequest['body'];
+                    instanceId = updateApplicationRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateApplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

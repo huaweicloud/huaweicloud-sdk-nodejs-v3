@@ -3,6 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateReassignmentTaskResponse extends SdkResponse {
     private 'job_id'?: string;
+    private 'reassignment_time'?: number;
     public constructor() { 
         super();
     }
@@ -15,5 +16,15 @@ export class CreateReassignmentTaskResponse extends SdkResponse {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withReassignmentTime(reassignmentTime: number): CreateReassignmentTaskResponse {
+        this['reassignment_time'] = reassignmentTime;
+        return this;
+    }
+    public set reassignmentTime(reassignmentTime: number  | undefined) {
+        this['reassignment_time'] = reassignmentTime;
+    }
+    public get reassignmentTime(): number | undefined {
+        return this['reassignment_time'];
     }
 }

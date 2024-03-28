@@ -13,6 +13,8 @@ import { AssociateListenerRequestBody } from './model/AssociateListenerRequestBo
 import { AssociateListenerResponse } from './model/AssociateListenerResponse';
 import { ClientAffinity } from './model/ClientAffinity';
 import { ConfigStatus } from './model/ConfigStatus';
+import { CountResourcesByTagRequest } from './model/CountResourcesByTagRequest';
+import { CountResourcesByTagResponse } from './model/CountResourcesByTagResponse';
 import { CreateAcceleratorOption } from './model/CreateAcceleratorOption';
 import { CreateAcceleratorOptionIpSets } from './model/CreateAcceleratorOptionIpSets';
 import { CreateAcceleratorRequest } from './model/CreateAcceleratorRequest';
@@ -84,10 +86,16 @@ import { ListListenersRequest } from './model/ListListenersRequest';
 import { ListListenersResponse } from './model/ListListenersResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
 import { ListRegionsResponse } from './model/ListRegionsResponse';
+import { ListResourcesByTagRequest } from './model/ListResourcesByTagRequest';
+import { ListResourcesByTagRequestBody } from './model/ListResourcesByTagRequestBody';
+import { ListResourcesByTagResponse } from './model/ListResourcesByTagResponse';
+import { ListTagsRequest } from './model/ListTagsRequest';
+import { ListTagsResponse } from './model/ListTagsResponse';
 import { ListenerAccessControlPolicy } from './model/ListenerAccessControlPolicy';
 import { ListenerAccessControlType } from './model/ListenerAccessControlType';
 import { ListenerDetail } from './model/ListenerDetail';
 import { ListenerProtocol } from './model/ListenerProtocol';
+import { Match } from './model/Match';
 import { PageInfo } from './model/PageInfo';
 import { PortRange } from './model/PortRange';
 import { Region } from './model/Region';
@@ -95,6 +103,7 @@ import { RemoveIpGroupIpRequest } from './model/RemoveIpGroupIpRequest';
 import { RemoveIpGroupIpRequestBody } from './model/RemoveIpGroupIpRequestBody';
 import { RemoveIpGroupIpResponse } from './model/RemoveIpGroupIpResponse';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTags } from './model/ResourceTags';
 import { ResourceType } from './model/ResourceType';
 import { ShowAcceleratorRequest } from './model/ShowAcceleratorRequest';
 import { ShowAcceleratorResponse } from './model/ShowAcceleratorResponse';
@@ -110,6 +119,8 @@ import { ShowListenerRequest } from './model/ShowListenerRequest';
 import { ShowListenerResponse } from './model/ShowListenerResponse';
 import { ShowResourceTagsRequest } from './model/ShowResourceTagsRequest';
 import { ShowResourceTagsResponse } from './model/ShowResourceTagsResponse';
+import { Tag } from './model/Tag';
+import { TotalCount } from './model/TotalCount';
 import { UpdateAcceleratorOption } from './model/UpdateAcceleratorOption';
 import { UpdateAcceleratorRequest } from './model/UpdateAcceleratorRequest';
 import { UpdateAcceleratorRequestBody } from './model/UpdateAcceleratorRequestBody';
@@ -865,6 +876,26 @@ export class GaClient {
     }
 
     /**
+     * 通过标签查询资源实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过标签查询资源实例数量
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {ListResourcesByTagRequestBody} listResourcesByTagRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countResourcesByTag(countResourcesByTagRequest?: CountResourcesByTagRequest): Promise<CountResourcesByTagResponse> {
+        const options = ParamCreater().countResourcesByTag(countResourcesByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -899,6 +930,49 @@ export class GaClient {
      */
     public deleteTags(deleteTagsRequest?: DeleteTagsRequest): Promise<DeleteTagsResponse> {
         const options = ParamCreater().deleteTags(deleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过标签查询资源实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过标签查询资源实例列表
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {ListResourcesByTagRequestBody} listResourcesByTagRequestBody 
+     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [offset] 偏移量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourcesByTag(listResourcesByTagRequest?: ListResourcesByTagRequest): Promise<ListResourcesByTagResponse> {
+        const options = ParamCreater().listResourcesByTag(listResourcesByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询标签列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询标签列表
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [offset] 偏移量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
+        const options = ParamCreater().listTags(listTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2552,6 +2626,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过标签查询资源实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countResourcesByTag(countResourcesByTagRequest?: CountResourcesByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{resource_type}/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+
+            if (countResourcesByTagRequest !== null && countResourcesByTagRequest !== undefined) {
+                if (countResourcesByTagRequest instanceof CountResourcesByTagRequest) {
+                    resourceType = countResourcesByTagRequest.resourceType;
+                    body = countResourcesByTagRequest.body
+                } else {
+                    resourceType = countResourcesByTagRequest['resource_type'];
+                    body = countResourcesByTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling countResourcesByTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2653,6 +2773,119 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过标签查询资源实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourcesByTag(listResourcesByTagRequest?: ListResourcesByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{resource_type}/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listResourcesByTagRequest !== null && listResourcesByTagRequest !== undefined) {
+                if (listResourcesByTagRequest instanceof ListResourcesByTagRequest) {
+                    resourceType = listResourcesByTagRequest.resourceType;
+                    body = listResourcesByTagRequest.body
+                    limit = listResourcesByTagRequest.limit;
+                    offset = listResourcesByTagRequest.offset;
+                } else {
+                    resourceType = listResourcesByTagRequest['resource_type'];
+                    body = listResourcesByTagRequest['body'];
+                    limit = listResourcesByTagRequest['limit'];
+                    offset = listResourcesByTagRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listResourcesByTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询标签列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTags(listTagsRequest?: ListTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listTagsRequest !== null && listTagsRequest !== undefined) {
+                if (listTagsRequest instanceof ListTagsRequest) {
+                    resourceType = listTagsRequest.resourceType;
+                    limit = listTagsRequest.limit;
+                    offset = listTagsRequest.offset;
+                } else {
+                    resourceType = listTagsRequest['resource_type'];
+                    limit = listTagsRequest['limit'];
+                    offset = listTagsRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTags.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
             options.headers = localVarHeaderParameter;
             return options;
         },

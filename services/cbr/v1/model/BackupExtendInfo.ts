@@ -4,7 +4,6 @@ import { ImageData } from './ImageData';
 export class BackupExtendInfo {
     private 'auto_trigger'?: boolean;
     public bootable?: boolean;
-    public incremental?: boolean;
     private 'snapshot_id'?: string;
     private 'support_lld'?: boolean;
     private 'supported_restore_mode'?: BackupExtendInfoSupportedRestoreModeEnum | string;
@@ -27,10 +26,6 @@ export class BackupExtendInfo {
     }
     public withBootable(bootable: boolean): BackupExtendInfo {
         this['bootable'] = bootable;
-        return this;
-    }
-    public withIncremental(incremental: boolean): BackupExtendInfo {
-        this['incremental'] = incremental;
         return this;
     }
     public withSnapshotId(snapshotId: string): BackupExtendInfo {

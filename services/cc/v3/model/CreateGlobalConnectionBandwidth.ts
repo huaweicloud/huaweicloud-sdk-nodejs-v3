@@ -6,7 +6,6 @@ import { GcbLocalArea } from './GcbLocalArea';
 import { GcbRemoteArea } from './GcbRemoteArea';
 import { GcbSize } from './GcbSize';
 import { GcbSlaLevel } from './GcbSlaLevel';
-import { GcbSpecCodeId } from './GcbSpecCodeId';
 import { GcbType } from './GcbType';
 import { NonRequiredName } from './NonRequiredName';
 import { Tag } from './Tag';
@@ -26,7 +25,12 @@ export class CreateGlobalConnectionBandwidth {
     private 'local_area'?: string;
     private 'remote_area'?: string;
     private 'spec_code_id'?: string;
-    public constructor() { 
+    public constructor(name?: string, bordercross?: boolean, type?: string, chargeMode?: string, size?: number) { 
+        this['name'] = name;
+        this['bordercross'] = bordercross;
+        this['type'] = type;
+        this['charge_mode'] = chargeMode;
+        this['size'] = size;
     }
     public withName(name: string): CreateGlobalConnectionBandwidth {
         this['name'] = name;

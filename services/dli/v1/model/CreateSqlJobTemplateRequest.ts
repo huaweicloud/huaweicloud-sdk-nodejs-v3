@@ -1,11 +1,11 @@
-import { CreateSqlTemplatesRequestBody } from './CreateSqlTemplatesRequestBody';
+import { CreateSqlJobTemplateRequestBody } from './CreateSqlJobTemplateRequestBody';
 
 
 export class CreateSqlJobTemplateRequest {
-    public body?: CreateSqlTemplatesRequestBody;
+    public body?: CreateSqlJobTemplateRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateSqlTemplatesRequestBody): CreateSqlJobTemplateRequest {
+    public withBody(body: CreateSqlJobTemplateRequestBody): CreateSqlJobTemplateRequest {
         this['body'] = body;
         return this;
     }

@@ -1,9 +1,11 @@
 import { ResponseInfo } from './ResponseInfo';
+import { ResponseInfoHeader } from './ResponseInfoHeader';
 
 
 export class ResponseInfoResp {
     public status?: number;
     public body?: string;
+    public headers?: Array<ResponseInfoHeader>;
     private 'default'?: boolean;
     public constructor() { 
     }
@@ -13,6 +15,10 @@ export class ResponseInfoResp {
     }
     public withBody(body: string): ResponseInfoResp {
         this['body'] = body;
+        return this;
+    }
+    public withHeaders(headers: Array<ResponseInfoHeader>): ResponseInfoResp {
+        this['headers'] = headers;
         return this;
     }
     public withDefault(_default: boolean): ResponseInfoResp {

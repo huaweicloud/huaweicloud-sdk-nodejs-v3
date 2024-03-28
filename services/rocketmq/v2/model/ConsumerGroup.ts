@@ -7,7 +7,7 @@ export class ConsumerGroup {
     public name?: string;
     private 'group_desc'?: string;
     private 'retry_max_time'?: number;
-    public createdAt?: string;
+    public createdAt?: number;
     public permissions?: Array<string>;
     private 'consume_orderly'?: boolean;
     public constructor() { 
@@ -48,7 +48,7 @@ export class ConsumerGroup {
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
     }
-    public withCreatedAt(createdAt: string): ConsumerGroup {
+    public withCreatedAt(createdAt: number): ConsumerGroup {
         this['createdAt'] = createdAt;
         return this;
     }

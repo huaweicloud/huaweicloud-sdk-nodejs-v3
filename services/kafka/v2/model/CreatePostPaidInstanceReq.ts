@@ -28,7 +28,6 @@ export class CreatePostPaidInstanceReq {
     private 'kafka_security_protocol'?: string;
     private 'sasl_enabled_mechanisms'?: Array<CreatePostPaidInstanceReqSaslEnabledMechanismsEnum> | Array<string>;
     private 'retention_policy'?: CreatePostPaidInstanceReqRetentionPolicyEnum | string;
-    private 'ipv6_enable'?: boolean;
     private 'disk_encrypted_enable'?: boolean;
     private 'disk_encrypted_key'?: string;
     private 'connector_enable'?: boolean;
@@ -277,16 +276,6 @@ export class CreatePostPaidInstanceReq {
     }
     public get retentionPolicy(): CreatePostPaidInstanceReqRetentionPolicyEnum | string | undefined {
         return this['retention_policy'];
-    }
-    public withIpv6Enable(ipv6Enable: boolean): CreatePostPaidInstanceReq {
-        this['ipv6_enable'] = ipv6Enable;
-        return this;
-    }
-    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
-        this['ipv6_enable'] = ipv6Enable;
-    }
-    public get ipv6Enable(): boolean | undefined {
-        return this['ipv6_enable'];
     }
     public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreatePostPaidInstanceReq {
         this['disk_encrypted_enable'] = diskEncryptedEnable;

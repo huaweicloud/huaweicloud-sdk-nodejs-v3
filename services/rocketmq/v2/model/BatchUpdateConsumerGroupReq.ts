@@ -1,11 +1,11 @@
-import { ConsumerGroup } from './ConsumerGroup';
+import { CreateOrUpdateConsumerGroup } from './CreateOrUpdateConsumerGroup';
 
 
 export class BatchUpdateConsumerGroupReq {
-    public groups?: Array<ConsumerGroup>;
+    public groups?: Array<CreateOrUpdateConsumerGroup>;
     public constructor() { 
     }
-    public withGroups(groups: Array<ConsumerGroup>): BatchUpdateConsumerGroupReq {
+    public withGroups(groups: Array<CreateOrUpdateConsumerGroup>): BatchUpdateConsumerGroupReq {
         this['groups'] = groups;
         return this;
     }

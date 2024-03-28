@@ -1,9 +1,9 @@
-import { BatchJobInfo } from './BatchJobInfo';
+import { CreateSparkJobRequestBody } from './CreateSparkJobRequestBody';
 
 
 export class CreateSparkJobRequest {
     private 'USER-ID'?: string;
-    public body?: BatchJobInfo;
+    public body?: CreateSparkJobRequestBody;
     public constructor() { 
     }
     public withUserId(userId: string): CreateSparkJobRequest {
@@ -16,7 +16,7 @@ export class CreateSparkJobRequest {
     public get userId(): string | undefined {
         return this['USER-ID'];
     }
-    public withBody(body: BatchJobInfo): CreateSparkJobRequest {
+    public withBody(body: CreateSparkJobRequestBody): CreateSparkJobRequest {
         this['body'] = body;
         return this;
     }

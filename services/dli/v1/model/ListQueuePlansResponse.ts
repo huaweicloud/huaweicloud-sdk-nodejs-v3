@@ -1,11 +1,11 @@
-import { QueuePlanEntity } from './QueuePlanEntity';
+import { QueuePlan } from './QueuePlan';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListQueuePlansResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public plans?: Array<QueuePlanEntity>;
+    public plans?: Array<QueuePlan>;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class ListQueuePlansResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withPlans(plans: Array<QueuePlanEntity>): ListQueuePlansResponse {
+    public withPlans(plans: Array<QueuePlan>): ListQueuePlansResponse {
         this['plans'] = plans;
         return this;
     }

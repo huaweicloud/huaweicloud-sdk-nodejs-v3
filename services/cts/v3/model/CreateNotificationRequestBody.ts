@@ -6,6 +6,7 @@ import { Operations } from './Operations';
 export class CreateNotificationRequestBody {
     private 'notification_name'?: string;
     private 'operation_type'?: CreateNotificationRequestBodyOperationTypeEnum | string;
+    private 'agency_name'?: CreateNotificationRequestBodyAgencyNameEnum | string;
     public operations?: Array<Operations>;
     private 'notify_user_list'?: Array<NotificationUsers>;
     private 'topic_id'?: string;
@@ -33,6 +34,16 @@ export class CreateNotificationRequestBody {
     }
     public get operationType(): CreateNotificationRequestBodyOperationTypeEnum | string | undefined {
         return this['operation_type'];
+    }
+    public withAgencyName(agencyName: CreateNotificationRequestBodyAgencyNameEnum | string): CreateNotificationRequestBody {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: CreateNotificationRequestBodyAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): CreateNotificationRequestBodyAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withOperations(operations: Array<Operations>): CreateNotificationRequestBody {
         this['operations'] = operations;
@@ -71,4 +82,11 @@ export class CreateNotificationRequestBody {
 export enum CreateNotificationRequestBodyOperationTypeEnum {
     COMPLETE = 'complete',
     CUSTOMIZED = 'customized'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateNotificationRequestBodyAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }

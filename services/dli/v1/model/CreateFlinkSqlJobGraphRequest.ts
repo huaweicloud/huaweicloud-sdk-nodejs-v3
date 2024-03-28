@@ -1,9 +1,9 @@
-import { GenStreamGraphReq } from './GenStreamGraphReq';
+import { CreateFlinkSqlJobGraphRequestBody } from './CreateFlinkSqlJobGraphRequestBody';
 
 
 export class CreateFlinkSqlJobGraphRequest {
     private 'job_id'?: string;
-    public body?: GenStreamGraphReq;
+    public body?: CreateFlinkSqlJobGraphRequestBody;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -17,7 +17,7 @@ export class CreateFlinkSqlJobGraphRequest {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withBody(body: GenStreamGraphReq): CreateFlinkSqlJobGraphRequest {
+    public withBody(body: CreateFlinkSqlJobGraphRequestBody): CreateFlinkSqlJobGraphRequest {
         this['body'] = body;
         return this;
     }

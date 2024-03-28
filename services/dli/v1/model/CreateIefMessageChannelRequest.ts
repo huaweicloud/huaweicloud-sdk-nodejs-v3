@@ -1,11 +1,11 @@
-import { CreateIefMessageChannelReq } from './CreateIefMessageChannelReq';
+import { CreateIefMessageChannelRequestBody } from './CreateIefMessageChannelRequestBody';
 
 
 export class CreateIefMessageChannelRequest {
-    public body?: CreateIefMessageChannelReq;
+    public body?: CreateIefMessageChannelRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateIefMessageChannelReq): CreateIefMessageChannelRequest {
+    public withBody(body: CreateIefMessageChannelRequestBody): CreateIefMessageChannelRequest {
         this['body'] = body;
         return this;
     }

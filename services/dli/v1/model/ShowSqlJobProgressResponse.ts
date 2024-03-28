@@ -1,4 +1,4 @@
-import { SubJobDatas } from './SubJobDatas';
+import { SubJob } from './SubJob';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -9,7 +9,7 @@ export class ShowSqlJobProgressResponse extends SdkResponse {
     public status?: string;
     private 'sub_job_id'?: number;
     public progress?: number;
-    private 'sub_jobs'?: Array<SubJobDatas>;
+    private 'sub_jobs'?: Array<SubJob>;
     public constructor() { 
         super();
     }
@@ -55,14 +55,14 @@ export class ShowSqlJobProgressResponse extends SdkResponse {
         this['progress'] = progress;
         return this;
     }
-    public withSubJobs(subJobs: Array<SubJobDatas>): ShowSqlJobProgressResponse {
+    public withSubJobs(subJobs: Array<SubJob>): ShowSqlJobProgressResponse {
         this['sub_jobs'] = subJobs;
         return this;
     }
-    public set subJobs(subJobs: Array<SubJobDatas>  | undefined) {
+    public set subJobs(subJobs: Array<SubJob>  | undefined) {
         this['sub_jobs'] = subJobs;
     }
-    public get subJobs(): Array<SubJobDatas> | undefined {
+    public get subJobs(): Array<SubJob> | undefined {
         return this['sub_jobs'];
     }
 }

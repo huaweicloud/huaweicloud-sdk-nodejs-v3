@@ -11,6 +11,7 @@ export class ApiPolicyFunctionCreate {
     public version?: string;
     private 'alias_urn'?: string;
     public timeout?: number;
+    private 'req_protocol'?: ApiPolicyFunctionCreateReqProtocolEnum | string;
     private 'effect_mode'?: ApiPolicyFunctionCreateEffectModeEnum | string;
     public name?: string;
     private 'backend_params'?: Array<BackendParamBase>;
@@ -72,6 +73,16 @@ export class ApiPolicyFunctionCreate {
         this['timeout'] = timeout;
         return this;
     }
+    public withReqProtocol(reqProtocol: ApiPolicyFunctionCreateReqProtocolEnum | string): ApiPolicyFunctionCreate {
+        this['req_protocol'] = reqProtocol;
+        return this;
+    }
+    public set reqProtocol(reqProtocol: ApiPolicyFunctionCreateReqProtocolEnum | string  | undefined) {
+        this['req_protocol'] = reqProtocol;
+    }
+    public get reqProtocol(): ApiPolicyFunctionCreateReqProtocolEnum | string | undefined {
+        return this['req_protocol'];
+    }
     public withEffectMode(effectMode: ApiPolicyFunctionCreateEffectModeEnum | string): ApiPolicyFunctionCreate {
         this['effect_mode'] = effectMode;
         return this;
@@ -127,6 +138,14 @@ export enum ApiPolicyFunctionCreateInvocationTypeEnum {
 export enum ApiPolicyFunctionCreateNetworkTypeEnum {
     V1 = 'V1',
     V2 = 'V2'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiPolicyFunctionCreateReqProtocolEnum {
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }
 /**
     * @export

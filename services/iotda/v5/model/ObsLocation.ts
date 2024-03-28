@@ -4,6 +4,7 @@ export class ObsLocation {
     private 'region_name'?: string;
     private 'bucket_name'?: string;
     private 'object_key'?: string;
+    public sign?: string;
     public constructor(regionName?: string, bucketName?: string, objectKey?: string) { 
         this['region_name'] = regionName;
         this['bucket_name'] = bucketName;
@@ -38,5 +39,9 @@ export class ObsLocation {
     }
     public get objectKey(): string | undefined {
         return this['object_key'];
+    }
+    public withSign(sign: string): ObsLocation {
+        this['sign'] = sign;
+        return this;
     }
 }

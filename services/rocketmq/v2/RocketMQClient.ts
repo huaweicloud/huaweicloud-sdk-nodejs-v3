@@ -29,6 +29,7 @@ import { CreateGroupResp } from './model/CreateGroupResp';
 import { CreateInstanceByEngineReq } from './model/CreateInstanceByEngineReq';
 import { CreateInstanceByEngineRequest } from './model/CreateInstanceByEngineRequest';
 import { CreateInstanceByEngineResponse } from './model/CreateInstanceByEngineResponse';
+import { CreateOrUpdateConsumerGroup } from './model/CreateOrUpdateConsumerGroup';
 import { CreatePostPaidInstanceReq } from './model/CreatePostPaidInstanceReq';
 import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
@@ -258,7 +259,7 @@ export class RocketMQClient {
     }
 
     /**
-     * 该接口支持创建按需和包周期两种计费方式的实例。
+     * 创建实例[，该接口支持创建按需和包周期两种计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1348,7 +1349,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口支持创建按需和包周期两种计费方式的实例。
+         * 创建实例[，该接口支持创建按需和包周期两种计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

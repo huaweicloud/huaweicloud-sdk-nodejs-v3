@@ -31,6 +31,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'enable_publicip'?: boolean;
     private 'management_connect_address'?: string;
     private 'ssl_enable'?: boolean;
+    private 'broker_ssl_enable'?: boolean;
     private 'kafka_security_protocol'?: string;
     private 'sasl_enabled_mechanisms'?: Array<ShowInstanceResponseSaslEnabledMechanismsEnum> | Array<string>;
     private 'ssl_two_way_enable'?: boolean;
@@ -46,6 +47,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'security_group_name'?: string;
     private 'subnet_id'?: string;
     private 'available_zones'?: Array<string>;
+    private 'available_zone_names'?: Array<string>;
     private 'total_storage_space'?: number;
     private 'public_connect_address'?: string;
     private 'storage_resource_id'?: string;
@@ -58,6 +60,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'kafka_manager_enable'?: boolean;
     private 'kafka_manager_user'?: string;
     private 'enable_log_collection'?: boolean;
+    private 'new_auth_cert'?: boolean;
     private 'cross_vpc_info'?: string;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_connect_addresses'?: Array<string>;
@@ -331,6 +334,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
     }
+    public withBrokerSslEnable(brokerSslEnable: boolean): ShowInstanceResponse {
+        this['broker_ssl_enable'] = brokerSslEnable;
+        return this;
+    }
+    public set brokerSslEnable(brokerSslEnable: boolean  | undefined) {
+        this['broker_ssl_enable'] = brokerSslEnable;
+    }
+    public get brokerSslEnable(): boolean | undefined {
+        return this['broker_ssl_enable'];
+    }
     public withKafkaSecurityProtocol(kafkaSecurityProtocol: string): ShowInstanceResponse {
         this['kafka_security_protocol'] = kafkaSecurityProtocol;
         return this;
@@ -475,6 +488,16 @@ export class ShowInstanceResponse extends SdkResponse {
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
     }
+    public withAvailableZoneNames(availableZoneNames: Array<string>): ShowInstanceResponse {
+        this['available_zone_names'] = availableZoneNames;
+        return this;
+    }
+    public set availableZoneNames(availableZoneNames: Array<string>  | undefined) {
+        this['available_zone_names'] = availableZoneNames;
+    }
+    public get availableZoneNames(): Array<string> | undefined {
+        return this['available_zone_names'];
+    }
     public withTotalStorageSpace(totalStorageSpace: number): ShowInstanceResponse {
         this['total_storage_space'] = totalStorageSpace;
         return this;
@@ -594,6 +617,16 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get enableLogCollection(): boolean | undefined {
         return this['enable_log_collection'];
+    }
+    public withNewAuthCert(newAuthCert: boolean): ShowInstanceResponse {
+        this['new_auth_cert'] = newAuthCert;
+        return this;
+    }
+    public set newAuthCert(newAuthCert: boolean  | undefined) {
+        this['new_auth_cert'] = newAuthCert;
+    }
+    public get newAuthCert(): boolean | undefined {
+        return this['new_auth_cert'];
     }
     public withCrossVpcInfo(crossVpcInfo: string): ShowInstanceResponse {
         this['cross_vpc_info'] = crossVpcInfo;

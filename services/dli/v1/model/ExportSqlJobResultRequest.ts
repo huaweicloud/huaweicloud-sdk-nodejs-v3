@@ -1,9 +1,9 @@
-import { ExportSqlResultRequestBody } from './ExportSqlResultRequestBody';
+import { ExportSqlJobResultRequestBody } from './ExportSqlJobResultRequestBody';
 
 
 export class ExportSqlJobResultRequest {
     private 'job_id'?: string;
-    public body?: ExportSqlResultRequestBody;
+    public body?: ExportSqlJobResultRequestBody;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -17,7 +17,7 @@ export class ExportSqlJobResultRequest {
     public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withBody(body: ExportSqlResultRequestBody): ExportSqlJobResultRequest {
+    public withBody(body: ExportSqlJobResultRequestBody): ExportSqlJobResultRequest {
         this['body'] = body;
         return this;
     }

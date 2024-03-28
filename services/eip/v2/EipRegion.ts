@@ -24,7 +24,7 @@ export class EipRegion {
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://vpc.na-mexico-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://vpc.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://vpc.tr-west-1.myhuaweicloud.com"]);
-    public static EU_WEST_101 = new Region("eu-west-101", ["https://vpc.eu-west-101.myhuaweicloud.eu"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://vpc.eu-west-101.myhuaweicloud.com"]);
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://vpc.cn-south-4.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://vpc.me-east-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://vpc.eu-west-0.myhuaweicloud.com"]);

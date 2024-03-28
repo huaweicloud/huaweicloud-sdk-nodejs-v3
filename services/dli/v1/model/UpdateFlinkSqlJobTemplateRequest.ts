@@ -1,9 +1,9 @@
-import { UpdateFlinkTemplateRequestBody } from './UpdateFlinkTemplateRequestBody';
+import { UpdateFlinkSqlJobTemplateRequestBody } from './UpdateFlinkSqlJobTemplateRequestBody';
 
 
 export class UpdateFlinkSqlJobTemplateRequest {
     private 'template_id'?: number;
-    public body?: UpdateFlinkTemplateRequestBody;
+    public body?: UpdateFlinkSqlJobTemplateRequestBody;
     public constructor(templateId?: number) { 
         this['template_id'] = templateId;
     }
@@ -17,7 +17,7 @@ export class UpdateFlinkSqlJobTemplateRequest {
     public get templateId(): number | undefined {
         return this['template_id'];
     }
-    public withBody(body: UpdateFlinkTemplateRequestBody): UpdateFlinkSqlJobTemplateRequest {
+    public withBody(body: UpdateFlinkSqlJobTemplateRequestBody): UpdateFlinkSqlJobTemplateRequest {
         this['body'] = body;
         return this;
     }

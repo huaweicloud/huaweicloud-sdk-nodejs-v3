@@ -1,11 +1,11 @@
-import { CatalogEntity } from './CatalogEntity';
+import { Catalog } from './Catalog';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCatalogsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     private 'total_count'?: number;
-    public catalogs?: Array<CatalogEntity>;
+    public catalogs?: Array<Catalog>;
     public constructor() { 
         super();
     }
@@ -29,7 +29,7 @@ export class ListCatalogsResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withCatalogs(catalogs: Array<CatalogEntity>): ListCatalogsResponse {
+    public withCatalogs(catalogs: Array<Catalog>): ListCatalogsResponse {
         this['catalogs'] = catalogs;
         return this;
     }

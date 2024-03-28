@@ -1,5 +1,4 @@
 import { GcbProjectId } from './GcbProjectId';
-import { GcbRegionId } from './GcbRegionId';
 import { GcbResourceId } from './GcbResourceId';
 import { GcbResourceType } from './GcbResourceType';
 
@@ -7,9 +6,12 @@ import { GcbResourceType } from './GcbResourceType';
 export class DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
     private 'resource_id'?: string;
     private 'resource_type'?: string;
-    private 'region_id'?: string;
     private 'project_id'?: string;
-    public constructor() { 
+    private 'region_id'?: string;
+    public constructor(resourceId?: string, resourceType?: string, projectId?: string) { 
+        this['resource_id'] = resourceId;
+        this['resource_type'] = resourceType;
+        this['project_id'] = projectId;
     }
     public withResourceId(resourceId: string): DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
         this['resource_id'] = resourceId;
@@ -31,16 +33,6 @@ export class DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
     public get resourceType(): string | undefined {
         return this['resource_type'];
     }
-    public withRegionId(regionId: string): DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
-        this['region_id'] = regionId;
-        return this;
-    }
-    public set regionId(regionId: string  | undefined) {
-        this['region_id'] = regionId;
-    }
-    public get regionId(): string | undefined {
-        return this['region_id'];
-    }
     public withProjectId(projectId: string): DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
         this['project_id'] = projectId;
         return this;
@@ -50,5 +42,15 @@ export class DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withRegionId(regionId: string): DisassociateGlobalConnectionBandwidthInstanceRequestInfo {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
     }
 }

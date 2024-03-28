@@ -1,11 +1,11 @@
-import { CreateEnhancedConnectionsReq } from './CreateEnhancedConnectionsReq';
+import { CreateEnhancedConnectionRequestBody } from './CreateEnhancedConnectionRequestBody';
 
 
 export class CreateEnhancedConnectionRequest {
-    public body?: CreateEnhancedConnectionsReq;
+    public body?: CreateEnhancedConnectionRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateEnhancedConnectionsReq): CreateEnhancedConnectionRequest {
+    public withBody(body: CreateEnhancedConnectionRequestBody): CreateEnhancedConnectionRequest {
         this['body'] = body;
         return this;
     }

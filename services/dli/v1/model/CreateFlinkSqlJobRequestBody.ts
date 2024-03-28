@@ -1,4 +1,4 @@
-import { TmsTagEntity } from './TmsTagEntity';
+import { Tag } from './Tag';
 
 
 export class CreateFlinkSqlJobRequestBody {
@@ -25,7 +25,7 @@ export class CreateFlinkSqlJobRequestBody {
     private 'manager_cu_number'?: number;
     private 'tm_cus'?: number;
     private 'tm_slot_num'?: number;
-    public tags?: Array<TmsTagEntity>;
+    public tags?: Array<Tag>;
     private 'resume_checkpoint'?: boolean;
     private 'resume_max_num'?: number;
     private 'runtime_config'?: string;
@@ -251,7 +251,7 @@ export class CreateFlinkSqlJobRequestBody {
     public get tmSlotNum(): number | undefined {
         return this['tm_slot_num'];
     }
-    public withTags(tags: Array<TmsTagEntity>): CreateFlinkSqlJobRequestBody {
+    public withTags(tags: Array<Tag>): CreateFlinkSqlJobRequestBody {
         this['tags'] = tags;
         return this;
     }

@@ -12,6 +12,7 @@ export class UpdateApiGroupV2Response extends SdkResponse {
     private 'update_time'?: Date;
     private 'on_sell_status'?: number;
     private 'url_domains'?: Array<UrlDomain>;
+    private 'sl_domain_access_enabled'?: boolean;
     private 'sl_domains'?: Array<string>;
     public remark?: string;
     private 'call_limits'?: number;
@@ -92,6 +93,16 @@ export class UpdateApiGroupV2Response extends SdkResponse {
     }
     public get urlDomains(): Array<UrlDomain> | undefined {
         return this['url_domains'];
+    }
+    public withSlDomainAccessEnabled(slDomainAccessEnabled: boolean): UpdateApiGroupV2Response {
+        this['sl_domain_access_enabled'] = slDomainAccessEnabled;
+        return this;
+    }
+    public set slDomainAccessEnabled(slDomainAccessEnabled: boolean  | undefined) {
+        this['sl_domain_access_enabled'] = slDomainAccessEnabled;
+    }
+    public get slDomainAccessEnabled(): boolean | undefined {
+        return this['sl_domain_access_enabled'];
     }
     public withSlDomains(slDomains: Array<string>): UpdateApiGroupV2Response {
         this['sl_domains'] = slDomains;

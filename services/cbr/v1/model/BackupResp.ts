@@ -26,6 +26,7 @@ export class BackupResp {
     private 'enterprise_project_id'?: string;
     private 'provider_id'?: string;
     public children?: Array<BackupResp>;
+    public incremental?: boolean;
     public constructor(checkpointId?: string, createdAt?: Date, description?: string, expiredAt?: Date, extendInfo?: BackupExtendInfo, id?: string, imageType?: string, name?: string, parentId?: string, projectId?: string, protectedAt?: string, resourceAz?: string, resourceId?: string, resourceName?: string, resourceSize?: number, resourceType?: string, status?: string, updatedAt?: Date, vaultId?: string, providerId?: string) { 
         this['checkpoint_id'] = checkpointId;
         this['created_at'] = createdAt;
@@ -246,6 +247,10 @@ export class BackupResp {
     }
     public withChildren(children: Array<BackupResp>): BackupResp {
         this['children'] = children;
+        return this;
+    }
+    public withIncremental(incremental: boolean): BackupResp {
+        this['incremental'] = incremental;
         return this;
     }
 }

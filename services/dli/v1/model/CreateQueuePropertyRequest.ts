@@ -1,9 +1,9 @@
-import { InsertQueuePropertyRequestBody } from './InsertQueuePropertyRequestBody';
+import { CreateQueuePropertyRequestBody } from './CreateQueuePropertyRequestBody';
 
 
 export class CreateQueuePropertyRequest {
     private 'queue_name'?: string;
-    public body?: InsertQueuePropertyRequestBody;
+    public body?: CreateQueuePropertyRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class CreateQueuePropertyRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: InsertQueuePropertyRequestBody): CreateQueuePropertyRequest {
+    public withBody(body: CreateQueuePropertyRequestBody): CreateQueuePropertyRequest {
         this['body'] = body;
         return this;
     }

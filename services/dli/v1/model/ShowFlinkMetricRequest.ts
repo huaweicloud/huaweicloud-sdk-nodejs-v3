@@ -1,11 +1,11 @@
-import { ShowJobMonitorInfoReq } from './ShowJobMonitorInfoReq';
+import { ShowFlinkMetricRequestBody } from './ShowFlinkMetricRequestBody';
 
 
 export class ShowFlinkMetricRequest {
-    public body?: ShowJobMonitorInfoReq;
+    public body?: ShowFlinkMetricRequestBody;
     public constructor() { 
     }
-    public withBody(body: ShowJobMonitorInfoReq): ShowFlinkMetricRequest {
+    public withBody(body: ShowFlinkMetricRequestBody): ShowFlinkMetricRequest {
         this['body'] = body;
         return this;
     }

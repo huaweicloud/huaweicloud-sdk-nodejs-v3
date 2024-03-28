@@ -208,17 +208,21 @@ export enum CreatePostPaidInstanceReqEngineEnum {
     * @enum {string}
     */
 export enum CreatePostPaidInstanceReqEngineVersionEnum {
-    E_4_8_0 = '4.8.0'
+    E_4_8_0_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMHK_TM_5_X_TAGHCS = '[4.8.0](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)[5.x](tag:hcs)'
 }
 /**
     * @export
     * @enum {string}
     */
 export enum CreatePostPaidInstanceReqProductIdEnum {
-    C6_4U8G_CLUSTER = 'c6.4u8g.cluster',
-    C6_8U16G_CLUSTER = 'c6.8u16g.cluster',
-    C6_12U24G_CLUSTER = 'c6.12u24g.cluster',
-    C6_16U32G_CLUSTER = 'c6.16u32g.cluster'
+    C6_4U8G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMHK_TM_C6_4U16G_CLUSTER_X86_TAGHCS = '[c6.4u8g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)[c6.4u16g.cluster.x86](tag:hcs)',
+    C6_8U16G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMHK_TM_C6_8U32G_CLUSTER_X86_TAGHCS = '[c6.8u16g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)[c6.8u32g.cluster.x86](tag:hcs)',
+    C6_12U24G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMHK_TM_C6_16U64G_CLUSTER_X86_TAGHCS = '[c6.12u24g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)[c6.16u64g.cluster.x86](tag:hcs)',
+    C6_16U32G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMHK_TM_C6_32U128G_CLUSTER_X86_TAGHCS = '[c6.16u32g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm)[c6.32u128g.cluster.x86](tag:hcs)',
+    C6_4U16G_CLUSTER_ARM_TAGHCS = '[c6.4u16g.cluster.arm](tag:hcs)',
+    C6_8U32G_CLUSTER_ARM_TAGHCS = '[c6.8u32g.cluster.arm](tag:hcs)',
+    C6_16U64G_CLUSTER_ARM_TAGHCS = '[c6.16u64g.cluster.arm](tag:hcs)',
+    C6_32U128G_CLUSTER_ARM_TAGHCS = '[c6.32u128g.cluster.arm](tag:hcs)'
 }
 /**
     * @export

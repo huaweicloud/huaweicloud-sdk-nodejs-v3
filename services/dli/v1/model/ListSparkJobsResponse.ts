@@ -1,11 +1,11 @@
-import { ShowBatchJobDetailResp } from './ShowBatchJobDetailResp';
+import { SparkJobSession } from './SparkJobSession';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSparkJobsResponse extends SdkResponse {
     public from?: number;
     public total?: number;
-    public sessions?: Array<ShowBatchJobDetailResp>;
+    public sessions?: Array<SparkJobSession>;
     private 'create_time'?: number;
     public constructor() { 
         super();
@@ -18,7 +18,7 @@ export class ListSparkJobsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withSessions(sessions: Array<ShowBatchJobDetailResp>): ListSparkJobsResponse {
+    public withSessions(sessions: Array<SparkJobSession>): ListSparkJobsResponse {
         this['sessions'] = sessions;
         return this;
     }

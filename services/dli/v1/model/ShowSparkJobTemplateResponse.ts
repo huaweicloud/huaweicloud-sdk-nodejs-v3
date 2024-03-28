@@ -1,4 +1,4 @@
-import { BatchJobInfo } from './BatchJobInfo';
+import { SparkJobTemplateDetail } from './SparkJobTemplateDetail';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ShowSparkJobTemplateResponse extends SdkResponse {
     public type?: string;
     public id?: string;
     public name?: string;
-    public body?: BatchJobInfo;
+    public body?: SparkJobTemplateDetail;
     public group?: string;
     public description?: string;
     public language?: string;
@@ -26,7 +26,7 @@ export class ShowSparkJobTemplateResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withBody(body: BatchJobInfo): ShowSparkJobTemplateResponse {
+    public withBody(body: SparkJobTemplateDetail): ShowSparkJobTemplateResponse {
         this['body'] = body;
         return this;
     }

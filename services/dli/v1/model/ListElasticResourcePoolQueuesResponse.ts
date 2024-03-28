@@ -1,11 +1,11 @@
-import { QueueInfo } from './QueueInfo';
+import { ElasticResourcePoolQueue } from './ElasticResourcePoolQueue';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListElasticResourcePoolQueuesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public queues?: Array<QueueInfo>;
+    public queues?: Array<ElasticResourcePoolQueue>;
     public count?: number;
     public constructor() { 
         super();
@@ -24,7 +24,7 @@ export class ListElasticResourcePoolQueuesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withQueues(queues: Array<QueueInfo>): ListElasticResourcePoolQueuesResponse {
+    public withQueues(queues: Array<ElasticResourcePoolQueue>): ListElasticResourcePoolQueuesResponse {
         this['queues'] = queues;
         return this;
     }

@@ -1,9 +1,9 @@
-import { RunQueueActionReq } from './RunQueueActionReq';
+import { RunQueueActionRequestBody } from './RunQueueActionRequestBody';
 
 
 export class RunQueueActionRequest {
     private 'queue_name'?: string;
-    public body?: RunQueueActionReq;
+    public body?: RunQueueActionRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class RunQueueActionRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: RunQueueActionReq): RunQueueActionRequest {
+    public withBody(body: RunQueueActionRequestBody): RunQueueActionRequest {
         this['body'] = body;
         return this;
     }

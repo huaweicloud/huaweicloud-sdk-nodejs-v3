@@ -7,6 +7,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class UpdateNotificationResponse extends SdkResponse {
     private 'notification_name'?: string;
     private 'operation_type'?: UpdateNotificationResponseOperationTypeEnum | string;
+    private 'agency_name'?: UpdateNotificationResponseAgencyNameEnum | string;
     public operations?: Array<Operations>;
     private 'notify_user_list'?: Array<NotificationUsers>;
     public status?: UpdateNotificationResponseStatusEnum | string;
@@ -38,6 +39,16 @@ export class UpdateNotificationResponse extends SdkResponse {
     }
     public get operationType(): UpdateNotificationResponseOperationTypeEnum | string | undefined {
         return this['operation_type'];
+    }
+    public withAgencyName(agencyName: UpdateNotificationResponseAgencyNameEnum | string): UpdateNotificationResponse {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: UpdateNotificationResponseAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): UpdateNotificationResponseAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withOperations(operations: Array<Operations>): UpdateNotificationResponse {
         this['operations'] = operations;
@@ -120,6 +131,13 @@ export class UpdateNotificationResponse extends SdkResponse {
 export enum UpdateNotificationResponseOperationTypeEnum {
     CUSTOMIZED = 'customized',
     COMPLETE = 'complete'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateNotificationResponseAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }
 /**
     * @export

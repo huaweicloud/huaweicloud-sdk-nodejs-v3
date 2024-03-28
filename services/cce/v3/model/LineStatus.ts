@@ -1,17 +1,17 @@
-import { TaskType } from './TaskType';
+import { Point } from './Point';
 
 
 export class LineStatus {
-    public startPoint?: TaskType;
-    public endPoint?: TaskType;
+    public startPoint?: Point;
+    public endPoint?: Point;
     public critical?: string;
     public constructor() { 
     }
-    public withStartPoint(startPoint: TaskType): LineStatus {
+    public withStartPoint(startPoint: Point): LineStatus {
         this['startPoint'] = startPoint;
         return this;
     }
-    public withEndPoint(endPoint: TaskType): LineStatus {
+    public withEndPoint(endPoint: Point): LineStatus {
         this['endPoint'] = endPoint;
         return this;
     }

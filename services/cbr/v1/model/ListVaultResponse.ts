@@ -7,7 +7,6 @@ export class ListVaultResponse extends SdkResponse {
     public count?: number;
     public limit?: number;
     public offset?: number;
-    private 'sys_lock_source_service'?: string;
     public constructor() { 
         super();
     }
@@ -26,15 +25,5 @@ export class ListVaultResponse extends SdkResponse {
     public withOffset(offset: number): ListVaultResponse {
         this['offset'] = offset;
         return this;
-    }
-    public withSysLockSourceService(sysLockSourceService: string): ListVaultResponse {
-        this['sys_lock_source_service'] = sysLockSourceService;
-        return this;
-    }
-    public set sysLockSourceService(sysLockSourceService: string  | undefined) {
-        this['sys_lock_source_service'] = sysLockSourceService;
-    }
-    public get sysLockSourceService(): string | undefined {
-        return this['sys_lock_source_service'];
     }
 }

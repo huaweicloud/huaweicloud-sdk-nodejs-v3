@@ -30,7 +30,8 @@ export enum PutCopyStateReqCopystateEnum {
     DELETING = 'DELETING',
     ERROR = 'ERROR',
     CLONING = 'CLONING',
-    CUTOVERING = 'CUTOVERING'
+    CUTOVERING = 'CUTOVERING',
+    FINISHED = 'FINISHED'
 }
 /**
     * @export

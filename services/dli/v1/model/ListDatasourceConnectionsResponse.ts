@@ -1,11 +1,11 @@
-import { ShowDatasourceConnectionResp } from './ShowDatasourceConnectionResp';
+import { DatasourceConnection } from './DatasourceConnection';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDatasourceConnectionsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public connections?: Array<ShowDatasourceConnectionResp>;
+    public connections?: Array<DatasourceConnection>;
     public count?: number;
     public constructor() { 
         super();
@@ -24,7 +24,7 @@ export class ListDatasourceConnectionsResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withConnections(connections: Array<ShowDatasourceConnectionResp>): ListDatasourceConnectionsResponse {
+    public withConnections(connections: Array<DatasourceConnection>): ListDatasourceConnectionsResponse {
         this['connections'] = connections;
         return this;
     }

@@ -1,9 +1,9 @@
-import { QueuePlanIds } from './QueuePlanIds';
+import { BatchDeleteQueuePlansRequestBody } from './BatchDeleteQueuePlansRequestBody';
 
 
 export class BatchDeleteQueuePlansRequest {
     private 'queue_name'?: string;
-    public body?: QueuePlanIds;
+    public body?: BatchDeleteQueuePlansRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class BatchDeleteQueuePlansRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: QueuePlanIds): BatchDeleteQueuePlansRequest {
+    public withBody(body: BatchDeleteQueuePlansRequestBody): BatchDeleteQueuePlansRequest {
         this['body'] = body;
         return this;
     }

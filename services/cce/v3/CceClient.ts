@@ -32,7 +32,6 @@ import { ChartValueValues } from './model/ChartValueValues';
 import { Cluster } from './model/Cluster';
 import { ClusterCert } from './model/ClusterCert';
 import { ClusterCheckStatus } from './model/ClusterCheckStatus';
-import { ClusterConfigDetailRespBody } from './model/ClusterConfigDetailRespBody';
 import { ClusterConfigurationsSpec } from './model/ClusterConfigurationsSpec';
 import { ClusterConfigurationsSpecPackages } from './model/ClusterConfigurationsSpecPackages';
 import { ClusterEndpoints } from './model/ClusterEndpoints';
@@ -286,7 +285,6 @@ import { ShowClusterUpgradeInfoResponse } from './model/ShowClusterUpgradeInfoRe
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowNodePoolConfigurationDetailsRequest } from './model/ShowNodePoolConfigurationDetailsRequest';
-import { ShowNodePoolConfigurationDetailsRespBody } from './model/ShowNodePoolConfigurationDetailsRespBody';
 import { ShowNodePoolConfigurationDetailsResponse } from './model/ShowNodePoolConfigurationDetailsResponse';
 import { ShowNodePoolConfigurationsRequest } from './model/ShowNodePoolConfigurationsRequest';
 import { ShowNodePoolConfigurationsResponse } from './model/ShowNodePoolConfigurationsResponse';
@@ -861,6 +859,7 @@ export class CceClient {
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteObs] 是否删除obs（对象存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs] 是否删除sfs（文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs30] 是否删除sfs3.0（文件存储卷3.0）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [ltsReclaimPolicy] 是否删除LTS LogStream（日志流）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true'} [tobedeleted] 是否使用包周期集群删除参数预置模式（仅对包周期集群生效）。  需要和其他删除选项参数一起使用，未指定的参数，则使用默认值。  使用该参数，集群不执行真正的删除，仅将本次请求的全部query参数都预置到集群数据库中，用于包周期集群退订时识别用户要删除的资源。  允许重复执行，覆盖预置的删除参数。  枚举取值： - true  (预置模式，仅预置query参数，不执行删除)
      * @param {'delete' | 'reset' | 'retain'} [ondemandNodePolicy] 集群下所有按需节点处理策略， 枚举取值： - delete (删除服务器) - reset (保留服务器并重置服务器，数据不保留) - retain （保留服务器不重置服务器，数据保留）
      * @param {'reset' | 'retain'} [periodicNodePolicy] 集群下所有包周期节点处理策略， 枚举取值： - reset (保留服务器并重置服务器，数据不保留) - retain （保留服务器不重置服务器，数据保留）
@@ -3239,6 +3238,8 @@ export const ParamCreater = function () {
             
             let deleteSfs30;
             
+            let ltsReclaimPolicy;
+            
             let tobedeleted;
             
             let ondemandNodePolicy;
@@ -3256,6 +3257,7 @@ export const ParamCreater = function () {
                     deleteObs = deleteClusterRequest.deleteObs;
                     deleteSfs = deleteClusterRequest.deleteSfs;
                     deleteSfs30 = deleteClusterRequest.deleteSfs30;
+                    ltsReclaimPolicy = deleteClusterRequest.ltsReclaimPolicy;
                     tobedeleted = deleteClusterRequest.tobedeleted;
                     ondemandNodePolicy = deleteClusterRequest.ondemandNodePolicy;
                     periodicNodePolicy = deleteClusterRequest.periodicNodePolicy;
@@ -3269,6 +3271,7 @@ export const ParamCreater = function () {
                     deleteObs = deleteClusterRequest['delete_obs'];
                     deleteSfs = deleteClusterRequest['delete_sfs'];
                     deleteSfs30 = deleteClusterRequest['delete_sfs30'];
+                    ltsReclaimPolicy = deleteClusterRequest['lts_reclaim_policy'];
                     tobedeleted = deleteClusterRequest['tobedeleted'];
                     ondemandNodePolicy = deleteClusterRequest['ondemand_node_policy'];
                     periodicNodePolicy = deleteClusterRequest['periodic_node_policy'];
@@ -3299,6 +3302,9 @@ export const ParamCreater = function () {
             }
             if (deleteSfs30 !== null && deleteSfs30 !== undefined) {
                 localVarQueryParameter['delete_sfs30'] = deleteSfs30;
+            }
+            if (ltsReclaimPolicy !== null && ltsReclaimPolicy !== undefined) {
+                localVarQueryParameter['lts_reclaim_policy'] = ltsReclaimPolicy;
             }
             if (tobedeleted !== null && tobedeleted !== undefined) {
                 localVarQueryParameter['tobedeleted'] = tobedeleted;

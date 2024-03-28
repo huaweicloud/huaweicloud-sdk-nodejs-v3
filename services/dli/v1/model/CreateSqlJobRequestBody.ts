@@ -1,18 +1,29 @@
-import { TmsTagEntity } from './TmsTagEntity';
+import { Tag } from './Tag';
 
 
 export class CreateSqlJobRequestBody {
     public sql?: string;
+    private 'engine_type'?: string;
     public currentdb?: string;
     private 'queue_name'?: string;
     public conf?: Array<string>;
-    public tags?: Array<TmsTagEntity>;
+    public tags?: Array<Tag>;
     public constructor(sql?: string) { 
         this['sql'] = sql;
     }
     public withSql(sql: string): CreateSqlJobRequestBody {
         this['sql'] = sql;
         return this;
+    }
+    public withEngineType(engineType: string): CreateSqlJobRequestBody {
+        this['engine_type'] = engineType;
+        return this;
+    }
+    public set engineType(engineType: string  | undefined) {
+        this['engine_type'] = engineType;
+    }
+    public get engineType(): string | undefined {
+        return this['engine_type'];
     }
     public withCurrentdb(currentdb: string): CreateSqlJobRequestBody {
         this['currentdb'] = currentdb;
@@ -32,7 +43,7 @@ export class CreateSqlJobRequestBody {
         this['conf'] = conf;
         return this;
     }
-    public withTags(tags: Array<TmsTagEntity>): CreateSqlJobRequestBody {
+    public withTags(tags: Array<Tag>): CreateSqlJobRequestBody {
         this['tags'] = tags;
         return this;
     }

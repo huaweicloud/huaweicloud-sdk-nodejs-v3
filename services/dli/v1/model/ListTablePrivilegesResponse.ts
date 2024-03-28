@@ -1,4 +1,4 @@
-import { TableUserPermissionsRespPrivilege } from './TableUserPermissionsRespPrivilege';
+import { TablePrivilege } from './TablePrivilege';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListTablePrivilegesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'user_name'?: string;
-    public privileges?: Array<TableUserPermissionsRespPrivilege>;
+    public privileges?: Array<TablePrivilege>;
     public constructor() { 
         super();
     }
@@ -34,7 +34,7 @@ export class ListTablePrivilegesResponse extends SdkResponse {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withPrivileges(privileges: Array<TableUserPermissionsRespPrivilege>): ListTablePrivilegesResponse {
+    public withPrivileges(privileges: Array<TablePrivilege>): ListTablePrivilegesResponse {
         this['privileges'] = privileges;
         return this;
     }

@@ -10,6 +10,7 @@ export class TrackerResponseBody {
     private 'kms_id'?: string;
     private 'is_support_validate'?: boolean;
     private 'is_organization_tracker'?: boolean;
+    private 'agency_name'?: TrackerResponseBodyAgencyNameEnum | string;
     private 'management_event_selector'?: ManagementEventSelector;
     public lts?: Lts;
     private 'tracker_type'?: TrackerResponseBodyTrackerTypeEnum | string;
@@ -68,6 +69,16 @@ export class TrackerResponseBody {
     }
     public get isOrganizationTracker(): boolean | undefined {
         return this['is_organization_tracker'];
+    }
+    public withAgencyName(agencyName: TrackerResponseBodyAgencyNameEnum | string): TrackerResponseBody {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: TrackerResponseBodyAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): TrackerResponseBodyAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withManagementEventSelector(managementEventSelector: ManagementEventSelector): TrackerResponseBody {
         this['management_event_selector'] = managementEventSelector;
@@ -183,6 +194,13 @@ export class TrackerResponseBody {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TrackerResponseBodyAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
+}
 /**
     * @export
     * @enum {string}

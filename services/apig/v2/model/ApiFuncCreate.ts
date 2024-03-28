@@ -9,6 +9,7 @@ export class ApiFuncCreate {
     private 'alias_urn'?: string;
     public timeout?: number;
     private 'authorizer_id'?: string;
+    private 'req_protocol'?: ApiFuncCreateReqProtocolEnum | string;
     public constructor(functionUrn?: string, invocationType?: string, networkType?: string, timeout?: number) { 
         this['function_urn'] = functionUrn;
         this['invocation_type'] = invocationType;
@@ -77,6 +78,16 @@ export class ApiFuncCreate {
     public get authorizerId(): string | undefined {
         return this['authorizer_id'];
     }
+    public withReqProtocol(reqProtocol: ApiFuncCreateReqProtocolEnum | string): ApiFuncCreate {
+        this['req_protocol'] = reqProtocol;
+        return this;
+    }
+    public set reqProtocol(reqProtocol: ApiFuncCreateReqProtocolEnum | string  | undefined) {
+        this['req_protocol'] = reqProtocol;
+    }
+    public get reqProtocol(): ApiFuncCreateReqProtocolEnum | string | undefined {
+        return this['req_protocol'];
+    }
 }
 
 /**
@@ -94,4 +105,12 @@ export enum ApiFuncCreateInvocationTypeEnum {
 export enum ApiFuncCreateNetworkTypeEnum {
     V1 = 'V1',
     V2 = 'V2'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiFuncCreateReqProtocolEnum {
+    HTTPS = 'HTTPS',
+    GRPCS = 'GRPCS'
 }

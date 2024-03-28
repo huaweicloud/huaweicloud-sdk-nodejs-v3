@@ -1,11 +1,11 @@
-import { ShowJobMonitorInfoRespPayload } from './ShowJobMonitorInfoRespPayload';
+import { FlinkMetric } from './FlinkMetric';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFlinkMetricResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public metrics?: ShowJobMonitorInfoRespPayload;
+    public metrics?: FlinkMetric;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class ShowFlinkMetricResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withMetrics(metrics: ShowJobMonitorInfoRespPayload): ShowFlinkMetricResponse {
+    public withMetrics(metrics: FlinkMetric): ShowFlinkMetricResponse {
         this['metrics'] = metrics;
         return this;
     }

@@ -8,7 +8,7 @@ export class PreviewSqlJobResultResponse extends SdkResponse {
     private 'job_type'?: PreviewSqlJobResultResponseJobTypeEnum | string;
     private 'row_count'?: number;
     private 'input_size'?: number;
-    public schema?: Array<object>;
+    public schema?: Array<{ [key: string]: string; }>;
     public rows?: Array<Array<object>>;
     public constructor() { 
         super();
@@ -67,7 +67,7 @@ export class PreviewSqlJobResultResponse extends SdkResponse {
     public get inputSize(): number | undefined {
         return this['input_size'];
     }
-    public withSchema(schema: Array<object>): PreviewSqlJobResultResponse {
+    public withSchema(schema: Array<{ [key: string]: string; }>): PreviewSqlJobResultResponse {
         this['schema'] = schema;
         return this;
     }

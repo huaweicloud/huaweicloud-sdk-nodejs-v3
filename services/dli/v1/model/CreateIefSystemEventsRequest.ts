@@ -1,11 +1,11 @@
-import { IefSystemEventsReq } from './IefSystemEventsReq';
+import { CreateIefSystemEventsRequestBody } from './CreateIefSystemEventsRequestBody';
 
 
 export class CreateIefSystemEventsRequest {
-    public body?: IefSystemEventsReq;
+    public body?: CreateIefSystemEventsRequestBody;
     public constructor() { 
     }
-    public withBody(body: IefSystemEventsReq): CreateIefSystemEventsRequest {
+    public withBody(body: CreateIefSystemEventsRequestBody): CreateIefSystemEventsRequest {
         this['body'] = body;
         return this;
     }

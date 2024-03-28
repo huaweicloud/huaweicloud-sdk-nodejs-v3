@@ -134,6 +134,7 @@ export class ListSqlJobsRequest {
     * @enum {string}
     */
 export enum ListSqlJobsRequestJobTypeEnum {
+    ALL = 'ALL',
     DDL = 'DDL',
     DCL = 'DCL',
     IMPORT = 'IMPORT',

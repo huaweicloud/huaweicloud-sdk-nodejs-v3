@@ -1,9 +1,9 @@
-import { DisassociateConnectionQueueReq } from './DisassociateConnectionQueueReq';
+import { DisassociateQueueFromEnhancedConnectionRequestBody } from './DisassociateQueueFromEnhancedConnectionRequestBody';
 
 
 export class DisassociateQueueFromEnhancedConnectionRequest {
     private 'connection_id'?: string;
-    public body?: DisassociateConnectionQueueReq;
+    public body?: DisassociateQueueFromEnhancedConnectionRequestBody;
     public constructor(connectionId?: string) { 
         this['connection_id'] = connectionId;
     }
@@ -17,7 +17,7 @@ export class DisassociateQueueFromEnhancedConnectionRequest {
     public get connectionId(): string | undefined {
         return this['connection_id'];
     }
-    public withBody(body: DisassociateConnectionQueueReq): DisassociateQueueFromEnhancedConnectionRequest {
+    public withBody(body: DisassociateQueueFromEnhancedConnectionRequestBody): DisassociateQueueFromEnhancedConnectionRequest {
         this['body'] = body;
         return this;
     }

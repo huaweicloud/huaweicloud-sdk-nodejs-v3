@@ -1,11 +1,11 @@
-import { UpdateJobRespJob } from './UpdateJobRespJob';
+import { FlinkJobUpdateTime } from './FlinkJobUpdateTime';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateFlinkJarJobResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public job?: UpdateJobRespJob;
+    public job?: FlinkJobUpdateTime;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class UpdateFlinkJarJobResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withJob(job: UpdateJobRespJob): UpdateFlinkJarJobResponse {
+    public withJob(job: FlinkJobUpdateTime): UpdateFlinkJarJobResponse {
         this['job'] = job;
         return this;
     }

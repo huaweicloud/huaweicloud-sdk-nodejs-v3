@@ -19,7 +19,7 @@ export class SmartConnectTaskRespSourceConfig {
     private 'sync_consumer_offsets_enabled'?: boolean;
     private 'replication_factor'?: number;
     private 'task_num'?: number;
-    private 'rename_topic_enable'?: boolean;
+    private 'rename_topic_enabled'?: boolean;
     private 'provenance_header_enabled'?: boolean;
     private 'consumer_strategy'?: string;
     private 'compression_type'?: string;
@@ -194,15 +194,15 @@ export class SmartConnectTaskRespSourceConfig {
     public get taskNum(): number | undefined {
         return this['task_num'];
     }
-    public withRenameTopicEnable(renameTopicEnable: boolean): SmartConnectTaskRespSourceConfig {
-        this['rename_topic_enable'] = renameTopicEnable;
+    public withRenameTopicEnabled(renameTopicEnabled: boolean): SmartConnectTaskRespSourceConfig {
+        this['rename_topic_enabled'] = renameTopicEnabled;
         return this;
     }
-    public set renameTopicEnable(renameTopicEnable: boolean  | undefined) {
-        this['rename_topic_enable'] = renameTopicEnable;
+    public set renameTopicEnabled(renameTopicEnabled: boolean  | undefined) {
+        this['rename_topic_enabled'] = renameTopicEnabled;
     }
-    public get renameTopicEnable(): boolean | undefined {
-        return this['rename_topic_enable'];
+    public get renameTopicEnabled(): boolean | undefined {
+        return this['rename_topic_enabled'];
     }
     public withProvenanceHeaderEnabled(provenanceHeaderEnabled: boolean): SmartConnectTaskRespSourceConfig {
         this['provenance_header_enabled'] = provenanceHeaderEnabled;

@@ -1,9 +1,9 @@
-import { UpdateFlinkSqlRequestBody } from './UpdateFlinkSqlRequestBody';
+import { UpdateFlinkSqlJobRequestBody } from './UpdateFlinkSqlJobRequestBody';
 
 
 export class UpdateFlinkSqlJobRequest {
     private 'job_id'?: number;
-    public body?: UpdateFlinkSqlRequestBody;
+    public body?: UpdateFlinkSqlJobRequestBody;
     public constructor(jobId?: number) { 
         this['job_id'] = jobId;
     }
@@ -17,7 +17,7 @@ export class UpdateFlinkSqlJobRequest {
     public get jobId(): number | undefined {
         return this['job_id'];
     }
-    public withBody(body: UpdateFlinkSqlRequestBody): UpdateFlinkSqlJobRequest {
+    public withBody(body: UpdateFlinkSqlJobRequestBody): UpdateFlinkSqlJobRequest {
         this['body'] = body;
         return this;
     }

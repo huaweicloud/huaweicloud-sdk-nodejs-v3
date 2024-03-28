@@ -1,4 +1,4 @@
-import { PrivilegesInfo } from './PrivilegesInfo';
+import { QueueUserPrivilege } from './QueueUserPrivilege';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListQueueUsersResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'queue_name'?: string;
-    public privileges?: Array<PrivilegesInfo>;
+    public privileges?: Array<QueueUserPrivilege>;
     public constructor() { 
         super();
     }
@@ -34,7 +34,7 @@ export class ListQueueUsersResponse extends SdkResponse {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withPrivileges(privileges: Array<PrivilegesInfo>): ListQueueUsersResponse {
+    public withPrivileges(privileges: Array<QueueUserPrivilege>): ListQueueUsersResponse {
         this['privileges'] = privileges;
         return this;
     }

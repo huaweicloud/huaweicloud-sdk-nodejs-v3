@@ -1,9 +1,9 @@
-import { UpdateQueueCidrReq } from './UpdateQueueCidrReq';
+import { UpdateQueueCidrRequestBody } from './UpdateQueueCidrRequestBody';
 
 
 export class UpdateQueueCidrRequest {
     private 'queue_name'?: string;
-    public body?: UpdateQueueCidrReq;
+    public body?: UpdateQueueCidrRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class UpdateQueueCidrRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: UpdateQueueCidrReq): UpdateQueueCidrRequest {
+    public withBody(body: UpdateQueueCidrRequestBody): UpdateQueueCidrRequest {
         this['body'] = body;
         return this;
     }

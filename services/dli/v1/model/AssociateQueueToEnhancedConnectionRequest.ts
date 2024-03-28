@@ -1,9 +1,9 @@
-import { AssociateConnectionQueueReq } from './AssociateConnectionQueueReq';
+import { AssociateQueueToEnhancedConnectionRequestBody } from './AssociateQueueToEnhancedConnectionRequestBody';
 
 
 export class AssociateQueueToEnhancedConnectionRequest {
     private 'connection_id'?: string;
-    public body?: AssociateConnectionQueueReq;
+    public body?: AssociateQueueToEnhancedConnectionRequestBody;
     public constructor(connectionId?: string) { 
         this['connection_id'] = connectionId;
     }
@@ -17,7 +17,7 @@ export class AssociateQueueToEnhancedConnectionRequest {
     public get connectionId(): string | undefined {
         return this['connection_id'];
     }
-    public withBody(body: AssociateConnectionQueueReq): AssociateQueueToEnhancedConnectionRequest {
+    public withBody(body: AssociateQueueToEnhancedConnectionRequestBody): AssociateQueueToEnhancedConnectionRequest {
         this['body'] = body;
         return this;
     }

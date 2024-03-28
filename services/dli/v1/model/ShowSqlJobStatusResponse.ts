@@ -1,4 +1,4 @@
-import { TmsTagEntity } from './TmsTagEntity';
+import { Tag } from './Tag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -24,7 +24,7 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'job_mode'?: string;
-    public tags?: Array<TmsTagEntity>;
+    public tags?: Array<Tag>;
     public constructor() { 
         super();
     }
@@ -202,7 +202,7 @@ export class ShowSqlJobStatusResponse extends SdkResponse {
     public get jobMode(): string | undefined {
         return this['job_mode'];
     }
-    public withTags(tags: Array<TmsTagEntity>): ShowSqlJobStatusResponse {
+    public withTags(tags: Array<Tag>): ShowSqlJobStatusResponse {
         this['tags'] = tags;
         return this;
     }

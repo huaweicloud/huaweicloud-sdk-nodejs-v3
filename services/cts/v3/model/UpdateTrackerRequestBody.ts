@@ -6,6 +6,7 @@ import { TrackerObsInfo } from './TrackerObsInfo';
 export class UpdateTrackerRequestBody {
     private 'tracker_type'?: UpdateTrackerRequestBodyTrackerTypeEnum | string;
     private 'tracker_name'?: string;
+    private 'agency_name'?: UpdateTrackerRequestBodyAgencyNameEnum | string;
     public status?: UpdateTrackerRequestBodyStatusEnum | string;
     private 'is_organization_tracker'?: boolean;
     private 'management_event_selector'?: ManagementEventSelector;
@@ -38,6 +39,16 @@ export class UpdateTrackerRequestBody {
     }
     public get trackerName(): string | undefined {
         return this['tracker_name'];
+    }
+    public withAgencyName(agencyName: UpdateTrackerRequestBodyAgencyNameEnum | string): UpdateTrackerRequestBody {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: UpdateTrackerRequestBodyAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): UpdateTrackerRequestBodyAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withStatus(status: UpdateTrackerRequestBodyStatusEnum | string): UpdateTrackerRequestBody {
         this['status'] = status;
@@ -132,6 +143,13 @@ export class UpdateTrackerRequestBody {
 export enum UpdateTrackerRequestBodyTrackerTypeEnum {
     SYSTEM = 'system',
     DATA = 'data'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateTrackerRequestBodyAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }
 /**
     * @export

@@ -9,6 +9,7 @@ export class CreateNotificationResponse extends SdkResponse {
     private 'operation_type'?: CreateNotificationResponseOperationTypeEnum | string;
     public operations?: Array<Operations>;
     private 'notify_user_list'?: Array<NotificationUsers>;
+    private 'agency_name'?: CreateNotificationResponseAgencyNameEnum | string;
     public status?: CreateNotificationResponseStatusEnum | string;
     private 'topic_id'?: string;
     private 'notification_id'?: string;
@@ -52,6 +53,16 @@ export class CreateNotificationResponse extends SdkResponse {
     }
     public get notifyUserList(): Array<NotificationUsers> | undefined {
         return this['notify_user_list'];
+    }
+    public withAgencyName(agencyName: CreateNotificationResponseAgencyNameEnum | string): CreateNotificationResponse {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: CreateNotificationResponseAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): CreateNotificationResponseAgencyNameEnum | string | undefined {
+        return this['agency_name'];
     }
     public withStatus(status: CreateNotificationResponseStatusEnum | string): CreateNotificationResponse {
         this['status'] = status;
@@ -120,6 +131,13 @@ export class CreateNotificationResponse extends SdkResponse {
 export enum CreateNotificationResponseOperationTypeEnum {
     CUSTOMIZED = 'customized',
     COMPLETE = 'complete'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateNotificationResponseAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }
 /**
     * @export

@@ -2,12 +2,12 @@
 
 export class PackageOptions {
     public name?: string;
-    private 'default'?: string;
+    private 'default'?: object;
     public validAt?: PackageOptionsValidAtEnum | string;
     public empty?: boolean;
     public schema?: string;
     public type?: string;
-    public constructor(name?: string, _default?: string, validAt?: string, empty?: boolean, schema?: string, type?: string) { 
+    public constructor(name?: string, _default?: object, validAt?: string, empty?: boolean, schema?: string, type?: string) { 
         this['name'] = name;
         this['default'] = _default;
         this['validAt'] = validAt;
@@ -19,14 +19,14 @@ export class PackageOptions {
         this['name'] = name;
         return this;
     }
-    public withDefault(_default: string): PackageOptions {
+    public withDefault(_default: object): PackageOptions {
         this['default'] = _default;
         return this;
     }
-    public set _default(_default: string  | undefined) {
+    public set _default(_default: object  | undefined) {
         this['default'] = _default;
     }
-    public get _default(): string | undefined {
+    public get _default(): object | undefined {
         return this['default'];
     }
     public withValidAt(validAt: PackageOptionsValidAtEnum | string): PackageOptions {

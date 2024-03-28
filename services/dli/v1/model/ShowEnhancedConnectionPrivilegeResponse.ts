@@ -1,4 +1,4 @@
-import { ProjectPrivilege } from './ProjectPrivilege';
+import { EnhancedConnectionPrivilege } from './EnhancedConnectionPrivilege';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ShowEnhancedConnectionPrivilegeResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'connection_id'?: string;
-    public privileges?: Array<ProjectPrivilege>;
+    public privileges?: Array<EnhancedConnectionPrivilege>;
     public constructor() { 
         super();
     }
@@ -34,7 +34,7 @@ export class ShowEnhancedConnectionPrivilegeResponse extends SdkResponse {
     public get connectionId(): string | undefined {
         return this['connection_id'];
     }
-    public withPrivileges(privileges: Array<ProjectPrivilege>): ShowEnhancedConnectionPrivilegeResponse {
+    public withPrivileges(privileges: Array<EnhancedConnectionPrivilege>): ShowEnhancedConnectionPrivilegeResponse {
         this['privileges'] = privileges;
         return this;
     }

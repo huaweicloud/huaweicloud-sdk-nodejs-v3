@@ -27,6 +27,7 @@ export * from './model/CreateGroupResp';
 export * from './model/CreateInstanceByEngineReq';
 export * from './model/CreateInstanceByEngineRequest';
 export * from './model/CreateInstanceByEngineResponse';
+export * from './model/CreateOrUpdateConsumerGroup';
 export * from './model/CreatePostPaidInstanceReq';
 export * from './model/CreatePostPaidInstanceRequest';
 export * from './model/CreatePostPaidInstanceResponse';

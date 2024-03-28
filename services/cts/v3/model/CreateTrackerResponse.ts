@@ -17,6 +17,7 @@ export class CreateTrackerResponse extends SdkResponse {
     private 'domain_id'?: string;
     private 'project_id'?: string;
     private 'tracker_name'?: string;
+    private 'agency_name'?: CreateTrackerResponseAgencyNameEnum | string;
     public status?: CreateTrackerResponseStatusEnum | string;
     public detail?: string;
     private 'is_support_trace_files_encryption'?: boolean;
@@ -123,6 +124,16 @@ export class CreateTrackerResponse extends SdkResponse {
     public get trackerName(): string | undefined {
         return this['tracker_name'];
     }
+    public withAgencyName(agencyName: CreateTrackerResponseAgencyNameEnum | string): CreateTrackerResponse {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: CreateTrackerResponseAgencyNameEnum | string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): CreateTrackerResponseAgencyNameEnum | string | undefined {
+        return this['agency_name'];
+    }
     public withStatus(status: CreateTrackerResponseStatusEnum | string): CreateTrackerResponse {
         this['status'] = status;
         return this;
@@ -170,6 +181,13 @@ export class CreateTrackerResponse extends SdkResponse {
 export enum CreateTrackerResponseTrackerTypeEnum {
     SYSTEM = 'system',
     DATA = 'data'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateTrackerResponseAgencyNameEnum {
+    CTS_ADMIN_TRUST = 'cts_admin_trust'
 }
 /**
     * @export

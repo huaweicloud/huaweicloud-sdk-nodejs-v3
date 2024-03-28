@@ -1,11 +1,11 @@
-import { QueueDetails } from './QueueDetails';
+import { Queue } from './Queue';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListQueuesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public queues?: Array<QueueDetails>;
+    public queues?: Array<Queue>;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class ListQueuesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withQueues(queues: Array<QueueDetails>): ListQueuesResponse {
+    public withQueues(queues: Array<Queue>): ListQueuesResponse {
         this['queues'] = queues;
         return this;
     }

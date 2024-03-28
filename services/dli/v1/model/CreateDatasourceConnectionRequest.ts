@@ -1,11 +1,11 @@
-import { CreateDatasourceConnectionReq } from './CreateDatasourceConnectionReq';
+import { CreateDatasourceConnectionRequestBody } from './CreateDatasourceConnectionRequestBody';
 
 
 export class CreateDatasourceConnectionRequest {
-    public body?: CreateDatasourceConnectionReq;
+    public body?: CreateDatasourceConnectionRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateDatasourceConnectionReq): CreateDatasourceConnectionRequest {
+    public withBody(body: CreateDatasourceConnectionRequestBody): CreateDatasourceConnectionRequest {
         this['body'] = body;
         return this;
     }

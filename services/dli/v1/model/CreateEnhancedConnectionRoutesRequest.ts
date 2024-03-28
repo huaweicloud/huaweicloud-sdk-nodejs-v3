@@ -1,9 +1,9 @@
-import { CreateRouteRequestBody } from './CreateRouteRequestBody';
+import { CreateEnhancedConnectionRoutesRequestBody } from './CreateEnhancedConnectionRoutesRequestBody';
 
 
 export class CreateEnhancedConnectionRoutesRequest {
     private 'connection_id'?: string;
-    public body?: CreateRouteRequestBody;
+    public body?: CreateEnhancedConnectionRoutesRequestBody;
     public constructor(connectionId?: string) { 
         this['connection_id'] = connectionId;
     }
@@ -17,7 +17,7 @@ export class CreateEnhancedConnectionRoutesRequest {
     public get connectionId(): string | undefined {
         return this['connection_id'];
     }
-    public withBody(body: CreateRouteRequestBody): CreateEnhancedConnectionRoutesRequest {
+    public withBody(body: CreateEnhancedConnectionRoutesRequestBody): CreateEnhancedConnectionRoutesRequest {
         this['body'] = body;
         return this;
     }

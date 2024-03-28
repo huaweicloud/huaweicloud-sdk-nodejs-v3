@@ -10,6 +10,7 @@ export class DeleteClusterRequest {
     private 'delete_obs'?: DeleteClusterRequestDeleteObsEnum | string;
     private 'delete_sfs'?: DeleteClusterRequestDeleteSfsEnum | string;
     private 'delete_sfs30'?: DeleteClusterRequestDeleteSfs30Enum | string;
+    private 'lts_reclaim_policy'?: DeleteClusterRequestLtsReclaimPolicyEnum | string;
     public tobedeleted?: DeleteClusterRequestTobedeletedEnum | string;
     private 'ondemand_node_policy'?: DeleteClusterRequestOndemandNodePolicyEnum | string;
     private 'periodic_node_policy'?: DeleteClusterRequestPeriodicNodePolicyEnum | string;
@@ -106,6 +107,16 @@ export class DeleteClusterRequest {
     }
     public get deleteSfs30(): DeleteClusterRequestDeleteSfs30Enum | string | undefined {
         return this['delete_sfs30'];
+    }
+    public withLtsReclaimPolicy(ltsReclaimPolicy: DeleteClusterRequestLtsReclaimPolicyEnum | string): DeleteClusterRequest {
+        this['lts_reclaim_policy'] = ltsReclaimPolicy;
+        return this;
+    }
+    public set ltsReclaimPolicy(ltsReclaimPolicy: DeleteClusterRequestLtsReclaimPolicyEnum | string  | undefined) {
+        this['lts_reclaim_policy'] = ltsReclaimPolicy;
+    }
+    public get ltsReclaimPolicy(): DeleteClusterRequestLtsReclaimPolicyEnum | string | undefined {
+        return this['lts_reclaim_policy'];
     }
     public withTobedeleted(tobedeleted: DeleteClusterRequestTobedeletedEnum | string): DeleteClusterRequest {
         this['tobedeleted'] = tobedeleted;
@@ -204,6 +215,17 @@ export enum DeleteClusterRequestDeleteSfsEnum {
     * @enum {string}
     */
 export enum DeleteClusterRequestDeleteSfs30Enum {
+    TRUE = 'true',
+    BLOCK = 'block',
+    TRY = 'try',
+    FALSE = 'false',
+    SKIP = 'skip'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteClusterRequestLtsReclaimPolicyEnum {
     TRUE = 'true',
     BLOCK = 'block',
     TRY = 'try',

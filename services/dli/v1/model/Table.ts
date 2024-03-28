@@ -10,7 +10,7 @@ export class Table {
     private 'table_name'?: string;
     private 'table_size'?: number;
     private 'table_type'?: string;
-    private 'partition_columns'?: string;
+    private 'partition_columns'?: Array<string>;
     private 'page-size'?: number;
     private 'current-page'?: number;
     public constructor(createTime?: number, dataLocation?: string, lastAccessTime?: number, owner?: string, tableName?: string, tableSize?: number, tableType?: string) { 
@@ -100,14 +100,14 @@ export class Table {
     public get tableType(): string | undefined {
         return this['table_type'];
     }
-    public withPartitionColumns(partitionColumns: string): Table {
+    public withPartitionColumns(partitionColumns: Array<string>): Table {
         this['partition_columns'] = partitionColumns;
         return this;
     }
-    public set partitionColumns(partitionColumns: string  | undefined) {
+    public set partitionColumns(partitionColumns: Array<string>  | undefined) {
         this['partition_columns'] = partitionColumns;
     }
-    public get partitionColumns(): string | undefined {
+    public get partitionColumns(): Array<string> | undefined {
         return this['partition_columns'];
     }
     public withPageSize(pageSize: number): Table {

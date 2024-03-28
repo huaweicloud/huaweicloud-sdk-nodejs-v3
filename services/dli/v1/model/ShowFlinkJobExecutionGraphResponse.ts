@@ -1,11 +1,11 @@
-import { StreamGraphInfo } from './StreamGraphInfo';
+import { FlinkJobExecutionGraph } from './FlinkJobExecutionGraph';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFlinkJobExecutionGraphResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    private 'execute_graph'?: StreamGraphInfo;
+    private 'execute_graph'?: FlinkJobExecutionGraph;
     public constructor() { 
         super();
     }
@@ -23,14 +23,14 @@ export class ShowFlinkJobExecutionGraphResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withExecuteGraph(executeGraph: StreamGraphInfo): ShowFlinkJobExecutionGraphResponse {
+    public withExecuteGraph(executeGraph: FlinkJobExecutionGraph): ShowFlinkJobExecutionGraphResponse {
         this['execute_graph'] = executeGraph;
         return this;
     }
-    public set executeGraph(executeGraph: StreamGraphInfo  | undefined) {
+    public set executeGraph(executeGraph: FlinkJobExecutionGraph  | undefined) {
         this['execute_graph'] = executeGraph;
     }
-    public get executeGraph(): StreamGraphInfo | undefined {
+    public get executeGraph(): FlinkJobExecutionGraph | undefined {
         return this['execute_graph'];
     }
 }

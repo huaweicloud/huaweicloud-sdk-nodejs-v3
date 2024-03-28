@@ -1,11 +1,11 @@
-import { FlinkTemplateList } from './FlinkTemplateList';
+import { FlinkSqlJobTemplateList } from './FlinkSqlJobTemplateList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFlinkSqlJobTemplatesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    private 'template_list'?: FlinkTemplateList;
+    private 'template_list'?: FlinkSqlJobTemplateList;
     public constructor() { 
         super();
     }
@@ -23,14 +23,14 @@ export class ListFlinkSqlJobTemplatesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withTemplateList(templateList: FlinkTemplateList): ListFlinkSqlJobTemplatesResponse {
+    public withTemplateList(templateList: FlinkSqlJobTemplateList): ListFlinkSqlJobTemplatesResponse {
         this['template_list'] = templateList;
         return this;
     }
-    public set templateList(templateList: FlinkTemplateList  | undefined) {
+    public set templateList(templateList: FlinkSqlJobTemplateList  | undefined) {
         this['template_list'] = templateList;
     }
-    public get templateList(): FlinkTemplateList | undefined {
+    public get templateList(): FlinkSqlJobTemplateList | undefined {
         return this['template_list'];
     }
 }

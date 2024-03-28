@@ -1,4 +1,4 @@
-import { SqlsResp } from './SqlsResp';
+import { SqlJobTemplate } from './SqlJobTemplate';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListSqlJobTemplatesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'sql_count'?: number;
-    public sqls?: Array<SqlsResp>;
+    public sqls?: Array<SqlJobTemplate>;
     public constructor() { 
         super();
     }
@@ -34,7 +34,7 @@ export class ListSqlJobTemplatesResponse extends SdkResponse {
     public get sqlCount(): number | undefined {
         return this['sql_count'];
     }
-    public withSqls(sqls: Array<SqlsResp>): ListSqlJobTemplatesResponse {
+    public withSqls(sqls: Array<SqlJobTemplate>): ListSqlJobTemplatesResponse {
         this['sqls'] = sqls;
         return this;
     }

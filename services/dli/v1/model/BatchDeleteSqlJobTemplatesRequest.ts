@@ -1,11 +1,11 @@
-import { DeleteSqlTemplatesRequestBody } from './DeleteSqlTemplatesRequestBody';
+import { BatchDeleteSqlJobTemplatesRequestBody } from './BatchDeleteSqlJobTemplatesRequestBody';
 
 
 export class BatchDeleteSqlJobTemplatesRequest {
-    public body?: DeleteSqlTemplatesRequestBody;
+    public body?: BatchDeleteSqlJobTemplatesRequestBody;
     public constructor() { 
     }
-    public withBody(body: DeleteSqlTemplatesRequestBody): BatchDeleteSqlJobTemplatesRequest {
+    public withBody(body: BatchDeleteSqlJobTemplatesRequestBody): BatchDeleteSqlJobTemplatesRequest {
         this['body'] = body;
         return this;
     }

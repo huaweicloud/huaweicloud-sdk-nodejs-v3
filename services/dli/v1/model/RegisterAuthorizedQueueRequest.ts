@@ -1,11 +1,11 @@
-import { GrantQueuePermissionReq } from './GrantQueuePermissionReq';
+import { RegisterAuthorizedQueueRequestBody } from './RegisterAuthorizedQueueRequestBody';
 
 
 export class RegisterAuthorizedQueueRequest {
-    public body?: GrantQueuePermissionReq;
+    public body?: RegisterAuthorizedQueueRequestBody;
     public constructor() { 
     }
-    public withBody(body: GrantQueuePermissionReq): RegisterAuthorizedQueueRequest {
+    public withBody(body: RegisterAuthorizedQueueRequestBody): RegisterAuthorizedQueueRequest {
         this['body'] = body;
         return this;
     }

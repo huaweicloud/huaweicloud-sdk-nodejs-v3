@@ -1,9 +1,9 @@
-import { UpdateHostMassageReq } from './UpdateHostMassageReq';
+import { UpdateEnhancedConnectionRequestBody } from './UpdateEnhancedConnectionRequestBody';
 
 
 export class UpdateEnhancedConnectionRequest {
     private 'connection_id'?: string;
-    public body?: UpdateHostMassageReq;
+    public body?: UpdateEnhancedConnectionRequestBody;
     public constructor(connectionId?: string) { 
         this['connection_id'] = connectionId;
     }
@@ -17,7 +17,7 @@ export class UpdateEnhancedConnectionRequest {
     public get connectionId(): string | undefined {
         return this['connection_id'];
     }
-    public withBody(body: UpdateHostMassageReq): UpdateEnhancedConnectionRequest {
+    public withBody(body: UpdateEnhancedConnectionRequestBody): UpdateEnhancedConnectionRequest {
         this['body'] = body;
         return this;
     }

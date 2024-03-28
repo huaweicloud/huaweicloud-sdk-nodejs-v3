@@ -1,6 +1,8 @@
 
 
 export class NetworkCheckInfoRequestBody {
+    private 'domain_connectivity'?: boolean;
+    private 'destination_connectivity'?: boolean;
     private 'network_delay'?: number;
     private 'network_jitter'?: number;
     private 'migration_speed'?: number;
@@ -16,6 +18,26 @@ export class NetworkCheckInfoRequestBody {
         this['cpu_usage'] = cpuUsage;
         this['mem_usage'] = memUsage;
         this['evaluation_result'] = evaluationResult;
+    }
+    public withDomainConnectivity(domainConnectivity: boolean): NetworkCheckInfoRequestBody {
+        this['domain_connectivity'] = domainConnectivity;
+        return this;
+    }
+    public set domainConnectivity(domainConnectivity: boolean  | undefined) {
+        this['domain_connectivity'] = domainConnectivity;
+    }
+    public get domainConnectivity(): boolean | undefined {
+        return this['domain_connectivity'];
+    }
+    public withDestinationConnectivity(destinationConnectivity: boolean): NetworkCheckInfoRequestBody {
+        this['destination_connectivity'] = destinationConnectivity;
+        return this;
+    }
+    public set destinationConnectivity(destinationConnectivity: boolean  | undefined) {
+        this['destination_connectivity'] = destinationConnectivity;
+    }
+    public get destinationConnectivity(): boolean | undefined {
+        return this['destination_connectivity'];
     }
     public withNetworkDelay(networkDelay: number): NetworkCheckInfoRequestBody {
         this['network_delay'] = networkDelay;

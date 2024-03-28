@@ -7,6 +7,8 @@ export class CreateBatchTaskResponse extends SdkResponse {
     private 'task_id'?: string;
     private 'task_name'?: string;
     private 'task_type'?: string;
+    private 'task_mode'?: string;
+    private 'task_ext_info'?: object;
     public targets?: Array<string>;
     private 'targets_filter'?: { [key: string]: object; };
     public document?: object;
@@ -47,6 +49,26 @@ export class CreateBatchTaskResponse extends SdkResponse {
     }
     public get taskType(): string | undefined {
         return this['task_type'];
+    }
+    public withTaskMode(taskMode: string): CreateBatchTaskResponse {
+        this['task_mode'] = taskMode;
+        return this;
+    }
+    public set taskMode(taskMode: string  | undefined) {
+        this['task_mode'] = taskMode;
+    }
+    public get taskMode(): string | undefined {
+        return this['task_mode'];
+    }
+    public withTaskExtInfo(taskExtInfo: object): CreateBatchTaskResponse {
+        this['task_ext_info'] = taskExtInfo;
+        return this;
+    }
+    public set taskExtInfo(taskExtInfo: object  | undefined) {
+        this['task_ext_info'] = taskExtInfo;
+    }
+    public get taskExtInfo(): object | undefined {
+        return this['task_ext_info'];
     }
     public withTargets(targets: Array<string>): CreateBatchTaskResponse {
         this['targets'] = targets;

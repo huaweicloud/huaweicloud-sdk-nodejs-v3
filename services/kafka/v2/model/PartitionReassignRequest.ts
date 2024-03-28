@@ -6,6 +6,7 @@ export class PartitionReassignRequest {
     public throttle?: number;
     private 'is_schedule'?: boolean;
     private 'execute_at'?: number;
+    private 'time_estimate'?: boolean;
     public constructor(reassignments?: Array<PartitionReassignEntity>) { 
         this['reassignments'] = reassignments;
     }
@@ -36,5 +37,15 @@ export class PartitionReassignRequest {
     }
     public get executeAt(): number | undefined {
         return this['execute_at'];
+    }
+    public withTimeEstimate(timeEstimate: boolean): PartitionReassignRequest {
+        this['time_estimate'] = timeEstimate;
+        return this;
+    }
+    public set timeEstimate(timeEstimate: boolean  | undefined) {
+        this['time_estimate'] = timeEstimate;
+    }
+    public get timeEstimate(): boolean | undefined {
+        return this['time_estimate'];
     }
 }

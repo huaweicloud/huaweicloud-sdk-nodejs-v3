@@ -63,6 +63,8 @@ import { CopyCheckpointRequest } from './model/CopyCheckpointRequest';
 import { CopyCheckpointResponse } from './model/CopyCheckpointResponse';
 import { CreateCheckpointRequest } from './model/CreateCheckpointRequest';
 import { CreateCheckpointResponse } from './model/CreateCheckpointResponse';
+import { CreateOrganizationPolicyRequest } from './model/CreateOrganizationPolicyRequest';
+import { CreateOrganizationPolicyResponse } from './model/CreateOrganizationPolicyResponse';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
 import { CreatePostPaidVaultRequest } from './model/CreatePostPaidVaultRequest';
@@ -75,6 +77,8 @@ import { DeleteBackupRequest } from './model/DeleteBackupRequest';
 import { DeleteBackupResponse } from './model/DeleteBackupResponse';
 import { DeleteMemberRequest } from './model/DeleteMemberRequest';
 import { DeleteMemberResponse } from './model/DeleteMemberResponse';
+import { DeleteOrganizationPolicyRequest } from './model/DeleteOrganizationPolicyRequest';
+import { DeleteOrganizationPolicyResponse } from './model/DeleteOrganizationPolicyResponse';
 import { DeletePolicyRequest } from './model/DeletePolicyRequest';
 import { DeletePolicyResponse } from './model/DeletePolicyResponse';
 import { DeleteVaultRequest } from './model/DeleteVaultRequest';
@@ -102,6 +106,10 @@ import { ListExternalVaultRequest } from './model/ListExternalVaultRequest';
 import { ListExternalVaultResponse } from './model/ListExternalVaultResponse';
 import { ListOpLogsRequest } from './model/ListOpLogsRequest';
 import { ListOpLogsResponse } from './model/ListOpLogsResponse';
+import { ListOrganizationPoliciesRequest } from './model/ListOrganizationPoliciesRequest';
+import { ListOrganizationPoliciesResponse } from './model/ListOrganizationPoliciesResponse';
+import { ListOrganizationPolicyDetailRequest } from './model/ListOrganizationPolicyDetailRequest';
+import { ListOrganizationPolicyDetailResponse } from './model/ListOrganizationPolicyDetailResponse';
 import { ListPoliciesRequest } from './model/ListPoliciesRequest';
 import { ListPoliciesResponse } from './model/ListPoliciesResponse';
 import { ListProjectsRequest } from './model/ListProjectsRequest';
@@ -127,6 +135,12 @@ import { OpExtendInfoSync } from './model/OpExtendInfoSync';
 import { OpExtendInfoVaultDelete } from './model/OpExtendInfoVaultDelete';
 import { OpExtraInfo } from './model/OpExtraInfo';
 import { OperationLog } from './model/OperationLog';
+import { OrganizationPolicy } from './model/OrganizationPolicy';
+import { OrganizationPolicyCreate } from './model/OrganizationPolicyCreate';
+import { OrganizationPolicyCreateReq } from './model/OrganizationPolicyCreateReq';
+import { OrganizationPolicyStatus } from './model/OrganizationPolicyStatus';
+import { OrganizationPolicyUpdate } from './model/OrganizationPolicyUpdate';
+import { OrganizationPolicyUpdateReq } from './model/OrganizationPolicyUpdateReq';
 import { Path } from './model/Path';
 import { Policy } from './model/Policy';
 import { PolicyAssociateVault } from './model/PolicyAssociateVault';
@@ -183,6 +197,8 @@ import { ShowMigrateStatusRequest } from './model/ShowMigrateStatusRequest';
 import { ShowMigrateStatusResponse } from './model/ShowMigrateStatusResponse';
 import { ShowOpLogRequest } from './model/ShowOpLogRequest';
 import { ShowOpLogResponse } from './model/ShowOpLogResponse';
+import { ShowOrganizationPolicyRequest } from './model/ShowOrganizationPolicyRequest';
+import { ShowOrganizationPolicyResponse } from './model/ShowOrganizationPolicyResponse';
 import { ShowPolicyRequest } from './model/ShowPolicyRequest';
 import { ShowPolicyResponse } from './model/ShowPolicyResponse';
 import { ShowProtectableRequest } from './model/ShowProtectableRequest';
@@ -222,6 +238,8 @@ import { UpdateMemberStatusRequest } from './model/UpdateMemberStatusRequest';
 import { UpdateMemberStatusResponse } from './model/UpdateMemberStatusResponse';
 import { UpdateOrderRequest } from './model/UpdateOrderRequest';
 import { UpdateOrderResponse } from './model/UpdateOrderResponse';
+import { UpdateOrganizationPolicyRequest } from './model/UpdateOrganizationPolicyRequest';
+import { UpdateOrganizationPolicyResponse } from './model/UpdateOrganizationPolicyResponse';
 import { UpdatePolicyRequest } from './model/UpdatePolicyRequest';
 import { UpdatePolicyResponse } from './model/UpdatePolicyResponse';
 import { UpdateVaultRequest } from './model/UpdateVaultRequest';
@@ -469,6 +487,25 @@ export class CbrClient {
     }
 
     /**
+     * 创建组织策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建组织策略
+     * @param {OrganizationPolicyCreateReq} createOrganizationPolicyRequestBody 策略资源创建参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrganizationPolicy(createOrganizationPolicyRequest?: CreateOrganizationPolicyRequest): Promise<CreateOrganizationPolicyResponse> {
+        const options = ParamCreater().createOrganizationPolicy(createOrganizationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建策略，策略分为备份策略和复制策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -578,6 +615,25 @@ export class CbrClient {
      */
     public deleteMember(deleteMemberRequest?: DeleteMemberRequest): Promise<DeleteMemberResponse> {
         const options = ParamCreater().deleteMember(deleteMemberRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除组织策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除组织策略
+     * @param {string} organizationPolicyId 资源策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOrganizationPolicy(deleteOrganizationPolicyRequest?: DeleteOrganizationPolicyRequest): Promise<DeleteOrganizationPolicyResponse> {
+        const options = ParamCreater().deleteOrganizationPolicy(deleteOrganizationPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -832,6 +888,44 @@ export class CbrClient {
      */
     public listOpLogs(listOpLogsRequest?: ListOpLogsRequest): Promise<ListOpLogsResponse> {
         const options = ParamCreater().listOpLogs(listOpLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询组织策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询组织策略列表
+     * @param {string} operationType 组织策略类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrganizationPolicies(listOrganizationPoliciesRequest?: ListOrganizationPoliciesRequest): Promise<ListOrganizationPoliciesResponse> {
+        const options = ParamCreater().listOrganizationPolicies(listOrganizationPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询组织策略每个账号下策略部署状态列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询组织策略部署状态列表
+     * @param {string} organizationPolicyId 组织策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrganizationPolicyDetail(listOrganizationPolicyDetailRequest?: ListOrganizationPolicyDetailRequest): Promise<ListOrganizationPolicyDetailResponse> {
+        const options = ParamCreater().listOrganizationPolicyDetail(listOrganizationPolicyDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1251,6 +1345,25 @@ export class CbrClient {
     }
 
     /**
+     * 查询指定组织策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定组织策略
+     * @param {string} organizationPolicyId 组织策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOrganizationPolicy(showOrganizationPolicyRequest?: ShowOrganizationPolicyRequest): Promise<ShowOrganizationPolicyResponse> {
+        const options = ParamCreater().showOrganizationPolicy(showOrganizationPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1518,6 +1631,26 @@ export class CbrClient {
      */
     public updateOrder(updateOrderRequest?: UpdateOrderRequest): Promise<UpdateOrderResponse> {
         const options = ParamCreater().updateOrder(updateOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新组织策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新组织策略
+     * @param {string} organizationPolicyId 组织策略ID
+     * @param {OrganizationPolicyUpdateReq} updateOrganizationPolicyRequestBody 组织策略修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOrganizationPolicy(updateOrganizationPolicyRequest?: UpdateOrganizationPolicyRequest): Promise<UpdateOrganizationPolicyResponse> {
+        const options = ParamCreater().updateOrganizationPolicy(updateOrganizationPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2002,6 +2135,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建组织策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrganizationPolicy(createOrganizationPolicyRequest?: CreateOrganizationPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/organization-policies",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createOrganizationPolicyRequest !== null && createOrganizationPolicyRequest !== undefined) {
+                if (createOrganizationPolicyRequest instanceof CreateOrganizationPolicyRequest) {
+                    body = createOrganizationPolicyRequest.body
+                } else {
+                    body = createOrganizationPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建策略，策略分为备份策略和复制策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2236,6 +2407,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId,'member_id': memberId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除组织策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOrganizationPolicy(deleteOrganizationPolicyRequest?: DeleteOrganizationPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/organization-policies/{organization_policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let organizationPolicyId;
+
+            if (deleteOrganizationPolicyRequest !== null && deleteOrganizationPolicyRequest !== undefined) {
+                if (deleteOrganizationPolicyRequest instanceof DeleteOrganizationPolicyRequest) {
+                    organizationPolicyId = deleteOrganizationPolicyRequest.organizationPolicyId;
+                } else {
+                    organizationPolicyId = deleteOrganizationPolicyRequest['organization_policy_id'];
+                }
+            }
+
+        
+            if (organizationPolicyId === null || organizationPolicyId === undefined) {
+            throw new RequiredError('organizationPolicyId','Required parameter organizationPolicyId was null or undefined when calling deleteOrganizationPolicy.');
+            }
+
+            options.pathParams = { 'organization_policy_id': organizationPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2968,6 +3176,83 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询组织策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrganizationPolicies(listOrganizationPoliciesRequest?: ListOrganizationPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/organization-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let operationType;
+
+            if (listOrganizationPoliciesRequest !== null && listOrganizationPoliciesRequest !== undefined) {
+                if (listOrganizationPoliciesRequest instanceof ListOrganizationPoliciesRequest) {
+                    operationType = listOrganizationPoliciesRequest.operationType;
+                } else {
+                    operationType = listOrganizationPoliciesRequest['operation_type'];
+                }
+            }
+
+        
+            if (operationType === null || operationType === undefined) {
+                throw new RequiredError('operationType','Required parameter operationType was null or undefined when calling listOrganizationPolicies.');
+            }
+            if (operationType !== null && operationType !== undefined) {
+                localVarQueryParameter['operation_type'] = operationType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询组织策略每个账号下策略部署状态列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrganizationPolicyDetail(listOrganizationPolicyDetailRequest?: ListOrganizationPolicyDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/organization-policies/{organization_policy_id}/policy-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let organizationPolicyId;
+
+            if (listOrganizationPolicyDetailRequest !== null && listOrganizationPolicyDetailRequest !== undefined) {
+                if (listOrganizationPolicyDetailRequest instanceof ListOrganizationPolicyDetailRequest) {
+                    organizationPolicyId = listOrganizationPolicyDetailRequest.organizationPolicyId;
+                } else {
+                    organizationPolicyId = listOrganizationPolicyDetailRequest['organization_policy_id'];
+                }
+            }
+
+        
+            if (organizationPolicyId === null || organizationPolicyId === undefined) {
+            throw new RequiredError('organizationPolicyId','Required parameter organizationPolicyId was null or undefined when calling listOrganizationPolicyDetail.');
+            }
+
+            options.pathParams = { 'organization_policy_id': organizationPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3935,6 +4220,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定组织策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOrganizationPolicy(showOrganizationPolicyRequest?: ShowOrganizationPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/organization-policies/{organization_policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let organizationPolicyId;
+
+            if (showOrganizationPolicyRequest !== null && showOrganizationPolicyRequest !== undefined) {
+                if (showOrganizationPolicyRequest instanceof ShowOrganizationPolicyRequest) {
+                    organizationPolicyId = showOrganizationPolicyRequest.organizationPolicyId;
+                } else {
+                    organizationPolicyId = showOrganizationPolicyRequest['organization_policy_id'];
+                }
+            }
+
+        
+            if (organizationPolicyId === null || organizationPolicyId === undefined) {
+            throw new RequiredError('organizationPolicyId','Required parameter organizationPolicyId was null or undefined when calling showOrganizationPolicy.');
+            }
+
+            options.pathParams = { 'organization_policy_id': organizationPolicyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4469,6 +4791,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'order_id': orderId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新组织策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOrganizationPolicy(updateOrganizationPolicyRequest?: UpdateOrganizationPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/organization-policies/{organization_policy_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let organizationPolicyId;
+
+            if (updateOrganizationPolicyRequest !== null && updateOrganizationPolicyRequest !== undefined) {
+                if (updateOrganizationPolicyRequest instanceof UpdateOrganizationPolicyRequest) {
+                    organizationPolicyId = updateOrganizationPolicyRequest.organizationPolicyId;
+                    body = updateOrganizationPolicyRequest.body
+                } else {
+                    organizationPolicyId = updateOrganizationPolicyRequest['organization_policy_id'];
+                    body = updateOrganizationPolicyRequest['body'];
+                }
+            }
+
+        
+            if (organizationPolicyId === null || organizationPolicyId === undefined) {
+            throw new RequiredError('organizationPolicyId','Required parameter organizationPolicyId was null or undefined when calling updateOrganizationPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'organization_policy_id': organizationPolicyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

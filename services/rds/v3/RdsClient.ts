@@ -39,6 +39,9 @@ import { BatchRestoreDatabaseRequest } from './model/BatchRestoreDatabaseRequest
 import { BatchRestoreDatabaseResponse } from './model/BatchRestoreDatabaseResponse';
 import { BatchRestorePostgreSqlTablesRequest } from './model/BatchRestorePostgreSqlTablesRequest';
 import { BatchRestorePostgreSqlTablesResponse } from './model/BatchRestorePostgreSqlTablesResponse';
+import { BatchShutdownInsReq } from './model/BatchShutdownInsReq';
+import { BatchStopInstanceRequest } from './model/BatchStopInstanceRequest';
+import { BatchStopInstanceResponse } from './model/BatchStopInstanceResponse';
 import { BatchTagActionAddRequestBody } from './model/BatchTagActionAddRequestBody';
 import { BatchTagActionDelRequestBody } from './model/BatchTagActionDelRequestBody';
 import { BatchTagAddActionRequest } from './model/BatchTagAddActionRequest';
@@ -536,6 +539,7 @@ import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
 import { ShowTdeStatusResponse } from './model/ShowTdeStatusResponse';
 import { ShowUpgradeDbMajorVersionStatusRequest } from './model/ShowUpgradeDbMajorVersionStatusRequest';
 import { ShowUpgradeDbMajorVersionStatusResponse } from './model/ShowUpgradeDbMajorVersionStatusResponse';
+import { ShutdownInstanceRecord } from './model/ShutdownInstanceRecord';
 import { SimplifiedInstanceEntry } from './model/SimplifiedInstanceEntry';
 import { SimplifiedInstancesRequest } from './model/SimplifiedInstancesRequest';
 import { Single2Ha } from './model/Single2Ha';
@@ -793,6 +797,25 @@ export class RdsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量停止实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量停止实例
+     * @param {BatchShutdownInsReq} batchStopInstanceRequestBody 批量停止实例请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchStopInstance(batchStopInstanceRequest?: BatchStopInstanceRequest): Promise<BatchStopInstanceResponse> {
+        const options = ParamCreater().batchStopInstance(batchStopInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5317,6 +5340,44 @@ export const ParamCreater = function () {
             }
 
         
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量停止实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchStopInstance(batchStopInstanceRequest?: BatchStopInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/batch/action/shutdown",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchStopInstanceRequest !== null && batchStopInstanceRequest !== undefined) {
+                if (batchStopInstanceRequest instanceof BatchStopInstanceRequest) {
+                    body = batchStopInstanceRequest.body
+                } else {
+                    body = batchStopInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};

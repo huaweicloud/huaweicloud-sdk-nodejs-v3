@@ -1,10 +1,10 @@
-import { UpdateElasticResourcePoolQueueScalingPolicyInfo } from './UpdateElasticResourcePoolQueueScalingPolicyInfo';
+import { UpdateElasticResourcePoolQueueRequestBody } from './UpdateElasticResourcePoolQueueRequestBody';
 
 
 export class UpdateElasticResourcePoolQueueRequest {
     private 'elastic_resource_pool_name'?: string;
     private 'queue_name'?: string;
-    public body?: UpdateElasticResourcePoolQueueScalingPolicyInfo;
+    public body?: UpdateElasticResourcePoolQueueRequestBody;
     public constructor(elasticResourcePoolName?: string, queueName?: string) { 
         this['elastic_resource_pool_name'] = elasticResourcePoolName;
         this['queue_name'] = queueName;
@@ -29,7 +29,7 @@ export class UpdateElasticResourcePoolQueueRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: UpdateElasticResourcePoolQueueScalingPolicyInfo): UpdateElasticResourcePoolQueueRequest {
+    public withBody(body: UpdateElasticResourcePoolQueueRequestBody): UpdateElasticResourcePoolQueueRequest {
         this['body'] = body;
         return this;
     }

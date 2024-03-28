@@ -2,7 +2,6 @@
 
 export class DeleteConnectorRequest {
     private 'instance_id'?: string;
-    public body?: object;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -15,9 +14,5 @@ export class DeleteConnectorRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
-    }
-    public withBody(body: object): DeleteConnectorRequest {
-        this['body'] = body;
-        return this;
     }
 }

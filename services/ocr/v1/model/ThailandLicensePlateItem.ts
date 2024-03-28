@@ -4,6 +4,7 @@ export class ThailandLicensePlateItem {
     private 'plate_number'?: string;
     private 'plate_location'?: Array<Array<number>>;
     public confidence?: number;
+    public province?: string;
     public constructor() { 
     }
     public withPlateNumber(plateNumber: string): ThailandLicensePlateItem {
@@ -28,6 +29,10 @@ export class ThailandLicensePlateItem {
     }
     public withConfidence(confidence: number): ThailandLicensePlateItem {
         this['confidence'] = confidence;
+        return this;
+    }
+    public withProvince(province: string): ThailandLicensePlateItem {
+        this['province'] = province;
         return this;
     }
 }

@@ -29,5 +29,5 @@ export class HttpDetectRequestBody {
     */
 export enum HttpDetectRequestBodyProtocolEnum {
     HTTP = 'http',
-    HTTPS = 'https;'
+    HTTPS = 'https'
 }

@@ -2,12 +2,15 @@ import { CreatedAt } from './CreatedAt';
 import { Description } from './Description';
 import { DomainId } from './DomainId';
 import { EnterpriseProjectId } from './EnterpriseProjectId';
+import { GcbAdminState } from './GcbAdminState';
 import { GcbBindingServiceAll } from './GcbBindingServiceAll';
 import { GcbBorderCross } from './GcbBorderCross';
 import { GcbChargeMode } from './GcbChargeMode';
 import { GcbFrozen } from './GcbFrozen';
 import { GcbLocalSiteCode } from './GcbLocalSiteCode';
 import { GcbRemoteSiteCode } from './GcbRemoteSiteCode';
+import { GcbShowLocalArea } from './GcbShowLocalArea';
+import { GcbShowRemoveArea } from './GcbShowRemoveArea';
 import { GcbSize } from './GcbSize';
 import { GcbSlaLevel } from './GcbSlaLevel';
 import { GcbSpecCodeId } from './GcbSpecCodeId';
@@ -32,8 +35,11 @@ export class GlobalConnectionBandwidth {
     private 'charge_mode'?: GlobalConnectionBandwidthChargeModeEnum | string;
     public size?: number;
     private 'sla_level'?: GlobalConnectionBandwidthSlaLevelEnum | string;
+    private 'local_area'?: string;
+    private 'remote_area'?: string;
     private 'local_site_code'?: string;
     private 'remote_site_code'?: string;
+    private 'admin_state'?: GlobalConnectionBandwidthAdminStateEnum | string;
     public frozen?: boolean;
     private 'spec_code_id'?: string;
     public tags?: Array<Tag>;
@@ -121,6 +127,26 @@ export class GlobalConnectionBandwidth {
     public get slaLevel(): GlobalConnectionBandwidthSlaLevelEnum | string | undefined {
         return this['sla_level'];
     }
+    public withLocalArea(localArea: string): GlobalConnectionBandwidth {
+        this['local_area'] = localArea;
+        return this;
+    }
+    public set localArea(localArea: string  | undefined) {
+        this['local_area'] = localArea;
+    }
+    public get localArea(): string | undefined {
+        return this['local_area'];
+    }
+    public withRemoteArea(remoteArea: string): GlobalConnectionBandwidth {
+        this['remote_area'] = remoteArea;
+        return this;
+    }
+    public set remoteArea(remoteArea: string  | undefined) {
+        this['remote_area'] = remoteArea;
+    }
+    public get remoteArea(): string | undefined {
+        return this['remote_area'];
+    }
     public withLocalSiteCode(localSiteCode: string): GlobalConnectionBandwidth {
         this['local_site_code'] = localSiteCode;
         return this;
@@ -140,6 +166,16 @@ export class GlobalConnectionBandwidth {
     }
     public get remoteSiteCode(): string | undefined {
         return this['remote_site_code'];
+    }
+    public withAdminState(adminState: GlobalConnectionBandwidthAdminStateEnum | string): GlobalConnectionBandwidth {
+        this['admin_state'] = adminState;
+        return this;
+    }
+    public set adminState(adminState: GlobalConnectionBandwidthAdminStateEnum | string  | undefined) {
+        this['admin_state'] = adminState;
+    }
+    public get adminState(): GlobalConnectionBandwidthAdminStateEnum | string | undefined {
+        return this['admin_state'];
     }
     public withFrozen(frozen: boolean): GlobalConnectionBandwidth {
         this['frozen'] = frozen;
@@ -232,4 +268,12 @@ export enum GlobalConnectionBandwidthSlaLevelEnum {
     PT = 'Pt',
     AU = 'Au',
     AG = 'Ag'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GlobalConnectionBandwidthAdminStateEnum {
+    NORMAL = 'NORMAL',
+    FREEZED = 'FREEZED'
 }

@@ -1,4 +1,4 @@
-import { AuthInfos } from './AuthInfos';
+import { AuthInfo } from './AuthInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListAuthInfoResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     public count?: number;
-    private 'auth_infos'?: Array<AuthInfos>;
+    private 'auth_infos'?: Array<AuthInfo>;
     public constructor() { 
         super();
     }
@@ -28,14 +28,14 @@ export class ListAuthInfoResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withAuthInfos(authInfos: Array<AuthInfos>): ListAuthInfoResponse {
+    public withAuthInfos(authInfos: Array<AuthInfo>): ListAuthInfoResponse {
         this['auth_infos'] = authInfos;
         return this;
     }
-    public set authInfos(authInfos: Array<AuthInfos>  | undefined) {
+    public set authInfos(authInfos: Array<AuthInfo>  | undefined) {
         this['auth_infos'] = authInfos;
     }
-    public get authInfos(): Array<AuthInfos> | undefined {
+    public get authInfos(): Array<AuthInfo> | undefined {
         return this['auth_infos'];
     }
 }

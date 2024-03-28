@@ -1,11 +1,11 @@
-import { CreateGlobalValueReq } from './CreateGlobalValueReq';
+import { CreateGlobalVariableRequestBody } from './CreateGlobalVariableRequestBody';
 
 
 export class CreateGlobalVariableRequest {
-    public body?: CreateGlobalValueReq;
+    public body?: CreateGlobalVariableRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateGlobalValueReq): CreateGlobalVariableRequest {
+    public withBody(body: CreateGlobalVariableRequestBody): CreateGlobalVariableRequest {
         this['body'] = body;
         return this;
     }

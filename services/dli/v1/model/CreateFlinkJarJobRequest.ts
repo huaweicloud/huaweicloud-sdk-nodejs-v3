@@ -1,11 +1,11 @@
-import { CreateFlinkJarRequestBody } from './CreateFlinkJarRequestBody';
+import { CreateFlinkJarJobRequestBody } from './CreateFlinkJarJobRequestBody';
 
 
 export class CreateFlinkJarJobRequest {
-    public body?: CreateFlinkJarRequestBody;
+    public body?: CreateFlinkJarJobRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateFlinkJarRequestBody): CreateFlinkJarJobRequest {
+    public withBody(body: CreateFlinkJarJobRequestBody): CreateFlinkJarJobRequest {
         this['body'] = body;
         return this;
     }

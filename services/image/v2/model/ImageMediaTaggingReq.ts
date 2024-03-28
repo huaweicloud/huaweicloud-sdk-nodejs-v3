@@ -6,7 +6,6 @@ export class ImageMediaTaggingReq {
     public language?: string;
     public threshold?: number;
     public limit?: number;
-    private 'use_default_tags'?: string;
     public constructor() { 
     }
     public withImage(image: string): ImageMediaTaggingReq {
@@ -28,15 +27,5 @@ export class ImageMediaTaggingReq {
     public withLimit(limit: number): ImageMediaTaggingReq {
         this['limit'] = limit;
         return this;
-    }
-    public withUseDefaultTags(useDefaultTags: string): ImageMediaTaggingReq {
-        this['use_default_tags'] = useDefaultTags;
-        return this;
-    }
-    public set useDefaultTags(useDefaultTags: string  | undefined) {
-        this['use_default_tags'] = useDefaultTags;
-    }
-    public get useDefaultTags(): string | undefined {
-        return this['use_default_tags'];
     }
 }

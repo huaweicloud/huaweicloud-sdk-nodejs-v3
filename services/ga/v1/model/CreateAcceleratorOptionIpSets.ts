@@ -29,5 +29,6 @@ export class CreateAcceleratorOptionIpSets {
     * @enum {string}
     */
 export enum CreateAcceleratorOptionIpSetsIpTypeEnum {
-    IPV4 = 'IPV4'
+    IPV4 = 'IPV4',
+    IPV6 = 'IPV6'
 }

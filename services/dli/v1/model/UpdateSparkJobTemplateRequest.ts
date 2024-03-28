@@ -1,9 +1,9 @@
-import { UpdateJobTemplatesRequestBody } from './UpdateJobTemplatesRequestBody';
+import { UpdateSparkJobTemplateRequestBody } from './UpdateSparkJobTemplateRequestBody';
 
 
 export class UpdateSparkJobTemplateRequest {
     private 'template_id'?: string;
-    public body?: UpdateJobTemplatesRequestBody;
+    public body?: UpdateSparkJobTemplateRequestBody;
     public constructor(templateId?: string) { 
         this['template_id'] = templateId;
     }
@@ -17,7 +17,7 @@ export class UpdateSparkJobTemplateRequest {
     public get templateId(): string | undefined {
         return this['template_id'];
     }
-    public withBody(body: UpdateJobTemplatesRequestBody): UpdateSparkJobTemplateRequest {
+    public withBody(body: UpdateSparkJobTemplateRequestBody): UpdateSparkJobTemplateRequest {
         this['body'] = body;
         return this;
     }

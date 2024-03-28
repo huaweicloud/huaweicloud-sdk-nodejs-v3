@@ -1,11 +1,11 @@
-import { CreateAuthInfoReq } from './CreateAuthInfoReq';
+import { CreateAuthInfoRequestBody } from './CreateAuthInfoRequestBody';
 
 
 export class CreateAuthInfoRequest {
-    public body?: CreateAuthInfoReq;
+    public body?: CreateAuthInfoRequestBody;
     public constructor() { 
     }
-    public withBody(body: CreateAuthInfoReq): CreateAuthInfoRequest {
+    public withBody(body: CreateAuthInfoRequestBody): CreateAuthInfoRequest {
         this['body'] = body;
         return this;
     }

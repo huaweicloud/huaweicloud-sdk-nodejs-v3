@@ -1,11 +1,11 @@
-import { ListQueuePropertyRespProperties } from './ListQueuePropertyRespProperties';
+import { Property } from './Property';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListQueuePropertiesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public properties?: Array<ListQueuePropertyRespProperties>;
+    public properties?: Array<Property>;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class ListQueuePropertiesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withProperties(properties: Array<ListQueuePropertyRespProperties>): ListQueuePropertiesResponse {
+    public withProperties(properties: Array<Property>): ListQueuePropertiesResponse {
         this['properties'] = properties;
         return this;
     }

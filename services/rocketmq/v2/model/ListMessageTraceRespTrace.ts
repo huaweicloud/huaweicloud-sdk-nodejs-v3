@@ -15,7 +15,7 @@ export class ListMessageTraceRespTrace {
     public keys?: string;
     private 'store_host'?: string;
     private 'client_host'?: string;
-    private 'retry_times'?: string;
+    private 'retry_times'?: number;
     private 'body_length'?: number;
     private 'msg_type'?: ListMessageTraceRespTraceMsgTypeEnum | string;
     private 'transaction_state'?: ListMessageTraceRespTraceTransactionStateEnum | string;
@@ -133,14 +133,14 @@ export class ListMessageTraceRespTrace {
     public get clientHost(): string | undefined {
         return this['client_host'];
     }
-    public withRetryTimes(retryTimes: string): ListMessageTraceRespTrace {
+    public withRetryTimes(retryTimes: number): ListMessageTraceRespTrace {
         this['retry_times'] = retryTimes;
         return this;
     }
-    public set retryTimes(retryTimes: string  | undefined) {
+    public set retryTimes(retryTimes: number  | undefined) {
         this['retry_times'] = retryTimes;
     }
-    public get retryTimes(): string | undefined {
+    public get retryTimes(): number | undefined {
         return this['retry_times'];
     }
     public withBodyLength(bodyLength: number): ListMessageTraceRespTrace {

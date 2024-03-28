@@ -1,11 +1,11 @@
-import { ListGlobalValue } from './ListGlobalValue';
+import { GlobalVariable } from './GlobalVariable';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListGlobalVariablesResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    private 'global_vars'?: Array<ListGlobalValue>;
+    private 'global_vars'?: Array<GlobalVariable>;
     public count?: number;
     public constructor() { 
         super();
@@ -24,14 +24,14 @@ export class ListGlobalVariablesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withGlobalVars(globalVars: Array<ListGlobalValue>): ListGlobalVariablesResponse {
+    public withGlobalVars(globalVars: Array<GlobalVariable>): ListGlobalVariablesResponse {
         this['global_vars'] = globalVars;
         return this;
     }
-    public set globalVars(globalVars: Array<ListGlobalValue>  | undefined) {
+    public set globalVars(globalVars: Array<GlobalVariable>  | undefined) {
         this['global_vars'] = globalVars;
     }
-    public get globalVars(): Array<ListGlobalValue> | undefined {
+    public get globalVars(): Array<GlobalVariable> | undefined {
         return this['global_vars'];
     }
     public withCount(count: number): ListGlobalVariablesResponse {

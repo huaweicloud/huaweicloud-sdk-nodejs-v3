@@ -1,11 +1,11 @@
-import { DeleteTemplateRespTemplate } from './DeleteTemplateRespTemplate';
+import { FlinkSqlJobTemplateId } from './FlinkSqlJobTemplateId';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteFlinkSqlJobTemplateResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public template?: DeleteTemplateRespTemplate;
+    public template?: FlinkSqlJobTemplateId;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class DeleteFlinkSqlJobTemplateResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withTemplate(template: DeleteTemplateRespTemplate): DeleteFlinkSqlJobTemplateResponse {
+    public withTemplate(template: FlinkSqlJobTemplateId): DeleteFlinkSqlJobTemplateResponse {
         this['template'] = template;
         return this;
     }

@@ -1,4 +1,4 @@
-import { TmsTag } from './TmsTag';
+import { Tag } from './Tag';
 
 
 export class CreateElasticResourcePoolRequestBody {
@@ -9,7 +9,7 @@ export class CreateElasticResourcePoolRequestBody {
     private 'charging_mode'?: number;
     private 'min_cu'?: number;
     private 'enterprise_project_id'?: string;
-    public tags?: Array<TmsTag>;
+    public tags?: Array<Tag>;
     public constructor(elasticResourcePoolName?: string, maxCu?: number, minCu?: number) { 
         this['elastic_resource_pool_name'] = elasticResourcePoolName;
         this['max_cu'] = maxCu;
@@ -79,7 +79,7 @@ export class CreateElasticResourcePoolRequestBody {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withTags(tags: Array<TmsTag>): CreateElasticResourcePoolRequestBody {
+    public withTags(tags: Array<Tag>): CreateElasticResourcePoolRequestBody {
         this['tags'] = tags;
         return this;
     }

@@ -1,4 +1,4 @@
-import { ShowDatabaseUsersPrivilege } from './ShowDatabaseUsersPrivilege';
+import { DatabaseUserPrivilege } from './DatabaseUserPrivilege';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListDatabaseUsersResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     private 'database_name'?: string;
-    public privileges?: Array<ShowDatabaseUsersPrivilege>;
+    public privileges?: Array<DatabaseUserPrivilege>;
     public constructor() { 
         super();
     }
@@ -34,7 +34,7 @@ export class ListDatabaseUsersResponse extends SdkResponse {
     public get databaseName(): string | undefined {
         return this['database_name'];
     }
-    public withPrivileges(privileges: Array<ShowDatabaseUsersPrivilege>): ListDatabaseUsersResponse {
+    public withPrivileges(privileges: Array<DatabaseUserPrivilege>): ListDatabaseUsersResponse {
         this['privileges'] = privileges;
         return this;
     }

@@ -281,6 +281,8 @@ import { EnvInfo } from './model/EnvInfo';
 import { EnvVariableBase } from './model/EnvVariableBase';
 import { EnvVariableCreate } from './model/EnvVariableCreate';
 import { EnvVariableInfo } from './model/EnvVariableInfo';
+import { ExportApiDefinitionsAsyncRequest } from './model/ExportApiDefinitionsAsyncRequest';
+import { ExportApiDefinitionsAsyncResponse } from './model/ExportApiDefinitionsAsyncResponse';
 import { ExportApiDefinitionsV2Request } from './model/ExportApiDefinitionsV2Request';
 import { ExportApiDefinitionsV2Response } from './model/ExportApiDefinitionsV2Response';
 import { ExportOpenApiReq } from './model/ExportOpenApiReq';
@@ -289,6 +291,9 @@ import { FeatureInfo } from './model/FeatureInfo';
 import { FeatureToggle } from './model/FeatureToggle';
 import { Identity } from './model/Identity';
 import { Ignore } from './model/Ignore';
+import { ImportApiDefinitionsAsyncRequest } from './model/ImportApiDefinitionsAsyncRequest';
+import { ImportApiDefinitionsAsyncRequestBody } from './model/ImportApiDefinitionsAsyncRequestBody';
+import { ImportApiDefinitionsAsyncResponse } from './model/ImportApiDefinitionsAsyncResponse';
 import { ImportApiDefinitionsV2Request } from './model/ImportApiDefinitionsV2Request';
 import { ImportApiDefinitionsV2RequestBody } from './model/ImportApiDefinitionsV2RequestBody';
 import { ImportApiDefinitionsV2Response } from './model/ImportApiDefinitionsV2Response';
@@ -381,6 +386,8 @@ import { ListGatewayResponsesV2Request } from './model/ListGatewayResponsesV2Req
 import { ListGatewayResponsesV2Response } from './model/ListGatewayResponsesV2Response';
 import { ListInstanceConfigsV2Request } from './model/ListInstanceConfigsV2Request';
 import { ListInstanceConfigsV2Response } from './model/ListInstanceConfigsV2Response';
+import { ListInstanceFeaturesRequest } from './model/ListInstanceFeaturesRequest';
+import { ListInstanceFeaturesResponse } from './model/ListInstanceFeaturesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListInstancesV2Request } from './model/ListInstancesV2Request';
@@ -465,6 +472,7 @@ import { ResettingAppSecretV2Response } from './model/ResettingAppSecretV2Respon
 import { ResizeInstanceReq } from './model/ResizeInstanceReq';
 import { RespInstanceBase } from './model/RespInstanceBase';
 import { ResponseInfo } from './model/ResponseInfo';
+import { ResponseInfoHeader } from './model/ResponseInfoHeader';
 import { ResponseInfoResp } from './model/ResponseInfoResp';
 import { ResponsesCreate } from './model/ResponsesCreate';
 import { ResponsesInfo } from './model/ResponsesInfo';
@@ -472,6 +480,8 @@ import { ShowAppBoundAppQuotaRequest } from './model/ShowAppBoundAppQuotaRequest
 import { ShowAppBoundAppQuotaResponse } from './model/ShowAppBoundAppQuotaResponse';
 import { ShowAppQuotaRequest } from './model/ShowAppQuotaRequest';
 import { ShowAppQuotaResponse } from './model/ShowAppQuotaResponse';
+import { ShowAsyncTaskResultRequest } from './model/ShowAsyncTaskResultRequest';
+import { ShowAsyncTaskResultResponse } from './model/ShowAsyncTaskResultResponse';
 import { ShowDetailsOfAclPolicyV2Request } from './model/ShowDetailsOfAclPolicyV2Request';
 import { ShowDetailsOfAclPolicyV2Response } from './model/ShowDetailsOfAclPolicyV2Response';
 import { ShowDetailsOfApiGroupV2Request } from './model/ShowDetailsOfApiGroupV2Request';
@@ -516,6 +526,7 @@ import { SignApiBindingInfo } from './model/SignApiBindingInfo';
 import { SignApiBindingResult } from './model/SignApiBindingResult';
 import { Signature } from './model/Signature';
 import { SignatureWithBindNum } from './model/SignatureWithBindNum';
+import { SlDomainAccessSetting } from './model/SlDomainAccessSetting';
 import { StatisticsAPI } from './model/StatisticsAPI';
 import { StatisticsGroup } from './model/StatisticsGroup';
 import { Success } from './model/Success';
@@ -579,6 +590,8 @@ import { UpdateRequestThrottlingPolicyV2Request } from './model/UpdateRequestThr
 import { UpdateRequestThrottlingPolicyV2Response } from './model/UpdateRequestThrottlingPolicyV2Response';
 import { UpdateSignatureKeyV2Request } from './model/UpdateSignatureKeyV2Request';
 import { UpdateSignatureKeyV2Response } from './model/UpdateSignatureKeyV2Response';
+import { UpdateSlDomainSettingV2Request } from './model/UpdateSlDomainSettingV2Request';
+import { UpdateSlDomainSettingV2Response } from './model/UpdateSlDomainSettingV2Response';
 import { UpdateSpecialThrottlingConfigurationV2Request } from './model/UpdateSpecialThrottlingConfigurationV2Request';
 import { UpdateSpecialThrottlingConfigurationV2Response } from './model/UpdateSpecialThrottlingConfigurationV2Response';
 import { UpdateVpcChannelV2Request } from './model/UpdateVpcChannelV2Request';
@@ -1449,7 +1462,7 @@ export class ApigClient {
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} groupId 分组的编号
      * @param {string} responseId 响应编号
-     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误
+     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE' | 'ORCHESTRATION_PARAMETER_NOT_FOUND' | 'ORCHESTRATION_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误 - ORCHESTRATION_PARAMETER_NOT_FOUND: 参数编排失败，请求中没有待编排的入参 - ORCHESTRATION_FAILURE: 参数编排失败，没有编排规则匹配成功
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1705,6 +1718,53 @@ export class ApigClient {
      */
     public disassociateSignatureKeyV2(disassociateSignatureKeyV2Request?: DisassociateSignatureKeyV2Request): Promise<DisassociateSignatureKeyV2Response> {
         const options = ParamCreater().disassociateSignatureKeyV2(disassociateSignatureKeyV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 异步导出API
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {ExportOpenApiReq} exportApiDefinitionsAsyncRequestBody 批量导出API的请求体
+     * @param {'2.0' | '3.0'} [oasVersion] OpenAPI版本
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportApiDefinitionsAsync(exportApiDefinitionsAsyncRequest?: ExportApiDefinitionsAsyncRequest): Promise<ExportApiDefinitionsAsyncResponse> {
+        const options = ParamCreater().exportApiDefinitionsAsync(exportApiDefinitionsAsyncRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 异步导入API
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {any} fileName 导入Api的请求体，json或yaml格式的文件
+     * @param {boolean} [isCreateGroup] 是否创建新分组
+     * @param {string} [groupId] API分组编号，当is_create_group&#x3D;false时为必填
+     * @param {string} [extendMode] 扩展信息导入模式 - merge：当扩展信息定义冲突时，merge保留原有扩展信息 - override：当扩展信息定义冲突时，override会覆盖原有扩展信息
+     * @param {boolean} [simpleMode] 是否开启简易导入模式
+     * @param {boolean} [mockMode] 是否开启Mock后端
+     * @param {string} [apiMode] 导入模式 - merge：当API信息定义冲突时，merge保留原有API信息 - override：当API信息定义冲突时，override会覆盖原有API信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importApiDefinitionsAsync(importApiDefinitionsAsyncRequest?: ImportApiDefinitionsAsyncRequest): Promise<ImportApiDefinitionsAsyncResponse> {
+        const options = ParamCreater().importApiDefinitionsAsync(importApiDefinitionsAsyncRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2217,6 +2277,27 @@ export class ApigClient {
     }
 
     /**
+     * 查询实例支持的特性列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例支持的特性列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceFeatures(listInstanceFeaturesRequest?: ListInstanceFeaturesRequest): Promise<ListInstanceFeaturesResponse> {
+        const options = ParamCreater().listInstanceFeatures(listInstanceFeaturesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个实例的标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2697,6 +2778,26 @@ export class ApigClient {
     }
 
     /**
+     * 获取异步任务结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取异步任务结果
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} taskId 异步任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAsyncTaskResult(showAsyncTaskResultRequest?: ShowAsyncTaskResultRequest): Promise<ShowAsyncTaskResultResponse> {
+        const options = ParamCreater().showAsyncTaskResult(showAsyncTaskResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看APP的访问控制详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2828,7 +2929,7 @@ export class ApigClient {
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} groupId 分组的编号
      * @param {string} responseId 响应编号
-     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误
+     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE' | 'ORCHESTRATION_PARAMETER_NOT_FOUND' | 'ORCHESTRATION_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误 - ORCHESTRATION_PARAMETER_NOT_FOUND: 参数编排失败，请求中没有待编排的入参 - ORCHESTRATION_FAILURE: 参数编排失败，没有编排规则匹配成功
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3136,7 +3237,7 @@ export class ApigClient {
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} groupId 分组的编号
      * @param {string} responseId 响应编号
-     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误
+     * @param {'AUTH_FAILURE' | 'AUTH_HEADER_MISSING' | 'AUTHORIZER_FAILURE' | 'AUTHORIZER_CONF_FAILURE' | 'AUTHORIZER_IDENTITIES_FAILURE' | 'BACKEND_UNAVAILABLE' | 'BACKEND_TIMEOUT' | 'THROTTLED' | 'UNAUTHORIZED' | 'ACCESS_DENIED' | 'NOT_FOUND' | 'REQUEST_PARAMETERS_FAILURE' | 'DEFAULT_4XX' | 'DEFAULT_5XX' | 'THIRD_AUTH_FAILURE' | 'THIRD_AUTH_IDENTITIES_FAILURE' | 'THIRD_AUTH_CONF_FAILURE' | 'ORCHESTRATION_PARAMETER_NOT_FOUND' | 'ORCHESTRATION_FAILURE'} responseType 错误类型 - AUTH_FAILURE: 认证失败，IAM或APP认证校验失败 - AUTH_HEADER_MISSING: 认证身份来源信息缺失 - AUTHORIZER_FAILURE: 自定义认证方返回认证失败 - AUTHORIZER_CONF_FAILURE:自定义认证方异常，通信失败、返回异常响应等错误 - AUTHORIZER_IDENTITIES_FAILURE: 前端自定义认证的身份来源信息缺失或不合法错误 - BACKEND_UNAVAILABLE: 后端不可用，网络不可达错误 - BACKEND_TIMEOUT: 后端超时，与后端的网络交互超过预配置的时间错误 - THROTTLED: API调用次数超出所配置的流量策略阈值 - UNAUTHORIZED: 使用的凭据未被授权访问该API - ACCESS_DENIED: 拒绝访问，如触发配置的访问控制策略、或异常攻击检测拦截 - NOT_FOUND: 未匹配到API错误 - REQUEST_PARAMETERS_FAILURE: 请求参数校验失败、不支持的HTTP方法 - DEFAULT_4XX: 其它4XX类错误 - DEFAULT_5XX: 其它5XX类错误 - THIRD_AUTH_FAILURE: 第三方认证方返回认证失败 - THIRD_AUTH_IDENTITIES_FAILURE: 第三方认证的身份来源信息缺失或不合法错误 - THIRD_AUTH_CONF_FAILURE: 第三方认证方异常，通信失败、返回异常响应等错误 - ORCHESTRATION_PARAMETER_NOT_FOUND: 参数编排失败，请求中没有待编排的入参 - ORCHESTRATION_FAILURE: 参数编排失败，没有编排规则匹配成功
      * @param {ResponseInfo} updateGatewayResponseTypeV2RequestBody 修改分组下指定错误类型的自定义响应的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3270,6 +3371,27 @@ export class ApigClient {
      */
     public updateSignatureKeyV2(updateSignatureKeyV2Request?: UpdateSignatureKeyV2Request): Promise<UpdateSignatureKeyV2Response> {
         const options = ParamCreater().updateSignatureKeyV2(updateSignatureKeyV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用或启用API分组绑定的调试域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置调试域名是否可以访问
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} groupId 分组的编号
+     * @param {SlDomainAccessSetting} updateSlDomainSettingV2RequestBody 设置调试域名是否可以访问的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSlDomainSettingV2(updateSlDomainSettingV2Request?: UpdateSlDomainSettingV2Request): Promise<UpdateSlDomainSettingV2Response> {
+        const options = ParamCreater().updateSlDomainSettingV2(updateSlDomainSettingV2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7405,6 +7527,153 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportApiDefinitionsAsync(exportApiDefinitionsAsyncRequest?: ExportApiDefinitionsAsyncRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/openapi/async-export",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let instanceId;
+            
+            let oasVersion;
+
+            if (exportApiDefinitionsAsyncRequest !== null && exportApiDefinitionsAsyncRequest !== undefined) {
+                if (exportApiDefinitionsAsyncRequest instanceof ExportApiDefinitionsAsyncRequest) {
+                    instanceId = exportApiDefinitionsAsyncRequest.instanceId;
+                    body = exportApiDefinitionsAsyncRequest.body
+                    oasVersion = exportApiDefinitionsAsyncRequest.oasVersion;
+                } else {
+                    instanceId = exportApiDefinitionsAsyncRequest['instance_id'];
+                    body = exportApiDefinitionsAsyncRequest['body'];
+                    oasVersion = exportApiDefinitionsAsyncRequest['oas_version'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling exportApiDefinitionsAsync.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (oasVersion !== null && oasVersion !== undefined) {
+                localVarQueryParameter['oas_version'] = oasVersion;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importApiDefinitionsAsync(importApiDefinitionsAsyncRequest?: ImportApiDefinitionsAsyncRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/openapi/async-import",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let instanceId;
+            let fileName;
+            
+            let isCreateGroup;
+            
+            let groupId;
+            
+            let extendMode;
+            
+            let simpleMode;
+            
+            let mockMode;
+            
+            let apiMode;
+            
+
+            if (importApiDefinitionsAsyncRequest !== null && importApiDefinitionsAsyncRequest !== undefined) {
+                if (importApiDefinitionsAsyncRequest instanceof ImportApiDefinitionsAsyncRequest) {
+                    instanceId = importApiDefinitionsAsyncRequest.instanceId;
+                    fileName = importApiDefinitionsAsyncRequest.body?.fileName;
+                    isCreateGroup = importApiDefinitionsAsyncRequest.body?.isCreateGroup;
+                    groupId = importApiDefinitionsAsyncRequest.body?.groupId;
+                    extendMode = importApiDefinitionsAsyncRequest.body?.extendMode;
+                    simpleMode = importApiDefinitionsAsyncRequest.body?.simpleMode;
+                    mockMode = importApiDefinitionsAsyncRequest.body?.mockMode;
+                    apiMode = importApiDefinitionsAsyncRequest.body?.apiMode;
+                } else {
+                    instanceId = importApiDefinitionsAsyncRequest['instance_id'];
+                    fileName = importApiDefinitionsAsyncRequest['body']['fileName'];
+                    isCreateGroup = importApiDefinitionsAsyncRequest['body']['isCreateGroup'];
+                    groupId = importApiDefinitionsAsyncRequest['body']['groupId'];
+                    extendMode = importApiDefinitionsAsyncRequest['body']['extendMode'];
+                    simpleMode = importApiDefinitionsAsyncRequest['body']['simpleMode'];
+                    mockMode = importApiDefinitionsAsyncRequest['body']['mockMode'];
+                    apiMode = importApiDefinitionsAsyncRequest['body']['apiMode'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling importApiDefinitionsAsync.');
+            }
+            if (fileName === null || fileName === undefined) {
+            throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling importApiDefinitionsAsync.');
+            }
+            if (isCreateGroup !== undefined) { 
+                localVarFormParams.append('is_create_group', isCreateGroup as any);
+            }
+            if (groupId !== undefined) { 
+                localVarFormParams.append('group_id', groupId as any);
+            }
+            if (extendMode !== undefined) { 
+                localVarFormParams.append('extend_mode', extendMode as any);
+            }
+            if (simpleMode !== undefined) { 
+                localVarFormParams.append('simple_mode', simpleMode as any);
+            }
+            if (mockMode !== undefined) { 
+                localVarFormParams.append('mock_mode', mockMode as any);
+            }
+            if (apiMode !== undefined) { 
+                localVarFormParams.append('api_mode', apiMode as any);
+            }
+            if (fileName !== undefined) { 
+                localVarFormParams.append('file_name', fileName as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 导入微服务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8797,6 +9066,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例支持的特性列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceFeatures(listInstanceFeaturesRequest?: ListInstanceFeaturesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/instance-features",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceFeaturesRequest !== null && listInstanceFeaturesRequest !== undefined) {
+                if (listInstanceFeaturesRequest instanceof ListInstanceFeaturesRequest) {
+                    instanceId = listInstanceFeaturesRequest.instanceId;
+                    offset = listInstanceFeaturesRequest.offset;
+                    limit = listInstanceFeaturesRequest.limit;
+                } else {
+                    instanceId = listInstanceFeaturesRequest['instance_id'];
+                    offset = listInstanceFeaturesRequest['offset'];
+                    limit = listInstanceFeaturesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceFeatures.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个实例的标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10090,6 +10411,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'app_quota_id': appQuotaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取异步任务结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAsyncTaskResult(showAsyncTaskResultRequest?: ShowAsyncTaskResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/async-tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (showAsyncTaskResultRequest !== null && showAsyncTaskResultRequest !== undefined) {
+                if (showAsyncTaskResultRequest instanceof ShowAsyncTaskResultRequest) {
+                    instanceId = showAsyncTaskResultRequest.instanceId;
+                    taskId = showAsyncTaskResultRequest.taskId;
+                } else {
+                    instanceId = showAsyncTaskResultRequest['instance_id'];
+                    taskId = showAsyncTaskResultRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAsyncTaskResult.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showAsyncTaskResult.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11487,6 +11852,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'sign_id': signId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用或启用API分组绑定的调试域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSlDomainSettingV2(updateSlDomainSettingV2Request?: UpdateSlDomainSettingV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/api-groups/{group_id}/sl-domain-access-settings",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let groupId;
+
+            if (updateSlDomainSettingV2Request !== null && updateSlDomainSettingV2Request !== undefined) {
+                if (updateSlDomainSettingV2Request instanceof UpdateSlDomainSettingV2Request) {
+                    instanceId = updateSlDomainSettingV2Request.instanceId;
+                    groupId = updateSlDomainSettingV2Request.groupId;
+                    body = updateSlDomainSettingV2Request.body
+                } else {
+                    instanceId = updateSlDomainSettingV2Request['instance_id'];
+                    groupId = updateSlDomainSettingV2Request['group_id'];
+                    body = updateSlDomainSettingV2Request['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateSlDomainSettingV2.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateSlDomainSettingV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1,4 +1,4 @@
-import { FlinkJobConfig } from './FlinkJobConfig';
+import { FlinkJobConfigDetail } from './FlinkJobConfigDetail';
 
 
 export class FlinkJobDetail {
@@ -15,7 +15,7 @@ export class FlinkJobDetail {
     private 'project_id'?: string;
     private 'sql_body'?: string;
     private 'run_mode'?: string;
-    private 'job_config'?: FlinkJobConfig;
+    private 'job_config'?: FlinkJobConfigDetail;
     private 'main_class'?: string;
     private 'entrypoint_args'?: string;
     private 'execution_graph'?: string;
@@ -137,14 +137,14 @@ export class FlinkJobDetail {
     public get runMode(): string | undefined {
         return this['run_mode'];
     }
-    public withJobConfig(jobConfig: FlinkJobConfig): FlinkJobDetail {
+    public withJobConfig(jobConfig: FlinkJobConfigDetail): FlinkJobDetail {
         this['job_config'] = jobConfig;
         return this;
     }
-    public set jobConfig(jobConfig: FlinkJobConfig  | undefined) {
+    public set jobConfig(jobConfig: FlinkJobConfigDetail  | undefined) {
         this['job_config'] = jobConfig;
     }
-    public get jobConfig(): FlinkJobConfig | undefined {
+    public get jobConfig(): FlinkJobConfigDetail | undefined {
         return this['job_config'];
     }
     public withMainClass(mainClass: string): FlinkJobDetail {

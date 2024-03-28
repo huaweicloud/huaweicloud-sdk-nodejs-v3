@@ -41,6 +41,7 @@ import { CentralNetworkConnectionState } from './model/CentralNetworkConnectionS
 import { CentralNetworkConnectionStateEnum } from './model/CentralNetworkConnectionStateEnum';
 import { CentralNetworkElementChange } from './model/CentralNetworkElementChange';
 import { CentralNetworkErInstance } from './model/CentralNetworkErInstance';
+import { CentralNetworkErRouteTableAttachment } from './model/CentralNetworkErRouteTableAttachment';
 import { CentralNetworkGdgwAttachment } from './model/CentralNetworkGdgwAttachment';
 import { CentralNetworkId } from './model/CentralNetworkId';
 import { CentralNetworkPlane } from './model/CentralNetworkPlane';
@@ -73,6 +74,10 @@ import { CreateBandwidthPackageRequest } from './model/CreateBandwidthPackageReq
 import { CreateBandwidthPackageRequestBody } from './model/CreateBandwidthPackageRequestBody';
 import { CreateBandwidthPackageResponse } from './model/CreateBandwidthPackageResponse';
 import { CreateCentralNetwork } from './model/CreateCentralNetwork';
+import { CreateCentralNetworkErRouteTableAttachment } from './model/CreateCentralNetworkErRouteTableAttachment';
+import { CreateCentralNetworkErRouteTableAttachmentRequest } from './model/CreateCentralNetworkErRouteTableAttachmentRequest';
+import { CreateCentralNetworkErRouteTableAttachmentResponse } from './model/CreateCentralNetworkErRouteTableAttachmentResponse';
+import { CreateCentralNetworkErRouteTableAttachmentsRequestBody } from './model/CreateCentralNetworkErRouteTableAttachmentsRequestBody';
 import { CreateCentralNetworkGdgwAttachment } from './model/CreateCentralNetworkGdgwAttachment';
 import { CreateCentralNetworkGdgwAttachmentRequest } from './model/CreateCentralNetworkGdgwAttachmentRequest';
 import { CreateCentralNetworkGdgwAttachmentRequestBody } from './model/CreateCentralNetworkGdgwAttachmentRequestBody';
@@ -138,6 +143,7 @@ import { EnterpriseRouterId } from './model/EnterpriseRouterId';
 import { EnterpriseRouterProjectId } from './model/EnterpriseRouterProjectId';
 import { EnterpriseRouterRegionId } from './model/EnterpriseRouterRegionId';
 import { EnterpriseRouterTableId } from './model/EnterpriseRouterTableId';
+import { GcbAdminState } from './model/GcbAdminState';
 import { GcbBindingServiceAll } from './model/GcbBindingServiceAll';
 import { GcbBorderCross } from './model/GcbBorderCross';
 import { GcbChargeMode } from './model/GcbChargeMode';
@@ -150,6 +156,8 @@ import { GcbRemoteArea } from './model/GcbRemoteArea';
 import { GcbRemoteSiteCode } from './model/GcbRemoteSiteCode';
 import { GcbResourceId } from './model/GcbResourceId';
 import { GcbResourceType } from './model/GcbResourceType';
+import { GcbShowLocalArea } from './model/GcbShowLocalArea';
+import { GcbShowRemoveArea } from './model/GcbShowRemoveArea';
 import { GcbSize } from './model/GcbSize';
 import { GcbSlaLevel } from './model/GcbSlaLevel';
 import { GcbSpecCodeId } from './model/GcbSpecCodeId';
@@ -185,6 +193,8 @@ import { ListCentralNetworkCapabilitiesRequest } from './model/ListCentralNetwor
 import { ListCentralNetworkCapabilitiesResponse } from './model/ListCentralNetworkCapabilitiesResponse';
 import { ListCentralNetworkConnectionsRequest } from './model/ListCentralNetworkConnectionsRequest';
 import { ListCentralNetworkConnectionsResponse } from './model/ListCentralNetworkConnectionsResponse';
+import { ListCentralNetworkErRouteTableAttachmentsRequest } from './model/ListCentralNetworkErRouteTableAttachmentsRequest';
+import { ListCentralNetworkErRouteTableAttachmentsResponse } from './model/ListCentralNetworkErRouteTableAttachmentsResponse';
 import { ListCentralNetworkGdgwAttachmentsRequest } from './model/ListCentralNetworkGdgwAttachmentsRequest';
 import { ListCentralNetworkGdgwAttachmentsResponse } from './model/ListCentralNetworkGdgwAttachmentsResponse';
 import { ListCentralNetworkPoliciesRequest } from './model/ListCentralNetworkPoliciesRequest';
@@ -195,6 +205,9 @@ import { ListCentralNetworkQuotasRequest } from './model/ListCentralNetworkQuota
 import { ListCentralNetworkQuotasResponse } from './model/ListCentralNetworkQuotasResponse';
 import { ListCentralNetworkTagsRequest } from './model/ListCentralNetworkTagsRequest';
 import { ListCentralNetworkTagsResponse } from './model/ListCentralNetworkTagsResponse';
+import { ListCentralNetworksByTagsRequest } from './model/ListCentralNetworksByTagsRequest';
+import { ListCentralNetworksByTagsRequestBody } from './model/ListCentralNetworksByTagsRequestBody';
+import { ListCentralNetworksByTagsResponse } from './model/ListCentralNetworksByTagsResponse';
 import { ListCentralNetworksRequest } from './model/ListCentralNetworksRequest';
 import { ListCentralNetworksResponse } from './model/ListCentralNetworksResponse';
 import { ListCloudConnectionQuotasRequest } from './model/ListCloudConnectionQuotasRequest';
@@ -252,6 +265,8 @@ import { ResourceId } from './model/ResourceId';
 import { ResourceType } from './model/ResourceType';
 import { ShowBandwidthPackageRequest } from './model/ShowBandwidthPackageRequest';
 import { ShowBandwidthPackageResponse } from './model/ShowBandwidthPackageResponse';
+import { ShowCentralNetworkErRouteTableAttachmentRequest } from './model/ShowCentralNetworkErRouteTableAttachmentRequest';
+import { ShowCentralNetworkErRouteTableAttachmentResponse } from './model/ShowCentralNetworkErRouteTableAttachmentResponse';
 import { ShowCentralNetworkGdgwAttachmentRequest } from './model/ShowCentralNetworkGdgwAttachmentRequest';
 import { ShowCentralNetworkGdgwAttachmentResponse } from './model/ShowCentralNetworkGdgwAttachmentResponse';
 import { ShowCentralNetworkRequest } from './model/ShowCentralNetworkRequest';
@@ -308,6 +323,10 @@ import { UpdateCentralNetworkConnection } from './model/UpdateCentralNetworkConn
 import { UpdateCentralNetworkConnectionRequest } from './model/UpdateCentralNetworkConnectionRequest';
 import { UpdateCentralNetworkConnectionRequestBody } from './model/UpdateCentralNetworkConnectionRequestBody';
 import { UpdateCentralNetworkConnectionResponse } from './model/UpdateCentralNetworkConnectionResponse';
+import { UpdateCentralNetworkErRouteTableAttachment } from './model/UpdateCentralNetworkErRouteTableAttachment';
+import { UpdateCentralNetworkErRouteTableAttachmentRequest } from './model/UpdateCentralNetworkErRouteTableAttachmentRequest';
+import { UpdateCentralNetworkErRouteTableAttachmentRequestBody } from './model/UpdateCentralNetworkErRouteTableAttachmentRequestBody';
+import { UpdateCentralNetworkErRouteTableAttachmentResponse } from './model/UpdateCentralNetworkErRouteTableAttachmentResponse';
 import { UpdateCentralNetworkGdgwAttachment } from './model/UpdateCentralNetworkGdgwAttachment';
 import { UpdateCentralNetworkGdgwAttachmentRequest } from './model/UpdateCentralNetworkGdgwAttachmentRequest';
 import { UpdateCentralNetworkGdgwAttachmentRequestBody } from './model/UpdateCentralNetworkGdgwAttachmentRequestBody';
@@ -878,6 +897,27 @@ export class CcClient {
     }
 
     /**
+     * 通过标签过滤中心网络实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过标签过滤中心网络实例
+     * @param {ListCentralNetworksByTagsRequestBody} listCentralNetworksByTagsRequestBody 通过标签过滤中心网络实例的请求体。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCentralNetworksByTags(listCentralNetworksByTagsRequest?: ListCentralNetworksByTagsRequest): Promise<ListCentralNetworksByTagsResponse> {
+        const options = ParamCreater().listCentralNetworksByTags(listCentralNetworksByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询中心网络详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -957,6 +997,26 @@ export class CcClient {
     }
 
     /**
+     * 创建中心网络的路由表附件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建中心网络ER路由表附件
+     * @param {string} centralNetworkId 中心网络的ID。
+     * @param {CreateCentralNetworkErRouteTableAttachmentsRequestBody} createCentralNetworkErRouteTableAttachmentsRequestBody 创建中心网络的路由表附件的请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCentralNetworkErRouteTableAttachment(createCentralNetworkErRouteTableAttachmentRequest?: CreateCentralNetworkErRouteTableAttachmentRequest): Promise<CreateCentralNetworkErRouteTableAttachmentResponse> {
+        const options = ParamCreater().createCentralNetworkErRouteTableAttachment(createCentralNetworkErRouteTableAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建中心网络的GDGW附件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1025,6 +1085,34 @@ export class CcClient {
     }
 
     /**
+     * 查询中心网络ER路由表附件列表。
+     * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中心网络ER路由表附件列表
+     * @param {string} centralNetworkId 中心网络的ID。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~1000。
+     * @param {string} [marker] 翻页信息，从上次API调用返回的翻页数据中获取，可填写前一页marker或者后一页marker，填入前一页previous_marker就向前翻页，后一页next_marker就向翻页。 翻页过程中，查询条件不能修改，包括过滤条件，排序条件，limit。
+     * @param {string} [sortKey] 排序字段。
+     * @param {SortDir} [sortDir] 指定排序是升序还是降序(asc为升序，desc为降序)。
+     * @param {Array<string>} [id] 根据id查询，可查询多个id。
+     * @param {Array<string>} [name] 根据名字查询，可查询多个名字。
+     * @param {Array<CentralNetworkConnectionStateEnum>} [state] 根据状态查询，可查询多个状态。
+     * @param {Array<string>} [attachmentInstanceId] Attachment实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCentralNetworkErRouteTableAttachments(listCentralNetworkErRouteTableAttachmentsRequest?: ListCentralNetworkErRouteTableAttachmentsRequest): Promise<ListCentralNetworkErRouteTableAttachmentsResponse> {
+        const options = ParamCreater().listCentralNetworkErRouteTableAttachments(listCentralNetworkErRouteTableAttachmentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询中心网络GDGW附件列表。
      * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
      * 
@@ -1053,6 +1141,26 @@ export class CcClient {
     }
 
     /**
+     * 查询中心网络ER路由表附件详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中心网络ER路由表附件详情
+     * @param {string} centralNetworkId 中心网络的ID。
+     * @param {string} erRouteTableAttachmentId 中心网络ER路由表附件ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCentralNetworkErRouteTableAttachment(showCentralNetworkErRouteTableAttachmentRequest?: ShowCentralNetworkErRouteTableAttachmentRequest): Promise<ShowCentralNetworkErRouteTableAttachmentResponse> {
+        const options = ParamCreater().showCentralNetworkErRouteTableAttachment(showCentralNetworkErRouteTableAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询中心网络GDGW附件详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1065,6 +1173,27 @@ export class CcClient {
      */
     public showCentralNetworkGdgwAttachment(showCentralNetworkGdgwAttachmentRequest?: ShowCentralNetworkGdgwAttachmentRequest): Promise<ShowCentralNetworkGdgwAttachmentResponse> {
         const options = ParamCreater().showCentralNetworkGdgwAttachment(showCentralNetworkGdgwAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新中心网络ER路由表附件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新中心网络ER路由表附件
+     * @param {string} centralNetworkId 中心网络的ID。
+     * @param {string} erRouteTableAttachmentId 中心网络ER路由表附件ID。
+     * @param {UpdateCentralNetworkErRouteTableAttachmentRequestBody} updateCentralNetworkErRouteTableAttachmentRequestBody 更新中心网络ER路由表附件的请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCentralNetworkErRouteTableAttachment(updateCentralNetworkErRouteTableAttachmentRequest?: UpdateCentralNetworkErRouteTableAttachmentRequest): Promise<UpdateCentralNetworkErRouteTableAttachmentResponse> {
+        const options = ParamCreater().updateCentralNetworkErRouteTableAttachment(updateCentralNetworkErRouteTableAttachmentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3169,6 +3298,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过标签过滤中心网络实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCentralNetworksByTags(listCentralNetworksByTagsRequest?: ListCentralNetworksByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/gcn/central-networks/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listCentralNetworksByTagsRequest !== null && listCentralNetworksByTagsRequest !== undefined) {
+                if (listCentralNetworksByTagsRequest instanceof ListCentralNetworksByTagsRequest) {
+                    body = listCentralNetworksByTagsRequest.body
+                    limit = listCentralNetworksByTagsRequest.limit;
+                    marker = listCentralNetworksByTagsRequest.marker;
+                } else {
+                    body = listCentralNetworksByTagsRequest['body'];
+                    limit = listCentralNetworksByTagsRequest['limit'];
+                    marker = listCentralNetworksByTagsRequest['marker'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询中心网络详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3331,6 +3513,52 @@ export const ParamCreater = function () {
         
             if (centralNetworkId === null || centralNetworkId === undefined) {
             throw new RequiredError('centralNetworkId','Required parameter centralNetworkId was null or undefined when calling updateCentralNetwork.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'central_network_id': centralNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建中心网络的路由表附件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCentralNetworkErRouteTableAttachment(createCentralNetworkErRouteTableAttachmentRequest?: CreateCentralNetworkErRouteTableAttachmentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{domain_id}/gcn/central-network/{central_network_id}/er-route-table-attachments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let centralNetworkId;
+
+            if (createCentralNetworkErRouteTableAttachmentRequest !== null && createCentralNetworkErRouteTableAttachmentRequest !== undefined) {
+                if (createCentralNetworkErRouteTableAttachmentRequest instanceof CreateCentralNetworkErRouteTableAttachmentRequest) {
+                    centralNetworkId = createCentralNetworkErRouteTableAttachmentRequest.centralNetworkId;
+                    body = createCentralNetworkErRouteTableAttachmentRequest.body
+                } else {
+                    centralNetworkId = createCentralNetworkErRouteTableAttachmentRequest['central_network_id'];
+                    body = createCentralNetworkErRouteTableAttachmentRequest['body'];
+                }
+            }
+
+        
+            if (centralNetworkId === null || centralNetworkId === undefined) {
+            throw new RequiredError('centralNetworkId','Required parameter centralNetworkId was null or undefined when calling createCentralNetworkErRouteTableAttachment.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3535,6 +3763,101 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询中心网络ER路由表附件列表。
+         * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCentralNetworkErRouteTableAttachments(listCentralNetworkErRouteTableAttachmentsRequest?: ListCentralNetworkErRouteTableAttachmentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcn/central-network/{central_network_id}/er-route-table-attachments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let centralNetworkId;
+            
+            let limit;
+            
+            let marker;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+            
+            let state;
+            
+            let attachmentInstanceId;
+
+            if (listCentralNetworkErRouteTableAttachmentsRequest !== null && listCentralNetworkErRouteTableAttachmentsRequest !== undefined) {
+                if (listCentralNetworkErRouteTableAttachmentsRequest instanceof ListCentralNetworkErRouteTableAttachmentsRequest) {
+                    centralNetworkId = listCentralNetworkErRouteTableAttachmentsRequest.centralNetworkId;
+                    limit = listCentralNetworkErRouteTableAttachmentsRequest.limit;
+                    marker = listCentralNetworkErRouteTableAttachmentsRequest.marker;
+                    sortKey = listCentralNetworkErRouteTableAttachmentsRequest.sortKey;
+                    sortDir = listCentralNetworkErRouteTableAttachmentsRequest.sortDir;
+                    id = listCentralNetworkErRouteTableAttachmentsRequest.id;
+                    name = listCentralNetworkErRouteTableAttachmentsRequest.name;
+                    state = listCentralNetworkErRouteTableAttachmentsRequest.state;
+                    attachmentInstanceId = listCentralNetworkErRouteTableAttachmentsRequest.attachmentInstanceId;
+                } else {
+                    centralNetworkId = listCentralNetworkErRouteTableAttachmentsRequest['central_network_id'];
+                    limit = listCentralNetworkErRouteTableAttachmentsRequest['limit'];
+                    marker = listCentralNetworkErRouteTableAttachmentsRequest['marker'];
+                    sortKey = listCentralNetworkErRouteTableAttachmentsRequest['sort_key'];
+                    sortDir = listCentralNetworkErRouteTableAttachmentsRequest['sort_dir'];
+                    id = listCentralNetworkErRouteTableAttachmentsRequest['id'];
+                    name = listCentralNetworkErRouteTableAttachmentsRequest['name'];
+                    state = listCentralNetworkErRouteTableAttachmentsRequest['state'];
+                    attachmentInstanceId = listCentralNetworkErRouteTableAttachmentsRequest['attachment_instance_id'];
+                }
+            }
+
+        
+            if (centralNetworkId === null || centralNetworkId === undefined) {
+            throw new RequiredError('centralNetworkId','Required parameter centralNetworkId was null or undefined when calling listCentralNetworkErRouteTableAttachments.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (attachmentInstanceId !== null && attachmentInstanceId !== undefined) {
+                localVarQueryParameter['attachment_instance_id'] = attachmentInstanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'central_network_id': centralNetworkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询中心网络GDGW附件列表。
          * 分页查询使用的参数为marker、limit。limit默认值为0，没有指定marker时返回第一条数据。
          * 
@@ -3630,6 +3953,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询中心网络ER路由表附件详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCentralNetworkErRouteTableAttachment(showCentralNetworkErRouteTableAttachmentRequest?: ShowCentralNetworkErRouteTableAttachmentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{domain_id}/gcn/central-network/{central_network_id}/er-route-table-attachments/{er_route_table_attachment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let centralNetworkId;
+            
+            let erRouteTableAttachmentId;
+
+            if (showCentralNetworkErRouteTableAttachmentRequest !== null && showCentralNetworkErRouteTableAttachmentRequest !== undefined) {
+                if (showCentralNetworkErRouteTableAttachmentRequest instanceof ShowCentralNetworkErRouteTableAttachmentRequest) {
+                    centralNetworkId = showCentralNetworkErRouteTableAttachmentRequest.centralNetworkId;
+                    erRouteTableAttachmentId = showCentralNetworkErRouteTableAttachmentRequest.erRouteTableAttachmentId;
+                } else {
+                    centralNetworkId = showCentralNetworkErRouteTableAttachmentRequest['central_network_id'];
+                    erRouteTableAttachmentId = showCentralNetworkErRouteTableAttachmentRequest['er_route_table_attachment_id'];
+                }
+            }
+
+        
+            if (centralNetworkId === null || centralNetworkId === undefined) {
+            throw new RequiredError('centralNetworkId','Required parameter centralNetworkId was null or undefined when calling showCentralNetworkErRouteTableAttachment.');
+            }
+            if (erRouteTableAttachmentId === null || erRouteTableAttachmentId === undefined) {
+            throw new RequiredError('erRouteTableAttachmentId','Required parameter erRouteTableAttachmentId was null or undefined when calling showCentralNetworkErRouteTableAttachment.');
+            }
+
+            options.pathParams = { 'central_network_id': centralNetworkId,'er_route_table_attachment_id': erRouteTableAttachmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询中心网络GDGW附件详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3669,6 +4036,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'central_network_id': centralNetworkId,'gdgw_attachment_id': gdgwAttachmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新中心网络ER路由表附件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCentralNetworkErRouteTableAttachment(updateCentralNetworkErRouteTableAttachmentRequest?: UpdateCentralNetworkErRouteTableAttachmentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{domain_id}/gcn/central-network/{central_network_id}/er-route-table-attachments/{er_route_table_attachment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let centralNetworkId;
+            
+            let erRouteTableAttachmentId;
+
+            if (updateCentralNetworkErRouteTableAttachmentRequest !== null && updateCentralNetworkErRouteTableAttachmentRequest !== undefined) {
+                if (updateCentralNetworkErRouteTableAttachmentRequest instanceof UpdateCentralNetworkErRouteTableAttachmentRequest) {
+                    centralNetworkId = updateCentralNetworkErRouteTableAttachmentRequest.centralNetworkId;
+                    erRouteTableAttachmentId = updateCentralNetworkErRouteTableAttachmentRequest.erRouteTableAttachmentId;
+                    body = updateCentralNetworkErRouteTableAttachmentRequest.body
+                } else {
+                    centralNetworkId = updateCentralNetworkErRouteTableAttachmentRequest['central_network_id'];
+                    erRouteTableAttachmentId = updateCentralNetworkErRouteTableAttachmentRequest['er_route_table_attachment_id'];
+                    body = updateCentralNetworkErRouteTableAttachmentRequest['body'];
+                }
+            }
+
+        
+            if (centralNetworkId === null || centralNetworkId === undefined) {
+            throw new RequiredError('centralNetworkId','Required parameter centralNetworkId was null or undefined when calling updateCentralNetworkErRouteTableAttachment.');
+            }
+            if (erRouteTableAttachmentId === null || erRouteTableAttachmentId === undefined) {
+            throw new RequiredError('erRouteTableAttachmentId','Required parameter erRouteTableAttachmentId was null or undefined when calling updateCentralNetworkErRouteTableAttachment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'central_network_id': centralNetworkId,'er_route_table_attachment_id': erRouteTableAttachmentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

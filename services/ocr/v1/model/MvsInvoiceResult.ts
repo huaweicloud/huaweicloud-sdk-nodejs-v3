@@ -50,6 +50,7 @@ export class MvsInvoiceResult {
     private 'used_vehicle_market_address'?: string;
     private 'used_vehicle_market_bank_account'?: string;
     private 'used_vehicle_market_phone'?: string;
+    private 'reverse_issue'?: boolean;
     public remark?: string;
     private 'drawer_name'?: string;
     public type?: string;
@@ -522,6 +523,16 @@ export class MvsInvoiceResult {
     }
     public get usedVehicleMarketPhone(): string | undefined {
         return this['used_vehicle_market_phone'];
+    }
+    public withReverseIssue(reverseIssue: boolean): MvsInvoiceResult {
+        this['reverse_issue'] = reverseIssue;
+        return this;
+    }
+    public set reverseIssue(reverseIssue: boolean  | undefined) {
+        this['reverse_issue'] = reverseIssue;
+    }
+    public get reverseIssue(): boolean | undefined {
+        return this['reverse_issue'];
     }
     public withRemark(remark: string): MvsInvoiceResult {
         this['remark'] = remark;

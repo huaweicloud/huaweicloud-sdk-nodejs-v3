@@ -1,4 +1,4 @@
-import { ElasticResourcePoolsResponse } from './ElasticResourcePoolsResponse';
+import { ElasticResourcePool } from './ElasticResourcePool';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,7 +6,7 @@ export class ListElasticResourcePoolsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
     public count?: number;
-    private 'elastic_resource_pools'?: Array<ElasticResourcePoolsResponse>;
+    private 'elastic_resource_pools'?: Array<ElasticResourcePool>;
     public constructor() { 
         super();
     }
@@ -28,14 +28,14 @@ export class ListElasticResourcePoolsResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withElasticResourcePools(elasticResourcePools: Array<ElasticResourcePoolsResponse>): ListElasticResourcePoolsResponse {
+    public withElasticResourcePools(elasticResourcePools: Array<ElasticResourcePool>): ListElasticResourcePoolsResponse {
         this['elastic_resource_pools'] = elasticResourcePools;
         return this;
     }
-    public set elasticResourcePools(elasticResourcePools: Array<ElasticResourcePoolsResponse>  | undefined) {
+    public set elasticResourcePools(elasticResourcePools: Array<ElasticResourcePool>  | undefined) {
         this['elastic_resource_pools'] = elasticResourcePools;
     }
-    public get elasticResourcePools(): Array<ElasticResourcePoolsResponse> | undefined {
+    public get elasticResourcePools(): Array<ElasticResourcePool> | undefined {
         return this['elastic_resource_pools'];
     }
 }
