@@ -3,9 +3,9 @@
 export class Encryption {
     public type?: EncryptionTypeEnum | string;
     private 'kms_key_name'?: string;
-    public constructor(type?: string, kmsKeyName?: string) { 
+    private 'kms_key_id'?: string;
+    public constructor(type?: string) { 
         this['type'] = type;
-        this['kms_key_name'] = kmsKeyName;
     }
     public withType(type: EncryptionTypeEnum | string): Encryption {
         this['type'] = type;
@@ -20,6 +20,16 @@ export class Encryption {
     }
     public get kmsKeyName(): string | undefined {
         return this['kms_key_name'];
+    }
+    public withKmsKeyId(kmsKeyId: string): Encryption {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
     }
 }
 

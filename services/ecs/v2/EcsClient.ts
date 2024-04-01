@@ -174,6 +174,8 @@ import { NovaListServerSecurityGroupsRequest } from './model/NovaListServerSecur
 import { NovaListServerSecurityGroupsResponse } from './model/NovaListServerSecurityGroupsResponse';
 import { NovaListServersDetailsRequest } from './model/NovaListServersDetailsRequest';
 import { NovaListServersDetailsResponse } from './model/NovaListServersDetailsResponse';
+import { NovaListVersionsRequest } from './model/NovaListVersionsRequest';
+import { NovaListVersionsResponse } from './model/NovaListVersionsResponse';
 import { NovaNetwork } from './model/NovaNetwork';
 import { NovaRemoveSecurityGroupOption } from './model/NovaRemoveSecurityGroupOption';
 import { NovaSecurityGroup } from './model/NovaSecurityGroup';
@@ -197,7 +199,12 @@ import { NovaShowServerInterfaceRequest } from './model/NovaShowServerInterfaceR
 import { NovaShowServerInterfaceResponse } from './model/NovaShowServerInterfaceResponse';
 import { NovaShowServerRequest } from './model/NovaShowServerRequest';
 import { NovaShowServerResponse } from './model/NovaShowServerResponse';
+import { NovaShowVersionRequest } from './model/NovaShowVersionRequest';
+import { NovaShowVersionResponse } from './model/NovaShowVersionResponse';
 import { NovaSimpleKeypair } from './model/NovaSimpleKeypair';
+import { NovaVersion } from './model/NovaVersion';
+import { NovaVersionDetail } from './model/NovaVersionDetail';
+import { NovaVersionMediaType } from './model/NovaVersionMediaType';
 import { PageLink } from './model/PageLink';
 import { PostPaidServer } from './model/PostPaidServer';
 import { PostPaidServerDataVolume } from './model/PostPaidServerDataVolume';
@@ -1851,6 +1858,52 @@ export class EcsClient {
      */
     public updateServerMetadata(updateServerMetadataRequest?: UpdateServerMetadataRequest): Promise<UpdateServerMetadataResponse> {
         const options = ParamCreater().updateServerMetadata(updateServerMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 返回Nova当前所有可用的版本。
+     * 
+     * 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+     * 
+     * - \&quot;主版本号\&quot;: 具有独立的url。
+     * - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询API版本信息列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaListVersions(novaListVersionsRequest?: NovaListVersionsRequest): Promise<NovaListVersionsResponse> {
+        const options = ParamCreater().novaListVersions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 返回指定版本的信息。
+     * 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+     * 
+     * - \&quot;主版本号\&quot;: 具有独立的url。
+     * - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定API版本信息
+     * @param {string} apiVersion API版本号。例如: v2
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaShowVersion(novaShowVersionRequest?: NovaShowVersionRequest): Promise<NovaShowVersionResponse> {
+        const options = ParamCreater().novaShowVersion(novaShowVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5171,6 +5224,73 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 返回Nova当前所有可用的版本。
+         * 
+         * 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+         * 
+         * - \&quot;主版本号\&quot;: 具有独立的url。
+         * - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaListVersions() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 返回指定版本的信息。
+         * 为了支持功能不断扩展，Nova API支持版本号区分。Nova中有两种形式的版本号：
+         * 
+         * - \&quot;主版本号\&quot;: 具有独立的url。
+         * - \&quot;微版本号\&quot;: 通过Http请求头X-OpenStack-Nova-API-Version来使用，从2.27版本后更改为OpenStack-API-Version。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaShowVersion(novaShowVersionRequest?: NovaShowVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/{api_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let apiVersion;
+
+            if (novaShowVersionRequest !== null && novaShowVersionRequest !== undefined) {
+                if (novaShowVersionRequest instanceof NovaShowVersionRequest) {
+                    apiVersion = novaShowVersionRequest.apiVersion;
+                } else {
+                    apiVersion = novaShowVersionRequest['api_version'];
+                }
+            }
+
+        
+            if (apiVersion === null || apiVersion === undefined) {
+            throw new RequiredError('apiVersion','Required parameter apiVersion was null or undefined when calling novaShowVersion.');
+            }
+
+            options.pathParams = { 'api_version': apiVersion, };
             options.headers = localVarHeaderParameter;
             return options;
         },
