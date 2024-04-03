@@ -1,3 +1,4 @@
+import { CpuOptions } from './CpuOptions';
 import { PostPaidServerDataVolume } from './PostPaidServerDataVolume';
 import { PostPaidServerExtendParam } from './PostPaidServerExtendParam';
 import { PostPaidServerNic } from './PostPaidServerNic';
@@ -32,6 +33,7 @@ export class PostPaidServer {
     private 'user_data'?: string;
     public vpcid?: string;
     public description?: string;
+    private 'cpu_options'?: CpuOptions;
     public constructor(flavorRef?: string, imageRef?: string, name?: string, nics?: Array<PostPaidServerNic>, rootVolume?: PostPaidServerRootVolume, vpcid?: string) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
@@ -191,5 +193,15 @@ export class PostPaidServer {
     public withDescription(description: string): PostPaidServer {
         this['description'] = description;
         return this;
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): PostPaidServer {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions(): CpuOptions | undefined {
+        return this['cpu_options'];
     }
 }

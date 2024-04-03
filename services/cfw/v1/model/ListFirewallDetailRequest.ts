@@ -7,6 +7,7 @@ export class ListFirewallDetailRequest {
     private 'service_type'?: ListFirewallDetailRequestServiceTypeEnum | number;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
+    public name?: string;
     public constructor(projectId?: string, offset?: number, limit?: number, serviceType?: number) { 
         this['project_id'] = projectId;
         this['offset'] = offset;
@@ -60,6 +61,10 @@ export class ListFirewallDetailRequest {
     }
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
+    }
+    public withName(name: string): ListFirewallDetailRequest {
+        this['name'] = name;
+        return this;
     }
 }
 

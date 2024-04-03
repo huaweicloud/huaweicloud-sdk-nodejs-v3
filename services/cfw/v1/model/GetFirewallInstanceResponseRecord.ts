@@ -23,6 +23,7 @@ export class GetFirewallInstanceResponseRecord {
     private 'enterprise_project_id'?: string;
     private 'resource_id'?: string;
     private 'support_url_filtering'?: boolean;
+    public tags?: string;
     public constructor() { 
     }
     public withFwInstanceId(fwInstanceId: string): GetFirewallInstanceResponseRecord {
@@ -190,6 +191,10 @@ export class GetFirewallInstanceResponseRecord {
     }
     public get supportUrlFiltering(): boolean | undefined {
         return this['support_url_filtering'];
+    }
+    public withTags(tags: string): GetFirewallInstanceResponseRecord {
+        this['tags'] = tags;
+        return this;
     }
 }
 

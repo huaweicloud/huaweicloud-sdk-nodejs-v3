@@ -21,6 +21,8 @@ export class ListAccessControlLogsRequest {
     private 'dst_host'?: string;
     private 'rule_name'?: string;
     public action?: string;
+    private 'src_region_name'?: string;
+    private 'dst_region_name'?: string;
     public constructor(projectId?: string, fwInstanceId?: string, startTime?: number, endTime?: number, limit?: number) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -197,6 +199,26 @@ export class ListAccessControlLogsRequest {
     public withAction(action: string): ListAccessControlLogsRequest {
         this['action'] = action;
         return this;
+    }
+    public withSrcRegionName(srcRegionName: string): ListAccessControlLogsRequest {
+        this['src_region_name'] = srcRegionName;
+        return this;
+    }
+    public set srcRegionName(srcRegionName: string  | undefined) {
+        this['src_region_name'] = srcRegionName;
+    }
+    public get srcRegionName(): string | undefined {
+        return this['src_region_name'];
+    }
+    public withDstRegionName(dstRegionName: string): ListAccessControlLogsRequest {
+        this['dst_region_name'] = dstRegionName;
+        return this;
+    }
+    public set dstRegionName(dstRegionName: string  | undefined) {
+        this['dst_region_name'] = dstRegionName;
+    }
+    public get dstRegionName(): string | undefined {
+        return this['dst_region_name'];
     }
 }
 

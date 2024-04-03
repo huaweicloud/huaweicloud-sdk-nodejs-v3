@@ -13,6 +13,7 @@ export class FirewallInstanceVO {
     private 'engine_type'?: number;
     public flavor?: Flavor;
     public status?: number;
+    public tags?: string;
     public constructor() { 
     }
     public withFwInstanceId(fwInstanceId: string): FirewallInstanceVO {
@@ -105,6 +106,10 @@ export class FirewallInstanceVO {
     }
     public withStatus(status: number): FirewallInstanceVO {
         this['status'] = status;
+        return this;
+    }
+    public withTags(tags: string): FirewallInstanceVO {
+        this['tags'] = tags;
         return this;
     }
 }

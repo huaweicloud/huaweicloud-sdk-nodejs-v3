@@ -3,6 +3,7 @@
 export class ShowOrganizationPolicyAssignmentDetailedStatusRequest {
     private 'organization_id'?: string;
     private 'organization_policy_assignment_name'?: string;
+    private 'organization_policy_assignment_id'?: string;
     public status?: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum | string;
     public limit?: number;
     public marker?: string;
@@ -29,6 +30,16 @@ export class ShowOrganizationPolicyAssignmentDetailedStatusRequest {
     }
     public get organizationPolicyAssignmentName(): string | undefined {
         return this['organization_policy_assignment_name'];
+    }
+    public withOrganizationPolicyAssignmentId(organizationPolicyAssignmentId: string): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
+        this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
+        return this;
+    }
+    public set organizationPolicyAssignmentId(organizationPolicyAssignmentId: string  | undefined) {
+        this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
+    }
+    public get organizationPolicyAssignmentId(): string | undefined {
+        return this['organization_policy_assignment_id'];
     }
     public withStatus(status: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum | string): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
         this['status'] = status;

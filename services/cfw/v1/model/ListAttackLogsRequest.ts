@@ -24,6 +24,9 @@ export class ListAttackLogsRequest {
     private 'enterprise_project_id'?: string;
     private 'dst_host'?: string;
     private 'log_type'?: ListAttackLogsRequestLogTypeEnum | string;
+    private 'attack_rule_id'?: string;
+    private 'src_region_name'?: string;
+    private 'dst_region_name'?: string;
     public constructor(projectId?: string, startTime?: number, endTime?: number, limit?: number, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
@@ -212,6 +215,36 @@ export class ListAttackLogsRequest {
     }
     public get logType(): ListAttackLogsRequestLogTypeEnum | string | undefined {
         return this['log_type'];
+    }
+    public withAttackRuleId(attackRuleId: string): ListAttackLogsRequest {
+        this['attack_rule_id'] = attackRuleId;
+        return this;
+    }
+    public set attackRuleId(attackRuleId: string  | undefined) {
+        this['attack_rule_id'] = attackRuleId;
+    }
+    public get attackRuleId(): string | undefined {
+        return this['attack_rule_id'];
+    }
+    public withSrcRegionName(srcRegionName: string): ListAttackLogsRequest {
+        this['src_region_name'] = srcRegionName;
+        return this;
+    }
+    public set srcRegionName(srcRegionName: string  | undefined) {
+        this['src_region_name'] = srcRegionName;
+    }
+    public get srcRegionName(): string | undefined {
+        return this['src_region_name'];
+    }
+    public withDstRegionName(dstRegionName: string): ListAttackLogsRequest {
+        this['dst_region_name'] = dstRegionName;
+        return this;
+    }
+    public set dstRegionName(dstRegionName: string  | undefined) {
+        this['dst_region_name'] = dstRegionName;
+    }
+    public get dstRegionName(): string | undefined {
+        return this['dst_region_name'];
     }
 }
 

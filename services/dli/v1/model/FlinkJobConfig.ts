@@ -22,6 +22,20 @@ export class FlinkJobConfig {
     private 'executor_number'?: number;
     private 'executor_cu_number'?: number;
     private 'resume_checkpoint'?: boolean;
+    private 'runtime_config'?: string;
+    private 'graph_editor_enabled'?: boolean;
+    private 'graph_editor_data'?: string;
+    private 'resume_max_num'?: number;
+    private 'checkpoint_path'?: string;
+    private 'config_url'?: string;
+    private 'tm_cus'?: number;
+    private 'tm_slot_num'?: number;
+    public image?: string;
+    public feature?: string;
+    private 'flink_version'?: string;
+    private 'operator_config'?: string;
+    private 'static_estimator_config'?: string;
+    private 'real_cu_number'?: number;
     public constructor() { 
     }
     public withCheckpointEnabled(checkpointEnabled: boolean): FlinkJobConfig {
@@ -227,5 +241,133 @@ export class FlinkJobConfig {
     }
     public get resumeCheckpoint(): boolean | undefined {
         return this['resume_checkpoint'];
+    }
+    public withRuntimeConfig(runtimeConfig: string): FlinkJobConfig {
+        this['runtime_config'] = runtimeConfig;
+        return this;
+    }
+    public set runtimeConfig(runtimeConfig: string  | undefined) {
+        this['runtime_config'] = runtimeConfig;
+    }
+    public get runtimeConfig(): string | undefined {
+        return this['runtime_config'];
+    }
+    public withGraphEditorEnabled(graphEditorEnabled: boolean): FlinkJobConfig {
+        this['graph_editor_enabled'] = graphEditorEnabled;
+        return this;
+    }
+    public set graphEditorEnabled(graphEditorEnabled: boolean  | undefined) {
+        this['graph_editor_enabled'] = graphEditorEnabled;
+    }
+    public get graphEditorEnabled(): boolean | undefined {
+        return this['graph_editor_enabled'];
+    }
+    public withGraphEditorData(graphEditorData: string): FlinkJobConfig {
+        this['graph_editor_data'] = graphEditorData;
+        return this;
+    }
+    public set graphEditorData(graphEditorData: string  | undefined) {
+        this['graph_editor_data'] = graphEditorData;
+    }
+    public get graphEditorData(): string | undefined {
+        return this['graph_editor_data'];
+    }
+    public withResumeMaxNum(resumeMaxNum: number): FlinkJobConfig {
+        this['resume_max_num'] = resumeMaxNum;
+        return this;
+    }
+    public set resumeMaxNum(resumeMaxNum: number  | undefined) {
+        this['resume_max_num'] = resumeMaxNum;
+    }
+    public get resumeMaxNum(): number | undefined {
+        return this['resume_max_num'];
+    }
+    public withCheckpointPath(checkpointPath: string): FlinkJobConfig {
+        this['checkpoint_path'] = checkpointPath;
+        return this;
+    }
+    public set checkpointPath(checkpointPath: string  | undefined) {
+        this['checkpoint_path'] = checkpointPath;
+    }
+    public get checkpointPath(): string | undefined {
+        return this['checkpoint_path'];
+    }
+    public withConfigUrl(configUrl: string): FlinkJobConfig {
+        this['config_url'] = configUrl;
+        return this;
+    }
+    public set configUrl(configUrl: string  | undefined) {
+        this['config_url'] = configUrl;
+    }
+    public get configUrl(): string | undefined {
+        return this['config_url'];
+    }
+    public withTmCus(tmCus: number): FlinkJobConfig {
+        this['tm_cus'] = tmCus;
+        return this;
+    }
+    public set tmCus(tmCus: number  | undefined) {
+        this['tm_cus'] = tmCus;
+    }
+    public get tmCus(): number | undefined {
+        return this['tm_cus'];
+    }
+    public withTmSlotNum(tmSlotNum: number): FlinkJobConfig {
+        this['tm_slot_num'] = tmSlotNum;
+        return this;
+    }
+    public set tmSlotNum(tmSlotNum: number  | undefined) {
+        this['tm_slot_num'] = tmSlotNum;
+    }
+    public get tmSlotNum(): number | undefined {
+        return this['tm_slot_num'];
+    }
+    public withImage(image: string): FlinkJobConfig {
+        this['image'] = image;
+        return this;
+    }
+    public withFeature(feature: string): FlinkJobConfig {
+        this['feature'] = feature;
+        return this;
+    }
+    public withFlinkVersion(flinkVersion: string): FlinkJobConfig {
+        this['flink_version'] = flinkVersion;
+        return this;
+    }
+    public set flinkVersion(flinkVersion: string  | undefined) {
+        this['flink_version'] = flinkVersion;
+    }
+    public get flinkVersion(): string | undefined {
+        return this['flink_version'];
+    }
+    public withOperatorConfig(operatorConfig: string): FlinkJobConfig {
+        this['operator_config'] = operatorConfig;
+        return this;
+    }
+    public set operatorConfig(operatorConfig: string  | undefined) {
+        this['operator_config'] = operatorConfig;
+    }
+    public get operatorConfig(): string | undefined {
+        return this['operator_config'];
+    }
+    public withStaticEstimatorConfig(staticEstimatorConfig: string): FlinkJobConfig {
+        this['static_estimator_config'] = staticEstimatorConfig;
+        return this;
+    }
+    public set staticEstimatorConfig(staticEstimatorConfig: string  | undefined) {
+        this['static_estimator_config'] = staticEstimatorConfig;
+    }
+    public get staticEstimatorConfig(): string | undefined {
+        return this['static_estimator_config'];
+    }
+    public withRealCuNumber(realCuNumber: number): FlinkJobConfig {
+        this['real_cu_number'] = realCuNumber;
+        return this;
+    }
+    public set realCuNumber(realCuNumber: number  | undefined) {
+        this['real_cu_number'] = realCuNumber;
+    }
+    public get realCuNumber(): number | undefined {
+        return this['real_cu_number'];
     }
 }

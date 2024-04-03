@@ -201,7 +201,8 @@ export class ListMessageTraceRespTrace {
     */
 export enum ListMessageTraceRespTraceTraceTypeEnum {
     PUB = 'Pub',
-    SUB = 'Sub',
+    SUBBEFORE = 'SubBefore',
+    SUBAFTER = 'SubAfter',
     ENDTRANSACTION = 'EndTransaction'
 }
 /**

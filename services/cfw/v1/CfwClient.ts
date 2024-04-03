@@ -194,10 +194,12 @@ import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
 import { RuleAclListResponseDTOData } from './model/RuleAclListResponseDTOData';
 import { RuleAclListResponseDTODataRecords } from './model/RuleAclListResponseDTODataRecords';
 import { RuleAddressDto } from './model/RuleAddressDto';
+import { RuleAddressDtoForRequest } from './model/RuleAddressDtoForRequest';
 import { RuleHitCountObject } from './model/RuleHitCountObject';
 import { RuleHitCountRecords } from './model/RuleHitCountRecords';
 import { RuleId } from './model/RuleId';
 import { RuleIdList } from './model/RuleIdList';
+import { RuleProfileDto } from './model/RuleProfileDto';
 import { RuleServiceDto } from './model/RuleServiceDto';
 import { ServiceItem } from './model/ServiceItem';
 import { ServiceItemIds } from './model/ServiceItemIds';
@@ -236,6 +238,7 @@ import { UpdateSecurityPolciesActionDto } from './model/UpdateSecurityPolciesAct
 import { UpdateServiceSetRequest } from './model/UpdateServiceSetRequest';
 import { UpdateServiceSetResponse } from './model/UpdateServiceSetResponse';
 import { UpdateServiceSetUsingPUTRequestBody } from './model/UpdateServiceSetUsingPUTRequestBody';
+import { UseRuleVO } from './model/UseRuleVO';
 import { VPCProtectsVo } from './model/VPCProtectsVo';
 import { VpcAttachmentDetail } from './model/VpcAttachmentDetail';
 import { VpcDetail } from './model/VpcDetail';
@@ -742,6 +745,8 @@ export class CfwClient {
      * @param {string} [dstHost] 目标主机
      * @param {string} [ruleName] 规则名称
      * @param {string} [action] 动作0：permit,1：deny
+     * @param {string} [srcRegionName] 源region名称
+     * @param {string} [dstRegionName] 目的region名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -768,6 +773,7 @@ export class CfwClient {
      * @param {string} [address] ip地址
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -819,6 +825,7 @@ export class CfwClient {
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
+     * @param {number} [addressSetType] 地址组类型，0表示自定义地址组，1表示WAF回源IP地址组，2表示DDoS回源IP地址组，3表示NAT64转换地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -859,7 +866,10 @@ export class CfwClient {
      * @param {string} [source] 判断来源
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [dstHost] 目标主机
-     * @param {'internet' | 'nat' | 'vpc'} [logType] log_type
+     * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型
+     * @param {string} [attackRuleId] 入侵事件id
+     * @param {string} [srcRegionName] 源region名称
+     * @param {string} [dstRegionName] 目的region名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1036,6 +1046,7 @@ export class CfwClient {
      * @param {0 | 1} serviceType 服务类型 0 南北向防火墙 1 东西向防火墙
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [name] 防火墙名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1093,6 +1104,8 @@ export class CfwClient {
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [dstHost] 目的主机
+     * @param {string} [srcRegionName] 源region名称
+     * @param {string} [dstRegionName] 目的region名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1181,6 +1194,7 @@ export class CfwClient {
      * @param {string} [keyWord] 查询字段
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1203,6 +1217,7 @@ export class CfwClient {
      * @param {string} setId 服务组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1228,6 +1243,7 @@ export class CfwClient {
      * @param {string} [keyWord] 关键字
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1531,6 +1547,7 @@ export class CfwClient {
      * @param {string} [source] 源地址
      * @param {string} [destination] 目的地址
      * @param {string} [service] 服务端口
+     * @param {string} [application] 应用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3101,6 +3118,10 @@ export const ParamCreater = function () {
             let ruleName;
             
             let action;
+            
+            let srcRegionName;
+            
+            let dstRegionName;
 
             if (listAccessControlLogsRequest !== null && listAccessControlLogsRequest !== undefined) {
                 if (listAccessControlLogsRequest instanceof ListAccessControlLogsRequest) {
@@ -3124,6 +3145,8 @@ export const ParamCreater = function () {
                     dstHost = listAccessControlLogsRequest.dstHost;
                     ruleName = listAccessControlLogsRequest.ruleName;
                     action = listAccessControlLogsRequest.action;
+                    srcRegionName = listAccessControlLogsRequest.srcRegionName;
+                    dstRegionName = listAccessControlLogsRequest.dstRegionName;
                 } else {
                     projectId = listAccessControlLogsRequest['project_id'];
                     fwInstanceId = listAccessControlLogsRequest['fw_instance_id'];
@@ -3145,6 +3168,8 @@ export const ParamCreater = function () {
                     dstHost = listAccessControlLogsRequest['dst_host'];
                     ruleName = listAccessControlLogsRequest['rule_name'];
                     action = listAccessControlLogsRequest['action'];
+                    srcRegionName = listAccessControlLogsRequest['src_region_name'];
+                    dstRegionName = listAccessControlLogsRequest['dst_region_name'];
                 }
             }
 
@@ -3221,6 +3246,12 @@ export const ParamCreater = function () {
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;
             }
+            if (srcRegionName !== null && srcRegionName !== undefined) {
+                localVarQueryParameter['src_region_name'] = srcRegionName;
+            }
+            if (dstRegionName !== null && dstRegionName !== undefined) {
+                localVarQueryParameter['dst_region_name'] = dstRegionName;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -3260,6 +3291,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryAddressSetType;
 
             if (listAddressItemsRequest !== null && listAddressItemsRequest !== undefined) {
                 if (listAddressItemsRequest instanceof ListAddressItemsRequest) {
@@ -3271,6 +3304,7 @@ export const ParamCreater = function () {
                     address = listAddressItemsRequest.address;
                     enterpriseProjectId = listAddressItemsRequest.enterpriseProjectId;
                     fwInstanceId = listAddressItemsRequest.fwInstanceId;
+                    queryAddressSetType = listAddressItemsRequest.queryAddressSetType;
                 } else {
                     projectId = listAddressItemsRequest['project_id'];
                     setId = listAddressItemsRequest['set_id'];
@@ -3280,6 +3314,7 @@ export const ParamCreater = function () {
                     address = listAddressItemsRequest['address'];
                     enterpriseProjectId = listAddressItemsRequest['enterprise_project_id'];
                     fwInstanceId = listAddressItemsRequest['fw_instance_id'];
+                    queryAddressSetType = listAddressItemsRequest['query_address_set_type'];
                 }
             }
 
@@ -3316,6 +3351,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (queryAddressSetType !== null && queryAddressSetType !== undefined) {
+                localVarQueryParameter['query_address_set_type'] = queryAddressSetType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3426,6 +3464,8 @@ export const ParamCreater = function () {
             let fwInstanceId;
             
             let queryAddressSetType;
+            
+            let addressSetType;
 
             if (listAddressSetsRequest !== null && listAddressSetsRequest !== undefined) {
                 if (listAddressSetsRequest instanceof ListAddressSetsRequest) {
@@ -3439,6 +3479,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAddressSetsRequest.enterpriseProjectId;
                     fwInstanceId = listAddressSetsRequest.fwInstanceId;
                     queryAddressSetType = listAddressSetsRequest.queryAddressSetType;
+                    addressSetType = listAddressSetsRequest.addressSetType;
                 } else {
                     projectId = listAddressSetsRequest['project_id'];
                     objectId = listAddressSetsRequest['object_id'];
@@ -3450,6 +3491,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAddressSetsRequest['enterprise_project_id'];
                     fwInstanceId = listAddressSetsRequest['fw_instance_id'];
                     queryAddressSetType = listAddressSetsRequest['query_address_set_type'];
+                    addressSetType = listAddressSetsRequest['address_set_type'];
                 }
             }
 
@@ -3492,6 +3534,9 @@ export const ParamCreater = function () {
             }
             if (queryAddressSetType !== null && queryAddressSetType !== undefined) {
                 localVarQueryParameter['query_address_set_type'] = queryAddressSetType;
+            }
+            if (addressSetType !== null && addressSetType !== undefined) {
+                localVarQueryParameter['address_set_type'] = addressSetType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3562,6 +3607,12 @@ export const ParamCreater = function () {
             let dstHost;
             
             let logType;
+            
+            let attackRuleId;
+            
+            let srcRegionName;
+            
+            let dstRegionName;
 
             if (listAttackLogsRequest !== null && listAttackLogsRequest !== undefined) {
                 if (listAttackLogsRequest instanceof ListAttackLogsRequest) {
@@ -3588,6 +3639,9 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAttackLogsRequest.enterpriseProjectId;
                     dstHost = listAttackLogsRequest.dstHost;
                     logType = listAttackLogsRequest.logType;
+                    attackRuleId = listAttackLogsRequest.attackRuleId;
+                    srcRegionName = listAttackLogsRequest.srcRegionName;
+                    dstRegionName = listAttackLogsRequest.dstRegionName;
                 } else {
                     projectId = listAttackLogsRequest['project_id'];
                     startTime = listAttackLogsRequest['start_time'];
@@ -3612,6 +3666,9 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listAttackLogsRequest['enterprise_project_id'];
                     dstHost = listAttackLogsRequest['dst_host'];
                     logType = listAttackLogsRequest['log_type'];
+                    attackRuleId = listAttackLogsRequest['attack_rule_id'];
+                    srcRegionName = listAttackLogsRequest['src_region_name'];
+                    dstRegionName = listAttackLogsRequest['dst_region_name'];
                 }
             }
 
@@ -3696,6 +3753,15 @@ export const ParamCreater = function () {
             }
             if (logType !== null && logType !== undefined) {
                 localVarQueryParameter['log_type'] = logType;
+            }
+            if (attackRuleId !== null && attackRuleId !== undefined) {
+                localVarQueryParameter['attack_rule_id'] = attackRuleId;
+            }
+            if (srcRegionName !== null && srcRegionName !== undefined) {
+                localVarQueryParameter['src_region_name'] = srcRegionName;
+            }
+            if (dstRegionName !== null && dstRegionName !== undefined) {
+                localVarQueryParameter['dst_region_name'] = dstRegionName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4265,6 +4331,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let name;
 
             if (listFirewallDetailRequest !== null && listFirewallDetailRequest !== undefined) {
                 if (listFirewallDetailRequest instanceof ListFirewallDetailRequest) {
@@ -4274,6 +4342,7 @@ export const ParamCreater = function () {
                     serviceType = listFirewallDetailRequest.serviceType;
                     enterpriseProjectId = listFirewallDetailRequest.enterpriseProjectId;
                     fwInstanceId = listFirewallDetailRequest.fwInstanceId;
+                    name = listFirewallDetailRequest.name;
                 } else {
                     projectId = listFirewallDetailRequest['project_id'];
                     offset = listFirewallDetailRequest['offset'];
@@ -4281,6 +4350,7 @@ export const ParamCreater = function () {
                     serviceType = listFirewallDetailRequest['service_type'];
                     enterpriseProjectId = listFirewallDetailRequest['enterprise_project_id'];
                     fwInstanceId = listFirewallDetailRequest['fw_instance_id'];
+                    name = listFirewallDetailRequest['name'];
                 }
             }
 
@@ -4311,6 +4381,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4425,6 +4498,10 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let dstHost;
+            
+            let srcRegionName;
+            
+            let dstRegionName;
 
             if (listFlowLogsRequest !== null && listFlowLogsRequest !== undefined) {
                 if (listFlowLogsRequest instanceof ListFlowLogsRequest) {
@@ -4446,6 +4523,8 @@ export const ParamCreater = function () {
                     offset = listFlowLogsRequest.offset;
                     enterpriseProjectId = listFlowLogsRequest.enterpriseProjectId;
                     dstHost = listFlowLogsRequest.dstHost;
+                    srcRegionName = listFlowLogsRequest.srcRegionName;
+                    dstRegionName = listFlowLogsRequest.dstRegionName;
                 } else {
                     projectId = listFlowLogsRequest['project_id'];
                     fwInstanceId = listFlowLogsRequest['fw_instance_id'];
@@ -4465,6 +4544,8 @@ export const ParamCreater = function () {
                     offset = listFlowLogsRequest['offset'];
                     enterpriseProjectId = listFlowLogsRequest['enterprise_project_id'];
                     dstHost = listFlowLogsRequest['dst_host'];
+                    srcRegionName = listFlowLogsRequest['src_region_name'];
+                    dstRegionName = listFlowLogsRequest['dst_region_name'];
                 }
             }
 
@@ -4534,6 +4615,12 @@ export const ParamCreater = function () {
             }
             if (dstHost !== null && dstHost !== undefined) {
                 localVarQueryParameter['dst_host'] = dstHost;
+            }
+            if (srcRegionName !== null && srcRegionName !== undefined) {
+                localVarQueryParameter['src_region_name'] = srcRegionName;
+            }
+            if (dstRegionName !== null && dstRegionName !== undefined) {
+                localVarQueryParameter['dst_region_name'] = dstRegionName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4733,6 +4820,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryServiceSetType;
 
             if (listServiceItemsRequest !== null && listServiceItemsRequest !== undefined) {
                 if (listServiceItemsRequest instanceof ListServiceItemsRequest) {
@@ -4743,6 +4832,7 @@ export const ParamCreater = function () {
                     keyWord = listServiceItemsRequest.keyWord;
                     enterpriseProjectId = listServiceItemsRequest.enterpriseProjectId;
                     fwInstanceId = listServiceItemsRequest.fwInstanceId;
+                    queryServiceSetType = listServiceItemsRequest.queryServiceSetType;
                 } else {
                     projectId = listServiceItemsRequest['project_id'];
                     setId = listServiceItemsRequest['set_id'];
@@ -4751,6 +4841,7 @@ export const ParamCreater = function () {
                     keyWord = listServiceItemsRequest['key_word'];
                     enterpriseProjectId = listServiceItemsRequest['enterprise_project_id'];
                     fwInstanceId = listServiceItemsRequest['fw_instance_id'];
+                    queryServiceSetType = listServiceItemsRequest['query_service_set_type'];
                 }
             }
 
@@ -4785,6 +4876,9 @@ export const ParamCreater = function () {
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
+            if (queryServiceSetType !== null && queryServiceSetType !== undefined) {
+                localVarQueryParameter['query_service_set_type'] = queryServiceSetType;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -4816,6 +4910,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryServiceSetType;
 
             if (listServiceSetDetailRequest !== null && listServiceSetDetailRequest !== undefined) {
                 if (listServiceSetDetailRequest instanceof ListServiceSetDetailRequest) {
@@ -4823,11 +4919,13 @@ export const ParamCreater = function () {
                     setId = listServiceSetDetailRequest.setId;
                     enterpriseProjectId = listServiceSetDetailRequest.enterpriseProjectId;
                     fwInstanceId = listServiceSetDetailRequest.fwInstanceId;
+                    queryServiceSetType = listServiceSetDetailRequest.queryServiceSetType;
                 } else {
                     projectId = listServiceSetDetailRequest['project_id'];
                     setId = listServiceSetDetailRequest['set_id'];
                     enterpriseProjectId = listServiceSetDetailRequest['enterprise_project_id'];
                     fwInstanceId = listServiceSetDetailRequest['fw_instance_id'];
+                    queryServiceSetType = listServiceSetDetailRequest['query_service_set_type'];
                 }
             }
 
@@ -4843,6 +4941,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (queryServiceSetType !== null && queryServiceSetType !== undefined) {
+                localVarQueryParameter['query_service_set_type'] = queryServiceSetType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4881,6 +4982,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let fwInstanceId;
+            
+            let queryServiceSetType;
 
             if (listServiceSetsRequest !== null && listServiceSetsRequest !== undefined) {
                 if (listServiceSetsRequest instanceof ListServiceSetsRequest) {
@@ -4891,6 +4994,7 @@ export const ParamCreater = function () {
                     keyWord = listServiceSetsRequest.keyWord;
                     enterpriseProjectId = listServiceSetsRequest.enterpriseProjectId;
                     fwInstanceId = listServiceSetsRequest.fwInstanceId;
+                    queryServiceSetType = listServiceSetsRequest.queryServiceSetType;
                 } else {
                     projectId = listServiceSetsRequest['project_id'];
                     objectId = listServiceSetsRequest['object_id'];
@@ -4899,6 +5003,7 @@ export const ParamCreater = function () {
                     keyWord = listServiceSetsRequest['key_word'];
                     enterpriseProjectId = listServiceSetsRequest['enterprise_project_id'];
                     fwInstanceId = listServiceSetsRequest['fw_instance_id'];
+                    queryServiceSetType = listServiceSetsRequest['query_service_set_type'];
                 }
             }
 
@@ -4932,6 +5037,9 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (queryServiceSetType !== null && queryServiceSetType !== undefined) {
+                localVarQueryParameter['query_service_set_type'] = queryServiceSetType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5743,6 +5851,8 @@ export const ParamCreater = function () {
             let destination;
             
             let service;
+            
+            let application;
 
             if (listAclRulesRequest !== null && listAclRulesRequest !== undefined) {
                 if (listAclRulesRequest instanceof ListAclRulesRequest) {
@@ -5764,6 +5874,7 @@ export const ParamCreater = function () {
                     source = listAclRulesRequest.source;
                     destination = listAclRulesRequest.destination;
                     service = listAclRulesRequest.service;
+                    application = listAclRulesRequest.application;
                 } else {
                     projectId = listAclRulesRequest['project_id'];
                     objectId = listAclRulesRequest['object_id'];
@@ -5783,6 +5894,7 @@ export const ParamCreater = function () {
                     source = listAclRulesRequest['source'];
                     destination = listAclRulesRequest['destination'];
                     service = listAclRulesRequest['service'];
+                    application = listAclRulesRequest['application'];
                 }
             }
 
@@ -5849,6 +5961,9 @@ export const ParamCreater = function () {
             }
             if (service !== null && service !== undefined) {
                 localVarQueryParameter['service'] = service;
+            }
+            if (application !== null && application !== undefined) {
+                localVarQueryParameter['application'] = application;
             }
 
             options.queryParams = localVarQueryParameter;

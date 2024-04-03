@@ -245,7 +245,7 @@ export class RocketMQClient {
      * @summary 创建消费组或批量删除消费组
      * @param {string} instanceId 实例ID。
      * @param {CreateConsumerGroupOrBatchDeleteConsumerGroupReq} createConsumerGroupOrBatchDeleteConsumerGroupRequestBody 请求消息。
-     * @param {string} [action] 批量删除消费组时使用，不配置则为创建接口。
+     * @param {string} [action] 批量删除消费组时使用，不配置则为创建接口。删除操作：delete。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1023,7 +1023,7 @@ export class RocketMQClient {
      * @summary 创建主题或批量删除主题
      * @param {string} instanceId 实例ID。
      * @param {CreateTopicOrBatchDeleteTopicReq} createTopicOrBatchDeleteTopicRequestBody 请求消息。
-     * @param {string} [action] 批量删除topic时使用，不配置则为创建接口。
+     * @param {string} [action] 批量删除topic时使用，不配置则为创建接口。删除操作：delete。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

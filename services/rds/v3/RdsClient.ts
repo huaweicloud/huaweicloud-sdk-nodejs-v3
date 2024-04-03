@@ -529,6 +529,8 @@ import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
+import { ShowReplayDelayStatusRequest } from './model/ShowReplayDelayStatusRequest';
+import { ShowReplayDelayStatusResponse } from './model/ShowReplayDelayStatusResponse';
 import { ShowReplicationStatusRequest } from './model/ShowReplicationStatusRequest';
 import { ShowReplicationStatusResponse } from './model/ShowReplicationStatusResponse';
 import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitoringRequest';
@@ -586,6 +588,9 @@ import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
 import { SupportFastRestoreList } from './model/SupportFastRestoreList';
+import { SwitchLogReplayRequest } from './model/SwitchLogReplayRequest';
+import { SwitchLogReplayRequestBody } from './model/SwitchLogReplayRequestBody';
+import { SwitchLogReplayResponse } from './model/SwitchLogReplayResponse';
 import { SwitchSqlLimitControlReqV3 } from './model/SwitchSqlLimitControlReqV3';
 import { SwitchSqlLimitRequest } from './model/SwitchSqlLimitRequest';
 import { SwitchSqlLimitResponse } from './model/SwitchSqlLimitResponse';
@@ -4571,6 +4576,26 @@ export class RdsClient {
     }
 
     /**
+     * 获取wal日志延迟回放状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取wal日志延迟回放状态
+     * @param {string} instanceId 实例id
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReplayDelayStatus(showReplayDelayStatusRequest?: ShowReplayDelayStatusRequest): Promise<ShowReplayDelayStatusResponse> {
+        const options = ParamCreater().showReplayDelayStatus(showReplayDelayStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定实例开启数据库代理。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4604,6 +4629,27 @@ export class RdsClient {
      */
     public stopDatabaseProxy(stopDatabaseProxyRequest?: StopDatabaseProxyRequest): Promise<StopDatabaseProxyResponse> {
         const options = ParamCreater().stopDatabaseProxy(stopDatabaseProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 中止/恢复wal日志回放
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 中止/恢复wal日志回放
+     * @param {string} instanceId 实例id
+     * @param {string} xLanguage 语言
+     * @param {SwitchLogReplayRequestBody} switchLogReplayRequestBody 中止/恢复wal日志回放请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchLogReplay(switchLogReplayRequest?: SwitchLogReplayRequest): Promise<SwitchLogReplayResponse> {
+        const options = ParamCreater().switchLogReplay(switchLogReplayRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -14877,6 +14923,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取wal日志延迟回放状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReplayDelayStatus(showReplayDelayStatusRequest?: ShowReplayDelayStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/replay-delay/show",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showReplayDelayStatusRequest !== null && showReplayDelayStatusRequest !== undefined) {
+                if (showReplayDelayStatusRequest instanceof ShowReplayDelayStatusRequest) {
+                    instanceId = showReplayDelayStatusRequest.instanceId;
+                    xLanguage = showReplayDelayStatusRequest.xLanguage;
+                } else {
+                    instanceId = showReplayDelayStatusRequest['instance_id'];
+                    xLanguage = showReplayDelayStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showReplayDelayStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定实例开启数据库代理。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14968,6 +15058,59 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 中止/恢复wal日志回放
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchLogReplay(switchLogReplayRequest?: SwitchLogReplayRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/log-replay/update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (switchLogReplayRequest !== null && switchLogReplayRequest !== undefined) {
+                if (switchLogReplayRequest instanceof SwitchLogReplayRequest) {
+                    instanceId = switchLogReplayRequest.instanceId;
+                    xLanguage = switchLogReplayRequest.xLanguage;
+                    body = switchLogReplayRequest.body
+                } else {
+                    instanceId = switchLogReplayRequest['instance_id'];
+                    xLanguage = switchLogReplayRequest['X-Language'];
+                    body = switchLogReplayRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchLogReplay.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

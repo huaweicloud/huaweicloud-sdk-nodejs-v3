@@ -3,7 +3,7 @@ import { Tag } from './Tag';
 
 export class CreateSqlJobRequestBody {
     public sql?: string;
-    private 'engine_type'?: string;
+    private 'engine_type'?: CreateSqlJobRequestBodyEngineTypeEnum | string;
     public currentdb?: string;
     private 'queue_name'?: string;
     public conf?: Array<string>;
@@ -15,14 +15,14 @@ export class CreateSqlJobRequestBody {
         this['sql'] = sql;
         return this;
     }
-    public withEngineType(engineType: string): CreateSqlJobRequestBody {
+    public withEngineType(engineType: CreateSqlJobRequestBodyEngineTypeEnum | string): CreateSqlJobRequestBody {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: string  | undefined) {
+    public set engineType(engineType: CreateSqlJobRequestBodyEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType(): string | undefined {
+    public get engineType(): CreateSqlJobRequestBodyEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
     public withCurrentdb(currentdb: string): CreateSqlJobRequestBody {
@@ -47,4 +47,13 @@ export class CreateSqlJobRequestBody {
         this['tags'] = tags;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSqlJobRequestBodyEngineTypeEnum {
+    TRINO = 'trino',
+    SPARK = 'spark'
 }

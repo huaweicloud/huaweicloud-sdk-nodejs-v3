@@ -12,6 +12,7 @@ import { AttachShareBandwidthRequest } from './model/AttachShareBandwidthRequest
 import { AttachShareBandwidthResponse } from './model/AttachShareBandwidthResponse';
 import { AttachSharebwDict } from './model/AttachSharebwDict';
 import { AttachSharebwReq } from './model/AttachSharebwReq';
+import { BackboneBandwidthResp } from './model/BackboneBandwidthResp';
 import { BandWidthRules } from './model/BandWidthRules';
 import { BandwidthInfoResp } from './model/BandwidthInfoResp';
 import { BandwidthResp } from './model/BandwidthResp';
@@ -49,6 +50,7 @@ import { EnableNat64Request } from './model/EnableNat64Request';
 import { EnableNat64Response } from './model/EnableNat64Response';
 import { ExtLimitPojo } from './model/ExtLimitPojo';
 import { GeipBindingsInternalResp } from './model/GeipBindingsInternalResp';
+import { InstanceVnicResp } from './model/InstanceVnicResp';
 import { InstancevirtualListResp } from './model/InstancevirtualListResp';
 import { ListBandwidthRequest } from './model/ListBandwidthRequest';
 import { ListBandwidthResponse } from './model/ListBandwidthResponse';
@@ -360,6 +362,8 @@ export class EipClient {
      * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;geip_id&amp;sort_dir&#x3D;asc\&quot;  支持字段：geip_id/version/public_border_group/ geip_ip_address/created_at/updated_at
      * @param {string} [sortDir] 排序方向  取值范围：asc、desc
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {number} [offset] 分页起始点
+     * @param {string} [marker] 分页起始点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -424,6 +428,8 @@ export class EipClient {
      * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;i2a_id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/created_at/updated_at
      * @param {string} [sortDir] 排序方向  取值范围：asc、desc
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {number} [offset] 分页起始点
+     * @param {string} [marker] 分页起始点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1547,6 +1553,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let limit;
+            
+            let offset;
+            
+            let marker;
 
             if (listProjectGeipBindingsRequest !== null && listProjectGeipBindingsRequest !== undefined) {
                 if (listProjectGeipBindingsRequest instanceof ListProjectGeipBindingsRequest) {
@@ -1573,6 +1583,8 @@ export const ParamCreater = function () {
                     sortKey = listProjectGeipBindingsRequest.sortKey;
                     sortDir = listProjectGeipBindingsRequest.sortDir;
                     limit = listProjectGeipBindingsRequest.limit;
+                    offset = listProjectGeipBindingsRequest.offset;
+                    marker = listProjectGeipBindingsRequest.marker;
                 } else {
                     fields = listProjectGeipBindingsRequest['fields'];
                     geipId = listProjectGeipBindingsRequest['geip_id'];
@@ -1597,6 +1609,8 @@ export const ParamCreater = function () {
                     sortKey = listProjectGeipBindingsRequest['sort_key'];
                     sortDir = listProjectGeipBindingsRequest['sort_dir'];
                     limit = listProjectGeipBindingsRequest['limit'];
+                    offset = listProjectGeipBindingsRequest['offset'];
+                    marker = listProjectGeipBindingsRequest['marker'];
                 }
             }
 
@@ -1669,6 +1683,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1789,6 +1809,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let limit;
+            
+            let offset;
+            
+            let marker;
 
             if (listTenantVpcIgwsRequest !== null && listTenantVpcIgwsRequest !== undefined) {
                 if (listTenantVpcIgwsRequest instanceof ListTenantVpcIgwsRequest) {
@@ -1799,6 +1823,8 @@ export const ParamCreater = function () {
                     sortKey = listTenantVpcIgwsRequest.sortKey;
                     sortDir = listTenantVpcIgwsRequest.sortDir;
                     limit = listTenantVpcIgwsRequest.limit;
+                    offset = listTenantVpcIgwsRequest.offset;
+                    marker = listTenantVpcIgwsRequest.marker;
                 } else {
                     fields = listTenantVpcIgwsRequest['fields'];
                     id = listTenantVpcIgwsRequest['id'];
@@ -1807,6 +1833,8 @@ export const ParamCreater = function () {
                     sortKey = listTenantVpcIgwsRequest['sort_key'];
                     sortDir = listTenantVpcIgwsRequest['sort_dir'];
                     limit = listTenantVpcIgwsRequest['limit'];
+                    offset = listTenantVpcIgwsRequest['offset'];
+                    marker = listTenantVpcIgwsRequest['marker'];
                 }
             }
 
@@ -1831,6 +1859,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

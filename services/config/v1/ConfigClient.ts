@@ -234,6 +234,8 @@ import { TrackerOBSChannelConfigBody } from './model/TrackerOBSChannelConfigBody
 import { TrackerSMNChannelConfigBody } from './model/TrackerSMNChannelConfigBody';
 import { UpdateConfigurationAggregatorRequest } from './model/UpdateConfigurationAggregatorRequest';
 import { UpdateConfigurationAggregatorResponse } from './model/UpdateConfigurationAggregatorResponse';
+import { UpdateOrganizationPolicyAssignmentRequest } from './model/UpdateOrganizationPolicyAssignmentRequest';
+import { UpdateOrganizationPolicyAssignmentResponse } from './model/UpdateOrganizationPolicyAssignmentResponse';
 import { UpdatePolicyAssignmentRequest } from './model/UpdatePolicyAssignmentRequest';
 import { UpdatePolicyAssignmentResponse } from './model/UpdatePolicyAssignmentResponse';
 import { UpdatePolicyStateRequest } from './model/UpdatePolicyStateRequest';
@@ -851,6 +853,7 @@ export class ConfigClient {
      * @param {string} organizationId 组织ID。
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [organizationConformancePackId] 组织合规规则包ID。
      * @param {string} [conformancePackName] 合规规则包名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -873,6 +876,7 @@ export class ConfigClient {
      * @param {string} organizationId 组织ID。
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [organizationConformancePackId] 组织合规规则包ID。
      * @param {string} [conformancePackName] 合规规则包名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -953,6 +957,7 @@ export class ConfigClient {
      * @summary 查看组织合规规则包部署详细状态
      * @param {string} organizationId 组织ID。
      * @param {string} conformancePackName 合规规则包名称。
+     * @param {string} [organizationConformancePackId] 组织合规规则包ID。
      * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED'} [state] 部署状态，区分大小写
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
@@ -993,11 +998,11 @@ export class ConfigClient {
     }
 
     /**
-     * 创建或更新组织合规规则，如果规则名称已存在，则为更新操作。
+     * 创建组织合规规则，如果规则名称已存在，则为更新操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建或更新组织合规规则
+     * @summary 创建组织合规规则
      * @param {string} organizationId 组织ID。
      * @param {OrganizationPolicyAssignmentRequest} [organizationPolicyAssignmentRequest] 组织规则定义对象。
      * @param {*} [options] Override http request option.
@@ -1134,6 +1139,7 @@ export class ConfigClient {
      *
      * @summary 查询组织合规规则列表
      * @param {string} organizationId 组织ID。
+     * @param {string} [organizationPolicyAssignmentId] 组织合规规则ID
      * @param {string} [organizationPolicyAssignmentName] 组织合规规则名称。
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
@@ -1325,6 +1331,7 @@ export class ConfigClient {
      * @summary 查询组织内每个成员帐号合规规则部署的详细状态
      * @param {string} organizationId 组织ID。
      * @param {string} organizationPolicyAssignmentName 组织合规规则名称。
+     * @param {string} [organizationPolicyAssignmentId] 组织合规规则ID
      * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_SUCCESSFUL' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED' | 'UPDATE_SUCCESSFUL' | 'UPDATE_IN_PROGRESS' | 'UPDATE_FAILED'} [status] 成员帐号规则部署状态，区分大小写。
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
@@ -1375,6 +1382,27 @@ export class ConfigClient {
      */
     public showPolicyAssignment(showPolicyAssignmentRequest?: ShowPolicyAssignmentRequest): Promise<ShowPolicyAssignmentResponse> {
         const options = ParamCreater().showPolicyAssignment(showPolicyAssignmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新组织合规规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新组织合规规则
+     * @param {string} organizationId 组织ID。
+     * @param {string} organizationPolicyAssignmentId 组织合规规则ID。
+     * @param {OrganizationPolicyAssignmentRequest} [organizationPolicyAssignmentRequest] 组织规则定义对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOrganizationPolicyAssignment(updateOrganizationPolicyAssignmentRequest?: UpdateOrganizationPolicyAssignmentRequest): Promise<UpdateOrganizationPolicyAssignmentResponse> {
+        const options = ParamCreater().updateOrganizationPolicyAssignment(updateOrganizationPolicyAssignmentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3301,6 +3329,8 @@ export const ParamCreater = function () {
             
             let marker;
             
+            let organizationConformancePackId;
+            
             let conformancePackName;
 
             if (listOrganizationConformancePackStatusesRequest !== null && listOrganizationConformancePackStatusesRequest !== undefined) {
@@ -3308,11 +3338,13 @@ export const ParamCreater = function () {
                     organizationId = listOrganizationConformancePackStatusesRequest.organizationId;
                     limit = listOrganizationConformancePackStatusesRequest.limit;
                     marker = listOrganizationConformancePackStatusesRequest.marker;
+                    organizationConformancePackId = listOrganizationConformancePackStatusesRequest.organizationConformancePackId;
                     conformancePackName = listOrganizationConformancePackStatusesRequest.conformancePackName;
                 } else {
                     organizationId = listOrganizationConformancePackStatusesRequest['organization_id'];
                     limit = listOrganizationConformancePackStatusesRequest['limit'];
                     marker = listOrganizationConformancePackStatusesRequest['marker'];
+                    organizationConformancePackId = listOrganizationConformancePackStatusesRequest['organization_conformance_pack_id'];
                     conformancePackName = listOrganizationConformancePackStatusesRequest['conformance_pack_name'];
                 }
             }
@@ -3326,6 +3358,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (organizationConformancePackId !== null && organizationConformancePackId !== undefined) {
+                localVarQueryParameter['organization_conformance_pack_id'] = organizationConformancePackId;
             }
             if (conformancePackName !== null && conformancePackName !== undefined) {
                 localVarQueryParameter['conformance_pack_name'] = conformancePackName;
@@ -3360,6 +3395,8 @@ export const ParamCreater = function () {
             
             let marker;
             
+            let organizationConformancePackId;
+            
             let conformancePackName;
 
             if (listOrganizationConformancePacksRequest !== null && listOrganizationConformancePacksRequest !== undefined) {
@@ -3367,11 +3404,13 @@ export const ParamCreater = function () {
                     organizationId = listOrganizationConformancePacksRequest.organizationId;
                     limit = listOrganizationConformancePacksRequest.limit;
                     marker = listOrganizationConformancePacksRequest.marker;
+                    organizationConformancePackId = listOrganizationConformancePacksRequest.organizationConformancePackId;
                     conformancePackName = listOrganizationConformancePacksRequest.conformancePackName;
                 } else {
                     organizationId = listOrganizationConformancePacksRequest['organization_id'];
                     limit = listOrganizationConformancePacksRequest['limit'];
                     marker = listOrganizationConformancePacksRequest['marker'];
+                    organizationConformancePackId = listOrganizationConformancePacksRequest['organization_conformance_pack_id'];
                     conformancePackName = listOrganizationConformancePacksRequest['conformance_pack_name'];
                 }
             }
@@ -3385,6 +3424,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (organizationConformancePackId !== null && organizationConformancePackId !== undefined) {
+                localVarQueryParameter['organization_conformance_pack_id'] = organizationConformancePackId;
             }
             if (conformancePackName !== null && conformancePackName !== undefined) {
                 localVarQueryParameter['conformance_pack_name'] = conformancePackName;
@@ -3542,6 +3584,8 @@ export const ParamCreater = function () {
             
             let conformancePackName;
             
+            let organizationConformancePackId;
+            
             let state;
             
             let limit;
@@ -3552,12 +3596,14 @@ export const ParamCreater = function () {
                 if (showOrganizationConformancePackDetailedStatusesRequest instanceof ShowOrganizationConformancePackDetailedStatusesRequest) {
                     organizationId = showOrganizationConformancePackDetailedStatusesRequest.organizationId;
                     conformancePackName = showOrganizationConformancePackDetailedStatusesRequest.conformancePackName;
+                    organizationConformancePackId = showOrganizationConformancePackDetailedStatusesRequest.organizationConformancePackId;
                     state = showOrganizationConformancePackDetailedStatusesRequest.state;
                     limit = showOrganizationConformancePackDetailedStatusesRequest.limit;
                     marker = showOrganizationConformancePackDetailedStatusesRequest.marker;
                 } else {
                     organizationId = showOrganizationConformancePackDetailedStatusesRequest['organization_id'];
                     conformancePackName = showOrganizationConformancePackDetailedStatusesRequest['conformance_pack_name'];
+                    organizationConformancePackId = showOrganizationConformancePackDetailedStatusesRequest['organization_conformance_pack_id'];
                     state = showOrganizationConformancePackDetailedStatusesRequest['state'];
                     limit = showOrganizationConformancePackDetailedStatusesRequest['limit'];
                     marker = showOrganizationConformancePackDetailedStatusesRequest['marker'];
@@ -3573,6 +3619,9 @@ export const ParamCreater = function () {
             }
             if (conformancePackName !== null && conformancePackName !== undefined) {
                 localVarQueryParameter['conformance_pack_name'] = conformancePackName;
+            }
+            if (organizationConformancePackId !== null && organizationConformancePackId !== undefined) {
+                localVarQueryParameter['organization_conformance_pack_id'] = organizationConformancePackId;
             }
             if (state !== null && state !== undefined) {
                 localVarQueryParameter['state'] = state;
@@ -3664,7 +3713,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建或更新组织合规规则，如果规则名称已存在，则为更新操作。
+         * 创建组织合规规则，如果规则名称已存在，则为更新操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3951,6 +4000,8 @@ export const ParamCreater = function () {
             
             let organizationId;
             
+            let organizationPolicyAssignmentId;
+            
             let organizationPolicyAssignmentName;
             
             let limit;
@@ -3960,11 +4011,13 @@ export const ParamCreater = function () {
             if (listOrganizationPolicyAssignmentsRequest !== null && listOrganizationPolicyAssignmentsRequest !== undefined) {
                 if (listOrganizationPolicyAssignmentsRequest instanceof ListOrganizationPolicyAssignmentsRequest) {
                     organizationId = listOrganizationPolicyAssignmentsRequest.organizationId;
+                    organizationPolicyAssignmentId = listOrganizationPolicyAssignmentsRequest.organizationPolicyAssignmentId;
                     organizationPolicyAssignmentName = listOrganizationPolicyAssignmentsRequest.organizationPolicyAssignmentName;
                     limit = listOrganizationPolicyAssignmentsRequest.limit;
                     marker = listOrganizationPolicyAssignmentsRequest.marker;
                 } else {
                     organizationId = listOrganizationPolicyAssignmentsRequest['organization_id'];
+                    organizationPolicyAssignmentId = listOrganizationPolicyAssignmentsRequest['organization_policy_assignment_id'];
                     organizationPolicyAssignmentName = listOrganizationPolicyAssignmentsRequest['organization_policy_assignment_name'];
                     limit = listOrganizationPolicyAssignmentsRequest['limit'];
                     marker = listOrganizationPolicyAssignmentsRequest['marker'];
@@ -3974,6 +4027,9 @@ export const ParamCreater = function () {
         
             if (organizationId === null || organizationId === undefined) {
             throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling listOrganizationPolicyAssignments.');
+            }
+            if (organizationPolicyAssignmentId !== null && organizationPolicyAssignmentId !== undefined) {
+                localVarQueryParameter['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
             }
             if (organizationPolicyAssignmentName !== null && organizationPolicyAssignmentName !== undefined) {
                 localVarQueryParameter['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
@@ -4422,6 +4478,8 @@ export const ParamCreater = function () {
             
             let organizationPolicyAssignmentName;
             
+            let organizationPolicyAssignmentId;
+            
             let status;
             
             let limit;
@@ -4432,12 +4490,14 @@ export const ParamCreater = function () {
                 if (showOrganizationPolicyAssignmentDetailedStatusRequest instanceof ShowOrganizationPolicyAssignmentDetailedStatusRequest) {
                     organizationId = showOrganizationPolicyAssignmentDetailedStatusRequest.organizationId;
                     organizationPolicyAssignmentName = showOrganizationPolicyAssignmentDetailedStatusRequest.organizationPolicyAssignmentName;
+                    organizationPolicyAssignmentId = showOrganizationPolicyAssignmentDetailedStatusRequest.organizationPolicyAssignmentId;
                     status = showOrganizationPolicyAssignmentDetailedStatusRequest.status;
                     limit = showOrganizationPolicyAssignmentDetailedStatusRequest.limit;
                     marker = showOrganizationPolicyAssignmentDetailedStatusRequest.marker;
                 } else {
                     organizationId = showOrganizationPolicyAssignmentDetailedStatusRequest['organization_id'];
                     organizationPolicyAssignmentName = showOrganizationPolicyAssignmentDetailedStatusRequest['organization_policy_assignment_name'];
+                    organizationPolicyAssignmentId = showOrganizationPolicyAssignmentDetailedStatusRequest['organization_policy_assignment_id'];
                     status = showOrganizationPolicyAssignmentDetailedStatusRequest['status'];
                     limit = showOrganizationPolicyAssignmentDetailedStatusRequest['limit'];
                     marker = showOrganizationPolicyAssignmentDetailedStatusRequest['marker'];
@@ -4453,6 +4513,9 @@ export const ParamCreater = function () {
             }
             if (organizationPolicyAssignmentName !== null && organizationPolicyAssignmentName !== undefined) {
                 localVarQueryParameter['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
+            }
+            if (organizationPolicyAssignmentId !== null && organizationPolicyAssignmentId !== undefined) {
+                localVarQueryParameter['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -4569,6 +4632,56 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新组织合规规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOrganizationPolicyAssignment(updateOrganizationPolicyAssignmentRequest?: UpdateOrganizationPolicyAssignmentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource-manager/organizations/{organization_id}/policy-assignments/{organization_policy_assignment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let organizationId;
+            
+            let organizationPolicyAssignmentId;
+
+            if (updateOrganizationPolicyAssignmentRequest !== null && updateOrganizationPolicyAssignmentRequest !== undefined) {
+                if (updateOrganizationPolicyAssignmentRequest instanceof UpdateOrganizationPolicyAssignmentRequest) {
+                    organizationId = updateOrganizationPolicyAssignmentRequest.organizationId;
+                    organizationPolicyAssignmentId = updateOrganizationPolicyAssignmentRequest.organizationPolicyAssignmentId;
+                    body = updateOrganizationPolicyAssignmentRequest.body
+                } else {
+                    organizationId = updateOrganizationPolicyAssignmentRequest['organization_id'];
+                    organizationPolicyAssignmentId = updateOrganizationPolicyAssignmentRequest['organization_policy_assignment_id'];
+                    body = updateOrganizationPolicyAssignmentRequest['body'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling updateOrganizationPolicyAssignment.');
+            }
+            if (organizationPolicyAssignmentId === null || organizationPolicyAssignmentId === undefined) {
+            throw new RequiredError('organizationPolicyAssignmentId','Required parameter organizationPolicyAssignmentId was null or undefined when calling updateOrganizationPolicyAssignment.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'organization_id': organizationId,'organization_policy_assignment_id': organizationPolicyAssignmentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

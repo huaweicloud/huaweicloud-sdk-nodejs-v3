@@ -2,19 +2,19 @@ import { ShowPeriodResponseInfo } from './ShowPeriodResponseInfo';
 
 
 export class ResourceProductDataObjectInfo {
-    private 'charging_mode'?: object;
+    private 'charging_mode'?: string;
     private 'is_auto_renew'?: boolean;
     private 'version_info'?: { [key: string]: Array<ShowPeriodResponseInfo>; };
     public constructor() { 
     }
-    public withChargingMode(chargingMode: object): ResourceProductDataObjectInfo {
+    public withChargingMode(chargingMode: string): ResourceProductDataObjectInfo {
         this['charging_mode'] = chargingMode;
         return this;
     }
-    public set chargingMode(chargingMode: object  | undefined) {
+    public set chargingMode(chargingMode: string  | undefined) {
         this['charging_mode'] = chargingMode;
     }
-    public get chargingMode(): object | undefined {
+    public get chargingMode(): string | undefined {
         return this['charging_mode'];
     }
     public withIsAutoRenew(isAutoRenew: boolean): ResourceProductDataObjectInfo {

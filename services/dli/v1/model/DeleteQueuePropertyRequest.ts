@@ -1,9 +1,9 @@
-import { DeleteQueuePropertiesRequestBody } from './DeleteQueuePropertiesRequestBody';
+import { DeleteQueuePropertyRequestBody } from './DeleteQueuePropertyRequestBody';
 
 
 export class DeleteQueuePropertyRequest {
     private 'queue_name'?: string;
-    public body?: DeleteQueuePropertiesRequestBody;
+    public body?: DeleteQueuePropertyRequestBody;
     public constructor(queueName?: string) { 
         this['queue_name'] = queueName;
     }
@@ -17,7 +17,7 @@ export class DeleteQueuePropertyRequest {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withBody(body: DeleteQueuePropertiesRequestBody): DeleteQueuePropertyRequest {
+    public withBody(body: DeleteQueuePropertyRequestBody): DeleteQueuePropertyRequest {
         this['body'] = body;
         return this;
     }

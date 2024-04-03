@@ -5,6 +5,7 @@ import { SmartConnectTaskRespSourceConfig } from './SmartConnectTaskRespSourceCo
 export class SmartConnectTaskEntity {
     private 'task_name'?: string;
     public topics?: string;
+    private 'topics_regex'?: string;
     private 'source_type'?: string;
     private 'source_task'?: SmartConnectTaskRespSourceConfig;
     private 'sink_type'?: string;
@@ -27,6 +28,16 @@ export class SmartConnectTaskEntity {
     public withTopics(topics: string): SmartConnectTaskEntity {
         this['topics'] = topics;
         return this;
+    }
+    public withTopicsRegex(topicsRegex: string): SmartConnectTaskEntity {
+        this['topics_regex'] = topicsRegex;
+        return this;
+    }
+    public set topicsRegex(topicsRegex: string  | undefined) {
+        this['topics_regex'] = topicsRegex;
+    }
+    public get topicsRegex(): string | undefined {
+        return this['topics_regex'];
     }
     public withSourceType(sourceType: string): SmartConnectTaskEntity {
         this['source_type'] = sourceType;

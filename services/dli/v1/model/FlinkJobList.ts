@@ -1,9 +1,9 @@
-import { FlinkJobInfo } from './FlinkJobInfo';
+import { FlinkJob } from './FlinkJob';
 
 
 export class FlinkJobList {
     private 'total_count'?: number;
-    public jobs?: Array<FlinkJobInfo>;
+    public jobs?: Array<FlinkJob>;
     public constructor() { 
     }
     public withTotalCount(totalCount: number): FlinkJobList {
@@ -16,7 +16,7 @@ export class FlinkJobList {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withJobs(jobs: Array<FlinkJobInfo>): FlinkJobList {
+    public withJobs(jobs: Array<FlinkJob>): FlinkJobList {
         this['jobs'] = jobs;
         return this;
     }

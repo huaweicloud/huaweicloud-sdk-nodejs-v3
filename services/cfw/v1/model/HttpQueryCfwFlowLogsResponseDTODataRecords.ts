@@ -14,6 +14,10 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     private 'dst_port'?: number;
     public protocol?: string;
     private 'dst_host'?: string;
+    private 'dst_region_id'?: string;
+    private 'dst_region_name'?: string;
+    private 'src_region_id'?: string;
+    private 'src_region_name'?: string;
     public constructor() { 
     }
     public withBytes(bytes: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
@@ -115,6 +119,46 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     }
     public get dstHost(): string | undefined {
         return this['dst_host'];
+    }
+    public withDstRegionId(dstRegionId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_region_id'] = dstRegionId;
+        return this;
+    }
+    public set dstRegionId(dstRegionId: string  | undefined) {
+        this['dst_region_id'] = dstRegionId;
+    }
+    public get dstRegionId(): string | undefined {
+        return this['dst_region_id'];
+    }
+    public withDstRegionName(dstRegionName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_region_name'] = dstRegionName;
+        return this;
+    }
+    public set dstRegionName(dstRegionName: string  | undefined) {
+        this['dst_region_name'] = dstRegionName;
+    }
+    public get dstRegionName(): string | undefined {
+        return this['dst_region_name'];
+    }
+    public withSrcRegionId(srcRegionId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_region_id'] = srcRegionId;
+        return this;
+    }
+    public set srcRegionId(srcRegionId: string  | undefined) {
+        this['src_region_id'] = srcRegionId;
+    }
+    public get srcRegionId(): string | undefined {
+        return this['src_region_id'];
+    }
+    public withSrcRegionName(srcRegionName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_region_name'] = srcRegionName;
+        return this;
+    }
+    public set srcRegionName(srcRegionName: string  | undefined) {
+        this['src_region_name'] = srcRegionName;
+    }
+    public get srcRegionName(): string | undefined {
+        return this['src_region_name'];
     }
 }
 

@@ -5,6 +5,7 @@ export class ListServiceSetDetailRequest {
     private 'set_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
+    private 'query_service_set_type'?: number;
     public constructor(projectId?: string, setId?: string) { 
         this['project_id'] = projectId;
         this['set_id'] = setId;
@@ -48,5 +49,15 @@ export class ListServiceSetDetailRequest {
     }
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
+    }
+    public withQueryServiceSetType(queryServiceSetType: number): ListServiceSetDetailRequest {
+        this['query_service_set_type'] = queryServiceSetType;
+        return this;
+    }
+    public set queryServiceSetType(queryServiceSetType: number  | undefined) {
+        this['query_service_set_type'] = queryServiceSetType;
+    }
+    public get queryServiceSetType(): number | undefined {
+        return this['query_service_set_type'];
     }
 }

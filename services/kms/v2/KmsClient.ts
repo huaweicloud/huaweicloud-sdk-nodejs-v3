@@ -68,6 +68,9 @@ import { EncryptDatakeyRequest } from './model/EncryptDatakeyRequest';
 import { EncryptDatakeyRequestBody } from './model/EncryptDatakeyRequestBody';
 import { EncryptDatakeyResponse } from './model/EncryptDatakeyResponse';
 import { GenRandomRequestBody } from './model/GenRandomRequestBody';
+import { GenerateMacRequest } from './model/GenerateMacRequest';
+import { GenerateMacRequestBody } from './model/GenerateMacRequestBody';
+import { GenerateMacResponse } from './model/GenerateMacResponse';
 import { GetParametersForImportRequestBody } from './model/GetParametersForImportRequestBody';
 import { Grants } from './model/Grants';
 import { ImportKeyMaterialRequest } from './model/ImportKeyMaterialRequest';
@@ -136,6 +139,9 @@ import { UpdateKeyRotationIntervalRequestBody } from './model/UpdateKeyRotationI
 import { UpdateKeyRotationIntervalResponse } from './model/UpdateKeyRotationIntervalResponse';
 import { ValidateSignatureRequest } from './model/ValidateSignatureRequest';
 import { ValidateSignatureResponse } from './model/ValidateSignatureResponse';
+import { VerifyMacRequest } from './model/VerifyMacRequest';
+import { VerifyMacRequestBody } from './model/VerifyMacRequestBody';
+import { VerifyMacResponse } from './model/VerifyMacResponse';
 import { VerifyRequestBody } from './model/VerifyRequestBody';
 
 export class KmsClient {
@@ -672,6 +678,25 @@ export class KmsClient {
     }
 
     /**
+     * 功能介绍：生成消息验证码
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成消息验证码
+     * @param {GenerateMacRequestBody} generateMacRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public generateMac(generateMacRequest?: GenerateMacRequest): Promise<GenerateMacResponse> {
+        const options = ParamCreater().generateMac(generateMacRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：导入密钥材料。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1030,6 +1055,25 @@ export class KmsClient {
      */
     public validateSignature(validateSignatureRequest?: ValidateSignatureRequest): Promise<ValidateSignatureResponse> {
         const options = ParamCreater().validateSignature(validateSignatureRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 功能介绍：校验消息验证码
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验消息验证码
+     * @param {VerifyMacRequestBody} verifyMacRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public verifyMac(verifyMacRequest?: VerifyMacRequest): Promise<VerifyMacResponse> {
+        const options = ParamCreater().verifyMac(verifyMacRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2107,6 +2151,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 功能介绍：生成消息验证码
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        generateMac(generateMacRequest?: GenerateMacRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/generate-mac",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (generateMacRequest !== null && generateMacRequest !== undefined) {
+                if (generateMacRequest instanceof GenerateMacRequest) {
+                    body = generateMacRequest.body
+                } else {
+                    body = generateMacRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：导入密钥材料。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2781,6 +2863,44 @@ export const ParamCreater = function () {
                     body = validateSignatureRequest.body
                 } else {
                     body = validateSignatureRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 功能介绍：校验消息验证码
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        verifyMac(verifyMacRequest?: VerifyMacRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/verify-mac",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (verifyMacRequest !== null && verifyMacRequest !== undefined) {
+                if (verifyMacRequest instanceof VerifyMacRequest) {
+                    body = verifyMacRequest.body
+                } else {
+                    body = verifyMacRequest['body'];
                 }
             }
 

@@ -1,3 +1,5 @@
+import { BackboneBandwidthResp } from './BackboneBandwidthResp';
+import { InstanceVnicResp } from './InstanceVnicResp';
 import { InstancevirtualListResp } from './InstancevirtualListResp';
 
 
@@ -7,10 +9,10 @@ export class GeipBindingsInternalResp {
     private 'public_border_group'?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
-    private 'binding_instance_type'?: string;
-    private 'binding_instance_id'?: string;
-    public gcbandwidth?: object;
-    public vnic?: object;
+    private 'instance_type'?: string;
+    private 'instance_id'?: string;
+    public gcbandwidth?: BackboneBandwidthResp;
+    public vnic?: InstanceVnicResp;
     private 'vn_list'?: Array<InstancevirtualListResp>;
     public constructor() { 
     }
@@ -64,31 +66,31 @@ export class GeipBindingsInternalResp {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withBindingInstanceType(bindingInstanceType: string): GeipBindingsInternalResp {
-        this['binding_instance_type'] = bindingInstanceType;
+    public withInstanceType(instanceType: string): GeipBindingsInternalResp {
+        this['instance_type'] = instanceType;
         return this;
     }
-    public set bindingInstanceType(bindingInstanceType: string  | undefined) {
-        this['binding_instance_type'] = bindingInstanceType;
+    public set instanceType(instanceType: string  | undefined) {
+        this['instance_type'] = instanceType;
     }
-    public get bindingInstanceType(): string | undefined {
-        return this['binding_instance_type'];
+    public get instanceType(): string | undefined {
+        return this['instance_type'];
     }
-    public withBindingInstanceId(bindingInstanceId: string): GeipBindingsInternalResp {
-        this['binding_instance_id'] = bindingInstanceId;
+    public withInstanceId(instanceId: string): GeipBindingsInternalResp {
+        this['instance_id'] = instanceId;
         return this;
     }
-    public set bindingInstanceId(bindingInstanceId: string  | undefined) {
-        this['binding_instance_id'] = bindingInstanceId;
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
     }
-    public get bindingInstanceId(): string | undefined {
-        return this['binding_instance_id'];
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
-    public withGcbandwidth(gcbandwidth: object): GeipBindingsInternalResp {
+    public withGcbandwidth(gcbandwidth: BackboneBandwidthResp): GeipBindingsInternalResp {
         this['gcbandwidth'] = gcbandwidth;
         return this;
     }
-    public withVnic(vnic: object): GeipBindingsInternalResp {
+    public withVnic(vnic: InstanceVnicResp): GeipBindingsInternalResp {
         this['vnic'] = vnic;
         return this;
     }

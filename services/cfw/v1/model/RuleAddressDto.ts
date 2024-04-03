@@ -16,6 +16,8 @@ export class RuleAddressDto {
     private 'ip_address'?: Array<string>;
     private 'address_group'?: Array<string>;
     private 'address_group_names'?: Array<AddressGroupVO>;
+    private 'address_set_type'?: number;
+    private 'predefined_group'?: Array<string>;
     public constructor(type?: number) { 
         this['type'] = type;
     }
@@ -136,5 +138,25 @@ export class RuleAddressDto {
     }
     public get addressGroupNames(): Array<AddressGroupVO> | undefined {
         return this['address_group_names'];
+    }
+    public withAddressSetType(addressSetType: number): RuleAddressDto {
+        this['address_set_type'] = addressSetType;
+        return this;
+    }
+    public set addressSetType(addressSetType: number  | undefined) {
+        this['address_set_type'] = addressSetType;
+    }
+    public get addressSetType(): number | undefined {
+        return this['address_set_type'];
+    }
+    public withPredefinedGroup(predefinedGroup: Array<string>): RuleAddressDto {
+        this['predefined_group'] = predefinedGroup;
+        return this;
+    }
+    public set predefinedGroup(predefinedGroup: Array<string>  | undefined) {
+        this['predefined_group'] = predefinedGroup;
+    }
+    public get predefinedGroup(): Array<string> | undefined {
+        return this['predefined_group'];
     }
 }

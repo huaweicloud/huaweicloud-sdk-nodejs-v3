@@ -1,5 +1,6 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
-import { RuleAddressDto } from './RuleAddressDto';
+import { RuleAddressDtoForRequest } from './RuleAddressDtoForRequest';
+import { RuleProfileDto } from './RuleProfileDto';
 import { RuleServiceDto } from './RuleServiceDto';
 import { TagsVO } from './TagsVO';
 
@@ -10,6 +11,8 @@ export class AddRuleAclDtoRules {
     private 'address_type'?: AddRuleAclDtoRulesAddressTypeEnum | number;
     private 'action_type'?: number;
     public status?: AddRuleAclDtoRulesStatusEnum | number;
+    public applications?: Array<string>;
+    public applicationsJsonString?: string;
     private 'long_connect_time'?: number;
     private 'long_connect_time_hour'?: number;
     private 'long_connect_time_minute'?: number;
@@ -17,11 +20,12 @@ export class AddRuleAclDtoRules {
     private 'long_connect_enable'?: AddRuleAclDtoRulesLongConnectEnableEnum | number;
     public description?: string;
     public direction?: AddRuleAclDtoRulesDirectionEnum | number;
-    public source?: RuleAddressDto;
-    public destination?: RuleAddressDto;
+    public profile?: RuleProfileDto;
+    public source?: RuleAddressDtoForRequest;
+    public destination?: RuleAddressDtoForRequest;
     public service?: RuleServiceDto;
     public tag?: TagsVO;
-    public constructor(name?: string, sequence?: OrderRuleAclDto, addressType?: number, actionType?: number, status?: number, longConnectEnable?: number, source?: RuleAddressDto, destination?: RuleAddressDto, service?: RuleServiceDto) { 
+    public constructor(name?: string, sequence?: OrderRuleAclDto, addressType?: number, actionType?: number, status?: number, longConnectEnable?: number, source?: RuleAddressDtoForRequest, destination?: RuleAddressDtoForRequest, service?: RuleServiceDto) { 
         this['name'] = name;
         this['sequence'] = sequence;
         this['address_type'] = addressType;
@@ -62,6 +66,14 @@ export class AddRuleAclDtoRules {
     }
     public withStatus(status: AddRuleAclDtoRulesStatusEnum | number): AddRuleAclDtoRules {
         this['status'] = status;
+        return this;
+    }
+    public withApplications(applications: Array<string>): AddRuleAclDtoRules {
+        this['applications'] = applications;
+        return this;
+    }
+    public withApplicationsJsonString(applicationsJsonString: string): AddRuleAclDtoRules {
+        this['applicationsJsonString'] = applicationsJsonString;
         return this;
     }
     public withLongConnectTime(longConnectTime: number): AddRuleAclDtoRules {
@@ -122,11 +134,15 @@ export class AddRuleAclDtoRules {
         this['direction'] = direction;
         return this;
     }
-    public withSource(source: RuleAddressDto): AddRuleAclDtoRules {
+    public withProfile(profile: RuleProfileDto): AddRuleAclDtoRules {
+        this['profile'] = profile;
+        return this;
+    }
+    public withSource(source: RuleAddressDtoForRequest): AddRuleAclDtoRules {
         this['source'] = source;
         return this;
     }
-    public withDestination(destination: RuleAddressDto): AddRuleAclDtoRules {
+    public withDestination(destination: RuleAddressDtoForRequest): AddRuleAclDtoRules {
         this['destination'] = destination;
         return this;
     }

@@ -1,17 +1,26 @@
 
 
 export class CpuOptions {
-    private 'hw:cpu_threads'?: number;
+    private 'hw:cpu_threads'?: CpuOptionsHwCpuThreadsEnum | number;
     public constructor() { 
     }
-    public withHwCpuThreads(hwCpuThreads: number): CpuOptions {
+    public withHwCpuThreads(hwCpuThreads: CpuOptionsHwCpuThreadsEnum | number): CpuOptions {
         this['hw:cpu_threads'] = hwCpuThreads;
         return this;
     }
-    public set hwCpuThreads(hwCpuThreads: number  | undefined) {
+    public set hwCpuThreads(hwCpuThreads: CpuOptionsHwCpuThreadsEnum | number  | undefined) {
         this['hw:cpu_threads'] = hwCpuThreads;
     }
-    public get hwCpuThreads(): number | undefined {
+    public get hwCpuThreads(): CpuOptionsHwCpuThreadsEnum | number | undefined {
         return this['hw:cpu_threads'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CpuOptionsHwCpuThreadsEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

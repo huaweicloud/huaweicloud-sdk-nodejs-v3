@@ -1,3 +1,4 @@
+import { CpuOptions } from './CpuOptions';
 import { PrePaidServerDataVolume } from './PrePaidServerDataVolume';
 import { PrePaidServerExtendParam } from './PrePaidServerExtendParam';
 import { PrePaidServerNic } from './PrePaidServerNic';
@@ -32,6 +33,7 @@ export class PrePaidServer {
     public tags?: Array<string>;
     private 'server_tags'?: Array<PrePaidServerTag>;
     public description?: string;
+    private 'cpu_options'?: CpuOptions;
     public constructor(imageRef?: string, flavorRef?: string, name?: string, vpcid?: string, nics?: Array<PrePaidServerNic>, rootVolume?: PrePaidServerRootVolume) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
@@ -191,5 +193,15 @@ export class PrePaidServer {
     public withDescription(description: string): PrePaidServer {
         this['description'] = description;
         return this;
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): PrePaidServer {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions(): CpuOptions | undefined {
+        return this['cpu_options'];
     }
 }

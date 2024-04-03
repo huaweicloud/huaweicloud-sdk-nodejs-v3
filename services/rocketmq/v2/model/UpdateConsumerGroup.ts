@@ -6,7 +6,6 @@ export class UpdateConsumerGroup {
     public brokers?: Array<string>;
     public name?: string;
     private 'retry_max_time'?: number;
-    private 'from_beginning'?: boolean;
     public constructor(enabled?: boolean, broadcast?: boolean, retryMaxTime?: number) { 
         this['enabled'] = enabled;
         this['broadcast'] = broadcast;
@@ -37,15 +36,5 @@ export class UpdateConsumerGroup {
     }
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
-    }
-    public withFromBeginning(fromBeginning: boolean): UpdateConsumerGroup {
-        this['from_beginning'] = fromBeginning;
-        return this;
-    }
-    public set fromBeginning(fromBeginning: boolean  | undefined) {
-        this['from_beginning'] = fromBeginning;
-    }
-    public get fromBeginning(): boolean | undefined {
-        return this['from_beginning'];
     }
 }

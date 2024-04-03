@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowConnectorTaskResponse extends SdkResponse {
     private 'task_name'?: string;
     public topics?: string;
+    private 'topics_regex'?: string;
     private 'source_type'?: string;
     private 'source_task'?: SmartConnectTaskRespSourceConfig;
     private 'sink_type'?: string;
@@ -29,6 +30,16 @@ export class ShowConnectorTaskResponse extends SdkResponse {
     public withTopics(topics: string): ShowConnectorTaskResponse {
         this['topics'] = topics;
         return this;
+    }
+    public withTopicsRegex(topicsRegex: string): ShowConnectorTaskResponse {
+        this['topics_regex'] = topicsRegex;
+        return this;
+    }
+    public set topicsRegex(topicsRegex: string  | undefined) {
+        this['topics_regex'] = topicsRegex;
+    }
+    public get topicsRegex(): string | undefined {
+        return this['topics_regex'];
     }
     public withSourceType(sourceType: string): ShowConnectorTaskResponse {
         this['source_type'] = sourceType;

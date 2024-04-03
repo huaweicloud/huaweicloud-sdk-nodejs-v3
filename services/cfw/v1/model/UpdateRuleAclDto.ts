@@ -1,5 +1,6 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDto } from './RuleAddressDto';
+import { RuleProfileDto } from './RuleProfileDto';
 import { RuleServiceDto } from './RuleServiceDto';
 import { TagsVO } from './TagsVO';
 
@@ -11,12 +12,15 @@ export class UpdateRuleAclDto {
     public direction?: UpdateRuleAclDtoDirectionEnum | number;
     private 'action_type'?: UpdateRuleAclDtoActionTypeEnum | number;
     public status?: number;
+    public applications?: Array<string>;
+    public applicationsJsonString?: string;
     public description?: string;
     private 'long_connect_time_hour'?: number;
     private 'long_connect_time_minute'?: number;
     private 'long_connect_time_second'?: number;
     private 'long_connect_time'?: number;
     private 'long_connect_enable'?: UpdateRuleAclDtoLongConnectEnableEnum | number;
+    public profile?: RuleProfileDto;
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
@@ -58,6 +62,14 @@ export class UpdateRuleAclDto {
     }
     public withStatus(status: number): UpdateRuleAclDto {
         this['status'] = status;
+        return this;
+    }
+    public withApplications(applications: Array<string>): UpdateRuleAclDto {
+        this['applications'] = applications;
+        return this;
+    }
+    public withApplicationsJsonString(applicationsJsonString: string): UpdateRuleAclDto {
+        this['applicationsJsonString'] = applicationsJsonString;
         return this;
     }
     public withDescription(description: string): UpdateRuleAclDto {
@@ -113,6 +125,10 @@ export class UpdateRuleAclDto {
     }
     public get longConnectEnable(): UpdateRuleAclDtoLongConnectEnableEnum | number | undefined {
         return this['long_connect_enable'];
+    }
+    public withProfile(profile: RuleProfileDto): UpdateRuleAclDto {
+        this['profile'] = profile;
+        return this;
     }
     public withSource(source: RuleAddressDto): UpdateRuleAclDto {
         this['source'] = source;

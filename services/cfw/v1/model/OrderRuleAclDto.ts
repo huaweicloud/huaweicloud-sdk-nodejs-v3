@@ -3,6 +3,7 @@
 export class OrderRuleAclDto {
     private 'dest_rule_id'?: string;
     public top?: number;
+    public bottom?: number;
     public constructor() { 
     }
     public withDestRuleId(destRuleId: string): OrderRuleAclDto {
@@ -17,6 +18,10 @@ export class OrderRuleAclDto {
     }
     public withTop(top: number): OrderRuleAclDto {
         this['top'] = top;
+        return this;
+    }
+    public withBottom(bottom: number): OrderRuleAclDto {
+        this['bottom'] = bottom;
         return this;
     }
 }

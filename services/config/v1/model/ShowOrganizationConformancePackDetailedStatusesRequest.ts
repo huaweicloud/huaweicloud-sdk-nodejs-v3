@@ -3,6 +3,7 @@
 export class ShowOrganizationConformancePackDetailedStatusesRequest {
     private 'organization_id'?: string;
     private 'conformance_pack_name'?: string;
+    private 'organization_conformance_pack_id'?: string;
     public state?: ShowOrganizationConformancePackDetailedStatusesRequestStateEnum | string;
     public limit?: number;
     public marker?: string;
@@ -29,6 +30,16 @@ export class ShowOrganizationConformancePackDetailedStatusesRequest {
     }
     public get conformancePackName(): string | undefined {
         return this['conformance_pack_name'];
+    }
+    public withOrganizationConformancePackId(organizationConformancePackId: string): ShowOrganizationConformancePackDetailedStatusesRequest {
+        this['organization_conformance_pack_id'] = organizationConformancePackId;
+        return this;
+    }
+    public set organizationConformancePackId(organizationConformancePackId: string  | undefined) {
+        this['organization_conformance_pack_id'] = organizationConformancePackId;
+    }
+    public get organizationConformancePackId(): string | undefined {
+        return this['organization_conformance_pack_id'];
     }
     public withState(state: ShowOrganizationConformancePackDetailedStatusesRequestStateEnum | string): ShowOrganizationConformancePackDetailedStatusesRequest {
         this['state'] = state;

@@ -242,9 +242,6 @@ import { PrePaidServerSecurityGroup } from './model/PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
 import { ProjectTag } from './model/ProjectTag';
-import { RegisterServerAutoRecoveryRequest } from './model/RegisterServerAutoRecoveryRequest';
-import { RegisterServerAutoRecoveryRequestBody } from './model/RegisterServerAutoRecoveryRequestBody';
-import { RegisterServerAutoRecoveryResponse } from './model/RegisterServerAutoRecoveryResponse';
 import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
 import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';
 import { RegisterServerMonitorResponse } from './model/RegisterServerMonitorResponse';
@@ -297,8 +294,6 @@ import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
-import { ShowServerAutoRecoveryRequest } from './model/ShowServerAutoRecoveryRequest';
-import { ShowServerAutoRecoveryResponse } from './model/ShowServerAutoRecoveryResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
 import { ShowServerBlockDeviceResponse } from './model/ShowServerBlockDeviceResponse';
 import { ShowServerGroupRequest } from './model/ShowServerGroupRequest';
@@ -1441,26 +1436,6 @@ export class EcsClient {
     }
 
     /**
-     * 配置、删除云服务器自动恢复动作。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 管理云服务器自动恢复动作
-     * @param {string} serverId 云服务器ID。
-     * @param {RegisterServerAutoRecoveryRequestBody} registerServerAutoRecoveryRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest): Promise<RegisterServerAutoRecoveryResponse> {
-        const options = ParamCreater().registerServerAutoRecovery(registerServerAutoRecoveryRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 将云服务器添加到监控表中。
      * 
      * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
@@ -1631,25 +1606,6 @@ export class EcsClient {
      */
     public showServer(showServerRequest?: ShowServerRequest): Promise<ShowServerResponse> {
         const options = ParamCreater().showServer(showServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询云服务器是否配置了自动恢复动作。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询云服务器是否配置了自动恢复动作
-     * @param {string} serverId 云服务器ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest): Promise<ShowServerAutoRecoveryResponse> {
-        const options = ParamCreater().showServerAutoRecovery(showServerAutoRecoveryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4351,52 +4307,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 配置、删除云服务器自动恢复动作。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/cloudservers/{server_id}/autorecovery",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let serverId;
-
-            if (registerServerAutoRecoveryRequest !== null && registerServerAutoRecoveryRequest !== undefined) {
-                if (registerServerAutoRecoveryRequest instanceof RegisterServerAutoRecoveryRequest) {
-                    serverId = registerServerAutoRecoveryRequest.serverId;
-                    body = registerServerAutoRecoveryRequest.body
-                } else {
-                    serverId = registerServerAutoRecoveryRequest['server_id'];
-                    body = registerServerAutoRecoveryRequest['body'];
-                }
-            }
-
-        
-            if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling registerServerAutoRecovery.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'server_id': serverId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 将云服务器添加到监控表中。
          * 
          * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
@@ -4759,43 +4669,6 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServer.');
-            }
-
-            options.pathParams = { 'server_id': serverId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询云服务器是否配置了自动恢复动作。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/cloudservers/{server_id}/autorecovery",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let serverId;
-
-            if (showServerAutoRecoveryRequest !== null && showServerAutoRecoveryRequest !== undefined) {
-                if (showServerAutoRecoveryRequest instanceof ShowServerAutoRecoveryRequest) {
-                    serverId = showServerAutoRecoveryRequest.serverId;
-                } else {
-                    serverId = showServerAutoRecoveryRequest['server_id'];
-                }
-            }
-
-        
-            if (serverId === null || serverId === undefined) {
-            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerAutoRecovery.');
             }
 
             options.pathParams = { 'server_id': serverId, };

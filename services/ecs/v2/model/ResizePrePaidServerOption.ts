@@ -1,3 +1,4 @@
+import { CpuOptions } from './CpuOptions';
 import { ResizeServerExtendParam } from './ResizeServerExtendParam';
 
 
@@ -6,6 +7,7 @@ export class ResizePrePaidServerOption {
     private 'dedicated_host_id'?: string;
     public extendparam?: ResizeServerExtendParam;
     public mode?: string;
+    private 'cpu_options'?: CpuOptions;
     public constructor(flavorRef?: string) { 
         this['flavorRef'] = flavorRef;
     }
@@ -30,5 +32,15 @@ export class ResizePrePaidServerOption {
     public withMode(mode: string): ResizePrePaidServerOption {
         this['mode'] = mode;
         return this;
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): ResizePrePaidServerOption {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions(): CpuOptions | undefined {
+        return this['cpu_options'];
     }
 }

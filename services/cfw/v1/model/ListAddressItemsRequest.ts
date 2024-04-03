@@ -9,6 +9,7 @@ export class ListAddressItemsRequest {
     public address?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
+    private 'query_address_set_type'?: number;
     public constructor(projectId?: string, setId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
         this['set_id'] = setId;
@@ -76,5 +77,15 @@ export class ListAddressItemsRequest {
     }
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
+    }
+    public withQueryAddressSetType(queryAddressSetType: number): ListAddressItemsRequest {
+        this['query_address_set_type'] = queryAddressSetType;
+        return this;
+    }
+    public set queryAddressSetType(queryAddressSetType: number  | undefined) {
+        this['query_address_set_type'] = queryAddressSetType;
+    }
+    public get queryAddressSetType(): number | undefined {
+        return this['query_address_set_type'];
     }
 }

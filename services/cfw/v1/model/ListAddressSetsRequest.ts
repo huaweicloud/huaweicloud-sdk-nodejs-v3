@@ -11,6 +11,7 @@ export class ListAddressSetsRequest {
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     private 'query_address_set_type'?: number;
+    private 'address_set_type'?: number;
     public constructor(projectId?: string, objectId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
@@ -98,6 +99,16 @@ export class ListAddressSetsRequest {
     }
     public get queryAddressSetType(): number | undefined {
         return this['query_address_set_type'];
+    }
+    public withAddressSetType(addressSetType: number): ListAddressSetsRequest {
+        this['address_set_type'] = addressSetType;
+        return this;
+    }
+    public set addressSetType(addressSetType: number  | undefined) {
+        this['address_set_type'] = addressSetType;
+    }
+    public get addressSetType(): number | undefined {
+        return this['address_set_type'];
     }
 }
 

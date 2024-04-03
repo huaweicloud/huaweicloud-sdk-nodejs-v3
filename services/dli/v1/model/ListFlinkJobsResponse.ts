@@ -3,20 +3,20 @@ import { FlinkJobList } from './FlinkJobList';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFlinkJobsResponse extends SdkResponse {
-    private 'is_success'?: boolean;
+    private 'is_success'?: string;
     public message?: string;
     private 'job_list'?: FlinkJobList;
     public constructor() { 
         super();
     }
-    public withIsSuccess(isSuccess: boolean): ListFlinkJobsResponse {
+    public withIsSuccess(isSuccess: string): ListFlinkJobsResponse {
         this['is_success'] = isSuccess;
         return this;
     }
-    public set isSuccess(isSuccess: boolean  | undefined) {
+    public set isSuccess(isSuccess: string  | undefined) {
         this['is_success'] = isSuccess;
     }
-    public get isSuccess(): boolean | undefined {
+    public get isSuccess(): string | undefined {
         return this['is_success'];
     }
     public withMessage(message: string): ListFlinkJobsResponse {

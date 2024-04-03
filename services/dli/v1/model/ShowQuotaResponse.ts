@@ -1,20 +1,25 @@
-import { ShowQuotaResponseBodyQuotas } from './ShowQuotaResponseBodyQuotas';
+import { QuotaList } from './QuotaList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowQuotaResponse extends SdkResponse {
-    private 'Quotas'?: ShowQuotaResponseBodyQuotas;
+    private 'is_success'?: boolean;
+    public quotas?: QuotaList;
     public constructor() { 
         super();
     }
-    public withQuotas(quotas: ShowQuotaResponseBodyQuotas): ShowQuotaResponse {
-        this['Quotas'] = quotas;
+    public withIsSuccess(isSuccess: boolean): ShowQuotaResponse {
+        this['is_success'] = isSuccess;
         return this;
     }
-    public set quotas(quotas: ShowQuotaResponseBodyQuotas  | undefined) {
-        this['Quotas'] = quotas;
+    public set isSuccess(isSuccess: boolean  | undefined) {
+        this['is_success'] = isSuccess;
     }
-    public get quotas(): ShowQuotaResponseBodyQuotas | undefined {
-        return this['Quotas'];
+    public get isSuccess(): boolean | undefined {
+        return this['is_success'];
+    }
+    public withQuotas(quotas: QuotaList): ShowQuotaResponse {
+        this['quotas'] = quotas;
+        return this;
     }
 }

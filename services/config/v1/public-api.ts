@@ -232,6 +232,8 @@ export * from './model/TrackerOBSChannelConfigBody';
 export * from './model/TrackerSMNChannelConfigBody';
 export * from './model/UpdateConfigurationAggregatorRequest';
 export * from './model/UpdateConfigurationAggregatorResponse';
+export * from './model/UpdateOrganizationPolicyAssignmentRequest';
+export * from './model/UpdateOrganizationPolicyAssignmentResponse';
 export * from './model/UpdatePolicyAssignmentRequest';
 export * from './model/UpdatePolicyAssignmentResponse';
 export * from './model/UpdatePolicyStateRequest';

@@ -15,7 +15,8 @@ export class SubNetworkInterface {
     public tags?: Array<string>;
     private 'project_id'?: string;
     private 'created_at'?: Date;
-    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<string>, projectId?: string, createdAt?: Date) { 
+    private 'security_enabled'?: boolean;
+    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<string>, projectId?: string, createdAt?: Date, securityEnabled?: boolean) { 
         this['id'] = id;
         this['virsubnet_id'] = virsubnetId;
         this['private_ip_address'] = privateIpAddress;
@@ -30,6 +31,7 @@ export class SubNetworkInterface {
         this['tags'] = tags;
         this['project_id'] = projectId;
         this['created_at'] = createdAt;
+        this['security_enabled'] = securityEnabled;
     }
     public withId(id: string): SubNetworkInterface {
         this['id'] = id;
@@ -152,5 +154,15 @@ export class SubNetworkInterface {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withSecurityEnabled(securityEnabled: boolean): SubNetworkInterface {
+        this['security_enabled'] = securityEnabled;
+        return this;
+    }
+    public set securityEnabled(securityEnabled: boolean  | undefined) {
+        this['security_enabled'] = securityEnabled;
+    }
+    public get securityEnabled(): boolean | undefined {
+        return this['security_enabled'];
     }
 }

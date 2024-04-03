@@ -11,6 +11,10 @@ export class Flavor {
     private 'total_rule_count'?: number;
     private 'used_rule_count'?: number;
     private 'vpc_bandwith'?: number;
+    private 'default_bandwidth'?: number;
+    private 'default_eip_count'?: number;
+    private 'default_log_storage'?: number;
+    private 'default_vpc_count'?: number;
     public constructor() { 
     }
     public withVersion(version: FlavorVersionEnum | number): Flavor {
@@ -100,6 +104,46 @@ export class Flavor {
     }
     public get vpcBandwith(): number | undefined {
         return this['vpc_bandwith'];
+    }
+    public withDefaultBandwidth(defaultBandwidth: number): Flavor {
+        this['default_bandwidth'] = defaultBandwidth;
+        return this;
+    }
+    public set defaultBandwidth(defaultBandwidth: number  | undefined) {
+        this['default_bandwidth'] = defaultBandwidth;
+    }
+    public get defaultBandwidth(): number | undefined {
+        return this['default_bandwidth'];
+    }
+    public withDefaultEipCount(defaultEipCount: number): Flavor {
+        this['default_eip_count'] = defaultEipCount;
+        return this;
+    }
+    public set defaultEipCount(defaultEipCount: number  | undefined) {
+        this['default_eip_count'] = defaultEipCount;
+    }
+    public get defaultEipCount(): number | undefined {
+        return this['default_eip_count'];
+    }
+    public withDefaultLogStorage(defaultLogStorage: number): Flavor {
+        this['default_log_storage'] = defaultLogStorage;
+        return this;
+    }
+    public set defaultLogStorage(defaultLogStorage: number  | undefined) {
+        this['default_log_storage'] = defaultLogStorage;
+    }
+    public get defaultLogStorage(): number | undefined {
+        return this['default_log_storage'];
+    }
+    public withDefaultVpcCount(defaultVpcCount: number): Flavor {
+        this['default_vpc_count'] = defaultVpcCount;
+        return this;
+    }
+    public set defaultVpcCount(defaultVpcCount: number  | undefined) {
+        this['default_vpc_count'] = defaultVpcCount;
+    }
+    public get defaultVpcCount(): number | undefined {
+        return this['default_vpc_count'];
     }
 }
 

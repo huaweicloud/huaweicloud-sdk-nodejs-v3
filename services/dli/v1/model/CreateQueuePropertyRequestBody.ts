@@ -1,11 +1,11 @@
-import { CreateQueuePropertyRequestBodyProperties } from './CreateQueuePropertyRequestBodyProperties';
+import { CommonQueueProperty } from './CommonQueueProperty';
 
 
 export class CreateQueuePropertyRequestBody {
-    public properties?: CreateQueuePropertyRequestBodyProperties;
+    public properties?: CommonQueueProperty;
     public constructor() { 
     }
-    public withProperties(properties: CreateQueuePropertyRequestBodyProperties): CreateQueuePropertyRequestBody {
+    public withProperties(properties: CommonQueueProperty): CreateQueuePropertyRequestBody {
         this['properties'] = properties;
         return this;
     }

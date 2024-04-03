@@ -1,5 +1,5 @@
-import { SparkJobGroup } from './SparkJobGroup';
-import { SparkJobResource } from './SparkJobResource';
+import { JobResource } from './JobResource';
+import { JobResourcesGroup } from './JobResourcesGroup';
 
 
 export class SparkJobTemplateDetail {
@@ -12,8 +12,8 @@ export class SparkJobTemplateDetail {
     public pyFiles?: Array<string>;
     public files?: Array<string>;
     public modules?: Array<string>;
-    public resources?: Array<SparkJobResource>;
-    public groups?: Array<SparkJobGroup>;
+    public resources?: Array<JobResource>;
+    public groups?: Array<JobResourcesGroup>;
     public conf?: { [key: string]: object; };
     public name?: string;
     public driverMemory?: string;
@@ -81,11 +81,11 @@ export class SparkJobTemplateDetail {
         this['modules'] = modules;
         return this;
     }
-    public withResources(resources: Array<SparkJobResource>): SparkJobTemplateDetail {
+    public withResources(resources: Array<JobResource>): SparkJobTemplateDetail {
         this['resources'] = resources;
         return this;
     }
-    public withGroups(groups: Array<SparkJobGroup>): SparkJobTemplateDetail {
+    public withGroups(groups: Array<JobResourcesGroup>): SparkJobTemplateDetail {
         this['groups'] = groups;
         return this;
     }

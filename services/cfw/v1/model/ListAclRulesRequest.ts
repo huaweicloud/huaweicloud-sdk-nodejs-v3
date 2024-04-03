@@ -19,6 +19,7 @@ export class ListAclRulesRequest {
     public source?: string;
     public destination?: string;
     public service?: string;
+    public application?: string;
     public constructor(projectId?: string, objectId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
@@ -137,6 +138,10 @@ export class ListAclRulesRequest {
     }
     public withService(service: string): ListAclRulesRequest {
         this['service'] = service;
+        return this;
+    }
+    public withApplication(application: string): ListAclRulesRequest {
+        this['application'] = application;
         return this;
     }
 }

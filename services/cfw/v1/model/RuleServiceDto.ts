@@ -5,13 +5,16 @@ import { ServiceItem } from './ServiceItem';
 export class RuleServiceDto {
     public type?: number;
     public protocol?: number;
+    public protocols?: Array<number>;
     private 'source_port'?: string;
     private 'dest_port'?: string;
     private 'service_set_id'?: string;
     private 'service_set_name'?: string;
     private 'custom_service'?: Array<ServiceItem>;
+    private 'predefined_group'?: Array<string>;
     private 'service_group'?: Array<string>;
     private 'service_group_names'?: Array<AddressGroupVO>;
+    private 'service_set_type'?: number;
     public constructor(type?: number) { 
         this['type'] = type;
     }
@@ -21,6 +24,10 @@ export class RuleServiceDto {
     }
     public withProtocol(protocol: number): RuleServiceDto {
         this['protocol'] = protocol;
+        return this;
+    }
+    public withProtocols(protocols: Array<number>): RuleServiceDto {
+        this['protocols'] = protocols;
         return this;
     }
     public withSourcePort(sourcePort: string): RuleServiceDto {
@@ -73,6 +80,16 @@ export class RuleServiceDto {
     public get customService(): Array<ServiceItem> | undefined {
         return this['custom_service'];
     }
+    public withPredefinedGroup(predefinedGroup: Array<string>): RuleServiceDto {
+        this['predefined_group'] = predefinedGroup;
+        return this;
+    }
+    public set predefinedGroup(predefinedGroup: Array<string>  | undefined) {
+        this['predefined_group'] = predefinedGroup;
+    }
+    public get predefinedGroup(): Array<string> | undefined {
+        return this['predefined_group'];
+    }
     public withServiceGroup(serviceGroup: Array<string>): RuleServiceDto {
         this['service_group'] = serviceGroup;
         return this;
@@ -92,5 +109,15 @@ export class RuleServiceDto {
     }
     public get serviceGroupNames(): Array<AddressGroupVO> | undefined {
         return this['service_group_names'];
+    }
+    public withServiceSetType(serviceSetType: number): RuleServiceDto {
+        this['service_set_type'] = serviceSetType;
+        return this;
+    }
+    public set serviceSetType(serviceSetType: number  | undefined) {
+        this['service_set_type'] = serviceSetType;
+    }
+    public get serviceSetType(): number | undefined {
+        return this['service_set_type'];
     }
 }

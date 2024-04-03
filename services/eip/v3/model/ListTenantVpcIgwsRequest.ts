@@ -8,6 +8,8 @@ export class ListTenantVpcIgwsRequest {
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public limit?: number;
+    public offset?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withFields(fields: string): ListTenantVpcIgwsRequest {
@@ -54,6 +56,14 @@ export class ListTenantVpcIgwsRequest {
     }
     public withLimit(limit: number): ListTenantVpcIgwsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListTenantVpcIgwsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withMarker(marker: string): ListTenantVpcIgwsRequest {
+        this['marker'] = marker;
         return this;
     }
 }

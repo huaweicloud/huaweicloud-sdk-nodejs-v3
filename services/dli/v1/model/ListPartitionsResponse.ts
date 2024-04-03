@@ -1,11 +1,11 @@
-import { Partition } from './Partition';
+import { PartitionList } from './PartitionList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListPartitionsResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    public partitions?: Partition;
+    public partitions?: PartitionList;
     public constructor() { 
         super();
     }
@@ -23,7 +23,7 @@ export class ListPartitionsResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withPartitions(partitions: Partition): ListPartitionsResponse {
+    public withPartitions(partitions: PartitionList): ListPartitionsResponse {
         this['partitions'] = partitions;
         return this;
     }

@@ -8,6 +8,7 @@ export class ChangeServerOsWithoutCloudInitOption {
     public imageid?: string;
     public mode?: string;
     public metadata?: ChangeSeversOsMetadataWithoutCloudInitOption;
+    public isAutoPay?: string;
     public constructor(imageid?: string) { 
         this['imageid'] = imageid;
     }
@@ -33,6 +34,10 @@ export class ChangeServerOsWithoutCloudInitOption {
     }
     public withMetadata(metadata: ChangeSeversOsMetadataWithoutCloudInitOption): ChangeServerOsWithoutCloudInitOption {
         this['metadata'] = metadata;
+        return this;
+    }
+    public withIsAutoPay(isAutoPay: string): ChangeServerOsWithoutCloudInitOption {
+        this['isAutoPay'] = isAutoPay;
         return this;
     }
 }

@@ -1,3 +1,4 @@
+import { UseRuleVO } from './UseRuleVO';
 
 
 export class DomainSetVo {
@@ -8,6 +9,7 @@ export class DomainSetVo {
     private 'domain_set_type'?: number;
     private 'config_status'?: number;
     public message?: string;
+    public rules?: Array<UseRuleVO>;
     public constructor() { 
     }
     public withSetId(setId: string): DomainSetVo {
@@ -60,6 +62,10 @@ export class DomainSetVo {
     }
     public withMessage(message: string): DomainSetVo {
         this['message'] = message;
+        return this;
+    }
+    public withRules(rules: Array<UseRuleVO>): DomainSetVo {
+        this['rules'] = rules;
         return this;
     }
 }

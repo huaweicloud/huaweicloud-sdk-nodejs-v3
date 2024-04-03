@@ -48,11 +48,13 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'log_group_id'?: string;
     private 'log_stream_id'?: string;
     public type?: UpdateFunctionConfigResponseTypeEnum | string;
+    private 'enable_cloud_debug'?: string;
     private 'enable_dynamic_memory'?: boolean;
     private 'is_stateful_function'?: boolean;
     private 'domain_names'?: string;
     private 'enable_auth_in_header'?: boolean;
     private 'custom_image'?: CustomImage;
+    private 'is_return_stream'?: boolean;
     public constructor() { 
         super();
     }
@@ -400,6 +402,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
         this['type'] = type;
         return this;
     }
+    public withEnableCloudDebug(enableCloudDebug: string): UpdateFunctionConfigResponse {
+        this['enable_cloud_debug'] = enableCloudDebug;
+        return this;
+    }
+    public set enableCloudDebug(enableCloudDebug: string  | undefined) {
+        this['enable_cloud_debug'] = enableCloudDebug;
+    }
+    public get enableCloudDebug(): string | undefined {
+        return this['enable_cloud_debug'];
+    }
     public withEnableDynamicMemory(enableDynamicMemory: boolean): UpdateFunctionConfigResponse {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
@@ -450,6 +462,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     public get customImage(): CustomImage | undefined {
         return this['custom_image'];
     }
+    public withIsReturnStream(isReturnStream: boolean): UpdateFunctionConfigResponse {
+        this['is_return_stream'] = isReturnStream;
+        return this;
+    }
+    public set isReturnStream(isReturnStream: boolean  | undefined) {
+        this['is_return_stream'] = isReturnStream;
+    }
+    public get isReturnStream(): boolean | undefined {
+        return this['is_return_stream'];
+    }
 }
 
 /**
@@ -459,21 +481,27 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
 export enum UpdateFunctionConfigResponseRuntimeEnum {
     JAVA8 = 'Java8',
     JAVA11 = 'Java11',
+    JAVA17 = 'Java17',
+    PYTHON2_7 = 'Python2.7',
+    PYTHON3_6 = 'Python3.6',
+    PYTHON3_9 = 'Python3.9',
+    PYTHON3_10 = 'Python3.10',
+    GO1_8 = 'Go1.8',
+    GO1_X = 'Go1.x',
     NODE_JS6_10 = 'Node.js6.10',
     NODE_JS8_10 = 'Node.js8.10',
     NODE_JS10_16 = 'Node.js10.16',
     NODE_JS12_13 = 'Node.js12.13',
     NODE_JS14_18 = 'Node.js14.18',
-    PYTHON2_7 = 'Python2.7',
-    PYTHON3_6 = 'Python3.6',
-    GO1_8 = 'Go1.8',
-    GO1_X = 'Go1.x',
+    NODE_JS16_17 = 'Node.js16.17',
+    NODE_JS18_15 = 'Node.js18.15',
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
-    PHP7_3 = 'PHP7.3',
-    PYTHON3_9 = 'Python3.9',
+    C__NET_CORE_6_0 = 'C#(.NET Core 6.0)',
     CUSTOM = 'Custom',
+    PHP7_3 = 'PHP7.3',
+    CANGJIE1_0 = 'Cangjie1.0',
     HTTP = 'http',
     CUSTOM_IMAGE = 'Custom Image'
 }

@@ -24,6 +24,8 @@ export class ListProjectGeipBindingsRequest {
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public limit?: number;
+    public offset?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withFields(fields: string): ListProjectGeipBindingsRequest {
@@ -242,6 +244,14 @@ export class ListProjectGeipBindingsRequest {
     }
     public withLimit(limit: number): ListProjectGeipBindingsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListProjectGeipBindingsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withMarker(marker: string): ListProjectGeipBindingsRequest {
+        this['marker'] = marker;
         return this;
     }
 }

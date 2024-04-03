@@ -1,11 +1,11 @@
-import { UpdateQueuePropertyRequestBodyProperties } from './UpdateQueuePropertyRequestBodyProperties';
+import { AdvancedQueueProperty } from './AdvancedQueueProperty';
 
 
 export class UpdateQueuePropertyRequestBody {
-    public properties?: UpdateQueuePropertyRequestBodyProperties;
+    public properties?: AdvancedQueueProperty;
     public constructor() { 
     }
-    public withProperties(properties: UpdateQueuePropertyRequestBodyProperties): UpdateQueuePropertyRequestBody {
+    public withProperties(properties: AdvancedQueueProperty): UpdateQueuePropertyRequestBody {
         this['properties'] = properties;
         return this;
     }
