@@ -2,7 +2,7 @@ import { BizVersionManageVO } from './BizVersionManageVO';
 
 
 export class TagVO {
-    public id?: number;
+    public id?: string;
     public name?: string;
     public description?: string;
     private 'create_by'?: string;
@@ -13,7 +13,7 @@ export class TagVO {
     public constructor(name?: string) { 
         this['name'] = name;
     }
-    public withId(id: number): TagVO {
+    public withId(id: string): TagVO {
         this['id'] = id;
         return this;
     }

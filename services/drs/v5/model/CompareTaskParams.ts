@@ -1,3 +1,4 @@
+import { DataProcessInfo } from './DataProcessInfo';
 import { DatabaseObject } from './DatabaseObject';
 
 
@@ -7,6 +8,7 @@ export class CompareTaskParams {
     private 'start_time'?: string;
     public option?: { [key: string]: string; };
     private 'db_object'?: { [key: string]: DatabaseObject; };
+    private 'data_process_info'?: Array<DataProcessInfo>;
     public constructor() { 
     }
     public withCompareTaskId(compareTaskId: string): CompareTaskParams {
@@ -46,6 +48,16 @@ export class CompareTaskParams {
     }
     public get dbObject(): { [key: string]: DatabaseObject; } | undefined {
         return this['db_object'];
+    }
+    public withDataProcessInfo(dataProcessInfo: Array<DataProcessInfo>): CompareTaskParams {
+        this['data_process_info'] = dataProcessInfo;
+        return this;
+    }
+    public set dataProcessInfo(dataProcessInfo: Array<DataProcessInfo>  | undefined) {
+        this['data_process_info'] = dataProcessInfo;
+    }
+    public get dataProcessInfo(): Array<DataProcessInfo> | undefined {
+        return this['data_process_info'];
     }
 }
 

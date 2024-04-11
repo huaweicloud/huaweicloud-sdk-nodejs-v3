@@ -167,7 +167,7 @@ export class RabbitMQClient {
     }
 
     /**
-     * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例。
+     * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -292,7 +292,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {string} [engine] 引擎类型：rabbitmq，参数缺失查询所有实例。
+     * @param {'rabbitmq'} engine 引擎类型：rabbitmq。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
      * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。
@@ -742,7 +742,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例。
+         * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1060,6 +1060,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstancesDetails.');
+            }
             if (engine !== null && engine !== undefined) {
                 localVarQueryParameter['engine'] = engine;
             }

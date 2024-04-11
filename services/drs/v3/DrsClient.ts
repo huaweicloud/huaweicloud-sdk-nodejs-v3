@@ -2,7 +2,9 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddDataTransformationReq } from './model/AddDataTransformationReq';
 import { AlarmNotifyInfo } from './model/AlarmNotifyInfo';
+import { ApiHttpNullResp } from './model/ApiHttpNullResp';
 import { AzInfoResp } from './model/AzInfoResp';
 import { BatchChangeDataRequest } from './model/BatchChangeDataRequest';
 import { BatchChangeDataResponse } from './model/BatchChangeDataResponse';
@@ -85,6 +87,7 @@ import { BatchValidateConnectionsResponse } from './model/BatchValidateConnectio
 import { CheckDataTransformationReq } from './model/CheckDataTransformationReq';
 import { CheckJobResp } from './model/CheckJobResp';
 import { ChildrenJobInfo } from './model/ChildrenJobInfo';
+import { CompareJobInfo } from './model/CompareJobInfo';
 import { CompareObjectInfo } from './model/CompareObjectInfo';
 import { CompareObjectInfoWithToken } from './model/CompareObjectInfoWithToken';
 import { CompareTableInfoWithToken } from './model/CompareTableInfoWithToken';
@@ -101,10 +104,16 @@ import { CreateCompareTaskReq } from './model/CreateCompareTaskReq';
 import { CreateCompareTaskRequest } from './model/CreateCompareTaskRequest';
 import { CreateCompareTaskResponse } from './model/CreateCompareTaskResponse';
 import { CreateCompareTaskResult } from './model/CreateCompareTaskResult';
+import { CreateDataCompareDatabaseObject } from './model/CreateDataCompareDatabaseObject';
+import { CreateDataCompareTransformationInfo } from './model/CreateDataCompareTransformationInfo';
 import { CreateDataLevelCompareReq } from './model/CreateDataLevelCompareReq';
+import { CreateDataLevelTableCompareJobReq } from './model/CreateDataLevelTableCompareJobReq';
+import { CreateDataLevelTableCompareJobRequest } from './model/CreateDataLevelTableCompareJobRequest';
+import { CreateDataLevelTableCompareJobResponse } from './model/CreateDataLevelTableCompareJobResponse';
 import { CreateJobReq } from './model/CreateJobReq';
 import { CreateJobResp } from './model/CreateJobResp';
 import { CustomizedDns } from './model/CustomizedDns';
+import { DataCompareOverviewInfo } from './model/DataCompareOverviewInfo';
 import { DataTransformationInfo } from './model/DataTransformationInfo';
 import { DataTransformationObjectVO } from './model/DataTransformationObjectVO';
 import { DataTransformationResp } from './model/DataTransformationResp';
@@ -113,6 +122,8 @@ import { DatabaseObjectInfo } from './model/DatabaseObjectInfo';
 import { DatabaseObjectResp } from './model/DatabaseObjectResp';
 import { DatabaseObjectVO } from './model/DatabaseObjectVO';
 import { DefaultRootDb } from './model/DefaultRootDb';
+import { DeleteCompareJobRequest } from './model/DeleteCompareJobRequest';
+import { DeleteCompareJobResponse } from './model/DeleteCompareJobResponse';
 import { DeleteJobReq } from './model/DeleteJobReq';
 import { DeleteJobResp } from './model/DeleteJobResp';
 import { Endpoint } from './model/Endpoint';
@@ -136,6 +147,16 @@ import { ListAvailableZoneRequest } from './model/ListAvailableZoneRequest';
 import { ListAvailableZoneResponse } from './model/ListAvailableZoneResponse';
 import { ListCompareResultRequest } from './model/ListCompareResultRequest';
 import { ListCompareResultResponse } from './model/ListCompareResultResponse';
+import { ListContentCompareDetailRequest } from './model/ListContentCompareDetailRequest';
+import { ListContentCompareDetailResponse } from './model/ListContentCompareDetailResponse';
+import { ListContentCompareOverviewRequest } from './model/ListContentCompareOverviewRequest';
+import { ListContentCompareOverviewResponse } from './model/ListContentCompareOverviewResponse';
+import { ListDataCompareDetailRequest } from './model/ListDataCompareDetailRequest';
+import { ListDataCompareDetailResponse } from './model/ListDataCompareDetailResponse';
+import { ListDataCompareOverviewRequest } from './model/ListDataCompareOverviewRequest';
+import { ListDataCompareOverviewResponse } from './model/ListDataCompareOverviewResponse';
+import { ListDataLevelTableCompareJobsRequest } from './model/ListDataLevelTableCompareJobsRequest';
+import { ListDataLevelTableCompareJobsResponse } from './model/ListDataLevelTableCompareJobsResponse';
 import { ListUsersRequest } from './model/ListUsersRequest';
 import { ListUsersResponse } from './model/ListUsersResponse';
 import { ModifyDbPwdResp } from './model/ModifyDbPwdResp';
@@ -144,6 +165,8 @@ import { ModifyJobResp } from './model/ModifyJobResp';
 import { ModifyPwdEndPoint } from './model/ModifyPwdEndPoint';
 import { ModifyTargetParamsReq } from './model/ModifyTargetParamsReq';
 import { ModifyTuningParamsReq } from './model/ModifyTuningParamsReq';
+import { NodeContentCompareDetailResult } from './model/NodeContentCompareDetailResult';
+import { NodeContentCompareOverviewResult } from './model/NodeContentCompareOverviewResult';
 import { ObjectCompareResult } from './model/ObjectCompareResult';
 import { ObjectCompareResultDetails } from './model/ObjectCompareResultDetails';
 import { ObjectCompareResultOverview } from './model/ObjectCompareResultOverview';
@@ -196,6 +219,8 @@ import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { SpeedLimitInfo } from './model/SpeedLimitInfo';
 import { StartInfo } from './model/StartInfo';
 import { StartJobResp } from './model/StartJobResp';
+import { StartPromptlyDataLevelTableCompareJobRequest } from './model/StartPromptlyDataLevelTableCompareJobRequest';
+import { StartPromptlyDataLevelTableCompareJobResponse } from './model/StartPromptlyDataLevelTableCompareJobResponse';
 import { StructDetailVO } from './model/StructDetailVO';
 import { StructProcessResp } from './model/StructProcessResp';
 import { StructProcessVO } from './model/StructProcessVO';
@@ -203,6 +228,7 @@ import { SubscriptionInfo } from './model/SubscriptionInfo';
 import { SwitchoverResp } from './model/SwitchoverResp';
 import { SyncPolicyReq } from './model/SyncPolicyReq';
 import { SyncPolicyResp } from './model/SyncPolicyResp';
+import { TableLineCompareResultInfo } from './model/TableLineCompareResultInfo';
 import { Tag } from './model/Tag';
 import { TestEndPoint } from './model/TestEndPoint';
 import { TransformationInfo } from './model/TransformationInfo';
@@ -780,7 +806,49 @@ export class DrsClient {
     }
 
     /**
-     * 查询可用的Node规格
+     * 创建数据级表对比任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据级表对比任务
+     * @param {string} jobId 任务ID。
+     * @param {CreateDataLevelTableCompareJobReq} createDataLevelTableCompareJobRequestBody 创建数据级表对比请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDataLevelTableCompareJob(createDataLevelTableCompareJobRequest?: CreateDataLevelTableCompareJobRequest): Promise<CreateDataLevelTableCompareJobResponse> {
+        const options = ParamCreater().createDataLevelTableCompareJob(createDataLevelTableCompareJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消对比任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消对比任务
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCompareJob(deleteCompareJobRequest?: DeleteCompareJobRequest): Promise<DeleteCompareJobResponse> {
+        const options = ParamCreater().deleteCompareJob(deleteCompareJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用的Node规格。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -836,6 +904,129 @@ export class DrsClient {
      */
     public listCompareResult(listCompareResultRequest?: ListCompareResultRequest): Promise<ListCompareResultResponse> {
         const options = ParamCreater().listCompareResult(listCompareResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询内容对比详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内容对比详情
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [targetDbName] 目标库名称。
+     * @param {string} [dbName] 源库名称。
+     * @param {string} [type] 类型。 compare：对比 unCompare：无法对比
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listContentCompareDetail(listContentCompareDetailRequest?: ListContentCompareDetailRequest): Promise<ListContentCompareDetailResponse> {
+        const options = ParamCreater().listContentCompareDetail(listContentCompareDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询内容对比总览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内容对比总览
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listContentCompareOverview(listContentCompareOverviewRequest?: ListContentCompareOverviewRequest): Promise<ListContentCompareOverviewResponse> {
+        const options = ParamCreater().listContentCompareOverview(listContentCompareOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询行数对比详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询行数对比详情
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [status] 对比状态。 - 0：对比不一致 - 2：对比一致 - 3：目标库表不存在 - 4：对比失败 - 5：正在对比中 - 6：等待对比中 - 7：任务已取消 - 8：源库为空 - 9：目标库为空 - 10：源库和目标库都为空 - 11：源表不存在 - 12：目标表不存在 - 13：原表和目标表都不存在 - 14：源数据库连接失败 - 15：目标库数据库连接失败 - 16：源数据库执行SQL超时 - 17：目标数据库执行SQL超时 - 18：源数据库执行SQL错误 - 19：目标数据库执行SQL错误 - 20：源库和目标库都不存在 - 21：源库不存在 - 22：目标库不存在 - 23：行数为亿行，未进行对比 - 27：超时
+     * @param {string} [type] 类型。 - compare：查询正常对比的项 - unCompare：查询无法对比的项
+     * @param {string} [dbName] 源数据库名。
+     * @param {string} [targetDbName] 目标数据库名。
+     * @param {string} [queryTbName] 表名过滤关键字。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataCompareDetail(listDataCompareDetailRequest?: ListDataCompareDetailRequest): Promise<ListDataCompareDetailResponse> {
+        const options = ParamCreater().listDataCompareDetail(listDataCompareDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询行数对比总览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询行数对比总览
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [status] 对比状态。 - 0：对比不一致 - 2：对比一致 - 3：目标库表不存在 - 4：对比失败 - 5：正在对比中 - 6：等待对比中 - 7：任务已取消 - 8：源库为空 - 9：目标库为空 - 10：源库和目标库都为空 - 11：源表不存在 - 12：目标表不存在 - 13：原表和目标表都不存在 - 14：源数据库连接失败 - 15：目标库数据库连接失败 - 16：源数据库执行SQL超时 - 17：目标数据库执行SQL超时 - 18：源数据库执行SQL错误 - 19：目标数据库执行SQL错误 - 20：源库和目标库都不存在 - 21：源库不存在 - 22：目标库不存在 - 23：行数为亿行，未进行对比 - 27：超时
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataCompareOverview(listDataCompareOverviewRequest?: ListDataCompareOverviewRequest): Promise<ListDataCompareOverviewResponse> {
+        const options = ParamCreater().listDataCompareOverview(listDataCompareOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据级表对比任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据级表对比任务列表
+     * @param {string} jobId 任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataLevelTableCompareJobs(listDataLevelTableCompareJobsRequest?: ListDataLevelTableCompareJobsRequest): Promise<ListDataLevelTableCompareJobsResponse> {
+        const options = ParamCreater().listDataLevelTableCompareJobs(listDataLevelTableCompareJobsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -915,6 +1106,27 @@ export class DrsClient {
      */
     public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
         const options = ParamCreater().showQuotas(showQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 立即启动数据级表对比任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 立即启动数据级表对比任务
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startPromptlyDataLevelTableCompareJob(startPromptlyDataLevelTableCompareJobRequest?: StartPromptlyDataLevelTableCompareJobRequest): Promise<StartPromptlyDataLevelTableCompareJobResponse> {
+        const options = ParamCreater().startPromptlyDataLevelTableCompareJob(startPromptlyDataLevelTableCompareJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2199,7 +2411,111 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询可用的Node规格
+         * 创建数据级表对比任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDataLevelTableCompareJob(createDataLevelTableCompareJobRequest?: CreateDataLevelTableCompareJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/jobs/{job_id}/table/compare",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (createDataLevelTableCompareJobRequest !== null && createDataLevelTableCompareJobRequest !== undefined) {
+                if (createDataLevelTableCompareJobRequest instanceof CreateDataLevelTableCompareJobRequest) {
+                    jobId = createDataLevelTableCompareJobRequest.jobId;
+                    body = createDataLevelTableCompareJobRequest.body
+                    xLanguage = createDataLevelTableCompareJobRequest.xLanguage;
+                } else {
+                    jobId = createDataLevelTableCompareJobRequest['job_id'];
+                    body = createDataLevelTableCompareJobRequest['body'];
+                    xLanguage = createDataLevelTableCompareJobRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling createDataLevelTableCompareJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 取消对比任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCompareJob(deleteCompareJobRequest?: DeleteCompareJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/jobs/{job_id}/compare/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+
+            if (deleteCompareJobRequest !== null && deleteCompareJobRequest !== undefined) {
+                if (deleteCompareJobRequest instanceof DeleteCompareJobRequest) {
+                    jobId = deleteCompareJobRequest.jobId;
+                    compareJobId = deleteCompareJobRequest.compareJobId;
+                    xLanguage = deleteCompareJobRequest.xLanguage;
+                } else {
+                    jobId = deleteCompareJobRequest['job_id'];
+                    compareJobId = deleteCompareJobRequest['compare_job_id'];
+                    xLanguage = deleteCompareJobRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteCompareJob.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling deleteCompareJob.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用的Node规格。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2370,6 +2686,392 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询内容对比详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listContentCompareDetail(listContentCompareDetailRequest?: ListContentCompareDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/compare/{compare_job_id}/content-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+            
+            let targetDbName;
+            
+            let dbName;
+            
+            let type;
+            
+            let limit;
+            
+            let offset;
+
+            if (listContentCompareDetailRequest !== null && listContentCompareDetailRequest !== undefined) {
+                if (listContentCompareDetailRequest instanceof ListContentCompareDetailRequest) {
+                    jobId = listContentCompareDetailRequest.jobId;
+                    compareJobId = listContentCompareDetailRequest.compareJobId;
+                    xLanguage = listContentCompareDetailRequest.xLanguage;
+                    targetDbName = listContentCompareDetailRequest.targetDbName;
+                    dbName = listContentCompareDetailRequest.dbName;
+                    type = listContentCompareDetailRequest.type;
+                    limit = listContentCompareDetailRequest.limit;
+                    offset = listContentCompareDetailRequest.offset;
+                } else {
+                    jobId = listContentCompareDetailRequest['job_id'];
+                    compareJobId = listContentCompareDetailRequest['compare_job_id'];
+                    xLanguage = listContentCompareDetailRequest['X-Language'];
+                    targetDbName = listContentCompareDetailRequest['target_db_name'];
+                    dbName = listContentCompareDetailRequest['db_name'];
+                    type = listContentCompareDetailRequest['type'];
+                    limit = listContentCompareDetailRequest['limit'];
+                    offset = listContentCompareDetailRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listContentCompareDetail.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling listContentCompareDetail.');
+            }
+            if (targetDbName !== null && targetDbName !== undefined) {
+                localVarQueryParameter['target_db_name'] = targetDbName;
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内容对比总览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listContentCompareOverview(listContentCompareOverviewRequest?: ListContentCompareOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/compare/{compare_job_id}/content-overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (listContentCompareOverviewRequest !== null && listContentCompareOverviewRequest !== undefined) {
+                if (listContentCompareOverviewRequest instanceof ListContentCompareOverviewRequest) {
+                    jobId = listContentCompareOverviewRequest.jobId;
+                    compareJobId = listContentCompareOverviewRequest.compareJobId;
+                    xLanguage = listContentCompareOverviewRequest.xLanguage;
+                    limit = listContentCompareOverviewRequest.limit;
+                    offset = listContentCompareOverviewRequest.offset;
+                } else {
+                    jobId = listContentCompareOverviewRequest['job_id'];
+                    compareJobId = listContentCompareOverviewRequest['compare_job_id'];
+                    xLanguage = listContentCompareOverviewRequest['X-Language'];
+                    limit = listContentCompareOverviewRequest['limit'];
+                    offset = listContentCompareOverviewRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listContentCompareOverview.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling listContentCompareOverview.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询行数对比详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataCompareDetail(listDataCompareDetailRequest?: ListDataCompareDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/compare/{compare_job_id}/line-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+            
+            let status;
+            
+            let type;
+            
+            let dbName;
+            
+            let targetDbName;
+            
+            let queryTbName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDataCompareDetailRequest !== null && listDataCompareDetailRequest !== undefined) {
+                if (listDataCompareDetailRequest instanceof ListDataCompareDetailRequest) {
+                    jobId = listDataCompareDetailRequest.jobId;
+                    compareJobId = listDataCompareDetailRequest.compareJobId;
+                    xLanguage = listDataCompareDetailRequest.xLanguage;
+                    status = listDataCompareDetailRequest.status;
+                    type = listDataCompareDetailRequest.type;
+                    dbName = listDataCompareDetailRequest.dbName;
+                    targetDbName = listDataCompareDetailRequest.targetDbName;
+                    queryTbName = listDataCompareDetailRequest.queryTbName;
+                    limit = listDataCompareDetailRequest.limit;
+                    offset = listDataCompareDetailRequest.offset;
+                } else {
+                    jobId = listDataCompareDetailRequest['job_id'];
+                    compareJobId = listDataCompareDetailRequest['compare_job_id'];
+                    xLanguage = listDataCompareDetailRequest['X-Language'];
+                    status = listDataCompareDetailRequest['status'];
+                    type = listDataCompareDetailRequest['type'];
+                    dbName = listDataCompareDetailRequest['db_name'];
+                    targetDbName = listDataCompareDetailRequest['target_db_name'];
+                    queryTbName = listDataCompareDetailRequest['query_tb_name'];
+                    limit = listDataCompareDetailRequest['limit'];
+                    offset = listDataCompareDetailRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listDataCompareDetail.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling listDataCompareDetail.');
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (targetDbName !== null && targetDbName !== undefined) {
+                localVarQueryParameter['target_db_name'] = targetDbName;
+            }
+            if (queryTbName !== null && queryTbName !== undefined) {
+                localVarQueryParameter['query_tb_name'] = queryTbName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询行数对比总览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataCompareOverview(listDataCompareOverviewRequest?: ListDataCompareOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/compare/{compare_job_id}/line-overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+            
+            let status;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDataCompareOverviewRequest !== null && listDataCompareOverviewRequest !== undefined) {
+                if (listDataCompareOverviewRequest instanceof ListDataCompareOverviewRequest) {
+                    jobId = listDataCompareOverviewRequest.jobId;
+                    compareJobId = listDataCompareOverviewRequest.compareJobId;
+                    xLanguage = listDataCompareOverviewRequest.xLanguage;
+                    status = listDataCompareOverviewRequest.status;
+                    limit = listDataCompareOverviewRequest.limit;
+                    offset = listDataCompareOverviewRequest.offset;
+                } else {
+                    jobId = listDataCompareOverviewRequest['job_id'];
+                    compareJobId = listDataCompareOverviewRequest['compare_job_id'];
+                    xLanguage = listDataCompareOverviewRequest['X-Language'];
+                    status = listDataCompareOverviewRequest['status'];
+                    limit = listDataCompareOverviewRequest['limit'];
+                    offset = listDataCompareOverviewRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listDataCompareOverview.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling listDataCompareOverview.');
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据级表对比任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataLevelTableCompareJobs(listDataLevelTableCompareJobsRequest?: ListDataLevelTableCompareJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/table/compare",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDataLevelTableCompareJobsRequest !== null && listDataLevelTableCompareJobsRequest !== undefined) {
+                if (listDataLevelTableCompareJobsRequest instanceof ListDataLevelTableCompareJobsRequest) {
+                    jobId = listDataLevelTableCompareJobsRequest.jobId;
+                    xLanguage = listDataLevelTableCompareJobsRequest.xLanguage;
+                    limit = listDataLevelTableCompareJobsRequest.limit;
+                    offset = listDataLevelTableCompareJobsRequest.offset;
+                } else {
+                    jobId = listDataLevelTableCompareJobsRequest['job_id'];
+                    xLanguage = listDataLevelTableCompareJobsRequest['X-Language'];
+                    limit = listDataLevelTableCompareJobsRequest['limit'];
+                    offset = listDataLevelTableCompareJobsRequest['offset'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listDataLevelTableCompareJobs.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 数据库的迁移过程中，迁移用户需要进行单独处理，该接口可以查询源库的用户信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2535,6 +3237,57 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 立即启动数据级表对比任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startPromptlyDataLevelTableCompareJob(startPromptlyDataLevelTableCompareJobRequest?: StartPromptlyDataLevelTableCompareJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/jobs/{job_id}/table/compare/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+
+            if (startPromptlyDataLevelTableCompareJobRequest !== null && startPromptlyDataLevelTableCompareJobRequest !== undefined) {
+                if (startPromptlyDataLevelTableCompareJobRequest instanceof StartPromptlyDataLevelTableCompareJobRequest) {
+                    jobId = startPromptlyDataLevelTableCompareJobRequest.jobId;
+                    compareJobId = startPromptlyDataLevelTableCompareJobRequest.compareJobId;
+                    xLanguage = startPromptlyDataLevelTableCompareJobRequest.xLanguage;
+                } else {
+                    jobId = startPromptlyDataLevelTableCompareJobRequest['job_id'];
+                    compareJobId = startPromptlyDataLevelTableCompareJobRequest['compare_job_id'];
+                    xLanguage = startPromptlyDataLevelTableCompareJobRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling startPromptlyDataLevelTableCompareJob.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling startPromptlyDataLevelTableCompareJob.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

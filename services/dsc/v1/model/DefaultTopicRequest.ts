@@ -5,7 +5,9 @@ export class DefaultTopicRequest {
     private 'project_id'?: string;
     public status?: number;
     private 'topic_urn'?: string;
-    public constructor() { 
+    public constructor(id?: string, topicUrn?: string) { 
+        this['id'] = id;
+        this['topic_urn'] = topicUrn;
     }
     public withId(id: string): DefaultTopicRequest {
         this['id'] = id;

@@ -1,3 +1,4 @@
+import { BrowserCacheRules } from './BrowserCacheRules';
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilterGetBody } from './CacheUrlParameterFilterGetBody';
 import { CommonRemoteAuth } from './CommonRemoteAuth';
@@ -16,6 +17,8 @@ import { OriginRequestUrlRewrite } from './OriginRequestUrlRewrite';
 import { Quic } from './Quic';
 import { RefererConfig } from './RefererConfig';
 import { RequestLimitRules } from './RequestLimitRules';
+import { RequestUrlRewrite } from './RequestUrlRewrite';
+import { Sni } from './Sni';
 import { SourcesConfig } from './SourcesConfig';
 import { UrlAuthGetBody } from './UrlAuthGetBody';
 import { UserAgentFilter } from './UserAgentFilter';
@@ -56,6 +59,9 @@ export class ConfigsGetBody {
     public hsts?: HstsQuery;
     public quic?: Quic;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules>;
+    public sni?: Sni;
+    private 'request_url_rewrite'?: Array<RequestUrlRewrite>;
+    private 'browser_cache_rules'?: Array<BrowserCacheRules>;
     public constructor() { 
     }
     public withBusinessType(businessType: string): ConfigsGetBody {
@@ -329,5 +335,29 @@ export class ConfigsGetBody {
     }
     public get errorCodeRedirectRules(): Array<ErrorCodeRedirectRules> | undefined {
         return this['error_code_redirect_rules'];
+    }
+    public withSni(sni: Sni): ConfigsGetBody {
+        this['sni'] = sni;
+        return this;
+    }
+    public withRequestUrlRewrite(requestUrlRewrite: Array<RequestUrlRewrite>): ConfigsGetBody {
+        this['request_url_rewrite'] = requestUrlRewrite;
+        return this;
+    }
+    public set requestUrlRewrite(requestUrlRewrite: Array<RequestUrlRewrite>  | undefined) {
+        this['request_url_rewrite'] = requestUrlRewrite;
+    }
+    public get requestUrlRewrite(): Array<RequestUrlRewrite> | undefined {
+        return this['request_url_rewrite'];
+    }
+    public withBrowserCacheRules(browserCacheRules: Array<BrowserCacheRules>): ConfigsGetBody {
+        this['browser_cache_rules'] = browserCacheRules;
+        return this;
+    }
+    public set browserCacheRules(browserCacheRules: Array<BrowserCacheRules>  | undefined) {
+        this['browser_cache_rules'] = browserCacheRules;
+    }
+    public get browserCacheRules(): Array<BrowserCacheRules> | undefined {
+        return this['browser_cache_rules'];
     }
 }

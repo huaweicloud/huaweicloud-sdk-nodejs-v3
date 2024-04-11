@@ -732,9 +732,9 @@ export class SwrClient {
      *
      * @summary 查询共享镜像列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} center self: 我共享的镜像。thirdparty: 他人共享给我的镜像
      * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} [name] 镜像仓库名称
-     * @param {string} [center] self: 我共享的镜像。thirdparty: 他人共享给我的镜像
      * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
      * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
      * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
@@ -2680,11 +2680,11 @@ export const ParamCreater = function () {
             
             let contentType;
             
+            let center;
+            
             let namespace;
             
             let name;
-            
-            let center;
             
             let limit;
             
@@ -2699,9 +2699,9 @@ export const ParamCreater = function () {
             if (listSharedReposDetailsRequest !== null && listSharedReposDetailsRequest !== undefined) {
                 if (listSharedReposDetailsRequest instanceof ListSharedReposDetailsRequest) {
                     contentType = listSharedReposDetailsRequest.contentType;
+                    center = listSharedReposDetailsRequest.center;
                     namespace = listSharedReposDetailsRequest.namespace;
                     name = listSharedReposDetailsRequest.name;
-                    center = listSharedReposDetailsRequest.center;
                     limit = listSharedReposDetailsRequest.limit;
                     offset = listSharedReposDetailsRequest.offset;
                     orderColumn = listSharedReposDetailsRequest.orderColumn;
@@ -2709,9 +2709,9 @@ export const ParamCreater = function () {
                     filter = listSharedReposDetailsRequest.filter;
                 } else {
                     contentType = listSharedReposDetailsRequest['Content-Type'];
+                    center = listSharedReposDetailsRequest['center'];
                     namespace = listSharedReposDetailsRequest['namespace'];
                     name = listSharedReposDetailsRequest['name'];
-                    center = listSharedReposDetailsRequest['center'];
                     limit = listSharedReposDetailsRequest['limit'];
                     offset = listSharedReposDetailsRequest['offset'];
                     orderColumn = listSharedReposDetailsRequest['order_column'];
@@ -2721,14 +2721,17 @@ export const ParamCreater = function () {
             }
 
         
+            if (center === null || center === undefined) {
+                throw new RequiredError('center','Required parameter center was null or undefined when calling listSharedReposDetails.');
+            }
+            if (center !== null && center !== undefined) {
+                localVarQueryParameter['center'] = center;
+            }
             if (namespace !== null && namespace !== undefined) {
                 localVarQueryParameter['namespace'] = namespace;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
-            }
-            if (center !== null && center !== undefined) {
-                localVarQueryParameter['center'] = center;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

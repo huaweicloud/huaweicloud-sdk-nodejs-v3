@@ -1,5 +1,7 @@
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
+import { OperationPreferences } from './OperationPreferences';
+import { OperationPreferencesTypeHolder } from './OperationPreferencesTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
@@ -17,6 +19,7 @@ export class DeployStackSetRequestBody {
     private 'vars_uri'?: string;
     private 'vars_body'?: string;
     private 'var_overrides'?: VarOverridesPrimitiveTypeHolderVarOverrides;
+    private 'operation_preferences'?: OperationPreferences;
     public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
@@ -89,5 +92,15 @@ export class DeployStackSetRequestBody {
     }
     public get varOverrides(): VarOverridesPrimitiveTypeHolderVarOverrides | undefined {
         return this['var_overrides'];
+    }
+    public withOperationPreferences(operationPreferences: OperationPreferences): DeployStackSetRequestBody {
+        this['operation_preferences'] = operationPreferences;
+        return this;
+    }
+    public set operationPreferences(operationPreferences: OperationPreferences  | undefined) {
+        this['operation_preferences'] = operationPreferences;
+    }
+    public get operationPreferences(): OperationPreferences | undefined {
+        return this['operation_preferences'];
     }
 }

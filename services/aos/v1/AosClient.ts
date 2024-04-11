@@ -111,7 +111,11 @@ import { ListTemplateVersionsResponse } from './model/ListTemplateVersionsRespon
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './model/ManagedAgencyNamePrimitiveTypeHolder';
+import { ManagedOperation } from './model/ManagedOperation';
+import { ManagedOperationTypeHolder } from './model/ManagedOperationTypeHolder';
 import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveTypeHolder';
+import { OperationPreferences } from './model/OperationPreferences';
+import { OperationPreferencesTypeHolder } from './model/OperationPreferencesTypeHolder';
 import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesRequest';
 import { ParseTemplateVariablesRequestBody } from './model/ParseTemplateVariablesRequestBody';
 import { ParseTemplateVariablesResponse } from './model/ParseTemplateVariablesResponse';

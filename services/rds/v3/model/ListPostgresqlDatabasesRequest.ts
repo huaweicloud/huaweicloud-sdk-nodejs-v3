@@ -3,6 +3,7 @@
 export class ListPostgresqlDatabasesRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
+    public db?: string;
     public page?: number;
     public limit?: number;
     public constructor(instanceId?: string, page?: number, limit?: number) { 
@@ -29,6 +30,10 @@ export class ListPostgresqlDatabasesRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withDb(db: string): ListPostgresqlDatabasesRequest {
+        this['db'] = db;
+        return this;
     }
     public withPage(page: number): ListPostgresqlDatabasesRequest {
         this['page'] = page;

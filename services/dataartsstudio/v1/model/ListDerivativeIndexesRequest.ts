@@ -2,6 +2,8 @@
 
 export class ListDerivativeIndexesRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     public name?: string;
     private 'create_by'?: string;
     public approver?: string;
@@ -22,6 +24,26 @@ export class ListDerivativeIndexesRequest {
     public withWorkspace(workspace: string): ListDerivativeIndexesRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListDerivativeIndexesRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListDerivativeIndexesRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withName(name: string): ListDerivativeIndexesRequest {
         this['name'] = name;

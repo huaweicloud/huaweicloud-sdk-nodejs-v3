@@ -27,7 +27,7 @@ import HttpsProxyAgent from 'https-proxy-agent';
 import { Logger, LogLevel, getLogger } from '../logger';
 import { DefaultHttpResponse } from './DefaultHttpResponse';
 import { ExceptionResponse } from '../exception/ExceptionResponse';
-import { SdkResponse } from '../SdkResponse'; 
+import { SdkResponse } from '../SdkResponse';
 import { SdkException } from '../exception/SdkException';
 import { AKSKSigner } from '../auth/AKSKSigner';
 import { ICredential } from '../auth/ICredential';
@@ -179,9 +179,11 @@ export class DefaultHttpClient implements HttpClient {
             headers,
             params: queryParams,
             data,
-            paramsSerializer: (params: any) => {
-                return qsStringify(params);
-            },
+            paramsSerializer: {
+                serialize: (params: any) => {
+                    return qsStringify(params);
+                }
+            }
         };
 
         if (httpRequest.axiosRequestConfig) {

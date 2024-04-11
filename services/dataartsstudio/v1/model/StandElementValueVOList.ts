@@ -13,6 +13,7 @@ export class StandElementValueVOList {
     public status?: BizStatusEnum;
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
+    private 'from_public'?: boolean;
     private 'create_by'?: string;
     private 'update_by'?: string;
     private 'create_time'?: Date;
@@ -82,6 +83,16 @@ export class StandElementValueVOList {
     }
     public get newBiz(): BizVersionManageVO | undefined {
         return this['new_biz'];
+    }
+    public withFromPublic(fromPublic: boolean): StandElementValueVOList {
+        this['from_public'] = fromPublic;
+        return this;
+    }
+    public set fromPublic(fromPublic: boolean  | undefined) {
+        this['from_public'] = fromPublic;
+    }
+    public get fromPublic(): boolean | undefined {
+        return this['from_public'];
     }
     public withCreateBy(createBy: string): StandElementValueVOList {
         this['create_by'] = createBy;

@@ -3,6 +3,8 @@ import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgen
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
+import { OperationPreferences } from './OperationPreferences';
+import { OperationPreferencesTypeHolder } from './OperationPreferencesTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { StackSetNamePrimitiveTypeHolder } from './StackSetNamePrimitiveTypeHolder';
 import { StackSetOperationActionPrimitiveTypeHolder } from './StackSetOperationActionPrimitiveTypeHolder';
@@ -27,6 +29,7 @@ export class ShowStackSetOperationMetadataResponse extends SdkResponse {
     private 'deployment_targets'?: DeploymentTargets;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    private 'operation_preferences'?: OperationPreferences;
     public constructor(stackSetName?: string, deploymentTargets?: DeploymentTargets) { 
         super();
         this['stack_set_name'] = stackSetName;
@@ -139,6 +142,16 @@ export class ShowStackSetOperationMetadataResponse extends SdkResponse {
     }
     public get updateTime(): string | undefined {
         return this['update_time'];
+    }
+    public withOperationPreferences(operationPreferences: OperationPreferences): ShowStackSetOperationMetadataResponse {
+        this['operation_preferences'] = operationPreferences;
+        return this;
+    }
+    public set operationPreferences(operationPreferences: OperationPreferences  | undefined) {
+        this['operation_preferences'] = operationPreferences;
+    }
+    public get operationPreferences(): OperationPreferences | undefined {
+        return this['operation_preferences'];
     }
 }
 

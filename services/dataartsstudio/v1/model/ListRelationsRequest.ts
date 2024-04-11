@@ -2,6 +2,8 @@
 
 export class ListRelationsRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     public name?: string;
     private 'create_by'?: string;
     private 'begin_time'?: string;
@@ -14,6 +16,26 @@ export class ListRelationsRequest {
     public withWorkspace(workspace: string): ListRelationsRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListRelationsRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListRelationsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withName(name: string): ListRelationsRequest {
         this['name'] = name;

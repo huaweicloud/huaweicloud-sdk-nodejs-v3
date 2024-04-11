@@ -2,6 +2,8 @@
 
 export class ListDimensionsRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     public name?: string;
     private 'create_by'?: string;
     public approver?: string;
@@ -21,6 +23,26 @@ export class ListDimensionsRequest {
     public withWorkspace(workspace: string): ListDimensionsRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListDimensionsRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListDimensionsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withName(name: string): ListDimensionsRequest {
         this['name'] = name;

@@ -3,6 +3,8 @@ import { StandElementFieldVO } from './StandElementFieldVO';
 
 export class CreateStandardTemplateRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     public body?: StandElementFieldVO;
     public constructor(workspace?: string) { 
         this['workspace'] = workspace;
@@ -10,6 +12,26 @@ export class CreateStandardTemplateRequest {
     public withWorkspace(workspace: string): CreateStandardTemplateRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): CreateStandardTemplateRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): CreateStandardTemplateRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withBody(body: StandElementFieldVO): CreateStandardTemplateRequest {
         this['body'] = body;

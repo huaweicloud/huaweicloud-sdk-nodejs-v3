@@ -2,6 +2,8 @@ import { AdministrationAgencyNamePrimitiveTypeHolder } from './AdministrationAge
 import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgencyUrnPrimitiveTypeHolder';
 import { InitialStackDescriptionPrimitiveTypeHolder } from './InitialStackDescriptionPrimitiveTypeHolder';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
+import { ManagedOperation } from './ManagedOperation';
+import { ManagedOperationTypeHolder } from './ManagedOperationTypeHolder';
 import { PermissionModelPrimitiveTypeHolder } from './PermissionModelPrimitiveTypeHolder';
 import { StackSetDescriptionPrimitiveTypeHolder } from './StackSetDescriptionPrimitiveTypeHolder';
 import { StackSetNamePrimitiveTypeHolder } from './StackSetNamePrimitiveTypeHolder';
@@ -23,6 +25,7 @@ export class CreateStackSetRequestBody {
     private 'vars_body'?: string;
     private 'initial_stack_description'?: string;
     private 'administration_agency_urn'?: string;
+    private 'managed_operation'?: ManagedOperation;
     public constructor(stackSetName?: string) { 
         this['stack_set_name'] = stackSetName;
     }
@@ -135,6 +138,16 @@ export class CreateStackSetRequestBody {
     }
     public get administrationAgencyUrn(): string | undefined {
         return this['administration_agency_urn'];
+    }
+    public withManagedOperation(managedOperation: ManagedOperation): CreateStackSetRequestBody {
+        this['managed_operation'] = managedOperation;
+        return this;
+    }
+    public set managedOperation(managedOperation: ManagedOperation  | undefined) {
+        this['managed_operation'] = managedOperation;
+    }
+    public get managedOperation(): ManagedOperation | undefined {
+        return this['managed_operation'];
     }
 }
 

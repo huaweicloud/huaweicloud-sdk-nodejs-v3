@@ -1,12 +1,13 @@
+import { AggregationLogicTableVOSearchResultData } from './AggregationLogicTableVOSearchResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAggregationLogicTablesResponse extends SdkResponse {
-    public data?: object;
+    public data?: AggregationLogicTableVOSearchResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListAggregationLogicTablesResponse {
+    public withData(data: AggregationLogicTableVOSearchResultData): ListAggregationLogicTablesResponse {
         this['data'] = data;
         return this;
     }

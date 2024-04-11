@@ -15,6 +15,7 @@ export class DataProcessInfo {
     private 'db_or_table_rename_rule'?: DbOrTableRenameRule;
     private 'db_object'?: DbObject;
     private 'is_synchronized'?: boolean;
+    public source?: DataProcessInfoSourceEnum | string;
     public constructor() { 
     }
     public withFilterConditions(filterConditions: Array<DataFilteringCondition>): DataProcessInfo {
@@ -107,4 +108,17 @@ export class DataProcessInfo {
     public get isSynchronized(): boolean | undefined {
         return this['is_synchronized'];
     }
+    public withSource(source: DataProcessInfoSourceEnum | string): DataProcessInfo {
+        this['source'] = source;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DataProcessInfoSourceEnum {
+    JOB = 'job',
+    COMPARE = 'compare'
 }

@@ -3,6 +3,7 @@
 export class ResizeFlavorObject {
     private 'spec_code'?: string;
     private 'is_auto_pay'?: boolean;
+    private 'is_delay'?: boolean;
     public constructor(specCode?: string) { 
         this['spec_code'] = specCode;
     }
@@ -25,5 +26,15 @@ export class ResizeFlavorObject {
     }
     public get isAutoPay(): boolean | undefined {
         return this['is_auto_pay'];
+    }
+    public withIsDelay(isDelay: boolean): ResizeFlavorObject {
+        this['is_delay'] = isDelay;
+        return this;
+    }
+    public set isDelay(isDelay: boolean  | undefined) {
+        this['is_delay'] = isDelay;
+    }
+    public get isDelay(): boolean | undefined {
+        return this['is_delay'];
     }
 }

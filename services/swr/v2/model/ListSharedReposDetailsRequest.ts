@@ -10,8 +10,9 @@ export class ListSharedReposDetailsRequest {
     private 'order_column'?: string;
     private 'order_type'?: string;
     public filter?: string;
-    public constructor(contentType?: string) { 
+    public constructor(contentType?: string, center?: string) { 
         this['Content-Type'] = contentType;
+        this['center'] = center;
     }
     public withContentType(contentType: ListSharedReposDetailsRequestContentTypeEnum | string): ListSharedReposDetailsRequest {
         this['Content-Type'] = contentType;

@@ -1,12 +1,13 @@
+import { StandardSearchResultData } from './StandardSearchResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAllStandardsResponse extends SdkResponse {
-    public data?: object;
+    public data?: StandardSearchResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListAllStandardsResponse {
+    public withData(data: StandardSearchResultData): ListAllStandardsResponse {
         this['data'] = data;
         return this;
     }

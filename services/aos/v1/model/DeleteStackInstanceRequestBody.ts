@@ -1,11 +1,14 @@
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
+import { OperationPreferences } from './OperationPreferences';
+import { OperationPreferencesTypeHolder } from './OperationPreferencesTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 
 
 export class DeleteStackInstanceRequestBody {
     private 'stack_set_id'?: string;
     private 'deployment_targets'?: DeploymentTargets;
+    private 'operation_preferences'?: OperationPreferences;
     public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
@@ -28,5 +31,15 @@ export class DeleteStackInstanceRequestBody {
     }
     public get deploymentTargets(): DeploymentTargets | undefined {
         return this['deployment_targets'];
+    }
+    public withOperationPreferences(operationPreferences: OperationPreferences): DeleteStackInstanceRequestBody {
+        this['operation_preferences'] = operationPreferences;
+        return this;
+    }
+    public set operationPreferences(operationPreferences: OperationPreferences  | undefined) {
+        this['operation_preferences'] = operationPreferences;
+    }
+    public get operationPreferences(): OperationPreferences | undefined {
+        return this['operation_preferences'];
     }
 }

@@ -6,14 +6,14 @@ import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
 import { TableMappingVO } from './TableMappingVO';
 import { TableModelAttributeVO } from './TableModelAttributeVO';
-import { TagVO } from './TagVO';
+import { TagRecordVO } from './TagRecordVO';
 import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class TableModelVO {
-    public id?: number;
-    private 'model_id'?: number;
-    private 'parent_table_id'?: number;
+    public id?: string;
+    private 'model_id'?: string;
+    private 'parent_table_id'?: string;
     private 'parent_table_name'?: string;
     private 'parent_table_code'?: string;
     public model?: WorkspaceVO;
@@ -35,14 +35,14 @@ export class TableModelVO {
     private 'logic_tb_guid'?: string;
     public description?: string;
     public status?: BizStatusEnum;
-    private 'logic_tb_id'?: number;
-    private 'biz_catalog_id'?: number;
+    private 'logic_tb_id'?: string;
+    private 'biz_catalog_id'?: string;
     private 'catalog_path'?: string;
     private 'create_by'?: string;
     private 'update_by'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
-    public tags?: Array<TagVO>;
+    public tags?: Array<TagRecordVO>;
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
     public attributes?: Array<TableModelAttributeVO>;
@@ -53,9 +53,9 @@ export class TableModelVO {
     public l1?: string;
     public l2?: string;
     public l3?: string;
-    private 'l1_id'?: number;
+    private 'l1_id'?: string;
     private 'l2_id'?: string;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'partition_conf'?: string;
     private 'dlf_task_id'?: string;
     private 'use_recently_partition'?: boolean;
@@ -65,7 +65,7 @@ export class TableModelVO {
     private 'dirty_out_prefix'?: string;
     private 'dirty_out_suffix'?: string;
     private 'quality_owner'?: string;
-    private 'quality_id'?: number;
+    private 'quality_id'?: string;
     public distribute?: TableModelVODistributeEnum | string;
     private 'distribute_column'?: string;
     private 'is_partition'?: boolean;
@@ -77,7 +77,7 @@ export class TableModelVO {
     private 'summary_status'?: SyncStatusEnum;
     public alias?: string;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
-    public constructor(modelId?: number, tbName?: string, logicTbName?: string, description?: string, attributes?: Array<TableModelAttributeVO>, dwType?: string) { 
+    public constructor(modelId?: string, tbName?: string, logicTbName?: string, description?: string, attributes?: Array<TableModelAttributeVO>, dwType?: string) { 
         this['model_id'] = modelId;
         this['tb_name'] = tbName;
         this['logic_tb_name'] = logicTbName;
@@ -85,28 +85,28 @@ export class TableModelVO {
         this['attributes'] = attributes;
         this['dw_type'] = dwType;
     }
-    public withId(id: number): TableModelVO {
+    public withId(id: string): TableModelVO {
         this['id'] = id;
         return this;
     }
-    public withModelId(modelId: number): TableModelVO {
+    public withModelId(modelId: string): TableModelVO {
         this['model_id'] = modelId;
         return this;
     }
-    public set modelId(modelId: number  | undefined) {
+    public set modelId(modelId: string  | undefined) {
         this['model_id'] = modelId;
     }
-    public get modelId(): number | undefined {
+    public get modelId(): string | undefined {
         return this['model_id'];
     }
-    public withParentTableId(parentTableId: number): TableModelVO {
+    public withParentTableId(parentTableId: string): TableModelVO {
         this['parent_table_id'] = parentTableId;
         return this;
     }
-    public set parentTableId(parentTableId: number  | undefined) {
+    public set parentTableId(parentTableId: string  | undefined) {
         this['parent_table_id'] = parentTableId;
     }
-    public get parentTableId(): number | undefined {
+    public get parentTableId(): string | undefined {
         return this['parent_table_id'];
     }
     public withParentTableName(parentTableName: string): TableModelVO {
@@ -283,24 +283,24 @@ export class TableModelVO {
         this['status'] = status;
         return this;
     }
-    public withLogicTbId(logicTbId: number): TableModelVO {
+    public withLogicTbId(logicTbId: string): TableModelVO {
         this['logic_tb_id'] = logicTbId;
         return this;
     }
-    public set logicTbId(logicTbId: number  | undefined) {
+    public set logicTbId(logicTbId: string  | undefined) {
         this['logic_tb_id'] = logicTbId;
     }
-    public get logicTbId(): number | undefined {
+    public get logicTbId(): string | undefined {
         return this['logic_tb_id'];
     }
-    public withBizCatalogId(bizCatalogId: number): TableModelVO {
+    public withBizCatalogId(bizCatalogId: string): TableModelVO {
         this['biz_catalog_id'] = bizCatalogId;
         return this;
     }
-    public set bizCatalogId(bizCatalogId: number  | undefined) {
+    public set bizCatalogId(bizCatalogId: string  | undefined) {
         this['biz_catalog_id'] = bizCatalogId;
     }
-    public get bizCatalogId(): number | undefined {
+    public get bizCatalogId(): string | undefined {
         return this['biz_catalog_id'];
     }
     public withCatalogPath(catalogPath: string): TableModelVO {
@@ -353,7 +353,7 @@ export class TableModelVO {
     public get updateTime(): Date | undefined {
         return this['update_time'];
     }
-    public withTags(tags: Array<TagVO>): TableModelVO {
+    public withTags(tags: Array<TagRecordVO>): TableModelVO {
         this['tags'] = tags;
         return this;
     }
@@ -421,14 +421,14 @@ export class TableModelVO {
         this['l3'] = l3;
         return this;
     }
-    public withL1Id(l1Id: number): TableModelVO {
+    public withL1Id(l1Id: string): TableModelVO {
         this['l1_id'] = l1Id;
         return this;
     }
-    public set l1Id(l1Id: number  | undefined) {
+    public set l1Id(l1Id: string  | undefined) {
         this['l1_id'] = l1Id;
     }
-    public get l1Id(): number | undefined {
+    public get l1Id(): string | undefined {
         return this['l1_id'];
     }
     public withL2Id(l2Id: string): TableModelVO {
@@ -441,14 +441,14 @@ export class TableModelVO {
     public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withL3Id(l3Id: number): TableModelVO {
+    public withL3Id(l3Id: string): TableModelVO {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withPartitionConf(partitionConf: string): TableModelVO {
@@ -535,14 +535,14 @@ export class TableModelVO {
     public get qualityOwner(): string | undefined {
         return this['quality_owner'];
     }
-    public withQualityId(qualityId: number): TableModelVO {
+    public withQualityId(qualityId: string): TableModelVO {
         this['quality_id'] = qualityId;
         return this;
     }
-    public set qualityId(qualityId: number  | undefined) {
+    public set qualityId(qualityId: string  | undefined) {
         this['quality_id'] = qualityId;
     }
-    public get qualityId(): number | undefined {
+    public get qualityId(): string | undefined {
         return this['quality_id'];
     }
     public withDistribute(distribute: TableModelVODistributeEnum | string): TableModelVO {

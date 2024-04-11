@@ -1,7 +1,7 @@
 
 
 export class ListInstancesDetailsRequest {
-    public engine?: string;
+    public engine?: ListInstancesDetailsRequestEngineEnum | string;
     public name?: string;
     private 'instance_id'?: string;
     public status?: ListInstancesDetailsRequestStatusEnum | string;
@@ -10,9 +10,10 @@ export class ListInstancesDetailsRequest {
     private 'enterprise_project_id'?: string;
     public offset?: string;
     public limit?: string;
-    public constructor() { 
+    public constructor(engine?: string) { 
+        this['engine'] = engine;
     }
-    public withEngine(engine: string): ListInstancesDetailsRequest {
+    public withEngine(engine: ListInstancesDetailsRequestEngineEnum | string): ListInstancesDetailsRequest {
         this['engine'] = engine;
         return this;
     }
@@ -74,6 +75,13 @@ export class ListInstancesDetailsRequest {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstancesDetailsRequestEngineEnum {
+    RABBITMQ = 'rabbitmq'
+}
 /**
     * @export
     * @enum {string}

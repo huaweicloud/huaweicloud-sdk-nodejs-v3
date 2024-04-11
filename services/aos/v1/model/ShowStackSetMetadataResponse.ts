@@ -2,6 +2,8 @@ import { AdministrationAgencyNamePrimitiveTypeHolder } from './AdministrationAge
 import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgencyUrnPrimitiveTypeHolder';
 import { InitialStackDescriptionPrimitiveTypeHolder } from './InitialStackDescriptionPrimitiveTypeHolder';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
+import { ManagedOperation } from './ManagedOperation';
+import { ManagedOperationTypeHolder } from './ManagedOperationTypeHolder';
 import { PermissionModelPrimitiveTypeHolder } from './PermissionModelPrimitiveTypeHolder';
 import { StackSetCreateTimePrimitiveTypeHolder } from './StackSetCreateTimePrimitiveTypeHolder';
 import { StackSetDescriptionPrimitiveTypeHolder } from './StackSetDescriptionPrimitiveTypeHolder';
@@ -28,6 +30,7 @@ export class ShowStackSetMetadataResponse extends SdkResponse {
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'administration_agency_urn'?: string;
+    private 'managed_operation'?: ManagedOperation;
     public constructor(stackSetName?: string) { 
         super();
         this['stack_set_name'] = stackSetName;
@@ -155,6 +158,16 @@ export class ShowStackSetMetadataResponse extends SdkResponse {
     }
     public get administrationAgencyUrn(): string | undefined {
         return this['administration_agency_urn'];
+    }
+    public withManagedOperation(managedOperation: ManagedOperation): ShowStackSetMetadataResponse {
+        this['managed_operation'] = managedOperation;
+        return this;
+    }
+    public set managedOperation(managedOperation: ManagedOperation  | undefined) {
+        this['managed_operation'] = managedOperation;
+    }
+    public get managedOperation(): ManagedOperation | undefined {
+        return this['managed_operation'];
     }
 }
 

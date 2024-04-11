@@ -1,7 +1,7 @@
 import { CustomArgs } from './CustomArgs';
 
 
-export class RemoteAuthRuleVo {
+export class RemoteAuthRule {
     private 'auth_server'?: string;
     private 'request_method'?: string;
     private 'file_type_setting'?: string;
@@ -29,7 +29,7 @@ export class RemoteAuthRuleVo {
         this['timeout'] = timeout;
         this['timeout_action'] = timeoutAction;
     }
-    public withAuthServer(authServer: string): RemoteAuthRuleVo {
+    public withAuthServer(authServer: string): RemoteAuthRule {
         this['auth_server'] = authServer;
         return this;
     }
@@ -39,7 +39,7 @@ export class RemoteAuthRuleVo {
     public get authServer(): string | undefined {
         return this['auth_server'];
     }
-    public withRequestMethod(requestMethod: string): RemoteAuthRuleVo {
+    public withRequestMethod(requestMethod: string): RemoteAuthRule {
         this['request_method'] = requestMethod;
         return this;
     }
@@ -49,7 +49,7 @@ export class RemoteAuthRuleVo {
     public get requestMethod(): string | undefined {
         return this['request_method'];
     }
-    public withFileTypeSetting(fileTypeSetting: string): RemoteAuthRuleVo {
+    public withFileTypeSetting(fileTypeSetting: string): RemoteAuthRule {
         this['file_type_setting'] = fileTypeSetting;
         return this;
     }
@@ -59,7 +59,7 @@ export class RemoteAuthRuleVo {
     public get fileTypeSetting(): string | undefined {
         return this['file_type_setting'];
     }
-    public withSpecifiedFileType(specifiedFileType: string): RemoteAuthRuleVo {
+    public withSpecifiedFileType(specifiedFileType: string): RemoteAuthRule {
         this['specified_file_type'] = specifiedFileType;
         return this;
     }
@@ -69,7 +69,7 @@ export class RemoteAuthRuleVo {
     public get specifiedFileType(): string | undefined {
         return this['specified_file_type'];
     }
-    public withReserveArgsSetting(reserveArgsSetting: string): RemoteAuthRuleVo {
+    public withReserveArgsSetting(reserveArgsSetting: string): RemoteAuthRule {
         this['reserve_args_setting'] = reserveArgsSetting;
         return this;
     }
@@ -79,7 +79,7 @@ export class RemoteAuthRuleVo {
     public get reserveArgsSetting(): string | undefined {
         return this['reserve_args_setting'];
     }
-    public withReserveArgs(reserveArgs: string): RemoteAuthRuleVo {
+    public withReserveArgs(reserveArgs: string): RemoteAuthRule {
         this['reserve_args'] = reserveArgs;
         return this;
     }
@@ -89,7 +89,7 @@ export class RemoteAuthRuleVo {
     public get reserveArgs(): string | undefined {
         return this['reserve_args'];
     }
-    public withAddCustomArgsRules(addCustomArgsRules: Array<CustomArgs>): RemoteAuthRuleVo {
+    public withAddCustomArgsRules(addCustomArgsRules: Array<CustomArgs>): RemoteAuthRule {
         this['add_custom_args_rules'] = addCustomArgsRules;
         return this;
     }
@@ -99,7 +99,7 @@ export class RemoteAuthRuleVo {
     public get addCustomArgsRules(): Array<CustomArgs> | undefined {
         return this['add_custom_args_rules'];
     }
-    public withReserveHeadersSetting(reserveHeadersSetting: string): RemoteAuthRuleVo {
+    public withReserveHeadersSetting(reserveHeadersSetting: string): RemoteAuthRule {
         this['reserve_headers_setting'] = reserveHeadersSetting;
         return this;
     }
@@ -109,7 +109,7 @@ export class RemoteAuthRuleVo {
     public get reserveHeadersSetting(): string | undefined {
         return this['reserve_headers_setting'];
     }
-    public withAddCustomHeadersRules(addCustomHeadersRules: Array<CustomArgs>): RemoteAuthRuleVo {
+    public withAddCustomHeadersRules(addCustomHeadersRules: Array<CustomArgs>): RemoteAuthRule {
         this['add_custom_headers_rules'] = addCustomHeadersRules;
         return this;
     }
@@ -119,7 +119,7 @@ export class RemoteAuthRuleVo {
     public get addCustomHeadersRules(): Array<CustomArgs> | undefined {
         return this['add_custom_headers_rules'];
     }
-    public withAuthSuccessStatus(authSuccessStatus: string): RemoteAuthRuleVo {
+    public withAuthSuccessStatus(authSuccessStatus: string): RemoteAuthRule {
         this['auth_success_status'] = authSuccessStatus;
         return this;
     }
@@ -129,7 +129,7 @@ export class RemoteAuthRuleVo {
     public get authSuccessStatus(): string | undefined {
         return this['auth_success_status'];
     }
-    public withAuthFailedStatus(authFailedStatus: string): RemoteAuthRuleVo {
+    public withAuthFailedStatus(authFailedStatus: string): RemoteAuthRule {
         this['auth_failed_status'] = authFailedStatus;
         return this;
     }
@@ -139,7 +139,7 @@ export class RemoteAuthRuleVo {
     public get authFailedStatus(): string | undefined {
         return this['auth_failed_status'];
     }
-    public withResponseStatus(responseStatus: string): RemoteAuthRuleVo {
+    public withResponseStatus(responseStatus: string): RemoteAuthRule {
         this['response_status'] = responseStatus;
         return this;
     }
@@ -149,11 +149,11 @@ export class RemoteAuthRuleVo {
     public get responseStatus(): string | undefined {
         return this['response_status'];
     }
-    public withTimeout(timeout: number): RemoteAuthRuleVo {
+    public withTimeout(timeout: number): RemoteAuthRule {
         this['timeout'] = timeout;
         return this;
     }
-    public withTimeoutAction(timeoutAction: string): RemoteAuthRuleVo {
+    public withTimeoutAction(timeoutAction: string): RemoteAuthRule {
         this['timeout_action'] = timeoutAction;
         return this;
     }
@@ -163,7 +163,7 @@ export class RemoteAuthRuleVo {
     public get timeoutAction(): string | undefined {
         return this['timeout_action'];
     }
-    public withReserveHeaders(reserveHeaders: string): RemoteAuthRuleVo {
+    public withReserveHeaders(reserveHeaders: string): RemoteAuthRule {
         this['reserve_headers'] = reserveHeaders;
         return this;
     }

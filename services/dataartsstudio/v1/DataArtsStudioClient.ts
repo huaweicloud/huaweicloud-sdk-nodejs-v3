@@ -3,10 +3,17 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
+import { AddDesignEntityTagsRequest } from './model/AddDesignEntityTagsRequest';
+import { AddDesignEntityTagsResponse } from './model/AddDesignEntityTagsResponse';
 import { AddTagToAssetRequest } from './model/AddTagToAssetRequest';
 import { AddTagToAssetResponse } from './model/AddTagToAssetResponse';
 import { AddWorkSpaceUsersRequest } from './model/AddWorkSpaceUsersRequest';
 import { AddWorkSpaceUsersResponse } from './model/AddWorkSpaceUsersResponse';
+import { AggregationLogicTableAttributeVO } from './model/AggregationLogicTableAttributeVO';
+import { AggregationLogicTableVO } from './model/AggregationLogicTableVO';
+import { AggregationLogicTableVODetailData } from './model/AggregationLogicTableVODetailData';
+import { AggregationLogicTableVOSearchResultData } from './model/AggregationLogicTableVOSearchResultData';
+import { AggregationLogicTableVOSearchResultDataValue } from './model/AggregationLogicTableVOSearchResultDataValue';
 import { AlarmInfoResponseAlarmInfo } from './model/AlarmInfoResponseAlarmInfo';
 import { Api } from './model/Api';
 import { ApiActionDTO } from './model/ApiActionDTO';
@@ -91,6 +98,7 @@ import { BatchDeleteTemplatesRequest } from './model/BatchDeleteTemplatesRequest
 import { BatchDeleteTemplatesResponse } from './model/BatchDeleteTemplatesResponse';
 import { BatchOfflineRequest } from './model/BatchOfflineRequest';
 import { BatchOfflineResponse } from './model/BatchOfflineResponse';
+import { BatchOperationVO } from './model/BatchOperationVO';
 import { BatchPublishRequest } from './model/BatchPublishRequest';
 import { BatchPublishResponse } from './model/BatchPublishResponse';
 import { BatchSyncMetadataRequest } from './model/BatchSyncMetadataRequest';
@@ -171,6 +179,10 @@ import { CreateCodeTableRequest } from './model/CreateCodeTableRequest';
 import { CreateCodeTableResponse } from './model/CreateCodeTableResponse';
 import { CreateConnectionsRequest } from './model/CreateConnectionsRequest';
 import { CreateConnectionsResponse } from './model/CreateConnectionsResponse';
+import { CreateDesignAggregationLogicTableRequest } from './model/CreateDesignAggregationLogicTableRequest';
+import { CreateDesignAggregationLogicTableResponse } from './model/CreateDesignAggregationLogicTableResponse';
+import { CreateDesignAtomicIndexRequest } from './model/CreateDesignAtomicIndexRequest';
+import { CreateDesignAtomicIndexResponse } from './model/CreateDesignAtomicIndexResponse';
 import { CreateDirectoryRequest } from './model/CreateDirectoryRequest';
 import { CreateDirectoryResponse } from './model/CreateDirectoryResponse';
 import { CreateFactoryEnvRequest } from './model/CreateFactoryEnvRequest';
@@ -260,6 +272,12 @@ import { DeleteCodeTableRequest } from './model/DeleteCodeTableRequest';
 import { DeleteCodeTableResponse } from './model/DeleteCodeTableResponse';
 import { DeleteDataconnectionRequest } from './model/DeleteDataconnectionRequest';
 import { DeleteDataconnectionResponse } from './model/DeleteDataconnectionResponse';
+import { DeleteDesignAggregationLogicTableRequest } from './model/DeleteDesignAggregationLogicTableRequest';
+import { DeleteDesignAggregationLogicTableResponse } from './model/DeleteDesignAggregationLogicTableResponse';
+import { DeleteDesignAtomicIndexRequest } from './model/DeleteDesignAtomicIndexRequest';
+import { DeleteDesignAtomicIndexResponse } from './model/DeleteDesignAtomicIndexResponse';
+import { DeleteDesignLatestApprovalRequest } from './model/DeleteDesignLatestApprovalRequest';
+import { DeleteDesignLatestApprovalResponse } from './model/DeleteDesignLatestApprovalResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
 import { DeleteDirectoryResponse } from './model/DeleteDirectoryResponse';
 import { DeleteSecurityDataClassificationRuleRequest } from './model/DeleteSecurityDataClassificationRuleRequest';
@@ -302,6 +320,7 @@ import { DimensionAttributeVO } from './model/DimensionAttributeVO';
 import { DimensionHierarchiesVO } from './model/DimensionHierarchiesVO';
 import { DirectoryVO } from './model/DirectoryVO';
 import { DisStream } from './model/DisStream';
+import { DsExportResultVOData } from './model/DsExportResultVOData';
 import { DwName } from './model/DwName';
 import { DwType } from './model/DwType';
 import { Entity } from './model/Entity';
@@ -316,6 +335,15 @@ import { ExecuteApiToInstanceRequest } from './model/ExecuteApiToInstanceRequest
 import { ExecuteApiToInstanceResponse } from './model/ExecuteApiToInstanceResponse';
 import { ExecuteTaskActionRequest } from './model/ExecuteTaskActionRequest';
 import { ExecuteTaskActionResponse } from './model/ExecuteTaskActionResponse';
+import { ExportDesignModelTableDDLResultData } from './model/ExportDesignModelTableDDLResultData';
+import { ExportDesignModelTableDdlRequest } from './model/ExportDesignModelTableDdlRequest';
+import { ExportDesignModelTableDdlResponse } from './model/ExportDesignModelTableDdlResponse';
+import { ExportDesignModelsRequest } from './model/ExportDesignModelsRequest';
+import { ExportDesignModelsResponse } from './model/ExportDesignModelsResponse';
+import { ExportDesignModelsResultData } from './model/ExportDesignModelsResultData';
+import { ExportDesignResultRequest } from './model/ExportDesignResultRequest';
+import { ExportDesignResultResponse } from './model/ExportDesignResultResponse';
+import { ExportParam } from './model/ExportParam';
 import { FilterCriteria } from './model/FilterCriteria';
 import { GatewayDTO } from './model/GatewayDTO';
 import { GlossaryInfo } from './model/GlossaryInfo';
@@ -510,6 +538,7 @@ import { ModifyCustomizedFieldsRequest } from './model/ModifyCustomizedFieldsReq
 import { ModifyCustomizedFieldsResponse } from './model/ModifyCustomizedFieldsResponse';
 import { Namespace } from './model/Namespace';
 import { Node } from './model/Node';
+import { OBSCommonConfig } from './model/OBSCommonConfig';
 import { ObjectIdInfo } from './model/ObjectIdInfo';
 import { ObsFolder } from './model/ObsFolder';
 import { OpenApiParaForCheckMessage } from './model/OpenApiParaForCheckMessage';
@@ -542,6 +571,10 @@ import { PublishApiRequest } from './model/PublishApiRequest';
 import { PublishApiResponse } from './model/PublishApiResponse';
 import { PublishApiToInstanceRequest } from './model/PublishApiToInstanceRequest';
 import { PublishApiToInstanceResponse } from './model/PublishApiToInstanceResponse';
+import { PublishVersionVO } from './model/PublishVersionVO';
+import { PublishVersionVODetailData } from './model/PublishVersionVODetailData';
+import { PublishVersionVOSearchResultData } from './model/PublishVersionVOSearchResultData';
+import { PublishVersionVOSearchResultDataValue } from './model/PublishVersionVOSearchResultDataValue';
 import { QualityInfoVO } from './model/QualityInfoVO';
 import { QualityTaskOverviewVO } from './model/QualityTaskOverviewVO';
 import { QualityTaskOverviewVO2 } from './model/QualityTaskOverviewVO2';
@@ -553,6 +586,11 @@ import { RecordForGetAuthApp } from './model/RecordForGetAuthApp';
 import { RelationMappingVO } from './model/RelationMappingVO';
 import { RelationType } from './model/RelationType';
 import { RelationVO } from './model/RelationVO';
+import { RemoveDesignEntityTagsRequest } from './model/RemoveDesignEntityTagsRequest';
+import { RemoveDesignEntityTagsResponse } from './model/RemoveDesignEntityTagsResponse';
+import { RemoveDesignQualityInfosRequest } from './model/RemoveDesignQualityInfosRequest';
+import { RemoveDesignQualityInfosResponse } from './model/RemoveDesignQualityInfosResponse';
+import { RemoveDesignQualityInfosResultData } from './model/RemoveDesignQualityInfosResultData';
 import { RenewDataProfileRequest } from './model/RenewDataProfileRequest';
 import { RenewDataProfileResponse } from './model/RenewDataProfileResponse';
 import { RequestPara } from './model/RequestPara';
@@ -583,8 +621,12 @@ import { SearchCustomizedFieldsRequest } from './model/SearchCustomizedFieldsReq
 import { SearchCustomizedFieldsResponse } from './model/SearchCustomizedFieldsResponse';
 import { SearchDebugInfoRequest } from './model/SearchDebugInfoRequest';
 import { SearchDebugInfoResponse } from './model/SearchDebugInfoResponse';
+import { SearchDesignLatestApprovalDiffRequest } from './model/SearchDesignLatestApprovalDiffRequest';
+import { SearchDesignLatestApprovalDiffResponse } from './model/SearchDesignLatestApprovalDiffResponse';
 import { SearchDwByTypeRequest } from './model/SearchDwByTypeRequest';
 import { SearchDwByTypeResponse } from './model/SearchDwByTypeResponse';
+import { SearchFieldsForRelationRequest } from './model/SearchFieldsForRelationRequest';
+import { SearchFieldsForRelationResponse } from './model/SearchFieldsForRelationResponse';
 import { SearchIdByPathRequest } from './model/SearchIdByPathRequest';
 import { SearchIdByPathResponse } from './model/SearchIdByPathResponse';
 import { SearchParameter } from './model/SearchParameter';
@@ -740,6 +782,8 @@ import { StandElementFieldVO } from './model/StandElementFieldVO';
 import { StandElementFieldVOList } from './model/StandElementFieldVOList';
 import { StandElementValueVO } from './model/StandElementValueVO';
 import { StandElementValueVOList } from './model/StandElementValueVOList';
+import { StandardSearchResultData } from './model/StandardSearchResultData';
+import { StandardSearchResultDataValue } from './model/StandardSearchResultDataValue';
 import { StaticParam } from './model/StaticParam';
 import { StatisticForCallDetail } from './model/StatisticForCallDetail';
 import { StatisticForDashboard } from './model/StatisticForDashboard';
@@ -762,10 +806,15 @@ import { TableMappingVO } from './model/TableMappingVO';
 import { TableModelAttributeVO } from './model/TableModelAttributeVO';
 import { TableModelUpdateVO } from './model/TableModelUpdateVO';
 import { TableModelVO } from './model/TableModelVO';
+import { TableType } from './model/TableType';
 import { TablesList } from './model/TablesList';
 import { TagHeader } from './model/TagHeader';
+import { TagRecordVO } from './model/TagRecordVO';
 import { TagRequest } from './model/TagRequest';
 import { TagVO } from './model/TagVO';
+import { TagsResultData } from './model/TagsResultData';
+import { TbGuid } from './model/TbGuid';
+import { TbLogicGuid } from './model/TbLogicGuid';
 import { TemplateListRO } from './model/TemplateListRO';
 import { TemplateRO } from './model/TemplateRO';
 import { TermAssignmentHeader } from './model/TermAssignmentHeader';
@@ -786,6 +835,14 @@ import { UpdateCodeTableValuesRequest } from './model/UpdateCodeTableValuesReque
 import { UpdateCodeTableValuesResponse } from './model/UpdateCodeTableValuesResponse';
 import { UpdateDataconnectionRequest } from './model/UpdateDataconnectionRequest';
 import { UpdateDataconnectionResponse } from './model/UpdateDataconnectionResponse';
+import { UpdateDesignAggregationLogicTableRequest } from './model/UpdateDesignAggregationLogicTableRequest';
+import { UpdateDesignAggregationLogicTableResponse } from './model/UpdateDesignAggregationLogicTableResponse';
+import { UpdateDesignAtomicIndexRequest } from './model/UpdateDesignAtomicIndexRequest';
+import { UpdateDesignAtomicIndexResponse } from './model/UpdateDesignAtomicIndexResponse';
+import { UpdateDesignTableQualityParam } from './model/UpdateDesignTableQualityParam';
+import { UpdateDesignTableQualityRequest } from './model/UpdateDesignTableQualityRequest';
+import { UpdateDesignTableQualityResponse } from './model/UpdateDesignTableQualityResponse';
+import { UpdateDesignTableQualityResultData } from './model/UpdateDesignTableQualityResultData';
 import { UpdateDirectoryRequest } from './model/UpdateDirectoryRequest';
 import { UpdateDirectoryResponse } from './model/UpdateDirectoryResponse';
 import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest';
@@ -838,6 +895,30 @@ export class DataArtsStudioClient {
         return __dirname;
     }
 
+
+    /**
+     * 根据资产（表或属性）的ID给资产打上标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加标签
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} entityId 表的ID。
+     * @param {Array<string>} tags 标签名。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [attrId] 属性的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addDesignEntityTags(addDesignEntityTagsRequest?: AddDesignEntityTagsRequest): Promise<AddDesignEntityTagsResponse> {
+        const options = ParamCreater().addDesignEntityTags(addDesignEntityTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 标签关联到资产
@@ -1087,13 +1168,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 批量下线
+     * 批量下线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量下线
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {ApprovalBatchParam} approvalParam approvalParam
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {ApprovalBatchParam} batchOfflineRequestBody 审批参数信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1107,13 +1190,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 批量发布
+     * 批量发布。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量发布
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {ApprovalBatchParam} approvalParam approvalParam
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {ApprovalBatchParam} batchPublishRequestBody approvalParam
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1167,13 +1252,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改流程架构
+     * 修改流程架构。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改流程架构
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {BizCatalogVO} catalog 目录信息，修改必须带有id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BizCatalogVO} changeCatalogRequestBody 目录信息，修改必须带有id。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1206,13 +1293,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改或删除主题层级
+     * 修改或删除主题层级。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改或删除主题层级
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {CatalogLevelVOList} directory 主题层级信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CatalogLevelVOList} changeSubjectsRequestBody 主题层级信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1226,12 +1315,14 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看逆向维度表任务
+     * 查看逆向维度表任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看逆向维度表任务
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1245,12 +1336,14 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看逆向事实表任务
+     * 查看逆向事实表任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看逆向事实表任务
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1264,14 +1357,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 审批驳回/通过，单个或多个 action-id&#x3D;reject/resolve
+     * 审批驳回/通过，单个或多个action-id&#x3D;reject/resolve。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 审批单处理
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {'reject' | 'resolve'} actionId 处理审批单结果类型
-     * @param {ApprovalInfoParam} approvalInfo approval info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'reject' | 'resolve'} actionId 处理审批单结果类型。reject(审批驳回)、resolve(审批通过)。
+     * @param {ApprovalInfoParam} confirmApprovalsRequestBody 审批单相关信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1307,12 +1402,14 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 关系建模统计信息
+     * 关系建模统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关系建模统计信息
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1326,12 +1423,14 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 总览统计信息
+     * 总览统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 总览统计信息
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1345,14 +1444,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 标准覆盖率统计信息
+     * 标准覆盖率统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 标准覆盖率统计信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {string} [bizType] 按业务类型查询
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [bizType] 按业务类型查询。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1366,13 +1467,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 模型统计信息
+     * 模型统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 模型统计信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [modelId] 依据model_id查工作区
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [modelId] 依据关系建模的模型ID查询统计信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1408,13 +1511,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建审批人
+     * 创建审批人。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建审批人
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {ApproverParam} body approver
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {ApproverParam} createApproverRequestBody approver
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1428,13 +1533,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建业务指标
+     * 创建业务指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建业务指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {BizMetricVO} bizMetric 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BizMetricVO} createBizMetricRequestBody 待创建的业务指标。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1448,13 +1555,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建流程架构
+     * 创建流程架构。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建流程架构
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {BizCatalogVO} catalog 目录信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BizCatalogVO} createCatalogRequestBody 目录信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1468,13 +1577,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建码表
+     * 创建码表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建码表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {CodeTableVO} codeTable 码表信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CodeTableVO} createCodeTableRequestBody 码表信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1508,13 +1619,59 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建目录
+     * 新建汇总表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建汇总表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {AggregationLogicTableVO} createDesignAggregationLogicTableRequestBody 待创建的汇总表信息
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDesignAggregationLogicTable(createDesignAggregationLogicTableRequest?: CreateDesignAggregationLogicTableRequest): Promise<CreateDesignAggregationLogicTableResponse> {
+        const options = ParamCreater().createDesignAggregationLogicTable(createDesignAggregationLogicTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新建单个原子指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建原子指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {AtomicIndexVO} createDesignAtomicIndexRequestBody atomicIndex info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDesignAtomicIndex(createDesignAtomicIndexRequest?: CreateDesignAtomicIndexRequest): Promise<CreateDesignAtomicIndexResponse> {
+        const options = ParamCreater().createDesignAtomicIndex(createDesignAtomicIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建目录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建目录
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {DirectoryVO} directory 目录信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DirectoryVO} createDirectoryRequestBody 目录信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1554,7 +1711,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建作业
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {JobInfoRequest} createFactoryJobRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1774,13 +1931,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建数据标准
+     * 创建数据标准。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建数据标准
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {StandElementValueVOList} values field value info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {StandElementValueVOList} createStandardRequestBody field value info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1794,13 +1953,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建数据标准模板
+     * 创建数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建数据标准模板
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {StandElementFieldVO} field field info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {StandElementFieldVO} createStandardTemplateRequestBody 数据标准字段信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1814,13 +1975,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建主题
+     * 创建主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建主题
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {CatalogParamsVO} catalogParam catalog参数
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CatalogParamsVO} createSubjectRequestBody catalog参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1834,13 +1997,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建主题(新)
+     * 创建主题(新)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建主题(新)
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {SubjectParamsVO} subjectParam subject参数
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {SubjectParamsVO} createSubjectNewRequestBody subject参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1854,13 +2019,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建一个模型实体，包括逻辑实体或物理数据表。
+     * 在关系建模中创建一个表模型，包括逻辑实体和物理表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建模型实体
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {TableModelVO} tableModel TableModelVO info
+     * @summary 创建表模型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {TableModelVO} createTableModelRequestBody 关系建模表信息
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1914,13 +2081,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 新建模型工作区
+     * 新建模型工作区。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建模型工作区
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {WorkspaceVO} workSpace 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {WorkspaceVO} createWorkspaceRequestBody 待创建的模型工作区对象。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1976,13 +2145,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除审批人
+     * 删除审批人。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除审批人
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} approverIds 审批人id
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2016,13 +2187,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除业务指标
+     * 删除业务指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除业务指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteBizMetricRequestBody 待删除的业务指标ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2036,13 +2209,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除流程架构
+     * 删除流程架构。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除流程架构
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteCatalogRequestBody 需要被删除的流程架构ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2077,13 +2252,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除码表
+     * 删除码表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除码表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteCodeTableRequestBody 需要被删除的码表ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2117,13 +2294,82 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除目录
+     * 批量删除汇总表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除汇总表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignAggregationLogicTableRequestBody 待删除的汇总表ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignAggregationLogicTable(deleteDesignAggregationLogicTableRequest?: DeleteDesignAggregationLogicTableRequest): Promise<DeleteDesignAggregationLogicTableResponse> {
+        const options = ParamCreater().deleteDesignAggregationLogicTable(deleteDesignAggregationLogicTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除原子指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除原子指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteDesignAtomicIndexRequestBody 待删除的原子指标ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignAtomicIndex(deleteDesignAtomicIndexRequest?: DeleteDesignAtomicIndexRequest): Promise<DeleteDesignAtomicIndexResponse> {
+        const options = ParamCreater().deleteDesignAtomicIndex(deleteDesignAtomicIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当已发布的实体被编辑时，其会生成下展，该接口用于删除实体的下展信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实体下展
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} bizId 待删除下展的实体ID。
+     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。ATOMIC_INDEX(原子指标)、DERIVATIVE_INDEX(衍生指标)、DIMENSION(维度)、FACT_LOGIC_TABLE(事实表)、TABLE_MODEL(业务表：逻辑实体/物理表)、STANDARD_ELEMENT(数据标准)、AGGREGATION_LOGIC_TABLE(汇总表)、CODE_TABLE(码表)、BIZ_METRIC(业务指标)、COMPOUND_METRIC(复合指标)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDesignLatestApproval(deleteDesignLatestApprovalRequest?: DeleteDesignLatestApprovalRequest): Promise<DeleteDesignLatestApprovalResponse> {
+        const options = ParamCreater().deleteDesignLatestApproval(deleteDesignLatestApprovalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除目录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除目录
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {Array<number>} ids 实体id数组
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<number>} ids 实体ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2239,13 +2485,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除数据标准
+     * 删除数据标准。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除数据标准
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteStandardRequestBody 需要被删除的数据标准ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2259,13 +2507,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除数据标准模板
+     * 删除数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除数据标准模板
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} ids 实体id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} ids 实体ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2279,13 +2529,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除主题
+     * 删除主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除主题
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteSubjectRequestBody 需要被删除的主题ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2299,13 +2551,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除主题(新)
+     * 删除主题(新)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除主题(新)
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteSubjectNewRequestBody 待删除的主题ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2319,13 +2573,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除一个模型实体，包括逻辑实体或物理数据表。
+     * 在关系建模中删除一个表模型及其属性，包括逻辑实体和物理表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除模型实体
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {IdsParam} deleteParam 
+     * @summary 删除表模型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {IdsParam} deleteTableModelRequestBody 待删除的表模型ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2359,13 +2615,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除模型工作区
+     * 删除模型工作区。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除模型工作区
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {Array<number>} ids 实体id数组
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<number>} ids 实体ID数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2441,15 +2699,85 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 用于导入主题
+     * 根据模型ID导出指定表的DDL语句。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出模型中表的DDL语句
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {Array<string>} [tbNames] 待导出的表名。
+     * @param {boolean} [withDb] 导出的DDL包不包括数据库名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDesignModelTableDdl(exportDesignModelTableDdlRequest?: ExportDesignModelTableDdlRequest): Promise<ExportDesignModelTableDdlResponse> {
+        const options = ParamCreater().exportDesignModelTableDdl(exportDesignModelTableDdlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据请求参数，导出业务数据，可以导出：码表、数据标准、原子指标、衍生指标、复合指标、汇总表、业务指标、主题、流程、逻辑模型、物理模型、维度、事实表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出业务数据
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {ExportParam} exportDesignModelsRequestBody 导出参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDesignModels(exportDesignModelsRequest?: ExportDesignModelsRequest): Promise<ExportDesignModelsResponse> {
+        const options = ParamCreater().exportDesignModels(exportDesignModelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据请求导出接口（/export-model）时返回的uuid，获取excel导出结果。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取excel导出结果
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} uuid 请求导出接口时返回的uuid。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDesignResult(exportDesignResultRequest?: ExportDesignResultRequest): Promise<ExportDesignResultResponse> {
+        const options = ParamCreater().exportDesignResult(exportDesignResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于导入主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导入主题
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} actionId 需要执行的动作
-     * @param {any} file 导入主题用的excel文件，大小必须小于4MB，且行数小于3000行
-     * @param {boolean} [skipExist] 是否需要覆盖更新已有的主题
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} actionId 需要执行的动作。start-import(开始导入)。
+     * @param {any} file 导入主题用的excel文件，大小必须小于4MB，且行数小于3000行。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [skipExist] 是否需要覆盖更新已有的主题。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2483,17 +2811,19 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
+     * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {'import_relation' | 'import_dimension' | 'import_codetable' | 'import_datastandard' | 'import_bizmetric' | 'import_bizcatalog' | 'import_atomic' | 'import_derivative' | 'import_compound' | 'import_aggregation'} actionId 需要执行的动作，根据导入的对象不同而选择不同的导入动作
-     * @param {any} file 导入用的excel文件，大小必须小于4MB，且行数小于3000行
-     * @param {string} [modelId] 模型id，在导入模型（import_relation）时必填
-     * @param {string} [directoryId] 导入的目录id，在导入码表（import_datastandard）和数据标准（import_datastandard）时生效，选填
-     * @param {boolean} [skipExist] 是否需要覆盖更新已有的实体
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'import_relation' | 'import_dimension' | 'import_codetable' | 'import_datastandard' | 'import_bizmetric' | 'import_bizcatalog' | 'import_atomic' | 'import_derivative' | 'import_compound' | 'import_aggregation'} actionId 需要执行的动作，根据导入的对象不同而选择不同的导入动作。import_relation(导入关系模型：逻辑实体/物理表)、import_dimension( 导入维度表、事实表)、import_codetable(导入码表)、import_datastandard(导入数据标准)、import_bizmetric(导入业务指标)、import_bizcatalog(导入流程架构)、import_atomic(导入原子指标)、import_derivative(导入衍生指标)、import_compound(导入复合指标)、import_aggregation(导入汇总表)。
+     * @param {any} file 导入用的excel文件，大小必须小于4MB，且行数小于3000行。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [modelId] 关系建模的模型ID，在导入模型（import_relation）时必填。
+     * @param {string} [directoryId] 导入的目录id，在导入码表（import_datastandard）和数据标准（import_datastandard）时生效，选填。
+     * @param {boolean} [skipExist] 是否需要覆盖更新已有的实体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2507,13 +2837,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询导入excel的处理结果
+     * 查询导入excel的处理结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询导入结果
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} uuid 需要查询的某次导入的处理结果
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} uuid 需要查询的某次导入的处理结果。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2527,14 +2859,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 初始化模板
+     * 初始化数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 初始化数据标准模板
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} actionId action-id&#x3D;init
-     * @param {StandElementFieldVOList} field field info
+     * @param {StandElementFieldVOList} initializeStandardTemplateRequestBody field info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2548,25 +2882,27 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找汇总表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {number} [l3Id] 业务对象l3 id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {string} [bizCatalogId] 所属的业务分层的id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {boolean} [autoGenerate] 是否自动生成
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2605,17 +2941,19 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取数据标准
+     * 根据查询条件分页获取数据标准集合，按修改时间降序排序。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取数据标准
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [directoryId] 目录ID。获取该目录下的数据，如果有子目录，获取所有子目录的数据
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @summary 获取数据标准集合
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [directoryId] 目录ID。获取该目录下的数据标准，如果有子目录，同时获取所有子目录的数据标准。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2629,24 +2967,26 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表
+     * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询多种类型的表信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {Array<'TABLE_MODEL_LOGIC' | 'TABLE_MODEL' | 'DIMENSION_LOGIC_TABLE' | 'FACT_LOGIC_TABLE' | 'AGGREGATION_LOGIC_TABLE'>} bizTypeList 查询的表类型，必填
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {string} [bizCatalogId] 所属的业务分层的id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {Array<number>} [bizCatalogIdList] 所属主题的id列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {Array<'TABLE_MODEL_LOGIC' | 'TABLE_MODEL' | 'DIMENSION_LOGIC_TABLE' | 'FACT_LOGIC_TABLE' | 'AGGREGATION_LOGIC_TABLE'>} bizTypeList 查询的表类型，必填。TABLE_MODEL_LOGIC(逻辑实体)、TABLE_MODEL(物理表)、DIMENSION_LOGIC_TABLE(维度表)、FACT_LOGIC_TABLE(事实表)、AGGREGATION_LOGIC_TABLE(汇总表)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {Array<number>} [bizCatalogIdList] 所属主题的ID列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2813,15 +3153,17 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询审批人列表
+     * 查询审批人列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询审批人列表
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [approverName] 审核人名字
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2886,14 +3228,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看指标维度信息
+     * 查看指标维度信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看指标维度信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2907,14 +3251,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看指标指标责任人信息
+     * 查看指标指标责任人信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看指标指标责任人信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2928,23 +3274,25 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、创建者、修改时间分页查找业务指标信息
+     * 通过名称、创建者、修改时间分页查找业务指标信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询业务指标信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {string} [bizCatalogId] 所属的业务分层的id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2958,14 +3306,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取数据资产主题树信息l1，l2，l3
+     * 获取数据资产主题树信息l1，l2，l3。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取主题树信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3003,12 +3353,14 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取所有目录树
+     * 获取所有目录树。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取所有流程架构目录树
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3067,23 +3419,25 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找复合指标信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找复合指标信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找复合指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性
-     * @param {number} [atomicIndexId] 依据原子指标id查维度属性
-     * @param {number} [l3Id] 业务对象l3 id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
+     * @param {number} [atomicIndexId] 依据原子指标ID查维度属性。
+     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3097,20 +3451,22 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、描述、创建者、审核人、限定分组id、修改时间状态分页查找限定信息
+     * 通过中英文名称、描述、创建者、审核人、限定分组id、修改时间状态分页查找限定信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找业务限定
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3240,26 +3596,28 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找衍生指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {number} [dimensionId] 依据维度id查维度属性
-     * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性
-     * @param {number} [atomicIndexId] 依据原子指标id查维度属性
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {number} [dimensionId] 依据维度ID查维度属性。
+     * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
+     * @param {number} [atomicIndexId] 依据原子指标ID查维度属性。
      * @param {boolean} [allMetrics] 是否查询复合指标
      * @param {string} [dwType] 数据连接类型
-     * @param {number} [l3Id] 业务对象l3 id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3273,16 +3631,18 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询维度颗粒度, 依据tableId查询涉及所有维度，不传tableId查询所有维度组颗粒度
+     * 查询维度颗粒度，依据tableId查询涉及所有维度，不传tableId查询所有维度组颗粒度。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看维度颗粒度
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [tableId] 关联表id
-     * @param {string} [bizType] 按业务类型查询
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [tableId] 关联表的ID。
+     * @param {string} [bizType] 按业务类型查询。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3296,27 +3656,29 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找维度表信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找维度表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找维度表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {number} [l2Id] 主题域l2 id
-     * @param {number} [dimensionId] 依据维度id查维度属性
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {string} [bizCatalogId] 所属的业务分层的id
-     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {number} [l2Id] 主题域l2的ID。
+     * @param {number} [dimensionId] 依据维度ID查维度属性。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
+     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。COMMON(普通维度)、LOOKUP(码表维度)、HIERARCHIES(层级维度)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3330,25 +3692,27 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、描述、创建者、审核人、状态、l3Id、派生指标idList、修改时间分页查找维度信息
+     * 通过中英文名称、描述、创建者、审核人、状态、l3Id、衍生指标idList、修改时间分页查找维度信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找维度
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {number} [l2Id] 主题域l2 id
-     * @param {Array<number>} [derivativeIds] 依据复合指标id列表查维度
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [factLogicId] 事实表id
-     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {string} [bizCatalogId] 所属的业务分层的id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {number} [l2Id] 主题域l2的ID。
+     * @param {Array<number>} [derivativeIds] 依据复合指标ID列表查维度。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [factLogicId] 事实表ID。
+     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。COMMON(普通维度)、LOOKUP(码表维度)、HIERARCHIES(层级维度)。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3362,15 +3726,17 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取所有目录
+     * 获取所有目录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取所有目录
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {'CODE' | 'STANDARD_ELEMENT'} type 获取该目录下的数据，如果有子目录，获取所有子目录的数据
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'CODE' | 'STANDARD_ELEMENT'} type 获取该目录下的数据，如果有子目录，获取所有子目录的数据。CODE(码表目录)、STANDARD_ELEMENT(数据标准目录)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3384,25 +3750,27 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找事实表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {number} [l3Id] 业务对象l3 id
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {string} [bizCatalogId] 所属的业务分层的id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3473,7 +3841,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询作业列表
-     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {number} [limit] 分页参数：每页限定数量
      * @param {number} [offset] 分页参数：页数
      * @param {'REAL_TIME' | 'BATCH'} [jobType] 作业类型:  - REAL_TIME: 实时处理  - BATCH: 批处理
@@ -3626,14 +3994,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取当前指标图谱
+     * 获取当前指标图谱。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指标关联信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {string} bizType 指标类型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} bizType 指标类型。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3729,18 +4099,20 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、等分页查找关系信息
+     * 通过名称、等分页查找关系信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关系
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4032,14 +4404,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取主题层级
+     * 获取主题层级。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取主题层级
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4053,17 +4427,19 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询模型下所有关系
+     * 查询模型下所有关系。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询模型下所有关系
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} modelId 依据workspace id查工作区
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [tableIds] 表模型ids
-     * @param {'TABLE_MODEL' | 'FACT_LOGIC_TABLE'} [bizType] 表类型
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {'TABLE_MODEL' | 'FACT_LOGIC_TABLE'} [bizType] 表类型。TABLE_MODEL(关系建模：逻辑实体/物理表)、FACT_LOGIC_TABLE(事实表)。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4077,24 +4453,26 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找模型实体信息，包含逻辑实体、表或属性。
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找关系建模中的表模型信息，包括逻辑实体、物理表和其属性。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查找模型实体列表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} modelId 所属的模型的id
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION'>} [syncKey] 
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {string} [bizCatalogId] 所属的业务分层的id
+     * @summary 查找表模型列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4128,15 +4506,17 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取模型
+     * 获取模型。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模型
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {'THIRD_NF' | 'DIMENSION'} [workspaceType] 
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {'THIRD_NF' | 'DIMENSION'} [workspaceType] 模型工作区类型枚举。THIRD_NF(关系建模)、DIMENSION(维度建模)。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [dwType] 数据连接类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4217,13 +4597,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改自定义项
+     * 修改自定义项。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改自定义项
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {CustomizedFieldsVOList} fields 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CustomizedFieldsVOList} modifyCustomizedFieldsRequestBody 待修改的自定义项数组。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4276,6 +4658,53 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 根据资产（表或属性）的ID删除资产标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除标签
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} entityId 表的ID。
+     * @param {string} tag 标签名。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [attrId] 属性的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeDesignEntityTags(removeDesignEntityTagsRequest?: RemoveDesignEntityTagsRequest): Promise<RemoveDesignEntityTagsResponse> {
+        const options = ParamCreater().removeDesignEntityTags(removeDesignEntityTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 清空表的质量规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清空质量规则
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} tableId 表的ID。
+     * @param {string} tableType 表类型，默认值是业务表。TABLE_MODEL(业务表(逻辑实体/物理表))、AGGREGATION_LOGIC_TABLE(汇总表)、FACT_LOGIC_TABLE(事实表)、DIMENSION_LOGIC_TABLE(维度表)。 - TABLE_MODEL - AGGREGATION_LOGIC_TABLE - FACT_LOGIC_TABLE - DIMENSION_LOGIC_TABLE
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeDesignQualityInfos(removeDesignQualityInfosRequest?: RemoveDesignQualityInfosRequest): Promise<RemoveDesignQualityInfosResponse> {
+        const options = ParamCreater().removeDesignQualityInfos(removeDesignQualityInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 指定字段采集概要信息接口
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4296,13 +4725,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 关联属性与数据标准
+     * 关联属性与数据标准。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关联属性与数据标准
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {LinkAttributeAndElementVO} ids 属性ID列表{\&#39;id1\&#39;,\&#39;id2\&#39;}
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {LinkAttributeAndElementVO} resetLinkAttributeAndStandardRequestBody 属性ID列表{\&#39;id1\&#39;,\&#39;id2\&#39;}。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4316,13 +4747,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 撤回审批单
+     * 撤回审批单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 撤回审批单
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} ids 审批单id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} ids 审批单ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4336,24 +4769,26 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取审批单
+     * 获取审批单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取审批单
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [bizId] 业务定义id
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DEVELOPING' | 'FINISHED'} [approvalStatus] 查询待审批，已审批
-     * @param {'DEVELOPING' | 'APPROVED' | 'REJECT'} [approvalStatusDetail] 查询待审批，已审批
-     * @param {'PUBLISH' | 'OFFLINE'} [approvalType] 业务审核类型
-     * @param {string} [bizType] 按业务类型查询
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [bizId] 业务定义ID。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DEVELOPING' | 'FINISHED'} [approvalStatus] 审批单状态。DEVELOPING(待审批)、FINISHED(已审批)。
+     * @param {'DEVELOPING' | 'APPROVED' | 'REJECT'} [approvalStatusDetail] 审批单状态。DEVELOPING(待审批)、APPROVED(审批通过)、REJECT(审批驳回)。
+     * @param {'PUBLISH' | 'OFFLINE'} [approvalType] 业务审核类型。PUBLISH(发布)、OFFLINE(下线)。
+     * @param {string} [bizType] 按业务类型查询。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4367,22 +4802,24 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找原子指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [l3Id] 业务对象l3 id
-     * @param {number} [tableId] 关联表id
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {number} [tableId] 关联表的ID。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4444,19 +4881,21 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询流程架构列表
+     * 查询流程架构列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询流程架构列表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [owner] 按负责人查询
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4470,15 +4909,17 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看码表字段值
+     * 查看码表字段值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看码表字段值
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4492,21 +4933,23 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询码表列表
+     * 查询码表列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询码表列表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [approver] 按审核人查询
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [approver] 按审核人查询。
      * @param {number} [directoryId] 目录ID
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4520,15 +4963,17 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询自定义项
+     * 查询自定义项。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义项
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {'TABLE' | 'ATTRIBUTE' | 'SUBJECT'} type 
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'TABLE' | 'ATTRIBUTE' | 'SUBJECT' | 'METRIC'} type 自定义项类型。TABLE(表自定义项)、ATTRIBUTE(属性自定义项)、SUBJECT(主题自定义项)、METRIC(业务指标自定义项)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4542,14 +4987,39 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取指定类型下的数据连接信息
+     * 当已发布的实体被编辑时，其会生成下展，该接口用于获取下展信息与已发布实体的差异。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取下展信息与已发布实体的差异
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} bizId 待比较下展的实体ID。
+     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待比较下展的实体类型。ATOMIC_INDEX(原子指标)、DERIVATIVE_INDEX(衍生指标)、DIMENSION(维度)、FACT_LOGIC_TABLE(事实表)、TABLE_MODEL(业务表：逻辑实体/物理表)、STANDARD_ELEMENT(数据标准)、AGGREGATION_LOGIC_TABLE(汇总表)、CODE_TABLE(码表)、BIZ_METRIC(业务指标)、COMPOUND_METRIC(复合指标)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchDesignLatestApprovalDiff(searchDesignLatestApprovalDiffRequest?: SearchDesignLatestApprovalDiffRequest): Promise<SearchDesignLatestApprovalDiffResponse> {
+        const options = ParamCreater().searchDesignLatestApprovalDiff(searchDesignLatestApprovalDiffRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定类型下的数据连接信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取数据连接信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} dwType 数据连接类型
-     * @param {boolean} [forceRefresh] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} dwType 数据连接类型。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [forceRefresh] 是否查询最新的。
      * @param {number} [limit] limit
      * @param {number} [offset] limit
      * @param {*} [options] Override http request option.
@@ -4557,6 +5027,28 @@ export class DataArtsStudioClient {
      */
     public searchDwByType(searchDwByTypeRequest?: SearchDwByTypeRequest): Promise<SearchDwByTypeResponse> {
         const options = ParamCreater().searchDwByType(searchDwByTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询目的表和字段(待下线)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询目的表和字段(待下线)
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchFieldsForRelation(searchFieldsForRelationRequest?: SearchFieldsForRelationRequest): Promise<SearchFieldsForRelationResponse> {
+        const options = ParamCreater().searchFieldsForRelation(searchFieldsForRelationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4589,21 +5081,23 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、创建者、责任人、状态、修改时间分页查找主题
+     * 通过名称、创建者、责任人、状态、修改时间分页查找主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找主题列表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4617,21 +5111,23 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查找主题(新)
+     * 查找主题(新)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找主题列表(新)
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {string} [owner] 按负责人查询
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
-     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {string} [owner] 按负责人查询。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
+     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4645,20 +5141,22 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、创建者、修改时间查找版本信息
+     * 通过名称、创建者、修改时间查找版本信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找版本信息
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} [name] 按名称或编码模糊查询
-     * @param {string} [createBy] 按创建者查询
-     * @param {number} [bizId] 业务定义id
-     * @param {string} [bizType] 按业务类型查询
-     * @param {string} [beginTime] 时间过滤左边界,与end_time一起使用,只支持时间范围过滤,单边过滤无效
-     * @param {string} [endTime] 时间过滤右边界,与begin_time一起使用只支持时间范围过滤,单边过滤无效
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 按名称或编码模糊查询。
+     * @param {string} [createBy] 按创建者查询。
+     * @param {number} [bizId] 业务定义ID。
+     * @param {string} [bizType] 按业务类型查询。
+     * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4695,14 +5193,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看汇总表的详情信息
+     * 通过ID查看汇总表的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看汇总表详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4938,14 +5438,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取指标详情信息
+     * 通过ID获取指标详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看原子指标详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4959,13 +5461,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查找流程架构详情
+     * 查找流程架构详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查找流程架构详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4979,14 +5483,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看指标的详情信息
+     * 通过ID查看指标的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看指标详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5083,13 +5589,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看码表的详情信息
+     * 通过ID查看码表的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看码表详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5103,14 +5611,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取复合指标详情信息
+     * 通过ID获取复合指标详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看复合指标详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5124,14 +5634,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看限定详情信息
+     * 通过ID查看限定详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看限定详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5275,14 +5787,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取衍生详情信息
+     * 通过ID获取衍生详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看衍生指标详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5296,14 +5810,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看维度详情信息
+     * 通过ID查看维度详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看维度详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5317,14 +5833,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看维度表的详情信息
+     * 通过ID查看维度表的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看维度表详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5378,14 +5896,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id查看事实表的详情信息
+     * 通过ID查看事实表的详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看事实表详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5754,14 +6274,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取关系详情信息
+     * 通过ID获取关系详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看关系详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5855,13 +6377,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取数据标准详情信息
+     * 通过ID获取数据标准详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看数据标准详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5875,14 +6399,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询数据标准模板
+     * 查询数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据标准模板
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]
-     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整。默认值0
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5896,14 +6422,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过id获取模型表详情信息
+     * 通过ID获取模型表详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看表模型详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {boolean} [latest] 是否查询最新的
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {boolean} [latest] 是否查询最新的。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6059,13 +6587,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询物理模型或逻辑模型的工作区空间详情
+     * 查询物理模型或逻辑模型的工作区空间详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询模型详情
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} modelId 依据workspace id查工作区
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6122,13 +6652,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 更新业务指标
+     * 更新业务指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新业务指标
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {BizMetricVO} bizMetric bizMetric info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BizMetricVO} updateBizMetricRequestBody bizMetric info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6165,14 +6697,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改码表
+     * 修改码表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改码表
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {CodeTableVO} codeTable 码表信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {CodeTableVO} updateCodeTableRequestBody 码表信息
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6186,14 +6720,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 编辑码表字段值
+     * 编辑码表字段值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 编辑码表字段值
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {CodeTableFieldValueUpdateVO} fieldValues code table field values
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {CodeTableFieldValueUpdateVO} updateCodeTableValuesRequestBody code table field values
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6228,13 +6764,82 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改目录
+     * 更新汇总表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新汇总表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {AggregationLogicTableVO} updateDesignAggregationLogicTableRequestBody 待更新的汇总表
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignAggregationLogicTable(updateDesignAggregationLogicTableRequest?: UpdateDesignAggregationLogicTableRequest): Promise<UpdateDesignAggregationLogicTableResponse> {
+        const options = ParamCreater().updateDesignAggregationLogicTable(updateDesignAggregationLogicTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新单个原子指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新原子指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {AtomicIndexVO} updateDesignAtomicIndexRequestBody atomicIndex info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignAtomicIndex(updateDesignAtomicIndexRequest?: UpdateDesignAtomicIndexRequest): Promise<UpdateDesignAtomicIndexResponse> {
+        const options = ParamCreater().updateDesignAtomicIndex(updateDesignAtomicIndexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新表的异常数据输出配置，包括是否生成异常数据、设置异常数据数据库或Schema、设置异常表表前缀/表后缀。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新表的异常数据输出配置
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} tableId 表的ID。
+     * @param {UpdateDesignTableQualityParam} updateDesignTableQualityRequestBody 质量规则相关信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDesignTableQuality(updateDesignTableQualityRequest?: UpdateDesignTableQualityRequest): Promise<UpdateDesignTableQualityResponse> {
+        const options = ParamCreater().updateDesignTableQuality(updateDesignTableQualityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改目录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改目录
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {DirectoryVO} directory 目录信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {DirectoryVO} updateDirectoryRequestBody 目录信息
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6378,14 +6983,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改数据标准
+     * 修改数据标准。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改数据标准
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {string} id 实体id
-     * @param {StandElementValueVOList} values field value info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} id 实体ID
+     * @param {StandElementValueVOList} updateStandardRequestBody field value info
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6399,13 +7006,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改数据标准模板
+     * 修改数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改数据标准模板
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {StandElementFieldVO} field field info
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {StandElementFieldVO} updateStandardTemplateRequestBody 数据标准字段信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6419,13 +7028,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改主题
+     * 修改主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改主题
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {CatalogParamsVO} catalogParam catalog参数
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {CatalogParamsVO} updateSubjectRequestBody catalog参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6439,13 +7050,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改主题(新)
+     * 修改主题(新)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改主题(新)
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {SubjectParamsVO} subjectParam subject参数
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {SubjectParamsVO} updateSubjectNewRequestBody subject参数。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6459,13 +7072,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 更新一个模型实体，包括逻辑实体或物理数据表。
+     * 在关系建模中更新一个表模型及其属性，包括逻辑实体和物理表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新模型实体
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {TableModelUpdateVO} tableModel table model info
+     * @summary 更新表模型
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {TableModelUpdateVO} updateTableModelRequestBody 关系建模表信息。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6542,13 +7157,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 更新模型工作区
+     * 更新模型工作区。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新模型工作区
-     * @param {string} workspace DataArts Studio工作空间ID
-     * @param {WorkspaceVO} workSpace 
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {WorkspaceVO} updateWorkspaceRequestBody 待更新的模型工作区对象。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6894,6 +7511,82 @@ export class DataArtsStudioClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 根据资产（表或属性）的ID给资产打上标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addDesignEntityTags(addDesignEntityTagsRequest?: AddDesignEntityTagsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/{entity_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let entityId;
+            
+            let tags;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let attrId;
+
+            if (addDesignEntityTagsRequest !== null && addDesignEntityTagsRequest !== undefined) {
+                if (addDesignEntityTagsRequest instanceof AddDesignEntityTagsRequest) {
+                    workspace = addDesignEntityTagsRequest.workspace;
+                    entityId = addDesignEntityTagsRequest.entityId;
+                    tags = addDesignEntityTagsRequest.tags;
+                    xProjectId = addDesignEntityTagsRequest.xProjectId;
+                    contentType = addDesignEntityTagsRequest.contentType;
+                    attrId = addDesignEntityTagsRequest.attrId;
+                } else {
+                    workspace = addDesignEntityTagsRequest['workspace'];
+                    entityId = addDesignEntityTagsRequest['entity_id'];
+                    tags = addDesignEntityTagsRequest['tags'];
+                    xProjectId = addDesignEntityTagsRequest['X-Project-Id'];
+                    contentType = addDesignEntityTagsRequest['Content-Type'];
+                    attrId = addDesignEntityTagsRequest['attr_id'];
+                }
+            }
+
+        
+            if (entityId === null || entityId === undefined) {
+            throw new RequiredError('entityId','Required parameter entityId was null or undefined when calling addDesignEntityTags.');
+            }
+            if (tags === null || tags === undefined) {
+                throw new RequiredError('tags','Required parameter tags was null or undefined when calling addDesignEntityTags.');
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (attrId !== null && attrId !== undefined) {
+                localVarQueryParameter['attr_id'] = attrId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'entity_id': entityId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 标签关联到资产
@@ -7487,7 +8180,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量下线
+         * 批量下线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7506,14 +8199,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (batchOfflineRequest !== null && batchOfflineRequest !== undefined) {
                 if (batchOfflineRequest instanceof BatchOfflineRequest) {
                     workspace = batchOfflineRequest.workspace;
                     body = batchOfflineRequest.body
+                    xProjectId = batchOfflineRequest.xProjectId;
+                    contentType = batchOfflineRequest.contentType;
                 } else {
                     workspace = batchOfflineRequest['workspace'];
                     body = batchOfflineRequest['body'];
+                    xProjectId = batchOfflineRequest['X-Project-Id'];
+                    contentType = batchOfflineRequest['Content-Type'];
                 }
             }
 
@@ -7524,6 +8225,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -7532,7 +8239,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量发布
+         * 批量发布。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7551,14 +8258,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (batchPublishRequest !== null && batchPublishRequest !== undefined) {
                 if (batchPublishRequest instanceof BatchPublishRequest) {
                     workspace = batchPublishRequest.workspace;
                     body = batchPublishRequest.body
+                    xProjectId = batchPublishRequest.xProjectId;
+                    contentType = batchPublishRequest.contentType;
                 } else {
                     workspace = batchPublishRequest['workspace'];
                     body = batchPublishRequest['body'];
+                    xProjectId = batchPublishRequest['X-Project-Id'];
+                    contentType = batchPublishRequest['Content-Type'];
                 }
             }
 
@@ -7568,6 +8283,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -7664,7 +8385,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改流程架构
+         * 修改流程架构。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7683,14 +8404,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (changeCatalogRequest !== null && changeCatalogRequest !== undefined) {
                 if (changeCatalogRequest instanceof ChangeCatalogRequest) {
                     workspace = changeCatalogRequest.workspace;
                     body = changeCatalogRequest.body
+                    xProjectId = changeCatalogRequest.xProjectId;
+                    contentType = changeCatalogRequest.contentType;
                 } else {
                     workspace = changeCatalogRequest['workspace'];
                     body = changeCatalogRequest['body'];
+                    xProjectId = changeCatalogRequest['X-Project-Id'];
+                    contentType = changeCatalogRequest['Content-Type'];
                 }
             }
 
@@ -7700,6 +8429,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -7747,7 +8482,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改或删除主题层级
+         * 修改或删除主题层级。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7766,14 +8501,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (changeSubjectsRequest !== null && changeSubjectsRequest !== undefined) {
                 if (changeSubjectsRequest instanceof ChangeSubjectsRequest) {
                     workspace = changeSubjectsRequest.workspace;
                     body = changeSubjectsRequest.body
+                    xProjectId = changeSubjectsRequest.xProjectId;
+                    contentType = changeSubjectsRequest.contentType;
                 } else {
                     workspace = changeSubjectsRequest['workspace'];
                     body = changeSubjectsRequest['body'];
+                    xProjectId = changeSubjectsRequest['X-Project-Id'];
+                    contentType = changeSubjectsRequest['Content-Type'];
                 }
             }
 
@@ -7784,6 +8527,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -7792,7 +8541,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看逆向维度表任务
+         * 查看逆向维度表任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7809,12 +8558,20 @@ export const ParamCreater = function () {
 
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (checkDimensionStatusRequest !== null && checkDimensionStatusRequest !== undefined) {
                 if (checkDimensionStatusRequest instanceof CheckDimensionStatusRequest) {
                     workspace = checkDimensionStatusRequest.workspace;
+                    xProjectId = checkDimensionStatusRequest.xProjectId;
+                    contentType = checkDimensionStatusRequest.contentType;
                 } else {
                     workspace = checkDimensionStatusRequest['workspace'];
+                    xProjectId = checkDimensionStatusRequest['X-Project-Id'];
+                    contentType = checkDimensionStatusRequest['Content-Type'];
                 }
             }
 
@@ -7822,13 +8579,19 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查看逆向事实表任务
+         * 查看逆向事实表任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7845,12 +8608,20 @@ export const ParamCreater = function () {
 
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (checkFactLogicTableStatusRequest !== null && checkFactLogicTableStatusRequest !== undefined) {
                 if (checkFactLogicTableStatusRequest instanceof CheckFactLogicTableStatusRequest) {
                     workspace = checkFactLogicTableStatusRequest.workspace;
+                    xProjectId = checkFactLogicTableStatusRequest.xProjectId;
+                    contentType = checkFactLogicTableStatusRequest.contentType;
                 } else {
                     workspace = checkFactLogicTableStatusRequest['workspace'];
+                    xProjectId = checkFactLogicTableStatusRequest['X-Project-Id'];
+                    contentType = checkFactLogicTableStatusRequest['Content-Type'];
                 }
             }
 
@@ -7858,13 +8629,19 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 审批驳回/通过，单个或多个 action-id&#x3D;reject/resolve
+         * 审批驳回/通过，单个或多个action-id&#x3D;reject/resolve。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7885,16 +8662,24 @@ export const ParamCreater = function () {
             let workspace;
             
             let actionId;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (confirmApprovalsRequest !== null && confirmApprovalsRequest !== undefined) {
                 if (confirmApprovalsRequest instanceof ConfirmApprovalsRequest) {
                     workspace = confirmApprovalsRequest.workspace;
                     actionId = confirmApprovalsRequest.actionId;
                     body = confirmApprovalsRequest.body
+                    xProjectId = confirmApprovalsRequest.xProjectId;
+                    contentType = confirmApprovalsRequest.contentType;
                 } else {
                     workspace = confirmApprovalsRequest['workspace'];
                     actionId = confirmApprovalsRequest['action-id'];
                     body = confirmApprovalsRequest['body'];
+                    xProjectId = confirmApprovalsRequest['X-Project-Id'];
+                    contentType = confirmApprovalsRequest['Content-Type'];
                 }
             }
 
@@ -7910,6 +8695,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -7979,7 +8770,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关系建模统计信息
+         * 关系建模统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7996,12 +8787,20 @@ export const ParamCreater = function () {
 
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (countAllModelsRequest !== null && countAllModelsRequest !== undefined) {
                 if (countAllModelsRequest instanceof CountAllModelsRequest) {
                     workspace = countAllModelsRequest.workspace;
+                    xProjectId = countAllModelsRequest.xProjectId;
+                    contentType = countAllModelsRequest.contentType;
                 } else {
                     workspace = countAllModelsRequest['workspace'];
+                    xProjectId = countAllModelsRequest['X-Project-Id'];
+                    contentType = countAllModelsRequest['Content-Type'];
                 }
             }
 
@@ -8009,13 +8808,19 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 总览统计信息
+         * 总览统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8032,12 +8837,20 @@ export const ParamCreater = function () {
 
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (countOverviewsRequest !== null && countOverviewsRequest !== undefined) {
                 if (countOverviewsRequest instanceof CountOverviewsRequest) {
                     workspace = countOverviewsRequest.workspace;
+                    xProjectId = countOverviewsRequest.xProjectId;
+                    contentType = countOverviewsRequest.contentType;
                 } else {
                     workspace = countOverviewsRequest['workspace'];
+                    xProjectId = countOverviewsRequest['X-Project-Id'];
+                    contentType = countOverviewsRequest['Content-Type'];
                 }
             }
 
@@ -8045,13 +8858,19 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 标准覆盖率统计信息
+         * 标准覆盖率统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8071,16 +8890,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let bizType;
 
             if (countStandardsRequest !== null && countStandardsRequest !== undefined) {
                 if (countStandardsRequest instanceof CountStandardsRequest) {
                     workspace = countStandardsRequest.workspace;
                     id = countStandardsRequest.id;
+                    xProjectId = countStandardsRequest.xProjectId;
+                    contentType = countStandardsRequest.contentType;
                     bizType = countStandardsRequest.bizType;
                 } else {
                     workspace = countStandardsRequest['workspace'];
                     id = countStandardsRequest['id'];
+                    xProjectId = countStandardsRequest['X-Project-Id'];
+                    contentType = countStandardsRequest['Content-Type'];
                     bizType = countStandardsRequest['biz_type'];
                 }
             }
@@ -8095,6 +8922,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -8103,7 +8936,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 模型统计信息
+         * 模型统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8121,14 +8954,22 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let modelId;
 
             if (countTableModelsRequest !== null && countTableModelsRequest !== undefined) {
                 if (countTableModelsRequest instanceof CountTableModelsRequest) {
                     workspace = countTableModelsRequest.workspace;
+                    xProjectId = countTableModelsRequest.xProjectId;
+                    contentType = countTableModelsRequest.contentType;
                     modelId = countTableModelsRequest.modelId;
                 } else {
                     workspace = countTableModelsRequest['workspace'];
+                    xProjectId = countTableModelsRequest['X-Project-Id'];
+                    contentType = countTableModelsRequest['Content-Type'];
                     modelId = countTableModelsRequest['model_id'];
                 }
             }
@@ -8139,6 +8980,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -8203,7 +9050,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建审批人
+         * 创建审批人。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8222,14 +9069,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createApproverRequest !== null && createApproverRequest !== undefined) {
                 if (createApproverRequest instanceof CreateApproverRequest) {
                     workspace = createApproverRequest.workspace;
                     body = createApproverRequest.body
+                    xProjectId = createApproverRequest.xProjectId;
+                    contentType = createApproverRequest.contentType;
                 } else {
                     workspace = createApproverRequest['workspace'];
                     body = createApproverRequest['body'];
+                    xProjectId = createApproverRequest['X-Project-Id'];
+                    contentType = createApproverRequest['Content-Type'];
                 }
             }
 
@@ -8240,6 +9095,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -8248,7 +9109,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建业务指标
+         * 创建业务指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8267,14 +9128,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createBizMetricRequest !== null && createBizMetricRequest !== undefined) {
                 if (createBizMetricRequest instanceof CreateBizMetricRequest) {
                     workspace = createBizMetricRequest.workspace;
                     body = createBizMetricRequest.body
+                    xProjectId = createBizMetricRequest.xProjectId;
+                    contentType = createBizMetricRequest.contentType;
                 } else {
                     workspace = createBizMetricRequest['workspace'];
                     body = createBizMetricRequest['body'];
+                    xProjectId = createBizMetricRequest['X-Project-Id'];
+                    contentType = createBizMetricRequest['Content-Type'];
                 }
             }
 
@@ -8285,6 +9154,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -8293,7 +9168,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建流程架构
+         * 创建流程架构。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8312,14 +9187,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createCatalogRequest !== null && createCatalogRequest !== undefined) {
                 if (createCatalogRequest instanceof CreateCatalogRequest) {
                     workspace = createCatalogRequest.workspace;
                     body = createCatalogRequest.body
+                    xProjectId = createCatalogRequest.xProjectId;
+                    contentType = createCatalogRequest.contentType;
                 } else {
                     workspace = createCatalogRequest['workspace'];
                     body = createCatalogRequest['body'];
+                    xProjectId = createCatalogRequest['X-Project-Id'];
+                    contentType = createCatalogRequest['Content-Type'];
                 }
             }
 
@@ -8330,6 +9213,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -8338,7 +9227,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建码表
+         * 创建码表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8357,14 +9246,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createCodeTableRequest !== null && createCodeTableRequest !== undefined) {
                 if (createCodeTableRequest instanceof CreateCodeTableRequest) {
                     workspace = createCodeTableRequest.workspace;
                     body = createCodeTableRequest.body
+                    xProjectId = createCodeTableRequest.xProjectId;
+                    contentType = createCodeTableRequest.contentType;
                 } else {
                     workspace = createCodeTableRequest['workspace'];
                     body = createCodeTableRequest['body'];
+                    xProjectId = createCodeTableRequest['X-Project-Id'];
+                    contentType = createCodeTableRequest['Content-Type'];
                 }
             }
 
@@ -8374,6 +9271,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -8428,7 +9331,125 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建目录
+         * 新建汇总表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDesignAggregationLogicTable(createDesignAggregationLogicTableRequest?: CreateDesignAggregationLogicTableRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/aggregation-logic-tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createDesignAggregationLogicTableRequest !== null && createDesignAggregationLogicTableRequest !== undefined) {
+                if (createDesignAggregationLogicTableRequest instanceof CreateDesignAggregationLogicTableRequest) {
+                    workspace = createDesignAggregationLogicTableRequest.workspace;
+                    body = createDesignAggregationLogicTableRequest.body
+                    xProjectId = createDesignAggregationLogicTableRequest.xProjectId;
+                    contentType = createDesignAggregationLogicTableRequest.contentType;
+                } else {
+                    workspace = createDesignAggregationLogicTableRequest['workspace'];
+                    body = createDesignAggregationLogicTableRequest['body'];
+                    xProjectId = createDesignAggregationLogicTableRequest['X-Project-Id'];
+                    contentType = createDesignAggregationLogicTableRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新建单个原子指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDesignAtomicIndex(createDesignAtomicIndexRequest?: CreateDesignAtomicIndexRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/atomic-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (createDesignAtomicIndexRequest !== null && createDesignAtomicIndexRequest !== undefined) {
+                if (createDesignAtomicIndexRequest instanceof CreateDesignAtomicIndexRequest) {
+                    workspace = createDesignAtomicIndexRequest.workspace;
+                    body = createDesignAtomicIndexRequest.body
+                    xProjectId = createDesignAtomicIndexRequest.xProjectId;
+                    contentType = createDesignAtomicIndexRequest.contentType;
+                } else {
+                    workspace = createDesignAtomicIndexRequest['workspace'];
+                    body = createDesignAtomicIndexRequest['body'];
+                    xProjectId = createDesignAtomicIndexRequest['X-Project-Id'];
+                    contentType = createDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建目录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8447,14 +9468,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createDirectoryRequest !== null && createDirectoryRequest !== undefined) {
                 if (createDirectoryRequest instanceof CreateDirectoryRequest) {
                     workspace = createDirectoryRequest.workspace;
                     body = createDirectoryRequest.body
+                    xProjectId = createDirectoryRequest.xProjectId;
+                    contentType = createDirectoryRequest.contentType;
                 } else {
                     workspace = createDirectoryRequest['workspace'];
                     body = createDirectoryRequest['body'];
+                    xProjectId = createDirectoryRequest['X-Project-Id'];
+                    contentType = createDirectoryRequest['Content-Type'];
                 }
             }
 
@@ -8464,6 +9493,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -9058,7 +10093,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建数据标准
+         * 创建数据标准。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9077,14 +10112,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createStandardRequest !== null && createStandardRequest !== undefined) {
                 if (createStandardRequest instanceof CreateStandardRequest) {
                     workspace = createStandardRequest.workspace;
                     body = createStandardRequest.body
+                    xProjectId = createStandardRequest.xProjectId;
+                    contentType = createStandardRequest.contentType;
                 } else {
                     workspace = createStandardRequest['workspace'];
                     body = createStandardRequest['body'];
+                    xProjectId = createStandardRequest['X-Project-Id'];
+                    contentType = createStandardRequest['Content-Type'];
                 }
             }
 
@@ -9095,6 +10138,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -9103,7 +10152,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建数据标准模板
+         * 创建数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9122,14 +10171,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createStandardTemplateRequest !== null && createStandardTemplateRequest !== undefined) {
                 if (createStandardTemplateRequest instanceof CreateStandardTemplateRequest) {
                     workspace = createStandardTemplateRequest.workspace;
                     body = createStandardTemplateRequest.body
+                    xProjectId = createStandardTemplateRequest.xProjectId;
+                    contentType = createStandardTemplateRequest.contentType;
                 } else {
                     workspace = createStandardTemplateRequest['workspace'];
                     body = createStandardTemplateRequest['body'];
+                    xProjectId = createStandardTemplateRequest['X-Project-Id'];
+                    contentType = createStandardTemplateRequest['Content-Type'];
                 }
             }
 
@@ -9140,6 +10197,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -9148,7 +10211,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建主题
+         * 创建主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9167,14 +10230,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createSubjectRequest !== null && createSubjectRequest !== undefined) {
                 if (createSubjectRequest instanceof CreateSubjectRequest) {
                     workspace = createSubjectRequest.workspace;
                     body = createSubjectRequest.body
+                    xProjectId = createSubjectRequest.xProjectId;
+                    contentType = createSubjectRequest.contentType;
                 } else {
                     workspace = createSubjectRequest['workspace'];
                     body = createSubjectRequest['body'];
+                    xProjectId = createSubjectRequest['X-Project-Id'];
+                    contentType = createSubjectRequest['Content-Type'];
                 }
             }
 
@@ -9185,6 +10256,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -9193,7 +10270,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建主题(新)
+         * 创建主题(新)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9212,14 +10289,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createSubjectNewRequest !== null && createSubjectNewRequest !== undefined) {
                 if (createSubjectNewRequest instanceof CreateSubjectNewRequest) {
                     workspace = createSubjectNewRequest.workspace;
                     body = createSubjectNewRequest.body
+                    xProjectId = createSubjectNewRequest.xProjectId;
+                    contentType = createSubjectNewRequest.contentType;
                 } else {
                     workspace = createSubjectNewRequest['workspace'];
                     body = createSubjectNewRequest['body'];
+                    xProjectId = createSubjectNewRequest['X-Project-Id'];
+                    contentType = createSubjectNewRequest['Content-Type'];
                 }
             }
 
@@ -9230,6 +10315,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -9238,7 +10329,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建一个模型实体，包括逻辑实体或物理数据表。
+         * 在关系建模中创建一个表模型，包括逻辑实体和物理表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9257,14 +10348,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createTableModelRequest !== null && createTableModelRequest !== undefined) {
                 if (createTableModelRequest instanceof CreateTableModelRequest) {
                     workspace = createTableModelRequest.workspace;
                     body = createTableModelRequest.body
+                    xProjectId = createTableModelRequest.xProjectId;
+                    contentType = createTableModelRequest.contentType;
                 } else {
                     workspace = createTableModelRequest['workspace'];
                     body = createTableModelRequest['body'];
+                    xProjectId = createTableModelRequest['X-Project-Id'];
+                    contentType = createTableModelRequest['Content-Type'];
                 }
             }
 
@@ -9274,6 +10373,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -9373,7 +10478,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新建模型工作区
+         * 新建模型工作区。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9392,14 +10497,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (createWorkspaceRequest !== null && createWorkspaceRequest !== undefined) {
                 if (createWorkspaceRequest instanceof CreateWorkspaceRequest) {
                     workspace = createWorkspaceRequest.workspace;
                     body = createWorkspaceRequest.body
+                    xProjectId = createWorkspaceRequest.xProjectId;
+                    contentType = createWorkspaceRequest.contentType;
                 } else {
                     workspace = createWorkspaceRequest['workspace'];
                     body = createWorkspaceRequest['body'];
+                    xProjectId = createWorkspaceRequest['X-Project-Id'];
+                    contentType = createWorkspaceRequest['Content-Type'];
                 }
             }
 
@@ -9409,6 +10522,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -9521,7 +10640,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除审批人
+         * 删除审批人。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9540,14 +10659,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let approverIds;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteApproverRequest !== null && deleteApproverRequest !== undefined) {
                 if (deleteApproverRequest instanceof DeleteApproverRequest) {
                     workspace = deleteApproverRequest.workspace;
                     approverIds = deleteApproverRequest.approverIds;
+                    xProjectId = deleteApproverRequest.xProjectId;
+                    contentType = deleteApproverRequest.contentType;
                 } else {
                     workspace = deleteApproverRequest['workspace'];
                     approverIds = deleteApproverRequest['approver_ids'];
+                    xProjectId = deleteApproverRequest['X-Project-Id'];
+                    contentType = deleteApproverRequest['Content-Type'];
                 }
             }
 
@@ -9560,6 +10687,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -9612,7 +10745,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除业务指标
+         * 删除业务指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9631,14 +10764,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteBizMetricRequest !== null && deleteBizMetricRequest !== undefined) {
                 if (deleteBizMetricRequest instanceof DeleteBizMetricRequest) {
                     workspace = deleteBizMetricRequest.workspace;
                     body = deleteBizMetricRequest.body
+                    xProjectId = deleteBizMetricRequest.xProjectId;
+                    contentType = deleteBizMetricRequest.contentType;
                 } else {
                     workspace = deleteBizMetricRequest['workspace'];
                     body = deleteBizMetricRequest['body'];
+                    xProjectId = deleteBizMetricRequest['X-Project-Id'];
+                    contentType = deleteBizMetricRequest['Content-Type'];
                 }
             }
 
@@ -9649,6 +10790,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -9657,7 +10804,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除流程架构
+         * 删除流程架构。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9676,14 +10823,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteCatalogRequest !== null && deleteCatalogRequest !== undefined) {
                 if (deleteCatalogRequest instanceof DeleteCatalogRequest) {
                     workspace = deleteCatalogRequest.workspace;
                     body = deleteCatalogRequest.body
+                    xProjectId = deleteCatalogRequest.xProjectId;
+                    contentType = deleteCatalogRequest.contentType;
                 } else {
                     workspace = deleteCatalogRequest['workspace'];
                     body = deleteCatalogRequest['body'];
+                    xProjectId = deleteCatalogRequest['X-Project-Id'];
+                    contentType = deleteCatalogRequest['Content-Type'];
                 }
             }
 
@@ -9693,6 +10848,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -9755,7 +10916,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除码表
+         * 删除码表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9774,14 +10935,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteCodeTableRequest !== null && deleteCodeTableRequest !== undefined) {
                 if (deleteCodeTableRequest instanceof DeleteCodeTableRequest) {
                     workspace = deleteCodeTableRequest.workspace;
                     body = deleteCodeTableRequest.body
+                    xProjectId = deleteCodeTableRequest.xProjectId;
+                    contentType = deleteCodeTableRequest.contentType;
                 } else {
                     workspace = deleteCodeTableRequest['workspace'];
                     body = deleteCodeTableRequest['body'];
+                    xProjectId = deleteCodeTableRequest['X-Project-Id'];
+                    contentType = deleteCodeTableRequest['Content-Type'];
                 }
             }
 
@@ -9791,6 +10960,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -9844,7 +11019,194 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除目录
+         * 批量删除汇总表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignAggregationLogicTable(deleteDesignAggregationLogicTableRequest?: DeleteDesignAggregationLogicTableRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/aggregation-logic-tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignAggregationLogicTableRequest !== null && deleteDesignAggregationLogicTableRequest !== undefined) {
+                if (deleteDesignAggregationLogicTableRequest instanceof DeleteDesignAggregationLogicTableRequest) {
+                    workspace = deleteDesignAggregationLogicTableRequest.workspace;
+                    body = deleteDesignAggregationLogicTableRequest.body
+                    xProjectId = deleteDesignAggregationLogicTableRequest.xProjectId;
+                    contentType = deleteDesignAggregationLogicTableRequest.contentType;
+                } else {
+                    workspace = deleteDesignAggregationLogicTableRequest['workspace'];
+                    body = deleteDesignAggregationLogicTableRequest['body'];
+                    xProjectId = deleteDesignAggregationLogicTableRequest['X-Project-Id'];
+                    contentType = deleteDesignAggregationLogicTableRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除原子指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignAtomicIndex(deleteDesignAtomicIndexRequest?: DeleteDesignAtomicIndexRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/atomic-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignAtomicIndexRequest !== null && deleteDesignAtomicIndexRequest !== undefined) {
+                if (deleteDesignAtomicIndexRequest instanceof DeleteDesignAtomicIndexRequest) {
+                    workspace = deleteDesignAtomicIndexRequest.workspace;
+                    body = deleteDesignAtomicIndexRequest.body
+                    xProjectId = deleteDesignAtomicIndexRequest.xProjectId;
+                    contentType = deleteDesignAtomicIndexRequest.contentType;
+                } else {
+                    workspace = deleteDesignAtomicIndexRequest['workspace'];
+                    body = deleteDesignAtomicIndexRequest['body'];
+                    xProjectId = deleteDesignAtomicIndexRequest['X-Project-Id'];
+                    contentType = deleteDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当已发布的实体被编辑时，其会生成下展，该接口用于删除实体的下展信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDesignLatestApproval(deleteDesignLatestApprovalRequest?: DeleteDesignLatestApprovalRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/approvals/business/{biz_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let bizId;
+            
+            let bizType;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (deleteDesignLatestApprovalRequest !== null && deleteDesignLatestApprovalRequest !== undefined) {
+                if (deleteDesignLatestApprovalRequest instanceof DeleteDesignLatestApprovalRequest) {
+                    workspace = deleteDesignLatestApprovalRequest.workspace;
+                    bizId = deleteDesignLatestApprovalRequest.bizId;
+                    bizType = deleteDesignLatestApprovalRequest.bizType;
+                    xProjectId = deleteDesignLatestApprovalRequest.xProjectId;
+                    contentType = deleteDesignLatestApprovalRequest.contentType;
+                } else {
+                    workspace = deleteDesignLatestApprovalRequest['workspace'];
+                    bizId = deleteDesignLatestApprovalRequest['biz_id'];
+                    bizType = deleteDesignLatestApprovalRequest['biz_type'];
+                    xProjectId = deleteDesignLatestApprovalRequest['X-Project-Id'];
+                    contentType = deleteDesignLatestApprovalRequest['Content-Type'];
+                }
+            }
+
+        
+            if (bizId === null || bizId === undefined) {
+            throw new RequiredError('bizId','Required parameter bizId was null or undefined when calling deleteDesignLatestApproval.');
+            }
+            if (bizType === null || bizType === undefined) {
+                throw new RequiredError('bizType','Required parameter bizType was null or undefined when calling deleteDesignLatestApproval.');
+            }
+            if (bizType !== null && bizType !== undefined) {
+                localVarQueryParameter['biz_type'] = bizType;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'biz_id': bizId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除目录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9863,14 +11225,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let ids;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteDirectoryRequest !== null && deleteDirectoryRequest !== undefined) {
                 if (deleteDirectoryRequest instanceof DeleteDirectoryRequest) {
                     workspace = deleteDirectoryRequest.workspace;
                     ids = deleteDirectoryRequest.ids;
+                    xProjectId = deleteDirectoryRequest.xProjectId;
+                    contentType = deleteDirectoryRequest.contentType;
                 } else {
                     workspace = deleteDirectoryRequest['workspace'];
                     ids = deleteDirectoryRequest['ids'];
+                    xProjectId = deleteDirectoryRequest['X-Project-Id'];
+                    contentType = deleteDirectoryRequest['Content-Type'];
                 }
             }
 
@@ -9883,6 +11253,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -10126,7 +11502,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除数据标准
+         * 删除数据标准。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10145,14 +11521,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteStandardRequest !== null && deleteStandardRequest !== undefined) {
                 if (deleteStandardRequest instanceof DeleteStandardRequest) {
                     workspace = deleteStandardRequest.workspace;
                     body = deleteStandardRequest.body
+                    xProjectId = deleteStandardRequest.xProjectId;
+                    contentType = deleteStandardRequest.contentType;
                 } else {
                     workspace = deleteStandardRequest['workspace'];
                     body = deleteStandardRequest['body'];
+                    xProjectId = deleteStandardRequest['X-Project-Id'];
+                    contentType = deleteStandardRequest['Content-Type'];
                 }
             }
 
@@ -10163,6 +11547,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -10171,7 +11561,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除数据标准模板
+         * 删除数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10190,14 +11580,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let ids;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteStandardTemplateRequest !== null && deleteStandardTemplateRequest !== undefined) {
                 if (deleteStandardTemplateRequest instanceof DeleteStandardTemplateRequest) {
                     workspace = deleteStandardTemplateRequest.workspace;
                     ids = deleteStandardTemplateRequest.ids;
+                    xProjectId = deleteStandardTemplateRequest.xProjectId;
+                    contentType = deleteStandardTemplateRequest.contentType;
                 } else {
                     workspace = deleteStandardTemplateRequest['workspace'];
                     ids = deleteStandardTemplateRequest['ids'];
+                    xProjectId = deleteStandardTemplateRequest['X-Project-Id'];
+                    contentType = deleteStandardTemplateRequest['Content-Type'];
                 }
             }
 
@@ -10211,6 +11609,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -10218,7 +11622,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除主题
+         * 删除主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10237,14 +11641,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteSubjectRequest !== null && deleteSubjectRequest !== undefined) {
                 if (deleteSubjectRequest instanceof DeleteSubjectRequest) {
                     workspace = deleteSubjectRequest.workspace;
                     body = deleteSubjectRequest.body
+                    xProjectId = deleteSubjectRequest.xProjectId;
+                    contentType = deleteSubjectRequest.contentType;
                 } else {
                     workspace = deleteSubjectRequest['workspace'];
                     body = deleteSubjectRequest['body'];
+                    xProjectId = deleteSubjectRequest['X-Project-Id'];
+                    contentType = deleteSubjectRequest['Content-Type'];
                 }
             }
 
@@ -10255,6 +11667,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -10263,7 +11681,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除主题(新)
+         * 删除主题(新)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10282,14 +11700,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteSubjectNewRequest !== null && deleteSubjectNewRequest !== undefined) {
                 if (deleteSubjectNewRequest instanceof DeleteSubjectNewRequest) {
                     workspace = deleteSubjectNewRequest.workspace;
                     body = deleteSubjectNewRequest.body
+                    xProjectId = deleteSubjectNewRequest.xProjectId;
+                    contentType = deleteSubjectNewRequest.contentType;
                 } else {
                     workspace = deleteSubjectNewRequest['workspace'];
                     body = deleteSubjectNewRequest['body'];
+                    xProjectId = deleteSubjectNewRequest['X-Project-Id'];
+                    contentType = deleteSubjectNewRequest['Content-Type'];
                 }
             }
 
@@ -10300,6 +11726,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -10308,7 +11740,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除一个模型实体，包括逻辑实体或物理数据表。
+         * 在关系建模中删除一个表模型及其属性，包括逻辑实体和物理表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10327,14 +11759,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteTableModelRequest !== null && deleteTableModelRequest !== undefined) {
                 if (deleteTableModelRequest instanceof DeleteTableModelRequest) {
                     workspace = deleteTableModelRequest.workspace;
                     body = deleteTableModelRequest.body
+                    xProjectId = deleteTableModelRequest.xProjectId;
+                    contentType = deleteTableModelRequest.contentType;
                 } else {
                     workspace = deleteTableModelRequest['workspace'];
                     body = deleteTableModelRequest['body'];
+                    xProjectId = deleteTableModelRequest['X-Project-Id'];
+                    contentType = deleteTableModelRequest['Content-Type'];
                 }
             }
 
@@ -10344,6 +11784,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -10397,7 +11843,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除模型工作区
+         * 删除模型工作区。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10416,14 +11862,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let ids;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (deleteWorkspacesRequest !== null && deleteWorkspacesRequest !== undefined) {
                 if (deleteWorkspacesRequest instanceof DeleteWorkspacesRequest) {
                     workspace = deleteWorkspacesRequest.workspace;
                     ids = deleteWorkspacesRequest.ids;
+                    xProjectId = deleteWorkspacesRequest.xProjectId;
+                    contentType = deleteWorkspacesRequest.contentType;
                 } else {
                     workspace = deleteWorkspacesRequest['workspace'];
                     ids = deleteWorkspacesRequest['ids'];
+                    xProjectId = deleteWorkspacesRequest['X-Project-Id'];
+                    contentType = deleteWorkspacesRequest['Content-Type'];
                 }
             }
 
@@ -10436,6 +11890,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -10594,7 +12054,200 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于导入主题
+         * 根据模型ID导出指定表的DDL语句。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportDesignModelTableDdl(exportDesignModelTableDdlRequest?: ExportDesignModelTableDdlRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/design/workspaces/{model_id}/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let modelId;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let tbNames;
+            
+            let withDb;
+
+            if (exportDesignModelTableDdlRequest !== null && exportDesignModelTableDdlRequest !== undefined) {
+                if (exportDesignModelTableDdlRequest instanceof ExportDesignModelTableDdlRequest) {
+                    workspace = exportDesignModelTableDdlRequest.workspace;
+                    modelId = exportDesignModelTableDdlRequest.modelId;
+                    xProjectId = exportDesignModelTableDdlRequest.xProjectId;
+                    contentType = exportDesignModelTableDdlRequest.contentType;
+                    tbNames = exportDesignModelTableDdlRequest.tbNames;
+                    withDb = exportDesignModelTableDdlRequest.withDb;
+                } else {
+                    workspace = exportDesignModelTableDdlRequest['workspace'];
+                    modelId = exportDesignModelTableDdlRequest['model_id'];
+                    xProjectId = exportDesignModelTableDdlRequest['X-Project-Id'];
+                    contentType = exportDesignModelTableDdlRequest['Content-Type'];
+                    tbNames = exportDesignModelTableDdlRequest['tb_names'];
+                    withDb = exportDesignModelTableDdlRequest['with_db'];
+                }
+            }
+
+        
+            if (modelId === null || modelId === undefined) {
+            throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling exportDesignModelTableDdl.');
+            }
+            if (tbNames !== null && tbNames !== undefined) {
+                localVarQueryParameter['tb_names'] = tbNames;
+            }
+            if (withDb !== null && withDb !== undefined) {
+                localVarQueryParameter['with_db'] = withDb;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'model_id': modelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据请求参数，导出业务数据，可以导出：码表、数据标准、原子指标、衍生指标、复合指标、汇总表、业务指标、主题、流程、逻辑模型、物理模型、维度、事实表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportDesignModels(exportDesignModelsRequest?: ExportDesignModelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/design/export-model",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (exportDesignModelsRequest !== null && exportDesignModelsRequest !== undefined) {
+                if (exportDesignModelsRequest instanceof ExportDesignModelsRequest) {
+                    workspace = exportDesignModelsRequest.workspace;
+                    body = exportDesignModelsRequest.body
+                    xProjectId = exportDesignModelsRequest.xProjectId;
+                    contentType = exportDesignModelsRequest.contentType;
+                } else {
+                    workspace = exportDesignModelsRequest['workspace'];
+                    body = exportDesignModelsRequest['body'];
+                    xProjectId = exportDesignModelsRequest['X-Project-Id'];
+                    contentType = exportDesignModelsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据请求导出接口（/export-model）时返回的uuid，获取excel导出结果。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportDesignResult(exportDesignResultRequest?: ExportDesignResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/design/export-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let uuid;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (exportDesignResultRequest !== null && exportDesignResultRequest !== undefined) {
+                if (exportDesignResultRequest instanceof ExportDesignResultRequest) {
+                    workspace = exportDesignResultRequest.workspace;
+                    uuid = exportDesignResultRequest.uuid;
+                    xProjectId = exportDesignResultRequest.xProjectId;
+                    contentType = exportDesignResultRequest.contentType;
+                } else {
+                    workspace = exportDesignResultRequest['workspace'];
+                    uuid = exportDesignResultRequest['uuid'];
+                    xProjectId = exportDesignResultRequest['X-Project-Id'];
+                    contentType = exportDesignResultRequest['Content-Type'];
+                }
+            }
+
+        
+            if (uuid === null || uuid === undefined) {
+                throw new RequiredError('uuid','Required parameter uuid was null or undefined when calling exportDesignResult.');
+            }
+            if (uuid !== null && uuid !== undefined) {
+                localVarQueryParameter['uuid'] = uuid;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于导入主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10618,6 +12271,10 @@ export const ParamCreater = function () {
             let file;
             
             
+            let xProjectId;
+            
+            let contentType;
+            
             let skipExist;
 
             if (importCatalogsRequest !== null && importCatalogsRequest !== undefined) {
@@ -10625,11 +12282,15 @@ export const ParamCreater = function () {
                     workspace = importCatalogsRequest.workspace;
                     actionId = importCatalogsRequest.actionId;
                     file = importCatalogsRequest.body?.file;
+                    xProjectId = importCatalogsRequest.xProjectId;
+                    contentType = importCatalogsRequest.contentType;
                     skipExist = importCatalogsRequest.skipExist;
                 } else {
                     workspace = importCatalogsRequest['workspace'];
                     actionId = importCatalogsRequest['action-id'];
                     file = importCatalogsRequest['body']['file'];
+                    xProjectId = importCatalogsRequest['X-Project-Id'];
+                    contentType = importCatalogsRequest['Content-Type'];
                     skipExist = importCatalogsRequest['skip-exist'];
                 }
             }
@@ -10652,6 +12313,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -10707,7 +12374,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
+         * 导入模型，关系建模，维度建模，码表，业务指标以及流程架构。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10731,6 +12398,10 @@ export const ParamCreater = function () {
             let file;
             
             
+            let xProjectId;
+            
+            let contentType;
+            
             let modelId;
             
             let directoryId;
@@ -10742,6 +12413,8 @@ export const ParamCreater = function () {
                     workspace = importModelsRequest.workspace;
                     actionId = importModelsRequest.actionId;
                     file = importModelsRequest.body?.file;
+                    xProjectId = importModelsRequest.xProjectId;
+                    contentType = importModelsRequest.contentType;
                     modelId = importModelsRequest.modelId;
                     directoryId = importModelsRequest.directoryId;
                     skipExist = importModelsRequest.skipExist;
@@ -10749,6 +12422,8 @@ export const ParamCreater = function () {
                     workspace = importModelsRequest['workspace'];
                     actionId = importModelsRequest['action-id'];
                     file = importModelsRequest['body']['file'];
+                    xProjectId = importModelsRequest['X-Project-Id'];
+                    contentType = importModelsRequest['Content-Type'];
                     modelId = importModelsRequest['model_id'];
                     directoryId = importModelsRequest['directory_id'];
                     skipExist = importModelsRequest['skip-exist'];
@@ -10780,6 +12455,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
@@ -10789,7 +12470,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询导入excel的处理结果
+         * 查询导入excel的处理结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10808,14 +12489,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let uuid;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (importResultRequest !== null && importResultRequest !== undefined) {
                 if (importResultRequest instanceof ImportResultRequest) {
                     workspace = importResultRequest.workspace;
                     uuid = importResultRequest.uuid;
+                    xProjectId = importResultRequest.xProjectId;
+                    contentType = importResultRequest.contentType;
                 } else {
                     workspace = importResultRequest['workspace'];
                     uuid = importResultRequest['uuid'];
+                    xProjectId = importResultRequest['X-Project-Id'];
+                    contentType = importResultRequest['Content-Type'];
                 }
             }
 
@@ -10829,6 +12518,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -10836,7 +12531,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 初始化模板
+         * 初始化数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10857,16 +12552,24 @@ export const ParamCreater = function () {
             let workspace;
             
             let actionId;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (initializeStandardTemplateRequest !== null && initializeStandardTemplateRequest !== undefined) {
                 if (initializeStandardTemplateRequest instanceof InitializeStandardTemplateRequest) {
                     workspace = initializeStandardTemplateRequest.workspace;
                     actionId = initializeStandardTemplateRequest.actionId;
                     body = initializeStandardTemplateRequest.body
+                    xProjectId = initializeStandardTemplateRequest.xProjectId;
+                    contentType = initializeStandardTemplateRequest.contentType;
                 } else {
                     workspace = initializeStandardTemplateRequest['workspace'];
                     actionId = initializeStandardTemplateRequest['action-id'];
                     body = initializeStandardTemplateRequest['body'];
+                    xProjectId = initializeStandardTemplateRequest['X-Project-Id'];
+                    contentType = initializeStandardTemplateRequest['Content-Type'];
                 }
             }
 
@@ -10883,6 +12586,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -10892,7 +12601,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10909,6 +12618,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -10941,6 +12654,8 @@ export const ParamCreater = function () {
             if (listAggregationLogicTablesRequest !== null && listAggregationLogicTablesRequest !== undefined) {
                 if (listAggregationLogicTablesRequest instanceof ListAggregationLogicTablesRequest) {
                     workspace = listAggregationLogicTablesRequest.workspace;
+                    xProjectId = listAggregationLogicTablesRequest.xProjectId;
+                    contentType = listAggregationLogicTablesRequest.contentType;
                     name = listAggregationLogicTablesRequest.name;
                     createBy = listAggregationLogicTablesRequest.createBy;
                     approver = listAggregationLogicTablesRequest.approver;
@@ -10957,6 +12672,8 @@ export const ParamCreater = function () {
                     autoGenerate = listAggregationLogicTablesRequest.autoGenerate;
                 } else {
                     workspace = listAggregationLogicTablesRequest['workspace'];
+                    xProjectId = listAggregationLogicTablesRequest['X-Project-Id'];
+                    contentType = listAggregationLogicTablesRequest['Content-Type'];
                     name = listAggregationLogicTablesRequest['name'];
                     createBy = listAggregationLogicTablesRequest['create_by'];
                     approver = listAggregationLogicTablesRequest['approver'];
@@ -11019,6 +12736,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11100,7 +12823,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取数据标准
+         * 根据查询条件分页获取数据标准集合，按修改时间降序排序。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11118,6 +12841,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let directoryId;
             
             let beginTime;
@@ -11131,6 +12858,8 @@ export const ParamCreater = function () {
             if (listAllStandardsRequest !== null && listAllStandardsRequest !== undefined) {
                 if (listAllStandardsRequest instanceof ListAllStandardsRequest) {
                     workspace = listAllStandardsRequest.workspace;
+                    xProjectId = listAllStandardsRequest.xProjectId;
+                    contentType = listAllStandardsRequest.contentType;
                     directoryId = listAllStandardsRequest.directoryId;
                     beginTime = listAllStandardsRequest.beginTime;
                     endTime = listAllStandardsRequest.endTime;
@@ -11138,6 +12867,8 @@ export const ParamCreater = function () {
                     offset = listAllStandardsRequest.offset;
                 } else {
                     workspace = listAllStandardsRequest['workspace'];
+                    xProjectId = listAllStandardsRequest['X-Project-Id'];
+                    contentType = listAllStandardsRequest['Content-Type'];
                     directoryId = listAllStandardsRequest['directory_id'];
                     beginTime = listAllStandardsRequest['begin_time'];
                     endTime = listAllStandardsRequest['end_time'];
@@ -11165,6 +12896,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -11172,7 +12909,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表
+         * 从信息架构中查询多种类型的表信息，包括逻辑实体、物理表、维度表、事实表、汇总表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11191,6 +12928,10 @@ export const ParamCreater = function () {
             let workspace;
             
             let bizTypeList;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -11218,6 +12959,8 @@ export const ParamCreater = function () {
                 if (listAllTablesRequest instanceof ListAllTablesRequest) {
                     workspace = listAllTablesRequest.workspace;
                     bizTypeList = listAllTablesRequest.bizTypeList;
+                    xProjectId = listAllTablesRequest.xProjectId;
+                    contentType = listAllTablesRequest.contentType;
                     name = listAllTablesRequest.name;
                     createBy = listAllTablesRequest.createBy;
                     status = listAllTablesRequest.status;
@@ -11232,6 +12975,8 @@ export const ParamCreater = function () {
                 } else {
                     workspace = listAllTablesRequest['workspace'];
                     bizTypeList = listAllTablesRequest['biz_type_list'];
+                    xProjectId = listAllTablesRequest['X-Project-Id'];
+                    contentType = listAllTablesRequest['Content-Type'];
                     name = listAllTablesRequest['name'];
                     createBy = listAllTablesRequest['create_by'];
                     status = listAllTablesRequest['status'];
@@ -11288,6 +13033,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11830,7 +13581,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询审批人列表
+         * 查询审批人列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11848,6 +13599,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let approverName;
             
             let limit;
@@ -11857,11 +13612,15 @@ export const ParamCreater = function () {
             if (listApproversRequest !== null && listApproversRequest !== undefined) {
                 if (listApproversRequest instanceof ListApproversRequest) {
                     workspace = listApproversRequest.workspace;
+                    xProjectId = listApproversRequest.xProjectId;
+                    contentType = listApproversRequest.contentType;
                     approverName = listApproversRequest.approverName;
                     limit = listApproversRequest.limit;
                     offset = listApproversRequest.offset;
                 } else {
                     workspace = listApproversRequest['workspace'];
+                    xProjectId = listApproversRequest['X-Project-Id'];
+                    contentType = listApproversRequest['Content-Type'];
                     approverName = listApproversRequest['approver_name'];
                     limit = listApproversRequest['limit'];
                     offset = listApproversRequest['offset'];
@@ -11880,6 +13639,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -12068,7 +13833,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指标维度信息
+         * 查看指标维度信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12086,6 +13851,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -12093,10 +13862,14 @@ export const ParamCreater = function () {
             if (listBizMetricDimensionsRequest !== null && listBizMetricDimensionsRequest !== undefined) {
                 if (listBizMetricDimensionsRequest instanceof ListBizMetricDimensionsRequest) {
                     workspace = listBizMetricDimensionsRequest.workspace;
+                    xProjectId = listBizMetricDimensionsRequest.xProjectId;
+                    contentType = listBizMetricDimensionsRequest.contentType;
                     limit = listBizMetricDimensionsRequest.limit;
                     offset = listBizMetricDimensionsRequest.offset;
                 } else {
                     workspace = listBizMetricDimensionsRequest['workspace'];
+                    xProjectId = listBizMetricDimensionsRequest['X-Project-Id'];
+                    contentType = listBizMetricDimensionsRequest['Content-Type'];
                     limit = listBizMetricDimensionsRequest['limit'];
                     offset = listBizMetricDimensionsRequest['offset'];
                 }
@@ -12112,6 +13885,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -12119,7 +13898,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指标指标责任人信息
+         * 查看指标指标责任人信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12137,6 +13916,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -12144,10 +13927,14 @@ export const ParamCreater = function () {
             if (listBizMetricOwnersRequest !== null && listBizMetricOwnersRequest !== undefined) {
                 if (listBizMetricOwnersRequest instanceof ListBizMetricOwnersRequest) {
                     workspace = listBizMetricOwnersRequest.workspace;
+                    xProjectId = listBizMetricOwnersRequest.xProjectId;
+                    contentType = listBizMetricOwnersRequest.contentType;
                     limit = listBizMetricOwnersRequest.limit;
                     offset = listBizMetricOwnersRequest.offset;
                 } else {
                     workspace = listBizMetricOwnersRequest['workspace'];
+                    xProjectId = listBizMetricOwnersRequest['X-Project-Id'];
+                    contentType = listBizMetricOwnersRequest['Content-Type'];
                     limit = listBizMetricOwnersRequest['limit'];
                     offset = listBizMetricOwnersRequest['offset'];
                 }
@@ -12163,6 +13950,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -12170,7 +13963,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、创建者、修改时间分页查找业务指标信息
+         * 通过名称、创建者、修改时间分页查找业务指标信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12187,6 +13980,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -12213,6 +14010,8 @@ export const ParamCreater = function () {
             if (listBizMetricsRequest !== null && listBizMetricsRequest !== undefined) {
                 if (listBizMetricsRequest instanceof ListBizMetricsRequest) {
                     workspace = listBizMetricsRequest.workspace;
+                    xProjectId = listBizMetricsRequest.xProjectId;
+                    contentType = listBizMetricsRequest.contentType;
                     name = listBizMetricsRequest.name;
                     createBy = listBizMetricsRequest.createBy;
                     owner = listBizMetricsRequest.owner;
@@ -12226,6 +14025,8 @@ export const ParamCreater = function () {
                     offset = listBizMetricsRequest.offset;
                 } else {
                     workspace = listBizMetricsRequest['workspace'];
+                    xProjectId = listBizMetricsRequest['X-Project-Id'];
+                    contentType = listBizMetricsRequest['Content-Type'];
                     name = listBizMetricsRequest['name'];
                     createBy = listBizMetricsRequest['create_by'];
                     owner = listBizMetricsRequest['owner'];
@@ -12277,6 +14078,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -12284,7 +14091,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取数据资产主题树信息l1，l2，l3
+         * 获取数据资产主题树信息l1，l2，l3。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12302,6 +14109,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -12309,10 +14120,14 @@ export const ParamCreater = function () {
             if (listBusinessRequest !== null && listBusinessRequest !== undefined) {
                 if (listBusinessRequest instanceof ListBusinessRequest) {
                     workspace = listBusinessRequest.workspace;
+                    xProjectId = listBusinessRequest.xProjectId;
+                    contentType = listBusinessRequest.contentType;
                     limit = listBusinessRequest.limit;
                     offset = listBusinessRequest.offset;
                 } else {
                     workspace = listBusinessRequest['workspace'];
+                    xProjectId = listBusinessRequest['X-Project-Id'];
+                    contentType = listBusinessRequest['Content-Type'];
                     limit = listBusinessRequest['limit'];
                     offset = listBusinessRequest['offset'];
                 }
@@ -12327,6 +14142,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -12408,7 +14229,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取所有目录树
+         * 获取所有目录树。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12425,18 +14246,32 @@ export const ParamCreater = function () {
 
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (listCatalogTreeRequest !== null && listCatalogTreeRequest !== undefined) {
                 if (listCatalogTreeRequest instanceof ListCatalogTreeRequest) {
                     workspace = listCatalogTreeRequest.workspace;
+                    xProjectId = listCatalogTreeRequest.xProjectId;
+                    contentType = listCatalogTreeRequest.contentType;
                 } else {
                     workspace = listCatalogTreeRequest['workspace'];
+                    xProjectId = listCatalogTreeRequest['X-Project-Id'];
+                    contentType = listCatalogTreeRequest['Content-Type'];
                 }
             }
 
         
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.headers = localVarHeaderParameter;
@@ -12568,7 +14403,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找复合指标信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找复合指标信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12585,6 +14420,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -12611,6 +14450,8 @@ export const ParamCreater = function () {
             if (listCompoundMetricsRequest !== null && listCompoundMetricsRequest !== undefined) {
                 if (listCompoundMetricsRequest instanceof ListCompoundMetricsRequest) {
                     workspace = listCompoundMetricsRequest.workspace;
+                    xProjectId = listCompoundMetricsRequest.xProjectId;
+                    contentType = listCompoundMetricsRequest.contentType;
                     name = listCompoundMetricsRequest.name;
                     createBy = listCompoundMetricsRequest.createBy;
                     approver = listCompoundMetricsRequest.approver;
@@ -12624,6 +14465,8 @@ export const ParamCreater = function () {
                     offset = listCompoundMetricsRequest.offset;
                 } else {
                     workspace = listCompoundMetricsRequest['workspace'];
+                    xProjectId = listCompoundMetricsRequest['X-Project-Id'];
+                    contentType = listCompoundMetricsRequest['Content-Type'];
                     name = listCompoundMetricsRequest['name'];
                     createBy = listCompoundMetricsRequest['create_by'];
                     approver = listCompoundMetricsRequest['approver'];
@@ -12675,6 +14518,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -12682,7 +14531,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、描述、创建者、审核人、限定分组id、修改时间状态分页查找限定信息
+         * 通过中英文名称、描述、创建者、审核人、限定分组id、修改时间状态分页查找限定信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12699,6 +14548,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -12719,6 +14572,8 @@ export const ParamCreater = function () {
             if (listConditionRequest !== null && listConditionRequest !== undefined) {
                 if (listConditionRequest instanceof ListConditionRequest) {
                     workspace = listConditionRequest.workspace;
+                    xProjectId = listConditionRequest.xProjectId;
+                    contentType = listConditionRequest.contentType;
                     name = listConditionRequest.name;
                     createBy = listConditionRequest.createBy;
                     approver = listConditionRequest.approver;
@@ -12729,6 +14584,8 @@ export const ParamCreater = function () {
                     offset = listConditionRequest.offset;
                 } else {
                     workspace = listConditionRequest['workspace'];
+                    xProjectId = listConditionRequest['X-Project-Id'];
+                    contentType = listConditionRequest['Content-Type'];
                     name = listConditionRequest['name'];
                     createBy = listConditionRequest['create_by'];
                     approver = listConditionRequest['approver'];
@@ -12767,6 +14624,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -13112,7 +14975,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13129,6 +14992,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -13161,6 +15028,8 @@ export const ParamCreater = function () {
             if (listDerivativeIndexesRequest !== null && listDerivativeIndexesRequest !== undefined) {
                 if (listDerivativeIndexesRequest instanceof ListDerivativeIndexesRequest) {
                     workspace = listDerivativeIndexesRequest.workspace;
+                    xProjectId = listDerivativeIndexesRequest.xProjectId;
+                    contentType = listDerivativeIndexesRequest.contentType;
                     name = listDerivativeIndexesRequest.name;
                     createBy = listDerivativeIndexesRequest.createBy;
                     approver = listDerivativeIndexesRequest.approver;
@@ -13177,6 +15046,8 @@ export const ParamCreater = function () {
                     offset = listDerivativeIndexesRequest.offset;
                 } else {
                     workspace = listDerivativeIndexesRequest['workspace'];
+                    xProjectId = listDerivativeIndexesRequest['X-Project-Id'];
+                    contentType = listDerivativeIndexesRequest['Content-Type'];
                     name = listDerivativeIndexesRequest['name'];
                     createBy = listDerivativeIndexesRequest['create_by'];
                     approver = listDerivativeIndexesRequest['approver'];
@@ -13240,6 +15111,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -13247,7 +15124,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询维度颗粒度, 依据tableId查询涉及所有维度，不传tableId查询所有维度组颗粒度
+         * 查询维度颗粒度，依据tableId查询涉及所有维度，不传tableId查询所有维度组颗粒度。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13265,6 +15142,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let tableId;
             
             let bizType;
@@ -13276,12 +15157,16 @@ export const ParamCreater = function () {
             if (listDimensionGroupsRequest !== null && listDimensionGroupsRequest !== undefined) {
                 if (listDimensionGroupsRequest instanceof ListDimensionGroupsRequest) {
                     workspace = listDimensionGroupsRequest.workspace;
+                    xProjectId = listDimensionGroupsRequest.xProjectId;
+                    contentType = listDimensionGroupsRequest.contentType;
                     tableId = listDimensionGroupsRequest.tableId;
                     bizType = listDimensionGroupsRequest.bizType;
                     limit = listDimensionGroupsRequest.limit;
                     offset = listDimensionGroupsRequest.offset;
                 } else {
                     workspace = listDimensionGroupsRequest['workspace'];
+                    xProjectId = listDimensionGroupsRequest['X-Project-Id'];
+                    contentType = listDimensionGroupsRequest['Content-Type'];
                     tableId = listDimensionGroupsRequest['table_id'];
                     bizType = listDimensionGroupsRequest['biz_type'];
                     limit = listDimensionGroupsRequest['limit'];
@@ -13305,6 +15190,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -13312,7 +15203,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找维度表信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找维度表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13329,6 +15220,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -13363,6 +15258,8 @@ export const ParamCreater = function () {
             if (listDimensionLogicTablesRequest !== null && listDimensionLogicTablesRequest !== undefined) {
                 if (listDimensionLogicTablesRequest instanceof ListDimensionLogicTablesRequest) {
                     workspace = listDimensionLogicTablesRequest.workspace;
+                    xProjectId = listDimensionLogicTablesRequest.xProjectId;
+                    contentType = listDimensionLogicTablesRequest.contentType;
                     name = listDimensionLogicTablesRequest.name;
                     createBy = listDimensionLogicTablesRequest.createBy;
                     approver = listDimensionLogicTablesRequest.approver;
@@ -13380,6 +15277,8 @@ export const ParamCreater = function () {
                     dimensionType = listDimensionLogicTablesRequest.dimensionType;
                 } else {
                     workspace = listDimensionLogicTablesRequest['workspace'];
+                    xProjectId = listDimensionLogicTablesRequest['X-Project-Id'];
+                    contentType = listDimensionLogicTablesRequest['Content-Type'];
                     name = listDimensionLogicTablesRequest['name'];
                     createBy = listDimensionLogicTablesRequest['create_by'];
                     approver = listDimensionLogicTablesRequest['approver'];
@@ -13447,6 +15346,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -13454,7 +15359,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、描述、创建者、审核人、状态、l3Id、派生指标idList、修改时间分页查找维度信息
+         * 通过中英文名称、描述、创建者、审核人、状态、l3Id、衍生指标idList、修改时间分页查找维度信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13471,6 +15376,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -13501,6 +15410,8 @@ export const ParamCreater = function () {
             if (listDimensionsRequest !== null && listDimensionsRequest !== undefined) {
                 if (listDimensionsRequest instanceof ListDimensionsRequest) {
                     workspace = listDimensionsRequest.workspace;
+                    xProjectId = listDimensionsRequest.xProjectId;
+                    contentType = listDimensionsRequest.contentType;
                     name = listDimensionsRequest.name;
                     createBy = listDimensionsRequest.createBy;
                     approver = listDimensionsRequest.approver;
@@ -13516,6 +15427,8 @@ export const ParamCreater = function () {
                     bizCatalogId = listDimensionsRequest.bizCatalogId;
                 } else {
                     workspace = listDimensionsRequest['workspace'];
+                    xProjectId = listDimensionsRequest['X-Project-Id'];
+                    contentType = listDimensionsRequest['Content-Type'];
                     name = listDimensionsRequest['name'];
                     createBy = listDimensionsRequest['create_by'];
                     approver = listDimensionsRequest['approver'];
@@ -13575,6 +15488,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -13582,7 +15501,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取所有目录
+         * 获取所有目录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13602,6 +15521,10 @@ export const ParamCreater = function () {
             
             let type;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -13610,11 +15533,15 @@ export const ParamCreater = function () {
                 if (listDirectoriesRequest instanceof ListDirectoriesRequest) {
                     workspace = listDirectoriesRequest.workspace;
                     type = listDirectoriesRequest.type;
+                    xProjectId = listDirectoriesRequest.xProjectId;
+                    contentType = listDirectoriesRequest.contentType;
                     limit = listDirectoriesRequest.limit;
                     offset = listDirectoriesRequest.offset;
                 } else {
                     workspace = listDirectoriesRequest['workspace'];
                     type = listDirectoriesRequest['type'];
+                    xProjectId = listDirectoriesRequest['X-Project-Id'];
+                    contentType = listDirectoriesRequest['Content-Type'];
                     limit = listDirectoriesRequest['limit'];
                     offset = listDirectoriesRequest['offset'];
                 }
@@ -13636,6 +15563,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -13643,7 +15576,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找事实表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13660,6 +15593,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -13690,6 +15627,8 @@ export const ParamCreater = function () {
             if (listFactLogicTablesRequest !== null && listFactLogicTablesRequest !== undefined) {
                 if (listFactLogicTablesRequest instanceof ListFactLogicTablesRequest) {
                     workspace = listFactLogicTablesRequest.workspace;
+                    xProjectId = listFactLogicTablesRequest.xProjectId;
+                    contentType = listFactLogicTablesRequest.contentType;
                     name = listFactLogicTablesRequest.name;
                     createBy = listFactLogicTablesRequest.createBy;
                     approver = listFactLogicTablesRequest.approver;
@@ -13705,6 +15644,8 @@ export const ParamCreater = function () {
                     bizCatalogId = listFactLogicTablesRequest.bizCatalogId;
                 } else {
                     workspace = listFactLogicTablesRequest['workspace'];
+                    xProjectId = listFactLogicTablesRequest['X-Project-Id'];
+                    contentType = listFactLogicTablesRequest['Content-Type'];
                     name = listFactLogicTablesRequest['name'];
                     createBy = listFactLogicTablesRequest['create_by'];
                     approver = listFactLogicTablesRequest['approver'];
@@ -13763,6 +15704,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14380,7 +16327,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取当前指标图谱
+         * 获取当前指标图谱。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14401,16 +16348,24 @@ export const ParamCreater = function () {
             let id;
             
             let bizType;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (listMetricRelationsRequest !== null && listMetricRelationsRequest !== undefined) {
                 if (listMetricRelationsRequest instanceof ListMetricRelationsRequest) {
                     workspace = listMetricRelationsRequest.workspace;
                     id = listMetricRelationsRequest.id;
                     bizType = listMetricRelationsRequest.bizType;
+                    xProjectId = listMetricRelationsRequest.xProjectId;
+                    contentType = listMetricRelationsRequest.contentType;
                 } else {
                     workspace = listMetricRelationsRequest['workspace'];
                     id = listMetricRelationsRequest['id'];
                     bizType = listMetricRelationsRequest['biz_type'];
+                    xProjectId = listMetricRelationsRequest['X-Project-Id'];
+                    contentType = listMetricRelationsRequest['Content-Type'];
                 }
             }
 
@@ -14426,6 +16381,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14727,7 +16688,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、等分页查找关系信息
+         * 通过名称、等分页查找关系信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14745,6 +16706,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let name;
             
             let createBy;
@@ -14760,6 +16725,8 @@ export const ParamCreater = function () {
             if (listRelationsRequest !== null && listRelationsRequest !== undefined) {
                 if (listRelationsRequest instanceof ListRelationsRequest) {
                     workspace = listRelationsRequest.workspace;
+                    xProjectId = listRelationsRequest.xProjectId;
+                    contentType = listRelationsRequest.contentType;
                     name = listRelationsRequest.name;
                     createBy = listRelationsRequest.createBy;
                     beginTime = listRelationsRequest.beginTime;
@@ -14768,6 +16735,8 @@ export const ParamCreater = function () {
                     offset = listRelationsRequest.offset;
                 } else {
                     workspace = listRelationsRequest['workspace'];
+                    xProjectId = listRelationsRequest['X-Project-Id'];
+                    contentType = listRelationsRequest['Content-Type'];
                     name = listRelationsRequest['name'];
                     createBy = listRelationsRequest['create_by'];
                     beginTime = listRelationsRequest['begin_time'];
@@ -14798,6 +16767,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15711,7 +17686,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取主题层级
+         * 获取主题层级。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15729,6 +17704,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -15736,10 +17715,14 @@ export const ParamCreater = function () {
             if (listSubjectLevelsRequest !== null && listSubjectLevelsRequest !== undefined) {
                 if (listSubjectLevelsRequest instanceof ListSubjectLevelsRequest) {
                     workspace = listSubjectLevelsRequest.workspace;
+                    xProjectId = listSubjectLevelsRequest.xProjectId;
+                    contentType = listSubjectLevelsRequest.contentType;
                     limit = listSubjectLevelsRequest.limit;
                     offset = listSubjectLevelsRequest.offset;
                 } else {
                     workspace = listSubjectLevelsRequest['workspace'];
+                    xProjectId = listSubjectLevelsRequest['X-Project-Id'];
+                    contentType = listSubjectLevelsRequest['Content-Type'];
                     limit = listSubjectLevelsRequest['limit'];
                     offset = listSubjectLevelsRequest['offset'];
                 }
@@ -15755,6 +17738,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -15762,7 +17751,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询模型下所有关系
+         * 查询模型下所有关系。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15782,6 +17771,10 @@ export const ParamCreater = function () {
             
             let modelId;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let tableIds;
             
             let bizType;
@@ -15794,6 +17787,8 @@ export const ParamCreater = function () {
                 if (listTableModelRelationsRequest instanceof ListTableModelRelationsRequest) {
                     workspace = listTableModelRelationsRequest.workspace;
                     modelId = listTableModelRelationsRequest.modelId;
+                    xProjectId = listTableModelRelationsRequest.xProjectId;
+                    contentType = listTableModelRelationsRequest.contentType;
                     tableIds = listTableModelRelationsRequest.tableIds;
                     bizType = listTableModelRelationsRequest.bizType;
                     limit = listTableModelRelationsRequest.limit;
@@ -15801,6 +17796,8 @@ export const ParamCreater = function () {
                 } else {
                     workspace = listTableModelRelationsRequest['workspace'];
                     modelId = listTableModelRelationsRequest['model_id'];
+                    xProjectId = listTableModelRelationsRequest['X-Project-Id'];
+                    contentType = listTableModelRelationsRequest['Content-Type'];
                     tableIds = listTableModelRelationsRequest['table_ids'];
                     bizType = listTableModelRelationsRequest['biz_type'];
                     limit = listTableModelRelationsRequest['limit'];
@@ -15827,6 +17824,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'model_id': modelId, };
@@ -15835,7 +17838,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找模型实体信息，包含逻辑实体、表或属性。
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找关系建模中的表模型信息，包括逻辑实体、物理表和其属性。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15854,6 +17857,10 @@ export const ParamCreater = function () {
             let workspace;
             
             let modelId;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -15881,6 +17888,8 @@ export const ParamCreater = function () {
                 if (listTableModelsRequest instanceof ListTableModelsRequest) {
                     workspace = listTableModelsRequest.workspace;
                     modelId = listTableModelsRequest.modelId;
+                    xProjectId = listTableModelsRequest.xProjectId;
+                    contentType = listTableModelsRequest.contentType;
                     name = listTableModelsRequest.name;
                     createBy = listTableModelsRequest.createBy;
                     approver = listTableModelsRequest.approver;
@@ -15895,6 +17904,8 @@ export const ParamCreater = function () {
                 } else {
                     workspace = listTableModelsRequest['workspace'];
                     modelId = listTableModelsRequest['model_id'];
+                    xProjectId = listTableModelsRequest['X-Project-Id'];
+                    contentType = listTableModelsRequest['Content-Type'];
                     name = listTableModelsRequest['name'];
                     createBy = listTableModelsRequest['create_by'];
                     approver = listTableModelsRequest['approver'];
@@ -15952,6 +17963,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -16003,7 +18020,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取模型
+         * 获取模型。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16021,6 +18038,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let workspaceType;
             
             let limit;
@@ -16032,12 +18053,16 @@ export const ParamCreater = function () {
             if (listWorkspacesRequest !== null && listWorkspacesRequest !== undefined) {
                 if (listWorkspacesRequest instanceof ListWorkspacesRequest) {
                     workspace = listWorkspacesRequest.workspace;
+                    xProjectId = listWorkspacesRequest.xProjectId;
+                    contentType = listWorkspacesRequest.contentType;
                     workspaceType = listWorkspacesRequest.workspaceType;
                     limit = listWorkspacesRequest.limit;
                     offset = listWorkspacesRequest.offset;
                     dwType = listWorkspacesRequest.dwType;
                 } else {
                     workspace = listWorkspacesRequest['workspace'];
+                    xProjectId = listWorkspacesRequest['X-Project-Id'];
+                    contentType = listWorkspacesRequest['Content-Type'];
                     workspaceType = listWorkspacesRequest['workspace_type'];
                     limit = listWorkspacesRequest['limit'];
                     offset = listWorkspacesRequest['offset'];
@@ -16060,6 +18085,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -16246,7 +18277,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改自定义项
+         * 修改自定义项。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16265,14 +18296,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (modifyCustomizedFieldsRequest !== null && modifyCustomizedFieldsRequest !== undefined) {
                 if (modifyCustomizedFieldsRequest instanceof ModifyCustomizedFieldsRequest) {
                     workspace = modifyCustomizedFieldsRequest.workspace;
                     body = modifyCustomizedFieldsRequest.body
+                    xProjectId = modifyCustomizedFieldsRequest.xProjectId;
+                    contentType = modifyCustomizedFieldsRequest.contentType;
                 } else {
                     workspace = modifyCustomizedFieldsRequest['workspace'];
                     body = modifyCustomizedFieldsRequest['body'];
+                    xProjectId = modifyCustomizedFieldsRequest['X-Project-Id'];
+                    contentType = modifyCustomizedFieldsRequest['Content-Type'];
                 }
             }
 
@@ -16282,6 +18321,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -16374,6 +18419,151 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据资产（表或属性）的ID删除资产标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeDesignEntityTags(removeDesignEntityTagsRequest?: RemoveDesignEntityTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/{entity_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let entityId;
+            
+            let tag;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let attrId;
+
+            if (removeDesignEntityTagsRequest !== null && removeDesignEntityTagsRequest !== undefined) {
+                if (removeDesignEntityTagsRequest instanceof RemoveDesignEntityTagsRequest) {
+                    workspace = removeDesignEntityTagsRequest.workspace;
+                    entityId = removeDesignEntityTagsRequest.entityId;
+                    tag = removeDesignEntityTagsRequest.tag;
+                    xProjectId = removeDesignEntityTagsRequest.xProjectId;
+                    contentType = removeDesignEntityTagsRequest.contentType;
+                    attrId = removeDesignEntityTagsRequest.attrId;
+                } else {
+                    workspace = removeDesignEntityTagsRequest['workspace'];
+                    entityId = removeDesignEntityTagsRequest['entity_id'];
+                    tag = removeDesignEntityTagsRequest['tag'];
+                    xProjectId = removeDesignEntityTagsRequest['X-Project-Id'];
+                    contentType = removeDesignEntityTagsRequest['Content-Type'];
+                    attrId = removeDesignEntityTagsRequest['attr_id'];
+                }
+            }
+
+        
+            if (entityId === null || entityId === undefined) {
+            throw new RequiredError('entityId','Required parameter entityId was null or undefined when calling removeDesignEntityTags.');
+            }
+            if (tag === null || tag === undefined) {
+                throw new RequiredError('tag','Required parameter tag was null or undefined when calling removeDesignEntityTags.');
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (attrId !== null && attrId !== undefined) {
+                localVarQueryParameter['attr_id'] = attrId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'entity_id': entityId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 清空表的质量规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeDesignQualityInfos(removeDesignQualityInfosRequest?: RemoveDesignQualityInfosRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/design/{table_id}/qualities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let tableId;
+            
+            let tableType;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (removeDesignQualityInfosRequest !== null && removeDesignQualityInfosRequest !== undefined) {
+                if (removeDesignQualityInfosRequest instanceof RemoveDesignQualityInfosRequest) {
+                    workspace = removeDesignQualityInfosRequest.workspace;
+                    tableId = removeDesignQualityInfosRequest.tableId;
+                    tableType = removeDesignQualityInfosRequest.tableType;
+                    xProjectId = removeDesignQualityInfosRequest.xProjectId;
+                    contentType = removeDesignQualityInfosRequest.contentType;
+                } else {
+                    workspace = removeDesignQualityInfosRequest['workspace'];
+                    tableId = removeDesignQualityInfosRequest['table_id'];
+                    tableType = removeDesignQualityInfosRequest['table_type'];
+                    xProjectId = removeDesignQualityInfosRequest['X-Project-Id'];
+                    contentType = removeDesignQualityInfosRequest['Content-Type'];
+                }
+            }
+
+        
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling removeDesignQualityInfos.');
+            }
+            if (tableType === null || tableType === undefined) {
+                throw new RequiredError('tableType','Required parameter tableType was null or undefined when calling removeDesignQualityInfos.');
+            }
+            if (tableType !== null && tableType !== undefined) {
+                localVarQueryParameter['table_type'] = tableType;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 指定字段采集概要信息接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16419,7 +18609,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关联属性与数据标准
+         * 关联属性与数据标准。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16438,14 +18628,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (resetLinkAttributeAndStandardRequest !== null && resetLinkAttributeAndStandardRequest !== undefined) {
                 if (resetLinkAttributeAndStandardRequest instanceof ResetLinkAttributeAndStandardRequest) {
                     workspace = resetLinkAttributeAndStandardRequest.workspace;
                     body = resetLinkAttributeAndStandardRequest.body
+                    xProjectId = resetLinkAttributeAndStandardRequest.xProjectId;
+                    contentType = resetLinkAttributeAndStandardRequest.contentType;
                 } else {
                     workspace = resetLinkAttributeAndStandardRequest['workspace'];
                     body = resetLinkAttributeAndStandardRequest['body'];
+                    xProjectId = resetLinkAttributeAndStandardRequest['X-Project-Id'];
+                    contentType = resetLinkAttributeAndStandardRequest['Content-Type'];
                 }
             }
 
@@ -16456,6 +18654,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -16464,7 +18668,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 撤回审批单
+         * 撤回审批单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16483,14 +18687,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let ids;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (rollbackApprovalRequest !== null && rollbackApprovalRequest !== undefined) {
                 if (rollbackApprovalRequest instanceof RollbackApprovalRequest) {
                     workspace = rollbackApprovalRequest.workspace;
                     ids = rollbackApprovalRequest.ids;
+                    xProjectId = rollbackApprovalRequest.xProjectId;
+                    contentType = rollbackApprovalRequest.contentType;
                 } else {
                     workspace = rollbackApprovalRequest['workspace'];
                     ids = rollbackApprovalRequest['ids'];
+                    xProjectId = rollbackApprovalRequest['X-Project-Id'];
+                    contentType = rollbackApprovalRequest['Content-Type'];
                 }
             }
 
@@ -16504,6 +18716,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -16511,7 +18729,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取审批单
+         * 获取审批单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16528,6 +18746,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let bizId;
             
@@ -16556,6 +18778,8 @@ export const ParamCreater = function () {
             if (searchApprovalsRequest !== null && searchApprovalsRequest !== undefined) {
                 if (searchApprovalsRequest instanceof SearchApprovalsRequest) {
                     workspace = searchApprovalsRequest.workspace;
+                    xProjectId = searchApprovalsRequest.xProjectId;
+                    contentType = searchApprovalsRequest.contentType;
                     bizId = searchApprovalsRequest.bizId;
                     name = searchApprovalsRequest.name;
                     createBy = searchApprovalsRequest.createBy;
@@ -16570,6 +18794,8 @@ export const ParamCreater = function () {
                     offset = searchApprovalsRequest.offset;
                 } else {
                     workspace = searchApprovalsRequest['workspace'];
+                    xProjectId = searchApprovalsRequest['X-Project-Id'];
+                    contentType = searchApprovalsRequest['Content-Type'];
                     bizId = searchApprovalsRequest['biz_id'];
                     name = searchApprovalsRequest['name'];
                     createBy = searchApprovalsRequest['create_by'];
@@ -16625,6 +18851,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -16632,7 +18864,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16649,6 +18881,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -16673,6 +18909,8 @@ export const ParamCreater = function () {
             if (searchAtomicIndexesRequest !== null && searchAtomicIndexesRequest !== undefined) {
                 if (searchAtomicIndexesRequest instanceof SearchAtomicIndexesRequest) {
                     workspace = searchAtomicIndexesRequest.workspace;
+                    xProjectId = searchAtomicIndexesRequest.xProjectId;
+                    contentType = searchAtomicIndexesRequest.contentType;
                     name = searchAtomicIndexesRequest.name;
                     createBy = searchAtomicIndexesRequest.createBy;
                     approver = searchAtomicIndexesRequest.approver;
@@ -16685,6 +18923,8 @@ export const ParamCreater = function () {
                     offset = searchAtomicIndexesRequest.offset;
                 } else {
                     workspace = searchAtomicIndexesRequest['workspace'];
+                    xProjectId = searchAtomicIndexesRequest['X-Project-Id'];
+                    contentType = searchAtomicIndexesRequest['Content-Type'];
                     name = searchAtomicIndexesRequest['name'];
                     createBy = searchAtomicIndexesRequest['create_by'];
                     approver = searchAtomicIndexesRequest['approver'];
@@ -16731,6 +18971,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -16885,7 +19131,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询流程架构列表
+         * 查询流程架构列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16902,6 +19148,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -16920,6 +19170,8 @@ export const ParamCreater = function () {
             if (searchCatalogsRequest !== null && searchCatalogsRequest !== undefined) {
                 if (searchCatalogsRequest instanceof SearchCatalogsRequest) {
                     workspace = searchCatalogsRequest.workspace;
+                    xProjectId = searchCatalogsRequest.xProjectId;
+                    contentType = searchCatalogsRequest.contentType;
                     name = searchCatalogsRequest.name;
                     createBy = searchCatalogsRequest.createBy;
                     owner = searchCatalogsRequest.owner;
@@ -16929,6 +19181,8 @@ export const ParamCreater = function () {
                     offset = searchCatalogsRequest.offset;
                 } else {
                     workspace = searchCatalogsRequest['workspace'];
+                    xProjectId = searchCatalogsRequest['X-Project-Id'];
+                    contentType = searchCatalogsRequest['Content-Type'];
                     name = searchCatalogsRequest['name'];
                     createBy = searchCatalogsRequest['create_by'];
                     owner = searchCatalogsRequest['owner'];
@@ -16964,6 +19218,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -16971,7 +19231,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看码表字段值
+         * 查看码表字段值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16991,6 +19251,10 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -16999,11 +19263,15 @@ export const ParamCreater = function () {
                 if (searchCodeTableValuesRequest instanceof SearchCodeTableValuesRequest) {
                     workspace = searchCodeTableValuesRequest.workspace;
                     id = searchCodeTableValuesRequest.id;
+                    xProjectId = searchCodeTableValuesRequest.xProjectId;
+                    contentType = searchCodeTableValuesRequest.contentType;
                     limit = searchCodeTableValuesRequest.limit;
                     offset = searchCodeTableValuesRequest.offset;
                 } else {
                     workspace = searchCodeTableValuesRequest['workspace'];
                     id = searchCodeTableValuesRequest['id'];
+                    xProjectId = searchCodeTableValuesRequest['X-Project-Id'];
+                    contentType = searchCodeTableValuesRequest['Content-Type'];
                     limit = searchCodeTableValuesRequest['limit'];
                     offset = searchCodeTableValuesRequest['offset'];
                 }
@@ -17022,6 +19290,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -17030,7 +19304,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询码表列表
+         * 查询码表列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17047,6 +19321,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -17069,6 +19347,8 @@ export const ParamCreater = function () {
             if (searchCodeTablesRequest !== null && searchCodeTablesRequest !== undefined) {
                 if (searchCodeTablesRequest instanceof SearchCodeTablesRequest) {
                     workspace = searchCodeTablesRequest.workspace;
+                    xProjectId = searchCodeTablesRequest.xProjectId;
+                    contentType = searchCodeTablesRequest.contentType;
                     name = searchCodeTablesRequest.name;
                     createBy = searchCodeTablesRequest.createBy;
                     approver = searchCodeTablesRequest.approver;
@@ -17080,6 +19360,8 @@ export const ParamCreater = function () {
                     offset = searchCodeTablesRequest.offset;
                 } else {
                     workspace = searchCodeTablesRequest['workspace'];
+                    xProjectId = searchCodeTablesRequest['X-Project-Id'];
+                    contentType = searchCodeTablesRequest['Content-Type'];
                     name = searchCodeTablesRequest['name'];
                     createBy = searchCodeTablesRequest['create_by'];
                     approver = searchCodeTablesRequest['approver'];
@@ -17123,6 +19405,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -17130,7 +19418,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义项
+         * 查询自定义项。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17150,6 +19438,10 @@ export const ParamCreater = function () {
             
             let type;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -17158,11 +19450,15 @@ export const ParamCreater = function () {
                 if (searchCustomizedFieldsRequest instanceof SearchCustomizedFieldsRequest) {
                     workspace = searchCustomizedFieldsRequest.workspace;
                     type = searchCustomizedFieldsRequest.type;
+                    xProjectId = searchCustomizedFieldsRequest.xProjectId;
+                    contentType = searchCustomizedFieldsRequest.contentType;
                     limit = searchCustomizedFieldsRequest.limit;
                     offset = searchCustomizedFieldsRequest.offset;
                 } else {
                     workspace = searchCustomizedFieldsRequest['workspace'];
                     type = searchCustomizedFieldsRequest['type'];
+                    xProjectId = searchCustomizedFieldsRequest['X-Project-Id'];
+                    contentType = searchCustomizedFieldsRequest['Content-Type'];
                     limit = searchCustomizedFieldsRequest['limit'];
                     offset = searchCustomizedFieldsRequest['offset'];
                 }
@@ -17184,6 +19480,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -17191,7 +19493,76 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定类型下的数据连接信息
+         * 当已发布的实体被编辑时，其会生成下展，该接口用于获取下展信息与已发布实体的差异。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchDesignLatestApprovalDiff(searchDesignLatestApprovalDiffRequest?: SearchDesignLatestApprovalDiffRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/design/approvals/business/{biz_id}/diff",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let bizId;
+            
+            let bizType;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (searchDesignLatestApprovalDiffRequest !== null && searchDesignLatestApprovalDiffRequest !== undefined) {
+                if (searchDesignLatestApprovalDiffRequest instanceof SearchDesignLatestApprovalDiffRequest) {
+                    workspace = searchDesignLatestApprovalDiffRequest.workspace;
+                    bizId = searchDesignLatestApprovalDiffRequest.bizId;
+                    bizType = searchDesignLatestApprovalDiffRequest.bizType;
+                    xProjectId = searchDesignLatestApprovalDiffRequest.xProjectId;
+                    contentType = searchDesignLatestApprovalDiffRequest.contentType;
+                } else {
+                    workspace = searchDesignLatestApprovalDiffRequest['workspace'];
+                    bizId = searchDesignLatestApprovalDiffRequest['biz_id'];
+                    bizType = searchDesignLatestApprovalDiffRequest['biz_type'];
+                    xProjectId = searchDesignLatestApprovalDiffRequest['X-Project-Id'];
+                    contentType = searchDesignLatestApprovalDiffRequest['Content-Type'];
+                }
+            }
+
+        
+            if (bizId === null || bizId === undefined) {
+            throw new RequiredError('bizId','Required parameter bizId was null or undefined when calling searchDesignLatestApprovalDiff.');
+            }
+            if (bizType === null || bizType === undefined) {
+                throw new RequiredError('bizType','Required parameter bizType was null or undefined when calling searchDesignLatestApprovalDiff.');
+            }
+            if (bizType !== null && bizType !== undefined) {
+                localVarQueryParameter['biz_type'] = bizType;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'biz_id': bizId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定类型下的数据连接信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17211,6 +19582,10 @@ export const ParamCreater = function () {
             
             let dwType;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let forceRefresh;
             
             let limit;
@@ -17221,12 +19596,16 @@ export const ParamCreater = function () {
                 if (searchDwByTypeRequest instanceof SearchDwByTypeRequest) {
                     workspace = searchDwByTypeRequest.workspace;
                     dwType = searchDwByTypeRequest.dwType;
+                    xProjectId = searchDwByTypeRequest.xProjectId;
+                    contentType = searchDwByTypeRequest.contentType;
                     forceRefresh = searchDwByTypeRequest.forceRefresh;
                     limit = searchDwByTypeRequest.limit;
                     offset = searchDwByTypeRequest.offset;
                 } else {
                     workspace = searchDwByTypeRequest['workspace'];
                     dwType = searchDwByTypeRequest['dw_type'];
+                    xProjectId = searchDwByTypeRequest['X-Project-Id'];
+                    contentType = searchDwByTypeRequest['Content-Type'];
                     forceRefresh = searchDwByTypeRequest['force_refresh'];
                     limit = searchDwByTypeRequest['limit'];
                     offset = searchDwByTypeRequest['offset'];
@@ -17252,8 +19631,72 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询目的表和字段(待下线)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchFieldsForRelation(searchFieldsForRelationRequest?: SearchFieldsForRelationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/design/{model_id}/table-model/relation/fields",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let modelId;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (searchFieldsForRelationRequest !== null && searchFieldsForRelationRequest !== undefined) {
+                if (searchFieldsForRelationRequest instanceof SearchFieldsForRelationRequest) {
+                    workspace = searchFieldsForRelationRequest.workspace;
+                    modelId = searchFieldsForRelationRequest.modelId;
+                    xProjectId = searchFieldsForRelationRequest.xProjectId;
+                    contentType = searchFieldsForRelationRequest.contentType;
+                } else {
+                    workspace = searchFieldsForRelationRequest['workspace'];
+                    modelId = searchFieldsForRelationRequest['model_id'];
+                    xProjectId = searchFieldsForRelationRequest['X-Project-Id'];
+                    contentType = searchFieldsForRelationRequest['Content-Type'];
+                }
+            }
+
+        
+            if (modelId === null || modelId === undefined) {
+            throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling searchFieldsForRelation.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'model_id': modelId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17334,7 +19777,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、创建者、责任人、状态、修改时间分页查找主题
+         * 通过名称、创建者、责任人、状态、修改时间分页查找主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17351,6 +19794,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -17373,6 +19820,8 @@ export const ParamCreater = function () {
             if (searchSubjectRequest !== null && searchSubjectRequest !== undefined) {
                 if (searchSubjectRequest instanceof SearchSubjectRequest) {
                     workspace = searchSubjectRequest.workspace;
+                    xProjectId = searchSubjectRequest.xProjectId;
+                    contentType = searchSubjectRequest.contentType;
                     name = searchSubjectRequest.name;
                     createBy = searchSubjectRequest.createBy;
                     owner = searchSubjectRequest.owner;
@@ -17384,6 +19833,8 @@ export const ParamCreater = function () {
                     parentId = searchSubjectRequest.parentId;
                 } else {
                     workspace = searchSubjectRequest['workspace'];
+                    xProjectId = searchSubjectRequest['X-Project-Id'];
+                    contentType = searchSubjectRequest['Content-Type'];
                     name = searchSubjectRequest['name'];
                     createBy = searchSubjectRequest['create_by'];
                     owner = searchSubjectRequest['owner'];
@@ -17427,6 +19878,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -17434,7 +19891,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查找主题(新)
+         * 查找主题(新)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17451,6 +19908,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -17473,6 +19934,8 @@ export const ParamCreater = function () {
             if (searchSubjectNewRequest !== null && searchSubjectNewRequest !== undefined) {
                 if (searchSubjectNewRequest instanceof SearchSubjectNewRequest) {
                     workspace = searchSubjectNewRequest.workspace;
+                    xProjectId = searchSubjectNewRequest.xProjectId;
+                    contentType = searchSubjectNewRequest.contentType;
                     name = searchSubjectNewRequest.name;
                     createBy = searchSubjectNewRequest.createBy;
                     owner = searchSubjectNewRequest.owner;
@@ -17484,6 +19947,8 @@ export const ParamCreater = function () {
                     parentId = searchSubjectNewRequest.parentId;
                 } else {
                     workspace = searchSubjectNewRequest['workspace'];
+                    xProjectId = searchSubjectNewRequest['X-Project-Id'];
+                    contentType = searchSubjectNewRequest['Content-Type'];
                     name = searchSubjectNewRequest['name'];
                     createBy = searchSubjectNewRequest['create_by'];
                     owner = searchSubjectNewRequest['owner'];
@@ -17527,6 +19992,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -17534,7 +20005,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、创建者、修改时间查找版本信息
+         * 通过名称、创建者、修改时间查找版本信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17551,6 +20022,10 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
             
             let name;
             
@@ -17571,6 +20046,8 @@ export const ParamCreater = function () {
             if (searchVersionsRequest !== null && searchVersionsRequest !== undefined) {
                 if (searchVersionsRequest instanceof SearchVersionsRequest) {
                     workspace = searchVersionsRequest.workspace;
+                    xProjectId = searchVersionsRequest.xProjectId;
+                    contentType = searchVersionsRequest.contentType;
                     name = searchVersionsRequest.name;
                     createBy = searchVersionsRequest.createBy;
                     bizId = searchVersionsRequest.bizId;
@@ -17581,6 +20058,8 @@ export const ParamCreater = function () {
                     offset = searchVersionsRequest.offset;
                 } else {
                     workspace = searchVersionsRequest['workspace'];
+                    xProjectId = searchVersionsRequest['X-Project-Id'];
+                    contentType = searchVersionsRequest['Content-Type'];
                     name = searchVersionsRequest['name'];
                     createBy = searchVersionsRequest['create_by'];
                     bizId = searchVersionsRequest['biz_id'];
@@ -17619,6 +20098,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -17700,7 +20185,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看汇总表的详情信息
+         * 通过ID查看汇总表的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17720,16 +20205,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showAggregationLogicTableByIdRequest !== null && showAggregationLogicTableByIdRequest !== undefined) {
                 if (showAggregationLogicTableByIdRequest instanceof ShowAggregationLogicTableByIdRequest) {
                     workspace = showAggregationLogicTableByIdRequest.workspace;
                     id = showAggregationLogicTableByIdRequest.id;
+                    xProjectId = showAggregationLogicTableByIdRequest.xProjectId;
+                    contentType = showAggregationLogicTableByIdRequest.contentType;
                     latest = showAggregationLogicTableByIdRequest.latest;
                 } else {
                     workspace = showAggregationLogicTableByIdRequest['workspace'];
                     id = showAggregationLogicTableByIdRequest['id'];
+                    xProjectId = showAggregationLogicTableByIdRequest['X-Project-Id'];
+                    contentType = showAggregationLogicTableByIdRequest['Content-Type'];
                     latest = showAggregationLogicTableByIdRequest['latest'];
                 }
             }
@@ -17743,6 +20236,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -18508,7 +21007,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取指标详情信息
+         * 通过ID获取指标详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18528,16 +21027,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showAtomicIndexByIdRequest !== null && showAtomicIndexByIdRequest !== undefined) {
                 if (showAtomicIndexByIdRequest instanceof ShowAtomicIndexByIdRequest) {
                     workspace = showAtomicIndexByIdRequest.workspace;
                     id = showAtomicIndexByIdRequest.id;
+                    xProjectId = showAtomicIndexByIdRequest.xProjectId;
+                    contentType = showAtomicIndexByIdRequest.contentType;
                     latest = showAtomicIndexByIdRequest.latest;
                 } else {
                     workspace = showAtomicIndexByIdRequest['workspace'];
                     id = showAtomicIndexByIdRequest['id'];
+                    xProjectId = showAtomicIndexByIdRequest['X-Project-Id'];
+                    contentType = showAtomicIndexByIdRequest['Content-Type'];
                     latest = showAtomicIndexByIdRequest['latest'];
                 }
             }
@@ -18552,6 +21059,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -18560,7 +21073,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查找流程架构详情
+         * 查找流程架构详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18579,14 +21092,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (showBizCatalogDetailRequest !== null && showBizCatalogDetailRequest !== undefined) {
                 if (showBizCatalogDetailRequest instanceof ShowBizCatalogDetailRequest) {
                     workspace = showBizCatalogDetailRequest.workspace;
                     id = showBizCatalogDetailRequest.id;
+                    xProjectId = showBizCatalogDetailRequest.xProjectId;
+                    contentType = showBizCatalogDetailRequest.contentType;
                 } else {
                     workspace = showBizCatalogDetailRequest['workspace'];
                     id = showBizCatalogDetailRequest['id'];
+                    xProjectId = showBizCatalogDetailRequest['X-Project-Id'];
+                    contentType = showBizCatalogDetailRequest['Content-Type'];
                 }
             }
 
@@ -18597,6 +21118,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
@@ -18604,7 +21131,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看指标的详情信息
+         * 通过ID查看指标的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18624,16 +21151,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showBizMetricByIdRequest !== null && showBizMetricByIdRequest !== undefined) {
                 if (showBizMetricByIdRequest instanceof ShowBizMetricByIdRequest) {
                     workspace = showBizMetricByIdRequest.workspace;
                     id = showBizMetricByIdRequest.id;
+                    xProjectId = showBizMetricByIdRequest.xProjectId;
+                    contentType = showBizMetricByIdRequest.contentType;
                     latest = showBizMetricByIdRequest.latest;
                 } else {
                     workspace = showBizMetricByIdRequest['workspace'];
                     id = showBizMetricByIdRequest['id'];
+                    xProjectId = showBizMetricByIdRequest['X-Project-Id'];
+                    contentType = showBizMetricByIdRequest['Content-Type'];
                     latest = showBizMetricByIdRequest['latest'];
                 }
             }
@@ -18647,6 +21182,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -18854,7 +21395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看码表的详情信息
+         * 通过ID查看码表的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18873,14 +21414,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (showCodeTableByIdRequest !== null && showCodeTableByIdRequest !== undefined) {
                 if (showCodeTableByIdRequest instanceof ShowCodeTableByIdRequest) {
                     workspace = showCodeTableByIdRequest.workspace;
                     id = showCodeTableByIdRequest.id;
+                    xProjectId = showCodeTableByIdRequest.xProjectId;
+                    contentType = showCodeTableByIdRequest.contentType;
                 } else {
                     workspace = showCodeTableByIdRequest['workspace'];
                     id = showCodeTableByIdRequest['id'];
+                    xProjectId = showCodeTableByIdRequest['X-Project-Id'];
+                    contentType = showCodeTableByIdRequest['Content-Type'];
                 }
             }
 
@@ -18891,6 +21440,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
@@ -18898,7 +21453,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取复合指标详情信息
+         * 通过ID获取复合指标详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18918,16 +21473,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showCompoundMetricByIdRequest !== null && showCompoundMetricByIdRequest !== undefined) {
                 if (showCompoundMetricByIdRequest instanceof ShowCompoundMetricByIdRequest) {
                     workspace = showCompoundMetricByIdRequest.workspace;
                     id = showCompoundMetricByIdRequest.id;
+                    xProjectId = showCompoundMetricByIdRequest.xProjectId;
+                    contentType = showCompoundMetricByIdRequest.contentType;
                     latest = showCompoundMetricByIdRequest.latest;
                 } else {
                     workspace = showCompoundMetricByIdRequest['workspace'];
                     id = showCompoundMetricByIdRequest['id'];
+                    xProjectId = showCompoundMetricByIdRequest['X-Project-Id'];
+                    contentType = showCompoundMetricByIdRequest['Content-Type'];
                     latest = showCompoundMetricByIdRequest['latest'];
                 }
             }
@@ -18942,6 +21505,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -18950,7 +21519,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看限定详情信息
+         * 通过ID查看限定详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18970,16 +21539,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showConditionByIdRequest !== null && showConditionByIdRequest !== undefined) {
                 if (showConditionByIdRequest instanceof ShowConditionByIdRequest) {
                     workspace = showConditionByIdRequest.workspace;
                     id = showConditionByIdRequest.id;
+                    xProjectId = showConditionByIdRequest.xProjectId;
+                    contentType = showConditionByIdRequest.contentType;
                     latest = showConditionByIdRequest.latest;
                 } else {
                     workspace = showConditionByIdRequest['workspace'];
                     id = showConditionByIdRequest['id'];
+                    xProjectId = showConditionByIdRequest['X-Project-Id'];
+                    contentType = showConditionByIdRequest['Content-Type'];
                     latest = showConditionByIdRequest['latest'];
                 }
             }
@@ -18993,6 +21570,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -19351,7 +21934,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取衍生详情信息
+         * 通过ID获取衍生详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19371,16 +21954,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showDerivativeIndexByIdRequest !== null && showDerivativeIndexByIdRequest !== undefined) {
                 if (showDerivativeIndexByIdRequest instanceof ShowDerivativeIndexByIdRequest) {
                     workspace = showDerivativeIndexByIdRequest.workspace;
                     id = showDerivativeIndexByIdRequest.id;
+                    xProjectId = showDerivativeIndexByIdRequest.xProjectId;
+                    contentType = showDerivativeIndexByIdRequest.contentType;
                     latest = showDerivativeIndexByIdRequest.latest;
                 } else {
                     workspace = showDerivativeIndexByIdRequest['workspace'];
                     id = showDerivativeIndexByIdRequest['id'];
+                    xProjectId = showDerivativeIndexByIdRequest['X-Project-Id'];
+                    contentType = showDerivativeIndexByIdRequest['Content-Type'];
                     latest = showDerivativeIndexByIdRequest['latest'];
                 }
             }
@@ -19395,6 +21986,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -19403,7 +22000,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看维度详情信息
+         * 通过ID查看维度详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19423,16 +22020,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showDimensionByIdRequest !== null && showDimensionByIdRequest !== undefined) {
                 if (showDimensionByIdRequest instanceof ShowDimensionByIdRequest) {
                     workspace = showDimensionByIdRequest.workspace;
                     id = showDimensionByIdRequest.id;
+                    xProjectId = showDimensionByIdRequest.xProjectId;
+                    contentType = showDimensionByIdRequest.contentType;
                     latest = showDimensionByIdRequest.latest;
                 } else {
                     workspace = showDimensionByIdRequest['workspace'];
                     id = showDimensionByIdRequest['id'];
+                    xProjectId = showDimensionByIdRequest['X-Project-Id'];
+                    contentType = showDimensionByIdRequest['Content-Type'];
                     latest = showDimensionByIdRequest['latest'];
                 }
             }
@@ -19447,6 +22052,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
@@ -19455,7 +22066,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看维度表的详情信息
+         * 通过ID查看维度表的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19475,16 +22086,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showDimensionLogicTableByIdRequest !== null && showDimensionLogicTableByIdRequest !== undefined) {
                 if (showDimensionLogicTableByIdRequest instanceof ShowDimensionLogicTableByIdRequest) {
                     workspace = showDimensionLogicTableByIdRequest.workspace;
                     id = showDimensionLogicTableByIdRequest.id;
+                    xProjectId = showDimensionLogicTableByIdRequest.xProjectId;
+                    contentType = showDimensionLogicTableByIdRequest.contentType;
                     latest = showDimensionLogicTableByIdRequest.latest;
                 } else {
                     workspace = showDimensionLogicTableByIdRequest['workspace'];
                     id = showDimensionLogicTableByIdRequest['id'];
+                    xProjectId = showDimensionLogicTableByIdRequest['X-Project-Id'];
+                    contentType = showDimensionLogicTableByIdRequest['Content-Type'];
                     latest = showDimensionLogicTableByIdRequest['latest'];
                 }
             }
@@ -19498,6 +22117,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -19596,7 +22221,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id查看事实表的详情信息
+         * 通过ID查看事实表的详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19616,16 +22241,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showFactLogicTableByIdRequest !== null && showFactLogicTableByIdRequest !== undefined) {
                 if (showFactLogicTableByIdRequest instanceof ShowFactLogicTableByIdRequest) {
                     workspace = showFactLogicTableByIdRequest.workspace;
                     id = showFactLogicTableByIdRequest.id;
+                    xProjectId = showFactLogicTableByIdRequest.xProjectId;
+                    contentType = showFactLogicTableByIdRequest.contentType;
                     latest = showFactLogicTableByIdRequest.latest;
                 } else {
                     workspace = showFactLogicTableByIdRequest['workspace'];
                     id = showFactLogicTableByIdRequest['id'];
+                    xProjectId = showFactLogicTableByIdRequest['X-Project-Id'];
+                    contentType = showFactLogicTableByIdRequest['Content-Type'];
                     latest = showFactLogicTableByIdRequest['latest'];
                 }
             }
@@ -19639,6 +22272,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -20617,7 +23256,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取关系详情信息
+         * 通过ID获取关系详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20637,16 +23276,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showRelationByIdRequest !== null && showRelationByIdRequest !== undefined) {
                 if (showRelationByIdRequest instanceof ShowRelationByIdRequest) {
                     workspace = showRelationByIdRequest.workspace;
                     id = showRelationByIdRequest.id;
+                    xProjectId = showRelationByIdRequest.xProjectId;
+                    contentType = showRelationByIdRequest.contentType;
                     latest = showRelationByIdRequest.latest;
                 } else {
                     workspace = showRelationByIdRequest['workspace'];
                     id = showRelationByIdRequest['id'];
+                    xProjectId = showRelationByIdRequest['X-Project-Id'];
+                    contentType = showRelationByIdRequest['Content-Type'];
                     latest = showRelationByIdRequest['latest'];
                 }
             }
@@ -20660,6 +23307,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -20845,7 +23498,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取数据标准详情信息
+         * 通过ID获取数据标准详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20864,14 +23517,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (showStandardByIdRequest !== null && showStandardByIdRequest !== undefined) {
                 if (showStandardByIdRequest instanceof ShowStandardByIdRequest) {
                     workspace = showStandardByIdRequest.workspace;
                     id = showStandardByIdRequest.id;
+                    xProjectId = showStandardByIdRequest.xProjectId;
+                    contentType = showStandardByIdRequest.contentType;
                 } else {
                     workspace = showStandardByIdRequest['workspace'];
                     id = showStandardByIdRequest['id'];
+                    xProjectId = showStandardByIdRequest['X-Project-Id'];
+                    contentType = showStandardByIdRequest['Content-Type'];
                 }
             }
 
@@ -20882,6 +23543,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
@@ -20889,7 +23556,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询数据标准模板
+         * 查询数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20907,6 +23574,10 @@ export const ParamCreater = function () {
             
             let workspace;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let limit;
             
             let offset;
@@ -20914,10 +23585,14 @@ export const ParamCreater = function () {
             if (showStandardTemplateRequest !== null && showStandardTemplateRequest !== undefined) {
                 if (showStandardTemplateRequest instanceof ShowStandardTemplateRequest) {
                     workspace = showStandardTemplateRequest.workspace;
+                    xProjectId = showStandardTemplateRequest.xProjectId;
+                    contentType = showStandardTemplateRequest.contentType;
                     limit = showStandardTemplateRequest.limit;
                     offset = showStandardTemplateRequest.offset;
                 } else {
                     workspace = showStandardTemplateRequest['workspace'];
+                    xProjectId = showStandardTemplateRequest['X-Project-Id'];
+                    contentType = showStandardTemplateRequest['Content-Type'];
                     limit = showStandardTemplateRequest['limit'];
                     offset = showStandardTemplateRequest['offset'];
                 }
@@ -20933,6 +23608,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -20940,7 +23621,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过id获取模型表详情信息
+         * 通过ID获取模型表详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20960,16 +23641,24 @@ export const ParamCreater = function () {
             
             let id;
             
+            let xProjectId;
+            
+            let contentType;
+            
             let latest;
 
             if (showTableModelByIdRequest !== null && showTableModelByIdRequest !== undefined) {
                 if (showTableModelByIdRequest instanceof ShowTableModelByIdRequest) {
                     workspace = showTableModelByIdRequest.workspace;
                     id = showTableModelByIdRequest.id;
+                    xProjectId = showTableModelByIdRequest.xProjectId;
+                    contentType = showTableModelByIdRequest.contentType;
                     latest = showTableModelByIdRequest.latest;
                 } else {
                     workspace = showTableModelByIdRequest['workspace'];
                     id = showTableModelByIdRequest['id'];
+                    xProjectId = showTableModelByIdRequest['X-Project-Id'];
+                    contentType = showTableModelByIdRequest['Content-Type'];
                     latest = showTableModelByIdRequest['latest'];
                 }
             }
@@ -20983,6 +23672,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -21317,7 +24012,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询物理模型或逻辑模型的工作区空间详情
+         * 查询物理模型或逻辑模型的工作区空间详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21336,14 +24031,22 @@ export const ParamCreater = function () {
             let workspace;
             
             let modelId;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (showWorkspaceDetailByIdRequest !== null && showWorkspaceDetailByIdRequest !== undefined) {
                 if (showWorkspaceDetailByIdRequest instanceof ShowWorkspaceDetailByIdRequest) {
                     workspace = showWorkspaceDetailByIdRequest.workspace;
                     modelId = showWorkspaceDetailByIdRequest.modelId;
+                    xProjectId = showWorkspaceDetailByIdRequest.xProjectId;
+                    contentType = showWorkspaceDetailByIdRequest.contentType;
                 } else {
                     workspace = showWorkspaceDetailByIdRequest['workspace'];
                     modelId = showWorkspaceDetailByIdRequest['model_id'];
+                    xProjectId = showWorkspaceDetailByIdRequest['X-Project-Id'];
+                    contentType = showWorkspaceDetailByIdRequest['Content-Type'];
                 }
             }
 
@@ -21353,6 +24056,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'model_id': modelId, };
@@ -21469,7 +24178,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新业务指标
+         * 更新业务指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21488,14 +24197,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateBizMetricRequest !== null && updateBizMetricRequest !== undefined) {
                 if (updateBizMetricRequest instanceof UpdateBizMetricRequest) {
                     workspace = updateBizMetricRequest.workspace;
                     body = updateBizMetricRequest.body
+                    xProjectId = updateBizMetricRequest.xProjectId;
+                    contentType = updateBizMetricRequest.contentType;
                 } else {
                     workspace = updateBizMetricRequest['workspace'];
                     body = updateBizMetricRequest['body'];
+                    xProjectId = updateBizMetricRequest['X-Project-Id'];
+                    contentType = updateBizMetricRequest['Content-Type'];
                 }
             }
 
@@ -21505,6 +24222,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -21581,7 +24304,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改码表
+         * 修改码表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21602,16 +24325,24 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateCodeTableRequest !== null && updateCodeTableRequest !== undefined) {
                 if (updateCodeTableRequest instanceof UpdateCodeTableRequest) {
                     workspace = updateCodeTableRequest.workspace;
                     id = updateCodeTableRequest.id;
                     body = updateCodeTableRequest.body
+                    xProjectId = updateCodeTableRequest.xProjectId;
+                    contentType = updateCodeTableRequest.contentType;
                 } else {
                     workspace = updateCodeTableRequest['workspace'];
                     id = updateCodeTableRequest['id'];
                     body = updateCodeTableRequest['body'];
+                    xProjectId = updateCodeTableRequest['X-Project-Id'];
+                    contentType = updateCodeTableRequest['Content-Type'];
                 }
             }
 
@@ -21625,6 +24356,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -21634,7 +24371,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 编辑码表字段值
+         * 编辑码表字段值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21655,16 +24392,24 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateCodeTableValuesRequest !== null && updateCodeTableValuesRequest !== undefined) {
                 if (updateCodeTableValuesRequest instanceof UpdateCodeTableValuesRequest) {
                     workspace = updateCodeTableValuesRequest.workspace;
                     id = updateCodeTableValuesRequest.id;
                     body = updateCodeTableValuesRequest.body
+                    xProjectId = updateCodeTableValuesRequest.xProjectId;
+                    contentType = updateCodeTableValuesRequest.contentType;
                 } else {
                     workspace = updateCodeTableValuesRequest['workspace'];
                     id = updateCodeTableValuesRequest['id'];
                     body = updateCodeTableValuesRequest['body'];
+                    xProjectId = updateCodeTableValuesRequest['X-Project-Id'];
+                    contentType = updateCodeTableValuesRequest['Content-Type'];
                 }
             }
 
@@ -21677,6 +24422,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -21740,7 +24491,192 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改目录
+         * 更新汇总表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignAggregationLogicTable(updateDesignAggregationLogicTableRequest?: UpdateDesignAggregationLogicTableRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/aggregation-logic-tables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignAggregationLogicTableRequest !== null && updateDesignAggregationLogicTableRequest !== undefined) {
+                if (updateDesignAggregationLogicTableRequest instanceof UpdateDesignAggregationLogicTableRequest) {
+                    workspace = updateDesignAggregationLogicTableRequest.workspace;
+                    body = updateDesignAggregationLogicTableRequest.body
+                    xProjectId = updateDesignAggregationLogicTableRequest.xProjectId;
+                    contentType = updateDesignAggregationLogicTableRequest.contentType;
+                } else {
+                    workspace = updateDesignAggregationLogicTableRequest['workspace'];
+                    body = updateDesignAggregationLogicTableRequest['body'];
+                    xProjectId = updateDesignAggregationLogicTableRequest['X-Project-Id'];
+                    contentType = updateDesignAggregationLogicTableRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新单个原子指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignAtomicIndex(updateDesignAtomicIndexRequest?: UpdateDesignAtomicIndexRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/atomic-indexs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignAtomicIndexRequest !== null && updateDesignAtomicIndexRequest !== undefined) {
+                if (updateDesignAtomicIndexRequest instanceof UpdateDesignAtomicIndexRequest) {
+                    workspace = updateDesignAtomicIndexRequest.workspace;
+                    body = updateDesignAtomicIndexRequest.body
+                    xProjectId = updateDesignAtomicIndexRequest.xProjectId;
+                    contentType = updateDesignAtomicIndexRequest.contentType;
+                } else {
+                    workspace = updateDesignAtomicIndexRequest['workspace'];
+                    body = updateDesignAtomicIndexRequest['body'];
+                    xProjectId = updateDesignAtomicIndexRequest['X-Project-Id'];
+                    contentType = updateDesignAtomicIndexRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新表的异常数据输出配置，包括是否生成异常数据、设置异常数据数据库或Schema、设置异常表表前缀/表后缀。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDesignTableQuality(updateDesignTableQualityRequest?: UpdateDesignTableQualityRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/design/{table_id}/qualities",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let tableId;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (updateDesignTableQualityRequest !== null && updateDesignTableQualityRequest !== undefined) {
+                if (updateDesignTableQualityRequest instanceof UpdateDesignTableQualityRequest) {
+                    workspace = updateDesignTableQualityRequest.workspace;
+                    tableId = updateDesignTableQualityRequest.tableId;
+                    body = updateDesignTableQualityRequest.body
+                    xProjectId = updateDesignTableQualityRequest.xProjectId;
+                    contentType = updateDesignTableQualityRequest.contentType;
+                } else {
+                    workspace = updateDesignTableQualityRequest['workspace'];
+                    tableId = updateDesignTableQualityRequest['table_id'];
+                    body = updateDesignTableQualityRequest['body'];
+                    xProjectId = updateDesignTableQualityRequest['X-Project-Id'];
+                    contentType = updateDesignTableQualityRequest['Content-Type'];
+                }
+            }
+
+        
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling updateDesignTableQuality.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改目录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21759,14 +24695,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateDirectoryRequest !== null && updateDirectoryRequest !== undefined) {
                 if (updateDirectoryRequest instanceof UpdateDirectoryRequest) {
                     workspace = updateDirectoryRequest.workspace;
                     body = updateDirectoryRequest.body
+                    xProjectId = updateDirectoryRequest.xProjectId;
+                    contentType = updateDirectoryRequest.contentType;
                 } else {
                     workspace = updateDirectoryRequest['workspace'];
                     body = updateDirectoryRequest['body'];
+                    xProjectId = updateDirectoryRequest['X-Project-Id'];
+                    contentType = updateDirectoryRequest['Content-Type'];
                 }
             }
 
@@ -21776,6 +24720,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -22131,7 +25081,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改数据标准
+         * 修改数据标准。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22152,16 +25102,24 @@ export const ParamCreater = function () {
             let workspace;
             
             let id;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateStandardRequest !== null && updateStandardRequest !== undefined) {
                 if (updateStandardRequest instanceof UpdateStandardRequest) {
                     workspace = updateStandardRequest.workspace;
                     id = updateStandardRequest.id;
                     body = updateStandardRequest.body
+                    xProjectId = updateStandardRequest.xProjectId;
+                    contentType = updateStandardRequest.contentType;
                 } else {
                     workspace = updateStandardRequest['workspace'];
                     id = updateStandardRequest['id'];
                     body = updateStandardRequest['body'];
+                    xProjectId = updateStandardRequest['X-Project-Id'];
+                    contentType = updateStandardRequest['Content-Type'];
                 }
             }
 
@@ -22175,6 +25133,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -22184,7 +25148,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改数据标准模板
+         * 修改数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22203,14 +25167,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateStandardTemplateRequest !== null && updateStandardTemplateRequest !== undefined) {
                 if (updateStandardTemplateRequest instanceof UpdateStandardTemplateRequest) {
                     workspace = updateStandardTemplateRequest.workspace;
                     body = updateStandardTemplateRequest.body
+                    xProjectId = updateStandardTemplateRequest.xProjectId;
+                    contentType = updateStandardTemplateRequest.contentType;
                 } else {
                     workspace = updateStandardTemplateRequest['workspace'];
                     body = updateStandardTemplateRequest['body'];
+                    xProjectId = updateStandardTemplateRequest['X-Project-Id'];
+                    contentType = updateStandardTemplateRequest['Content-Type'];
                 }
             }
 
@@ -22221,6 +25193,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -22229,7 +25207,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改主题
+         * 修改主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22248,14 +25226,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateSubjectRequest !== null && updateSubjectRequest !== undefined) {
                 if (updateSubjectRequest instanceof UpdateSubjectRequest) {
                     workspace = updateSubjectRequest.workspace;
                     body = updateSubjectRequest.body
+                    xProjectId = updateSubjectRequest.xProjectId;
+                    contentType = updateSubjectRequest.contentType;
                 } else {
                     workspace = updateSubjectRequest['workspace'];
                     body = updateSubjectRequest['body'];
+                    xProjectId = updateSubjectRequest['X-Project-Id'];
+                    contentType = updateSubjectRequest['Content-Type'];
                 }
             }
 
@@ -22266,6 +25252,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -22274,7 +25266,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改主题(新)
+         * 修改主题(新)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22293,14 +25285,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateSubjectNewRequest !== null && updateSubjectNewRequest !== undefined) {
                 if (updateSubjectNewRequest instanceof UpdateSubjectNewRequest) {
                     workspace = updateSubjectNewRequest.workspace;
                     body = updateSubjectNewRequest.body
+                    xProjectId = updateSubjectNewRequest.xProjectId;
+                    contentType = updateSubjectNewRequest.contentType;
                 } else {
                     workspace = updateSubjectNewRequest['workspace'];
                     body = updateSubjectNewRequest['body'];
+                    xProjectId = updateSubjectNewRequest['X-Project-Id'];
+                    contentType = updateSubjectNewRequest['Content-Type'];
                 }
             }
 
@@ -22311,6 +25311,12 @@ export const ParamCreater = function () {
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -22319,7 +25325,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新一个模型实体，包括逻辑实体或物理数据表。
+         * 在关系建模中更新一个表模型及其属性，包括逻辑实体和物理表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22338,14 +25344,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateTableModelRequest !== null && updateTableModelRequest !== undefined) {
                 if (updateTableModelRequest instanceof UpdateTableModelRequest) {
                     workspace = updateTableModelRequest.workspace;
                     body = updateTableModelRequest.body
+                    xProjectId = updateTableModelRequest.xProjectId;
+                    contentType = updateTableModelRequest.contentType;
                 } else {
                     workspace = updateTableModelRequest['workspace'];
                     body = updateTableModelRequest['body'];
+                    xProjectId = updateTableModelRequest['X-Project-Id'];
+                    contentType = updateTableModelRequest['Content-Type'];
                 }
             }
 
@@ -22355,6 +25369,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -22523,7 +25543,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新模型工作区
+         * 更新模型工作区。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22542,14 +25562,22 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
 
             if (updateWorkspaceRequest !== null && updateWorkspaceRequest !== undefined) {
                 if (updateWorkspaceRequest instanceof UpdateWorkspaceRequest) {
                     workspace = updateWorkspaceRequest.workspace;
                     body = updateWorkspaceRequest.body
+                    xProjectId = updateWorkspaceRequest.xProjectId;
+                    contentType = updateWorkspaceRequest.contentType;
                 } else {
                     workspace = updateWorkspaceRequest['workspace'];
                     body = updateWorkspaceRequest['body'];
+                    xProjectId = updateWorkspaceRequest['X-Project-Id'];
+                    contentType = updateWorkspaceRequest['Content-Type'];
                 }
             }
 
@@ -22559,6 +25587,12 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

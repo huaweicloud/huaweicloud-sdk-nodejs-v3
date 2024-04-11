@@ -2,6 +2,8 @@
 
 export class ListDimensionLogicTablesRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     public name?: string;
     private 'create_by'?: string;
     public approver?: string;
@@ -23,6 +25,26 @@ export class ListDimensionLogicTablesRequest {
     public withWorkspace(workspace: string): ListDimensionLogicTablesRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListDimensionLogicTablesRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListDimensionLogicTablesRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withName(name: string): ListDimensionLogicTablesRequest {
         this['name'] = name;
@@ -172,8 +194,11 @@ export enum ListDimensionLogicTablesRequestSyncKeyEnum {
     TECHNICAL_ASSET = 'TECHNICAL_ASSET',
     META_DATA_LINK = 'META_DATA_LINK',
     PHYSICAL_TABLE = 'PHYSICAL_TABLE',
+    DEV_PHYSICAL_TABLE = 'DEV_PHYSICAL_TABLE',
     DLF_TASK = 'DLF_TASK',
-    MATERIALIZATION = 'MATERIALIZATION'
+    MATERIALIZATION = 'MATERIALIZATION',
+    PUBLISH_TO_DLM = 'PUBLISH_TO_DLM',
+    SUMMARY_STATUS = 'SUMMARY_STATUS'
 }
 /**
     * @export

@@ -527,7 +527,7 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {'reliability'} [engine] 消息引擎。
+     * @param {'rocketmq'} engine 消息引擎：rocketmq。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
      * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs)
@@ -2015,6 +2015,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstances.');
+            }
             if (engine !== null && engine !== undefined) {
                 localVarQueryParameter['engine'] = engine;
             }

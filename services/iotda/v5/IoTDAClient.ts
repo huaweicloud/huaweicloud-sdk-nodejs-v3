@@ -9,6 +9,7 @@ import { AddActionReq } from './model/AddActionReq';
 import { AddApplication } from './model/AddApplication';
 import { AddApplicationRequest } from './model/AddApplicationRequest';
 import { AddApplicationResponse } from './model/AddApplicationResponse';
+import { AddBacklogPolicy } from './model/AddBacklogPolicy';
 import { AddCertificateRequest } from './model/AddCertificateRequest';
 import { AddCertificateResponse } from './model/AddCertificateResponse';
 import { AddDevice } from './model/AddDevice';
@@ -17,6 +18,7 @@ import { AddDeviceGroupRequest } from './model/AddDeviceGroupRequest';
 import { AddDeviceGroupResponse } from './model/AddDeviceGroupResponse';
 import { AddDeviceRequest } from './model/AddDeviceRequest';
 import { AddDeviceResponse } from './model/AddDeviceResponse';
+import { AddFlowControlPolicy } from './model/AddFlowControlPolicy';
 import { AddProduct } from './model/AddProduct';
 import { AddQueueRequest } from './model/AddQueueRequest';
 import { AddQueueResponse } from './model/AddQueueResponse';
@@ -30,6 +32,7 @@ import { AsyncDeviceCommandRequest } from './model/AsyncDeviceCommandRequest';
 import { AuthInfo } from './model/AuthInfo';
 import { AuthInfoRes } from './model/AuthInfoRes';
 import { AuthInfoWithoutSecret } from './model/AuthInfoWithoutSecret';
+import { BacklogPolicyInfo } from './model/BacklogPolicyInfo';
 import { BatchShowQueueRequest } from './model/BatchShowQueueRequest';
 import { BatchShowQueueResponse } from './model/BatchShowQueueResponse';
 import { BatchTargetResult } from './model/BatchTargetResult';
@@ -70,6 +73,10 @@ import { CreateOtaPackageRequest } from './model/CreateOtaPackageRequest';
 import { CreateOtaPackageResponse } from './model/CreateOtaPackageResponse';
 import { CreateProductRequest } from './model/CreateProductRequest';
 import { CreateProductResponse } from './model/CreateProductResponse';
+import { CreateRoutingBacklogPolicyRequest } from './model/CreateRoutingBacklogPolicyRequest';
+import { CreateRoutingBacklogPolicyResponse } from './model/CreateRoutingBacklogPolicyResponse';
+import { CreateRoutingFlowControlPolicyRequest } from './model/CreateRoutingFlowControlPolicyRequest';
+import { CreateRoutingFlowControlPolicyResponse } from './model/CreateRoutingFlowControlPolicyResponse';
 import { CreateRoutingRuleRequest } from './model/CreateRoutingRuleRequest';
 import { CreateRoutingRuleResponse } from './model/CreateRoutingRuleResponse';
 import { CreateRuleActionRequest } from './model/CreateRuleActionRequest';
@@ -97,6 +104,10 @@ import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
 import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
+import { DeleteRoutingBacklogPolicyRequest } from './model/DeleteRoutingBacklogPolicyRequest';
+import { DeleteRoutingBacklogPolicyResponse } from './model/DeleteRoutingBacklogPolicyResponse';
+import { DeleteRoutingFlowControlPolicyRequest } from './model/DeleteRoutingFlowControlPolicyRequest';
+import { DeleteRoutingFlowControlPolicyResponse } from './model/DeleteRoutingFlowControlPolicyResponse';
 import { DeleteRoutingRuleRequest } from './model/DeleteRoutingRuleRequest';
 import { DeleteRoutingRuleResponse } from './model/DeleteRoutingRuleResponse';
 import { DeleteRuleActionRequest } from './model/DeleteRuleActionRequest';
@@ -120,6 +131,7 @@ import { DmsRocketMQForwarding } from './model/DmsRocketMQForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
 import { ErrorInfoDTO } from './model/ErrorInfoDTO';
 import { FileLocation } from './model/FileLocation';
+import { FlowControlPolicyInfo } from './model/FlowControlPolicyInfo';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
 import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
@@ -148,6 +160,10 @@ import { ListPropertiesRequest } from './model/ListPropertiesRequest';
 import { ListPropertiesResponse } from './model/ListPropertiesResponse';
 import { ListResourcesByTagsRequest } from './model/ListResourcesByTagsRequest';
 import { ListResourcesByTagsResponse } from './model/ListResourcesByTagsResponse';
+import { ListRoutingBacklogPolicyRequest } from './model/ListRoutingBacklogPolicyRequest';
+import { ListRoutingBacklogPolicyResponse } from './model/ListRoutingBacklogPolicyResponse';
+import { ListRoutingFlowControlPolicyRequest } from './model/ListRoutingFlowControlPolicyRequest';
+import { ListRoutingFlowControlPolicyResponse } from './model/ListRoutingFlowControlPolicyResponse';
 import { ListRoutingRulesRequest } from './model/ListRoutingRulesRequest';
 import { ListRoutingRulesResponse } from './model/ListRoutingRulesResponse';
 import { ListRuleActionsRequest } from './model/ListRuleActionsRequest';
@@ -224,6 +240,10 @@ import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
 import { ShowQueueRequest } from './model/ShowQueueRequest';
 import { ShowQueueResponse } from './model/ShowQueueResponse';
+import { ShowRoutingBacklogPolicyRequest } from './model/ShowRoutingBacklogPolicyRequest';
+import { ShowRoutingBacklogPolicyResponse } from './model/ShowRoutingBacklogPolicyResponse';
+import { ShowRoutingFlowControlPolicyRequest } from './model/ShowRoutingFlowControlPolicyRequest';
+import { ShowRoutingFlowControlPolicyResponse } from './model/ShowRoutingFlowControlPolicyResponse';
 import { ShowRoutingRuleRequest } from './model/ShowRoutingRuleRequest';
 import { ShowRoutingRuleResponse } from './model/ShowRoutingRuleResponse';
 import { ShowRuleActionRequest } from './model/ShowRuleActionRequest';
@@ -253,6 +273,7 @@ import { UpdateActionReq } from './model/UpdateActionReq';
 import { UpdateApplicationDTO } from './model/UpdateApplicationDTO';
 import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
 import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
+import { UpdateBacklogPolicy } from './model/UpdateBacklogPolicy';
 import { UpdateDesired } from './model/UpdateDesired';
 import { UpdateDesireds } from './model/UpdateDesireds';
 import { UpdateDevice } from './model/UpdateDevice';
@@ -263,11 +284,16 @@ import { UpdateDeviceRequest } from './model/UpdateDeviceRequest';
 import { UpdateDeviceResponse } from './model/UpdateDeviceResponse';
 import { UpdateDeviceShadowDesiredDataRequest } from './model/UpdateDeviceShadowDesiredDataRequest';
 import { UpdateDeviceShadowDesiredDataResponse } from './model/UpdateDeviceShadowDesiredDataResponse';
+import { UpdateFlowControlPolicy } from './model/UpdateFlowControlPolicy';
 import { UpdateProduct } from './model/UpdateProduct';
 import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
 import { UpdatePropertiesRequest } from './model/UpdatePropertiesRequest';
 import { UpdatePropertiesResponse } from './model/UpdatePropertiesResponse';
+import { UpdateRoutingBacklogPolicyRequest } from './model/UpdateRoutingBacklogPolicyRequest';
+import { UpdateRoutingBacklogPolicyResponse } from './model/UpdateRoutingBacklogPolicyResponse';
+import { UpdateRoutingFlowControlPolicyRequest } from './model/UpdateRoutingFlowControlPolicyRequest';
+import { UpdateRoutingFlowControlPolicyResponse } from './model/UpdateRoutingFlowControlPolicyResponse';
 import { UpdateRoutingRuleRequest } from './model/UpdateRoutingRuleRequest';
 import { UpdateRoutingRuleResponse } from './model/UpdateRoutingRuleResponse';
 import { UpdateRuleActionRequest } from './model/UpdateRuleActionRequest';
@@ -535,6 +561,110 @@ export class IoTDAClient {
      */
     public showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest): Promise<ShowAsyncDeviceCommandResponse> {
         const options = ParamCreater().showAsyncDeviceCommand(showAsyncDeviceCommandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建数据流转积压策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建数据流转积压策略
+     * @param {AddBacklogPolicy} createRoutingBacklogPolicyRequestBody **参数说明**：请求的body对象，详细请看新增数据流转积压策略请求结构体。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRoutingBacklogPolicy(createRoutingBacklogPolicyRequest?: CreateRoutingBacklogPolicyRequest): Promise<CreateRoutingBacklogPolicyResponse> {
+        const options = ParamCreater().createRoutingBacklogPolicy(createRoutingBacklogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台删除指定数据流转积压策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据流转积压策略
+     * @param {string} policyId **参数说明**：数据流转积压策略id，用于唯一标识一个数据流转积压策略，在创建数据流转积压策略时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRoutingBacklogPolicy(deleteRoutingBacklogPolicyRequest?: DeleteRoutingBacklogPolicyRequest): Promise<DeleteRoutingBacklogPolicyResponse> {
+        const options = ParamCreater().deleteRoutingBacklogPolicy(deleteRoutingBacklogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询在物联网平台设置的数据流转积压策略列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据流转积压策略列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {string} [policyName] **参数说明**：数据流转积压策略名称。 **取值范围**：长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRoutingBacklogPolicy(listRoutingBacklogPolicyRequest?: ListRoutingBacklogPolicyRequest): Promise<ListRoutingBacklogPolicyResponse> {
+        const options = ParamCreater().listRoutingBacklogPolicy(listRoutingBacklogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询指定数据流转积压策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据流转积压策略
+     * @param {string} policyId **参数说明**：数据流转积压策略id，用于唯一标识一个数据流转积压策略，在创建数据流转积压策略时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRoutingBacklogPolicy(showRoutingBacklogPolicyRequest?: ShowRoutingBacklogPolicyRequest): Promise<ShowRoutingBacklogPolicyResponse> {
+        const options = ParamCreater().showRoutingBacklogPolicy(showRoutingBacklogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台修改指定数据流转积压策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据流转积压策略
+     * @param {string} policyId **参数说明**：数据流转积压策略id，用于唯一标识一个数据流转积压策略，在创建数据流转积压策略时由物联网平台分配获得。
+     * @param {UpdateBacklogPolicy} updateRoutingBacklogPolicyRequestBody **参数说明**：请求的body对象，详细请看数据流转积压策略更新结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRoutingBacklogPolicy(updateRoutingBacklogPolicyRequest?: UpdateRoutingBacklogPolicyRequest): Promise<UpdateRoutingBacklogPolicyResponse> {
+        const options = ParamCreater().updateRoutingBacklogPolicy(updateRoutingBacklogPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1392,6 +1522,112 @@ export class IoTDAClient {
      */
     public updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest?: UpdateDeviceShadowDesiredDataRequest): Promise<UpdateDeviceShadowDesiredDataResponse> {
         const options = ParamCreater().updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建数据流转流控策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建数据流转流控策略
+     * @param {AddFlowControlPolicy} createRoutingFlowControlPolicyRequestBody **参数说明**：请求的body对象，详细请看新增数据流转流控策略请求结构体。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRoutingFlowControlPolicy(createRoutingFlowControlPolicyRequest?: CreateRoutingFlowControlPolicyRequest): Promise<CreateRoutingFlowControlPolicyResponse> {
+        const options = ParamCreater().createRoutingFlowControlPolicy(createRoutingFlowControlPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台删除指定数据流转流控策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据流转流控策略
+     * @param {string} policyId **参数说明**：数据流转流控策略id，用于唯一标识一个数据流转流控策略，在创建数据流转流控策略时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRoutingFlowControlPolicy(deleteRoutingFlowControlPolicyRequest?: DeleteRoutingFlowControlPolicyRequest): Promise<DeleteRoutingFlowControlPolicyResponse> {
+        const options = ParamCreater().deleteRoutingFlowControlPolicy(deleteRoutingFlowControlPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询在物联网平台设置的数据流转流控策略列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据流转流控策略列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {string} [scope] **参数说明**：流控策略作用域。不携带该参数时，查询所有作用域流控策略；取值USER时，查询租户级流控策略；取值为CHANNEL时，查询转发通道级流控策略；取值为RULE时，查询转发规则级流控策略；取值为ACTION时，查询转发动作级流控策略。
+     * @param {string} [scopeValue] **参数说明**：流控策略作用域附加值。 不携带scope参数或scope参数取值为USER时，可不携带该字段，查询租户级流控策略。 scope参数取值为CHANNEL时，不携带该字段表示查询所有转发通道级流控策略，携带该字段表示查询该字段取值对应转发通道的流控策略。**取值范围**：HTTP_FORWARDING、DIS_FORWARDING、OBS_FORWARDING、AMQP_FORWARDING、DMS_KAFKA_FORWARDING。 scope参数为RULE时，不携带该字段表示查询所有转发规则级流控策略，携带该字段表示查询该字段取值对应转发规则的流控策略。 scope参数为ACTION时，不携带该字段表示查询所有转发动作级流控策略，携带该字段表示查询该字段取值对应转发动作的流控策略。
+     * @param {string} [policyName] **参数说明**：数据流转流控策略名称。 **取值范围**：长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRoutingFlowControlPolicy(listRoutingFlowControlPolicyRequest?: ListRoutingFlowControlPolicyRequest): Promise<ListRoutingFlowControlPolicyResponse> {
+        const options = ParamCreater().listRoutingFlowControlPolicy(listRoutingFlowControlPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询指定数据流转流控策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据流转流控策略
+     * @param {string} policyId **参数说明**：数据流转流控策略id，用于唯一标识一个数据流转流控策略，在创建数据流转流控策略时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRoutingFlowControlPolicy(showRoutingFlowControlPolicyRequest?: ShowRoutingFlowControlPolicyRequest): Promise<ShowRoutingFlowControlPolicyResponse> {
+        const options = ParamCreater().showRoutingFlowControlPolicy(showRoutingFlowControlPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台修改指定数据流转流控策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据流转流控策略
+     * @param {string} policyId **参数说明**：数据流转流控策略id，用于唯一标识一个数据流转流控策略，在创建数据流转流控策略时由物联网平台分配获得。
+     * @param {UpdateFlowControlPolicy} updateRoutingFlowControlPolicyRequestBody **参数说明**：请求的body对象，详细请看数据流转流控策略更新结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRoutingFlowControlPolicy(updateRoutingFlowControlPolicyRequest?: UpdateRoutingFlowControlPolicyRequest): Promise<UpdateRoutingFlowControlPolicyResponse> {
+        const options = ParamCreater().updateRoutingFlowControlPolicy(updateRoutingFlowControlPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2803,6 +3039,257 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'device_id': deviceId,'command_id': commandId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台创建数据流转积压策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRoutingBacklogPolicy(createRoutingBacklogPolicyRequest?: CreateRoutingBacklogPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/routing-rule/backlog-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createRoutingBacklogPolicyRequest !== null && createRoutingBacklogPolicyRequest !== undefined) {
+                if (createRoutingBacklogPolicyRequest instanceof CreateRoutingBacklogPolicyRequest) {
+                    body = createRoutingBacklogPolicyRequest.body
+                    instanceId = createRoutingBacklogPolicyRequest.instanceId;
+                } else {
+                    body = createRoutingBacklogPolicyRequest['body'];
+                    instanceId = createRoutingBacklogPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台删除指定数据流转积压策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRoutingBacklogPolicy(deleteRoutingBacklogPolicyRequest?: DeleteRoutingBacklogPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/routing-rule/backlog-policy/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (deleteRoutingBacklogPolicyRequest !== null && deleteRoutingBacklogPolicyRequest !== undefined) {
+                if (deleteRoutingBacklogPolicyRequest instanceof DeleteRoutingBacklogPolicyRequest) {
+                    policyId = deleteRoutingBacklogPolicyRequest.policyId;
+                    instanceId = deleteRoutingBacklogPolicyRequest.instanceId;
+                } else {
+                    policyId = deleteRoutingBacklogPolicyRequest['policy_id'];
+                    instanceId = deleteRoutingBacklogPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteRoutingBacklogPolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询在物联网平台设置的数据流转积压策略列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRoutingBacklogPolicy(listRoutingBacklogPolicyRequest?: ListRoutingBacklogPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/routing-rule/backlog-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let policyName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listRoutingBacklogPolicyRequest !== null && listRoutingBacklogPolicyRequest !== undefined) {
+                if (listRoutingBacklogPolicyRequest instanceof ListRoutingBacklogPolicyRequest) {
+                    instanceId = listRoutingBacklogPolicyRequest.instanceId;
+                    policyName = listRoutingBacklogPolicyRequest.policyName;
+                    limit = listRoutingBacklogPolicyRequest.limit;
+                    marker = listRoutingBacklogPolicyRequest.marker;
+                    offset = listRoutingBacklogPolicyRequest.offset;
+                } else {
+                    instanceId = listRoutingBacklogPolicyRequest['Instance-Id'];
+                    policyName = listRoutingBacklogPolicyRequest['policy_name'];
+                    limit = listRoutingBacklogPolicyRequest['limit'];
+                    marker = listRoutingBacklogPolicyRequest['marker'];
+                    offset = listRoutingBacklogPolicyRequest['offset'];
+                }
+            }
+
+        
+            if (policyName !== null && policyName !== undefined) {
+                localVarQueryParameter['policy_name'] = policyName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询指定数据流转积压策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRoutingBacklogPolicy(showRoutingBacklogPolicyRequest?: ShowRoutingBacklogPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/routing-rule/backlog-policy/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (showRoutingBacklogPolicyRequest !== null && showRoutingBacklogPolicyRequest !== undefined) {
+                if (showRoutingBacklogPolicyRequest instanceof ShowRoutingBacklogPolicyRequest) {
+                    policyId = showRoutingBacklogPolicyRequest.policyId;
+                    instanceId = showRoutingBacklogPolicyRequest.instanceId;
+                } else {
+                    policyId = showRoutingBacklogPolicyRequest['policy_id'];
+                    instanceId = showRoutingBacklogPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showRoutingBacklogPolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台修改指定数据流转积压策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRoutingBacklogPolicy(updateRoutingBacklogPolicyRequest?: UpdateRoutingBacklogPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/routing-rule/backlog-policy/{policy_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (updateRoutingBacklogPolicyRequest !== null && updateRoutingBacklogPolicyRequest !== undefined) {
+                if (updateRoutingBacklogPolicyRequest instanceof UpdateRoutingBacklogPolicyRequest) {
+                    policyId = updateRoutingBacklogPolicyRequest.policyId;
+                    body = updateRoutingBacklogPolicyRequest.body
+                    instanceId = updateRoutingBacklogPolicyRequest.instanceId;
+                } else {
+                    policyId = updateRoutingBacklogPolicyRequest['policy_id'];
+                    body = updateRoutingBacklogPolicyRequest['body'];
+                    instanceId = updateRoutingBacklogPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateRoutingBacklogPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4798,6 +5285,271 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台创建数据流转流控策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRoutingFlowControlPolicy(createRoutingFlowControlPolicyRequest?: CreateRoutingFlowControlPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/routing-rule/flowcontrol-policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createRoutingFlowControlPolicyRequest !== null && createRoutingFlowControlPolicyRequest !== undefined) {
+                if (createRoutingFlowControlPolicyRequest instanceof CreateRoutingFlowControlPolicyRequest) {
+                    body = createRoutingFlowControlPolicyRequest.body
+                    instanceId = createRoutingFlowControlPolicyRequest.instanceId;
+                } else {
+                    body = createRoutingFlowControlPolicyRequest['body'];
+                    instanceId = createRoutingFlowControlPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台删除指定数据流转流控策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRoutingFlowControlPolicy(deleteRoutingFlowControlPolicyRequest?: DeleteRoutingFlowControlPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/routing-rule/flowcontrol-policy/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (deleteRoutingFlowControlPolicyRequest !== null && deleteRoutingFlowControlPolicyRequest !== undefined) {
+                if (deleteRoutingFlowControlPolicyRequest instanceof DeleteRoutingFlowControlPolicyRequest) {
+                    policyId = deleteRoutingFlowControlPolicyRequest.policyId;
+                    instanceId = deleteRoutingFlowControlPolicyRequest.instanceId;
+                } else {
+                    policyId = deleteRoutingFlowControlPolicyRequest['policy_id'];
+                    instanceId = deleteRoutingFlowControlPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteRoutingFlowControlPolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询在物联网平台设置的数据流转流控策略列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRoutingFlowControlPolicy(listRoutingFlowControlPolicyRequest?: ListRoutingFlowControlPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/routing-rule/flowcontrol-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let scope;
+            
+            let scopeValue;
+            
+            let policyName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listRoutingFlowControlPolicyRequest !== null && listRoutingFlowControlPolicyRequest !== undefined) {
+                if (listRoutingFlowControlPolicyRequest instanceof ListRoutingFlowControlPolicyRequest) {
+                    instanceId = listRoutingFlowControlPolicyRequest.instanceId;
+                    scope = listRoutingFlowControlPolicyRequest.scope;
+                    scopeValue = listRoutingFlowControlPolicyRequest.scopeValue;
+                    policyName = listRoutingFlowControlPolicyRequest.policyName;
+                    limit = listRoutingFlowControlPolicyRequest.limit;
+                    marker = listRoutingFlowControlPolicyRequest.marker;
+                    offset = listRoutingFlowControlPolicyRequest.offset;
+                } else {
+                    instanceId = listRoutingFlowControlPolicyRequest['Instance-Id'];
+                    scope = listRoutingFlowControlPolicyRequest['scope'];
+                    scopeValue = listRoutingFlowControlPolicyRequest['scope_value'];
+                    policyName = listRoutingFlowControlPolicyRequest['policy_name'];
+                    limit = listRoutingFlowControlPolicyRequest['limit'];
+                    marker = listRoutingFlowControlPolicyRequest['marker'];
+                    offset = listRoutingFlowControlPolicyRequest['offset'];
+                }
+            }
+
+        
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+            if (scopeValue !== null && scopeValue !== undefined) {
+                localVarQueryParameter['scope_value'] = scopeValue;
+            }
+            if (policyName !== null && policyName !== undefined) {
+                localVarQueryParameter['policy_name'] = policyName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询指定数据流转流控策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRoutingFlowControlPolicy(showRoutingFlowControlPolicyRequest?: ShowRoutingFlowControlPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/routing-rule/flowcontrol-policy/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (showRoutingFlowControlPolicyRequest !== null && showRoutingFlowControlPolicyRequest !== undefined) {
+                if (showRoutingFlowControlPolicyRequest instanceof ShowRoutingFlowControlPolicyRequest) {
+                    policyId = showRoutingFlowControlPolicyRequest.policyId;
+                    instanceId = showRoutingFlowControlPolicyRequest.instanceId;
+                } else {
+                    policyId = showRoutingFlowControlPolicyRequest['policy_id'];
+                    instanceId = showRoutingFlowControlPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showRoutingFlowControlPolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台修改指定数据流转流控策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRoutingFlowControlPolicy(updateRoutingFlowControlPolicyRequest?: UpdateRoutingFlowControlPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/routing-rule/flowcontrol-policy/{policy_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (updateRoutingFlowControlPolicyRequest !== null && updateRoutingFlowControlPolicyRequest !== undefined) {
+                if (updateRoutingFlowControlPolicyRequest instanceof UpdateRoutingFlowControlPolicyRequest) {
+                    policyId = updateRoutingFlowControlPolicyRequest.policyId;
+                    body = updateRoutingFlowControlPolicyRequest.body
+                    instanceId = updateRoutingFlowControlPolicyRequest.instanceId;
+                } else {
+                    policyId = updateRoutingFlowControlPolicyRequest['policy_id'];
+                    body = updateRoutingFlowControlPolicyRequest['body'];
+                    instanceId = updateRoutingFlowControlPolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateRoutingFlowControlPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

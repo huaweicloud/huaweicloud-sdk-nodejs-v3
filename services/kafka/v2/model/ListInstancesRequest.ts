@@ -10,7 +10,8 @@ export class ListInstancesRequest {
     private 'enterprise_project_id'?: string;
     public offset?: string;
     public limit?: string;
-    public constructor() { 
+    public constructor(engine?: string) { 
+        this['engine'] = engine;
     }
     public withEngine(engine: ListInstancesRequestEngineEnum | string): ListInstancesRequest {
         this['engine'] = engine;

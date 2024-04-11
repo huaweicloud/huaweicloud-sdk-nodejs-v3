@@ -5,7 +5,7 @@ import { TagVO } from './TagVO';
 
 
 export class TableModelAttributeVO {
-    public id?: number;
+    public id?: string;
     private 'name_en'?: string;
     private 'name_ch'?: string;
     public description?: string;
@@ -36,7 +36,7 @@ export class TableModelAttributeVO {
         this['data_type'] = dataType;
         this['is_primary_key'] = isPrimaryKey;
     }
-    public withId(id: number): TableModelAttributeVO {
+    public withId(id: string): TableModelAttributeVO {
         this['id'] = id;
         return this;
     }

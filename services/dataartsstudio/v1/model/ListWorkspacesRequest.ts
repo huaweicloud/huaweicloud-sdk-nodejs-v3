@@ -2,6 +2,8 @@
 
 export class ListWorkspacesRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_type'?: ListWorkspacesRequestWorkspaceTypeEnum | string;
     public limit?: number;
     public offset?: number;
@@ -12,6 +14,26 @@ export class ListWorkspacesRequest {
     public withWorkspace(workspace: string): ListWorkspacesRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListWorkspacesRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListWorkspacesRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withWorkspaceType(workspaceType: ListWorkspacesRequestWorkspaceTypeEnum | string): ListWorkspacesRequest {
         this['workspace_type'] = workspaceType;

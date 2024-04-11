@@ -1,3 +1,4 @@
+import { OBSCommonConfig } from './OBSCommonConfig';
 import { TableColumnDTO } from './TableColumnDTO';
 
 
@@ -16,7 +17,7 @@ export class DataProfileRO {
     private 'job_id'?: string;
     public cancel?: boolean;
     private 'auto_stop'?: boolean;
-    public obsconfig?: object;
+    public obsconfig?: OBSCommonConfig;
     public constructor() { 
     }
     public withDwId(dwId: string): DataProfileRO {
@@ -135,7 +136,7 @@ export class DataProfileRO {
     public get autoStop(): boolean | undefined {
         return this['auto_stop'];
     }
-    public withObsconfig(obsconfig: object): DataProfileRO {
+    public withObsconfig(obsconfig: OBSCommonConfig): DataProfileRO {
         this['obsconfig'] = obsconfig;
         return this;
     }

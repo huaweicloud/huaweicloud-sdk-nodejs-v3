@@ -2,14 +2,14 @@
 
 export class ResponseInfoHeader {
     public key?: string;
-    public value?: object;
+    public value?: string;
     public constructor() { 
     }
     public withKey(key: string): ResponseInfoHeader {
         this['key'] = key;
         return this;
     }
-    public withValue(value: object): ResponseInfoHeader {
+    public withValue(value: string): ResponseInfoHeader {
         this['value'] = value;
         return this;
     }

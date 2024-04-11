@@ -128,6 +128,5 @@ export class DirectoryVO {
     */
 export enum DirectoryVOTypeEnum {
     STANDARD_ELEMENT = 'STANDARD_ELEMENT',
-    TAG = 'TAG',
     CODE = 'CODE'
 }

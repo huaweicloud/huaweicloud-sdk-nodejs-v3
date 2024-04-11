@@ -5,11 +5,11 @@ import { BizTypeEnum } from './BizTypeEnum';
 
 
 export class ApprovalVO {
-    public id?: number;
+    public id?: string;
     private 'tenant_id'?: string;
     private 'name_ch'?: string;
     private 'name_en'?: string;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'biz_type'?: BizTypeEnum;
     private 'biz_info'?: string;
     private 'biz_info_obj'?: object;
@@ -29,7 +29,7 @@ export class ApprovalVO {
     private 'directory_path'?: string;
     public constructor() { 
     }
-    public withId(id: number): ApprovalVO {
+    public withId(id: string): ApprovalVO {
         this['id'] = id;
         return this;
     }
@@ -63,14 +63,14 @@ export class ApprovalVO {
     public get nameEn(): string | undefined {
         return this['name_en'];
     }
-    public withBizId(bizId: number): ApprovalVO {
+    public withBizId(bizId: string): ApprovalVO {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withBizType(bizType: BizTypeEnum): ApprovalVO {

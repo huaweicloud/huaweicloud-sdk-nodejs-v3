@@ -152,6 +152,8 @@ import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListsAgencyPermissionsRequest } from './model/ListsAgencyPermissionsRequest';
+import { ListsAgencyPermissionsResponse } from './model/ListsAgencyPermissionsResponse';
 import { MigrationObjectOverviewInfo } from './model/MigrationObjectOverviewInfo';
 import { ModifyParameterReq } from './model/ModifyParameterReq';
 import { ModifyStartPositionReq } from './model/ModifyStartPositionReq';
@@ -179,6 +181,12 @@ import { QueryNetworkResult } from './model/QueryNetworkResult';
 import { QueryPreCheckResult } from './model/QueryPreCheckResult';
 import { QuerySelectObjectInfoReq } from './model/QuerySelectObjectInfoReq';
 import { QueryUserSelectedObjectInfoReq } from './model/QueryUserSelectedObjectInfoReq';
+import { ReplayErrorSqlResp } from './model/ReplayErrorSqlResp';
+import { ReplayErrorSqlTemplateResp } from './model/ReplayErrorSqlTemplateResp';
+import { ReplayShardStaticsResp } from './model/ReplayShardStaticsResp';
+import { ReplaySlowSqlResp } from './model/ReplaySlowSqlResp';
+import { ReplaySlowSqlTemplateResp } from './model/ReplaySlowSqlTemplateResp';
+import { ReplayingSqlResp } from './model/ReplayingSqlResp';
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTagInfo } from './model/ResourceTagInfo';
@@ -226,6 +234,8 @@ import { ShowPositionResultRequest } from './model/ShowPositionResultRequest';
 import { ShowPositionResultResponse } from './model/ShowPositionResultResponse';
 import { ShowProgressDataRequest } from './model/ShowProgressDataRequest';
 import { ShowProgressDataResponse } from './model/ShowProgressDataResponse';
+import { ShowReplayResultsRequest } from './model/ShowReplayResultsRequest';
+import { ShowReplayResultsResponse } from './model/ShowReplayResultsResponse';
 import { ShowSupportObjectTypeRequest } from './model/ShowSupportObjectTypeRequest';
 import { ShowSupportObjectTypeResponse } from './model/ShowSupportObjectTypeResponse';
 import { ShowUpdateObjectSavingStatusRequest } from './model/ShowUpdateObjectSavingStatusRequest';
@@ -1054,6 +1064,28 @@ export class DrsClient {
     }
 
     /**
+     * 根据源库类型，目标库类型，是否自建，获取委托所需要的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询委托的权限列表
+     * @param {boolean} isNonDbs 是否自建。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [sourceType] 源库类型 - mysql - sqlserver - postgresql - hwsql - mongodb - dws - oracle - taurus - tauruslite - ddm - kafka - mrsKafka - gaussdb - gaussdbv5 - gaussdbv5ha - gaussmongodb - cassandra - dmq - gaussdbt - gaussdb300 - gaussdbtha - elasticsearch - db2 - tidb - redis - rediscluster - gaussredis - mariadb - gaussdbv1 - informix - dynamo - gausscassandra - oceanbase
+     * @param {string} [targetType] 目标库类型 - mysql - sqlserver - postgresql - hwsql - mongodb - dws - oracle - taurus - tauruslite - ddm - kafka - mrsKafka - gaussdb - gaussdbv5 - gaussdbv5ha - gaussmongodb - cassandra - dmq - gaussdbt - gaussdb300 - gaussdbtha - elasticsearch - db2 - tidb - redis - rediscluster - gaussredis - mariadb - gaussdbv1 - informix - dynamo - gausscassandra - oceanbase
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listsAgencyPermissions(listsAgencyPermissionsRequest?: ListsAgencyPermissionsRequest): Promise<ListsAgencyPermissionsResponse> {
+        const options = ParamCreater().listsAgencyPermissions(listsAgencyPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定任务允许、不允许、当前操作信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1511,6 +1543,34 @@ export class DrsClient {
      */
     public showProgressData(showProgressDataRequest?: ShowProgressDataRequest): Promise<ShowProgressDataResponse> {
         const options = ParamCreater().showProgressData(showProgressDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取录制回放结果数据，包括：回放基于时间维度统计信息，异常SQL及统计结果、慢SQL及统计结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询录制回放结果
+     * @param {string} jobId 任务ID。
+     * @param {'shard_statistics' | 'slow_sql' | 'error_sql' | 'slow_sql_template' | 'error_sql_template' | 'replaying_sql'} type 结果类型。取值： - shard_statistics：回放概览基于时间维度统计信息。 - slow_sql：慢SQL详情。 - error_sql： 回放异常SQL详情。 - slow_sql_template：慢SQL统计信息。  - error_sql_template：异常SQL统计信息。 - replaying_sql：正在回放SQL详情。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [startTime] 查询数据的起始时间，在type为shard_statistics、slow_sql、error_sql时必填
+     * @param {string} [endTime] 查询数据的结束时间，在type为shard_statistics、slow_sql、error_sql时必填
+     * @param {number} [offset] 分页查询数据表当前超始偏移量, 在type为slow_sql、error_sql、slow_sql_template、error_sql_template必填
+     * @param {number} [limit] 分页查询数据表当前页数据总量，在type为slow_sql、error_sql、slow_sql_template、error_sql_template必填
+     * @param {string} [sortKey] 返回结果按该关键字排序（slow_sql_template支持count，maxLatency、avgLatency关键字，error_sql_template支持count关键字）
+     * @param {'asc' | 'desc'} [sortDir] 排序规则，取值如下： - asc：升序 - desc：降序
+     * @param {'target' | 'target_mirror'} [targetName] 回放数据库名称，用于在一致性回放策略场景，过滤目标库与源库镜像库回放结果。参数非必须，不提供则默认查询所有数据，其取值如下： - target：查询目标库回放结果 - target_mirror：查询源库镜像库回放结果
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReplayResults(showReplayResultsRequest?: ShowReplayResultsRequest): Promise<ShowReplayResultsResponse> {
+        const options = ParamCreater().showReplayResults(showReplayResultsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3767,6 +3827,67 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据源库类型，目标库类型，是否自建，获取委托所需要的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listsAgencyPermissions(listsAgencyPermissionsRequest?: ListsAgencyPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/agency/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let isNonDbs;
+            
+            let xLanguage;
+            
+            let sourceType;
+            
+            let targetType;
+
+            if (listsAgencyPermissionsRequest !== null && listsAgencyPermissionsRequest !== undefined) {
+                if (listsAgencyPermissionsRequest instanceof ListsAgencyPermissionsRequest) {
+                    isNonDbs = listsAgencyPermissionsRequest.isNonDbs;
+                    xLanguage = listsAgencyPermissionsRequest.xLanguage;
+                    sourceType = listsAgencyPermissionsRequest.sourceType;
+                    targetType = listsAgencyPermissionsRequest.targetType;
+                } else {
+                    isNonDbs = listsAgencyPermissionsRequest['is_non_dbs'];
+                    xLanguage = listsAgencyPermissionsRequest['X-Language'];
+                    sourceType = listsAgencyPermissionsRequest['source_type'];
+                    targetType = listsAgencyPermissionsRequest['target_type'];
+                }
+            }
+
+        
+            if (isNonDbs === null || isNonDbs === undefined) {
+                throw new RequiredError('isNonDbs','Required parameter isNonDbs was null or undefined when calling listsAgencyPermissions.');
+            }
+            if (isNonDbs !== null && isNonDbs !== undefined) {
+                localVarQueryParameter['is_non_dbs'] = isNonDbs;
+            }
+            if (sourceType !== null && sourceType !== undefined) {
+                localVarQueryParameter['source_type'] = sourceType;
+            }
+            if (targetType !== null && targetType !== undefined) {
+                localVarQueryParameter['target_type'] = targetType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定任务允许、不允许、当前操作信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5004,6 +5125,110 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId,'type': type, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取录制回放结果数据，包括：回放基于时间维度统计信息，异常SQL及统计结果、慢SQL及统计结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReplayResults(showReplayResultsRequest?: ShowReplayResultsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/replay-results",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let type;
+            
+            let xLanguage;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let targetName;
+
+            if (showReplayResultsRequest !== null && showReplayResultsRequest !== undefined) {
+                if (showReplayResultsRequest instanceof ShowReplayResultsRequest) {
+                    jobId = showReplayResultsRequest.jobId;
+                    type = showReplayResultsRequest.type;
+                    xLanguage = showReplayResultsRequest.xLanguage;
+                    startTime = showReplayResultsRequest.startTime;
+                    endTime = showReplayResultsRequest.endTime;
+                    offset = showReplayResultsRequest.offset;
+                    limit = showReplayResultsRequest.limit;
+                    sortKey = showReplayResultsRequest.sortKey;
+                    sortDir = showReplayResultsRequest.sortDir;
+                    targetName = showReplayResultsRequest.targetName;
+                } else {
+                    jobId = showReplayResultsRequest['job_id'];
+                    type = showReplayResultsRequest['type'];
+                    xLanguage = showReplayResultsRequest['X-Language'];
+                    startTime = showReplayResultsRequest['start_time'];
+                    endTime = showReplayResultsRequest['end_time'];
+                    offset = showReplayResultsRequest['offset'];
+                    limit = showReplayResultsRequest['limit'];
+                    sortKey = showReplayResultsRequest['sort_key'];
+                    sortDir = showReplayResultsRequest['sort_dir'];
+                    targetName = showReplayResultsRequest['target_name'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showReplayResults.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling showReplayResults.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (targetName !== null && targetName !== undefined) {
+                localVarQueryParameter['target_name'] = targetName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

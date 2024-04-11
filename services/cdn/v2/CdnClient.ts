@@ -12,6 +12,8 @@ import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
 import { BatchDeleteTagsRequest } from './model/BatchDeleteTagsRequest';
 import { BatchDeleteTagsResponse } from './model/BatchDeleteTagsResponse';
+import { BrowserCacheRules } from './model/BrowserCacheRules';
+import { BrowserCacheRulesCondition } from './model/BrowserCacheRulesCondition';
 import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
 import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterGetBody';
@@ -78,11 +80,13 @@ import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
 import { PreheatingTaskRequest } from './model/PreheatingTaskRequest';
 import { PreheatingTaskRequestBody } from './model/PreheatingTaskRequestBody';
 import { Quic } from './model/Quic';
+import { Quotas } from './model/Quotas';
 import { RefererConfig } from './model/RefererConfig';
 import { RefreshTaskRequest } from './model/RefreshTaskRequest';
 import { RefreshTaskRequestBody } from './model/RefreshTaskRequestBody';
-import { RemoteAuthRuleVo } from './model/RemoteAuthRuleVo';
+import { RemoteAuthRule } from './model/RemoteAuthRule';
 import { RequestLimitRules } from './model/RequestLimitRules';
+import { RequestUrlRewrite } from './model/RequestUrlRewrite';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
@@ -108,6 +112,8 @@ import { ShowIpInfoRequest } from './model/ShowIpInfoRequest';
 import { ShowIpInfoResponse } from './model/ShowIpInfoResponse';
 import { ShowLogsRequest } from './model/ShowLogsRequest';
 import { ShowLogsResponse } from './model/ShowLogsResponse';
+import { ShowQuotaRequest } from './model/ShowQuotaRequest';
+import { ShowQuotaResponse } from './model/ShowQuotaResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
 import { ShowTagsResponse } from './model/ShowTagsResponse';
 import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
@@ -118,6 +124,7 @@ import { ShowUrlTaskInfoRequest } from './model/ShowUrlTaskInfoRequest';
 import { ShowUrlTaskInfoResponse } from './model/ShowUrlTaskInfoResponse';
 import { ShowVerifyDomainOwnerInfoRequest } from './model/ShowVerifyDomainOwnerInfoRequest';
 import { ShowVerifyDomainOwnerInfoResponse } from './model/ShowVerifyDomainOwnerInfoResponse';
+import { Sni } from './model/Sni';
 import { SourceWithPort } from './model/SourceWithPort';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
@@ -139,6 +146,7 @@ import { UpdatePrivateBucketAccessResponse } from './model/UpdatePrivateBucketAc
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
+import { UrlRewriteCondition } from './model/UrlRewriteCondition';
 import { Urls } from './model/Urls';
 import { UserAgentFilter } from './model/UserAgentFilter';
 import { VerifyDomainOwnerRequest } from './model/VerifyDomainOwnerRequest';
@@ -456,7 +464,7 @@ export class CdnClient {
      * @param {string} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
      * @param {number} [pageSize] 每页加速域名的数量，取值范围1-10000，默认值为30。
      * @param {number} [pageNumber] 查询的页码，即：从哪一页开始查询，取值范围1-65535，默认值为1。
-     * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
+     * @param {boolean} [showTags] 展示标签标识 true：展示 false：不展示。
      * @param {boolean} [exactMatch] 精准匹配 true：开启 false：关闭。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -607,7 +615,7 @@ export class CdnClient {
     }
 
     /**
-     * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
+     * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -805,6 +813,24 @@ export class CdnClient {
     }
 
     /**
+     * 查询当前用户域名、刷新文件、刷新目录和预热的配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
+        const options = ParamCreater().showQuota();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于查询资源标签列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -941,7 +967,7 @@ export class CdnClient {
     }
 
     /**
-     * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
+     * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2132,7 +2158,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
+         * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2740,6 +2766,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前用户域名、刷新文件、刷新目录和预热的配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuota() {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 用于查询资源标签列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3092,7 +3139,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽。
+         * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

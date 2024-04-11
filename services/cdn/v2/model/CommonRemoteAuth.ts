@@ -1,10 +1,10 @@
-import { RemoteAuthRuleVo } from './RemoteAuthRuleVo';
+import { RemoteAuthRule } from './RemoteAuthRule';
 
 
 export class CommonRemoteAuth {
     private 'remote_authentication'?: string;
-    private 'remote_auth_rules'?: RemoteAuthRuleVo;
-    public constructor(remoteAuthentication?: string, remoteAuthRules?: RemoteAuthRuleVo) { 
+    private 'remote_auth_rules'?: RemoteAuthRule;
+    public constructor(remoteAuthentication?: string, remoteAuthRules?: RemoteAuthRule) { 
         this['remote_authentication'] = remoteAuthentication;
         this['remote_auth_rules'] = remoteAuthRules;
     }
@@ -18,14 +18,14 @@ export class CommonRemoteAuth {
     public get remoteAuthentication(): string | undefined {
         return this['remote_authentication'];
     }
-    public withRemoteAuthRules(remoteAuthRules: RemoteAuthRuleVo): CommonRemoteAuth {
+    public withRemoteAuthRules(remoteAuthRules: RemoteAuthRule): CommonRemoteAuth {
         this['remote_auth_rules'] = remoteAuthRules;
         return this;
     }
-    public set remoteAuthRules(remoteAuthRules: RemoteAuthRuleVo  | undefined) {
+    public set remoteAuthRules(remoteAuthRules: RemoteAuthRule  | undefined) {
         this['remote_auth_rules'] = remoteAuthRules;
     }
-    public get remoteAuthRules(): RemoteAuthRuleVo | undefined {
+    public get remoteAuthRules(): RemoteAuthRule | undefined {
         return this['remote_auth_rules'];
     }
 }

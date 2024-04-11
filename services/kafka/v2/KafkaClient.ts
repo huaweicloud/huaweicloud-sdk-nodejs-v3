@@ -762,7 +762,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {'kafka'} [engine] 消息引擎：kafka。
+     * @param {'kafka'} engine 消息引擎：kafka。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
      * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
@@ -3053,6 +3053,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstances.');
+            }
             if (engine !== null && engine !== undefined) {
                 localVarQueryParameter['engine'] = engine;
             }

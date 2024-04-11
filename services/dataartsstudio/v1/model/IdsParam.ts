@@ -1,12 +1,12 @@
 
 
 export class IdsParam {
-    public ids?: Array<number>;
+    public ids?: Array<string>;
     private 'del_types'?: IdsParamDelTypesEnum | string;
-    public constructor(ids?: Array<number>) { 
+    public constructor(ids?: Array<string>) { 
         this['ids'] = ids;
     }
-    public withIds(ids: Array<number>): IdsParam {
+    public withIds(ids: Array<string>): IdsParam {
         this['ids'] = ids;
         return this;
     }

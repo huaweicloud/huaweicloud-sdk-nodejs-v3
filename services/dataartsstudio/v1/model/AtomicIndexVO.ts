@@ -5,7 +5,7 @@ import { BizVersionManageVO } from './BizVersionManageVO';
 
 
 export class AtomicIndexVO {
-    public id?: number;
+    public id?: string;
     private 'name_en'?: string;
     private 'name_ch'?: string;
     public description?: string;
@@ -14,8 +14,8 @@ export class AtomicIndexVO {
     private 'cal_fn_ids'?: Array<number>;
     private 'l1_id'?: number;
     private 'l2_id'?: string;
-    private 'l3_id'?: number;
-    private 'table_id'?: number;
+    private 'l3_id'?: string;
+    private 'table_id'?: string;
     private 'tb_name'?: string;
     private 'dw_type'?: string;
     private 'field_ids'?: Array<number>;
@@ -29,7 +29,7 @@ export class AtomicIndexVO {
     public l3?: string;
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
-    public constructor(nameEn?: string, nameCh?: string, calExp?: string, l3Id?: number, tableId?: number, fieldIds?: Array<number>) { 
+    public constructor(nameEn?: string, nameCh?: string, calExp?: string, l3Id?: string, tableId?: string, fieldIds?: Array<number>) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
         this['cal_exp'] = calExp;
@@ -37,7 +37,7 @@ export class AtomicIndexVO {
         this['table_id'] = tableId;
         this['field_ids'] = fieldIds;
     }
-    public withId(id: number): AtomicIndexVO {
+    public withId(id: string): AtomicIndexVO {
         this['id'] = id;
         return this;
     }
@@ -115,24 +115,24 @@ export class AtomicIndexVO {
     public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withL3Id(l3Id: number): AtomicIndexVO {
+    public withL3Id(l3Id: string): AtomicIndexVO {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
-    public withTableId(tableId: number): AtomicIndexVO {
+    public withTableId(tableId: string): AtomicIndexVO {
         this['table_id'] = tableId;
         return this;
     }
-    public set tableId(tableId: number  | undefined) {
+    public set tableId(tableId: string  | undefined) {
         this['table_id'] = tableId;
     }
-    public get tableId(): number | undefined {
+    public get tableId(): string | undefined {
         return this['table_id'];
     }
     public withTbName(tbName: string): AtomicIndexVO {

@@ -2,6 +2,8 @@
 
 export class ListDimensionGroupsRequest {
     public workspace?: string;
+    private 'X-Project-Id'?: string;
+    private 'Content-Type'?: string;
     private 'table_id'?: number;
     private 'biz_type'?: string;
     public limit?: number;
@@ -12,6 +14,26 @@ export class ListDimensionGroupsRequest {
     public withWorkspace(workspace: string): ListDimensionGroupsRequest {
         this['workspace'] = workspace;
         return this;
+    }
+    public withXProjectId(xProjectId: string): ListDimensionGroupsRequest {
+        this['X-Project-Id'] = xProjectId;
+        return this;
+    }
+    public set xProjectId(xProjectId: string  | undefined) {
+        this['X-Project-Id'] = xProjectId;
+    }
+    public get xProjectId(): string | undefined {
+        return this['X-Project-Id'];
+    }
+    public withContentType(contentType: string): ListDimensionGroupsRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withTableId(tableId: number): ListDimensionGroupsRequest {
         this['table_id'] = tableId;
