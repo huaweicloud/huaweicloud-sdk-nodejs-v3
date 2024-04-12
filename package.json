@@ -1,6 +1,6 @@
 {
   "name": "huaweicloud-sdk-nodejs-v3",
-  "version": "3.1.88",
+  "version": "3.1.89",
   "description": "Core code for Huaweicloud SDK for Node.js",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "HuaweiCloud_SDK",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.28.1",
     "form-data": "^4.0.0",
     "https-proxy-agent": "^5.0.0",
     "is-stream": "^2.0.0",

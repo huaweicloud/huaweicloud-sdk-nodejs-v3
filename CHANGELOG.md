@@ -1,3 +1,14 @@
+# 3.1.89 2024-04-12
+
+### HuaweiCloud SDK Core
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Upgrade `axios`: 0.21.4 -> 0.28.1
+
 # 3.1.88 2024-04-11
 
 ### HuaweiCloud SDK AOS
