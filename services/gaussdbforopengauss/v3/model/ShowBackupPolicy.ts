@@ -5,13 +5,13 @@ export class ShowBackupPolicy {
     private 'start_time'?: string;
     public period?: string;
     private 'differential_priod'?: string;
-    private 'differential_period'?: string;
+    private 'differential_period'?: number;
     private 'rate_limit'?: number;
     private 'prefetch_block'?: number;
     private 'filesplit_size'?: number;
     private 'file_split_size'?: number;
     private 'enable_standby_backup'?: boolean;
-    public constructor(keepDays?: number, startTime?: string, period?: string, differentialPeriod?: string) { 
+    public constructor(keepDays?: number, startTime?: string, period?: string, differentialPeriod?: number) { 
         this['keep_days'] = keepDays;
         this['start_time'] = startTime;
         this['period'] = period;
@@ -51,14 +51,14 @@ export class ShowBackupPolicy {
     public get differentialPriod(): string | undefined {
         return this['differential_priod'];
     }
-    public withDifferentialPeriod(differentialPeriod: string): ShowBackupPolicy {
+    public withDifferentialPeriod(differentialPeriod: number): ShowBackupPolicy {
         this['differential_period'] = differentialPeriod;
         return this;
     }
-    public set differentialPeriod(differentialPeriod: string  | undefined) {
+    public set differentialPeriod(differentialPeriod: number  | undefined) {
         this['differential_period'] = differentialPeriod;
     }
-    public get differentialPeriod(): string | undefined {
+    public get differentialPeriod(): number | undefined {
         return this['differential_period'];
     }
     public withRateLimit(rateLimit: number): ShowBackupPolicy {

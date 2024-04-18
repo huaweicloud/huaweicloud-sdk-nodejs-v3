@@ -10,6 +10,9 @@ export class CreateConformancePackResponse extends SdkResponse {
     private 'deployment_id'?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    private 'template_key'?: string;
+    private 'template_uri'?: string;
+    private 'agency_name'?: string;
     public status?: CreateConformancePackResponseStatusEnum | string;
     private 'error_message'?: string;
     private 'vars_structure'?: Array<VarsStructure>;
@@ -75,6 +78,36 @@ export class CreateConformancePackResponse extends SdkResponse {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
+    public withTemplateKey(templateKey: string): CreateConformancePackResponse {
+        this['template_key'] = templateKey;
+        return this;
+    }
+    public set templateKey(templateKey: string  | undefined) {
+        this['template_key'] = templateKey;
+    }
+    public get templateKey(): string | undefined {
+        return this['template_key'];
+    }
+    public withTemplateUri(templateUri: string): CreateConformancePackResponse {
+        this['template_uri'] = templateUri;
+        return this;
+    }
+    public set templateUri(templateUri: string  | undefined) {
+        this['template_uri'] = templateUri;
+    }
+    public get templateUri(): string | undefined {
+        return this['template_uri'];
+    }
+    public withAgencyName(agencyName: string): CreateConformancePackResponse {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): string | undefined {
+        return this['agency_name'];
+    }
     public withStatus(status: CreateConformancePackResponseStatusEnum | string): CreateConformancePackResponse {
         this['status'] = status;
         return this;
@@ -123,5 +156,8 @@ export enum CreateConformancePackResponseStatusEnum {
     DELETE_FAILED = 'DELETE_FAILED',
     ROLLBACK_SUCCESSFUL = 'ROLLBACK_SUCCESSFUL',
     ROLLBACK_IN_PROGRESS = 'ROLLBACK_IN_PROGRESS',
-    ROLLBACK_FAILED = 'ROLLBACK_FAILED'
+    ROLLBACK_FAILED = 'ROLLBACK_FAILED',
+    UPDATE_SUCCESSFUL = 'UPDATE_SUCCESSFUL',
+    UPDATE_IN_PROGRESS = 'UPDATE_IN_PROGRESS',
+    UPDATE_FAILED = 'UPDATE_FAILED'
 }

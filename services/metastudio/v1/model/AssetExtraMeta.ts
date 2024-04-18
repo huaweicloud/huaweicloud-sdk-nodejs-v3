@@ -1,9 +1,12 @@
 import { AnimationAssetMeta } from './AnimationAssetMeta';
+import { AudioAssetMeta } from './AudioAssetMeta';
 import { HumanModel2DAssetMeta } from './HumanModel2DAssetMeta';
 import { HumanModelAssetMeta } from './HumanModelAssetMeta';
+import { ImageAssetMeta } from './ImageAssetMeta';
 import { MaterialAssetMeta } from './MaterialAssetMeta';
 import { PPTAssetMeta } from './PPTAssetMeta';
 import { SceneAssetMeta } from './SceneAssetMeta';
+import { VideoAssetMeta } from './VideoAssetMeta';
 import { VoiceModelAssetMeta } from './VoiceModelAssetMeta';
 
 
@@ -15,6 +18,9 @@ export class AssetExtraMeta {
     private 'scene_meta'?: SceneAssetMeta;
     private 'material_meta'?: MaterialAssetMeta;
     private 'human_model_2d_meta'?: HumanModel2DAssetMeta;
+    private 'image_meta'?: ImageAssetMeta;
+    private 'video_meta'?: VideoAssetMeta;
+    private 'audio_meta'?: AudioAssetMeta;
     public constructor() { 
     }
     public withHumanModelMeta(humanModelMeta: HumanModelAssetMeta): AssetExtraMeta {
@@ -86,5 +92,35 @@ export class AssetExtraMeta {
     }
     public get humanModel2dMeta(): HumanModel2DAssetMeta | undefined {
         return this['human_model_2d_meta'];
+    }
+    public withImageMeta(imageMeta: ImageAssetMeta): AssetExtraMeta {
+        this['image_meta'] = imageMeta;
+        return this;
+    }
+    public set imageMeta(imageMeta: ImageAssetMeta  | undefined) {
+        this['image_meta'] = imageMeta;
+    }
+    public get imageMeta(): ImageAssetMeta | undefined {
+        return this['image_meta'];
+    }
+    public withVideoMeta(videoMeta: VideoAssetMeta): AssetExtraMeta {
+        this['video_meta'] = videoMeta;
+        return this;
+    }
+    public set videoMeta(videoMeta: VideoAssetMeta  | undefined) {
+        this['video_meta'] = videoMeta;
+    }
+    public get videoMeta(): VideoAssetMeta | undefined {
+        return this['video_meta'];
+    }
+    public withAudioMeta(audioMeta: AudioAssetMeta): AssetExtraMeta {
+        this['audio_meta'] = audioMeta;
+        return this;
+    }
+    public set audioMeta(audioMeta: AudioAssetMeta  | undefined) {
+        this['audio_meta'] = audioMeta;
+    }
+    public get audioMeta(): AudioAssetMeta | undefined {
+        return this['audio_meta'];
     }
 }

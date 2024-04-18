@@ -5,6 +5,7 @@ export class OutputInfo {
     private 'body_addr'?: string;
     private 'audio_addr'?: string;
     private 'session_id'?: number;
+    private 'output_data_version'?: string;
     public constructor() { 
     }
     public withFaceAddr(faceAddr: string): OutputInfo {
@@ -46,5 +47,15 @@ export class OutputInfo {
     }
     public get sessionId(): number | undefined {
         return this['session_id'];
+    }
+    public withOutputDataVersion(outputDataVersion: string): OutputInfo {
+        this['output_data_version'] = outputDataVersion;
+        return this;
+    }
+    public set outputDataVersion(outputDataVersion: string  | undefined) {
+        this['output_data_version'] = outputDataVersion;
+    }
+    public get outputDataVersion(): string | undefined {
+        return this['output_data_version'];
     }
 }

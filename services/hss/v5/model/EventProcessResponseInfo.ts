@@ -40,6 +40,9 @@ export class EventProcessResponseInfo {
     private 'escape_mode'?: string;
     private 'escape_cmd'?: string;
     private 'process_hash'?: string;
+    private 'process_file_hash'?: string;
+    private 'parent_process_file_hash'?: string;
+    public block?: number;
     public constructor() { 
     }
     public withProcessName(processName: string): EventProcessResponseInfo {
@@ -431,5 +434,29 @@ export class EventProcessResponseInfo {
     }
     public get processHash(): string | undefined {
         return this['process_hash'];
+    }
+    public withProcessFileHash(processFileHash: string): EventProcessResponseInfo {
+        this['process_file_hash'] = processFileHash;
+        return this;
+    }
+    public set processFileHash(processFileHash: string  | undefined) {
+        this['process_file_hash'] = processFileHash;
+    }
+    public get processFileHash(): string | undefined {
+        return this['process_file_hash'];
+    }
+    public withParentProcessFileHash(parentProcessFileHash: string): EventProcessResponseInfo {
+        this['parent_process_file_hash'] = parentProcessFileHash;
+        return this;
+    }
+    public set parentProcessFileHash(parentProcessFileHash: string  | undefined) {
+        this['parent_process_file_hash'] = parentProcessFileHash;
+    }
+    public get parentProcessFileHash(): string | undefined {
+        return this['parent_process_file_hash'];
+    }
+    public withBlock(block: number): EventProcessResponseInfo {
+        this['block'] = block;
+        return this;
     }
 }

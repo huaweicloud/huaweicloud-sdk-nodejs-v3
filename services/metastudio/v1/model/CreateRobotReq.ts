@@ -8,16 +8,15 @@ import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
 export class CreateRobotReq {
     public name?: string;
     private 'app_type'?: number;
-    public concurrency?: number;
+    private 'room_id'?: string;
     public language?: LanguageEnum;
     private 'huawei_ei_cbs'?: HuaweiEiCbs;
     private 'iflytek_aiui_config'?: IflytekAiuiConfig;
     private 'iflytek_spark'?: IflytekSpark;
     private 'third_party_model_config'?: ThirdPartyModelConfig;
-    public constructor(name?: string, appType?: number, concurrency?: number) { 
+    public constructor(name?: string, appType?: number) { 
         this['name'] = name;
         this['app_type'] = appType;
-        this['concurrency'] = concurrency;
     }
     public withName(name: string): CreateRobotReq {
         this['name'] = name;
@@ -33,9 +32,15 @@ export class CreateRobotReq {
     public get appType(): number | undefined {
         return this['app_type'];
     }
-    public withConcurrency(concurrency: number): CreateRobotReq {
-        this['concurrency'] = concurrency;
+    public withRoomId(roomId: string): CreateRobotReq {
+        this['room_id'] = roomId;
         return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
     }
     public withLanguage(language: LanguageEnum): CreateRobotReq {
         this['language'] = language;

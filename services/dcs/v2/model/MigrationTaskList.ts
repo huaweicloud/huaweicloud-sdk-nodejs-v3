@@ -14,6 +14,18 @@ export class MigrationTaskList {
     private 'target_instance_name'?: string;
     private 'target_instance_id'?: string;
     private 'created_at'?: string;
+    public description?: string;
+    private 'source_instance_status'?: string;
+    private 'target_instance_status'?: string;
+    private 'source_instance_subnet_id'?: string;
+    private 'target_instance_subnet_id'?: string;
+    private 'source_instance_spec_code'?: string;
+    private 'target_instance_spec_code'?: string;
+    private 'error_message'?: string;
+    private 'released_at'?: string;
+    public version?: string;
+    private 'resume_mode'?: string;
+    private 'supported_features'?: Array<string>;
     public constructor() { 
     }
     public withTaskId(taskId: string): MigrationTaskList {
@@ -139,6 +151,114 @@ export class MigrationTaskList {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withDescription(description: string): MigrationTaskList {
+        this['description'] = description;
+        return this;
+    }
+    public withSourceInstanceStatus(sourceInstanceStatus: string): MigrationTaskList {
+        this['source_instance_status'] = sourceInstanceStatus;
+        return this;
+    }
+    public set sourceInstanceStatus(sourceInstanceStatus: string  | undefined) {
+        this['source_instance_status'] = sourceInstanceStatus;
+    }
+    public get sourceInstanceStatus(): string | undefined {
+        return this['source_instance_status'];
+    }
+    public withTargetInstanceStatus(targetInstanceStatus: string): MigrationTaskList {
+        this['target_instance_status'] = targetInstanceStatus;
+        return this;
+    }
+    public set targetInstanceStatus(targetInstanceStatus: string  | undefined) {
+        this['target_instance_status'] = targetInstanceStatus;
+    }
+    public get targetInstanceStatus(): string | undefined {
+        return this['target_instance_status'];
+    }
+    public withSourceInstanceSubnetId(sourceInstanceSubnetId: string): MigrationTaskList {
+        this['source_instance_subnet_id'] = sourceInstanceSubnetId;
+        return this;
+    }
+    public set sourceInstanceSubnetId(sourceInstanceSubnetId: string  | undefined) {
+        this['source_instance_subnet_id'] = sourceInstanceSubnetId;
+    }
+    public get sourceInstanceSubnetId(): string | undefined {
+        return this['source_instance_subnet_id'];
+    }
+    public withTargetInstanceSubnetId(targetInstanceSubnetId: string): MigrationTaskList {
+        this['target_instance_subnet_id'] = targetInstanceSubnetId;
+        return this;
+    }
+    public set targetInstanceSubnetId(targetInstanceSubnetId: string  | undefined) {
+        this['target_instance_subnet_id'] = targetInstanceSubnetId;
+    }
+    public get targetInstanceSubnetId(): string | undefined {
+        return this['target_instance_subnet_id'];
+    }
+    public withSourceInstanceSpecCode(sourceInstanceSpecCode: string): MigrationTaskList {
+        this['source_instance_spec_code'] = sourceInstanceSpecCode;
+        return this;
+    }
+    public set sourceInstanceSpecCode(sourceInstanceSpecCode: string  | undefined) {
+        this['source_instance_spec_code'] = sourceInstanceSpecCode;
+    }
+    public get sourceInstanceSpecCode(): string | undefined {
+        return this['source_instance_spec_code'];
+    }
+    public withTargetInstanceSpecCode(targetInstanceSpecCode: string): MigrationTaskList {
+        this['target_instance_spec_code'] = targetInstanceSpecCode;
+        return this;
+    }
+    public set targetInstanceSpecCode(targetInstanceSpecCode: string  | undefined) {
+        this['target_instance_spec_code'] = targetInstanceSpecCode;
+    }
+    public get targetInstanceSpecCode(): string | undefined {
+        return this['target_instance_spec_code'];
+    }
+    public withErrorMessage(errorMessage: string): MigrationTaskList {
+        this['error_message'] = errorMessage;
+        return this;
+    }
+    public set errorMessage(errorMessage: string  | undefined) {
+        this['error_message'] = errorMessage;
+    }
+    public get errorMessage(): string | undefined {
+        return this['error_message'];
+    }
+    public withReleasedAt(releasedAt: string): MigrationTaskList {
+        this['released_at'] = releasedAt;
+        return this;
+    }
+    public set releasedAt(releasedAt: string  | undefined) {
+        this['released_at'] = releasedAt;
+    }
+    public get releasedAt(): string | undefined {
+        return this['released_at'];
+    }
+    public withVersion(version: string): MigrationTaskList {
+        this['version'] = version;
+        return this;
+    }
+    public withResumeMode(resumeMode: string): MigrationTaskList {
+        this['resume_mode'] = resumeMode;
+        return this;
+    }
+    public set resumeMode(resumeMode: string  | undefined) {
+        this['resume_mode'] = resumeMode;
+    }
+    public get resumeMode(): string | undefined {
+        return this['resume_mode'];
+    }
+    public withSupportedFeatures(supportedFeatures: Array<string>): MigrationTaskList {
+        this['supported_features'] = supportedFeatures;
+        return this;
+    }
+    public set supportedFeatures(supportedFeatures: Array<string>  | undefined) {
+        this['supported_features'] = supportedFeatures;
+    }
+    public get supportedFeatures(): Array<string> | undefined {
+        return this['supported_features'];
     }
 }
 

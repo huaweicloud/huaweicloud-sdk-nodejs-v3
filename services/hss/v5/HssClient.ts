@@ -1620,7 +1620,7 @@ export class HssClient {
      * @param {boolean} [latestVersion] 仅关注最新版本镜像
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} [limit] 每页显示个数
-     * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - download_failed : 下载失败   - image_oversized : 镜像超大
+     * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - waiting_for_scan : 等待扫描
      * @param {string} [instanceName] 企业镜像实例名称
      * @param {number} [imageSize] 镜像大小
      * @param {number} [startLatestUpdateTime] 创建时间开始日期，时间单位 毫秒（ms）

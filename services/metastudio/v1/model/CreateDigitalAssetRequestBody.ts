@@ -14,6 +14,7 @@ export class CreateDigitalAssetRequestBody {
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
     private 'shared_config'?: SharedConfig;
+    private 'is_need_generate_cover'?: boolean;
     public constructor(assetName?: string, assetType?: string) { 
         this['asset_name'] = assetName;
         this['asset_type'] = assetType;
@@ -101,6 +102,16 @@ export class CreateDigitalAssetRequestBody {
     }
     public get sharedConfig(): SharedConfig | undefined {
         return this['shared_config'];
+    }
+    public withIsNeedGenerateCover(isNeedGenerateCover: boolean): CreateDigitalAssetRequestBody {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+        return this;
+    }
+    public set isNeedGenerateCover(isNeedGenerateCover: boolean  | undefined) {
+        this['is_need_generate_cover'] = isNeedGenerateCover;
+    }
+    public get isNeedGenerateCover(): boolean | undefined {
+        return this['is_need_generate_cover'];
     }
 }
 

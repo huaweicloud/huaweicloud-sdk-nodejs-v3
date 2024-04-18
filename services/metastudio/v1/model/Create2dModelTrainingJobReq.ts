@@ -8,6 +8,7 @@ export class Create2dModelTrainingJobReq {
     private 'is_background_replacement'?: boolean;
     private 'batch_name'?: string;
     public tags?: Array<string>;
+    private 'model_version'?: Create2dModelTrainingJobReqModelVersionEnum | string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -63,6 +64,16 @@ export class Create2dModelTrainingJobReq {
         this['tags'] = tags;
         return this;
     }
+    public withModelVersion(modelVersion: Create2dModelTrainingJobReqModelVersionEnum | string): Create2dModelTrainingJobReq {
+        this['model_version'] = modelVersion;
+        return this;
+    }
+    public set modelVersion(modelVersion: Create2dModelTrainingJobReqModelVersionEnum | string  | undefined) {
+        this['model_version'] = modelVersion;
+    }
+    public get modelVersion(): Create2dModelTrainingJobReqModelVersionEnum | string | undefined {
+        return this['model_version'];
+    }
 }
 
 /**
@@ -72,4 +83,13 @@ export class Create2dModelTrainingJobReq {
 export enum Create2dModelTrainingJobReqCommandMessageEnum {
     UPDATE_VIDEO = 'UPDATE_VIDEO',
     UPLOAD_VIDEO = 'UPLOAD_VIDEO'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Create2dModelTrainingJobReqModelVersionEnum {
+    V2 = 'V2',
+    V3 = 'V3',
+    V3_2 = 'V3.2'
 }

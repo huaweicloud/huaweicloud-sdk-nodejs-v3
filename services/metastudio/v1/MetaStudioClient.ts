@@ -10,6 +10,7 @@ import { AnimationConfig } from './model/AnimationConfig';
 import { AnimationItem } from './model/AnimationItem';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
+import { AudioAssetMeta } from './model/AudioAssetMeta';
 import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult';
 import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
 import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAuditResultErrors';
@@ -157,12 +158,12 @@ import { HuaweiEiCbs } from './model/HuaweiEiCbs';
 import { HumanModel2DAssetMeta } from './model/HumanModel2DAssetMeta';
 import { HumanModelAssetMeta } from './model/HumanModelAssetMeta';
 import { HumanModelMetaProperties } from './model/HumanModelMetaProperties';
-import { HumanPosition2D } from './model/HumanPosition2D';
-import { HumanSize2D } from './model/HumanSize2D';
 import { IflytekAiuiConfig } from './model/IflytekAiuiConfig';
 import { IflytekSpark } from './model/IflytekSpark';
+import { ImageAssetMeta } from './model/ImageAssetMeta';
 import { ImageLayerConfig } from './model/ImageLayerConfig';
 import { InferenceActionMarkInfo } from './model/InferenceActionMarkInfo';
+import { InferenceEyeCorrectionMarkInfo } from './model/InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './model/InferenceVideoMarkInfo';
 import { InputInfo } from './model/InputInfo';
 import { InteractionRuleDetailInfo } from './model/InteractionRuleDetailInfo';
@@ -339,6 +340,7 @@ import { ThirdPartyModelConfig } from './model/ThirdPartyModelConfig';
 import { TrainingJobBasicInfo } from './model/TrainingJobBasicInfo';
 import { TrainingJobInfo } from './model/TrainingJobInfo';
 import { TriggerProcess } from './model/TriggerProcess';
+import { Update2dModelTrainingJobReq } from './model/Update2dModelTrainingJobReq';
 import { Update2dModelTrainingJobRequest } from './model/Update2dModelTrainingJobRequest';
 import { Update2dModelTrainingJobResponse } from './model/Update2dModelTrainingJobResponse';
 import { UpdateActiveCodeReq } from './model/UpdateActiveCodeReq';
@@ -361,6 +363,7 @@ import { UpdateSmartLiveRoomResponse } from './model/UpdateSmartLiveRoomResponse
 import { UpdateVideoScriptRequest } from './model/UpdateVideoScriptRequest';
 import { UpdateVideoScriptResponse } from './model/UpdateVideoScriptResponse';
 import { UpdateVideoScriptsReq } from './model/UpdateVideoScriptsReq';
+import { VideoAssetMeta } from './model/VideoAssetMeta';
 import { VideoConfig } from './model/VideoConfig';
 import { VideoLayerConfig } from './model/VideoLayerConfig';
 import { VideoMotionCaptureInfo } from './model/VideoMotionCaptureInfo';
@@ -397,7 +400,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -420,7 +423,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -443,7 +446,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {*} [options] Override http request option.
@@ -468,7 +471,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -491,7 +494,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -515,7 +518,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -538,7 +541,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -562,7 +565,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -586,7 +589,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -610,7 +613,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -631,7 +634,7 @@ export class MetaStudioClient {
      * @summary 复制资产
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {ReplicationAssetInfo} [createAssetbyReplicationInfoRequestBody] 资产复制信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -647,9 +650,9 @@ export class MetaStudioClient {
 
     /**
      * 该接口用于在资产库中添加上传新的媒体资产。可上传的资产类型包括：分身数字人模型、背景图片、素材图片、素材视频、PPT等。
-     * * &gt; 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
-     * * &gt; 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
-     * * &gt; MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
+     * &gt; - 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
+     * &gt; - 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
+     * &gt; - MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -657,7 +660,7 @@ export class MetaStudioClient {
      * @param {CreateDigitalAssetRequestBody} createDigitalAssetRequestBody 创建资产
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -679,7 +682,7 @@ export class MetaStudioClient {
      * @param {string} assetId 资产ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [mode] 删除模式
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -720,10 +723,9 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资产列表
-     * @param {string} [X_REAL_IP] 客户端IP
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {string} [name] 按名称模糊查询。
@@ -741,8 +743,8 @@ export class MetaStudioClient {
      * @param {string} [language] 语言。多选使用英文逗号分隔。
      * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes * TO_BE_TRANSLATED_VIDEO: 视频翻译的源视频。可取值Yes  3D数字人资产属性： * STYLE_ID：风格Id * RENDER_ENGINE：引擎类型，可取值UE或MetaEngine * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）
      * @param {boolean} [actionEditable] 动作是否可编辑。仅在分身数字人模型查询时有效。
-     * @param {boolean} [isMovable] 分身数字人是否资产走动。仅在分身数字人模型查询时有效。
-     * @param {string} [voiceProvider] 可取值HUAWEI_METASTUDIO, MOBVOI。 HUAWEI_METASTUDIO：MetaStudio自研音色 MOBVOI：出门问问音色
+     * @param {boolean} [isMovable] 分身数字人是否支持走动。仅在分身数字人模型查询时有效。
+     * @param {string} [voiceProvider] 取值：HUAWEI_METASTUDIO、MOBVOI。 HUAWEI_METASTUDIO：MetaStudio自研音色 MOBVOI：出门问问音色
      * @param {'SHARER' | 'SHAREE'} [role] 角色。 SHARER：共享方，SHAREE：被共享方
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -765,7 +767,7 @@ export class MetaStudioClient {
      * @param {string} assetId 资产ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -787,7 +789,7 @@ export class MetaStudioClient {
      * @param {string} assetId 资产ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -809,7 +811,7 @@ export class MetaStudioClient {
      * @param {string} assetId 资产ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -832,7 +834,7 @@ export class MetaStudioClient {
      * @param {UpdateDigitalAssetRequestBody} updateDigitalAssetRequestBody 创建资产
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -855,7 +857,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -878,7 +880,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -900,7 +902,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -931,7 +933,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -955,7 +957,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -977,7 +979,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -1010,7 +1012,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1033,7 +1035,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1056,7 +1058,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {boolean} [showScript] 是否需要返回剧本参数配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1080,7 +1082,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1103,7 +1105,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1126,7 +1128,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1149,7 +1151,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1172,7 +1174,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {boolean} [showScript] 是否需要返回剧本参数配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1196,7 +1198,7 @@ export class MetaStudioClient {
      * @param {ConfirmFileUploadRequestBody} confirmFileUploadRequestBody 确认媒资上传
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1218,7 +1220,7 @@ export class MetaStudioClient {
      * @param {FilesCreateReq} createFileRequestBody 创建文件请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1240,7 +1242,7 @@ export class MetaStudioClient {
      * @param {string} fileId 文件ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1263,7 +1265,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1286,7 +1288,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1311,7 +1313,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [notifyUrl] 照片建模任务结束的回调地址。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1334,7 +1336,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -1364,7 +1366,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1387,7 +1389,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1410,7 +1412,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1432,9 +1434,10 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [roomId] 智能交互对话房间ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1457,7 +1460,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1481,7 +1484,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1504,7 +1507,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1523,11 +1526,11 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除智能交互对话
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 智能交互对话ID。获取方法请参考[创建智能交互对话](CreateSmartChatRoom.xml)。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1549,7 +1552,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [roomName] 按智能交互对话名称模糊查询。
@@ -1574,11 +1577,11 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询智能交互对话详情
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 智能交互对话ID。获取方法请参考[创建智能交互对话](CreateSmartChatRoom.xml)。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1597,12 +1600,12 @@ export class MetaStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新智能交互对话信息
-     * @param {string} roomId 剧本ID。
+     * @param {string} roomId 智能交互对话ID。获取方法请参考[创建智能交互对话](CreateSmartChatRoom.xml)。
      * @param {CreateSmartChatRoomReq} updateSmartChatRoomRequestBody 更新智能交互对话请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1627,7 +1630,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1641,16 +1644,16 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询数字人智能直播任务列表。
+     * 该接口用于查询某个智能直播间的直播任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询数字人智能直播任务列表
+     * @summary 查询某个智能直播间下直播任务列表
      * @param {string} roomId 剧本ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -1671,15 +1674,15 @@ export class MetaStudioClient {
     }
 
     /**
-     * 该接口用于查询数字人智能直播任务列表。
+     * 该接口用于查询租户所有数字人智能直播任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询数字人智能直播任务列表
+     * @summary 查询租户所有数字人直播任务列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -1712,7 +1715,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [authKey] 鉴权Key。通过HmacSHA256生成的鉴权key
      * @param {number} [expiresTime] 鉴权key过期时间。从1970年1月1日（UTC/GMT的午夜）开始所经过的豪秒数。
      * @param {boolean} [refreshUrl] 是否刷新URL
@@ -1739,7 +1742,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1763,7 +1766,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1787,7 +1790,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1829,7 +1832,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1852,7 +1855,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1875,7 +1878,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1898,7 +1901,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1920,7 +1923,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
@@ -1947,7 +1950,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [roomName] 按直播间名称模糊查询。
@@ -1980,7 +1983,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2004,7 +2007,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2028,7 +2031,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2050,7 +2053,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
@@ -2080,7 +2083,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2114,17 +2117,17 @@ export class MetaStudioClient {
     }
 
     /**
-     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
-     * 仅支持zip包方式上传语音文件：
-     * * 语音文件打包成zip上传：上传的训练数据为一个zip格式压缩文件,其中包含一段wav格式的长音频文件。
+     * 用户创建语音训练高级版任务，该接口会返回一个obs上传地址，用于上传语音文件。
      * 
-     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 语音文件为一段WAV格式的长音频文件，仅支持将语音文件打包成zip压缩格式上传。
+     * 
+     * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建高级版语音训练任务
      * @param {CreateTrainingJobReq} createTrainingAdvanceJobRequestBody 创建任务请求。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2138,12 +2141,13 @@ export class MetaStudioClient {
     }
 
     /**
-     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+     * 用户创建语音训练基础版任务，该接口会返回一个obs上传地址，用于上传语音文件。
+     * 
      * 支持2种方式上传语音文件：
      * * 语音文件和文本文件打包成zip上传：语音文件已经切分成20个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~19.wav；文本文件命名规则：0.txt~19.txt。
      * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
      * 
-     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2152,7 +2156,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2166,12 +2170,13 @@ export class MetaStudioClient {
     }
 
     /**
-     * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+     * 用户创建语音训练进阶版任务，该接口会返回一个obs上传地址，用于上传语音文件。
+     * 
      * 支持2种方式上传语音文件：
      * * 语音文件和文本文件打包成zip上传：语音文件已经切分成100个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~99.wav；文本文件命名规则：0.txt~99.txt。
      * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
      * 
-     * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+     * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2180,7 +2185,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2203,7 +2208,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2226,7 +2231,7 @@ export class MetaStudioClient {
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [state] 任务状态，默认所有状态。 可多个状态查询，使用英文逗号分隔。 如state&#x3D;FAILED,WAITING
      * @param {string} [jobId] 任务id。
      * @param {string} [voiceName] 声音名称。
@@ -2310,7 +2315,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2333,7 +2338,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2357,7 +2362,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2381,7 +2386,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2403,18 +2408,20 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
      * @param {string} [sortKey] 排序字段，目前只支持create_time。
      * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [state] 任务状态，默认所有状态。  可多个状态查询，使用英文逗号分隔。  如state&#x3D;CREATING,PUBLISHED
+     * @param {string} [queryProjectId] 查询租户id。
      * @param {string} [batchName] 任务批次名称。
      * @param {string} [tag] 任务标签。
      * @param {string} [jobId] 任务ID。
      * @param {string} [name] 分身数字人模型名称
+     * @param {string} [modelResolution] 模型分辨率
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2437,7 +2444,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2458,11 +2465,11 @@ export class MetaStudioClient {
      *
      * @summary 更新分身数字人模型训练任务
      * @param {string} jobId 任务ID。
-     * @param {Create2dModelTrainingJobReq} update2dModelTrainingJobRequestBody 更新分身数字人模型训练任务请求。
+     * @param {Update2dModelTrainingJobReq} update2dModelTrainingJobRequestBody 更新分身数字人模型训练任务请求。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2504,7 +2511,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2568,7 +2575,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {*} [options] Override http request option.
@@ -2594,7 +2601,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2618,7 +2625,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 开发者应用作为资产权属的可选字段。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2641,7 +2648,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {string} [xUserPrivilege] 测试用户判断。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2666,7 +2673,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2688,7 +2695,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {*} [options] Override http request option.
@@ -2713,7 +2720,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2736,7 +2743,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2759,7 +2766,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2782,7 +2789,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2805,7 +2812,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2827,7 +2834,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [name] 按名称模糊查询。
@@ -2855,7 +2862,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2879,7 +2886,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。 &gt; * 不允许输入中文。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3658,9 +3665,9 @@ export const ParamCreater = function () {
     
         /**
          * 该接口用于在资产库中添加上传新的媒体资产。可上传的资产类型包括：分身数字人模型、背景图片、素材图片、素材视频、PPT等。
-         * * &gt; 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
-         * * &gt; 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
-         * * &gt; MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
+         * &gt; - 资产类型是IMAGE时，通过system_properties来区分背景图片（BACKGROUND_IMG）、素材图片（MATERIAL_IMG）。
+         * &gt; - 资产类型是VIDEO时，通过system_properties来区分素材视频（MATERIAL_VIDEO）、名片视频（BUSSINESS_CARD_VIDEO）。
+         * &gt; - MetaStudio平台生成的视频，system_properties带CREATED_BY_PLATFORM。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3853,8 +3860,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let X_REAL_IP;
-            
             let authorization;
             
             let xSdkDate;
@@ -3903,7 +3908,6 @@ export const ParamCreater = function () {
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
-                    X_REAL_IP = listAssetsRequest.X_REAL_IP;
                     authorization = listAssetsRequest.authorization;
                     xSdkDate = listAssetsRequest.xSdkDate;
                     xAppUserId = listAssetsRequest.xAppUserId;
@@ -3928,7 +3932,6 @@ export const ParamCreater = function () {
                     voiceProvider = listAssetsRequest.voiceProvider;
                     role = listAssetsRequest.role;
                 } else {
-                    X_REAL_IP = listAssetsRequest['X-REAL-IP'];
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
                     xAppUserId = listAssetsRequest['X-App-UserId'];
@@ -4015,9 +4018,6 @@ export const ParamCreater = function () {
             }
             if (role !== null && role !== undefined) {
                 localVarQueryParameter['role'] = role;
-            }
-            if (X_REAL_IP !== undefined && X_REAL_IP !== null) {
-                localVarHeaderParameter['X-REAL-IP'] = String(X_REAL_IP);
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -6064,6 +6064,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let roomId;
 
             if (listRobotRequest !== null && listRobotRequest !== undefined) {
                 if (listRobotRequest instanceof ListRobotRequest) {
@@ -6073,6 +6075,7 @@ export const ParamCreater = function () {
                     xAppUserId = listRobotRequest.xAppUserId;
                     offset = listRobotRequest.offset;
                     limit = listRobotRequest.limit;
+                    roomId = listRobotRequest.roomId;
                 } else {
                     authorization = listRobotRequest['Authorization'];
                     xSdkDate = listRobotRequest['X-Sdk-Date'];
@@ -6080,6 +6083,7 @@ export const ParamCreater = function () {
                     xAppUserId = listRobotRequest['X-App-UserId'];
                     offset = listRobotRequest['offset'];
                     limit = listRobotRequest['limit'];
+                    roomId = listRobotRequest['room_id'];
                 }
             }
 
@@ -6089,6 +6093,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (roomId !== null && roomId !== undefined) {
+                localVarQueryParameter['room_id'] = roomId;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -6699,7 +6706,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询数字人智能直播任务列表。
+         * 该接口用于查询某个智能直播间的直播任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6814,7 +6821,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询数字人智能直播任务列表。
+         * 该接口用于查询租户所有数字人智能直播任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8205,11 +8212,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
-         * 仅支持zip包方式上传语音文件：
-         * * 语音文件打包成zip上传：上传的训练数据为一个zip格式压缩文件,其中包含一段wav格式的长音频文件。
+         * 用户创建语音训练高级版任务，该接口会返回一个obs上传地址，用于上传语音文件。
          * 
-         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 语音文件为一段WAV格式的长音频文件，仅支持将语音文件打包成zip压缩格式上传。
+         * 
+         * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8254,12 +8261,13 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+         * 用户创建语音训练基础版任务，该接口会返回一个obs上传地址，用于上传语音文件。
+         * 
          * 支持2种方式上传语音文件：
          * * 语音文件和文本文件打包成zip上传：语音文件已经切分成20个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~19.wav；文本文件命名规则：0.txt~19.txt。
          * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
          * 
-         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8325,12 +8333,13 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户创建语音训练基础版任务,该接口会返回一个obs上传地址，用于上传语音文件。
+         * 用户创建语音训练进阶版任务，该接口会返回一个obs上传地址，用于上传语音文件。
+         * 
          * 支持2种方式上传语音文件：
          * * 语音文件和文本文件打包成zip上传：语音文件已经切分成100个wav文件，每个语音文件对应一个txt文本文件，所有文件打包成zip文件。语音文件命名规则：0.wav~99.wav；文本文件命名规则：0.txt~99.txt。
          * * 语音文件和文本文件逐句上传：每次上传一句语料的语音文件和文本文件，再调用“确认在线录音结果”接口确认语音和文本内容是否一致。确认成功后再上传和确认下一句。
          * 
-         * &gt; * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
+         * 文件上传后，调用“提交语音训练任务”接口，启动审核和训练。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8967,8 +8976,6 @@ export const ParamCreater = function () {
             
             let limit;
             
-            let state;
-            
             let sortKey;
             
             let sortDir;
@@ -8977,6 +8984,10 @@ export const ParamCreater = function () {
             
             let createSince;
             
+            let state;
+            
+            let queryProjectId;
+            
             let batchName;
             
             let tag;
@@ -8984,6 +8995,8 @@ export const ParamCreater = function () {
             let jobId;
             
             let name;
+            
+            let modelResolution;
 
             if (list2dModelTrainingJobRequest !== null && list2dModelTrainingJobRequest !== undefined) {
                 if (list2dModelTrainingJobRequest instanceof List2dModelTrainingJobRequest) {
@@ -8993,15 +9006,17 @@ export const ParamCreater = function () {
                     xAppUserId = list2dModelTrainingJobRequest.xAppUserId;
                     offset = list2dModelTrainingJobRequest.offset;
                     limit = list2dModelTrainingJobRequest.limit;
-                    state = list2dModelTrainingJobRequest.state;
                     sortKey = list2dModelTrainingJobRequest.sortKey;
                     sortDir = list2dModelTrainingJobRequest.sortDir;
                     createUntil = list2dModelTrainingJobRequest.createUntil;
                     createSince = list2dModelTrainingJobRequest.createSince;
+                    state = list2dModelTrainingJobRequest.state;
+                    queryProjectId = list2dModelTrainingJobRequest.queryProjectId;
                     batchName = list2dModelTrainingJobRequest.batchName;
                     tag = list2dModelTrainingJobRequest.tag;
                     jobId = list2dModelTrainingJobRequest.jobId;
                     name = list2dModelTrainingJobRequest.name;
+                    modelResolution = list2dModelTrainingJobRequest.modelResolution;
                 } else {
                     authorization = list2dModelTrainingJobRequest['Authorization'];
                     xSdkDate = list2dModelTrainingJobRequest['X-Sdk-Date'];
@@ -9009,15 +9024,17 @@ export const ParamCreater = function () {
                     xAppUserId = list2dModelTrainingJobRequest['X-App-UserId'];
                     offset = list2dModelTrainingJobRequest['offset'];
                     limit = list2dModelTrainingJobRequest['limit'];
-                    state = list2dModelTrainingJobRequest['state'];
                     sortKey = list2dModelTrainingJobRequest['sort_key'];
                     sortDir = list2dModelTrainingJobRequest['sort_dir'];
                     createUntil = list2dModelTrainingJobRequest['create_until'];
                     createSince = list2dModelTrainingJobRequest['create_since'];
+                    state = list2dModelTrainingJobRequest['state'];
+                    queryProjectId = list2dModelTrainingJobRequest['query_project_id'];
                     batchName = list2dModelTrainingJobRequest['batch_name'];
                     tag = list2dModelTrainingJobRequest['tag'];
                     jobId = list2dModelTrainingJobRequest['job_id'];
                     name = list2dModelTrainingJobRequest['name'];
+                    modelResolution = list2dModelTrainingJobRequest['model_resolution'];
                 }
             }
 
@@ -9027,9 +9044,6 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (state !== null && state !== undefined) {
-                localVarQueryParameter['state'] = state;
             }
             if (sortKey !== null && sortKey !== undefined) {
                 localVarQueryParameter['sort_key'] = sortKey;
@@ -9043,6 +9057,12 @@ export const ParamCreater = function () {
             if (createSince !== null && createSince !== undefined) {
                 localVarQueryParameter['create_since'] = createSince;
             }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (queryProjectId !== null && queryProjectId !== undefined) {
+                localVarQueryParameter['query_project_id'] = queryProjectId;
+            }
             if (batchName !== null && batchName !== undefined) {
                 localVarQueryParameter['batch_name'] = batchName;
             }
@@ -9054,6 +9074,9 @@ export const ParamCreater = function () {
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
+            }
+            if (modelResolution !== null && modelResolution !== undefined) {
+                localVarQueryParameter['model_resolution'] = modelResolution;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);

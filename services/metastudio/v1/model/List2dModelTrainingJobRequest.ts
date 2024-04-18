@@ -7,15 +7,17 @@ export class List2dModelTrainingJobRequest {
     private 'X-App-UserId'?: string;
     public offset?: number;
     public limit?: number;
-    public state?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     private 'create_until'?: string;
     private 'create_since'?: string;
+    public state?: string;
+    private 'query_project_id'?: string;
     private 'batch_name'?: string;
     public tag?: string;
     private 'job_id'?: string;
     public name?: string;
+    private 'model_resolution'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): List2dModelTrainingJobRequest {
@@ -66,10 +68,6 @@ export class List2dModelTrainingJobRequest {
         this['limit'] = limit;
         return this;
     }
-    public withState(state: string): List2dModelTrainingJobRequest {
-        this['state'] = state;
-        return this;
-    }
     public withSortKey(sortKey: string): List2dModelTrainingJobRequest {
         this['sort_key'] = sortKey;
         return this;
@@ -110,6 +108,20 @@ export class List2dModelTrainingJobRequest {
     public get createSince(): string | undefined {
         return this['create_since'];
     }
+    public withState(state: string): List2dModelTrainingJobRequest {
+        this['state'] = state;
+        return this;
+    }
+    public withQueryProjectId(queryProjectId: string): List2dModelTrainingJobRequest {
+        this['query_project_id'] = queryProjectId;
+        return this;
+    }
+    public set queryProjectId(queryProjectId: string  | undefined) {
+        this['query_project_id'] = queryProjectId;
+    }
+    public get queryProjectId(): string | undefined {
+        return this['query_project_id'];
+    }
     public withBatchName(batchName: string): List2dModelTrainingJobRequest {
         this['batch_name'] = batchName;
         return this;
@@ -137,5 +149,15 @@ export class List2dModelTrainingJobRequest {
     public withName(name: string): List2dModelTrainingJobRequest {
         this['name'] = name;
         return this;
+    }
+    public withModelResolution(modelResolution: string): List2dModelTrainingJobRequest {
+        this['model_resolution'] = modelResolution;
+        return this;
+    }
+    public set modelResolution(modelResolution: string  | undefined) {
+        this['model_resolution'] = modelResolution;
+    }
+    public get modelResolution(): string | undefined {
+        return this['model_resolution'];
     }
 }

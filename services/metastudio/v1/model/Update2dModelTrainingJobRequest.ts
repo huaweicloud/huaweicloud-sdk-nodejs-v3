@@ -1,4 +1,4 @@
-import { Create2dModelTrainingJobReq } from './Create2dModelTrainingJobReq';
+import { Update2dModelTrainingJobReq } from './Update2dModelTrainingJobReq';
 
 
 export class Update2dModelTrainingJobRequest {
@@ -7,7 +7,7 @@ export class Update2dModelTrainingJobRequest {
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
-    public body?: Create2dModelTrainingJobReq;
+    public body?: Update2dModelTrainingJobReq;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -61,7 +61,7 @@ export class Update2dModelTrainingJobRequest {
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
     }
-    public withBody(body: Create2dModelTrainingJobReq): Update2dModelTrainingJobRequest {
+    public withBody(body: Update2dModelTrainingJobReq): Update2dModelTrainingJobRequest {
         this['body'] = body;
         return this;
     }

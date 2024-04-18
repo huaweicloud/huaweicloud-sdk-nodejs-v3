@@ -28,6 +28,8 @@ export class CssRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://css.ap-southeast-4.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://css.ae-ad-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://css.cn-east-5.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://css.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://css.eu-west-101.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -52,7 +54,9 @@ export class CssRegion {
         "tr-west-1":CssRegion.TR_WEST_1,
         "ap-southeast-4":CssRegion.AP_SOUTHEAST_4,
         "ae-ad-1":CssRegion.AE_AD_1,
-        "cn-east-5":CssRegion.CN_EAST_5
+        "cn-east-5":CssRegion.CN_EAST_5,
+        "my-kualalumpur-1":CssRegion.MY_KUALALUMPUR_1,
+        "eu-west-101":CssRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

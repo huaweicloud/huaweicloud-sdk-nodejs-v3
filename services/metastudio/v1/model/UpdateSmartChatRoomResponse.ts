@@ -25,10 +25,9 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     private 'update_time'?: string;
     private 'cover_url'?: string;
     private 'X-Request-Id'?: string;
-    public constructor(roomName?: string, robotId?: string) { 
+    public constructor(roomName?: string) { 
         super();
         this['room_name'] = roomName;
-        this['robot_id'] = robotId;
     }
     public withRoomName(roomName: string): UpdateSmartChatRoomResponse {
         this['room_name'] = roomName;

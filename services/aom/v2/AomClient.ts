@@ -507,6 +507,7 @@ export class AomClient {
      * @summary 查询事件告警信息
      * @param {EventQueryParam2} listEventsRequestBody 查询事件或者告警列表请求参数。
      * @param {'history_alert' | 'active_alert'} [type] 查询类型。type&#x3D;active_alert代表查询活动告警，type&#x3D;history_alert代表查询历史告警。不传或者传其他值则返回指定查询条件的所有信息。
+     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1743,14 +1744,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let type;
+            
+            let enterpriseProjectId;
 
             if (listEventsRequest !== null && listEventsRequest !== undefined) {
                 if (listEventsRequest instanceof ListEventsRequest) {
                     body = listEventsRequest.body
                     type = listEventsRequest.type;
+                    enterpriseProjectId = listEventsRequest.enterpriseProjectId;
                 } else {
                     body = listEventsRequest['body'];
                     type = listEventsRequest['type'];
+                    enterpriseProjectId = listEventsRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1760,6 +1765,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

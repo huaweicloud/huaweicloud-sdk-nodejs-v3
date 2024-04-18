@@ -12,6 +12,8 @@ export class ShowOrganizationConformancePackResponse extends SdkResponse {
     private 'vars_structure'?: Array<VarsStructure>;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    private 'template_key'?: string;
+    private 'template_uri'?: string;
     public constructor() { 
         super();
     }
@@ -104,5 +106,25 @@ export class ShowOrganizationConformancePackResponse extends SdkResponse {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withTemplateKey(templateKey: string): ShowOrganizationConformancePackResponse {
+        this['template_key'] = templateKey;
+        return this;
+    }
+    public set templateKey(templateKey: string  | undefined) {
+        this['template_key'] = templateKey;
+    }
+    public get templateKey(): string | undefined {
+        return this['template_key'];
+    }
+    public withTemplateUri(templateUri: string): ShowOrganizationConformancePackResponse {
+        this['template_uri'] = templateUri;
+        return this;
+    }
+    public set templateUri(templateUri: string  | undefined) {
+        this['template_uri'] = templateUri;
+    }
+    public get templateUri(): string | undefined {
+        return this['template_uri'];
     }
 }

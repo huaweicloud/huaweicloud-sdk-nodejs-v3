@@ -14,6 +14,8 @@ export class TrainingJobBasicInfo {
     public tags?: Array<string>;
     private 'model_version'?: TrainingJobBasicInfoModelVersionEnum | string;
     private 'matting_type'?: TrainingJobBasicInfoMattingTypeEnum | string;
+    private 'model_resolution'?: string;
+    private 'app_user_id'?: string;
     public constructor(jobId?: string, name?: string, state?: string) { 
         this['job_id'] = jobId;
         this['name'] = name;
@@ -125,6 +127,26 @@ export class TrainingJobBasicInfo {
     public get mattingType(): TrainingJobBasicInfoMattingTypeEnum | string | undefined {
         return this['matting_type'];
     }
+    public withModelResolution(modelResolution: string): TrainingJobBasicInfo {
+        this['model_resolution'] = modelResolution;
+        return this;
+    }
+    public set modelResolution(modelResolution: string  | undefined) {
+        this['model_resolution'] = modelResolution;
+    }
+    public get modelResolution(): string | undefined {
+        return this['model_resolution'];
+    }
+    public withAppUserId(appUserId: string): TrainingJobBasicInfo {
+        this['app_user_id'] = appUserId;
+        return this;
+    }
+    public set appUserId(appUserId: string  | undefined) {
+        this['app_user_id'] = appUserId;
+    }
+    public get appUserId(): string | undefined {
+        return this['app_user_id'];
+    }
 }
 
 /**
@@ -160,7 +182,8 @@ export enum TrainingJobBasicInfoStateEnum {
     */
 export enum TrainingJobBasicInfoModelVersionEnum {
     V2 = 'V2',
-    V3 = 'V3'
+    V3 = 'V3',
+    V3_2 = 'V3.2'
 }
 /**
     * @export

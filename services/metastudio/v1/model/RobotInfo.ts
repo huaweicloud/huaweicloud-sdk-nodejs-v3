@@ -4,9 +4,9 @@ import { LanguageEnum } from './LanguageEnum';
 export class RobotInfo {
     private 'robot_id'?: string;
     public name?: string;
+    private 'room_id'?: string;
     private 'app_id'?: string;
     private 'app_type'?: number;
-    public concurrency?: number;
     public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -31,6 +31,16 @@ export class RobotInfo {
         this['name'] = name;
         return this;
     }
+    public withRoomId(roomId: string): RobotInfo {
+        this['room_id'] = roomId;
+        return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
+    }
     public withAppId(appId: string): RobotInfo {
         this['app_id'] = appId;
         return this;
@@ -50,10 +60,6 @@ export class RobotInfo {
     }
     public get appType(): number | undefined {
         return this['app_type'];
-    }
-    public withConcurrency(concurrency: number): RobotInfo {
-        this['concurrency'] = concurrency;
-        return this;
     }
     public withLanguage(language: LanguageEnum): RobotInfo {
         this['language'] = language;

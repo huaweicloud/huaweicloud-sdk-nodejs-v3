@@ -207,7 +207,7 @@ export enum UpdateAlarmRuleParamPeriodEnum {
     NUMBER_60000 = 60000,
     NUMBER_300000 = 300000,
     NUMBER_900000 = 900000,
-    NUMBER_36000000 = 36000000
+    NUMBER_3600000 = 3600000
 }
 /**
     * @export

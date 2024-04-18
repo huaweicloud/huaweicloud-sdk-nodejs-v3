@@ -58,6 +58,8 @@ import { DeleteDatabaseRequest } from './model/DeleteDatabaseRequest';
 import { DeleteDatabaseResponse } from './model/DeleteDatabaseResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteInstanceTagRequest } from './model/DeleteInstanceTagRequest';
+import { DeleteInstanceTagResponse } from './model/DeleteInstanceTagResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
 import { DeleteManualBackupRequest } from './model/DeleteManualBackupRequest';
@@ -82,9 +84,9 @@ import { GaussDBforOpenGaussUserForListAttributes } from './model/GaussDBforOpen
 import { GaussDBforOpenGaussUserWithPrivilege } from './model/GaussDBforOpenGaussUserWithPrivilege';
 import { GetRestoreTimeResponseRestoreTime } from './model/GetRestoreTimeResponseRestoreTime';
 import { InstanceInfoResult } from './model/InstanceInfoResult';
+import { InstanceLogFile } from './model/InstanceLogFile';
 import { InstancesListResult } from './model/InstancesListResult';
 import { InstancesResult } from './model/InstancesResult';
-import { InstancesStatisticsResponseBodyInstancesStatistics } from './model/InstancesStatisticsResponseBodyInstancesStatistics';
 import { JobDetail } from './model/JobDetail';
 import { JobInstanceInfo } from './model/JobInstanceInfo';
 import { ListApplicableInstancesRequest } from './model/ListApplicableInstancesRequest';
@@ -131,6 +133,8 @@ import { ListHaResult } from './model/ListHaResult';
 import { ListHistoryOperationsRequest } from './model/ListHistoryOperationsRequest';
 import { ListHistoryOperationsResponse } from './model/ListHistoryOperationsResponse';
 import { ListHistoryOperationsResult } from './model/ListHistoryOperationsResult';
+import { ListInstanceErrorLogsRequest } from './model/ListInstanceErrorLogsRequest';
+import { ListInstanceErrorLogsResponse } from './model/ListInstanceErrorLogsResponse';
 import { ListInstanceResponse } from './model/ListInstanceResponse';
 import { ListInstanceResult } from './model/ListInstanceResult';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
@@ -156,6 +160,8 @@ import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
+import { ListTopIoTrafficsRequest } from './model/ListTopIoTrafficsRequest';
+import { ListTopIoTrafficsResponse } from './model/ListTopIoTrafficsResponse';
 import { ListVolume } from './model/ListVolume';
 import { ModifyEpsQuotaRequest } from './model/ModifyEpsQuotaRequest';
 import { ModifyEpsQuotaRequestBody } from './model/ModifyEpsQuotaRequestBody';
@@ -236,6 +242,8 @@ import { ShowConfigurationDetailRequest } from './model/ShowConfigurationDetailR
 import { ShowConfigurationDetailResponse } from './model/ShowConfigurationDetailResponse';
 import { ShowDeploymentFormRequest } from './model/ShowDeploymentFormRequest';
 import { ShowDeploymentFormResponse } from './model/ShowDeploymentFormResponse';
+import { ShowErrorLogSwitchStatusRequest } from './model/ShowErrorLogSwitchStatusRequest';
+import { ShowErrorLogSwitchStatusResponse } from './model/ShowErrorLogSwitchStatusResponse';
 import { ShowInstanceConfigurationRequest } from './model/ShowInstanceConfigurationRequest';
 import { ShowInstanceConfigurationResponse } from './model/ShowInstanceConfigurationResponse';
 import { ShowInstanceDiskRequest } from './model/ShowInstanceDiskRequest';
@@ -244,8 +252,6 @@ import { ShowInstanceParamGroupRequest } from './model/ShowInstanceParamGroupReq
 import { ShowInstanceParamGroupResponse } from './model/ShowInstanceParamGroupResponse';
 import { ShowInstanceSnapshotRequest } from './model/ShowInstanceSnapshotRequest';
 import { ShowInstanceSnapshotResponse } from './model/ShowInstanceSnapshotResponse';
-import { ShowInstancesStatisticsRequest } from './model/ShowInstancesStatisticsRequest';
-import { ShowInstancesStatisticsResponse } from './model/ShowInstancesStatisticsResponse';
 import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
 import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
 import { ShowProjectQuotasRequest } from './model/ShowProjectQuotasRequest';
@@ -274,6 +280,7 @@ import { TagResult } from './model/TagResult';
 import { TagsOption } from './model/TagsOption';
 import { TagsResult } from './model/TagsResult';
 import { TaskDetailResult } from './model/TaskDetailResult';
+import { TopIoInfo } from './model/TopIoInfo';
 import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
 import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfigurationResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
@@ -627,6 +634,27 @@ export class GaussDBforopenGaussClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例标签
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} key 标签键
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceTag(deleteInstanceTagRequest?: DeleteInstanceTagRequest): Promise<DeleteInstanceTagResponse> {
+        const options = ParamCreater().deleteInstanceTag(deleteInstanceTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1117,6 +1145,30 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查询数据库错误日志下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询错误日志下载链接
+     * @param {string} instanceId 实例ID。
+     * @param {string} startTime 开始时间，格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始；Z指时区偏移量，例如北京时间偏移显示为+0800。
+     * @param {string} endTime 结束时间，格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始；Z指时区偏移量，例如北京时间偏移显示为+0800。只能查询当前时间前30天的错误日志。
+     * @param {string} [xLanguage] 语言
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。例如：该参数指定为0，limit指定为10，则只展示第1-10条数据。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。例如该参数设定为10，则查询结果最多只显示10条记录。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceErrorLogs(listInstanceErrorLogsRequest?: ListInstanceErrorLogsRequest): Promise<ListInstanceErrorLogsResponse> {
+        const options = ParamCreater().listInstanceErrorLogs(listInstanceErrorLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定实例的用户标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1360,6 +1412,30 @@ export class GaussDBforopenGaussClient {
      */
     public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
         const options = ParamCreater().listTasks(listTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例数据库进程下的Top IO流量数据，返回与会话信息相关联后的结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Top IO列表
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} nodeId 节点ID。节点应为CN或者非日志角色的DN节点，并且节点状态为正常。
+     * @param {string} componentId 组件ID。组件应为CN或者非日志角色的DN组件。 DN：Data Node，和CN对应的概念。负责实际执行表数据的存储、查询操作。 CN：Coordinator Node，负责数据库系统元数据存储、查询任务的分解和部分执行，以及将DN中查询结果汇聚在一起。
+     * @param {string} [xLanguage] 语言
+     * @param {number} [topIoNum] 期望查询数据库进程下TOP IO线程数（默认值为20）。接口返回TOP IO线程与会话信息关联后的结果，数量最大不超过该值。
+     * @param {'read' | 'write'} [sortCondition] TOP IO排序条件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTopIoTraffics(listTopIoTrafficsRequest?: ListTopIoTrafficsRequest): Promise<ListTopIoTrafficsResponse> {
+        const options = ParamCreater().listTopIoTraffics(listTopIoTrafficsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1653,6 +1729,26 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查询数据库错误日志采集的开关状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询错误日志采集开关状态
+     * @param {string} instanceId 实例ID。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showErrorLogSwitchStatus(showErrorLogSwitchStatusRequest?: ShowErrorLogSwitchStatusRequest): Promise<ShowErrorLogSwitchStatusResponse> {
+        const options = ParamCreater().showErrorLogSwitchStatus(showErrorLogSwitchStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定实例的参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1727,25 +1823,6 @@ export class GaussDBforopenGaussClient {
      */
     public showInstanceSnapshot(showInstanceSnapshotRequest?: ShowInstanceSnapshotRequest): Promise<ShowInstanceSnapshotResponse> {
         const options = ParamCreater().showInstanceSnapshot(showInstanceSnapshotRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 实例统计
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 实例统计
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showInstancesStatistics(showInstancesStatisticsRequest?: ShowInstancesStatisticsRequest): Promise<ShowInstancesStatisticsResponse> {
-        const options = ParamCreater().showInstancesStatistics(showInstancesStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2855,6 +2932,61 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceTag(deleteInstanceTagRequest?: DeleteInstanceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/tag",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let key;
+            
+            let xLanguage;
+
+            if (deleteInstanceTagRequest !== null && deleteInstanceTagRequest !== undefined) {
+                if (deleteInstanceTagRequest instanceof DeleteInstanceTagRequest) {
+                    instanceId = deleteInstanceTagRequest.instanceId;
+                    key = deleteInstanceTagRequest.key;
+                    xLanguage = deleteInstanceTagRequest.xLanguage;
+                } else {
+                    instanceId = deleteInstanceTagRequest['instance_id'];
+                    key = deleteInstanceTagRequest['key'];
+                    xLanguage = deleteInstanceTagRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceTag.');
+            }
+            if (key === null || key === undefined) {
+                throw new RequiredError('key','Required parameter key was null or undefined when calling deleteInstanceTag.');
+            }
+            if (key !== null && key !== undefined) {
+                localVarQueryParameter['key'] = key;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4137,6 +4269,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据库错误日志下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceErrorLogs(listInstanceErrorLogsRequest?: ListInstanceErrorLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/error-log",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceErrorLogsRequest !== null && listInstanceErrorLogsRequest !== undefined) {
+                if (listInstanceErrorLogsRequest instanceof ListInstanceErrorLogsRequest) {
+                    instanceId = listInstanceErrorLogsRequest.instanceId;
+                    startTime = listInstanceErrorLogsRequest.startTime;
+                    endTime = listInstanceErrorLogsRequest.endTime;
+                    xLanguage = listInstanceErrorLogsRequest.xLanguage;
+                    offset = listInstanceErrorLogsRequest.offset;
+                    limit = listInstanceErrorLogsRequest.limit;
+                } else {
+                    instanceId = listInstanceErrorLogsRequest['instance_id'];
+                    startTime = listInstanceErrorLogsRequest['start_time'];
+                    endTime = listInstanceErrorLogsRequest['end_time'];
+                    xLanguage = listInstanceErrorLogsRequest['X-Language'];
+                    offset = listInstanceErrorLogsRequest['offset'];
+                    limit = listInstanceErrorLogsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceErrorLogs.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listInstanceErrorLogs.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listInstanceErrorLogs.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定实例的用户标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4840,6 +5051,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例数据库进程下的Top IO流量数据，返回与会话信息相关联后的结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTopIoTraffics(listTopIoTrafficsRequest?: ListTopIoTrafficsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/top-io-traffics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let componentId;
+            
+            let xLanguage;
+            
+            let topIoNum;
+            
+            let sortCondition;
+
+            if (listTopIoTrafficsRequest !== null && listTopIoTrafficsRequest !== undefined) {
+                if (listTopIoTrafficsRequest instanceof ListTopIoTrafficsRequest) {
+                    instanceId = listTopIoTrafficsRequest.instanceId;
+                    nodeId = listTopIoTrafficsRequest.nodeId;
+                    componentId = listTopIoTrafficsRequest.componentId;
+                    xLanguage = listTopIoTrafficsRequest.xLanguage;
+                    topIoNum = listTopIoTrafficsRequest.topIoNum;
+                    sortCondition = listTopIoTrafficsRequest.sortCondition;
+                } else {
+                    instanceId = listTopIoTrafficsRequest['instance_id'];
+                    nodeId = listTopIoTrafficsRequest['node_id'];
+                    componentId = listTopIoTrafficsRequest['component_id'];
+                    xLanguage = listTopIoTrafficsRequest['X-Language'];
+                    topIoNum = listTopIoTrafficsRequest['top_io_num'];
+                    sortCondition = listTopIoTrafficsRequest['sort_condition'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listTopIoTraffics.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listTopIoTraffics.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (componentId === null || componentId === undefined) {
+                throw new RequiredError('componentId','Required parameter componentId was null or undefined when calling listTopIoTraffics.');
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (topIoNum !== null && topIoNum !== undefined) {
+                localVarQueryParameter['top_io_num'] = topIoNum;
+            }
+            if (sortCondition !== null && sortCondition !== undefined) {
+                localVarQueryParameter['sort_condition'] = sortCondition;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改企业项目配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5503,6 +5793,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据库错误日志采集的开关状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showErrorLogSwitchStatus(showErrorLogSwitchStatusRequest?: ShowErrorLogSwitchStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/error-log/switch/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showErrorLogSwitchStatusRequest !== null && showErrorLogSwitchStatusRequest !== undefined) {
+                if (showErrorLogSwitchStatusRequest instanceof ShowErrorLogSwitchStatusRequest) {
+                    instanceId = showErrorLogSwitchStatusRequest.instanceId;
+                    xLanguage = showErrorLogSwitchStatusRequest.xLanguage;
+                } else {
+                    instanceId = showErrorLogSwitchStatusRequest['instance_id'];
+                    xLanguage = showErrorLogSwitchStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showErrorLogSwitchStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定实例的参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5688,42 +6022,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 实例统计
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showInstancesStatistics(showInstancesStatisticsRequest?: ShowInstancesStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/instances-statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let xLanguage;
-
-            if (showInstancesStatisticsRequest !== null && showInstancesStatisticsRequest !== undefined) {
-                if (showInstancesStatisticsRequest instanceof ShowInstancesStatisticsRequest) {
-                    xLanguage = showInstancesStatisticsRequest.xLanguage;
-                } else {
-                    xLanguage = showInstancesStatisticsRequest['X-Language'];
-                }
-            }
-
-        
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
             options.headers = localVarHeaderParameter;
             return options;
         },

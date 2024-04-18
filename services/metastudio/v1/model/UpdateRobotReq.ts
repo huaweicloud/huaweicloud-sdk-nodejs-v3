@@ -8,7 +8,7 @@ import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
 export class UpdateRobotReq {
     public name?: string;
     private 'app_type'?: number;
-    public concurrency?: number;
+    private 'room_id'?: string;
     public language?: LanguageEnum;
     private 'huawei_ei_cbs'?: HuaweiEiCbs;
     private 'iflytek_aiui_config'?: IflytekAiuiConfig;
@@ -30,9 +30,15 @@ export class UpdateRobotReq {
     public get appType(): number | undefined {
         return this['app_type'];
     }
-    public withConcurrency(concurrency: number): UpdateRobotReq {
-        this['concurrency'] = concurrency;
+    public withRoomId(roomId: string): UpdateRobotReq {
+        this['room_id'] = roomId;
         return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
     }
     public withLanguage(language: LanguageEnum): UpdateRobotReq {
         this['language'] = language;

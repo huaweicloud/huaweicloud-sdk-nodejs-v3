@@ -6,6 +6,7 @@ export class CountEventsResponse extends SdkResponse {
     public step?: number;
     public timestamps?: Array<number>;
     public series?: Array<EventSeries>;
+    public summary?: { [key: string]: number; };
     public constructor() { 
         super();
     }
@@ -19,6 +20,10 @@ export class CountEventsResponse extends SdkResponse {
     }
     public withSeries(series: Array<EventSeries>): CountEventsResponse {
         this['series'] = series;
+        return this;
+    }
+    public withSummary(summary: { [key: string]: number; }): CountEventsResponse {
+        this['summary'] = summary;
         return this;
     }
 }

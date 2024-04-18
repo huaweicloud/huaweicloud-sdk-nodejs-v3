@@ -18,9 +18,8 @@ export class CreateSmartChatRoomReq {
     private 'layer_config'?: Array<LayerConfig>;
     private 'review_config'?: ReviewConfig;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
-    public constructor(roomName?: string, robotId?: string) { 
+    public constructor(roomName?: string) { 
         this['room_name'] = roomName;
-        this['robot_id'] = robotId;
     }
     public withRoomName(roomName: string): CreateSmartChatRoomReq {
         this['room_name'] = roomName;

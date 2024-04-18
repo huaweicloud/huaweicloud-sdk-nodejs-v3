@@ -1,5 +1,6 @@
 import { CommentLogInfo } from './CommentLogInfo';
 import { InferenceActionMarkInfo } from './InferenceActionMarkInfo';
+import { InferenceEyeCorrectionMarkInfo } from './InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './InferenceVideoMarkInfo';
 import { OperationLogInfo } from './OperationLogInfo';
 import { TrainingJobBasicInfo } from './TrainingJobBasicInfo';
@@ -20,6 +21,8 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public tags?: Array<string>;
     private 'model_version'?: Show2dModelTrainingJobResponseModelVersionEnum | string;
     private 'matting_type'?: Show2dModelTrainingJobResponseMattingTypeEnum | string;
+    private 'model_resolution'?: string;
+    private 'app_user_id'?: string;
     private 'training_video_download_url'?: string;
     private 'id_card_image1_download_url'?: string;
     private 'id_card_image2_download_url'?: string;
@@ -32,8 +35,9 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'markable_video_download_url'?: string;
     private 'inference_data_process_video_mark_info'?: InferenceVideoMarkInfo;
     private 'inference_data_process_action_mark_info'?: InferenceActionMarkInfo;
+    private 'inference_data_process_eye_correction_mark_info'?: InferenceEyeCorrectionMarkInfo;
     private 'is_background_replacement'?: boolean;
-    private 'model_resolution'?: string;
+    private 'worker_type'?: Array<string>;
     private 'X-Request-Id'?: string;
     public constructor(jobId?: string, name?: string, state?: string) { 
         super();
@@ -146,6 +150,26 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get mattingType(): Show2dModelTrainingJobResponseMattingTypeEnum | string | undefined {
         return this['matting_type'];
+    }
+    public withModelResolution(modelResolution: string): Show2dModelTrainingJobResponse {
+        this['model_resolution'] = modelResolution;
+        return this;
+    }
+    public set modelResolution(modelResolution: string  | undefined) {
+        this['model_resolution'] = modelResolution;
+    }
+    public get modelResolution(): string | undefined {
+        return this['model_resolution'];
+    }
+    public withAppUserId(appUserId: string): Show2dModelTrainingJobResponse {
+        this['app_user_id'] = appUserId;
+        return this;
+    }
+    public set appUserId(appUserId: string  | undefined) {
+        this['app_user_id'] = appUserId;
+    }
+    public get appUserId(): string | undefined {
+        return this['app_user_id'];
     }
     public withTrainingVideoDownloadUrl(trainingVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
         this['training_video_download_url'] = trainingVideoDownloadUrl;
@@ -267,6 +291,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get inferenceDataProcessActionMarkInfo(): InferenceActionMarkInfo | undefined {
         return this['inference_data_process_action_mark_info'];
     }
+    public withInferenceDataProcessEyeCorrectionMarkInfo(inferenceDataProcessEyeCorrectionMarkInfo: InferenceEyeCorrectionMarkInfo): Show2dModelTrainingJobResponse {
+        this['inference_data_process_eye_correction_mark_info'] = inferenceDataProcessEyeCorrectionMarkInfo;
+        return this;
+    }
+    public set inferenceDataProcessEyeCorrectionMarkInfo(inferenceDataProcessEyeCorrectionMarkInfo: InferenceEyeCorrectionMarkInfo  | undefined) {
+        this['inference_data_process_eye_correction_mark_info'] = inferenceDataProcessEyeCorrectionMarkInfo;
+    }
+    public get inferenceDataProcessEyeCorrectionMarkInfo(): InferenceEyeCorrectionMarkInfo | undefined {
+        return this['inference_data_process_eye_correction_mark_info'];
+    }
     public withIsBackgroundReplacement(isBackgroundReplacement: boolean): Show2dModelTrainingJobResponse {
         this['is_background_replacement'] = isBackgroundReplacement;
         return this;
@@ -277,15 +311,15 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get isBackgroundReplacement(): boolean | undefined {
         return this['is_background_replacement'];
     }
-    public withModelResolution(modelResolution: string): Show2dModelTrainingJobResponse {
-        this['model_resolution'] = modelResolution;
+    public withWorkerType(workerType: Array<string>): Show2dModelTrainingJobResponse {
+        this['worker_type'] = workerType;
         return this;
     }
-    public set modelResolution(modelResolution: string  | undefined) {
-        this['model_resolution'] = modelResolution;
+    public set workerType(workerType: Array<string>  | undefined) {
+        this['worker_type'] = workerType;
     }
-    public get modelResolution(): string | undefined {
-        return this['model_resolution'];
+    public get workerType(): Array<string> | undefined {
+        return this['worker_type'];
     }
     public withXRequestId(xRequestId: string): Show2dModelTrainingJobResponse {
         this['X-Request-Id'] = xRequestId;
@@ -332,7 +366,8 @@ export enum Show2dModelTrainingJobResponseStateEnum {
     */
 export enum Show2dModelTrainingJobResponseModelVersionEnum {
     V2 = 'V2',
-    V3 = 'V3'
+    V3 = 'V3',
+    V3_2 = 'V3.2'
 }
 /**
     * @export

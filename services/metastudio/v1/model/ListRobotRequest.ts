@@ -7,6 +7,7 @@ export class ListRobotRequest {
     private 'X-App-UserId'?: string;
     public offset?: number;
     public limit?: number;
+    private 'room_id'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListRobotRequest {
@@ -56,5 +57,15 @@ export class ListRobotRequest {
     public withLimit(limit: number): ListRobotRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withRoomId(roomId: string): ListRobotRequest {
+        this['room_id'] = roomId;
+        return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
     }
 }

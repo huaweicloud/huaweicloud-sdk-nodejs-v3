@@ -54,6 +54,7 @@ import { EngineQuotaV2Quotas } from './model/EngineQuotaV2Quotas';
 import { EngineRbacPwd } from './model/EngineRbacPwd';
 import { EngineReference } from './model/EngineReference';
 import { EngineSimpleInfo } from './model/EngineSimpleInfo';
+import { EngineSpec } from './model/EngineSpec';
 import { EngineUpdateReq } from './model/EngineUpdateReq';
 import { EntrypointItem } from './model/EntrypointItem';
 import { FlavorBrief } from './model/FlavorBrief';

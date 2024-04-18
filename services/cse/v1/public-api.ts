@@ -52,6 +52,7 @@ export * from './model/EngineQuotaV2Quotas';
 export * from './model/EngineRbacPwd';
 export * from './model/EngineReference';
 export * from './model/EngineSimpleInfo';
+export * from './model/EngineSpec';
 export * from './model/EngineUpdateReq';
 export * from './model/EntrypointItem';
 export * from './model/FlavorBrief';

@@ -7,9 +7,8 @@ export class ShowOrganizationConformancePackDetailedStatusesRequest {
     public state?: ShowOrganizationConformancePackDetailedStatusesRequestStateEnum | string;
     public limit?: number;
     public marker?: string;
-    public constructor(organizationId?: string, conformancePackName?: string) { 
+    public constructor(organizationId?: string) { 
         this['organization_id'] = organizationId;
-        this['conformance_pack_name'] = conformancePackName;
     }
     public withOrganizationId(organizationId: string): ShowOrganizationConformancePackDetailedStatusesRequest {
         this['organization_id'] = organizationId;
@@ -64,5 +63,8 @@ export enum ShowOrganizationConformancePackDetailedStatusesRequestStateEnum {
     CREATE_IN_PROGRESS = 'CREATE_IN_PROGRESS',
     CREATE_FAILED = 'CREATE_FAILED',
     DELETE_IN_PROGRESS = 'DELETE_IN_PROGRESS',
-    DELETE_FAILED = 'DELETE_FAILED'
+    DELETE_FAILED = 'DELETE_FAILED',
+    UPDATE_SUCCESSFUL = 'UPDATE_SUCCESSFUL',
+    UPDATE_IN_PROGRESS = 'UPDATE_IN_PROGRESS',
+    UPDATE_FAILED = 'UPDATE_FAILED'
 }

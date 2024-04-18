@@ -7,9 +7,8 @@ export class ShowOrganizationPolicyAssignmentDetailedStatusRequest {
     public status?: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum | string;
     public limit?: number;
     public marker?: string;
-    public constructor(organizationId?: string, organizationPolicyAssignmentName?: string) { 
+    public constructor(organizationId?: string) { 
         this['organization_id'] = organizationId;
-        this['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
     }
     public withOrganizationId(organizationId: string): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
         this['organization_id'] = organizationId;

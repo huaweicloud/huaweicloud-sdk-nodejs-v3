@@ -2,11 +2,10 @@
 
 export class OpenGaussUpgradeRequest {
     private 'upgrade_type'?: string;
-    private 'upgrde_action'?: string;
+    private 'upgrade_action'?: string;
     private 'target_version'?: string;
     private 'upgrade_shard_num'?: number;
     private 'upgrade_az'?: string;
-    private 'is_parallel_upgrade'?: boolean;
     public constructor(upgradeType?: string) { 
         this['upgrade_type'] = upgradeType;
     }
@@ -20,15 +19,15 @@ export class OpenGaussUpgradeRequest {
     public get upgradeType(): string | undefined {
         return this['upgrade_type'];
     }
-    public withUpgrdeAction(upgrdeAction: string): OpenGaussUpgradeRequest {
-        this['upgrde_action'] = upgrdeAction;
+    public withUpgradeAction(upgradeAction: string): OpenGaussUpgradeRequest {
+        this['upgrade_action'] = upgradeAction;
         return this;
     }
-    public set upgrdeAction(upgrdeAction: string  | undefined) {
-        this['upgrde_action'] = upgrdeAction;
+    public set upgradeAction(upgradeAction: string  | undefined) {
+        this['upgrade_action'] = upgradeAction;
     }
-    public get upgrdeAction(): string | undefined {
-        return this['upgrde_action'];
+    public get upgradeAction(): string | undefined {
+        return this['upgrade_action'];
     }
     public withTargetVersion(targetVersion: string): OpenGaussUpgradeRequest {
         this['target_version'] = targetVersion;
@@ -59,15 +58,5 @@ export class OpenGaussUpgradeRequest {
     }
     public get upgradeAz(): string | undefined {
         return this['upgrade_az'];
-    }
-    public withIsParallelUpgrade(isParallelUpgrade: boolean): OpenGaussUpgradeRequest {
-        this['is_parallel_upgrade'] = isParallelUpgrade;
-        return this;
-    }
-    public set isParallelUpgrade(isParallelUpgrade: boolean  | undefined) {
-        this['is_parallel_upgrade'] = isParallelUpgrade;
-    }
-    public get isParallelUpgrade(): boolean | undefined {
-        return this['is_parallel_upgrade'];
     }
 }

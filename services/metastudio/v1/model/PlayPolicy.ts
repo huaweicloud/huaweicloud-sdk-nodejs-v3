@@ -5,6 +5,7 @@ export class PlayPolicy {
     private 'auto_play_script'?: boolean;
     private 'play_mode'?: PlayPolicyPlayModeEnum | string;
     private 'random_play_mode'?: PlayPolicyRandomPlayModeEnum | string;
+    private 'need_independent_capture_client'?: boolean;
     public constructor() { 
     }
     public withRepeatCount(repeatCount: number): PlayPolicy {
@@ -46,6 +47,16 @@ export class PlayPolicy {
     }
     public get randomPlayMode(): PlayPolicyRandomPlayModeEnum | string | undefined {
         return this['random_play_mode'];
+    }
+    public withNeedIndependentCaptureClient(needIndependentCaptureClient: boolean): PlayPolicy {
+        this['need_independent_capture_client'] = needIndependentCaptureClient;
+        return this;
+    }
+    public set needIndependentCaptureClient(needIndependentCaptureClient: boolean  | undefined) {
+        this['need_independent_capture_client'] = needIndependentCaptureClient;
+    }
+    public get needIndependentCaptureClient(): boolean | undefined {
+        return this['need_independent_capture_client'];
     }
 }
 

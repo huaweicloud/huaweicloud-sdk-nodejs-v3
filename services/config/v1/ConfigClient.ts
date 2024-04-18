@@ -234,6 +234,12 @@ import { TrackerOBSChannelConfigBody } from './model/TrackerOBSChannelConfigBody
 import { TrackerSMNChannelConfigBody } from './model/TrackerSMNChannelConfigBody';
 import { UpdateConfigurationAggregatorRequest } from './model/UpdateConfigurationAggregatorRequest';
 import { UpdateConfigurationAggregatorResponse } from './model/UpdateConfigurationAggregatorResponse';
+import { UpdateConformancePackRequest } from './model/UpdateConformancePackRequest';
+import { UpdateConformancePackRequestBody } from './model/UpdateConformancePackRequestBody';
+import { UpdateConformancePackResponse } from './model/UpdateConformancePackResponse';
+import { UpdateOrgConformancePackRequestBody } from './model/UpdateOrgConformancePackRequestBody';
+import { UpdateOrganizationConformancePackRequest } from './model/UpdateOrganizationConformancePackRequest';
+import { UpdateOrganizationConformancePackResponse } from './model/UpdateOrganizationConformancePackResponse';
 import { UpdateOrganizationPolicyAssignmentRequest } from './model/UpdateOrganizationPolicyAssignmentRequest';
 import { UpdateOrganizationPolicyAssignmentResponse } from './model/UpdateOrganizationPolicyAssignmentResponse';
 import { UpdatePolicyAssignmentRequest } from './model/UpdatePolicyAssignmentRequest';
@@ -956,9 +962,9 @@ export class ConfigClient {
      *
      * @summary 查看组织合规规则包部署详细状态
      * @param {string} organizationId 组织ID。
-     * @param {string} conformancePackName 合规规则包名称。
+     * @param {string} [conformancePackName] 合规规则包名称。
      * @param {string} [organizationConformancePackId] 组织合规规则包ID。
-     * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED'} [state] 部署状态，区分大小写
+     * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED' | 'UPDATE_SUCCESSFUL' | 'UPDATE_IN_PROGRESS' | 'UPDATE_FAILED'} [state] 部署状态，区分大小写
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {*} [options] Override http request option.
@@ -966,6 +972,47 @@ export class ConfigClient {
      */
     public showOrganizationConformancePackDetailedStatuses(showOrganizationConformancePackDetailedStatusesRequest?: ShowOrganizationConformancePackDetailedStatusesRequest): Promise<ShowOrganizationConformancePackDetailedStatusesResponse> {
         const options = ParamCreater().showOrganizationConformancePackDetailedStatuses(showOrganizationConformancePackDetailedStatusesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新用户的合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新合规规则包
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {UpdateConformancePackRequestBody} updateConformancePackRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateConformancePack(updateConformancePackRequest?: UpdateConformancePackRequest): Promise<UpdateConformancePackResponse> {
+        const options = ParamCreater().updateConformancePack(updateConformancePackRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新用户的组织合规规则包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新组织合规规则包
+     * @param {string} organizationId 组织ID。
+     * @param {string} conformancePackId 合规规则包ID。
+     * @param {UpdateOrgConformancePackRequestBody} updateOrgConformancePackRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOrganizationConformancePack(updateOrganizationConformancePackRequest?: UpdateOrganizationConformancePackRequest): Promise<UpdateOrganizationConformancePackResponse> {
+        const options = ParamCreater().updateOrganizationConformancePack(updateOrganizationConformancePackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1330,7 +1377,7 @@ export class ConfigClient {
      *
      * @summary 查询组织内每个成员帐号合规规则部署的详细状态
      * @param {string} organizationId 组织ID。
-     * @param {string} organizationPolicyAssignmentName 组织合规规则名称。
+     * @param {string} [organizationPolicyAssignmentName] 组织合规规则名称。
      * @param {string} [organizationPolicyAssignmentId] 组织合规规则ID
      * @param {'CREATE_SUCCESSFUL' | 'CREATE_IN_PROGRESS' | 'CREATE_FAILED' | 'DELETE_SUCCESSFUL' | 'DELETE_IN_PROGRESS' | 'DELETE_FAILED' | 'UPDATE_SUCCESSFUL' | 'UPDATE_IN_PROGRESS' | 'UPDATE_FAILED'} [status] 成员帐号规则部署状态，区分大小写。
      * @param {number} [limit] 最大的返回数量
@@ -3614,9 +3661,6 @@ export const ParamCreater = function () {
             if (organizationId === null || organizationId === undefined) {
             throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling showOrganizationConformancePackDetailedStatuses.');
             }
-            if (conformancePackName === null || conformancePackName === undefined) {
-                throw new RequiredError('conformancePackName','Required parameter conformancePackName was null or undefined when calling showOrganizationConformancePackDetailedStatuses.');
-            }
             if (conformancePackName !== null && conformancePackName !== undefined) {
                 localVarQueryParameter['conformance_pack_name'] = conformancePackName;
             }
@@ -3635,6 +3679,105 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'organization_id': organizationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新用户的合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateConformancePack(updateConformancePackRequest?: UpdateConformancePackRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource-manager/domains/{domain_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let conformancePackId;
+
+            if (updateConformancePackRequest !== null && updateConformancePackRequest !== undefined) {
+                if (updateConformancePackRequest instanceof UpdateConformancePackRequest) {
+                    conformancePackId = updateConformancePackRequest.conformancePackId;
+                    body = updateConformancePackRequest.body
+                } else {
+                    conformancePackId = updateConformancePackRequest['conformance_pack_id'];
+                    body = updateConformancePackRequest['body'];
+                }
+            }
+
+        
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling updateConformancePack.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'conformance_pack_id': conformancePackId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新用户的组织合规规则包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOrganizationConformancePack(updateOrganizationConformancePackRequest?: UpdateOrganizationConformancePackRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource-manager/organizations/{organization_id}/conformance-packs/{conformance_pack_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let organizationId;
+            
+            let conformancePackId;
+
+            if (updateOrganizationConformancePackRequest !== null && updateOrganizationConformancePackRequest !== undefined) {
+                if (updateOrganizationConformancePackRequest instanceof UpdateOrganizationConformancePackRequest) {
+                    organizationId = updateOrganizationConformancePackRequest.organizationId;
+                    conformancePackId = updateOrganizationConformancePackRequest.conformancePackId;
+                    body = updateOrganizationConformancePackRequest.body
+                } else {
+                    organizationId = updateOrganizationConformancePackRequest['organization_id'];
+                    conformancePackId = updateOrganizationConformancePackRequest['conformance_pack_id'];
+                    body = updateOrganizationConformancePackRequest['body'];
+                }
+            }
+
+        
+            if (organizationId === null || organizationId === undefined) {
+            throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling updateOrganizationConformancePack.');
+            }
+            if (conformancePackId === null || conformancePackId === undefined) {
+            throw new RequiredError('conformancePackId','Required parameter conformancePackId was null or undefined when calling updateOrganizationConformancePack.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'organization_id': organizationId,'conformance_pack_id': conformancePackId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4507,9 +4650,6 @@ export const ParamCreater = function () {
         
             if (organizationId === null || organizationId === undefined) {
             throw new RequiredError('organizationId','Required parameter organizationId was null or undefined when calling showOrganizationPolicyAssignmentDetailedStatus.');
-            }
-            if (organizationPolicyAssignmentName === null || organizationPolicyAssignmentName === undefined) {
-                throw new RequiredError('organizationPolicyAssignmentName','Required parameter organizationPolicyAssignmentName was null or undefined when calling showOrganizationPolicyAssignmentDetailedStatus.');
             }
             if (organizationPolicyAssignmentName !== null && organizationPolicyAssignmentName !== undefined) {
                 localVarQueryParameter['organization_policy_assignment_name'] = organizationPolicyAssignmentName;

@@ -5,9 +5,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowRobotResponse extends SdkResponse {
     private 'robot_id'?: string;
     public name?: string;
+    private 'room_id'?: string;
     private 'app_id'?: string;
     private 'app_type'?: number;
-    public concurrency?: number;
     public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -34,6 +34,16 @@ export class ShowRobotResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
+    public withRoomId(roomId: string): ShowRobotResponse {
+        this['room_id'] = roomId;
+        return this;
+    }
+    public set roomId(roomId: string  | undefined) {
+        this['room_id'] = roomId;
+    }
+    public get roomId(): string | undefined {
+        return this['room_id'];
+    }
     public withAppId(appId: string): ShowRobotResponse {
         this['app_id'] = appId;
         return this;
@@ -53,10 +63,6 @@ export class ShowRobotResponse extends SdkResponse {
     }
     public get appType(): number | undefined {
         return this['app_type'];
-    }
-    public withConcurrency(concurrency: number): ShowRobotResponse {
-        this['concurrency'] = concurrency;
-        return this;
     }
     public withLanguage(language: LanguageEnum): ShowRobotResponse {
         this['language'] = language;

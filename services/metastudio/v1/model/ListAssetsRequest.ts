@@ -1,7 +1,6 @@
 
 
 export class ListAssetsRequest {
-    private 'X-REAL-IP'?: string;
     private 'Authorization'?: string;
     private 'X-Sdk-Date'?: string;
     private 'X-App-UserId'?: string;
@@ -26,16 +25,6 @@ export class ListAssetsRequest {
     private 'voice_provider'?: string;
     public role?: ListAssetsRequestRoleEnum | string;
     public constructor() { 
-    }
-    public withXRealIp(xRealIp: string): ListAssetsRequest {
-        this['X-REAL-IP'] = xRealIp;
-        return this;
-    }
-    public set xRealIp(xRealIp: string  | undefined) {
-        this['X-REAL-IP'] = xRealIp;
-    }
-    public get xRealIp(): string | undefined {
-        return this['X-REAL-IP'];
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
         this['Authorization'] = authorization;
