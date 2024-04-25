@@ -3,7 +3,7 @@
 export class UnblockRecordResponseUnblockRecord {
     public ip?: string;
     public executor?: string;
-    private 'block_id'?: string;
+    private 'block_id'?: number;
     private 'blocking_time'?: number;
     private 'unblocking_time'?: number;
     private 'unblock_type'?: UnblockRecordResponseUnblockRecordUnblockTypeEnum | string;
@@ -19,14 +19,14 @@ export class UnblockRecordResponseUnblockRecord {
         this['executor'] = executor;
         return this;
     }
-    public withBlockId(blockId: string): UnblockRecordResponseUnblockRecord {
+    public withBlockId(blockId: number): UnblockRecordResponseUnblockRecord {
         this['block_id'] = blockId;
         return this;
     }
-    public set blockId(blockId: string  | undefined) {
+    public set blockId(blockId: number  | undefined) {
         this['block_id'] = blockId;
     }
-    public get blockId(): string | undefined {
+    public get blockId(): number | undefined {
         return this['block_id'];
     }
     public withBlockingTime(blockingTime: number): UnblockRecordResponseUnblockRecord {

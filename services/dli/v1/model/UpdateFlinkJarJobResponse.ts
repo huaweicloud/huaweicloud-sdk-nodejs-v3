@@ -3,20 +3,20 @@ import { FlinkJobUpdateTime } from './FlinkJobUpdateTime';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateFlinkJarJobResponse extends SdkResponse {
-    private 'is_success'?: boolean;
+    private 'is_success'?: string;
     public message?: string;
     public job?: FlinkJobUpdateTime;
     public constructor() { 
         super();
     }
-    public withIsSuccess(isSuccess: boolean): UpdateFlinkJarJobResponse {
+    public withIsSuccess(isSuccess: string): UpdateFlinkJarJobResponse {
         this['is_success'] = isSuccess;
         return this;
     }
-    public set isSuccess(isSuccess: boolean  | undefined) {
+    public set isSuccess(isSuccess: string  | undefined) {
         this['is_success'] = isSuccess;
     }
-    public get isSuccess(): boolean | undefined {
+    public get isSuccess(): string | undefined {
         return this['is_success'];
     }
     public withMessage(message: string): UpdateFlinkJarJobResponse {

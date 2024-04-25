@@ -29,10 +29,12 @@ export class ShowDeployTaskDetailResponse extends SdkResponse {
     private 'can_execute'?: boolean;
     private 'can_copy'?: boolean;
     private 'can_manage'?: boolean;
+    private 'can_disable'?: boolean;
     private 'app_component_list'?: Array<AppComponentDao>;
     private 'role_id'?: number;
     public id?: string;
     private 'release_id'?: number;
+    private 'is_disable'?: boolean;
     public duration?: string;
     private 'execution_state'?: string;
     private 'executor_id'?: string;
@@ -267,6 +269,16 @@ export class ShowDeployTaskDetailResponse extends SdkResponse {
     public get canManage(): boolean | undefined {
         return this['can_manage'];
     }
+    public withCanDisable(canDisable: boolean): ShowDeployTaskDetailResponse {
+        this['can_disable'] = canDisable;
+        return this;
+    }
+    public set canDisable(canDisable: boolean  | undefined) {
+        this['can_disable'] = canDisable;
+    }
+    public get canDisable(): boolean | undefined {
+        return this['can_disable'];
+    }
     public withAppComponentList(appComponentList: Array<AppComponentDao>): ShowDeployTaskDetailResponse {
         this['app_component_list'] = appComponentList;
         return this;
@@ -300,6 +312,16 @@ export class ShowDeployTaskDetailResponse extends SdkResponse {
     }
     public get releaseId(): number | undefined {
         return this['release_id'];
+    }
+    public withIsDisable(isDisable: boolean): ShowDeployTaskDetailResponse {
+        this['is_disable'] = isDisable;
+        return this;
+    }
+    public set isDisable(isDisable: boolean  | undefined) {
+        this['is_disable'] = isDisable;
+    }
+    public get isDisable(): boolean | undefined {
+        return this['is_disable'];
     }
     public withDuration(duration: string): ShowDeployTaskDetailResponse {
         this['duration'] = duration;

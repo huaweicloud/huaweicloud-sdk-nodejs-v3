@@ -7,6 +7,10 @@ import { AcceptanceBillResult } from './model/AcceptanceBillResult';
 import { AutoClassificationRequestBody } from './model/AutoClassificationRequestBody';
 import { AutoClassificationResult } from './model/AutoClassificationResult';
 import { AutoClassificationResultStatus } from './model/AutoClassificationResultStatus';
+import { BankReceiptDict } from './model/BankReceiptDict';
+import { BankReceiptKvPair } from './model/BankReceiptKvPair';
+import { BankReceiptRequestBody } from './model/BankReceiptRequestBody';
+import { BankReceiptResult } from './model/BankReceiptResult';
 import { BankcardRequestBody } from './model/BankcardRequestBody';
 import { BankcardResult } from './model/BankcardResult';
 import { BelongItemList } from './model/BelongItemList';
@@ -113,6 +117,8 @@ import { RecognizeAcceptanceBillRequest } from './model/RecognizeAcceptanceBillR
 import { RecognizeAcceptanceBillResponse } from './model/RecognizeAcceptanceBillResponse';
 import { RecognizeAutoClassificationRequest } from './model/RecognizeAutoClassificationRequest';
 import { RecognizeAutoClassificationResponse } from './model/RecognizeAutoClassificationResponse';
+import { RecognizeBankReceiptRequest } from './model/RecognizeBankReceiptRequest';
+import { RecognizeBankReceiptResponse } from './model/RecognizeBankReceiptResponse';
 import { RecognizeBankcardRequest } from './model/RecognizeBankcardRequest';
 import { RecognizeBankcardResponse } from './model/RecognizeBankcardResponse';
 import { RecognizeBusinessCardRequest } from './model/RecognizeBusinessCardRequest';
@@ -214,6 +220,8 @@ import { SealRequestBody } from './model/SealRequestBody';
 import { SealResult } from './model/SealResult';
 import { SealWordsBlockList } from './model/SealWordsBlockList';
 import { SmartDocumentRecognizerFormResult } from './model/SmartDocumentRecognizerFormResult';
+import { SmartDocumentRecognizerFormulaBlock } from './model/SmartDocumentRecognizerFormulaBlock';
+import { SmartDocumentRecognizerFormulaResult } from './model/SmartDocumentRecognizerFormulaResult';
 import { SmartDocumentRecognizerKVBlock } from './model/SmartDocumentRecognizerKVBlock';
 import { SmartDocumentRecognizerKVWordsBlock } from './model/SmartDocumentRecognizerKVWordsBlock';
 import { SmartDocumentRecognizerKvResult } from './model/SmartDocumentRecognizerKvResult';
@@ -312,6 +320,26 @@ export class OcrClient {
      */
     public recognizeAutoClassification(recognizeAutoClassificationRequest?: RecognizeAutoClassificationRequest): Promise<RecognizeAutoClassificationResponse> {
         const options = ParamCreater().recognizeAutoClassification(recognizeAutoClassificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持对银行回单版式进行文字识别及键值对提取，实现高效的自动化结构化返回。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 银行回单识别
+     * @param {BankReceiptRequestBody} recognizeBankReceiptRequestBody This is a bank receipt Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeBankReceipt(recognizeBankReceiptRequest?: RecognizeBankReceiptRequest): Promise<RecognizeBankReceiptResponse> {
+        const options = ParamCreater().recognizeBankReceipt(recognizeBankReceiptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1424,6 +1452,51 @@ export const ParamCreater = function () {
                 } else {
                     body = recognizeAutoClassificationRequest['body'];
                     enterpriseProjectId = recognizeAutoClassificationRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持对银行回单版式进行文字识别及键值对提取，实现高效的自动化结构化返回。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        recognizeBankReceipt(recognizeBankReceiptRequest?: RecognizeBankReceiptRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/bank-receipt",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (recognizeBankReceiptRequest !== null && recognizeBankReceiptRequest !== undefined) {
+                if (recognizeBankReceiptRequest instanceof RecognizeBankReceiptRequest) {
+                    body = recognizeBankReceiptRequest.body
+                    enterpriseProjectId = recognizeBankReceiptRequest.enterpriseProjectId;
+                } else {
+                    body = recognizeBankReceiptRequest['body'];
+                    enterpriseProjectId = recognizeBankReceiptRequest['Enterprise-Project-Id'];
                 }
             }
 

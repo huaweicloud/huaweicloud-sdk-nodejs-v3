@@ -13,6 +13,7 @@ export class FirewallUpdateRuleItemOption {
     private 'destination_port'?: string;
     private 'source_address_group_id'?: string;
     private 'destination_address_group_id'?: string;
+    public enabled?: boolean;
     public constructor(id?: string) { 
         this['id'] = id;
     }
@@ -105,5 +106,9 @@ export class FirewallUpdateRuleItemOption {
     }
     public get destinationAddressGroupId(): string | undefined {
         return this['destination_address_group_id'];
+    }
+    public withEnabled(enabled: boolean): FirewallUpdateRuleItemOption {
+        this['enabled'] = enabled;
+        return this;
     }
 }

@@ -28,6 +28,7 @@ export class ListInstancesResult {
     public actions?: Array<string>;
     private 'lb_ip_address'?: string;
     private 'lb_port'?: string;
+    private 'availability_zone'?: string;
     public constructor(id?: string, name?: string, status?: string, port?: string, mode?: string, region?: string, datastore?: ListInstancesDatastoreResult, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>) { 
         this['id'] = id;
         this['name'] = name;
@@ -218,5 +219,15 @@ export class ListInstancesResult {
     }
     public get lbPort(): string | undefined {
         return this['lb_port'];
+    }
+    public withAvailabilityZone(availabilityZone: string): ListInstancesResult {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

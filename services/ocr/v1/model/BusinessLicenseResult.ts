@@ -7,6 +7,7 @@ export class BusinessLicenseResult {
     public address?: string;
     private 'legal_representative'?: string;
     private 'registered_capital'?: string;
+    private 'organization_form'?: string;
     private 'found_date'?: string;
     private 'business_term'?: string;
     private 'business_scope'?: string;
@@ -55,6 +56,16 @@ export class BusinessLicenseResult {
     }
     public get registeredCapital(): string | undefined {
         return this['registered_capital'];
+    }
+    public withOrganizationForm(organizationForm: string): BusinessLicenseResult {
+        this['organization_form'] = organizationForm;
+        return this;
+    }
+    public set organizationForm(organizationForm: string  | undefined) {
+        this['organization_form'] = organizationForm;
+    }
+    public get organizationForm(): string | undefined {
+        return this['organization_form'];
     }
     public withFoundDate(foundDate: string): BusinessLicenseResult {
         this['found_date'] = foundDate;

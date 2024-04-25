@@ -14,7 +14,8 @@ export class FirewallRuleDetail {
     private 'destination_port'?: string;
     private 'source_address_group_id'?: string;
     private 'destination_address_group_id'?: string;
-    public constructor(id?: string, name?: string, description?: string, action?: string, projectId?: string, protocol?: string, ipVersion?: number, sourceIpAddress?: string, destinationIpAddress?: string, sourcePort?: string, destinationPort?: string, sourceAddressGroupId?: string, destinationAddressGroupId?: string) { 
+    public enabled?: boolean;
+    public constructor(id?: string, name?: string, description?: string, action?: string, projectId?: string, protocol?: string, ipVersion?: number, sourceIpAddress?: string, destinationIpAddress?: string, sourcePort?: string, destinationPort?: string, sourceAddressGroupId?: string, destinationAddressGroupId?: string, enabled?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -28,6 +29,7 @@ export class FirewallRuleDetail {
         this['destination_port'] = destinationPort;
         this['source_address_group_id'] = sourceAddressGroupId;
         this['destination_address_group_id'] = destinationAddressGroupId;
+        this['enabled'] = enabled;
     }
     public withId(id: string): FirewallRuleDetail {
         this['id'] = id;
@@ -128,5 +130,9 @@ export class FirewallRuleDetail {
     }
     public get destinationAddressGroupId(): string | undefined {
         return this['destination_address_group_id'];
+    }
+    public withEnabled(enabled: boolean): FirewallRuleDetail {
+        this['enabled'] = enabled;
+        return this;
     }
 }

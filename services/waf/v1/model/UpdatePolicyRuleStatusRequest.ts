@@ -74,5 +74,6 @@ export enum UpdatePolicyRuleStatusRequestRuletypeEnum {
     PRIVACY = 'privacy',
     ANTITAMPER = 'antitamper',
     CUSTOM = 'custom',
-    IGNORE = 'ignore'
+    IGNORE = 'ignore',
+    CC = 'cc'
 }

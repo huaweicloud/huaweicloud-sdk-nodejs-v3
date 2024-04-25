@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListMetricsDataResponse extends SdkResponse {
     public code?: number;
     public msg?: string;
-    public data?: Array<{ [key: string]: string; }>;
+    public data?: Array<{ [key: string]: object; }>;
     public count?: number;
     public constructor() { 
         super();
@@ -17,7 +17,7 @@ export class ListMetricsDataResponse extends SdkResponse {
         this['msg'] = msg;
         return this;
     }
-    public withData(data: Array<{ [key: string]: string; }>): ListMetricsDataResponse {
+    public withData(data: Array<{ [key: string]: object; }>): ListMetricsDataResponse {
         this['data'] = data;
         return this;
     }

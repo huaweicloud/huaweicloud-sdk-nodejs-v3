@@ -2759,7 +2759,7 @@ export class WafClient {
      * @summary 修改单条规则的状态
      * @param {string} contentType 内容类型
      * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {'whiteblackip' | 'geoip' | 'privacy' | 'antitamper' | 'custom' | 'ignore'} ruletype 策略类型
+     * @param {'whiteblackip' | 'geoip' | 'privacy' | 'antitamper' | 'custom' | 'ignore' | 'cc'} ruletype 策略类型
      * @param {string} ruleId 规则id，根据不同的规则类型（ruletype）调用规则列表接口获取规则id，例如黑白名单（whiteblackip）规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取规则id
      * @param {UpdatePolicyRuleStatusRequestBody} updatePolicyRuleStatusRequestBody 修改规则状态入参
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id

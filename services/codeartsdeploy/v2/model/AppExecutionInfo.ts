@@ -5,6 +5,7 @@ export class AppExecutionInfo {
     public id?: string;
     public name?: string;
     public duration?: string;
+    private 'is_disable'?: boolean;
     private 'project_id'?: string;
     private 'project_name'?: string;
     private 'is_care'?: boolean;
@@ -15,6 +16,7 @@ export class AppExecutionInfo {
     private 'can_copy'?: boolean;
     private 'can_manage'?: boolean;
     private 'can_create_env'?: boolean;
+    private 'can_disable'?: boolean;
     private 'deploy_system'?: string;
     private 'create_user_id'?: string;
     private 'create_tenant_id'?: string;
@@ -40,6 +42,16 @@ export class AppExecutionInfo {
     public withDuration(duration: string): AppExecutionInfo {
         this['duration'] = duration;
         return this;
+    }
+    public withIsDisable(isDisable: boolean): AppExecutionInfo {
+        this['is_disable'] = isDisable;
+        return this;
+    }
+    public set isDisable(isDisable: boolean  | undefined) {
+        this['is_disable'] = isDisable;
+    }
+    public get isDisable(): boolean | undefined {
+        return this['is_disable'];
     }
     public withProjectId(projectId: string): AppExecutionInfo {
         this['project_id'] = projectId;
@@ -140,6 +152,16 @@ export class AppExecutionInfo {
     }
     public get canCreateEnv(): boolean | undefined {
         return this['can_create_env'];
+    }
+    public withCanDisable(canDisable: boolean): AppExecutionInfo {
+        this['can_disable'] = canDisable;
+        return this;
+    }
+    public set canDisable(canDisable: boolean  | undefined) {
+        this['can_disable'] = canDisable;
+    }
+    public get canDisable(): boolean | undefined {
+        return this['can_disable'];
     }
     public withDeploySystem(deploySystem: string): AppExecutionInfo {
         this['deploy_system'] = deploySystem;

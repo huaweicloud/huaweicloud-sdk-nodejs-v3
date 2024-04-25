@@ -6,6 +6,7 @@ export class AudioStreamCreateRequest {
     private 'event_type'?: string;
     public categories?: Array<string>;
     public callback?: string;
+    public seed?: string;
     public constructor(data?: AudioStreamCreateRequestData, eventType?: string, categories?: Array<string>, callback?: string) { 
         this['data'] = data;
         this['event_type'] = eventType;
@@ -32,6 +33,10 @@ export class AudioStreamCreateRequest {
     }
     public withCallback(callback: string): AudioStreamCreateRequest {
         this['callback'] = callback;
+        return this;
+    }
+    public withSeed(seed: string): AudioStreamCreateRequest {
+        this['seed'] = seed;
         return this;
     }
 }

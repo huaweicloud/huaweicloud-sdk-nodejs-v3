@@ -9,6 +9,7 @@ export class DocumentCreateRequest {
     private 'video_image_categories'?: Array<string>;
     private 'audio_categories'?: Array<string>;
     public callback?: string;
+    public seed?: string;
     public constructor(data?: DocumentCreateRequestData, eventType?: string) { 
         this['data'] = data;
         this['event_type'] = eventType;
@@ -69,6 +70,10 @@ export class DocumentCreateRequest {
     }
     public withCallback(callback: string): DocumentCreateRequest {
         this['callback'] = callback;
+        return this;
+    }
+    public withSeed(seed: string): DocumentCreateRequest {
+        this['seed'] = seed;
         return this;
     }
 }

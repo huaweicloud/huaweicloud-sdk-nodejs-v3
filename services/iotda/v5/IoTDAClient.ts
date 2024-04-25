@@ -16,6 +16,7 @@ import { AddDevice } from './model/AddDevice';
 import { AddDeviceGroupDTO } from './model/AddDeviceGroupDTO';
 import { AddDeviceGroupRequest } from './model/AddDeviceGroupRequest';
 import { AddDeviceGroupResponse } from './model/AddDeviceGroupResponse';
+import { AddDeviceProxy } from './model/AddDeviceProxy';
 import { AddDeviceRequest } from './model/AddDeviceRequest';
 import { AddDeviceResponse } from './model/AddDeviceResponse';
 import { AddFlowControlPolicy } from './model/AddFlowControlPolicy';
@@ -64,6 +65,8 @@ import { CreateBatchTaskResponse } from './model/CreateBatchTaskResponse';
 import { CreateCertificateDTO } from './model/CreateCertificateDTO';
 import { CreateCommandRequest } from './model/CreateCommandRequest';
 import { CreateCommandResponse } from './model/CreateCommandResponse';
+import { CreateDeviceProxyRequest } from './model/CreateDeviceProxyRequest';
+import { CreateDeviceProxyResponse } from './model/CreateDeviceProxyResponse';
 import { CreateMessageRequest } from './model/CreateMessageRequest';
 import { CreateMessageResponse } from './model/CreateMessageResponse';
 import { CreateOrDeleteDeviceInGroupRequest } from './model/CreateOrDeleteDeviceInGroupRequest';
@@ -94,6 +97,8 @@ import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
 import { DeleteDeviceGroupResponse } from './model/DeleteDeviceGroupResponse';
+import { DeleteDeviceProxyRequest } from './model/DeleteDeviceProxyRequest';
+import { DeleteDeviceProxyResponse } from './model/DeleteDeviceProxyResponse';
 import { DeleteDeviceRequest } from './model/DeleteDeviceRequest';
 import { DeleteDeviceResponse } from './model/DeleteDeviceResponse';
 import { DeleteDeviceTunnelRequest } from './model/DeleteDeviceTunnelRequest';
@@ -128,6 +133,8 @@ import { DeviceSide } from './model/DeviceSide';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { DmsRocketMQForwarding } from './model/DmsRocketMQForwarding';
+import { EffectiveTimeRange } from './model/EffectiveTimeRange';
+import { EffectiveTimeRangeResponseDTO } from './model/EffectiveTimeRangeResponseDTO';
 import { ErrorInfo } from './model/ErrorInfo';
 import { ErrorInfoDTO } from './model/ErrorInfoDTO';
 import { FileLocation } from './model/FileLocation';
@@ -148,6 +155,8 @@ import { ListDeviceGroupsRequest } from './model/ListDeviceGroupsRequest';
 import { ListDeviceGroupsResponse } from './model/ListDeviceGroupsResponse';
 import { ListDeviceMessagesRequest } from './model/ListDeviceMessagesRequest';
 import { ListDeviceMessagesResponse } from './model/ListDeviceMessagesResponse';
+import { ListDeviceProxiesRequest } from './model/ListDeviceProxiesRequest';
+import { ListDeviceProxiesResponse } from './model/ListDeviceProxiesResponse';
 import { ListDeviceTunnelsRequest } from './model/ListDeviceTunnelsRequest';
 import { ListDeviceTunnelsResponse } from './model/ListDeviceTunnelsResponse';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
@@ -182,6 +191,7 @@ import { PageInfo } from './model/PageInfo';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertiesDTO } from './model/PropertiesDTO';
 import { PropertyFilter } from './model/PropertyFilter';
+import { QueryDeviceProxySimplify } from './model/QueryDeviceProxySimplify';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
@@ -226,6 +236,8 @@ import { ShowDeviceGroupRequest } from './model/ShowDeviceGroupRequest';
 import { ShowDeviceGroupResponse } from './model/ShowDeviceGroupResponse';
 import { ShowDeviceMessageRequest } from './model/ShowDeviceMessageRequest';
 import { ShowDeviceMessageResponse } from './model/ShowDeviceMessageResponse';
+import { ShowDeviceProxyRequest } from './model/ShowDeviceProxyRequest';
+import { ShowDeviceProxyResponse } from './model/ShowDeviceProxyResponse';
 import { ShowDeviceRequest } from './model/ShowDeviceRequest';
 import { ShowDeviceResponse } from './model/ShowDeviceResponse';
 import { ShowDeviceShadowRequest } from './model/ShowDeviceShadowRequest';
@@ -280,6 +292,9 @@ import { UpdateDevice } from './model/UpdateDevice';
 import { UpdateDeviceGroupDTO } from './model/UpdateDeviceGroupDTO';
 import { UpdateDeviceGroupRequest } from './model/UpdateDeviceGroupRequest';
 import { UpdateDeviceGroupResponse } from './model/UpdateDeviceGroupResponse';
+import { UpdateDeviceProxy } from './model/UpdateDeviceProxy';
+import { UpdateDeviceProxyRequest } from './model/UpdateDeviceProxyRequest';
+import { UpdateDeviceProxyResponse } from './model/UpdateDeviceProxyResponse';
 import { UpdateDeviceRequest } from './model/UpdateDeviceRequest';
 import { UpdateDeviceResponse } from './model/UpdateDeviceResponse';
 import { UpdateDeviceShadowDesiredDataRequest } from './model/UpdateDeviceShadowDesiredDataRequest';
@@ -1460,6 +1475,113 @@ export class IoTDAClient {
      */
     public updateDevice(updateDeviceRequest?: UpdateDeviceRequest): Promise<UpdateDeviceResponse> {
         const options = ParamCreater().updateDevice(updateDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建一个动态设备代理规则，用于子设备自主选择网关设备上线和上报消息，即代理组下的任意网关下的子设备均可以通过代理组里其他设备上线([[网关更新子设备状态](https://support.huaweicloud.com/api-iothub/iot_06_v5_3022.html)](tag:hws) [[网关更新子设备状态](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_3022.html)](tag:hws_hk))然后进行数据上报([[网关批量设备属性上报](https://support.huaweicloud.com/api-iothub/iot_06_v5_3006.html)](tag:hws) [[网关更新子设备状态](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_3006.html)](tag:hws_hk))。
+     * - 单实例最多可以配置10个设备代理
+     * - 单账号调用该接口的 TPS 限制最大为1/S(每秒1次请求数)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建设备代理
+     * @param {AddDeviceProxy} createDeviceProxyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDeviceProxy(createDeviceProxyRequest?: CreateDeviceProxyRequest): Promise<CreateDeviceProxyResponse> {
+        const options = ParamCreater().createDeviceProxy(createDeviceProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上删除指定设备代理。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除设备代理
+     * @param {string} proxyId **参数说明**：设备代理ID，用于唯一标识一个设备代理。在注册设备代理时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDeviceProxy(deleteDeviceProxyRequest?: DeleteDeviceProxyRequest): Promise<DeleteDeviceProxyResponse> {
+        const options = ParamCreater().deleteDeviceProxy(deleteDeviceProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询物联网平台中的设备代理列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备代理列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备代理列表，不携带该参数则会查询该用户下所有设备代理。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [proxyName] **参数说明**：设备代理名称。 **取值范围**：长度不超过64，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDeviceProxies(listDeviceProxiesRequest?: ListDeviceProxiesRequest): Promise<ListDeviceProxiesResponse> {
+        const options = ParamCreater().listDeviceProxies(listDeviceProxiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询物联网平台中指定设备代理的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备代理详情
+     * @param {string} proxyId **参数说明**：设备代理ID，用于唯一标识一个设备代理。在注册设备代理时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeviceProxy(showDeviceProxyRequest?: ShowDeviceProxyRequest): Promise<ShowDeviceProxyResponse> {
+        const options = ParamCreater().showDeviceProxy(showDeviceProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口修改物联网平台中指定设备代理的基本信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改设备代理
+     * @param {string} proxyId **参数说明**：设备代理ID，用于唯一标识一个设备代理。在注册设备代理时由物联网平台分配获得。
+     * @param {UpdateDeviceProxy} updateDeviceProxyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0121.html)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0121.html)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDeviceProxy(updateDeviceProxyRequest?: UpdateDeviceProxyRequest): Promise<UpdateDeviceProxyResponse> {
+        const options = ParamCreater().updateDeviceProxy(updateDeviceProxyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5167,6 +5289,266 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台创建一个动态设备代理规则，用于子设备自主选择网关设备上线和上报消息，即代理组下的任意网关下的子设备均可以通过代理组里其他设备上线([[网关更新子设备状态](https://support.huaweicloud.com/api-iothub/iot_06_v5_3022.html)](tag:hws) [[网关更新子设备状态](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_3022.html)](tag:hws_hk))然后进行数据上报([[网关批量设备属性上报](https://support.huaweicloud.com/api-iothub/iot_06_v5_3006.html)](tag:hws) [[网关更新子设备状态](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_3006.html)](tag:hws_hk))。
+         * - 单实例最多可以配置10个设备代理
+         * - 单账号调用该接口的 TPS 限制最大为1/S(每秒1次请求数)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDeviceProxy(createDeviceProxyRequest?: CreateDeviceProxyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-proxies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createDeviceProxyRequest !== null && createDeviceProxyRequest !== undefined) {
+                if (createDeviceProxyRequest instanceof CreateDeviceProxyRequest) {
+                    body = createDeviceProxyRequest.body
+                    instanceId = createDeviceProxyRequest.instanceId;
+                } else {
+                    body = createDeviceProxyRequest['body'];
+                    instanceId = createDeviceProxyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上删除指定设备代理。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDeviceProxy(deleteDeviceProxyRequest?: DeleteDeviceProxyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/device-proxies/{proxy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let proxyId;
+            
+            let instanceId;
+
+            if (deleteDeviceProxyRequest !== null && deleteDeviceProxyRequest !== undefined) {
+                if (deleteDeviceProxyRequest instanceof DeleteDeviceProxyRequest) {
+                    proxyId = deleteDeviceProxyRequest.proxyId;
+                    instanceId = deleteDeviceProxyRequest.instanceId;
+                } else {
+                    proxyId = deleteDeviceProxyRequest['proxy_id'];
+                    instanceId = deleteDeviceProxyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling deleteDeviceProxy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询物联网平台中的设备代理列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDeviceProxies(listDeviceProxiesRequest?: ListDeviceProxiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-proxies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appId;
+            
+            let proxyName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listDeviceProxiesRequest !== null && listDeviceProxiesRequest !== undefined) {
+                if (listDeviceProxiesRequest instanceof ListDeviceProxiesRequest) {
+                    instanceId = listDeviceProxiesRequest.instanceId;
+                    appId = listDeviceProxiesRequest.appId;
+                    proxyName = listDeviceProxiesRequest.proxyName;
+                    limit = listDeviceProxiesRequest.limit;
+                    marker = listDeviceProxiesRequest.marker;
+                    offset = listDeviceProxiesRequest.offset;
+                } else {
+                    instanceId = listDeviceProxiesRequest['Instance-Id'];
+                    appId = listDeviceProxiesRequest['app_id'];
+                    proxyName = listDeviceProxiesRequest['proxy_name'];
+                    limit = listDeviceProxiesRequest['limit'];
+                    marker = listDeviceProxiesRequest['marker'];
+                    offset = listDeviceProxiesRequest['offset'];
+                }
+            }
+
+        
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (proxyName !== null && proxyName !== undefined) {
+                localVarQueryParameter['proxy_name'] = proxyName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询物联网平台中指定设备代理的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeviceProxy(showDeviceProxyRequest?: ShowDeviceProxyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-proxies/{proxy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let proxyId;
+            
+            let instanceId;
+
+            if (showDeviceProxyRequest !== null && showDeviceProxyRequest !== undefined) {
+                if (showDeviceProxyRequest instanceof ShowDeviceProxyRequest) {
+                    proxyId = showDeviceProxyRequest.proxyId;
+                    instanceId = showDeviceProxyRequest.instanceId;
+                } else {
+                    proxyId = showDeviceProxyRequest['proxy_id'];
+                    instanceId = showDeviceProxyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling showDeviceProxy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口修改物联网平台中指定设备代理的基本信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDeviceProxy(updateDeviceProxyRequest?: UpdateDeviceProxyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/device-proxies/{proxy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let proxyId;
+            
+            let instanceId;
+
+            if (updateDeviceProxyRequest !== null && updateDeviceProxyRequest !== undefined) {
+                if (updateDeviceProxyRequest instanceof UpdateDeviceProxyRequest) {
+                    proxyId = updateDeviceProxyRequest.proxyId;
+                    body = updateDeviceProxyRequest.body
+                    instanceId = updateDeviceProxyRequest.instanceId;
+                } else {
+                    proxyId = updateDeviceProxyRequest['proxy_id'];
+                    body = updateDeviceProxyRequest['body'];
+                    instanceId = updateDeviceProxyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateDeviceProxy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

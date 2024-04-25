@@ -8,6 +8,7 @@ export class SmartDocumentRecognizerRequestBody {
     public layout?: boolean;
     private 'return_excel'?: boolean;
     public form?: boolean;
+    public formula?: boolean;
     private 'kv_map'?: string;
     public constructor() { 
     }
@@ -43,6 +44,10 @@ export class SmartDocumentRecognizerRequestBody {
     }
     public withForm(form: boolean): SmartDocumentRecognizerRequestBody {
         this['form'] = form;
+        return this;
+    }
+    public withFormula(formula: boolean): SmartDocumentRecognizerRequestBody {
+        this['formula'] = formula;
         return this;
     }
     public withKvMap(kvMap: string): SmartDocumentRecognizerRequestBody {

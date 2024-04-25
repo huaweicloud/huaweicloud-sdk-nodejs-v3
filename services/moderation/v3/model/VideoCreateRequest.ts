@@ -8,6 +8,7 @@ export class VideoCreateRequest {
     private 'image_categories'?: Array<VideoCreateRequestImageCategoriesEnum> | Array<string>;
     private 'audio_categories'?: Array<VideoCreateRequestAudioCategoriesEnum> | Array<string>;
     public callback?: string;
+    public seed?: string;
     public constructor(data?: VideoCreateRequestData) { 
         this['data'] = data;
     }
@@ -57,6 +58,10 @@ export class VideoCreateRequest {
     }
     public withCallback(callback: string): VideoCreateRequest {
         this['callback'] = callback;
+        return this;
+    }
+    public withSeed(seed: string): VideoCreateRequest {
+        this['seed'] = seed;
         return this;
     }
 }

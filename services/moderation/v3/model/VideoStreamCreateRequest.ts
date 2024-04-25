@@ -7,6 +7,7 @@ export class VideoStreamCreateRequest {
     private 'image_categories'?: Array<VideoStreamCreateRequestImageCategoriesEnum> | Array<string>;
     private 'audio_categories'?: Array<VideoStreamCreateRequestAudioCategoriesEnum> | Array<string>;
     public callback?: string;
+    public seed?: string;
     public constructor(data?: VideoStreamCreateRequestData, eventType?: string, imageCategories?: Array<string>, callback?: string) { 
         this['data'] = data;
         this['event_type'] = eventType;
@@ -49,6 +50,10 @@ export class VideoStreamCreateRequest {
     }
     public withCallback(callback: string): VideoStreamCreateRequest {
         this['callback'] = callback;
+        return this;
+    }
+    public withSeed(seed: string): VideoStreamCreateRequest {
+        this['seed'] = seed;
         return this;
     }
 }

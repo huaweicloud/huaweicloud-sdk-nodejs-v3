@@ -33,6 +33,7 @@ export class CceRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://cce.my-kualalumpur-1.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://cce.eu-west-0.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://cce.ru-moscow-1.myhuaweicloud.com"]);
+    public static ME_EAST_1 = new Region("me-east-1", ["https://cce.me-east-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -62,7 +63,8 @@ export class CceRegion {
         "cn-north-11":CceRegion.CN_NORTH_11,
         "my-kualalumpur-1":CceRegion.MY_KUALALUMPUR_1,
         "eu-west-0":CceRegion.EU_WEST_0,
-        "ru-moscow-1":CceRegion.RU_MOSCOW_1
+        "ru-moscow-1":CceRegion.RU_MOSCOW_1,
+        "me-east-1":CceRegion.ME_EAST_1
     };
   
     public static valueOf(regionId: string) {

@@ -6,6 +6,7 @@ export class AppDetailInfo {
     public name?: string;
     public region?: string;
     public description?: string;
+    private 'is_disable'?: boolean;
     private 'create_type'?: string;
     private 'project_id'?: string;
     private 'project_name'?: string;
@@ -18,6 +19,7 @@ export class AppDetailInfo {
     private 'can_copy'?: boolean;
     private 'can_manage'?: boolean;
     private 'can_create_env'?: boolean;
+    private 'can_disable'?: boolean;
     private 'owner_tenant_id'?: string;
     private 'create_user_id'?: string;
     private 'create_tenant_id'?: string;
@@ -42,6 +44,16 @@ export class AppDetailInfo {
     public withDescription(description: string): AppDetailInfo {
         this['description'] = description;
         return this;
+    }
+    public withIsDisable(isDisable: boolean): AppDetailInfo {
+        this['is_disable'] = isDisable;
+        return this;
+    }
+    public set isDisable(isDisable: boolean  | undefined) {
+        this['is_disable'] = isDisable;
+    }
+    public get isDisable(): boolean | undefined {
+        return this['is_disable'];
     }
     public withCreateType(createType: string): AppDetailInfo {
         this['create_type'] = createType;
@@ -162,6 +174,16 @@ export class AppDetailInfo {
     }
     public get canCreateEnv(): boolean | undefined {
         return this['can_create_env'];
+    }
+    public withCanDisable(canDisable: boolean): AppDetailInfo {
+        this['can_disable'] = canDisable;
+        return this;
+    }
+    public set canDisable(canDisable: boolean  | undefined) {
+        this['can_disable'] = canDisable;
+    }
+    public get canDisable(): boolean | undefined {
+        return this['can_disable'];
     }
     public withOwnerTenantId(ownerTenantId: string): AppDetailInfo {
         this['owner_tenant_id'] = ownerTenantId;

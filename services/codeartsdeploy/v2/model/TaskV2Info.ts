@@ -30,9 +30,11 @@ export class TaskV2Info {
     private 'can_copy'?: boolean;
     private 'can_manage'?: boolean;
     private 'can_create_env'?: boolean;
+    private 'can_disable'?: boolean;
     private 'app_component_list'?: Array<AppComponentDao>;
     private 'release_id'?: number;
     private 'app_id'?: string;
+    private 'is_disable'?: boolean;
     public constructor() { 
     }
     public withId(id: string): TaskV2Info {
@@ -269,6 +271,16 @@ export class TaskV2Info {
     public get canCreateEnv(): boolean | undefined {
         return this['can_create_env'];
     }
+    public withCanDisable(canDisable: boolean): TaskV2Info {
+        this['can_disable'] = canDisable;
+        return this;
+    }
+    public set canDisable(canDisable: boolean  | undefined) {
+        this['can_disable'] = canDisable;
+    }
+    public get canDisable(): boolean | undefined {
+        return this['can_disable'];
+    }
     public withAppComponentList(appComponentList: Array<AppComponentDao>): TaskV2Info {
         this['app_component_list'] = appComponentList;
         return this;
@@ -298,5 +310,15 @@ export class TaskV2Info {
     }
     public get appId(): string | undefined {
         return this['app_id'];
+    }
+    public withIsDisable(isDisable: boolean): TaskV2Info {
+        this['is_disable'] = isDisable;
+        return this;
+    }
+    public set isDisable(isDisable: boolean  | undefined) {
+        this['is_disable'] = isDisable;
+    }
+    public get isDisable(): boolean | undefined {
+        return this['is_disable'];
     }
 }

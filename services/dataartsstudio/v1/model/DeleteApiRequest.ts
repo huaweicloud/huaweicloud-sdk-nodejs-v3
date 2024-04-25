@@ -5,7 +5,8 @@ export class DeleteApiRequest {
     private 'Dlm-Type'?: DeleteApiRequestDlmTypeEnum | string;
     private 'Content-Type'?: string;
     public body?: Array<string>;
-    public constructor(contentType?: string) { 
+    public constructor(workspace?: string, contentType?: string) { 
+        this['workspace'] = workspace;
         this['Content-Type'] = contentType;
     }
     public withWorkspace(workspace: string): DeleteApiRequest {

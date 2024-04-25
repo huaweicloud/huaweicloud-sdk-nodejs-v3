@@ -81,6 +81,7 @@ export enum ListApicGroupsRequestDlmTypeEnum {
     * @enum {string}
     */
 export enum ListApicGroupsRequestApigTypeEnum {
+    APIG = 'APIG',
     APIGW = 'APIGW',
     ROMA_APIC = 'ROMA_APIC'
 }

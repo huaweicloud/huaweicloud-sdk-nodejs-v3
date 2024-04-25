@@ -7,6 +7,7 @@ export class AudioCreateRequest {
     private 'event_type'?: AudioCreateRequestEventTypeEnum | string;
     public categories?: Array<AudioCreateRequestCategoriesEnum> | Array<string>;
     public callback?: string;
+    public seed?: string;
     public constructor(data?: AudioInputBody) { 
         this['data'] = data;
     }
@@ -40,6 +41,10 @@ export class AudioCreateRequest {
     }
     public withCallback(callback: string): AudioCreateRequest {
         this['callback'] = callback;
+        return this;
+    }
+    public withSeed(seed: string): AudioCreateRequest {
+        this['seed'] = seed;
         return this;
     }
 }
