@@ -21,6 +21,7 @@ export class ShowInstanceResp {
     private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
     private 'available_zones'?: Array<string>;
+    private 'available_zone_names'?: Array<string>;
     private 'user_id'?: string;
     private 'user_name'?: string;
     private 'maintain_begin'?: string;
@@ -52,6 +53,7 @@ export class ShowInstanceResp {
     private 'public_broker_address'?: string;
     private 'grpc_address'?: string;
     private 'public_grpc_address'?: string;
+    private 'enterprise_project_id'?: string;
     public tags?: Array<TagEntity>;
     private 'total_storage_space'?: number;
     private 'resource_spec_code'?: string;
@@ -210,6 +212,16 @@ export class ShowInstanceResp {
     }
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
+    }
+    public withAvailableZoneNames(availableZoneNames: Array<string>): ShowInstanceResp {
+        this['available_zone_names'] = availableZoneNames;
+        return this;
+    }
+    public set availableZoneNames(availableZoneNames: Array<string>  | undefined) {
+        this['available_zone_names'] = availableZoneNames;
+    }
+    public get availableZoneNames(): Array<string> | undefined {
+        return this['available_zone_names'];
     }
     public withUserId(userId: string): ShowInstanceResp {
         this['user_id'] = userId;
@@ -520,6 +532,16 @@ export class ShowInstanceResp {
     }
     public get publicGrpcAddress(): string | undefined {
         return this['public_grpc_address'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ShowInstanceResp {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withTags(tags: Array<TagEntity>): ShowInstanceResp {
         this['tags'] = tags;

@@ -38,6 +38,7 @@ export * from './model/CreateTopicOrBatchDeleteTopicReq';
 export * from './model/CreateTopicOrBatchDeleteTopicRequest';
 export * from './model/CreateTopicOrBatchDeleteTopicResponse';
 export * from './model/CreateTopicReq';
+export * from './model/CreateTopicReqQueues';
 export * from './model/CreateTopicResp';
 export * from './model/CreateUserRequest';
 export * from './model/CreateUserResponse';

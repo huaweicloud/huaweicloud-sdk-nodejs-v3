@@ -1,9 +1,11 @@
+import { CreateTopicReqQueues } from './CreateTopicReqQueues';
 
 
 export class CreateTopicReq {
     public name?: string;
     public brokers?: Array<string>;
     private 'queue_num'?: number;
+    public queues?: Array<CreateTopicReqQueues>;
     public permission?: CreateTopicReqPermissionEnum | string;
     private 'message_type'?: CreateTopicReqMessageTypeEnum | string;
     public constructor() { 
@@ -25,6 +27,10 @@ export class CreateTopicReq {
     }
     public get queueNum(): number | undefined {
         return this['queue_num'];
+    }
+    public withQueues(queues: Array<CreateTopicReqQueues>): CreateTopicReq {
+        this['queues'] = queues;
+        return this;
     }
     public withPermission(permission: CreateTopicReqPermissionEnum | string): CreateTopicReq {
         this['permission'] = permission;

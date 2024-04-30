@@ -1,11 +1,13 @@
 import { BatchDeleteTopicReq } from './BatchDeleteTopicReq';
 import { CreateTopicReq } from './CreateTopicReq';
+import { CreateTopicReqQueues } from './CreateTopicReqQueues';
 
 
 export class CreateTopicOrBatchDeleteTopicReq {
     public name?: string;
     public brokers?: Array<string>;
     private 'queue_num'?: number;
+    public queues?: Array<CreateTopicReqQueues>;
     public permission?: CreateTopicOrBatchDeleteTopicReqPermissionEnum | string;
     private 'message_type'?: CreateTopicOrBatchDeleteTopicReqMessageTypeEnum | string;
     public topics?: Array<string>;
@@ -28,6 +30,10 @@ export class CreateTopicOrBatchDeleteTopicReq {
     }
     public get queueNum(): number | undefined {
         return this['queue_num'];
+    }
+    public withQueues(queues: Array<CreateTopicReqQueues>): CreateTopicOrBatchDeleteTopicReq {
+        this['queues'] = queues;
+        return this;
     }
     public withPermission(permission: CreateTopicOrBatchDeleteTopicReqPermissionEnum | string): CreateTopicOrBatchDeleteTopicReq {
         this['permission'] = permission;
