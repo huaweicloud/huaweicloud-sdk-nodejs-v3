@@ -65,6 +65,11 @@ import { ChangeServerOsWithoutCloudInitRequestBody } from './model/ChangeServerO
 import { ChangeServerOsWithoutCloudInitResponse } from './model/ChangeServerOsWithoutCloudInitResponse';
 import { ChangeSeversOsMetadata } from './model/ChangeSeversOsMetadata';
 import { ChangeSeversOsMetadataWithoutCloudInitOption } from './model/ChangeSeversOsMetadataWithoutCloudInitOption';
+import { ChangeVpcNicBody } from './model/ChangeVpcNicBody';
+import { ChangeVpcRequest } from './model/ChangeVpcRequest';
+import { ChangeVpcRequestBody } from './model/ChangeVpcRequestBody';
+import { ChangeVpcResponse } from './model/ChangeVpcResponse';
+import { ChangeVpcSecurityGroups } from './model/ChangeVpcSecurityGroups';
 import { CpuOptions } from './model/CpuOptions';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
 import { CreatePostPaidServersRequestBody } from './model/CreatePostPaidServersRequestBody';
@@ -667,6 +672,26 @@ export class EcsClient {
      */
     public changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest?: ChangeServerOsWithoutCloudInitRequest): Promise<ChangeServerOsWithoutCloudInitResponse> {
         const options = ParamCreater().changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 云服务器切换虚拟私有云。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 云服务器切换虚拟私有云
+     * @param {string} serverId 云服务器ID。
+     * @param {ChangeVpcRequestBody} changeOsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeVpc(changeVpcRequest?: ChangeVpcRequest): Promise<ChangeVpcResponse> {
+        const options = ParamCreater().changeVpc(changeVpcRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2583,6 +2608,52 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithoutCloudInit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 云服务器切换虚拟私有云。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeVpc(changeVpcRequest?: ChangeVpcRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/changevpc",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (changeVpcRequest !== null && changeVpcRequest !== undefined) {
+                if (changeVpcRequest instanceof ChangeVpcRequest) {
+                    serverId = changeVpcRequest.serverId;
+                    body = changeVpcRequest.body
+                } else {
+                    serverId = changeVpcRequest['server_id'];
+                    body = changeVpcRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeVpc.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

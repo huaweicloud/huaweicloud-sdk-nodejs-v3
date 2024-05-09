@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateConnectivityTaskResponse extends SdkResponse {
     private 'is_success'?: boolean;
     public message?: string;
-    private 'task_id'?: string;
+    private 'task_id'?: number;
     public constructor() { 
         super();
     }
@@ -22,14 +22,14 @@ export class CreateConnectivityTaskResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withTaskId(taskId: string): CreateConnectivityTaskResponse {
+    public withTaskId(taskId: number): CreateConnectivityTaskResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string  | undefined) {
+    public set taskId(taskId: number  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId(): string | undefined {
+    public get taskId(): number | undefined {
         return this['task_id'];
     }
 }

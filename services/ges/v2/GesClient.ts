@@ -253,6 +253,7 @@ export class GesClient {
      * @summary 删除图
      * @param {string} graphId 图ID。
      * @param {boolean} [keepBackup] 删除图后是否保留备份，默认保留1个自动备份和2个手动备份。该查询参数为空时，表示不保留。
+     * @param {boolean} [deleteEip] 是否同时删除EIP。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1042,14 +1043,18 @@ export const ParamCreater = function () {
             let graphId;
             
             let keepBackup;
+            
+            let deleteEip;
 
             if (deleteGraph2Request !== null && deleteGraph2Request !== undefined) {
                 if (deleteGraph2Request instanceof DeleteGraph2Request) {
                     graphId = deleteGraph2Request.graphId;
                     keepBackup = deleteGraph2Request.keepBackup;
+                    deleteEip = deleteGraph2Request.deleteEip;
                 } else {
                     graphId = deleteGraph2Request['graph_id'];
                     keepBackup = deleteGraph2Request['keep_backup'];
+                    deleteEip = deleteGraph2Request['delete_eip'];
                 }
             }
 
@@ -1059,6 +1064,9 @@ export const ParamCreater = function () {
             }
             if (keepBackup !== null && keepBackup !== undefined) {
                 localVarQueryParameter['keep_backup'] = keepBackup;
+            }
+            if (deleteEip !== null && deleteEip !== undefined) {
+                localVarQueryParameter['delete_eip'] = deleteEip;
             }
 
             options.queryParams = localVarQueryParameter;

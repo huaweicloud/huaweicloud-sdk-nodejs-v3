@@ -6,6 +6,7 @@ export class TriggerProcess {
     private 'time_window'?: number;
     private 'reply_mode'?: TriggerProcessReplyModeEnum | string;
     private 'layer_config'?: SmartLayerConfig;
+    private 'extra_layer_config'?: SmartLayerConfig;
     private 'reply_texts'?: Array<string>;
     private 'reply_audios'?: Array<ReplyAudioInfo>;
     private 'reply_order'?: TriggerProcessReplyOrderEnum | string;
@@ -41,6 +42,16 @@ export class TriggerProcess {
     }
     public get layerConfig(): SmartLayerConfig | undefined {
         return this['layer_config'];
+    }
+    public withExtraLayerConfig(extraLayerConfig: SmartLayerConfig): TriggerProcess {
+        this['extra_layer_config'] = extraLayerConfig;
+        return this;
+    }
+    public set extraLayerConfig(extraLayerConfig: SmartLayerConfig  | undefined) {
+        this['extra_layer_config'] = extraLayerConfig;
+    }
+    public get extraLayerConfig(): SmartLayerConfig | undefined {
+        return this['extra_layer_config'];
     }
     public withReplyTexts(replyTexts: Array<string>): TriggerProcess {
         this['reply_texts'] = replyTexts;

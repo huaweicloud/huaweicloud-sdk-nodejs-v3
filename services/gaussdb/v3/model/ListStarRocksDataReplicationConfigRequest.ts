@@ -1,0 +1,42 @@
+
+
+export class ListStarRocksDataReplicationConfigRequest {
+    private 'instance_id'?: string;
+    private 'X-Language'?: string;
+    private 'task_name'?: string;
+    public constructor(instanceId?: string, xLanguage?: string, taskName?: string) { 
+        this['instance_id'] = instanceId;
+        this['X-Language'] = xLanguage;
+        this['task_name'] = taskName;
+    }
+    public withInstanceId(instanceId: string): ListStarRocksDataReplicationConfigRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withXLanguage(xLanguage: string): ListStarRocksDataReplicationConfigRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): string | undefined {
+        return this['X-Language'];
+    }
+    public withTaskName(taskName: string): ListStarRocksDataReplicationConfigRequest {
+        this['task_name'] = taskName;
+        return this;
+    }
+    public set taskName(taskName: string  | undefined) {
+        this['task_name'] = taskName;
+    }
+    public get taskName(): string | undefined {
+        return this['task_name'];
+    }
+}

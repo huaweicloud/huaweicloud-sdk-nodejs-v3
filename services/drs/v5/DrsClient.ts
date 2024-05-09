@@ -66,6 +66,8 @@ import { CompareTaskParams } from './model/CompareTaskParams';
 import { ConnectionManagement } from './model/ConnectionManagement';
 import { ContentCompareDetailInfo } from './model/ContentCompareDetailInfo';
 import { ContentCompareOverviewInfo } from './model/ContentCompareOverviewInfo';
+import { ContentDiffDetailInfo } from './model/ContentDiffDetailInfo';
+import { ContentDiffDetailVO } from './model/ContentDiffDetailVO';
 import { CopyJobRequest } from './model/CopyJobRequest';
 import { CopyJobResponse } from './model/CopyJobResponse';
 import { CountInstanceByTagsRequest } from './model/CountInstanceByTagsRequest';
@@ -155,12 +157,14 @@ import { ListTagsResponse } from './model/ListTagsResponse';
 import { ListsAgencyPermissionsRequest } from './model/ListsAgencyPermissionsRequest';
 import { ListsAgencyPermissionsResponse } from './model/ListsAgencyPermissionsResponse';
 import { MigrationObjectOverviewInfo } from './model/MigrationObjectOverviewInfo';
+import { ModifyComparePolicyReq } from './model/ModifyComparePolicyReq';
 import { ModifyParameterReq } from './model/ModifyParameterReq';
 import { ModifyStartPositionReq } from './model/ModifyStartPositionReq';
 import { ModifyTuningParams } from './model/ModifyTuningParams';
 import { ObjectsCompareDetailInfo } from './model/ObjectsCompareDetailInfo';
 import { ObjectsCompareOverviewInfo } from './model/ObjectsCompareOverviewInfo';
 import { ObjectsCompareTaskInfo } from './model/ObjectsCompareTaskInfo';
+import { ObjectsHealthCompareOverviewInfo } from './model/ObjectsHealthCompareOverviewInfo';
 import { ParameterConfig } from './model/ParameterConfig';
 import { ParameterInfo } from './model/ParameterInfo';
 import { PeriodOrderInfo } from './model/PeriodOrderInfo';
@@ -181,6 +185,7 @@ import { QueryNetworkResult } from './model/QueryNetworkResult';
 import { QueryPreCheckResult } from './model/QueryPreCheckResult';
 import { QuerySelectObjectInfoReq } from './model/QuerySelectObjectInfoReq';
 import { QueryUserSelectedObjectInfoReq } from './model/QueryUserSelectedObjectInfoReq';
+import { ReplayConfigInfo } from './model/ReplayConfigInfo';
 import { ReplayErrorSqlResp } from './model/ReplayErrorSqlResp';
 import { ReplayErrorSqlTemplateResp } from './model/ReplayErrorSqlTemplateResp';
 import { ReplayShardStaticsResp } from './model/ReplayShardStaticsResp';
@@ -216,8 +221,12 @@ import { ShowDirtyDataRequest } from './model/ShowDirtyDataRequest';
 import { ShowDirtyDataResponse } from './model/ShowDirtyDataResponse';
 import { ShowEnterpriseProjectRequest } from './model/ShowEnterpriseProjectRequest';
 import { ShowEnterpriseProjectResponse } from './model/ShowEnterpriseProjectResponse';
+import { ShowHealthCompareJobDetailRequest } from './model/ShowHealthCompareJobDetailRequest';
+import { ShowHealthCompareJobDetailResponse } from './model/ShowHealthCompareJobDetailResponse';
 import { ShowHealthCompareJobListRequest } from './model/ShowHealthCompareJobListRequest';
 import { ShowHealthCompareJobListResponse } from './model/ShowHealthCompareJobListResponse';
+import { ShowHealthObjectCompareJobOverviewRequest } from './model/ShowHealthObjectCompareJobOverviewRequest';
+import { ShowHealthObjectCompareJobOverviewResponse } from './model/ShowHealthObjectCompareJobOverviewResponse';
 import { ShowIncrementComponentsDetailRequest } from './model/ShowIncrementComponentsDetailRequest';
 import { ShowIncrementComponentsDetailResponse } from './model/ShowIncrementComponentsDetailResponse';
 import { ShowInstanceTagsRequest } from './model/ShowInstanceTagsRequest';
@@ -261,6 +270,8 @@ import { TuningParamInfo } from './model/TuningParamInfo';
 import { TuningParameter } from './model/TuningParameter';
 import { UpdateBatchAsyncJobsRequest } from './model/UpdateBatchAsyncJobsRequest';
 import { UpdateBatchAsyncJobsResponse } from './model/UpdateBatchAsyncJobsResponse';
+import { UpdateComparePolicyRequest } from './model/UpdateComparePolicyRequest';
+import { UpdateComparePolicyResponse } from './model/UpdateComparePolicyResponse';
 import { UpdateDataProgressRequest } from './model/UpdateDataProgressRequest';
 import { UpdateDataProgressResponse } from './model/UpdateDataProgressResponse';
 import { UpdateDriverReq } from './model/UpdateDriverReq';
@@ -1345,6 +1356,27 @@ export class DrsClient {
     }
 
     /**
+     * 查询健康对比任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询健康对比任务详情
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHealthCompareJobDetail(showHealthCompareJobDetailRequest?: ShowHealthCompareJobDetailRequest): Promise<ShowHealthCompareJobDetailResponse> {
+        const options = ParamCreater().showHealthCompareJobDetail(showHealthCompareJobDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询健康对比列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1360,6 +1392,27 @@ export class DrsClient {
      */
     public showHealthCompareJobList(showHealthCompareJobListRequest?: ShowHealthCompareJobListRequest): Promise<ShowHealthCompareJobListResponse> {
         const options = ParamCreater().showHealthCompareJobList(showHealthCompareJobListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取健康对比对象级对比概览。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取健康对比对象级对比概览
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHealthObjectCompareJobOverview(showHealthObjectCompareJobOverviewRequest?: ShowHealthObjectCompareJobOverviewRequest): Promise<ShowHealthObjectCompareJobOverviewResponse> {
+        const options = ParamCreater().showHealthObjectCompareJobOverview(showHealthObjectCompareJobOverviewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1416,7 +1469,7 @@ export class DrsClient {
      *
      * @summary 查询任务详情
      * @param {string} jobId 任务ID。
-     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'compare' | 'file'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - compare：查询对比任务。 - file：对象导入信息
+     * @param {'overview' | 'detail' | 'network' | 'precheck' | 'progress' | 'log' | 'compare' | 'file' | 'is_writable' | 'cloud_connection'} type 任务详情类型。取值： - overview：任务概览信息。 - detail：任务基本信息。 - network：测试连接结果信息，需配合query_id参数一起查询。 - precheck：预检查结果信息，需配合query_id参数一起查询。 - progress：任务进度信息。 - log：任务日志信息，支持分页查询参数offset与limit。 - compare：查询对比任务。 - file：对象导入信息。 - is_writable：目标库解除只读结果。 - cloud_connection：录制回放他云连通性测试，需配合query_id参数一起查询。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {string} [queryId] 通过指定Query ID查询任务详情。  说明：部分type类型的任务详情，需要通过触发该操作的请求返回的query_id进行操作结果查询。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。  说明：部分type类型的任务详情支持分页查询，可以通过传递该参数进行分页控制。
@@ -1675,6 +1728,27 @@ export class DrsClient {
      */
     public updateBatchAsyncJobs(updateBatchAsyncJobsRequest?: UpdateBatchAsyncJobsRequest): Promise<UpdateBatchAsyncJobsResponse> {
         const options = ParamCreater().updateBatchAsyncJobs(updateBatchAsyncJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改周期性对比的对比策略，目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MySQL-&gt;GaussDB(DWS)、GaussDB(for MySQL)-&gt;MySQL同步任务，MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)迁移任务，MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、GaussDB(for MySQL)-&gt;GaussDB(for MySQL)、DDM-&gt;DDM、DDS-DDS灾备任务支持对比策略设置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改对比策略
+     * @param {string} jobId 任务ID。
+     * @param {ModifyComparePolicyReq} updateComparePolicyRequestBody 修改对比策略请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateComparePolicy(updateComparePolicyRequest?: UpdateComparePolicyRequest): Promise<UpdateComparePolicyResponse> {
+        const options = ParamCreater().updateComparePolicy(updateComparePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4576,6 +4650,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询健康对比任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHealthCompareJobDetail(showHealthCompareJobDetailRequest?: ShowHealthCompareJobDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/health-compare-jobs/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+
+            if (showHealthCompareJobDetailRequest !== null && showHealthCompareJobDetailRequest !== undefined) {
+                if (showHealthCompareJobDetailRequest instanceof ShowHealthCompareJobDetailRequest) {
+                    jobId = showHealthCompareJobDetailRequest.jobId;
+                    compareJobId = showHealthCompareJobDetailRequest.compareJobId;
+                    xLanguage = showHealthCompareJobDetailRequest.xLanguage;
+                } else {
+                    jobId = showHealthCompareJobDetailRequest['job_id'];
+                    compareJobId = showHealthCompareJobDetailRequest['compare_job_id'];
+                    xLanguage = showHealthCompareJobDetailRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showHealthCompareJobDetail.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling showHealthCompareJobDetail.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询健康对比列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4637,6 +4762,57 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取健康对比对象级对比概览。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHealthObjectCompareJobOverview(showHealthObjectCompareJobOverviewRequest?: ShowHealthObjectCompareJobOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/health-compare-jobs/object/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+
+            if (showHealthObjectCompareJobOverviewRequest !== null && showHealthObjectCompareJobOverviewRequest !== undefined) {
+                if (showHealthObjectCompareJobOverviewRequest instanceof ShowHealthObjectCompareJobOverviewRequest) {
+                    jobId = showHealthObjectCompareJobOverviewRequest.jobId;
+                    compareJobId = showHealthObjectCompareJobOverviewRequest.compareJobId;
+                    xLanguage = showHealthObjectCompareJobOverviewRequest.xLanguage;
+                } else {
+                    jobId = showHealthObjectCompareJobOverviewRequest['job_id'];
+                    compareJobId = showHealthObjectCompareJobOverviewRequest['compare_job_id'];
+                    xLanguage = showHealthObjectCompareJobOverviewRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showHealthObjectCompareJobOverview.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling showHealthObjectCompareJobOverview.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5487,6 +5663,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'async_job_id': asyncJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改周期性对比的对比策略，目前仅MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、MySQL-&gt;GaussDB(DWS)、GaussDB(for MySQL)-&gt;MySQL同步任务，MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)迁移任务，MySQL-&gt;MySQL、MySQL-&gt;GaussDB(for MySQL)、GaussDB(for MySQL)-&gt;GaussDB(for MySQL)、DDM-&gt;DDM、DDS-DDS灾备任务支持对比策略设置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateComparePolicy(updateComparePolicyRequest?: UpdateComparePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/jobs/{job_id}/compare-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (updateComparePolicyRequest !== null && updateComparePolicyRequest !== undefined) {
+                if (updateComparePolicyRequest instanceof UpdateComparePolicyRequest) {
+                    jobId = updateComparePolicyRequest.jobId;
+                    body = updateComparePolicyRequest.body
+                    xLanguage = updateComparePolicyRequest.xLanguage;
+                } else {
+                    jobId = updateComparePolicyRequest['job_id'];
+                    body = updateComparePolicyRequest['body'];
+                    xLanguage = updateComparePolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateComparePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

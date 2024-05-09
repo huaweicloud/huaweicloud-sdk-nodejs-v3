@@ -17,6 +17,7 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'video_config'?: ChatVideoConfigRsp;
+    private 'chat_video_type'?: ShowSmartChatJobResponseChatVideoTypeEnum | string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -119,6 +120,16 @@ export class ShowSmartChatJobResponse extends SdkResponse {
     public get videoConfig(): ChatVideoConfigRsp | undefined {
         return this['video_config'];
     }
+    public withChatVideoType(chatVideoType: ShowSmartChatJobResponseChatVideoTypeEnum | string): ShowSmartChatJobResponse {
+        this['chat_video_type'] = chatVideoType;
+        return this;
+    }
+    public set chatVideoType(chatVideoType: ShowSmartChatJobResponseChatVideoTypeEnum | string  | undefined) {
+        this['chat_video_type'] = chatVideoType;
+    }
+    public get chatVideoType(): ShowSmartChatJobResponseChatVideoTypeEnum | string | undefined {
+        return this['chat_video_type'];
+    }
     public withXRequestId(xRequestId: string): ShowSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -142,4 +153,13 @@ export enum ShowSmartChatJobResponseStateEnum {
     FAILED = 'FAILED',
     CANCELED = 'CANCELED',
     HEARTBEAT = 'HEARTBEAT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowSmartChatJobResponseChatVideoTypeEnum {
+    COMPUTER = 'COMPUTER',
+    MOBILE = 'MOBILE',
+    HUB = 'HUB'
 }

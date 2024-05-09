@@ -58,5 +58,7 @@ export enum ActionReqActionNameEnum {
     COLUMN_LIMIT = 'column_limit',
     RELOAD_PARAMETERS = 'reload_parameters',
     BIND_EIP = 'bind_eip',
-    UNBIND_EIP = 'unbind_eip'
+    UNBIND_EIP = 'unbind_eip',
+    SET_WRITABLE = 'set_writable',
+    CLOUD_CONNECTION = 'cloud_connection'
 }

@@ -1,24 +1,14 @@
+import { FlinkSuccessResponse } from './FlinkSuccessResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchDeleteFlinkJobsResponse extends SdkResponse {
-    private 'is_success'?: boolean;
-    public message?: string;
+    public body?: Array<FlinkSuccessResponse>;
     public constructor() { 
         super();
     }
-    public withIsSuccess(isSuccess: boolean): BatchDeleteFlinkJobsResponse {
-        this['is_success'] = isSuccess;
-        return this;
-    }
-    public set isSuccess(isSuccess: boolean  | undefined) {
-        this['is_success'] = isSuccess;
-    }
-    public get isSuccess(): boolean | undefined {
-        return this['is_success'];
-    }
-    public withMessage(message: string): BatchDeleteFlinkJobsResponse {
-        this['message'] = message;
+    public withBody(body: Array<FlinkSuccessResponse>): BatchDeleteFlinkJobsResponse {
+        this['body'] = body;
         return this;
     }
 }

@@ -316,6 +316,7 @@ import { SmartImageLayerConfig } from './model/SmartImageLayerConfig';
 import { SmartLayerConfig } from './model/SmartLayerConfig';
 import { SmartLiveJob } from './model/SmartLiveJob';
 import { SmartLiveRoomBaseInfo } from './model/SmartLiveRoomBaseInfo';
+import { SmartTextLayerConfig } from './model/SmartTextLayerConfig';
 import { SmartVideoLayerConfig } from './model/SmartVideoLayerConfig';
 import { StartSmartChatJobRequest } from './model/StartSmartChatJobRequest';
 import { StartSmartChatJobResponse } from './model/StartSmartChatJobResponse';

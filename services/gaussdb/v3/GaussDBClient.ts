@@ -24,10 +24,14 @@ import { ChangeGaussMySqlInstanceSpecificationRequest } from './model/ChangeGaus
 import { ChangeGaussMySqlInstanceSpecificationResponse } from './model/ChangeGaussMySqlInstanceSpecificationResponse';
 import { ChangeGaussMySqlProxySpecificationRequest } from './model/ChangeGaussMySqlProxySpecificationRequest';
 import { ChangeGaussMySqlProxySpecificationResponse } from './model/ChangeGaussMySqlProxySpecificationResponse';
+import { CheckDataBaseConfigRequest } from './model/CheckDataBaseConfigRequest';
+import { CheckDataBaseConfigResponse } from './model/CheckDataBaseConfigResponse';
 import { CheckResourceInfo } from './model/CheckResourceInfo';
 import { CheckResourceRequest } from './model/CheckResourceRequest';
 import { CheckResourceRequestBody } from './model/CheckResourceRequestBody';
 import { CheckResourceResponse } from './model/CheckResourceResponse';
+import { CheckTableConfigRequest } from './model/CheckTableConfigRequest';
+import { CheckTableConfigResponse } from './model/CheckTableConfigResponse';
 import { CloseMysqlProxyRequestBody } from './model/CloseMysqlProxyRequestBody';
 import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationSummary2 } from './model/ConfigurationSummary2';
@@ -68,8 +72,16 @@ import { CreateRestoreTableInfo } from './model/CreateRestoreTableInfo';
 import { CreateRestoreTablesRequest } from './model/CreateRestoreTablesRequest';
 import { CreateRestoreTablesRequestBody } from './model/CreateRestoreTablesRequestBody';
 import { CreateRestoreTablesResponse } from './model/CreateRestoreTablesResponse';
+import { CreateStarRocksDataReplication } from './model/CreateStarRocksDataReplication';
+import { CreateStarRocksDataReplicationRequest } from './model/CreateStarRocksDataReplicationRequest';
+import { CreateStarRocksDataReplicationResponse } from './model/CreateStarRocksDataReplicationResponse';
+import { DataBaseInfo } from './model/DataBaseInfo';
 import { DatabasePermission } from './model/DatabasePermission';
 import { DatastoreResult } from './model/DatastoreResult';
+import { DbConfig } from './model/DbConfig';
+import { DbConfigCheckRequestV3 } from './model/DbConfigCheckRequestV3';
+import { DbConfigCheckResult } from './model/DbConfigCheckResult';
+import { DbParameter } from './model/DbParameter';
 import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
 import { DedicatedResource } from './model/DedicatedResource';
 import { DedicatedResourceCapacity } from './model/DedicatedResourceCapacity';
@@ -102,6 +114,9 @@ import { DeleteScheduleTasKResponse } from './model/DeleteScheduleTasKResponse';
 import { DeleteSqlFilterRuleReq } from './model/DeleteSqlFilterRuleReq';
 import { DeleteSqlFilterRuleRequest } from './model/DeleteSqlFilterRuleRequest';
 import { DeleteSqlFilterRuleResponse } from './model/DeleteSqlFilterRuleResponse';
+import { DeleteStarRocksDataReplication } from './model/DeleteStarRocksDataReplication';
+import { DeleteStarRocksDataReplicationRequest } from './model/DeleteStarRocksDataReplicationRequest';
+import { DeleteStarRocksDataReplicationResponse } from './model/DeleteStarRocksDataReplicationResponse';
 import { DeleteTaskRecordRequest } from './model/DeleteTaskRecordRequest';
 import { DeleteTaskRecordResponse } from './model/DeleteTaskRecordResponse';
 import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
@@ -174,6 +189,14 @@ import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListScheduleJobsRequest } from './model/ListScheduleJobsRequest';
 import { ListScheduleJobsResponse } from './model/ListScheduleJobsResponse';
+import { ListStarRocksDataBasesRequest } from './model/ListStarRocksDataBasesRequest';
+import { ListStarRocksDataBasesResponse } from './model/ListStarRocksDataBasesResponse';
+import { ListStarRocksDataReplicationConfigRequest } from './model/ListStarRocksDataReplicationConfigRequest';
+import { ListStarRocksDataReplicationConfigResponse } from './model/ListStarRocksDataReplicationConfigResponse';
+import { ListStarRocksDataReplicationsRequest } from './model/ListStarRocksDataReplicationsRequest';
+import { ListStarRocksDataReplicationsResponse } from './model/ListStarRocksDataReplicationsResponse';
+import { ListStarRocksDbParametersRequest } from './model/ListStarRocksDbParametersRequest';
+import { ListStarRocksDbParametersResponse } from './model/ListStarRocksDbParametersResponse';
 import { LtsLogErrorDetail } from './model/LtsLogErrorDetail';
 import { LtsLogErrorQueryRequest } from './model/LtsLogErrorQueryRequest';
 import { LtsLogSlowDetail } from './model/LtsLogSlowDetail';
@@ -336,6 +359,7 @@ import { ShrinkGaussMySqlProxyRequestBody } from './model/ShrinkGaussMySqlProxyR
 import { ShrinkGaussMySqlProxyResponse } from './model/ShrinkGaussMySqlProxyResponse';
 import { SqlFilterRule } from './model/SqlFilterRule';
 import { SqlFilterRulePattern } from './model/SqlFilterRulePattern';
+import { StarRocksReplicationInfo } from './model/StarRocksReplicationInfo';
 import { SwitchAccessControlRequest } from './model/SwitchAccessControlRequest';
 import { SwitchAccessControlRequestBody } from './model/SwitchAccessControlRequestBody';
 import { SwitchAccessControlResponse } from './model/SwitchAccessControlResponse';
@@ -347,6 +371,10 @@ import { SwitchGaussMySqlProxySslRequest } from './model/SwitchGaussMySqlProxySs
 import { SwitchGaussMySqlProxySslResponse } from './model/SwitchGaussMySqlProxySslResponse';
 import { SwitchProxySSLRequest } from './model/SwitchProxySSLRequest';
 import { SwitchSSLRequest } from './model/SwitchSSLRequest';
+import { TableConfigCheckRequestV3 } from './model/TableConfigCheckRequestV3';
+import { TableConfigCheckResult } from './model/TableConfigCheckResult';
+import { TableReplConfig } from './model/TableReplConfig';
+import { TablesConfig } from './model/TablesConfig';
 import { TagItem } from './model/TagItem';
 import { TaskDetailInfo } from './model/TaskDetailInfo';
 import { TaurusModifyInstanceMonitorRequestBody } from './model/TaurusModifyInstanceMonitorRequestBody';
@@ -2885,6 +2913,176 @@ export class GaussDBClient {
      */
     public upgradeGaussMySqlInstanceDatabase(upgradeGaussMySqlInstanceDatabaseRequest?: UpgradeGaussMySqlInstanceDatabaseRequest): Promise<UpgradeGaussMySqlInstanceDatabaseResponse> {
         const options = ParamCreater().upgradeGaussMySqlInstanceDatabase(upgradeGaussMySqlInstanceDatabaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * HTAP数据同步库配置校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HTAP数据同步库配置校验
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {DbConfigCheckRequestV3} checkDataBaseConfigRequestBody 数据同步创建任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkDataBaseConfig(checkDataBaseConfigRequest?: CheckDataBaseConfigRequest): Promise<CheckDataBaseConfigResponse> {
+        const options = ParamCreater().checkDataBaseConfig(checkDataBaseConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * HTAP数据同步表配置校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HTAP数据同步表配置校验
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {TableConfigCheckRequestV3} checkTableConfigRequestBody 表配置校验请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkTableConfig(checkTableConfigRequest?: CheckTableConfigRequest): Promise<CheckTableConfigResponse> {
+        const options = ParamCreater().checkTableConfig(checkTableConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建StarRocks数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建StarRocks数据同步
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {CreateStarRocksDataReplication} createStarRocksDataReplicationRequestBody 数据同步创建任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createStarRocksDataReplication(createStarRocksDataReplicationRequest?: CreateStarRocksDataReplicationRequest): Promise<CreateStarRocksDataReplicationResponse> {
+        const options = ParamCreater().createStarRocksDataReplication(createStarRocksDataReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除StarRocks数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除StarRocks数据同步
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {DeleteStarRocksDataReplication} deleteStarRocksDataReplicationRequestBody 数据同步删除任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStarRocksDataReplication(deleteStarRocksDataReplicationRequest?: DeleteStarRocksDataReplicationRequest): Promise<DeleteStarRocksDataReplicationResponse> {
+        const options = ParamCreater().deleteStarRocksDataReplication(deleteStarRocksDataReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询StarRocks数据库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询StarRocks数据库
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} [limit] 查询记录数
+     * @param {string} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [databaseName] 查询的数据库名称，支持模糊搜索。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStarRocksDataBases(listStarRocksDataBasesRequest?: ListStarRocksDataBasesRequest): Promise<ListStarRocksDataBasesResponse> {
+        const options = ParamCreater().listStarRocksDataBases(listStarRocksDataBasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询StarRocks数据同步配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询StarRocks数据同步配置信息
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} taskName 数据同步任务名。 字符长度限制3~128位，仅支持英文大小写字母、数字以及下划线_。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStarRocksDataReplicationConfig(listStarRocksDataReplicationConfigRequest?: ListStarRocksDataReplicationConfigRequest): Promise<ListStarRocksDataReplicationConfigResponse> {
+        const options = ParamCreater().listStarRocksDataReplicationConfig(listStarRocksDataReplicationConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询StarRocks数据同步状态信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询StarRocks数据同步状态信息
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [limit] 查询记录数。每页查询数据同步任务的数量。
+     * @param {string} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStarRocksDataReplications(listStarRocksDataReplicationsRequest?: ListStarRocksDataReplicationsRequest): Promise<ListStarRocksDataReplicationsResponse> {
+        const options = ParamCreater().listStarRocksDataReplications(listStarRocksDataReplicationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询StarRocks数据同步的库参数配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询StarRocks数据同步的库参数配置
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStarRocksDbParameters(listStarRocksDbParametersRequest?: ListStarRocksDbParametersRequest): Promise<ListStarRocksDbParametersResponse> {
+        const options = ParamCreater().listStarRocksDbParameters(listStarRocksDbParametersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9303,6 +9501,442 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * HTAP数据同步库配置校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkDataBaseConfig(checkDataBaseConfigRequest?: CheckDataBaseConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/database-config-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (checkDataBaseConfigRequest !== null && checkDataBaseConfigRequest !== undefined) {
+                if (checkDataBaseConfigRequest instanceof CheckDataBaseConfigRequest) {
+                    xLanguage = checkDataBaseConfigRequest.xLanguage;
+                    instanceId = checkDataBaseConfigRequest.instanceId;
+                    body = checkDataBaseConfigRequest.body
+                } else {
+                    xLanguage = checkDataBaseConfigRequest['X-Language'];
+                    instanceId = checkDataBaseConfigRequest['instance_id'];
+                    body = checkDataBaseConfigRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkDataBaseConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * HTAP数据同步表配置校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkTableConfig(checkTableConfigRequest?: CheckTableConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/table-config-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (checkTableConfigRequest !== null && checkTableConfigRequest !== undefined) {
+                if (checkTableConfigRequest instanceof CheckTableConfigRequest) {
+                    xLanguage = checkTableConfigRequest.xLanguage;
+                    instanceId = checkTableConfigRequest.instanceId;
+                    body = checkTableConfigRequest.body
+                } else {
+                    xLanguage = checkTableConfigRequest['X-Language'];
+                    instanceId = checkTableConfigRequest['instance_id'];
+                    body = checkTableConfigRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkTableConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建StarRocks数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createStarRocksDataReplication(createStarRocksDataReplicationRequest?: CreateStarRocksDataReplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createStarRocksDataReplicationRequest !== null && createStarRocksDataReplicationRequest !== undefined) {
+                if (createStarRocksDataReplicationRequest instanceof CreateStarRocksDataReplicationRequest) {
+                    instanceId = createStarRocksDataReplicationRequest.instanceId;
+                    xLanguage = createStarRocksDataReplicationRequest.xLanguage;
+                    body = createStarRocksDataReplicationRequest.body
+                } else {
+                    instanceId = createStarRocksDataReplicationRequest['instance_id'];
+                    xLanguage = createStarRocksDataReplicationRequest['X-Language'];
+                    body = createStarRocksDataReplicationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createStarRocksDataReplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除StarRocks数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStarRocksDataReplication(deleteStarRocksDataReplicationRequest?: DeleteStarRocksDataReplicationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteStarRocksDataReplicationRequest !== null && deleteStarRocksDataReplicationRequest !== undefined) {
+                if (deleteStarRocksDataReplicationRequest instanceof DeleteStarRocksDataReplicationRequest) {
+                    instanceId = deleteStarRocksDataReplicationRequest.instanceId;
+                    xLanguage = deleteStarRocksDataReplicationRequest.xLanguage;
+                    body = deleteStarRocksDataReplicationRequest.body
+                } else {
+                    instanceId = deleteStarRocksDataReplicationRequest['instance_id'];
+                    xLanguage = deleteStarRocksDataReplicationRequest['X-Language'];
+                    body = deleteStarRocksDataReplicationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteStarRocksDataReplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询StarRocks数据库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStarRocksDataBases(listStarRocksDataBasesRequest?: ListStarRocksDataBasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let databaseName;
+
+            if (listStarRocksDataBasesRequest !== null && listStarRocksDataBasesRequest !== undefined) {
+                if (listStarRocksDataBasesRequest instanceof ListStarRocksDataBasesRequest) {
+                    xLanguage = listStarRocksDataBasesRequest.xLanguage;
+                    instanceId = listStarRocksDataBasesRequest.instanceId;
+                    limit = listStarRocksDataBasesRequest.limit;
+                    offset = listStarRocksDataBasesRequest.offset;
+                    databaseName = listStarRocksDataBasesRequest.databaseName;
+                } else {
+                    xLanguage = listStarRocksDataBasesRequest['X-Language'];
+                    instanceId = listStarRocksDataBasesRequest['instance_id'];
+                    limit = listStarRocksDataBasesRequest['limit'];
+                    offset = listStarRocksDataBasesRequest['offset'];
+                    databaseName = listStarRocksDataBasesRequest['database_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listStarRocksDataBases.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询StarRocks数据同步配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStarRocksDataReplicationConfig(listStarRocksDataReplicationConfigRequest?: ListStarRocksDataReplicationConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let taskName;
+
+            if (listStarRocksDataReplicationConfigRequest !== null && listStarRocksDataReplicationConfigRequest !== undefined) {
+                if (listStarRocksDataReplicationConfigRequest instanceof ListStarRocksDataReplicationConfigRequest) {
+                    instanceId = listStarRocksDataReplicationConfigRequest.instanceId;
+                    xLanguage = listStarRocksDataReplicationConfigRequest.xLanguage;
+                    taskName = listStarRocksDataReplicationConfigRequest.taskName;
+                } else {
+                    instanceId = listStarRocksDataReplicationConfigRequest['instance_id'];
+                    xLanguage = listStarRocksDataReplicationConfigRequest['X-Language'];
+                    taskName = listStarRocksDataReplicationConfigRequest['task_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listStarRocksDataReplicationConfig.');
+            }
+            if (taskName === null || taskName === undefined) {
+                throw new RequiredError('taskName','Required parameter taskName was null or undefined when calling listStarRocksDataReplicationConfig.');
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询StarRocks数据同步状态信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStarRocksDataReplications(listStarRocksDataReplicationsRequest?: ListStarRocksDataReplicationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+
+            if (listStarRocksDataReplicationsRequest !== null && listStarRocksDataReplicationsRequest !== undefined) {
+                if (listStarRocksDataReplicationsRequest instanceof ListStarRocksDataReplicationsRequest) {
+                    instanceId = listStarRocksDataReplicationsRequest.instanceId;
+                    xLanguage = listStarRocksDataReplicationsRequest.xLanguage;
+                    limit = listStarRocksDataReplicationsRequest.limit;
+                    offset = listStarRocksDataReplicationsRequest.offset;
+                } else {
+                    instanceId = listStarRocksDataReplicationsRequest['instance_id'];
+                    xLanguage = listStarRocksDataReplicationsRequest['X-Language'];
+                    limit = listStarRocksDataReplicationsRequest['limit'];
+                    offset = listStarRocksDataReplicationsRequest['offset'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listStarRocksDataReplications.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询StarRocks数据同步的库参数配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStarRocksDbParameters(listStarRocksDbParametersRequest?: ListStarRocksDbParametersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/database-parameters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listStarRocksDbParametersRequest !== null && listStarRocksDbParametersRequest !== undefined) {
+                if (listStarRocksDbParametersRequest instanceof ListStarRocksDbParametersRequest) {
+                    instanceId = listStarRocksDbParametersRequest.instanceId;
+                    xLanguage = listStarRocksDbParametersRequest.xLanguage;
+                } else {
+                    instanceId = listStarRocksDbParametersRequest['instance_id'];
+                    xLanguage = listStarRocksDbParametersRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listStarRocksDbParameters.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

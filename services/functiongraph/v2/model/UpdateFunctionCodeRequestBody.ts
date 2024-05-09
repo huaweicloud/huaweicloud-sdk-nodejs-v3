@@ -6,7 +6,6 @@ export class UpdateFunctionCodeRequestBody {
     private 'code_url'?: string;
     private 'code_filename'?: string;
     private 'func_code'?: FuncCode;
-    private 'depend_list'?: Array<string>;
     private 'depend_version_list'?: Array<string>;
     public constructor(codeType?: string, funcCode?: FuncCode) { 
         this['code_type'] = codeType;
@@ -51,16 +50,6 @@ export class UpdateFunctionCodeRequestBody {
     }
     public get funcCode(): FuncCode | undefined {
         return this['func_code'];
-    }
-    public withDependList(dependList: Array<string>): UpdateFunctionCodeRequestBody {
-        this['depend_list'] = dependList;
-        return this;
-    }
-    public set dependList(dependList: Array<string>  | undefined) {
-        this['depend_list'] = dependList;
-    }
-    public get dependList(): Array<string> | undefined {
-        return this['depend_list'];
     }
     public withDependVersionList(dependVersionList: Array<string>): UpdateFunctionCodeRequestBody {
         this['depend_version_list'] = dependVersionList;

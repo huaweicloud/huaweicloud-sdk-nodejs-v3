@@ -31,5 +31,6 @@ export enum UpdateJobReqTypeEnum {
     DB_OBJECT = 'db_object',
     PRECHECK = 'precheck',
     RE_CREATE = 're_create',
-    EXPIRED_DAYS = 'expired_days'
+    EXPIRED_DAYS = 'expired_days',
+    NOTIFY = 'notify'
 }

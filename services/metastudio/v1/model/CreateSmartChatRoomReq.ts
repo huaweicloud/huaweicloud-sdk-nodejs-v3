@@ -18,6 +18,7 @@ export class CreateSmartChatRoomReq {
     private 'layer_config'?: Array<LayerConfig>;
     private 'review_config'?: ReviewConfig;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
+    private 'chat_video_type'?: CreateSmartChatRoomReqChatVideoTypeEnum | string;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
     }
@@ -125,4 +126,24 @@ export class CreateSmartChatRoomReq {
     public get chatSubtitleConfig(): ChatSubtitleConfig | undefined {
         return this['chat_subtitle_config'];
     }
+    public withChatVideoType(chatVideoType: CreateSmartChatRoomReqChatVideoTypeEnum | string): CreateSmartChatRoomReq {
+        this['chat_video_type'] = chatVideoType;
+        return this;
+    }
+    public set chatVideoType(chatVideoType: CreateSmartChatRoomReqChatVideoTypeEnum | string  | undefined) {
+        this['chat_video_type'] = chatVideoType;
+    }
+    public get chatVideoType(): CreateSmartChatRoomReqChatVideoTypeEnum | string | undefined {
+        return this['chat_video_type'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSmartChatRoomReqChatVideoTypeEnum {
+    COMPUTER = 'COMPUTER',
+    MOBILE = 'MOBILE',
+    HUB = 'HUB'
 }

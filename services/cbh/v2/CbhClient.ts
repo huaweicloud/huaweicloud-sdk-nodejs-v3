@@ -169,7 +169,7 @@ export class CbhClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除故障云堡垒机实例
-     * @param {number} [instanceId] 删除故障云堡垒机实例id。
+     * @param {number} instanceId 删除故障云堡垒机实例id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -797,6 +797,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstance.');
+            }
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
             }

@@ -1,6 +1,7 @@
 import { CompareJobInfo } from './CompareJobInfo';
 import { ContentCompareDetailInfo } from './ContentCompareDetailInfo';
 import { ContentCompareOverviewInfo } from './ContentCompareOverviewInfo';
+import { ContentDiffDetailInfo } from './ContentDiffDetailInfo';
 import { LineCompareOverviewInfo } from './LineCompareOverviewInfo';
 import { ObjectsCompareDetailInfo } from './ObjectsCompareDetailInfo';
 import { ObjectsCompareTaskInfo } from './ObjectsCompareTaskInfo';
@@ -15,6 +16,7 @@ export class CompareResultInfo {
     private 'line_compare_detail_infos'?: Array<TableLineCompareDetailInfo>;
     private 'content_compare_overview_infos'?: Array<ContentCompareOverviewInfo>;
     private 'content_compare_detail_infos'?: Array<ContentCompareDetailInfo>;
+    private 'content_diff_detail_info'?: ContentDiffDetailInfo;
     public constructor() { 
     }
     public withObjectsCompareOverviewInfo(objectsCompareOverviewInfo: ObjectsCompareTaskInfo): CompareResultInfo {
@@ -86,5 +88,15 @@ export class CompareResultInfo {
     }
     public get contentCompareDetailInfos(): Array<ContentCompareDetailInfo> | undefined {
         return this['content_compare_detail_infos'];
+    }
+    public withContentDiffDetailInfo(contentDiffDetailInfo: ContentDiffDetailInfo): CompareResultInfo {
+        this['content_diff_detail_info'] = contentDiffDetailInfo;
+        return this;
+    }
+    public set contentDiffDetailInfo(contentDiffDetailInfo: ContentDiffDetailInfo  | undefined) {
+        this['content_diff_detail_info'] = contentDiffDetailInfo;
+    }
+    public get contentDiffDetailInfo(): ContentDiffDetailInfo | undefined {
+        return this['content_diff_detail_info'];
     }
 }

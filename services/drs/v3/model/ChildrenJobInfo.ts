@@ -176,7 +176,7 @@ export enum ChildrenJobInfoEngineTypeEnum {
 export enum ChildrenJobInfoJobDirectionEnum {
     UP = 'up',
     DOWN = 'down',
-    NON_DBS = 'non-dbs'
+    NO_DBS = 'no-dbs'
 }
 /**
     * @export

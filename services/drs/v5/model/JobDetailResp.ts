@@ -52,6 +52,7 @@ export class JobDetailResp {
     private 'public_ip_list'?: Array<PublicIpConfig>;
     private 'bind_public_ip_state'?: string;
     public children?: Array<FailedToBindEipChildInfo>;
+    private 'is_writable'?: JobDetailRespIsWritableEnum | string;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -324,4 +325,23 @@ export class JobDetailResp {
         this['children'] = children;
         return this;
     }
+    public withIsWritable(isWritable: JobDetailRespIsWritableEnum | string): JobDetailResp {
+        this['is_writable'] = isWritable;
+        return this;
+    }
+    public set isWritable(isWritable: JobDetailRespIsWritableEnum | string  | undefined) {
+        this['is_writable'] = isWritable;
+    }
+    public get isWritable(): JobDetailRespIsWritableEnum | string | undefined {
+        return this['is_writable'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum JobDetailRespIsWritableEnum {
+    PENDING = 'pending',
+    SUCCESS = 'success'
 }

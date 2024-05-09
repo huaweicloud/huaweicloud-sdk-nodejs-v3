@@ -2,27 +2,25 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ChangeInstanceNetworkResponse extends SdkResponse {
-    public status?: string;
-    private 'security_grp_status'?: string;
+    public status?: boolean;
+    private 'security_grp_status'?: boolean;
     private 'firewall_status'?: boolean;
     private 'public_eip_status'?: boolean;
-    public nics?: boolean;
-    private 'public_eip_statu'?: boolean;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ChangeInstanceNetworkResponse {
+    public withStatus(status: boolean): ChangeInstanceNetworkResponse {
         this['status'] = status;
         return this;
     }
-    public withSecurityGrpStatus(securityGrpStatus: string): ChangeInstanceNetworkResponse {
+    public withSecurityGrpStatus(securityGrpStatus: boolean): ChangeInstanceNetworkResponse {
         this['security_grp_status'] = securityGrpStatus;
         return this;
     }
-    public set securityGrpStatus(securityGrpStatus: string  | undefined) {
+    public set securityGrpStatus(securityGrpStatus: boolean  | undefined) {
         this['security_grp_status'] = securityGrpStatus;
     }
-    public get securityGrpStatus(): string | undefined {
+    public get securityGrpStatus(): boolean | undefined {
         return this['security_grp_status'];
     }
     public withFirewallStatus(firewallStatus: boolean): ChangeInstanceNetworkResponse {
@@ -44,19 +42,5 @@ export class ChangeInstanceNetworkResponse extends SdkResponse {
     }
     public get publicEipStatus(): boolean | undefined {
         return this['public_eip_status'];
-    }
-    public withNics(nics: boolean): ChangeInstanceNetworkResponse {
-        this['nics'] = nics;
-        return this;
-    }
-    public withPublicEipStatu(publicEipStatu: boolean): ChangeInstanceNetworkResponse {
-        this['public_eip_statu'] = publicEipStatu;
-        return this;
-    }
-    public set publicEipStatu(publicEipStatu: boolean  | undefined) {
-        this['public_eip_statu'] = publicEipStatu;
-    }
-    public get publicEipStatu(): boolean | undefined {
-        return this['public_eip_statu'];
     }
 }

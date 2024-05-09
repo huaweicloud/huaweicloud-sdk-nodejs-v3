@@ -21,6 +21,7 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     public handler?: string;
     private 'memory_size'?: number;
     private 'gpu_memory'?: number;
+    private 'gpu_type'?: string;
     public cpu?: number;
     private 'code_type'?: ShowFunctionConfigResponseCodeTypeEnum | string;
     private 'code_url'?: string;
@@ -61,7 +62,6 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'apig_route_enable'?: boolean;
     private 'heartbeat_handler'?: string;
     private 'enable_class_isolation'?: boolean;
-    private 'gpu_type'?: string;
     private 'allow_ephemeral_storage'?: boolean;
     private 'network_controller'?: NetworkControlConfig;
     private 'is_return_stream'?: boolean;
@@ -173,6 +173,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
+    }
+    public withGpuType(gpuType: string): ShowFunctionConfigResponse {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
     }
     public withCpu(cpu: number): ShowFunctionConfigResponse {
         this['cpu'] = cpu;
@@ -531,16 +541,6 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get enableClassIsolation(): boolean | undefined {
         return this['enable_class_isolation'];
-    }
-    public withGpuType(gpuType: string): ShowFunctionConfigResponse {
-        this['gpu_type'] = gpuType;
-        return this;
-    }
-    public set gpuType(gpuType: string  | undefined) {
-        this['gpu_type'] = gpuType;
-    }
-    public get gpuType(): string | undefined {
-        return this['gpu_type'];
     }
     public withAllowEphemeralStorage(allowEphemeralStorage: boolean): ShowFunctionConfigResponse {
         this['allow_ephemeral_storage'] = allowEphemeralStorage;

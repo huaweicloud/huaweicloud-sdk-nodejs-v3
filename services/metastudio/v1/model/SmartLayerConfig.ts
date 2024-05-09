@@ -1,6 +1,7 @@
 import { LayerPositionConfig } from './LayerPositionConfig';
 import { LayerSizeConfig } from './LayerSizeConfig';
 import { SmartImageLayerConfig } from './SmartImageLayerConfig';
+import { SmartTextLayerConfig } from './SmartTextLayerConfig';
 import { SmartVideoLayerConfig } from './SmartVideoLayerConfig';
 
 
@@ -11,6 +12,7 @@ export class SmartLayerConfig {
     public size?: LayerSizeConfig;
     private 'image_config'?: SmartImageLayerConfig;
     private 'video_config'?: SmartVideoLayerConfig;
+    private 'text_config'?: SmartTextLayerConfig;
     public constructor(layerType?: string, position?: LayerPositionConfig) { 
         this['layer_type'] = layerType;
         this['position'] = position;
@@ -63,6 +65,16 @@ export class SmartLayerConfig {
     public get videoConfig(): SmartVideoLayerConfig | undefined {
         return this['video_config'];
     }
+    public withTextConfig(textConfig: SmartTextLayerConfig): SmartLayerConfig {
+        this['text_config'] = textConfig;
+        return this;
+    }
+    public set textConfig(textConfig: SmartTextLayerConfig  | undefined) {
+        this['text_config'] = textConfig;
+    }
+    public get textConfig(): SmartTextLayerConfig | undefined {
+        return this['text_config'];
+    }
 }
 
 /**
@@ -71,5 +83,6 @@ export class SmartLayerConfig {
     */
 export enum SmartLayerConfigLayerTypeEnum {
     IMAGE = 'IMAGE',
-    VIDEO = 'VIDEO'
+    VIDEO = 'VIDEO',
+    TEXT = 'TEXT'
 }

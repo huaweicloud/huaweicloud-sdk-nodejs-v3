@@ -158,6 +158,9 @@ import { EnhancedConnection } from './model/EnhancedConnection';
 import { EnhancedConnectionHost } from './model/EnhancedConnectionHost';
 import { EnhancedConnectionPrivilege } from './model/EnhancedConnectionPrivilege';
 import { EnhancedConnectionResource } from './model/EnhancedConnectionResource';
+import { ExecuteFlinkJobSavepointRequest } from './model/ExecuteFlinkJobSavepointRequest';
+import { ExecuteFlinkJobSavepointRequestBody } from './model/ExecuteFlinkJobSavepointRequestBody';
+import { ExecuteFlinkJobSavepointResponse } from './model/ExecuteFlinkJobSavepointResponse';
 import { ExportFlinkJobsRequest } from './model/ExportFlinkJobsRequest';
 import { ExportFlinkJobsRequestBody } from './model/ExportFlinkJobsRequestBody';
 import { ExportFlinkJobsResponse } from './model/ExportFlinkJobsResponse';
@@ -179,9 +182,13 @@ import { FlinkMetricList } from './model/FlinkMetricList';
 import { FlinkSqlJobTemplate } from './model/FlinkSqlJobTemplate';
 import { FlinkSqlJobTemplateId } from './model/FlinkSqlJobTemplateId';
 import { FlinkSqlJobTemplateList } from './model/FlinkSqlJobTemplateList';
+import { FlinkSuccessResponse } from './model/FlinkSuccessResponse';
 import { FlinkTemplate } from './model/FlinkTemplate';
 import { GlobalVariable } from './model/GlobalVariable';
 import { IefEvent } from './model/IefEvent';
+import { ImportFlinkJobSavepointRequest } from './model/ImportFlinkJobSavepointRequest';
+import { ImportFlinkJobSavepointRequestBody } from './model/ImportFlinkJobSavepointRequestBody';
+import { ImportFlinkJobSavepointResponse } from './model/ImportFlinkJobSavepointResponse';
 import { ImportFlinkJobsRequest } from './model/ImportFlinkJobsRequest';
 import { ImportFlinkJobsRequestBody } from './model/ImportFlinkJobsRequestBody';
 import { ImportFlinkJobsResponse } from './model/ImportFlinkJobsResponse';
@@ -338,7 +345,6 @@ import { SqlSampleTemplate } from './model/SqlSampleTemplate';
 import { State } from './model/State';
 import { StopFlinkJobsRequestBody } from './model/StopFlinkJobsRequestBody';
 import { SubJob } from './model/SubJob';
-import { SuccessResponse } from './model/SuccessResponse';
 import { Table } from './model/Table';
 import { TablePrivilege } from './model/TablePrivilege';
 import { TableUserPrivilege } from './model/TableUserPrivilege';
@@ -2131,6 +2137,26 @@ export class DliClient {
     }
 
     /**
+     * 触发Flink作业保存点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 触发Flink作业保存点
+     * @param {string} jobId 正在运行的Flink作业的作业ID。
+     * @param {ExecuteFlinkJobSavepointRequestBody} executeFlinkJobSavepointRequestBody 创建savepoint请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeFlinkJobSavepoint(executeFlinkJobSavepointRequest?: ExecuteFlinkJobSavepointRequest): Promise<ExecuteFlinkJobSavepointResponse> {
+        const options = ParamCreater().executeFlinkJobSavepoint(executeFlinkJobSavepointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过POST方式，导出flink作业，请求体为JSON格式。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2142,6 +2168,26 @@ export class DliClient {
      */
     public exportFlinkJobs(exportFlinkJobsRequest?: ExportFlinkJobsRequest): Promise<ExportFlinkJobsResponse> {
         const options = ParamCreater().exportFlinkJobs(exportFlinkJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导入Flink作业保存点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入Flink作业保存点
+     * @param {string} jobId 非运行阶段的Flink作业的作业ID
+     * @param {ImportFlinkJobSavepointRequestBody} importFlinkJobSavepointRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importFlinkJobSavepoint(importFlinkJobSavepointRequest?: ImportFlinkJobSavepointRequest): Promise<ImportFlinkJobSavepointResponse> {
+        const options = ParamCreater().importFlinkJobSavepoint(importFlinkJobSavepointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6819,6 +6865,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 触发Flink作业保存点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeFlinkJobSavepoint(executeFlinkJobSavepointRequest?: ExecuteFlinkJobSavepointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/streaming/jobs/{job_id}/savepoint",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+
+            if (executeFlinkJobSavepointRequest !== null && executeFlinkJobSavepointRequest !== undefined) {
+                if (executeFlinkJobSavepointRequest instanceof ExecuteFlinkJobSavepointRequest) {
+                    jobId = executeFlinkJobSavepointRequest.jobId;
+                    body = executeFlinkJobSavepointRequest.body
+                } else {
+                    jobId = executeFlinkJobSavepointRequest['job_id'];
+                    body = executeFlinkJobSavepointRequest['body'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling executeFlinkJobSavepoint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过POST方式，导出flink作业，请求体为JSON格式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6852,6 +6944,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入Flink作业保存点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importFlinkJobSavepoint(importFlinkJobSavepointRequest?: ImportFlinkJobSavepointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/streaming/jobs/{job_id}/import-savepoint",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+
+            if (importFlinkJobSavepointRequest !== null && importFlinkJobSavepointRequest !== undefined) {
+                if (importFlinkJobSavepointRequest instanceof ImportFlinkJobSavepointRequest) {
+                    jobId = importFlinkJobSavepointRequest.jobId;
+                    body = importFlinkJobSavepointRequest.body
+                } else {
+                    jobId = importFlinkJobSavepointRequest['job_id'];
+                    body = importFlinkJobSavepointRequest['body'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling importFlinkJobSavepoint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

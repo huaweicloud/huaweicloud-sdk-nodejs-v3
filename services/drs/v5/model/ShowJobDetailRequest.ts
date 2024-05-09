@@ -152,7 +152,9 @@ export enum ShowJobDetailRequestTypeEnum {
     PROGRESS = 'progress',
     LOG = 'log',
     COMPARE = 'compare',
-    FILE = 'file'
+    FILE = 'file',
+    IS_WRITABLE = 'is_writable',
+    CLOUD_CONNECTION = 'cloud_connection'
 }
 /**
     * @export

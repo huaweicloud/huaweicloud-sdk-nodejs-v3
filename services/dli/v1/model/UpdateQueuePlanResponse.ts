@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateQueuePlanResponse extends SdkResponse {
     private 'queue_name'?: string;
-    private 'plan_id'?: string;
+    private 'plan_id'?: number;
     private 'is_success'?: boolean;
     public message?: string;
     public constructor() { 
@@ -19,14 +19,14 @@ export class UpdateQueuePlanResponse extends SdkResponse {
     public get queueName(): string | undefined {
         return this['queue_name'];
     }
-    public withPlanId(planId: string): UpdateQueuePlanResponse {
+    public withPlanId(planId: number): UpdateQueuePlanResponse {
         this['plan_id'] = planId;
         return this;
     }
-    public set planId(planId: string  | undefined) {
+    public set planId(planId: number  | undefined) {
         this['plan_id'] = planId;
     }
-    public get planId(): string | undefined {
+    public get planId(): number | undefined {
         return this['plan_id'];
     }
     public withIsSuccess(isSuccess: boolean): UpdateQueuePlanResponse {

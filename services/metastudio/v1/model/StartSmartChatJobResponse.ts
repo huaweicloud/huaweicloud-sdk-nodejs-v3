@@ -9,6 +9,7 @@ export class StartSmartChatJobResponse extends SdkResponse {
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'video_config'?: ChatVideoConfigRsp;
+    private 'chat_video_type'?: StartSmartChatJobResponseChatVideoTypeEnum | string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -53,6 +54,16 @@ export class StartSmartChatJobResponse extends SdkResponse {
     public get videoConfig(): ChatVideoConfigRsp | undefined {
         return this['video_config'];
     }
+    public withChatVideoType(chatVideoType: StartSmartChatJobResponseChatVideoTypeEnum | string): StartSmartChatJobResponse {
+        this['chat_video_type'] = chatVideoType;
+        return this;
+    }
+    public set chatVideoType(chatVideoType: StartSmartChatJobResponseChatVideoTypeEnum | string  | undefined) {
+        this['chat_video_type'] = chatVideoType;
+    }
+    public get chatVideoType(): StartSmartChatJobResponseChatVideoTypeEnum | string | undefined {
+        return this['chat_video_type'];
+    }
     public withXRequestId(xRequestId: string): StartSmartChatJobResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
@@ -63,4 +74,14 @@ export class StartSmartChatJobResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StartSmartChatJobResponseChatVideoTypeEnum {
+    COMPUTER = 'COMPUTER',
+    MOBILE = 'MOBILE',
+    HUB = 'HUB'
 }

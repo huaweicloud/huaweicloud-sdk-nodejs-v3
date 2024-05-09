@@ -2,7 +2,8 @@
 
 export class DeleteInstanceRequest {
     private 'instance_id'?: number;
-    public constructor() { 
+    public constructor(instanceId?: number) { 
+        this['instance_id'] = instanceId;
     }
     public withInstanceId(instanceId: number): DeleteInstanceRequest {
         this['instance_id'] = instanceId;

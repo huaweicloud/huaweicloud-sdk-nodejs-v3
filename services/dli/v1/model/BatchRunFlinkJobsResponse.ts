@@ -1,13 +1,13 @@
-import { SuccessResponse } from './SuccessResponse';
+import { FlinkSuccessResponse } from './FlinkSuccessResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchRunFlinkJobsResponse extends SdkResponse {
-    public body?: Array<SuccessResponse>;
+    public body?: Array<FlinkSuccessResponse>;
     public constructor() { 
         super();
     }
-    public withBody(body: Array<SuccessResponse>): BatchRunFlinkJobsResponse {
+    public withBody(body: Array<FlinkSuccessResponse>): BatchRunFlinkJobsResponse {
         this['body'] = body;
         return this;
     }

@@ -7,6 +7,7 @@ export class VideoProcess {
     public rotate?: number;
     public adaptation?: VideoProcessAdaptationEnum | string;
     public upsample?: number;
+    private 'hls_segment_type'?: VideoProcessHlsSegmentTypeEnum | string;
     public constructor() { 
     }
     public withHlsInitCount(hlsInitCount: number): VideoProcess {
@@ -51,6 +52,16 @@ export class VideoProcess {
         this['upsample'] = upsample;
         return this;
     }
+    public withHlsSegmentType(hlsSegmentType: VideoProcessHlsSegmentTypeEnum | string): VideoProcess {
+        this['hls_segment_type'] = hlsSegmentType;
+        return this;
+    }
+    public set hlsSegmentType(hlsSegmentType: VideoProcessHlsSegmentTypeEnum | string  | undefined) {
+        this['hls_segment_type'] = hlsSegmentType;
+    }
+    public get hlsSegmentType(): VideoProcessHlsSegmentTypeEnum | string | undefined {
+        return this['hls_segment_type'];
+    }
 }
 
 /**
@@ -69,4 +80,12 @@ export enum VideoProcessAdaptationEnum {
     SHORT = 'SHORT',
     LONG = 'LONG',
     NONE = 'NONE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VideoProcessHlsSegmentTypeEnum {
+    MPEGTS = 'mpegts',
+    FMP4 = 'fmp4'
 }

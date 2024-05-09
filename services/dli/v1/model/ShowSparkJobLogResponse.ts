@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSparkJobLogResponse extends SdkResponse {
     public id?: string;
-    public from?: string;
+    public from?: number;
     public total?: number;
     public log?: Array<string>;
     public constructor() { 
@@ -13,7 +13,7 @@ export class ShowSparkJobLogResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withFrom(from: string): ShowSparkJobLogResponse {
+    public withFrom(from: number): ShowSparkJobLogResponse {
         this['from'] = from;
         return this;
     }

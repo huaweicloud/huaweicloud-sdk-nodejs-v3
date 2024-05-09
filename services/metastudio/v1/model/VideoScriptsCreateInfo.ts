@@ -9,6 +9,7 @@ import { VoiceConfig } from './VoiceConfig';
 export class VideoScriptsCreateInfo {
     private 'script_name'?: string;
     private 'script_description'?: string;
+    private 'view_mode'?: VideoScriptsCreateInfoViewModeEnum | string;
     private 'model_asset_id'?: string;
     private 'model_asset_type'?: VideoScriptsCreateInfoModelAssetTypeEnum | string;
     private 'voice_config'?: VoiceConfig;
@@ -39,6 +40,16 @@ export class VideoScriptsCreateInfo {
     }
     public get scriptDescription(): string | undefined {
         return this['script_description'];
+    }
+    public withViewMode(viewMode: VideoScriptsCreateInfoViewModeEnum | string): VideoScriptsCreateInfo {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: VideoScriptsCreateInfoViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): VideoScriptsCreateInfoViewModeEnum | string | undefined {
+        return this['view_mode'];
     }
     public withModelAssetId(modelAssetId: string): VideoScriptsCreateInfo {
         this['model_asset_id'] = modelAssetId;
@@ -132,6 +143,14 @@ export class VideoScriptsCreateInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VideoScriptsCreateInfoViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
+}
 /**
     * @export
     * @enum {string}

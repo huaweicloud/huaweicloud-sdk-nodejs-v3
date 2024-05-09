@@ -16,6 +16,7 @@ export class CreateFunctionRequestBody {
     private 'func_vpc'?: FuncVpc;
     private 'memory_size'?: number;
     private 'gpu_memory'?: number;
+    private 'gpu_type'?: string;
     private 'code_type'?: CreateFunctionRequestBodyCodeTypeEnum | string;
     private 'code_url'?: string;
     private 'code_filename'?: string;
@@ -117,6 +118,16 @@ export class CreateFunctionRequestBody {
     }
     public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
+    }
+    public withGpuType(gpuType: string): CreateFunctionRequestBody {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
     }
     public withCodeType(codeType: CreateFunctionRequestBodyCodeTypeEnum | string): CreateFunctionRequestBody {
         this['code_type'] = codeType;

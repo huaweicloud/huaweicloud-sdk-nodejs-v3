@@ -313,6 +313,7 @@ export * from './model/SmartImageLayerConfig';
 export * from './model/SmartLayerConfig';
 export * from './model/SmartLiveJob';
 export * from './model/SmartLiveRoomBaseInfo';
+export * from './model/SmartTextLayerConfig';
 export * from './model/SmartVideoLayerConfig';
 export * from './model/StartSmartChatJobRequest';
 export * from './model/StartSmartChatJobResponse';

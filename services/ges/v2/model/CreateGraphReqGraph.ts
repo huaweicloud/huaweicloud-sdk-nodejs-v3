@@ -28,6 +28,7 @@ export class CreateGraphReqGraph {
     private 'vertex_id_type'?: CreateGraphReqGraphVertexIdType;
     private 'enable_multi_label'?: boolean;
     private 'capacity_ratio'?: number;
+    private 'is_dynamic_graph'?: boolean;
     public constructor(name?: string, graphSizeTypeIndex?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, cryptAlgorithm?: string, enableHttps?: boolean) { 
         this['name'] = name;
         this['graph_size_type_index'] = graphSizeTypeIndex;
@@ -222,5 +223,15 @@ export class CreateGraphReqGraph {
     }
     public get capacityRatio(): number | undefined {
         return this['capacity_ratio'];
+    }
+    public withIsDynamicGraph(isDynamicGraph: boolean): CreateGraphReqGraph {
+        this['is_dynamic_graph'] = isDynamicGraph;
+        return this;
+    }
+    public set isDynamicGraph(isDynamicGraph: boolean  | undefined) {
+        this['is_dynamic_graph'] = isDynamicGraph;
+    }
+    public get isDynamicGraph(): boolean | undefined {
+        return this['is_dynamic_graph'];
     }
 }

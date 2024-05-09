@@ -1,3 +1,4 @@
+import { KafkaSecurity } from './KafkaSecurity';
 
 
 export class Endpoint {
@@ -24,6 +25,7 @@ export class Endpoint {
     private 'ssl_link'?: boolean;
     public topic?: string;
     private 'cluster_mode'?: EndpointClusterModeEnum | string;
+    private 'kafka_security_config'?: KafkaSecurity;
     public constructor() { 
     }
     public withDbType(dbType: EndpointDbTypeEnum | string): Endpoint {
@@ -237,6 +239,16 @@ export class Endpoint {
     }
     public get clusterMode(): EndpointClusterModeEnum | string | undefined {
         return this['cluster_mode'];
+    }
+    public withKafkaSecurityConfig(kafkaSecurityConfig: KafkaSecurity): Endpoint {
+        this['kafka_security_config'] = kafkaSecurityConfig;
+        return this;
+    }
+    public set kafkaSecurityConfig(kafkaSecurityConfig: KafkaSecurity  | undefined) {
+        this['kafka_security_config'] = kafkaSecurityConfig;
+    }
+    public get kafkaSecurityConfig(): KafkaSecurity | undefined {
+        return this['kafka_security_config'];
     }
 }
 

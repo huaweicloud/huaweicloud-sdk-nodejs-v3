@@ -11,6 +11,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowVideoScriptResponse extends SdkResponse {
     private 'script_name'?: string;
     private 'script_description'?: string;
+    private 'view_mode'?: ShowVideoScriptResponseViewModeEnum | string;
     private 'model_asset_id'?: string;
     private 'model_asset_type'?: ShowVideoScriptResponseModelAssetTypeEnum | string;
     private 'voice_config'?: VoiceConfig;
@@ -48,6 +49,16 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
     public get scriptDescription(): string | undefined {
         return this['script_description'];
+    }
+    public withViewMode(viewMode: ShowVideoScriptResponseViewModeEnum | string): ShowVideoScriptResponse {
+        this['view_mode'] = viewMode;
+        return this;
+    }
+    public set viewMode(viewMode: ShowVideoScriptResponseViewModeEnum | string  | undefined) {
+        this['view_mode'] = viewMode;
+    }
+    public get viewMode(): ShowVideoScriptResponseViewModeEnum | string | undefined {
+        return this['view_mode'];
     }
     public withModelAssetId(modelAssetId: string): ShowVideoScriptResponse {
         this['model_asset_id'] = modelAssetId;
@@ -201,6 +212,14 @@ export class ShowVideoScriptResponse extends SdkResponse {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowVideoScriptResponseViewModeEnum {
+    LANDSCAPE = 'LANDSCAPE',
+    VERTICAL = 'VERTICAL'
+}
 /**
     * @export
     * @enum {string}

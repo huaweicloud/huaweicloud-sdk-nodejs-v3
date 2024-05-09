@@ -20,6 +20,7 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     private 'layer_config'?: Array<LayerConfig>;
     private 'review_config'?: ReviewConfig;
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
+    private 'chat_video_type'?: UpdateSmartChatRoomResponseChatVideoTypeEnum | string;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -133,6 +134,16 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public get chatSubtitleConfig(): ChatSubtitleConfig | undefined {
         return this['chat_subtitle_config'];
     }
+    public withChatVideoType(chatVideoType: UpdateSmartChatRoomResponseChatVideoTypeEnum | string): UpdateSmartChatRoomResponse {
+        this['chat_video_type'] = chatVideoType;
+        return this;
+    }
+    public set chatVideoType(chatVideoType: UpdateSmartChatRoomResponseChatVideoTypeEnum | string  | undefined) {
+        this['chat_video_type'] = chatVideoType;
+    }
+    public get chatVideoType(): UpdateSmartChatRoomResponseChatVideoTypeEnum | string | undefined {
+        return this['chat_video_type'];
+    }
     public withRoomId(roomId: string): UpdateSmartChatRoomResponse {
         this['room_id'] = roomId;
         return this;
@@ -183,4 +194,14 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateSmartChatRoomResponseChatVideoTypeEnum {
+    COMPUTER = 'COMPUTER',
+    MOBILE = 'MOBILE',
+    HUB = 'HUB'
 }

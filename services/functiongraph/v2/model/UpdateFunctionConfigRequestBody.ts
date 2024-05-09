@@ -13,6 +13,7 @@ export class UpdateFunctionConfigRequestBody {
     public handler?: string;
     private 'memory_size'?: number;
     private 'gpu_memory'?: number;
+    private 'gpu_type'?: string;
     private 'user_data'?: string;
     private 'encrypted_user_data'?: string;
     public xrole?: string;
@@ -39,7 +40,6 @@ export class UpdateFunctionConfigRequestBody {
     private 'restore_hook_timeout'?: number;
     private 'heartbeat_handler'?: string;
     private 'enable_class_isolation'?: boolean;
-    private 'gpu_type'?: string;
     public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -88,6 +88,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
+    }
+    public withGpuType(gpuType: string): UpdateFunctionConfigRequestBody {
+        this['gpu_type'] = gpuType;
+        return this;
+    }
+    public set gpuType(gpuType: string  | undefined) {
+        this['gpu_type'] = gpuType;
+    }
+    public get gpuType(): string | undefined {
+        return this['gpu_type'];
     }
     public withUserData(userData: string): UpdateFunctionConfigRequestBody {
         this['user_data'] = userData;
@@ -336,16 +346,6 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get enableClassIsolation(): boolean | undefined {
         return this['enable_class_isolation'];
-    }
-    public withGpuType(gpuType: string): UpdateFunctionConfigRequestBody {
-        this['gpu_type'] = gpuType;
-        return this;
-    }
-    public set gpuType(gpuType: string  | undefined) {
-        this['gpu_type'] = gpuType;
-    }
-    public get gpuType(): string | undefined {
-        return this['gpu_type'];
     }
 }
 

@@ -1,6 +1,7 @@
 import { CompareTaskParams } from './CompareTaskParams';
 import { JobEndpointInfo } from './JobEndpointInfo';
 import { PublicIpConfig } from './PublicIpConfig';
+import { ReplayConfigInfo } from './ReplayConfigInfo';
 import { SkipPreCheckInfo } from './SkipPreCheckInfo';
 
 
@@ -14,6 +15,7 @@ export class ActionParams {
     private 'is_sync_re_edit'?: boolean;
     private 'force_delete'?: boolean;
     private 'public_ip_config'?: PublicIpConfig;
+    private 'replay_config'?: ReplayConfigInfo;
     public constructor() { 
     }
     public withEndpoints(endpoints: Array<JobEndpointInfo>): ActionParams {
@@ -99,5 +101,15 @@ export class ActionParams {
     }
     public get publicIpConfig(): PublicIpConfig | undefined {
         return this['public_ip_config'];
+    }
+    public withReplayConfig(replayConfig: ReplayConfigInfo): ActionParams {
+        this['replay_config'] = replayConfig;
+        return this;
+    }
+    public set replayConfig(replayConfig: ReplayConfigInfo  | undefined) {
+        this['replay_config'] = replayConfig;
+    }
+    public get replayConfig(): ReplayConfigInfo | undefined {
+        return this['replay_config'];
     }
 }
