@@ -2,6 +2,7 @@ import { HuaweiEiCbs } from './HuaweiEiCbs';
 import { IflytekAiuiConfig } from './IflytekAiuiConfig';
 import { IflytekSpark } from './IflytekSpark';
 import { LanguageEnum } from './LanguageEnum';
+import { MobvoiConfig } from './MobvoiConfig';
 import { ThirdPartyModelConfig } from './ThirdPartyModelConfig';
 
 
@@ -14,6 +15,7 @@ export class UpdateRobotReq {
     private 'iflytek_aiui_config'?: IflytekAiuiConfig;
     private 'iflytek_spark'?: IflytekSpark;
     private 'third_party_model_config'?: ThirdPartyModelConfig;
+    private 'mobvoi_config'?: MobvoiConfig;
     public constructor() { 
     }
     public withName(name: string): UpdateRobotReq {
@@ -83,5 +85,15 @@ export class UpdateRobotReq {
     }
     public get thirdPartyModelConfig(): ThirdPartyModelConfig | undefined {
         return this['third_party_model_config'];
+    }
+    public withMobvoiConfig(mobvoiConfig: MobvoiConfig): UpdateRobotReq {
+        this['mobvoi_config'] = mobvoiConfig;
+        return this;
+    }
+    public set mobvoiConfig(mobvoiConfig: MobvoiConfig  | undefined) {
+        this['mobvoi_config'] = mobvoiConfig;
+    }
+    public get mobvoiConfig(): MobvoiConfig | undefined {
+        return this['mobvoi_config'];
     }
 }

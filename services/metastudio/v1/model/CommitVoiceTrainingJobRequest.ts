@@ -1,3 +1,4 @@
+import { CommitJobReq } from './CommitJobReq';
 
 
 export class CommitVoiceTrainingJobRequest {
@@ -6,6 +7,7 @@ export class CommitVoiceTrainingJobRequest {
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
     private 'job_id'?: string;
+    public body?: CommitJobReq;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -58,5 +60,9 @@ export class CommitVoiceTrainingJobRequest {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withBody(body: CommitJobReq): CommitVoiceTrainingJobRequest {
+        this['body'] = body;
+        return this;
     }
 }

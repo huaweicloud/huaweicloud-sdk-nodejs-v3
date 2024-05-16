@@ -9,6 +9,7 @@ export class CreateTrainingJobReq {
     private 'voice_name'?: string;
     public language?: CreateTrainingJobReqLanguageEnum | string;
     private 'create_type'?: CreateType;
+    public phone?: string;
     public constructor(voiceName?: string) { 
         this['voice_name'] = voiceName;
     }
@@ -47,6 +48,10 @@ export class CreateTrainingJobReq {
     }
     public get createType(): CreateType | undefined {
         return this['create_type'];
+    }
+    public withPhone(phone: string): CreateTrainingJobReq {
+        this['phone'] = phone;
+        return this;
     }
 }
 

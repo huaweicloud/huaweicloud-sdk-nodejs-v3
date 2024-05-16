@@ -4,6 +4,7 @@ export class ListUpdatableVersionRequest {
     private 'cluster_id'?: string;
     public offset?: number;
     public limit?: number;
+    public type?: ListUpdatableVersionRequestTypeEnum | string;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
@@ -25,4 +26,17 @@ export class ListUpdatableVersionRequest {
         this['limit'] = limit;
         return this;
     }
+    public withType(type: ListUpdatableVersionRequestTypeEnum | string): ListUpdatableVersionRequest {
+        this['type'] = type;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListUpdatableVersionRequestTypeEnum {
+    CLUSTER = 'cluster',
+    HOTPATCH = 'hotpatch'
 }

@@ -18,6 +18,8 @@ import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
 import { CacheUrlParameterFilterGetBody } from './model/CacheUrlParameterFilterGetBody';
 import { CdnIps } from './model/CdnIps';
+import { CertificatesGetBody } from './model/CertificatesGetBody';
+import { CertificatesPutBody } from './model/CertificatesPutBody';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';

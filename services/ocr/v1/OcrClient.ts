@@ -300,7 +300,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeAcceptanceBill(recognizeAcceptanceBillRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -322,7 +322,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeAutoClassification(recognizeAutoClassificationRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -342,7 +342,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeBankReceipt(recognizeBankReceiptRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -364,7 +364,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeBankcard(recognizeBankcardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -384,7 +384,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeBusinessCard(recognizeBusinessCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -408,7 +408,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeBusinessLicense(recognizeBusinessLicenseRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -428,7 +428,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeCambodianIdCard(recognizeCambodianIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -448,7 +448,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeChileIdCard(recognizeChileIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -468,7 +468,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeColombiaIdCard(recognizeColombiaIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -492,7 +492,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeDriverLicense(recognizeDriverLicenseRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -512,7 +512,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeExitEntryPermit(recognizeExitEntryPermitRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -532,7 +532,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeFinancialStatement(recognizeFinancialStatementRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -554,7 +554,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeFlightItinerary(recognizeFlightItineraryRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -574,7 +574,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeGeneralTable(recognizeGeneralTableRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -594,7 +594,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeGeneralText(recognizeGeneralTextRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -614,7 +614,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeHandwriting(recognizeHandwritingRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -634,7 +634,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeHealthCode(recognizeHealthCodeRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -654,7 +654,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeHkIdCard(recognizeHkIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -674,7 +674,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeHouseholdRegister(recognizeHouseholdRegisterRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -700,7 +700,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeIdCard(recognizeIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -744,7 +744,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeIdDocument(recognizeIdDocumentRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -764,7 +764,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeInsurancePolicy(recognizeInsurancePolicyRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -784,7 +784,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeInvoiceVerification(recognizeInvoiceVerificationRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -804,7 +804,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeLicensePlate(recognizeLicensePlateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -824,7 +824,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeMacaoIdCard(recognizeMacaoIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -844,7 +844,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -867,7 +867,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeMvsInvoice(recognizeMvsInvoiceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -887,7 +887,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -907,7 +907,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -929,7 +929,7 @@ export class OcrClient {
         const options = ParamCreater().recognizePassport(recognizePassportRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -949,7 +949,7 @@ export class OcrClient {
         const options = ParamCreater().recognizePcrTestRecord(recognizePcrTestRecordRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -969,7 +969,7 @@ export class OcrClient {
         const options = ParamCreater().recognizePeruIdCard(recognizePeruIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -989,7 +989,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeQualificationCertificate(recognizeQualificationCertificateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1013,7 +1013,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeQuotaInvoice(recognizeQuotaInvoiceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1034,7 +1034,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeRealEstateCertificate(recognizeRealEstateCertificateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1054,7 +1054,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeSeal(recognizeSealRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1074,7 +1074,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeSmartDocumentRecognizer(recognizeSmartDocumentRecognizerRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1097,7 +1097,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeTaxiInvoice(recognizeTaxiInvoiceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1117,7 +1117,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeThailandIdcard(recognizeThailandIdcardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1137,7 +1137,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1159,7 +1159,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeTollInvoice(recognizeTollInvoiceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1181,7 +1181,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeTrainTicket(recognizeTrainTicketRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1202,7 +1202,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeTransportationLicense(recognizeTransportationLicenseRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1226,7 +1226,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeVatInvoice(recognizeVatInvoiceRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1246,7 +1246,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeVehicleCertificate(recognizeVehicleCertificateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1268,7 +1268,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeVehicleLicense(recognizeVehicleLicenseRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1288,7 +1288,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeVietnamIdCard(recognizeVietnamIdCardRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1308,7 +1308,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeWaybillElectronic(recognizeWaybillElectronicRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1328,7 +1328,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeWebImage(recognizeWebImageRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1348,7 +1348,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeCustomTemplate(recognizeCustomTemplateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1368,7 +1368,7 @@ export class OcrClient {
         const options = ParamCreater().recognizeVin(recognizeVinRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }

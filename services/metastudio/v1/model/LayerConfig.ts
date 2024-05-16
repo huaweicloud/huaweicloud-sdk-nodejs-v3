@@ -14,9 +14,8 @@ export class LayerConfig {
     private 'image_config'?: ImageLayerConfig;
     private 'video_config'?: VideoLayerConfig;
     private 'text_config'?: TextLayerConfig;
-    public constructor(layerType?: string, position?: LayerPositionConfig) { 
+    public constructor(layerType?: string) { 
         this['layer_type'] = layerType;
-        this['position'] = position;
     }
     public withLayerType(layerType: LayerConfigLayerTypeEnum | string): LayerConfig {
         this['layer_type'] = layerType;

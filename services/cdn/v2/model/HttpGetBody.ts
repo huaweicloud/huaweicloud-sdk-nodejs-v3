@@ -1,12 +1,15 @@
+import { CertificatesGetBody } from './CertificatesGetBody';
 
 
 export class HttpGetBody {
     private 'https_status'?: string;
+    private 'certificate_type'?: string;
+    private 'certificate_source'?: number;
     private 'certificate_name'?: string;
     private 'certificate_value'?: string;
     private 'expire_time'?: number;
-    private 'certificate_source'?: number;
-    private 'certificate_type'?: string;
+    private 'enc_certificate_value'?: string;
+    public certificates?: Array<CertificatesGetBody>;
     private 'http2_status'?: string;
     private 'tls_version'?: string;
     private 'ocsp_stapling_status'?: string;
@@ -21,6 +24,26 @@ export class HttpGetBody {
     }
     public get httpsStatus(): string | undefined {
         return this['https_status'];
+    }
+    public withCertificateType(certificateType: string): HttpGetBody {
+        this['certificate_type'] = certificateType;
+        return this;
+    }
+    public set certificateType(certificateType: string  | undefined) {
+        this['certificate_type'] = certificateType;
+    }
+    public get certificateType(): string | undefined {
+        return this['certificate_type'];
+    }
+    public withCertificateSource(certificateSource: number): HttpGetBody {
+        this['certificate_source'] = certificateSource;
+        return this;
+    }
+    public set certificateSource(certificateSource: number  | undefined) {
+        this['certificate_source'] = certificateSource;
+    }
+    public get certificateSource(): number | undefined {
+        return this['certificate_source'];
     }
     public withCertificateName(certificateName: string): HttpGetBody {
         this['certificate_name'] = certificateName;
@@ -52,25 +75,19 @@ export class HttpGetBody {
     public get expireTime(): number | undefined {
         return this['expire_time'];
     }
-    public withCertificateSource(certificateSource: number): HttpGetBody {
-        this['certificate_source'] = certificateSource;
+    public withEncCertificateValue(encCertificateValue: string): HttpGetBody {
+        this['enc_certificate_value'] = encCertificateValue;
         return this;
     }
-    public set certificateSource(certificateSource: number  | undefined) {
-        this['certificate_source'] = certificateSource;
+    public set encCertificateValue(encCertificateValue: string  | undefined) {
+        this['enc_certificate_value'] = encCertificateValue;
     }
-    public get certificateSource(): number | undefined {
-        return this['certificate_source'];
+    public get encCertificateValue(): string | undefined {
+        return this['enc_certificate_value'];
     }
-    public withCertificateType(certificateType: string): HttpGetBody {
-        this['certificate_type'] = certificateType;
+    public withCertificates(certificates: Array<CertificatesGetBody>): HttpGetBody {
+        this['certificates'] = certificates;
         return this;
-    }
-    public set certificateType(certificateType: string  | undefined) {
-        this['certificate_type'] = certificateType;
-    }
-    public get certificateType(): string | undefined {
-        return this['certificate_type'];
     }
     public withHttp2Status(http2Status: string): HttpGetBody {
         this['http2_status'] = http2Status;

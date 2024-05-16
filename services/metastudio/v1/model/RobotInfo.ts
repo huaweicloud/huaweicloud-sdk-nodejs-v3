@@ -7,6 +7,7 @@ export class RobotInfo {
     private 'room_id'?: string;
     private 'app_id'?: string;
     private 'app_type'?: number;
+    private 'app_key'?: string;
     public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -15,6 +16,7 @@ export class RobotInfo {
     private 'llm_url'?: string;
     private 'is_stream'?: boolean;
     private 'chat_rounds'?: number;
+    private 'role_id'?: string;
     public constructor() { 
     }
     public withRobotId(robotId: string): RobotInfo {
@@ -60,6 +62,16 @@ export class RobotInfo {
     }
     public get appType(): number | undefined {
         return this['app_type'];
+    }
+    public withAppKey(appKey: string): RobotInfo {
+        this['app_key'] = appKey;
+        return this;
+    }
+    public set appKey(appKey: string  | undefined) {
+        this['app_key'] = appKey;
+    }
+    public get appKey(): string | undefined {
+        return this['app_key'];
     }
     public withLanguage(language: LanguageEnum): RobotInfo {
         this['language'] = language;
@@ -128,5 +140,15 @@ export class RobotInfo {
     }
     public get chatRounds(): number | undefined {
         return this['chat_rounds'];
+    }
+    public withRoleId(roleId: string): RobotInfo {
+        this['role_id'] = roleId;
+        return this;
+    }
+    public set roleId(roleId: string  | undefined) {
+        this['role_id'] = roleId;
+    }
+    public get roleId(): string | undefined {
+        return this['role_id'];
     }
 }

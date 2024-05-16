@@ -13,9 +13,8 @@ export class SmartLayerConfig {
     private 'image_config'?: SmartImageLayerConfig;
     private 'video_config'?: SmartVideoLayerConfig;
     private 'text_config'?: SmartTextLayerConfig;
-    public constructor(layerType?: string, position?: LayerPositionConfig) { 
+    public constructor(layerType?: string) { 
         this['layer_type'] = layerType;
-        this['position'] = position;
     }
     public withLayerType(layerType: SmartLayerConfigLayerTypeEnum | string): SmartLayerConfig {
         this['layer_type'] = layerType;

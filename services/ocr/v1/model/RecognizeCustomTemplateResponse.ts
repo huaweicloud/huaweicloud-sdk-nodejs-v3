@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class RecognizeCustomTemplateResponse extends SdkResponse {
     public result?: object;
     private 'template_id'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -20,5 +21,15 @@ export class RecognizeCustomTemplateResponse extends SdkResponse {
     }
     public get templateId(): string | undefined {
         return this['template_id'];
+    }
+    public withXRequestId(xRequestId: string): RecognizeCustomTemplateResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
     }
 }

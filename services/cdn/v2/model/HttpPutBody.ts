@@ -1,12 +1,16 @@
+import { CertificatesPutBody } from './CertificatesPutBody';
 
 
 export class HttpPutBody {
     private 'https_status'?: string;
+    private 'certificate_type'?: string;
+    private 'certificate_source'?: number;
     private 'certificate_name'?: string;
     private 'certificate_value'?: string;
     private 'private_key'?: string;
-    private 'certificate_source'?: number;
-    private 'certificate_type'?: string;
+    private 'enc_certificate_value'?: string;
+    private 'enc_private_key'?: string;
+    public certificates?: Array<CertificatesPutBody>;
     private 'http2_status'?: string;
     private 'tls_version'?: string;
     private 'ocsp_stapling_status'?: string;
@@ -21,6 +25,26 @@ export class HttpPutBody {
     }
     public get httpsStatus(): string | undefined {
         return this['https_status'];
+    }
+    public withCertificateType(certificateType: string): HttpPutBody {
+        this['certificate_type'] = certificateType;
+        return this;
+    }
+    public set certificateType(certificateType: string  | undefined) {
+        this['certificate_type'] = certificateType;
+    }
+    public get certificateType(): string | undefined {
+        return this['certificate_type'];
+    }
+    public withCertificateSource(certificateSource: number): HttpPutBody {
+        this['certificate_source'] = certificateSource;
+        return this;
+    }
+    public set certificateSource(certificateSource: number  | undefined) {
+        this['certificate_source'] = certificateSource;
+    }
+    public get certificateSource(): number | undefined {
+        return this['certificate_source'];
     }
     public withCertificateName(certificateName: string): HttpPutBody {
         this['certificate_name'] = certificateName;
@@ -52,25 +76,29 @@ export class HttpPutBody {
     public get privateKey(): string | undefined {
         return this['private_key'];
     }
-    public withCertificateSource(certificateSource: number): HttpPutBody {
-        this['certificate_source'] = certificateSource;
+    public withEncCertificateValue(encCertificateValue: string): HttpPutBody {
+        this['enc_certificate_value'] = encCertificateValue;
         return this;
     }
-    public set certificateSource(certificateSource: number  | undefined) {
-        this['certificate_source'] = certificateSource;
+    public set encCertificateValue(encCertificateValue: string  | undefined) {
+        this['enc_certificate_value'] = encCertificateValue;
     }
-    public get certificateSource(): number | undefined {
-        return this['certificate_source'];
+    public get encCertificateValue(): string | undefined {
+        return this['enc_certificate_value'];
     }
-    public withCertificateType(certificateType: string): HttpPutBody {
-        this['certificate_type'] = certificateType;
+    public withEncPrivateKey(encPrivateKey: string): HttpPutBody {
+        this['enc_private_key'] = encPrivateKey;
         return this;
     }
-    public set certificateType(certificateType: string  | undefined) {
-        this['certificate_type'] = certificateType;
+    public set encPrivateKey(encPrivateKey: string  | undefined) {
+        this['enc_private_key'] = encPrivateKey;
     }
-    public get certificateType(): string | undefined {
-        return this['certificate_type'];
+    public get encPrivateKey(): string | undefined {
+        return this['enc_private_key'];
+    }
+    public withCertificates(certificates: Array<CertificatesPutBody>): HttpPutBody {
+        this['certificates'] = certificates;
+        return this;
     }
     public withHttp2Status(http2Status: string): HttpPutBody {
         this['http2_status'] = http2Status;

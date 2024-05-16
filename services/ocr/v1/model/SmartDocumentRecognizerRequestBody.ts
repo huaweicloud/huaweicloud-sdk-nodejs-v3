@@ -10,6 +10,7 @@ export class SmartDocumentRecognizerRequestBody {
     public form?: boolean;
     public formula?: boolean;
     private 'kv_map'?: string;
+    private 'pdf_page_number'?: number;
     public constructor() { 
     }
     public withData(data: string): SmartDocumentRecognizerRequestBody {
@@ -59,5 +60,15 @@ export class SmartDocumentRecognizerRequestBody {
     }
     public get kvMap(): string | undefined {
         return this['kv_map'];
+    }
+    public withPdfPageNumber(pdfPageNumber: number): SmartDocumentRecognizerRequestBody {
+        this['pdf_page_number'] = pdfPageNumber;
+        return this;
+    }
+    public set pdfPageNumber(pdfPageNumber: number  | undefined) {
+        this['pdf_page_number'] = pdfPageNumber;
+    }
+    public get pdfPageNumber(): number | undefined {
+        return this['pdf_page_number'];
     }
 }

@@ -205,6 +205,8 @@ import { CreateOrUpdateAssetResponse } from './model/CreateOrUpdateAssetResponse
 import { CreateOrUpdateEntitiesRequest } from './model/CreateOrUpdateEntitiesRequest';
 import { CreateOrUpdateEntitiesResponse } from './model/CreateOrUpdateEntitiesResponse';
 import { CreateSecrecyLevelDTO } from './model/CreateSecrecyLevelDTO';
+import { CreateSecurityAssignedQueueRequest } from './model/CreateSecurityAssignedQueueRequest';
+import { CreateSecurityAssignedQueueResponse } from './model/CreateSecurityAssignedQueueResponse';
 import { CreateSecurityDataClassificationRuleRequest } from './model/CreateSecurityDataClassificationRuleRequest';
 import { CreateSecurityDataClassificationRuleResponse } from './model/CreateSecurityDataClassificationRuleResponse';
 import { CreateSecurityPermissionSetMemberRequest } from './model/CreateSecurityPermissionSetMemberRequest';
@@ -287,6 +289,8 @@ import { DeleteDesignLatestApprovalRequest } from './model/DeleteDesignLatestApp
 import { DeleteDesignLatestApprovalResponse } from './model/DeleteDesignLatestApprovalResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
 import { DeleteDirectoryResponse } from './model/DeleteDirectoryResponse';
+import { DeleteSecurityAssignedQueueRequest } from './model/DeleteSecurityAssignedQueueRequest';
+import { DeleteSecurityAssignedQueueResponse } from './model/DeleteSecurityAssignedQueueResponse';
 import { DeleteSecurityDataClassificationRuleRequest } from './model/DeleteSecurityDataClassificationRuleRequest';
 import { DeleteSecurityDataClassificationRuleResponse } from './model/DeleteSecurityDataClassificationRuleResponse';
 import { DeleteSecurityLevelFromEntityRequest } from './model/DeleteSecurityLevelFromEntityRequest';
@@ -508,6 +512,8 @@ import { ListReleasePackagesRespData } from './model/ListReleasePackagesRespData
 import { ListReleasePackagesRespPackageApprovers } from './model/ListReleasePackagesRespPackageApprovers';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
+import { ListSecurityAssignedQueuesRequest } from './model/ListSecurityAssignedQueuesRequest';
+import { ListSecurityAssignedQueuesResponse } from './model/ListSecurityAssignedQueuesResponse';
 import { ListSecurityDataClassificationRuleGroupsRequest } from './model/ListSecurityDataClassificationRuleGroupsRequest';
 import { ListSecurityDataClassificationRuleGroupsResponse } from './model/ListSecurityDataClassificationRuleGroupsResponse';
 import { ListSecurityDataClassificationRulesRequest } from './model/ListSecurityDataClassificationRulesRequest';
@@ -520,6 +526,8 @@ import { ListSecurityDatasourceUrlsRequest } from './model/ListSecurityDatasourc
 import { ListSecurityDatasourceUrlsResponse } from './model/ListSecurityDatasourceUrlsResponse';
 import { ListSecurityDlfDataWareHousesRequest } from './model/ListSecurityDlfDataWareHousesRequest';
 import { ListSecurityDlfDataWareHousesResponse } from './model/ListSecurityDlfDataWareHousesResponse';
+import { ListSecurityMemberSyncTasksRequest } from './model/ListSecurityMemberSyncTasksRequest';
+import { ListSecurityMemberSyncTasksResponse } from './model/ListSecurityMemberSyncTasksResponse';
 import { ListSecurityPermissionSetMembersRequest } from './model/ListSecurityPermissionSetMembersRequest';
 import { ListSecurityPermissionSetMembersResponse } from './model/ListSecurityPermissionSetMembersResponse';
 import { ListSecurityPermissionSetPermissionsRequest } from './model/ListSecurityPermissionSetPermissionsRequest';
@@ -549,6 +557,7 @@ import { LogicEntityNodes } from './model/LogicEntityNodes';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
+import { MemberSyncTask } from './model/MemberSyncTask';
 import { MetadataCollectionTask } from './model/MetadataCollectionTask';
 import { MetricMonitorVO } from './model/MetricMonitorVO';
 import { MetricOpenSearchParams } from './model/MetricOpenSearchParams';
@@ -600,6 +609,9 @@ import { QualityTaskOverviewVO } from './model/QualityTaskOverviewVO';
 import { QualityTaskOverviewVO2 } from './model/QualityTaskOverviewVO2';
 import { QualityTaskRuleDetailForOpenApi } from './model/QualityTaskRuleDetailForOpenApi';
 import { QueryTaskRequest } from './model/QueryTaskRequest';
+import { QueueSrcAssignCreateDTO } from './model/QueueSrcAssignCreateDTO';
+import { QueueSrcAssignEntity } from './model/QueueSrcAssignEntity';
+import { QueueSrcAssignUpdateDTO } from './model/QueueSrcAssignUpdateDTO';
 import { RecordForApplyDetail } from './model/RecordForApplyDetail';
 import { RecordForGetAllCatalog } from './model/RecordForGetAllCatalog';
 import { RecordForGetAuthApp } from './model/RecordForGetAuthApp';
@@ -773,6 +785,8 @@ import { ShowSecurityDataClassificationRuleGroupRequest } from './model/ShowSecu
 import { ShowSecurityDataClassificationRuleGroupResponse } from './model/ShowSecurityDataClassificationRuleGroupResponse';
 import { ShowSecurityDataClassificationRuleRequest } from './model/ShowSecurityDataClassificationRuleRequest';
 import { ShowSecurityDataClassificationRuleResponse } from './model/ShowSecurityDataClassificationRuleResponse';
+import { ShowSecurityMemberSyncTaskRequest } from './model/ShowSecurityMemberSyncTaskRequest';
+import { ShowSecurityMemberSyncTaskResponse } from './model/ShowSecurityMemberSyncTaskResponse';
 import { ShowSecurityPermissionSetRequest } from './model/ShowSecurityPermissionSetRequest';
 import { ShowSecurityPermissionSetResponse } from './model/ShowSecurityPermissionSetResponse';
 import { ShowSecuritySecrecyLevelRequest } from './model/ShowSecuritySecrecyLevelRequest';
@@ -871,6 +885,8 @@ import { UpdateFactoryJobNameRequest } from './model/UpdateFactoryJobNameRequest
 import { UpdateFactoryJobNameRequestBody } from './model/UpdateFactoryJobNameRequestBody';
 import { UpdateFactoryJobNameResponse } from './model/UpdateFactoryJobNameResponse';
 import { UpdateSecrecyLevelDTO } from './model/UpdateSecrecyLevelDTO';
+import { UpdateSecurityAssignedQueueRequest } from './model/UpdateSecurityAssignedQueueRequest';
+import { UpdateSecurityAssignedQueueResponse } from './model/UpdateSecurityAssignedQueueResponse';
 import { UpdateSecurityDataClassificationRuleRequest } from './model/UpdateSecurityDataClassificationRuleRequest';
 import { UpdateSecurityDataClassificationRuleResponse } from './model/UpdateSecurityDataClassificationRuleResponse';
 import { UpdateSecurityPermissionSetPermissionRequest } from './model/UpdateSecurityPermissionSetPermissionRequest';
@@ -1850,6 +1866,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 分配队列资源给指定空间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分配队列资源给指定空间
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {QueueSrcAssignCreateDTO} createSecurityAssignedQueueRequestBody 为不同空间下分配管理可用的队列资源DTO。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityAssignedQueue(createSecurityAssignedQueueRequest?: CreateSecurityAssignedQueueRequest): Promise<CreateSecurityAssignedQueueResponse> {
+        const options = ParamCreater().createSecurityAssignedQueue(createSecurityAssignedQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建识别规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2438,6 +2474,26 @@ export class DataArtsStudioClient {
      */
     public deleteDirectory(deleteDirectoryRequest?: DeleteDirectoryRequest): Promise<DeleteDirectoryResponse> {
         const options = ParamCreater().deleteDirectory(deleteDirectoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除当前空间下分配的队列资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除当前空间下分配的队列资源
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 需要删除的当前空间队列资源id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityAssignedQueue(deleteSecurityAssignedQueueRequest?: DeleteSecurityAssignedQueueRequest): Promise<DeleteSecurityAssignedQueueResponse> {
+        const options = ParamCreater().deleteSecurityAssignedQueue(deleteSecurityAssignedQueueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4213,6 +4269,29 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询当前空间下分配的队列资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前空间下分配的队列资源
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} [type] 队列类型，MRS、DLI。
+     * @param {string} [clusterId] 集群id
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityAssignedQueues(listSecurityAssignedQueuesRequest?: ListSecurityAssignedQueuesRequest): Promise<ListSecurityAssignedQueuesResponse> {
+        const options = ParamCreater().listSecurityAssignedQueues(listSecurityAssignedQueuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询规则组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4346,6 +4425,33 @@ export class DataArtsStudioClient {
      */
     public listSecurityDlfDataWareHouses(listSecurityDlfDataWareHousesRequest?: ListSecurityDlfDataWareHousesRequest): Promise<ListSecurityDlfDataWareHousesResponse> {
         const options = ParamCreater().listSecurityDlfDataWareHouses(listSecurityDlfDataWareHousesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户同步列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户同步列表
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {'MRS' | 'DWS'} [clusterType] 集群类型 * MRS数据源 * DWS数据源
+     * @param {string} [clusterName] 集群名称
+     * @param {'UNKNOWN' | 'NOT_SYNC' | 'SYNCING' | 'SYNC_SUCCESS' | 'SYNC_FAIL'} [syncStatus] 同步状态 * UNKNOWN 未知 * NOT_SYNC 未同步 * SYNCING 同步中 * SYNC_SUCCESS 同步成功 * SYNC_FAIL 同步失败
+     * @param {'NOT_SCHEDULE' | 'SCHEDULING'} [scheduleStatus] 用户同步任务调度状态 * NOT_SCHEDULE 未启用调度 * SCHEDULING 调度中
+     * @param {'CLUSTER_NAME' | 'CREATE_TIME' | 'UPDATE_TIME' | 'SYNC_TIME'} [orderBy] 排序字段 * CLUSTER_NAME  按照集群名称排序 * CREATE_TIME   按照创建时间排序 * UPDATE_TIME   按照更新时间排序 * SYNC_TIME     按照同步时间排序
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数时有效）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityMemberSyncTasks(listSecurityMemberSyncTasksRequest?: ListSecurityMemberSyncTasksRequest): Promise<ListSecurityMemberSyncTasksResponse> {
+        const options = ParamCreater().listSecurityMemberSyncTasks(listSecurityMemberSyncTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6447,6 +6553,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询单个用户同步任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单个用户同步任务
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} taskId 用户同步任务id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityMemberSyncTask(showSecurityMemberSyncTaskRequest?: ShowSecurityMemberSyncTaskRequest): Promise<ShowSecurityMemberSyncTaskResponse> {
+        const options = ParamCreater().showSecurityMemberSyncTask(showSecurityMemberSyncTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询权限集
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6979,6 +7105,27 @@ export class DataArtsStudioClient {
      */
     public updateFactoryJobName(updateFactoryJobNameRequest?: UpdateFactoryJobNameRequest): Promise<UpdateFactoryJobNameResponse> {
         const options = ParamCreater().updateFactoryJobName(updateFactoryJobNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改当前空间下分配的队列资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改当前空间下分配的队列资源
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 分配给当前空间的队列资源id。
+     * @param {QueueSrcAssignUpdateDTO} updateSecurityAssignedQueueRequestBody 需要修改的队列资源DTO。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityAssignedQueue(updateSecurityAssignedQueueRequest?: UpdateSecurityAssignedQueueRequest): Promise<UpdateSecurityAssignedQueueResponse> {
+        const options = ParamCreater().updateSecurityAssignedQueue(updateSecurityAssignedQueueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10041,6 +10188,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 分配队列资源给指定空间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityAssignedQueue(createSecurityAssignedQueueRequest?: CreateSecurityAssignedQueueRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/permission/queue/assigned-source",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecurityAssignedQueueRequest !== null && createSecurityAssignedQueueRequest !== undefined) {
+                if (createSecurityAssignedQueueRequest instanceof CreateSecurityAssignedQueueRequest) {
+                    workspace = createSecurityAssignedQueueRequest.workspace;
+                    body = createSecurityAssignedQueueRequest.body
+                } else {
+                    workspace = createSecurityAssignedQueueRequest['workspace'];
+                    body = createSecurityAssignedQueueRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建识别规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11554,6 +11746,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除当前空间下分配的队列资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityAssignedQueue(deleteSecurityAssignedQueueRequest?: DeleteSecurityAssignedQueueRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/security/permission/queue/assigned-source/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (deleteSecurityAssignedQueueRequest !== null && deleteSecurityAssignedQueueRequest !== undefined) {
+                if (deleteSecurityAssignedQueueRequest instanceof DeleteSecurityAssignedQueueRequest) {
+                    workspace = deleteSecurityAssignedQueueRequest.workspace;
+                    id = deleteSecurityAssignedQueueRequest.id;
+                } else {
+                    workspace = deleteSecurityAssignedQueueRequest['workspace'];
+                    id = deleteSecurityAssignedQueueRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteSecurityAssignedQueue.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17143,6 +17379,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前空间下分配的队列资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityAssignedQueues(listSecurityAssignedQueuesRequest?: ListSecurityAssignedQueuesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/permission/queue/assigned-source",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let type;
+            
+            let clusterId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSecurityAssignedQueuesRequest !== null && listSecurityAssignedQueuesRequest !== undefined) {
+                if (listSecurityAssignedQueuesRequest instanceof ListSecurityAssignedQueuesRequest) {
+                    workspace = listSecurityAssignedQueuesRequest.workspace;
+                    type = listSecurityAssignedQueuesRequest.type;
+                    clusterId = listSecurityAssignedQueuesRequest.clusterId;
+                    limit = listSecurityAssignedQueuesRequest.limit;
+                    offset = listSecurityAssignedQueuesRequest.offset;
+                } else {
+                    workspace = listSecurityAssignedQueuesRequest['workspace'];
+                    type = listSecurityAssignedQueuesRequest['type'];
+                    clusterId = listSecurityAssignedQueuesRequest['cluster_id'];
+                    limit = listSecurityAssignedQueuesRequest['limit'];
+                    offset = listSecurityAssignedQueuesRequest['offset'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询规则组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17556,6 +17857,99 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户同步列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityMemberSyncTasks(listSecurityMemberSyncTasksRequest?: ListSecurityMemberSyncTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/member-sync-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let clusterType;
+            
+            let clusterName;
+            
+            let syncStatus;
+            
+            let scheduleStatus;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityMemberSyncTasksRequest !== null && listSecurityMemberSyncTasksRequest !== undefined) {
+                if (listSecurityMemberSyncTasksRequest instanceof ListSecurityMemberSyncTasksRequest) {
+                    workspace = listSecurityMemberSyncTasksRequest.workspace;
+                    limit = listSecurityMemberSyncTasksRequest.limit;
+                    offset = listSecurityMemberSyncTasksRequest.offset;
+                    clusterType = listSecurityMemberSyncTasksRequest.clusterType;
+                    clusterName = listSecurityMemberSyncTasksRequest.clusterName;
+                    syncStatus = listSecurityMemberSyncTasksRequest.syncStatus;
+                    scheduleStatus = listSecurityMemberSyncTasksRequest.scheduleStatus;
+                    orderBy = listSecurityMemberSyncTasksRequest.orderBy;
+                    orderByAsc = listSecurityMemberSyncTasksRequest.orderByAsc;
+                } else {
+                    workspace = listSecurityMemberSyncTasksRequest['workspace'];
+                    limit = listSecurityMemberSyncTasksRequest['limit'];
+                    offset = listSecurityMemberSyncTasksRequest['offset'];
+                    clusterType = listSecurityMemberSyncTasksRequest['cluster_type'];
+                    clusterName = listSecurityMemberSyncTasksRequest['cluster_name'];
+                    syncStatus = listSecurityMemberSyncTasksRequest['sync_status'];
+                    scheduleStatus = listSecurityMemberSyncTasksRequest['schedule_status'];
+                    orderBy = listSecurityMemberSyncTasksRequest['order_by'];
+                    orderByAsc = listSecurityMemberSyncTasksRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (clusterType !== null && clusterType !== undefined) {
+                localVarQueryParameter['cluster_type'] = clusterType;
+            }
+            if (clusterName !== null && clusterName !== undefined) {
+                localVarQueryParameter['cluster_name'] = clusterName;
+            }
+            if (syncStatus !== null && syncStatus !== undefined) {
+                localVarQueryParameter['sync_status'] = syncStatus;
+            }
+            if (scheduleStatus !== null && scheduleStatus !== undefined) {
+                localVarQueryParameter['schedule_status'] = scheduleStatus;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -23814,6 +24208,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询单个用户同步任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityMemberSyncTask(showSecurityMemberSyncTaskRequest?: ShowSecurityMemberSyncTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/member-sync-tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let taskId;
+
+            if (showSecurityMemberSyncTaskRequest !== null && showSecurityMemberSyncTaskRequest !== undefined) {
+                if (showSecurityMemberSyncTaskRequest instanceof ShowSecurityMemberSyncTaskRequest) {
+                    workspace = showSecurityMemberSyncTaskRequest.workspace;
+                    taskId = showSecurityMemberSyncTaskRequest.taskId;
+                } else {
+                    workspace = showSecurityMemberSyncTaskRequest['workspace'];
+                    taskId = showSecurityMemberSyncTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showSecurityMemberSyncTask.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询权限集
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -25208,6 +25646,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_name': jobName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改当前空间下分配的队列资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityAssignedQueue(updateSecurityAssignedQueueRequest?: UpdateSecurityAssignedQueueRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/permission/queue/assigned-source/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecurityAssignedQueueRequest !== null && updateSecurityAssignedQueueRequest !== undefined) {
+                if (updateSecurityAssignedQueueRequest instanceof UpdateSecurityAssignedQueueRequest) {
+                    workspace = updateSecurityAssignedQueueRequest.workspace;
+                    id = updateSecurityAssignedQueueRequest.id;
+                    body = updateSecurityAssignedQueueRequest.body
+                } else {
+                    workspace = updateSecurityAssignedQueueRequest['workspace'];
+                    id = updateSecurityAssignedQueueRequest['id'];
+                    body = updateSecurityAssignedQueueRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityAssignedQueue.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

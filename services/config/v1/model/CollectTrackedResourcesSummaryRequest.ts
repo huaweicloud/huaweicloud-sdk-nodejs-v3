@@ -7,6 +7,7 @@ export class CollectTrackedResourcesSummaryRequest {
     private 'ep_id'?: Array<string>;
     private 'project_id'?: Array<string>;
     public tags?: Array<string>;
+    private 'resource_deleted'?: boolean;
     public constructor() { 
     }
     public withName(name: string): CollectTrackedResourcesSummaryRequest {
@@ -50,5 +51,15 @@ export class CollectTrackedResourcesSummaryRequest {
     public withTags(tags: Array<string>): CollectTrackedResourcesSummaryRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withResourceDeleted(resourceDeleted: boolean): CollectTrackedResourcesSummaryRequest {
+        this['resource_deleted'] = resourceDeleted;
+        return this;
+    }
+    public set resourceDeleted(resourceDeleted: boolean  | undefined) {
+        this['resource_deleted'] = resourceDeleted;
+    }
+    public get resourceDeleted(): boolean | undefined {
+        return this['resource_deleted'];
     }
 }

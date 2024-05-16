@@ -7,6 +7,7 @@ export class QueryLtsLogParams {
     private 'is_count'?: boolean;
     public keywords?: string;
     private 'line_num'?: string;
+    private '__time__'?: string;
     private 'is_desc'?: boolean;
     private 'search_type'?: QueryLtsLogParamsSearchTypeEnum | string;
     public limit?: number;
@@ -63,6 +64,16 @@ export class QueryLtsLogParams {
     }
     public get lineNum(): string | undefined {
         return this['line_num'];
+    }
+    public withTime(time: string): QueryLtsLogParams {
+        this['__time__'] = time;
+        return this;
+    }
+    public set time(time: string  | undefined) {
+        this['__time__'] = time;
+    }
+    public get time(): string | undefined {
+        return this['__time__'];
     }
     public withIsDesc(isDesc: boolean): QueryLtsLogParams {
         this['is_desc'] = isDesc;

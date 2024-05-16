@@ -206,6 +206,8 @@ import { ParamGroupCopyRequestBody } from './model/ParamGroupCopyRequestBody';
 import { ParamGroupDiffRequestBody } from './model/ParamGroupDiffRequestBody';
 import { ProjectQuotasResult } from './model/ProjectQuotasResult';
 import { PwdResetRequest } from './model/PwdResetRequest';
+import { RecoveryBackupSource } from './model/RecoveryBackupSource';
+import { RecoveryBackupTarget } from './model/RecoveryBackupTarget';
 import { RecycleInstancesDetailResult } from './model/RecycleInstancesDetailResult';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
@@ -219,7 +221,11 @@ import { ResourceErrorResponse } from './model/ResourceErrorResponse';
 import { ResourceResult } from './model/ResourceResult';
 import { RestartInstanceRequest } from './model/RestartInstanceRequest';
 import { RestartInstanceResponse } from './model/RestartInstanceResponse';
+import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
+import { RestoreInstanceRequestBody } from './model/RestoreInstanceRequestBody';
+import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
 import { RestorePoint } from './model/RestorePoint';
+import { RestoreTableListDetail } from './model/RestoreTableListDetail';
 import { RollUpgradeProgress } from './model/RollUpgradeProgress';
 import { RunInstanceActionRequest } from './model/RunInstanceActionRequest';
 import { RunInstanceActionResponse } from './model/RunInstanceActionResponse';
@@ -1538,6 +1544,26 @@ export class GaussDBforopenGaussClient {
      */
     public restartInstance(restartInstanceRequest?: RestartInstanceRequest): Promise<RestartInstanceResponse> {
         const options = ParamCreater().restartInstance(restartInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 备份恢复到当前实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 备份恢复到当前实例
+     * @param {RestoreInstanceRequestBody} restoreInstanceRequestBody 请求体。
+     * @param {string} [xLanguage] 语言 Default:en-us;Enum:zh-cn,en-us;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
+        const options = ParamCreater().restoreInstance(restoreInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5364,6 +5390,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 备份恢复到当前实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/recovery",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (restoreInstanceRequest !== null && restoreInstanceRequest !== undefined) {
+                if (restoreInstanceRequest instanceof RestoreInstanceRequest) {
+                    body = restoreInstanceRequest.body
+                    xLanguage = restoreInstanceRequest.xLanguage;
+                } else {
+                    body = restoreInstanceRequest['body'];
+                    xLanguage = restoreInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

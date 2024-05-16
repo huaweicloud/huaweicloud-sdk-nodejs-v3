@@ -21,6 +21,7 @@ export class TrainingJobInfo {
     private 'voice_authorization_url'?: string;
     private 'create_type'?: CreateType;
     public tag?: JobTag;
+    public phone?: string;
     public constructor() { 
     }
     public withJobType(jobType: JobType): TrainingJobInfo {
@@ -157,6 +158,10 @@ export class TrainingJobInfo {
     }
     public withTag(tag: JobTag): TrainingJobInfo {
         this['tag'] = tag;
+        return this;
+    }
+    public withPhone(phone: string): TrainingJobInfo {
+        this['phone'] = phone;
         return this;
     }
 }

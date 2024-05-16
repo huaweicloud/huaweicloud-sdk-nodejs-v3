@@ -8,6 +8,7 @@ export class CountTrackedResourcesRequest {
     private 'ep_id'?: Array<string>;
     private 'project_id'?: Array<string>;
     public tags?: Array<string>;
+    private 'resource_deleted'?: boolean;
     public constructor() { 
     }
     public withId(id: string): CountTrackedResourcesRequest {
@@ -55,5 +56,15 @@ export class CountTrackedResourcesRequest {
     public withTags(tags: Array<string>): CountTrackedResourcesRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withResourceDeleted(resourceDeleted: boolean): CountTrackedResourcesRequest {
+        this['resource_deleted'] = resourceDeleted;
+        return this;
+    }
+    public set resourceDeleted(resourceDeleted: boolean  | undefined) {
+        this['resource_deleted'] = resourceDeleted;
+    }
+    public get resourceDeleted(): boolean | undefined {
+        return this['resource_deleted'];
     }
 }

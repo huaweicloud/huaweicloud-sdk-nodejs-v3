@@ -1,3 +1,280 @@
+# 3.1.95 2024-05-16
+
+### HuaweiCloud SDK CDN
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Deprecate the APIs `UpdateDomainFullConfig`, `ShowDomainFullConfig`
+  - **ShowDomainFullConfig**
+    - changes of response param
+      - `+ configs.https.enc_certificate_value`
+      - `+ configs.https.certificates`
+  - **UpdateDomainFullConfig**
+    - changes of request param
+      - `+ configs.https.enc_certificate_value`
+      - `+ configs.https.enc_private_key`
+      - `+ configs.https.certificates`
+
+### HuaweiCloud SDK Config
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CountTrackedResources**
+    - changes of request param
+      - `+ resource_deleted`
+  - **ShowTrackedResourceDetail**
+    - changes of response param
+      - `+ state`
+  - **ShowResourceById**
+    - changes of response param
+      - `+ state`
+  - **ShowResourceDetail**
+    - changes of response param
+      - `+ state`
+  - **ListResources**
+    - changes of response param
+      - `+ state`
+      - `+ resources.state`
+  - **ListTrackedResources**
+    - changes of request param
+      - `+ resource_deleted`
+    - changes of response param
+      - `+ state`
+      - `+ resources.state`
+  - **ListTrackedResourceTags**
+    - changes of request param
+      - `+ resource_deleted`
+  - **CollectTrackedResourcesSummary**
+    - changes of request param
+      - `+ resource_deleted`
+  - **ListAllResources**
+    - changes of response param
+      - `+ state`
+      - `+ resources.state`
+  - **ShowResourceHistory**
+    - changes of response param
+      - `+ state`
+      - `+ items.resource.state`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _Features_
+  - Support the following APIs:
+    - `ListSecurityMemberSyncTasks`
+    - `ShowSecurityMemberSyncTask`
+    - `ListSecurityAssignedQueues`
+    - `CreateSecurityAssignedQueue`
+    - `UpdateSecurityAssignedQueue`
+    - `DeleteSecurityAssignedQueue`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK DCS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListClients**
+    - changes of response param
+      - `* clients.idle: string -> int32`
+
+### HuaweiCloud SDK DLI
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateSqlJob**
+    - changes of request param
+      - `+ current_catalog`
+
+### HuaweiCloud SDK DWS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListUpdatableVersion**
+    - changes of request param
+      - `+ type`
+
+### HuaweiCloud SDK GaussDB
+
+- _Features_
+  - Support the following APIs:
+    - `CreateStarrocksInstance`
+    - `ListStarrocksInstanceInfo`
+    - `DeleteStarrocksInstance`
+    - `RestartStarrocksInstance`
+    - `RestartStarrocksNode`
+    - `CheckStarRocksResource`
+    - `ListHtapDataStore`
+    - `ListHtapStorageType`
+    - `ListHtapFlavor`
+    - `ListHtapInstanceInfo`
+    - `ShowStarRocksDatabaseUser`
+    - `CreateStarRocksDatabaseUser`
+    - `DeleteStarRocksDatabaseUser`
+    - `UpdateStarRocksDatabaseUserPassword`
+    - `UpdateStarRocksDatabaseUserPermission`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK GaussDBforopenGauss
+
+- _Features_
+  - Support the API `RestoreInstance`
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateDbInstance**
+    - changes of request param
+      - `+ enable_single_float_ip`
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListCustomPolicies**
+    - changes of response param
+      - `* roles.policy.Statement.Resource: list<string> -> object`
+  - **CreateCloudServiceCustomPolicy**
+    - changes of request param
+      - `* role.policy.Statement.Resource: list<string> -> object`
+    - changes of response param
+      - `* role.policy.Statement.Resource: list<string> -> object`
+  - **ShowCustomPolicy**
+    - changes of response param
+      - `* role.policy.Statement.Resource: list<string> -> object`
+  - **UpdateCloudServiceCustomPolicy**
+    - changes of request param
+      - `* role.policy.Statement.Resource: list<string> -> object`
+    - changes of response param
+      - `* role.policy.Statement.Resource: list<string> -> object`
+  - **CreateTemporaryAccessKeyByToken**
+    - changes of request param
+      - `* auth.identity.policy.Statement.Resource: list<string> -> object`
+  - **CreateTemporaryAccessKeyByAgency**
+    - changes of request param
+      - `* auth.identity.policy.Statement.Resource: list<string> -> object`
+
+### HuaweiCloud SDK LTS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListLogs**
+    - changes of request param
+      - `+ __time__`
+  - **ListStructuredLogsWithTimeRange**
+    - changes of request param
+      - `* time_range.start_time: string -> int64`
+      - `* time_range.end_time: string -> int64`
+
+### HuaweiCloud SDK MetaStudio
+
+- _Features_
+  - Support the following APIs:
+    - `CreateLargeFile`
+    - `ListHotQuestion`
+    - `CreateHotQuestion`
+    - `ShowHotQuestion`
+    - `UpdateHotQuestion`
+    - `DeleteHotQuestion`
+    - `ListKnowledgeSkill`
+    - `CreateKnowledgeSkill`
+    - `ShowKnowledgeSkill`
+    - `UpdateKnowledgeSkill`
+    - `DeleteKnowledgeSkill`
+    - `ExportKnowledgeSkill`
+    - `ListKnowledgeIntent`
+    - `CreateKnowledgeIntent`
+    - `ShowKnowledgeIntent`
+    - `UpdateKnowledgeIntent`
+    - `DeleteKnowledgeIntent`
+    - `CreateIntentAndQuestion`
+    - `ListKnowledgeQuestion`
+    - `CreateKnowledgeQuestion`
+    - `ShowKnowledgeQuestion`
+    - `UpdateKnowledgeQuestion`
+    - `DeleteKnowledgeQuestion`
+    - `UpdateBatchKnowledgeQuestion`
+    - `CreateBatchKnowledgeQuestion`
+    - `ListWelcomeSpeech`
+    - `CreateWelcomeSpeech`
+    - `ShowWelcomeSpeech`
+    - `UpdateWelcomeSpeech`
+    - `DeleteWelcomeSpeech`
+    - `ShowWelcomeSpeechSwitch`
+    - `UpdateWelcomeSpeechSwitch`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowRobot**
+    - changes of response param
+      - `+ app_key`
+      - `+ role_id`
+  - **UpdateRobot**
+    - changes of request param
+      - `+ mobvoi_config`
+  - **CreateTrainingBasicJob**
+    - changes of request param
+      - `+ phone`
+  - **CreateTrainingMiddleJob**
+    - changes of request param
+      - `+ phone`
+  - **CreateTrainingAdvanceJob**
+    - changes of request param
+      - `+ phone`
+  - **ShowVoiceTrainingJob**
+    - changes of response param
+      - `+ phone`
+      - `+ job_type: enum value [LLM_MAJOR,LLM_MINOR,THIRD_PARTY]`
+  - **CreateRobot**
+    - changes of request param
+      - `+ mobvoi_config`
+  - **ListRobot**
+    - changes of response param
+      - `+ app_key`
+      - `+ role_id`
+      - `+ data.app_key`
+      - `+ data.role_id`
+  - **ListVoiceTrainingJob**
+    - changes of response param
+      - `+ phone`
+      - `+ jobs.phone`
+      - `+ jobs.job_type: enum value [LLM_MAJOR,LLM_MINOR,THIRD_PARTY]`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **RecognizeSmartDocumentRecognizer**
+    - changes of request param
+      - `+ pdf_page_number`
+
 # 3.1.94 2024-05-09
 
 ### HuaweiCloud SDK CBH

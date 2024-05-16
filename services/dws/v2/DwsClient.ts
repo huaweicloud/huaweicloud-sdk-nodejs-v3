@@ -2703,6 +2703,7 @@ export class DwsClient {
      * @param {string} clusterId 集群ID
      * @param {number} [offset] 偏移量
      * @param {number} [limit] 条目数
+     * @param {'cluster' | 'hotpatch'} [type] 升级类型 cluster:集群升级 hotpatch:热补丁升级
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8696,16 +8697,20 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let type;
 
             if (listUpdatableVersionRequest !== null && listUpdatableVersionRequest !== undefined) {
                 if (listUpdatableVersionRequest instanceof ListUpdatableVersionRequest) {
                     clusterId = listUpdatableVersionRequest.clusterId;
                     offset = listUpdatableVersionRequest.offset;
                     limit = listUpdatableVersionRequest.limit;
+                    type = listUpdatableVersionRequest.type;
                 } else {
                     clusterId = listUpdatableVersionRequest['cluster_id'];
                     offset = listUpdatableVersionRequest['offset'];
                     limit = listUpdatableVersionRequest['limit'];
+                    type = listUpdatableVersionRequest['type'];
                 }
             }
 
@@ -8718,6 +8723,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
 
             options.queryParams = localVarQueryParameter;

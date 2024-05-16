@@ -7,7 +7,7 @@ export class ClientInfo {
     public name?: string;
     public cmd?: string;
     public age?: number;
-    public idle?: string;
+    public idle?: number;
     public db?: string;
     public flags?: string;
     public sub?: number;
@@ -48,7 +48,7 @@ export class ClientInfo {
         this['age'] = age;
         return this;
     }
-    public withIdle(idle: string): ClientInfo {
+    public withIdle(idle: number): ClientInfo {
         this['idle'] = idle;
         return this;
     }

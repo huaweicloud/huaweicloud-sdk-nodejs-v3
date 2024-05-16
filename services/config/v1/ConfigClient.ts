@@ -1653,7 +1653,7 @@ export class ConfigClient {
     }
 
     /**
-     * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为\&quot;in\&quot; 或者\&quot;out\&quot;
+     * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为\&quot;in\&quot; 或者\&quot;out\&quot;。资源关系依赖开启资源记录器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1675,7 +1675,7 @@ export class ConfigClient {
     }
 
     /**
-     * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为“in”或者“out”，需要当帐号有rms:resources:getRelation权限。
+     * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为“in”或者“out”，需要当帐号有rms:resources:getRelation权限。资源关系依赖开启资源记录器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1732,6 +1732,7 @@ export class ConfigClient {
      * @param {Array<string>} [epId] 企业项目ID列表
      * @param {Array<string>} [projectId] 项目ID
      * @param {Array<string>} [tags] 标签列表
+     * @param {boolean} [resourceDeleted] 是否查询已删除的资源。默认为false，不查询已删除的资源
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1782,6 +1783,7 @@ export class ConfigClient {
      * @param {Array<string>} [epId] 企业项目ID列表
      * @param {Array<string>} [projectId] 项目ID
      * @param {Array<string>} [tags] 标签列表
+     * @param {boolean} [resourceDeleted] 是否查询已删除的资源。默认为false，不查询已删除的资源
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1897,6 +1899,7 @@ export class ConfigClient {
      * @param {string} [key] 标签键名
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {number} [limit] 最大的返回数量。
+     * @param {boolean} [resourceDeleted] 是否查询已删除的资源。默认为false，不查询已删除的资源
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1923,6 +1926,7 @@ export class ConfigClient {
      * @param {string} [id] 资源ID
      * @param {string} [name] 资源名称
      * @param {Array<string>} [tags] 标签列表
+     * @param {boolean} [resourceDeleted] 是否查询已删除的资源。默认为false，不查询已删除的资源
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5232,7 +5236,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为\&quot;in\&quot; 或者\&quot;out\&quot;
+         * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为\&quot;in\&quot; 或者\&quot;out\&quot;。资源关系依赖开启资源记录器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5294,7 +5298,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为“in”或者“out”，需要当帐号有rms:resources:getRelation权限。
+         * 指定资源ID，查询该资源与其他资源的关联关系，可以指定关系方向为“in”或者“out”，需要当帐号有rms:resources:getRelation权限。资源关系依赖开启资源记录器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5455,6 +5459,8 @@ export const ParamCreater = function () {
             let projectId;
             
             let tags;
+            
+            let resourceDeleted;
 
             if (collectTrackedResourcesSummaryRequest !== null && collectTrackedResourcesSummaryRequest !== undefined) {
                 if (collectTrackedResourcesSummaryRequest instanceof CollectTrackedResourcesSummaryRequest) {
@@ -5464,6 +5470,7 @@ export const ParamCreater = function () {
                     epId = collectTrackedResourcesSummaryRequest.epId;
                     projectId = collectTrackedResourcesSummaryRequest.projectId;
                     tags = collectTrackedResourcesSummaryRequest.tags;
+                    resourceDeleted = collectTrackedResourcesSummaryRequest.resourceDeleted;
                 } else {
                     name = collectTrackedResourcesSummaryRequest['name'];
                     type = collectTrackedResourcesSummaryRequest['type'];
@@ -5471,6 +5478,7 @@ export const ParamCreater = function () {
                     epId = collectTrackedResourcesSummaryRequest['ep_id'];
                     projectId = collectTrackedResourcesSummaryRequest['project_id'];
                     tags = collectTrackedResourcesSummaryRequest['tags'];
+                    resourceDeleted = collectTrackedResourcesSummaryRequest['resource_deleted'];
                 }
             }
 
@@ -5492,6 +5500,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (resourceDeleted !== null && resourceDeleted !== undefined) {
+                localVarQueryParameter['resource_deleted'] = resourceDeleted;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5608,6 +5619,8 @@ export const ParamCreater = function () {
             let projectId;
             
             let tags;
+            
+            let resourceDeleted;
 
             if (countTrackedResourcesRequest !== null && countTrackedResourcesRequest !== undefined) {
                 if (countTrackedResourcesRequest instanceof CountTrackedResourcesRequest) {
@@ -5618,6 +5631,7 @@ export const ParamCreater = function () {
                     epId = countTrackedResourcesRequest.epId;
                     projectId = countTrackedResourcesRequest.projectId;
                     tags = countTrackedResourcesRequest.tags;
+                    resourceDeleted = countTrackedResourcesRequest.resourceDeleted;
                 } else {
                     id = countTrackedResourcesRequest['id'];
                     name = countTrackedResourcesRequest['name'];
@@ -5626,6 +5640,7 @@ export const ParamCreater = function () {
                     epId = countTrackedResourcesRequest['ep_id'];
                     projectId = countTrackedResourcesRequest['project_id'];
                     tags = countTrackedResourcesRequest['tags'];
+                    resourceDeleted = countTrackedResourcesRequest['resource_deleted'];
                 }
             }
 
@@ -5650,6 +5665,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (resourceDeleted !== null && resourceDeleted !== undefined) {
+                localVarQueryParameter['resource_deleted'] = resourceDeleted;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5954,16 +5972,20 @@ export const ParamCreater = function () {
             let marker;
             
             let limit;
+            
+            let resourceDeleted;
 
             if (listTrackedResourceTagsRequest !== null && listTrackedResourceTagsRequest !== undefined) {
                 if (listTrackedResourceTagsRequest instanceof ListTrackedResourceTagsRequest) {
                     key = listTrackedResourceTagsRequest.key;
                     marker = listTrackedResourceTagsRequest.marker;
                     limit = listTrackedResourceTagsRequest.limit;
+                    resourceDeleted = listTrackedResourceTagsRequest.resourceDeleted;
                 } else {
                     key = listTrackedResourceTagsRequest['key'];
                     marker = listTrackedResourceTagsRequest['marker'];
                     limit = listTrackedResourceTagsRequest['limit'];
+                    resourceDeleted = listTrackedResourceTagsRequest['resource_deleted'];
                 }
             }
 
@@ -5976,6 +5998,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (resourceDeleted !== null && resourceDeleted !== undefined) {
+                localVarQueryParameter['resource_deleted'] = resourceDeleted;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6015,6 +6040,8 @@ export const ParamCreater = function () {
             let name;
             
             let tags;
+            
+            let resourceDeleted;
 
             if (listTrackedResourcesRequest !== null && listTrackedResourcesRequest !== undefined) {
                 if (listTrackedResourcesRequest instanceof ListTrackedResourcesRequest) {
@@ -6026,6 +6053,7 @@ export const ParamCreater = function () {
                     id = listTrackedResourcesRequest.id;
                     name = listTrackedResourcesRequest.name;
                     tags = listTrackedResourcesRequest.tags;
+                    resourceDeleted = listTrackedResourcesRequest.resourceDeleted;
                 } else {
                     regionId = listTrackedResourcesRequest['region_id'];
                     epId = listTrackedResourcesRequest['ep_id'];
@@ -6035,6 +6063,7 @@ export const ParamCreater = function () {
                     id = listTrackedResourcesRequest['id'];
                     name = listTrackedResourcesRequest['name'];
                     tags = listTrackedResourcesRequest['tags'];
+                    resourceDeleted = listTrackedResourcesRequest['resource_deleted'];
                 }
             }
 
@@ -6062,6 +6091,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (resourceDeleted !== null && resourceDeleted !== undefined) {
+                localVarQueryParameter['resource_deleted'] = resourceDeleted;
             }
 
             options.queryParams = localVarQueryParameter;

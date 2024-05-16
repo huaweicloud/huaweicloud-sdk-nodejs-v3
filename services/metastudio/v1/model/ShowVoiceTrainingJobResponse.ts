@@ -22,6 +22,7 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     private 'voice_authorization_url'?: string;
     private 'create_type'?: CreateType;
     public tag?: JobTag;
+    public phone?: string;
     public constructor() { 
         super();
     }
@@ -159,6 +160,10 @@ export class ShowVoiceTrainingJobResponse extends SdkResponse {
     }
     public withTag(tag: JobTag): ShowVoiceTrainingJobResponse {
         this['tag'] = tag;
+        return this;
+    }
+    public withPhone(phone: string): ShowVoiceTrainingJobResponse {
+        this['phone'] = phone;
         return this;
     }
 }

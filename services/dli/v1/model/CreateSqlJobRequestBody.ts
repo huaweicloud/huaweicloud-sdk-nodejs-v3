@@ -4,6 +4,7 @@ import { Tag } from './Tag';
 export class CreateSqlJobRequestBody {
     public sql?: string;
     private 'engine_type'?: CreateSqlJobRequestBodyEngineTypeEnum | string;
+    private 'current_catalog'?: string;
     public currentdb?: string;
     private 'queue_name'?: string;
     public conf?: Array<string>;
@@ -24,6 +25,16 @@ export class CreateSqlJobRequestBody {
     }
     public get engineType(): CreateSqlJobRequestBodyEngineTypeEnum | string | undefined {
         return this['engine_type'];
+    }
+    public withCurrentCatalog(currentCatalog: string): CreateSqlJobRequestBody {
+        this['current_catalog'] = currentCatalog;
+        return this;
+    }
+    public set currentCatalog(currentCatalog: string  | undefined) {
+        this['current_catalog'] = currentCatalog;
+    }
+    public get currentCatalog(): string | undefined {
+        return this['current_catalog'];
     }
     public withCurrentdb(currentdb: string): CreateSqlJobRequestBody {
         this['currentdb'] = currentdb;

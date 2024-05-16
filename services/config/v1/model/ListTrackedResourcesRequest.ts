@@ -9,6 +9,7 @@ export class ListTrackedResourcesRequest {
     public id?: string;
     public name?: string;
     public tags?: Array<string>;
+    private 'resource_deleted'?: boolean;
     public constructor() { 
     }
     public withRegionId(regionId: string): ListTrackedResourcesRequest {
@@ -54,5 +55,15 @@ export class ListTrackedResourcesRequest {
     public withTags(tags: Array<string>): ListTrackedResourcesRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withResourceDeleted(resourceDeleted: boolean): ListTrackedResourcesRequest {
+        this['resource_deleted'] = resourceDeleted;
+        return this;
+    }
+    public set resourceDeleted(resourceDeleted: boolean  | undefined) {
+        this['resource_deleted'] = resourceDeleted;
+    }
+    public get resourceDeleted(): boolean | undefined {
+        return this['resource_deleted'];
     }
 }

@@ -15,6 +15,7 @@ export class ShowResourceByIdResponse extends SdkResponse {
     public created?: string;
     public updated?: string;
     private 'provisioning_state'?: string;
+    public state?: string;
     public tags?: { [key: string]: string; };
     public properties?: { [key: string]: object; };
     public constructor() { 
@@ -107,6 +108,10 @@ export class ShowResourceByIdResponse extends SdkResponse {
     }
     public get provisioningState(): string | undefined {
         return this['provisioning_state'];
+    }
+    public withState(state: string): ShowResourceByIdResponse {
+        this['state'] = state;
+        return this;
     }
     public withTags(tags: { [key: string]: string; }): ShowResourceByIdResponse {
         this['tags'] = tags;

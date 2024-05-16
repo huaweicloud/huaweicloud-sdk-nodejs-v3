@@ -28,6 +28,7 @@ export class OpenGaussInstanceRequestBody {
     private 'coordinator_num'?: number;
     private 'replica_num'?: OpenGaussInstanceRequestBodyReplicaNumEnum | number;
     private 'enable_force_switch'?: boolean;
+    private 'enable_single_float_ip'?: boolean;
     public constructor(name?: string, datastore?: OpenGaussDatastoreOption, ha?: OpenGaussHaOption, password?: string, flavorRef?: string, volume?: OpenGaussVolume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -218,6 +219,16 @@ export class OpenGaussInstanceRequestBody {
     }
     public get enableForceSwitch(): boolean | undefined {
         return this['enable_force_switch'];
+    }
+    public withEnableSingleFloatIp(enableSingleFloatIp: boolean): OpenGaussInstanceRequestBody {
+        this['enable_single_float_ip'] = enableSingleFloatIp;
+        return this;
+    }
+    public set enableSingleFloatIp(enableSingleFloatIp: boolean  | undefined) {
+        this['enable_single_float_ip'] = enableSingleFloatIp;
+    }
+    public get enableSingleFloatIp(): boolean | undefined {
+        return this['enable_single_float_ip'];
     }
 }
 

@@ -14,6 +14,7 @@ export class ResourceEntity {
     public created?: string;
     public updated?: string;
     private 'provisioning_state'?: string;
+    public state?: string;
     public tags?: { [key: string]: string; };
     public properties?: { [key: string]: object; };
     public constructor() { 
@@ -105,6 +106,10 @@ export class ResourceEntity {
     }
     public get provisioningState(): string | undefined {
         return this['provisioning_state'];
+    }
+    public withState(state: string): ResourceEntity {
+        this['state'] = state;
+        return this;
     }
     public withTags(tags: { [key: string]: string; }): ResourceEntity {
         this['tags'] = tags;

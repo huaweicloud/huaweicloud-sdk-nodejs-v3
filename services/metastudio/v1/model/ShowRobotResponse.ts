@@ -8,6 +8,7 @@ export class ShowRobotResponse extends SdkResponse {
     private 'room_id'?: string;
     private 'app_id'?: string;
     private 'app_type'?: number;
+    private 'app_key'?: string;
     public language?: LanguageEnum;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -16,6 +17,7 @@ export class ShowRobotResponse extends SdkResponse {
     private 'llm_url'?: string;
     private 'is_stream'?: boolean;
     private 'chat_rounds'?: number;
+    private 'role_id'?: string;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -63,6 +65,16 @@ export class ShowRobotResponse extends SdkResponse {
     }
     public get appType(): number | undefined {
         return this['app_type'];
+    }
+    public withAppKey(appKey: string): ShowRobotResponse {
+        this['app_key'] = appKey;
+        return this;
+    }
+    public set appKey(appKey: string  | undefined) {
+        this['app_key'] = appKey;
+    }
+    public get appKey(): string | undefined {
+        return this['app_key'];
     }
     public withLanguage(language: LanguageEnum): ShowRobotResponse {
         this['language'] = language;
@@ -131,6 +143,16 @@ export class ShowRobotResponse extends SdkResponse {
     }
     public get chatRounds(): number | undefined {
         return this['chat_rounds'];
+    }
+    public withRoleId(roleId: string): ShowRobotResponse {
+        this['role_id'] = roleId;
+        return this;
+    }
+    public set roleId(roleId: string  | undefined) {
+        this['role_id'] = roleId;
+    }
+    public get roleId(): string | undefined {
+        return this['role_id'];
     }
     public withXRequestId(xRequestId: string): ShowRobotResponse {
         this['X-Request-Id'] = xRequestId;
