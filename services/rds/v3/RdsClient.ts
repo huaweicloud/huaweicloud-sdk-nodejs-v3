@@ -162,6 +162,8 @@ import { DeleteSqlserverDbUserRequest } from './model/DeleteSqlserverDbUserReque
 import { DeleteSqlserverDbUserResponse } from './model/DeleteSqlserverDbUserResponse';
 import { DiagnosisInstancesInfoResult } from './model/DiagnosisInstancesInfoResult';
 import { DiagnosisItemResult } from './model/DiagnosisItemResult';
+import { DownloadErrorlogRequest } from './model/DownloadErrorlogRequest';
+import { DownloadErrorlogResponse } from './model/DownloadErrorlogResponse';
 import { DownloadInfoRsp } from './model/DownloadInfoRsp';
 import { DownloadSlowlogRequest } from './model/DownloadSlowlogRequest';
 import { DownloadSlowlogResponse } from './model/DownloadSlowlogResponse';
@@ -176,6 +178,7 @@ import { ErrorLog } from './model/ErrorLog';
 import { ErrorLogItem } from './model/ErrorLogItem';
 import { ErrorResponse } from './model/ErrorResponse';
 import { ErrorRsp } from './model/ErrorRsp';
+import { ErrorlogDownloadInfo } from './model/ErrorlogDownloadInfo';
 import { ErrorlogForLtsRequest } from './model/ErrorlogForLtsRequest';
 import { ExecutePrivilegeDatabaseUserRoleRequest } from './model/ExecutePrivilegeDatabaseUserRoleRequest';
 import { ExecutePrivilegeDatabaseUserRoleResponse } from './model/ExecutePrivilegeDatabaseUserRoleResponse';
@@ -1263,6 +1266,26 @@ export class RdsClient {
      */
     public deleteSqlLimit(deleteSqlLimitRequest?: DeleteSqlLimitRequest): Promise<DeleteSqlLimitResponse> {
         const options = ParamCreater().deleteSqlLimit(deleteSqlLimitRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取错误日志下载链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取错误日志下载链接
+     * @param {string} instanceId 实例ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadErrorlog(downloadErrorlogRequest?: DownloadErrorlogRequest): Promise<DownloadErrorlogResponse> {
+        const options = ParamCreater().downloadErrorlog(downloadErrorlogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6459,6 +6482,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取错误日志下载链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadErrorlog(downloadErrorlogRequest?: DownloadErrorlogRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/errorlog-download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (downloadErrorlogRequest !== null && downloadErrorlogRequest !== undefined) {
+                if (downloadErrorlogRequest instanceof DownloadErrorlogRequest) {
+                    instanceId = downloadErrorlogRequest.instanceId;
+                    xLanguage = downloadErrorlogRequest.xLanguage;
+                } else {
+                    instanceId = downloadErrorlogRequest['instance_id'];
+                    xLanguage = downloadErrorlogRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadErrorlog.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

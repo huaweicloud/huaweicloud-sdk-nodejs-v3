@@ -16,7 +16,11 @@ export class RobotInfo {
     private 'llm_url'?: string;
     private 'is_stream'?: boolean;
     private 'chat_rounds'?: number;
+    private 'is_ifly_production'?: boolean;
+    private 'tail_silence_time'?: number;
     private 'role_id'?: string;
+    private 'sis_region'?: number;
+    private 'sis_project_id'?: string;
     public constructor() { 
     }
     public withRobotId(robotId: string): RobotInfo {
@@ -141,6 +145,26 @@ export class RobotInfo {
     public get chatRounds(): number | undefined {
         return this['chat_rounds'];
     }
+    public withIsIflyProduction(isIflyProduction: boolean): RobotInfo {
+        this['is_ifly_production'] = isIflyProduction;
+        return this;
+    }
+    public set isIflyProduction(isIflyProduction: boolean  | undefined) {
+        this['is_ifly_production'] = isIflyProduction;
+    }
+    public get isIflyProduction(): boolean | undefined {
+        return this['is_ifly_production'];
+    }
+    public withTailSilenceTime(tailSilenceTime: number): RobotInfo {
+        this['tail_silence_time'] = tailSilenceTime;
+        return this;
+    }
+    public set tailSilenceTime(tailSilenceTime: number  | undefined) {
+        this['tail_silence_time'] = tailSilenceTime;
+    }
+    public get tailSilenceTime(): number | undefined {
+        return this['tail_silence_time'];
+    }
     public withRoleId(roleId: string): RobotInfo {
         this['role_id'] = roleId;
         return this;
@@ -150,5 +174,25 @@ export class RobotInfo {
     }
     public get roleId(): string | undefined {
         return this['role_id'];
+    }
+    public withSisRegion(sisRegion: number): RobotInfo {
+        this['sis_region'] = sisRegion;
+        return this;
+    }
+    public set sisRegion(sisRegion: number  | undefined) {
+        this['sis_region'] = sisRegion;
+    }
+    public get sisRegion(): number | undefined {
+        return this['sis_region'];
+    }
+    public withSisProjectId(sisProjectId: string): RobotInfo {
+        this['sis_project_id'] = sisProjectId;
+        return this;
+    }
+    public set sisProjectId(sisProjectId: string  | undefined) {
+        this['sis_project_id'] = sisProjectId;
+    }
+    public get sisProjectId(): string | undefined {
+        return this['sis_project_id'];
     }
 }

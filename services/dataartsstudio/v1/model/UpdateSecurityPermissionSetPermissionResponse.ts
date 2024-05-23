@@ -21,6 +21,7 @@ export class UpdateSecurityPermissionSetPermissionResponse extends SdkResponse {
     private 'row_level_security'?: string;
     private 'sync_status'?: UpdateSecurityPermissionSetPermissionResponseSyncStatusEnum | string;
     private 'sync_msg'?: string;
+    public url?: string;
     public constructor() { 
         super();
     }
@@ -201,6 +202,10 @@ export class UpdateSecurityPermissionSetPermissionResponse extends SdkResponse {
     }
     public get syncMsg(): string | undefined {
         return this['sync_msg'];
+    }
+    public withUrl(url: string): UpdateSecurityPermissionSetPermissionResponse {
+        this['url'] = url;
+        return this;
     }
 }
 

@@ -4,6 +4,7 @@ export class IflytekSpark {
     private 'app_id'?: string;
     private 'app_key'?: string;
     private 'api_secret'?: string;
+    private 'is_production'?: boolean;
     public constructor() { 
     }
     public withAppId(appId: string): IflytekSpark {
@@ -35,5 +36,15 @@ export class IflytekSpark {
     }
     public get apiSecret(): string | undefined {
         return this['api_secret'];
+    }
+    public withIsProduction(isProduction: boolean): IflytekSpark {
+        this['is_production'] = isProduction;
+        return this;
+    }
+    public set isProduction(isProduction: boolean  | undefined) {
+        this['is_production'] = isProduction;
+    }
+    public get isProduction(): boolean | undefined {
+        return this['is_production'];
     }
 }

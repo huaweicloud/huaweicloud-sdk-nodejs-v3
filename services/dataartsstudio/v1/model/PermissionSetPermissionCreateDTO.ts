@@ -13,6 +13,7 @@ export class PermissionSetPermissionCreateDTO {
     private 'table_name'?: string;
     private 'column_name'?: string;
     private 'row_level_security'?: string;
+    public url?: string;
     public constructor() { 
     }
     public withDwId(dwId: string): PermissionSetPermissionCreateDTO {
@@ -128,6 +129,10 @@ export class PermissionSetPermissionCreateDTO {
     }
     public get rowLevelSecurity(): string | undefined {
         return this['row_level_security'];
+    }
+    public withUrl(url: string): PermissionSetPermissionCreateDTO {
+        this['url'] = url;
+        return this;
     }
 }
 

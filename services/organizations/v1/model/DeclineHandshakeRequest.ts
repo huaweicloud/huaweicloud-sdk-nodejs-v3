@@ -1,0 +1,18 @@
+
+
+export class DeclineHandshakeRequest {
+    private 'handshake_id'?: string;
+    public constructor(handshakeId?: string) { 
+        this['handshake_id'] = handshakeId;
+    }
+    public withHandshakeId(handshakeId: string): DeclineHandshakeRequest {
+        this['handshake_id'] = handshakeId;
+        return this;
+    }
+    public set handshakeId(handshakeId: string  | undefined) {
+        this['handshake_id'] = handshakeId;
+    }
+    public get handshakeId(): string | undefined {
+        return this['handshake_id'];
+    }
+}

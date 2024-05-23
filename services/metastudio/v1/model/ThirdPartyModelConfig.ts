@@ -6,6 +6,8 @@ export class ThirdPartyModelConfig {
     private 'llm_url'?: string;
     private 'is_stream'?: boolean;
     private 'chat_rounds'?: number;
+    private 'sis_region'?: number;
+    private 'sis_project_id'?: string;
     public constructor() { 
     }
     public withAppId(appId: string): ThirdPartyModelConfig {
@@ -57,5 +59,25 @@ export class ThirdPartyModelConfig {
     }
     public get chatRounds(): number | undefined {
         return this['chat_rounds'];
+    }
+    public withSisRegion(sisRegion: number): ThirdPartyModelConfig {
+        this['sis_region'] = sisRegion;
+        return this;
+    }
+    public set sisRegion(sisRegion: number  | undefined) {
+        this['sis_region'] = sisRegion;
+    }
+    public get sisRegion(): number | undefined {
+        return this['sis_region'];
+    }
+    public withSisProjectId(sisProjectId: string): ThirdPartyModelConfig {
+        this['sis_project_id'] = sisProjectId;
+        return this;
+    }
+    public set sisProjectId(sisProjectId: string  | undefined) {
+        this['sis_project_id'] = sisProjectId;
+    }
+    public get sisProjectId(): string | undefined {
+        return this['sis_project_id'];
     }
 }

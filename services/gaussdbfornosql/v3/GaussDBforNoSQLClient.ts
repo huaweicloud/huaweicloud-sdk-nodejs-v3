@@ -18,6 +18,7 @@ import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionRequestBody } from './model/BatchTagActionRequestBody';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
 import { BatchTagActionTagOption } from './model/BatchTagActionTagOption';
+import { BigKeysInfoResponseBody } from './model/BigKeysInfoResponseBody';
 import { CassandraSlowLogDetail } from './model/CassandraSlowLogDetail';
 import { ChargeInfoOption } from './model/ChargeInfoOption';
 import { ChargeInfoResult } from './model/ChargeInfoResult';
@@ -295,12 +296,17 @@ import { ShowIpNumRequirementRequest } from './model/ShowIpNumRequirementRequest
 import { ShowIpNumRequirementResponse } from './model/ShowIpNumRequirementResponse';
 import { ShowModifyHistoryRequest } from './model/ShowModifyHistoryRequest';
 import { ShowModifyHistoryResponse } from './model/ShowModifyHistoryResponse';
+import { ShowPasswordlessConfigRequest } from './model/ShowPasswordlessConfigRequest';
+import { ShowPasswordlessConfigResponse } from './model/ShowPasswordlessConfigResponse';
 import { ShowPauseResumeStutusRequest } from './model/ShowPauseResumeStutusRequest';
 import { ShowPauseResumeStutusResponse } from './model/ShowPauseResumeStutusResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
 import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
+import { ShowRedisBigKeysRequest } from './model/ShowRedisBigKeysRequest';
+import { ShowRedisBigKeysRequestBody } from './model/ShowRedisBigKeysRequestBody';
+import { ShowRedisBigKeysResponse } from './model/ShowRedisBigKeysResponse';
 import { ShowResourcesDetailResponseBody } from './model/ShowResourcesDetailResponseBody';
 import { ShowResourcesListResponseBody } from './model/ShowResourcesListResponseBody';
 import { ShowRestorableListRequest } from './model/ShowRestorableListRequest';
@@ -345,6 +351,9 @@ import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfi
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
 import { UpdateInstanceNameRequestBody } from './model/UpdateInstanceNameRequestBody';
 import { UpdateInstanceNameResponse } from './model/UpdateInstanceNameResponse';
+import { UpdatePasswordlessConfigRequest } from './model/UpdatePasswordlessConfigRequest';
+import { UpdatePasswordlessConfigRequestBody } from './model/UpdatePasswordlessConfigRequestBody';
+import { UpdatePasswordlessConfigResponse } from './model/UpdatePasswordlessConfigResponse';
 import { UpdateSecurityGroupRequest } from './model/UpdateSecurityGroupRequest';
 import { UpdateSecurityGroupRequestBody } from './model/UpdateSecurityGroupRequestBody';
 import { UpdateSecurityGroupResponse } from './model/UpdateSecurityGroupResponse';
@@ -2101,6 +2110,27 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 获取GeminiDB Redis的免密配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取GeminiDB Redis的免密配置
+     * @param {string} instanceId 实例ID。
+     * @param {number} [offset] 索引位置偏移量，表示从查询到的免密配置列表偏移offset条数据后查询对应的免密配置。 取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从第一条记录开始查询。
+     * @param {number} [limit] 查询个数上限值。 取值范围：1~100。不传该参数时，默认查询前100条记录。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPasswordlessConfig(showPasswordlessConfigRequest?: ShowPasswordlessConfigRequest): Promise<ShowPasswordlessConfigResponse> {
+        const options = ParamCreater().showPasswordlessConfig(showPasswordlessConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取容灾实例数据同步状态，主备实例id，数据同步指标值，以及倒换和切换场景下的RPO，RTO指标值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2151,6 +2181,26 @@ export class GaussDBforNoSQLClient {
      */
     public showRecyclePolicy(showRecyclePolicyRequest?: ShowRecyclePolicyRequest): Promise<ShowRecyclePolicyResponse> {
         const options = ParamCreater().showRecyclePolicy(showRecyclePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持查询Redis实例的大key。value长度大于bigkeys-string-threshold参数的string类型的key或者元素数大于bigkeys-composite-threshold参数的hash/list/zset/set/stream类型key，会被判断为大key。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis实例的大key
+     * @param {string} instanceId 实例ID。
+     * @param {ShowRedisBigKeysRequestBody} [showRedisBigKeysRequestBody] 查询Redis大key的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRedisBigKeys(showRedisBigKeysRequest?: ShowRedisBigKeysRequest): Promise<ShowRedisBigKeysResponse> {
+        const options = ParamCreater().showRedisBigKeys(showRedisBigKeysRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2430,6 +2480,26 @@ export class GaussDBforNoSQLClient {
      */
     public updateInstanceName(updateInstanceNameRequest?: UpdateInstanceNameRequest): Promise<UpdateInstanceNameResponse> {
         const options = ParamCreater().updateInstanceName(updateInstanceNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持修改GeminiDB Redis的免密配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 支持修改GeminiDB Redis的免密配置
+     * @param {string} instanceId 实例ID。
+     * @param {UpdatePasswordlessConfigRequestBody} [updatePasswordlessConfigRequestBody] 要设置的免密配置,ip与网段的列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePasswordlessConfig(updatePasswordlessConfigRequest?: UpdatePasswordlessConfigRequest): Promise<UpdatePasswordlessConfigResponse> {
+        const options = ParamCreater().updatePasswordlessConfig(updatePasswordlessConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6551,6 +6621,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取GeminiDB Redis的免密配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPasswordlessConfig(showPasswordlessConfigRequest?: ShowPasswordlessConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/passwordless-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showPasswordlessConfigRequest !== null && showPasswordlessConfigRequest !== undefined) {
+                if (showPasswordlessConfigRequest instanceof ShowPasswordlessConfigRequest) {
+                    instanceId = showPasswordlessConfigRequest.instanceId;
+                    offset = showPasswordlessConfigRequest.offset;
+                    limit = showPasswordlessConfigRequest.limit;
+                } else {
+                    instanceId = showPasswordlessConfigRequest['instance_id'];
+                    offset = showPasswordlessConfigRequest['offset'];
+                    limit = showPasswordlessConfigRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showPasswordlessConfig.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取容灾实例数据同步状态，主备实例id，数据同步指标值，以及倒换和切换场景下的RPO，RTO指标值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6663,6 +6785,49 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持查询Redis实例的大key。value长度大于bigkeys-string-threshold参数的string类型的key或者元素数大于bigkeys-composite-threshold参数的hash/list/zset/set/stream类型key，会被判断为大key。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRedisBigKeys(showRedisBigKeysRequest?: ShowRedisBigKeysRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/big-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (showRedisBigKeysRequest !== null && showRedisBigKeysRequest !== undefined) {
+                if (showRedisBigKeysRequest instanceof ShowRedisBigKeysRequest) {
+                    instanceId = showRedisBigKeysRequest.instanceId;
+                    body = showRedisBigKeysRequest.body
+                } else {
+                    instanceId = showRedisBigKeysRequest['instance_id'];
+                    body = showRedisBigKeysRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRedisBigKeys.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7287,6 +7452,49 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持修改GeminiDB Redis的免密配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePasswordlessConfig(updatePasswordlessConfigRequest?: UpdatePasswordlessConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/passwordless-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updatePasswordlessConfigRequest !== null && updatePasswordlessConfigRequest !== undefined) {
+                if (updatePasswordlessConfigRequest instanceof UpdatePasswordlessConfigRequest) {
+                    instanceId = updatePasswordlessConfigRequest.instanceId;
+                    body = updatePasswordlessConfigRequest.body
+                } else {
+                    instanceId = updatePasswordlessConfigRequest['instance_id'];
+                    body = updatePasswordlessConfigRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePasswordlessConfig.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

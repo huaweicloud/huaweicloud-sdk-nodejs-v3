@@ -4420,6 +4420,8 @@ export class DataArtsStudioClient {
      *
      * @summary 查询数据开发细粒度连接列表（全量）
      * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [offset] offset
+     * @param {number} [limit] limit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -17840,23 +17842,38 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let workspace;
+            
+            let offset;
+            
+            let limit;
 
             if (listSecurityDlfDataWareHousesRequest !== null && listSecurityDlfDataWareHousesRequest !== undefined) {
                 if (listSecurityDlfDataWareHousesRequest instanceof ListSecurityDlfDataWareHousesRequest) {
                     workspace = listSecurityDlfDataWareHousesRequest.workspace;
+                    offset = listSecurityDlfDataWareHousesRequest.offset;
+                    limit = listSecurityDlfDataWareHousesRequest.limit;
                 } else {
                     workspace = listSecurityDlfDataWareHousesRequest['workspace'];
+                    offset = listSecurityDlfDataWareHousesRequest['offset'];
+                    limit = listSecurityDlfDataWareHousesRequest['limit'];
                 }
             }
 
         
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

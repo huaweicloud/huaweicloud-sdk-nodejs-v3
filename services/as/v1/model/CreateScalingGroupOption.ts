@@ -1,6 +1,7 @@
 import { LbaasListeners } from './LbaasListeners';
 import { Networks } from './Networks';
 import { SecurityGroup } from './SecurityGroup';
+import { TagsSingleValue } from './TagsSingleValue';
 
 
 export class CreateScalingGroupOption {
@@ -27,6 +28,7 @@ export class CreateScalingGroupOption {
     private 'multi_az_priority_policy'?: CreateScalingGroupOptionMultiAzPriorityPolicyEnum | string;
     private 'iam_agency_name'?: string;
     public description?: string;
+    public tags?: Array<TagsSingleValue>;
     public constructor(scalingGroupName?: string, scalingConfigurationId?: string, networks?: Array<Networks>, vpcId?: string) { 
         this['scaling_group_name'] = scalingGroupName;
         this['scaling_configuration_id'] = scalingConfigurationId;
@@ -243,6 +245,10 @@ export class CreateScalingGroupOption {
     }
     public withDescription(description: string): CreateScalingGroupOption {
         this['description'] = description;
+        return this;
+    }
+    public withTags(tags: Array<TagsSingleValue>): CreateScalingGroupOption {
+        this['tags'] = tags;
         return this;
     }
 }

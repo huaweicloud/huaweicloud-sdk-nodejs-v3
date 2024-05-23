@@ -11,6 +11,7 @@ export class CreateRobotReq {
     private 'app_type'?: number;
     private 'room_id'?: string;
     public language?: LanguageEnum;
+    private 'tail_silence_time'?: number;
     private 'huawei_ei_cbs'?: HuaweiEiCbs;
     private 'iflytek_aiui_config'?: IflytekAiuiConfig;
     private 'iflytek_spark'?: IflytekSpark;
@@ -47,6 +48,16 @@ export class CreateRobotReq {
     public withLanguage(language: LanguageEnum): CreateRobotReq {
         this['language'] = language;
         return this;
+    }
+    public withTailSilenceTime(tailSilenceTime: number): CreateRobotReq {
+        this['tail_silence_time'] = tailSilenceTime;
+        return this;
+    }
+    public set tailSilenceTime(tailSilenceTime: number  | undefined) {
+        this['tail_silence_time'] = tailSilenceTime;
+    }
+    public get tailSilenceTime(): number | undefined {
+        return this['tail_silence_time'];
     }
     public withHuaweiEiCbs(huaweiEiCbs: HuaweiEiCbs): CreateRobotReq {
         this['huawei_ei_cbs'] = huaweiEiCbs;

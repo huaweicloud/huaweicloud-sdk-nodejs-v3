@@ -7,11 +7,12 @@ import { AuthorizeCsmsAndKmsRequestBody } from './model/AuthorizeCsmsAndKmsReque
 import { AvailabilityZones } from './model/AvailabilityZones';
 import { BatchCreateInstanceTagRequest } from './model/BatchCreateInstanceTagRequest';
 import { BatchCreateInstanceTagResponse } from './model/BatchCreateInstanceTagResponse';
-import { CBHInstances } from './model/CBHInstances';
 import { CbsGetResourceIdTags } from './model/CbsGetResourceIdTags';
 import { CbsGetSpecInfo } from './model/CbsGetSpecInfo';
 import { ChangeInstanceRequestBody } from './model/ChangeInstanceRequestBody';
 import { ChangeInstanceSecurityGroups } from './model/ChangeInstanceSecurityGroups';
+import { ChangeInstanceTypeRequest } from './model/ChangeInstanceTypeRequest';
+import { ChangeInstanceTypeResponse } from './model/ChangeInstanceTypeResponse';
 import { CommonCbhRequestBody } from './model/CommonCbhRequestBody';
 import { CountInstancesByTagRequest } from './model/CountInstancesByTagRequest';
 import { CountInstancesByTagResponse } from './model/CountInstancesByTagResponse';
@@ -40,6 +41,8 @@ import { ListSpecificationsRequest } from './model/ListSpecificationsRequest';
 import { ListSpecificationsResponse } from './model/ListSpecificationsResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { LoginInstanceAdminRequest } from './model/LoginInstanceAdminRequest';
+import { LoginInstanceAdminResponse } from './model/LoginInstanceAdminResponse';
 import { LoginInstanceRequest } from './model/LoginInstanceRequest';
 import { LoginInstanceResponse } from './model/LoginInstanceResponse';
 import { Match } from './model/Match';
@@ -81,6 +84,9 @@ import { StartInstanceRequest } from './model/StartInstanceRequest';
 import { StartInstanceResponse } from './model/StartInstanceResponse';
 import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
+import { SwitchInstanceVpcRequest } from './model/SwitchInstanceVpcRequest';
+import { SwitchInstanceVpcResponse } from './model/SwitchInstanceVpcResponse';
+import { SwitchVirtualPrivateCloudRequestBody } from './model/SwitchVirtualPrivateCloudRequestBody';
 import { Tags } from './model/Tags';
 import { UninstallInstanceEipRequest } from './model/UninstallInstanceEipRequest';
 import { UninstallInstanceEipResponse } from './model/UninstallInstanceEipResponse';
@@ -118,6 +124,27 @@ export class CbhClient {
      */
     public batchCreateInstanceTag(batchCreateInstanceTagRequest?: BatchCreateInstanceTagRequest): Promise<BatchCreateInstanceTagResponse> {
         const options = ParamCreater().batchCreateInstanceTag(batchCreateInstanceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改单机堡垒机实例类型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改单机堡垒机实例类型
+     * @param {string} serverId 实例id
+     * @param {string} [availabilityZone] 可用分区名称。  可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取
+     * @param {number} [isAutoPay] 是否自动支付，下单订购后，是否自动从客户的华为云账户中支付，而不需要客户手动去进行支付。 - 1：是（会自动选择折扣和优惠券进行优惠，然后自动从客户华为云账户中支付），自动支付失败后会生成订单成功(该订单应付金额是优惠后金额)、但订单状态为“待支付”，等待客户手动支付(手动支付时，客户还可以修改系统自动选择的折扣和优惠券) - 0：否（需要客户手动去支付，客户可以选择折扣和优惠券。）  默认值为“0”
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeInstanceType(changeInstanceTypeRequest?: ChangeInstanceTypeRequest): Promise<ChangeInstanceTypeResponse> {
+        const options = ParamCreater().changeInstanceType(changeInstanceTypeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -310,6 +337,25 @@ export class CbhClient {
      */
     public loginInstance(loginInstanceRequest?: LoginInstanceRequest): Promise<LoginInstanceResponse> {
         const options = ParamCreater().loginInstance(loginInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户登录堡垒机实例admin的console。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 用户登录堡垒机实例admin的console
+     * @param {string} serverId 云堡垒机实例ID，使用UUID格式表示。  [实例ID获取方式](https://support.huaweicloud.com/usermanual-cbh/cbh_02_1003.html)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public loginInstanceAdmin(loginInstanceAdminRequest?: LoginInstanceAdminRequest): Promise<LoginInstanceAdminResponse> {
+        const options = ParamCreater().loginInstanceAdmin(loginInstanceAdminRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -585,6 +631,25 @@ export class CbhClient {
     }
 
     /**
+     * 切换堡垒机虚拟私有云
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换堡垒机虚拟私有云
+     * @param {SwitchVirtualPrivateCloudRequestBody} switchInstanceVpcRequestBody 切换vpc的body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchInstanceVpc(switchInstanceVpcRequest?: SwitchInstanceVpcRequest): Promise<SwitchInstanceVpcResponse> {
+        const options = ParamCreater().switchInstanceVpc(switchInstanceVpcRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为云堡垒机实例解绑弹性公网IP。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -689,6 +754,60 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改单机堡垒机实例类型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeInstanceType(changeInstanceTypeRequest?: ChangeInstanceTypeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/cbs/instance/type",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serverId;
+            
+            let availabilityZone;
+            
+            let isAutoPay;
+
+            if (changeInstanceTypeRequest !== null && changeInstanceTypeRequest !== undefined) {
+                if (changeInstanceTypeRequest instanceof ChangeInstanceTypeRequest) {
+                    serverId = changeInstanceTypeRequest.serverId;
+                    availabilityZone = changeInstanceTypeRequest.availabilityZone;
+                    isAutoPay = changeInstanceTypeRequest.isAutoPay;
+                } else {
+                    serverId = changeInstanceTypeRequest['server_id'];
+                    availabilityZone = changeInstanceTypeRequest['availability_zone'];
+                    isAutoPay = changeInstanceTypeRequest['is_auto_pay'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeInstanceType.');
+            }
+            if (serverId !== null && serverId !== undefined) {
+                localVarQueryParameter['server_id'] = serverId;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (isAutoPay !== null && isAutoPay !== undefined) {
+                localVarQueryParameter['is_auto_pay'] = isAutoPay;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1067,6 +1186,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户登录堡垒机实例admin的console。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        loginInstanceAdmin(loginInstanceAdminRequest?: LoginInstanceAdminRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/cbs/instances/{server_id}/admin-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverId;
+
+            if (loginInstanceAdminRequest !== null && loginInstanceAdminRequest !== undefined) {
+                if (loginInstanceAdminRequest instanceof LoginInstanceAdminRequest) {
+                    serverId = loginInstanceAdminRequest.serverId;
+                } else {
+                    serverId = loginInstanceAdminRequest['server_id'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling loginInstanceAdmin.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1587,6 +1743,44 @@ export const ParamCreater = function () {
                     body = stopInstanceRequest.body
                 } else {
                     body = stopInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换堡垒机虚拟私有云
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchInstanceVpc(switchInstanceVpcRequest?: SwitchInstanceVpcRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/cbs/instance/vpc",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (switchInstanceVpcRequest !== null && switchInstanceVpcRequest !== undefined) {
+                if (switchInstanceVpcRequest instanceof SwitchInstanceVpcRequest) {
+                    body = switchInstanceVpcRequest.body
+                } else {
+                    body = switchInstanceVpcRequest['body'];
                 }
             }
 

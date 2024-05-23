@@ -1,6 +1,7 @@
 import { CustomPolicy } from './CustomPolicy';
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
 import { PolicyParameterValue } from './PolicyParameterValue';
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -17,6 +18,7 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
     private 'policy_definition_id'?: string;
     private 'custom_policy'?: CustomPolicy;
     public parameters?: { [key: string]: PolicyParameterValue; };
+    public tags?: Array<ResourceTag>;
     private 'created_by'?: string;
     public constructor() { 
         super();
@@ -91,6 +93,10 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
     }
     public withParameters(parameters: { [key: string]: PolicyParameterValue; }): ShowPolicyAssignmentResponse {
         this['parameters'] = parameters;
+        return this;
+    }
+    public withTags(tags: Array<ResourceTag>): ShowPolicyAssignmentResponse {
+        this['tags'] = tags;
         return this;
     }
     public withCreatedBy(createdBy: string): ShowPolicyAssignmentResponse {

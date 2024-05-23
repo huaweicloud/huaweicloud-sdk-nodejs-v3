@@ -20,6 +20,7 @@ export class PermissionSetPermission {
     private 'row_level_security'?: string;
     private 'sync_status'?: PermissionSetPermissionSyncStatusEnum | string;
     private 'sync_msg'?: string;
+    public url?: string;
     public constructor() { 
     }
     public withId(id: string): PermissionSetPermission {
@@ -199,6 +200,10 @@ export class PermissionSetPermission {
     }
     public get syncMsg(): string | undefined {
         return this['sync_msg'];
+    }
+    public withUrl(url: string): PermissionSetPermission {
+        this['url'] = url;
+        return this;
     }
 }
 

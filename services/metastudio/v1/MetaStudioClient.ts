@@ -27,8 +27,6 @@ import { CancelPhotoDigitalHumanVideoRequest } from './model/CancelPhotoDigitalH
 import { CancelPhotoDigitalHumanVideoResponse } from './model/CancelPhotoDigitalHumanVideoResponse';
 import { ChatSubtitleConfig } from './model/ChatSubtitleConfig';
 import { ChatVideoConfigRsp } from './model/ChatVideoConfigRsp';
-import { CheckTextLanguageRequest } from './model/CheckTextLanguageRequest';
-import { CheckTextLanguageResponse } from './model/CheckTextLanguageResponse';
 import { CoStreamerConfig } from './model/CoStreamerConfig';
 import { CommentData } from './model/CommentData';
 import { CommentLogInfo } from './model/CommentLogInfo';
@@ -54,6 +52,8 @@ import { Create2dModelTrainingJobResponse } from './model/Create2dModelTrainingJ
 import { CreateActiveCodeReq } from './model/CreateActiveCodeReq';
 import { CreateActiveCodeRequest } from './model/CreateActiveCodeRequest';
 import { CreateActiveCodeResponse } from './model/CreateActiveCodeResponse';
+import { CreateAgencyWithRoleTypeRequest } from './model/CreateAgencyWithRoleTypeRequest';
+import { CreateAgencyWithRoleTypeResponse } from './model/CreateAgencyWithRoleTypeResponse';
 import { CreateAssetbyReplicationInfoRequest } from './model/CreateAssetbyReplicationInfoRequest';
 import { CreateAssetbyReplicationInfoResponse } from './model/CreateAssetbyReplicationInfoResponse';
 import { CreateBatchKnowledgeQuestionReq } from './model/CreateBatchKnowledgeQuestionReq';
@@ -76,6 +76,9 @@ import { CreateFileResponse } from './model/CreateFileResponse';
 import { CreateHotQuestionReq } from './model/CreateHotQuestionReq';
 import { CreateHotQuestionRequest } from './model/CreateHotQuestionRequest';
 import { CreateHotQuestionResponse } from './model/CreateHotQuestionResponse';
+import { CreateHotWordsReq } from './model/CreateHotWordsReq';
+import { CreateHotWordsRequest } from './model/CreateHotWordsRequest';
+import { CreateHotWordsResponse } from './model/CreateHotWordsResponse';
 import { CreateIntentAndQuestionReq } from './model/CreateIntentAndQuestionReq';
 import { CreateIntentAndQuestionRequest } from './model/CreateIntentAndQuestionRequest';
 import { CreateIntentAndQuestionResponse } from './model/CreateIntentAndQuestionResponse';
@@ -109,6 +112,7 @@ import { CreatePictureModelingJobResponse } from './model/CreatePictureModelingJ
 import { CreateRobotReq } from './model/CreateRobotReq';
 import { CreateRobotRequest } from './model/CreateRobotRequest';
 import { CreateRobotResponse } from './model/CreateRobotResponse';
+import { CreateSisHotWords } from './model/CreateSisHotWords';
 import { CreateSmartChatRoomReq } from './model/CreateSmartChatRoomReq';
 import { CreateSmartChatRoomRequest } from './model/CreateSmartChatRoomRequest';
 import { CreateSmartChatRoomResponse } from './model/CreateSmartChatRoomResponse';
@@ -143,6 +147,8 @@ import { Delete2dModelTrainingJobRequest } from './model/Delete2dModelTrainingJo
 import { Delete2dModelTrainingJobResponse } from './model/Delete2dModelTrainingJobResponse';
 import { DeleteActiveCodeRequest } from './model/DeleteActiveCodeRequest';
 import { DeleteActiveCodeResponse } from './model/DeleteActiveCodeResponse';
+import { DeleteAgencyWithRoleTypeRequest } from './model/DeleteAgencyWithRoleTypeRequest';
+import { DeleteAgencyWithRoleTypeResponse } from './model/DeleteAgencyWithRoleTypeResponse';
 import { DeleteAssetRequest } from './model/DeleteAssetRequest';
 import { DeleteAssetResponse } from './model/DeleteAssetResponse';
 import { DeleteDigitalHumanBusinessCardRequest } from './model/DeleteDigitalHumanBusinessCardRequest';
@@ -151,6 +157,8 @@ import { DeleteFileRequest } from './model/DeleteFileRequest';
 import { DeleteFileResponse } from './model/DeleteFileResponse';
 import { DeleteHotQuestionRequest } from './model/DeleteHotQuestionRequest';
 import { DeleteHotQuestionResponse } from './model/DeleteHotQuestionResponse';
+import { DeleteHotWordsRequest } from './model/DeleteHotWordsRequest';
+import { DeleteHotWordsResponse } from './model/DeleteHotWordsResponse';
 import { DeleteInteractionRuleGroupRequest } from './model/DeleteInteractionRuleGroupRequest';
 import { DeleteInteractionRuleGroupResponse } from './model/DeleteInteractionRuleGroupResponse';
 import { DeleteKnowledgeIntentRequest } from './model/DeleteKnowledgeIntentRequest';
@@ -192,6 +200,8 @@ import { FilesCreateReq } from './model/FilesCreateReq';
 import { HitCondition } from './model/HitCondition';
 import { HitConditionTag } from './model/HitConditionTag';
 import { HotQuestionInfo } from './model/HotQuestionInfo';
+import { HotWordsInfo } from './model/HotWordsInfo';
+import { HotWordsTypeEnum } from './model/HotWordsTypeEnum';
 import { HuaweiEiCbs } from './model/HuaweiEiCbs';
 import { HumanModel2DAssetMeta } from './model/HumanModel2DAssetMeta';
 import { HumanModelAssetMeta } from './model/HumanModelAssetMeta';
@@ -216,7 +226,6 @@ import { KnowledgeQuestionCreateInfo } from './model/KnowledgeQuestionCreateInfo
 import { KnowledgeQuestionInfo } from './model/KnowledgeQuestionInfo';
 import { KnowledgeQuestionUpdateInfo } from './model/KnowledgeQuestionUpdateInfo';
 import { KnowledgeSkillInfo } from './model/KnowledgeSkillInfo';
-import { LanguageCheckInfoReq } from './model/LanguageCheckInfoReq';
 import { LanguageEnum } from './model/LanguageEnum';
 import { LargeFilesCreateReq } from './model/LargeFilesCreateReq';
 import { LayerConfig } from './model/LayerConfig';
@@ -239,6 +248,8 @@ import { ListFacialAnimationsDataRequest } from './model/ListFacialAnimationsDat
 import { ListFacialAnimationsDataResponse } from './model/ListFacialAnimationsDataResponse';
 import { ListHotQuestionRequest } from './model/ListHotQuestionRequest';
 import { ListHotQuestionResponse } from './model/ListHotQuestionResponse';
+import { ListHotWordsRequest } from './model/ListHotWordsRequest';
+import { ListHotWordsResponse } from './model/ListHotWordsResponse';
 import { ListInteractionRuleGroupsRequest } from './model/ListInteractionRuleGroupsRequest';
 import { ListInteractionRuleGroupsResponse } from './model/ListInteractionRuleGroupsResponse';
 import { ListKnowledgeIntentRequest } from './model/ListKnowledgeIntentRequest';
@@ -328,6 +339,8 @@ import { Show2dModelTrainingJobRequest } from './model/Show2dModelTrainingJobReq
 import { Show2dModelTrainingJobResponse } from './model/Show2dModelTrainingJobResponse';
 import { ShowActiveCodeRequest } from './model/ShowActiveCodeRequest';
 import { ShowActiveCodeResponse } from './model/ShowActiveCodeResponse';
+import { ShowAgencyRequest } from './model/ShowAgencyRequest';
+import { ShowAgencyResponse } from './model/ShowAgencyResponse';
 import { ShowAssetReplicationInfoRequest } from './model/ShowAssetReplicationInfoRequest';
 import { ShowAssetReplicationInfoResponse } from './model/ShowAssetReplicationInfoResponse';
 import { ShowAssetRequest } from './model/ShowAssetRequest';
@@ -336,6 +349,10 @@ import { ShowDigitalHumanBusinessCardRequest } from './model/ShowDigitalHumanBus
 import { ShowDigitalHumanBusinessCardResponse } from './model/ShowDigitalHumanBusinessCardResponse';
 import { ShowHotQuestionRequest } from './model/ShowHotQuestionRequest';
 import { ShowHotQuestionResponse } from './model/ShowHotQuestionResponse';
+import { ShowHotWordsRequest } from './model/ShowHotWordsRequest';
+import { ShowHotWordsResponse } from './model/ShowHotWordsResponse';
+import { ShowHotWordsSwitchRequest } from './model/ShowHotWordsSwitchRequest';
+import { ShowHotWordsSwitchResponse } from './model/ShowHotWordsSwitchResponse';
 import { ShowJobAuditResultRequest } from './model/ShowJobAuditResultRequest';
 import { ShowJobAuditResultResponse } from './model/ShowJobAuditResultResponse';
 import { ShowJobUploadingAddressRequest } from './model/ShowJobUploadingAddressRequest';
@@ -425,6 +442,12 @@ import { UpdateDigitalHumanBusinessCardResponse } from './model/UpdateDigitalHum
 import { UpdateHotQuestionReq } from './model/UpdateHotQuestionReq';
 import { UpdateHotQuestionRequest } from './model/UpdateHotQuestionRequest';
 import { UpdateHotQuestionResponse } from './model/UpdateHotQuestionResponse';
+import { UpdateHotWordsReq } from './model/UpdateHotWordsReq';
+import { UpdateHotWordsRequest } from './model/UpdateHotWordsRequest';
+import { UpdateHotWordsResponse } from './model/UpdateHotWordsResponse';
+import { UpdateHotWordsSwitchReq } from './model/UpdateHotWordsSwitchReq';
+import { UpdateHotWordsSwitchRequest } from './model/UpdateHotWordsSwitchRequest';
+import { UpdateHotWordsSwitchResponse } from './model/UpdateHotWordsSwitchResponse';
 import { UpdateInteractionRuleGroupRequest } from './model/UpdateInteractionRuleGroupRequest';
 import { UpdateInteractionRuleGroupResponse } from './model/UpdateInteractionRuleGroupResponse';
 import { UpdateKnowledgeIntentReq } from './model/UpdateKnowledgeIntentReq';
@@ -439,6 +462,7 @@ import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillRespon
 import { UpdateRobotReq } from './model/UpdateRobotReq';
 import { UpdateRobotRequest } from './model/UpdateRobotRequest';
 import { UpdateRobotResponse } from './model/UpdateRobotResponse';
+import { UpdateSisHotWords } from './model/UpdateSisHotWords';
 import { UpdateSmartChatRoomRequest } from './model/UpdateSmartChatRoomRequest';
 import { UpdateSmartChatRoomResponse } from './model/UpdateSmartChatRoomResponse';
 import { UpdateSmartLiveRoomRequest } from './model/UpdateSmartLiveRoomRequest';
@@ -614,6 +638,63 @@ export class MetaStudioClient {
      */
     public updateActiveCode(updateActiveCodeRequest?: UpdateActiveCodeRequest): Promise<UpdateActiveCodeResponse> {
         const options = ParamCreater().updateActiveCode(updateActiveCodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建委托。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建委托
+     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAgencyWithRoleType(createAgencyWithRoleTypeRequest?: CreateAgencyWithRoleTypeRequest): Promise<CreateAgencyWithRoleTypeResponse> {
+        const options = ParamCreater().createAgencyWithRoleType(createAgencyWithRoleTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除项目下委托。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除委托
+     * @param {'CBS' | 'SIS'} roleType 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAgencyWithRoleType(deleteAgencyWithRoleTypeRequest?: DeleteAgencyWithRoleTypeRequest): Promise<DeleteAgencyWithRoleTypeResponse> {
+        const options = ParamCreater().deleteAgencyWithRoleType(deleteAgencyWithRoleTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询项目下委托
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询委托
+     * @param {'CBS' | 'SIS'} [roleType] 委托授权类型 * CBS:对话机器人服务（CBS）访客 * SIS:语音交互服务(SIS)调用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgency(showAgencyRequest?: ShowAgencyRequest): Promise<ShowAgencyResponse> {
+        const options = ParamCreater().showAgency(showAgencyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1080,6 +1161,7 @@ export class MetaStudioClient {
      * @param {string} [scriptId] 剧本ID。
      * @param {string} [assetName] 输出视频资产名称。
      * @param {string} [jobType] 任务类型。 * 2D_DIGITAL_HUMAN_VIDEO: 分身数字人视频制作任务 * PHOTO_DIGITAL_HUMAN_VIDEO: 照片数字人视频制作任务
+     * @param {string} [jobId] 任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1479,6 +1561,172 @@ export class MetaStudioClient {
      */
     public updateHotQuestion(updateHotQuestionRequest?: UpdateHotQuestionRequest): Promise<UpdateHotQuestionResponse> {
         const options = ParamCreater().updateHotQuestion(updateHotQuestionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于创建热词记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建热词记录
+     * @param {CreateHotWordsReq} createHotWordsRequestBody 创建热词请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHotWords(createHotWordsRequest?: CreateHotWordsRequest): Promise<CreateHotWordsResponse> {
+        const options = ParamCreater().createHotWords(createHotWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除热词记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除热词记录
+     * @param {string} hotWordsId 热词记录ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHotWords(deleteHotWordsRequest?: DeleteHotWordsRequest): Promise<DeleteHotWordsResponse> {
+        const options = ParamCreater().deleteHotWords(deleteHotWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询热词记录列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询热词记录列表
+     * @param {string} robotId 应用ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {number} [region] sis服务所在区域
+     * @param {'zh_CN' | 'en_US'} [language] 智能交互语言  * zh_CN:简体中文  * en_US:英语
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHotWords(listHotWordsRequest?: ListHotWordsRequest): Promise<ListHotWordsResponse> {
+        const options = ParamCreater().listHotWords(listHotWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询热词记录详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配置热词记录详情
+     * @param {string} hotWordsId 热词记录ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHotWords(showHotWordsRequest?: ShowHotWordsRequest): Promise<ShowHotWordsResponse> {
+        const options = ParamCreater().showHotWords(showHotWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询热词功能开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询热词功能开关
+     * @param {string} robotId 应用ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHotWordsSwitch(showHotWordsSwitchRequest?: ShowHotWordsSwitchRequest): Promise<ShowHotWordsSwitchResponse> {
+        const options = ParamCreater().showHotWordsSwitch(showHotWordsSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改热词记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改热词记录
+     * @param {string} hotWordsId 热词记录ID。
+     * @param {UpdateHotWordsReq} updateHotWordsRequestBody 修改热词记录请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHotWords(updateHotWordsRequest?: UpdateHotWordsRequest): Promise<UpdateHotWordsResponse> {
+        const options = ParamCreater().updateHotWords(updateHotWordsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改热词功能开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改热词功能开关
+     * @param {UpdateHotWordsSwitchReq} updateHotWordsSwitchRequestBody 修改热词功能开关请求。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHotWordsSwitch(updateHotWordsSwitchRequest?: UpdateHotWordsSwitchRequest): Promise<UpdateHotWordsSwitchResponse> {
+        const options = ParamCreater().updateHotWordsSwitch(updateHotWordsSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -2476,25 +2724,6 @@ export class MetaStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 检测音色与文本的语言一致性，音色与文本不一致会导致报错
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 检测音色与文本的语言一致性
-     * @param {LanguageCheckInfoReq} checkTextLanguageRequestBody 上传的音色语言信息和文本信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public checkTextLanguage(checkTextLanguageRequest?: CheckTextLanguageRequest): Promise<CheckTextLanguageResponse> {
-        const options = ParamCreater().checkTextLanguage(checkTextLanguageRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4164,6 +4393,117 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于创建委托。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAgencyWithRoleType(createAgencyWithRoleTypeRequest?: CreateAgencyWithRoleTypeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/agency/{role_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roleType;
+
+            if (createAgencyWithRoleTypeRequest !== null && createAgencyWithRoleTypeRequest !== undefined) {
+                if (createAgencyWithRoleTypeRequest instanceof CreateAgencyWithRoleTypeRequest) {
+                    roleType = createAgencyWithRoleTypeRequest.roleType;
+                } else {
+                    roleType = createAgencyWithRoleTypeRequest['role_type'];
+                }
+            }
+
+        
+            if (roleType === null || roleType === undefined) {
+            throw new RequiredError('roleType','Required parameter roleType was null or undefined when calling createAgencyWithRoleType.');
+            }
+
+            options.pathParams = { 'role_type': roleType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除项目下委托。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAgencyWithRoleType(deleteAgencyWithRoleTypeRequest?: DeleteAgencyWithRoleTypeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-chat/agency/{role_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let roleType;
+
+            if (deleteAgencyWithRoleTypeRequest !== null && deleteAgencyWithRoleTypeRequest !== undefined) {
+                if (deleteAgencyWithRoleTypeRequest instanceof DeleteAgencyWithRoleTypeRequest) {
+                    roleType = deleteAgencyWithRoleTypeRequest.roleType;
+                } else {
+                    roleType = deleteAgencyWithRoleTypeRequest['role_type'];
+                }
+            }
+
+        
+            if (roleType === null || roleType === undefined) {
+            throw new RequiredError('roleType','Required parameter roleType was null or undefined when calling deleteAgencyWithRoleType.');
+            }
+
+            options.pathParams = { 'role_type': roleType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询项目下委托
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgency(showAgencyRequest?: ShowAgencyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/agency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let roleType;
+
+            if (showAgencyRequest !== null && showAgencyRequest !== undefined) {
+                if (showAgencyRequest instanceof ShowAgencyRequest) {
+                    roleType = showAgencyRequest.roleType;
+                } else {
+                    roleType = showAgencyRequest['role_type'];
+                }
+            }
+
+        
+            if (roleType !== null && roleType !== undefined) {
+                localVarQueryParameter['role_type'] = roleType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于创建对话链接。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5545,6 +5885,8 @@ export const ParamCreater = function () {
             let assetName;
             
             let jobType;
+            
+            let jobId;
 
             if (listDigitalHumanVideoRequest !== null && listDigitalHumanVideoRequest !== undefined) {
                 if (listDigitalHumanVideoRequest instanceof ListDigitalHumanVideoRequest) {
@@ -5562,6 +5904,7 @@ export const ParamCreater = function () {
                     scriptId = listDigitalHumanVideoRequest.scriptId;
                     assetName = listDigitalHumanVideoRequest.assetName;
                     jobType = listDigitalHumanVideoRequest.jobType;
+                    jobId = listDigitalHumanVideoRequest.jobId;
                 } else {
                     authorization = listDigitalHumanVideoRequest['Authorization'];
                     xSdkDate = listDigitalHumanVideoRequest['X-Sdk-Date'];
@@ -5577,6 +5920,7 @@ export const ParamCreater = function () {
                     scriptId = listDigitalHumanVideoRequest['script_id'];
                     assetName = listDigitalHumanVideoRequest['asset_name'];
                     jobType = listDigitalHumanVideoRequest['job_type'];
+                    jobId = listDigitalHumanVideoRequest['job_id'];
                 }
             }
 
@@ -5610,6 +5954,9 @@ export const ParamCreater = function () {
             }
             if (jobType !== null && jobType !== undefined) {
                 localVarQueryParameter['job_type'] = jobType;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -6767,6 +7114,506 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'hot_question_id': hotQuestionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于创建热词记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHotWords(createHotWordsRequest?: CreateHotWordsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/hot-words",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createHotWordsRequest !== null && createHotWordsRequest !== undefined) {
+                if (createHotWordsRequest instanceof CreateHotWordsRequest) {
+                    body = createHotWordsRequest.body
+                    authorization = createHotWordsRequest.authorization;
+                    xSdkDate = createHotWordsRequest.xSdkDate;
+                    xProjectId = createHotWordsRequest.xProjectId;
+                    xAppUserId = createHotWordsRequest.xAppUserId;
+                } else {
+                    body = createHotWordsRequest['body'];
+                    authorization = createHotWordsRequest['Authorization'];
+                    xSdkDate = createHotWordsRequest['X-Sdk-Date'];
+                    xProjectId = createHotWordsRequest['X-Project-Id'];
+                    xAppUserId = createHotWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除热词记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHotWords(deleteHotWordsRequest?: DeleteHotWordsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/digital-human-chat/hot-words/{hot_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let hotWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteHotWordsRequest !== null && deleteHotWordsRequest !== undefined) {
+                if (deleteHotWordsRequest instanceof DeleteHotWordsRequest) {
+                    hotWordsId = deleteHotWordsRequest.hotWordsId;
+                    authorization = deleteHotWordsRequest.authorization;
+                    xSdkDate = deleteHotWordsRequest.xSdkDate;
+                    xProjectId = deleteHotWordsRequest.xProjectId;
+                    xAppUserId = deleteHotWordsRequest.xAppUserId;
+                } else {
+                    hotWordsId = deleteHotWordsRequest['hot_words_id'];
+                    authorization = deleteHotWordsRequest['Authorization'];
+                    xSdkDate = deleteHotWordsRequest['X-Sdk-Date'];
+                    xProjectId = deleteHotWordsRequest['X-Project-Id'];
+                    xAppUserId = deleteHotWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (hotWordsId === null || hotWordsId === undefined) {
+            throw new RequiredError('hotWordsId','Required parameter hotWordsId was null or undefined when calling deleteHotWords.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'hot_words_id': hotWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询热词记录列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHotWords(listHotWordsRequest?: ListHotWordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/hot-words",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let region;
+            
+            let language;
+
+            if (listHotWordsRequest !== null && listHotWordsRequest !== undefined) {
+                if (listHotWordsRequest instanceof ListHotWordsRequest) {
+                    robotId = listHotWordsRequest.robotId;
+                    authorization = listHotWordsRequest.authorization;
+                    xSdkDate = listHotWordsRequest.xSdkDate;
+                    xProjectId = listHotWordsRequest.xProjectId;
+                    xAppUserId = listHotWordsRequest.xAppUserId;
+                    offset = listHotWordsRequest.offset;
+                    limit = listHotWordsRequest.limit;
+                    region = listHotWordsRequest.region;
+                    language = listHotWordsRequest.language;
+                } else {
+                    robotId = listHotWordsRequest['robot_id'];
+                    authorization = listHotWordsRequest['Authorization'];
+                    xSdkDate = listHotWordsRequest['X-Sdk-Date'];
+                    xProjectId = listHotWordsRequest['X-Project-Id'];
+                    xAppUserId = listHotWordsRequest['X-App-UserId'];
+                    offset = listHotWordsRequest['offset'];
+                    limit = listHotWordsRequest['limit'];
+                    region = listHotWordsRequest['region'];
+                    language = listHotWordsRequest['language'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling listHotWords.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询热词记录详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHotWords(showHotWordsRequest?: ShowHotWordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/hot-words/{hot_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let hotWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showHotWordsRequest !== null && showHotWordsRequest !== undefined) {
+                if (showHotWordsRequest instanceof ShowHotWordsRequest) {
+                    hotWordsId = showHotWordsRequest.hotWordsId;
+                    authorization = showHotWordsRequest.authorization;
+                    xSdkDate = showHotWordsRequest.xSdkDate;
+                    xProjectId = showHotWordsRequest.xProjectId;
+                    xAppUserId = showHotWordsRequest.xAppUserId;
+                } else {
+                    hotWordsId = showHotWordsRequest['hot_words_id'];
+                    authorization = showHotWordsRequest['Authorization'];
+                    xSdkDate = showHotWordsRequest['X-Sdk-Date'];
+                    xProjectId = showHotWordsRequest['X-Project-Id'];
+                    xAppUserId = showHotWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (hotWordsId === null || hotWordsId === undefined) {
+            throw new RequiredError('hotWordsId','Required parameter hotWordsId was null or undefined when calling showHotWords.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'hot_words_id': hotWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询热词功能开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHotWordsSwitch(showHotWordsSwitchRequest?: ShowHotWordsSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/digital-human-chat/hot-words-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let robotId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showHotWordsSwitchRequest !== null && showHotWordsSwitchRequest !== undefined) {
+                if (showHotWordsSwitchRequest instanceof ShowHotWordsSwitchRequest) {
+                    robotId = showHotWordsSwitchRequest.robotId;
+                    authorization = showHotWordsSwitchRequest.authorization;
+                    xSdkDate = showHotWordsSwitchRequest.xSdkDate;
+                    xProjectId = showHotWordsSwitchRequest.xProjectId;
+                    xAppUserId = showHotWordsSwitchRequest.xAppUserId;
+                } else {
+                    robotId = showHotWordsSwitchRequest['robot_id'];
+                    authorization = showHotWordsSwitchRequest['Authorization'];
+                    xSdkDate = showHotWordsSwitchRequest['X-Sdk-Date'];
+                    xProjectId = showHotWordsSwitchRequest['X-Project-Id'];
+                    xAppUserId = showHotWordsSwitchRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (robotId === null || robotId === undefined) {
+                throw new RequiredError('robotId','Required parameter robotId was null or undefined when calling showHotWordsSwitch.');
+            }
+            if (robotId !== null && robotId !== undefined) {
+                localVarQueryParameter['robot_id'] = robotId;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改热词记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHotWords(updateHotWordsRequest?: UpdateHotWordsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/digital-human-chat/hot-words/{hot_words_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let hotWordsId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateHotWordsRequest !== null && updateHotWordsRequest !== undefined) {
+                if (updateHotWordsRequest instanceof UpdateHotWordsRequest) {
+                    hotWordsId = updateHotWordsRequest.hotWordsId;
+                    body = updateHotWordsRequest.body
+                    authorization = updateHotWordsRequest.authorization;
+                    xSdkDate = updateHotWordsRequest.xSdkDate;
+                    xProjectId = updateHotWordsRequest.xProjectId;
+                    xAppUserId = updateHotWordsRequest.xAppUserId;
+                } else {
+                    hotWordsId = updateHotWordsRequest['hot_words_id'];
+                    body = updateHotWordsRequest['body'];
+                    authorization = updateHotWordsRequest['Authorization'];
+                    xSdkDate = updateHotWordsRequest['X-Sdk-Date'];
+                    xProjectId = updateHotWordsRequest['X-Project-Id'];
+                    xAppUserId = updateHotWordsRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (hotWordsId === null || hotWordsId === undefined) {
+            throw new RequiredError('hotWordsId','Required parameter hotWordsId was null or undefined when calling updateHotWords.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'hot_words_id': hotWordsId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改热词功能开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHotWordsSwitch(updateHotWordsSwitchRequest?: UpdateHotWordsSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-human-chat/hot-words-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateHotWordsSwitchRequest !== null && updateHotWordsSwitchRequest !== undefined) {
+                if (updateHotWordsSwitchRequest instanceof UpdateHotWordsSwitchRequest) {
+                    body = updateHotWordsSwitchRequest.body
+                    authorization = updateHotWordsSwitchRequest.authorization;
+                    xSdkDate = updateHotWordsSwitchRequest.xSdkDate;
+                    xProjectId = updateHotWordsSwitchRequest.xProjectId;
+                    xAppUserId = updateHotWordsSwitchRequest.xAppUserId;
+                } else {
+                    body = updateHotWordsSwitchRequest['body'];
+                    authorization = updateHotWordsSwitchRequest['Authorization'];
+                    xSdkDate = updateHotWordsSwitchRequest['X-Sdk-Date'];
+                    xProjectId = updateHotWordsSwitchRequest['X-Project-Id'];
+                    xAppUserId = updateHotWordsSwitchRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9835,44 +10682,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'room_id': roomId,'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 检测音色与文本的语言一致性，音色与文本不一致会导致报错
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        checkTextLanguage(checkTextLanguageRequest?: CheckTextLanguageRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/smart-live-rooms-scripts/language-check",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (checkTextLanguageRequest !== null && checkTextLanguageRequest !== undefined) {
-                if (checkTextLanguageRequest instanceof CheckTextLanguageRequest) {
-                    body = checkTextLanguageRequest.body
-                } else {
-                    body = checkTextLanguageRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

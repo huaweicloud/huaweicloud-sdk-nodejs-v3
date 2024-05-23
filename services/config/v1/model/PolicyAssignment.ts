@@ -1,6 +1,7 @@
 import { CustomPolicy } from './CustomPolicy';
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
 import { PolicyParameterValue } from './PolicyParameterValue';
+import { ResourceTag } from './ResourceTag';
 
 
 export class PolicyAssignment {
@@ -16,6 +17,7 @@ export class PolicyAssignment {
     private 'policy_definition_id'?: string;
     private 'custom_policy'?: CustomPolicy;
     public parameters?: { [key: string]: PolicyParameterValue; };
+    public tags?: Array<ResourceTag>;
     private 'created_by'?: string;
     public constructor() { 
     }
@@ -89,6 +91,10 @@ export class PolicyAssignment {
     }
     public withParameters(parameters: { [key: string]: PolicyParameterValue; }): PolicyAssignment {
         this['parameters'] = parameters;
+        return this;
+    }
+    public withTags(tags: Array<ResourceTag>): PolicyAssignment {
+        this['tags'] = tags;
         return this;
     }
     public withCreatedBy(createdBy: string): PolicyAssignment {

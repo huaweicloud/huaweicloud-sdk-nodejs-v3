@@ -35,6 +35,8 @@ import { ConformancePackScore } from './model/ConformancePackScore';
 import { ConformancePackTemplate } from './model/ConformancePackTemplate';
 import { CountAllResourcesRequest } from './model/CountAllResourcesRequest';
 import { CountAllResourcesResponse } from './model/CountAllResourcesResponse';
+import { CountResourcesByTagRequest } from './model/CountResourcesByTagRequest';
+import { CountResourcesByTagResponse } from './model/CountResourcesByTagResponse';
 import { CountTrackedResourcesRequest } from './model/CountTrackedResourcesRequest';
 import { CountTrackedResourcesResponse } from './model/CountTrackedResourcesResponse';
 import { CreateAggregationAuthorizationRequest } from './model/CreateAggregationAuthorizationRequest';
@@ -122,17 +124,24 @@ import { ListProvidersRequest } from './model/ListProvidersRequest';
 import { ListProvidersResponse } from './model/ListProvidersResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
 import { ListRegionsResponse } from './model/ListRegionsResponse';
+import { ListResourcesByTagRequest } from './model/ListResourcesByTagRequest';
+import { ListResourcesByTagResponse } from './model/ListResourcesByTagResponse';
 import { ListResourcesRequest } from './model/ListResourcesRequest';
 import { ListResourcesResponse } from './model/ListResourcesResponse';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListStoredQueriesRequest } from './model/ListStoredQueriesRequest';
 import { ListStoredQueriesResponse } from './model/ListStoredQueriesResponse';
+import { ListTagsForResourceRequest } from './model/ListTagsForResourceRequest';
+import { ListTagsForResourceResponse } from './model/ListTagsForResourceResponse';
+import { ListTagsForResourceTypeRequest } from './model/ListTagsForResourceTypeRequest';
+import { ListTagsForResourceTypeResponse } from './model/ListTagsForResourceTypeResponse';
 import { ListTrackedResourceTagsRequest } from './model/ListTrackedResourceTagsRequest';
 import { ListTrackedResourceTagsResponse } from './model/ListTrackedResourceTagsResponse';
 import { ListTrackedResourcesRequest } from './model/ListTrackedResourcesRequest';
 import { ListTrackedResourcesResponse } from './model/ListTrackedResourcesResponse';
 import { ManagedPolicyAssignmentMetadata } from './model/ManagedPolicyAssignmentMetadata';
+import { Match } from './model/Match';
 import { OrgConformancePackDetailedStatus } from './model/OrgConformancePackDetailedStatus';
 import { OrgConformancePackRequestBody } from './model/OrgConformancePackRequestBody';
 import { OrgConformancePackResponse } from './model/OrgConformancePackResponse';
@@ -160,13 +169,17 @@ import { Region } from './model/Region';
 import { ResourceCountsFilters } from './model/ResourceCountsFilters';
 import { ResourceEntity } from './model/ResourceEntity';
 import { ResourceIdentifier } from './model/ResourceIdentifier';
+import { ResourceInstancesReq } from './model/ResourceInstancesReq';
 import { ResourceProviderResponse } from './model/ResourceProviderResponse';
 import { ResourceRelation } from './model/ResourceRelation';
+import { ResourceResp } from './model/ResourceResp';
 import { ResourceSchemaResponse } from './model/ResourceSchemaResponse';
 import { ResourceSummaryResponseItem } from './model/ResourceSummaryResponseItem';
 import { ResourceSummaryResponseItemRegions } from './model/ResourceSummaryResponseItemRegions';
 import { ResourceSummaryResponseItemTypes } from './model/ResourceSummaryResponseItemTypes';
+import { ResourceTag } from './model/ResourceTag';
 import { ResourceTypeResponse } from './model/ResourceTypeResponse';
+import { ResourceUnTag } from './model/ResourceUnTag';
 import { ResourcesFilters } from './model/ResourcesFilters';
 import { RunAggregateResourceQueryRequest } from './model/RunAggregateResourceQueryRequest';
 import { RunAggregateResourceQueryResponse } from './model/RunAggregateResourceQueryResponse';
@@ -227,11 +240,18 @@ import { ShowTrackerConfigRequest } from './model/ShowTrackerConfigRequest';
 import { ShowTrackerConfigResponse } from './model/ShowTrackerConfigResponse';
 import { StoredQuery } from './model/StoredQuery';
 import { StoredQueryRequestBody } from './model/StoredQueryRequestBody';
+import { Tag } from './model/Tag';
 import { TagDetail } from './model/TagDetail';
+import { TagResourceRequest } from './model/TagResourceRequest';
+import { TagResourceResponse } from './model/TagResourceResponse';
+import { TagsReq } from './model/TagsReq';
 import { TemplateParameterDefinition } from './model/TemplateParameterDefinition';
 import { TrackerConfigBody } from './model/TrackerConfigBody';
 import { TrackerOBSChannelConfigBody } from './model/TrackerOBSChannelConfigBody';
 import { TrackerSMNChannelConfigBody } from './model/TrackerSMNChannelConfigBody';
+import { UnTagResourceRequest } from './model/UnTagResourceRequest';
+import { UnTagResourceResponse } from './model/UnTagResourceResponse';
+import { UnTagsReq } from './model/UnTagsReq';
 import { UpdateConfigurationAggregatorRequest } from './model/UpdateConfigurationAggregatorRequest';
 import { UpdateConfigurationAggregatorResponse } from './model/UpdateConfigurationAggregatorResponse';
 import { UpdateConformancePackRequest } from './model/UpdateConformancePackRequest';
@@ -1991,6 +2011,131 @@ export class ConfigClient {
      */
     public showTrackedResourceDetail(showTrackedResourceDetailRequest?: ShowTrackedResourceDetailRequest): Promise<ShowTrackedResourceDetailResponse> {
         const options = ParamCreater().showTrackedResourceDetail(showTrackedResourceDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤实例，标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力。注意：tags, tags_any, not_tags, not_tags_any等字段支持的tag的数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例数量
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {ResourceInstancesReq} resourceInstancesReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countResourcesByTag(countResourcesByTagRequest?: CountResourcesByTagRequest): Promise<CountResourcesByTagResponse> {
+        const options = ParamCreater().countResourcesByTag(countResourcesByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤实例，标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力。注意：tags, tags_any, not_tags, not_tags_any等字段支持的tag的数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例列表
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {ResourceInstancesReq} resourceInstancesReq 
+     * @param {number} [limit] 查询记录数（action为count时无此参数）如果action为filter默认为1000，limit最多为1000,不能为负数，最小值为1
+     * @param {number} [offset] 索引位置，偏移量（action为count时无此参数）从第一条数据偏移offset条数据后开始查询，如果action为filter默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourcesByTag(listResourcesByTagRequest?: ListResourcesByTagRequest): Promise<ListResourcesByTagResponse> {
+        const options = ParamCreater().listResourcesByTag(listResourcesByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的标签信息。标签管理服务需要使用该接口查询指定实例的全部标签数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTagsForResource(listTagsForResourceRequest?: ListTagsForResourceRequest): Promise<ListTagsForResourceResponse> {
+        const options = ParamCreater().listTagsForResource(listTagsForResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户在指定Project中实例类型的所有资源标签集合。标签管理服务需要能够列出当前租户全部已使用的资源标签集合，为各服务Console打资源标签和过滤实例时提供标签联想功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目标签
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {number} [limit] 查询记录数默认为1000，limit最多为1000,不能为负数，最小值为1
+     * @param {number} [offset] 索引位置，从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTagsForResourceType(listTagsForResourceTypeRequest?: ListTagsForResourceTypeRequest): Promise<ListTagsForResourceTypeResponse> {
+        const options = ParamCreater().listTagsForResourceType(listTagsForResourceTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口为幂等接口。为指定实例批量添加或删除标签，标签管理服务需要使用该接口批量管理实例的标签。一个资源上最多有20个标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加资源标签
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {TagsReq} tagsReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public tagResource(tagResourceRequest?: TagResourceRequest): Promise<TagResourceResponse> {
+        const options = ParamCreater().tagResource(tagResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 此接口为幂等接口。为指定实例批量添加或删除标签，标签管理服务需要使用该接口批量管理实例的标签。一个资源上最多有20个标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除资源标签
+     * @param {'config:policyAssignments'} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {UnTagsReq} unTagsReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unTagResource(unTagResourceRequest?: UnTagResourceRequest): Promise<UnTagResourceResponse> {
+        const options = ParamCreater().unTagResource(unTagResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6222,6 +6367,315 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤实例，标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力。注意：tags, tags_any, not_tags, not_tags_any等字段支持的tag的数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countResourcesByTag(countResourcesByTagRequest?: CountResourcesByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/{resource_type}/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+
+            if (countResourcesByTagRequest !== null && countResourcesByTagRequest !== undefined) {
+                if (countResourcesByTagRequest instanceof CountResourcesByTagRequest) {
+                    resourceType = countResourcesByTagRequest.resourceType;
+                    body = countResourcesByTagRequest.body
+                } else {
+                    resourceType = countResourcesByTagRequest['resource_type'];
+                    body = countResourcesByTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling countResourcesByTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤实例，标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力。注意：tags, tags_any, not_tags, not_tags_any等字段支持的tag的数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourcesByTag(listResourcesByTagRequest?: ListResourcesByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/{resource_type}/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listResourcesByTagRequest !== null && listResourcesByTagRequest !== undefined) {
+                if (listResourcesByTagRequest instanceof ListResourcesByTagRequest) {
+                    resourceType = listResourcesByTagRequest.resourceType;
+                    body = listResourcesByTagRequest.body
+                    limit = listResourcesByTagRequest.limit;
+                    offset = listResourcesByTagRequest.offset;
+                } else {
+                    resourceType = listResourcesByTagRequest['resource_type'];
+                    body = listResourcesByTagRequest['body'];
+                    limit = listResourcesByTagRequest['limit'];
+                    offset = listResourcesByTagRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listResourcesByTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的标签信息。标签管理服务需要使用该接口查询指定实例的全部标签数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTagsForResource(listTagsForResourceRequest?: ListTagsForResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (listTagsForResourceRequest !== null && listTagsForResourceRequest !== undefined) {
+                if (listTagsForResourceRequest instanceof ListTagsForResourceRequest) {
+                    resourceType = listTagsForResourceRequest.resourceType;
+                    resourceId = listTagsForResourceRequest.resourceId;
+                } else {
+                    resourceType = listTagsForResourceRequest['resource_type'];
+                    resourceId = listTagsForResourceRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTagsForResource.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listTagsForResource.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户在指定Project中实例类型的所有资源标签集合。标签管理服务需要能够列出当前租户全部已使用的资源标签集合，为各服务Console打资源标签和过滤实例时提供标签联想功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTagsForResourceType(listTagsForResourceTypeRequest?: ListTagsForResourceTypeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+            
+            let limit;
+            
+            let offset;
+
+            if (listTagsForResourceTypeRequest !== null && listTagsForResourceTypeRequest !== undefined) {
+                if (listTagsForResourceTypeRequest instanceof ListTagsForResourceTypeRequest) {
+                    resourceType = listTagsForResourceTypeRequest.resourceType;
+                    limit = listTagsForResourceTypeRequest.limit;
+                    offset = listTagsForResourceTypeRequest.offset;
+                } else {
+                    resourceType = listTagsForResourceTypeRequest['resource_type'];
+                    limit = listTagsForResourceTypeRequest['limit'];
+                    offset = listTagsForResourceTypeRequest['offset'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listTagsForResourceType.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口为幂等接口。为指定实例批量添加或删除标签，标签管理服务需要使用该接口批量管理实例的标签。一个资源上最多有20个标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        tagResource(tagResourceRequest?: TagResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (tagResourceRequest !== null && tagResourceRequest !== undefined) {
+                if (tagResourceRequest instanceof TagResourceRequest) {
+                    resourceType = tagResourceRequest.resourceType;
+                    resourceId = tagResourceRequest.resourceId;
+                    body = tagResourceRequest.body
+                } else {
+                    resourceType = tagResourceRequest['resource_type'];
+                    resourceId = tagResourceRequest['resource_id'];
+                    body = tagResourceRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling tagResource.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling tagResource.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 此接口为幂等接口。为指定实例批量添加或删除标签，标签管理服务需要使用该接口批量管理实例的标签。一个资源上最多有20个标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unTagResource(unTagResourceRequest?: UnTagResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (unTagResourceRequest !== null && unTagResourceRequest !== undefined) {
+                if (unTagResourceRequest instanceof UnTagResourceRequest) {
+                    resourceType = unTagResourceRequest.resourceType;
+                    resourceId = unTagResourceRequest.resourceId;
+                    body = unTagResourceRequest.body
+                } else {
+                    resourceType = unTagResourceRequest['resource_type'];
+                    resourceId = unTagResourceRequest['resource_id'];
+                    body = unTagResourceRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling unTagResource.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling unTagResource.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,6 +4,8 @@ export class MobvoiConfig {
     private 'app_key'?: string;
     private 'app_secret'?: string;
     private 'role_id'?: string;
+    private 'sis_region'?: number;
+    private 'sis_project_id'?: string;
     public constructor() { 
     }
     public withAppKey(appKey: string): MobvoiConfig {
@@ -35,5 +37,25 @@ export class MobvoiConfig {
     }
     public get roleId(): string | undefined {
         return this['role_id'];
+    }
+    public withSisRegion(sisRegion: number): MobvoiConfig {
+        this['sis_region'] = sisRegion;
+        return this;
+    }
+    public set sisRegion(sisRegion: number  | undefined) {
+        this['sis_region'] = sisRegion;
+    }
+    public get sisRegion(): number | undefined {
+        return this['sis_region'];
+    }
+    public withSisProjectId(sisProjectId: string): MobvoiConfig {
+        this['sis_project_id'] = sisProjectId;
+        return this;
+    }
+    public set sisProjectId(sisProjectId: string  | undefined) {
+        this['sis_project_id'] = sisProjectId;
+    }
+    public get sisProjectId(): string | undefined {
+        return this['sis_project_id'];
     }
 }

@@ -1,6 +1,7 @@
 import { LbaasListenersResult } from './LbaasListenersResult';
 import { NetworksResult } from './NetworksResult';
 import { SecurityGroupsResult } from './SecurityGroupsResult';
+import { TagsSingleValue } from './TagsSingleValue';
 
 
 export class ScalingGroups {
@@ -36,6 +37,7 @@ export class ScalingGroups {
     private 'multi_az_priority_policy'?: string;
     private 'iam_agency_name'?: string;
     public description?: string;
+    public tags?: Array<TagsSingleValue>;
     public constructor() { 
     }
     public withScalingGroupName(scalingGroupName: string): ScalingGroups {
@@ -332,6 +334,10 @@ export class ScalingGroups {
     }
     public withDescription(description: string): ScalingGroups {
         this['description'] = description;
+        return this;
+    }
+    public withTags(tags: Array<TagsSingleValue>): ScalingGroups {
+        this['tags'] = tags;
         return this;
     }
 }
