@@ -1,3 +1,14 @@
+# 3.1.97 2024-05-29
+
+### HuaweiCloud SDK Core
+
+- _Features_
+  - None
+- _Bug Fix_
+  - Fix some problems
+- _Change_
+  - None
+
 # 3.1.96 2024-05-23
 
 ### HuaweiCloud SDK AS
