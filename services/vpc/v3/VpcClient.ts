@@ -2,10 +2,14 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddClouddcnSubnetsTagsRequest } from './model/AddClouddcnSubnetsTagsRequest';
+import { AddClouddcnSubnetsTagsResponse } from './model/AddClouddcnSubnetsTagsResponse';
 import { AddExtendCidrOption } from './model/AddExtendCidrOption';
 import { AddFirewallRulesRequest } from './model/AddFirewallRulesRequest';
 import { AddFirewallRulesRequestBody } from './model/AddFirewallRulesRequestBody';
 import { AddFirewallRulesResponse } from './model/AddFirewallRulesResponse';
+import { AddResourceTagsRequestBody } from './model/AddResourceTagsRequestBody';
+import { AddResourceTagsRequestBodyTag } from './model/AddResourceTagsRequestBodyTag';
 import { AddSecurityGroupsRequest } from './model/AddSecurityGroupsRequest';
 import { AddSecurityGroupsRequestBody } from './model/AddSecurityGroupsRequestBody';
 import { AddSecurityGroupsResponse } from './model/AddSecurityGroupsResponse';
@@ -20,6 +24,11 @@ import { AllowedAddressPair } from './model/AllowedAddressPair';
 import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
 import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
 import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
+import { BatchCreateClouddcnSubnetsTagsRequest } from './model/BatchCreateClouddcnSubnetsTagsRequest';
+import { BatchCreateClouddcnSubnetsTagsResponse } from './model/BatchCreateClouddcnSubnetsTagsResponse';
+import { BatchCreateRequestBody } from './model/BatchCreateRequestBody';
+import { BatchCreateRequestBodySysTags } from './model/BatchCreateRequestBodySysTags';
+import { BatchCreateRequestBodyTags } from './model/BatchCreateRequestBodyTags';
 import { BatchCreateSecurityGroupRulesOption } from './model/BatchCreateSecurityGroupRulesOption';
 import { BatchCreateSecurityGroupRulesRequest } from './model/BatchCreateSecurityGroupRulesRequest';
 import { BatchCreateSecurityGroupRulesRequestBody } from './model/BatchCreateSecurityGroupRulesRequestBody';
@@ -28,11 +37,22 @@ import { BatchCreateSubNetworkInterfaceOption } from './model/BatchCreateSubNetw
 import { BatchCreateSubNetworkInterfaceRequest } from './model/BatchCreateSubNetworkInterfaceRequest';
 import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSubNetworkInterfaceRequestBody';
 import { BatchCreateSubNetworkInterfaceResponse } from './model/BatchCreateSubNetworkInterfaceResponse';
+import { BatchDeleteClouddcnSubnetsTagsRequest } from './model/BatchDeleteClouddcnSubnetsTagsRequest';
+import { BatchDeleteClouddcnSubnetsTagsResponse } from './model/BatchDeleteClouddcnSubnetsTagsResponse';
+import { BatchDeleteRequestBody } from './model/BatchDeleteRequestBody';
+import { BatchDeleteRequestBodySysTags } from './model/BatchDeleteRequestBodySysTags';
+import { BatchDeleteRequestBodyTags } from './model/BatchDeleteRequestBodyTags';
 import { CloudResource } from './model/CloudResource';
+import { ClouddcnResource } from './model/ClouddcnResource';
+import { ClouddcnSubnet } from './model/ClouddcnSubnet';
 import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
 import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
 import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
 import { CreateAddressGroupResponse } from './model/CreateAddressGroupResponse';
+import { CreateClouddcnSubnetOption } from './model/CreateClouddcnSubnetOption';
+import { CreateClouddcnSubnetRequest } from './model/CreateClouddcnSubnetRequest';
+import { CreateClouddcnSubnetRequestBody } from './model/CreateClouddcnSubnetRequestBody';
+import { CreateClouddcnSubnetResponse } from './model/CreateClouddcnSubnetResponse';
 import { CreateFirewallOption } from './model/CreateFirewallOption';
 import { CreateFirewallRequest } from './model/CreateFirewallRequest';
 import { CreateFirewallRequestBody } from './model/CreateFirewallRequestBody';
@@ -67,6 +87,10 @@ import { CreateVpcRequestBody } from './model/CreateVpcRequestBody';
 import { CreateVpcResponse } from './model/CreateVpcResponse';
 import { DeleteAddressGroupRequest } from './model/DeleteAddressGroupRequest';
 import { DeleteAddressGroupResponse } from './model/DeleteAddressGroupResponse';
+import { DeleteClouddcnSubnetRequest } from './model/DeleteClouddcnSubnetRequest';
+import { DeleteClouddcnSubnetResponse } from './model/DeleteClouddcnSubnetResponse';
+import { DeleteClouddcnSubnetsTagRequest } from './model/DeleteClouddcnSubnetsTagRequest';
+import { DeleteClouddcnSubnetsTagResponse } from './model/DeleteClouddcnSubnetsTagResponse';
 import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
 import { DeleteFirewallResponse } from './model/DeleteFirewallResponse';
 import { DeleteIpAddressGroupForceRequest } from './model/DeleteIpAddressGroupForceRequest';
@@ -102,9 +126,18 @@ import { IpExtraSetOption } from './model/IpExtraSetOption';
 import { IpExtraSetRespOption } from './model/IpExtraSetRespOption';
 import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
 import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
+import { ListClouddcnSubnetsCountFilterTagsRequest } from './model/ListClouddcnSubnetsCountFilterTagsRequest';
+import { ListClouddcnSubnetsCountFilterTagsResponse } from './model/ListClouddcnSubnetsCountFilterTagsResponse';
+import { ListClouddcnSubnetsFilterTagsRequest } from './model/ListClouddcnSubnetsFilterTagsRequest';
+import { ListClouddcnSubnetsFilterTagsResponse } from './model/ListClouddcnSubnetsFilterTagsResponse';
+import { ListClouddcnSubnetsRequest } from './model/ListClouddcnSubnetsRequest';
+import { ListClouddcnSubnetsResponse } from './model/ListClouddcnSubnetsResponse';
+import { ListClouddcnSubnetsTagsRequest } from './model/ListClouddcnSubnetsTagsRequest';
+import { ListClouddcnSubnetsTagsResponse } from './model/ListClouddcnSubnetsTagsResponse';
 import { ListFirewallDetail } from './model/ListFirewallDetail';
 import { ListFirewallRequest } from './model/ListFirewallRequest';
 import { ListFirewallResponse } from './model/ListFirewallResponse';
+import { ListResourcesByTagsRequestBody } from './model/ListResourcesByTagsRequestBody';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
@@ -141,11 +174,16 @@ import { RemoveVpcExtendCidrRequest } from './model/RemoveVpcExtendCidrRequest';
 import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrRequestBody';
 import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTags } from './model/ResourceTags';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
 import { ShowAddressGroupRequest } from './model/ShowAddressGroupRequest';
 import { ShowAddressGroupResponse } from './model/ShowAddressGroupResponse';
+import { ShowClouddcnSubnetRequest } from './model/ShowClouddcnSubnetRequest';
+import { ShowClouddcnSubnetResponse } from './model/ShowClouddcnSubnetResponse';
+import { ShowClouddcnSubnetsTagsRequest } from './model/ShowClouddcnSubnetsTagsRequest';
+import { ShowClouddcnSubnetsTagsResponse } from './model/ShowClouddcnSubnetsTagsResponse';
 import { ShowFirewallRequest } from './model/ShowFirewallRequest';
 import { ShowFirewallResponse } from './model/ShowFirewallResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
@@ -165,7 +203,9 @@ import { ShowTrafficMirrorSessionResponse } from './model/ShowTrafficMirrorSessi
 import { ShowVpcRequest } from './model/ShowVpcRequest';
 import { ShowVpcResponse } from './model/ShowVpcResponse';
 import { SubNetworkInterface } from './model/SubNetworkInterface';
+import { SysTag } from './model/SysTag';
 import { Tag } from './model/Tag';
+import { TagEntity } from './model/TagEntity';
 import { TrafficMirrorFilter } from './model/TrafficMirrorFilter';
 import { TrafficMirrorFilterRule } from './model/TrafficMirrorFilterRule';
 import { TrafficMirrorSession } from './model/TrafficMirrorSession';
@@ -174,6 +214,10 @@ import { UpdateAddressGroupOption } from './model/UpdateAddressGroupOption';
 import { UpdateAddressGroupRequest } from './model/UpdateAddressGroupRequest';
 import { UpdateAddressGroupRequestBody } from './model/UpdateAddressGroupRequestBody';
 import { UpdateAddressGroupResponse } from './model/UpdateAddressGroupResponse';
+import { UpdateClouddcnSubnetOption } from './model/UpdateClouddcnSubnetOption';
+import { UpdateClouddcnSubnetRequest } from './model/UpdateClouddcnSubnetRequest';
+import { UpdateClouddcnSubnetRequestBody } from './model/UpdateClouddcnSubnetRequestBody';
+import { UpdateClouddcnSubnetResponse } from './model/UpdateClouddcnSubnetResponse';
 import { UpdateFirewallOption } from './model/UpdateFirewallOption';
 import { UpdateFirewallRequest } from './model/UpdateFirewallRequest';
 import { UpdateFirewallRequestBody } from './model/UpdateFirewallRequestBody';
@@ -1183,6 +1227,261 @@ export class VpcClient {
      */
     public updateFirewallRules(updateFirewallRulesRequest?: UpdateFirewallRulesRequest): Promise<UpdateFirewallRulesResponse> {
         const options = ParamCreater().updateFirewallRules(updateFirewallRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加Clouddcn子网的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加Clouddcn子网标签
+     * @param {string} resourceId Clouddcn子网的id
+     * @param {AddResourceTagsRequestBody} addClouddcnSubnetsTagsRequestBody 创建clouddcn子网对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addClouddcnSubnetsTags(addClouddcnSubnetsTagsRequest?: AddClouddcnSubnetsTagsRequest): Promise<AddClouddcnSubnetsTagsResponse> {
+        const options = ParamCreater().addClouddcnSubnetsTags(addClouddcnSubnetsTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加Clouddcn子网的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加Clouddcn子网标签
+     * @param {string} resourceId Clouddcn子网的id
+     * @param {BatchCreateRequestBody} listResourcesByTagsRequestBody 查询资源实例列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateClouddcnSubnetsTags(batchCreateClouddcnSubnetsTagsRequest?: BatchCreateClouddcnSubnetsTagsRequest): Promise<BatchCreateClouddcnSubnetsTagsResponse> {
+        const options = ParamCreater().batchCreateClouddcnSubnetsTags(batchCreateClouddcnSubnetsTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除Clouddcn子网的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除Clouddcn子网标签
+     * @param {string} resourceId Clouddcn子网的id
+     * @param {BatchDeleteRequestBody} batchDeleteClouddcnSubnetsTagsRequestBody 查询资源实例列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteClouddcnSubnetsTags(batchDeleteClouddcnSubnetsTagsRequest?: BatchDeleteClouddcnSubnetsTagsRequest): Promise<BatchDeleteClouddcnSubnetsTagsResponse> {
+        const options = ParamCreater().batchDeleteClouddcnSubnetsTags(batchDeleteClouddcnSubnetsTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建clouddcn子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建clouddcn子网
+     * @param {CreateClouddcnSubnetRequestBody} createClouddcnSubnetRequestBody 创建clouddcn子网对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClouddcnSubnet(createClouddcnSubnetRequest?: CreateClouddcnSubnetRequest): Promise<CreateClouddcnSubnetResponse> {
+        const options = ParamCreater().createClouddcnSubnet(createClouddcnSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除clouddcn子网
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除clouddcn子网
+     * @param {string} clouddcnSubnetId clouddcn子网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClouddcnSubnet(deleteClouddcnSubnetRequest?: DeleteClouddcnSubnetRequest): Promise<DeleteClouddcnSubnetResponse> {
+        const options = ParamCreater().deleteClouddcnSubnet(deleteClouddcnSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Clouddcn子网的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Clouddcn子网标签
+     * @param {string} resourceId Clouddcn子网的id
+     * @param {string} tagKey 待删除标签的key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClouddcnSubnetsTag(deleteClouddcnSubnetsTagRequest?: DeleteClouddcnSubnetsTagRequest): Promise<DeleteClouddcnSubnetsTagResponse> {
+        const options = ParamCreater().deleteClouddcnSubnetsTag(deleteClouddcnSubnetsTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询clouddcn子网列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询clouddcn子网列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源id，为空时查询第一页
+     * @param {string} [vpcId] 按照vpc_id过滤查询 企业项目细粒度授权场景下，该字段必传
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClouddcnSubnets(listClouddcnSubnetsRequest?: ListClouddcnSubnetsRequest): Promise<ListClouddcnSubnetsResponse> {
+        const options = ParamCreater().listClouddcnSubnets(listClouddcnSubnetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源实例列表数目
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例列表数目
+     * @param {ListResourcesByTagsRequestBody} listResourcesByTagsRequestBody 查询资源实例列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClouddcnSubnetsCountFilterTags(listClouddcnSubnetsCountFilterTagsRequest?: ListClouddcnSubnetsCountFilterTagsRequest): Promise<ListClouddcnSubnetsCountFilterTagsResponse> {
+        const options = ParamCreater().listClouddcnSubnetsCountFilterTags(listClouddcnSubnetsCountFilterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例列表
+     * @param {ListResourcesByTagsRequestBody} listResourcesByTagsRequestBody 查询资源实例列表请求体
+     * @param {number} [limit] 每页返回的个数
+     * @param {number} [offset] 分页起始点
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClouddcnSubnetsFilterTags(listClouddcnSubnetsFilterTagsRequest?: ListClouddcnSubnetsFilterTagsRequest): Promise<ListClouddcnSubnetsFilterTagsResponse> {
+        const options = ParamCreater().listClouddcnSubnetsFilterTags(listClouddcnSubnetsFilterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Clouddcn子网的项目标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Clouddcn子网项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClouddcnSubnetsTags(listClouddcnSubnetsTagsRequest?: ListClouddcnSubnetsTagsRequest): Promise<ListClouddcnSubnetsTagsResponse> {
+        const options = ParamCreater().listClouddcnSubnetsTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询clouddcn子网详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询clouddcn子网
+     * @param {string} clouddcnSubnetId clouddcn子网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClouddcnSubnet(showClouddcnSubnetRequest?: ShowClouddcnSubnetRequest): Promise<ShowClouddcnSubnetResponse> {
+        const options = ParamCreater().showClouddcnSubnet(showClouddcnSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Clouddcn子网的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Clouddcn子网标签
+     * @param {string} resourceId Clouddcn子网的id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClouddcnSubnetsTags(showClouddcnSubnetsTagsRequest?: ShowClouddcnSubnetsTagsRequest): Promise<ShowClouddcnSubnetsTagsResponse> {
+        const options = ParamCreater().showClouddcnSubnetsTags(showClouddcnSubnetsTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新clouddcn子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新clouddcn子网
+     * @param {string} clouddcnSubnetId clouddcn子网ID
+     * @param {UpdateClouddcnSubnetRequestBody} updateClouddcnSubnetRequestBody 更新clouddcn子网对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClouddcnSubnet(updateClouddcnSubnetRequest?: UpdateClouddcnSubnetRequest): Promise<UpdateClouddcnSubnetResponse> {
+        const options = ParamCreater().updateClouddcnSubnet(updateClouddcnSubnetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3748,6 +4047,546 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加Clouddcn子网的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addClouddcnSubnetsTags(addClouddcnSubnetsTagsRequest?: AddClouddcnSubnetsTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddcn-subnets/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (addClouddcnSubnetsTagsRequest !== null && addClouddcnSubnetsTagsRequest !== undefined) {
+                if (addClouddcnSubnetsTagsRequest instanceof AddClouddcnSubnetsTagsRequest) {
+                    resourceId = addClouddcnSubnetsTagsRequest.resourceId;
+                    body = addClouddcnSubnetsTagsRequest.body
+                } else {
+                    resourceId = addClouddcnSubnetsTagsRequest['resource_id'];
+                    body = addClouddcnSubnetsTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling addClouddcnSubnetsTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加Clouddcn子网的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateClouddcnSubnetsTags(batchCreateClouddcnSubnetsTagsRequest?: BatchCreateClouddcnSubnetsTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddcn-subnets/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (batchCreateClouddcnSubnetsTagsRequest !== null && batchCreateClouddcnSubnetsTagsRequest !== undefined) {
+                if (batchCreateClouddcnSubnetsTagsRequest instanceof BatchCreateClouddcnSubnetsTagsRequest) {
+                    resourceId = batchCreateClouddcnSubnetsTagsRequest.resourceId;
+                    body = batchCreateClouddcnSubnetsTagsRequest.body
+                } else {
+                    resourceId = batchCreateClouddcnSubnetsTagsRequest['resource_id'];
+                    body = batchCreateClouddcnSubnetsTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateClouddcnSubnetsTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除Clouddcn子网的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteClouddcnSubnetsTags(batchDeleteClouddcnSubnetsTagsRequest?: BatchDeleteClouddcnSubnetsTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddcn-subnets/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (batchDeleteClouddcnSubnetsTagsRequest !== null && batchDeleteClouddcnSubnetsTagsRequest !== undefined) {
+                if (batchDeleteClouddcnSubnetsTagsRequest instanceof BatchDeleteClouddcnSubnetsTagsRequest) {
+                    resourceId = batchDeleteClouddcnSubnetsTagsRequest.resourceId;
+                    body = batchDeleteClouddcnSubnetsTagsRequest.body
+                } else {
+                    resourceId = batchDeleteClouddcnSubnetsTagsRequest['resource_id'];
+                    body = batchDeleteClouddcnSubnetsTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchDeleteClouddcnSubnetsTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建clouddcn子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClouddcnSubnet(createClouddcnSubnetRequest?: CreateClouddcnSubnetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/clouddcn-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createClouddcnSubnetRequest !== null && createClouddcnSubnetRequest !== undefined) {
+                if (createClouddcnSubnetRequest instanceof CreateClouddcnSubnetRequest) {
+                    body = createClouddcnSubnetRequest.body
+                } else {
+                    body = createClouddcnSubnetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除clouddcn子网
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClouddcnSubnet(deleteClouddcnSubnetRequest?: DeleteClouddcnSubnetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/clouddcn-subnets/{clouddcn_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clouddcnSubnetId;
+
+            if (deleteClouddcnSubnetRequest !== null && deleteClouddcnSubnetRequest !== undefined) {
+                if (deleteClouddcnSubnetRequest instanceof DeleteClouddcnSubnetRequest) {
+                    clouddcnSubnetId = deleteClouddcnSubnetRequest.clouddcnSubnetId;
+                } else {
+                    clouddcnSubnetId = deleteClouddcnSubnetRequest['clouddcn_subnet_id'];
+                }
+            }
+
+        
+            if (clouddcnSubnetId === null || clouddcnSubnetId === undefined) {
+            throw new RequiredError('clouddcnSubnetId','Required parameter clouddcnSubnetId was null or undefined when calling deleteClouddcnSubnet.');
+            }
+
+            options.pathParams = { 'clouddcn_subnet_id': clouddcnSubnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Clouddcn子网的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClouddcnSubnetsTag(deleteClouddcnSubnetsTagRequest?: DeleteClouddcnSubnetsTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/clouddcn-subnets/{resource_id}/tags/{tag_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+            
+            let tagKey;
+
+            if (deleteClouddcnSubnetsTagRequest !== null && deleteClouddcnSubnetsTagRequest !== undefined) {
+                if (deleteClouddcnSubnetsTagRequest instanceof DeleteClouddcnSubnetsTagRequest) {
+                    resourceId = deleteClouddcnSubnetsTagRequest.resourceId;
+                    tagKey = deleteClouddcnSubnetsTagRequest.tagKey;
+                } else {
+                    resourceId = deleteClouddcnSubnetsTagRequest['resource_id'];
+                    tagKey = deleteClouddcnSubnetsTagRequest['tag_key'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteClouddcnSubnetsTag.');
+            }
+            if (tagKey === null || tagKey === undefined) {
+            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deleteClouddcnSubnetsTag.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId,'tag_key': tagKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询clouddcn子网列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClouddcnSubnets(listClouddcnSubnetsRequest?: ListClouddcnSubnetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/clouddcn-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let vpcId;
+
+            if (listClouddcnSubnetsRequest !== null && listClouddcnSubnetsRequest !== undefined) {
+                if (listClouddcnSubnetsRequest instanceof ListClouddcnSubnetsRequest) {
+                    limit = listClouddcnSubnetsRequest.limit;
+                    marker = listClouddcnSubnetsRequest.marker;
+                    vpcId = listClouddcnSubnetsRequest.vpcId;
+                } else {
+                    limit = listClouddcnSubnetsRequest['limit'];
+                    marker = listClouddcnSubnetsRequest['marker'];
+                    vpcId = listClouddcnSubnetsRequest['vpc_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源实例列表数目
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClouddcnSubnetsCountFilterTags(listClouddcnSubnetsCountFilterTagsRequest?: ListClouddcnSubnetsCountFilterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddcn-subnets/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listClouddcnSubnetsCountFilterTagsRequest !== null && listClouddcnSubnetsCountFilterTagsRequest !== undefined) {
+                if (listClouddcnSubnetsCountFilterTagsRequest instanceof ListClouddcnSubnetsCountFilterTagsRequest) {
+                    body = listClouddcnSubnetsCountFilterTagsRequest.body
+                } else {
+                    body = listClouddcnSubnetsCountFilterTagsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClouddcnSubnetsFilterTags(listClouddcnSubnetsFilterTagsRequest?: ListClouddcnSubnetsFilterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddcn-subnets/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listClouddcnSubnetsFilterTagsRequest !== null && listClouddcnSubnetsFilterTagsRequest !== undefined) {
+                if (listClouddcnSubnetsFilterTagsRequest instanceof ListClouddcnSubnetsFilterTagsRequest) {
+                    body = listClouddcnSubnetsFilterTagsRequest.body
+                    limit = listClouddcnSubnetsFilterTagsRequest.limit;
+                    offset = listClouddcnSubnetsFilterTagsRequest.offset;
+                } else {
+                    body = listClouddcnSubnetsFilterTagsRequest['body'];
+                    limit = listClouddcnSubnetsFilterTagsRequest['limit'];
+                    offset = listClouddcnSubnetsFilterTagsRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Clouddcn子网的项目标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClouddcnSubnetsTags() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clouddcn-subnets/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询clouddcn子网详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClouddcnSubnet(showClouddcnSubnetRequest?: ShowClouddcnSubnetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/clouddcn-subnets/{clouddcn_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clouddcnSubnetId;
+
+            if (showClouddcnSubnetRequest !== null && showClouddcnSubnetRequest !== undefined) {
+                if (showClouddcnSubnetRequest instanceof ShowClouddcnSubnetRequest) {
+                    clouddcnSubnetId = showClouddcnSubnetRequest.clouddcnSubnetId;
+                } else {
+                    clouddcnSubnetId = showClouddcnSubnetRequest['clouddcn_subnet_id'];
+                }
+            }
+
+        
+            if (clouddcnSubnetId === null || clouddcnSubnetId === undefined) {
+            throw new RequiredError('clouddcnSubnetId','Required parameter clouddcnSubnetId was null or undefined when calling showClouddcnSubnet.');
+            }
+
+            options.pathParams = { 'clouddcn_subnet_id': clouddcnSubnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Clouddcn子网的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClouddcnSubnetsTags(showClouddcnSubnetsTagsRequest?: ShowClouddcnSubnetsTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clouddcn-subnets/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+
+            if (showClouddcnSubnetsTagsRequest !== null && showClouddcnSubnetsTagsRequest !== undefined) {
+                if (showClouddcnSubnetsTagsRequest instanceof ShowClouddcnSubnetsTagsRequest) {
+                    resourceId = showClouddcnSubnetsTagsRequest.resourceId;
+                } else {
+                    resourceId = showClouddcnSubnetsTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showClouddcnSubnetsTags.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新clouddcn子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClouddcnSubnet(updateClouddcnSubnetRequest?: UpdateClouddcnSubnetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/clouddcn-subnets/{clouddcn_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clouddcnSubnetId;
+
+            if (updateClouddcnSubnetRequest !== null && updateClouddcnSubnetRequest !== undefined) {
+                if (updateClouddcnSubnetRequest instanceof UpdateClouddcnSubnetRequest) {
+                    clouddcnSubnetId = updateClouddcnSubnetRequest.clouddcnSubnetId;
+                    body = updateClouddcnSubnetRequest.body
+                } else {
+                    clouddcnSubnetId = updateClouddcnSubnetRequest['clouddcn_subnet_id'];
+                    body = updateClouddcnSubnetRequest['body'];
+                }
+            }
+
+        
+            if (clouddcnSubnetId === null || clouddcnSubnetId === undefined) {
+            throw new RequiredError('clouddcnSubnetId','Required parameter clouddcnSubnetId was null or undefined when calling updateClouddcnSubnet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'clouddcn_subnet_id': clouddcnSubnetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

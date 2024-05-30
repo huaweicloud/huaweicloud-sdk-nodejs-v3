@@ -1,5 +1,6 @@
 export * from './CdnClient';
 
+export * from './model/AccessAreaFilter';
 export * from './model/BackSources';
 export * from './model/BatchCopyConfigs';
 export * from './model/BatchCopyDRequestBody';
@@ -128,7 +129,9 @@ export * from './model/Sni';
 export * from './model/SourceWithPort';
 export * from './model/Sources';
 export * from './model/SourcesConfig';
+export * from './model/SourcesConfigResponseBody';
 export * from './model/SourcesDomainConfig';
+export * from './model/SourcesRequestBody';
 export * from './model/TagMap';
 export * from './model/TasksObject';
 export * from './model/TopReferSummary';

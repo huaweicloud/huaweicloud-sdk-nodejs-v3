@@ -9,8 +9,8 @@ export class ListCompoundMetricsRequest {
     public approver?: string;
     public status?: ListCompoundMetricsRequestStatusEnum | string;
     private 'dimension_group'?: string;
-    private 'atomic_index_id'?: number;
-    private 'l3_id'?: number;
+    private 'atomic_index_id'?: string;
+    private 'l3_id'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     public limit?: number;
@@ -74,24 +74,24 @@ export class ListCompoundMetricsRequest {
     public get dimensionGroup(): string | undefined {
         return this['dimension_group'];
     }
-    public withAtomicIndexId(atomicIndexId: number): ListCompoundMetricsRequest {
+    public withAtomicIndexId(atomicIndexId: string): ListCompoundMetricsRequest {
         this['atomic_index_id'] = atomicIndexId;
         return this;
     }
-    public set atomicIndexId(atomicIndexId: number  | undefined) {
+    public set atomicIndexId(atomicIndexId: string  | undefined) {
         this['atomic_index_id'] = atomicIndexId;
     }
-    public get atomicIndexId(): number | undefined {
+    public get atomicIndexId(): string | undefined {
         return this['atomic_index_id'];
     }
-    public withL3Id(l3Id: number): ListCompoundMetricsRequest {
+    public withL3Id(l3Id: string): ListCompoundMetricsRequest {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withBeginTime(beginTime: string): ListCompoundMetricsRequest {

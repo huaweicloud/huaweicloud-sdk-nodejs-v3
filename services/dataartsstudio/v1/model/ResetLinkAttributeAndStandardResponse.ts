@@ -1,12 +1,13 @@
+import { ResetLinkAttributeAndStandardResultData } from './ResetLinkAttributeAndStandardResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ResetLinkAttributeAndStandardResponse extends SdkResponse {
-    public data?: object;
+    public data?: ResetLinkAttributeAndStandardResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ResetLinkAttributeAndStandardResponse {
+    public withData(data: ResetLinkAttributeAndStandardResultData): ResetLinkAttributeAndStandardResponse {
         this['data'] = data;
         return this;
     }

@@ -2,7 +2,7 @@ import { ModelLevel } from './ModelLevel';
 
 
 export class WorkspaceVO {
-    public id?: number;
+    public id?: string;
     public name?: string;
     public description?: string;
     private 'is_physical'?: boolean;
@@ -17,11 +17,12 @@ export class WorkspaceVO {
     public type?: WorkspaceVOTypeEnum | string;
     private 'biz_catalog_ids'?: string;
     public databases?: Array<string>;
+    private 'table_model_prefix'?: string;
     public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
     }
-    public withId(id: number): WorkspaceVO {
+    public withId(id: string): WorkspaceVO {
         this['id'] = id;
         return this;
     }
@@ -122,6 +123,16 @@ export class WorkspaceVO {
     public withDatabases(databases: Array<string>): WorkspaceVO {
         this['databases'] = databases;
         return this;
+    }
+    public withTableModelPrefix(tableModelPrefix: string): WorkspaceVO {
+        this['table_model_prefix'] = tableModelPrefix;
+        return this;
+    }
+    public set tableModelPrefix(tableModelPrefix: string  | undefined) {
+        this['table_model_prefix'] = tableModelPrefix;
+    }
+    public get tableModelPrefix(): string | undefined {
+        return this['table_model_prefix'];
     }
 }
 

@@ -4,8 +4,8 @@ export class DeleteWorkspacesRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    public ids?: Array<number>;
-    public constructor(workspace?: string, ids?: Array<number>) { 
+    public ids?: Array<string>;
+    public constructor(workspace?: string, ids?: Array<string>) { 
         this['workspace'] = workspace;
         this['ids'] = ids;
     }
@@ -33,7 +33,7 @@ export class DeleteWorkspacesRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withIds(ids: Array<number>): DeleteWorkspacesRequest {
+    public withIds(ids: Array<string>): DeleteWorkspacesRequest {
         this['ids'] = ids;
         return this;
     }

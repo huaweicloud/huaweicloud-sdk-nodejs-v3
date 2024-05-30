@@ -1,12 +1,13 @@
+import { ListTableModelRelationsResultData } from './ListTableModelRelationsResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTableModelRelationsResponse extends SdkResponse {
-    public data?: object;
+    public data?: ListTableModelRelationsResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListTableModelRelationsResponse {
+    public withData(data: ListTableModelRelationsResultData): ListTableModelRelationsResponse {
         this['data'] = data;
         return this;
     }

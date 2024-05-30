@@ -2,32 +2,32 @@ import { BizTypeEnum } from './BizTypeEnum';
 
 
 export class TagRecordVO {
-    public id?: number;
-    private 'tag_id'?: number;
+    public id?: string;
+    private 'tag_id'?: string;
     private 'tag_name'?: string;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'biz_type'?: BizTypeEnum;
     private 'create_by'?: string;
     private 'update_by'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
-    public constructor(tagId?: number, bizId?: number, bizType?: BizTypeEnum) { 
+    public constructor(tagId?: string, bizId?: string, bizType?: BizTypeEnum) { 
         this['tag_id'] = tagId;
         this['biz_id'] = bizId;
         this['biz_type'] = bizType;
     }
-    public withId(id: number): TagRecordVO {
+    public withId(id: string): TagRecordVO {
         this['id'] = id;
         return this;
     }
-    public withTagId(tagId: number): TagRecordVO {
+    public withTagId(tagId: string): TagRecordVO {
         this['tag_id'] = tagId;
         return this;
     }
-    public set tagId(tagId: number  | undefined) {
+    public set tagId(tagId: string  | undefined) {
         this['tag_id'] = tagId;
     }
-    public get tagId(): number | undefined {
+    public get tagId(): string | undefined {
         return this['tag_id'];
     }
     public withTagName(tagName: string): TagRecordVO {
@@ -40,14 +40,14 @@ export class TagRecordVO {
     public get tagName(): string | undefined {
         return this['tag_name'];
     }
-    public withBizId(bizId: number): TagRecordVO {
+    public withBizId(bizId: string): TagRecordVO {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withBizType(bizType: BizTypeEnum): TagRecordVO {

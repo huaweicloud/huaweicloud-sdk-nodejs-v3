@@ -9,12 +9,15 @@ import { AddTagToAssetRequest } from './model/AddTagToAssetRequest';
 import { AddTagToAssetResponse } from './model/AddTagToAssetResponse';
 import { AddWorkSpaceUsersRequest } from './model/AddWorkSpaceUsersRequest';
 import { AddWorkSpaceUsersResponse } from './model/AddWorkSpaceUsersResponse';
+import { AdvancedMallApiDTO } from './model/AdvancedMallApiDTO';
 import { AggregationLogicTableAttributeVO } from './model/AggregationLogicTableAttributeVO';
 import { AggregationLogicTableVO } from './model/AggregationLogicTableVO';
 import { AggregationLogicTableVODetailData } from './model/AggregationLogicTableVODetailData';
 import { AggregationLogicTableVOSearchResultData } from './model/AggregationLogicTableVOSearchResultData';
 import { AggregationLogicTableVOSearchResultDataValue } from './model/AggregationLogicTableVOSearchResultDataValue';
 import { AlarmInfoResponseAlarmInfo } from './model/AlarmInfoResponseAlarmInfo';
+import { AllModelStatisticVO } from './model/AllModelStatisticVO';
+import { AllTableVO } from './model/AllTableVO';
 import { Api } from './model/Api';
 import { ApiActionDTO } from './model/ApiActionDTO';
 import { ApiCatalogCreateParaDTO } from './model/ApiCatalogCreateParaDTO';
@@ -49,6 +52,7 @@ import { AppBindApiInfo } from './model/AppBindApiInfo';
 import { AppRequestDTO } from './model/AppRequestDTO';
 import { AppReturnDTO } from './model/AppReturnDTO';
 import { AppUpdateDTO } from './model/AppUpdateDTO';
+import { ApplyBgEnum } from './model/ApplyBgEnum';
 import { ApprovalBatchParam } from './model/ApprovalBatchParam';
 import { ApprovalInfoParam } from './model/ApprovalInfoParam';
 import { ApprovalStatusEnum } from './model/ApprovalStatusEnum';
@@ -56,6 +60,7 @@ import { ApprovalTypeEnum } from './model/ApprovalTypeEnum';
 import { ApprovalVO } from './model/ApprovalVO';
 import { Approver } from './model/Approver';
 import { ApproverParam } from './model/ApproverParam';
+import { ApproverVO } from './model/ApproverVO';
 import { ArchitectureStatistic } from './model/ArchitectureStatistic';
 import { AssociateClassificationToEntityRequest } from './model/AssociateClassificationToEntityRequest';
 import { AssociateClassificationToEntityResponse } from './model/AssociateClassificationToEntityResponse';
@@ -99,15 +104,18 @@ import { BatchDeleteTemplatesRequest } from './model/BatchDeleteTemplatesRequest
 import { BatchDeleteTemplatesResponse } from './model/BatchDeleteTemplatesResponse';
 import { BatchOfflineRequest } from './model/BatchOfflineRequest';
 import { BatchOfflineResponse } from './model/BatchOfflineResponse';
+import { BatchOfflineResultData } from './model/BatchOfflineResultData';
 import { BatchOperationVO } from './model/BatchOperationVO';
 import { BatchPublishRequest } from './model/BatchPublishRequest';
 import { BatchPublishResponse } from './model/BatchPublishResponse';
+import { BatchPublishResultData } from './model/BatchPublishResultData';
 import { BatchSyncMetadataRequest } from './model/BatchSyncMetadataRequest';
 import { BatchSyncMetadataResponse } from './model/BatchSyncMetadataResponse';
 import { BatchUpdateSecurityDlfDataWareHousesRequest } from './model/BatchUpdateSecurityDlfDataWareHousesRequest';
 import { BatchUpdateSecurityDlfDataWareHousesResponse } from './model/BatchUpdateSecurityDlfDataWareHousesResponse';
 import { BehaviorRestBody } from './model/BehaviorRestBody';
 import { BizCatalogVO } from './model/BizCatalogVO';
+import { BizDatasourceRelationVO } from './model/BizDatasourceRelationVO';
 import { BizInfoVO } from './model/BizInfoVO';
 import { BizMetricVO } from './model/BizMetricVO';
 import { BizStatusEnum } from './model/BizStatusEnum';
@@ -129,6 +137,7 @@ import { CatalogMetaDataEventInfo } from './model/CatalogMetaDataEventInfo';
 import { CatalogMetaDataEventRequest } from './model/CatalogMetaDataEventRequest';
 import { CatalogMoveParaDTO } from './model/CatalogMoveParaDTO';
 import { CatalogParamsVO } from './model/CatalogParamsVO';
+import { CatalogVO } from './model/CatalogVO';
 import { CategoryDetailVO } from './model/CategoryDetailVO';
 import { ChangeCatalogRequest } from './model/ChangeCatalogRequest';
 import { ChangeCatalogResponse } from './model/ChangeCatalogResponse';
@@ -136,8 +145,10 @@ import { ChangeResourceRequest } from './model/ChangeResourceRequest';
 import { ChangeResourceResponse } from './model/ChangeResourceResponse';
 import { ChangeSubjectsRequest } from './model/ChangeSubjectsRequest';
 import { ChangeSubjectsResponse } from './model/ChangeSubjectsResponse';
+import { ChangeSubjectsResultData } from './model/ChangeSubjectsResultData';
 import { CheckDimensionStatusRequest } from './model/CheckDimensionStatusRequest';
 import { CheckDimensionStatusResponse } from './model/CheckDimensionStatusResponse';
+import { CheckDimensionStatusResultData } from './model/CheckDimensionStatusResultData';
 import { CheckFactLogicTableStatusRequest } from './model/CheckFactLogicTableStatusRequest';
 import { CheckFactLogicTableStatusResponse } from './model/CheckFactLogicTableStatusResponse';
 import { CodeTableFieldVO } from './model/CodeTableFieldVO';
@@ -154,32 +165,42 @@ import { CompoundMetricVODetailData } from './model/CompoundMetricVODetailData';
 import { CompoundMetricVOSearchResultData } from './model/CompoundMetricVOSearchResultData';
 import { CompoundMetricVOSearchResultDataValue } from './model/CompoundMetricVOSearchResultDataValue';
 import { Condition } from './model/Condition';
+import { ConditionVO } from './model/ConditionVO';
 import { ConfirmApprovalsRequest } from './model/ConfirmApprovalsRequest';
 import { ConfirmApprovalsResponse } from './model/ConfirmApprovalsResponse';
+import { ConfirmApprovalsResultData } from './model/ConfirmApprovalsResultData';
 import { ConfirmMessageRequest } from './model/ConfirmMessageRequest';
 import { ConfirmMessageResponse } from './model/ConfirmMessageResponse';
 import { Connection } from './model/Connection';
 import { ConsistencyRuleDetailForOpenApi } from './model/ConsistencyRuleDetailForOpenApi';
 import { CountAllModelsRequest } from './model/CountAllModelsRequest';
 import { CountAllModelsResponse } from './model/CountAllModelsResponse';
+import { CountAllModelsResultData } from './model/CountAllModelsResultData';
 import { CountOverviewsRequest } from './model/CountOverviewsRequest';
 import { CountOverviewsResponse } from './model/CountOverviewsResponse';
+import { CountOverviewsResultData } from './model/CountOverviewsResultData';
 import { CountStandardsRequest } from './model/CountStandardsRequest';
 import { CountStandardsResponse } from './model/CountStandardsResponse';
+import { CountStandardsResultData } from './model/CountStandardsResultData';
 import { CountTableModelsRequest } from './model/CountTableModelsRequest';
 import { CountTableModelsResponse } from './model/CountTableModelsResponse';
+import { CountTableModelsResultData } from './model/CountTableModelsResultData';
 import { CreateApiRequest } from './model/CreateApiRequest';
 import { CreateApiResponse } from './model/CreateApiResponse';
 import { CreateAppRequest } from './model/CreateAppRequest';
 import { CreateAppResponse } from './model/CreateAppResponse';
 import { CreateApproverRequest } from './model/CreateApproverRequest';
 import { CreateApproverResponse } from './model/CreateApproverResponse';
+import { CreateApproverResultData } from './model/CreateApproverResultData';
 import { CreateBizMetricRequest } from './model/CreateBizMetricRequest';
 import { CreateBizMetricResponse } from './model/CreateBizMetricResponse';
+import { CreateBizMetricResultData } from './model/CreateBizMetricResultData';
 import { CreateCatalogRequest } from './model/CreateCatalogRequest';
 import { CreateCatalogResponse } from './model/CreateCatalogResponse';
+import { CreateCatalogResultData } from './model/CreateCatalogResultData';
 import { CreateCodeTableRequest } from './model/CreateCodeTableRequest';
 import { CreateCodeTableResponse } from './model/CreateCodeTableResponse';
+import { CreateCodeTableResultData } from './model/CreateCodeTableResultData';
 import { CreateConnectionsRequest } from './model/CreateConnectionsRequest';
 import { CreateConnectionsResponse } from './model/CreateConnectionsResponse';
 import { CreateDesignAggregationLogicTableRequest } from './model/CreateDesignAggregationLogicTableRequest';
@@ -188,6 +209,7 @@ import { CreateDesignAtomicIndexRequest } from './model/CreateDesignAtomicIndexR
 import { CreateDesignAtomicIndexResponse } from './model/CreateDesignAtomicIndexResponse';
 import { CreateDirectoryRequest } from './model/CreateDirectoryRequest';
 import { CreateDirectoryResponse } from './model/CreateDirectoryResponse';
+import { CreateDirectoryResultData } from './model/CreateDirectoryResultData';
 import { CreateFactoryEnvRequest } from './model/CreateFactoryEnvRequest';
 import { CreateFactoryEnvResponse } from './model/CreateFactoryEnvResponse';
 import { CreateFactoryJobRequest } from './model/CreateFactoryJobRequest';
@@ -221,14 +243,18 @@ import { CreateServiceCatalogRequest } from './model/CreateServiceCatalogRequest
 import { CreateServiceCatalogResponse } from './model/CreateServiceCatalogResponse';
 import { CreateStandardRequest } from './model/CreateStandardRequest';
 import { CreateStandardResponse } from './model/CreateStandardResponse';
+import { CreateStandardResultData } from './model/CreateStandardResultData';
 import { CreateStandardTemplateRequest } from './model/CreateStandardTemplateRequest';
 import { CreateStandardTemplateResponse } from './model/CreateStandardTemplateResponse';
+import { CreateStandardTemplateResultData } from './model/CreateStandardTemplateResultData';
 import { CreateSubjectNewRequest } from './model/CreateSubjectNewRequest';
 import { CreateSubjectNewResponse } from './model/CreateSubjectNewResponse';
 import { CreateSubjectRequest } from './model/CreateSubjectRequest';
 import { CreateSubjectResponse } from './model/CreateSubjectResponse';
+import { CreateSubjectResultData } from './model/CreateSubjectResultData';
 import { CreateTableModelRequest } from './model/CreateTableModelRequest';
 import { CreateTableModelResponse } from './model/CreateTableModelResponse';
+import { CreateTableModelResultData } from './model/CreateTableModelResultData';
 import { CreateTaskRequest } from './model/CreateTaskRequest';
 import { CreateTaskResponse } from './model/CreateTaskResponse';
 import { CreateTemplateRequest } from './model/CreateTemplateRequest';
@@ -236,6 +262,7 @@ import { CreateTemplateResponse } from './model/CreateTemplateResponse';
 import { CreateWorkspaceParams } from './model/CreateWorkspaceParams';
 import { CreateWorkspaceRequest } from './model/CreateWorkspaceRequest';
 import { CreateWorkspaceResponse } from './model/CreateWorkspaceResponse';
+import { CreateWorkspaceResultData } from './model/CreateWorkspaceResultData';
 import { Cron } from './model/Cron';
 import { CssIndex } from './model/CssIndex';
 import { CustomMetadata } from './model/CustomMetadata';
@@ -245,6 +272,7 @@ import { DataClassificationGroupQueryDTO } from './model/DataClassificationGroup
 import { DataClassificationRuleEnableDTO } from './model/DataClassificationRuleEnableDTO';
 import { DataClassificationRuleOperateDTO } from './model/DataClassificationRuleOperateDTO';
 import { DataClassificationRuleQueryDTO } from './model/DataClassificationRuleQueryDTO';
+import { DataConnectionVO } from './model/DataConnectionVO';
 import { DataEntityWithExtInfo } from './model/DataEntityWithExtInfo';
 import { DataMapFilterCriteria } from './model/DataMapFilterCriteria';
 import { DataProfileRO } from './model/DataProfileRO';
@@ -289,6 +317,7 @@ import { DeleteDesignLatestApprovalRequest } from './model/DeleteDesignLatestApp
 import { DeleteDesignLatestApprovalResponse } from './model/DeleteDesignLatestApprovalResponse';
 import { DeleteDirectoryRequest } from './model/DeleteDirectoryRequest';
 import { DeleteDirectoryResponse } from './model/DeleteDirectoryResponse';
+import { DeleteResultData } from './model/DeleteResultData';
 import { DeleteSecurityAssignedQueueRequest } from './model/DeleteSecurityAssignedQueueRequest';
 import { DeleteSecurityAssignedQueueResponse } from './model/DeleteSecurityAssignedQueueResponse';
 import { DeleteSecurityDataClassificationRuleRequest } from './model/DeleteSecurityDataClassificationRuleRequest';
@@ -329,9 +358,13 @@ import { DerivativeIndexVOSearchResultData } from './model/DerivativeIndexVOSear
 import { DerivativeIndexVOSearchResultDataValue } from './model/DerivativeIndexVOSearchResultDataValue';
 import { DimensionAttributeVO } from './model/DimensionAttributeVO';
 import { DimensionHierarchiesVO } from './model/DimensionHierarchiesVO';
+import { DimensionLogicTableAttributeVO } from './model/DimensionLogicTableAttributeVO';
+import { DimensionLogicTableVO } from './model/DimensionLogicTableVO';
+import { DimensionVO } from './model/DimensionVO';
 import { DirectoryVO } from './model/DirectoryVO';
 import { DisStream } from './model/DisStream';
 import { DsExportResultVOData } from './model/DsExportResultVOData';
+import { DsProcessImportResultVO } from './model/DsProcessImportResultVO';
 import { DwName } from './model/DwName';
 import { DwType } from './model/DwType';
 import { Entity } from './model/Entity';
@@ -340,6 +373,7 @@ import { EntityWithExtInfo } from './model/EntityWithExtInfo';
 import { EnvRequestBody } from './model/EnvRequestBody';
 import { EnvRequestBodyParams } from './model/EnvRequestBodyParams';
 import { EnvRespParams } from './model/EnvRespParams';
+import { EnvTypeEnum } from './model/EnvTypeEnum';
 import { Event } from './model/Event';
 import { EventParam } from './model/EventParam';
 import { ExecuteApiToInstanceRequest } from './model/ExecuteApiToInstanceRequest';
@@ -361,10 +395,13 @@ import { ExportDesignModelsResultData } from './model/ExportDesignModelsResultDa
 import { ExportDesignResultRequest } from './model/ExportDesignResultRequest';
 import { ExportDesignResultResponse } from './model/ExportDesignResultResponse';
 import { ExportParam } from './model/ExportParam';
+import { FactLogicTableVO } from './model/FactLogicTableVO';
+import { FactTableAttributeVO } from './model/FactTableAttributeVO';
 import { FgacSingleUpdateReq } from './model/FgacSingleUpdateReq';
 import { FgacUpdateReq } from './model/FgacUpdateReq';
 import { FgacUpdateResult } from './model/FgacUpdateResult';
 import { FilterCriteria } from './model/FilterCriteria';
+import { FlavorDTO } from './model/FlavorDTO';
 import { GatewayDTO } from './model/GatewayDTO';
 import { GlossaryInfo } from './model/GlossaryInfo';
 import { Group } from './model/Group';
@@ -385,8 +422,12 @@ import { ImportResultRequest } from './model/ImportResultRequest';
 import { ImportResultResponse } from './model/ImportResultResponse';
 import { InitializeStandardTemplateRequest } from './model/InitializeStandardTemplateRequest';
 import { InitializeStandardTemplateResponse } from './model/InitializeStandardTemplateResponse';
+import { InitializeStandardTemplateResultData } from './model/InitializeStandardTemplateResultData';
+import { InstanceDetailDTO } from './model/InstanceDetailDTO';
 import { InstanceForApiActionDTO } from './model/InstanceForApiActionDTO';
 import { InstanceHostDTO } from './model/InstanceHostDTO';
+import { InstanceNodeDTO } from './model/InstanceNodeDTO';
+import { InstanceOverviewDTO } from './model/InstanceOverviewDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
 import { JobAndNodeInfo } from './model/JobAndNodeInfo';
 import { JobInfoRequest } from './model/JobInfoRequest';
@@ -412,6 +453,8 @@ import { ListAllStandardsRequest } from './model/ListAllStandardsRequest';
 import { ListAllStandardsResponse } from './model/ListAllStandardsResponse';
 import { ListAllTablesRequest } from './model/ListAllTablesRequest';
 import { ListAllTablesResponse } from './model/ListAllTablesResponse';
+import { ListAllTablesResultData } from './model/ListAllTablesResultData';
+import { ListAllTablesResultDataValue } from './model/ListAllTablesResultDataValue';
 import { ListApiCatalogListRequest } from './model/ListApiCatalogListRequest';
 import { ListApiCatalogListResponse } from './model/ListApiCatalogListResponse';
 import { ListApiTopNRequest } from './model/ListApiTopNRequest';
@@ -428,22 +471,28 @@ import { ListApplyRequest } from './model/ListApplyRequest';
 import { ListApplyResponse } from './model/ListApplyResponse';
 import { ListApproversRequest } from './model/ListApproversRequest';
 import { ListApproversResponse } from './model/ListApproversResponse';
+import { ListApproversResultData } from './model/ListApproversResultData';
+import { ListApproversResultDataValue } from './model/ListApproversResultDataValue';
 import { ListAppsRequest } from './model/ListAppsRequest';
 import { ListAppsResponse } from './model/ListAppsResponse';
 import { ListAppsTopRequest } from './model/ListAppsTopRequest';
 import { ListAppsTopResponse } from './model/ListAppsTopResponse';
 import { ListBizMetricDimensionsRequest } from './model/ListBizMetricDimensionsRequest';
 import { ListBizMetricDimensionsResponse } from './model/ListBizMetricDimensionsResponse';
+import { ListBizMetricDimensionsResultData } from './model/ListBizMetricDimensionsResultData';
 import { ListBizMetricOwnersRequest } from './model/ListBizMetricOwnersRequest';
 import { ListBizMetricOwnersResponse } from './model/ListBizMetricOwnersResponse';
 import { ListBizMetricsRequest } from './model/ListBizMetricsRequest';
 import { ListBizMetricsResponse } from './model/ListBizMetricsResponse';
+import { ListBizMetricsResultData } from './model/ListBizMetricsResultData';
+import { ListBizMetricsResultDataValue } from './model/ListBizMetricsResultDataValue';
 import { ListBusinessRequest } from './model/ListBusinessRequest';
 import { ListBusinessResponse } from './model/ListBusinessResponse';
 import { ListCatalogListRequest } from './model/ListCatalogListRequest';
 import { ListCatalogListResponse } from './model/ListCatalogListResponse';
 import { ListCatalogTreeRequest } from './model/ListCatalogTreeRequest';
 import { ListCatalogTreeResponse } from './model/ListCatalogTreeResponse';
+import { ListCatalogTreeResultData } from './model/ListCatalogTreeResultData';
 import { ListCategoryRequest } from './model/ListCategoryRequest';
 import { ListCategoryResponse } from './model/ListCategoryResponse';
 import { ListColumnsRequest } from './model/ListColumnsRequest';
@@ -452,10 +501,18 @@ import { ListCompoundMetricsRequest } from './model/ListCompoundMetricsRequest';
 import { ListCompoundMetricsResponse } from './model/ListCompoundMetricsResponse';
 import { ListConditionRequest } from './model/ListConditionRequest';
 import { ListConditionResponse } from './model/ListConditionResponse';
+import { ListConditionResultData } from './model/ListConditionResultData';
+import { ListConditionResultDataValue } from './model/ListConditionResultDataValue';
 import { ListConsistencyTaskRequest } from './model/ListConsistencyTaskRequest';
 import { ListConsistencyTaskResponse } from './model/ListConsistencyTaskResponse';
 import { ListDataArtsStudioInstancesRequest } from './model/ListDataArtsStudioInstancesRequest';
 import { ListDataArtsStudioInstancesResponse } from './model/ListDataArtsStudioInstancesResponse';
+import { ListDataServiceInstancesDetailRequest } from './model/ListDataServiceInstancesDetailRequest';
+import { ListDataServiceInstancesDetailResponse } from './model/ListDataServiceInstancesDetailResponse';
+import { ListDataServiceInstancesOverviewRequest } from './model/ListDataServiceInstancesOverviewRequest';
+import { ListDataServiceInstancesOverviewResponse } from './model/ListDataServiceInstancesOverviewResponse';
+import { ListDataServiceMarketApisRequest } from './model/ListDataServiceMarketApisRequest';
+import { ListDataServiceMarketApisResponse } from './model/ListDataServiceMarketApisResponse';
 import { ListDataTablesRequest } from './model/ListDataTablesRequest';
 import { ListDataTablesResponse } from './model/ListDataTablesResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
@@ -466,14 +523,23 @@ import { ListDerivativeIndexesRequest } from './model/ListDerivativeIndexesReque
 import { ListDerivativeIndexesResponse } from './model/ListDerivativeIndexesResponse';
 import { ListDimensionGroupsRequest } from './model/ListDimensionGroupsRequest';
 import { ListDimensionGroupsResponse } from './model/ListDimensionGroupsResponse';
+import { ListDimensionGroupsResultData } from './model/ListDimensionGroupsResultData';
+import { ListDimensionGroupsResultDataValue } from './model/ListDimensionGroupsResultDataValue';
 import { ListDimensionLogicTablesRequest } from './model/ListDimensionLogicTablesRequest';
 import { ListDimensionLogicTablesResponse } from './model/ListDimensionLogicTablesResponse';
+import { ListDimensionLogicTablesResultData } from './model/ListDimensionLogicTablesResultData';
+import { ListDimensionLogicTablesResultDataValue } from './model/ListDimensionLogicTablesResultDataValue';
 import { ListDimensionsRequest } from './model/ListDimensionsRequest';
 import { ListDimensionsResponse } from './model/ListDimensionsResponse';
+import { ListDimensionsResultData } from './model/ListDimensionsResultData';
+import { ListDimensionsResultDataValue } from './model/ListDimensionsResultDataValue';
 import { ListDirectoriesRequest } from './model/ListDirectoriesRequest';
 import { ListDirectoriesResponse } from './model/ListDirectoriesResponse';
+import { ListDirectoriesResultData } from './model/ListDirectoriesResultData';
 import { ListFactLogicTablesRequest } from './model/ListFactLogicTablesRequest';
 import { ListFactLogicTablesResponse } from './model/ListFactLogicTablesResponse';
+import { ListFactLogicTablesResultData } from './model/ListFactLogicTablesResultData';
+import { ListFactLogicTablesResultDataValue } from './model/ListFactLogicTablesResultDataValue';
 import { ListFactoryAlarmInfoRequest } from './model/ListFactoryAlarmInfoRequest';
 import { ListFactoryAlarmInfoResponse } from './model/ListFactoryAlarmInfoResponse';
 import { ListFactoryJobInstancesByNameRequest } from './model/ListFactoryJobInstancesByNameRequest';
@@ -499,6 +565,8 @@ import { ListMessageRequest } from './model/ListMessageRequest';
 import { ListMessageResponse } from './model/ListMessageResponse';
 import { ListMetricRelationsRequest } from './model/ListMetricRelationsRequest';
 import { ListMetricRelationsResponse } from './model/ListMetricRelationsResponse';
+import { ListMetricRelationsResultData } from './model/ListMetricRelationsResultData';
+import { ListMetricRelationsResultDataValue } from './model/ListMetricRelationsResultDataValue';
 import { ListQualityTaskListsRequest } from './model/ListQualityTaskListsRequest';
 import { ListQualityTaskListsResponse } from './model/ListQualityTaskListsResponse';
 import { ListQualityTaskRequest } from './model/ListQualityTaskRequest';
@@ -507,6 +575,8 @@ import { ListQualityTemplatesRequest } from './model/ListQualityTemplatesRequest
 import { ListQualityTemplatesResponse } from './model/ListQualityTemplatesResponse';
 import { ListRelationsRequest } from './model/ListRelationsRequest';
 import { ListRelationsResponse } from './model/ListRelationsResponse';
+import { ListRelationsResultData } from './model/ListRelationsResultData';
+import { ListRelationsResultDataValue } from './model/ListRelationsResultDataValue';
 import { ListReleasePackagesRequestBody } from './model/ListReleasePackagesRequestBody';
 import { ListReleasePackagesRespData } from './model/ListReleasePackagesRespData';
 import { ListReleasePackagesRespPackageApprovers } from './model/ListReleasePackagesRespPackageApprovers';
@@ -542,18 +612,27 @@ import { ListSecuritySensitiveDataOverviewsRequest } from './model/ListSecurityS
 import { ListSecuritySensitiveDataOverviewsResponse } from './model/ListSecuritySensitiveDataOverviewsResponse';
 import { ListSubjectLevelsRequest } from './model/ListSubjectLevelsRequest';
 import { ListSubjectLevelsResponse } from './model/ListSubjectLevelsResponse';
+import { ListSubjectLevelsResultData } from './model/ListSubjectLevelsResultData';
 import { ListTableModelRelationsRequest } from './model/ListTableModelRelationsRequest';
 import { ListTableModelRelationsResponse } from './model/ListTableModelRelationsResponse';
+import { ListTableModelRelationsResultData } from './model/ListTableModelRelationsResultData';
+import { ListTableModelRelationsResultDataValue } from './model/ListTableModelRelationsResultDataValue';
+import { ListTableModelRelationsResultDataValueRecords } from './model/ListTableModelRelationsResultDataValueRecords';
 import { ListTableModelsRequest } from './model/ListTableModelsRequest';
 import { ListTableModelsResponse } from './model/ListTableModelsResponse';
+import { ListTableModelsResultData } from './model/ListTableModelsResultData';
+import { ListTableModelsResultDataValue } from './model/ListTableModelsResultDataValue';
 import { ListWorkspaceRolesRequest } from './model/ListWorkspaceRolesRequest';
 import { ListWorkspaceRolesResponse } from './model/ListWorkspaceRolesResponse';
 import { ListWorkspacesRequest } from './model/ListWorkspacesRequest';
 import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
+import { ListWorkspacesResultData } from './model/ListWorkspacesResultData';
+import { ListWorkspacesResultDataValue } from './model/ListWorkspacesResultDataValue';
 import { ListWorkspaceusersRequest } from './model/ListWorkspaceusersRequest';
 import { ListWorkspaceusersResponse } from './model/ListWorkspaceusersResponse';
 import { Location } from './model/Location';
 import { LogicEntityNodes } from './model/LogicEntityNodes';
+import { MallParaDTO } from './model/MallParaDTO';
 import { MappingJoinFieldVO } from './model/MappingJoinFieldVO';
 import { MappingSourceFieldVO } from './model/MappingSourceFieldVO';
 import { MappingSourceTableVO } from './model/MappingSourceTableVO';
@@ -566,8 +645,10 @@ import { MigrateApiResponse } from './model/MigrateApiResponse';
 import { MigrateCatalogRequest } from './model/MigrateCatalogRequest';
 import { MigrateCatalogResponse } from './model/MigrateCatalogResponse';
 import { ModelLevel } from './model/ModelLevel';
+import { ModelStatisticVO } from './model/ModelStatisticVO';
 import { ModifyCustomizedFieldsRequest } from './model/ModifyCustomizedFieldsRequest';
 import { ModifyCustomizedFieldsResponse } from './model/ModifyCustomizedFieldsResponse';
+import { ModifyCustomizedFieldsResultData } from './model/ModifyCustomizedFieldsResultData';
 import { Namespace } from './model/Namespace';
 import { Node } from './model/Node';
 import { OBSCommonConfig } from './model/OBSCommonConfig';
@@ -628,15 +709,19 @@ import { RenewDataProfileResponse } from './model/RenewDataProfileResponse';
 import { RequestPara } from './model/RequestPara';
 import { ResetLinkAttributeAndStandardRequest } from './model/ResetLinkAttributeAndStandardRequest';
 import { ResetLinkAttributeAndStandardResponse } from './model/ResetLinkAttributeAndStandardResponse';
+import { ResetLinkAttributeAndStandardResultData } from './model/ResetLinkAttributeAndStandardResultData';
 import { RoleActionQueryDTO } from './model/RoleActionQueryDTO';
 import { RollbackApprovalRequest } from './model/RollbackApprovalRequest';
 import { RollbackApprovalResponse } from './model/RollbackApprovalResponse';
+import { RollbackApprovalResultData } from './model/RollbackApprovalResultData';
 import { RuleTemplateDetailVO } from './model/RuleTemplateDetailVO';
 import { Schedule } from './model/Schedule';
 import { SchedulerInfo } from './model/SchedulerInfo';
 import { SchemasList } from './model/SchemasList';
 import { SearchApprovalsRequest } from './model/SearchApprovalsRequest';
 import { SearchApprovalsResponse } from './model/SearchApprovalsResponse';
+import { SearchApprovalsResultData } from './model/SearchApprovalsResultData';
+import { SearchApprovalsResultDataValue } from './model/SearchApprovalsResultDataValue';
 import { SearchAtomicIndexesRequest } from './model/SearchAtomicIndexesRequest';
 import { SearchAtomicIndexesResponse } from './model/SearchAtomicIndexesResponse';
 import { SearchAuthorizeAppRequest } from './model/SearchAuthorizeAppRequest';
@@ -645,18 +730,25 @@ import { SearchBindApiRequest } from './model/SearchBindApiRequest';
 import { SearchBindApiResponse } from './model/SearchBindApiResponse';
 import { SearchCatalogsRequest } from './model/SearchCatalogsRequest';
 import { SearchCatalogsResponse } from './model/SearchCatalogsResponse';
+import { SearchCatalogsResultData } from './model/SearchCatalogsResultData';
+import { SearchCatalogsResultDataValue } from './model/SearchCatalogsResultDataValue';
 import { SearchCodeTableValuesRequest } from './model/SearchCodeTableValuesRequest';
 import { SearchCodeTableValuesResponse } from './model/SearchCodeTableValuesResponse';
 import { SearchCodeTablesRequest } from './model/SearchCodeTablesRequest';
 import { SearchCodeTablesResponse } from './model/SearchCodeTablesResponse';
+import { SearchCodeTablesResultData } from './model/SearchCodeTablesResultData';
+import { SearchCodeTablesResultDataValue } from './model/SearchCodeTablesResultDataValue';
 import { SearchCustomizedFieldsRequest } from './model/SearchCustomizedFieldsRequest';
 import { SearchCustomizedFieldsResponse } from './model/SearchCustomizedFieldsResponse';
+import { SearchCustomizedFieldsResultData } from './model/SearchCustomizedFieldsResultData';
+import { SearchCustomizedFieldsResultDataValue } from './model/SearchCustomizedFieldsResultDataValue';
 import { SearchDebugInfoRequest } from './model/SearchDebugInfoRequest';
 import { SearchDebugInfoResponse } from './model/SearchDebugInfoResponse';
 import { SearchDesignLatestApprovalDiffRequest } from './model/SearchDesignLatestApprovalDiffRequest';
 import { SearchDesignLatestApprovalDiffResponse } from './model/SearchDesignLatestApprovalDiffResponse';
 import { SearchDwByTypeRequest } from './model/SearchDwByTypeRequest';
 import { SearchDwByTypeResponse } from './model/SearchDwByTypeResponse';
+import { SearchDwByTypeResultData } from './model/SearchDwByTypeResultData';
 import { SearchFieldsForRelationRequest } from './model/SearchFieldsForRelationRequest';
 import { SearchFieldsForRelationResponse } from './model/SearchFieldsForRelationResponse';
 import { SearchIdByPathRequest } from './model/SearchIdByPathRequest';
@@ -667,11 +759,18 @@ import { SearchPublishInfoRequest } from './model/SearchPublishInfoRequest';
 import { SearchPublishInfoResponse } from './model/SearchPublishInfoResponse';
 import { SearchSubjectNewRequest } from './model/SearchSubjectNewRequest';
 import { SearchSubjectNewResponse } from './model/SearchSubjectNewResponse';
+import { SearchSubjectNewResultData } from './model/SearchSubjectNewResultData';
+import { SearchSubjectNewResultDataValue } from './model/SearchSubjectNewResultDataValue';
 import { SearchSubjectRequest } from './model/SearchSubjectRequest';
 import { SearchSubjectResponse } from './model/SearchSubjectResponse';
+import { SearchSubjectResultData } from './model/SearchSubjectResultData';
+import { SearchSubjectResultDataValue } from './model/SearchSubjectResultDataValue';
 import { SearchVersionsRequest } from './model/SearchVersionsRequest';
 import { SearchVersionsResponse } from './model/SearchVersionsResponse';
 import { SecrecyLevel } from './model/SecrecyLevel';
+import { SecrecyLevelRecordVO } from './model/SecrecyLevelRecordVO';
+import { SecrecyLevelVO } from './model/SecrecyLevelVO';
+import { SecretTypeEnum } from './model/SecretTypeEnum';
 import { SelfDefinedFieldVO } from './model/SelfDefinedFieldVO';
 import { SensitiveDataCategoryOverviewQueryDTO } from './model/SensitiveDataCategoryOverviewQueryDTO';
 import { SensitiveDataSecrecyLevelOverviewQueryDTO } from './model/SensitiveDataSecrecyLevelOverviewQueryDTO';
@@ -720,12 +819,15 @@ import { ShowCompoundMetricByIdRequest } from './model/ShowCompoundMetricByIdReq
 import { ShowCompoundMetricByIdResponse } from './model/ShowCompoundMetricByIdResponse';
 import { ShowConditionByIdRequest } from './model/ShowConditionByIdRequest';
 import { ShowConditionByIdResponse } from './model/ShowConditionByIdResponse';
+import { ShowConditionByIdResultData } from './model/ShowConditionByIdResultData';
 import { ShowConsistencyTaskDetailRequest } from './model/ShowConsistencyTaskDetailRequest';
 import { ShowConsistencyTaskDetailResponse } from './model/ShowConsistencyTaskDetailResponse';
 import { ShowDataDetailRequest } from './model/ShowDataDetailRequest';
 import { ShowDataDetailResponse } from './model/ShowDataDetailResponse';
 import { ShowDataProfileRequest } from './model/ShowDataProfileRequest';
 import { ShowDataProfileResponse } from './model/ShowDataProfileResponse';
+import { ShowDataServiceInstanceRequest } from './model/ShowDataServiceInstanceRequest';
+import { ShowDataServiceInstanceResponse } from './model/ShowDataServiceInstanceResponse';
 import { ShowDataSetsRequest } from './model/ShowDataSetsRequest';
 import { ShowDataSetsResponse } from './model/ShowDataSetsResponse';
 import { ShowDataconnectionRequest } from './model/ShowDataconnectionRequest';
@@ -736,14 +838,17 @@ import { ShowDerivativeIndexByIdRequest } from './model/ShowDerivativeIndexByIdR
 import { ShowDerivativeIndexByIdResponse } from './model/ShowDerivativeIndexByIdResponse';
 import { ShowDimensionByIdRequest } from './model/ShowDimensionByIdRequest';
 import { ShowDimensionByIdResponse } from './model/ShowDimensionByIdResponse';
+import { ShowDimensionByIdResultData } from './model/ShowDimensionByIdResultData';
 import { ShowDimensionLogicTableByIdRequest } from './model/ShowDimensionLogicTableByIdRequest';
 import { ShowDimensionLogicTableByIdResponse } from './model/ShowDimensionLogicTableByIdResponse';
+import { ShowDimensionLogicTableByIdResultData } from './model/ShowDimensionLogicTableByIdResultData';
 import { ShowEntitiesRequest } from './model/ShowEntitiesRequest';
 import { ShowEntitiesResponse } from './model/ShowEntitiesResponse';
 import { ShowEntityInfoByGuidRequest } from './model/ShowEntityInfoByGuidRequest';
 import { ShowEntityInfoByGuidResponse } from './model/ShowEntityInfoByGuidResponse';
 import { ShowFactLogicTableByIdRequest } from './model/ShowFactLogicTableByIdRequest';
 import { ShowFactLogicTableByIdResponse } from './model/ShowFactLogicTableByIdResponse';
+import { ShowFactLogicTableByIdResultData } from './model/ShowFactLogicTableByIdResultData';
 import { ShowFactoryEnvRequest } from './model/ShowFactoryEnvRequest';
 import { ShowFactoryEnvResponse } from './model/ShowFactoryEnvResponse';
 import { ShowFactoryPackageDetailRequest } from './model/ShowFactoryPackageDetailRequest';
@@ -781,6 +886,7 @@ import { ShowQualityTaskDetailRequest } from './model/ShowQualityTaskDetailReque
 import { ShowQualityTaskDetailResponse } from './model/ShowQualityTaskDetailResponse';
 import { ShowRelationByIdRequest } from './model/ShowRelationByIdRequest';
 import { ShowRelationByIdResponse } from './model/ShowRelationByIdResponse';
+import { ShowRelationByIdResultData } from './model/ShowRelationByIdResultData';
 import { ShowSecurityDataClassificationRuleGroupRequest } from './model/ShowSecurityDataClassificationRuleGroupRequest';
 import { ShowSecurityDataClassificationRuleGroupResponse } from './model/ShowSecurityDataClassificationRuleGroupResponse';
 import { ShowSecurityDataClassificationRuleRequest } from './model/ShowSecurityDataClassificationRuleRequest';
@@ -793,8 +899,11 @@ import { ShowSecuritySecrecyLevelRequest } from './model/ShowSecuritySecrecyLeve
 import { ShowSecuritySecrecyLevelResponse } from './model/ShowSecuritySecrecyLevelResponse';
 import { ShowStandardByIdRequest } from './model/ShowStandardByIdRequest';
 import { ShowStandardByIdResponse } from './model/ShowStandardByIdResponse';
+import { ShowStandardByIdResultData } from './model/ShowStandardByIdResultData';
 import { ShowStandardTemplateRequest } from './model/ShowStandardTemplateRequest';
 import { ShowStandardTemplateResponse } from './model/ShowStandardTemplateResponse';
+import { ShowStandardTemplateResultData } from './model/ShowStandardTemplateResultData';
+import { ShowStandardTemplateResultDataValue } from './model/ShowStandardTemplateResultDataValue';
 import { ShowTableModelByIdRequest } from './model/ShowTableModelByIdRequest';
 import { ShowTableModelByIdResponse } from './model/ShowTableModelByIdResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
@@ -824,6 +933,9 @@ import { StaticParam } from './model/StaticParam';
 import { StatisticForCallDetail } from './model/StatisticForCallDetail';
 import { StatisticForDashboard } from './model/StatisticForDashboard';
 import { StatisticForDetail } from './model/StatisticForDetail';
+import { StatisticInfo } from './model/StatisticInfo';
+import { StatisticSchema } from './model/StatisticSchema';
+import { StatisticStandardCoverageVO } from './model/StatisticStandardCoverageVO';
 import { StopFactorySupplementDataInstanceRequest } from './model/StopFactorySupplementDataInstanceRequest';
 import { StopFactorySupplementDataInstanceResponse } from './model/StopFactorySupplementDataInstanceResponse';
 import { SubCategoryDetailVO } from './model/SubCategoryDetailVO';
@@ -833,6 +945,7 @@ import { SupplementDataRespRows } from './model/SupplementDataRespRows';
 import { SupplementDataRespSupplementDataInstanceTime } from './model/SupplementDataRespSupplementDataInstanceTime';
 import { SupplementDataRespSupplementDataRunTime } from './model/SupplementDataRespSupplementDataRunTime';
 import { SyncStatusEnum } from './model/SyncStatusEnum';
+import { SyncStatusStatisticVO } from './model/SyncStatusStatisticVO';
 import { TableColumnDTO } from './model/TableColumnDTO';
 import { TableInfo } from './model/TableInfo';
 import { TableLineage } from './model/TableLineage';
@@ -840,6 +953,7 @@ import { TableLineageInfo } from './model/TableLineageInfo';
 import { TableMappingDetailVO } from './model/TableMappingDetailVO';
 import { TableMappingVO } from './model/TableMappingVO';
 import { TableModelAttributeVO } from './model/TableModelAttributeVO';
+import { TableModelStatisticVO } from './model/TableModelStatisticVO';
 import { TableModelUpdateVO } from './model/TableModelUpdateVO';
 import { TableModelVO } from './model/TableModelVO';
 import { TableType } from './model/TableType';
@@ -863,12 +977,14 @@ import { UpdateAppRequest } from './model/UpdateAppRequest';
 import { UpdateAppResponse } from './model/UpdateAppResponse';
 import { UpdateBizMetricRequest } from './model/UpdateBizMetricRequest';
 import { UpdateBizMetricResponse } from './model/UpdateBizMetricResponse';
+import { UpdateBizMetricResultData } from './model/UpdateBizMetricResultData';
 import { UpdateCatalogRequest } from './model/UpdateCatalogRequest';
 import { UpdateCatalogResponse } from './model/UpdateCatalogResponse';
 import { UpdateCodeTableRequest } from './model/UpdateCodeTableRequest';
 import { UpdateCodeTableResponse } from './model/UpdateCodeTableResponse';
 import { UpdateCodeTableValuesRequest } from './model/UpdateCodeTableValuesRequest';
 import { UpdateCodeTableValuesResponse } from './model/UpdateCodeTableValuesResponse';
+import { UpdateCodeTableValuesResultData } from './model/UpdateCodeTableValuesResultData';
 import { UpdateDataconnectionRequest } from './model/UpdateDataconnectionRequest';
 import { UpdateDataconnectionResponse } from './model/UpdateDataconnectionResponse';
 import { UpdateDesignAggregationLogicTableRequest } from './model/UpdateDesignAggregationLogicTableRequest';
@@ -899,6 +1015,7 @@ import { UpdateSecuritySecrecyLevelRequest } from './model/UpdateSecuritySecrecy
 import { UpdateSecuritySecrecyLevelResponse } from './model/UpdateSecuritySecrecyLevelResponse';
 import { UpdateStandardRequest } from './model/UpdateStandardRequest';
 import { UpdateStandardResponse } from './model/UpdateStandardResponse';
+import { UpdateStandardResultData } from './model/UpdateStandardResultData';
 import { UpdateStandardTemplateRequest } from './model/UpdateStandardTemplateRequest';
 import { UpdateStandardTemplateResponse } from './model/UpdateStandardTemplateResponse';
 import { UpdateSubjectNewRequest } from './model/UpdateSubjectNewRequest';
@@ -941,11 +1058,11 @@ export class DataArtsStudioClient {
      *
      * @summary 添加标签
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} entityId 表的ID。
+     * @param {string} entityId 表的ID，填写String类型替代Long类型。
      * @param {Array<string>} tags 标签名。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [attrId] 属性的ID。
+     * @param {string} [attrId] 属性的ID，填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1421,7 +1538,7 @@ export class DataArtsStudioClient {
      *
      * @summary 审批单处理
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {'reject' | 'resolve'} actionId 处理审批单结果类型。reject(审批驳回)、resolve(审批通过)。
+     * @param {'reject' | 'resolve'} actionId 处理审批单结果类型。 枚举值：   - reject: 审批驳回   - resolve: 审批通过 
      * @param {ApprovalInfoParam} confirmApprovalsRequestBody 审批单相关信息。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -1460,7 +1577,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 关系建模统计信息。
+     * 关系建模页面，外层的统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1502,16 +1619,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 标准覆盖率统计信息。
+     * 查看某个数据标准在所有模型字段中的覆盖率，即使用该标准的字段占总字段的百分比。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 标准覆盖率统计信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [bizType] 按业务类型查询。
+     * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1525,7 +1642,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 模型统计信息。
+     * 单个模型中的统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1533,7 +1650,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [modelId] 依据关系建模的模型ID查询统计信息。
+     * @param {string} [modelId] 依据关系建模的模型ID查询统计信息，填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1678,7 +1795,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 新建汇总表。
+     * 根据入参，手动创建汇总表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1722,7 +1839,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建目录。
+     * 创建目录（数据标准、码表）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2032,7 +2149,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建数据标准模板。
+     * 创建当前工作空间下的数据标准模板自定义项。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2393,7 +2510,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 批量删除汇总表。
+     * 批量删除汇总表，只能删除状态为草稿、已线下、已驳回的表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2443,8 +2560,8 @@ export class DataArtsStudioClient {
      *
      * @summary 删除实体下展
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} bizId 待删除下展的实体ID。
-     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。ATOMIC_INDEX(原子指标)、DERIVATIVE_INDEX(衍生指标)、DIMENSION(维度)、FACT_LOGIC_TABLE(事实表)、TABLE_MODEL(业务表：逻辑实体/物理表)、STANDARD_ELEMENT(数据标准)、AGGREGATION_LOGIC_TABLE(汇总表)、CODE_TABLE(码表)、BIZ_METRIC(业务指标)、COMPOUND_METRIC(复合指标)。
+     * @param {string} bizId 待删除下展的实体ID，填写String类型替代Long类型。
+     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。 枚举值：   - ATOMIC_INDEX: 原子指标   - DERIVATIVE_INDEX: 衍生指标   - DIMENSION: 维度   - FACT_LOGIC_TABLE: 事实表   - TABLE_MODEL: 关系建模：逻辑实体/物理表   - STANDARD_ELEMENT: 数据标准   - AGGREGATION_LOGIC_TABLE: 汇总表   - CODE_TABLE: 码表   - BIZ_METRIC: 业务指标   - COMPOUND_METRIC: 复合指标 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -2460,13 +2577,13 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 删除目录。
+     * 删除目录（数据标准、码表）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<number>} ids 实体ID数组。
+     * @param {Array<string>} ids 实体ID数组，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -2633,7 +2750,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除数据标准模板
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} ids 实体ID。
+     * @param {string} ids 待删除的数据标准的ID集合。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -2741,7 +2858,7 @@ export class DataArtsStudioClient {
      *
      * @summary 删除模型工作区
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<number>} ids 实体ID数组。
+     * @param {Array<string>} ids 实体ID数组，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -2825,7 +2942,7 @@ export class DataArtsStudioClient {
      *
      * @summary 导出模型中表的DDL语句
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {Array<string>} [tbNames] 待导出的表名。
@@ -2865,7 +2982,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 根据请求导出接口（/export-model）时返回的uuid，获取excel导出结果。
+     * 根据请求导出业务数据（/export-model）时返回的uuid，获取excel导出结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2893,7 +3010,7 @@ export class DataArtsStudioClient {
      *
      * @summary 导入主题
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} actionId 需要执行的动作。start-import(开始导入)。
+     * @param {string} actionId 需要执行的动作。 枚举值：   - start-import: 开始导入 
      * @param {any} file 导入主题用的excel文件，大小必须小于4MB，且行数小于3000行。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -2937,12 +3054,13 @@ export class DataArtsStudioClient {
      *
      * @summary 导入模型，关系建模，维度建模，码表，业务指标以及流程架构
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {'import_relation' | 'import_dimension' | 'import_codetable' | 'import_datastandard' | 'import_bizmetric' | 'import_bizcatalog' | 'import_atomic' | 'import_derivative' | 'import_compound' | 'import_aggregation'} actionId 需要执行的动作，根据导入的对象不同而选择不同的导入动作。import_relation(导入关系模型：逻辑实体/物理表)、import_dimension( 导入维度表、事实表)、import_codetable(导入码表)、import_datastandard(导入数据标准)、import_bizmetric(导入业务指标)、import_bizcatalog(导入流程架构)、import_atomic(导入原子指标)、import_derivative(导入衍生指标)、import_compound(导入复合指标)、import_aggregation(导入汇总表)。
+     * @param {'import_relation' | 'import_dimension' | 'import_codetable' | 'import_datastandard' | 'import_bizmetric' | 'import_bizcatalog' | 'import_atomic' | 'import_derivative' | 'import_compound' | 'import_aggregation'} actionId 需要执行的动作，根据导入的对象不同而选择不同的导入动作。 枚举值：   - import_relation: 导入关系模型：逻辑实体/物理表   - import_dimension: 导入维度表、事实表   - import_codetable: 导入码表   - import_datastandard: 导入数据标准   - import_bizmetric: 导入业务指标   - import_bizcatalog: 导入流程架构   - import_atomic: 导入原子指标   - import_derivative: 导入衍生指标   - import_compound: 导入复合指标   - import_aggregation: 导入汇总表 
      * @param {any} file 导入用的excel文件，大小必须小于4MB，且行数小于3000行。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [xLanguage] 默认值：en-us 可选，导入导出接口必填，可选值有：zh-cn、en-us，分别表示中文、英文。
      * @param {string} [modelId] 关系建模的模型ID，在导入模型（import_relation）时必填。
-     * @param {string} [directoryId] 导入的目录id，在导入码表（import_datastandard）和数据标准（import_datastandard）时生效，选填。
+     * @param {string} [directoryId] 导入的目录id，在导入码表（import_codetable）和数据标准（import_datastandard）时生效，选填。
      * @param {boolean} [skipExist] 是否需要覆盖更新已有的实体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2957,7 +3075,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询导入excel的处理结果。
+     * 查询导入excel的处理结果（其中参数uuid获取为：/design/models/action或/design/catalogs/action接口返回结果）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2985,8 +3103,8 @@ export class DataArtsStudioClient {
      *
      * @summary 初始化数据标准模板
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} actionId action-id&#x3D;init
-     * @param {StandElementFieldVOList} initializeStandardTemplateRequestBody field info
+     * @param {string} actionId action-id&#x3D;init，初始化数据标准模板时固定参数。
+     * @param {StandElementFieldVOList} initializeStandardTemplateRequestBody 初始化数据标准模板时的字段信息。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -3002,7 +3120,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息。
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息，中英文名称支持模糊查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3014,13 +3132,13 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
-     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
+     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {boolean} [autoGenerate] 是否自动生成
@@ -3072,7 +3190,7 @@ export class DataArtsStudioClient {
      * @param {string} [directoryId] 目录ID。获取该目录下的数据标准，如果有子目录，同时获取所有子目录的数据标准。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3093,20 +3211,20 @@ export class DataArtsStudioClient {
      *
      * @summary 查询多种类型的表信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<'TABLE_MODEL_LOGIC' | 'TABLE_MODEL' | 'DIMENSION_LOGIC_TABLE' | 'FACT_LOGIC_TABLE' | 'AGGREGATION_LOGIC_TABLE'>} bizTypeList 查询的表类型，必填。TABLE_MODEL_LOGIC(逻辑实体)、TABLE_MODEL(物理表)、DIMENSION_LOGIC_TABLE(维度表)、FACT_LOGIC_TABLE(事实表)、AGGREGATION_LOGIC_TABLE(汇总表)。
+     * @param {Array<'TABLE_MODEL_LOGIC' | 'TABLE_MODEL' | 'DIMENSION_LOGIC_TABLE' | 'FACT_LOGIC_TABLE' | 'AGGREGATION_LOGIC_TABLE'>} bizTypeList 查询的表类型，必填。 枚举值：   - TABLE_MODEL_LOGIC: 逻辑实体   - TABLE_MODEL: 物理表   - DIMENSION_LOGIC_TABLE: 维度表   - FACT_LOGIC_TABLE: 事实表   - AGGREGATION_LOGIC_TABLE: 汇总表 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
-     * @param {Array<number>} [bizCatalogIdList] 所属主题的ID列表。
+     * @param {Array<string>} [bizCatalogIdList] 所属主题的ID列表，填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3281,8 +3399,8 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [approverName] 审核人名字
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {string} [approverName] 审核人姓名。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3356,7 +3474,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3371,15 +3489,15 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查看指标指标责任人信息。
+     * 查看指标责任人信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看指标指标责任人信息
+     * @summary 查看指标责任人信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3405,13 +3523,13 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3434,7 +3552,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3550,13 +3668,13 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
-     * @param {number} [atomicIndexId] 依据原子指标ID查维度属性。
-     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，填写String类型替代Long类型。
+     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3582,10 +3700,10 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3639,6 +3757,78 @@ export class DataArtsStudioClient {
      */
     public listDataArtsStudioInstances(listDataArtsStudioInstancesRequest?: ListDataArtsStudioInstancesRequest): Promise<ListDataArtsStudioInstancesResponse> {
         const options = ParamCreater().listDataArtsStudioInstances(listDataArtsStudioInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群详情信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群详情信息列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {number} [limit] 查询条数限制。
+     * @param {number} [offset] 查询起始坐标。
+     * @param {string} [name] 集群名称。
+     * @param {string} [createUser] 创建人名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataServiceInstancesDetail(listDataServiceInstancesDetailRequest?: ListDataServiceInstancesDetailRequest): Promise<ListDataServiceInstancesDetailResponse> {
+        const options = ParamCreater().listDataServiceInstancesDetail(listDataServiceInstancesDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群概览信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群概览信息列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {number} [limit] 查询条数限制。
+     * @param {number} [offset] 查询起始坐标。
+     * @param {string} [name] 集群名称。
+     * @param {string} [createUser] 创建人名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataServiceInstancesOverview(listDataServiceInstancesOverviewRequest?: ListDataServiceInstancesOverviewRequest): Promise<ListDataServiceInstancesOverviewResponse> {
+        const options = ParamCreater().listDataServiceInstancesOverview(listDataServiceInstancesOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询服务目录API列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务目录API列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {MallParaDTO} [listDataServiceMarketApisRequestBody] 查询服务目录API列表请求参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataServiceMarketApis(listDataServiceMarketApisRequest?: ListDataServiceMarketApisRequest): Promise<ListDataServiceMarketApisResponse> {
+        const options = ParamCreater().listDataServiceMarketApis(listDataServiceMarketApisRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3727,16 +3917,16 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {number} [dimensionId] 依据维度ID查维度属性。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {string} [dimensionId] 依据维度ID查维度属性，填写String类型替代Long类型。
      * @param {string} [dimensionGroup] 依据维度颗粒度查维度属性。
-     * @param {number} [atomicIndexId] 依据原子指标ID查维度属性。
+     * @param {string} [atomicIndexId] 依据原子指标ID查维度属性，填写String类型替代Long类型。
      * @param {boolean} [allMetrics] 是否查询复合指标
      * @param {string} [dwType] 数据连接类型
-     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3759,9 +3949,9 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [tableId] 关联表的ID。
-     * @param {string} [bizType] 按业务类型查询。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {string} [tableId] 关联表的ID，填写String类型替代Long类型。
+     * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3788,17 +3978,17 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
-     * @param {number} [l2Id] 主题域l2的ID。
-     * @param {number} [dimensionId] 依据维度ID查维度属性。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
+     * @param {string} [l2Id] 主题域l2的ID，填写String类型替代Long类型。
+     * @param {string} [dimensionId] 依据维度ID查维度属性，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
-     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。COMMON(普通维度)、LOOKUP(码表维度)、HIERARCHIES(层级维度)。
+     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。 枚举值：   - COMMON: 普通维度   - LOOKUP: 码表维度   - HIERARCHIES: 层级维度 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3823,14 +4013,14 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {number} [l2Id] 主题域l2的ID。
-     * @param {Array<number>} [derivativeIds] 依据复合指标ID列表查维度。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {string} [l2Id] 主题域l2的ID，填写String类型替代Long类型。
+     * @param {Array<string>} [derivativeIds] 依据复合指标ID列表查维度，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [factLogicId] 事实表ID。
-     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。COMMON(普通维度)、LOOKUP(码表维度)、HIERARCHIES(层级维度)。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {string} [factLogicId] 事实表ID，填写String类型替代Long类型。
+     * @param {'COMMON' | 'LOOKUP' | 'HIERARCHIES'} [dimensionType] 维度类型。 枚举值： - COMMON: 普通维度 - LOOKUP: 码表维度 - HIERARCHIES: 层级维度 
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
@@ -3846,16 +4036,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取所有目录。
+     * 获取所有目录(数据标准、码表)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取所有目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {'CODE' | 'STANDARD_ELEMENT'} type 获取该目录下的数据，如果有子目录，获取所有子目录的数据。CODE(码表目录)、STANDARD_ELEMENT(数据标准目录)。
+     * @param {'CODE' | 'STANDARD_ELEMENT'} type 获取该目录下的数据，如果有子目录，获取所有子目录的数据。 枚举值：   - CODE: 码表目录   - STANDARD_ELEMENT: 数据标准目录 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3882,13 +4072,13 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
-     * @param {number} [l3Id] 业务对象l3的ID。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
+     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
@@ -4120,7 +4310,7 @@ export class DataArtsStudioClient {
      *
      * @summary 获取指标关联信息
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} bizType 指标类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -4219,11 +4409,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、等分页查找关系信息。
+     * 通过关系名称(支持模糊查询)、创建人、开始时间、结束时间等分页查找关系信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 关系
+     * @summary 查询关系
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -4231,7 +4421,7 @@ export class DataArtsStudioClient {
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4627,7 +4817,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4648,12 +4838,12 @@ export class DataArtsStudioClient {
      *
      * @summary 查询模型下所有关系
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [tableIds] 表模型ids
-     * @param {'TABLE_MODEL' | 'FACT_LOGIC_TABLE'} [bizType] 表类型。TABLE_MODEL(关系建模：逻辑实体/物理表)、FACT_LOGIC_TABLE(事实表)。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {string} [tableIds] 表模型ids，填写String类型替代Long类型。
+     * @param {'TABLE_MODEL' | 'FACT_LOGIC_TABLE'} [bizType] 表类型。 枚举值：   - TABLE_MODEL: 关系建模：逻辑实体/物理表   - FACT_LOGIC_TABLE: 事实表 
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4680,12 +4870,12 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
-     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。RUNNING(同步中)、NO_NEED(未同步)、SUMMARY_SUCCESS(整体成功)、SUMMARY_FAILED(整体失败)。
-     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。BUSINESS_ASSET(同步业务资产)、DATA_QUALITY(创建质量作业)、TECHNICAL_ASSET(同步技术资产)、META_DATA_LINK(资产关联)、PHYSICAL_TABLE(创建表（生产环境）)、DEV_PHYSICAL_TABLE(创建表（开发环境）)、DLF_TASK(创建数据开发作业)、MATERIALIZATION(数值落库（码表）)、PUBLISH_TO_DLM(发布数据服务API)、SUMMARY_STATUS(整体状态)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
+     * @param {'RUNNING' | 'NO_NEED' | 'SUMMARY_SUCCESS' | 'SUMMARY_FAILED'} [syncStatus] 同步状态枚举。 枚举值：   - RUNNING: 同步中   - NO_NEED: 未同步   - SUMMARY_SUCCESS: 整体成功   - SUMMARY_FAILED: 整体失败 
+     * @param {Array<'BUSINESS_ASSET' | 'DATA_QUALITY' | 'TECHNICAL_ASSET' | 'META_DATA_LINK' | 'PHYSICAL_TABLE' | 'DEV_PHYSICAL_TABLE' | 'DLF_TASK' | 'MATERIALIZATION' | 'PUBLISH_TO_DLM' | 'SUMMARY_STATUS'>} [syncKey] 同步任务类型枚举。 枚举值：   - BUSINESS_ASSET: 同步业务资产   - DATA_QUALITY: 创建质量作业   - TECHNICAL_ASSET: 同步技术资产   - META_DATA_LINK: 资产关联   - PHYSICAL_TABLE: 创建表（生产环境）   - DEV_PHYSICAL_TABLE: 创建表（开发环境）   - DLF_TASK: 创建数据开发作业   - MATERIALIZATION: 数值落库（码表）   - PUBLISH_TO_DLM: 发布数据服务API   - SUMMARY_STATUS: 整体状态 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [bizCatalogId] 所属的业务分层的ID。
      * @param {*} [options] Override http request option.
@@ -4721,7 +4911,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取模型。
+     * 获取当前空间下的全部模型信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4729,8 +4919,8 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {'THIRD_NF' | 'DIMENSION'} [workspaceType] 模型工作区类型枚举。THIRD_NF(关系建模)、DIMENSION(维度建模)。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {'THIRD_NF' | 'DIMENSION'} [workspaceType] 模型工作区类型枚举。 枚举值：   - THIRD_NF: 关系建模   - DIMENSION: 维度建模 
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {string} [dwType] 数据连接类型
      * @param {*} [options] Override http request option.
@@ -4813,7 +5003,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改自定义项。
+     * 修改自定义项（包括表自定义项、属性自定义项、主题自定义项、业务指标自定义项）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4880,11 +5070,11 @@ export class DataArtsStudioClient {
      *
      * @summary 删除标签
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} entityId 表的ID。
+     * @param {string} entityId 表的ID，填写String类型替代Long类型。
      * @param {string} tag 标签名。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {string} [attrId] 属性的ID。
+     * @param {string} [attrId] 属性的ID，填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4904,7 +5094,7 @@ export class DataArtsStudioClient {
      *
      * @summary 清空质量规则
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} tableId 表的ID。
+     * @param {string} tableId 表的ID，填写String类型替代Long类型。
      * @param {string} tableType 表类型，默认值是业务表。TABLE_MODEL(业务表(逻辑实体/物理表))、AGGREGATION_LOGIC_TABLE(汇总表)、FACT_LOGIC_TABLE(事实表)、DIMENSION_LOGIC_TABLE(维度表)。 - TABLE_MODEL - AGGREGATION_LOGIC_TABLE - FACT_LOGIC_TABLE - DIMENSION_LOGIC_TABLE
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -4969,7 +5159,7 @@ export class DataArtsStudioClient {
      *
      * @summary 撤回审批单
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} ids 审批单ID。
+     * @param {string} ids 审批单ID数组。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -4993,17 +5183,17 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [bizId] 业务定义ID。
+     * @param {string} [bizId] 业务定义ID，填写String类型替代Long类型。
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DEVELOPING' | 'FINISHED'} [approvalStatus] 审批单状态。DEVELOPING(待审批)、FINISHED(已审批)。
-     * @param {'DEVELOPING' | 'APPROVED' | 'REJECT'} [approvalStatusDetail] 审批单状态。DEVELOPING(待审批)、APPROVED(审批通过)、REJECT(审批驳回)。
-     * @param {'PUBLISH' | 'OFFLINE'} [approvalType] 业务审核类型。PUBLISH(发布)、OFFLINE(下线)。
-     * @param {string} [bizType] 按业务类型查询。
+     * @param {'DEVELOPING' | 'FINISHED'} [approvalStatus] 审批单状态。 枚举值：   - DEVELOPING: 待审批   - FINISHED: 已审批 
+     * @param {'DEVELOPING' | 'APPROVED' | 'REJECT'} [approvalStatusDetail] 审批单状态。 枚举值：   - DEVELOPING: 待审批   - APPROVED: 审批通过   - REJECT: 审批驳回 
+     * @param {'PUBLISH' | 'OFFLINE'} [approvalType] 业务审核类型。 枚举值：   - PUBLISH: 发布   - OFFLINE: 下线 
+     * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5018,7 +5208,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息。
+     * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息看，中英文名称支持模糊查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5029,12 +5219,12 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [l3Id] 业务对象l3的ID。
-     * @param {number} [tableId] 关联表的ID。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {string} [l3Id] 业务对象l3的ID，填写String类型替代Long类型。
+     * @param {string} [tableId] 关联表的ID，填写String类型替代Long类型。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5110,7 +5300,7 @@ export class DataArtsStudioClient {
      * @param {string} [owner] 按负责人查询。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5131,10 +5321,10 @@ export class DataArtsStudioClient {
      *
      * @summary 查看码表字段值
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5160,11 +5350,11 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [approver] 按审核人查询。
-     * @param {number} [directoryId] 目录ID
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {string} [directoryId] 目录ID，填写String类型替代Long类型。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5179,16 +5369,16 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询自定义项。
+     * 查询自定义项（包括表自定义项、属性自定义项、主题自定义项、业务指标自定义项）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义项
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {'TABLE' | 'ATTRIBUTE' | 'SUBJECT' | 'METRIC'} type 自定义项类型。TABLE(表自定义项)、ATTRIBUTE(属性自定义项)、SUBJECT(主题自定义项)、METRIC(业务指标自定义项)。
+     * @param {'TABLE' | 'ATTRIBUTE' | 'SUBJECT' | 'METRIC'} type 自定义项类型。 枚举值：   - TABLE: 表自定义项   - ATTRIBUTE: 属性自定义项   - SUBJECT: 主题自定义项   - METRIC: 业务指标自定义项 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5209,8 +5399,8 @@ export class DataArtsStudioClient {
      *
      * @summary 获取下展信息与已发布实体的差异
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} bizId 待比较下展的实体ID。
-     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待比较下展的实体类型。ATOMIC_INDEX(原子指标)、DERIVATIVE_INDEX(衍生指标)、DIMENSION(维度)、FACT_LOGIC_TABLE(事实表)、TABLE_MODEL(业务表：逻辑实体/物理表)、STANDARD_ELEMENT(数据标准)、AGGREGATION_LOGIC_TABLE(汇总表)、CODE_TABLE(码表)、BIZ_METRIC(业务指标)、COMPOUND_METRIC(复合指标)。
+     * @param {string} bizId 待比较下展的实体ID，填写String类型替代Long类型。
+     * @param {'ATOMIC_INDEX' | 'DERIVATIVE_INDEX' | 'DIMENSION' | 'FACT_LOGIC_TABLE' | 'TABLE_MODEL' | 'STANDARD_ELEMENT' | 'AGGREGATION_LOGIC_TABLE' | 'CODE_TABLE' | 'BIZ_METRIC' | 'COMPOUND_METRIC'} bizType 待删除下展的实体类型。 枚举值：   - ATOMIC_INDEX: 原子指标   - DERIVATIVE_INDEX: 衍生指标   - DIMENSION: 维度   - FACT_LOGIC_TABLE: 事实表   - TABLE_MODEL:关系建模：逻辑实体/物理表   - STANDARD_ELEMENT: 数据标准   - AGGREGATION_LOGIC_TABLE: 汇总表   - CODE_TABLE: 码表   - BIZ_METRIC: 业务指标   - COMPOUND_METRIC: 复合指标 
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -5257,9 +5447,11 @@ export class DataArtsStudioClient {
      *
      * @summary 查询目的表和字段(待下线)
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5297,7 +5489,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过名称、创建者、责任人、状态、修改时间分页查找主题。
+     * 通过名称（支持模糊查询）、创建者、责任人、状态、修改时间分页查找主题。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5308,12 +5500,12 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
-     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。
+     * @param {string} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5338,12 +5530,12 @@ export class DataArtsStudioClient {
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
      * @param {string} [owner] 按负责人查询。
-     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。DRAFT(草稿)、PUBLISH_DEVELOPING(发布待审批)、PUBLISHED(已发布)、OFFLINE_DEVELOPING(下线待审批)、OFFLINE(已下线)、REJECT(已驳回)。
+     * @param {'DRAFT' | 'PUBLISH_DEVELOPING' | 'PUBLISHED' | 'OFFLINE_DEVELOPING' | 'OFFLINE' | 'REJECT'} [status] 业务状态。 枚举值：   - DRAFT: 草稿   - PUBLISH_DEVELOPING: 发布待审批   - PUBLISHED: 已发布   - OFFLINE_DEVELOPING: 下线待审批   - OFFLINE: 已下线   - REJECT: 已驳回 
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
-     * @param {number} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。
+     * @param {string} [parentId] 父目录ID，根节点没有此ID，空值为所有，-1为根节点下节点。填写String类型替代Long类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5367,11 +5559,11 @@ export class DataArtsStudioClient {
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {string} [name] 按名称或编码模糊查询。
      * @param {string} [createBy] 按创建者查询。
-     * @param {number} [bizId] 业务定义ID。
-     * @param {string} [bizType] 按业务类型查询。
+     * @param {string} [bizId] 业务定义ID，填写String类型替代Long类型。
+     * @param {string} [bizType] 按业务类型查询，可选业务类型有：ATOMIC_INDEX（原子指标）、DERIVATIVE_INDEX（衍生指标）、DIMENSION（维度）、TIME_CONDITION（时间限定）、DIMENSION_LOGIC_TABLE（维度表）、FACT_LOGIC_TABLE（事实表）、AGGREGATION_LOGIC_TABLE（汇总表）、TABLE_MODEL（关系建模表）、CODE_TABLE（码表）、STANDARD_ELEMENT）（数据标准）、BIZ_METRIC（业务指标）、COMPOUND_METRIC（复合指标）、SUBJECT（主题）、ATOMIC_METRIC（原子指标（新））、DERIVED_METRIC（衍生指标（新））、COMPOSITE_METRIC（复合指标（新））。
      * @param {string} [beginTime] 时间过滤左边界，与end_time一起使用，只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
      * @param {string} [endTime] 时间过滤右边界，与begin_time一起使用只支持时间范围过滤，单边过滤无效。格式遵循RFC3339，精确到秒，UTC时区，即yyyy-mm-ddTHH:MM:SSZ，如1970-01-01T00:00:00Z。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5415,7 +5607,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看汇总表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -5655,13 +5847,13 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过ID获取指标详情信息。
+     * 通过ID获取原子指标详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看原子指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -5684,7 +5876,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查找流程架构详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -5706,7 +5898,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -5812,7 +6004,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看码表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -5834,7 +6026,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看复合指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -5857,7 +6049,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看限定详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -5938,6 +6130,28 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询集群详情信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群详情信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId 集群ID。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {string} [contentType] 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDataServiceInstance(showDataServiceInstanceRequest?: ShowDataServiceInstanceRequest): Promise<ShowDataServiceInstanceResponse> {
+        const options = ParamCreater().showDataServiceInstance(showDataServiceInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 资产搜索
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6010,7 +6224,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看衍生指标详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6033,7 +6247,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看维度详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6056,7 +6270,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看维度表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6119,7 +6333,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看事实表详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6498,7 +6712,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看关系详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6621,7 +6835,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看数据标准详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -6637,7 +6851,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询数据标准模板。
+     * 查询当前工作空间下的数据标准模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6645,7 +6859,7 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
-     * @param {number} [limit] 查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
+     * @param {number} [limit] 每页查询条数，即查询Y条数据。默认值50，取值范围[1,100]。
      * @param {number} [offset] 查询起始坐标，即跳过X条数据，仅支持0或limit的整数倍，不满足则向下取整，默认值0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6666,7 +6880,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查看表模型详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {boolean} [latest] 是否查询最新的。
@@ -6831,7 +7045,7 @@ export class DataArtsStudioClient {
      *
      * @summary 查询模型详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} modelId 所属关系建模的模型ID。
+     * @param {string} modelId 所属关系建模的模型ID，填写String类型替代Long类型。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -6941,7 +7155,7 @@ export class DataArtsStudioClient {
      *
      * @summary 修改码表
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {CodeTableVO} updateCodeTableRequestBody 码表信息
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -6964,7 +7178,7 @@ export class DataArtsStudioClient {
      *
      * @summary 编辑码表字段值
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {CodeTableFieldValueUpdateVO} updateCodeTableValuesRequestBody code table field values
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -7052,7 +7266,7 @@ export class DataArtsStudioClient {
      *
      * @summary 更新表的异常数据输出配置
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} tableId 表的ID。
+     * @param {string} tableId 表的ID，填写String类型替代Long类型。
      * @param {UpdateDesignTableQualityParam} updateDesignTableQualityRequestBody 质量规则相关信息。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -7069,13 +7283,13 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改目录。
+     * 修改目录（数据标准、码表）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {DirectoryVO} updateDirectoryRequestBody 目录信息
+     * @param {DirectoryVO} updateDirectoryRequestBody 目录信息。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -7248,7 +7462,7 @@ export class DataArtsStudioClient {
      *
      * @summary 修改数据标准
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {string} id 实体ID
+     * @param {string} id 实体ID，填写String类型替代Long类型。
      * @param {StandElementValueVOList} updateStandardRequestBody field value info
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
@@ -9166,7 +9380,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关系建模统计信息。
+         * 关系建模页面，外层的统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9266,7 +9480,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 标准覆盖率统计信息。
+         * 查看某个数据标准在所有模型字段中的覆盖率，即使用该标准的字段占总字段的百分比。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9332,7 +9546,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 模型统计信息。
+         * 单个模型中的统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9728,7 +9942,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 新建汇总表。
+         * 根据入参，手动创建汇总表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9846,7 +10060,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建目录。
+         * 创建目录（数据标准、码表）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10594,7 +10808,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建数据标准模板。
+         * 创建当前工作空间下的数据标准模板自定义项。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11505,7 +11719,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除汇总表。
+         * 批量删除汇总表，只能删除状态为草稿、已线下、已驳回的表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11692,7 +11906,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除目录。
+         * 删除目录（数据标准、码表）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12717,7 +12931,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据请求导出接口（/export-model）时返回的uuid，获取excel导出结果。
+         * 根据请求导出业务数据（/export-model）时返回的uuid，获取excel导出结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12933,6 +13147,8 @@ export const ParamCreater = function () {
             
             let contentType;
             
+            let xLanguage;
+            
             let modelId;
             
             let directoryId;
@@ -12946,6 +13162,7 @@ export const ParamCreater = function () {
                     file = importModelsRequest.body?.file;
                     xProjectId = importModelsRequest.xProjectId;
                     contentType = importModelsRequest.contentType;
+                    xLanguage = importModelsRequest.xLanguage;
                     modelId = importModelsRequest.modelId;
                     directoryId = importModelsRequest.directoryId;
                     skipExist = importModelsRequest.skipExist;
@@ -12955,6 +13172,7 @@ export const ParamCreater = function () {
                     file = importModelsRequest['body']['file'];
                     xProjectId = importModelsRequest['X-Project-Id'];
                     contentType = importModelsRequest['Content-Type'];
+                    xLanguage = importModelsRequest['X-Language'];
                     modelId = importModelsRequest['model_id'];
                     directoryId = importModelsRequest['directory_id'];
                     skipExist = importModelsRequest['skip-exist'];
@@ -12992,6 +13210,9 @@ export const ParamCreater = function () {
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
@@ -13001,7 +13222,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询导入excel的处理结果。
+         * 查询导入excel的处理结果（其中参数uuid获取为：/design/models/action或/design/catalogs/action接口返回结果）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13132,7 +13353,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息。
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找汇总表信息，中英文名称支持模糊查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14429,7 +14650,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指标指标责任人信息。
+         * 查看指标责任人信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15306,6 +15527,220 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群详情信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataServiceInstancesDetail(listDataServiceInstancesDetailRequest?: ListDataServiceInstancesDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/service/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let dlmType;
+            
+            let contentType;
+            
+            let limit;
+            
+            let offset;
+            
+            let name;
+            
+            let createUser;
+
+            if (listDataServiceInstancesDetailRequest !== null && listDataServiceInstancesDetailRequest !== undefined) {
+                if (listDataServiceInstancesDetailRequest instanceof ListDataServiceInstancesDetailRequest) {
+                    workspace = listDataServiceInstancesDetailRequest.workspace;
+                    dlmType = listDataServiceInstancesDetailRequest.dlmType;
+                    contentType = listDataServiceInstancesDetailRequest.contentType;
+                    limit = listDataServiceInstancesDetailRequest.limit;
+                    offset = listDataServiceInstancesDetailRequest.offset;
+                    name = listDataServiceInstancesDetailRequest.name;
+                    createUser = listDataServiceInstancesDetailRequest.createUser;
+                } else {
+                    workspace = listDataServiceInstancesDetailRequest['workspace'];
+                    dlmType = listDataServiceInstancesDetailRequest['Dlm-Type'];
+                    contentType = listDataServiceInstancesDetailRequest['Content-Type'];
+                    limit = listDataServiceInstancesDetailRequest['limit'];
+                    offset = listDataServiceInstancesDetailRequest['offset'];
+                    name = listDataServiceInstancesDetailRequest['name'];
+                    createUser = listDataServiceInstancesDetailRequest['create_user'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (createUser !== null && createUser !== undefined) {
+                localVarQueryParameter['create_user'] = createUser;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群概览信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataServiceInstancesOverview(listDataServiceInstancesOverviewRequest?: ListDataServiceInstancesOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/service/instances/overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let dlmType;
+            
+            let contentType;
+            
+            let limit;
+            
+            let offset;
+            
+            let name;
+            
+            let createUser;
+
+            if (listDataServiceInstancesOverviewRequest !== null && listDataServiceInstancesOverviewRequest !== undefined) {
+                if (listDataServiceInstancesOverviewRequest instanceof ListDataServiceInstancesOverviewRequest) {
+                    workspace = listDataServiceInstancesOverviewRequest.workspace;
+                    dlmType = listDataServiceInstancesOverviewRequest.dlmType;
+                    contentType = listDataServiceInstancesOverviewRequest.contentType;
+                    limit = listDataServiceInstancesOverviewRequest.limit;
+                    offset = listDataServiceInstancesOverviewRequest.offset;
+                    name = listDataServiceInstancesOverviewRequest.name;
+                    createUser = listDataServiceInstancesOverviewRequest.createUser;
+                } else {
+                    workspace = listDataServiceInstancesOverviewRequest['workspace'];
+                    dlmType = listDataServiceInstancesOverviewRequest['Dlm-Type'];
+                    contentType = listDataServiceInstancesOverviewRequest['Content-Type'];
+                    limit = listDataServiceInstancesOverviewRequest['limit'];
+                    offset = listDataServiceInstancesOverviewRequest['offset'];
+                    name = listDataServiceInstancesOverviewRequest['name'];
+                    createUser = listDataServiceInstancesOverviewRequest['create_user'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (createUser !== null && createUser !== undefined) {
+                localVarQueryParameter['create_user'] = createUser;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询服务目录API列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataServiceMarketApis(listDataServiceMarketApisRequest?: ListDataServiceMarketApisRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/service/market",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let dlmType;
+
+            if (listDataServiceMarketApisRequest !== null && listDataServiceMarketApisRequest !== undefined) {
+                if (listDataServiceMarketApisRequest instanceof ListDataServiceMarketApisRequest) {
+                    workspace = listDataServiceMarketApisRequest.workspace;
+                    contentType = listDataServiceMarketApisRequest.contentType;
+                    dlmType = listDataServiceMarketApisRequest.dlmType;
+                    body = listDataServiceMarketApisRequest.body
+                } else {
+                    workspace = listDataServiceMarketApisRequest['workspace'];
+                    contentType = listDataServiceMarketApisRequest['Content-Type'];
+                    dlmType = listDataServiceMarketApisRequest['Dlm-Type'];
+                    body = listDataServiceMarketApisRequest['body'];
+                }
+            }
+
+        
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取数据源中的表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16032,7 +16467,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取所有目录。
+         * 获取所有目录(数据标准、码表)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17219,7 +17654,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、等分页查找关系信息。
+         * 通过关系名称(支持模糊查询)、创建人、开始时间、结束时间等分页查找关系信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -18832,7 +19267,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取模型。
+         * 获取当前空间下的全部模型信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19090,7 +19525,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改自定义项。
+         * 修改自定义项（包括表自定义项、属性自定义项、主题自定义项、业务指标自定义项）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19677,7 +20112,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息。
+         * 通过中英文名称、创建者、审核人、状态、修改时间分页查找原子指标信息看，中英文名称支持模糊查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20231,7 +20666,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义项。
+         * 查询自定义项（包括表自定义项、属性自定义项、主题自定义项、业务指标自定义项）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20471,7 +20906,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let workspace;
             
@@ -20480,6 +20915,10 @@ export const ParamCreater = function () {
             let xProjectId;
             
             let contentType;
+            
+            let limit;
+            
+            let offset;
 
             if (searchFieldsForRelationRequest !== null && searchFieldsForRelationRequest !== undefined) {
                 if (searchFieldsForRelationRequest instanceof SearchFieldsForRelationRequest) {
@@ -20487,17 +20926,27 @@ export const ParamCreater = function () {
                     modelId = searchFieldsForRelationRequest.modelId;
                     xProjectId = searchFieldsForRelationRequest.xProjectId;
                     contentType = searchFieldsForRelationRequest.contentType;
+                    limit = searchFieldsForRelationRequest.limit;
+                    offset = searchFieldsForRelationRequest.offset;
                 } else {
                     workspace = searchFieldsForRelationRequest['workspace'];
                     modelId = searchFieldsForRelationRequest['model_id'];
                     xProjectId = searchFieldsForRelationRequest['X-Project-Id'];
                     contentType = searchFieldsForRelationRequest['Content-Type'];
+                    limit = searchFieldsForRelationRequest['limit'];
+                    offset = searchFieldsForRelationRequest['offset'];
                 }
             }
 
         
             if (modelId === null || modelId === undefined) {
             throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling searchFieldsForRelation.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
@@ -20509,6 +20958,7 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'model_id': modelId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -20590,7 +21040,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过名称、创建者、责任人、状态、修改时间分页查找主题。
+         * 通过名称（支持模糊查询）、创建者、责任人、状态、修改时间分页查找主题。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21821,7 +22271,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过ID获取指标详情信息。
+         * 通过ID获取原子指标详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -22567,6 +23017,64 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群详情信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDataServiceInstance(showDataServiceInstanceRequest?: ShowDataServiceInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/service/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let dlmType;
+            
+            let contentType;
+
+            if (showDataServiceInstanceRequest !== null && showDataServiceInstanceRequest !== undefined) {
+                if (showDataServiceInstanceRequest instanceof ShowDataServiceInstanceRequest) {
+                    workspace = showDataServiceInstanceRequest.workspace;
+                    instanceId = showDataServiceInstanceRequest.instanceId;
+                    dlmType = showDataServiceInstanceRequest.dlmType;
+                    contentType = showDataServiceInstanceRequest.contentType;
+                } else {
+                    workspace = showDataServiceInstanceRequest['workspace'];
+                    instanceId = showDataServiceInstanceRequest['instance_id'];
+                    dlmType = showDataServiceInstanceRequest['Dlm-Type'];
+                    contentType = showDataServiceInstanceRequest['Content-Type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDataServiceInstance.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -24415,7 +24923,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询数据标准模板。
+         * 查询当前工作空间下的数据标准模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -25535,7 +26043,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改目录。
+         * 修改目录（数据标准、码表）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

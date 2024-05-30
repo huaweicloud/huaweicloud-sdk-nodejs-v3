@@ -5,11 +5,11 @@ import { CodeTableFieldVO } from './CodeTableFieldVO';
 
 
 export class CodeTableVO {
-    public id?: number;
+    public id?: string;
     private 'name_en'?: string;
     private 'name_ch'?: string;
     private 'tb_version'?: number;
-    private 'directory_id'?: number;
+    private 'directory_id'?: string;
     private 'directory_path'?: string;
     public description?: string;
     private 'create_by'?: string;
@@ -19,13 +19,13 @@ export class CodeTableVO {
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
     private 'code_table_fields'?: Array<CodeTableFieldVO>;
-    public constructor(nameEn?: string, nameCh?: string, directoryId?: number, codeTableFields?: Array<CodeTableFieldVO>) { 
+    public constructor(nameEn?: string, nameCh?: string, directoryId?: string, codeTableFields?: Array<CodeTableFieldVO>) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
         this['directory_id'] = directoryId;
         this['code_table_fields'] = codeTableFields;
     }
-    public withId(id: number): CodeTableVO {
+    public withId(id: string): CodeTableVO {
         this['id'] = id;
         return this;
     }
@@ -59,14 +59,14 @@ export class CodeTableVO {
     public get tbVersion(): number | undefined {
         return this['tb_version'];
     }
-    public withDirectoryId(directoryId: number): CodeTableVO {
+    public withDirectoryId(directoryId: string): CodeTableVO {
         this['directory_id'] = directoryId;
         return this;
     }
-    public set directoryId(directoryId: number  | undefined) {
+    public set directoryId(directoryId: string  | undefined) {
         this['directory_id'] = directoryId;
     }
-    public get directoryId(): number | undefined {
+    public get directoryId(): string | undefined {
         return this['directory_id'];
     }
     public withDirectoryPath(directoryPath: string): CodeTableVO {

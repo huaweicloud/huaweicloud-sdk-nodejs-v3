@@ -1,6 +1,7 @@
 import { AccessProgress } from './AccessProgress';
 import { Flag } from './Flag';
 import { PremiumWafInstances } from './PremiumWafInstances';
+import { WafServer } from './WafServer';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -23,6 +24,7 @@ export class ShowCompositeHostResponse extends SdkResponse {
     public description?: string;
     private 'exclusive_ip'?: boolean;
     public region?: string;
+    public server?: Array<WafServer>;
     public constructor() { 
         super();
     }
@@ -150,6 +152,10 @@ export class ShowCompositeHostResponse extends SdkResponse {
     }
     public withRegion(region: string): ShowCompositeHostResponse {
         this['region'] = region;
+        return this;
+    }
+    public withServer(server: Array<WafServer>): ShowCompositeHostResponse {
+        this['server'] = server;
         return this;
     }
 }

@@ -1,7 +1,10 @@
 import { AggregationLogicTableAttributeVO } from './AggregationLogicTableAttributeVO';
+import { ApplyBgEnum } from './ApplyBgEnum';
 import { ApprovalVO } from './ApprovalVO';
 import { BizStatusEnum } from './BizStatusEnum';
 import { BizVersionManageVO } from './BizVersionManageVO';
+import { EnvTypeEnum } from './EnvTypeEnum';
+import { SecretTypeEnum } from './SecretTypeEnum';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
 
@@ -15,6 +18,8 @@ export class AggregationLogicTableVO {
     private 'l3_id'?: string;
     public description?: string;
     public owner?: string;
+    private 'secret_type'?: SecretTypeEnum;
+    private 'apply_bg'?: ApplyBgEnum;
     private 'create_by'?: string;
     private 'queue_name'?: string;
     private 'dw_id'?: string;
@@ -67,6 +72,11 @@ export class AggregationLogicTableVO {
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
     private 'api_id'?: string;
     public sql?: string;
+    private 'dev_version'?: string;
+    private 'prod_version'?: string;
+    private 'dev_version_name'?: string;
+    private 'prod_version_name'?: string;
+    private 'env_type'?: EnvTypeEnum;
     public constructor(tbName?: string, tbLogicName?: string, l3Id?: string, owner?: string, dwId?: string, dbName?: string, dwType?: string) { 
         this['tb_name'] = tbName;
         this['tb_logic_name'] = tbLogicName;
@@ -137,6 +147,26 @@ export class AggregationLogicTableVO {
     public withOwner(owner: string): AggregationLogicTableVO {
         this['owner'] = owner;
         return this;
+    }
+    public withSecretType(secretType: SecretTypeEnum): AggregationLogicTableVO {
+        this['secret_type'] = secretType;
+        return this;
+    }
+    public set secretType(secretType: SecretTypeEnum  | undefined) {
+        this['secret_type'] = secretType;
+    }
+    public get secretType(): SecretTypeEnum | undefined {
+        return this['secret_type'];
+    }
+    public withApplyBg(applyBg: ApplyBgEnum): AggregationLogicTableVO {
+        this['apply_bg'] = applyBg;
+        return this;
+    }
+    public set applyBg(applyBg: ApplyBgEnum  | undefined) {
+        this['apply_bg'] = applyBg;
+    }
+    public get applyBg(): ApplyBgEnum | undefined {
+        return this['apply_bg'];
     }
     public withCreateBy(createBy: string): AggregationLogicTableVO {
         this['create_by'] = createBy;
@@ -591,6 +621,56 @@ export class AggregationLogicTableVO {
     public withSql(sql: string): AggregationLogicTableVO {
         this['sql'] = sql;
         return this;
+    }
+    public withDevVersion(devVersion: string): AggregationLogicTableVO {
+        this['dev_version'] = devVersion;
+        return this;
+    }
+    public set devVersion(devVersion: string  | undefined) {
+        this['dev_version'] = devVersion;
+    }
+    public get devVersion(): string | undefined {
+        return this['dev_version'];
+    }
+    public withProdVersion(prodVersion: string): AggregationLogicTableVO {
+        this['prod_version'] = prodVersion;
+        return this;
+    }
+    public set prodVersion(prodVersion: string  | undefined) {
+        this['prod_version'] = prodVersion;
+    }
+    public get prodVersion(): string | undefined {
+        return this['prod_version'];
+    }
+    public withDevVersionName(devVersionName: string): AggregationLogicTableVO {
+        this['dev_version_name'] = devVersionName;
+        return this;
+    }
+    public set devVersionName(devVersionName: string  | undefined) {
+        this['dev_version_name'] = devVersionName;
+    }
+    public get devVersionName(): string | undefined {
+        return this['dev_version_name'];
+    }
+    public withProdVersionName(prodVersionName: string): AggregationLogicTableVO {
+        this['prod_version_name'] = prodVersionName;
+        return this;
+    }
+    public set prodVersionName(prodVersionName: string  | undefined) {
+        this['prod_version_name'] = prodVersionName;
+    }
+    public get prodVersionName(): string | undefined {
+        return this['prod_version_name'];
+    }
+    public withEnvType(envType: EnvTypeEnum): AggregationLogicTableVO {
+        this['env_type'] = envType;
+        return this;
+    }
+    public set envType(envType: EnvTypeEnum  | undefined) {
+        this['env_type'] = envType;
+    }
+    public get envType(): EnvTypeEnum | undefined {
+        return this['env_type'];
     }
 }
 

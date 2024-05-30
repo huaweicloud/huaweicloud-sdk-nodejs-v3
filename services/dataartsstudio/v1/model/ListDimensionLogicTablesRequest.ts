@@ -11,8 +11,8 @@ export class ListDimensionLogicTablesRequest {
     public status?: ListDimensionLogicTablesRequestStatusEnum | string;
     private 'sync_status'?: ListDimensionLogicTablesRequestSyncStatusEnum | string;
     private 'sync_key'?: Array<ListDimensionLogicTablesRequestSyncKeyEnum> | Array<string>;
-    private 'l2_id'?: number;
-    private 'dimension_id'?: number;
+    private 'l2_id'?: string;
+    private 'dimension_id'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     public limit?: number;
@@ -92,24 +92,24 @@ export class ListDimensionLogicTablesRequest {
     public get syncKey(): Array<ListDimensionLogicTablesRequestSyncKeyEnum> | Array<string> | undefined {
         return this['sync_key'];
     }
-    public withL2Id(l2Id: number): ListDimensionLogicTablesRequest {
+    public withL2Id(l2Id: string): ListDimensionLogicTablesRequest {
         this['l2_id'] = l2Id;
         return this;
     }
-    public set l2Id(l2Id: number  | undefined) {
+    public set l2Id(l2Id: string  | undefined) {
         this['l2_id'] = l2Id;
     }
-    public get l2Id(): number | undefined {
+    public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withDimensionId(dimensionId: number): ListDimensionLogicTablesRequest {
+    public withDimensionId(dimensionId: string): ListDimensionLogicTablesRequest {
         this['dimension_id'] = dimensionId;
         return this;
     }
-    public set dimensionId(dimensionId: number  | undefined) {
+    public set dimensionId(dimensionId: string  | undefined) {
         this['dimension_id'] = dimensionId;
     }
-    public get dimensionId(): number | undefined {
+    public get dimensionId(): string | undefined {
         return this['dimension_id'];
     }
     public withBeginTime(beginTime: string): ListDimensionLogicTablesRequest {

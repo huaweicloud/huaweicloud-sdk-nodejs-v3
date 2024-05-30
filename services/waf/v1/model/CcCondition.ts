@@ -54,6 +54,5 @@ export enum CcConditionCategoryEnum {
     IPV6 = 'ipv6',
     PARAMS = 'params',
     COOKIE = 'cookie',
-    HEADER = 'header',
-    RESPONSE_CODE = 'response_code'
+    HEADER = 'header'
 }

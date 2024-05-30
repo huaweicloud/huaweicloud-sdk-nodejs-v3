@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessAreaFilter } from './model/AccessAreaFilter';
 import { BackSources } from './model/BackSources';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
@@ -130,7 +131,9 @@ import { Sni } from './model/Sni';
 import { SourceWithPort } from './model/SourceWithPort';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
+import { SourcesConfigResponseBody } from './model/SourcesConfigResponseBody';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
+import { SourcesRequestBody } from './model/SourcesRequestBody';
 import { TagMap } from './model/TagMap';
 import { TasksObject } from './model/TasksObject';
 import { TopReferSummary } from './model/TopReferSummary';
@@ -617,7 +620,7 @@ export class CdnClient {
     }
 
     /**
-     * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
+     * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间、区域访问控制。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -931,8 +934,8 @@ export class CdnClient {
      * @summary 查询刷新预热URL记录
      * @param {number} [startTime] 起始时间戳（毫秒），默认当天00:00。
      * @param {number} [endTime] 结束时间戳（毫秒），默认次日00:00。
-     * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离。
-     * @param {number} [limit] 单次查询数据条数，上限为100。
+     * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离，默认为0。
+     * @param {number} [limit] 单次查询数据条数，上限为100，默认为10。
      * @param {string} [url] 刷新预热url。
      * @param {string} [taskType] 任务类型，REFRESH：刷新任务；PREHEATING：预热任务。
      * @param {string} [status] url状态，状态类型：processing：处理中；succeed：完成；failed：失败；waiting：等待；refreshing：刷新中; preheating : 预热中。
@@ -969,7 +972,7 @@ export class CdnClient {
     }
 
     /**
-     * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
+     * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间、区域访问控制。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2160,7 +2163,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
+         * 查询域名配置接口，支持查询业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、 Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间、区域访问控制。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3141,7 +3144,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间。
+         * 修改域名配置接口，支持修改业务类型、服务范围、备注、IPv6开关、回源方式、回源URL改写、高级回源、Range回源、回源跟随、回源是否校验Etag、回源超时时间、回源请求头、HTTPS配置、TLS版本配置、强制跳转、HSTS、HTTP/2、OCSP Stapling、QUIC、缓存规则、状态码缓存时间、防盗链、IP黑白名单、Use-Agent黑白名单、URL鉴权配置、远程鉴权配置、IP访问限频、HTTP header配置、自定义错误页面配置、智能压缩、请求限速配置、WebSocket配置、视频拖拽、回源SNI、访问URL重写、浏览器缓存过期时间、区域访问控制。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

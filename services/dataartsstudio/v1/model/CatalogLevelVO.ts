@@ -1,13 +1,13 @@
 
 
 export class CatalogLevelVO {
-    public id?: number;
+    public id?: string;
     public level?: number;
     private 'name_ch'?: string;
     private 'name_en'?: string;
     public constructor() { 
     }
-    public withId(id: number): CatalogLevelVO {
+    public withId(id: string): CatalogLevelVO {
         this['id'] = id;
         return this;
     }

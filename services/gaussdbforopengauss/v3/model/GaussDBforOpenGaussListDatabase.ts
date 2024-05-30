@@ -6,6 +6,8 @@ export class GaussDBforOpenGaussListDatabase {
     private 'character_set'?: string;
     private 'collate_set'?: string;
     public size?: string;
+    public datctype?: string;
+    private 'compatibility_type'?: string;
     public constructor() { 
     }
     public withName(name: string): GaussDBforOpenGaussListDatabase {
@@ -39,5 +41,19 @@ export class GaussDBforOpenGaussListDatabase {
     public withSize(size: string): GaussDBforOpenGaussListDatabase {
         this['size'] = size;
         return this;
+    }
+    public withDatctype(datctype: string): GaussDBforOpenGaussListDatabase {
+        this['datctype'] = datctype;
+        return this;
+    }
+    public withCompatibilityType(compatibilityType: string): GaussDBforOpenGaussListDatabase {
+        this['compatibility_type'] = compatibilityType;
+        return this;
+    }
+    public set compatibilityType(compatibilityType: string  | undefined) {
+        this['compatibility_type'] = compatibilityType;
+    }
+    public get compatibilityType(): string | undefined {
+        return this['compatibility_type'];
     }
 }

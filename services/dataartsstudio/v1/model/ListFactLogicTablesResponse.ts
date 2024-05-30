@@ -1,12 +1,13 @@
+import { ListFactLogicTablesResultData } from './ListFactLogicTablesResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFactLogicTablesResponse extends SdkResponse {
-    public data?: object;
+    public data?: ListFactLogicTablesResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListFactLogicTablesResponse {
+    public withData(data: ListFactLogicTablesResultData): ListFactLogicTablesResponse {
         this['data'] = data;
         return this;
     }

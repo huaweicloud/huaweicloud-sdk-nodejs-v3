@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 import { SecurityGroup } from './SecurityGroup';
 import { SecurityGroupRule } from './SecurityGroupRule';
 
@@ -10,8 +11,9 @@ export class SecurityGroupInfo {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'enterprise_project_id'?: string;
+    public tags?: Array<ResourceTag>;
     private 'security_group_rules'?: Array<SecurityGroupRule>;
-    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string, securityGroupRules?: Array<SecurityGroupRule>) { 
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string, tags?: Array<ResourceTag>, securityGroupRules?: Array<SecurityGroupRule>) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -19,6 +21,7 @@ export class SecurityGroupInfo {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['tags'] = tags;
         this['security_group_rules'] = securityGroupRules;
     }
     public withId(id: string): SecurityGroupInfo {
@@ -72,6 +75,10 @@ export class SecurityGroupInfo {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): SecurityGroupInfo {
+        this['tags'] = tags;
+        return this;
     }
     public withSecurityGroupRules(securityGroupRules: Array<SecurityGroupRule>): SecurityGroupInfo {
         this['security_group_rules'] = securityGroupRules;

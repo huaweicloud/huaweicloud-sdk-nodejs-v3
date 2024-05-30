@@ -1,6 +1,7 @@
 import { ApprovalVO } from './ApprovalVO';
 import { BizStatusEnum } from './BizStatusEnum';
 import { BizVersionManageVO } from './BizVersionManageVO';
+import { EnvTypeEnum } from './EnvTypeEnum';
 import { RelationVO } from './RelationVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
@@ -16,6 +17,10 @@ export class TableModelVO {
     private 'parent_table_id'?: string;
     private 'parent_table_name'?: string;
     private 'parent_table_code'?: string;
+    private 'related_logic_table_id'?: string;
+    private 'related_logic_table_name'?: string;
+    private 'related_logic_table_model_id'?: string;
+    private 'related_logic_table_model_name'?: string;
     public model?: WorkspaceVO;
     private 'data_format'?: string;
     private 'obs_bucket'?: string;
@@ -70,13 +75,22 @@ export class TableModelVO {
     private 'distribute_column'?: string;
     private 'is_partition'?: boolean;
     private 'physical_table'?: SyncStatusEnum;
+    private 'dev_physical_table'?: SyncStatusEnum;
     private 'technical_asset'?: SyncStatusEnum;
     private 'business_asset'?: SyncStatusEnum;
     private 'meta_data_link'?: SyncStatusEnum;
     private 'data_quality'?: SyncStatusEnum;
     private 'summary_status'?: SyncStatusEnum;
+    private 'dev_version'?: string;
+    private 'prod_version'?: string;
+    private 'dev_version_name'?: string;
+    private 'prod_version_name'?: string;
+    private 'env_type'?: EnvTypeEnum;
     public alias?: string;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
+    public code?: string;
+    private 'has_related_physical_table'?: boolean;
+    private 'has_related_logic_table'?: boolean;
     public constructor(modelId?: string, tbName?: string, logicTbName?: string, description?: string, attributes?: Array<TableModelAttributeVO>, dwType?: string) { 
         this['model_id'] = modelId;
         this['tb_name'] = tbName;
@@ -128,6 +142,46 @@ export class TableModelVO {
     }
     public get parentTableCode(): string | undefined {
         return this['parent_table_code'];
+    }
+    public withRelatedLogicTableId(relatedLogicTableId: string): TableModelVO {
+        this['related_logic_table_id'] = relatedLogicTableId;
+        return this;
+    }
+    public set relatedLogicTableId(relatedLogicTableId: string  | undefined) {
+        this['related_logic_table_id'] = relatedLogicTableId;
+    }
+    public get relatedLogicTableId(): string | undefined {
+        return this['related_logic_table_id'];
+    }
+    public withRelatedLogicTableName(relatedLogicTableName: string): TableModelVO {
+        this['related_logic_table_name'] = relatedLogicTableName;
+        return this;
+    }
+    public set relatedLogicTableName(relatedLogicTableName: string  | undefined) {
+        this['related_logic_table_name'] = relatedLogicTableName;
+    }
+    public get relatedLogicTableName(): string | undefined {
+        return this['related_logic_table_name'];
+    }
+    public withRelatedLogicTableModelId(relatedLogicTableModelId: string): TableModelVO {
+        this['related_logic_table_model_id'] = relatedLogicTableModelId;
+        return this;
+    }
+    public set relatedLogicTableModelId(relatedLogicTableModelId: string  | undefined) {
+        this['related_logic_table_model_id'] = relatedLogicTableModelId;
+    }
+    public get relatedLogicTableModelId(): string | undefined {
+        return this['related_logic_table_model_id'];
+    }
+    public withRelatedLogicTableModelName(relatedLogicTableModelName: string): TableModelVO {
+        this['related_logic_table_model_name'] = relatedLogicTableModelName;
+        return this;
+    }
+    public set relatedLogicTableModelName(relatedLogicTableModelName: string  | undefined) {
+        this['related_logic_table_model_name'] = relatedLogicTableModelName;
+    }
+    public get relatedLogicTableModelName(): string | undefined {
+        return this['related_logic_table_model_name'];
     }
     public withModel(model: WorkspaceVO): TableModelVO {
         this['model'] = model;
@@ -579,6 +633,16 @@ export class TableModelVO {
     public get physicalTable(): SyncStatusEnum | undefined {
         return this['physical_table'];
     }
+    public withDevPhysicalTable(devPhysicalTable: SyncStatusEnum): TableModelVO {
+        this['dev_physical_table'] = devPhysicalTable;
+        return this;
+    }
+    public set devPhysicalTable(devPhysicalTable: SyncStatusEnum  | undefined) {
+        this['dev_physical_table'] = devPhysicalTable;
+    }
+    public get devPhysicalTable(): SyncStatusEnum | undefined {
+        return this['dev_physical_table'];
+    }
     public withTechnicalAsset(technicalAsset: SyncStatusEnum): TableModelVO {
         this['technical_asset'] = technicalAsset;
         return this;
@@ -629,6 +693,56 @@ export class TableModelVO {
     public get summaryStatus(): SyncStatusEnum | undefined {
         return this['summary_status'];
     }
+    public withDevVersion(devVersion: string): TableModelVO {
+        this['dev_version'] = devVersion;
+        return this;
+    }
+    public set devVersion(devVersion: string  | undefined) {
+        this['dev_version'] = devVersion;
+    }
+    public get devVersion(): string | undefined {
+        return this['dev_version'];
+    }
+    public withProdVersion(prodVersion: string): TableModelVO {
+        this['prod_version'] = prodVersion;
+        return this;
+    }
+    public set prodVersion(prodVersion: string  | undefined) {
+        this['prod_version'] = prodVersion;
+    }
+    public get prodVersion(): string | undefined {
+        return this['prod_version'];
+    }
+    public withDevVersionName(devVersionName: string): TableModelVO {
+        this['dev_version_name'] = devVersionName;
+        return this;
+    }
+    public set devVersionName(devVersionName: string  | undefined) {
+        this['dev_version_name'] = devVersionName;
+    }
+    public get devVersionName(): string | undefined {
+        return this['dev_version_name'];
+    }
+    public withProdVersionName(prodVersionName: string): TableModelVO {
+        this['prod_version_name'] = prodVersionName;
+        return this;
+    }
+    public set prodVersionName(prodVersionName: string  | undefined) {
+        this['prod_version_name'] = prodVersionName;
+    }
+    public get prodVersionName(): string | undefined {
+        return this['prod_version_name'];
+    }
+    public withEnvType(envType: EnvTypeEnum): TableModelVO {
+        this['env_type'] = envType;
+        return this;
+    }
+    public set envType(envType: EnvTypeEnum  | undefined) {
+        this['env_type'] = envType;
+    }
+    public get envType(): EnvTypeEnum | undefined {
+        return this['env_type'];
+    }
     public withAlias(alias: string): TableModelVO {
         this['alias'] = alias;
         return this;
@@ -642,6 +756,30 @@ export class TableModelVO {
     }
     public get selfDefinedFields(): Array<SelfDefinedFieldVO> | undefined {
         return this['self_defined_fields'];
+    }
+    public withCode(code: string): TableModelVO {
+        this['code'] = code;
+        return this;
+    }
+    public withHasRelatedPhysicalTable(hasRelatedPhysicalTable: boolean): TableModelVO {
+        this['has_related_physical_table'] = hasRelatedPhysicalTable;
+        return this;
+    }
+    public set hasRelatedPhysicalTable(hasRelatedPhysicalTable: boolean  | undefined) {
+        this['has_related_physical_table'] = hasRelatedPhysicalTable;
+    }
+    public get hasRelatedPhysicalTable(): boolean | undefined {
+        return this['has_related_physical_table'];
+    }
+    public withHasRelatedLogicTable(hasRelatedLogicTable: boolean): TableModelVO {
+        this['has_related_logic_table'] = hasRelatedLogicTable;
+        return this;
+    }
+    public set hasRelatedLogicTable(hasRelatedLogicTable: boolean  | undefined) {
+        this['has_related_logic_table'] = hasRelatedLogicTable;
+    }
+    public get hasRelatedLogicTable(): boolean | undefined {
+        return this['has_related_logic_table'];
     }
 }
 

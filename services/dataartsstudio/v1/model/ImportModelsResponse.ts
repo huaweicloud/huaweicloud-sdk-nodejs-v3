@@ -1,12 +1,13 @@
+import { ExportDesignModelsResultData } from './ExportDesignModelsResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ImportModelsResponse extends SdkResponse {
-    public data?: object;
+    public data?: ExportDesignModelsResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ImportModelsResponse {
+    public withData(data: ExportDesignModelsResultData): ImportModelsResponse {
         this['data'] = data;
         return this;
     }

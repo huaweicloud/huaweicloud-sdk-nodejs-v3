@@ -2,11 +2,11 @@ import { BizTypeEnum } from './BizTypeEnum';
 
 
 export class QualityInfoVO {
-    public id?: number;
-    private 'table_id'?: number;
-    private 'attr_id'?: number;
+    public id?: string;
+    private 'table_id'?: string;
+    private 'attr_id'?: string;
     private 'biz_type'?: BizTypeEnum;
-    private 'data_quality_id'?: number;
+    private 'data_quality_id'?: string;
     private 'show_control'?: number;
     private 'data_quality_name'?: string;
     private 'alert_conf'?: string;
@@ -18,31 +18,31 @@ export class QualityInfoVO {
     private 'update_by'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
-    public constructor(dataQualityId?: number) { 
+    public constructor(dataQualityId?: string) { 
         this['data_quality_id'] = dataQualityId;
     }
-    public withId(id: number): QualityInfoVO {
+    public withId(id: string): QualityInfoVO {
         this['id'] = id;
         return this;
     }
-    public withTableId(tableId: number): QualityInfoVO {
+    public withTableId(tableId: string): QualityInfoVO {
         this['table_id'] = tableId;
         return this;
     }
-    public set tableId(tableId: number  | undefined) {
+    public set tableId(tableId: string  | undefined) {
         this['table_id'] = tableId;
     }
-    public get tableId(): number | undefined {
+    public get tableId(): string | undefined {
         return this['table_id'];
     }
-    public withAttrId(attrId: number): QualityInfoVO {
+    public withAttrId(attrId: string): QualityInfoVO {
         this['attr_id'] = attrId;
         return this;
     }
-    public set attrId(attrId: number  | undefined) {
+    public set attrId(attrId: string  | undefined) {
         this['attr_id'] = attrId;
     }
-    public get attrId(): number | undefined {
+    public get attrId(): string | undefined {
         return this['attr_id'];
     }
     public withBizType(bizType: BizTypeEnum): QualityInfoVO {
@@ -55,14 +55,14 @@ export class QualityInfoVO {
     public get bizType(): BizTypeEnum | undefined {
         return this['biz_type'];
     }
-    public withDataQualityId(dataQualityId: number): QualityInfoVO {
+    public withDataQualityId(dataQualityId: string): QualityInfoVO {
         this['data_quality_id'] = dataQualityId;
         return this;
     }
-    public set dataQualityId(dataQualityId: number  | undefined) {
+    public set dataQualityId(dataQualityId: string  | undefined) {
         this['data_quality_id'] = dataQualityId;
     }
-    public get dataQualityId(): number | undefined {
+    public get dataQualityId(): string | undefined {
         return this['data_quality_id'];
     }
     public withShowControl(showControl: number): QualityInfoVO {

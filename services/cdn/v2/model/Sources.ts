@@ -4,6 +4,7 @@ export class Sources {
     private 'domain_id'?: string;
     private 'ip_or_domain'?: string;
     private 'origin_type'?: SourcesOriginTypeEnum | string;
+    private 'obs_bucket_type'?: string;
     private 'active_standby'?: number;
     private 'enable_obs_web_hosting'?: number;
     public constructor(ipOrDomain?: string, originType?: string, activeStandby?: number) { 
@@ -40,6 +41,16 @@ export class Sources {
     }
     public get originType(): SourcesOriginTypeEnum | string | undefined {
         return this['origin_type'];
+    }
+    public withObsBucketType(obsBucketType: string): Sources {
+        this['obs_bucket_type'] = obsBucketType;
+        return this;
+    }
+    public set obsBucketType(obsBucketType: string  | undefined) {
+        this['obs_bucket_type'] = obsBucketType;
+    }
+    public get obsBucketType(): string | undefined {
+        return this['obs_bucket_type'];
     }
     public withActiveStandby(activeStandby: number): Sources {
         this['active_standby'] = activeStandby;

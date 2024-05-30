@@ -4,7 +4,7 @@ export class CountTableModelsRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    private 'model_id'?: number;
+    private 'model_id'?: string;
     public constructor(workspace?: string) { 
         this['workspace'] = workspace;
     }
@@ -32,14 +32,14 @@ export class CountTableModelsRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withModelId(modelId: number): CountTableModelsRequest {
+    public withModelId(modelId: string): CountTableModelsRequest {
         this['model_id'] = modelId;
         return this;
     }
-    public set modelId(modelId: number  | undefined) {
+    public set modelId(modelId: string  | undefined) {
         this['model_id'] = modelId;
     }
-    public get modelId(): number | undefined {
+    public get modelId(): string | undefined {
         return this['model_id'];
     }
 }

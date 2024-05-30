@@ -1,12 +1,13 @@
+import { ListMetricRelationsResultData } from './ListMetricRelationsResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListMetricRelationsResponse extends SdkResponse {
-    public data?: object;
+    public data?: ListMetricRelationsResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListMetricRelationsResponse {
+    public withData(data: ListMetricRelationsResultData): ListMetricRelationsResponse {
         this['data'] = data;
         return this;
     }

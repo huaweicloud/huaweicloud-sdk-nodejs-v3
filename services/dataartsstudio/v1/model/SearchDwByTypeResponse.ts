@@ -1,12 +1,13 @@
+import { SearchDwByTypeResultData } from './SearchDwByTypeResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class SearchDwByTypeResponse extends SdkResponse {
-    public data?: object;
+    public data?: SearchDwByTypeResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): SearchDwByTypeResponse {
+    public withData(data: SearchDwByTypeResultData): SearchDwByTypeResponse {
         this['data'] = data;
         return this;
     }

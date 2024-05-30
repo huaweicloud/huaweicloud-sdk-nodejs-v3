@@ -5,6 +5,7 @@ export class UpgradeTypeInfo {
     private 'upgrade_type'?: UpgradeTypeInfoUpgradeTypeEnum | string;
     public enable?: boolean;
     private 'upgrade_action_list'?: Array<UpgradeActionInfo>;
+    private 'is_parallel_upgrade'?: boolean;
     public constructor() { 
     }
     public withUpgradeType(upgradeType: UpgradeTypeInfoUpgradeTypeEnum | string): UpgradeTypeInfo {
@@ -30,6 +31,16 @@ export class UpgradeTypeInfo {
     }
     public get upgradeActionList(): Array<UpgradeActionInfo> | undefined {
         return this['upgrade_action_list'];
+    }
+    public withIsParallelUpgrade(isParallelUpgrade: boolean): UpgradeTypeInfo {
+        this['is_parallel_upgrade'] = isParallelUpgrade;
+        return this;
+    }
+    public set isParallelUpgrade(isParallelUpgrade: boolean  | undefined) {
+        this['is_parallel_upgrade'] = isParallelUpgrade;
+    }
+    public get isParallelUpgrade(): boolean | undefined {
+        return this['is_parallel_upgrade'];
     }
 }
 

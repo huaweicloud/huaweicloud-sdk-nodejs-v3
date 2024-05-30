@@ -8,12 +8,12 @@ export class ListDerivativeIndexesRequest {
     private 'create_by'?: string;
     public approver?: string;
     public status?: ListDerivativeIndexesRequestStatusEnum | string;
-    private 'dimension_id'?: number;
+    private 'dimension_id'?: string;
     private 'dimension_group'?: string;
-    private 'atomic_index_id'?: number;
+    private 'atomic_index_id'?: string;
     private 'all_metrics'?: boolean;
     private 'dw_type'?: string;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     public limit?: number;
@@ -67,14 +67,14 @@ export class ListDerivativeIndexesRequest {
         this['status'] = status;
         return this;
     }
-    public withDimensionId(dimensionId: number): ListDerivativeIndexesRequest {
+    public withDimensionId(dimensionId: string): ListDerivativeIndexesRequest {
         this['dimension_id'] = dimensionId;
         return this;
     }
-    public set dimensionId(dimensionId: number  | undefined) {
+    public set dimensionId(dimensionId: string  | undefined) {
         this['dimension_id'] = dimensionId;
     }
-    public get dimensionId(): number | undefined {
+    public get dimensionId(): string | undefined {
         return this['dimension_id'];
     }
     public withDimensionGroup(dimensionGroup: string): ListDerivativeIndexesRequest {
@@ -87,14 +87,14 @@ export class ListDerivativeIndexesRequest {
     public get dimensionGroup(): string | undefined {
         return this['dimension_group'];
     }
-    public withAtomicIndexId(atomicIndexId: number): ListDerivativeIndexesRequest {
+    public withAtomicIndexId(atomicIndexId: string): ListDerivativeIndexesRequest {
         this['atomic_index_id'] = atomicIndexId;
         return this;
     }
-    public set atomicIndexId(atomicIndexId: number  | undefined) {
+    public set atomicIndexId(atomicIndexId: string  | undefined) {
         this['atomic_index_id'] = atomicIndexId;
     }
-    public get atomicIndexId(): number | undefined {
+    public get atomicIndexId(): string | undefined {
         return this['atomic_index_id'];
     }
     public withAllMetrics(allMetrics: boolean): ListDerivativeIndexesRequest {
@@ -117,14 +117,14 @@ export class ListDerivativeIndexesRequest {
     public get dwType(): string | undefined {
         return this['dw_type'];
     }
-    public withL3Id(l3Id: number): ListDerivativeIndexesRequest {
+    public withL3Id(l3Id: string): ListDerivativeIndexesRequest {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withBeginTime(beginTime: string): ListDerivativeIndexesRequest {

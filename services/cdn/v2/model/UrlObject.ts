@@ -7,6 +7,8 @@ export class UrlObject {
     private 'create_time'?: number;
     private 'task_id'?: string;
     private 'task_type'?: string;
+    private 'fail_classify'?: string;
+    private 'fail_desc'?: string;
     public constructor() { 
     }
     public withId(id: string): UrlObject {
@@ -50,5 +52,25 @@ export class UrlObject {
     }
     public get taskType(): string | undefined {
         return this['task_type'];
+    }
+    public withFailClassify(failClassify: string): UrlObject {
+        this['fail_classify'] = failClassify;
+        return this;
+    }
+    public set failClassify(failClassify: string  | undefined) {
+        this['fail_classify'] = failClassify;
+    }
+    public get failClassify(): string | undefined {
+        return this['fail_classify'];
+    }
+    public withFailDesc(failDesc: string): UrlObject {
+        this['fail_desc'] = failDesc;
+        return this;
+    }
+    public set failDesc(failDesc: string  | undefined) {
+        this['fail_desc'] = failDesc;
+    }
+    public get failDesc(): string | undefined {
+        return this['fail_desc'];
     }
 }

@@ -3,9 +3,9 @@ import { RelationType } from './RelationType';
 
 
 export class RelationVO {
-    public id?: number;
-    private 'source_table_id'?: number;
-    private 'target_table_id'?: number;
+    public id?: string;
+    private 'source_table_id'?: string;
+    private 'target_table_id'?: string;
     public name?: string;
     private 'source_table_name'?: string;
     private 'target_table_name'?: string;
@@ -21,28 +21,28 @@ export class RelationVO {
     public constructor(name?: string) { 
         this['name'] = name;
     }
-    public withId(id: number): RelationVO {
+    public withId(id: string): RelationVO {
         this['id'] = id;
         return this;
     }
-    public withSourceTableId(sourceTableId: number): RelationVO {
+    public withSourceTableId(sourceTableId: string): RelationVO {
         this['source_table_id'] = sourceTableId;
         return this;
     }
-    public set sourceTableId(sourceTableId: number  | undefined) {
+    public set sourceTableId(sourceTableId: string  | undefined) {
         this['source_table_id'] = sourceTableId;
     }
-    public get sourceTableId(): number | undefined {
+    public get sourceTableId(): string | undefined {
         return this['source_table_id'];
     }
-    public withTargetTableId(targetTableId: number): RelationVO {
+    public withTargetTableId(targetTableId: string): RelationVO {
         this['target_table_id'] = targetTableId;
         return this;
     }
-    public set targetTableId(targetTableId: number  | undefined) {
+    public set targetTableId(targetTableId: string  | undefined) {
         this['target_table_id'] = targetTableId;
     }
-    public get targetTableId(): number | undefined {
+    public get targetTableId(): string | undefined {
         return this['target_table_id'];
     }
     public withName(name: string): RelationVO {

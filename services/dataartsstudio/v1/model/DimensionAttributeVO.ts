@@ -1,13 +1,14 @@
 import { BizStatusEnum } from './BizStatusEnum';
 import { DataTypeDomainEnum } from './DataTypeDomainEnum';
 import { QualityInfoVO } from './QualityInfoVO';
+import { SecrecyLevelVO } from './SecrecyLevelVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 
 
 export class DimensionAttributeVO {
-    public id?: number;
-    private 'dimension_id'?: number;
-    private 'code_table_field_id'?: number;
+    public id?: string;
+    private 'dimension_id'?: string;
+    private 'code_table_field_id'?: string;
     private 'name_en'?: string;
     private 'name_ch'?: string;
     public description?: string;
@@ -20,9 +21,10 @@ export class DimensionAttributeVO {
     private 'is_partition_key'?: boolean;
     public ordinal?: number;
     private 'not_null'?: boolean;
-    private 'stand_row_id'?: number;
+    private 'stand_row_id'?: string;
     private 'stand_row_name'?: string;
     private 'quality_infos'?: Array<QualityInfoVO>;
+    private 'secrecy_levels'?: Array<SecrecyLevelVO>;
     public status?: BizStatusEnum;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
@@ -35,28 +37,28 @@ export class DimensionAttributeVO {
         this['is_primary_key'] = isPrimaryKey;
         this['ordinal'] = ordinal;
     }
-    public withId(id: number): DimensionAttributeVO {
+    public withId(id: string): DimensionAttributeVO {
         this['id'] = id;
         return this;
     }
-    public withDimensionId(dimensionId: number): DimensionAttributeVO {
+    public withDimensionId(dimensionId: string): DimensionAttributeVO {
         this['dimension_id'] = dimensionId;
         return this;
     }
-    public set dimensionId(dimensionId: number  | undefined) {
+    public set dimensionId(dimensionId: string  | undefined) {
         this['dimension_id'] = dimensionId;
     }
-    public get dimensionId(): number | undefined {
+    public get dimensionId(): string | undefined {
         return this['dimension_id'];
     }
-    public withCodeTableFieldId(codeTableFieldId: number): DimensionAttributeVO {
+    public withCodeTableFieldId(codeTableFieldId: string): DimensionAttributeVO {
         this['code_table_field_id'] = codeTableFieldId;
         return this;
     }
-    public set codeTableFieldId(codeTableFieldId: number  | undefined) {
+    public set codeTableFieldId(codeTableFieldId: string  | undefined) {
         this['code_table_field_id'] = codeTableFieldId;
     }
-    public get codeTableFieldId(): number | undefined {
+    public get codeTableFieldId(): string | undefined {
         return this['code_table_field_id'];
     }
     public withNameEn(nameEn: string): DimensionAttributeVO {
@@ -167,14 +169,14 @@ export class DimensionAttributeVO {
     public get notNull(): boolean | undefined {
         return this['not_null'];
     }
-    public withStandRowId(standRowId: number): DimensionAttributeVO {
+    public withStandRowId(standRowId: string): DimensionAttributeVO {
         this['stand_row_id'] = standRowId;
         return this;
     }
-    public set standRowId(standRowId: number  | undefined) {
+    public set standRowId(standRowId: string  | undefined) {
         this['stand_row_id'] = standRowId;
     }
-    public get standRowId(): number | undefined {
+    public get standRowId(): string | undefined {
         return this['stand_row_id'];
     }
     public withStandRowName(standRowName: string): DimensionAttributeVO {
@@ -196,6 +198,16 @@ export class DimensionAttributeVO {
     }
     public get qualityInfos(): Array<QualityInfoVO> | undefined {
         return this['quality_infos'];
+    }
+    public withSecrecyLevels(secrecyLevels: Array<SecrecyLevelVO>): DimensionAttributeVO {
+        this['secrecy_levels'] = secrecyLevels;
+        return this;
+    }
+    public set secrecyLevels(secrecyLevels: Array<SecrecyLevelVO>  | undefined) {
+        this['secrecy_levels'] = secrecyLevels;
+    }
+    public get secrecyLevels(): Array<SecrecyLevelVO> | undefined {
+        return this['secrecy_levels'];
     }
     public withStatus(status: BizStatusEnum): DimensionAttributeVO {
         this['status'] = status;

@@ -2,7 +2,7 @@ import { HierarchiesAttrVO } from './HierarchiesAttrVO';
 
 
 export class DimensionHierarchiesVO {
-    public id?: number;
+    public id?: string;
     public name?: string;
     public attrs?: Array<HierarchiesAttrVO>;
     private 'create_time'?: Date;
@@ -11,7 +11,7 @@ export class DimensionHierarchiesVO {
     private 'update_by'?: string;
     public constructor() { 
     }
-    public withId(id: number): DimensionHierarchiesVO {
+    public withId(id: string): DimensionHierarchiesVO {
         this['id'] = id;
         return this;
     }

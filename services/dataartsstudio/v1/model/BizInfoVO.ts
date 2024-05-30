@@ -1,21 +1,23 @@
 import { BizTypeEnum } from './BizTypeEnum';
+import { EnvTypeEnum } from './EnvTypeEnum';
 
 
 export class BizInfoVO {
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'biz_type'?: BizTypeEnum;
-    public constructor(bizId?: number, bizType?: BizTypeEnum) { 
+    private 'env_type'?: EnvTypeEnum;
+    public constructor(bizId?: string, bizType?: BizTypeEnum) { 
         this['biz_id'] = bizId;
         this['biz_type'] = bizType;
     }
-    public withBizId(bizId: number): BizInfoVO {
+    public withBizId(bizId: string): BizInfoVO {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withBizType(bizType: BizTypeEnum): BizInfoVO {
@@ -27,5 +29,15 @@ export class BizInfoVO {
     }
     public get bizType(): BizTypeEnum | undefined {
         return this['biz_type'];
+    }
+    public withEnvType(envType: EnvTypeEnum): BizInfoVO {
+        this['env_type'] = envType;
+        return this;
+    }
+    public set envType(envType: EnvTypeEnum  | undefined) {
+        this['env_type'] = envType;
+    }
+    public get envType(): EnvTypeEnum | undefined {
+        return this['env_type'];
     }
 }

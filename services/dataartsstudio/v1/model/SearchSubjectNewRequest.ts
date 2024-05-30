@@ -12,7 +12,7 @@ export class SearchSubjectNewRequest {
     private 'end_time'?: string;
     public limit?: number;
     public offset?: number;
-    private 'parent_id'?: number;
+    private 'parent_id'?: string;
     public constructor(workspace?: string) { 
         this['workspace'] = workspace;
     }
@@ -90,14 +90,14 @@ export class SearchSubjectNewRequest {
         this['offset'] = offset;
         return this;
     }
-    public withParentId(parentId: number): SearchSubjectNewRequest {
+    public withParentId(parentId: string): SearchSubjectNewRequest {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: number  | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId(): number | undefined {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
 }

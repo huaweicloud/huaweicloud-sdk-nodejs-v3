@@ -11,7 +11,7 @@ export class ListFactLogicTablesRequest {
     public status?: ListFactLogicTablesRequestStatusEnum | string;
     private 'sync_status'?: ListFactLogicTablesRequestSyncStatusEnum | string;
     private 'sync_key'?: Array<ListFactLogicTablesRequestSyncKeyEnum> | Array<string>;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
     public limit?: number;
@@ -90,14 +90,14 @@ export class ListFactLogicTablesRequest {
     public get syncKey(): Array<ListFactLogicTablesRequestSyncKeyEnum> | Array<string> | undefined {
         return this['sync_key'];
     }
-    public withL3Id(l3Id: number): ListFactLogicTablesRequest {
+    public withL3Id(l3Id: string): ListFactLogicTablesRequest {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withBeginTime(beginTime: string): ListFactLogicTablesRequest {

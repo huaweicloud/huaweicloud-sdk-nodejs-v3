@@ -3,9 +3,9 @@ import { BizTypeEnum } from './BizTypeEnum';
 
 
 export class BizVersionManageVO {
-    public id?: number;
+    public id?: string;
     private 'biz_type'?: BizTypeEnum;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'biz_info'?: string;
     public status?: BizStatusEnum;
     private 'biz_version'?: number;
@@ -13,7 +13,7 @@ export class BizVersionManageVO {
     private 'update_time'?: Date;
     public constructor() { 
     }
-    public withId(id: number): BizVersionManageVO {
+    public withId(id: string): BizVersionManageVO {
         this['id'] = id;
         return this;
     }
@@ -27,14 +27,14 @@ export class BizVersionManageVO {
     public get bizType(): BizTypeEnum | undefined {
         return this['biz_type'];
     }
-    public withBizId(bizId: number): BizVersionManageVO {
+    public withBizId(bizId: string): BizVersionManageVO {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withBizInfo(bizInfo: string): BizVersionManageVO {

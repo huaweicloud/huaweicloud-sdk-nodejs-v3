@@ -1,13 +1,13 @@
-import { Sources } from './Sources';
+import { SourcesRequestBody } from './SourcesRequestBody';
 
 
 export class DomainBody {
     private 'domain_name'?: string;
     private 'business_type'?: DomainBodyBusinessTypeEnum | string;
-    public sources?: Array<Sources>;
+    public sources?: Array<SourcesRequestBody>;
     private 'service_area'?: DomainBodyServiceAreaEnum | string;
     private 'enterprise_project_id'?: string;
-    public constructor(domainName?: string, businessType?: string, sources?: Array<Sources>, serviceArea?: string) { 
+    public constructor(domainName?: string, businessType?: string, sources?: Array<SourcesRequestBody>, serviceArea?: string) { 
         this['domain_name'] = domainName;
         this['business_type'] = businessType;
         this['sources'] = sources;
@@ -33,7 +33,7 @@ export class DomainBody {
     public get businessType(): DomainBodyBusinessTypeEnum | string | undefined {
         return this['business_type'];
     }
-    public withSources(sources: Array<Sources>): DomainBody {
+    public withSources(sources: Array<SourcesRequestBody>): DomainBody {
         this['sources'] = sources;
         return this;
     }

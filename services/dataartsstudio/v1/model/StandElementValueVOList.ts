@@ -6,10 +6,10 @@ import { StandElementValueVO } from './StandElementValueVO';
 
 export class StandElementValueVOList {
     public values?: Array<StandElementValueVO>;
-    public id?: number;
-    private 'directory_id'?: number;
+    public id?: string;
+    private 'directory_id'?: string;
     private 'directory_path'?: string;
-    private 'row_id'?: number;
+    private 'row_id'?: string;
     public status?: BizStatusEnum;
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
@@ -18,7 +18,7 @@ export class StandElementValueVOList {
     private 'update_by'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
-    public constructor(values?: Array<StandElementValueVO>, directoryId?: number) { 
+    public constructor(values?: Array<StandElementValueVO>, directoryId?: string) { 
         this['values'] = values;
         this['directory_id'] = directoryId;
     }
@@ -26,18 +26,18 @@ export class StandElementValueVOList {
         this['values'] = values;
         return this;
     }
-    public withId(id: number): StandElementValueVOList {
+    public withId(id: string): StandElementValueVOList {
         this['id'] = id;
         return this;
     }
-    public withDirectoryId(directoryId: number): StandElementValueVOList {
+    public withDirectoryId(directoryId: string): StandElementValueVOList {
         this['directory_id'] = directoryId;
         return this;
     }
-    public set directoryId(directoryId: number  | undefined) {
+    public set directoryId(directoryId: string  | undefined) {
         this['directory_id'] = directoryId;
     }
-    public get directoryId(): number | undefined {
+    public get directoryId(): string | undefined {
         return this['directory_id'];
     }
     public withDirectoryPath(directoryPath: string): StandElementValueVOList {
@@ -50,14 +50,14 @@ export class StandElementValueVOList {
     public get directoryPath(): string | undefined {
         return this['directory_path'];
     }
-    public withRowId(rowId: number): StandElementValueVOList {
+    public withRowId(rowId: string): StandElementValueVOList {
         this['row_id'] = rowId;
         return this;
     }
-    public set rowId(rowId: number  | undefined) {
+    public set rowId(rowId: string  | undefined) {
         this['row_id'] = rowId;
     }
-    public get rowId(): number | undefined {
+    public get rowId(): string | undefined {
         return this['row_id'];
     }
     public withStatus(status: BizStatusEnum): StandElementValueVOList {

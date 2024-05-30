@@ -2,41 +2,41 @@ import { DimensionAttributeVO } from './DimensionAttributeVO';
 
 
 export class HierarchiesAttrVO {
-    public id?: number;
-    private 'hierarchies_id'?: number;
-    private 'attr_id'?: number;
+    public id?: string;
+    private 'hierarchies_id'?: string;
+    private 'attr_id'?: string;
     public level?: number;
     private 'attr_name_en'?: string;
     private 'attr_name_ch'?: string;
-    private 'detail_attr_ids'?: Array<number>;
+    private 'detail_attr_ids'?: Array<string>;
     private 'detail_attr_name_ens'?: Array<string>;
     private 'detail_attr_name_chs'?: Array<string>;
     public attr?: DimensionAttributeVO;
     private 'detail_attrs'?: Array<DimensionAttributeVO>;
     public constructor() { 
     }
-    public withId(id: number): HierarchiesAttrVO {
+    public withId(id: string): HierarchiesAttrVO {
         this['id'] = id;
         return this;
     }
-    public withHierarchiesId(hierarchiesId: number): HierarchiesAttrVO {
+    public withHierarchiesId(hierarchiesId: string): HierarchiesAttrVO {
         this['hierarchies_id'] = hierarchiesId;
         return this;
     }
-    public set hierarchiesId(hierarchiesId: number  | undefined) {
+    public set hierarchiesId(hierarchiesId: string  | undefined) {
         this['hierarchies_id'] = hierarchiesId;
     }
-    public get hierarchiesId(): number | undefined {
+    public get hierarchiesId(): string | undefined {
         return this['hierarchies_id'];
     }
-    public withAttrId(attrId: number): HierarchiesAttrVO {
+    public withAttrId(attrId: string): HierarchiesAttrVO {
         this['attr_id'] = attrId;
         return this;
     }
-    public set attrId(attrId: number  | undefined) {
+    public set attrId(attrId: string  | undefined) {
         this['attr_id'] = attrId;
     }
-    public get attrId(): number | undefined {
+    public get attrId(): string | undefined {
         return this['attr_id'];
     }
     public withLevel(level: number): HierarchiesAttrVO {
@@ -63,14 +63,14 @@ export class HierarchiesAttrVO {
     public get attrNameCh(): string | undefined {
         return this['attr_name_ch'];
     }
-    public withDetailAttrIds(detailAttrIds: Array<number>): HierarchiesAttrVO {
+    public withDetailAttrIds(detailAttrIds: Array<string>): HierarchiesAttrVO {
         this['detail_attr_ids'] = detailAttrIds;
         return this;
     }
-    public set detailAttrIds(detailAttrIds: Array<number>  | undefined) {
+    public set detailAttrIds(detailAttrIds: Array<string>  | undefined) {
         this['detail_attr_ids'] = detailAttrIds;
     }
-    public get detailAttrIds(): Array<number> | undefined {
+    public get detailAttrIds(): Array<string> | undefined {
         return this['detail_attr_ids'];
     }
     public withDetailAttrNameEns(detailAttrNameEns: Array<string>): HierarchiesAttrVO {

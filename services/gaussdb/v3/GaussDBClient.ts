@@ -302,6 +302,9 @@ import { ProjectQuotas } from './model/ProjectQuotas';
 import { ProjectTagItem } from './model/ProjectTagItem';
 import { ProxyTransactionSplitRequest } from './model/ProxyTransactionSplitRequest';
 import { ProxyUpdateProxyConnectionPoolTypeRequest } from './model/ProxyUpdateProxyConnectionPoolTypeRequest';
+import { ProxyUpdateProxyNameRequest } from './model/ProxyUpdateProxyNameRequest';
+import { ProxyUpgradeProxyVersionRequest } from './model/ProxyUpgradeProxyVersionRequest';
+import { ProxyUpgradeVersionDetail } from './model/ProxyUpgradeVersionDetail';
 import { QueryAction } from './model/QueryAction';
 import { Quota } from './model/Quota';
 import { ReadableNodeInfos } from './model/ReadableNodeInfos';
@@ -383,6 +386,10 @@ import { ShowIntelligentDiagnosisAbnormalCountOfInstancesRequest } from './model
 import { ShowIntelligentDiagnosisAbnormalCountOfInstancesResponse } from './model/ShowIntelligentDiagnosisAbnormalCountOfInstancesResponse';
 import { ShowIntelligentDiagnosisInstanceInfosPerMetricRequest } from './model/ShowIntelligentDiagnosisInstanceInfosPerMetricRequest';
 import { ShowIntelligentDiagnosisInstanceInfosPerMetricResponse } from './model/ShowIntelligentDiagnosisInstanceInfosPerMetricResponse';
+import { ShowProxyIpgroupRequest } from './model/ShowProxyIpgroupRequest';
+import { ShowProxyIpgroupResponse } from './model/ShowProxyIpgroupResponse';
+import { ShowProxyVersionRequest } from './model/ShowProxyVersionRequest';
+import { ShowProxyVersionResponse } from './model/ShowProxyVersionResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
 import { ShowSqlFilterControlRequest } from './model/ShowSqlFilterControlRequest';
@@ -496,6 +503,8 @@ import { UpdateNewNodeAutoAddSwitchResponse } from './model/UpdateNewNodeAutoAdd
 import { UpdateProxyConfigurationItem } from './model/UpdateProxyConfigurationItem';
 import { UpdateProxyConnectionPoolTypeRequest } from './model/UpdateProxyConnectionPoolTypeRequest';
 import { UpdateProxyConnectionPoolTypeResponse } from './model/UpdateProxyConnectionPoolTypeResponse';
+import { UpdateProxyNameRequest } from './model/UpdateProxyNameRequest';
+import { UpdateProxyNameResponse } from './model/UpdateProxyNameResponse';
 import { UpdateProxyNewConfigRequestBody } from './model/UpdateProxyNewConfigRequestBody';
 import { UpdateProxyNewConfigurationsRequest } from './model/UpdateProxyNewConfigurationsRequest';
 import { UpdateProxyNewConfigurationsResponse } from './model/UpdateProxyNewConfigurationsResponse';
@@ -515,6 +524,8 @@ import { UpdateTransactionSplitStatusResponse } from './model/UpdateTransactionS
 import { UpgradeDatabaseRequest } from './model/UpgradeDatabaseRequest';
 import { UpgradeGaussMySqlInstanceDatabaseRequest } from './model/UpgradeGaussMySqlInstanceDatabaseRequest';
 import { UpgradeGaussMySqlInstanceDatabaseResponse } from './model/UpgradeGaussMySqlInstanceDatabaseResponse';
+import { UpgradeProxyVersionRequest } from './model/UpgradeProxyVersionRequest';
+import { UpgradeProxyVersionResponse } from './model/UpgradeProxyVersionResponse';
 
 export class GaussDBClient {
     public static newBuilder(): ClientBuilder<GaussDBClient> {
@@ -2349,6 +2360,49 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询代理实例访问控制
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询代理实例访问控制
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProxyIpgroup(showProxyIpgroupRequest?: ShowProxyIpgroupRequest): Promise<ShowProxyIpgroupResponse> {
+        const options = ParamCreater().showProxyIpgroup(showProxyIpgroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询代理实例小版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询代理实例小版本
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} engineName engine
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProxyVersion(showProxyVersionRequest?: ShowProxyVersionRequest): Promise<ShowProxyVersionResponse> {
+        const options = ParamCreater().showProxyVersion(showProxyVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询表级时间点恢复可选表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2882,6 +2936,28 @@ export class GaussDBClient {
     }
 
     /**
+     * 修改代理实例名称
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改代理实例名称
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {ProxyUpdateProxyNameRequest} updateProxyNameRequestBody 修改数据库代理名称的请求体。
+     * @param {string} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProxyName(updateProxyNameRequest?: UpdateProxyNameRequest): Promise<UpdateProxyNameResponse> {
+        const options = ParamCreater().updateProxyName(updateProxyNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改数据库代理参数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2982,6 +3058,28 @@ export class GaussDBClient {
      */
     public upgradeGaussMySqlInstanceDatabase(upgradeGaussMySqlInstanceDatabaseRequest?: UpgradeGaussMySqlInstanceDatabaseRequest): Promise<UpgradeGaussMySqlInstanceDatabaseResponse> {
         const options = ParamCreater().upgradeGaussMySqlInstanceDatabase(upgradeGaussMySqlInstanceDatabaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 升级数据库代理实例内核版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 升级数据库代理实例内核版本
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} proxyId 数据库代理ID，严格匹配UUID规则。
+     * @param {ProxyUpgradeProxyVersionRequest} upgradeProxyVersionRequestBody 升级数据库代理内核版本的请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeProxyVersion(upgradeProxyVersionRequest?: UpgradeProxyVersionRequest): Promise<UpgradeProxyVersionResponse> {
+        const options = ParamCreater().upgradeProxyVersion(upgradeProxyVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8229,6 +8327,115 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询代理实例访问控制
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProxyIpgroup(showProxyIpgroupRequest?: ShowProxyIpgroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/ipgroup",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (showProxyIpgroupRequest !== null && showProxyIpgroupRequest !== undefined) {
+                if (showProxyIpgroupRequest instanceof ShowProxyIpgroupRequest) {
+                    instanceId = showProxyIpgroupRequest.instanceId;
+                    proxyId = showProxyIpgroupRequest.proxyId;
+                    xLanguage = showProxyIpgroupRequest.xLanguage;
+                } else {
+                    instanceId = showProxyIpgroupRequest['instance_id'];
+                    proxyId = showProxyIpgroupRequest['proxy_id'];
+                    xLanguage = showProxyIpgroupRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showProxyIpgroup.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling showProxyIpgroup.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询代理实例小版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProxyVersion(showProxyVersionRequest?: ShowProxyVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/{engine_name}/proxy-version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let engineName;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (showProxyVersionRequest !== null && showProxyVersionRequest !== undefined) {
+                if (showProxyVersionRequest instanceof ShowProxyVersionRequest) {
+                    instanceId = showProxyVersionRequest.instanceId;
+                    engineName = showProxyVersionRequest.engineName;
+                    proxyId = showProxyVersionRequest.proxyId;
+                    xLanguage = showProxyVersionRequest.xLanguage;
+                } else {
+                    instanceId = showProxyVersionRequest['instance_id'];
+                    engineName = showProxyVersionRequest['engine_name'];
+                    proxyId = showProxyVersionRequest['proxy_id'];
+                    xLanguage = showProxyVersionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showProxyVersion.');
+            }
+            if (engineName === null || engineName === undefined) {
+            throw new RequiredError('engineName','Required parameter engineName was null or undefined when calling showProxyVersion.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling showProxyVersion.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'engine_name': engineName,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询表级时间点恢复可选表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9605,6 +9812,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改代理实例名称
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProxyName(updateProxyNameRequest?: UpdateProxyNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/rename",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (updateProxyNameRequest !== null && updateProxyNameRequest !== undefined) {
+                if (updateProxyNameRequest instanceof UpdateProxyNameRequest) {
+                    instanceId = updateProxyNameRequest.instanceId;
+                    proxyId = updateProxyNameRequest.proxyId;
+                    body = updateProxyNameRequest.body
+                    xLanguage = updateProxyNameRequest.xLanguage;
+                } else {
+                    instanceId = updateProxyNameRequest['instance_id'];
+                    proxyId = updateProxyNameRequest['proxy_id'];
+                    body = updateProxyNameRequest['body'];
+                    xLanguage = updateProxyNameRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateProxyName.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateProxyName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改数据库代理参数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9886,6 +10153,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 升级数据库代理实例内核版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeProxyVersion(upgradeProxyVersionRequest?: UpgradeProxyVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/upgrade-version",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (upgradeProxyVersionRequest !== null && upgradeProxyVersionRequest !== undefined) {
+                if (upgradeProxyVersionRequest instanceof UpgradeProxyVersionRequest) {
+                    instanceId = upgradeProxyVersionRequest.instanceId;
+                    proxyId = upgradeProxyVersionRequest.proxyId;
+                    body = upgradeProxyVersionRequest.body
+                    xLanguage = upgradeProxyVersionRequest.xLanguage;
+                } else {
+                    instanceId = upgradeProxyVersionRequest['instance_id'];
+                    proxyId = upgradeProxyVersionRequest['proxy_id'];
+                    body = upgradeProxyVersionRequest['body'];
+                    xLanguage = upgradeProxyVersionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeProxyVersion.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling upgradeProxyVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

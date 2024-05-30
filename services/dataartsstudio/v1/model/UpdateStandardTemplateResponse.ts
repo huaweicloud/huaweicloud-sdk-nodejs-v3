@@ -1,12 +1,13 @@
+import { CreateStandardTemplateResultData } from './CreateStandardTemplateResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateStandardTemplateResponse extends SdkResponse {
-    public data?: object;
+    public data?: CreateStandardTemplateResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): UpdateStandardTemplateResponse {
+    public withData(data: CreateStandardTemplateResultData): UpdateStandardTemplateResponse {
         this['data'] = data;
         return this;
     }

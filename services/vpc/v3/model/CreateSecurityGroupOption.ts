@@ -1,9 +1,11 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class CreateSecurityGroupOption {
     public name?: string;
     public description?: string;
     private 'enterprise_project_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -24,5 +26,9 @@ export class CreateSecurityGroupOption {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateSecurityGroupOption {
+        this['tags'] = tags;
+        return this;
     }
 }

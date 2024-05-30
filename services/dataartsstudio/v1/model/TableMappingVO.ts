@@ -4,11 +4,11 @@ import { TableMappingDetailVO } from './TableMappingDetailVO';
 
 
 export class TableMappingVO {
-    public id?: number;
+    public id?: string;
     public name?: string;
     public description?: string;
-    private 'target_table_id'?: number;
-    private 'src_model_id'?: number;
+    private 'target_table_id'?: string;
+    private 'src_model_id'?: string;
     private 'src_model_name'?: string;
     private 'view_text'?: string;
     private 'target_table_name'?: string;
@@ -22,7 +22,7 @@ export class TableMappingVO {
     public constructor(name?: string) { 
         this['name'] = name;
     }
-    public withId(id: number): TableMappingVO {
+    public withId(id: string): TableMappingVO {
         this['id'] = id;
         return this;
     }
@@ -34,24 +34,24 @@ export class TableMappingVO {
         this['description'] = description;
         return this;
     }
-    public withTargetTableId(targetTableId: number): TableMappingVO {
+    public withTargetTableId(targetTableId: string): TableMappingVO {
         this['target_table_id'] = targetTableId;
         return this;
     }
-    public set targetTableId(targetTableId: number  | undefined) {
+    public set targetTableId(targetTableId: string  | undefined) {
         this['target_table_id'] = targetTableId;
     }
-    public get targetTableId(): number | undefined {
+    public get targetTableId(): string | undefined {
         return this['target_table_id'];
     }
-    public withSrcModelId(srcModelId: number): TableMappingVO {
+    public withSrcModelId(srcModelId: string): TableMappingVO {
         this['src_model_id'] = srcModelId;
         return this;
     }
-    public set srcModelId(srcModelId: number  | undefined) {
+    public set srcModelId(srcModelId: string  | undefined) {
         this['src_model_id'] = srcModelId;
     }
-    public get srcModelId(): number | undefined {
+    public get srcModelId(): string | undefined {
         return this['src_model_id'];
     }
     public withSrcModelName(srcModelName: string): TableMappingVO {

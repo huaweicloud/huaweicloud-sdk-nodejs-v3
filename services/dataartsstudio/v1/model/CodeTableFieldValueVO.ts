@@ -1,25 +1,25 @@
 
 
 export class CodeTableFieldValueVO {
-    public id?: number;
-    private 'fd_id'?: number;
+    public id?: string;
+    private 'fd_id'?: string;
     private 'fd_value'?: string;
     public ordinal?: number;
     public description?: string;
     public constructor() { 
     }
-    public withId(id: number): CodeTableFieldValueVO {
+    public withId(id: string): CodeTableFieldValueVO {
         this['id'] = id;
         return this;
     }
-    public withFdId(fdId: number): CodeTableFieldValueVO {
+    public withFdId(fdId: string): CodeTableFieldValueVO {
         this['fd_id'] = fdId;
         return this;
     }
-    public set fdId(fdId: number  | undefined) {
+    public set fdId(fdId: string  | undefined) {
         this['fd_id'] = fdId;
     }
-    public get fdId(): number | undefined {
+    public get fdId(): string | undefined {
         return this['fd_id'];
     }
     public withFdValue(fdValue: string): CodeTableFieldValueVO {

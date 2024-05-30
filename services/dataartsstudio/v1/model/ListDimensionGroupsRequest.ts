@@ -4,7 +4,7 @@ export class ListDimensionGroupsRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    private 'table_id'?: number;
+    private 'table_id'?: string;
     private 'biz_type'?: string;
     public limit?: number;
     public offset?: number;
@@ -35,14 +35,14 @@ export class ListDimensionGroupsRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withTableId(tableId: number): ListDimensionGroupsRequest {
+    public withTableId(tableId: string): ListDimensionGroupsRequest {
         this['table_id'] = tableId;
         return this;
     }
-    public set tableId(tableId: number  | undefined) {
+    public set tableId(tableId: string  | undefined) {
         this['table_id'] = tableId;
     }
-    public get tableId(): number | undefined {
+    public get tableId(): string | undefined {
         return this['table_id'];
     }
     public withBizType(bizType: string): ListDimensionGroupsRequest {

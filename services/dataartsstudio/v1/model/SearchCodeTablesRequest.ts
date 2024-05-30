@@ -7,7 +7,7 @@ export class SearchCodeTablesRequest {
     public name?: string;
     private 'create_by'?: string;
     public approver?: string;
-    private 'directory_id'?: number;
+    private 'directory_id'?: string;
     public status?: SearchCodeTablesRequestStatusEnum | string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
@@ -58,14 +58,14 @@ export class SearchCodeTablesRequest {
         this['approver'] = approver;
         return this;
     }
-    public withDirectoryId(directoryId: number): SearchCodeTablesRequest {
+    public withDirectoryId(directoryId: string): SearchCodeTablesRequest {
         this['directory_id'] = directoryId;
         return this;
     }
-    public set directoryId(directoryId: number  | undefined) {
+    public set directoryId(directoryId: string  | undefined) {
         this['directory_id'] = directoryId;
     }
-    public get directoryId(): number | undefined {
+    public get directoryId(): string | undefined {
         return this['directory_id'];
     }
     public withStatus(status: SearchCodeTablesRequestStatusEnum | string): SearchCodeTablesRequest {

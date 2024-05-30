@@ -4,6 +4,8 @@ export class SearchFieldsForRelationRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
+    public limit?: number;
+    public offset?: number;
     private 'model_id'?: string;
     public constructor(workspace?: string, modelId?: string) { 
         this['workspace'] = workspace;
@@ -32,6 +34,14 @@ export class SearchFieldsForRelationRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withLimit(limit: number): SearchFieldsForRelationRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): SearchFieldsForRelationRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withModelId(modelId: string): SearchFieldsForRelationRequest {
         this['model_id'] = modelId;

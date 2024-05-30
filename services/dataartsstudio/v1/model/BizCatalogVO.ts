@@ -5,10 +5,10 @@ export class BizCatalogVO {
     public description?: string;
     public guid?: string;
     public owner?: string;
-    private 'parent_id'?: number;
-    private 'prev_id'?: number;
-    private 'next_id'?: number;
-    public id?: number;
+    private 'parent_id'?: string;
+    private 'prev_id'?: string;
+    private 'next_id'?: string;
+    public id?: string;
     private 'qualified_id'?: string;
     private 'create_by'?: string;
     private 'update_by'?: string;
@@ -17,7 +17,7 @@ export class BizCatalogVO {
     private 'bizmetric_num'?: number;
     private 'children_num'?: number;
     public children?: Array<BizCatalogVO>;
-    public constructor(name?: string, owner?: string, id?: number) { 
+    public constructor(name?: string, owner?: string, id?: string) { 
         this['name'] = name;
         this['owner'] = owner;
         this['id'] = id;
@@ -38,37 +38,37 @@ export class BizCatalogVO {
         this['owner'] = owner;
         return this;
     }
-    public withParentId(parentId: number): BizCatalogVO {
+    public withParentId(parentId: string): BizCatalogVO {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: number  | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId(): number | undefined {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
-    public withPrevId(prevId: number): BizCatalogVO {
+    public withPrevId(prevId: string): BizCatalogVO {
         this['prev_id'] = prevId;
         return this;
     }
-    public set prevId(prevId: number  | undefined) {
+    public set prevId(prevId: string  | undefined) {
         this['prev_id'] = prevId;
     }
-    public get prevId(): number | undefined {
+    public get prevId(): string | undefined {
         return this['prev_id'];
     }
-    public withNextId(nextId: number): BizCatalogVO {
+    public withNextId(nextId: string): BizCatalogVO {
         this['next_id'] = nextId;
         return this;
     }
-    public set nextId(nextId: number  | undefined) {
+    public set nextId(nextId: string  | undefined) {
         this['next_id'] = nextId;
     }
-    public get nextId(): number | undefined {
+    public get nextId(): string | undefined {
         return this['next_id'];
     }
-    public withId(id: number): BizCatalogVO {
+    public withId(id: string): BizCatalogVO {
         this['id'] = id;
         return this;
     }

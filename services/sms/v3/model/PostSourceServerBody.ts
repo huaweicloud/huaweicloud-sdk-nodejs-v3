@@ -35,6 +35,7 @@ export class PostSourceServerBody {
     public state?: PostSourceServerBodyStateEnum | string;
     private 'oem_system'?: boolean;
     private 'start_type'?: PostSourceServerBodyStartTypeEnum | string;
+    private 'io_read_wait'?: number;
     public constructor(ip?: string, name?: string, osType?: string, agentVersion?: string) { 
         this['ip'] = ip;
         this['name'] = name;
@@ -280,6 +281,16 @@ export class PostSourceServerBody {
     }
     public get startType(): PostSourceServerBodyStartTypeEnum | string | undefined {
         return this['start_type'];
+    }
+    public withIoReadWait(ioReadWait: number): PostSourceServerBody {
+        this['io_read_wait'] = ioReadWait;
+        return this;
+    }
+    public set ioReadWait(ioReadWait: number  | undefined) {
+        this['io_read_wait'] = ioReadWait;
+    }
+    public get ioReadWait(): number | undefined {
+        return this['io_read_wait'];
     }
 }
 

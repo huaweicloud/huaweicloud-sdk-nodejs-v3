@@ -1,6 +1,7 @@
 import { BizTypeEnum } from './BizTypeEnum';
 import { DataTypeDomainEnum } from './DataTypeDomainEnum';
 import { QualityInfoVO } from './QualityInfoVO';
+import { SecrecyLevelVO } from './SecrecyLevelVO';
 
 
 export class AggregationLogicTableAttributeVO {
@@ -12,12 +13,15 @@ export class AggregationLogicTableAttributeVO {
     private 'attribute_type'?: BizTypeEnum;
     private 'is_primary_key'?: boolean;
     private 'is_partition_key'?: boolean;
+    private 'secrecy_levels'?: Array<SecrecyLevelVO>;
     private 'not_null'?: boolean;
     public description?: string;
     private 'data_type'?: string;
     private 'domain_type'?: DataTypeDomainEnum;
     private 'data_type_extend'?: string;
     private 'ref_id'?: string;
+    private 'ref_name_ch'?: string;
+    private 'ref_name_en'?: string;
     private 'stand_row_id'?: string;
     private 'stand_row_name'?: string;
     private 'quality_infos'?: Array<QualityInfoVO>;
@@ -97,6 +101,16 @@ export class AggregationLogicTableAttributeVO {
     public get isPartitionKey(): boolean | undefined {
         return this['is_partition_key'];
     }
+    public withSecrecyLevels(secrecyLevels: Array<SecrecyLevelVO>): AggregationLogicTableAttributeVO {
+        this['secrecy_levels'] = secrecyLevels;
+        return this;
+    }
+    public set secrecyLevels(secrecyLevels: Array<SecrecyLevelVO>  | undefined) {
+        this['secrecy_levels'] = secrecyLevels;
+    }
+    public get secrecyLevels(): Array<SecrecyLevelVO> | undefined {
+        return this['secrecy_levels'];
+    }
     public withNotNull(notNull: boolean): AggregationLogicTableAttributeVO {
         this['not_null'] = notNull;
         return this;
@@ -150,6 +164,26 @@ export class AggregationLogicTableAttributeVO {
     }
     public get refId(): string | undefined {
         return this['ref_id'];
+    }
+    public withRefNameCh(refNameCh: string): AggregationLogicTableAttributeVO {
+        this['ref_name_ch'] = refNameCh;
+        return this;
+    }
+    public set refNameCh(refNameCh: string  | undefined) {
+        this['ref_name_ch'] = refNameCh;
+    }
+    public get refNameCh(): string | undefined {
+        return this['ref_name_ch'];
+    }
+    public withRefNameEn(refNameEn: string): AggregationLogicTableAttributeVO {
+        this['ref_name_en'] = refNameEn;
+        return this;
+    }
+    public set refNameEn(refNameEn: string  | undefined) {
+        this['ref_name_en'] = refNameEn;
+    }
+    public get refNameEn(): string | undefined {
+        return this['ref_name_en'];
     }
     public withStandRowId(standRowId: string): AggregationLogicTableAttributeVO {
         this['stand_row_id'] = standRowId;

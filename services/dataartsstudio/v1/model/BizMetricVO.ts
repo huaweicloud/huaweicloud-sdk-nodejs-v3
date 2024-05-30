@@ -2,17 +2,18 @@ import { ApprovalVO } from './ApprovalVO';
 import { BizStatusEnum } from './BizStatusEnum';
 import { BizTypeEnum } from './BizTypeEnum';
 import { BizVersionManageVO } from './BizVersionManageVO';
+import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
 
 
 export class BizMetricVO {
-    public id?: number;
+    public id?: string;
     public name?: string;
     public code?: string;
     private 'name_alias'?: string;
     private 'biz_type'?: BizTypeEnum;
     public status?: BizStatusEnum;
-    private 'biz_catalog_id'?: number;
+    private 'biz_catalog_id'?: string;
     private 'biz_catalog_path'?: string;
     private 'create_by'?: string;
     private 'update_by'?: string;
@@ -23,7 +24,7 @@ export class BizMetricVO {
     private 'general_filters'?: string;
     private 'interval_type'?: BizMetricVOIntervalTypeEnum | string;
     private 'apply_scenario'?: string;
-    private 'technical_metric'?: number;
+    private 'technical_metric'?: string;
     private 'technical_metric_name'?: string;
     private 'technical_metric_type'?: BizTypeEnum;
     public measure?: string;
@@ -43,7 +44,8 @@ export class BizMetricVO {
     public l3?: string;
     private 'biz_metric'?: SyncStatusEnum;
     private 'summary_status'?: SyncStatusEnum;
-    public constructor(name?: string, bizCatalogId?: number, timeFilters?: string, intervalType?: string, owner?: string, ownerDepartment?: string, destination?: string, definition?: string, expression?: string) { 
+    private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
+    public constructor(name?: string, bizCatalogId?: string, timeFilters?: string, intervalType?: string, owner?: string, ownerDepartment?: string, destination?: string, definition?: string, expression?: string) { 
         this['name'] = name;
         this['biz_catalog_id'] = bizCatalogId;
         this['time_filters'] = timeFilters;
@@ -54,7 +56,7 @@ export class BizMetricVO {
         this['definition'] = definition;
         this['expression'] = expression;
     }
-    public withId(id: number): BizMetricVO {
+    public withId(id: string): BizMetricVO {
         this['id'] = id;
         return this;
     }
@@ -90,14 +92,14 @@ export class BizMetricVO {
         this['status'] = status;
         return this;
     }
-    public withBizCatalogId(bizCatalogId: number): BizMetricVO {
+    public withBizCatalogId(bizCatalogId: string): BizMetricVO {
         this['biz_catalog_id'] = bizCatalogId;
         return this;
     }
-    public set bizCatalogId(bizCatalogId: number  | undefined) {
+    public set bizCatalogId(bizCatalogId: string  | undefined) {
         this['biz_catalog_id'] = bizCatalogId;
     }
-    public get bizCatalogId(): number | undefined {
+    public get bizCatalogId(): string | undefined {
         return this['biz_catalog_id'];
     }
     public withBizCatalogPath(bizCatalogPath: string): BizMetricVO {
@@ -188,14 +190,14 @@ export class BizMetricVO {
     public get applyScenario(): string | undefined {
         return this['apply_scenario'];
     }
-    public withTechnicalMetric(technicalMetric: number): BizMetricVO {
+    public withTechnicalMetric(technicalMetric: string): BizMetricVO {
         this['technical_metric'] = technicalMetric;
         return this;
     }
-    public set technicalMetric(technicalMetric: number  | undefined) {
+    public set technicalMetric(technicalMetric: string  | undefined) {
         this['technical_metric'] = technicalMetric;
     }
-    public get technicalMetric(): number | undefined {
+    public get technicalMetric(): string | undefined {
         return this['technical_metric'];
     }
     public withTechnicalMetricName(technicalMetricName: string): BizMetricVO {
@@ -327,6 +329,16 @@ export class BizMetricVO {
     }
     public get summaryStatus(): SyncStatusEnum | undefined {
         return this['summary_status'];
+    }
+    public withSelfDefinedFields(selfDefinedFields: Array<SelfDefinedFieldVO>): BizMetricVO {
+        this['self_defined_fields'] = selfDefinedFields;
+        return this;
+    }
+    public set selfDefinedFields(selfDefinedFields: Array<SelfDefinedFieldVO>  | undefined) {
+        this['self_defined_fields'] = selfDefinedFields;
+    }
+    public get selfDefinedFields(): Array<SelfDefinedFieldVO> | undefined {
+        return this['self_defined_fields'];
     }
 }
 

@@ -9,6 +9,7 @@ export class PhysicalVolume {
     public size?: number;
     private 'used_size'?: number;
     private 'inode_size'?: number;
+    private 'inode_nums'?: number;
     public uuid?: string;
     private 'size_per_cluster'?: number;
     public constructor() { 
@@ -74,6 +75,16 @@ export class PhysicalVolume {
     }
     public get inodeSize(): number | undefined {
         return this['inode_size'];
+    }
+    public withInodeNums(inodeNums: number): PhysicalVolume {
+        this['inode_nums'] = inodeNums;
+        return this;
+    }
+    public set inodeNums(inodeNums: number  | undefined) {
+        this['inode_nums'] = inodeNums;
+    }
+    public get inodeNums(): number | undefined {
+        return this['inode_nums'];
     }
     public withUuid(uuid: string): PhysicalVolume {
         this['uuid'] = uuid;

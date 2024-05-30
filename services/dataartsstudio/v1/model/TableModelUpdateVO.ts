@@ -1,6 +1,7 @@
 import { ApprovalVO } from './ApprovalVO';
 import { BizStatusEnum } from './BizStatusEnum';
 import { BizVersionManageVO } from './BizVersionManageVO';
+import { EnvTypeEnum } from './EnvTypeEnum';
 import { RelationVO } from './RelationVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { SyncStatusEnum } from './SyncStatusEnum';
@@ -11,9 +12,9 @@ import { WorkspaceVO } from './WorkspaceVO';
 
 
 export class TableModelUpdateVO {
-    public id?: number;
-    private 'model_id'?: number;
-    private 'parent_table_id'?: number;
+    public id?: string;
+    private 'model_id'?: string;
+    private 'parent_table_id'?: string;
     private 'parent_table_name'?: string;
     private 'parent_table_code'?: string;
     public model?: WorkspaceVO;
@@ -35,8 +36,8 @@ export class TableModelUpdateVO {
     private 'logic_tb_guid'?: string;
     public description?: string;
     public status?: BizStatusEnum;
-    private 'logic_tb_id'?: number;
-    private 'biz_catalog_id'?: number;
+    private 'logic_tb_id'?: string;
+    private 'biz_catalog_id'?: string;
     private 'catalog_path'?: string;
     private 'create_by'?: string;
     private 'update_by'?: string;
@@ -53,9 +54,9 @@ export class TableModelUpdateVO {
     public l1?: string;
     public l2?: string;
     public l3?: string;
-    private 'l1_id'?: number;
+    private 'l1_id'?: string;
     private 'l2_id'?: string;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'partition_conf'?: string;
     private 'dlf_task_id'?: string;
     private 'use_recently_partition'?: boolean;
@@ -65,11 +66,12 @@ export class TableModelUpdateVO {
     private 'dirty_out_prefix'?: string;
     private 'dirty_out_suffix'?: string;
     private 'quality_owner'?: string;
-    private 'quality_id'?: number;
+    private 'quality_id'?: string;
     public distribute?: TableModelUpdateVODistributeEnum | string;
     private 'distribute_column'?: string;
     private 'is_partition'?: boolean;
     private 'physical_table'?: SyncStatusEnum;
+    private 'dev_physical_table'?: SyncStatusEnum;
     private 'technical_asset'?: SyncStatusEnum;
     private 'business_asset'?: SyncStatusEnum;
     private 'meta_data_link'?: SyncStatusEnum;
@@ -77,7 +79,14 @@ export class TableModelUpdateVO {
     private 'summary_status'?: SyncStatusEnum;
     public alias?: string;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
-    public constructor(id?: number, modelId?: number, tbName?: string, logicTbName?: string, description?: string, attributes?: Array<TableModelAttributeVO>, dwType?: string) { 
+    private 'dev_version'?: string;
+    private 'prod_version'?: string;
+    private 'dev_version_name'?: string;
+    private 'prod_version_name'?: string;
+    private 'env_type'?: EnvTypeEnum;
+    private 'has_related_physical_table'?: boolean;
+    private 'has_related_logic_table'?: boolean;
+    public constructor(id?: string, modelId?: string, tbName?: string, logicTbName?: string, description?: string, attributes?: Array<TableModelAttributeVO>, dwType?: string) { 
         this['id'] = id;
         this['model_id'] = modelId;
         this['tb_name'] = tbName;
@@ -86,28 +95,28 @@ export class TableModelUpdateVO {
         this['attributes'] = attributes;
         this['dw_type'] = dwType;
     }
-    public withId(id: number): TableModelUpdateVO {
+    public withId(id: string): TableModelUpdateVO {
         this['id'] = id;
         return this;
     }
-    public withModelId(modelId: number): TableModelUpdateVO {
+    public withModelId(modelId: string): TableModelUpdateVO {
         this['model_id'] = modelId;
         return this;
     }
-    public set modelId(modelId: number  | undefined) {
+    public set modelId(modelId: string  | undefined) {
         this['model_id'] = modelId;
     }
-    public get modelId(): number | undefined {
+    public get modelId(): string | undefined {
         return this['model_id'];
     }
-    public withParentTableId(parentTableId: number): TableModelUpdateVO {
+    public withParentTableId(parentTableId: string): TableModelUpdateVO {
         this['parent_table_id'] = parentTableId;
         return this;
     }
-    public set parentTableId(parentTableId: number  | undefined) {
+    public set parentTableId(parentTableId: string  | undefined) {
         this['parent_table_id'] = parentTableId;
     }
-    public get parentTableId(): number | undefined {
+    public get parentTableId(): string | undefined {
         return this['parent_table_id'];
     }
     public withParentTableName(parentTableName: string): TableModelUpdateVO {
@@ -284,24 +293,24 @@ export class TableModelUpdateVO {
         this['status'] = status;
         return this;
     }
-    public withLogicTbId(logicTbId: number): TableModelUpdateVO {
+    public withLogicTbId(logicTbId: string): TableModelUpdateVO {
         this['logic_tb_id'] = logicTbId;
         return this;
     }
-    public set logicTbId(logicTbId: number  | undefined) {
+    public set logicTbId(logicTbId: string  | undefined) {
         this['logic_tb_id'] = logicTbId;
     }
-    public get logicTbId(): number | undefined {
+    public get logicTbId(): string | undefined {
         return this['logic_tb_id'];
     }
-    public withBizCatalogId(bizCatalogId: number): TableModelUpdateVO {
+    public withBizCatalogId(bizCatalogId: string): TableModelUpdateVO {
         this['biz_catalog_id'] = bizCatalogId;
         return this;
     }
-    public set bizCatalogId(bizCatalogId: number  | undefined) {
+    public set bizCatalogId(bizCatalogId: string  | undefined) {
         this['biz_catalog_id'] = bizCatalogId;
     }
-    public get bizCatalogId(): number | undefined {
+    public get bizCatalogId(): string | undefined {
         return this['biz_catalog_id'];
     }
     public withCatalogPath(catalogPath: string): TableModelUpdateVO {
@@ -422,14 +431,14 @@ export class TableModelUpdateVO {
         this['l3'] = l3;
         return this;
     }
-    public withL1Id(l1Id: number): TableModelUpdateVO {
+    public withL1Id(l1Id: string): TableModelUpdateVO {
         this['l1_id'] = l1Id;
         return this;
     }
-    public set l1Id(l1Id: number  | undefined) {
+    public set l1Id(l1Id: string  | undefined) {
         this['l1_id'] = l1Id;
     }
-    public get l1Id(): number | undefined {
+    public get l1Id(): string | undefined {
         return this['l1_id'];
     }
     public withL2Id(l2Id: string): TableModelUpdateVO {
@@ -442,14 +451,14 @@ export class TableModelUpdateVO {
     public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withL3Id(l3Id: number): TableModelUpdateVO {
+    public withL3Id(l3Id: string): TableModelUpdateVO {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withPartitionConf(partitionConf: string): TableModelUpdateVO {
@@ -536,14 +545,14 @@ export class TableModelUpdateVO {
     public get qualityOwner(): string | undefined {
         return this['quality_owner'];
     }
-    public withQualityId(qualityId: number): TableModelUpdateVO {
+    public withQualityId(qualityId: string): TableModelUpdateVO {
         this['quality_id'] = qualityId;
         return this;
     }
-    public set qualityId(qualityId: number  | undefined) {
+    public set qualityId(qualityId: string  | undefined) {
         this['quality_id'] = qualityId;
     }
-    public get qualityId(): number | undefined {
+    public get qualityId(): string | undefined {
         return this['quality_id'];
     }
     public withDistribute(distribute: TableModelUpdateVODistributeEnum | string): TableModelUpdateVO {
@@ -579,6 +588,16 @@ export class TableModelUpdateVO {
     }
     public get physicalTable(): SyncStatusEnum | undefined {
         return this['physical_table'];
+    }
+    public withDevPhysicalTable(devPhysicalTable: SyncStatusEnum): TableModelUpdateVO {
+        this['dev_physical_table'] = devPhysicalTable;
+        return this;
+    }
+    public set devPhysicalTable(devPhysicalTable: SyncStatusEnum  | undefined) {
+        this['dev_physical_table'] = devPhysicalTable;
+    }
+    public get devPhysicalTable(): SyncStatusEnum | undefined {
+        return this['dev_physical_table'];
     }
     public withTechnicalAsset(technicalAsset: SyncStatusEnum): TableModelUpdateVO {
         this['technical_asset'] = technicalAsset;
@@ -643,6 +662,76 @@ export class TableModelUpdateVO {
     }
     public get selfDefinedFields(): Array<SelfDefinedFieldVO> | undefined {
         return this['self_defined_fields'];
+    }
+    public withDevVersion(devVersion: string): TableModelUpdateVO {
+        this['dev_version'] = devVersion;
+        return this;
+    }
+    public set devVersion(devVersion: string  | undefined) {
+        this['dev_version'] = devVersion;
+    }
+    public get devVersion(): string | undefined {
+        return this['dev_version'];
+    }
+    public withProdVersion(prodVersion: string): TableModelUpdateVO {
+        this['prod_version'] = prodVersion;
+        return this;
+    }
+    public set prodVersion(prodVersion: string  | undefined) {
+        this['prod_version'] = prodVersion;
+    }
+    public get prodVersion(): string | undefined {
+        return this['prod_version'];
+    }
+    public withDevVersionName(devVersionName: string): TableModelUpdateVO {
+        this['dev_version_name'] = devVersionName;
+        return this;
+    }
+    public set devVersionName(devVersionName: string  | undefined) {
+        this['dev_version_name'] = devVersionName;
+    }
+    public get devVersionName(): string | undefined {
+        return this['dev_version_name'];
+    }
+    public withProdVersionName(prodVersionName: string): TableModelUpdateVO {
+        this['prod_version_name'] = prodVersionName;
+        return this;
+    }
+    public set prodVersionName(prodVersionName: string  | undefined) {
+        this['prod_version_name'] = prodVersionName;
+    }
+    public get prodVersionName(): string | undefined {
+        return this['prod_version_name'];
+    }
+    public withEnvType(envType: EnvTypeEnum): TableModelUpdateVO {
+        this['env_type'] = envType;
+        return this;
+    }
+    public set envType(envType: EnvTypeEnum  | undefined) {
+        this['env_type'] = envType;
+    }
+    public get envType(): EnvTypeEnum | undefined {
+        return this['env_type'];
+    }
+    public withHasRelatedPhysicalTable(hasRelatedPhysicalTable: boolean): TableModelUpdateVO {
+        this['has_related_physical_table'] = hasRelatedPhysicalTable;
+        return this;
+    }
+    public set hasRelatedPhysicalTable(hasRelatedPhysicalTable: boolean  | undefined) {
+        this['has_related_physical_table'] = hasRelatedPhysicalTable;
+    }
+    public get hasRelatedPhysicalTable(): boolean | undefined {
+        return this['has_related_physical_table'];
+    }
+    public withHasRelatedLogicTable(hasRelatedLogicTable: boolean): TableModelUpdateVO {
+        this['has_related_logic_table'] = hasRelatedLogicTable;
+        return this;
+    }
+    public set hasRelatedLogicTable(hasRelatedLogicTable: boolean  | undefined) {
+        this['has_related_logic_table'] = hasRelatedLogicTable;
+    }
+    public get hasRelatedLogicTable(): boolean | undefined {
+        return this['has_related_logic_table'];
     }
 }
 

@@ -1,7 +1,7 @@
 
 
 export class CustomizedFieldsVO {
-    public id?: number;
+    public id?: string;
     private 'name_ch'?: string;
     private 'name_en'?: string;
     private 'not_null'?: boolean;
@@ -19,7 +19,7 @@ export class CustomizedFieldsVO {
         this['not_null'] = notNull;
         this['type'] = type;
     }
-    public withId(id: number): CustomizedFieldsVO {
+    public withId(id: string): CustomizedFieldsVO {
         this['id'] = id;
         return this;
     }

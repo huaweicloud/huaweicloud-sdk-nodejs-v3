@@ -1,5 +1,6 @@
 import { DataTypeDomainEnum } from './DataTypeDomainEnum';
 import { QualityInfoVO } from './QualityInfoVO';
+import { SecrecyLevelVO } from './SecrecyLevelVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 import { TagVO } from './TagVO';
 
@@ -21,15 +22,20 @@ export class TableModelAttributeVO {
     private 'extend_field'?: boolean;
     private 'not_null'?: boolean;
     public ordinal?: number;
-    private 'table_model_id'?: number;
+    private 'table_model_id'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
     public tags?: Array<TagVO>;
-    private 'stand_row_id'?: number;
+    private 'secrecy_levels'?: Array<SecrecyLevelVO>;
+    private 'stand_row_id'?: string;
     private 'stand_row_name'?: string;
     private 'quality_infos'?: Array<QualityInfoVO>;
     public alias?: string;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
+    public code?: string;
+    private 'related_logic_attr_id'?: string;
+    private 'related_logic_attr_name'?: string;
+    private 'related_logic_attr_name_en'?: string;
     public constructor(nameEn?: string, nameCh?: string, dataType?: string, isPrimaryKey?: boolean) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
@@ -178,14 +184,14 @@ export class TableModelAttributeVO {
         this['ordinal'] = ordinal;
         return this;
     }
-    public withTableModelId(tableModelId: number): TableModelAttributeVO {
+    public withTableModelId(tableModelId: string): TableModelAttributeVO {
         this['table_model_id'] = tableModelId;
         return this;
     }
-    public set tableModelId(tableModelId: number  | undefined) {
+    public set tableModelId(tableModelId: string  | undefined) {
         this['table_model_id'] = tableModelId;
     }
-    public get tableModelId(): number | undefined {
+    public get tableModelId(): string | undefined {
         return this['table_model_id'];
     }
     public withCreateTime(createTime: Date): TableModelAttributeVO {
@@ -212,14 +218,24 @@ export class TableModelAttributeVO {
         this['tags'] = tags;
         return this;
     }
-    public withStandRowId(standRowId: number): TableModelAttributeVO {
+    public withSecrecyLevels(secrecyLevels: Array<SecrecyLevelVO>): TableModelAttributeVO {
+        this['secrecy_levels'] = secrecyLevels;
+        return this;
+    }
+    public set secrecyLevels(secrecyLevels: Array<SecrecyLevelVO>  | undefined) {
+        this['secrecy_levels'] = secrecyLevels;
+    }
+    public get secrecyLevels(): Array<SecrecyLevelVO> | undefined {
+        return this['secrecy_levels'];
+    }
+    public withStandRowId(standRowId: string): TableModelAttributeVO {
         this['stand_row_id'] = standRowId;
         return this;
     }
-    public set standRowId(standRowId: number  | undefined) {
+    public set standRowId(standRowId: string  | undefined) {
         this['stand_row_id'] = standRowId;
     }
-    public get standRowId(): number | undefined {
+    public get standRowId(): string | undefined {
         return this['stand_row_id'];
     }
     public withStandRowName(standRowName: string): TableModelAttributeVO {
@@ -255,5 +271,39 @@ export class TableModelAttributeVO {
     }
     public get selfDefinedFields(): Array<SelfDefinedFieldVO> | undefined {
         return this['self_defined_fields'];
+    }
+    public withCode(code: string): TableModelAttributeVO {
+        this['code'] = code;
+        return this;
+    }
+    public withRelatedLogicAttrId(relatedLogicAttrId: string): TableModelAttributeVO {
+        this['related_logic_attr_id'] = relatedLogicAttrId;
+        return this;
+    }
+    public set relatedLogicAttrId(relatedLogicAttrId: string  | undefined) {
+        this['related_logic_attr_id'] = relatedLogicAttrId;
+    }
+    public get relatedLogicAttrId(): string | undefined {
+        return this['related_logic_attr_id'];
+    }
+    public withRelatedLogicAttrName(relatedLogicAttrName: string): TableModelAttributeVO {
+        this['related_logic_attr_name'] = relatedLogicAttrName;
+        return this;
+    }
+    public set relatedLogicAttrName(relatedLogicAttrName: string  | undefined) {
+        this['related_logic_attr_name'] = relatedLogicAttrName;
+    }
+    public get relatedLogicAttrName(): string | undefined {
+        return this['related_logic_attr_name'];
+    }
+    public withRelatedLogicAttrNameEn(relatedLogicAttrNameEn: string): TableModelAttributeVO {
+        this['related_logic_attr_name_en'] = relatedLogicAttrNameEn;
+        return this;
+    }
+    public set relatedLogicAttrNameEn(relatedLogicAttrNameEn: string  | undefined) {
+        this['related_logic_attr_name_en'] = relatedLogicAttrNameEn;
+    }
+    public get relatedLogicAttrNameEn(): string | undefined {
+        return this['related_logic_attr_name_en'];
     }
 }

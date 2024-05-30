@@ -4,17 +4,19 @@ export class DirectoryVO {
     public name?: string;
     public description?: string;
     public type?: DirectoryVOTypeEnum | string;
-    public id?: number;
-    private 'parent_id'?: number;
-    private 'prev_id'?: number;
-    private 'root_id'?: number;
+    public id?: string;
+    private 'parent_id'?: string;
+    private 'prev_id'?: string;
+    private 'root_id'?: string;
     private 'qualified_name'?: string;
+    private 'from_public'?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
     private 'create_by'?: string;
     private 'update_by'?: string;
+    private 'ref_id'?: string;
     public children?: Array<DirectoryVO>;
-    public constructor(name?: string, type?: string, parentId?: number, prevId?: number) { 
+    public constructor(name?: string, type?: string, parentId?: string, prevId?: string) { 
         this['name'] = name;
         this['type'] = type;
         this['parent_id'] = parentId;
@@ -32,38 +34,38 @@ export class DirectoryVO {
         this['type'] = type;
         return this;
     }
-    public withId(id: number): DirectoryVO {
+    public withId(id: string): DirectoryVO {
         this['id'] = id;
         return this;
     }
-    public withParentId(parentId: number): DirectoryVO {
+    public withParentId(parentId: string): DirectoryVO {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: number  | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId(): number | undefined {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
-    public withPrevId(prevId: number): DirectoryVO {
+    public withPrevId(prevId: string): DirectoryVO {
         this['prev_id'] = prevId;
         return this;
     }
-    public set prevId(prevId: number  | undefined) {
+    public set prevId(prevId: string  | undefined) {
         this['prev_id'] = prevId;
     }
-    public get prevId(): number | undefined {
+    public get prevId(): string | undefined {
         return this['prev_id'];
     }
-    public withRootId(rootId: number): DirectoryVO {
+    public withRootId(rootId: string): DirectoryVO {
         this['root_id'] = rootId;
         return this;
     }
-    public set rootId(rootId: number  | undefined) {
+    public set rootId(rootId: string  | undefined) {
         this['root_id'] = rootId;
     }
-    public get rootId(): number | undefined {
+    public get rootId(): string | undefined {
         return this['root_id'];
     }
     public withQualifiedName(qualifiedName: string): DirectoryVO {
@@ -75,6 +77,16 @@ export class DirectoryVO {
     }
     public get qualifiedName(): string | undefined {
         return this['qualified_name'];
+    }
+    public withFromPublic(fromPublic: string): DirectoryVO {
+        this['from_public'] = fromPublic;
+        return this;
+    }
+    public set fromPublic(fromPublic: string  | undefined) {
+        this['from_public'] = fromPublic;
+    }
+    public get fromPublic(): string | undefined {
+        return this['from_public'];
     }
     public withCreateTime(createTime: Date): DirectoryVO {
         this['create_time'] = createTime;
@@ -115,6 +127,16 @@ export class DirectoryVO {
     }
     public get updateBy(): string | undefined {
         return this['update_by'];
+    }
+    public withRefId(refId: string): DirectoryVO {
+        this['ref_id'] = refId;
+        return this;
+    }
+    public set refId(refId: string  | undefined) {
+        this['ref_id'] = refId;
+    }
+    public get refId(): string | undefined {
+        return this['ref_id'];
     }
     public withChildren(children: Array<DirectoryVO>): DirectoryVO {
         this['children'] = children;

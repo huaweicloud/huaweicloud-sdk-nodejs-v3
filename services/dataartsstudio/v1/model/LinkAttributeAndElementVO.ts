@@ -1,38 +1,38 @@
 
 
 export class LinkAttributeAndElementVO {
-    public ids?: Array<number>;
-    private 'stand_row_id'?: number;
-    private 'table_id'?: number;
+    public ids?: Array<string>;
+    private 'stand_row_id'?: string;
+    private 'table_id'?: string;
     private 'biz_type'?: LinkAttributeAndElementVOBizTypeEnum | string;
-    public constructor(ids?: Array<number>, standRowId?: number, tableId?: number, bizType?: string) { 
+    public constructor(ids?: Array<string>, standRowId?: string, tableId?: string, bizType?: string) { 
         this['ids'] = ids;
         this['stand_row_id'] = standRowId;
         this['table_id'] = tableId;
         this['biz_type'] = bizType;
     }
-    public withIds(ids: Array<number>): LinkAttributeAndElementVO {
+    public withIds(ids: Array<string>): LinkAttributeAndElementVO {
         this['ids'] = ids;
         return this;
     }
-    public withStandRowId(standRowId: number): LinkAttributeAndElementVO {
+    public withStandRowId(standRowId: string): LinkAttributeAndElementVO {
         this['stand_row_id'] = standRowId;
         return this;
     }
-    public set standRowId(standRowId: number  | undefined) {
+    public set standRowId(standRowId: string  | undefined) {
         this['stand_row_id'] = standRowId;
     }
-    public get standRowId(): number | undefined {
+    public get standRowId(): string | undefined {
         return this['stand_row_id'];
     }
-    public withTableId(tableId: number): LinkAttributeAndElementVO {
+    public withTableId(tableId: string): LinkAttributeAndElementVO {
         this['table_id'] = tableId;
         return this;
     }
-    public set tableId(tableId: number  | undefined) {
+    public set tableId(tableId: string  | undefined) {
         this['table_id'] = tableId;
     }
-    public get tableId(): number | undefined {
+    public get tableId(): string | undefined {
         return this['table_id'];
     }
     public withBizType(bizType: LinkAttributeAndElementVOBizTypeEnum | string): LinkAttributeAndElementVO {

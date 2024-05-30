@@ -1,12 +1,13 @@
+import { DeleteResultData } from './DeleteResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteDirectoryResponse extends SdkResponse {
-    public data?: object;
+    public data?: DeleteResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): DeleteDirectoryResponse {
+    public withData(data: DeleteResultData): DeleteDirectoryResponse {
         this['data'] = data;
         return this;
     }

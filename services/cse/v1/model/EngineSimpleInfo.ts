@@ -148,7 +148,15 @@ export enum EngineSimpleInfoFlavorEnum {
     CSE_S1_SMALL2 = 'cse.s1.small2',
     CSE_S1_MEDIUM2 = 'cse.s1.medium2',
     CSE_S1_LARGE2 = 'cse.s1.large2',
-    CSE_S1_XLARGE2 = 'cse.s1.xlarge2'
+    CSE_S1_XLARGE2 = 'cse.s1.xlarge2',
+    CSE_NACOS2_C1_LARGE_10 = 'cse.nacos2.c1.large.10',
+    CSE_NACOS2_C1_XLARGE_20 = 'cse.nacos2.c1.xlarge.20',
+    CSE_NACOS2_C1_XLARGE_50 = 'cse.nacos2.c1.xlarge.50',
+    CSE_NACOS2_C1_XLARGE_60 = 'cse.nacos2.c1.xlarge.60',
+    CSE_NACOS2_C1_2XLARGE_100 = 'cse.nacos2.c1.2xlarge.100',
+    CSE_MICROGATEWAY_PRO_SMALL_1 = 'cse.microgateway.pro.small.1',
+    CSE_MICROGATEWAY_PRO_MEDIUM_1 = 'cse.microgateway.pro.medium.1',
+    CSE_MICROGATEWAY_PRO_LARGE_1 = 'cse.microgateway.pro.large.1'
 }
 /**
     * @export

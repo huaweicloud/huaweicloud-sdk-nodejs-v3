@@ -15,6 +15,7 @@ export class PublishVersionVO {
     private 'change_props'?: string;
     private 'sql_ddl'?: string;
     private 'physical_table'?: SyncStatusEnum;
+    private 'dev_physical_table'?: SyncStatusEnum;
     private 'technical_asset'?: SyncStatusEnum;
     private 'business_asset'?: SyncStatusEnum;
     private 'meta_data_link'?: SyncStatusEnum;
@@ -137,6 +138,16 @@ export class PublishVersionVO {
     }
     public get physicalTable(): SyncStatusEnum | undefined {
         return this['physical_table'];
+    }
+    public withDevPhysicalTable(devPhysicalTable: SyncStatusEnum): PublishVersionVO {
+        this['dev_physical_table'] = devPhysicalTable;
+        return this;
+    }
+    public set devPhysicalTable(devPhysicalTable: SyncStatusEnum  | undefined) {
+        this['dev_physical_table'] = devPhysicalTable;
+    }
+    public get devPhysicalTable(): SyncStatusEnum | undefined {
+        return this['dev_physical_table'];
     }
     public withTechnicalAsset(technicalAsset: SyncStatusEnum): PublishVersionVO {
         this['technical_asset'] = technicalAsset;

@@ -1,12 +1,13 @@
+import { ShowRelationByIdResultData } from './ShowRelationByIdResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRelationByIdResponse extends SdkResponse {
-    public data?: object;
+    public data?: ShowRelationByIdResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ShowRelationByIdResponse {
+    public withData(data: ShowRelationByIdResultData): ShowRelationByIdResponse {
         this['data'] = data;
         return this;
     }

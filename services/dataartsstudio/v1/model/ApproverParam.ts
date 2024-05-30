@@ -1,6 +1,7 @@
 
 
 export class ApproverParam {
+    private 'app_name'?: string;
     private 'approver_name'?: string;
     private 'user_id'?: string;
     public email?: string;
@@ -10,6 +11,16 @@ export class ApproverParam {
     public constructor(approverName?: string, userId?: string) { 
         this['approver_name'] = approverName;
         this['user_id'] = userId;
+    }
+    public withAppName(appName: string): ApproverParam {
+        this['app_name'] = appName;
+        return this;
+    }
+    public set appName(appName: string  | undefined) {
+        this['app_name'] = appName;
+    }
+    public get appName(): string | undefined {
+        return this['app_name'];
     }
     public withApproverName(approverName: string): ApproverParam {
         this['approver_name'] = approverName;

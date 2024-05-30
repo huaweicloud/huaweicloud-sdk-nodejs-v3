@@ -1,3 +1,4 @@
+import { AccessAreaFilter } from './AccessAreaFilter';
 import { BrowserCacheRules } from './BrowserCacheRules';
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilterGetBody } from './CacheUrlParameterFilterGetBody';
@@ -19,7 +20,7 @@ import { RefererConfig } from './RefererConfig';
 import { RequestLimitRules } from './RequestLimitRules';
 import { RequestUrlRewrite } from './RequestUrlRewrite';
 import { Sni } from './Sni';
-import { SourcesConfig } from './SourcesConfig';
+import { SourcesConfigResponseBody } from './SourcesConfigResponseBody';
 import { UrlAuthGetBody } from './UrlAuthGetBody';
 import { UserAgentFilter } from './UserAgentFilter';
 import { VideoSeek } from './VideoSeek';
@@ -34,7 +35,7 @@ export class ConfigsGetBody {
     private 'http_response_header'?: Array<HttpResponseHeader>;
     private 'url_auth'?: UrlAuthGetBody;
     public https?: HttpGetBody;
-    public sources?: Array<SourcesConfig>;
+    public sources?: Array<SourcesConfigResponseBody>;
     private 'origin_protocol'?: string;
     private 'origin_follow302_status'?: string;
     private 'cache_rules'?: Array<CacheRules>;
@@ -62,6 +63,7 @@ export class ConfigsGetBody {
     public sni?: Sni;
     private 'request_url_rewrite'?: Array<RequestUrlRewrite>;
     private 'browser_cache_rules'?: Array<BrowserCacheRules>;
+    private 'access_area_filter'?: Array<AccessAreaFilter>;
     public constructor() { 
     }
     public withBusinessType(businessType: string): ConfigsGetBody {
@@ -122,7 +124,7 @@ export class ConfigsGetBody {
         this['https'] = https;
         return this;
     }
-    public withSources(sources: Array<SourcesConfig>): ConfigsGetBody {
+    public withSources(sources: Array<SourcesConfigResponseBody>): ConfigsGetBody {
         this['sources'] = sources;
         return this;
     }
@@ -359,5 +361,15 @@ export class ConfigsGetBody {
     }
     public get browserCacheRules(): Array<BrowserCacheRules> | undefined {
         return this['browser_cache_rules'];
+    }
+    public withAccessAreaFilter(accessAreaFilter: Array<AccessAreaFilter>): ConfigsGetBody {
+        this['access_area_filter'] = accessAreaFilter;
+        return this;
+    }
+    public set accessAreaFilter(accessAreaFilter: Array<AccessAreaFilter>  | undefined) {
+        this['access_area_filter'] = accessAreaFilter;
+    }
+    public get accessAreaFilter(): Array<AccessAreaFilter> | undefined {
+        return this['access_area_filter'];
     }
 }

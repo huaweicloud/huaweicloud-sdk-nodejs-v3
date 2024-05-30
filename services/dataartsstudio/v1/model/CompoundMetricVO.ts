@@ -5,20 +5,24 @@ import { MetricMonitorVO } from './MetricMonitorVO';
 
 
 export class CompoundMetricVO {
-    public id?: number;
+    public id?: string;
     private 'name_en'?: string;
     private 'name_ch'?: string;
     public description?: string;
     private 'dimension_group'?: string;
     private 'group_name'?: string;
     private 'group_code'?: string;
-    private 'metric_ids'?: Array<number>;
+    private 'compound_type'?: CompoundMetricVOCompoundTypeEnum | string;
+    private 'comparison_type'?: CompoundMetricVOComparisonTypeEnum | string;
+    private 'metric_ids'?: Array<string>;
     private 'metric_names'?: Array<string>;
-    private 'cal_fn_ids'?: Array<number>;
+    private 'compound_metric_ids'?: Array<string>;
+    private 'compound_metric_names'?: Array<string>;
+    private 'cal_fn_ids'?: Array<string>;
     private 'cal_exp'?: string;
-    private 'l1_id'?: number;
+    private 'l1_id'?: string;
     private 'l2_id'?: string;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'data_type'?: string;
     private 'create_by'?: string;
     private 'update_by'?: string;
@@ -31,15 +35,15 @@ export class CompoundMetricVO {
     public l1?: string;
     public l2?: string;
     public l3?: string;
-    private 'summary_table_id'?: number;
-    public constructor(nameEn?: string, nameCh?: string, dimensionGroup?: string, metricIds?: Array<number>, calExp?: string) { 
+    private 'summary_table_id'?: string;
+    public constructor(nameEn?: string, nameCh?: string, dimensionGroup?: string, metricIds?: Array<string>, calExp?: string) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
         this['dimension_group'] = dimensionGroup;
         this['metric_ids'] = metricIds;
         this['cal_exp'] = calExp;
     }
-    public withId(id: number): CompoundMetricVO {
+    public withId(id: string): CompoundMetricVO {
         this['id'] = id;
         return this;
     }
@@ -97,14 +101,34 @@ export class CompoundMetricVO {
     public get groupCode(): string | undefined {
         return this['group_code'];
     }
-    public withMetricIds(metricIds: Array<number>): CompoundMetricVO {
+    public withCompoundType(compoundType: CompoundMetricVOCompoundTypeEnum | string): CompoundMetricVO {
+        this['compound_type'] = compoundType;
+        return this;
+    }
+    public set compoundType(compoundType: CompoundMetricVOCompoundTypeEnum | string  | undefined) {
+        this['compound_type'] = compoundType;
+    }
+    public get compoundType(): CompoundMetricVOCompoundTypeEnum | string | undefined {
+        return this['compound_type'];
+    }
+    public withComparisonType(comparisonType: CompoundMetricVOComparisonTypeEnum | string): CompoundMetricVO {
+        this['comparison_type'] = comparisonType;
+        return this;
+    }
+    public set comparisonType(comparisonType: CompoundMetricVOComparisonTypeEnum | string  | undefined) {
+        this['comparison_type'] = comparisonType;
+    }
+    public get comparisonType(): CompoundMetricVOComparisonTypeEnum | string | undefined {
+        return this['comparison_type'];
+    }
+    public withMetricIds(metricIds: Array<string>): CompoundMetricVO {
         this['metric_ids'] = metricIds;
         return this;
     }
-    public set metricIds(metricIds: Array<number>  | undefined) {
+    public set metricIds(metricIds: Array<string>  | undefined) {
         this['metric_ids'] = metricIds;
     }
-    public get metricIds(): Array<number> | undefined {
+    public get metricIds(): Array<string> | undefined {
         return this['metric_ids'];
     }
     public withMetricNames(metricNames: Array<string>): CompoundMetricVO {
@@ -117,14 +141,34 @@ export class CompoundMetricVO {
     public get metricNames(): Array<string> | undefined {
         return this['metric_names'];
     }
-    public withCalFnIds(calFnIds: Array<number>): CompoundMetricVO {
+    public withCompoundMetricIds(compoundMetricIds: Array<string>): CompoundMetricVO {
+        this['compound_metric_ids'] = compoundMetricIds;
+        return this;
+    }
+    public set compoundMetricIds(compoundMetricIds: Array<string>  | undefined) {
+        this['compound_metric_ids'] = compoundMetricIds;
+    }
+    public get compoundMetricIds(): Array<string> | undefined {
+        return this['compound_metric_ids'];
+    }
+    public withCompoundMetricNames(compoundMetricNames: Array<string>): CompoundMetricVO {
+        this['compound_metric_names'] = compoundMetricNames;
+        return this;
+    }
+    public set compoundMetricNames(compoundMetricNames: Array<string>  | undefined) {
+        this['compound_metric_names'] = compoundMetricNames;
+    }
+    public get compoundMetricNames(): Array<string> | undefined {
+        return this['compound_metric_names'];
+    }
+    public withCalFnIds(calFnIds: Array<string>): CompoundMetricVO {
         this['cal_fn_ids'] = calFnIds;
         return this;
     }
-    public set calFnIds(calFnIds: Array<number>  | undefined) {
+    public set calFnIds(calFnIds: Array<string>  | undefined) {
         this['cal_fn_ids'] = calFnIds;
     }
-    public get calFnIds(): Array<number> | undefined {
+    public get calFnIds(): Array<string> | undefined {
         return this['cal_fn_ids'];
     }
     public withCalExp(calExp: string): CompoundMetricVO {
@@ -137,14 +181,14 @@ export class CompoundMetricVO {
     public get calExp(): string | undefined {
         return this['cal_exp'];
     }
-    public withL1Id(l1Id: number): CompoundMetricVO {
+    public withL1Id(l1Id: string): CompoundMetricVO {
         this['l1_id'] = l1Id;
         return this;
     }
-    public set l1Id(l1Id: number  | undefined) {
+    public set l1Id(l1Id: string  | undefined) {
         this['l1_id'] = l1Id;
     }
-    public get l1Id(): number | undefined {
+    public get l1Id(): string | undefined {
         return this['l1_id'];
     }
     public withL2Id(l2Id: string): CompoundMetricVO {
@@ -157,14 +201,14 @@ export class CompoundMetricVO {
     public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withL3Id(l3Id: number): CompoundMetricVO {
+    public withL3Id(l3Id: string): CompoundMetricVO {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withDataType(dataType: string): CompoundMetricVO {
@@ -257,14 +301,33 @@ export class CompoundMetricVO {
         this['l3'] = l3;
         return this;
     }
-    public withSummaryTableId(summaryTableId: number): CompoundMetricVO {
+    public withSummaryTableId(summaryTableId: string): CompoundMetricVO {
         this['summary_table_id'] = summaryTableId;
         return this;
     }
-    public set summaryTableId(summaryTableId: number  | undefined) {
+    public set summaryTableId(summaryTableId: string  | undefined) {
         this['summary_table_id'] = summaryTableId;
     }
-    public get summaryTableId(): number | undefined {
+    public get summaryTableId(): string | undefined {
         return this['summary_table_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CompoundMetricVOCompoundTypeEnum {
+    EXPRESSION = 'EXPRESSION',
+    PERIODICITY_VALUED_COMPARISON = 'PERIODICITY_VALUED_COMPARISON',
+    INTERVAL_VALUED_COMPARISON = 'INTERVAL_VALUED_COMPARISON'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CompoundMetricVOComparisonTypeEnum {
+    YEAR_TO_YEAR = 'YEAR_TO_YEAR',
+    MONTH_TO_MONTH = 'MONTH_TO_MONTH',
+    WEEK_TO_WEEK = 'WEEK_TO_WEEK'
 }

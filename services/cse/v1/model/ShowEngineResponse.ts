@@ -166,9 +166,9 @@ export enum ShowEngineResponseEngineAdditionalActionsEnum {
     * @enum {string}
     */
 export enum ShowEngineResponseSpecTypeEnum {
-    CCE = 'CCE',
-    CSE = 'CSE',
-    SPRINGCLOUD = 'SpringCloud'
+    CSE2 = 'CSE2',
+    NACOS2 = 'Nacos2',
+    MICROGATEWAY = 'MicroGateway'
 }
 /**
     * @export
@@ -176,5 +176,6 @@ export enum ShowEngineResponseSpecTypeEnum {
     */
 export enum ShowEngineResponseTypeEnum {
     CSE = 'CSE',
-    CSE_SHARE = 'CSE_Share'
+    NACOS = 'NACOS',
+    MICROGATEWAY = 'MICROGATEWAY'
 }

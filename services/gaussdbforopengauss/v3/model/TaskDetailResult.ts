@@ -7,6 +7,8 @@ export class TaskDetailResult {
     public name?: string;
     public status?: string;
     public process?: string;
+    private 'created_at'?: string;
+    private 'ended_at'?: string;
     private 'fail_reason'?: string;
     public constructor() { 
     }
@@ -41,6 +43,26 @@ export class TaskDetailResult {
     public withProcess(process: string): TaskDetailResult {
         this['process'] = process;
         return this;
+    }
+    public withCreatedAt(createdAt: string): TaskDetailResult {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): string | undefined {
+        return this['created_at'];
+    }
+    public withEndedAt(endedAt: string): TaskDetailResult {
+        this['ended_at'] = endedAt;
+        return this;
+    }
+    public set endedAt(endedAt: string  | undefined) {
+        this['ended_at'] = endedAt;
+    }
+    public get endedAt(): string | undefined {
+        return this['ended_at'];
     }
     public withFailReason(failReason: string): TaskDetailResult {
         this['fail_reason'] = failReason;

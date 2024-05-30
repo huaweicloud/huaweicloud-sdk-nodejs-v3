@@ -1,4 +1,5 @@
 import { BizInfoVO } from './BizInfoVO';
+import { EnvTypeEnum } from './EnvTypeEnum';
 
 
 export class ApprovalBatchParam {
@@ -8,6 +9,7 @@ export class ApprovalBatchParam {
     public email?: string;
     private 'fast_approval'?: boolean;
     private 'schedule_time'?: string;
+    private 'env_type'?: EnvTypeEnum;
     public constructor(bizInfos?: Array<BizInfoVO>, approverUserId?: string, approverUserName?: string) { 
         this['biz_infos'] = bizInfos;
         this['approver_user_id'] = approverUserId;
@@ -66,5 +68,15 @@ export class ApprovalBatchParam {
     }
     public get scheduleTime(): string | undefined {
         return this['schedule_time'];
+    }
+    public withEnvType(envType: EnvTypeEnum): ApprovalBatchParam {
+        this['env_type'] = envType;
+        return this;
+    }
+    public set envType(envType: EnvTypeEnum  | undefined) {
+        this['env_type'] = envType;
+    }
+    public get envType(): EnvTypeEnum | undefined {
+        return this['env_type'];
     }
 }

@@ -1,6 +1,7 @@
 import { AccessProgress } from './AccessProgress';
 import { Flag } from './Flag';
 import { PremiumWafInstances } from './PremiumWafInstances';
+import { WafServer } from './WafServer';
 
 
 export class CompositeHostResponse {
@@ -22,6 +23,7 @@ export class CompositeHostResponse {
     public description?: string;
     private 'exclusive_ip'?: boolean;
     public region?: string;
+    public server?: Array<WafServer>;
     public constructor() { 
     }
     public withId(id: string): CompositeHostResponse {
@@ -148,6 +150,10 @@ export class CompositeHostResponse {
     }
     public withRegion(region: string): CompositeHostResponse {
         this['region'] = region;
+        return this;
+    }
+    public withServer(server: Array<WafServer>): CompositeHostResponse {
+        this['server'] = server;
         return this;
     }
 }

@@ -5,6 +5,7 @@ export class ImportModelsRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
+    private 'X-Language'?: string;
     private 'action-id'?: ImportModelsRequestActionIdEnum | string;
     private 'model_id'?: string;
     private 'directory_id'?: string;
@@ -37,6 +38,16 @@ export class ImportModelsRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withXLanguage(xLanguage: string): ImportModelsRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): string | undefined {
+        return this['X-Language'];
     }
     public withActionId(actionId: ImportModelsRequestActionIdEnum | string): ImportModelsRequest {
         this['action-id'] = actionId;

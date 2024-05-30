@@ -10,6 +10,9 @@ import { AddApplication } from './model/AddApplication';
 import { AddApplicationRequest } from './model/AddApplicationRequest';
 import { AddApplicationResponse } from './model/AddApplicationResponse';
 import { AddBacklogPolicy } from './model/AddBacklogPolicy';
+import { AddBridge } from './model/AddBridge';
+import { AddBridgeRequest } from './model/AddBridgeRequest';
+import { AddBridgeResponse } from './model/AddBridgeResponse';
 import { AddCertificateRequest } from './model/AddCertificateRequest';
 import { AddCertificateResponse } from './model/AddCertificateResponse';
 import { AddDevice } from './model/AddDevice';
@@ -40,6 +43,8 @@ import { BatchTargetResult } from './model/BatchTargetResult';
 import { BatchTargets } from './model/BatchTargets';
 import { BatchTaskFile } from './model/BatchTaskFile';
 import { BindTagsDTO } from './model/BindTagsDTO';
+import { BridgeAuthInfo } from './model/BridgeAuthInfo';
+import { BridgeResponse } from './model/BridgeResponse';
 import { BroadcastMessageRequest } from './model/BroadcastMessageRequest';
 import { BroadcastMessageResponse } from './model/BroadcastMessageResponse';
 import { CertificatesRspDTO } from './model/CertificatesRspDTO';
@@ -93,6 +98,8 @@ import { DeleteBatchTaskFileRequest } from './model/DeleteBatchTaskFileRequest';
 import { DeleteBatchTaskFileResponse } from './model/DeleteBatchTaskFileResponse';
 import { DeleteBatchTaskRequest } from './model/DeleteBatchTaskRequest';
 import { DeleteBatchTaskResponse } from './model/DeleteBatchTaskResponse';
+import { DeleteBridgeRequest } from './model/DeleteBridgeRequest';
+import { DeleteBridgeResponse } from './model/DeleteBridgeResponse';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
@@ -149,8 +156,13 @@ import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
 import { ListBatchTasksResponse } from './model/ListBatchTasksResponse';
+import { ListBridgesRequest } from './model/ListBridgesRequest';
+import { ListBridgesResponse } from './model/ListBridgesResponse';
 import { ListCertificatesRequest } from './model/ListCertificatesRequest';
 import { ListCertificatesResponse } from './model/ListCertificatesResponse';
+import { ListDeviceGroupSummary } from './model/ListDeviceGroupSummary';
+import { ListDeviceGroupsByDeviceRequest } from './model/ListDeviceGroupsByDeviceRequest';
+import { ListDeviceGroupsByDeviceResponse } from './model/ListDeviceGroupsByDeviceResponse';
 import { ListDeviceGroupsRequest } from './model/ListDeviceGroupsRequest';
 import { ListDeviceGroupsResponse } from './model/ListDeviceGroupsResponse';
 import { ListDeviceMessagesRequest } from './model/ListDeviceMessagesRequest';
@@ -196,6 +208,9 @@ import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
 import { QueueInfo } from './model/QueueInfo';
+import { ResetBridgeSecret } from './model/ResetBridgeSecret';
+import { ResetBridgeSecretRequest } from './model/ResetBridgeSecretRequest';
+import { ResetBridgeSecretResponse } from './model/ResetBridgeSecretResponse';
 import { ResetDeviceSecret } from './model/ResetDeviceSecret';
 import { ResetDeviceSecretRequest } from './model/ResetDeviceSecretRequest';
 import { ResetDeviceSecretResponse } from './model/ResetDeviceSecretResponse';
@@ -286,6 +301,9 @@ import { UpdateApplicationDTO } from './model/UpdateApplicationDTO';
 import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
 import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
 import { UpdateBacklogPolicy } from './model/UpdateBacklogPolicy';
+import { UpdateCertificateDTO } from './model/UpdateCertificateDTO';
+import { UpdateCertificateRequest } from './model/UpdateCertificateRequest';
+import { UpdateCertificateResponse } from './model/UpdateCertificateResponse';
 import { UpdateDesired } from './model/UpdateDesired';
 import { UpdateDesireds } from './model/UpdateDesireds';
 import { UpdateDevice } from './model/UpdateDevice';
@@ -859,6 +877,91 @@ export class IoTDAClient {
     }
 
     /**
+     * 应用服务器可调用此接口在物联网平台创建一个网桥，仅在创建后的网桥才可以接入物联网平台。
+     * - 一个实例最多支持20个网桥。
+     * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建网桥
+     * @param {AddBridge} addBridgeRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addBridge(addBridgeRequest?: AddBridgeRequest): Promise<AddBridgeResponse> {
+        const options = ParamCreater().addBridge(addBridgeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上删除指定网桥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除网桥
+     * @param {string} bridgeId 网桥ID。**取值范围**：长度不超过36，只允许字母、数字、_-字符的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBridge(deleteBridgeRequest?: DeleteBridgeRequest): Promise<DeleteBridgeResponse> {
+        const options = ParamCreater().deleteBridge(deleteBridgeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询网桥列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网桥列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBridges(listBridgesRequest?: ListBridgesRequest): Promise<ListBridgesResponse> {
+        const options = ParamCreater().listBridges(listBridgesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上重置网桥密钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置网桥密钥
+     * @param {string} bridgeId 网桥ID。**取值范围**：长度不超过36，只允许字母、数字、_-字符的组合。
+     * @param {ResetBridgeSecret} resetBridgeSecretRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetBridgeSecret(resetBridgeSecretRequest?: ResetBridgeSecretRequest): Promise<ResetBridgeSecretResponse> {
+        const options = ParamCreater().resetBridgeSecret(resetBridgeSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 应用服务器可调用此接口向订阅了指定Topic的所有在线设备发布广播消息。应用将广播消息下发给平台后，平台会先返回应用响应结果，再将消息广播给设备。
      * 注意：
      * - 此接口只适用于使用MQTT协议接入的设备。
@@ -966,6 +1069,27 @@ export class IoTDAClient {
      */
     public listCertificates(listCertificatesRequest?: ListCertificatesRequest): Promise<ListCertificatesResponse> {
         const options = ParamCreater().listCertificates(listCertificatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上更新CA证书。仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新CA证书
+     * @param {string} certificateId CA证书ID，在上传CA证书时由平台分配的唯一标识。
+     * @param {UpdateCertificateDTO} updateCertificateRequestBody request
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCertificate(updateCertificateRequest?: UpdateCertificateRequest): Promise<UpdateCertificateResponse> {
+        const options = ParamCreater().updateCertificate(updateCertificateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1207,6 +1331,26 @@ export class IoTDAClient {
      */
     public freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest): Promise<FreezeDeviceResponse> {
         const options = ParamCreater().freezeDevice(freezeDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询物联网平台中的某个设备加入的设备组信息列表。仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定设备加入的设备组列表
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDeviceGroupsByDevice(listDeviceGroupsByDeviceRequest?: ListDeviceGroupsByDeviceRequest): Promise<ListDeviceGroupsByDeviceResponse> {
+        const options = ParamCreater().listDeviceGroupsByDevice(listDeviceGroupsByDeviceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3848,6 +3992,208 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口在物联网平台创建一个网桥，仅在创建后的网桥才可以接入物联网平台。
+         * - 一个实例最多支持20个网桥。
+         * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addBridge(addBridgeRequest?: AddBridgeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/bridges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addBridgeRequest !== null && addBridgeRequest !== undefined) {
+                if (addBridgeRequest instanceof AddBridgeRequest) {
+                    body = addBridgeRequest.body
+                    instanceId = addBridgeRequest.instanceId;
+                } else {
+                    body = addBridgeRequest['body'];
+                    instanceId = addBridgeRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上删除指定网桥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBridge(deleteBridgeRequest?: DeleteBridgeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/bridges/{bridge_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let bridgeId;
+            
+            let instanceId;
+
+            if (deleteBridgeRequest !== null && deleteBridgeRequest !== undefined) {
+                if (deleteBridgeRequest instanceof DeleteBridgeRequest) {
+                    bridgeId = deleteBridgeRequest.bridgeId;
+                    instanceId = deleteBridgeRequest.instanceId;
+                } else {
+                    bridgeId = deleteBridgeRequest['bridge_id'];
+                    instanceId = deleteBridgeRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (bridgeId === null || bridgeId === undefined) {
+            throw new RequiredError('bridgeId','Required parameter bridgeId was null or undefined when calling deleteBridge.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'bridge_id': bridgeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询网桥列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBridges(listBridgesRequest?: ListBridgesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/bridges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listBridgesRequest !== null && listBridgesRequest !== undefined) {
+                if (listBridgesRequest instanceof ListBridgesRequest) {
+                    instanceId = listBridgesRequest.instanceId;
+                    limit = listBridgesRequest.limit;
+                    marker = listBridgesRequest.marker;
+                    offset = listBridgesRequest.offset;
+                } else {
+                    instanceId = listBridgesRequest['Instance-Id'];
+                    limit = listBridgesRequest['limit'];
+                    marker = listBridgesRequest['marker'];
+                    offset = listBridgesRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上重置网桥密钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetBridgeSecret(resetBridgeSecretRequest?: ResetBridgeSecretRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/bridges/{bridge_id}/reset-secret",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let bridgeId;
+            
+            let instanceId;
+
+            if (resetBridgeSecretRequest !== null && resetBridgeSecretRequest !== undefined) {
+                if (resetBridgeSecretRequest instanceof ResetBridgeSecretRequest) {
+                    bridgeId = resetBridgeSecretRequest.bridgeId;
+                    body = resetBridgeSecretRequest.body
+                    instanceId = resetBridgeSecretRequest.instanceId;
+                } else {
+                    bridgeId = resetBridgeSecretRequest['bridge_id'];
+                    body = resetBridgeSecretRequest['body'];
+                    instanceId = resetBridgeSecretRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (bridgeId === null || bridgeId === undefined) {
+            throw new RequiredError('bridgeId','Required parameter bridgeId was null or undefined when calling resetBridgeSecret.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'bridge_id': bridgeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口向订阅了指定Topic的所有在线设备发布广播消息。应用将广播消息下发给平台后，平台会先返回应用响应结果，再将消息广播给设备。
          * 注意：
          * - 此接口只适用于使用MQTT协议接入的设备。
@@ -4164,6 +4510,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上更新CA证书。仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCertificate(updateCertificateRequest?: UpdateCertificateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/certificates/{certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let certificateId;
+            
+            let instanceId;
+
+            if (updateCertificateRequest !== null && updateCertificateRequest !== undefined) {
+                if (updateCertificateRequest instanceof UpdateCertificateRequest) {
+                    certificateId = updateCertificateRequest.certificateId;
+                    body = updateCertificateRequest.body
+                    instanceId = updateCertificateRequest.instanceId;
+                } else {
+                    certificateId = updateCertificateRequest['certificate_id'];
+                    body = updateCertificateRequest['body'];
+                    instanceId = updateCertificateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (certificateId === null || certificateId === undefined) {
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling updateCertificate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'certificate_id': certificateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4752,6 +5151,50 @@ export const ParamCreater = function () {
         
             if (deviceId === null || deviceId === undefined) {
             throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling freezeDevice.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询物联网平台中的某个设备加入的设备组信息列表。仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDeviceGroupsByDevice(listDeviceGroupsByDeviceRequest?: ListDeviceGroupsByDeviceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/devices/{device_id}/list-device-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let deviceId;
+            
+            let instanceId;
+
+            if (listDeviceGroupsByDeviceRequest !== null && listDeviceGroupsByDeviceRequest !== undefined) {
+                if (listDeviceGroupsByDeviceRequest instanceof ListDeviceGroupsByDeviceRequest) {
+                    deviceId = listDeviceGroupsByDeviceRequest.deviceId;
+                    instanceId = listDeviceGroupsByDeviceRequest.instanceId;
+                } else {
+                    deviceId = listDeviceGroupsByDeviceRequest['device_id'];
+                    instanceId = listDeviceGroupsByDeviceRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listDeviceGroupsByDevice.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);

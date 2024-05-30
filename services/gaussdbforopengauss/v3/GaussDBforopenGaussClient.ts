@@ -694,7 +694,7 @@ export class GaussDBforopenGaussClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除手动备份
-     * @param {string} backupId 备份ID。
+     * @param {string} backupId 手动备份ID。
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

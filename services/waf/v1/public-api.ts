@@ -353,5 +353,6 @@ export * from './model/UrlCountItem';
 export * from './model/UrlItem';
 export * from './model/ValueListResponseBody';
 export * from './model/WafProductInfo';
+export * from './model/WafServer';
 export * from './model/WhiteBlackIpResponseBody';
 export * from './WafRegion';

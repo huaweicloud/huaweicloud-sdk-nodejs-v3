@@ -1,12 +1,13 @@
+import { CheckDimensionStatusResultData } from './CheckDimensionStatusResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CheckDimensionStatusResponse extends SdkResponse {
-    public data?: object;
+    public data?: CheckDimensionStatusResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): CheckDimensionStatusResponse {
+    public withData(data: CheckDimensionStatusResultData): CheckDimensionStatusResponse {
         this['data'] = data;
         return this;
     }

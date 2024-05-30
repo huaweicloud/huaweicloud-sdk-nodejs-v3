@@ -14,7 +14,7 @@ export class ListAllTablesRequest {
     private 'end_time'?: string;
     public limit?: number;
     public offset?: number;
-    private 'biz_catalog_id_list'?: Array<number>;
+    private 'biz_catalog_id_list'?: Array<string>;
     private 'biz_type_list'?: Array<ListAllTablesRequestBizTypeListEnum> | Array<string>;
     public constructor(workspace?: string, bizTypeList?: Array<string>) { 
         this['workspace'] = workspace;
@@ -120,14 +120,14 @@ export class ListAllTablesRequest {
         this['offset'] = offset;
         return this;
     }
-    public withBizCatalogIdList(bizCatalogIdList: Array<number>): ListAllTablesRequest {
+    public withBizCatalogIdList(bizCatalogIdList: Array<string>): ListAllTablesRequest {
         this['biz_catalog_id_list'] = bizCatalogIdList;
         return this;
     }
-    public set bizCatalogIdList(bizCatalogIdList: Array<number>  | undefined) {
+    public set bizCatalogIdList(bizCatalogIdList: Array<string>  | undefined) {
         this['biz_catalog_id_list'] = bizCatalogIdList;
     }
-    public get bizCatalogIdList(): Array<number> | undefined {
+    public get bizCatalogIdList(): Array<string> | undefined {
         return this['biz_catalog_id_list'];
     }
     public withBizTypeList(bizTypeList: Array<ListAllTablesRequestBizTypeListEnum> | Array<string>): ListAllTablesRequest {

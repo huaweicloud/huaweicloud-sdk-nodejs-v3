@@ -2,7 +2,7 @@ import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 
 
 export class SubjectParamsVO {
-    public id?: number;
+    public id?: string;
     private 'name_ch'?: string;
     private 'name_en'?: string;
     public description?: string;
@@ -10,7 +10,7 @@ export class SubjectParamsVO {
     private 'data_owner'?: string;
     private 'data_owner_list'?: string;
     public level?: number;
-    private 'parent_id'?: number;
+    private 'parent_id'?: string;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
     public constructor(nameCh?: string, nameEn?: string, dataOwnerList?: string, level?: number) { 
         this['name_ch'] = nameCh;
@@ -18,7 +18,7 @@ export class SubjectParamsVO {
         this['data_owner_list'] = dataOwnerList;
         this['level'] = level;
     }
-    public withId(id: number): SubjectParamsVO {
+    public withId(id: string): SubjectParamsVO {
         this['id'] = id;
         return this;
     }
@@ -74,14 +74,14 @@ export class SubjectParamsVO {
         this['level'] = level;
         return this;
     }
-    public withParentId(parentId: number): SubjectParamsVO {
+    public withParentId(parentId: string): SubjectParamsVO {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: number  | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId(): number | undefined {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
     public withSelfDefinedFields(selfDefinedFields: Array<SelfDefinedFieldVO>): SubjectParamsVO {

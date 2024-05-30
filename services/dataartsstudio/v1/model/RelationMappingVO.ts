@@ -1,10 +1,10 @@
 
 
 export class RelationMappingVO {
-    public id?: number;
-    private 'relation_id'?: number;
-    private 'source_field_id'?: number;
-    private 'target_field_id'?: number;
+    public id?: string;
+    private 'relation_id'?: string;
+    private 'source_field_id'?: string;
+    private 'target_field_id'?: string;
     private 'source_field_name'?: string;
     private 'target_field_name'?: string;
     private 'create_by'?: string;
@@ -13,38 +13,38 @@ export class RelationMappingVO {
     private 'update_time'?: Date;
     public constructor() { 
     }
-    public withId(id: number): RelationMappingVO {
+    public withId(id: string): RelationMappingVO {
         this['id'] = id;
         return this;
     }
-    public withRelationId(relationId: number): RelationMappingVO {
+    public withRelationId(relationId: string): RelationMappingVO {
         this['relation_id'] = relationId;
         return this;
     }
-    public set relationId(relationId: number  | undefined) {
+    public set relationId(relationId: string  | undefined) {
         this['relation_id'] = relationId;
     }
-    public get relationId(): number | undefined {
+    public get relationId(): string | undefined {
         return this['relation_id'];
     }
-    public withSourceFieldId(sourceFieldId: number): RelationMappingVO {
+    public withSourceFieldId(sourceFieldId: string): RelationMappingVO {
         this['source_field_id'] = sourceFieldId;
         return this;
     }
-    public set sourceFieldId(sourceFieldId: number  | undefined) {
+    public set sourceFieldId(sourceFieldId: string  | undefined) {
         this['source_field_id'] = sourceFieldId;
     }
-    public get sourceFieldId(): number | undefined {
+    public get sourceFieldId(): string | undefined {
         return this['source_field_id'];
     }
-    public withTargetFieldId(targetFieldId: number): RelationMappingVO {
+    public withTargetFieldId(targetFieldId: string): RelationMappingVO {
         this['target_field_id'] = targetFieldId;
         return this;
     }
-    public set targetFieldId(targetFieldId: number  | undefined) {
+    public set targetFieldId(targetFieldId: string  | undefined) {
         this['target_field_id'] = targetFieldId;
     }
-    public get targetFieldId(): number | undefined {
+    public get targetFieldId(): string | undefined {
         return this['target_field_id'];
     }
     public withSourceFieldName(sourceFieldName: string): RelationMappingVO {

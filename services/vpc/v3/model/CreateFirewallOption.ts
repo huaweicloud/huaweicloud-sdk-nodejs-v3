@@ -1,9 +1,11 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class CreateFirewallOption {
     public name?: string;
     public description?: string;
     private 'enterprise_project_id'?: string;
+    public tags?: Array<ResourceTag>;
     private 'admin_state_up'?: boolean;
     public constructor(name?: string) { 
         this['name'] = name;
@@ -25,6 +27,10 @@ export class CreateFirewallOption {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateFirewallOption {
+        this['tags'] = tags;
+        return this;
     }
     public withAdminStateUp(adminStateUp: boolean): CreateFirewallOption {
         this['admin_state_up'] = adminStateUp;

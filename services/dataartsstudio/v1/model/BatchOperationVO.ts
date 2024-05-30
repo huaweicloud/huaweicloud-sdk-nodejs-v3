@@ -1,11 +1,11 @@
 
 
 export class BatchOperationVO {
-    public id?: number;
+    public id?: string;
     private 'tenant_id'?: string;
-    private 'group_id'?: number;
+    private 'group_id'?: string;
     private 'biz_name'?: string;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'operation_status'?: BatchOperationVOOperationStatusEnum | string;
     private 'operation_type'?: string;
     private 'biz_info'?: string;
@@ -19,7 +19,7 @@ export class BatchOperationVO {
     public groups?: Array<BatchOperationVO>;
     public constructor() { 
     }
-    public withId(id: number): BatchOperationVO {
+    public withId(id: string): BatchOperationVO {
         this['id'] = id;
         return this;
     }
@@ -33,14 +33,14 @@ export class BatchOperationVO {
     public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
-    public withGroupId(groupId: number): BatchOperationVO {
+    public withGroupId(groupId: string): BatchOperationVO {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: number  | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId(): number | undefined {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withBizName(bizName: string): BatchOperationVO {
@@ -53,14 +53,14 @@ export class BatchOperationVO {
     public get bizName(): string | undefined {
         return this['biz_name'];
     }
-    public withBizId(bizId: number): BatchOperationVO {
+    public withBizId(bizId: string): BatchOperationVO {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withOperationStatus(operationStatus: BatchOperationVOOperationStatusEnum | string): BatchOperationVO {

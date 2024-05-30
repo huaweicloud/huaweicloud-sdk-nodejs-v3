@@ -5,8 +5,8 @@ import { DimensionHierarchiesVO } from './DimensionHierarchiesVO';
 export class DerivativeIndexDimensionVO {
     private 'group_id'?: string;
     public role?: string;
-    private 'dimension_id'?: number;
-    private 'hierarchies_id'?: number;
+    private 'dimension_id'?: string;
+    private 'hierarchies_id'?: string;
     public ordinal?: number;
     private 'group_name'?: string;
     private 'group_code'?: string;
@@ -15,11 +15,11 @@ export class DerivativeIndexDimensionVO {
     public l1?: string;
     public l2?: string;
     public l3?: string;
-    private 'l1_id'?: number;
+    private 'l1_id'?: string;
     private 'l2_id'?: string;
-    private 'l3_id'?: number;
+    private 'l3_id'?: string;
     private 'dw_type'?: string;
-    public id?: number;
+    public id?: string;
     public constructor(groupId?: string, bizType?: BizTypeEnum) { 
         this['group_id'] = groupId;
         this['biz_type'] = bizType;
@@ -38,24 +38,24 @@ export class DerivativeIndexDimensionVO {
         this['role'] = role;
         return this;
     }
-    public withDimensionId(dimensionId: number): DerivativeIndexDimensionVO {
+    public withDimensionId(dimensionId: string): DerivativeIndexDimensionVO {
         this['dimension_id'] = dimensionId;
         return this;
     }
-    public set dimensionId(dimensionId: number  | undefined) {
+    public set dimensionId(dimensionId: string  | undefined) {
         this['dimension_id'] = dimensionId;
     }
-    public get dimensionId(): number | undefined {
+    public get dimensionId(): string | undefined {
         return this['dimension_id'];
     }
-    public withHierarchiesId(hierarchiesId: number): DerivativeIndexDimensionVO {
+    public withHierarchiesId(hierarchiesId: string): DerivativeIndexDimensionVO {
         this['hierarchies_id'] = hierarchiesId;
         return this;
     }
-    public set hierarchiesId(hierarchiesId: number  | undefined) {
+    public set hierarchiesId(hierarchiesId: string  | undefined) {
         this['hierarchies_id'] = hierarchiesId;
     }
-    public get hierarchiesId(): number | undefined {
+    public get hierarchiesId(): string | undefined {
         return this['hierarchies_id'];
     }
     public withOrdinal(ordinal: number): DerivativeIndexDimensionVO {
@@ -108,14 +108,14 @@ export class DerivativeIndexDimensionVO {
         this['l3'] = l3;
         return this;
     }
-    public withL1Id(l1Id: number): DerivativeIndexDimensionVO {
+    public withL1Id(l1Id: string): DerivativeIndexDimensionVO {
         this['l1_id'] = l1Id;
         return this;
     }
-    public set l1Id(l1Id: number  | undefined) {
+    public set l1Id(l1Id: string  | undefined) {
         this['l1_id'] = l1Id;
     }
-    public get l1Id(): number | undefined {
+    public get l1Id(): string | undefined {
         return this['l1_id'];
     }
     public withL2Id(l2Id: string): DerivativeIndexDimensionVO {
@@ -128,14 +128,14 @@ export class DerivativeIndexDimensionVO {
     public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withL3Id(l3Id: number): DerivativeIndexDimensionVO {
+    public withL3Id(l3Id: string): DerivativeIndexDimensionVO {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
     public withDwType(dwType: string): DerivativeIndexDimensionVO {
@@ -148,7 +148,7 @@ export class DerivativeIndexDimensionVO {
     public get dwType(): string | undefined {
         return this['dw_type'];
     }
-    public withId(id: number): DerivativeIndexDimensionVO {
+    public withId(id: string): DerivativeIndexDimensionVO {
         this['id'] = id;
         return this;
     }

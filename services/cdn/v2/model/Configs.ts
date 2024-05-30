@@ -1,3 +1,4 @@
+import { AccessAreaFilter } from './AccessAreaFilter';
 import { BrowserCacheRules } from './BrowserCacheRules';
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilter } from './CacheUrlParameterFilter';
@@ -62,6 +63,7 @@ export class Configs {
     public sni?: Sni;
     private 'request_url_rewrite'?: Array<RequestUrlRewrite>;
     private 'browser_cache_rules'?: Array<BrowserCacheRules>;
+    private 'access_area_filter'?: Array<AccessAreaFilter>;
     public constructor() { 
     }
     public withBusinessType(businessType: string): Configs {
@@ -359,5 +361,15 @@ export class Configs {
     }
     public get browserCacheRules(): Array<BrowserCacheRules> | undefined {
         return this['browser_cache_rules'];
+    }
+    public withAccessAreaFilter(accessAreaFilter: Array<AccessAreaFilter>): Configs {
+        this['access_area_filter'] = accessAreaFilter;
+        return this;
+    }
+    public set accessAreaFilter(accessAreaFilter: Array<AccessAreaFilter>  | undefined) {
+        this['access_area_filter'] = accessAreaFilter;
+    }
+    public get accessAreaFilter(): Array<AccessAreaFilter> | undefined {
+        return this['access_area_filter'];
     }
 }

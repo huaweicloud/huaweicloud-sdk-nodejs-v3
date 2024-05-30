@@ -11,14 +11,14 @@ export class AtomicIndexVO {
     public description?: string;
     private 'create_by'?: string;
     private 'cal_exp'?: string;
-    private 'cal_fn_ids'?: Array<number>;
-    private 'l1_id'?: number;
+    private 'cal_fn_ids'?: Array<string>;
+    private 'l1_id'?: string;
     private 'l2_id'?: string;
     private 'l3_id'?: string;
     private 'table_id'?: string;
     private 'tb_name'?: string;
     private 'dw_type'?: string;
-    private 'field_ids'?: Array<number>;
+    private 'field_ids'?: Array<string>;
     private 'field_names'?: Array<string>;
     public status?: BizStatusEnum;
     private 'biz_type'?: BizTypeEnum;
@@ -29,7 +29,7 @@ export class AtomicIndexVO {
     public l3?: string;
     private 'approval_info'?: ApprovalVO;
     private 'new_biz'?: BizVersionManageVO;
-    public constructor(nameEn?: string, nameCh?: string, calExp?: string, l3Id?: string, tableId?: string, fieldIds?: Array<number>) { 
+    public constructor(nameEn?: string, nameCh?: string, calExp?: string, l3Id?: string, tableId?: string, fieldIds?: Array<string>) { 
         this['name_en'] = nameEn;
         this['name_ch'] = nameCh;
         this['cal_exp'] = calExp;
@@ -85,24 +85,24 @@ export class AtomicIndexVO {
     public get calExp(): string | undefined {
         return this['cal_exp'];
     }
-    public withCalFnIds(calFnIds: Array<number>): AtomicIndexVO {
+    public withCalFnIds(calFnIds: Array<string>): AtomicIndexVO {
         this['cal_fn_ids'] = calFnIds;
         return this;
     }
-    public set calFnIds(calFnIds: Array<number>  | undefined) {
+    public set calFnIds(calFnIds: Array<string>  | undefined) {
         this['cal_fn_ids'] = calFnIds;
     }
-    public get calFnIds(): Array<number> | undefined {
+    public get calFnIds(): Array<string> | undefined {
         return this['cal_fn_ids'];
     }
-    public withL1Id(l1Id: number): AtomicIndexVO {
+    public withL1Id(l1Id: string): AtomicIndexVO {
         this['l1_id'] = l1Id;
         return this;
     }
-    public set l1Id(l1Id: number  | undefined) {
+    public set l1Id(l1Id: string  | undefined) {
         this['l1_id'] = l1Id;
     }
-    public get l1Id(): number | undefined {
+    public get l1Id(): string | undefined {
         return this['l1_id'];
     }
     public withL2Id(l2Id: string): AtomicIndexVO {
@@ -155,14 +155,14 @@ export class AtomicIndexVO {
     public get dwType(): string | undefined {
         return this['dw_type'];
     }
-    public withFieldIds(fieldIds: Array<number>): AtomicIndexVO {
+    public withFieldIds(fieldIds: Array<string>): AtomicIndexVO {
         this['field_ids'] = fieldIds;
         return this;
     }
-    public set fieldIds(fieldIds: Array<number>  | undefined) {
+    public set fieldIds(fieldIds: Array<string>  | undefined) {
         this['field_ids'] = fieldIds;
     }
-    public get fieldIds(): Array<number> | undefined {
+    public get fieldIds(): Array<string> | undefined {
         return this['field_ids'];
     }
     public withFieldNames(fieldNames: Array<string>): AtomicIndexVO {

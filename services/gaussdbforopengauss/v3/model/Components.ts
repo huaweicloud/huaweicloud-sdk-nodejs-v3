@@ -5,6 +5,8 @@ export class Components {
     public role?: string;
     public status?: string;
     private 'distributed_id'?: string;
+    public type?: string;
+    public detail?: string;
     public constructor() { 
     }
     public withId(id: string): Components {
@@ -28,5 +30,13 @@ export class Components {
     }
     public get distributedId(): string | undefined {
         return this['distributed_id'];
+    }
+    public withType(type: string): Components {
+        this['type'] = type;
+        return this;
+    }
+    public withDetail(detail: string): Components {
+        this['detail'] = detail;
+        return this;
     }
 }

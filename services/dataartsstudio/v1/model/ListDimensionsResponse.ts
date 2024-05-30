@@ -1,12 +1,13 @@
+import { ListDimensionsResultData } from './ListDimensionsResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDimensionsResponse extends SdkResponse {
-    public data?: object;
+    public data?: ListDimensionsResultData;
     public constructor() { 
         super();
     }
-    public withData(data: object): ListDimensionsResponse {
+    public withData(data: ListDimensionsResultData): ListDimensionsResponse {
         this['data'] = data;
         return this;
     }

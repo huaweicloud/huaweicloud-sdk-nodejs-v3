@@ -10,8 +10,8 @@ export class SearchAtomicIndexesRequest {
     public status?: SearchAtomicIndexesRequestStatusEnum | string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
-    private 'l3_id'?: number;
-    private 'table_id'?: number;
+    private 'l3_id'?: string;
+    private 'table_id'?: string;
     public limit?: number;
     public offset?: number;
     public constructor(workspace?: string) { 
@@ -83,24 +83,24 @@ export class SearchAtomicIndexesRequest {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withL3Id(l3Id: number): SearchAtomicIndexesRequest {
+    public withL3Id(l3Id: string): SearchAtomicIndexesRequest {
         this['l3_id'] = l3Id;
         return this;
     }
-    public set l3Id(l3Id: number  | undefined) {
+    public set l3Id(l3Id: string  | undefined) {
         this['l3_id'] = l3Id;
     }
-    public get l3Id(): number | undefined {
+    public get l3Id(): string | undefined {
         return this['l3_id'];
     }
-    public withTableId(tableId: number): SearchAtomicIndexesRequest {
+    public withTableId(tableId: string): SearchAtomicIndexesRequest {
         this['table_id'] = tableId;
         return this;
     }
-    public set tableId(tableId: number  | undefined) {
+    public set tableId(tableId: string  | undefined) {
         this['table_id'] = tableId;
     }
-    public get tableId(): number | undefined {
+    public get tableId(): string | undefined {
         return this['table_id'];
     }
     public withLimit(limit: number): SearchAtomicIndexesRequest {

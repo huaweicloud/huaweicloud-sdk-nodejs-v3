@@ -5,10 +5,10 @@ export class CommonConditionVO {
     private 'field_ids'?: Array<string>;
     private 'field_names'?: Array<string>;
     private 'cal_exp'?: string;
-    private 'cal_fn_ids'?: Array<number>;
+    private 'cal_fn_ids'?: Array<string>;
     private 'front_configs'?: string;
-    public id?: number;
-    public constructor(name?: string, fieldIds?: Array<string>, calExp?: string, calFnIds?: Array<number>) { 
+    public id?: string;
+    public constructor(name?: string, fieldIds?: Array<string>, calExp?: string, calFnIds?: Array<string>) { 
         this['name'] = name;
         this['field_ids'] = fieldIds;
         this['cal_exp'] = calExp;
@@ -48,14 +48,14 @@ export class CommonConditionVO {
     public get calExp(): string | undefined {
         return this['cal_exp'];
     }
-    public withCalFnIds(calFnIds: Array<number>): CommonConditionVO {
+    public withCalFnIds(calFnIds: Array<string>): CommonConditionVO {
         this['cal_fn_ids'] = calFnIds;
         return this;
     }
-    public set calFnIds(calFnIds: Array<number>  | undefined) {
+    public set calFnIds(calFnIds: Array<string>  | undefined) {
         this['cal_fn_ids'] = calFnIds;
     }
-    public get calFnIds(): Array<number> | undefined {
+    public get calFnIds(): Array<string> | undefined {
         return this['cal_fn_ids'];
     }
     public withFrontConfigs(frontConfigs: string): CommonConditionVO {
@@ -68,7 +68,7 @@ export class CommonConditionVO {
     public get frontConfigs(): string | undefined {
         return this['front_configs'];
     }
-    public withId(id: number): CommonConditionVO {
+    public withId(id: string): CommonConditionVO {
         this['id'] = id;
         return this;
     }

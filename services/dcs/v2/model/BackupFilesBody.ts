@@ -6,8 +6,7 @@ export class BackupFilesBody {
     private 'bucket_name'?: string;
     public files?: Array<Files>;
     private 'backup_id'?: string;
-    public constructor(bucketName?: string, files?: Array<Files>) { 
-        this['bucket_name'] = bucketName;
+    public constructor(files?: Array<Files>) { 
         this['files'] = files;
     }
     public withFileSource(fileSource: BackupFilesBodyFileSourceEnum | string): BackupFilesBody {

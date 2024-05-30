@@ -61,7 +61,7 @@ export class Spec {
     * @enum {string}
     */
 export enum SpecSpecTypeEnum {
-    CCE = 'CCE',
-    CSE = 'CSE',
-    SPRINGCLOUD = 'SpringCloud'
+    CSE2 = 'CSE2',
+    NACOS2 = 'Nacos2',
+    MICROGATEWAY = 'MicroGateway'
 }

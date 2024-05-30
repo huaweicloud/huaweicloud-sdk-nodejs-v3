@@ -35,5 +35,6 @@ export class DatastoreOption {
     */
 export enum DatastoreOptionInstanceModeEnum {
     HA = 'ha',
+    HAREADONLY = 'ha:readonly',
     INDEPENDENT = 'independent'
 }

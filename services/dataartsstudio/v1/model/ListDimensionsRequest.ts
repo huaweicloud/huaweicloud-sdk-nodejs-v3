@@ -8,11 +8,11 @@ export class ListDimensionsRequest {
     private 'create_by'?: string;
     public approver?: string;
     public status?: ListDimensionsRequestStatusEnum | string;
-    private 'l2_id'?: number;
-    private 'derivative_ids'?: Array<number>;
+    private 'l2_id'?: string;
+    private 'derivative_ids'?: Array<string>;
     private 'begin_time'?: string;
     private 'end_time'?: string;
-    private 'fact_logic_id'?: number;
+    private 'fact_logic_id'?: string;
     private 'dimension_type'?: ListDimensionsRequestDimensionTypeEnum | string;
     public limit?: number;
     public offset?: number;
@@ -66,24 +66,24 @@ export class ListDimensionsRequest {
         this['status'] = status;
         return this;
     }
-    public withL2Id(l2Id: number): ListDimensionsRequest {
+    public withL2Id(l2Id: string): ListDimensionsRequest {
         this['l2_id'] = l2Id;
         return this;
     }
-    public set l2Id(l2Id: number  | undefined) {
+    public set l2Id(l2Id: string  | undefined) {
         this['l2_id'] = l2Id;
     }
-    public get l2Id(): number | undefined {
+    public get l2Id(): string | undefined {
         return this['l2_id'];
     }
-    public withDerivativeIds(derivativeIds: Array<number>): ListDimensionsRequest {
+    public withDerivativeIds(derivativeIds: Array<string>): ListDimensionsRequest {
         this['derivative_ids'] = derivativeIds;
         return this;
     }
-    public set derivativeIds(derivativeIds: Array<number>  | undefined) {
+    public set derivativeIds(derivativeIds: Array<string>  | undefined) {
         this['derivative_ids'] = derivativeIds;
     }
-    public get derivativeIds(): Array<number> | undefined {
+    public get derivativeIds(): Array<string> | undefined {
         return this['derivative_ids'];
     }
     public withBeginTime(beginTime: string): ListDimensionsRequest {
@@ -106,14 +106,14 @@ export class ListDimensionsRequest {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withFactLogicId(factLogicId: number): ListDimensionsRequest {
+    public withFactLogicId(factLogicId: string): ListDimensionsRequest {
         this['fact_logic_id'] = factLogicId;
         return this;
     }
-    public set factLogicId(factLogicId: number  | undefined) {
+    public set factLogicId(factLogicId: string  | undefined) {
         this['fact_logic_id'] = factLogicId;
     }
-    public get factLogicId(): number | undefined {
+    public get factLogicId(): string | undefined {
         return this['fact_logic_id'];
     }
     public withDimensionType(dimensionType: ListDimensionsRequestDimensionTypeEnum | string): ListDimensionsRequest {

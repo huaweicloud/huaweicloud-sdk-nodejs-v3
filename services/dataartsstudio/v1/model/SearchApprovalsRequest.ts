@@ -4,7 +4,7 @@ export class SearchApprovalsRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     public name?: string;
     private 'create_by'?: string;
     public approver?: string;
@@ -43,14 +43,14 @@ export class SearchApprovalsRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBizId(bizId: number): SearchApprovalsRequest {
+    public withBizId(bizId: string): SearchApprovalsRequest {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withName(name: string): SearchApprovalsRequest {

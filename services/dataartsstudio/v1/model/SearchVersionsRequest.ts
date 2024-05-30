@@ -6,7 +6,7 @@ export class SearchVersionsRequest {
     private 'Content-Type'?: string;
     public name?: string;
     private 'create_by'?: string;
-    private 'biz_id'?: number;
+    private 'biz_id'?: string;
     private 'biz_type'?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
@@ -53,14 +53,14 @@ export class SearchVersionsRequest {
     public get createBy(): string | undefined {
         return this['create_by'];
     }
-    public withBizId(bizId: number): SearchVersionsRequest {
+    public withBizId(bizId: string): SearchVersionsRequest {
         this['biz_id'] = bizId;
         return this;
     }
-    public set bizId(bizId: number  | undefined) {
+    public set bizId(bizId: string  | undefined) {
         this['biz_id'] = bizId;
     }
-    public get bizId(): number | undefined {
+    public get bizId(): string | undefined {
         return this['biz_id'];
     }
     public withBizType(bizType: string): SearchVersionsRequest {

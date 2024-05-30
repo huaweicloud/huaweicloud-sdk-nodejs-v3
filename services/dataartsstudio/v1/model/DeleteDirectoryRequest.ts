@@ -4,8 +4,8 @@ export class DeleteDirectoryRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    public ids?: Array<number>;
-    public constructor(workspace?: string, ids?: Array<number>) { 
+    public ids?: Array<string>;
+    public constructor(workspace?: string, ids?: Array<string>) { 
         this['workspace'] = workspace;
         this['ids'] = ids;
     }
@@ -33,7 +33,7 @@ export class DeleteDirectoryRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withIds(ids: Array<number>): DeleteDirectoryRequest {
+    public withIds(ids: Array<string>): DeleteDirectoryRequest {
         this['ids'] = ids;
         return this;
     }

@@ -1,18 +1,18 @@
 
 
 export class TableMappingDetailVO {
-    public id?: number;
+    public id?: string;
     private 'mapping_id'?: string;
-    private 'target_attr_id'?: number;
+    private 'target_attr_id'?: string;
     private 'target_attr_name'?: string;
     private 'src_table_ids'?: string;
     private 'src_table_names'?: Array<string>;
     private 'src_table_db_names'?: Array<string>;
-    private 'src_table_model_ids'?: Array<number>;
-    private 'src_table_id_list'?: Array<number>;
+    private 'src_table_model_ids'?: Array<string>;
+    private 'src_table_id_list'?: Array<string>;
     private 'src_attr_ids'?: string;
     private 'src_attr_names'?: Array<string>;
-    private 'src_attr_id_list'?: Array<number>;
+    private 'src_attr_id_list'?: Array<string>;
     public remark?: string;
     private 'create_time'?: Date;
     private 'update_time'?: Date;
@@ -22,7 +22,7 @@ export class TableMappingDetailVO {
     public constructor(targetAttrName?: string) { 
         this['target_attr_name'] = targetAttrName;
     }
-    public withId(id: number): TableMappingDetailVO {
+    public withId(id: string): TableMappingDetailVO {
         this['id'] = id;
         return this;
     }
@@ -36,14 +36,14 @@ export class TableMappingDetailVO {
     public get mappingId(): string | undefined {
         return this['mapping_id'];
     }
-    public withTargetAttrId(targetAttrId: number): TableMappingDetailVO {
+    public withTargetAttrId(targetAttrId: string): TableMappingDetailVO {
         this['target_attr_id'] = targetAttrId;
         return this;
     }
-    public set targetAttrId(targetAttrId: number  | undefined) {
+    public set targetAttrId(targetAttrId: string  | undefined) {
         this['target_attr_id'] = targetAttrId;
     }
-    public get targetAttrId(): number | undefined {
+    public get targetAttrId(): string | undefined {
         return this['target_attr_id'];
     }
     public withTargetAttrName(targetAttrName: string): TableMappingDetailVO {
@@ -86,24 +86,24 @@ export class TableMappingDetailVO {
     public get srcTableDbNames(): Array<string> | undefined {
         return this['src_table_db_names'];
     }
-    public withSrcTableModelIds(srcTableModelIds: Array<number>): TableMappingDetailVO {
+    public withSrcTableModelIds(srcTableModelIds: Array<string>): TableMappingDetailVO {
         this['src_table_model_ids'] = srcTableModelIds;
         return this;
     }
-    public set srcTableModelIds(srcTableModelIds: Array<number>  | undefined) {
+    public set srcTableModelIds(srcTableModelIds: Array<string>  | undefined) {
         this['src_table_model_ids'] = srcTableModelIds;
     }
-    public get srcTableModelIds(): Array<number> | undefined {
+    public get srcTableModelIds(): Array<string> | undefined {
         return this['src_table_model_ids'];
     }
-    public withSrcTableIdList(srcTableIdList: Array<number>): TableMappingDetailVO {
+    public withSrcTableIdList(srcTableIdList: Array<string>): TableMappingDetailVO {
         this['src_table_id_list'] = srcTableIdList;
         return this;
     }
-    public set srcTableIdList(srcTableIdList: Array<number>  | undefined) {
+    public set srcTableIdList(srcTableIdList: Array<string>  | undefined) {
         this['src_table_id_list'] = srcTableIdList;
     }
-    public get srcTableIdList(): Array<number> | undefined {
+    public get srcTableIdList(): Array<string> | undefined {
         return this['src_table_id_list'];
     }
     public withSrcAttrIds(srcAttrIds: string): TableMappingDetailVO {
@@ -126,14 +126,14 @@ export class TableMappingDetailVO {
     public get srcAttrNames(): Array<string> | undefined {
         return this['src_attr_names'];
     }
-    public withSrcAttrIdList(srcAttrIdList: Array<number>): TableMappingDetailVO {
+    public withSrcAttrIdList(srcAttrIdList: Array<string>): TableMappingDetailVO {
         this['src_attr_id_list'] = srcAttrIdList;
         return this;
     }
-    public set srcAttrIdList(srcAttrIdList: Array<number>  | undefined) {
+    public set srcAttrIdList(srcAttrIdList: Array<string>  | undefined) {
         this['src_attr_id_list'] = srcAttrIdList;
     }
-    public get srcAttrIdList(): Array<number> | undefined {
+    public get srcAttrIdList(): Array<string> | undefined {
         return this['src_attr_id_list'];
     }
     public withRemark(remark: string): TableMappingDetailVO {

@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class SecurityGroup {
@@ -8,7 +9,8 @@ export class SecurityGroup {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'enterprise_project_id'?: string;
-    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string) { 
+    public tags?: Array<ResourceTag>;
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string, tags?: Array<ResourceTag>) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -16,6 +18,7 @@ export class SecurityGroup {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['tags'] = tags;
     }
     public withId(id: string): SecurityGroup {
         this['id'] = id;
@@ -68,5 +71,9 @@ export class SecurityGroup {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): SecurityGroup {
+        this['tags'] = tags;
+        return this;
     }
 }

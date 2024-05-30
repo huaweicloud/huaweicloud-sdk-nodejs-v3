@@ -48,6 +48,11 @@ import { DubboMethodParam } from './model/DubboMethodParam';
 import { EngineAdditionalActionReq } from './model/EngineAdditionalActionReq';
 import { EngineConfigureReq } from './model/EngineConfigureReq';
 import { EngineCreateReq } from './model/EngineCreateReq';
+import { EngineCreateReqEnginestateInfo } from './model/EngineCreateReqEnginestateInfo';
+import { EngineCreateReqEnterpriseProject } from './model/EngineCreateReqEnterpriseProject';
+import { EngineCreateReqFlavorType } from './model/EngineCreateReqFlavorType';
+import { EngineCreateReqMaintenanceConfig } from './model/EngineCreateReqMaintenanceConfig';
+import { EngineCreateReqResourceParams } from './model/EngineCreateReqResourceParams';
 import { EngineExternalEntrypoint } from './model/EngineExternalEntrypoint';
 import { EngineModifyReq } from './model/EngineModifyReq';
 import { EngineQuotaV2Quotas } from './model/EngineQuotaV2Quotas';
@@ -128,12 +133,12 @@ export class CseClient {
 
 
     /**
-     * 创建微服务引擎专享版。
+     * 创建微服务引擎，支持创建ServiceComb引擎专享版、注册配置中心、应用网关（公测）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建微服务引擎专享版
-     * @param {EngineCreateReq} createEngineRequestBody 创建微服务专享版请求结构体。
+     * @summary 创建微服务引擎
+     * @param {EngineCreateReq} createEngineRequestBody 创建微服务请求结构体。
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -154,7 +159,7 @@ export class CseClient {
      *
      * @summary 创建治理策略
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} kind 治理策略类型
      * @param {CreateGovPolicy} createGovernancePolicyRequestBody 创建治理策略请求结构体。
@@ -178,7 +183,7 @@ export class CseClient {
      *
      * @summary 创建灰度发布策略
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} serviceName 微服务名称
      * @param {Array<CreateRules>} createMicroserviceRouteRuleRequestBody 创建灰度发布策略请求结构体。
@@ -197,12 +202,12 @@ export class CseClient {
     }
 
     /**
-     * 删除微服务引擎专享版。
+     * 删除微服务引擎。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除微服务引擎专享版
-     * @param {string} engineId 微服务引擎专享版ID
+     * @summary 删除微服务引擎
+     * @param {string} engineId 微服务引擎ID
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -223,7 +228,7 @@ export class CseClient {
      *
      * @summary 删除治理策略
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} kind 治理策略类型
      * @param {string} policyId 治理策略id
@@ -247,7 +252,7 @@ export class CseClient {
      *
      * @summary 删除灰度发布策略
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} serviceName 微服务名称
      * @param {string} [environment] 所属环境，不填表示&lt;空&gt;环境
@@ -270,7 +275,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导出kie配置
-     * @param {string} xEngineId 微服务引擎专享版ID。
+     * @param {string} xEngineId 微服务引擎ID。
      * @param {DownloadKieReqBody} downloadKieRequestBody 导出的配置ID列表，如不填时，按label匹配规则全量导出，如填写的id对应的label不匹配label过滤项，则导出会忽略此id。
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {string} [label] 按label过滤项导出，格式为：{标签key}:{标签value}
@@ -295,6 +300,7 @@ export class CseClient {
      * @summary 查询微服务引擎列表
      * @param {number} [offset] 偏移量。
      * @param {string} [limit] 每页显示的条目数量。
+     * @param {string} [type] 查询所有微服务引擎需要将该值设置为ALL，查询ServiceComb引擎专享版需要将该值设置为CSE，查询注册配置中心需要将该值设置为Nacos，查询网关需要将该值设置为MicroGateway。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -308,12 +314,12 @@ export class CseClient {
     }
 
     /**
-     * 查询微服务引擎专享版的规格列表。
+     * 查询微服务引擎的规格列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询微服务引擎专享版的规格列表
-     * @param {string} [specType] 微服务引擎专享版应用部署类型，查询CSE微服务引擎专享版需要将该值设置为CSE2。
+     * @summary 查询微服务引擎的规格列表
+     * @param {string} [specType] 微服务引擎应用部署类型，查询ServiceComb引擎专享版需要将该值设置为CSE2，查询注册配置中心需要将该值设置为Nacos2，查询网关需要将该值设置为MicroGateway。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -333,7 +339,7 @@ export class CseClient {
      *
      * @summary 查询指定类型治理策略列表
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} kind 治理策略类型
      * @param {string} [xEnvironment] 所属环境
@@ -356,7 +362,7 @@ export class CseClient {
      *
      * @summary 查询治理策略详情
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} kind 治理策略类型
      * @param {string} policyId 治理策略id
@@ -380,7 +386,7 @@ export class CseClient {
      *
      * @summary 查询治理策略列表
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} environment 所属环境，填写all时表示查询所有环境。
      * @param {string} [app] 所属应用
@@ -402,7 +408,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务的灰度发布规则
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} serviceName 微服务名称
      * @param {string} [environment] 所属环境，不填表示&lt;空&gt;环境
@@ -443,13 +449,13 @@ export class CseClient {
     }
 
     /**
-     * 对微服务引擎专享版进行重试
+     * 对微服务引擎进行重试，当前支持ServiceComb专享版引擎
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 对微服务引擎专享版进行重试
+     * @summary 对微服务引擎进行重试
      * @param {string} engineId 引擎id
-     * @param {EngineAdditionalActionReq} retryEngineRequestBody 重试微服务引擎专享版的请求体
+     * @param {EngineAdditionalActionReq} retryEngineRequestBody 重试微服务引擎的请求体
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -464,12 +470,12 @@ export class CseClient {
     }
 
     /**
-     * 查询微服务引擎专享版详情
+     * 查询微服务引擎详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询微服务引擎专享版详情
-     * @param {string} engineId 微服务引擎专享版ID。
+     * @summary 查询微服务引擎详情
+     * @param {string} engineId 微服务引擎ID。
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -489,7 +495,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务引擎任务详情
-     * @param {string} engineId 微服务引擎专享版ID。
+     * @param {string} engineId 微服务引擎ID。
      * @param {string} jobId 任务ID。
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;。
      * @param {*} [options] Override http request option.
@@ -529,7 +535,7 @@ export class CseClient {
      *
      * @summary 修改治理策略
      * @param {string} contentType 该字段内容填为 \&quot;application/json;charset&#x3D;UTF-8\&quot;。
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} kind 治理策略类型
      * @param {string} policyId 治理策略id
@@ -548,13 +554,13 @@ export class CseClient {
     }
 
     /**
-     * 升级微服务引擎专享版
+     * 升级微服务引擎
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 升级微服务引擎专享版
+     * @summary 升级微服务引擎
      * @param {string} engineId 升级的引擎Id
-     * @param {EngineUpdateReq} upgradeEngineRequestBody 升级微服务引擎专享版请求体
+     * @param {EngineUpdateReq} upgradeEngineRequestBody 升级微服务引擎请求体
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -569,13 +575,13 @@ export class CseClient {
     }
 
     /**
-     * 更新微服务引擎专享版配置
+     * 更新微服务引擎配置，更新ServiceComb专享版引擎与注册配置中心引擎的配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新微服务引擎专享版配置
+     * @summary 更新微服务引擎配置
      * @param {string} engineId 更新的引擎Id
-     * @param {EngineConfigureReq} upgradeEngineConfigRequestBody 更新微服务引擎专享版配置请求体
+     * @param {EngineConfigureReq} upgradeEngineConfigRequestBody 更新微服务引擎配置请求体
      * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -784,7 +790,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建nacos命名空间
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} customNamespaceId 命名空间ID，仅支持大小写字母、数字、短划线（-）和下划线（_），不超过128个字符。
      * @param {string} namespaceName 命名空间名，支持非@、#、$、%、^、&amp;、*，不超过128个字符。
@@ -807,7 +813,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除nacos命名空间
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} namespaceId 命名空间ID
      * @param {*} [options] Override http request option.
@@ -828,7 +834,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询nacos命名空间
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {number} offset 分页参数，偏移量，从0开始
      * @param {number} limit 分页参数，分页大小，0表示不分页
@@ -850,7 +856,7 @@ export class CseClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新nacos命名空间
-     * @param {string} xEngineId 微服务引擎专享版的实例ID
+     * @param {string} xEngineId 微服务引擎的实例ID
      * @param {string} xEnterpriseProjectID 企业项目ID
      * @param {string} namespace 命名空间ID
      * @param {string} namespaceShowName 命名空间名，支持非@、#、$、%、^、&amp;、*，不超过128个字符。
@@ -872,7 +878,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 创建微服务引擎专享版。
+         * 创建微服务引擎，支持创建ServiceComb引擎专享版、注册配置中心、应用网关（公测）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1073,7 +1079,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除微服务引擎专享版。
+         * 删除微服务引擎。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1348,14 +1354,18 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let type;
 
             if (listEnginesRequest !== null && listEnginesRequest !== undefined) {
                 if (listEnginesRequest instanceof ListEnginesRequest) {
                     offset = listEnginesRequest.offset;
                     limit = listEnginesRequest.limit;
+                    type = listEnginesRequest.type;
                 } else {
                     offset = listEnginesRequest['offset'];
                     limit = listEnginesRequest['limit'];
+                    type = listEnginesRequest['type'];
                 }
             }
 
@@ -1366,6 +1376,9 @@ export const ParamCreater = function () {
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -1373,7 +1386,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询微服务引擎专享版的规格列表。
+         * 查询微服务引擎的规格列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1745,7 +1758,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 对微服务引擎专享版进行重试
+         * 对微服务引擎进行重试，当前支持ServiceComb专享版引擎
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1798,7 +1811,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询微服务引擎专享版详情
+         * 查询微服务引擎详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1995,7 +2008,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 升级微服务引擎专享版
+         * 升级微服务引擎
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2048,7 +2061,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新微服务引擎专享版配置
+         * 更新微服务引擎配置，更新ServiceComb专享版引擎与注册配置中心引擎的配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

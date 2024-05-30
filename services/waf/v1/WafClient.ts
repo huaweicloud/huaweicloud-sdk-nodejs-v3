@@ -355,6 +355,7 @@ import { UrlCountItem } from './model/UrlCountItem';
 import { UrlItem } from './model/UrlItem';
 import { ValueListResponseBody } from './model/ValueListResponseBody';
 import { WafProductInfo } from './model/WafProductInfo';
+import { WafServer } from './model/WafServer';
 import { WhiteBlackIpResponseBody } from './model/WhiteBlackIpResponseBody';
 
 export class WafClient {

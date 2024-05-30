@@ -55,6 +55,9 @@ import { ChangeServerChargeModePrepaidOption } from './model/ChangeServerChargeM
 import { ChangeServerChargeModeRequest } from './model/ChangeServerChargeModeRequest';
 import { ChangeServerChargeModeRequestBody } from './model/ChangeServerChargeModeRequestBody';
 import { ChangeServerChargeModeResponse } from './model/ChangeServerChargeModeResponse';
+import { ChangeServerNetworkInterfaceRequest } from './model/ChangeServerNetworkInterfaceRequest';
+import { ChangeServerNetworkInterfaceRequestBody } from './model/ChangeServerNetworkInterfaceRequestBody';
+import { ChangeServerNetworkInterfaceResponse } from './model/ChangeServerNetworkInterfaceResponse';
 import { ChangeServerOsWithCloudInitOption } from './model/ChangeServerOsWithCloudInitOption';
 import { ChangeServerOsWithCloudInitRequest } from './model/ChangeServerOsWithCloudInitRequest';
 import { ChangeServerOsWithCloudInitRequestBody } from './model/ChangeServerOsWithCloudInitRequestBody';
@@ -628,6 +631,27 @@ export class EcsClient {
      */
     public changeServerChargeMode(changeServerChargeModeRequest?: ChangeServerChargeModeRequest): Promise<ChangeServerChargeModeResponse> {
         const options = ParamCreater().changeServerChargeMode(changeServerChargeModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新云服务器指定网卡属性，当前仅支持更新网卡IP。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云服务器指定网卡属性
+     * @param {string} portId 网卡port id
+     * @param {string} serverId 云服务器ID。
+     * @param {ChangeServerNetworkInterfaceRequestBody} changeServerNetworkInterfaceRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeServerNetworkInterface(changeServerNetworkInterfaceRequest?: ChangeServerNetworkInterfaceRequest): Promise<ChangeServerNetworkInterfaceResponse> {
+        const options = ParamCreater().changeServerNetworkInterface(changeServerNetworkInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2520,6 +2544,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新云服务器指定网卡属性，当前仅支持更新网卡IP。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeServerNetworkInterface(changeServerNetworkInterfaceRequest?: ChangeServerNetworkInterfaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-interface/{port_id}/change-network-interface",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+            
+            let serverId;
+
+            if (changeServerNetworkInterfaceRequest !== null && changeServerNetworkInterfaceRequest !== undefined) {
+                if (changeServerNetworkInterfaceRequest instanceof ChangeServerNetworkInterfaceRequest) {
+                    portId = changeServerNetworkInterfaceRequest.portId;
+                    serverId = changeServerNetworkInterfaceRequest.serverId;
+                    body = changeServerNetworkInterfaceRequest.body
+                } else {
+                    portId = changeServerNetworkInterfaceRequest['port_id'];
+                    serverId = changeServerNetworkInterfaceRequest['server_id'];
+                    body = changeServerNetworkInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling changeServerNetworkInterface.');
+            }
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerNetworkInterface.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId,'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

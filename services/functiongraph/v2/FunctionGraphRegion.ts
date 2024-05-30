@@ -27,6 +27,7 @@ export class FunctionGraphRegion {
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://functiongraph.cn-north-11.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://functiongraph.me-east-1.myhuaweicloud.com"]);
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://functiongraph.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://functiongraph.cn-south-4.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +51,8 @@ export class FunctionGraphRegion {
         "cn-north-9":FunctionGraphRegion.CN_NORTH_9,
         "cn-north-11":FunctionGraphRegion.CN_NORTH_11,
         "me-east-1":FunctionGraphRegion.ME_EAST_1,
-        "my-kualalumpur-1":FunctionGraphRegion.MY_KUALALUMPUR_1
+        "my-kualalumpur-1":FunctionGraphRegion.MY_KUALALUMPUR_1,
+        "cn-south-4":FunctionGraphRegion.CN_SOUTH_4
     };
   
     public static valueOf(regionId: string) {

@@ -1,14 +1,14 @@
-import { CatalogLevelVO } from './CatalogLevelVO';
+import { ListSubjectLevelsResultData } from './ListSubjectLevelsResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSubjectLevelsResponse extends SdkResponse {
-    public levels?: Array<CatalogLevelVO>;
+    public data?: ListSubjectLevelsResultData;
     public constructor() { 
         super();
     }
-    public withLevels(levels: Array<CatalogLevelVO>): ListSubjectLevelsResponse {
-        this['levels'] = levels;
+    public withData(data: ListSubjectLevelsResultData): ListSubjectLevelsResponse {
+        this['data'] = data;
         return this;
     }
 }

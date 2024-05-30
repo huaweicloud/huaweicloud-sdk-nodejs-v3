@@ -8,6 +8,8 @@ export class SearchAutoEnlargePolicyResponse extends SdkResponse {
     private 'max_volume_size'?: number;
     private 'trigger_available_percent'?: number;
     public percents?: Array<number>;
+    private 'step_size'?: number;
+    private 'step_percent'?: number;
     public constructor() { 
         super();
     }
@@ -64,5 +66,25 @@ export class SearchAutoEnlargePolicyResponse extends SdkResponse {
     public withPercents(percents: Array<number>): SearchAutoEnlargePolicyResponse {
         this['percents'] = percents;
         return this;
+    }
+    public withStepSize(stepSize: number): SearchAutoEnlargePolicyResponse {
+        this['step_size'] = stepSize;
+        return this;
+    }
+    public set stepSize(stepSize: number  | undefined) {
+        this['step_size'] = stepSize;
+    }
+    public get stepSize(): number | undefined {
+        return this['step_size'];
+    }
+    public withStepPercent(stepPercent: number): SearchAutoEnlargePolicyResponse {
+        this['step_percent'] = stepPercent;
+        return this;
+    }
+    public set stepPercent(stepPercent: number  | undefined) {
+        this['step_percent'] = stepPercent;
+    }
+    public get stepPercent(): number | undefined {
+        return this['step_percent'];
     }
 }

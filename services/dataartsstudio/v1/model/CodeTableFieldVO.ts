@@ -3,8 +3,8 @@ import { DataTypeDomainEnum } from './DataTypeDomainEnum';
 
 
 export class CodeTableFieldVO {
-    public id?: number;
-    private 'code_table_id'?: number;
+    public id?: string;
+    private 'code_table_id'?: string;
     public ordinal?: number;
     private 'name_en'?: string;
     private 'name_ch'?: string;
@@ -21,18 +21,18 @@ export class CodeTableFieldVO {
         this['name_ch'] = nameCh;
         this['data_type'] = dataType;
     }
-    public withId(id: number): CodeTableFieldVO {
+    public withId(id: string): CodeTableFieldVO {
         this['id'] = id;
         return this;
     }
-    public withCodeTableId(codeTableId: number): CodeTableFieldVO {
+    public withCodeTableId(codeTableId: string): CodeTableFieldVO {
         this['code_table_id'] = codeTableId;
         return this;
     }
-    public set codeTableId(codeTableId: number  | undefined) {
+    public set codeTableId(codeTableId: string  | undefined) {
         this['code_table_id'] = codeTableId;
     }
-    public get codeTableId(): number | undefined {
+    public get codeTableId(): string | undefined {
         return this['code_table_id'];
     }
     public withOrdinal(ordinal: number): CodeTableFieldVO {

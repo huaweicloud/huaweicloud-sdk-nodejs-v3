@@ -1,7 +1,7 @@
 
 
 export class MappingSourceFieldVO {
-    private 'target_field_id'?: number;
+    private 'target_field_id'?: string;
     private 'target_field_name'?: string;
     private 'field_ids'?: string;
     private 'transform_expression'?: string;
@@ -10,14 +10,14 @@ export class MappingSourceFieldVO {
     public constructor(targetFieldName?: string) { 
         this['target_field_name'] = targetFieldName;
     }
-    public withTargetFieldId(targetFieldId: number): MappingSourceFieldVO {
+    public withTargetFieldId(targetFieldId: string): MappingSourceFieldVO {
         this['target_field_id'] = targetFieldId;
         return this;
     }
-    public set targetFieldId(targetFieldId: number  | undefined) {
+    public set targetFieldId(targetFieldId: string  | undefined) {
         this['target_field_id'] = targetFieldId;
     }
-    public get targetFieldId(): number | undefined {
+    public get targetFieldId(): string | undefined {
         return this['target_field_id'];
     }
     public withTargetFieldName(targetFieldName: string): MappingSourceFieldVO {
