@@ -5,7 +5,7 @@ export class InstancesResult {
     private 'instance_id'?: string;
     private 'volume_type'?: string;
     private 'data_volume_size'?: number;
-    public version?: number;
+    public version?: string;
     public mode?: InstancesResultModeEnum | string;
     private 'instance_mode'?: InstancesResultInstanceModeEnum | string;
     public constructor() { 
@@ -50,7 +50,7 @@ export class InstancesResult {
     public get dataVolumeSize(): number | undefined {
         return this['data_volume_size'];
     }
-    public withVersion(version: number): InstancesResult {
+    public withVersion(version: string): InstancesResult {
         this['version'] = version;
         return this;
     }

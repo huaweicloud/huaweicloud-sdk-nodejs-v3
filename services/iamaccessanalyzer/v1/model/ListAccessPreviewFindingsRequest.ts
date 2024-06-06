@@ -1,7 +1,7 @@
 import { ListPreviewFindingsReqBody } from './ListPreviewFindingsReqBody';
 
 
-export class ListPreviewFindingsRequest {
+export class ListAccessPreviewFindingsRequest {
     private 'analyzer_id'?: string;
     private 'access_preview_id'?: string;
     public body?: ListPreviewFindingsReqBody;
@@ -9,7 +9,7 @@ export class ListPreviewFindingsRequest {
         this['analyzer_id'] = analyzerId;
         this['access_preview_id'] = accessPreviewId;
     }
-    public withAnalyzerId(analyzerId: string): ListPreviewFindingsRequest {
+    public withAnalyzerId(analyzerId: string): ListAccessPreviewFindingsRequest {
         this['analyzer_id'] = analyzerId;
         return this;
     }
@@ -19,7 +19,7 @@ export class ListPreviewFindingsRequest {
     public get analyzerId(): string | undefined {
         return this['analyzer_id'];
     }
-    public withAccessPreviewId(accessPreviewId: string): ListPreviewFindingsRequest {
+    public withAccessPreviewId(accessPreviewId: string): ListAccessPreviewFindingsRequest {
         this['access_preview_id'] = accessPreviewId;
         return this;
     }
@@ -29,7 +29,7 @@ export class ListPreviewFindingsRequest {
     public get accessPreviewId(): string | undefined {
         return this['access_preview_id'];
     }
-    public withBody(body: ListPreviewFindingsReqBody): ListPreviewFindingsRequest {
+    public withBody(body: ListPreviewFindingsReqBody): ListAccessPreviewFindingsRequest {
         this['body'] = body;
         return this;
     }

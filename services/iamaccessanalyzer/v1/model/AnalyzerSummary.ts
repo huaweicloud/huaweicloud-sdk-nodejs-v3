@@ -9,6 +9,7 @@ export class AnalyzerSummary {
     private 'last_analyzed_resource'?: string;
     private 'last_resource_analyzed_at'?: Date;
     public name?: string;
+    private 'organization_id'?: string;
     public status?: AnalyzerSummaryStatusEnum | string;
     private 'status_reason'?: StatusReason;
     public tags?: Array<Tag>;
@@ -60,6 +61,16 @@ export class AnalyzerSummary {
         this['name'] = name;
         return this;
     }
+    public withOrganizationId(organizationId: string): AnalyzerSummary {
+        this['organization_id'] = organizationId;
+        return this;
+    }
+    public set organizationId(organizationId: string  | undefined) {
+        this['organization_id'] = organizationId;
+    }
+    public get organizationId(): string | undefined {
+        return this['organization_id'];
+    }
     public withStatus(status: AnalyzerSummaryStatusEnum | string): AnalyzerSummary {
         this['status'] = status;
         return this;
@@ -95,5 +106,6 @@ export class AnalyzerSummary {
 export enum AnalyzerSummaryStatusEnum {
     ACTIVE = 'active',
     CREATING = 'creating',
+    DISABLED = 'disabled',
     FAILED = 'failed'
 }

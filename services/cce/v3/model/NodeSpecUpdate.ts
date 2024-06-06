@@ -9,6 +9,7 @@ export class NodeSpecUpdate {
     public userTags?: Array<UserTag>;
     public initializedConditions?: Array<string>;
     public login?: Login;
+    public serverEnterpriseProjectID?: string;
     public constructor(taints?: Array<Taint>, k8sTags?: { [key: string]: string; }, userTags?: Array<UserTag>) { 
         this['taints'] = taints;
         this['k8sTags'] = k8sTags;
@@ -32,6 +33,10 @@ export class NodeSpecUpdate {
     }
     public withLogin(login: Login): NodeSpecUpdate {
         this['login'] = login;
+        return this;
+    }
+    public withServerEnterpriseProjectID(serverEnterpriseProjectID: string): NodeSpecUpdate {
+        this['serverEnterpriseProjectID'] = serverEnterpriseProjectID;
         return this;
     }
 }

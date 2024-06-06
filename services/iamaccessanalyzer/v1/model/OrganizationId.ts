@@ -1,6 +1,6 @@
 
 
-export class Urn {
+export class OrganizationId {
     public constructor() { 
     }
 }

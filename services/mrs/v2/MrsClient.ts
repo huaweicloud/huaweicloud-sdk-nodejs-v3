@@ -24,7 +24,9 @@ import { CancelSyncIamUserResponse } from './model/CancelSyncIamUserResponse';
 import { CancelSyncRequest } from './model/CancelSyncRequest';
 import { ChargeInfo } from './model/ChargeInfo';
 import { ClusterDataConnectorMap } from './model/ClusterDataConnectorMap';
+import { ClusterNode } from './model/ClusterNode';
 import { ComponentConfig } from './model/ComponentConfig';
+import { ComponentInfo } from './model/ComponentInfo';
 import { ComponentInstallMode } from './model/ComponentInstallMode';
 import { Config } from './model/Config';
 import { CreateAutoScalingPolicyRequest } from './model/CreateAutoScalingPolicyRequest';
@@ -56,7 +58,10 @@ import { JobQueryBean } from './model/JobQueryBean';
 import { JobSubmitResult } from './model/JobSubmitResult';
 import { ListDataConnectorRequest } from './model/ListDataConnectorRequest';
 import { ListDataConnectorResponse } from './model/ListDataConnectorResponse';
+import { ListNodesRequest } from './model/ListNodesRequest';
+import { ListNodesResponse } from './model/ListNodesResponse';
 import { ModifyDefaultTagsRequestBody } from './model/ModifyDefaultTagsRequestBody';
+import { NodeDetail } from './model/NodeDetail';
 import { NodeGroupV2 } from './model/NodeGroupV2';
 import { ResourcesPlan } from './model/ResourcesPlan';
 import { Rule } from './model/Rule';
@@ -64,6 +69,7 @@ import { RunJobFlowCommand } from './model/RunJobFlowCommand';
 import { RunJobFlowRequest } from './model/RunJobFlowRequest';
 import { RunJobFlowResponse } from './model/RunJobFlowResponse';
 import { ScaleScript } from './model/ScaleScript';
+import { ServerInfo } from './model/ServerInfo';
 import { ShowAgencyMappingRequest } from './model/ShowAgencyMappingRequest';
 import { ShowAgencyMappingResponse } from './model/ShowAgencyMappingResponse';
 import { ShowAutoScalingPolicyRequest } from './model/ShowAutoScalingPolicyRequest';
@@ -113,6 +119,7 @@ import { UpdateSyncIamUserRequest } from './model/UpdateSyncIamUserRequest';
 import { UpdateSyncIamUserResponse } from './model/UpdateSyncIamUserResponse';
 import { UpdateSyncRequest } from './model/UpdateSyncRequest';
 import { Volume } from './model/Volume';
+import { VolumeInfo } from './model/VolumeInfo';
 
 export class MrsClient {
     public static newBuilder(): ClientBuilder<MrsClient> {
@@ -491,6 +498,34 @@ export class MrsClient {
     }
 
     /**
+     * 查询集群节点列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群节点列表
+     * @param {string} clusterId 集群ID。
+     * @param {string} [nodeGroup] 要查询的节点组名称。
+     * @param {number} [limit] 返回结果中每页显示条数。缺省值：10。
+     * @param {number} [offset] 表示作业列表从该偏移量开始查询。缺省值：1。
+     * @param {string} [nodeName] 指定节点名称，支持模糊搜索。
+     * @param {'node_name'} [sortKey] 排序键，支持对节点名称排序。
+     * @param {'desc' | 'asc'} [sortDir] 列表排序方式，desc为降序，asc为升序。
+     * @param {boolean} [queryNodeDetail] 是否查询节点详情。该字段设为true时可能会影响接口性能。
+     * @param {boolean} [queryEcsDetail] 是否查询ECS详情信息，会涉及对ECS接口调用。
+     * @param {string} [internalIp] 指定内网IP。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNodes(listNodesRequest?: ListNodesRequest): Promise<ListNodesResponse> {
+        const options = ParamCreater().listNodes(listNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 对MRS集群进行缩容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -801,6 +836,7 @@ export class MrsClient {
      *
      * @summary 查询MRS集群版本可用的规格
      * @param {string} versionName MRS集群版本，不支持多版本查询 ，例如 MRS%203.1.5.1
+     * @param {string} [availabilityZone] 可用区id，用于查询指定可用区的可用规格
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1662,6 +1698,107 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群节点列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNodes(listNodesRequest?: ListNodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let nodeGroup;
+            
+            let limit;
+            
+            let offset;
+            
+            let nodeName;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let queryNodeDetail;
+            
+            let queryEcsDetail;
+            
+            let internalIp;
+
+            if (listNodesRequest !== null && listNodesRequest !== undefined) {
+                if (listNodesRequest instanceof ListNodesRequest) {
+                    clusterId = listNodesRequest.clusterId;
+                    nodeGroup = listNodesRequest.nodeGroup;
+                    limit = listNodesRequest.limit;
+                    offset = listNodesRequest.offset;
+                    nodeName = listNodesRequest.nodeName;
+                    sortKey = listNodesRequest.sortKey;
+                    sortDir = listNodesRequest.sortDir;
+                    queryNodeDetail = listNodesRequest.queryNodeDetail;
+                    queryEcsDetail = listNodesRequest.queryEcsDetail;
+                    internalIp = listNodesRequest.internalIp;
+                } else {
+                    clusterId = listNodesRequest['cluster_id'];
+                    nodeGroup = listNodesRequest['node_group'];
+                    limit = listNodesRequest['limit'];
+                    offset = listNodesRequest['offset'];
+                    nodeName = listNodesRequest['node_name'];
+                    sortKey = listNodesRequest['sort_key'];
+                    sortDir = listNodesRequest['sort_dir'];
+                    queryNodeDetail = listNodesRequest['query_node_detail'];
+                    queryEcsDetail = listNodesRequest['query_ecs_detail'];
+                    internalIp = listNodesRequest['internal_ip'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listNodes.');
+            }
+            if (nodeGroup !== null && nodeGroup !== undefined) {
+                localVarQueryParameter['node_group'] = nodeGroup;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (nodeName !== null && nodeName !== undefined) {
+                localVarQueryParameter['node_name'] = nodeName;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (queryNodeDetail !== null && queryNodeDetail !== undefined) {
+                localVarQueryParameter['query_node_detail'] = queryNodeDetail;
+            }
+            if (queryEcsDetail !== null && queryEcsDetail !== undefined) {
+                localVarQueryParameter['query_ecs_detail'] = queryEcsDetail;
+            }
+            if (internalIp !== null && internalIp !== undefined) {
+                localVarQueryParameter['internal_ip'] = internalIp;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 对MRS集群进行缩容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2376,15 +2513,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let versionName;
+            
+            let availabilityZone;
 
             if (showMrsFlavorsRequest !== null && showMrsFlavorsRequest !== undefined) {
                 if (showMrsFlavorsRequest instanceof ShowMrsFlavorsRequest) {
                     versionName = showMrsFlavorsRequest.versionName;
+                    availabilityZone = showMrsFlavorsRequest.availabilityZone;
                 } else {
                     versionName = showMrsFlavorsRequest['version_name'];
+                    availabilityZone = showMrsFlavorsRequest['availability_zone'];
                 }
             }
 
@@ -2392,7 +2533,11 @@ export const ParamCreater = function () {
             if (versionName === null || versionName === undefined) {
             throw new RequiredError('versionName','Required parameter versionName was null or undefined when calling showMrsFlavors.');
             }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'version_name': versionName, };
             options.headers = localVarHeaderParameter;
             return options;

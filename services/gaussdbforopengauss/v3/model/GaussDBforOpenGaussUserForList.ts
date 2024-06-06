@@ -1,10 +1,11 @@
-import { GaussDBforOpenGaussUserForListAttributes } from './GaussDBforOpenGaussUserForListAttributes';
+import { GaussDBforOpenGaussUserForListAttribute } from './GaussDBforOpenGaussUserForListAttribute';
 
 
 export class GaussDBforOpenGaussUserForList {
     public name?: string;
-    public attributes?: GaussDBforOpenGaussUserForListAttributes;
+    public attribute?: GaussDBforOpenGaussUserForListAttribute;
     public memberof?: string;
+    private 'lock_status'?: boolean;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -12,12 +13,22 @@ export class GaussDBforOpenGaussUserForList {
         this['name'] = name;
         return this;
     }
-    public withAttributes(attributes: GaussDBforOpenGaussUserForListAttributes): GaussDBforOpenGaussUserForList {
-        this['attributes'] = attributes;
+    public withAttribute(attribute: GaussDBforOpenGaussUserForListAttribute): GaussDBforOpenGaussUserForList {
+        this['attribute'] = attribute;
         return this;
     }
     public withMemberof(memberof: string): GaussDBforOpenGaussUserForList {
         this['memberof'] = memberof;
         return this;
+    }
+    public withLockStatus(lockStatus: boolean): GaussDBforOpenGaussUserForList {
+        this['lock_status'] = lockStatus;
+        return this;
+    }
+    public set lockStatus(lockStatus: boolean  | undefined) {
+        this['lock_status'] = lockStatus;
+    }
+    public get lockStatus(): boolean | undefined {
+        return this['lock_status'];
     }
 }

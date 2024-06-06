@@ -2,12 +2,18 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class OfflineNodesResponse extends SdkResponse {
-    public body?: object;
+    private 'job_id'?: string;
     public constructor() { 
         super();
     }
-    public withBody(body: object): OfflineNodesResponse {
-        this['body'] = body;
+    public withJobId(jobId: string): OfflineNodesResponse {
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }

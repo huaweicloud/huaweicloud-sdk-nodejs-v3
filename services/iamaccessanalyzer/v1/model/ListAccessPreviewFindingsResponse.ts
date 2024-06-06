@@ -3,17 +3,17 @@ import { PreviewFinding } from './PreviewFinding';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class ListPreviewFindingsResponse extends SdkResponse {
+export class ListAccessPreviewFindingsResponse extends SdkResponse {
     public findings?: Array<PreviewFinding>;
     private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
-    public withFindings(findings: Array<PreviewFinding>): ListPreviewFindingsResponse {
+    public withFindings(findings: Array<PreviewFinding>): ListAccessPreviewFindingsResponse {
         this['findings'] = findings;
         return this;
     }
-    public withPageInfo(pageInfo: PageInfo): ListPreviewFindingsResponse {
+    public withPageInfo(pageInfo: PageInfo): ListAccessPreviewFindingsResponse {
         this['page_info'] = pageInfo;
         return this;
     }

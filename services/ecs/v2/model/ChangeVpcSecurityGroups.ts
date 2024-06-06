@@ -1,11 +1,11 @@
 
 
 export class ChangeVpcSecurityGroups {
-    public id?: object;
-    public constructor(id?: object) { 
+    public id?: string;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
-    public withId(id: object): ChangeVpcSecurityGroups {
+    public withId(id: string): ChangeVpcSecurityGroups {
         this['id'] = id;
         return this;
     }

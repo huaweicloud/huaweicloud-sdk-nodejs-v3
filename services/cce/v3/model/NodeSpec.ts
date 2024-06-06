@@ -31,6 +31,7 @@ export class NodeSpec {
     public initializedConditions?: Array<string>;
     public extendParam?: NodeExtendParam;
     public hostnameConfig?: HostnameConfig;
+    public serverEnterpriseProjectID?: string;
     public constructor(flavor?: string, az?: string, login?: Login, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
         this['flavor'] = flavor;
         this['az'] = az;
@@ -116,6 +117,10 @@ export class NodeSpec {
     }
     public withHostnameConfig(hostnameConfig: HostnameConfig): NodeSpec {
         this['hostnameConfig'] = hostnameConfig;
+        return this;
+    }
+    public withServerEnterpriseProjectID(serverEnterpriseProjectID: string): NodeSpec {
+        this['serverEnterpriseProjectID'] = serverEnterpriseProjectID;
         return this;
     }
 }

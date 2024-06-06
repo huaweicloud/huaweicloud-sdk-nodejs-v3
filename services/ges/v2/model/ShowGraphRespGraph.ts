@@ -48,6 +48,7 @@ export class ShowGraphRespGraph {
     private 'resize_time'?: string;
     private 'enable_multi_label'?: boolean;
     private 'capacity_ratio'?: number;
+    private 'sort_key_type'?: string;
     public constructor() { 
     }
     public withId(id: string): ShowGraphRespGraph {
@@ -435,5 +436,15 @@ export class ShowGraphRespGraph {
     }
     public get capacityRatio(): number | undefined {
         return this['capacity_ratio'];
+    }
+    public withSortKeyType(sortKeyType: string): ShowGraphRespGraph {
+        this['sort_key_type'] = sortKeyType;
+        return this;
+    }
+    public set sortKeyType(sortKeyType: string  | undefined) {
+        this['sort_key_type'] = sortKeyType;
+    }
+    public get sortKeyType(): string | undefined {
+        return this['sort_key_type'];
     }
 }

@@ -9,6 +9,8 @@ export class ExportSqlJobResultRequestBody {
     private 'with_column_header'?: boolean;
     private 'limit_num'?: number;
     private 'encoding_type'?: string;
+    private 'quote_char'?: string;
+    private 'escape_char'?: string;
     public constructor(dataPath?: string, dataType?: string) { 
         this['data_path'] = dataPath;
         this['data_type'] = dataType;
@@ -86,6 +88,26 @@ export class ExportSqlJobResultRequestBody {
     }
     public get encodingType(): string | undefined {
         return this['encoding_type'];
+    }
+    public withQuoteChar(quoteChar: string): ExportSqlJobResultRequestBody {
+        this['quote_char'] = quoteChar;
+        return this;
+    }
+    public set quoteChar(quoteChar: string  | undefined) {
+        this['quote_char'] = quoteChar;
+    }
+    public get quoteChar(): string | undefined {
+        return this['quote_char'];
+    }
+    public withEscapeChar(escapeChar: string): ExportSqlJobResultRequestBody {
+        this['escape_char'] = escapeChar;
+        return this;
+    }
+    public set escapeChar(escapeChar: string  | undefined) {
+        this['escape_char'] = escapeChar;
+    }
+    public get escapeChar(): string | undefined {
+        return this['escape_char'];
     }
 }
 

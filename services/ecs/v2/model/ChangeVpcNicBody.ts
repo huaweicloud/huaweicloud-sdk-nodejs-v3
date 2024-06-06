@@ -4,7 +4,7 @@ import { ChangeVpcSecurityGroups } from './ChangeVpcSecurityGroups';
 export class ChangeVpcNicBody {
     private 'port_id'?: string;
     private 'subnet_id'?: string;
-    private 'security_groups'?: ChangeVpcSecurityGroups;
+    private 'security_groups'?: Array<ChangeVpcSecurityGroups>;
     private 'ip_address'?: string;
     public constructor() { 
     }
@@ -28,14 +28,14 @@ export class ChangeVpcNicBody {
     public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
-    public withSecurityGroups(securityGroups: ChangeVpcSecurityGroups): ChangeVpcNicBody {
+    public withSecurityGroups(securityGroups: Array<ChangeVpcSecurityGroups>): ChangeVpcNicBody {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: ChangeVpcSecurityGroups  | undefined) {
+    public set securityGroups(securityGroups: Array<ChangeVpcSecurityGroups>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): ChangeVpcSecurityGroups | undefined {
+    public get securityGroups(): Array<ChangeVpcSecurityGroups> | undefined {
         return this['security_groups'];
     }
     public withIpAddress(ipAddress: string): ChangeVpcNicBody {

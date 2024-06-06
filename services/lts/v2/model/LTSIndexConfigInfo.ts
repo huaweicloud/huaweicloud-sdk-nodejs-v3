@@ -3,15 +3,12 @@ import { LTSFullTextIndexInfo } from './LTSFullTextIndexInfo';
 
 
 export class LTSIndexConfigInfo {
-    public logStreamId?: string;
     public fullTextIndex?: LTSFullTextIndexInfo;
     public fields?: Array<LTSFieldsInfo>;
+    public sqlAnalysisEnable?: boolean;
+    public logStreamId?: string;
     public constructor(fullTextIndex?: LTSFullTextIndexInfo) { 
         this['fullTextIndex'] = fullTextIndex;
-    }
-    public withLogStreamId(logStreamId: string): LTSIndexConfigInfo {
-        this['logStreamId'] = logStreamId;
-        return this;
     }
     public withFullTextIndex(fullTextIndex: LTSFullTextIndexInfo): LTSIndexConfigInfo {
         this['fullTextIndex'] = fullTextIndex;
@@ -19,6 +16,14 @@ export class LTSIndexConfigInfo {
     }
     public withFields(fields: Array<LTSFieldsInfo>): LTSIndexConfigInfo {
         this['fields'] = fields;
+        return this;
+    }
+    public withSqlAnalysisEnable(sqlAnalysisEnable: boolean): LTSIndexConfigInfo {
+        this['sqlAnalysisEnable'] = sqlAnalysisEnable;
+        return this;
+    }
+    public withLogStreamId(logStreamId: string): LTSIndexConfigInfo {
+        this['logStreamId'] = logStreamId;
         return this;
     }
 }

@@ -29,6 +29,7 @@ export class CreateGraphReqGraph {
     private 'enable_multi_label'?: boolean;
     private 'capacity_ratio'?: number;
     private 'is_dynamic_graph'?: boolean;
+    private 'sort_key_type'?: string;
     public constructor(name?: string, graphSizeTypeIndex?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, cryptAlgorithm?: string, enableHttps?: boolean) { 
         this['name'] = name;
         this['graph_size_type_index'] = graphSizeTypeIndex;
@@ -233,5 +234,15 @@ export class CreateGraphReqGraph {
     }
     public get isDynamicGraph(): boolean | undefined {
         return this['is_dynamic_graph'];
+    }
+    public withSortKeyType(sortKeyType: string): CreateGraphReqGraph {
+        this['sort_key_type'] = sortKeyType;
+        return this;
+    }
+    public set sortKeyType(sortKeyType: string  | undefined) {
+        this['sort_key_type'] = sortKeyType;
+    }
+    public get sortKeyType(): string | undefined {
+        return this['sort_key_type'];
     }
 }

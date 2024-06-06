@@ -1,21 +1,21 @@
 
 
 export class AvailableFlavorInfoResult {
-    private 'spec_cpde'?: string;
+    private 'spec_code'?: string;
     public vcpus?: string;
     public ram?: string;
     private 'az_status'?: { [key: string]: string; };
     public constructor() { 
     }
-    public withSpecCpde(specCpde: string): AvailableFlavorInfoResult {
-        this['spec_cpde'] = specCpde;
+    public withSpecCode(specCode: string): AvailableFlavorInfoResult {
+        this['spec_code'] = specCode;
         return this;
     }
-    public set specCpde(specCpde: string  | undefined) {
-        this['spec_cpde'] = specCpde;
+    public set specCode(specCode: string  | undefined) {
+        this['spec_code'] = specCode;
     }
-    public get specCpde(): string | undefined {
-        return this['spec_cpde'];
+    public get specCode(): string | undefined {
+        return this['spec_code'];
     }
     public withVcpus(vcpus: string): AvailableFlavorInfoResult {
         this['vcpus'] = vcpus;

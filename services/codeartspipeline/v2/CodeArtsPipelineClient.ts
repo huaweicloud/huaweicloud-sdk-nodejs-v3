@@ -256,6 +256,8 @@ import { UpdateBasicPluginRequest } from './model/UpdateBasicPluginRequest';
 import { UpdateBasicPluginResponse } from './model/UpdateBasicPluginResponse';
 import { UpdatePipelineGroupRequest } from './model/UpdatePipelineGroupRequest';
 import { UpdatePipelineGroupResponse } from './model/UpdatePipelineGroupResponse';
+import { UpdatePipelineInfoRequest } from './model/UpdatePipelineInfoRequest';
+import { UpdatePipelineInfoResponse } from './model/UpdatePipelineInfoResponse';
 import { UpdatePipelineTemplateRequest } from './model/UpdatePipelineTemplateRequest';
 import { UpdatePipelineTemplateResponse } from './model/UpdatePipelineTemplateResponse';
 import { UpdatePluginBaseInfoRequest } from './model/UpdatePluginBaseInfoRequest';
@@ -1760,6 +1762,27 @@ export class CodeArtsPipelineClient {
      */
     public updatePipelineGroup(updatePipelineGroupRequest?: UpdatePipelineGroupRequest): Promise<UpdatePipelineGroupResponse> {
         const options = ParamCreater().updatePipelineGroup(updatePipelineGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改流水线信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改流水线信息
+     * @param {string} pipelineId 流水线ID
+     * @param {PipelineDTO} body 修改流水线请求体
+     * @param {string} [componentId] 微服务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePipelineInfo(updatePipelineInfoRequest?: UpdatePipelineInfoRequest): Promise<UpdatePipelineInfoResponse> {
+        const options = ParamCreater().updatePipelineInfo(updatePipelineInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5397,6 +5420,60 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改流水线信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePipelineInfo(updatePipelineInfoRequest?: UpdatePipelineInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let pipelineId;
+            
+            let componentId;
+
+            if (updatePipelineInfoRequest !== null && updatePipelineInfoRequest !== undefined) {
+                if (updatePipelineInfoRequest instanceof UpdatePipelineInfoRequest) {
+                    pipelineId = updatePipelineInfoRequest.pipelineId;
+                    body = updatePipelineInfoRequest.body
+                    componentId = updatePipelineInfoRequest.componentId;
+                } else {
+                    pipelineId = updatePipelineInfoRequest['pipeline_id'];
+                    body = updatePipelineInfoRequest['body'];
+                    componentId = updatePipelineInfoRequest['componentId'];
+                }
+            }
+
+        
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling updatePipelineInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['componentId'] = componentId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'pipeline_id': pipelineId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

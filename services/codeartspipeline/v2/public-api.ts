@@ -253,6 +253,8 @@ export * from './model/UpdateBasicPluginRequest';
 export * from './model/UpdateBasicPluginResponse';
 export * from './model/UpdatePipelineGroupRequest';
 export * from './model/UpdatePipelineGroupResponse';
+export * from './model/UpdatePipelineInfoRequest';
+export * from './model/UpdatePipelineInfoResponse';
 export * from './model/UpdatePipelineTemplateRequest';
 export * from './model/UpdatePipelineTemplateResponse';
 export * from './model/UpdatePluginBaseInfoRequest';

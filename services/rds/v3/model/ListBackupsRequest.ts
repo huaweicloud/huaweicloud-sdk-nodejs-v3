@@ -5,6 +5,7 @@ export class ListBackupsRequest {
     private 'instance_id'?: string;
     private 'backup_id'?: string;
     private 'backup_type'?: ListBackupsRequestBackupTypeEnum | string;
+    public status?: ListBackupsRequestStatusEnum | string;
     public offset?: number;
     public limit?: number;
     private 'begin_time'?: string;
@@ -52,6 +53,10 @@ export class ListBackupsRequest {
     public get backupType(): ListBackupsRequestBackupTypeEnum | string | undefined {
         return this['backup_type'];
     }
+    public withStatus(status: ListBackupsRequestStatusEnum | string): ListBackupsRequest {
+        this['status'] = status;
+        return this;
+    }
     public withOffset(offset: number): ListBackupsRequest {
         this['offset'] = offset;
         return this;
@@ -91,4 +96,13 @@ export enum ListBackupsRequestBackupTypeEnum {
     MANUAL = 'manual',
     FRAGMENT = 'fragment',
     INCREMENTAL = 'incremental'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListBackupsRequestStatusEnum {
+    BUILDING = 'BUILDING',
+    COMPLETED = 'COMPLETED',
+    FAILED = 'FAILED'
 }

@@ -28,6 +28,7 @@ export class FlavorExtraSpec {
     private 'cond:spot:operation:status'?: string;
     private 'cond:network'?: string;
     private 'cond:storage'?: string;
+    private 'cond:storage:type'?: string;
     private 'cond:compute:live_resizable'?: string;
     private 'cond:compute'?: string;
     private 'info:gpu:name'?: string;
@@ -307,6 +308,16 @@ export class FlavorExtraSpec {
     }
     public get condStorage(): string | undefined {
         return this['cond:storage'];
+    }
+    public withCondStorageType(condStorageType: string): FlavorExtraSpec {
+        this['cond:storage:type'] = condStorageType;
+        return this;
+    }
+    public set condStorageType(condStorageType: string  | undefined) {
+        this['cond:storage:type'] = condStorageType;
+    }
+    public get condStorageType(): string | undefined {
+        return this['cond:storage:type'];
     }
     public withCondComputeLiveResizable(condComputeLiveResizable: string): FlavorExtraSpec {
         this['cond:compute:live_resizable'] = condComputeLiveResizable;

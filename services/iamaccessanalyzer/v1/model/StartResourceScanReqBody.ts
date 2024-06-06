@@ -3,6 +3,7 @@
 export class StartResourceScanReqBody {
     private 'resource_id'?: string;
     private 'resource_owner_account'?: string;
+    private 'resource_project_id'?: string;
     private 'resource_urn'?: string;
     public constructor(resourceOwnerAccount?: string, resourceUrn?: string) { 
         this['resource_owner_account'] = resourceOwnerAccount;
@@ -27,6 +28,16 @@ export class StartResourceScanReqBody {
     }
     public get resourceOwnerAccount(): string | undefined {
         return this['resource_owner_account'];
+    }
+    public withResourceProjectId(resourceProjectId: string): StartResourceScanReqBody {
+        this['resource_project_id'] = resourceProjectId;
+        return this;
+    }
+    public set resourceProjectId(resourceProjectId: string  | undefined) {
+        this['resource_project_id'] = resourceProjectId;
+    }
+    public get resourceProjectId(): string | undefined {
+        return this['resource_project_id'];
     }
     public withResourceUrn(resourceUrn: string): StartResourceScanReqBody {
         this['resource_urn'] = resourceUrn;

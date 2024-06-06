@@ -164,6 +164,7 @@ import { CompoundMetricVO } from './model/CompoundMetricVO';
 import { CompoundMetricVODetailData } from './model/CompoundMetricVODetailData';
 import { CompoundMetricVOSearchResultData } from './model/CompoundMetricVOSearchResultData';
 import { CompoundMetricVOSearchResultDataValue } from './model/CompoundMetricVOSearchResultDataValue';
+import { ComputeDimension } from './model/ComputeDimension';
 import { Condition } from './model/Condition';
 import { ConditionVO } from './model/ConditionVO';
 import { ConfirmApprovalsRequest } from './model/ConfirmApprovalsRequest';
@@ -757,6 +758,8 @@ import { SearchParameter } from './model/SearchParameter';
 import { SearchParametersExt } from './model/SearchParametersExt';
 import { SearchPublishInfoRequest } from './model/SearchPublishInfoRequest';
 import { SearchPublishInfoResponse } from './model/SearchPublishInfoResponse';
+import { SearchSgcComputeDimensionsRequest } from './model/SearchSgcComputeDimensionsRequest';
+import { SearchSgcComputeDimensionsResponse } from './model/SearchSgcComputeDimensionsResponse';
 import { SearchSubjectNewRequest } from './model/SearchSubjectNewRequest';
 import { SearchSubjectNewResponse } from './model/SearchSubjectNewResponse';
 import { SearchSubjectNewResultData } from './model/SearchSubjectNewResultData';
@@ -5481,6 +5484,33 @@ export class DataArtsStudioClient {
      */
     public searchIdByPath(searchIdByPathRequest?: SearchIdByPathRequest): Promise<SearchIdByPathResponse> {
         const options = ParamCreater().searchIdByPath(searchIdByPathRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取计算维度成本列表信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取计算维度成本列表信息
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {string} workspaceId 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 返回数据条数，表示页大小
+     * @param {string} [name] 节点实例名称或脚本名称
+     * @param {string} [nodeCreatorName] 节点实例创建者name
+     * @param {0 | 1 | 2} [type] 类型，0表示节点实例,1表示脚本,2表示节点的测试运行,成本管理页面对于0和2的情况均展示为节点实例
+     * @param {'HIVE SQL' | 'SparkSQL' | 'Spark' | 'Flink SQL' | 'MRS Flink Job' | 'DWS SQL'} [nodeType] 节点类型，HIVE SQL, SparkSQL, Spark, Flink SQL, MRS Flink Job, DWS SQL为支持的枚举节点类型
+     * @param {string} [orderBy] 排序规则，示例priority ASC表示按照优先级升序排序,priority DESC表示按照优先级降序排序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchSgcComputeDimensions(searchSgcComputeDimensionsRequest?: SearchSgcComputeDimensionsRequest): Promise<SearchSgcComputeDimensionsResponse> {
+        const options = ParamCreater().searchSgcComputeDimensions(searchSgcComputeDimensionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -21035,6 +21065,100 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取计算维度成本列表信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchSgcComputeDimensions(searchSgcComputeDimensionsRequest?: SearchSgcComputeDimensionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/costmgmt/{instance_id}/{workspace_id}/compute-dimension",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let workspaceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+            
+            let nodeCreatorName;
+            
+            let type;
+            
+            let nodeType;
+            
+            let orderBy;
+
+            if (searchSgcComputeDimensionsRequest !== null && searchSgcComputeDimensionsRequest !== undefined) {
+                if (searchSgcComputeDimensionsRequest instanceof SearchSgcComputeDimensionsRequest) {
+                    instanceId = searchSgcComputeDimensionsRequest.instanceId;
+                    workspaceId = searchSgcComputeDimensionsRequest.workspaceId;
+                    offset = searchSgcComputeDimensionsRequest.offset;
+                    limit = searchSgcComputeDimensionsRequest.limit;
+                    name = searchSgcComputeDimensionsRequest.name;
+                    nodeCreatorName = searchSgcComputeDimensionsRequest.nodeCreatorName;
+                    type = searchSgcComputeDimensionsRequest.type;
+                    nodeType = searchSgcComputeDimensionsRequest.nodeType;
+                    orderBy = searchSgcComputeDimensionsRequest.orderBy;
+                } else {
+                    instanceId = searchSgcComputeDimensionsRequest['instance_id'];
+                    workspaceId = searchSgcComputeDimensionsRequest['workspace_id'];
+                    offset = searchSgcComputeDimensionsRequest['offset'];
+                    limit = searchSgcComputeDimensionsRequest['limit'];
+                    name = searchSgcComputeDimensionsRequest['name'];
+                    nodeCreatorName = searchSgcComputeDimensionsRequest['node_creator_name'];
+                    type = searchSgcComputeDimensionsRequest['type'];
+                    nodeType = searchSgcComputeDimensionsRequest['node_type'];
+                    orderBy = searchSgcComputeDimensionsRequest['order_by'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling searchSgcComputeDimensions.');
+            }
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling searchSgcComputeDimensions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (nodeCreatorName !== null && nodeCreatorName !== undefined) {
+                localVarQueryParameter['node_creator_name'] = nodeCreatorName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (nodeType !== null && nodeType !== undefined) {
+                localVarQueryParameter['node_type'] = nodeType;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

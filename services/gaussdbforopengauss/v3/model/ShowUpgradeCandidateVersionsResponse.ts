@@ -1,3 +1,5 @@
+import { HotfixRollbackInfos } from './HotfixRollbackInfos';
+import { HotfixUpgradeInfos } from './HotfixUpgradeInfos';
 import { RollUpgradeProgress } from './RollUpgradeProgress';
 import { UpgradeTypeInfo } from './UpgradeTypeInfo';
 
@@ -12,6 +14,8 @@ export class ShowUpgradeCandidateVersionsResponse extends SdkResponse {
     private 'upgrade_candidate_versions'?: Array<string>;
     private 'hotfix_upgrade_candidate_versions'?: Array<string>;
     private 'hotfix_rollback_candidate_versions'?: Array<string>;
+    private 'hotfix_upgrade_infos'?: HotfixUpgradeInfos;
+    private 'hotfix_rollback_infos'?: HotfixRollbackInfos;
     public constructor() { 
         super();
     }
@@ -94,5 +98,25 @@ export class ShowUpgradeCandidateVersionsResponse extends SdkResponse {
     }
     public get hotfixRollbackCandidateVersions(): Array<string> | undefined {
         return this['hotfix_rollback_candidate_versions'];
+    }
+    public withHotfixUpgradeInfos(hotfixUpgradeInfos: HotfixUpgradeInfos): ShowUpgradeCandidateVersionsResponse {
+        this['hotfix_upgrade_infos'] = hotfixUpgradeInfos;
+        return this;
+    }
+    public set hotfixUpgradeInfos(hotfixUpgradeInfos: HotfixUpgradeInfos  | undefined) {
+        this['hotfix_upgrade_infos'] = hotfixUpgradeInfos;
+    }
+    public get hotfixUpgradeInfos(): HotfixUpgradeInfos | undefined {
+        return this['hotfix_upgrade_infos'];
+    }
+    public withHotfixRollbackInfos(hotfixRollbackInfos: HotfixRollbackInfos): ShowUpgradeCandidateVersionsResponse {
+        this['hotfix_rollback_infos'] = hotfixRollbackInfos;
+        return this;
+    }
+    public set hotfixRollbackInfos(hotfixRollbackInfos: HotfixRollbackInfos  | undefined) {
+        this['hotfix_rollback_infos'] = hotfixRollbackInfos;
+    }
+    public get hotfixRollbackInfos(): HotfixRollbackInfos | undefined {
+        return this['hotfix_rollback_infos'];
     }
 }

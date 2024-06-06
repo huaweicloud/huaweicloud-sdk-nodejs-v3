@@ -2,12 +2,12 @@ import { AccessPreview } from './AccessPreview';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class GetAccessPreviewResponse extends SdkResponse {
+export class ShowAccessPreviewResponse extends SdkResponse {
     private 'access_preview'?: AccessPreview;
     public constructor() { 
         super();
     }
-    public withAccessPreview(accessPreview: AccessPreview): GetAccessPreviewResponse {
+    public withAccessPreview(accessPreview: AccessPreview): ShowAccessPreviewResponse {
         this['access_preview'] = accessPreview;
         return this;
     }

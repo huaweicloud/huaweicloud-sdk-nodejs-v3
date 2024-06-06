@@ -15,6 +15,7 @@ export class Finding {
     public resource?: string;
     private 'resource_id'?: string;
     private 'resource_owner_account'?: string;
+    private 'resource_project_id'?: string;
     private 'resource_type'?: ResourceType;
     public sources?: Array<FindingSourceType>;
     public status?: FindingStatusEnum | string;
@@ -102,6 +103,16 @@ export class Finding {
     }
     public get resourceOwnerAccount(): string | undefined {
         return this['resource_owner_account'];
+    }
+    public withResourceProjectId(resourceProjectId: string): Finding {
+        this['resource_project_id'] = resourceProjectId;
+        return this;
+    }
+    public set resourceProjectId(resourceProjectId: string  | undefined) {
+        this['resource_project_id'] = resourceProjectId;
+    }
+    public get resourceProjectId(): string | undefined {
+        return this['resource_project_id'];
     }
     public withResourceType(resourceType: ResourceType): Finding {
         this['resource_type'] = resourceType;

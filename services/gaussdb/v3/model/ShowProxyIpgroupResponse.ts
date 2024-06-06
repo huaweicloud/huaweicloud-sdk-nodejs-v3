@@ -1,10 +1,11 @@
+import { ProxyIpGroupDetail } from './ProxyIpGroupDetail';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowProxyIpgroupResponse extends SdkResponse {
     private 'enable_ip_group'?: boolean;
     public type?: string;
-    private 'ip_group'?: object;
+    private 'ip_group'?: ProxyIpGroupDetail;
     public constructor() { 
         super();
     }
@@ -22,14 +23,14 @@ export class ShowProxyIpgroupResponse extends SdkResponse {
         this['type'] = type;
         return this;
     }
-    public withIpGroup(ipGroup: object): ShowProxyIpgroupResponse {
+    public withIpGroup(ipGroup: ProxyIpGroupDetail): ShowProxyIpgroupResponse {
         this['ip_group'] = ipGroup;
         return this;
     }
-    public set ipGroup(ipGroup: object  | undefined) {
+    public set ipGroup(ipGroup: ProxyIpGroupDetail  | undefined) {
         this['ip_group'] = ipGroup;
     }
-    public get ipGroup(): object | undefined {
+    public get ipGroup(): ProxyIpGroupDetail | undefined {
         return this['ip_group'];
     }
 }

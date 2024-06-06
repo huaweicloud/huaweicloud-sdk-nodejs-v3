@@ -10,11 +10,13 @@ import { AnalyzerId } from './model/AnalyzerId';
 import { AnalyzerName } from './model/AnalyzerName';
 import { AnalyzerSummary } from './model/AnalyzerSummary';
 import { AnalyzerType } from './model/AnalyzerType';
+import { AnalyzerUrn } from './model/AnalyzerUrn';
 import { ApplyArchiveRuleRequest } from './model/ApplyArchiveRuleRequest';
 import { ApplyArchiveRuleResponse } from './model/ApplyArchiveRuleResponse';
 import { ArchiveRuleId } from './model/ArchiveRuleId';
 import { ArchiveRuleName } from './model/ArchiveRuleName';
 import { ArchiveRuleSummary } from './model/ArchiveRuleSummary';
+import { ArchiveRuleUrn } from './model/ArchiveRuleUrn';
 import { Configuration } from './model/Configuration';
 import { CreateAccessPreviewReqBody } from './model/CreateAccessPreviewReqBody';
 import { CreateAccessPreviewRequest } from './model/CreateAccessPreviewRequest';
@@ -37,10 +39,12 @@ import { FindingFilter } from './model/FindingFilter';
 import { FindingId } from './model/FindingId';
 import { FindingPrincipal } from './model/FindingPrincipal';
 import { FindingSourceType } from './model/FindingSourceType';
-import { GetAccessPreviewRequest } from './model/GetAccessPreviewRequest';
-import { GetAccessPreviewResponse } from './model/GetAccessPreviewResponse';
 import { IAMAgency } from './model/IAMAgency';
+import { KMSCmk } from './model/KMSCmk';
+import { LastAnalyzedResourceUrn } from './model/LastAnalyzedResourceUrn';
 import { Limit } from './model/Limit';
+import { ListAccessPreviewFindingsRequest } from './model/ListAccessPreviewFindingsRequest';
+import { ListAccessPreviewFindingsResponse } from './model/ListAccessPreviewFindingsResponse';
 import { ListAccessPreviewsRequest } from './model/ListAccessPreviewsRequest';
 import { ListAccessPreviewsResponse } from './model/ListAccessPreviewsResponse';
 import { ListAnalyzersRequest } from './model/ListAnalyzersRequest';
@@ -51,12 +55,11 @@ import { ListFindingsReqBody } from './model/ListFindingsReqBody';
 import { ListFindingsRequest } from './model/ListFindingsRequest';
 import { ListFindingsResponse } from './model/ListFindingsResponse';
 import { ListPreviewFindingsReqBody } from './model/ListPreviewFindingsReqBody';
-import { ListPreviewFindingsRequest } from './model/ListPreviewFindingsRequest';
-import { ListPreviewFindingsResponse } from './model/ListPreviewFindingsResponse';
 import { Location } from './model/Location';
 import { Marker } from './model/Marker';
 import { NextMarker } from './model/NextMarker';
 import { OBSBucket } from './model/OBSBucket';
+import { OrganizationId } from './model/OrganizationId';
 import { PageInfo } from './model/PageInfo';
 import { PathElement } from './model/PathElement';
 import { PolicyDocument } from './model/PolicyDocument';
@@ -66,6 +69,9 @@ import { PreviewFinding } from './model/PreviewFinding';
 import { PreviewStatusReason } from './model/PreviewStatusReason';
 import { ResourceOwnerAccount } from './model/ResourceOwnerAccount';
 import { ResourceType } from './model/ResourceType';
+import { ResourceUrn } from './model/ResourceUrn';
+import { ShowAccessPreviewRequest } from './model/ShowAccessPreviewRequest';
+import { ShowAccessPreviewResponse } from './model/ShowAccessPreviewResponse';
 import { ShowAnalyzerRequest } from './model/ShowAnalyzerRequest';
 import { ShowAnalyzerResponse } from './model/ShowAnalyzerResponse';
 import { ShowArchiveRuleRequest } from './model/ShowArchiveRuleRequest';
@@ -93,7 +99,6 @@ import { UpdateArchiveRuleResponse } from './model/UpdateArchiveRuleResponse';
 import { UpdateFindingsReqBody } from './model/UpdateFindingsReqBody';
 import { UpdateFindingsRequest } from './model/UpdateFindingsRequest';
 import { UpdateFindingsResponse } from './model/UpdateFindingsResponse';
-import { Urn } from './model/Urn';
 import { ValidatePolicyFinding } from './model/ValidatePolicyFinding';
 import { ValidatePolicyReqBody } from './model/ValidatePolicyReqBody';
 import { ValidatePolicyRequest } from './model/ValidatePolicyRequest';
@@ -161,7 +166,7 @@ export class IAMAccessAnalyzerClient {
      * @summary 检索分析器的列表
      * @param {number} [limit] 单页最大结果数。
      * @param {string} [marker] 页面标记。
-     * @param {AnalyzerType} [type] 分析器的类型。
+     * @param {'account' | 'organization'} [type] 分析器的类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -396,7 +401,7 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 创建访问预览
+     * 创建访问预览。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -416,18 +421,19 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 获取相关访问预览的信息。
+     * 获取相关预览生成的分析结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取相关访问预览的信息
+     * @summary 获取相关预览生成的分析结果
      * @param {string} analyzerId 分析器的唯一标识符。
      * @param {string} accessPreviewId 访问预览的唯一标识符。
+     * @param {ListPreviewFindingsReqBody} listPreviewFindingsReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getAccessPreview(getAccessPreviewRequest?: GetAccessPreviewRequest): Promise<GetAccessPreviewResponse> {
-        const options = ParamCreater().getAccessPreview(getAccessPreviewRequest);
+    public listAccessPreviewFindings(listAccessPreviewFindingsRequest?: ListAccessPreviewFindingsRequest): Promise<ListAccessPreviewFindingsResponse> {
+        const options = ParamCreater().listAccessPreviewFindings(listAccessPreviewFindingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -436,7 +442,7 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 获取所有访问预览
+     * 获取所有访问预览。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -457,19 +463,18 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
-     * 获取相关预览生成的分析结果
+     * 获取相关访问预览的信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取相关预览生成的分析结果
+     * @summary 获取相关访问预览的信息
      * @param {string} analyzerId 分析器的唯一标识符。
      * @param {string} accessPreviewId 访问预览的唯一标识符。
-     * @param {ListPreviewFindingsReqBody} listPreviewFindingsReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPreviewFindings(listPreviewFindingsRequest?: ListPreviewFindingsRequest): Promise<ListPreviewFindingsResponse> {
-        const options = ParamCreater().listPreviewFindings(listPreviewFindingsRequest);
+    public showAccessPreview(showAccessPreviewRequest?: ShowAccessPreviewRequest): Promise<ShowAccessPreviewResponse> {
+        const options = ParamCreater().showAccessPreview(showAccessPreviewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1174,7 +1179,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建访问预览
+         * 创建访问预览。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1220,51 +1225,60 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取相关访问预览的信息。
+         * 获取相关预览生成的分析结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        getAccessPreview(getAccessPreviewRequest?: GetAccessPreviewRequest) {
+        listAccessPreviewFindings(listAccessPreviewFindingsRequest?: ListAccessPreviewFindingsRequest) {
             const options = {
-                method: "GET",
-                url: "/v5/analyzers/{analyzer_id}/access-previews/{access_preview_id}",
+                method: "POST",
+                url: "/v5/analyzers/{analyzer_id}/access-previews/{access_preview_id}/findings",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let analyzerId;
             
             let accessPreviewId;
 
-            if (getAccessPreviewRequest !== null && getAccessPreviewRequest !== undefined) {
-                if (getAccessPreviewRequest instanceof GetAccessPreviewRequest) {
-                    analyzerId = getAccessPreviewRequest.analyzerId;
-                    accessPreviewId = getAccessPreviewRequest.accessPreviewId;
+            if (listAccessPreviewFindingsRequest !== null && listAccessPreviewFindingsRequest !== undefined) {
+                if (listAccessPreviewFindingsRequest instanceof ListAccessPreviewFindingsRequest) {
+                    analyzerId = listAccessPreviewFindingsRequest.analyzerId;
+                    accessPreviewId = listAccessPreviewFindingsRequest.accessPreviewId;
+                    body = listAccessPreviewFindingsRequest.body
                 } else {
-                    analyzerId = getAccessPreviewRequest['analyzer_id'];
-                    accessPreviewId = getAccessPreviewRequest['access_preview_id'];
+                    analyzerId = listAccessPreviewFindingsRequest['analyzer_id'];
+                    accessPreviewId = listAccessPreviewFindingsRequest['access_preview_id'];
+                    body = listAccessPreviewFindingsRequest['body'];
                 }
             }
 
         
             if (analyzerId === null || analyzerId === undefined) {
-            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling getAccessPreview.');
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling listAccessPreviewFindings.');
             }
             if (accessPreviewId === null || accessPreviewId === undefined) {
-            throw new RequiredError('accessPreviewId','Required parameter accessPreviewId was null or undefined when calling getAccessPreview.');
+            throw new RequiredError('accessPreviewId','Required parameter accessPreviewId was null or undefined when calling listAccessPreviewFindings.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'analyzer_id': analyzerId,'access_preview_id': accessPreviewId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 获取所有访问预览
+         * 获取所有访问预览。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1316,53 +1330,44 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取相关预览生成的分析结果
+         * 获取相关访问预览的信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPreviewFindings(listPreviewFindingsRequest?: ListPreviewFindingsRequest) {
+        showAccessPreview(showAccessPreviewRequest?: ShowAccessPreviewRequest) {
             const options = {
-                method: "POST",
-                url: "/v5/analyzers/{analyzer_id}/access-previews/{access_preview_id}/findings",
+                method: "GET",
+                url: "/v5/analyzers/{analyzer_id}/access-previews/{access_preview_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
             
             let analyzerId;
             
             let accessPreviewId;
 
-            if (listPreviewFindingsRequest !== null && listPreviewFindingsRequest !== undefined) {
-                if (listPreviewFindingsRequest instanceof ListPreviewFindingsRequest) {
-                    analyzerId = listPreviewFindingsRequest.analyzerId;
-                    accessPreviewId = listPreviewFindingsRequest.accessPreviewId;
-                    body = listPreviewFindingsRequest.body
+            if (showAccessPreviewRequest !== null && showAccessPreviewRequest !== undefined) {
+                if (showAccessPreviewRequest instanceof ShowAccessPreviewRequest) {
+                    analyzerId = showAccessPreviewRequest.analyzerId;
+                    accessPreviewId = showAccessPreviewRequest.accessPreviewId;
                 } else {
-                    analyzerId = listPreviewFindingsRequest['analyzer_id'];
-                    accessPreviewId = listPreviewFindingsRequest['access_preview_id'];
-                    body = listPreviewFindingsRequest['body'];
+                    analyzerId = showAccessPreviewRequest['analyzer_id'];
+                    accessPreviewId = showAccessPreviewRequest['access_preview_id'];
                 }
             }
 
         
             if (analyzerId === null || analyzerId === undefined) {
-            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling listPreviewFindings.');
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling showAccessPreview.');
             }
             if (accessPreviewId === null || accessPreviewId === undefined) {
-            throw new RequiredError('accessPreviewId','Required parameter accessPreviewId was null or undefined when calling listPreviewFindings.');
+            throw new RequiredError('accessPreviewId','Required parameter accessPreviewId was null or undefined when calling showAccessPreview.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'analyzer_id': analyzerId,'access_preview_id': accessPreviewId, };
             options.headers = localVarHeaderParameter;
             return options;

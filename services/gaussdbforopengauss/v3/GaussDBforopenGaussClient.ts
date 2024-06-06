@@ -80,9 +80,11 @@ import { GaussDBforOpenGaussGrantRequest } from './model/GaussDBforOpenGaussGran
 import { GaussDBforOpenGaussListDatabase } from './model/GaussDBforOpenGaussListDatabase';
 import { GaussDBforOpenGaussUserForCreation } from './model/GaussDBforOpenGaussUserForCreation';
 import { GaussDBforOpenGaussUserForList } from './model/GaussDBforOpenGaussUserForList';
-import { GaussDBforOpenGaussUserForListAttributes } from './model/GaussDBforOpenGaussUserForListAttributes';
+import { GaussDBforOpenGaussUserForListAttribute } from './model/GaussDBforOpenGaussUserForListAttribute';
 import { GaussDBforOpenGaussUserWithPrivilege } from './model/GaussDBforOpenGaussUserWithPrivilege';
 import { GetRestoreTimeResponseRestoreTime } from './model/GetRestoreTimeResponseRestoreTime';
+import { HotfixRollbackInfos } from './model/HotfixRollbackInfos';
+import { HotfixUpgradeInfos } from './model/HotfixUpgradeInfos';
 import { InstanceInfoResult } from './model/InstanceInfoResult';
 import { InstanceLogFile } from './model/InstanceLogFile';
 import { InstancesListResult } from './model/InstancesListResult';
