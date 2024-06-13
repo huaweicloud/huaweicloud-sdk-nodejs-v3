@@ -12,6 +12,7 @@ export class VideoConfig {
     private 'subtitle_config'?: SubtitleConfig;
     public dx?: number;
     public dy?: number;
+    private 'is_enable_super_resolution'?: boolean;
     public constructor(codec?: string, bitrate?: number, width?: number, height?: number) { 
         this['codec'] = codec;
         this['bitrate'] = bitrate;
@@ -81,6 +82,16 @@ export class VideoConfig {
     public withDy(dy: number): VideoConfig {
         this['dy'] = dy;
         return this;
+    }
+    public withIsEnableSuperResolution(isEnableSuperResolution: boolean): VideoConfig {
+        this['is_enable_super_resolution'] = isEnableSuperResolution;
+        return this;
+    }
+    public set isEnableSuperResolution(isEnableSuperResolution: boolean  | undefined) {
+        this['is_enable_super_resolution'] = isEnableSuperResolution;
+    }
+    public get isEnableSuperResolution(): boolean | undefined {
+        return this['is_enable_super_resolution'];
     }
 }
 

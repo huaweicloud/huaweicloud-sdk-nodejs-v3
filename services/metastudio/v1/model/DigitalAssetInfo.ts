@@ -4,6 +4,7 @@ import { SystemProperty } from './SystemProperty';
 
 
 export class DigitalAssetInfo {
+    private 'project_id'?: string;
     private 'asset_id'?: string;
     private 'asset_name'?: string;
     private 'asset_description'?: string;
@@ -19,6 +20,16 @@ export class DigitalAssetInfo {
     private 'system_properties'?: Array<SystemProperty>;
     public files?: Array<AssetFileInfo>;
     public constructor() { 
+    }
+    public withProjectId(projectId: string): DigitalAssetInfo {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withAssetId(assetId: string): DigitalAssetInfo {
         this['asset_id'] = assetId;

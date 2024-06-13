@@ -91,6 +91,7 @@ export * from './model/InstanceConfig';
 export * from './model/InstanceConfigResult';
 export * from './model/InstanceHangingInfos';
 export * from './model/IntegerRange';
+export * from './model/IntervalAlarmActionsV2';
 export * from './model/Ipv6Bandwidth';
 export * from './model/JobRecords';
 export * from './model/LbaasListener';

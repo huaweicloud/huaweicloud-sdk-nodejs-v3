@@ -22,6 +22,10 @@ export class AosRegion {
     public static LA_NORTH_2 = new Region("la-north-2", ["https://rfs.la-north-2.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://rfs.af-south-1.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://aos.myhuaweicloud.eu"]);
+    public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://rfs.na-mexico-1.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://rfs.cn-north-11.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://rfs.cn-east-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://rfs.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -40,7 +44,11 @@ export class AosRegion {
         "sa-brazil-1":AosRegion.SA_BRAZIL_1,
         "la-north-2":AosRegion.LA_NORTH_2,
         "af-south-1":AosRegion.AF_SOUTH_1,
-        "eu-west-101":AosRegion.EU_WEST_101
+        "eu-west-101":AosRegion.EU_WEST_101,
+        "na-mexico-1":AosRegion.NA_MEXICO_1,
+        "cn-north-11":AosRegion.CN_NORTH_11,
+        "cn-east-5":AosRegion.CN_EAST_5,
+        "af-north-1":AosRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

@@ -241,6 +241,5 @@ export enum PublicipInstanceRespAssociateInstanceTypeEnum {
     NATGW = 'NATGW',
     ELB = 'ELB',
     ELBV1 = 'ELBV1',
-    VPN = 'VPN',
-    NULL = 'null'
+    VPN = 'VPN'
 }

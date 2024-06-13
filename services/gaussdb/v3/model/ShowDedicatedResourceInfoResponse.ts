@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDedicatedResourceInfoResponse extends SdkResponse {
     public id?: string;
-    public name?: string;
+    private 'resource_name'?: string;
     private 'engine_name'?: string;
     private 'availability_zone_ids'?: Array<string>;
     public architecture?: string;
@@ -19,9 +19,15 @@ export class ShowDedicatedResourceInfoResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withName(name: string): ShowDedicatedResourceInfoResponse {
-        this['name'] = name;
+    public withResourceName(resourceName: string): ShowDedicatedResourceInfoResponse {
+        this['resource_name'] = resourceName;
         return this;
+    }
+    public set resourceName(resourceName: string  | undefined) {
+        this['resource_name'] = resourceName;
+    }
+    public get resourceName(): string | undefined {
+        return this['resource_name'];
     }
     public withEngineName(engineName: string): ShowDedicatedResourceInfoResponse {
         this['engine_name'] = engineName;

@@ -1,8 +1,9 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
-import { InteractionRuleInfo } from './InteractionRuleInfo';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
+import { LiveRoomInteractionRuleInfo } from './LiveRoomInteractionRuleInfo';
 import { LiveVideoScriptInfo } from './LiveVideoScriptInfo';
 import { PlayPolicy } from './PlayPolicy';
+import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { ReviewConfig } from './ReviewConfig';
 import { SharedConfig } from './SharedConfig';
 import { VideoConfig } from './VideoConfig';
@@ -13,13 +14,14 @@ export class CreateSmartLiveRoomReq {
     private 'room_description'?: string;
     private 'room_type'?: CreateSmartLiveRoomReqRoomTypeEnum | string;
     private 'scene_scripts'?: Array<LiveVideoScriptInfo>;
-    private 'interaction_rules'?: Array<InteractionRuleInfo>;
+    private 'interaction_rules'?: Array<LiveRoomInteractionRuleInfo>;
     private 'play_policy'?: PlayPolicy;
     private 'video_config'?: VideoConfig;
     private 'output_urls'?: Array<string>;
     private 'stream_keys'?: Array<string>;
     private 'backup_model_asset_ids'?: Array<string>;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'rtc_callback_config'?: RTCLiveEventCallBackConfig;
     private 'review_config'?: ReviewConfig;
     private 'shared_config'?: SharedConfig;
     private 'view_mode'?: CreateSmartLiveRoomReqViewModeEnum | string;
@@ -67,14 +69,14 @@ export class CreateSmartLiveRoomReq {
     public get sceneScripts(): Array<LiveVideoScriptInfo> | undefined {
         return this['scene_scripts'];
     }
-    public withInteractionRules(interactionRules: Array<InteractionRuleInfo>): CreateSmartLiveRoomReq {
+    public withInteractionRules(interactionRules: Array<LiveRoomInteractionRuleInfo>): CreateSmartLiveRoomReq {
         this['interaction_rules'] = interactionRules;
         return this;
     }
-    public set interactionRules(interactionRules: Array<InteractionRuleInfo>  | undefined) {
+    public set interactionRules(interactionRules: Array<LiveRoomInteractionRuleInfo>  | undefined) {
         this['interaction_rules'] = interactionRules;
     }
-    public get interactionRules(): Array<InteractionRuleInfo> | undefined {
+    public get interactionRules(): Array<LiveRoomInteractionRuleInfo> | undefined {
         return this['interaction_rules'];
     }
     public withPlayPolicy(playPolicy: PlayPolicy): CreateSmartLiveRoomReq {
@@ -136,6 +138,16 @@ export class CreateSmartLiveRoomReq {
     }
     public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
         return this['live_event_callback_config'];
+    }
+    public withRtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig): CreateSmartLiveRoomReq {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+        return this;
+    }
+    public set rtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig  | undefined) {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+    }
+    public get rtcCallbackConfig(): RTCLiveEventCallBackConfig | undefined {
+        return this['rtc_callback_config'];
     }
     public withReviewConfig(reviewConfig: ReviewConfig): CreateSmartLiveRoomReq {
         this['review_config'] = reviewConfig;

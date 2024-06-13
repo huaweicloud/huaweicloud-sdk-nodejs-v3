@@ -5,6 +5,7 @@ export class CreateDigitalAssetRequest {
     private 'Authorization'?: string;
     private 'X-Sdk-Date'?: string;
     private 'X-App-UserId'?: string;
+    private 'X-MSS-Authorization'?: string;
     public body?: CreateDigitalAssetRequestBody;
     public constructor() { 
     }
@@ -37,6 +38,16 @@ export class CreateDigitalAssetRequest {
     }
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
+    }
+    public withXMSSAuthorization(xMSSAuthorization: string): CreateDigitalAssetRequest {
+        this['X-MSS-Authorization'] = xMSSAuthorization;
+        return this;
+    }
+    public set xMSSAuthorization(xMSSAuthorization: string  | undefined) {
+        this['X-MSS-Authorization'] = xMSSAuthorization;
+    }
+    public get xMSSAuthorization(): string | undefined {
+        return this['X-MSS-Authorization'];
     }
     public withBody(body: CreateDigitalAssetRequestBody): CreateDigitalAssetRequest {
         this['body'] = body;

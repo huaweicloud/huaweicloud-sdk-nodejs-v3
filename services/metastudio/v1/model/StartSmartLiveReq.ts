@@ -1,6 +1,7 @@
 import { CoStreamerConfig } from './CoStreamerConfig';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { PlayPolicy } from './PlayPolicy';
+import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { VideoConfig } from './VideoConfig';
 
 
@@ -11,6 +12,7 @@ export class StartSmartLiveReq {
     private 'stream_keys'?: Array<string>;
     private 'interaction_callback_url'?: string;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'rtc_callback_config'?: RTCLiveEventCallBackConfig;
     private 'view_mode'?: StartSmartLiveReqViewModeEnum | string;
     private 'co_streamer_config'?: CoStreamerConfig;
     public constructor() { 
@@ -74,6 +76,16 @@ export class StartSmartLiveReq {
     }
     public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
         return this['live_event_callback_config'];
+    }
+    public withRtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig): StartSmartLiveReq {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+        return this;
+    }
+    public set rtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig  | undefined) {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+    }
+    public get rtcCallbackConfig(): RTCLiveEventCallBackConfig | undefined {
+        return this['rtc_callback_config'];
     }
     public withViewMode(viewMode: StartSmartLiveReqViewModeEnum | string): StartSmartLiveReq {
         this['view_mode'] = viewMode;

@@ -93,6 +93,7 @@ import { InstanceConfig } from './model/InstanceConfig';
 import { InstanceConfigResult } from './model/InstanceConfigResult';
 import { InstanceHangingInfos } from './model/InstanceHangingInfos';
 import { IntegerRange } from './model/IntegerRange';
+import { IntervalAlarmActionsV2 } from './model/IntervalAlarmActionsV2';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobRecords } from './model/JobRecords';
 import { LbaasListener } from './model/LbaasListener';

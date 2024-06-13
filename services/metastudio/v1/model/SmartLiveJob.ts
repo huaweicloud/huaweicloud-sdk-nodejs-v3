@@ -2,6 +2,7 @@ import { CoStreamerConfig } from './CoStreamerConfig';
 import { ErrorResponse } from './ErrorResponse';
 import { LiveEventCallBackConfig } from './LiveEventCallBackConfig';
 import { LiveJobLog } from './LiveJobLog';
+import { RTCLiveEventCallBackConfig } from './RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './RTCRoomInfoList';
 
 
@@ -19,6 +20,7 @@ export class SmartLiveJob {
     private 'rtc_room_info'?: RTCRoomInfoList;
     private 'live_event_report_url'?: string;
     private 'live_event_callback_config'?: LiveEventCallBackConfig;
+    private 'rtc_callback_config'?: RTCLiveEventCallBackConfig;
     private 'stream_duration'?: number;
     private 'block_reason'?: string;
     private 'cover_url'?: string;
@@ -143,6 +145,16 @@ export class SmartLiveJob {
     }
     public get liveEventCallbackConfig(): LiveEventCallBackConfig | undefined {
         return this['live_event_callback_config'];
+    }
+    public withRtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig): SmartLiveJob {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+        return this;
+    }
+    public set rtcCallbackConfig(rtcCallbackConfig: RTCLiveEventCallBackConfig  | undefined) {
+        this['rtc_callback_config'] = rtcCallbackConfig;
+    }
+    public get rtcCallbackConfig(): RTCLiveEventCallBackConfig | undefined {
+        return this['rtc_callback_config'];
     }
     public withStreamDuration(streamDuration: number): SmartLiveJob {
         this['stream_duration'] = streamDuration;

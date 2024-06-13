@@ -1,6 +1,6 @@
 import { AssetExtraMeta } from './AssetExtraMeta';
+import { AssetSharedConfig } from './AssetSharedConfig';
 import { ReviewConfig } from './ReviewConfig';
-import { SharedConfig } from './SharedConfig';
 import { SystemProperty } from './SystemProperty';
 
 
@@ -14,7 +14,7 @@ export class UpdateDigitalAssetRequestBody {
     public tags?: Array<string>;
     private 'asset_extra_meta'?: AssetExtraMeta;
     private 'system_properties'?: Array<SystemProperty>;
-    private 'shared_config'?: SharedConfig;
+    private 'shared_config'?: AssetSharedConfig;
     public constructor() { 
     }
     public withAssetName(assetName: string): UpdateDigitalAssetRequestBody {
@@ -101,14 +101,14 @@ export class UpdateDigitalAssetRequestBody {
     public get systemProperties(): Array<SystemProperty> | undefined {
         return this['system_properties'];
     }
-    public withSharedConfig(sharedConfig: SharedConfig): UpdateDigitalAssetRequestBody {
+    public withSharedConfig(sharedConfig: AssetSharedConfig): UpdateDigitalAssetRequestBody {
         this['shared_config'] = sharedConfig;
         return this;
     }
-    public set sharedConfig(sharedConfig: SharedConfig  | undefined) {
+    public set sharedConfig(sharedConfig: AssetSharedConfig  | undefined) {
         this['shared_config'] = sharedConfig;
     }
-    public get sharedConfig(): SharedConfig | undefined {
+    public get sharedConfig(): AssetSharedConfig | undefined {
         return this['shared_config'];
     }
 }

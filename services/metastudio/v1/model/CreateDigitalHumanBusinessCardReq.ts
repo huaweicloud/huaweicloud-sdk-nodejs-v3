@@ -1,5 +1,6 @@
 import { BusinessCardImageConfig } from './BusinessCardImageConfig';
 import { BusinessCardTextConfig } from './BusinessCardTextConfig';
+import { CallBackConfig } from './CallBackConfig';
 import { ReviewConfig } from './ReviewConfig';
 
 
@@ -15,6 +16,7 @@ export class CreateDigitalHumanBusinessCardReq {
     private 'video_asset_name'?: string;
     public gender?: CreateDigitalHumanBusinessCardReqGenderEnum | string;
     private 'review_config'?: ReviewConfig;
+    private 'callback_config'?: CallBackConfig;
     public constructor(businessCardType?: string, cardTempletAssetId?: string, cardTextConfig?: BusinessCardTextConfig, cardImageConfig?: BusinessCardImageConfig) { 
         this['business_card_type'] = businessCardType;
         this['card_templet_asset_id'] = cardTempletAssetId;
@@ -124,6 +126,16 @@ export class CreateDigitalHumanBusinessCardReq {
     }
     public get reviewConfig(): ReviewConfig | undefined {
         return this['review_config'];
+    }
+    public withCallbackConfig(callbackConfig: CallBackConfig): CreateDigitalHumanBusinessCardReq {
+        this['callback_config'] = callbackConfig;
+        return this;
+    }
+    public set callbackConfig(callbackConfig: CallBackConfig  | undefined) {
+        this['callback_config'] = callbackConfig;
+    }
+    public get callbackConfig(): CallBackConfig | undefined {
+        return this['callback_config'];
     }
 }
 

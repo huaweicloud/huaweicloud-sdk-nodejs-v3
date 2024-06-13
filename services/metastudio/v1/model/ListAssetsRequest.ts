@@ -17,6 +17,7 @@ export class ListAssetsRequest {
     private 'asset_state'?: string;
     private 'style_id'?: string;
     private 'render_engine'?: string;
+    private 'asset_id'?: Array<string>;
     public sex?: string;
     public language?: string;
     private 'system_property'?: string;
@@ -24,6 +25,10 @@ export class ListAssetsRequest {
     private 'is_movable'?: boolean;
     private 'voice_provider'?: string;
     public role?: ListAssetsRequestRoleEnum | string;
+    private 'is_realtime_voice'?: boolean;
+    private 'human_model_2d_version'?: string;
+    private 'include_device_name'?: string;
+    private 'exclude_device_name'?: string;
     public constructor() { 
     }
     public withAuthorization(authorization: string): ListAssetsRequest {
@@ -162,6 +167,16 @@ export class ListAssetsRequest {
     public get renderEngine(): string | undefined {
         return this['render_engine'];
     }
+    public withAssetId(assetId: Array<string>): ListAssetsRequest {
+        this['asset_id'] = assetId;
+        return this;
+    }
+    public set assetId(assetId: Array<string>  | undefined) {
+        this['asset_id'] = assetId;
+    }
+    public get assetId(): Array<string> | undefined {
+        return this['asset_id'];
+    }
     public withSex(sex: string): ListAssetsRequest {
         this['sex'] = sex;
         return this;
@@ -213,6 +228,46 @@ export class ListAssetsRequest {
     public withRole(role: ListAssetsRequestRoleEnum | string): ListAssetsRequest {
         this['role'] = role;
         return this;
+    }
+    public withIsRealtimeVoice(isRealtimeVoice: boolean): ListAssetsRequest {
+        this['is_realtime_voice'] = isRealtimeVoice;
+        return this;
+    }
+    public set isRealtimeVoice(isRealtimeVoice: boolean  | undefined) {
+        this['is_realtime_voice'] = isRealtimeVoice;
+    }
+    public get isRealtimeVoice(): boolean | undefined {
+        return this['is_realtime_voice'];
+    }
+    public withHumanModel2dVersion(humanModel2dVersion: string): ListAssetsRequest {
+        this['human_model_2d_version'] = humanModel2dVersion;
+        return this;
+    }
+    public set humanModel2dVersion(humanModel2dVersion: string  | undefined) {
+        this['human_model_2d_version'] = humanModel2dVersion;
+    }
+    public get humanModel2dVersion(): string | undefined {
+        return this['human_model_2d_version'];
+    }
+    public withIncludeDeviceName(includeDeviceName: string): ListAssetsRequest {
+        this['include_device_name'] = includeDeviceName;
+        return this;
+    }
+    public set includeDeviceName(includeDeviceName: string  | undefined) {
+        this['include_device_name'] = includeDeviceName;
+    }
+    public get includeDeviceName(): string | undefined {
+        return this['include_device_name'];
+    }
+    public withExcludeDeviceName(excludeDeviceName: string): ListAssetsRequest {
+        this['exclude_device_name'] = excludeDeviceName;
+        return this;
+    }
+    public set excludeDeviceName(excludeDeviceName: string  | undefined) {
+        this['exclude_device_name'] = excludeDeviceName;
+    }
+    public get excludeDeviceName(): string | undefined {
+        return this['exclude_device_name'];
     }
 }
 

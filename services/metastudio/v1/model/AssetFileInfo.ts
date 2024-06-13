@@ -104,5 +104,6 @@ export enum AssetFileInfoStateEnum {
     DELETING = 'DELETING',
     DELETED = 'DELETED',
     UPLOADED = 'UPLOADED',
-    REVIEW = 'REVIEW'
+    REVIEW = 'REVIEW',
+    BLOCK = 'BLOCK'
 }

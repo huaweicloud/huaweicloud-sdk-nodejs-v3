@@ -2,7 +2,6 @@ import { CpuOptions } from './CpuOptions';
 import { Hypervisor } from './Hypervisor';
 import { ServerAddress } from './ServerAddress';
 import { ServerExtendVolumeAttachment } from './ServerExtendVolumeAttachment';
-import { ServerFault } from './ServerFault';
 import { ServerFlavor } from './ServerFlavor';
 import { ServerImage } from './ServerImage';
 import { ServerSchedulerHints } from './ServerSchedulerHints';
@@ -34,7 +33,7 @@ export class ServerDetail {
     private 'OS-DCF:diskConfig'?: string;
     public accessIPv4?: string;
     public accessIPv6?: string;
-    public fault?: ServerFault;
+    public fault?: object;
     public progress?: number;
     private 'OS-EXT-STS:power_state'?: number;
     private 'config_drive'?: string;
@@ -259,7 +258,7 @@ export class ServerDetail {
         this['accessIPv6'] = accessIPv6;
         return this;
     }
-    public withFault(fault: ServerFault): ServerDetail {
+    public withFault(fault: object): ServerDetail {
         this['fault'] = fault;
         return this;
     }

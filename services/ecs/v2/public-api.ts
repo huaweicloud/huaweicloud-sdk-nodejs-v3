@@ -280,7 +280,6 @@ export * from './model/ServerAttachableQuantity';
 export * from './model/ServerBlockDevice';
 export * from './model/ServerDetail';
 export * from './model/ServerExtendVolumeAttachment';
-export * from './model/ServerFault';
 export * from './model/ServerFlavor';
 export * from './model/ServerGroupMember';
 export * from './model/ServerId';

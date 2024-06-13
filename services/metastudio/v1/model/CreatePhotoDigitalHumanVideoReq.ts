@@ -1,4 +1,5 @@
 import { BackgroundMusicConfig } from './BackgroundMusicConfig';
+import { CallBackConfig } from './CallBackConfig';
 import { OutputAssetConfig } from './OutputAssetConfig';
 import { PhotoVideoConfig } from './PhotoVideoConfig';
 import { ReviewConfig } from './ReviewConfig';
@@ -15,6 +16,7 @@ export class CreatePhotoDigitalHumanVideoReq {
     private 'output_asset_config'?: OutputAssetConfig;
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
+    private 'callback_config'?: CallBackConfig;
     public constructor(humanImage?: string, shootScripts?: Array<ShootScriptItem>, outputAssetConfig?: OutputAssetConfig) { 
         this['human_image'] = humanImage;
         this['shoot_scripts'] = shootScripts;
@@ -99,5 +101,15 @@ export class CreatePhotoDigitalHumanVideoReq {
     }
     public get reviewConfig(): ReviewConfig | undefined {
         return this['review_config'];
+    }
+    public withCallbackConfig(callbackConfig: CallBackConfig): CreatePhotoDigitalHumanVideoReq {
+        this['callback_config'] = callbackConfig;
+        return this;
+    }
+    public set callbackConfig(callbackConfig: CallBackConfig  | undefined) {
+        this['callback_config'] = callbackConfig;
+    }
+    public get callbackConfig(): CallBackConfig | undefined {
+        return this['callback_config'];
     }
 }

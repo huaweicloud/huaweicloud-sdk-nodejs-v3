@@ -45,5 +45,5 @@ export enum UpdatePublicipOptionAssociateInstanceTypeEnum {
     PORT = 'PORT',
     NATGW = 'NATGW',
     ELB = 'ELB',
-    Empty = ''
+    VPN = 'VPN'
 }

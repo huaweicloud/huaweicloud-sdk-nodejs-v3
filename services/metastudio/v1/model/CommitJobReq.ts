@@ -6,7 +6,7 @@ export class CommitJobReq {
     public description?: string;
     public sex?: CommitJobReqSexEnum | string;
     private 'voice_name'?: string;
-    public language?: CommitJobReqLanguageEnum | string;
+    public language?: string;
     public phone?: string;
     private 'app_user_id'?: string;
     public constructor() { 
@@ -33,7 +33,7 @@ export class CommitJobReq {
     public get voiceName(): string | undefined {
         return this['voice_name'];
     }
-    public withLanguage(language: CommitJobReqLanguageEnum | string): CommitJobReq {
+    public withLanguage(language: string): CommitJobReq {
         this['language'] = language;
         return this;
     }
@@ -60,12 +60,4 @@ export class CommitJobReq {
 export enum CommitJobReqSexEnum {
     FEMALE = 'FEMALE',
     MALE = 'MALE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CommitJobReqLanguageEnum {
-    CN = 'CN',
-    EN = 'EN'
 }

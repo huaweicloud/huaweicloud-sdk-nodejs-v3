@@ -4,6 +4,7 @@ export class TargetInstanceBody {
     public id?: string;
     public name?: string;
     public password?: string;
+    private 'task_status'?: string;
     public ip?: string;
     public port?: string;
     public addrs?: string;
@@ -23,6 +24,16 @@ export class TargetInstanceBody {
     public withPassword(password: string): TargetInstanceBody {
         this['password'] = password;
         return this;
+    }
+    public withTaskStatus(taskStatus: string): TargetInstanceBody {
+        this['task_status'] = taskStatus;
+        return this;
+    }
+    public set taskStatus(taskStatus: string  | undefined) {
+        this['task_status'] = taskStatus;
+    }
+    public get taskStatus(): string | undefined {
+        return this['task_status'];
     }
     public withIp(ip: string): TargetInstanceBody {
         this['ip'] = ip;

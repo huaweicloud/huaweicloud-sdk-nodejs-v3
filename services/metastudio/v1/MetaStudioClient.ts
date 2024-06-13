@@ -6,10 +6,11 @@ import FormData from 'form-data';
 import { ActionMarkItem } from './model/ActionMarkItem';
 import { ActiveCodeInfo } from './model/ActiveCodeInfo';
 import { AnimationAssetMeta } from './model/AnimationAssetMeta';
-import { AnimationConfig } from './model/AnimationConfig';
 import { AnimationItem } from './model/AnimationItem';
+import { AssetActionResult } from './model/AssetActionResult';
 import { AssetExtraMeta } from './model/AssetExtraMeta';
 import { AssetFileInfo } from './model/AssetFileInfo';
+import { AssetSharedConfig } from './model/AssetSharedConfig';
 import { AudioAssetMeta } from './model/AudioAssetMeta';
 import { AuditResultAdminAuditResult } from './model/AuditResultAdminAuditResult';
 import { AuditResultSystemAuditResult } from './model/AuditResultSystemAuditResult';
@@ -17,6 +18,9 @@ import { AuditResultSystemAuditResultErrors } from './model/AuditResultSystemAud
 import { AuditionFile } from './model/AuditionFile';
 import { BackgroundConfigInfo } from './model/BackgroundConfigInfo';
 import { BackgroundMusicConfig } from './model/BackgroundMusicConfig';
+import { BatchAssetActionReq } from './model/BatchAssetActionReq';
+import { BatchExecuteAssetActionRequest } from './model/BatchExecuteAssetActionRequest';
+import { BatchExecuteAssetActionResponse } from './model/BatchExecuteAssetActionResponse';
 import { BusinessCardImageConfig } from './model/BusinessCardImageConfig';
 import { BusinessCardImageUrl } from './model/BusinessCardImageUrl';
 import { BusinessCardTextConfig } from './model/BusinessCardTextConfig';
@@ -54,8 +58,8 @@ import { CreateActiveCodeRequest } from './model/CreateActiveCodeRequest';
 import { CreateActiveCodeResponse } from './model/CreateActiveCodeResponse';
 import { CreateAgencyWithRoleTypeRequest } from './model/CreateAgencyWithRoleTypeRequest';
 import { CreateAgencyWithRoleTypeResponse } from './model/CreateAgencyWithRoleTypeResponse';
-import { CreateAssetbyReplicationInfoRequest } from './model/CreateAssetbyReplicationInfoRequest';
-import { CreateAssetbyReplicationInfoResponse } from './model/CreateAssetbyReplicationInfoResponse';
+import { CreateAssetByReplicationInfoRequest } from './model/CreateAssetByReplicationInfoRequest';
+import { CreateAssetByReplicationInfoResponse } from './model/CreateAssetByReplicationInfoResponse';
 import { CreateBatchKnowledgeQuestionReq } from './model/CreateBatchKnowledgeQuestionReq';
 import { CreateBatchKnowledgeQuestionRequest } from './model/CreateBatchKnowledgeQuestionRequest';
 import { CreateBatchKnowledgeQuestionResponse } from './model/CreateBatchKnowledgeQuestionResponse';
@@ -109,6 +113,9 @@ import { CreatePictureModelingByUrlJobResponse } from './model/CreatePictureMode
 import { CreatePictureModelingJobRequest } from './model/CreatePictureModelingJobRequest';
 import { CreatePictureModelingJobRequestBody } from './model/CreatePictureModelingJobRequestBody';
 import { CreatePictureModelingJobResponse } from './model/CreatePictureModelingJobResponse';
+import { CreateProductRequest } from './model/CreateProductRequest';
+import { CreateProductRequestBody } from './model/CreateProductRequestBody';
+import { CreateProductResponse } from './model/CreateProductResponse';
 import { CreateRobotReq } from './model/CreateRobotReq';
 import { CreateRobotRequest } from './model/CreateRobotRequest';
 import { CreateRobotResponse } from './model/CreateRobotResponse';
@@ -167,6 +174,8 @@ import { DeleteKnowledgeQuestionRequest } from './model/DeleteKnowledgeQuestionR
 import { DeleteKnowledgeQuestionResponse } from './model/DeleteKnowledgeQuestionResponse';
 import { DeleteKnowledgeSkillRequest } from './model/DeleteKnowledgeSkillRequest';
 import { DeleteKnowledgeSkillResponse } from './model/DeleteKnowledgeSkillResponse';
+import { DeleteProductRequest } from './model/DeleteProductRequest';
+import { DeleteProductResponse } from './model/DeleteProductResponse';
 import { DeleteRobotRequest } from './model/DeleteRobotRequest';
 import { DeleteRobotResponse } from './model/DeleteRobotResponse';
 import { DeleteSmartChatRoomRequest } from './model/DeleteSmartChatRoomRequest';
@@ -184,7 +193,6 @@ import { DigitalAssetSummary } from './model/DigitalAssetSummary';
 import { DigitalHumanBusinessCardJobInfo } from './model/DigitalHumanBusinessCardJobInfo';
 import { DigitalHumanModelingJobInfo } from './model/DigitalHumanModelingJobInfo';
 import { DigitalHumanVideo } from './model/DigitalHumanVideo';
-import { EmotionConfig } from './model/EmotionConfig';
 import { ErrorResponse } from './model/ErrorResponse';
 import { Execute2dModelTrainingCommandByUserReq } from './model/Execute2dModelTrainingCommandByUserReq';
 import { Execute2dModelTrainingCommandByUserRequest } from './model/Execute2dModelTrainingCommandByUserRequest';
@@ -260,6 +268,8 @@ import { ListKnowledgeSkillRequest } from './model/ListKnowledgeSkillRequest';
 import { ListKnowledgeSkillResponse } from './model/ListKnowledgeSkillResponse';
 import { ListPictureModelingJobsRequest } from './model/ListPictureModelingJobsRequest';
 import { ListPictureModelingJobsResponse } from './model/ListPictureModelingJobsResponse';
+import { ListProductsRequest } from './model/ListProductsRequest';
+import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListRobotRequest } from './model/ListRobotRequest';
 import { ListRobotResponse } from './model/ListRobotResponse';
 import { ListSmartChatRoomsRequest } from './model/ListSmartChatRoomsRequest';
@@ -290,13 +300,13 @@ import { LiveEventCallBackConfig } from './model/LiveEventCallBackConfig';
 import { LiveEventReportRequest } from './model/LiveEventReportRequest';
 import { LiveEventReportResponse } from './model/LiveEventReportResponse';
 import { LiveJobLog } from './model/LiveJobLog';
+import { LiveRoomInteractionRuleInfo } from './model/LiveRoomInteractionRuleInfo';
 import { LiveShootScriptItem } from './model/LiveShootScriptItem';
 import { LiveVideoScriptInfo } from './model/LiveVideoScriptInfo';
 import { LiveWarningItem } from './model/LiveWarningItem';
 import { MaterialAssetMeta } from './model/MaterialAssetMeta';
 import { MaterialComponentInfo } from './model/MaterialComponentInfo';
 import { MobvoiConfig } from './model/MobvoiConfig';
-import { MobvoiVoiceAssetMeta } from './model/MobvoiVoiceAssetMeta';
 import { ModelInfo } from './model/ModelInfo';
 import { MotionItem } from './model/MotionItem';
 import { MultipartUploadInfo } from './model/MultipartUploadInfo';
@@ -311,6 +321,15 @@ import { PhotoVideoConfig } from './model/PhotoVideoConfig';
 import { PictureModelingByUrlReq } from './model/PictureModelingByUrlReq';
 import { PictureModelingInfo } from './model/PictureModelingInfo';
 import { PlayPolicy } from './model/PlayPolicy';
+import { ProductAssetReleation } from './model/ProductAssetReleation';
+import { ProductBasicInfo } from './model/ProductBasicInfo';
+import { ProductCoverDetailInfo } from './model/ProductCoverDetailInfo';
+import { ProductCoverInfo } from './model/ProductCoverInfo';
+import { ProductDetailInfo } from './model/ProductDetailInfo';
+import { ProductMediaDetailInfo } from './model/ProductMediaDetailInfo';
+import { ProductMediaInfo } from './model/ProductMediaInfo';
+import { ProductTextInfo } from './model/ProductTextInfo';
+import { RTCLiveEventCallBackConfig } from './model/RTCLiveEventCallBackConfig';
 import { RTCRoomInfoList } from './model/RTCRoomInfoList';
 import { RTCUserInfo } from './model/RTCUserInfo';
 import { ReplicationAssetInfo } from './model/ReplicationAssetInfo';
@@ -325,6 +344,8 @@ import { ReviewConfig } from './model/ReviewConfig';
 import { RobotInfo } from './model/RobotInfo';
 import { SceneAssetMeta } from './model/SceneAssetMeta';
 import { SceneComponentInfo } from './model/SceneComponentInfo';
+import { SetProductAssetRequest } from './model/SetProductAssetRequest';
+import { SetProductAssetResponse } from './model/SetProductAssetResponse';
 import { SharedConfig } from './model/SharedConfig';
 import { ShootScript } from './model/ShootScript';
 import { ShootScriptAudioFileItem } from './model/ShootScriptAudioFileItem';
@@ -371,6 +392,8 @@ import { ShowPhotoDigitalHumanVideoRequest } from './model/ShowPhotoDigitalHuman
 import { ShowPhotoDigitalHumanVideoResponse } from './model/ShowPhotoDigitalHumanVideoResponse';
 import { ShowPictureModelingJobRequest } from './model/ShowPictureModelingJobRequest';
 import { ShowPictureModelingJobResponse } from './model/ShowPictureModelingJobResponse';
+import { ShowProductRequest } from './model/ShowProductRequest';
+import { ShowProductResponse } from './model/ShowProductResponse';
 import { ShowRobotRequest } from './model/ShowRobotRequest';
 import { ShowRobotResponse } from './model/ShowRobotResponse';
 import { ShowSmartChatJobRequest } from './model/ShowSmartChatJobRequest';
@@ -459,6 +482,9 @@ import { UpdateKnowledgeQuestionResponse } from './model/UpdateKnowledgeQuestion
 import { UpdateKnowledgeSkillReq } from './model/UpdateKnowledgeSkillReq';
 import { UpdateKnowledgeSkillRequest } from './model/UpdateKnowledgeSkillRequest';
 import { UpdateKnowledgeSkillResponse } from './model/UpdateKnowledgeSkillResponse';
+import { UpdateProductRequest } from './model/UpdateProductRequest';
+import { UpdateProductRequestBody } from './model/UpdateProductRequestBody';
+import { UpdateProductResponse } from './model/UpdateProductResponse';
 import { UpdateRobotReq } from './model/UpdateRobotReq';
 import { UpdateRobotRequest } from './model/UpdateRobotRequest';
 import { UpdateRobotResponse } from './model/UpdateRobotResponse';
@@ -485,6 +511,7 @@ import { VideoScriptBaseInfo } from './model/VideoScriptBaseInfo';
 import { VideoScriptsCreateInfo } from './model/VideoScriptsCreateInfo';
 import { VideoScriptsShowInfo } from './model/VideoScriptsShowInfo';
 import { VideoScriptsSimpleInfo } from './model/VideoScriptsSimpleInfo';
+import { VoiceCapability } from './model/VoiceCapability';
 import { VoiceConfig } from './model/VoiceConfig';
 import { VoiceModelAssetMeta } from './model/VoiceModelAssetMeta';
 import { WelcomeSpeechInfo } from './model/WelcomeSpeechInfo';
@@ -798,6 +825,28 @@ export class MetaStudioClient {
     }
 
     /**
+     * 该接口用批量资产操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量资产操作
+     * @param {BatchAssetActionReq} batchExecuteAssetActionRequestBody 资产批量操作命令
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchExecuteAssetAction(batchExecuteAssetActionRequest?: BatchExecuteAssetActionRequest): Promise<BatchExecuteAssetActionResponse> {
+        const options = ParamCreater().batchExecuteAssetAction(batchExecuteAssetActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于在Region B复制Region A的指定资产。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -806,12 +855,12 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {ReplicationAssetInfo} [createAssetbyReplicationInfoRequestBody] 资产复制信息
+     * @param {ReplicationAssetInfo} [createAssetByReplicationInfoRequestBody] 资产复制信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest?: CreateAssetbyReplicationInfoRequest): Promise<CreateAssetbyReplicationInfoResponse> {
-        const options = ParamCreater().createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest);
+    public createAssetByReplicationInfo(createAssetByReplicationInfoRequest?: CreateAssetByReplicationInfoRequest): Promise<CreateAssetByReplicationInfoResponse> {
+        const options = ParamCreater().createAssetByReplicationInfo(createAssetByReplicationInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -832,6 +881,7 @@ export class MetaStudioClient {
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {string} [xMSSAuthorization] 数字人内部token
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -910,6 +960,7 @@ export class MetaStudioClient {
      * @param {string} [assetState] 资产状态。多个资产状态使用英文逗号分割。 * CREATING：资产创建中，主文件尚未上传 * FAILED：主文件上传失败 * UNACTIVED：主文件上传成功，资产未激活，资产不可用于其他业务（用户可更新状态） * ACTIVED：主文件上传成功，资产激活，资产可用于其他业务（用户可更新状态） * DELETING：资产删除中，资产不可用，资产可恢复 * DELETED：资产文件已删除，资产不可用，资产不可恢复 * BLOCK：资产被冻结，资产不可用，不可查看文件。 默认查询所有状态的资产。
      * @param {string} [styleId] 基于风格化ID查询关联资产。 * system_male_001：男性风格01 * system_female_001：女性风格01 * system_male_002：男性风格02  * system_female_002：女性风格02
      * @param {string} [renderEngine] 可用引擎。 * UE：UE引擎 * MetaEngine：MetaEngine引擎 &gt; 该字段当前只对MetaEngine白名单用户生效
+     * @param {Array<string>} [assetId] 资产id
      * @param {string} [sex] 性别。多选使用英文逗号分隔。
      * @param {string} [language] 语言。多选使用英文逗号分隔。
      * @param {string} [systemProperty] 系统属性。  key和value间用\&quot;:\&quot;分隔，多个key之间用\&quot;,\&quot;分隔。  如system_property&#x3D;BACKGROUND_IMG:Yes,RENDER_ENGINE:MetaEngine。  不同Key对应Value取值如下：  公共资产属性： * BACKGROUND_IMG：视频制作的2D背景图片，可取值Yes * CREATED_BY_PLATFORM：是否平台生成，可取值Yes  分身数字人资产属性： * MATERIAL_IMG：素材图片，用作前景。可取值Yes * MATERIAL_VIDEO：素材视频，用作前景。可取值Yes * TO_BE_TRANSLATED_VIDEO: 视频翻译的源视频。可取值Yes  3D数字人资产属性： * STYLE_ID：风格Id * RENDER_ENGINE：引擎类型，可取值UE或MetaEngine * BACKGROUND_SCENE：视频制作的2D背景场景，可取值Horizontal（横屏）或者Vertical（竖屏）
@@ -917,6 +968,10 @@ export class MetaStudioClient {
      * @param {boolean} [isMovable] 分身数字人是否支持走动。仅在分身数字人模型查询时有效。
      * @param {string} [voiceProvider] 取值：HUAWEI_METASTUDIO、MOBVOI。 HUAWEI_METASTUDIO：MetaStudio自研音色 MOBVOI：出门问问音色
      * @param {'SHARER' | 'SHAREE'} [role] 角色。 SHARER：共享方，SHAREE：被共享方
+     * @param {boolean} [isRealtimeVoice] 音色是否支持实时合成。仅在音色查询时有效。 &gt; * 支持实时合成的音色，可以用于直播和智能交互场景。否则只能用于视频制作。
+     * @param {string} [humanModel2dVersion] 模型版本
+     * @param {string} [includeDeviceName] 资产已执行的任务名称
+     * @param {string} [excludeDeviceName] 资产已执行的任务名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2297,6 +2352,154 @@ export class MetaStudioClient {
      */
     public showPictureModelingJob(showPictureModelingJobRequest?: ShowPictureModelingJobRequest): Promise<ShowPictureModelingJobResponse> {
         const options = ParamCreater().showPictureModelingJob(showPictureModelingJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create product
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建商品
+     * @param {CreateProductRequestBody} createProductRequestBody 创建商品定义
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProduct(createProductRequest?: CreateProductRequest): Promise<CreateProductResponse> {
+        const options = ParamCreater().createProduct(createProductRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除商品
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除商品
+     * @param {string} productId 商品ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProduct(deleteProductRequest?: DeleteProductRequest): Promise<DeleteProductResponse> {
+        const options = ParamCreater().deleteProduct(deleteProductRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询商品列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询商品列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
+     * @param {number} [limit] 每页显示的条目数量。
+     * @param {string} [sortKey] 排序字段，目前只支持create_time。
+     * @param {string} [sortDir] 排序方式。 * asc：升序 * desc：降序  默认asc升序。
+     * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
+     * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
+     * @param {string} [name] 按名称模糊查询。
+     * @param {string} [tag] 按标签模糊查询。
+     * @param {string} [state] 按状态查询，多状态使用英文逗号分割。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProducts(listProductsRequest?: ListProductsRequest): Promise<ListProductsResponse> {
+        const options = ParamCreater().listProducts(listProductsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 商品资产组合配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 商品资产组合配置
+     * @param {string} productId 商品ID。
+     * @param {ProductAssetReleation} setProductAssetRequestBody 设置商品资产
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setProductAsset(setProductAssetRequest?: SetProductAssetRequest): Promise<SetProductAssetResponse> {
+        const options = ParamCreater().setProductAsset(setProductAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Show product
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询商品详情
+     * @param {string} productId 商品ID。
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProduct(showProductRequest?: ShowProductRequest): Promise<ShowProductResponse> {
+        const options = ParamCreater().showProduct(showProductRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Update product
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新商品
+     * @param {string} productId 商品ID。
+     * @param {UpdateProductRequestBody} updateProductRequestBody 更新商品
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
+     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
+     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProduct(updateProductRequest?: UpdateProductRequest): Promise<UpdateProductResponse> {
+        const options = ParamCreater().updateProduct(updateProductRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -4790,11 +4993,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用批量资产操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchExecuteAssetAction(batchExecuteAssetActionRequest?: BatchExecuteAssetActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/digital-assets/batch-action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xAppUserId;
+
+            if (batchExecuteAssetActionRequest !== null && batchExecuteAssetActionRequest !== undefined) {
+                if (batchExecuteAssetActionRequest instanceof BatchExecuteAssetActionRequest) {
+                    body = batchExecuteAssetActionRequest.body
+                    authorization = batchExecuteAssetActionRequest.authorization;
+                    xSdkDate = batchExecuteAssetActionRequest.xSdkDate;
+                    xAppUserId = batchExecuteAssetActionRequest.xAppUserId;
+                } else {
+                    body = batchExecuteAssetActionRequest['body'];
+                    authorization = batchExecuteAssetActionRequest['Authorization'];
+                    xSdkDate = batchExecuteAssetActionRequest['X-Sdk-Date'];
+                    xAppUserId = batchExecuteAssetActionRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于在Region B复制Region A的指定资产。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createAssetbyReplicationInfo(createAssetbyReplicationInfoRequest?: CreateAssetbyReplicationInfoRequest) {
+        createAssetByReplicationInfo(createAssetByReplicationInfoRequest?: CreateAssetByReplicationInfoRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/digital-assets-by-replication-info",
@@ -4814,17 +5076,17 @@ export const ParamCreater = function () {
             
             let xAppUserId;
 
-            if (createAssetbyReplicationInfoRequest !== null && createAssetbyReplicationInfoRequest !== undefined) {
-                if (createAssetbyReplicationInfoRequest instanceof CreateAssetbyReplicationInfoRequest) {
-                    authorization = createAssetbyReplicationInfoRequest.authorization;
-                    xSdkDate = createAssetbyReplicationInfoRequest.xSdkDate;
-                    xAppUserId = createAssetbyReplicationInfoRequest.xAppUserId;
-                    body = createAssetbyReplicationInfoRequest.body
+            if (createAssetByReplicationInfoRequest !== null && createAssetByReplicationInfoRequest !== undefined) {
+                if (createAssetByReplicationInfoRequest instanceof CreateAssetByReplicationInfoRequest) {
+                    authorization = createAssetByReplicationInfoRequest.authorization;
+                    xSdkDate = createAssetByReplicationInfoRequest.xSdkDate;
+                    xAppUserId = createAssetByReplicationInfoRequest.xAppUserId;
+                    body = createAssetByReplicationInfoRequest.body
                 } else {
-                    authorization = createAssetbyReplicationInfoRequest['Authorization'];
-                    xSdkDate = createAssetbyReplicationInfoRequest['X-Sdk-Date'];
-                    xAppUserId = createAssetbyReplicationInfoRequest['X-App-UserId'];
-                    body = createAssetbyReplicationInfoRequest['body'];
+                    authorization = createAssetByReplicationInfoRequest['Authorization'];
+                    xSdkDate = createAssetByReplicationInfoRequest['X-Sdk-Date'];
+                    xAppUserId = createAssetByReplicationInfoRequest['X-App-UserId'];
+                    body = createAssetByReplicationInfoRequest['body'];
                 }
             }
 
@@ -4872,6 +5134,8 @@ export const ParamCreater = function () {
             let xSdkDate;
             
             let xAppUserId;
+            
+            let xMSSAuthorization;
 
             if (createDigitalAssetRequest !== null && createDigitalAssetRequest !== undefined) {
                 if (createDigitalAssetRequest instanceof CreateDigitalAssetRequest) {
@@ -4879,11 +5143,13 @@ export const ParamCreater = function () {
                     authorization = createDigitalAssetRequest.authorization;
                     xSdkDate = createDigitalAssetRequest.xSdkDate;
                     xAppUserId = createDigitalAssetRequest.xAppUserId;
+                    xMSSAuthorization = createDigitalAssetRequest.xMSSAuthorization;
                 } else {
                     body = createDigitalAssetRequest['body'];
                     authorization = createDigitalAssetRequest['Authorization'];
                     xSdkDate = createDigitalAssetRequest['X-Sdk-Date'];
                     xAppUserId = createDigitalAssetRequest['X-App-UserId'];
+                    xMSSAuthorization = createDigitalAssetRequest['X-MSS-Authorization'];
                 }
             }
 
@@ -4899,6 +5165,9 @@ export const ParamCreater = function () {
             }
             if (xAppUserId !== undefined && xAppUserId !== null) {
                 localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            if (xMSSAuthorization !== undefined && xMSSAuthorization !== null) {
+                localVarHeaderParameter['X-MSS-Authorization'] = String(xMSSAuthorization);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -5074,6 +5343,8 @@ export const ParamCreater = function () {
             
             let renderEngine;
             
+            let assetId;
+            
             let sex;
             
             let language;
@@ -5087,6 +5358,14 @@ export const ParamCreater = function () {
             let voiceProvider;
             
             let role;
+            
+            let isRealtimeVoice;
+            
+            let humanModel2dVersion;
+            
+            let includeDeviceName;
+            
+            let excludeDeviceName;
 
             if (listAssetsRequest !== null && listAssetsRequest !== undefined) {
                 if (listAssetsRequest instanceof ListAssetsRequest) {
@@ -5106,6 +5385,7 @@ export const ParamCreater = function () {
                     assetState = listAssetsRequest.assetState;
                     styleId = listAssetsRequest.styleId;
                     renderEngine = listAssetsRequest.renderEngine;
+                    assetId = listAssetsRequest.assetId;
                     sex = listAssetsRequest.sex;
                     language = listAssetsRequest.language;
                     systemProperty = listAssetsRequest.systemProperty;
@@ -5113,6 +5393,10 @@ export const ParamCreater = function () {
                     isMovable = listAssetsRequest.isMovable;
                     voiceProvider = listAssetsRequest.voiceProvider;
                     role = listAssetsRequest.role;
+                    isRealtimeVoice = listAssetsRequest.isRealtimeVoice;
+                    humanModel2dVersion = listAssetsRequest.humanModel2dVersion;
+                    includeDeviceName = listAssetsRequest.includeDeviceName;
+                    excludeDeviceName = listAssetsRequest.excludeDeviceName;
                 } else {
                     authorization = listAssetsRequest['Authorization'];
                     xSdkDate = listAssetsRequest['X-Sdk-Date'];
@@ -5130,6 +5414,7 @@ export const ParamCreater = function () {
                     assetState = listAssetsRequest['asset_state'];
                     styleId = listAssetsRequest['style_id'];
                     renderEngine = listAssetsRequest['render_engine'];
+                    assetId = listAssetsRequest['asset_id'];
                     sex = listAssetsRequest['sex'];
                     language = listAssetsRequest['language'];
                     systemProperty = listAssetsRequest['system_property'];
@@ -5137,6 +5422,10 @@ export const ParamCreater = function () {
                     isMovable = listAssetsRequest['is_movable'];
                     voiceProvider = listAssetsRequest['voice_provider'];
                     role = listAssetsRequest['role'];
+                    isRealtimeVoice = listAssetsRequest['is_realtime_voice'];
+                    humanModel2dVersion = listAssetsRequest['human_model_2d_version'];
+                    includeDeviceName = listAssetsRequest['include_device_name'];
+                    excludeDeviceName = listAssetsRequest['exclude_device_name'];
                 }
             }
 
@@ -5180,6 +5469,9 @@ export const ParamCreater = function () {
             if (renderEngine !== null && renderEngine !== undefined) {
                 localVarQueryParameter['render_engine'] = renderEngine;
             }
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
+            }
             if (sex !== null && sex !== undefined) {
                 localVarQueryParameter['sex'] = sex;
             }
@@ -5200,6 +5492,18 @@ export const ParamCreater = function () {
             }
             if (role !== null && role !== undefined) {
                 localVarQueryParameter['role'] = role;
+            }
+            if (isRealtimeVoice !== null && isRealtimeVoice !== undefined) {
+                localVarQueryParameter['is_realtime_voice'] = isRealtimeVoice;
+            }
+            if (humanModel2dVersion !== null && humanModel2dVersion !== undefined) {
+                localVarQueryParameter['human_model_2d_version'] = humanModel2dVersion;
+            }
+            if (includeDeviceName !== null && includeDeviceName !== undefined) {
+                localVarQueryParameter['include_device_name'] = includeDeviceName;
+            }
+            if (excludeDeviceName !== null && excludeDeviceName !== undefined) {
+                localVarQueryParameter['exclude_device_name'] = excludeDeviceName;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -9331,6 +9635,471 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create product
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProduct(createProductRequest?: CreateProductRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/products",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (createProductRequest !== null && createProductRequest !== undefined) {
+                if (createProductRequest instanceof CreateProductRequest) {
+                    body = createProductRequest.body
+                    authorization = createProductRequest.authorization;
+                    xSdkDate = createProductRequest.xSdkDate;
+                    xProjectId = createProductRequest.xProjectId;
+                    xAppUserId = createProductRequest.xAppUserId;
+                } else {
+                    body = createProductRequest['body'];
+                    authorization = createProductRequest['Authorization'];
+                    xSdkDate = createProductRequest['X-Sdk-Date'];
+                    xProjectId = createProductRequest['X-Project-Id'];
+                    xAppUserId = createProductRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除商品
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProduct(deleteProductRequest?: DeleteProductRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/products/{product_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let productId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (deleteProductRequest !== null && deleteProductRequest !== undefined) {
+                if (deleteProductRequest instanceof DeleteProductRequest) {
+                    productId = deleteProductRequest.productId;
+                    authorization = deleteProductRequest.authorization;
+                    xSdkDate = deleteProductRequest.xSdkDate;
+                    xProjectId = deleteProductRequest.xProjectId;
+                    xAppUserId = deleteProductRequest.xAppUserId;
+                } else {
+                    productId = deleteProductRequest['product_id'];
+                    authorization = deleteProductRequest['Authorization'];
+                    xSdkDate = deleteProductRequest['X-Sdk-Date'];
+                    xProjectId = deleteProductRequest['X-Project-Id'];
+                    xAppUserId = deleteProductRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (productId === null || productId === undefined) {
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling deleteProduct.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'product_id': productId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询商品列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProducts(listProductsRequest?: ListProductsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/products",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let createUntil;
+            
+            let createSince;
+            
+            let name;
+            
+            let tag;
+            
+            let state;
+
+            if (listProductsRequest !== null && listProductsRequest !== undefined) {
+                if (listProductsRequest instanceof ListProductsRequest) {
+                    authorization = listProductsRequest.authorization;
+                    xSdkDate = listProductsRequest.xSdkDate;
+                    xProjectId = listProductsRequest.xProjectId;
+                    xAppUserId = listProductsRequest.xAppUserId;
+                    offset = listProductsRequest.offset;
+                    limit = listProductsRequest.limit;
+                    sortKey = listProductsRequest.sortKey;
+                    sortDir = listProductsRequest.sortDir;
+                    createUntil = listProductsRequest.createUntil;
+                    createSince = listProductsRequest.createSince;
+                    name = listProductsRequest.name;
+                    tag = listProductsRequest.tag;
+                    state = listProductsRequest.state;
+                } else {
+                    authorization = listProductsRequest['Authorization'];
+                    xSdkDate = listProductsRequest['X-Sdk-Date'];
+                    xProjectId = listProductsRequest['X-Project-Id'];
+                    xAppUserId = listProductsRequest['X-App-UserId'];
+                    offset = listProductsRequest['offset'];
+                    limit = listProductsRequest['limit'];
+                    sortKey = listProductsRequest['sort_key'];
+                    sortDir = listProductsRequest['sort_dir'];
+                    createUntil = listProductsRequest['create_until'];
+                    createSince = listProductsRequest['create_since'];
+                    name = listProductsRequest['name'];
+                    tag = listProductsRequest['tag'];
+                    state = listProductsRequest['state'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 商品资产组合配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setProductAsset(setProductAssetRequest?: SetProductAssetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/products/{product_id}/assets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let productId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (setProductAssetRequest !== null && setProductAssetRequest !== undefined) {
+                if (setProductAssetRequest instanceof SetProductAssetRequest) {
+                    productId = setProductAssetRequest.productId;
+                    body = setProductAssetRequest.body
+                    authorization = setProductAssetRequest.authorization;
+                    xSdkDate = setProductAssetRequest.xSdkDate;
+                    xProjectId = setProductAssetRequest.xProjectId;
+                    xAppUserId = setProductAssetRequest.xAppUserId;
+                } else {
+                    productId = setProductAssetRequest['product_id'];
+                    body = setProductAssetRequest['body'];
+                    authorization = setProductAssetRequest['Authorization'];
+                    xSdkDate = setProductAssetRequest['X-Sdk-Date'];
+                    xProjectId = setProductAssetRequest['X-Project-Id'];
+                    xAppUserId = setProductAssetRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (productId === null || productId === undefined) {
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling setProductAsset.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'product_id': productId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Show product
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProduct(showProductRequest?: ShowProductRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/products/{product_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let productId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (showProductRequest !== null && showProductRequest !== undefined) {
+                if (showProductRequest instanceof ShowProductRequest) {
+                    productId = showProductRequest.productId;
+                    authorization = showProductRequest.authorization;
+                    xSdkDate = showProductRequest.xSdkDate;
+                    xProjectId = showProductRequest.xProjectId;
+                    xAppUserId = showProductRequest.xAppUserId;
+                } else {
+                    productId = showProductRequest['product_id'];
+                    authorization = showProductRequest['Authorization'];
+                    xSdkDate = showProductRequest['X-Sdk-Date'];
+                    xProjectId = showProductRequest['X-Project-Id'];
+                    xAppUserId = showProductRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (productId === null || productId === undefined) {
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling showProduct.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+
+            options.pathParams = { 'product_id': productId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Update product
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProduct(updateProductRequest?: UpdateProductRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/products/{product_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let productId;
+            
+            let authorization;
+            
+            let xSdkDate;
+            
+            let xProjectId;
+            
+            let xAppUserId;
+
+            if (updateProductRequest !== null && updateProductRequest !== undefined) {
+                if (updateProductRequest instanceof UpdateProductRequest) {
+                    productId = updateProductRequest.productId;
+                    body = updateProductRequest.body
+                    authorization = updateProductRequest.authorization;
+                    xSdkDate = updateProductRequest.xSdkDate;
+                    xProjectId = updateProductRequest.xProjectId;
+                    xAppUserId = updateProductRequest.xAppUserId;
+                } else {
+                    productId = updateProductRequest['product_id'];
+                    body = updateProductRequest['body'];
+                    authorization = updateProductRequest['Authorization'];
+                    xSdkDate = updateProductRequest['X-Sdk-Date'];
+                    xProjectId = updateProductRequest['X-Project-Id'];
+                    xAppUserId = updateProductRequest['X-App-UserId'];
+                }
+            }
+
+        
+            if (productId === null || productId === undefined) {
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling updateProduct.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (xAppUserId !== undefined && xAppUserId !== null) {
+                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'product_id': productId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

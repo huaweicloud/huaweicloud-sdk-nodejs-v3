@@ -7,7 +7,7 @@ export class CreateTrainingJobReq {
     public description?: string;
     public sex?: CreateTrainingJobReqSexEnum | string;
     private 'voice_name'?: string;
-    public language?: CreateTrainingJobReqLanguageEnum | string;
+    public language?: string;
     private 'create_type'?: CreateType;
     public phone?: string;
     public constructor(voiceName?: string) { 
@@ -35,7 +35,7 @@ export class CreateTrainingJobReq {
     public get voiceName(): string | undefined {
         return this['voice_name'];
     }
-    public withLanguage(language: CreateTrainingJobReqLanguageEnum | string): CreateTrainingJobReq {
+    public withLanguage(language: string): CreateTrainingJobReq {
         this['language'] = language;
         return this;
     }
@@ -62,12 +62,4 @@ export class CreateTrainingJobReq {
 export enum CreateTrainingJobReqSexEnum {
     FEMALE = 'FEMALE',
     MALE = 'MALE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateTrainingJobReqLanguageEnum {
-    CN = 'CN',
-    EN = 'EN'
 }

@@ -5,6 +5,7 @@ import { SystemProperty } from './SystemProperty';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateDigitalAssetResponse extends SdkResponse {
+    private 'project_id'?: string;
     private 'asset_id'?: string;
     private 'asset_name'?: string;
     private 'asset_description'?: string;
@@ -22,6 +23,16 @@ export class UpdateDigitalAssetResponse extends SdkResponse {
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
+    }
+    public withProjectId(projectId: string): UpdateDigitalAssetResponse {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withAssetId(assetId: string): UpdateDigitalAssetResponse {
         this['asset_id'] = assetId;

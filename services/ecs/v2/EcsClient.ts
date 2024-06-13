@@ -282,7 +282,6 @@ import { ServerAttachableQuantity } from './model/ServerAttachableQuantity';
 import { ServerBlockDevice } from './model/ServerBlockDevice';
 import { ServerDetail } from './model/ServerDetail';
 import { ServerExtendVolumeAttachment } from './model/ServerExtendVolumeAttachment';
-import { ServerFault } from './model/ServerFault';
 import { ServerFlavor } from './model/ServerFlavor';
 import { ServerGroupMember } from './model/ServerGroupMember';
 import { ServerId } from './model/ServerId';

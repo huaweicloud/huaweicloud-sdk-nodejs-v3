@@ -26,6 +26,9 @@ import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirew
 import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
 import { BatchCreateClouddcnSubnetsTagsRequest } from './model/BatchCreateClouddcnSubnetsTagsRequest';
 import { BatchCreateClouddcnSubnetsTagsResponse } from './model/BatchCreateClouddcnSubnetsTagsResponse';
+import { BatchCreateFirewallTagsRequest } from './model/BatchCreateFirewallTagsRequest';
+import { BatchCreateFirewallTagsRequestBody } from './model/BatchCreateFirewallTagsRequestBody';
+import { BatchCreateFirewallTagsResponse } from './model/BatchCreateFirewallTagsResponse';
 import { BatchCreateRequestBody } from './model/BatchCreateRequestBody';
 import { BatchCreateRequestBodySysTags } from './model/BatchCreateRequestBodySysTags';
 import { BatchCreateRequestBodyTags } from './model/BatchCreateRequestBodyTags';
@@ -39,12 +42,18 @@ import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSu
 import { BatchCreateSubNetworkInterfaceResponse } from './model/BatchCreateSubNetworkInterfaceResponse';
 import { BatchDeleteClouddcnSubnetsTagsRequest } from './model/BatchDeleteClouddcnSubnetsTagsRequest';
 import { BatchDeleteClouddcnSubnetsTagsResponse } from './model/BatchDeleteClouddcnSubnetsTagsResponse';
+import { BatchDeleteFirewallTagsRequest } from './model/BatchDeleteFirewallTagsRequest';
+import { BatchDeleteFirewallTagsRequestBody } from './model/BatchDeleteFirewallTagsRequestBody';
+import { BatchDeleteFirewallTagsResponse } from './model/BatchDeleteFirewallTagsResponse';
 import { BatchDeleteRequestBody } from './model/BatchDeleteRequestBody';
 import { BatchDeleteRequestBodySysTags } from './model/BatchDeleteRequestBodySysTags';
 import { BatchDeleteRequestBodyTags } from './model/BatchDeleteRequestBodyTags';
 import { CloudResource } from './model/CloudResource';
 import { ClouddcnResource } from './model/ClouddcnResource';
 import { ClouddcnSubnet } from './model/ClouddcnSubnet';
+import { CountFirewallsByTagsRequest } from './model/CountFirewallsByTagsRequest';
+import { CountFirewallsByTagsRequestBody } from './model/CountFirewallsByTagsRequestBody';
+import { CountFirewallsByTagsResponse } from './model/CountFirewallsByTagsResponse';
 import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
 import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
 import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
@@ -57,6 +66,9 @@ import { CreateFirewallOption } from './model/CreateFirewallOption';
 import { CreateFirewallRequest } from './model/CreateFirewallRequest';
 import { CreateFirewallRequestBody } from './model/CreateFirewallRequestBody';
 import { CreateFirewallResponse } from './model/CreateFirewallResponse';
+import { CreateFirewallTagRequest } from './model/CreateFirewallTagRequest';
+import { CreateFirewallTagRequestBody } from './model/CreateFirewallTagRequestBody';
+import { CreateFirewallTagResponse } from './model/CreateFirewallTagResponse';
 import { CreateSecurityGroupOption } from './model/CreateSecurityGroupOption';
 import { CreateSecurityGroupRequest } from './model/CreateSecurityGroupRequest';
 import { CreateSecurityGroupRequestBody } from './model/CreateSecurityGroupRequestBody';
@@ -93,6 +105,8 @@ import { DeleteClouddcnSubnetsTagRequest } from './model/DeleteClouddcnSubnetsTa
 import { DeleteClouddcnSubnetsTagResponse } from './model/DeleteClouddcnSubnetsTagResponse';
 import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
 import { DeleteFirewallResponse } from './model/DeleteFirewallResponse';
+import { DeleteFirewallTagRequest } from './model/DeleteFirewallTagRequest';
+import { DeleteFirewallTagResponse } from './model/DeleteFirewallTagResponse';
 import { DeleteIpAddressGroupForceRequest } from './model/DeleteIpAddressGroupForceRequest';
 import { DeleteIpAddressGroupForceResponse } from './model/DeleteIpAddressGroupForceResponse';
 import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
@@ -137,6 +151,12 @@ import { ListClouddcnSubnetsTagsResponse } from './model/ListClouddcnSubnetsTags
 import { ListFirewallDetail } from './model/ListFirewallDetail';
 import { ListFirewallRequest } from './model/ListFirewallRequest';
 import { ListFirewallResponse } from './model/ListFirewallResponse';
+import { ListFirewallTagsRequest } from './model/ListFirewallTagsRequest';
+import { ListFirewallTagsResponse } from './model/ListFirewallTagsResponse';
+import { ListFirewallsByTagsRequest } from './model/ListFirewallsByTagsRequest';
+import { ListFirewallsByTagsRequestBody } from './model/ListFirewallsByTagsRequestBody';
+import { ListFirewallsByTagsResponse } from './model/ListFirewallsByTagsResponse';
+import { ListResourceResp } from './model/ListResourceResp';
 import { ListResourcesByTagsRequestBody } from './model/ListResourcesByTagsRequestBody';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
@@ -144,6 +164,7 @@ import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
 import { ListSecurityGroupsResponse } from './model/ListSecurityGroupsResponse';
 import { ListSubNetworkInterfacesRequest } from './model/ListSubNetworkInterfacesRequest';
 import { ListSubNetworkInterfacesResponse } from './model/ListSubNetworkInterfacesResponse';
+import { ListTag } from './model/ListTag';
 import { ListTrafficMirrorFilterRulesRequest } from './model/ListTrafficMirrorFilterRulesRequest';
 import { ListTrafficMirrorFilterRulesResponse } from './model/ListTrafficMirrorFilterRulesResponse';
 import { ListTrafficMirrorFiltersRequest } from './model/ListTrafficMirrorFiltersRequest';
@@ -152,6 +173,7 @@ import { ListTrafficMirrorSessionsRequest } from './model/ListTrafficMirrorSessi
 import { ListTrafficMirrorSessionsResponse } from './model/ListTrafficMirrorSessionsResponse';
 import { ListVpcsRequest } from './model/ListVpcsRequest';
 import { ListVpcsResponse } from './model/ListVpcsResponse';
+import { Match } from './model/Match';
 import { MigrateSubNetworkInterfaceOption } from './model/MigrateSubNetworkInterfaceOption';
 import { MigrateSubNetworkInterfaceRequest } from './model/MigrateSubNetworkInterfaceRequest';
 import { MigrateSubNetworkInterfaceRequestBody } from './model/MigrateSubNetworkInterfaceRequestBody';
@@ -186,6 +208,8 @@ import { ShowClouddcnSubnetsTagsRequest } from './model/ShowClouddcnSubnetsTagsR
 import { ShowClouddcnSubnetsTagsResponse } from './model/ShowClouddcnSubnetsTagsResponse';
 import { ShowFirewallRequest } from './model/ShowFirewallRequest';
 import { ShowFirewallResponse } from './model/ShowFirewallResponse';
+import { ShowFirewallTagsRequest } from './model/ShowFirewallTagsRequest';
+import { ShowFirewallTagsResponse } from './model/ShowFirewallTagsResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -1073,6 +1097,67 @@ export class VpcClient {
     }
 
     /**
+     * 为指定的IP地址组资源实例批量添加标签。
+     * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加ACL资源标签
+     * @param {string} firewallId 功能说明：ACL唯一标识 取值范围：合法UUID 约束：ID对应的ACL必须存在
+     * @param {BatchCreateFirewallTagsRequestBody} [batchCreateFirewallTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateFirewallTags(batchCreateFirewallTagsRequest?: BatchCreateFirewallTagsRequest): Promise<BatchCreateFirewallTagsResponse> {
+        const options = ParamCreater().batchCreateFirewallTags(batchCreateFirewallTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定的IP地址组资源实例批量删除标签。
+     * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除ACL资源标签
+     * @param {string} firewallId 功能说明：ACL唯一标识 取值范围：合法UUID 约束：ID对应的ACL必须存在
+     * @param {BatchDeleteFirewallTagsRequestBody} [batchDeleteFirewallTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteFirewallTags(batchDeleteFirewallTagsRequest?: BatchDeleteFirewallTagsRequest): Promise<BatchDeleteFirewallTagsResponse> {
+        const options = ParamCreater().batchDeleteFirewallTags(batchDeleteFirewallTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤查询ACL实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ACL资源实例数量
+     * @param {CountFirewallsByTagsRequestBody} [countFirewallsByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countFirewallsByTags(countFirewallsByTagsRequest?: CountFirewallsByTagsRequest): Promise<CountFirewallsByTagsResponse> {
+        const options = ParamCreater().countFirewallsByTags(countFirewallsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建网络ACL
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1092,6 +1177,27 @@ export class VpcClient {
     }
 
     /**
+     * 给指定IP地址组资源实例增加标签信息
+     * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加ACL资源标签
+     * @param {string} firewallId 功能说明：ACL唯一标识 取值范围：合法UUID 约束：ID对应的ACL必须存在
+     * @param {CreateFirewallTagRequestBody} createFirewallTagRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFirewallTag(createFirewallTagRequest?: CreateFirewallTagRequest): Promise<CreateFirewallTagResponse> {
+        const options = ParamCreater().createFirewallTag(createFirewallTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除网络ACL
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1103,6 +1209,27 @@ export class VpcClient {
      */
     public deleteFirewall(deleteFirewallRequest?: DeleteFirewallRequest): Promise<DeleteFirewallResponse> {
         const options = ParamCreater().deleteFirewall(deleteFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定IP地址组资源实例的标签信息
+     * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除ACL资源标签
+     * @param {string} firewallId 功能说明：ACL唯一标识 取值范围：合法UUID 约束：ID对应的ACL必须存在
+     * @param {string} tagKey 功能说明：标签键
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFirewallTag(deleteFirewallTagRequest?: DeleteFirewallTagRequest): Promise<DeleteFirewallTagResponse> {
+        const options = ParamCreater().deleteFirewallTag(deleteFirewallTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1156,6 +1283,45 @@ export class VpcClient {
     }
 
     /**
+     * 查询租户在指定Project中实例类型的所有资源标签集合
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ACL项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFirewallTags(listFirewallTagsRequest?: ListFirewallTagsRequest): Promise<ListFirewallTagsResponse> {
+        const options = ParamCreater().listFirewallTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤查询ACL实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ACL资源实例列表
+     * @param {number} [limit] 功能说明：查询记录数 取值范围：1-1000 约束：默认为1000
+     * @param {number} [offset] 功能说明：索引位置， 从第一条数据偏移offset条数据后开始查询 约束：默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数
+     * @param {ListFirewallsByTagsRequestBody} [listFirewallsByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFirewallsByTags(listFirewallsByTagsRequest?: ListFirewallsByTagsRequest): Promise<ListFirewallsByTagsResponse> {
+        const options = ParamCreater().listFirewallsByTags(listFirewallsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 网络ACL移除规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1187,6 +1353,25 @@ export class VpcClient {
      */
     public showFirewall(showFirewallRequest?: ShowFirewallRequest): Promise<ShowFirewallResponse> {
         const options = ParamCreater().showFirewall(showFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定ACL实例的标签信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询ACL资源标签
+     * @param {string} firewallId 功能说明：ACL唯一标识 取值范围：合法UUID 约束：ID对应的ACL必须存在
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFirewallTags(showFirewallTagsRequest?: ShowFirewallTagsRequest): Promise<ShowFirewallTagsResponse> {
+        const options = ParamCreater().showFirewallTags(showFirewallTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3677,6 +3862,129 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的IP地址组资源实例批量添加标签。
+         * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateFirewallTags(batchCreateFirewallTagsRequest?: BatchCreateFirewallTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/firewalls/{firewall_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (batchCreateFirewallTagsRequest !== null && batchCreateFirewallTagsRequest !== undefined) {
+                if (batchCreateFirewallTagsRequest instanceof BatchCreateFirewallTagsRequest) {
+                    firewallId = batchCreateFirewallTagsRequest.firewallId;
+                    body = batchCreateFirewallTagsRequest.body
+                } else {
+                    firewallId = batchCreateFirewallTagsRequest['firewall_id'];
+                    body = batchCreateFirewallTagsRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling batchCreateFirewallTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定的IP地址组资源实例批量删除标签。
+         * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteFirewallTags(batchDeleteFirewallTagsRequest?: BatchDeleteFirewallTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/firewalls/{firewall_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (batchDeleteFirewallTagsRequest !== null && batchDeleteFirewallTagsRequest !== undefined) {
+                if (batchDeleteFirewallTagsRequest instanceof BatchDeleteFirewallTagsRequest) {
+                    firewallId = batchDeleteFirewallTagsRequest.firewallId;
+                    body = batchDeleteFirewallTagsRequest.body
+                } else {
+                    firewallId = batchDeleteFirewallTagsRequest['firewall_id'];
+                    body = batchDeleteFirewallTagsRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling batchDeleteFirewallTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤查询ACL实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countFirewallsByTags(countFirewallsByTagsRequest?: CountFirewallsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/firewalls/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (countFirewallsByTagsRequest !== null && countFirewallsByTagsRequest !== undefined) {
+                if (countFirewallsByTagsRequest instanceof CountFirewallsByTagsRequest) {
+                    body = countFirewallsByTagsRequest.body
+                } else {
+                    body = countFirewallsByTagsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建网络ACL
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3715,6 +4023,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 给指定IP地址组资源实例增加标签信息
+         * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFirewallTag(createFirewallTagRequest?: CreateFirewallTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/firewalls/{firewall_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let firewallId;
+
+            if (createFirewallTagRequest !== null && createFirewallTagRequest !== undefined) {
+                if (createFirewallTagRequest instanceof CreateFirewallTagRequest) {
+                    firewallId = createFirewallTagRequest.firewallId;
+                    body = createFirewallTagRequest.body
+                } else {
+                    firewallId = createFirewallTagRequest['firewall_id'];
+                    body = createFirewallTagRequest['body'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling createFirewallTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除网络ACL
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3747,6 +4102,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定IP地址组资源实例的标签信息
+         * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFirewallTag(deleteFirewallTagRequest?: DeleteFirewallTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/firewalls/{firewall_id}/tags/{tag_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let firewallId;
+            
+            let tagKey;
+
+            if (deleteFirewallTagRequest !== null && deleteFirewallTagRequest !== undefined) {
+                if (deleteFirewallTagRequest instanceof DeleteFirewallTagRequest) {
+                    firewallId = deleteFirewallTagRequest.firewallId;
+                    tagKey = deleteFirewallTagRequest.tagKey;
+                } else {
+                    firewallId = deleteFirewallTagRequest['firewall_id'];
+                    tagKey = deleteFirewallTagRequest['tag_key'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling deleteFirewallTag.');
+            }
+            if (tagKey === null || tagKey === undefined) {
+            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deleteFirewallTag.');
+            }
+
+            options.pathParams = { 'firewall_id': firewallId,'tag_key': tagKey, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3877,6 +4277,77 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户在指定Project中实例类型的所有资源标签集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFirewallTags() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/firewalls/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤查询ACL实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFirewallsByTags(listFirewallsByTagsRequest?: ListFirewallsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/firewalls/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listFirewallsByTagsRequest !== null && listFirewallsByTagsRequest !== undefined) {
+                if (listFirewallsByTagsRequest instanceof ListFirewallsByTagsRequest) {
+                    limit = listFirewallsByTagsRequest.limit;
+                    offset = listFirewallsByTagsRequest.offset;
+                    body = listFirewallsByTagsRequest.body
+                } else {
+                    limit = listFirewallsByTagsRequest['limit'];
+                    offset = listFirewallsByTagsRequest['offset'];
+                    body = listFirewallsByTagsRequest['body'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 网络ACL移除规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3952,6 +4423,43 @@ export const ParamCreater = function () {
         
             if (firewallId === null || firewallId === undefined) {
             throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling showFirewall.');
+            }
+
+            options.pathParams = { 'firewall_id': firewallId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定ACL实例的标签信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFirewallTags(showFirewallTagsRequest?: ShowFirewallTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/firewalls/{firewall_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let firewallId;
+
+            if (showFirewallTagsRequest !== null && showFirewallTagsRequest !== undefined) {
+                if (showFirewallTagsRequest instanceof ShowFirewallTagsRequest) {
+                    firewallId = showFirewallTagsRequest.firewallId;
+                } else {
+                    firewallId = showFirewallTagsRequest['firewall_id'];
+                }
+            }
+
+        
+            if (firewallId === null || firewallId === undefined) {
+            throw new RequiredError('firewallId','Required parameter firewallId was null or undefined when calling showFirewallTags.');
             }
 
             options.pathParams = { 'firewall_id': firewallId, };

@@ -50,6 +50,6 @@ export class LiveEventCallBackConfig {
 export enum LiveEventCallBackConfigAuthTypeEnum {
     NONE = 'NONE',
     MSS_A = 'MSS_A',
-    RTMP_STREAM_STATE_CHANGE = 'RTMP_STREAM_STATE_CHANGE',
+    MSS_A_HEAD = 'MSS_A_HEAD',
     MEITUAN_DEFAULT = 'MEITUAN_DEFAULT'
 }

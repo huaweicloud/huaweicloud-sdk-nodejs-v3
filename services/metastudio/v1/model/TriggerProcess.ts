@@ -11,6 +11,7 @@ export class TriggerProcess {
     private 'reply_audios'?: Array<ReplyAudioInfo>;
     private 'reply_order'?: TriggerProcessReplyOrderEnum | string;
     private 'reply_role'?: TriggerProcessReplyRoleEnum | string;
+    private 'robot_id'?: string;
     public constructor() { 
     }
     public withTimeWindow(timeWindow: number): TriggerProcess {
@@ -93,6 +94,16 @@ export class TriggerProcess {
     public get replyRole(): TriggerProcessReplyRoleEnum | string | undefined {
         return this['reply_role'];
     }
+    public withRobotId(robotId: string): TriggerProcess {
+        this['robot_id'] = robotId;
+        return this;
+    }
+    public set robotId(robotId: string  | undefined) {
+        this['robot_id'] = robotId;
+    }
+    public get robotId(): string | undefined {
+        return this['robot_id'];
+    }
 }
 
 /**
@@ -102,7 +113,8 @@ export class TriggerProcess {
 export enum TriggerProcessReplyModeEnum {
     SYSTEM_REPLY = 'SYSTEM_REPLY',
     CALLBACK = 'CALLBACK',
-    SHOW_LAYER = 'SHOW_LAYER'
+    SHOW_LAYER = 'SHOW_LAYER',
+    INTELLIGENT_REPLY = 'INTELLIGENT_REPLY'
 }
 /**
     * @export

@@ -1,14 +1,14 @@
 import { ReplicationAssetInfo } from './ReplicationAssetInfo';
 
 
-export class CreateAssetbyReplicationInfoRequest {
+export class CreateAssetByReplicationInfoRequest {
     private 'Authorization'?: string;
     private 'X-Sdk-Date'?: string;
     private 'X-App-UserId'?: string;
     public body?: ReplicationAssetInfo;
     public constructor() { 
     }
-    public withAuthorization(authorization: string): CreateAssetbyReplicationInfoRequest {
+    public withAuthorization(authorization: string): CreateAssetByReplicationInfoRequest {
         this['Authorization'] = authorization;
         return this;
     }
@@ -18,7 +18,7 @@ export class CreateAssetbyReplicationInfoRequest {
     public get authorization(): string | undefined {
         return this['Authorization'];
     }
-    public withXSdkDate(xSdkDate: string): CreateAssetbyReplicationInfoRequest {
+    public withXSdkDate(xSdkDate: string): CreateAssetByReplicationInfoRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
@@ -28,7 +28,7 @@ export class CreateAssetbyReplicationInfoRequest {
     public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
-    public withXAppUserId(xAppUserId: string): CreateAssetbyReplicationInfoRequest {
+    public withXAppUserId(xAppUserId: string): CreateAssetByReplicationInfoRequest {
         this['X-App-UserId'] = xAppUserId;
         return this;
     }
@@ -38,7 +38,7 @@ export class CreateAssetbyReplicationInfoRequest {
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
     }
-    public withBody(body: ReplicationAssetInfo): CreateAssetbyReplicationInfoRequest {
+    public withBody(body: ReplicationAssetInfo): CreateAssetByReplicationInfoRequest {
         this['body'] = body;
         return this;
     }

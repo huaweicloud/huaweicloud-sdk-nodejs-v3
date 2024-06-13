@@ -11,12 +11,18 @@ import { AsscoiateReq } from './model/AsscoiateReq';
 import { AssociateRouteTableAndSubnetReq } from './model/AssociateRouteTableAndSubnetReq';
 import { AssociateRouteTableRequest } from './model/AssociateRouteTableRequest';
 import { AssociateRouteTableResponse } from './model/AssociateRouteTableResponse';
+import { BatchCreateSecurityGroupTagsRequest } from './model/BatchCreateSecurityGroupTagsRequest';
+import { BatchCreateSecurityGroupTagsRequestBody } from './model/BatchCreateSecurityGroupTagsRequestBody';
+import { BatchCreateSecurityGroupTagsResponse } from './model/BatchCreateSecurityGroupTagsResponse';
 import { BatchCreateSubnetTagsRequest } from './model/BatchCreateSubnetTagsRequest';
 import { BatchCreateSubnetTagsRequestBody } from './model/BatchCreateSubnetTagsRequestBody';
 import { BatchCreateSubnetTagsResponse } from './model/BatchCreateSubnetTagsResponse';
 import { BatchCreateVpcTagsRequest } from './model/BatchCreateVpcTagsRequest';
 import { BatchCreateVpcTagsRequestBody } from './model/BatchCreateVpcTagsRequestBody';
 import { BatchCreateVpcTagsResponse } from './model/BatchCreateVpcTagsResponse';
+import { BatchDeleteSecurityGroupTagsRequest } from './model/BatchDeleteSecurityGroupTagsRequest';
+import { BatchDeleteSecurityGroupTagsRequestBody } from './model/BatchDeleteSecurityGroupTagsRequestBody';
+import { BatchDeleteSecurityGroupTagsResponse } from './model/BatchDeleteSecurityGroupTagsResponse';
 import { BatchDeleteSubnetTagsRequest } from './model/BatchDeleteSubnetTagsRequest';
 import { BatchDeleteSubnetTagsRequestBody } from './model/BatchDeleteSubnetTagsRequestBody';
 import { BatchDeleteSubnetTagsResponse } from './model/BatchDeleteSubnetTagsResponse';
@@ -48,6 +54,9 @@ import { CreateSecurityGroupRuleOption } from './model/CreateSecurityGroupRuleOp
 import { CreateSecurityGroupRuleRequest } from './model/CreateSecurityGroupRuleRequest';
 import { CreateSecurityGroupRuleRequestBody } from './model/CreateSecurityGroupRuleRequestBody';
 import { CreateSecurityGroupRuleResponse } from './model/CreateSecurityGroupRuleResponse';
+import { CreateSecurityGroupTagRequest } from './model/CreateSecurityGroupTagRequest';
+import { CreateSecurityGroupTagRequestBody } from './model/CreateSecurityGroupTagRequestBody';
+import { CreateSecurityGroupTagResponse } from './model/CreateSecurityGroupTagResponse';
 import { CreateSubnetOption } from './model/CreateSubnetOption';
 import { CreateSubnetRequest } from './model/CreateSubnetRequest';
 import { CreateSubnetRequestBody } from './model/CreateSubnetRequestBody';
@@ -83,6 +92,8 @@ import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
 import { DeleteSecurityGroupResponse } from './model/DeleteSecurityGroupResponse';
 import { DeleteSecurityGroupRuleRequest } from './model/DeleteSecurityGroupRuleRequest';
 import { DeleteSecurityGroupRuleResponse } from './model/DeleteSecurityGroupRuleResponse';
+import { DeleteSecurityGroupTagRequest } from './model/DeleteSecurityGroupTagRequest';
+import { DeleteSecurityGroupTagResponse } from './model/DeleteSecurityGroupTagResponse';
 import { DeleteSubnetRequest } from './model/DeleteSubnetRequest';
 import { DeleteSubnetResponse } from './model/DeleteSubnetResponse';
 import { DeleteSubnetTagRequest } from './model/DeleteSubnetTagRequest';
@@ -118,6 +129,11 @@ import { ListRouteTablesRequest } from './model/ListRouteTablesRequest';
 import { ListRouteTablesResponse } from './model/ListRouteTablesResponse';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
+import { ListSecurityGroupTagsRequest } from './model/ListSecurityGroupTagsRequest';
+import { ListSecurityGroupTagsResponse } from './model/ListSecurityGroupTagsResponse';
+import { ListSecurityGroupsByTagsRequest } from './model/ListSecurityGroupsByTagsRequest';
+import { ListSecurityGroupsByTagsRequestBody } from './model/ListSecurityGroupsByTagsRequestBody';
+import { ListSecurityGroupsByTagsResponse } from './model/ListSecurityGroupsByTagsResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
 import { ListSecurityGroupsResponse } from './model/ListSecurityGroupsResponse';
 import { ListSubnetTagsRequest } from './model/ListSubnetTagsRequest';
@@ -316,6 +332,8 @@ import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
 import { ShowSecurityGroupRuleResponse } from './model/ShowSecurityGroupRuleResponse';
+import { ShowSecurityGroupTagsRequest } from './model/ShowSecurityGroupTagsRequest';
+import { ShowSecurityGroupTagsResponse } from './model/ShowSecurityGroupTagsResponse';
 import { ShowSubnetRequest } from './model/ShowSubnetRequest';
 import { ShowSubnetResponse } from './model/ShowSubnetResponse';
 import { ShowSubnetTagsRequest } from './model/ShowSubnetTagsRequest';
@@ -417,6 +435,27 @@ export class VpcClient {
     }
 
     /**
+     * 为指定的安全组资源实例批量添加标签。
+     * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建安全组资源标签
+     * @param {string} securityGroupId 安全组资源ID
+     * @param {BatchCreateSecurityGroupTagsRequestBody} batchCreateSecurityGroupTagsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSecurityGroupTags(batchCreateSecurityGroupTagsRequest?: BatchCreateSecurityGroupTagsRequest): Promise<BatchCreateSecurityGroupTagsResponse> {
+        const options = ParamCreater().batchCreateSecurityGroupTags(batchCreateSecurityGroupTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定的子网资源实例批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * 
@@ -430,6 +469,27 @@ export class VpcClient {
      */
     public batchCreateSubnetTags(batchCreateSubnetTagsRequest?: BatchCreateSubnetTagsRequest): Promise<BatchCreateSubnetTagsResponse> {
         const options = ParamCreater().batchCreateSubnetTags(batchCreateSubnetTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定的安全组资源实例批量删除标签
+     * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除安全组资源标签
+     * @param {string} securityGroupId 安全组资源ID
+     * @param {BatchDeleteSecurityGroupTagsRequestBody} batchDeleteSecurityGroupTagsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityGroupTags(batchDeleteSecurityGroupTagsRequest?: BatchDeleteSecurityGroupTagsRequest): Promise<BatchDeleteSecurityGroupTagsResponse> {
+        const options = ParamCreater().batchDeleteSecurityGroupTags(batchDeleteSecurityGroupTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -548,6 +608,27 @@ export class VpcClient {
      */
     public createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest): Promise<CreateSecurityGroupRuleResponse> {
         const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 给指定安全组资源实例增加标签信息。
+     * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建安全组资源标签
+     * @param {string} securityGroupId 安全组资源ID
+     * @param {CreateSecurityGroupTagRequestBody} createSecurityGroupTagRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityGroupTag(createSecurityGroupTagRequest?: CreateSecurityGroupTagRequest): Promise<CreateSecurityGroupTagResponse> {
+        const options = ParamCreater().createSecurityGroupTag(createSecurityGroupTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -702,6 +783,27 @@ export class VpcClient {
      */
     public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<DeleteSecurityGroupRuleResponse> {
         const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定安全组资源实例的标签信息。
+     * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除安全组资源标签
+     * @param {string} key 功能说明：键值
+     * @param {string} securityGroupId 安全组资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityGroupTag(deleteSecurityGroupTagRequest?: DeleteSecurityGroupTagRequest): Promise<DeleteSecurityGroupTagResponse> {
+        const options = ParamCreater().deleteSecurityGroupTag(deleteSecurityGroupTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -899,6 +1001,24 @@ export class VpcClient {
     }
 
     /**
+     * 查询租户在指定区域和实例类型的所有标签集合
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全组项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityGroupTags(listSecurityGroupTagsRequest?: ListSecurityGroupTagsRequest): Promise<ListSecurityGroupTagsResponse> {
+        const options = ParamCreater().listSecurityGroupTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询安全组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -913,6 +1033,25 @@ export class VpcClient {
      */
     public listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest): Promise<ListSecurityGroupsResponse> {
         const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全组资源实例
+     * @param {ListSecurityGroupsByTagsRequestBody} listSecurityGroupsByTagsRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityGroupsByTags(listSecurityGroupsByTagsRequest?: ListSecurityGroupsByTagsRequest): Promise<ListSecurityGroupsByTagsResponse> {
+        const options = ParamCreater().listSecurityGroupsByTags(listSecurityGroupsByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1129,6 +1268,25 @@ export class VpcClient {
      */
     public showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest): Promise<ShowSecurityGroupRuleResponse> {
         const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定安全组实例的标签信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全组资源标签
+     * @param {string} securityGroupId 安全组资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityGroupTags(showSecurityGroupTagsRequest?: ShowSecurityGroupTagsRequest): Promise<ShowSecurityGroupTagsResponse> {
+        const options = ParamCreater().showSecurityGroupTags(showSecurityGroupTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2818,6 +2976,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的安全组资源实例批量添加标签。
+         * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSecurityGroupTags(batchCreateSecurityGroupTagsRequest?: BatchCreateSecurityGroupTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/security-groups/{security_group_id}/tags/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let securityGroupId;
+
+            if (batchCreateSecurityGroupTagsRequest !== null && batchCreateSecurityGroupTagsRequest !== undefined) {
+                if (batchCreateSecurityGroupTagsRequest instanceof BatchCreateSecurityGroupTagsRequest) {
+                    securityGroupId = batchCreateSecurityGroupTagsRequest.securityGroupId;
+                    body = batchCreateSecurityGroupTagsRequest.body
+                } else {
+                    securityGroupId = batchCreateSecurityGroupTagsRequest['security_group_id'];
+                    body = batchCreateSecurityGroupTagsRequest['body'];
+                }
+            }
+
+        
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling batchCreateSecurityGroupTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'security_group_id': securityGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的子网资源实例批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          * 
@@ -2860,6 +3065,53 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'subnet_id': subnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定的安全组资源实例批量删除标签
+         * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityGroupTags(batchDeleteSecurityGroupTagsRequest?: BatchDeleteSecurityGroupTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/security-groups/{security_group_id}/tags/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let securityGroupId;
+
+            if (batchDeleteSecurityGroupTagsRequest !== null && batchDeleteSecurityGroupTagsRequest !== undefined) {
+                if (batchDeleteSecurityGroupTagsRequest instanceof BatchDeleteSecurityGroupTagsRequest) {
+                    securityGroupId = batchDeleteSecurityGroupTagsRequest.securityGroupId;
+                    body = batchDeleteSecurityGroupTagsRequest.body
+                } else {
+                    securityGroupId = batchDeleteSecurityGroupTagsRequest['security_group_id'];
+                    body = batchDeleteSecurityGroupTagsRequest['body'];
+                }
+            }
+
+        
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling batchDeleteSecurityGroupTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'security_group_id': securityGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3099,6 +3351,53 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 给指定安全组资源实例增加标签信息。
+         * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityGroupTag(createSecurityGroupTagRequest?: CreateSecurityGroupTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/security-groups/{security_group_id}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let securityGroupId;
+
+            if (createSecurityGroupTagRequest !== null && createSecurityGroupTagRequest !== undefined) {
+                if (createSecurityGroupTagRequest instanceof CreateSecurityGroupTagRequest) {
+                    securityGroupId = createSecurityGroupTagRequest.securityGroupId;
+                    body = createSecurityGroupTagRequest.body
+                } else {
+                    securityGroupId = createSecurityGroupTagRequest['security_group_id'];
+                    body = createSecurityGroupTagRequest['body'];
+                }
+            }
+
+        
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling createSecurityGroupTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'security_group_id': securityGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3407,6 +3706,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'security_group_rule_id': securityGroupRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定安全组资源实例的标签信息。
+         * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityGroupTag(deleteSecurityGroupTagRequest?: DeleteSecurityGroupTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/{project_id}/security-groups/{security_group_id}/tags/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let key;
+            
+            let securityGroupId;
+
+            if (deleteSecurityGroupTagRequest !== null && deleteSecurityGroupTagRequest !== undefined) {
+                if (deleteSecurityGroupTagRequest instanceof DeleteSecurityGroupTagRequest) {
+                    key = deleteSecurityGroupTagRequest.key;
+                    securityGroupId = deleteSecurityGroupTagRequest.securityGroupId;
+                } else {
+                    key = deleteSecurityGroupTagRequest['key'];
+                    securityGroupId = deleteSecurityGroupTagRequest['security_group_id'];
+                }
+            }
+
+        
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteSecurityGroupTag.');
+            }
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling deleteSecurityGroupTag.');
+            }
+
+            options.pathParams = { 'key': key,'security_group_id': securityGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3957,6 +4301,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户在指定区域和实例类型的所有标签集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityGroupTags() {
+            const options = {
+                method: "GET",
+                url: "/v2.0/{project_id}/security-groups/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询安全组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4010,6 +4375,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityGroupsByTags(listSecurityGroupsByTagsRequest?: ListSecurityGroupsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/security-groups/resource_instances/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listSecurityGroupsByTagsRequest !== null && listSecurityGroupsByTagsRequest !== undefined) {
+                if (listSecurityGroupsByTagsRequest instanceof ListSecurityGroupsByTagsRequest) {
+                    body = listSecurityGroupsByTagsRequest.body
+                } else {
+                    body = listSecurityGroupsByTagsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4458,6 +4861,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'security_group_rule_id': securityGroupRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定安全组实例的标签信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityGroupTags(showSecurityGroupTagsRequest?: ShowSecurityGroupTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/{project_id}/security-groups/{security_group_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let securityGroupId;
+
+            if (showSecurityGroupTagsRequest !== null && showSecurityGroupTagsRequest !== undefined) {
+                if (showSecurityGroupTagsRequest instanceof ShowSecurityGroupTagsRequest) {
+                    securityGroupId = showSecurityGroupTagsRequest.securityGroupId;
+                } else {
+                    securityGroupId = showSecurityGroupTagsRequest['security_group_id'];
+                }
+            }
+
+        
+            if (securityGroupId === null || securityGroupId === undefined) {
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling showSecurityGroupTags.');
+            }
+
+            options.pathParams = { 'security_group_id': securityGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

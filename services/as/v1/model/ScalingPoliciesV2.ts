@@ -1,3 +1,4 @@
+import { IntervalAlarmActionsV2 } from './IntervalAlarmActionsV2';
 import { ScalingPolicyActionV2 } from './ScalingPolicyActionV2';
 import { ScalingPolicyV2MetaData } from './ScalingPolicyV2MetaData';
 import { ScheduledPolicy } from './ScheduledPolicy';
@@ -13,6 +14,7 @@ export class ScalingPoliciesV2 {
     private 'alarm_id'?: string;
     private 'scheduled_policy'?: ScheduledPolicy;
     private 'scaling_policy_action'?: ScalingPolicyActionV2;
+    private 'interval_alarm_actions'?: Array<IntervalAlarmActionsV2>;
     private 'cool_down_time'?: number;
     private 'create_time'?: Date;
     private 'meta_data'?: ScalingPolicyV2MetaData;
@@ -108,6 +110,16 @@ export class ScalingPoliciesV2 {
     }
     public get scalingPolicyAction(): ScalingPolicyActionV2 | undefined {
         return this['scaling_policy_action'];
+    }
+    public withIntervalAlarmActions(intervalAlarmActions: Array<IntervalAlarmActionsV2>): ScalingPoliciesV2 {
+        this['interval_alarm_actions'] = intervalAlarmActions;
+        return this;
+    }
+    public set intervalAlarmActions(intervalAlarmActions: Array<IntervalAlarmActionsV2>  | undefined) {
+        this['interval_alarm_actions'] = intervalAlarmActions;
+    }
+    public get intervalAlarmActions(): Array<IntervalAlarmActionsV2> | undefined {
+        return this['interval_alarm_actions'];
     }
     public withCoolDownTime(coolDownTime: number): ScalingPoliciesV2 {
         this['cool_down_time'] = coolDownTime;

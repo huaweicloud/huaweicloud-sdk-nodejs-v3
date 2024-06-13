@@ -16,6 +16,12 @@ import { AggregateResourceConfigRequest } from './model/AggregateResourceConfigR
 import { AggregatedSourceStatus } from './model/AggregatedSourceStatus';
 import { AggregationAuthorizationRequest } from './model/AggregationAuthorizationRequest';
 import { AggregationAuthorizationResp } from './model/AggregationAuthorizationResp';
+import { BatchCreateRemediationExceptionsRequest } from './model/BatchCreateRemediationExceptionsRequest';
+import { BatchCreateRemediationExceptionsRequestBody } from './model/BatchCreateRemediationExceptionsRequestBody';
+import { BatchCreateRemediationExceptionsResponse } from './model/BatchCreateRemediationExceptionsResponse';
+import { BatchDeleteRemediationExceptionsRequest } from './model/BatchDeleteRemediationExceptionsRequest';
+import { BatchDeleteRemediationExceptionsRequestBody } from './model/BatchDeleteRemediationExceptionsRequestBody';
+import { BatchDeleteRemediationExceptionsResponse } from './model/BatchDeleteRemediationExceptionsResponse';
 import { ChannelConfigBody } from './model/ChannelConfigBody';
 import { CollectAllResourcesSummaryRequest } from './model/CollectAllResourcesSummaryRequest';
 import { CollectAllResourcesSummaryResponse } from './model/CollectAllResourcesSummaryResponse';
@@ -45,6 +51,8 @@ import { CreateConfigurationAggregatorRequest } from './model/CreateConfiguratio
 import { CreateConfigurationAggregatorResponse } from './model/CreateConfigurationAggregatorResponse';
 import { CreateConformancePackRequest } from './model/CreateConformancePackRequest';
 import { CreateConformancePackResponse } from './model/CreateConformancePackResponse';
+import { CreateOrUpdateRemediationConfigurationRequest } from './model/CreateOrUpdateRemediationConfigurationRequest';
+import { CreateOrUpdateRemediationConfigurationResponse } from './model/CreateOrUpdateRemediationConfigurationResponse';
 import { CreateOrganizationConformancePackRequest } from './model/CreateOrganizationConformancePackRequest';
 import { CreateOrganizationConformancePackResponse } from './model/CreateOrganizationConformancePackResponse';
 import { CreateOrganizationPolicyAssignmentRequest } from './model/CreateOrganizationPolicyAssignmentRequest';
@@ -70,6 +78,8 @@ import { DeletePendingAggregationRequestRequest } from './model/DeletePendingAgg
 import { DeletePendingAggregationRequestResponse } from './model/DeletePendingAggregationRequestResponse';
 import { DeletePolicyAssignmentRequest } from './model/DeletePolicyAssignmentRequest';
 import { DeletePolicyAssignmentResponse } from './model/DeletePolicyAssignmentResponse';
+import { DeleteRemediationConfigurationRequest } from './model/DeleteRemediationConfigurationRequest';
+import { DeleteRemediationConfigurationResponse } from './model/DeleteRemediationConfigurationResponse';
 import { DeleteStoredQueryRequest } from './model/DeleteStoredQueryRequest';
 import { DeleteStoredQueryResponse } from './model/DeleteStoredQueryResponse';
 import { DeleteTrackerConfigRequest } from './model/DeleteTrackerConfigRequest';
@@ -124,6 +134,10 @@ import { ListProvidersRequest } from './model/ListProvidersRequest';
 import { ListProvidersResponse } from './model/ListProvidersResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
 import { ListRegionsResponse } from './model/ListRegionsResponse';
+import { ListRemediationExceptionsRequest } from './model/ListRemediationExceptionsRequest';
+import { ListRemediationExceptionsResponse } from './model/ListRemediationExceptionsResponse';
+import { ListRemediationExecutionStatusesRequest } from './model/ListRemediationExecutionStatusesRequest';
+import { ListRemediationExecutionStatusesResponse } from './model/ListRemediationExecutionStatusesResponse';
 import { ListResourcesByTagRequest } from './model/ListResourcesByTagRequest';
 import { ListResourcesByTagResponse } from './model/ListResourcesByTagResponse';
 import { ListResourcesRequest } from './model/ListResourcesRequest';
@@ -166,6 +180,13 @@ import { PolicyStateRequestBody } from './model/PolicyStateRequestBody';
 import { QueryInfo } from './model/QueryInfo';
 import { QueryRunRequestBody } from './model/QueryRunRequestBody';
 import { Region } from './model/Region';
+import { RemediationConfigurationRequestBody } from './model/RemediationConfigurationRequestBody';
+import { RemediationException } from './model/RemediationException';
+import { RemediationExceptionRequest } from './model/RemediationExceptionRequest';
+import { RemediationExecution } from './model/RemediationExecution';
+import { RemediationResourceParameter } from './model/RemediationResourceParameter';
+import { RemediationRunRequestBody } from './model/RemediationRunRequestBody';
+import { RemediationStaticParameter } from './model/RemediationStaticParameter';
 import { ResourceCountsFilters } from './model/ResourceCountsFilters';
 import { ResourceEntity } from './model/ResourceEntity';
 import { ResourceIdentifier } from './model/ResourceIdentifier';
@@ -187,6 +208,8 @@ import { RunEvaluationByPolicyAssignmentIdRequest } from './model/RunEvaluationB
 import { RunEvaluationByPolicyAssignmentIdResponse } from './model/RunEvaluationByPolicyAssignmentIdResponse';
 import { RunQueryRequest } from './model/RunQueryRequest';
 import { RunQueryResponse } from './model/RunQueryResponse';
+import { RunRemediationExecutionRequest } from './model/RunRemediationExecutionRequest';
+import { RunRemediationExecutionResponse } from './model/RunRemediationExecutionResponse';
 import { SelectorConfigBody } from './model/SelectorConfigBody';
 import { ShowAggregateComplianceDetailsByPolicyAssignmentRequest } from './model/ShowAggregateComplianceDetailsByPolicyAssignmentRequest';
 import { ShowAggregateComplianceDetailsByPolicyAssignmentResponse } from './model/ShowAggregateComplianceDetailsByPolicyAssignmentResponse';
@@ -222,6 +245,8 @@ import { ShowOrganizationPolicyAssignmentStatusesRequest } from './model/ShowOrg
 import { ShowOrganizationPolicyAssignmentStatusesResponse } from './model/ShowOrganizationPolicyAssignmentStatusesResponse';
 import { ShowPolicyAssignmentRequest } from './model/ShowPolicyAssignmentRequest';
 import { ShowPolicyAssignmentResponse } from './model/ShowPolicyAssignmentResponse';
+import { ShowRemediationConfigurationRequest } from './model/ShowRemediationConfigurationRequest';
+import { ShowRemediationConfigurationResponse } from './model/ShowRemediationConfigurationResponse';
 import { ShowResourceByIdRequest } from './model/ShowResourceByIdRequest';
 import { ShowResourceByIdResponse } from './model/ShowResourceByIdResponse';
 import { ShowResourceDetailRequest } from './model/ShowResourceDetailRequest';
@@ -691,6 +716,7 @@ export class ConfigClient {
      *
      * @summary 创建合规规则包
      * @param {ConformancePackRequestBody} conformancePackRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 合规包信息语言，默认为\&quot;en-us\&quot;英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -711,6 +737,7 @@ export class ConfigClient {
      * @summary 创建组织合规规则包
      * @param {string} organizationId 组织ID。
      * @param {OrgConformancePackRequestBody} orgConformancePackRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 组织合规包信息语言，默认为\&quot;en-us\&quot;英文
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1065,6 +1092,66 @@ export class ConfigClient {
     }
 
     /**
+     * 批量创建合规规则修正例外。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建修正例外
+     * @param {string} policyAssignmentId 规则ID
+     * @param {BatchCreateRemediationExceptionsRequestBody} batchCreateRemediationExceptionsRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateRemediationExceptions(batchCreateRemediationExceptionsRequest?: BatchCreateRemediationExceptionsRequest): Promise<BatchCreateRemediationExceptionsResponse> {
+        const options = ParamCreater().batchCreateRemediationExceptions(batchCreateRemediationExceptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除合规规则修正例外。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除修正例外
+     * @param {string} policyAssignmentId 规则ID
+     * @param {BatchDeleteRemediationExceptionsRequestBody} batchDeleteRemediationExceptionsRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteRemediationExceptions(batchDeleteRemediationExceptionsRequest?: BatchDeleteRemediationExceptionsRequest): Promise<BatchDeleteRemediationExceptionsResponse> {
+        const options = ParamCreater().batchDeleteRemediationExceptions(batchDeleteRemediationExceptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建或更新合规规则修正配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建或更新修正配置
+     * @param {string} policyAssignmentId 规则ID
+     * @param {RemediationConfigurationRequestBody} remediationConfigurationRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrUpdateRemediationConfiguration(createOrUpdateRemediationConfigurationRequest?: CreateOrUpdateRemediationConfigurationRequest): Promise<CreateOrUpdateRemediationConfigurationResponse> {
+        const options = ParamCreater().createOrUpdateRemediationConfiguration(createOrUpdateRemediationConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建组织合规规则，如果规则名称已存在，则为更新操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1135,6 +1222,25 @@ export class ConfigClient {
      */
     public deletePolicyAssignment(deletePolicyAssignmentRequest?: DeletePolicyAssignmentRequest): Promise<DeletePolicyAssignmentResponse> {
         const options = ParamCreater().deletePolicyAssignment(deletePolicyAssignmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除合规规则修正配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除修正配置
+     * @param {string} policyAssignmentId 规则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRemediationConfiguration(deleteRemediationConfigurationRequest?: DeleteRemediationConfigurationRequest): Promise<DeleteRemediationConfigurationResponse> {
+        const options = ParamCreater().deleteRemediationConfiguration(deleteRemediationConfigurationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1313,6 +1419,52 @@ export class ConfigClient {
     }
 
     /**
+     * 查询合规规则修正例外。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询修正例外
+     * @param {string} policyAssignmentId 规则ID
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [resourceId] 资源ID
+     * @param {string} [resourceName] 资源名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRemediationExceptions(listRemediationExceptionsRequest?: ListRemediationExceptionsRequest): Promise<ListRemediationExceptionsResponse> {
+        const options = ParamCreater().listRemediationExceptions(listRemediationExceptionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询合规规则修正执行结果详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询修正执行结果
+     * @param {string} policyAssignmentId 规则ID
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [resourceId] 资源ID
+     * @param {string} [resourceName] 资源名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRemediationExecutionStatuses(listRemediationExecutionStatusesRequest?: ListRemediationExecutionStatusesRequest): Promise<ListRemediationExecutionStatusesResponse> {
+        const options = ParamCreater().listRemediationExecutionStatuses(listRemediationExecutionStatusesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据规则ID评估此规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1324,6 +1476,26 @@ export class ConfigClient {
      */
     public runEvaluationByPolicyAssignmentId(runEvaluationByPolicyAssignmentIdRequest?: RunEvaluationByPolicyAssignmentIdRequest): Promise<RunEvaluationByPolicyAssignmentIdResponse> {
         const options = ParamCreater().runEvaluationByPolicyAssignmentId(runEvaluationByPolicyAssignmentIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动运行合规规则修正执行。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 运行修正执行
+     * @param {string} policyAssignmentId 规则ID
+     * @param {RemediationRunRequestBody} [remediationRunRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runRemediationExecution(runRemediationExecutionRequest?: RunRemediationExecutionRequest): Promise<RunRemediationExecutionResponse> {
+        const options = ParamCreater().runRemediationExecution(runRemediationExecutionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1449,6 +1621,25 @@ export class ConfigClient {
      */
     public showPolicyAssignment(showPolicyAssignmentRequest?: ShowPolicyAssignmentRequest): Promise<ShowPolicyAssignmentResponse> {
         const options = ParamCreater().showPolicyAssignment(showPolicyAssignmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询合规规则修正配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询修正配置
+     * @param {string} policyAssignmentId 规则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRemediationConfiguration(showRemediationConfigurationRequest?: ShowRemediationConfigurationRequest): Promise<ShowRemediationConfigurationResponse> {
+        const options = ParamCreater().showRemediationConfiguration(showRemediationConfigurationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3077,18 +3268,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let xLanguage;
 
             if (createConformancePackRequest !== null && createConformancePackRequest !== undefined) {
                 if (createConformancePackRequest instanceof CreateConformancePackRequest) {
                     body = createConformancePackRequest.body
+                    xLanguage = createConformancePackRequest.xLanguage;
                 } else {
                     body = createConformancePackRequest['body'];
+                    xLanguage = createConformancePackRequest['X-Language'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3117,14 +3315,18 @@ export const ParamCreater = function () {
             let body: any;
             
             let organizationId;
+            
+            let xLanguage;
 
             if (createOrganizationConformancePackRequest !== null && createOrganizationConformancePackRequest !== undefined) {
                 if (createOrganizationConformancePackRequest instanceof CreateOrganizationConformancePackRequest) {
                     organizationId = createOrganizationConformancePackRequest.organizationId;
                     body = createOrganizationConformancePackRequest.body
+                    xLanguage = createOrganizationConformancePackRequest.xLanguage;
                 } else {
                     organizationId = createOrganizationConformancePackRequest['organization_id'];
                     body = createOrganizationConformancePackRequest['body'];
+                    xLanguage = createOrganizationConformancePackRequest['X-Language'];
                 }
             }
 
@@ -3134,6 +3336,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -4005,6 +4210,144 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量创建合规规则修正例外。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateRemediationExceptions(batchCreateRemediationExceptionsRequest?: BatchCreateRemediationExceptionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyAssignmentId;
+
+            if (batchCreateRemediationExceptionsRequest !== null && batchCreateRemediationExceptionsRequest !== undefined) {
+                if (batchCreateRemediationExceptionsRequest instanceof BatchCreateRemediationExceptionsRequest) {
+                    policyAssignmentId = batchCreateRemediationExceptionsRequest.policyAssignmentId;
+                    body = batchCreateRemediationExceptionsRequest.body
+                } else {
+                    policyAssignmentId = batchCreateRemediationExceptionsRequest['policy_assignment_id'];
+                    body = batchCreateRemediationExceptionsRequest['body'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling batchCreateRemediationExceptions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除合规规则修正例外。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteRemediationExceptions(batchDeleteRemediationExceptionsRequest?: BatchDeleteRemediationExceptionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyAssignmentId;
+
+            if (batchDeleteRemediationExceptionsRequest !== null && batchDeleteRemediationExceptionsRequest !== undefined) {
+                if (batchDeleteRemediationExceptionsRequest instanceof BatchDeleteRemediationExceptionsRequest) {
+                    policyAssignmentId = batchDeleteRemediationExceptionsRequest.policyAssignmentId;
+                    body = batchDeleteRemediationExceptionsRequest.body
+                } else {
+                    policyAssignmentId = batchDeleteRemediationExceptionsRequest['policy_assignment_id'];
+                    body = batchDeleteRemediationExceptionsRequest['body'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling batchDeleteRemediationExceptions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建或更新合规规则修正配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrUpdateRemediationConfiguration(createOrUpdateRemediationConfigurationRequest?: CreateOrUpdateRemediationConfigurationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyAssignmentId;
+
+            if (createOrUpdateRemediationConfigurationRequest !== null && createOrUpdateRemediationConfigurationRequest !== undefined) {
+                if (createOrUpdateRemediationConfigurationRequest instanceof CreateOrUpdateRemediationConfigurationRequest) {
+                    policyAssignmentId = createOrUpdateRemediationConfigurationRequest.policyAssignmentId;
+                    body = createOrUpdateRemediationConfigurationRequest.body
+                } else {
+                    policyAssignmentId = createOrUpdateRemediationConfigurationRequest['policy_assignment_id'];
+                    body = createOrUpdateRemediationConfigurationRequest['body'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling createOrUpdateRemediationConfiguration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建组织合规规则，如果规则名称已存在，则为更新操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4156,6 +4499,43 @@ export const ParamCreater = function () {
         
             if (policyAssignmentId === null || policyAssignmentId === undefined) {
             throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling deletePolicyAssignment.');
+            }
+
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除合规规则修正配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRemediationConfiguration(deleteRemediationConfigurationRequest?: DeleteRemediationConfigurationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyAssignmentId;
+
+            if (deleteRemediationConfigurationRequest !== null && deleteRemediationConfigurationRequest !== undefined) {
+                if (deleteRemediationConfigurationRequest instanceof DeleteRemediationConfigurationRequest) {
+                    policyAssignmentId = deleteRemediationConfigurationRequest.policyAssignmentId;
+                } else {
+                    policyAssignmentId = deleteRemediationConfigurationRequest['policy_assignment_id'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling deleteRemediationConfiguration.');
             }
 
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
@@ -4588,6 +4968,138 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询合规规则修正例外。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRemediationExceptions(listRemediationExceptionsRequest?: ListRemediationExceptionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-exception",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyAssignmentId;
+            
+            let limit;
+            
+            let marker;
+            
+            let resourceId;
+            
+            let resourceName;
+
+            if (listRemediationExceptionsRequest !== null && listRemediationExceptionsRequest !== undefined) {
+                if (listRemediationExceptionsRequest instanceof ListRemediationExceptionsRequest) {
+                    policyAssignmentId = listRemediationExceptionsRequest.policyAssignmentId;
+                    limit = listRemediationExceptionsRequest.limit;
+                    marker = listRemediationExceptionsRequest.marker;
+                    resourceId = listRemediationExceptionsRequest.resourceId;
+                    resourceName = listRemediationExceptionsRequest.resourceName;
+                } else {
+                    policyAssignmentId = listRemediationExceptionsRequest['policy_assignment_id'];
+                    limit = listRemediationExceptionsRequest['limit'];
+                    marker = listRemediationExceptionsRequest['marker'];
+                    resourceId = listRemediationExceptionsRequest['resource_id'];
+                    resourceName = listRemediationExceptionsRequest['resource_name'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling listRemediationExceptions.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询合规规则修正执行结果详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRemediationExecutionStatuses(listRemediationExecutionStatusesRequest?: ListRemediationExecutionStatusesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution-statuses",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyAssignmentId;
+            
+            let limit;
+            
+            let marker;
+            
+            let resourceId;
+            
+            let resourceName;
+
+            if (listRemediationExecutionStatusesRequest !== null && listRemediationExecutionStatusesRequest !== undefined) {
+                if (listRemediationExecutionStatusesRequest instanceof ListRemediationExecutionStatusesRequest) {
+                    policyAssignmentId = listRemediationExecutionStatusesRequest.policyAssignmentId;
+                    limit = listRemediationExecutionStatusesRequest.limit;
+                    marker = listRemediationExecutionStatusesRequest.marker;
+                    resourceId = listRemediationExecutionStatusesRequest.resourceId;
+                    resourceName = listRemediationExecutionStatusesRequest.resourceName;
+                } else {
+                    policyAssignmentId = listRemediationExecutionStatusesRequest['policy_assignment_id'];
+                    limit = listRemediationExecutionStatusesRequest['limit'];
+                    marker = listRemediationExecutionStatusesRequest['marker'];
+                    resourceId = listRemediationExecutionStatusesRequest['resource_id'];
+                    resourceName = listRemediationExecutionStatusesRequest['resource_name'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling listRemediationExecutionStatuses.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据规则ID评估此规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4619,6 +5131,49 @@ export const ParamCreater = function () {
             throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling runEvaluationByPolicyAssignmentId.');
             }
 
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动运行合规规则修正执行。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runRemediationExecution(runRemediationExecutionRequest?: RunRemediationExecutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-execution",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyAssignmentId;
+
+            if (runRemediationExecutionRequest !== null && runRemediationExecutionRequest !== undefined) {
+                if (runRemediationExecutionRequest instanceof RunRemediationExecutionRequest) {
+                    policyAssignmentId = runRemediationExecutionRequest.policyAssignmentId;
+                    body = runRemediationExecutionRequest.body
+                } else {
+                    policyAssignmentId = runRemediationExecutionRequest['policy_assignment_id'];
+                    body = runRemediationExecutionRequest['body'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling runRemediationExecution.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4918,6 +5473,43 @@ export const ParamCreater = function () {
         
             if (policyAssignmentId === null || policyAssignmentId === undefined) {
             throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling showPolicyAssignment.');
+            }
+
+            options.pathParams = { 'policy_assignment_id': policyAssignmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询合规规则修正配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRemediationConfiguration(showRemediationConfigurationRequest?: ShowRemediationConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/policy-assignments/{policy_assignment_id}/remediation-configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyAssignmentId;
+
+            if (showRemediationConfigurationRequest !== null && showRemediationConfigurationRequest !== undefined) {
+                if (showRemediationConfigurationRequest instanceof ShowRemediationConfigurationRequest) {
+                    policyAssignmentId = showRemediationConfigurationRequest.policyAssignmentId;
+                } else {
+                    policyAssignmentId = showRemediationConfigurationRequest['policy_assignment_id'];
+                }
+            }
+
+        
+            if (policyAssignmentId === null || policyAssignmentId === undefined) {
+            throw new RequiredError('policyAssignmentId','Required parameter policyAssignmentId was null or undefined when calling showRemediationConfiguration.');
             }
 
             options.pathParams = { 'policy_assignment_id': policyAssignmentId, };

@@ -27,5 +27,6 @@ export class HitCondition {
     */
 export enum HitConditionRelationEnum {
     AND = 'AND',
-    OR = 'OR'
+    OR = 'OR',
+    RESERVED = 'RESERVED'
 }

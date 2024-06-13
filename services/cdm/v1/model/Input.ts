@@ -2,9 +2,9 @@
 
 export class Input {
     public name?: string;
-    public value?: string;
+    public value?: object;
     public type?: string;
-    public constructor(name?: string, value?: string) { 
+    public constructor(name?: string, value?: object) { 
         this['name'] = name;
         this['value'] = value;
     }
@@ -12,7 +12,7 @@ export class Input {
         this['name'] = name;
         return this;
     }
-    public withValue(value: string): Input {
+    public withValue(value: object): Input {
         this['value'] = value;
         return this;
     }

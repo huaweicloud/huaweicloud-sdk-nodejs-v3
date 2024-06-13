@@ -1,6 +1,4 @@
-import { AnimationConfig } from './AnimationConfig';
 import { BackgroundConfigInfo } from './BackgroundConfigInfo';
-import { EmotionConfig } from './EmotionConfig';
 import { LayerConfig } from './LayerConfig';
 import { ShootScript } from './ShootScript';
 import { TextConfig } from './TextConfig';
@@ -9,9 +7,7 @@ import { TextConfig } from './TextConfig';
 export class ShootScriptDetail {
     private 'script_type'?: ShootScriptDetailScriptTypeEnum | string;
     private 'text_config'?: TextConfig;
-    private 'animation_config'?: Array<AnimationConfig>;
     private 'background_config'?: Array<BackgroundConfigInfo>;
-    private 'emotion_config'?: Array<EmotionConfig>;
     private 'layer_config'?: Array<LayerConfig>;
     private 'thumbnail_url'?: string;
     public constructor() { 
@@ -36,16 +32,6 @@ export class ShootScriptDetail {
     public get textConfig(): TextConfig | undefined {
         return this['text_config'];
     }
-    public withAnimationConfig(animationConfig: Array<AnimationConfig>): ShootScriptDetail {
-        this['animation_config'] = animationConfig;
-        return this;
-    }
-    public set animationConfig(animationConfig: Array<AnimationConfig>  | undefined) {
-        this['animation_config'] = animationConfig;
-    }
-    public get animationConfig(): Array<AnimationConfig> | undefined {
-        return this['animation_config'];
-    }
     public withBackgroundConfig(backgroundConfig: Array<BackgroundConfigInfo>): ShootScriptDetail {
         this['background_config'] = backgroundConfig;
         return this;
@@ -55,16 +41,6 @@ export class ShootScriptDetail {
     }
     public get backgroundConfig(): Array<BackgroundConfigInfo> | undefined {
         return this['background_config'];
-    }
-    public withEmotionConfig(emotionConfig: Array<EmotionConfig>): ShootScriptDetail {
-        this['emotion_config'] = emotionConfig;
-        return this;
-    }
-    public set emotionConfig(emotionConfig: Array<EmotionConfig>  | undefined) {
-        this['emotion_config'] = emotionConfig;
-    }
-    public get emotionConfig(): Array<EmotionConfig> | undefined {
-        return this['emotion_config'];
     }
     public withLayerConfig(layerConfig: Array<LayerConfig>): ShootScriptDetail {
         this['layer_config'] = layerConfig;

@@ -6,6 +6,7 @@ export class HumanModel2DAssetMeta {
     private 'support_live'?: boolean;
     private 'model_version'?: HumanModel2DAssetMetaModelVersionEnum | string;
     private 'model_resolution'?: string;
+    private 'device_names'?: Array<string>;
     public constructor() { 
     }
     public withIsActionEditable(isActionEditable: boolean): HumanModel2DAssetMeta {
@@ -57,6 +58,16 @@ export class HumanModel2DAssetMeta {
     }
     public get modelResolution(): string | undefined {
         return this['model_resolution'];
+    }
+    public withDeviceNames(deviceNames: Array<string>): HumanModel2DAssetMeta {
+        this['device_names'] = deviceNames;
+        return this;
+    }
+    public set deviceNames(deviceNames: Array<string>  | undefined) {
+        this['device_names'] = deviceNames;
+    }
+    public get deviceNames(): Array<string> | undefined {
+        return this['device_names'];
     }
 }
 

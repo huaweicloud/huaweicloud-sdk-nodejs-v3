@@ -22,6 +22,8 @@ export class ShowRobotResponse extends SdkResponse {
     private 'role_id'?: string;
     private 'sis_region'?: number;
     private 'sis_project_id'?: string;
+    private 'enable_hot_words'?: boolean;
+    private 'enable_question_audit'?: boolean;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -197,6 +199,26 @@ export class ShowRobotResponse extends SdkResponse {
     }
     public get sisProjectId(): string | undefined {
         return this['sis_project_id'];
+    }
+    public withEnableHotWords(enableHotWords: boolean): ShowRobotResponse {
+        this['enable_hot_words'] = enableHotWords;
+        return this;
+    }
+    public set enableHotWords(enableHotWords: boolean  | undefined) {
+        this['enable_hot_words'] = enableHotWords;
+    }
+    public get enableHotWords(): boolean | undefined {
+        return this['enable_hot_words'];
+    }
+    public withEnableQuestionAudit(enableQuestionAudit: boolean): ShowRobotResponse {
+        this['enable_question_audit'] = enableQuestionAudit;
+        return this;
+    }
+    public set enableQuestionAudit(enableQuestionAudit: boolean  | undefined) {
+        this['enable_question_audit'] = enableQuestionAudit;
+    }
+    public get enableQuestionAudit(): boolean | undefined {
+        return this['enable_question_audit'];
     }
     public withXRequestId(xRequestId: string): ShowRobotResponse {
         this['X-Request-Id'] = xRequestId;

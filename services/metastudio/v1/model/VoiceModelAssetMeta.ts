@@ -1,4 +1,5 @@
 import { ExternalVoiceAssetMeta } from './ExternalVoiceAssetMeta';
+import { VoiceCapability } from './VoiceCapability';
 
 
 export class VoiceModelAssetMeta {
@@ -8,6 +9,8 @@ export class VoiceModelAssetMeta {
     public language?: VoiceModelAssetMetaLanguageEnum | string;
     private 'speed_ratio'?: number;
     private 'volume_ratio'?: number;
+    private 'is_realtime_voice'?: boolean;
+    private 'voice_capability'?: VoiceCapability;
     private 'external_voice_meta'?: ExternalVoiceAssetMeta;
     public constructor() { 
     }
@@ -52,6 +55,26 @@ export class VoiceModelAssetMeta {
     }
     public get volumeRatio(): number | undefined {
         return this['volume_ratio'];
+    }
+    public withIsRealtimeVoice(isRealtimeVoice: boolean): VoiceModelAssetMeta {
+        this['is_realtime_voice'] = isRealtimeVoice;
+        return this;
+    }
+    public set isRealtimeVoice(isRealtimeVoice: boolean  | undefined) {
+        this['is_realtime_voice'] = isRealtimeVoice;
+    }
+    public get isRealtimeVoice(): boolean | undefined {
+        return this['is_realtime_voice'];
+    }
+    public withVoiceCapability(voiceCapability: VoiceCapability): VoiceModelAssetMeta {
+        this['voice_capability'] = voiceCapability;
+        return this;
+    }
+    public set voiceCapability(voiceCapability: VoiceCapability  | undefined) {
+        this['voice_capability'] = voiceCapability;
+    }
+    public get voiceCapability(): VoiceCapability | undefined {
+        return this['voice_capability'];
     }
     public withExternalVoiceMeta(externalVoiceMeta: ExternalVoiceAssetMeta): VoiceModelAssetMeta {
         this['external_voice_meta'] = externalVoiceMeta;

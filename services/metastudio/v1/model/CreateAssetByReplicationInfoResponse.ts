@@ -1,12 +1,12 @@
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class CreateAssetbyReplicationInfoResponse extends SdkResponse {
+export class CreateAssetByReplicationInfoResponse extends SdkResponse {
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
-    public withXRequestId(xRequestId: string): CreateAssetbyReplicationInfoResponse {
+    public withXRequestId(xRequestId: string): CreateAssetByReplicationInfoResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }

@@ -9,9 +9,7 @@ import { VoiceConfig } from './VoiceConfig';
 
 export class Create2DDigitalHumanVideoReq {
     private 'script_id'?: string;
-    private 'video_making_type'?: Create2DDigitalHumanVideoReqVideoMakingTypeEnum | string;
     private 'model_asset_id'?: string;
-    private 'human_image'?: string;
     private 'voice_config'?: VoiceConfig;
     private 'video_config'?: VideoConfig;
     private 'shoot_scripts'?: Array<ShootScriptItem>;
@@ -31,16 +29,6 @@ export class Create2DDigitalHumanVideoReq {
     public get scriptId(): string | undefined {
         return this['script_id'];
     }
-    public withVideoMakingType(videoMakingType: Create2DDigitalHumanVideoReqVideoMakingTypeEnum | string): Create2DDigitalHumanVideoReq {
-        this['video_making_type'] = videoMakingType;
-        return this;
-    }
-    public set videoMakingType(videoMakingType: Create2DDigitalHumanVideoReqVideoMakingTypeEnum | string  | undefined) {
-        this['video_making_type'] = videoMakingType;
-    }
-    public get videoMakingType(): Create2DDigitalHumanVideoReqVideoMakingTypeEnum | string | undefined {
-        return this['video_making_type'];
-    }
     public withModelAssetId(modelAssetId: string): Create2DDigitalHumanVideoReq {
         this['model_asset_id'] = modelAssetId;
         return this;
@@ -50,16 +38,6 @@ export class Create2DDigitalHumanVideoReq {
     }
     public get modelAssetId(): string | undefined {
         return this['model_asset_id'];
-    }
-    public withHumanImage(humanImage: string): Create2DDigitalHumanVideoReq {
-        this['human_image'] = humanImage;
-        return this;
-    }
-    public set humanImage(humanImage: string  | undefined) {
-        this['human_image'] = humanImage;
-    }
-    public get humanImage(): string | undefined {
-        return this['human_image'];
     }
     public withVoiceConfig(voiceConfig: VoiceConfig): Create2DDigitalHumanVideoReq {
         this['voice_config'] = voiceConfig;
@@ -131,13 +109,4 @@ export class Create2DDigitalHumanVideoReq {
     public get callbackConfig(): CallBackConfig | undefined {
         return this['callback_config'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum Create2DDigitalHumanVideoReqVideoMakingTypeEnum {
-    MODEL = 'MODEL',
-    PICTURE = 'PICTURE'
 }
