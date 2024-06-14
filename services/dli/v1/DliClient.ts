@@ -108,9 +108,6 @@ import { CreateSqlJobResponse } from './model/CreateSqlJobResponse';
 import { CreateSqlJobTemplateRequest } from './model/CreateSqlJobTemplateRequest';
 import { CreateSqlJobTemplateRequestBody } from './model/CreateSqlJobTemplateRequestBody';
 import { CreateSqlJobTemplateResponse } from './model/CreateSqlJobTemplateResponse';
-import { CreateStreamJobRequest } from './model/CreateStreamJobRequest';
-import { CreateStreamJobRequestBody } from './model/CreateStreamJobRequestBody';
-import { CreateStreamJobResponse } from './model/CreateStreamJobResponse';
 import { CreateTableRequest } from './model/CreateTableRequest';
 import { CreateTableRequestBody } from './model/CreateTableRequestBody';
 import { CreateTableResponse } from './model/CreateTableResponse';
@@ -173,7 +170,6 @@ import { ExportSqlJobResultResponse } from './model/ExportSqlJobResultResponse';
 import { ExportTableRequest } from './model/ExportTableRequest';
 import { ExportTableRequestBody } from './model/ExportTableRequestBody';
 import { ExportTableResponse } from './model/ExportTableResponse';
-import { FlinkJarParameter } from './model/FlinkJarParameter';
 import { FlinkJob } from './model/FlinkJob';
 import { FlinkJobConfig } from './model/FlinkJobConfig';
 import { FlinkJobExecutionGraph } from './model/FlinkJobExecutionGraph';
@@ -183,13 +179,9 @@ import { FlinkJobStatus } from './model/FlinkJobStatus';
 import { FlinkJobUpdateTime } from './model/FlinkJobUpdateTime';
 import { FlinkMetric } from './model/FlinkMetric';
 import { FlinkMetricList } from './model/FlinkMetricList';
-import { FlinkResourceConfig } from './model/FlinkResourceConfig';
-import { FlinkRestoreStrategy } from './model/FlinkRestoreStrategy';
-import { FlinkRuntimeConfig } from './model/FlinkRuntimeConfig';
 import { FlinkSqlJobTemplate } from './model/FlinkSqlJobTemplate';
 import { FlinkSqlJobTemplateId } from './model/FlinkSqlJobTemplateId';
 import { FlinkSqlJobTemplateList } from './model/FlinkSqlJobTemplateList';
-import { FlinkSqlParameter } from './model/FlinkSqlParameter';
 import { FlinkSuccessResponse } from './model/FlinkSuccessResponse';
 import { FlinkTemplate } from './model/FlinkTemplate';
 import { GlobalVariable } from './model/GlobalVariable';
@@ -274,7 +266,6 @@ import { PreviewSqlJobResultResponse } from './model/PreviewSqlJobResultResponse
 import { PreviewTableRequest } from './model/PreviewTableRequest';
 import { PreviewTableResponse } from './model/PreviewTableResponse';
 import { Privilege } from './model/Privilege';
-import { Properties } from './model/Properties';
 import { Queue } from './model/Queue';
 import { QueuePlan } from './model/QueuePlan';
 import { QueuePlanRequestBody } from './model/QueuePlanRequestBody';
@@ -289,7 +280,6 @@ import { RegisterAuthorizedQueueResponse } from './model/RegisterAuthorizedQueue
 import { RegisterBucketRequest } from './model/RegisterBucketRequest';
 import { RegisterBucketRequestBody } from './model/RegisterBucketRequestBody';
 import { RegisterBucketResponse } from './model/RegisterBucketResponse';
-import { ResourceSpec } from './model/ResourceSpec';
 import { RunAuthorizationActionRequest } from './model/RunAuthorizationActionRequest';
 import { RunAuthorizationActionRequestBody } from './model/RunAuthorizationActionRequestBody';
 import { RunAuthorizationActionResponse } from './model/RunAuthorizationActionResponse';
@@ -354,11 +344,6 @@ import { SqlJobTemplate } from './model/SqlJobTemplate';
 import { SqlSampleTemplate } from './model/SqlSampleTemplate';
 import { State } from './model/State';
 import { StopFlinkJobsRequestBody } from './model/StopFlinkJobsRequestBody';
-import { StreamClassLoggerLevel } from './model/StreamClassLoggerLevel';
-import { StreamEnvironmentConfig } from './model/StreamEnvironmentConfig';
-import { StreamJobStatus } from './model/StreamJobStatus';
-import { StreamLoggingConfig } from './model/StreamLoggingConfig';
-import { StreamRuntimeConfig } from './model/StreamRuntimeConfig';
 import { SubJob } from './model/SubJob';
 import { Table } from './model/Table';
 import { TablePrivilege } from './model/TablePrivilege';
@@ -750,25 +735,6 @@ export class DliClient {
      */
     public createRouteToEnhancedConnection(createRouteToEnhancedConnectionRequest?: CreateRouteToEnhancedConnectionRequest): Promise<CreateRouteToEnhancedConnectionResponse> {
         const options = ParamCreater().createRouteToEnhancedConnection(createRouteToEnhancedConnectionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 通过 POST 方式，提交流式作业，请求体为 JSON 格式。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 提交流作业
-     * @param {CreateStreamJobRequestBody} createStreamJobRequestBody 提交流作业的请求参数。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createStreamJob(createStreamJobRequest?: CreateStreamJobRequest): Promise<CreateStreamJobResponse> {
-        const options = ParamCreater().createStreamJob(createStreamJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3903,44 +3869,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'connection_id': connectionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 通过 POST 方式，提交流式作业，请求体为 JSON 格式。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createStreamJob(createStreamJobRequest?: CreateStreamJobRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/streams",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createStreamJobRequest !== null && createStreamJobRequest !== undefined) {
-                if (createStreamJobRequest instanceof CreateStreamJobRequest) {
-                    body = createStreamJobRequest.body
-                } else {
-                    body = createStreamJobRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
