@@ -1,5 +1,6 @@
 import { CodeSource } from './CodeSource';
 import { CustomVariable } from './CustomVariable';
+import { PipelineConcurrencyMgmt } from './PipelineConcurrencyMgmt';
 import { PipelineSchedule } from './PipelineSchedule';
 import { PipelineTrigger } from './PipelineTrigger';
 
@@ -17,7 +18,11 @@ export class PipelineDTO {
     private 'project_name'?: string;
     private 'group_id'?: string;
     public id?: string;
-    public constructor() { 
+    private 'concurrency_control'?: PipelineConcurrencyMgmt;
+    public constructor(name?: string, isPublish?: boolean, definition?: string) { 
+        this['name'] = name;
+        this['is_publish'] = isPublish;
+        this['definition'] = definition;
     }
     public withName(name: string): PipelineDTO {
         this['name'] = name;
@@ -90,5 +95,15 @@ export class PipelineDTO {
     public withId(id: string): PipelineDTO {
         this['id'] = id;
         return this;
+    }
+    public withConcurrencyControl(concurrencyControl: PipelineConcurrencyMgmt): PipelineDTO {
+        this['concurrency_control'] = concurrencyControl;
+        return this;
+    }
+    public set concurrencyControl(concurrencyControl: PipelineConcurrencyMgmt  | undefined) {
+        this['concurrency_control'] = concurrencyControl;
+    }
+    public get concurrencyControl(): PipelineConcurrencyMgmt | undefined {
+        return this['concurrency_control'];
     }
 }

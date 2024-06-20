@@ -4,7 +4,10 @@ export class PublishPluginDTO {
     private 'plugin_name'?: string;
     public version?: string;
     private 'publisher_unique_id'?: string;
-    public constructor() { 
+    public constructor(pluginName?: string, version?: string, publisherUniqueId?: string) { 
+        this['plugin_name'] = pluginName;
+        this['version'] = version;
+        this['publisher_unique_id'] = publisherUniqueId;
     }
     public withPluginName(pluginName: string): PublishPluginDTO {
         this['plugin_name'] = pluginName;

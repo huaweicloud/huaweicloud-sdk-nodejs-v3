@@ -125,6 +125,7 @@ export * from './model/PipelineBasicInfo';
 export * from './model/PipelineBuildResult';
 export * from './model/PipelineByTemplateDTO';
 export * from './model/PipelineByTemplateDTOVariables';
+export * from './model/PipelineConcurrencyMgmt';
 export * from './model/PipelineDTO';
 export * from './model/PipelineExecuteStates';
 export * from './model/PipelineGroupBindDTO';

@@ -16,9 +16,6 @@ export class SmartConnectTaskRespSinkConfig {
     private 'obs_part_size'?: number;
     private 'flush_size'?: number;
     public timezone?: string;
-    private 'connector_class'?: string;
-    private 'storage_class'?: string;
-    private 'format_class'?: string;
     private 'schema_generator_class'?: string;
     private 'partitioner_class'?: string;
     private 'value_converter'?: string;
@@ -169,36 +166,6 @@ export class SmartConnectTaskRespSinkConfig {
     public withTimezone(timezone: string): SmartConnectTaskRespSinkConfig {
         this['timezone'] = timezone;
         return this;
-    }
-    public withConnectorClass(connectorClass: string): SmartConnectTaskRespSinkConfig {
-        this['connector_class'] = connectorClass;
-        return this;
-    }
-    public set connectorClass(connectorClass: string  | undefined) {
-        this['connector_class'] = connectorClass;
-    }
-    public get connectorClass(): string | undefined {
-        return this['connector_class'];
-    }
-    public withStorageClass(storageClass: string): SmartConnectTaskRespSinkConfig {
-        this['storage_class'] = storageClass;
-        return this;
-    }
-    public set storageClass(storageClass: string  | undefined) {
-        this['storage_class'] = storageClass;
-    }
-    public get storageClass(): string | undefined {
-        return this['storage_class'];
-    }
-    public withFormatClass(formatClass: string): SmartConnectTaskRespSinkConfig {
-        this['format_class'] = formatClass;
-        return this;
-    }
-    public set formatClass(formatClass: string  | undefined) {
-        this['format_class'] = formatClass;
-    }
-    public get formatClass(): string | undefined {
-        return this['format_class'];
     }
     public withSchemaGeneratorClass(schemaGeneratorClass: string): SmartConnectTaskRespSinkConfig {
         this['schema_generator_class'] = schemaGeneratorClass;

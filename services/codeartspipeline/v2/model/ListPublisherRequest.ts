@@ -5,8 +5,10 @@ export class ListPublisherRequest {
     public offset?: string;
     public limit?: string;
     public name?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, offset?: string, limit?: string) { 
         this['domain_id'] = domainId;
+        this['offset'] = offset;
+        this['limit'] = limit;
     }
     public withDomainId(domainId: string): ListPublisherRequest {
         this['domain_id'] = domainId;

@@ -5,8 +5,9 @@ export class UploadPluginIconRequest {
     private 'domain_id'?: string;
     private 'plugin_name'?: string;
     public body?: UploadPluginIconRequestBody;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, pluginName?: string) { 
         this['domain_id'] = domainId;
+        this['plugin_name'] = pluginName;
     }
     public withDomainId(domainId: string): UploadPluginIconRequest {
         this['domain_id'] = domainId;

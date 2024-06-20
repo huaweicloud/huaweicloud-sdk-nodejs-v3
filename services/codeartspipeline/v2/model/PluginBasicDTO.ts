@@ -13,7 +13,11 @@ export class PluginBasicDTO {
     public region?: string;
     public maintainers?: string;
     private 'plugin_composition_type'?: string;
-    public constructor() { 
+    public constructor(pluginName?: string, displayName?: string, businessType?: string, businessTypeDisplayName?: string) { 
+        this['plugin_name'] = pluginName;
+        this['display_name'] = displayName;
+        this['business_type'] = businessType;
+        this['business_type_display_name'] = businessTypeDisplayName;
     }
     public withUniqueId(uniqueId: string): PluginBasicDTO {
         this['unique_id'] = uniqueId;

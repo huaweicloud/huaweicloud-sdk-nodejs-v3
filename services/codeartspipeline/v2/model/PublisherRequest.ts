@@ -10,7 +10,10 @@ export class PublisherRequest {
     private 'source_url'?: string;
     private 'en_name'?: string;
     private 'publisher_unique_id'?: string;
-    public constructor() { 
+    public constructor(name?: string, supportUrl?: string, enName?: string) { 
+        this['name'] = name;
+        this['support_url'] = supportUrl;
+        this['en_name'] = enName;
     }
     public withName(name: string): PublisherRequest {
         this['name'] = name;

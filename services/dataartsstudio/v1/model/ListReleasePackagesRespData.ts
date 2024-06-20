@@ -2,7 +2,7 @@ import { ListReleasePackagesRespPackageApprovers } from './ListReleasePackagesRe
 
 
 export class ListReleasePackagesRespData {
-    private 'apply_timestamp'?: string;
+    private 'apply_timestamp'?: number;
     private 'apply_user_id'?: string;
     private 'apply_user_name'?: string;
     private 'delete_flag'?: number;
@@ -18,14 +18,14 @@ export class ListReleasePackagesRespData {
     public constructor(packageApprovers?: Array<ListReleasePackagesRespPackageApprovers>) { 
         this['package_approvers'] = packageApprovers;
     }
-    public withApplyTimestamp(applyTimestamp: string): ListReleasePackagesRespData {
+    public withApplyTimestamp(applyTimestamp: number): ListReleasePackagesRespData {
         this['apply_timestamp'] = applyTimestamp;
         return this;
     }
-    public set applyTimestamp(applyTimestamp: string  | undefined) {
+    public set applyTimestamp(applyTimestamp: number  | undefined) {
         this['apply_timestamp'] = applyTimestamp;
     }
-    public get applyTimestamp(): string | undefined {
+    public get applyTimestamp(): number | undefined {
         return this['apply_timestamp'];
     }
     public withApplyUserId(applyUserId: string): ListReleasePackagesRespData {

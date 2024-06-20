@@ -6,7 +6,11 @@ export class PluginPartQueryDTO {
     public version?: string;
     private 'plugin_attribution'?: string;
     private 'version_attribution'?: string;
-    public constructor() { 
+    public constructor(pluginName?: string, displayName?: string, version?: string, pluginAttribution?: string) { 
+        this['plugin_name'] = pluginName;
+        this['display_name'] = displayName;
+        this['version'] = version;
+        this['plugin_attribution'] = pluginAttribution;
     }
     public withPluginName(pluginName: string): PluginPartQueryDTO {
         this['plugin_name'] = pluginName;

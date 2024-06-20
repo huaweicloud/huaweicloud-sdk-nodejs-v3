@@ -162,6 +162,7 @@ import { LogConfiguration } from './model/LogConfiguration';
 import { LogList } from './model/LogList';
 import { PayInfoBody } from './model/PayInfoBody';
 import { PeriodReq } from './model/PeriodReq';
+import { PermissionInfo } from './model/PermissionInfo';
 import { Pipelines } from './model/Pipelines';
 import { PublicKibanaRespBody } from './model/PublicKibanaRespBody';
 import { ResetPasswordReq } from './model/ResetPasswordReq';
@@ -741,6 +742,7 @@ export class CssClient {
      * @summary 查询集群列表
      * @param {number} [start] 指定查询起始值，默认值为1，即从第1个集群开始查询。
      * @param {number} [limit] 指定查询个数，默认值为10，即一次查询10个集群信息。
+     * @param {string} [datastoreType] 指定查询的集群引擎类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3141,14 +3143,18 @@ export const ParamCreater = function () {
             let start;
             
             let limit;
+            
+            let datastoreType;
 
             if (listClustersDetailsRequest !== null && listClustersDetailsRequest !== undefined) {
                 if (listClustersDetailsRequest instanceof ListClustersDetailsRequest) {
                     start = listClustersDetailsRequest.start;
                     limit = listClustersDetailsRequest.limit;
+                    datastoreType = listClustersDetailsRequest.datastoreType;
                 } else {
                     start = listClustersDetailsRequest['start'];
                     limit = listClustersDetailsRequest['limit'];
+                    datastoreType = listClustersDetailsRequest['datastoreType'];
                 }
             }
 
@@ -3158,6 +3164,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastoreType'] = datastoreType;
             }
 
             options.queryParams = localVarQueryParameter;

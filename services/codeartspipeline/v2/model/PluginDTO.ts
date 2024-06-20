@@ -18,7 +18,15 @@ export class PluginDTO {
     private 'version_description'?: string;
     private 'execution_info'?: PluginDTOExecutionInfo;
     private 'input_info'?: Array<PluginDTOInputInfo>;
-    public constructor() { 
+    public constructor(runtimeAttribution?: string, pluginName?: string, displayName?: string, businessType?: string, businessTypeDisplayName?: string, description?: string, version?: string, executionInfo?: PluginDTOExecutionInfo) { 
+        this['runtime_attribution'] = runtimeAttribution;
+        this['plugin_name'] = pluginName;
+        this['display_name'] = displayName;
+        this['business_type'] = businessType;
+        this['business_type_display_name'] = businessTypeDisplayName;
+        this['description'] = description;
+        this['version'] = version;
+        this['execution_info'] = executionInfo;
     }
     public withUniqueId(uniqueId: string): PluginDTO {
         this['unique_id'] = uniqueId;

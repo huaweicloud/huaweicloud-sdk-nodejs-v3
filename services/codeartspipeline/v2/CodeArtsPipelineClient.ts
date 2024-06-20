@@ -128,6 +128,7 @@ import { PipelineBasicInfo } from './model/PipelineBasicInfo';
 import { PipelineBuildResult } from './model/PipelineBuildResult';
 import { PipelineByTemplateDTO } from './model/PipelineByTemplateDTO';
 import { PipelineByTemplateDTOVariables } from './model/PipelineByTemplateDTOVariables';
+import { PipelineConcurrencyMgmt } from './model/PipelineConcurrencyMgmt';
 import { PipelineDTO } from './model/PipelineDTO';
 import { PipelineExecuteStates } from './model/PipelineExecuteStates';
 import { PipelineGroupBindDTO } from './model/PipelineGroupBindDTO';
@@ -603,7 +604,9 @@ export class CodeArtsPipelineClient {
      *
      * @summary 删除基础插件
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 是否调用成功
+     * @param {string} pluginName 需要删除的插件名
+     * @param {string} type 删除类型，all 代表删除整个插件，single代表删除单个插件版本
+     * @param {string} [version] 需要删除的插件版本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -681,8 +684,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 删除插件草稿
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 插件名
-     * @param {string} [version] 版本
+     * @param {string} pluginName 插件名
+     * @param {string} version 版本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -702,7 +705,7 @@ export class CodeArtsPipelineClient {
      *
      * @summary 删除发布商
      * @param {string} domainId 租户ID
-     * @param {string} [publisherUniqueId] 发布商ID
+     * @param {string} publisherUniqueId 发布商ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -781,9 +784,9 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询基础插件列表
      * @param {string} domainId 租户ID
-     * @param {string} [attribution] 属性
-     * @param {string} [offset] 偏移
-     * @param {string} [limit] 大小
+     * @param {string} attribution 插件属性,可选official、published
+     * @param {string} offset 偏移
+     * @param {string} limit 大小
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -825,9 +828,9 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询插件所有版本信息
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 插件名
-     * @param {string} [offset] 偏移
-     * @param {string} [limit] 大小
+     * @param {string} pluginName 插件名
+     * @param {string} offset 偏移
+     * @param {string} limit 大小
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -947,9 +950,9 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询插件版本号
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 插件名
-     * @param {string} [offset] 偏移
-     * @param {string} [limit] 大小
+     * @param {string} pluginName 插件名
+     * @param {string} offset 偏移
+     * @param {string} limit 大小
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -969,8 +972,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询插件列表
      * @param {string} domainId 租户ID
-     * @param {string} [offset] 偏移
-     * @param {string} [limit] 大小
+     * @param {string} offset 偏移
+     * @param {string} limit 大小
      * @param {AgentPluginInfoQueryDTO} [agentPluginInfoQueryDTO] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1015,8 +1018,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询发布商列表
      * @param {string} domainId 租户ID
-     * @param {string} [offset] 偏移
-     * @param {string} [limit] 大小
+     * @param {string} offset 偏移
+     * @param {string} limit 大小
      * @param {string} [name] 名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1273,8 +1276,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询基础插件详情
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 插件名
-     * @param {string} [version] 版本
+     * @param {string} pluginName 插件名
+     * @param {string} version 版本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1513,7 +1516,7 @@ export class CodeArtsPipelineClient {
      *
      * @summary 查询插件版本详情
      * @param {string} domainId 租户ID
-     * @param {string} [pluginName] 插件名
+     * @param {string} pluginName 插件名
      * @param {string} [version] 版本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1900,9 +1903,9 @@ export class CodeArtsPipelineClient {
      *
      * @summary 上传基础插件
      * @param {string} domainId 租户ID
+     * @param {string} pluginName 插件名
+     * @param {string} businessType 业务类型
      * @param {any} uploadFile 
-     * @param {string} [pluginName] 插件名
-     * @param {string} [businessType] 业务类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1922,8 +1925,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 更新插件图标
      * @param {string} domainId 租户ID
+     * @param {string} pluginName 
      * @param {any} uploadFile 图标文件
-     * @param {string} [pluginName] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1943,8 +1946,8 @@ export class CodeArtsPipelineClient {
      *
      * @summary 更新发布商图标
      * @param {string} domainId 租户ID
+     * @param {string} publisherEnName 发布商名称
      * @param {any} uploadFile 图标文件
-     * @param {string} [publisherEnName] 发布商名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2641,14 +2644,22 @@ export const ParamCreater = function () {
             let domainId;
             
             let pluginName;
+            
+            let type;
+            
+            let version;
 
             if (deleteBasicPluginRequest !== null && deleteBasicPluginRequest !== undefined) {
                 if (deleteBasicPluginRequest instanceof DeleteBasicPluginRequest) {
                     domainId = deleteBasicPluginRequest.domainId;
                     pluginName = deleteBasicPluginRequest.pluginName;
+                    type = deleteBasicPluginRequest.type;
+                    version = deleteBasicPluginRequest.version;
                 } else {
                     domainId = deleteBasicPluginRequest['domain_id'];
                     pluginName = deleteBasicPluginRequest['plugin_name'];
+                    type = deleteBasicPluginRequest['type'];
+                    version = deleteBasicPluginRequest['version'];
                 }
             }
 
@@ -2656,8 +2667,20 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteBasicPlugin.');
             }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling deleteBasicPlugin.');
+            }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling deleteBasicPlugin.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2826,8 +2849,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deletePluginDraft.');
             }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling deletePluginDraft.');
+            }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
+            }
+            if (version === null || version === undefined) {
+                throw new RequiredError('version','Required parameter version was null or undefined when calling deletePluginDraft.');
             }
             if (version !== null && version !== undefined) {
                 localVarQueryParameter['version'] = version;
@@ -2873,6 +2902,9 @@ export const ParamCreater = function () {
         
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deletePublisher.');
+            }
+            if (publisherUniqueId === null || publisherUniqueId === undefined) {
+                throw new RequiredError('publisherUniqueId','Required parameter publisherUniqueId was null or undefined when calling deletePublisher.');
             }
             if (publisherUniqueId !== null && publisherUniqueId !== undefined) {
                 localVarQueryParameter['publisher_unique_id'] = publisherUniqueId;
@@ -3052,11 +3084,20 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listBasePlugins.');
             }
+            if (attribution === null || attribution === undefined) {
+                throw new RequiredError('attribution','Required parameter attribution was null or undefined when calling listBasePlugins.');
+            }
             if (attribution !== null && attribution !== undefined) {
                 localVarQueryParameter['attribution'] = attribution;
             }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listBasePlugins.');
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listBasePlugins.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3178,11 +3219,20 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listPLuginVersion.');
             }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling listPLuginVersion.');
+            }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
             }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPLuginVersion.');
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPLuginVersion.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3463,11 +3513,20 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listPluginVersionNumber.');
             }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling listPluginVersionNumber.');
+            }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
             }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPluginVersionNumber.');
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPluginVersionNumber.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3522,8 +3581,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listPlugins.');
             }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPlugins.');
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPlugins.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3661,8 +3726,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listPublisher.');
             }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPublisher.');
+            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPublisher.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -4330,8 +4401,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showBasicPlugin.');
             }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling showBasicPlugin.');
+            }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
+            }
+            if (version === null || version === undefined) {
+                throw new RequiredError('version','Required parameter version was null or undefined when calling showBasicPlugin.');
             }
             if (version !== null && version !== undefined) {
                 localVarQueryParameter['version'] = version;
@@ -4850,6 +4927,9 @@ export const ParamCreater = function () {
         
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showPluginVersion.');
+            }
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling showPluginVersion.');
             }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
@@ -5740,24 +5820,24 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             
             let domainId;
-            let uploadFile;
-            
             
             let pluginName;
             
             let businessType;
+            let uploadFile;
+            
 
             if (uploadBasicPluginRequest !== null && uploadBasicPluginRequest !== undefined) {
                 if (uploadBasicPluginRequest instanceof UploadBasicPluginRequest) {
                     domainId = uploadBasicPluginRequest.domainId;
-                    uploadFile = uploadBasicPluginRequest.body?.uploadFile;
                     pluginName = uploadBasicPluginRequest.pluginName;
                     businessType = uploadBasicPluginRequest.businessType;
+                    uploadFile = uploadBasicPluginRequest.body?.uploadFile;
                 } else {
                     domainId = uploadBasicPluginRequest['domain_id'];
-                    uploadFile = uploadBasicPluginRequest['body']['uploadFile'];
                     pluginName = uploadBasicPluginRequest['plugin_name'];
                     businessType = uploadBasicPluginRequest['business_type'];
+                    uploadFile = uploadBasicPluginRequest['body']['uploadFile'];
                 }
             }
 
@@ -5765,14 +5845,20 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling uploadBasicPlugin.');
             }
-            if (uploadFile === null || uploadFile === undefined) {
-            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadBasicPlugin.');
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling uploadBasicPlugin.');
             }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
             }
+            if (businessType === null || businessType === undefined) {
+                throw new RequiredError('businessType','Required parameter businessType was null or undefined when calling uploadBasicPlugin.');
+            }
             if (businessType !== null && businessType !== undefined) {
                 localVarQueryParameter['business_type'] = businessType;
+            }
+            if (uploadFile === null || uploadFile === undefined) {
+            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadBasicPlugin.');
             }
             if (uploadFile !== undefined) { 
                 localVarFormParams.append('upload_file', uploadFile as any);
@@ -5806,20 +5892,20 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             
             let domainId;
-            let uploadFile;
-            
             
             let pluginName;
+            let uploadFile;
+            
 
             if (uploadPluginIconRequest !== null && uploadPluginIconRequest !== undefined) {
                 if (uploadPluginIconRequest instanceof UploadPluginIconRequest) {
                     domainId = uploadPluginIconRequest.domainId;
-                    uploadFile = uploadPluginIconRequest.body?.uploadFile;
                     pluginName = uploadPluginIconRequest.pluginName;
+                    uploadFile = uploadPluginIconRequest.body?.uploadFile;
                 } else {
                     domainId = uploadPluginIconRequest['domain_id'];
-                    uploadFile = uploadPluginIconRequest['body']['uploadFile'];
                     pluginName = uploadPluginIconRequest['plugin_name'];
+                    uploadFile = uploadPluginIconRequest['body']['uploadFile'];
                 }
             }
 
@@ -5827,11 +5913,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling uploadPluginIcon.');
             }
-            if (uploadFile === null || uploadFile === undefined) {
-            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadPluginIcon.');
+            if (pluginName === null || pluginName === undefined) {
+                throw new RequiredError('pluginName','Required parameter pluginName was null or undefined when calling uploadPluginIcon.');
             }
             if (pluginName !== null && pluginName !== undefined) {
                 localVarQueryParameter['plugin_name'] = pluginName;
+            }
+            if (uploadFile === null || uploadFile === undefined) {
+            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadPluginIcon.');
             }
             if (uploadFile !== undefined) { 
                 localVarFormParams.append('upload_file', uploadFile as any);
@@ -5865,20 +5954,20 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             
             let domainId;
-            let uploadFile;
-            
             
             let publisherEnName;
+            let uploadFile;
+            
 
             if (uploadPublisherIconRequest !== null && uploadPublisherIconRequest !== undefined) {
                 if (uploadPublisherIconRequest instanceof UploadPublisherIconRequest) {
                     domainId = uploadPublisherIconRequest.domainId;
-                    uploadFile = uploadPublisherIconRequest.body?.uploadFile;
                     publisherEnName = uploadPublisherIconRequest.publisherEnName;
+                    uploadFile = uploadPublisherIconRequest.body?.uploadFile;
                 } else {
                     domainId = uploadPublisherIconRequest['domain_id'];
-                    uploadFile = uploadPublisherIconRequest['body']['uploadFile'];
                     publisherEnName = uploadPublisherIconRequest['publisher_en_name'];
+                    uploadFile = uploadPublisherIconRequest['body']['uploadFile'];
                 }
             }
 
@@ -5886,11 +5975,14 @@ export const ParamCreater = function () {
             if (domainId === null || domainId === undefined) {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling uploadPublisherIcon.');
             }
-            if (uploadFile === null || uploadFile === undefined) {
-            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadPublisherIcon.');
+            if (publisherEnName === null || publisherEnName === undefined) {
+                throw new RequiredError('publisherEnName','Required parameter publisherEnName was null or undefined when calling uploadPublisherIcon.');
             }
             if (publisherEnName !== null && publisherEnName !== undefined) {
                 localVarQueryParameter['publisher_en_name'] = publisherEnName;
+            }
+            if (uploadFile === null || uploadFile === undefined) {
+            throw new RequiredError('uploadFile','Required parameter uploadFile was null or undefined when calling uploadPublisherIcon.');
             }
             if (uploadFile !== undefined) { 
                 localVarFormParams.append('upload_file', uploadFile as any);

@@ -29,7 +29,8 @@ export class DdsRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://dds.tr-west-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://dds.ap-southeast-4.myhuaweicloud.com"]);
     public static EU_WEST_0 = new Region("eu-west-0", ["https://dds.eu-west-0.myhuaweicloud.com"]);
-    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dd.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://dds.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dds.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -56,7 +57,8 @@ export class DdsRegion {
         "tr-west-1":DdsRegion.TR_WEST_1,
         "ap-southeast-4":DdsRegion.AP_SOUTHEAST_4,
         "eu-west-0":DdsRegion.EU_WEST_0,
-        "my-kualalumpur-1":DdsRegion.MY_KUALALUMPUR_1
+        "my-kualalumpur-1":DdsRegion.MY_KUALALUMPUR_1,
+        "ru-moscow-1":DdsRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

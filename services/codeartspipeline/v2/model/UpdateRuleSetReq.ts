@@ -4,7 +4,8 @@ import { UpdateRuleInstance } from './UpdateRuleInstance';
 export class UpdateRuleSetReq {
     public name?: string;
     public rules?: Array<UpdateRuleInstance>;
-    public constructor() { 
+    public constructor(name?: string) { 
+        this['name'] = name;
     }
     public withName(name: string): UpdateRuleSetReq {
         this['name'] = name;

@@ -6,8 +6,10 @@ export class UploadBasicPluginRequest {
     private 'plugin_name'?: string;
     private 'business_type'?: string;
     public body?: UploadBasicPluginRequestBody;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, pluginName?: string, businessType?: string) { 
         this['domain_id'] = domainId;
+        this['plugin_name'] = pluginName;
+        this['business_type'] = businessType;
     }
     public withDomainId(domainId: string): UploadBasicPluginRequest {
         this['domain_id'] = domainId;

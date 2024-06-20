@@ -160,6 +160,7 @@ export * from './model/LogConfiguration';
 export * from './model/LogList';
 export * from './model/PayInfoBody';
 export * from './model/PeriodReq';
+export * from './model/PermissionInfo';
 export * from './model/Pipelines';
 export * from './model/PublicKibanaRespBody';
 export * from './model/ResetPasswordReq';

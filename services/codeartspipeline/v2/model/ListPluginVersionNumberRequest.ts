@@ -5,8 +5,11 @@ export class ListPluginVersionNumberRequest {
     private 'plugin_name'?: string;
     public offset?: string;
     public limit?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, pluginName?: string, offset?: string, limit?: string) { 
         this['domain_id'] = domainId;
+        this['plugin_name'] = pluginName;
+        this['offset'] = offset;
+        this['limit'] = limit;
     }
     public withDomainId(domainId: string): ListPluginVersionNumberRequest {
         this['domain_id'] = domainId;

@@ -6,8 +6,10 @@ export class ListPluginsRequest {
     public offset?: string;
     public limit?: string;
     public body?: AgentPluginInfoQueryDTO;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, offset?: string, limit?: string) { 
         this['domain_id'] = domainId;
+        this['offset'] = offset;
+        this['limit'] = limit;
     }
     public withDomainId(domainId: string): ListPluginsRequest {
         this['domain_id'] = domainId;

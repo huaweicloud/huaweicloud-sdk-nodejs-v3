@@ -1,3 +1,174 @@
+# 3.1.102 2024-06-20
+
+### HuaweiCloud SDK CodeArtsPipeline
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **UploadPluginIcon**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+  - **UploadPublisherIcon**
+    - changes of request param
+      - `* publisher_en_name: optional -> required`
+  - **DeletePluginDraft**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+      - `* version: optional -> required`
+  - **DeletePublisher**
+    - changes of request param
+      - `* publisher_unique_id: optional -> required`
+  - **DeleteBasicPlugin**
+    - changes of request param
+      - `+ type`
+      - `+ version`
+      - `* plugin_name: optional -> required`
+  - **UploadBasicPlugin**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+      - `* business_type: optional -> required`
+  - **ListBasePlugins**
+    - changes of request param
+      - `* attribution: optional -> required`
+      - `* offset: optional -> required`
+      - `* limit: optional -> required`
+  - **ListPluginVersionNumber**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+      - `* offset: optional -> required`
+      - `* limit: optional -> required`
+  - **ListPublisher**
+    - changes of request param
+      - `* offset: optional -> required`
+      - `* limit: optional -> required`
+  - **ListPlugins**
+    - changes of request param
+      - `* offset: optional -> required`
+      - `* limit: optional -> required`
+  - **ListPLuginVersion**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+      - `* offset: optional -> required`
+      - `* limit: optional -> required`
+  - **ShowPluginVersion**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+  - **ShowBasicPlugin**
+    - changes of request param
+      - `* plugin_name: optional -> required`
+      - `* version: optional -> required`
+  - **CreatePipelineNew**
+    - changes of request param
+      - `+ concurrency_control`
+  - **UpdatePipelineInfo**
+    - changes of request param
+      - `+ concurrency_control`
+
+### HuaweiCloud SDK CSS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowVpcepConnection**
+    - changes of response param
+      - `+ vpcServiceName`
+      - `+ permissions`
+  - **ListClustersDetails**
+    - changes of request param
+      - `+ datastoreType`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListFactoryReleasePackages**
+    - changes of response param
+      - `* data.apply_timestamp: string -> int64`
+  - **ShowFactoryPackageDetail**
+    - changes of response param
+      - `+ task_details.task_id`
+      - `+ task_details.start_job_status`
+
+### HuaweiCloud SDK DWS
+
+- _Features_
+  - Support the APIs `ChangeSecurityGroup`, `ShowClusterFlavor`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support the following APIs:
+    - `ListProvisioningTemplates`
+    - `CreateProvisioningTemplate`
+    - `ShowProvisioningTemplate`
+    - `UpdateProvisioningTemplate`
+    - `DeleteProvisioningTemplate`
+    - `ListDeviceAuthorizers`
+    - `CreateDeviceAuthorizer`
+    - `ShowDeviceAuthorizer`
+    - `UpdateDeviceAuthorizer`
+    - `DeleteDeviceAuthorizer`
+    - `ListDevicePolicies`
+    - `CreateDevicePolicy`
+    - `ShowDevicePolicy`
+    - `UpdateDevicePolicy`
+    - `DeleteDevicePolicy`
+    - `BindDevicePolicy`
+    - `UnbindDevicePolicy`
+    - `ShowTargetsInDevicePolicy`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK Kafka
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowConnectorTask**
+    - changes of response param
+      - `- sink_task.connector_class`
+      - `- sink_task.storage_class`
+      - `- sink_task.format_class`
+  - **CreateConnectorTask**
+    - changes of response param
+      - `- sink_task.connector_class`
+      - `- sink_task.storage_class`
+      - `- sink_task.format_class`
+  - **ListConnectorTasks**
+    - changes of response param
+      - `- tasks.sink_task.connector_class`
+      - `- tasks.sink_task.storage_class`
+      - `- tasks.sink_task.format_class`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **RunCreateAudioStreamModerationJob**
+    - changes of request param
+      - `+ data.language`
+  - **RunCreateAudioModerationJob**
+    - changes of request param
+      - `+ data.language`
+
 # 3.1.101 2024-06-14
 
 ### HuaweiCloud SDK DLI

@@ -5,8 +5,9 @@ export class UploadPublisherIconRequest {
     private 'domain_id'?: string;
     private 'publisher_en_name'?: string;
     public body?: UploadPublisherIconRequestBody;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, publisherEnName?: string) { 
         this['domain_id'] = domainId;
+        this['publisher_en_name'] = publisherEnName;
     }
     public withDomainId(domainId: string): UploadPublisherIconRequest {
         this['domain_id'] = domainId;

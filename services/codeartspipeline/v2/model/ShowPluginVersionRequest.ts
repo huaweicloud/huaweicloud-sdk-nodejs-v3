@@ -4,8 +4,9 @@ export class ShowPluginVersionRequest {
     private 'domain_id'?: string;
     private 'plugin_name'?: string;
     public version?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, pluginName?: string) { 
         this['domain_id'] = domainId;
+        this['plugin_name'] = pluginName;
     }
     public withDomainId(domainId: string): ShowPluginVersionRequest {
         this['domain_id'] = domainId;

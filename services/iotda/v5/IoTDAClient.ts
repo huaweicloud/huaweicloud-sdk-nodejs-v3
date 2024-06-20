@@ -42,6 +42,9 @@ import { BatchShowQueueResponse } from './model/BatchShowQueueResponse';
 import { BatchTargetResult } from './model/BatchTargetResult';
 import { BatchTargets } from './model/BatchTargets';
 import { BatchTaskFile } from './model/BatchTaskFile';
+import { BindDevicePolicy } from './model/BindDevicePolicy';
+import { BindDevicePolicyRequest } from './model/BindDevicePolicyRequest';
+import { BindDevicePolicyResponse } from './model/BindDevicePolicyResponse';
 import { BindTagsDTO } from './model/BindTagsDTO';
 import { BridgeAuthInfo } from './model/BridgeAuthInfo';
 import { BridgeResponse } from './model/BridgeResponse';
@@ -70,6 +73,12 @@ import { CreateBatchTaskResponse } from './model/CreateBatchTaskResponse';
 import { CreateCertificateDTO } from './model/CreateCertificateDTO';
 import { CreateCommandRequest } from './model/CreateCommandRequest';
 import { CreateCommandResponse } from './model/CreateCommandResponse';
+import { CreateDeviceAuthorizer } from './model/CreateDeviceAuthorizer';
+import { CreateDeviceAuthorizerRequest } from './model/CreateDeviceAuthorizerRequest';
+import { CreateDeviceAuthorizerResponse } from './model/CreateDeviceAuthorizerResponse';
+import { CreateDevicePolicy } from './model/CreateDevicePolicy';
+import { CreateDevicePolicyRequest } from './model/CreateDevicePolicyRequest';
+import { CreateDevicePolicyResponse } from './model/CreateDevicePolicyResponse';
 import { CreateDeviceProxyRequest } from './model/CreateDeviceProxyRequest';
 import { CreateDeviceProxyResponse } from './model/CreateDeviceProxyResponse';
 import { CreateMessageRequest } from './model/CreateMessageRequest';
@@ -81,6 +90,9 @@ import { CreateOtaPackageRequest } from './model/CreateOtaPackageRequest';
 import { CreateOtaPackageResponse } from './model/CreateOtaPackageResponse';
 import { CreateProductRequest } from './model/CreateProductRequest';
 import { CreateProductResponse } from './model/CreateProductResponse';
+import { CreateProvisioningTemplate } from './model/CreateProvisioningTemplate';
+import { CreateProvisioningTemplateRequest } from './model/CreateProvisioningTemplateRequest';
+import { CreateProvisioningTemplateResponse } from './model/CreateProvisioningTemplateResponse';
 import { CreateRoutingBacklogPolicyRequest } from './model/CreateRoutingBacklogPolicyRequest';
 import { CreateRoutingBacklogPolicyResponse } from './model/CreateRoutingBacklogPolicyResponse';
 import { CreateRoutingFlowControlPolicyRequest } from './model/CreateRoutingFlowControlPolicyRequest';
@@ -102,8 +114,12 @@ import { DeleteBridgeRequest } from './model/DeleteBridgeRequest';
 import { DeleteBridgeResponse } from './model/DeleteBridgeResponse';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
+import { DeleteDeviceAuthorizerRequest } from './model/DeleteDeviceAuthorizerRequest';
+import { DeleteDeviceAuthorizerResponse } from './model/DeleteDeviceAuthorizerResponse';
 import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
 import { DeleteDeviceGroupResponse } from './model/DeleteDeviceGroupResponse';
+import { DeleteDevicePolicyRequest } from './model/DeleteDevicePolicyRequest';
+import { DeleteDevicePolicyResponse } from './model/DeleteDevicePolicyResponse';
 import { DeleteDeviceProxyRequest } from './model/DeleteDeviceProxyRequest';
 import { DeleteDeviceProxyResponse } from './model/DeleteDeviceProxyResponse';
 import { DeleteDeviceRequest } from './model/DeleteDeviceRequest';
@@ -114,6 +130,8 @@ import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
 import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
+import { DeleteProvisioningTemplateRequest } from './model/DeleteProvisioningTemplateRequest';
+import { DeleteProvisioningTemplateResponse } from './model/DeleteProvisioningTemplateResponse';
 import { DeleteQueueRequest } from './model/DeleteQueueRequest';
 import { DeleteQueueResponse } from './model/DeleteQueueResponse';
 import { DeleteRoutingBacklogPolicyRequest } from './model/DeleteRoutingBacklogPolicyRequest';
@@ -126,6 +144,7 @@ import { DeleteRuleActionRequest } from './model/DeleteRuleActionRequest';
 import { DeleteRuleActionResponse } from './model/DeleteRuleActionResponse';
 import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
+import { DeviceAuthorizerSimple } from './model/DeviceAuthorizerSimple';
 import { DeviceBroadcastRequest } from './model/DeviceBroadcastRequest';
 import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
@@ -133,7 +152,9 @@ import { DeviceGroupResponseSummary } from './model/DeviceGroupResponseSummary';
 import { DeviceLinkageStatusCondition } from './model/DeviceLinkageStatusCondition';
 import { DeviceMessage } from './model/DeviceMessage';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
+import { DevicePolicyBindOrUnbindFailureDetail } from './model/DevicePolicyBindOrUnbindFailureDetail';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
+import { DeviceResource } from './model/DeviceResource';
 import { DeviceShadowData } from './model/DeviceShadowData';
 import { DeviceShadowProperties } from './model/DeviceShadowProperties';
 import { DeviceSide } from './model/DeviceSide';
@@ -160,6 +181,8 @@ import { ListBridgesRequest } from './model/ListBridgesRequest';
 import { ListBridgesResponse } from './model/ListBridgesResponse';
 import { ListCertificatesRequest } from './model/ListCertificatesRequest';
 import { ListCertificatesResponse } from './model/ListCertificatesResponse';
+import { ListDeviceAuthorizersRequest } from './model/ListDeviceAuthorizersRequest';
+import { ListDeviceAuthorizersResponse } from './model/ListDeviceAuthorizersResponse';
 import { ListDeviceGroupSummary } from './model/ListDeviceGroupSummary';
 import { ListDeviceGroupsByDeviceRequest } from './model/ListDeviceGroupsByDeviceRequest';
 import { ListDeviceGroupsByDeviceResponse } from './model/ListDeviceGroupsByDeviceResponse';
@@ -167,6 +190,9 @@ import { ListDeviceGroupsRequest } from './model/ListDeviceGroupsRequest';
 import { ListDeviceGroupsResponse } from './model/ListDeviceGroupsResponse';
 import { ListDeviceMessagesRequest } from './model/ListDeviceMessagesRequest';
 import { ListDeviceMessagesResponse } from './model/ListDeviceMessagesResponse';
+import { ListDevicePoliciesRequest } from './model/ListDevicePoliciesRequest';
+import { ListDevicePoliciesResponse } from './model/ListDevicePoliciesResponse';
+import { ListDevicePolicyBase } from './model/ListDevicePolicyBase';
 import { ListDeviceProxiesRequest } from './model/ListDeviceProxiesRequest';
 import { ListDeviceProxiesResponse } from './model/ListDeviceProxiesResponse';
 import { ListDeviceTunnelsRequest } from './model/ListDeviceTunnelsRequest';
@@ -179,6 +205,8 @@ import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListPropertiesRequest } from './model/ListPropertiesRequest';
 import { ListPropertiesResponse } from './model/ListPropertiesResponse';
+import { ListProvisioningTemplatesRequest } from './model/ListProvisioningTemplatesRequest';
+import { ListProvisioningTemplatesResponse } from './model/ListProvisioningTemplatesResponse';
 import { ListResourcesByTagsRequest } from './model/ListResourcesByTagsRequest';
 import { ListResourcesByTagsResponse } from './model/ListResourcesByTagsResponse';
 import { ListRoutingBacklogPolicyRequest } from './model/ListRoutingBacklogPolicyRequest';
@@ -200,9 +228,14 @@ import { ObsLocation } from './model/ObsLocation';
 import { OtaPackageInfo } from './model/OtaPackageInfo';
 import { Page } from './model/Page';
 import { PageInfo } from './model/PageInfo';
+import { ParameterRef } from './model/ParameterRef';
+import { PolicyResource } from './model/PolicyResource';
+import { PolicyTargetBase } from './model/PolicyTargetBase';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertiesDTO } from './model/PropertiesDTO';
 import { PropertyFilter } from './model/PropertyFilter';
+import { ProvisioningTemplateBody } from './model/ProvisioningTemplateBody';
+import { ProvisioningTemplateSimple } from './model/ProvisioningTemplateSimple';
 import { QueryDeviceProxySimplify } from './model/QueryDeviceProxySimplify';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
@@ -247,10 +280,14 @@ import { ShowAsyncDeviceCommandRequest } from './model/ShowAsyncDeviceCommandReq
 import { ShowAsyncDeviceCommandResponse } from './model/ShowAsyncDeviceCommandResponse';
 import { ShowBatchTaskRequest } from './model/ShowBatchTaskRequest';
 import { ShowBatchTaskResponse } from './model/ShowBatchTaskResponse';
+import { ShowDeviceAuthorizerRequest } from './model/ShowDeviceAuthorizerRequest';
+import { ShowDeviceAuthorizerResponse } from './model/ShowDeviceAuthorizerResponse';
 import { ShowDeviceGroupRequest } from './model/ShowDeviceGroupRequest';
 import { ShowDeviceGroupResponse } from './model/ShowDeviceGroupResponse';
 import { ShowDeviceMessageRequest } from './model/ShowDeviceMessageRequest';
 import { ShowDeviceMessageResponse } from './model/ShowDeviceMessageResponse';
+import { ShowDevicePolicyRequest } from './model/ShowDevicePolicyRequest';
+import { ShowDevicePolicyResponse } from './model/ShowDevicePolicyResponse';
 import { ShowDeviceProxyRequest } from './model/ShowDeviceProxyRequest';
 import { ShowDeviceProxyResponse } from './model/ShowDeviceProxyResponse';
 import { ShowDeviceRequest } from './model/ShowDeviceRequest';
@@ -265,6 +302,8 @@ import { ShowOtaPackageRequest } from './model/ShowOtaPackageRequest';
 import { ShowOtaPackageResponse } from './model/ShowOtaPackageResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
+import { ShowProvisioningTemplateRequest } from './model/ShowProvisioningTemplateRequest';
+import { ShowProvisioningTemplateResponse } from './model/ShowProvisioningTemplateResponse';
 import { ShowQueueRequest } from './model/ShowQueueRequest';
 import { ShowQueueResponse } from './model/ShowQueueResponse';
 import { ShowRoutingBacklogPolicyRequest } from './model/ShowRoutingBacklogPolicyRequest';
@@ -277,20 +316,29 @@ import { ShowRuleActionRequest } from './model/ShowRuleActionRequest';
 import { ShowRuleActionResponse } from './model/ShowRuleActionResponse';
 import { ShowRuleRequest } from './model/ShowRuleRequest';
 import { ShowRuleResponse } from './model/ShowRuleResponse';
+import { ShowTargetsInDevicePolicyRequest } from './model/ShowTargetsInDevicePolicyRequest';
+import { ShowTargetsInDevicePolicyRequestBody } from './model/ShowTargetsInDevicePolicyRequestBody';
+import { ShowTargetsInDevicePolicyResponse } from './model/ShowTargetsInDevicePolicyResponse';
 import { SimpleTimerType } from './model/SimpleTimerType';
 import { SimplifyDevice } from './model/SimplifyDevice';
+import { Statement } from './model/Statement';
 import { StopBatchTaskRequest } from './model/StopBatchTaskRequest';
 import { StopBatchTaskResponse } from './model/StopBatchTaskResponse';
 import { Strategy } from './model/Strategy';
 import { TagDeviceRequest } from './model/TagDeviceRequest';
 import { TagDeviceResponse } from './model/TagDeviceResponse';
+import { TagRef } from './model/TagRef';
 import { TagV5DTO } from './model/TagV5DTO';
 import { Task } from './model/Task';
 import { TaskDetail } from './model/TaskDetail';
 import { TaskPolicy } from './model/TaskPolicy';
 import { TaskProgress } from './model/TaskProgress';
+import { TemplateResource } from './model/TemplateResource';
 import { TimeRange } from './model/TimeRange';
 import { TunnelInfo } from './model/TunnelInfo';
+import { UnBindDevicePolicy } from './model/UnBindDevicePolicy';
+import { UnbindDevicePolicyRequest } from './model/UnbindDevicePolicyRequest';
+import { UnbindDevicePolicyResponse } from './model/UnbindDevicePolicyResponse';
 import { UnbindTagsDTO } from './model/UnbindTagsDTO';
 import { UnfreezeDeviceRequest } from './model/UnfreezeDeviceRequest';
 import { UnfreezeDeviceResponse } from './model/UnfreezeDeviceResponse';
@@ -307,9 +355,15 @@ import { UpdateCertificateResponse } from './model/UpdateCertificateResponse';
 import { UpdateDesired } from './model/UpdateDesired';
 import { UpdateDesireds } from './model/UpdateDesireds';
 import { UpdateDevice } from './model/UpdateDevice';
+import { UpdateDeviceAuthorizer } from './model/UpdateDeviceAuthorizer';
+import { UpdateDeviceAuthorizerRequest } from './model/UpdateDeviceAuthorizerRequest';
+import { UpdateDeviceAuthorizerResponse } from './model/UpdateDeviceAuthorizerResponse';
 import { UpdateDeviceGroupDTO } from './model/UpdateDeviceGroupDTO';
 import { UpdateDeviceGroupRequest } from './model/UpdateDeviceGroupRequest';
 import { UpdateDeviceGroupResponse } from './model/UpdateDeviceGroupResponse';
+import { UpdateDevicePolicy } from './model/UpdateDevicePolicy';
+import { UpdateDevicePolicyRequest } from './model/UpdateDevicePolicyRequest';
+import { UpdateDevicePolicyResponse } from './model/UpdateDevicePolicyResponse';
 import { UpdateDeviceProxy } from './model/UpdateDeviceProxy';
 import { UpdateDeviceProxyRequest } from './model/UpdateDeviceProxyRequest';
 import { UpdateDeviceProxyResponse } from './model/UpdateDeviceProxyResponse';
@@ -323,6 +377,9 @@ import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
 import { UpdatePropertiesRequest } from './model/UpdatePropertiesRequest';
 import { UpdatePropertiesResponse } from './model/UpdatePropertiesResponse';
+import { UpdateProvisioningTemplate } from './model/UpdateProvisioningTemplate';
+import { UpdateProvisioningTemplateRequest } from './model/UpdateProvisioningTemplateRequest';
+import { UpdateProvisioningTemplateResponse } from './model/UpdateProvisioningTemplateResponse';
 import { UpdateRoutingBacklogPolicyRequest } from './model/UpdateRoutingBacklogPolicyRequest';
 import { UpdateRoutingBacklogPolicyResponse } from './model/UpdateRoutingBacklogPolicyResponse';
 import { UpdateRoutingFlowControlPolicyRequest } from './model/UpdateRoutingFlowControlPolicyRequest';
@@ -1114,6 +1171,112 @@ export class IoTDAClient {
      */
     public createCommand(createCommandRequest?: CreateCommandRequest): Promise<CreateCommandResponse> {
         const options = ParamCreater().createCommand(createCommandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建一个自定义鉴权。自定义鉴权是指用户可以通过函数服务自定义实现鉴权逻辑，以对接入平台的设备进行身份认证。
+     * - 单个实例最大可配置10个自定义鉴权
+     * - 仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建自定义鉴权
+     * @param {CreateDeviceAuthorizer} createDeviceAuthorizerRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDeviceAuthorizer(createDeviceAuthorizerRequest?: CreateDeviceAuthorizerRequest): Promise<CreateDeviceAuthorizerResponse> {
+        const options = ParamCreater().createDeviceAuthorizer(createDeviceAuthorizerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上删除指定自定义鉴权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义鉴权
+     * @param {string} authorizerId 自定义鉴权ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDeviceAuthorizer(deleteDeviceAuthorizerRequest?: DeleteDeviceAuthorizerRequest): Promise<DeleteDeviceAuthorizerResponse> {
+        const options = ParamCreater().deleteDeviceAuthorizer(deleteDeviceAuthorizerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询自定义鉴权列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义鉴权列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [authorizerName] **参数说明**：自定义鉴权名称，同一租户下的自定义鉴权器名称不能重复。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDeviceAuthorizers(listDeviceAuthorizersRequest?: ListDeviceAuthorizersRequest): Promise<ListDeviceAuthorizersResponse> {
+        const options = ParamCreater().listDeviceAuthorizers(listDeviceAuthorizersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询指定自定义鉴权ID的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义鉴权详情
+     * @param {string} authorizerId 自定义鉴权ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeviceAuthorizer(showDeviceAuthorizerRequest?: ShowDeviceAuthorizerRequest): Promise<ShowDeviceAuthorizerResponse> {
+        const options = ParamCreater().showDeviceAuthorizer(showDeviceAuthorizerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台更新指定id的自定义鉴权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定id的自定义鉴权
+     * @param {string} authorizerId 自定义鉴权ID
+     * @param {UpdateDeviceAuthorizer} updateDeviceAuthorizerRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDeviceAuthorizer(updateDeviceAuthorizerRequest?: UpdateDeviceAuthorizerRequest): Promise<UpdateDeviceAuthorizerResponse> {
+        const options = ParamCreater().updateDeviceAuthorizer(updateDeviceAuthorizerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2057,6 +2220,176 @@ export class IoTDAClient {
     }
 
     /**
+     * 应用服务器可调用此接口在物联网平台上为批量设备绑定目标策略，目前支持绑定目标类型为：设备、产品，当目标类型为产品时，该产品下所有设备都会生效。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定设备策略
+     * @param {string} policyId 策略ID
+     * @param {BindDevicePolicy} bindDevicePolicyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindDevicePolicy(bindDevicePolicyRequest?: BindDevicePolicyRequest): Promise<BindDevicePolicyResponse> {
+        const options = ParamCreater().bindDevicePolicy(bindDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建一个策略，该策略需要绑定到设备和产品下才能生效。
+     * - 一个实例最多能创建50个设备策略。
+     * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建设备策略
+     * @param {CreateDevicePolicy} createDevicePolicyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDevicePolicy(createDevicePolicyRequest?: CreateDevicePolicyRequest): Promise<CreateDevicePolicyResponse> {
+        const options = ParamCreater().createDevicePolicy(createDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上删除指定策略，注意：删除策略同时会解绑该策略下所有绑定对象。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除设备策略
+     * @param {string} policyId 策略ID。**取值范围**：仅允许A-F,a-f和数字的组合，长度为24。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDevicePolicy(deleteDevicePolicyRequest?: DeleteDevicePolicyRequest): Promise<DeleteDevicePolicyResponse> {
+        const options = ParamCreater().deleteDevicePolicy(deleteDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询策略列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备策略列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备策略，不携带该参数则会查询该用户下所有设备策略。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [policyName] **参数说明**：策略名称。 **取值范围**：长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevicePolicies(listDevicePoliciesRequest?: ListDevicePoliciesRequest): Promise<ListDevicePoliciesResponse> {
+        const options = ParamCreater().listDevicePolicies(listDevicePoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询指定策略ID的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备策略详情
+     * @param {string} policyId 策略ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDevicePolicy(showDevicePolicyRequest?: ShowDevicePolicyRequest): Promise<ShowDevicePolicyResponse> {
+        const options = ParamCreater().showDevicePolicy(showDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上查询指定策略ID下绑定的目标列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询设备策略绑定的目标列表
+     * @param {string} policyId 策略ID
+     * @param {ShowTargetsInDevicePolicyRequestBody} showTargetsInDevicePolicyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTargetsInDevicePolicy(showTargetsInDevicePolicyRequest?: ShowTargetsInDevicePolicyRequest): Promise<ShowTargetsInDevicePolicyResponse> {
+        const options = ParamCreater().showTargetsInDevicePolicy(showTargetsInDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上解除指定策略下绑定的目标对象。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑设备策略
+     * @param {string} policyId 策略ID
+     * @param {UnBindDevicePolicy} unBindDevicePolicyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindDevicePolicy(unbindDevicePolicyRequest?: UnbindDevicePolicyRequest): Promise<UnbindDevicePolicyResponse> {
+        const options = ParamCreater().unbindDevicePolicy(unbindDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台更新策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新设备策略信息
+     * @param {string} policyId 策略ID
+     * @param {UpdateDevicePolicy} updateDevicePolicyRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDevicePolicy(updateDevicePolicyRequest?: UpdateDevicePolicyRequest): Promise<UpdateDevicePolicyResponse> {
+        const options = ParamCreater().updateDevicePolicy(updateDevicePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 应用服务器可调用此接口创建产品。此接口仅创建了产品，没有创建和安装插件，如果需要对数据进行编解码，还需要在平台开发和安装插件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2200,6 +2533,113 @@ export class IoTDAClient {
      */
     public updateProperties(updatePropertiesRequest?: UpdatePropertiesRequest): Promise<UpdatePropertiesResponse> {
         const options = ParamCreater().updateProperties(updatePropertiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台创建一个预调配模板。用户的设备未在平台注册时，可以通过预调配模板在设备首次接入物联网平台时将设备信息自动注册到物联网平台。
+     * - 该预调配模板至少需要绑定到一个设备CA证书下才能生效。
+     * - 一个实例最多可有10个预调配模板。
+     * - 仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建预调配模板
+     * @param {CreateProvisioningTemplate} createProvisioningTemplateRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProvisioningTemplate(createProvisioningTemplateRequest?: CreateProvisioningTemplateRequest): Promise<CreateProvisioningTemplateResponse> {
+        const options = ParamCreater().createProvisioningTemplate(createProvisioningTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上删除指定预调配模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除预调配模板
+     * @param {string} templateId 预调配模板ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProvisioningTemplate(deleteProvisioningTemplateRequest?: DeleteProvisioningTemplateRequest): Promise<DeleteProvisioningTemplateResponse> {
+        const options = ParamCreater().deleteProvisioningTemplate(deleteProvisioningTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询预调配模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询预调配模板列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {string} [templateName] **参数说明**：预调配模板名称。 **取值范围**：长度不超过128，只允许中文、字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProvisioningTemplates(listProvisioningTemplatesRequest?: ListProvisioningTemplatesRequest): Promise<ListProvisioningTemplatesResponse> {
+        const options = ParamCreater().listProvisioningTemplates(listProvisioningTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询指定预调配模板ID的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询预调配模板详情
+     * @param {string} templateId 预调配模板ID
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProvisioningTemplate(showProvisioningTemplateRequest?: ShowProvisioningTemplateRequest): Promise<ShowProvisioningTemplateResponse> {
+        const options = ParamCreater().showProvisioningTemplate(showProvisioningTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台更新指定id的预调配模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定id的预调配模板信息
+     * @param {string} templateId 预调配模板ID
+     * @param {UpdateProvisioningTemplate} updateProvisioningTemplateRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProvisioningTemplate(updateProvisioningTemplateRequest?: UpdateProvisioningTemplateRequest): Promise<UpdateProvisioningTemplateResponse> {
+        const options = ParamCreater().updateProvisioningTemplate(updateProvisioningTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4624,6 +5064,259 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口在物联网平台创建一个自定义鉴权。自定义鉴权是指用户可以通过函数服务自定义实现鉴权逻辑，以对接入平台的设备进行身份认证。
+         * - 单个实例最大可配置10个自定义鉴权
+         * - 仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDeviceAuthorizer(createDeviceAuthorizerRequest?: CreateDeviceAuthorizerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-authorizers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createDeviceAuthorizerRequest !== null && createDeviceAuthorizerRequest !== undefined) {
+                if (createDeviceAuthorizerRequest instanceof CreateDeviceAuthorizerRequest) {
+                    body = createDeviceAuthorizerRequest.body
+                    instanceId = createDeviceAuthorizerRequest.instanceId;
+                } else {
+                    body = createDeviceAuthorizerRequest['body'];
+                    instanceId = createDeviceAuthorizerRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上删除指定自定义鉴权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDeviceAuthorizer(deleteDeviceAuthorizerRequest?: DeleteDeviceAuthorizerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/device-authorizers/{authorizer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorizerId;
+            
+            let instanceId;
+
+            if (deleteDeviceAuthorizerRequest !== null && deleteDeviceAuthorizerRequest !== undefined) {
+                if (deleteDeviceAuthorizerRequest instanceof DeleteDeviceAuthorizerRequest) {
+                    authorizerId = deleteDeviceAuthorizerRequest.authorizerId;
+                    instanceId = deleteDeviceAuthorizerRequest.instanceId;
+                } else {
+                    authorizerId = deleteDeviceAuthorizerRequest['authorizer_id'];
+                    instanceId = deleteDeviceAuthorizerRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (authorizerId === null || authorizerId === undefined) {
+            throw new RequiredError('authorizerId','Required parameter authorizerId was null or undefined when calling deleteDeviceAuthorizer.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'authorizer_id': authorizerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询自定义鉴权列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDeviceAuthorizers(listDeviceAuthorizersRequest?: ListDeviceAuthorizersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-authorizers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let authorizerName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listDeviceAuthorizersRequest !== null && listDeviceAuthorizersRequest !== undefined) {
+                if (listDeviceAuthorizersRequest instanceof ListDeviceAuthorizersRequest) {
+                    instanceId = listDeviceAuthorizersRequest.instanceId;
+                    authorizerName = listDeviceAuthorizersRequest.authorizerName;
+                    limit = listDeviceAuthorizersRequest.limit;
+                    marker = listDeviceAuthorizersRequest.marker;
+                    offset = listDeviceAuthorizersRequest.offset;
+                } else {
+                    instanceId = listDeviceAuthorizersRequest['Instance-Id'];
+                    authorizerName = listDeviceAuthorizersRequest['authorizer_name'];
+                    limit = listDeviceAuthorizersRequest['limit'];
+                    marker = listDeviceAuthorizersRequest['marker'];
+                    offset = listDeviceAuthorizersRequest['offset'];
+                }
+            }
+
+        
+            if (authorizerName !== null && authorizerName !== undefined) {
+                localVarQueryParameter['authorizer_name'] = authorizerName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询指定自定义鉴权ID的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeviceAuthorizer(showDeviceAuthorizerRequest?: ShowDeviceAuthorizerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-authorizers/{authorizer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let authorizerId;
+            
+            let instanceId;
+
+            if (showDeviceAuthorizerRequest !== null && showDeviceAuthorizerRequest !== undefined) {
+                if (showDeviceAuthorizerRequest instanceof ShowDeviceAuthorizerRequest) {
+                    authorizerId = showDeviceAuthorizerRequest.authorizerId;
+                    instanceId = showDeviceAuthorizerRequest.instanceId;
+                } else {
+                    authorizerId = showDeviceAuthorizerRequest['authorizer_id'];
+                    instanceId = showDeviceAuthorizerRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (authorizerId === null || authorizerId === undefined) {
+            throw new RequiredError('authorizerId','Required parameter authorizerId was null or undefined when calling showDeviceAuthorizer.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'authorizer_id': authorizerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台更新指定id的自定义鉴权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDeviceAuthorizer(updateDeviceAuthorizerRequest?: UpdateDeviceAuthorizerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/device-authorizers/{authorizer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authorizerId;
+            
+            let instanceId;
+
+            if (updateDeviceAuthorizerRequest !== null && updateDeviceAuthorizerRequest !== undefined) {
+                if (updateDeviceAuthorizerRequest instanceof UpdateDeviceAuthorizerRequest) {
+                    authorizerId = updateDeviceAuthorizerRequest.authorizerId;
+                    body = updateDeviceAuthorizerRequest.body
+                    instanceId = updateDeviceAuthorizerRequest.instanceId;
+                } else {
+                    authorizerId = updateDeviceAuthorizerRequest['authorizer_id'];
+                    body = updateDeviceAuthorizerRequest['body'];
+                    instanceId = updateDeviceAuthorizerRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (authorizerId === null || authorizerId === undefined) {
+            throw new RequiredError('authorizerId','Required parameter authorizerId was null or undefined when calling updateDeviceAuthorizer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'authorizer_id': authorizerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个设备组，包括父设备组和子设备组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6757,6 +7450,425 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口在物联网平台上为批量设备绑定目标策略，目前支持绑定目标类型为：设备、产品，当目标类型为产品时，该产品下所有设备都会生效。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindDevicePolicy(bindDevicePolicyRequest?: BindDevicePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}/bind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (bindDevicePolicyRequest !== null && bindDevicePolicyRequest !== undefined) {
+                if (bindDevicePolicyRequest instanceof BindDevicePolicyRequest) {
+                    policyId = bindDevicePolicyRequest.policyId;
+                    body = bindDevicePolicyRequest.body
+                    instanceId = bindDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = bindDevicePolicyRequest['policy_id'];
+                    body = bindDevicePolicyRequest['body'];
+                    instanceId = bindDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling bindDevicePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台创建一个策略，该策略需要绑定到设备和产品下才能生效。
+         * - 一个实例最多能创建50个设备策略。
+         * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDevicePolicy(createDevicePolicyRequest?: CreateDevicePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createDevicePolicyRequest !== null && createDevicePolicyRequest !== undefined) {
+                if (createDevicePolicyRequest instanceof CreateDevicePolicyRequest) {
+                    body = createDevicePolicyRequest.body
+                    instanceId = createDevicePolicyRequest.instanceId;
+                } else {
+                    body = createDevicePolicyRequest['body'];
+                    instanceId = createDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上删除指定策略，注意：删除策略同时会解绑该策略下所有绑定对象。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDevicePolicy(deleteDevicePolicyRequest?: DeleteDevicePolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (deleteDevicePolicyRequest !== null && deleteDevicePolicyRequest !== undefined) {
+                if (deleteDevicePolicyRequest instanceof DeleteDevicePolicyRequest) {
+                    policyId = deleteDevicePolicyRequest.policyId;
+                    instanceId = deleteDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = deleteDevicePolicyRequest['policy_id'];
+                    instanceId = deleteDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteDevicePolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询策略列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevicePolicies(listDevicePoliciesRequest?: ListDevicePoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appId;
+            
+            let policyName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listDevicePoliciesRequest !== null && listDevicePoliciesRequest !== undefined) {
+                if (listDevicePoliciesRequest instanceof ListDevicePoliciesRequest) {
+                    instanceId = listDevicePoliciesRequest.instanceId;
+                    appId = listDevicePoliciesRequest.appId;
+                    policyName = listDevicePoliciesRequest.policyName;
+                    limit = listDevicePoliciesRequest.limit;
+                    marker = listDevicePoliciesRequest.marker;
+                    offset = listDevicePoliciesRequest.offset;
+                } else {
+                    instanceId = listDevicePoliciesRequest['Instance-Id'];
+                    appId = listDevicePoliciesRequest['app_id'];
+                    policyName = listDevicePoliciesRequest['policy_name'];
+                    limit = listDevicePoliciesRequest['limit'];
+                    marker = listDevicePoliciesRequest['marker'];
+                    offset = listDevicePoliciesRequest['offset'];
+                }
+            }
+
+        
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (policyName !== null && policyName !== undefined) {
+                localVarQueryParameter['policy_name'] = policyName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询指定策略ID的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDevicePolicy(showDevicePolicyRequest?: ShowDevicePolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (showDevicePolicyRequest !== null && showDevicePolicyRequest !== undefined) {
+                if (showDevicePolicyRequest instanceof ShowDevicePolicyRequest) {
+                    policyId = showDevicePolicyRequest.policyId;
+                    instanceId = showDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = showDevicePolicyRequest['policy_id'];
+                    instanceId = showDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showDevicePolicy.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上查询指定策略ID下绑定的目标列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTargetsInDevicePolicy(showTargetsInDevicePolicyRequest?: ShowTargetsInDevicePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}/list-targets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (showTargetsInDevicePolicyRequest !== null && showTargetsInDevicePolicyRequest !== undefined) {
+                if (showTargetsInDevicePolicyRequest instanceof ShowTargetsInDevicePolicyRequest) {
+                    policyId = showTargetsInDevicePolicyRequest.policyId;
+                    body = showTargetsInDevicePolicyRequest.body
+                    instanceId = showTargetsInDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = showTargetsInDevicePolicyRequest['policy_id'];
+                    body = showTargetsInDevicePolicyRequest['body'];
+                    instanceId = showTargetsInDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showTargetsInDevicePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上解除指定策略下绑定的目标对象。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindDevicePolicy(unbindDevicePolicyRequest?: UnbindDevicePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}/unbind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (unbindDevicePolicyRequest !== null && unbindDevicePolicyRequest !== undefined) {
+                if (unbindDevicePolicyRequest instanceof UnbindDevicePolicyRequest) {
+                    policyId = unbindDevicePolicyRequest.policyId;
+                    body = unbindDevicePolicyRequest.body
+                    instanceId = unbindDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = unbindDevicePolicyRequest['policy_id'];
+                    body = unbindDevicePolicyRequest['body'];
+                    instanceId = unbindDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling unbindDevicePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台更新策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDevicePolicy(updateDevicePolicyRequest?: UpdateDevicePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/device-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let instanceId;
+
+            if (updateDevicePolicyRequest !== null && updateDevicePolicyRequest !== undefined) {
+                if (updateDevicePolicyRequest instanceof UpdateDevicePolicyRequest) {
+                    policyId = updateDevicePolicyRequest.policyId;
+                    body = updateDevicePolicyRequest.body
+                    instanceId = updateDevicePolicyRequest.instanceId;
+                } else {
+                    policyId = updateDevicePolicyRequest['policy_id'];
+                    body = updateDevicePolicyRequest['body'];
+                    instanceId = updateDevicePolicyRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateDevicePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口创建产品。此接口仅创建了产品，没有创建和安装插件，如果需要对数据进行编解码，还需要在平台开发和安装插件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7133,6 +8245,260 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台创建一个预调配模板。用户的设备未在平台注册时，可以通过预调配模板在设备首次接入物联网平台时将设备信息自动注册到物联网平台。
+         * - 该预调配模板至少需要绑定到一个设备CA证书下才能生效。
+         * - 一个实例最多可有10个预调配模板。
+         * - 仅标准版实例、企业版实例支持该接口调用，基础版不支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProvisioningTemplate(createProvisioningTemplateRequest?: CreateProvisioningTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/provisioning-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createProvisioningTemplateRequest !== null && createProvisioningTemplateRequest !== undefined) {
+                if (createProvisioningTemplateRequest instanceof CreateProvisioningTemplateRequest) {
+                    body = createProvisioningTemplateRequest.body
+                    instanceId = createProvisioningTemplateRequest.instanceId;
+                } else {
+                    body = createProvisioningTemplateRequest['body'];
+                    instanceId = createProvisioningTemplateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上删除指定预调配模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProvisioningTemplate(deleteProvisioningTemplateRequest?: DeleteProvisioningTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/provisioning-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+            
+            let instanceId;
+
+            if (deleteProvisioningTemplateRequest !== null && deleteProvisioningTemplateRequest !== undefined) {
+                if (deleteProvisioningTemplateRequest instanceof DeleteProvisioningTemplateRequest) {
+                    templateId = deleteProvisioningTemplateRequest.templateId;
+                    instanceId = deleteProvisioningTemplateRequest.instanceId;
+                } else {
+                    templateId = deleteProvisioningTemplateRequest['template_id'];
+                    instanceId = deleteProvisioningTemplateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteProvisioningTemplate.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询预调配模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProvisioningTemplates(listProvisioningTemplatesRequest?: ListProvisioningTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/provisioning-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let templateName;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listProvisioningTemplatesRequest !== null && listProvisioningTemplatesRequest !== undefined) {
+                if (listProvisioningTemplatesRequest instanceof ListProvisioningTemplatesRequest) {
+                    instanceId = listProvisioningTemplatesRequest.instanceId;
+                    templateName = listProvisioningTemplatesRequest.templateName;
+                    limit = listProvisioningTemplatesRequest.limit;
+                    marker = listProvisioningTemplatesRequest.marker;
+                    offset = listProvisioningTemplatesRequest.offset;
+                } else {
+                    instanceId = listProvisioningTemplatesRequest['Instance-Id'];
+                    templateName = listProvisioningTemplatesRequest['template_name'];
+                    limit = listProvisioningTemplatesRequest['limit'];
+                    marker = listProvisioningTemplatesRequest['marker'];
+                    offset = listProvisioningTemplatesRequest['offset'];
+                }
+            }
+
+        
+            if (templateName !== null && templateName !== undefined) {
+                localVarQueryParameter['template_name'] = templateName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询指定预调配模板ID的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProvisioningTemplate(showProvisioningTemplateRequest?: ShowProvisioningTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/provisioning-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+            
+            let instanceId;
+
+            if (showProvisioningTemplateRequest !== null && showProvisioningTemplateRequest !== undefined) {
+                if (showProvisioningTemplateRequest instanceof ShowProvisioningTemplateRequest) {
+                    templateId = showProvisioningTemplateRequest.templateId;
+                    instanceId = showProvisioningTemplateRequest.instanceId;
+                } else {
+                    templateId = showProvisioningTemplateRequest['template_id'];
+                    instanceId = showProvisioningTemplateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showProvisioningTemplate.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台更新指定id的预调配模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProvisioningTemplate(updateProvisioningTemplateRequest?: UpdateProvisioningTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/provisioning-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let templateId;
+            
+            let instanceId;
+
+            if (updateProvisioningTemplateRequest !== null && updateProvisioningTemplateRequest !== undefined) {
+                if (updateProvisioningTemplateRequest instanceof UpdateProvisioningTemplateRequest) {
+                    templateId = updateProvisioningTemplateRequest.templateId;
+                    body = updateProvisioningTemplateRequest.body
+                    instanceId = updateProvisioningTemplateRequest.instanceId;
+                } else {
+                    templateId = updateProvisioningTemplateRequest['template_id'];
+                    body = updateProvisioningTemplateRequest['body'];
+                    instanceId = updateProvisioningTemplateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateProvisioningTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

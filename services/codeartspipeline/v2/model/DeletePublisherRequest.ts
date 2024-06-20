@@ -3,8 +3,9 @@
 export class DeletePublisherRequest {
     private 'domain_id'?: string;
     private 'publisher_unique_id'?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, publisherUniqueId?: string) { 
         this['domain_id'] = domainId;
+        this['publisher_unique_id'] = publisherUniqueId;
     }
     public withDomainId(domainId: string): DeletePublisherRequest {
         this['domain_id'] = domainId;

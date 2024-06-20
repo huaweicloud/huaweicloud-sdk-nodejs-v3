@@ -42,6 +42,9 @@ import { BatchDeleteResourceTagResponse } from './model/BatchDeleteResourceTagRe
 import { BatchDeleteResourceTags } from './model/BatchDeleteResourceTags';
 import { CancelReadonlyClusterRequest } from './model/CancelReadonlyClusterRequest';
 import { CancelReadonlyClusterResponse } from './model/CancelReadonlyClusterResponse';
+import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
+import { ChangeSecurityGroupRequestBody } from './model/ChangeSecurityGroupRequestBody';
+import { ChangeSecurityGroupResponse } from './model/ChangeSecurityGroupResponse';
 import { CheckClusterRequest } from './model/CheckClusterRequest';
 import { CheckClusterResponse } from './model/CheckClusterResponse';
 import { CheckDisasterNameRequest } from './model/CheckDisasterNameRequest';
@@ -58,6 +61,7 @@ import { ClusterDescriptionInfo } from './model/ClusterDescriptionInfo';
 import { ClusterDetail } from './model/ClusterDetail';
 import { ClusterDisasterRecovery } from './model/ClusterDisasterRecovery';
 import { ClusterElbInfo } from './model/ClusterElbInfo';
+import { ClusterFlavorDetailInfo } from './model/ClusterFlavorDetailInfo';
 import { ClusterFlavorResp } from './model/ClusterFlavorResp';
 import { ClusterInfo } from './model/ClusterInfo';
 import { ClusterMetric } from './model/ClusterMetric';
@@ -193,6 +197,8 @@ import { ExtDataSource } from './model/ExtDataSource';
 import { ExtDataSourceReq } from './model/ExtDataSourceReq';
 import { FailedReason } from './model/FailedReason';
 import { FineGrainedSnapshotDetail } from './model/FineGrainedSnapshotDetail';
+import { FlavorAttributeInfo } from './model/FlavorAttributeInfo';
+import { FlavorVolumeNodeInfo } from './model/FlavorVolumeNodeInfo';
 import { Grant } from './model/Grant';
 import { HostOverviewResponse } from './model/HostOverviewResponse';
 import { IndicatorInfo } from './model/IndicatorInfo';
@@ -396,6 +402,8 @@ import { SaveClusterDescriptionInfoResponse } from './model/SaveClusterDescripti
 import { ScaleOut } from './model/ScaleOut';
 import { ScheduleConf } from './model/ScheduleConf';
 import { SchemaInfo } from './model/SchemaInfo';
+import { ShowClusterFlavorRequest } from './model/ShowClusterFlavorRequest';
+import { ShowClusterFlavorResponse } from './model/ShowClusterFlavorResponse';
 import { ShowClusterRedistributionRequest } from './model/ShowClusterRedistributionRequest';
 import { ShowClusterRedistributionResponse } from './model/ShowClusterRedistributionResponse';
 import { ShowDatabaseAuthorityRequest } from './model/ShowDatabaseAuthorityRequest';
@@ -742,6 +750,26 @@ export class DwsClient {
      */
     public cancelReadonlyCluster(cancelReadonlyClusterRequest?: CancelReadonlyClusterRequest): Promise<CancelReadonlyClusterResponse> {
         const options = ParamCreater().cancelReadonlyCluster(cancelReadonlyClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改集群安全组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改集群安全组
+     * @param {string} clusterId 集群ID
+     * @param {ChangeSecurityGroupRequestBody} changeSecurityGroupRequestBody 安全组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeSecurityGroup(changeSecurityGroupRequest?: ChangeSecurityGroupRequest): Promise<ChangeSecurityGroupResponse> {
+        const options = ParamCreater().changeSecurityGroup(changeSecurityGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3026,6 +3054,26 @@ export class DwsClient {
     }
 
     /**
+     * 查询集群使用的规格详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群规格详情
+     * @param {string} clusterId 集群ID
+     * @param {string} [namespace] 命名空间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterFlavor(showClusterFlavorRequest?: ShowClusterFlavorRequest): Promise<ShowClusterFlavorResponse> {
+        const options = ParamCreater().showClusterFlavor(showClusterFlavorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查看当前集群的重分布模式、重分布进度、数据表重分布详情等监控信息。
      * 查看重分布详情功能DWS 2.0 8.1.1.200及以上集群版本支持，其中数据表重分布进度详情仅DWS 2.0 8.2.1及以上集群版本支持。
      * 
@@ -4235,6 +4283,52 @@ export const ParamCreater = function () {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling cancelReadonlyCluster.');
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改集群安全组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeSecurityGroup(changeSecurityGroupRequest?: ChangeSecurityGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/clusters/{cluster_id}/security-group",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (changeSecurityGroupRequest !== null && changeSecurityGroupRequest !== undefined) {
+                if (changeSecurityGroupRequest instanceof ChangeSecurityGroupRequest) {
+                    clusterId = changeSecurityGroupRequest.clusterId;
+                    body = changeSecurityGroupRequest.body
+                } else {
+                    clusterId = changeSecurityGroupRequest['cluster_id'];
+                    body = changeSecurityGroupRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling changeSecurityGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -9431,6 +9525,51 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询集群使用的规格详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterFlavor(showClusterFlavorRequest?: ShowClusterFlavorRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/flavor",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let namespace;
+
+            if (showClusterFlavorRequest !== null && showClusterFlavorRequest !== undefined) {
+                if (showClusterFlavorRequest instanceof ShowClusterFlavorRequest) {
+                    clusterId = showClusterFlavorRequest.clusterId;
+                    namespace = showClusterFlavorRequest.namespace;
+                } else {
+                    clusterId = showClusterFlavorRequest['cluster_id'];
+                    namespace = showClusterFlavorRequest['namespace'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterFlavor.');
+            }
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;

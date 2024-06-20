@@ -5,8 +5,11 @@ export class ListBasePluginsRequest {
     public attribution?: string;
     public offset?: string;
     public limit?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, attribution?: string, offset?: string, limit?: string) { 
         this['domain_id'] = domainId;
+        this['attribution'] = attribution;
+        this['offset'] = offset;
+        this['limit'] = limit;
     }
     public withDomainId(domainId: string): ListBasePluginsRequest {
         this['domain_id'] = domainId;

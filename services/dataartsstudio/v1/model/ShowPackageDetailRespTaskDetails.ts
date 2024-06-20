@@ -7,6 +7,8 @@ export class ShowPackageDetailRespTaskDetails {
     private 'pending_item_id'?: string;
     private 'pending_version'?: number;
     private 'script_id'?: string;
+    private 'task_id'?: string;
+    private 'start_job_status'?: number;
     private 'submit_timestamp'?: number;
     private 'submit_user_id'?: string;
     private 'submit_user_name'?: string;
@@ -73,6 +75,26 @@ export class ShowPackageDetailRespTaskDetails {
     }
     public get scriptId(): string | undefined {
         return this['script_id'];
+    }
+    public withTaskId(taskId: string): ShowPackageDetailRespTaskDetails {
+        this['task_id'] = taskId;
+        return this;
+    }
+    public set taskId(taskId: string  | undefined) {
+        this['task_id'] = taskId;
+    }
+    public get taskId(): string | undefined {
+        return this['task_id'];
+    }
+    public withStartJobStatus(startJobStatus: number): ShowPackageDetailRespTaskDetails {
+        this['start_job_status'] = startJobStatus;
+        return this;
+    }
+    public set startJobStatus(startJobStatus: number  | undefined) {
+        this['start_job_status'] = startJobStatus;
+    }
+    public get startJobStatus(): number | undefined {
+        return this['start_job_status'];
     }
     public withSubmitTimestamp(submitTimestamp: number): ShowPackageDetailRespTaskDetails {
         this['submit_timestamp'] = submitTimestamp;

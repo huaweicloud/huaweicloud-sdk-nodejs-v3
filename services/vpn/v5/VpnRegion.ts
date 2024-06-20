@@ -27,6 +27,7 @@ export class VpnRegion {
     public static ME_EAST_1 = new Region("me-east-1", ["https://vpn.me-east-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://vpn.cn-east-5.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://vpn.af-south-1.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://vpn.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +51,8 @@ export class VpnRegion {
         "na-mexico-1":VpnRegion.NA_MEXICO_1,
         "me-east-1":VpnRegion.ME_EAST_1,
         "cn-east-5":VpnRegion.CN_EAST_5,
-        "af-south-1":VpnRegion.AF_SOUTH_1
+        "af-south-1":VpnRegion.AF_SOUTH_1,
+        "ru-moscow-1":VpnRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

@@ -4,8 +4,10 @@ export class ShowBasicPluginRequest {
     private 'domain_id'?: string;
     private 'plugin_name'?: string;
     public version?: string;
-    public constructor(domainId?: string) { 
+    public constructor(domainId?: string, pluginName?: string, version?: string) { 
         this['domain_id'] = domainId;
+        this['plugin_name'] = pluginName;
+        this['version'] = version;
     }
     public withDomainId(domainId: string): ShowBasicPluginRequest {
         this['domain_id'] = domainId;

@@ -16,6 +16,8 @@ export class CbhRegion {
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://cbh.la-south-2.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://cbh.la-north-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cbh.ap-southeast-4.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://cbh.ru-moscow-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://cbh.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -28,7 +30,9 @@ export class CbhRegion {
         "sa-brazil-1":CbhRegion.SA_BRAZIL_1,
         "la-south-2":CbhRegion.LA_SOUTH_2,
         "la-north-2":CbhRegion.LA_NORTH_2,
-        "ap-southeast-4":CbhRegion.AP_SOUTHEAST_4
+        "ap-southeast-4":CbhRegion.AP_SOUTHEAST_4,
+        "ru-moscow-1":CbhRegion.RU_MOSCOW_1,
+        "my-kualalumpur-1":CbhRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {
