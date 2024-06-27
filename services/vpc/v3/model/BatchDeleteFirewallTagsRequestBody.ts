@@ -1,11 +1,11 @@
-import { ResourceTag } from './ResourceTag';
+import { DeleteResourceTagRequestBody } from './DeleteResourceTagRequestBody';
 
 
 export class BatchDeleteFirewallTagsRequestBody {
-    public tags?: Array<ResourceTag>;
+    public tags?: Array<DeleteResourceTagRequestBody>;
     public constructor() { 
     }
-    public withTags(tags: Array<ResourceTag>): BatchDeleteFirewallTagsRequestBody {
+    public withTags(tags: Array<DeleteResourceTagRequestBody>): BatchDeleteFirewallTagsRequestBody {
         this['tags'] = tags;
         return this;
     }

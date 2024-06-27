@@ -1,3 +1,4 @@
+import { CallIdentityPrimitiveTypeHolder } from './CallIdentityPrimitiveTypeHolder';
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
 import { OperationPreferences } from './OperationPreferences';
@@ -9,6 +10,7 @@ export class DeleteStackInstanceRequestBody {
     private 'stack_set_id'?: string;
     private 'deployment_targets'?: DeploymentTargets;
     private 'operation_preferences'?: OperationPreferences;
+    private 'call_identity'?: DeleteStackInstanceRequestBodyCallIdentityEnum | string;
     public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
@@ -42,4 +44,23 @@ export class DeleteStackInstanceRequestBody {
     public get operationPreferences(): OperationPreferences | undefined {
         return this['operation_preferences'];
     }
+    public withCallIdentity(callIdentity: DeleteStackInstanceRequestBodyCallIdentityEnum | string): DeleteStackInstanceRequestBody {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: DeleteStackInstanceRequestBodyCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): DeleteStackInstanceRequestBodyCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteStackInstanceRequestBodyCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

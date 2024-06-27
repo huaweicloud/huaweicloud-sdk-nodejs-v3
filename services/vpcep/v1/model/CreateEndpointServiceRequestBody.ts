@@ -13,7 +13,7 @@ export class CreateEndpointServiceRequestBody {
     private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | string;
     public tags?: Array<TagList>;
     public description?: string;
-    private 'enable_policy'?: boolean;
+    private 'ip_version'?: CreateEndpointServiceRequestBodyIpVersionEnum | string;
     public constructor(portId?: string, vpcId?: string, serverType?: string, ports?: Array<PortList>) { 
         this['port_id'] = portId;
         this['vpc_id'] = vpcId;
@@ -102,15 +102,15 @@ export class CreateEndpointServiceRequestBody {
         this['description'] = description;
         return this;
     }
-    public withEnablePolicy(enablePolicy: boolean): CreateEndpointServiceRequestBody {
-        this['enable_policy'] = enablePolicy;
+    public withIpVersion(ipVersion: CreateEndpointServiceRequestBodyIpVersionEnum | string): CreateEndpointServiceRequestBody {
+        this['ip_version'] = ipVersion;
         return this;
     }
-    public set enablePolicy(enablePolicy: boolean  | undefined) {
-        this['enable_policy'] = enablePolicy;
+    public set ipVersion(ipVersion: CreateEndpointServiceRequestBodyIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
     }
-    public get enablePolicy(): boolean | undefined {
-        return this['enable_policy'];
+    public get ipVersion(): CreateEndpointServiceRequestBodyIpVersionEnum | string | undefined {
+        return this['ip_version'];
     }
 }
 
@@ -141,4 +141,12 @@ export enum CreateEndpointServiceRequestBodyTcpProxyEnum {
     PROXY_OPEN = 'proxy_open',
     OPEN = 'open',
     PROXY_VNI = 'proxy_vni'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateEndpointServiceRequestBodyIpVersionEnum {
+    IPV4 = 'ipv4',
+    IPV6 = 'ipv6'
 }

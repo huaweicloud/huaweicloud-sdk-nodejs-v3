@@ -179,5 +179,7 @@ export enum UpdateHostRequestBodyCipherEnum {
     CIPHER_2 = 'cipher_2',
     CIPHER_3 = 'cipher_3',
     CIPHER_4 = 'cipher_4',
+    CIPHER_5 = 'cipher_5',
+    CIPHER_6 = 'cipher_6',
     CIPHER_DEFAULT = 'cipher_default'
 }

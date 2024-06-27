@@ -37,6 +37,8 @@ export class FlavorExtraSpec {
     private 'quota:vif_max_num'?: string;
     private 'quota:sub_network_interface_max_num'?: string;
     private 'ecs:instance_architecture'?: string;
+    private 'network_interface:traffic_mirroring_supported'?: string;
+    private 'security:enclave_supported'?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): FlavorExtraSpec {
@@ -398,5 +400,25 @@ export class FlavorExtraSpec {
     }
     public get ecsInstanceArchitecture(): string | undefined {
         return this['ecs:instance_architecture'];
+    }
+    public withNetworkInterfaceTrafficMirroringSupported(networkInterfaceTrafficMirroringSupported: string): FlavorExtraSpec {
+        this['network_interface:traffic_mirroring_supported'] = networkInterfaceTrafficMirroringSupported;
+        return this;
+    }
+    public set networkInterfaceTrafficMirroringSupported(networkInterfaceTrafficMirroringSupported: string  | undefined) {
+        this['network_interface:traffic_mirroring_supported'] = networkInterfaceTrafficMirroringSupported;
+    }
+    public get networkInterfaceTrafficMirroringSupported(): string | undefined {
+        return this['network_interface:traffic_mirroring_supported'];
+    }
+    public withSecurityEnclaveSupported(securityEnclaveSupported: string): FlavorExtraSpec {
+        this['security:enclave_supported'] = securityEnclaveSupported;
+        return this;
+    }
+    public set securityEnclaveSupported(securityEnclaveSupported: string  | undefined) {
+        this['security:enclave_supported'] = securityEnclaveSupported;
+    }
+    public get securityEnclaveSupported(): string | undefined {
+        return this['security:enclave_supported'];
     }
 }

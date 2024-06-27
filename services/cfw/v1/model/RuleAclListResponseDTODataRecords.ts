@@ -1,6 +1,5 @@
-import { OrderRuleAclDto } from './OrderRuleAclDto';
-import { RuleAddressDto } from './RuleAddressDto';
-import { RuleServiceDto } from './RuleServiceDto';
+import { RuleAddressDtoForResponse } from './RuleAddressDtoForResponse';
+import { RuleServiceDtoForResponse } from './RuleServiceDtoForResponse';
 import { TagsVO } from './TagsVO';
 
 
@@ -8,19 +7,18 @@ export class RuleAclListResponseDTODataRecords {
     private 'rule_id'?: string;
     private 'address_type'?: number;
     public name?: string;
-    public sequence?: OrderRuleAclDto;
     public direction?: RuleAclListResponseDTODataRecordsDirectionEnum | number;
     private 'action_type'?: number;
     public status?: number;
     public description?: string;
+    private 'long_connect_time'?: number;
+    private 'long_connect_enable'?: number;
     private 'long_connect_time_hour'?: number;
     private 'long_connect_time_minute'?: number;
     private 'long_connect_time_second'?: number;
-    private 'long_connect_time'?: number;
-    private 'long_connect_enable'?: number;
-    public source?: RuleAddressDto;
-    public destination?: RuleAddressDto;
-    public service?: RuleServiceDto;
+    public source?: RuleAddressDtoForResponse;
+    public destination?: RuleAddressDtoForResponse;
+    public service?: RuleServiceDtoForResponse;
     public type?: RuleAclListResponseDTODataRecordsTypeEnum | number;
     private 'created_date'?: string;
     private 'last_open_time'?: string;
@@ -51,10 +49,6 @@ export class RuleAclListResponseDTODataRecords {
         this['name'] = name;
         return this;
     }
-    public withSequence(sequence: OrderRuleAclDto): RuleAclListResponseDTODataRecords {
-        this['sequence'] = sequence;
-        return this;
-    }
     public withDirection(direction: RuleAclListResponseDTODataRecordsDirectionEnum | number): RuleAclListResponseDTODataRecords {
         this['direction'] = direction;
         return this;
@@ -76,6 +70,26 @@ export class RuleAclListResponseDTODataRecords {
     public withDescription(description: string): RuleAclListResponseDTODataRecords {
         this['description'] = description;
         return this;
+    }
+    public withLongConnectTime(longConnectTime: number): RuleAclListResponseDTODataRecords {
+        this['long_connect_time'] = longConnectTime;
+        return this;
+    }
+    public set longConnectTime(longConnectTime: number  | undefined) {
+        this['long_connect_time'] = longConnectTime;
+    }
+    public get longConnectTime(): number | undefined {
+        return this['long_connect_time'];
+    }
+    public withLongConnectEnable(longConnectEnable: number): RuleAclListResponseDTODataRecords {
+        this['long_connect_enable'] = longConnectEnable;
+        return this;
+    }
+    public set longConnectEnable(longConnectEnable: number  | undefined) {
+        this['long_connect_enable'] = longConnectEnable;
+    }
+    public get longConnectEnable(): number | undefined {
+        return this['long_connect_enable'];
     }
     public withLongConnectTimeHour(longConnectTimeHour: number): RuleAclListResponseDTODataRecords {
         this['long_connect_time_hour'] = longConnectTimeHour;
@@ -107,35 +121,15 @@ export class RuleAclListResponseDTODataRecords {
     public get longConnectTimeSecond(): number | undefined {
         return this['long_connect_time_second'];
     }
-    public withLongConnectTime(longConnectTime: number): RuleAclListResponseDTODataRecords {
-        this['long_connect_time'] = longConnectTime;
-        return this;
-    }
-    public set longConnectTime(longConnectTime: number  | undefined) {
-        this['long_connect_time'] = longConnectTime;
-    }
-    public get longConnectTime(): number | undefined {
-        return this['long_connect_time'];
-    }
-    public withLongConnectEnable(longConnectEnable: number): RuleAclListResponseDTODataRecords {
-        this['long_connect_enable'] = longConnectEnable;
-        return this;
-    }
-    public set longConnectEnable(longConnectEnable: number  | undefined) {
-        this['long_connect_enable'] = longConnectEnable;
-    }
-    public get longConnectEnable(): number | undefined {
-        return this['long_connect_enable'];
-    }
-    public withSource(source: RuleAddressDto): RuleAclListResponseDTODataRecords {
+    public withSource(source: RuleAddressDtoForResponse): RuleAclListResponseDTODataRecords {
         this['source'] = source;
         return this;
     }
-    public withDestination(destination: RuleAddressDto): RuleAclListResponseDTODataRecords {
+    public withDestination(destination: RuleAddressDtoForResponse): RuleAclListResponseDTODataRecords {
         this['destination'] = destination;
         return this;
     }
-    public withService(service: RuleServiceDto): RuleAclListResponseDTODataRecords {
+    public withService(service: RuleServiceDtoForResponse): RuleAclListResponseDTODataRecords {
         this['service'] = service;
         return this;
     }

@@ -4,10 +4,10 @@ export class EnvParam {
     private 'component_id'?: string;
     public description?: string;
     private 'env_name'?: string;
-    private 'env_type'?: EnvParamEnvTypeEnum | string;
-    private 'os_type'?: EnvParamOsTypeEnum | string;
+    private 'env_type'?: string;
+    private 'os_type'?: string;
     public region?: string;
-    private 'register_type'?: EnvParamRegisterTypeEnum | string;
+    private 'register_type'?: string;
     public constructor(componentId?: string, envName?: string, envType?: string, osType?: string) { 
         this['component_id'] = componentId;
         this['env_name'] = envName;
@@ -38,66 +38,38 @@ export class EnvParam {
     public get envName(): string | undefined {
         return this['env_name'];
     }
-    public withEnvType(envType: EnvParamEnvTypeEnum | string): EnvParam {
+    public withEnvType(envType: string): EnvParam {
         this['env_type'] = envType;
         return this;
     }
-    public set envType(envType: EnvParamEnvTypeEnum | string  | undefined) {
+    public set envType(envType: string  | undefined) {
         this['env_type'] = envType;
     }
-    public get envType(): EnvParamEnvTypeEnum | string | undefined {
+    public get envType(): string | undefined {
         return this['env_type'];
     }
-    public withOsType(osType: EnvParamOsTypeEnum | string): EnvParam {
+    public withOsType(osType: string): EnvParam {
         this['os_type'] = osType;
         return this;
     }
-    public set osType(osType: EnvParamOsTypeEnum | string  | undefined) {
+    public set osType(osType: string  | undefined) {
         this['os_type'] = osType;
     }
-    public get osType(): EnvParamOsTypeEnum | string | undefined {
+    public get osType(): string | undefined {
         return this['os_type'];
     }
     public withRegion(region: string): EnvParam {
         this['region'] = region;
         return this;
     }
-    public withRegisterType(registerType: EnvParamRegisterTypeEnum | string): EnvParam {
+    public withRegisterType(registerType: string): EnvParam {
         this['register_type'] = registerType;
         return this;
     }
-    public set registerType(registerType: EnvParamRegisterTypeEnum | string  | undefined) {
+    public set registerType(registerType: string  | undefined) {
         this['register_type'] = registerType;
     }
-    public get registerType(): EnvParamRegisterTypeEnum | string | undefined {
+    public get registerType(): string | undefined {
         return this['register_type'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EnvParamEnvTypeEnum {
-    DEV = 'DEV',
-    TEST = 'TEST',
-    PRE = 'PRE',
-    ONLINE = 'ONLINE'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EnvParamOsTypeEnum {
-    LINUX = 'LINUX',
-    WINDOWS = 'WINDOWS'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EnvParamRegisterTypeEnum {
-    API = 'API',
-    CONSOLE = 'CONSOLE',
-    SERVICE_DISCOVERY = 'SERVICE_DISCOVERY'
 }

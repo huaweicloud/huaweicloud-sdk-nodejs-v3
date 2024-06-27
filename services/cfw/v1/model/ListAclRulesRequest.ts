@@ -4,7 +4,6 @@ export class ListAclRulesRequest {
     private 'project_id'?: string;
     private 'object_id'?: string;
     public type?: ListAclRulesRequestTypeEnum | number;
-    public protocol?: ListAclRulesRequestProtocolEnum | number;
     public ip?: string;
     public name?: string;
     public direction?: number;
@@ -48,10 +47,6 @@ export class ListAclRulesRequest {
     }
     public withType(type: ListAclRulesRequestTypeEnum | number): ListAclRulesRequest {
         this['type'] = type;
-        return this;
-    }
-    public withProtocol(protocol: ListAclRulesRequestProtocolEnum | number): ListAclRulesRequest {
-        this['protocol'] = protocol;
         return this;
     }
     public withIp(ip: string): ListAclRulesRequest {
@@ -154,16 +149,6 @@ export enum ListAclRulesRequestTypeEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1,
     NUMBER_2 = 2
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAclRulesRequestProtocolEnum {
-    NUMBER_6 = 6,
-    NUMBER_17 = 17,
-    NUMBER_1 = 1,
-    NUMBER_58 = 58
 }
 /**
     * @export

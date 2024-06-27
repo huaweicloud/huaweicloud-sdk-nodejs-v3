@@ -23,6 +23,10 @@ export class ListAccessControlLogsRequest {
     public action?: string;
     private 'src_region_name'?: string;
     private 'dst_region_name'?: string;
+    private 'src_province_name'?: string;
+    private 'dst_province_name'?: string;
+    private 'src_city_name'?: string;
+    private 'dst_city_name'?: string;
     public constructor(projectId?: string, fwInstanceId?: string, startTime?: number, endTime?: number, limit?: number) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -219,6 +223,46 @@ export class ListAccessControlLogsRequest {
     }
     public get dstRegionName(): string | undefined {
         return this['dst_region_name'];
+    }
+    public withSrcProvinceName(srcProvinceName: string): ListAccessControlLogsRequest {
+        this['src_province_name'] = srcProvinceName;
+        return this;
+    }
+    public set srcProvinceName(srcProvinceName: string  | undefined) {
+        this['src_province_name'] = srcProvinceName;
+    }
+    public get srcProvinceName(): string | undefined {
+        return this['src_province_name'];
+    }
+    public withDstProvinceName(dstProvinceName: string): ListAccessControlLogsRequest {
+        this['dst_province_name'] = dstProvinceName;
+        return this;
+    }
+    public set dstProvinceName(dstProvinceName: string  | undefined) {
+        this['dst_province_name'] = dstProvinceName;
+    }
+    public get dstProvinceName(): string | undefined {
+        return this['dst_province_name'];
+    }
+    public withSrcCityName(srcCityName: string): ListAccessControlLogsRequest {
+        this['src_city_name'] = srcCityName;
+        return this;
+    }
+    public set srcCityName(srcCityName: string  | undefined) {
+        this['src_city_name'] = srcCityName;
+    }
+    public get srcCityName(): string | undefined {
+        return this['src_city_name'];
+    }
+    public withDstCityName(dstCityName: string): ListAccessControlLogsRequest {
+        this['dst_city_name'] = dstCityName;
+        return this;
+    }
+    public set dstCityName(dstCityName: string  | undefined) {
+        this['dst_city_name'] = dstCityName;
+    }
+    public get dstCityName(): string | undefined {
+        return this['dst_city_name'];
     }
 }
 

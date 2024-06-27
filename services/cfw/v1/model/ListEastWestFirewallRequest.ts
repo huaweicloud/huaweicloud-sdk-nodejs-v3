@@ -6,10 +6,11 @@ export class ListEastWestFirewallRequest {
     public offset?: number;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
-    public constructor(projectId?: string, limit?: number, offset?: number) { 
+    public constructor(projectId?: string, limit?: number, offset?: number, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['limit'] = limit;
         this['offset'] = offset;
+        this['fw_instance_id'] = fwInstanceId;
     }
     public withProjectId(projectId: string): ListEastWestFirewallRequest {
         this['project_id'] = projectId;

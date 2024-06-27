@@ -72,6 +72,7 @@ export class QueryJobResp {
     private 'public_ip_list'?: Array<PublicIpConfig>;
     private 'bind_public_ip_state'?: string;
     public children?: Array<FailedToBindEipChildInfo>;
+    private 'is_open_fast_clean'?: boolean;
     public constructor() { 
     }
     public withId(id: string): QueryJobResp {
@@ -631,6 +632,16 @@ export class QueryJobResp {
     public withChildren(children: Array<FailedToBindEipChildInfo>): QueryJobResp {
         this['children'] = children;
         return this;
+    }
+    public withIsOpenFastClean(isOpenFastClean: boolean): QueryJobResp {
+        this['is_open_fast_clean'] = isOpenFastClean;
+        return this;
+    }
+    public set isOpenFastClean(isOpenFastClean: boolean  | undefined) {
+        this['is_open_fast_clean'] = isOpenFastClean;
+    }
+    public get isOpenFastClean(): boolean | undefined {
+        return this['is_open_fast_clean'];
     }
 }
 

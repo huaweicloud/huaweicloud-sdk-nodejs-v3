@@ -186,6 +186,7 @@ import { QueryPreCheckResult } from './model/QueryPreCheckResult';
 import { QuerySelectObjectInfoReq } from './model/QuerySelectObjectInfoReq';
 import { QueryUserSelectedObjectInfoReq } from './model/QueryUserSelectedObjectInfoReq';
 import { ReplayConfigInfo } from './model/ReplayConfigInfo';
+import { ReplayErrorClassification } from './model/ReplayErrorClassification';
 import { ReplayErrorSqlResp } from './model/ReplayErrorSqlResp';
 import { ReplayErrorSqlTemplateResp } from './model/ReplayErrorSqlTemplateResp';
 import { ReplayShardStaticsResp } from './model/ReplayShardStaticsResp';
@@ -719,7 +720,7 @@ export class DrsClient {
      * @summary 对象选择（文件导入 - 模板下载）
      * @param {string} jobId 任务ID。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
-     * @param {'database' | 'table'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级
+     * @param {'database' | 'table' | 'column'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1254,6 +1255,7 @@ export class DrsClient {
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。
      * @param {number} [limit] 查询返回记录的数量限制。
+     * @param {string} [type] 默认为空。 - column：当进行列加工导入时，查询列加工导入进度。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1275,6 +1277,7 @@ export class DrsClient {
      * @param {string} jobId 任务ID。
      * @param {'detail' | 'synchronized' | 'change'} type 导入的结果类型。取值： - detail：获取最新导入的文件与校验结果，上传后的文件若存在错误，会同时将错误原因标记在文件内。 - synchronized：获取已同步的（已下发的）对象文件结果。 - change: 获取新增和删除的对象结果（当再编辑时使用）
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [fileExportObjectLevel] 默认为空。当进行列加工导入时，查询列加工导入进度，取值column。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1610,7 +1613,7 @@ export class DrsClient {
      *
      * @summary 查询录制回放结果
      * @param {string} jobId 任务ID。
-     * @param {'shard_statistics' | 'slow_sql' | 'error_sql' | 'slow_sql_template' | 'error_sql_template' | 'replaying_sql'} type 结果类型。取值： - shard_statistics：回放概览基于时间维度统计信息。 - slow_sql：慢SQL详情。 - error_sql： 回放异常SQL详情。 - slow_sql_template：慢SQL统计信息。  - error_sql_template：异常SQL统计信息。 - replaying_sql：正在回放SQL详情。
+     * @param {'shard_statistics' | 'slow_sql' | 'error_sql' | 'slow_sql_template' | 'error_sql_template' | 'replaying_sql' | 'error_classification'} type 结果类型。取值： - shard_statistics：回放概览基于时间维度统计信息。 - slow_sql：慢SQL详情。 - error_sql： 回放异常SQL详情。 - slow_sql_template：慢SQL统计信息。  - error_sql_template：异常SQL统计信息。 - replaying_sql：正在回放SQL详情。 - error_classification：回放异常SQL分类。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {string} [startTime] 查询数据的起始时间，在type为shard_statistics、slow_sql、error_sql时必填
      * @param {string} [endTime] 查询数据的结束时间，在type为shard_statistics、slow_sql、error_sql时必填
@@ -1619,6 +1622,9 @@ export class DrsClient {
      * @param {string} [sortKey] 返回结果按该关键字排序（slow_sql_template支持count，maxLatency、avgLatency关键字，error_sql_template支持count关键字）
      * @param {'asc' | 'desc'} [sortDir] 排序规则，取值如下： - asc：升序 - desc：降序
      * @param {'target' | 'target_mirror'} [targetName] 回放数据库名称，用于在一致性回放策略场景，过滤目标库与源库镜像库回放结果。参数非必须，不提供则默认查询所有数据，其取值如下： - target：查询目标库回放结果 - target_mirror：查询源库镜像库回放结果
+     * @param {boolean} [isSample] 是否查询样例true/false，type&#x3D;slow_sql/error_sql时生效，值为true时只查询一条样例数据。
+     * @param {string} [errorType] 错误分类，type&#x3D;error_sql/error_sql_template时生效，根据错误分类过滤数据。
+     * @param {string} [sqlTemplateMd5] sql模板md5，type&#x3D;slow_sql/error_sql时生效，根据模板过滤对应的异常SQL和慢SQL，该值为本接口type&#x3D;slow_sql_template/error_sql_template时的返回字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1852,7 +1858,7 @@ export class DrsClient {
      * @param {string} jobId 任务ID。
      * @param {any} file 待上传的模板文件。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
-     * @param {'database' | 'table'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级
+     * @param {'database' | 'table' | 'column'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4366,6 +4372,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let type;
 
             if (showDbObjectTemplateProgressRequest !== null && showDbObjectTemplateProgressRequest !== undefined) {
                 if (showDbObjectTemplateProgressRequest instanceof ShowDbObjectTemplateProgressRequest) {
@@ -4373,11 +4381,13 @@ export const ParamCreater = function () {
                     xLanguage = showDbObjectTemplateProgressRequest.xLanguage;
                     offset = showDbObjectTemplateProgressRequest.offset;
                     limit = showDbObjectTemplateProgressRequest.limit;
+                    type = showDbObjectTemplateProgressRequest.type;
                 } else {
                     jobId = showDbObjectTemplateProgressRequest['job_id'];
                     xLanguage = showDbObjectTemplateProgressRequest['X-Language'];
                     offset = showDbObjectTemplateProgressRequest['offset'];
                     limit = showDbObjectTemplateProgressRequest['limit'];
+                    type = showDbObjectTemplateProgressRequest['type'];
                 }
             }
 
@@ -4390,6 +4400,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -4423,16 +4436,20 @@ export const ParamCreater = function () {
             let type;
             
             let xLanguage;
+            
+            let fileExportObjectLevel;
 
             if (showDbObjectTemplateResultRequest !== null && showDbObjectTemplateResultRequest !== undefined) {
                 if (showDbObjectTemplateResultRequest instanceof ShowDbObjectTemplateResultRequest) {
                     jobId = showDbObjectTemplateResultRequest.jobId;
                     type = showDbObjectTemplateResultRequest.type;
                     xLanguage = showDbObjectTemplateResultRequest.xLanguage;
+                    fileExportObjectLevel = showDbObjectTemplateResultRequest.fileExportObjectLevel;
                 } else {
                     jobId = showDbObjectTemplateResultRequest['job_id'];
                     type = showDbObjectTemplateResultRequest['type'];
                     xLanguage = showDbObjectTemplateResultRequest['X-Language'];
+                    fileExportObjectLevel = showDbObjectTemplateResultRequest['file_export_object_level'];
                 }
             }
 
@@ -4445,6 +4462,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (fileExportObjectLevel !== null && fileExportObjectLevel !== undefined) {
+                localVarQueryParameter['file_export_object_level'] = fileExportObjectLevel;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -5341,6 +5361,12 @@ export const ParamCreater = function () {
             let sortDir;
             
             let targetName;
+            
+            let isSample;
+            
+            let errorType;
+            
+            let sqlTemplateMd5;
 
             if (showReplayResultsRequest !== null && showReplayResultsRequest !== undefined) {
                 if (showReplayResultsRequest instanceof ShowReplayResultsRequest) {
@@ -5354,6 +5380,9 @@ export const ParamCreater = function () {
                     sortKey = showReplayResultsRequest.sortKey;
                     sortDir = showReplayResultsRequest.sortDir;
                     targetName = showReplayResultsRequest.targetName;
+                    isSample = showReplayResultsRequest.isSample;
+                    errorType = showReplayResultsRequest.errorType;
+                    sqlTemplateMd5 = showReplayResultsRequest.sqlTemplateMd5;
                 } else {
                     jobId = showReplayResultsRequest['job_id'];
                     type = showReplayResultsRequest['type'];
@@ -5365,6 +5394,9 @@ export const ParamCreater = function () {
                     sortKey = showReplayResultsRequest['sort_key'];
                     sortDir = showReplayResultsRequest['sort_dir'];
                     targetName = showReplayResultsRequest['target_name'];
+                    isSample = showReplayResultsRequest['is_sample'];
+                    errorType = showReplayResultsRequest['error_type'];
+                    sqlTemplateMd5 = showReplayResultsRequest['sql_template_md5'];
                 }
             }
 
@@ -5398,6 +5430,15 @@ export const ParamCreater = function () {
             }
             if (targetName !== null && targetName !== undefined) {
                 localVarQueryParameter['target_name'] = targetName;
+            }
+            if (isSample !== null && isSample !== undefined) {
+                localVarQueryParameter['is_sample'] = isSample;
+            }
+            if (errorType !== null && errorType !== undefined) {
+                localVarQueryParameter['error_type'] = errorType;
+            }
+            if (sqlTemplateMd5 !== null && sqlTemplateMd5 !== undefined) {
+                localVarQueryParameter['sql_template_md5'] = sqlTemplateMd5;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

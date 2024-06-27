@@ -5,6 +5,7 @@ export class ShowDbObjectTemplateProgressRequest {
     private 'X-Language'?: ShowDbObjectTemplateProgressRequestXLanguageEnum | string;
     public offset?: number;
     public limit?: number;
+    public type?: string;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -34,6 +35,10 @@ export class ShowDbObjectTemplateProgressRequest {
     }
     public withLimit(limit: number): ShowDbObjectTemplateProgressRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withType(type: string): ShowDbObjectTemplateProgressRequest {
+        this['type'] = type;
         return this;
     }
 }

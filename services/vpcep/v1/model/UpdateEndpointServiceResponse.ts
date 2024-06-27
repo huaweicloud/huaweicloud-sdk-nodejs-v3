@@ -21,6 +21,7 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     public tags?: Array<TagList>;
     public description?: string;
     private 'enable_policy'?: boolean;
+    private 'ip_version'?: UpdateEndpointServiceResponseIpVersionEnum | string;
     public constructor() { 
         super();
     }
@@ -164,4 +165,23 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
+    public withIpVersion(ipVersion: UpdateEndpointServiceResponseIpVersionEnum | string): UpdateEndpointServiceResponse {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: UpdateEndpointServiceResponseIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): UpdateEndpointServiceResponseIpVersionEnum | string | undefined {
+        return this['ip_version'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateEndpointServiceResponseIpVersionEnum {
+    IPV4 = 'ipv4',
+    IPV6 = 'ipv6'
 }

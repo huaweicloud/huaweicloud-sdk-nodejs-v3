@@ -7,9 +7,10 @@ export class UpdateDomainSetRequest {
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
     public body?: UpdateDomainSetInfoDto;
-    public constructor(projectId?: string, setId?: string) { 
+    public constructor(projectId?: string, setId?: string, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['set_id'] = setId;
+        this['fw_instance_id'] = fwInstanceId;
     }
     public withProjectId(projectId: string): UpdateDomainSetRequest {
         this['project_id'] = projectId;

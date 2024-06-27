@@ -7,6 +7,7 @@ export class ErInstance {
     private 'enterprise_project_id'?: string;
     private 'project_id'?: string;
     private 'enable_ipv6'?: string;
+    private 'attachment_id'?: string;
     public constructor() { 
     }
     public withId(id: string): ErInstance {
@@ -50,5 +51,15 @@ export class ErInstance {
     }
     public get enableIpv6(): string | undefined {
         return this['enable_ipv6'];
+    }
+    public withAttachmentId(attachmentId: string): ErInstance {
+        this['attachment_id'] = attachmentId;
+        return this;
+    }
+    public set attachmentId(attachmentId: string  | undefined) {
+        this['attachment_id'] = attachmentId;
+    }
+    public get attachmentId(): string | undefined {
+        return this['attachment_id'];
     }
 }

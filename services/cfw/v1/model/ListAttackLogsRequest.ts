@@ -8,25 +8,28 @@ export class ListAttackLogsRequest {
     private 'src_port'?: number;
     private 'dst_ip'?: string;
     private 'dst_port'?: number;
-    public protocol?: ListAttackLogsRequestProtocolEnum | string;
+    public protocol?: string;
     public app?: string;
     private 'log_id'?: string;
     private 'next_date'?: number;
     public offset?: number;
     public limit?: number;
     private 'fw_instance_id'?: string;
-    public action?: ListAttackLogsRequestActionEnum | string;
-    public direction?: ListAttackLogsRequestDirectionEnum | string;
+    public action?: string;
+    public direction?: string;
     private 'attack_type'?: string;
     private 'attack_rule'?: string;
     public level?: string;
-    public source?: string;
     private 'enterprise_project_id'?: string;
     private 'dst_host'?: string;
     private 'log_type'?: ListAttackLogsRequestLogTypeEnum | string;
     private 'attack_rule_id'?: string;
     private 'src_region_name'?: string;
     private 'dst_region_name'?: string;
+    private 'src_province_name'?: string;
+    private 'dst_province_name'?: string;
+    private 'src_city_name'?: string;
+    private 'dst_city_name'?: string;
     public constructor(projectId?: string, startTime?: number, endTime?: number, limit?: number, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
@@ -104,7 +107,7 @@ export class ListAttackLogsRequest {
     public get dstPort(): number | undefined {
         return this['dst_port'];
     }
-    public withProtocol(protocol: ListAttackLogsRequestProtocolEnum | string): ListAttackLogsRequest {
+    public withProtocol(protocol: string): ListAttackLogsRequest {
         this['protocol'] = protocol;
         return this;
     }
@@ -150,11 +153,11 @@ export class ListAttackLogsRequest {
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withAction(action: ListAttackLogsRequestActionEnum | string): ListAttackLogsRequest {
+    public withAction(action: string): ListAttackLogsRequest {
         this['action'] = action;
         return this;
     }
-    public withDirection(direction: ListAttackLogsRequestDirectionEnum | string): ListAttackLogsRequest {
+    public withDirection(direction: string): ListAttackLogsRequest {
         this['direction'] = direction;
         return this;
     }
@@ -180,10 +183,6 @@ export class ListAttackLogsRequest {
     }
     public withLevel(level: string): ListAttackLogsRequest {
         this['level'] = level;
-        return this;
-    }
-    public withSource(source: string): ListAttackLogsRequest {
-        this['source'] = source;
         return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAttackLogsRequest {
@@ -246,34 +245,48 @@ export class ListAttackLogsRequest {
     public get dstRegionName(): string | undefined {
         return this['dst_region_name'];
     }
+    public withSrcProvinceName(srcProvinceName: string): ListAttackLogsRequest {
+        this['src_province_name'] = srcProvinceName;
+        return this;
+    }
+    public set srcProvinceName(srcProvinceName: string  | undefined) {
+        this['src_province_name'] = srcProvinceName;
+    }
+    public get srcProvinceName(): string | undefined {
+        return this['src_province_name'];
+    }
+    public withDstProvinceName(dstProvinceName: string): ListAttackLogsRequest {
+        this['dst_province_name'] = dstProvinceName;
+        return this;
+    }
+    public set dstProvinceName(dstProvinceName: string  | undefined) {
+        this['dst_province_name'] = dstProvinceName;
+    }
+    public get dstProvinceName(): string | undefined {
+        return this['dst_province_name'];
+    }
+    public withSrcCityName(srcCityName: string): ListAttackLogsRequest {
+        this['src_city_name'] = srcCityName;
+        return this;
+    }
+    public set srcCityName(srcCityName: string  | undefined) {
+        this['src_city_name'] = srcCityName;
+    }
+    public get srcCityName(): string | undefined {
+        return this['src_city_name'];
+    }
+    public withDstCityName(dstCityName: string): ListAttackLogsRequest {
+        this['dst_city_name'] = dstCityName;
+        return this;
+    }
+    public set dstCityName(dstCityName: string  | undefined) {
+        this['dst_city_name'] = dstCityName;
+    }
+    public get dstCityName(): string | undefined {
+        return this['dst_city_name'];
+    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAttackLogsRequestProtocolEnum {
-    E_6 = '6',
-    E_17 = '17',
-    E_1 = '1',
-    E_58 = '58'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAttackLogsRequestActionEnum {
-    E_0 = '0',
-    E_1 = '1'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAttackLogsRequestDirectionEnum {
-    E_0 = '0',
-    E_1 = '1'
-}
 /**
     * @export
     * @enum {string}

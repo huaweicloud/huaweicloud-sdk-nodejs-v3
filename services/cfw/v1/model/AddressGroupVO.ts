@@ -1,11 +1,24 @@
 
 
 export class AddressGroupVO {
-    private 'set_id'?: string;
+    private 'address_set_type'?: number;
     public name?: string;
-    public protocols?: Array<number>;
-    private 'service_set_type'?: number;
+    private 'set_id'?: string;
     public constructor() { 
+    }
+    public withAddressSetType(addressSetType: number): AddressGroupVO {
+        this['address_set_type'] = addressSetType;
+        return this;
+    }
+    public set addressSetType(addressSetType: number  | undefined) {
+        this['address_set_type'] = addressSetType;
+    }
+    public get addressSetType(): number | undefined {
+        return this['address_set_type'];
+    }
+    public withName(name: string): AddressGroupVO {
+        this['name'] = name;
+        return this;
     }
     public withSetId(setId: string): AddressGroupVO {
         this['set_id'] = setId;
@@ -16,23 +29,5 @@ export class AddressGroupVO {
     }
     public get setId(): string | undefined {
         return this['set_id'];
-    }
-    public withName(name: string): AddressGroupVO {
-        this['name'] = name;
-        return this;
-    }
-    public withProtocols(protocols: Array<number>): AddressGroupVO {
-        this['protocols'] = protocols;
-        return this;
-    }
-    public withServiceSetType(serviceSetType: number): AddressGroupVO {
-        this['service_set_type'] = serviceSetType;
-        return this;
-    }
-    public set serviceSetType(serviceSetType: number  | undefined) {
-        this['service_set_type'] = serviceSetType;
-    }
-    public get serviceSetType(): number | undefined {
-        return this['service_set_type'];
     }
 }

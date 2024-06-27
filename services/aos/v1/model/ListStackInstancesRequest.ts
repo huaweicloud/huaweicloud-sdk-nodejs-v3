@@ -7,6 +7,7 @@ export class ListStackInstancesRequest {
     public filter?: string;
     private 'sort_key'?: Array<ListStackInstancesRequestSortKeyEnum> | Array<string>;
     private 'sort_dir'?: Array<ListStackInstancesRequestSortDirEnum> | Array<string>;
+    private 'call_identity'?: ListStackInstancesRequestCallIdentityEnum | string;
     public constructor(clientRequestId?: string, stackSetName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['stack_set_name'] = stackSetName;
@@ -65,6 +66,16 @@ export class ListStackInstancesRequest {
     public get sortDir(): Array<ListStackInstancesRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
     }
+    public withCallIdentity(callIdentity: ListStackInstancesRequestCallIdentityEnum | string): ListStackInstancesRequest {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: ListStackInstancesRequestCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): ListStackInstancesRequestCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
 }
 
 /**
@@ -81,4 +92,12 @@ export enum ListStackInstancesRequestSortKeyEnum {
 export enum ListStackInstancesRequestSortDirEnum {
     ASC = 'asc',
     DESC = 'desc'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListStackInstancesRequestCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

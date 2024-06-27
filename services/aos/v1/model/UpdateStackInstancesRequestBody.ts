@@ -1,3 +1,4 @@
+import { CallIdentityPrimitiveTypeHolder } from './CallIdentityPrimitiveTypeHolder';
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
 import { OperationPreferences } from './OperationPreferences';
@@ -12,6 +13,7 @@ export class UpdateStackInstancesRequestBody {
     private 'deployment_targets'?: DeploymentTargets;
     private 'var_overrides'?: VarOverridesPrimitiveTypeHolderVarOverrides;
     private 'operation_preferences'?: OperationPreferences;
+    private 'call_identity'?: UpdateStackInstancesRequestBodyCallIdentityEnum | string;
     public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
@@ -55,4 +57,23 @@ export class UpdateStackInstancesRequestBody {
     public get operationPreferences(): OperationPreferences | undefined {
         return this['operation_preferences'];
     }
+    public withCallIdentity(callIdentity: UpdateStackInstancesRequestBodyCallIdentityEnum | string): UpdateStackInstancesRequestBody {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: UpdateStackInstancesRequestBodyCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): UpdateStackInstancesRequestBodyCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateStackInstancesRequestBodyCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

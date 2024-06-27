@@ -3,7 +3,7 @@
 export class ComponentParam {
     public description?: string;
     private 'model_id'?: string;
-    private 'model_type'?: ComponentParamModelTypeEnum | string;
+    private 'model_type'?: string;
     public name?: string;
     public constructor(modelId?: string, modelType?: string, name?: string) { 
         this['model_id'] = modelId;
@@ -24,27 +24,18 @@ export class ComponentParam {
     public get modelId(): string | undefined {
         return this['model_id'];
     }
-    public withModelType(modelType: ComponentParamModelTypeEnum | string): ComponentParam {
+    public withModelType(modelType: string): ComponentParam {
         this['model_type'] = modelType;
         return this;
     }
-    public set modelType(modelType: ComponentParamModelTypeEnum | string  | undefined) {
+    public set modelType(modelType: string  | undefined) {
         this['model_type'] = modelType;
     }
-    public get modelType(): ComponentParamModelTypeEnum | string | undefined {
+    public get modelType(): string | undefined {
         return this['model_type'];
     }
     public withName(name: string): ComponentParam {
         this['name'] = name;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ComponentParamModelTypeEnum {
-    APPLICATION = 'APPLICATION',
-    SUB_APPLICATION = 'SUB_APPLICATION'
 }

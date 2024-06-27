@@ -226,6 +226,5 @@ export class OpenGaussInstanceRequest {
     * @enum {string}
     */
 export enum OpenGaussInstanceRequestReplicaNumEnum {
-    NUMBER_2 = 2,
     NUMBER_3 = 3
 }

@@ -2,7 +2,7 @@
 
 export class SmnInfo {
     private 'smn_notified_content'?: string;
-    private 'smn_subscription_status'?: string;
+    private 'smn_subscription_status'?: number;
     private 'smn_subscription_type'?: string;
     public constructor() { 
     }
@@ -16,14 +16,14 @@ export class SmnInfo {
     public get smnNotifiedContent(): string | undefined {
         return this['smn_notified_content'];
     }
-    public withSmnSubscriptionStatus(smnSubscriptionStatus: string): SmnInfo {
+    public withSmnSubscriptionStatus(smnSubscriptionStatus: number): SmnInfo {
         this['smn_subscription_status'] = smnSubscriptionStatus;
         return this;
     }
-    public set smnSubscriptionStatus(smnSubscriptionStatus: string  | undefined) {
+    public set smnSubscriptionStatus(smnSubscriptionStatus: number  | undefined) {
         this['smn_subscription_status'] = smnSubscriptionStatus;
     }
-    public get smnSubscriptionStatus(): string | undefined {
+    public get smnSubscriptionStatus(): number | undefined {
         return this['smn_subscription_status'];
     }
     public withSmnSubscriptionType(smnSubscriptionType: string): SmnInfo {

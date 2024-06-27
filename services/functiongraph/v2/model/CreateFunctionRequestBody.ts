@@ -38,14 +38,13 @@ export class CreateFunctionRequestBody {
     private 'network_controller'?: NetworkControlConfig;
     private 'is_stateful_function'?: boolean;
     private 'enable_dynamic_memory'?: boolean;
-    public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number, codeType?: string) { 
+    public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['package'] = _package;
         this['runtime'] = runtime;
         this['timeout'] = timeout;
         this['handler'] = handler;
         this['memory_size'] = memorySize;
-        this['code_type'] = codeType;
     }
     public withFuncName(funcName: string): CreateFunctionRequestBody {
         this['func_name'] = funcName;

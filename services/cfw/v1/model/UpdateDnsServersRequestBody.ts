@@ -4,7 +4,8 @@ import { UpdateDnsServersRequestBodyDnsServer } from './UpdateDnsServersRequestB
 export class UpdateDnsServersRequestBody {
     private 'dns_server'?: Array<UpdateDnsServersRequestBodyDnsServer>;
     private 'health_check_domain_name'?: string;
-    public constructor() { 
+    public constructor(dnsServer?: Array<UpdateDnsServersRequestBodyDnsServer>) { 
+        this['dns_server'] = dnsServer;
     }
     public withDnsServer(dnsServer: Array<UpdateDnsServersRequestBodyDnsServer>): UpdateDnsServersRequestBody {
         this['dns_server'] = dnsServer;

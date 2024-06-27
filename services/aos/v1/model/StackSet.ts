@@ -89,7 +89,8 @@ export class StackSet {
     * @enum {string}
     */
 export enum StackSetPermissionModelEnum {
-    SELF_MANAGED = 'SELF_MANAGED'
+    SELF_MANAGED = 'SELF_MANAGED',
+    SERVICE_MANAGED = 'SERVICE_MANAGED'
 }
 /**
     * @export

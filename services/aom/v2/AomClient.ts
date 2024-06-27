@@ -14,14 +14,22 @@ import { AddMetricDataRequest } from './model/AddMetricDataRequest';
 import { AddMetricDataResponse } from './model/AddMetricDataResponse';
 import { AddMuteRulesRequest } from './model/AddMuteRulesRequest';
 import { AddMuteRulesResponse } from './model/AddMuteRulesResponse';
+import { AddOrUpdateAlarmRuleV4ItemResult } from './model/AddOrUpdateAlarmRuleV4ItemResult';
+import { AddOrUpdateAlarmRuleV4RequestBody } from './model/AddOrUpdateAlarmRuleV4RequestBody';
+import { AddOrUpdateMetricOrEventAlarmRuleRequest } from './model/AddOrUpdateMetricOrEventAlarmRuleRequest';
+import { AddOrUpdateMetricOrEventAlarmRuleResponse } from './model/AddOrUpdateMetricOrEventAlarmRuleResponse';
 import { AddOrUpdateServiceDiscoveryRulesRequest } from './model/AddOrUpdateServiceDiscoveryRulesRequest';
 import { AddOrUpdateServiceDiscoveryRulesResponse } from './model/AddOrUpdateServiceDiscoveryRulesResponse';
+import { AlarmNotification } from './model/AlarmNotification';
+import { AlarmParamForV4Db } from './model/AlarmParamForV4Db';
 import { AlarmRuleParam } from './model/AlarmRuleParam';
+import { AlarmTags } from './model/AlarmTags';
 import { AppNameRule } from './model/AppNameRule';
 import { AppRules } from './model/AppRules';
 import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
+import { CmdbInfo } from './model/CmdbInfo';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
 import { CreatePromInstanceRequest } from './model/CreatePromInstanceRequest';
@@ -32,11 +40,14 @@ import { DeleteActionRuleRequest } from './model/DeleteActionRuleRequest';
 import { DeleteActionRuleResponse } from './model/DeleteActionRuleResponse';
 import { DeleteAlarmRuleRequest } from './model/DeleteAlarmRuleRequest';
 import { DeleteAlarmRuleResponse } from './model/DeleteAlarmRuleResponse';
+import { DeleteAlarmRuleV4RequestBody } from './model/DeleteAlarmRuleV4RequestBody';
 import { DeleteAlarmRulesBody } from './model/DeleteAlarmRulesBody';
 import { DeleteAlarmRulesRequest } from './model/DeleteAlarmRulesRequest';
 import { DeleteAlarmRulesResponse } from './model/DeleteAlarmRulesResponse';
 import { DeleteEvent2alarmRuleRequest } from './model/DeleteEvent2alarmRuleRequest';
 import { DeleteEvent2alarmRuleResponse } from './model/DeleteEvent2alarmRuleResponse';
+import { DeleteMetricOrEventAlarmRuleRequest } from './model/DeleteMetricOrEventAlarmRuleRequest';
+import { DeleteMetricOrEventAlarmRuleResponse } from './model/DeleteMetricOrEventAlarmRuleResponse';
 import { DeleteMuteRuleName } from './model/DeleteMuteRuleName';
 import { DeleteMuteRulesRequest } from './model/DeleteMuteRulesRequest';
 import { DeleteMuteRulesResponse } from './model/DeleteMuteRulesResponse';
@@ -51,6 +62,7 @@ import { DiscoveryRule } from './model/DiscoveryRule';
 import { Event2alarmRuleBody } from './model/Event2alarmRuleBody';
 import { Event2alarmRuleBodyMetadata } from './model/Event2alarmRuleBodyMetadata';
 import { Event2alarmRuleBodyTriggerPolicies } from './model/Event2alarmRuleBodyTriggerPolicies';
+import { EventAlarmSpec } from './model/EventAlarmSpec';
 import { EventList } from './model/EventList';
 import { EventModel } from './model/EventModel';
 import { EventQueryParam } from './model/EventQueryParam';
@@ -58,6 +70,8 @@ import { EventQueryParam2 } from './model/EventQueryParam2';
 import { EventQueryParam2Sort } from './model/EventQueryParam2Sort';
 import { EventQueryParamSort } from './model/EventQueryParamSort';
 import { EventSeries } from './model/EventSeries';
+import { EventTriggerCondition } from './model/EventTriggerCondition';
+import { ItemResult } from './model/ItemResult';
 import { ListAccessCodeRequest } from './model/ListAccessCodeRequest';
 import { ListAccessCodeResponse } from './model/ListAccessCodeResponse';
 import { ListActionRuleRequest } from './model/ListActionRuleRequest';
@@ -86,6 +100,8 @@ import { ListMetadataAomPromGetRequest } from './model/ListMetadataAomPromGetReq
 import { ListMetadataAomPromGetResponse } from './model/ListMetadataAomPromGetResponse';
 import { ListMetricItemsRequest } from './model/ListMetricItemsRequest';
 import { ListMetricItemsResponse } from './model/ListMetricItemsResponse';
+import { ListMetricOrEventAlarmRuleRequest } from './model/ListMetricOrEventAlarmRuleRequest';
+import { ListMetricOrEventAlarmRuleResponse } from './model/ListMetricOrEventAlarmRuleResponse';
 import { ListMuteRuleRequest } from './model/ListMuteRuleRequest';
 import { ListMuteRuleResponse } from './model/ListMuteRuleResponse';
 import { ListNotifiedHistoriesRequest } from './model/ListNotifiedHistoriesRequest';
@@ -109,6 +125,7 @@ import { Match } from './model/Match';
 import { MetaData } from './model/MetaData';
 import { MetaDataSeries } from './model/MetaDataSeries';
 import { MetricAPIQueryItemParam } from './model/MetricAPIQueryItemParam';
+import { MetricAlarmSpec } from './model/MetricAlarmSpec';
 import { MetricDataItem } from './model/MetricDataItem';
 import { MetricDataPoints } from './model/MetricDataPoints';
 import { MetricDataValue } from './model/MetricDataValue';
@@ -118,6 +135,8 @@ import { MetricQueryMeritcParam } from './model/MetricQueryMeritcParam';
 import { MuteConfig } from './model/MuteConfig';
 import { MuteRule } from './model/MuteRule';
 import { NameRule } from './model/NameRule';
+import { NoDataCondition } from './model/NoDataCondition';
+import { NodeInfo } from './model/NodeInfo';
 import { Notifications } from './model/Notifications';
 import { NotifiedHistoriesResult } from './model/NotifiedHistoriesResult';
 import { PromConfigModel } from './model/PromConfigModel';
@@ -134,6 +153,7 @@ import { QuerySample } from './model/QuerySample';
 import { QuerySampleParam } from './model/QuerySampleParam';
 import { QuerySeriesOptionParam } from './model/QuerySeriesOptionParam';
 import { RecordingRuleRequest } from './model/RecordingRuleRequest';
+import { RecoveryCondition } from './model/RecoveryCondition';
 import { RelationModel } from './model/RelationModel';
 import { SampleDataValue } from './model/SampleDataValue';
 import { SearchKey } from './model/SearchKey';
@@ -149,6 +169,7 @@ import { SmnInfo } from './model/SmnInfo';
 import { SmnResponse } from './model/SmnResponse';
 import { SmnTopics } from './model/SmnTopics';
 import { StatisticValue } from './model/StatisticValue';
+import { TriggerCondition } from './model/TriggerCondition';
 import { UpdateActionRuleRequest } from './model/UpdateActionRuleRequest';
 import { UpdateActionRuleResponse } from './model/UpdateActionRuleResponse';
 import { UpdateAlarmRuleParam } from './model/UpdateAlarmRuleParam';
@@ -195,7 +216,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于添加一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于添加一条阈值规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -233,7 +254,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于向服务端添加一条或多条监控数据。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于向服务端添加一条或多条监控数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -271,7 +292,28 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 添加或修改AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加或修改指标类或事件类告警规则
+     * @param {string} actionId 告警规则id。 - 新增告警时，填写\&quot;add-alarm-action\&quot; - 更新告警时，填写“update-alarm-action”
+     * @param {AddOrUpdateAlarmRuleV4RequestBody} addOrUpdateMetricOrEventAlarmRuleRequestBody 新增或修改告警规则请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addOrUpdateMetricOrEventAlarmRule(addOrUpdateMetricOrEventAlarmRuleRequest?: AddOrUpdateMetricOrEventAlarmRuleRequest): Promise<AddOrUpdateMetricOrEventAlarmRuleResponse> {
+        const options = ParamCreater().addOrUpdateMetricOrEventAlarmRule(addOrUpdateMetricOrEventAlarmRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -329,7 +371,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于删除阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于删除阈值规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -348,7 +390,7 @@ export class AomClient {
     }
 
     /**
-     * 批量删除阈值规则[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于批量删除阈值规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -386,6 +428,25 @@ export class AomClient {
     }
 
     /**
+     * 删除AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指标类或事件类告警规则
+     * @param {DeleteAlarmRuleV4RequestBody} deleteMetricOrEventAlarmRuleRequestBody 删除告警规则请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMetricOrEventAlarmRule(deleteMetricOrEventAlarmRuleRequest?: DeleteMetricOrEventAlarmRuleRequest): Promise<DeleteMetricOrEventAlarmRuleResponse> {
+        const options = ParamCreater().deleteMetricOrEventAlarmRule(deleteMetricOrEventAlarmRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除静默规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -405,7 +466,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于删除服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于删除服务发现规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -462,7 +523,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询阈值规则列表。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询阈值规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -541,7 +602,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -555,6 +616,36 @@ export class AomClient {
      */
     public listMetricItems(listMetricItemsRequest?: ListMetricItemsRequest): Promise<ListMetricItemsResponse> {
         const options = ParamCreater().listMetricItems(listMetricItemsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AOM2.0指标类或者事件类告警规则列表。(注：接口目前开放的region为：华东-上海一)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指标类或者事件类告警规则列表
+     * @param {string} [name] 告警规则名称。
+     * @param {string} [limit] 用于限制本次返回的结果数据条数。
+     * @param {string} [offset] 分页查询起始位置，为非负整数。
+     * @param {string} [sortBy] 根据告警规则名称或者告警创建时间排序。 - alarm_rule_name.asc - alarm_create_time.desc
+     * @param {string} [eventSource] 事件告警规则事件来源。 - “RDS” - “EVS” - “CCE” - “LTS” - “AOM”
+     * @param {string} [eventSeverity] 事件告警级别。 - “Critical\&quot; - “Major” - “Minor” - “Info”
+     * @param {'OK' | 'alarm' | 'Effective' | 'Invalid'} [alarmRuleStatus] 告警规则状态。 - “OK”：正常 - “alarm”：超限阈值 - “Effective”：生效中 - “Invalid”：停用中
+     * @param {'metric' | 'event'} [alarmRuleType] 告警规则类型。 - “metric”：指标告警规则 - “event”：事件告警规则
+     * @param {string} [promInstanceId] Prometheus实例id。
+     * @param {string} [bindNotificationRuleId] 绑定的告警行动规则名称。
+     * @param {string} [relatedCceClusters] CCE集群id。
+     * @param {string} [enterpriseProjectId] 企业项目id。  - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMetricOrEventAlarmRule(listMetricOrEventAlarmRuleRequest?: ListMetricOrEventAlarmRuleRequest): Promise<ListMetricOrEventAlarmRuleResponse> {
+        const options = ParamCreater().listMetricOrEventAlarmRule(listMetricOrEventAlarmRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -618,7 +709,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -638,7 +729,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -659,7 +750,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询系统当前已存在的服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询系统当前已存在的服务发现规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -718,7 +809,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询单条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询单条阈值规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -737,7 +828,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -776,7 +867,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于修改一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+     * 该接口用于修改一条阈值规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -911,7 +1002,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -931,7 +1022,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
+     * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -951,7 +1042,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询带有指定标签的时间序列列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口用于查询带有指定标签的时间序列列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -970,7 +1061,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用GET方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法获取标签名列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -988,7 +1079,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用POST方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用POST方法获取标签名列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1006,7 +1097,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于查询序列及序列标签的元数据。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口用于查询序列及序列标签的元数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1047,7 +1138,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1069,7 +1160,7 @@ export class AomClient {
     }
 
     /**
-     * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+     * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1133,7 +1224,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于添加一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于添加一条阈值规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1209,7 +1300,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向服务端添加一条或多条监控数据。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于向服务端添加一条或多条监控数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1285,7 +1376,63 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 添加或修改AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addOrUpdateMetricOrEventAlarmRule(addOrUpdateMetricOrEventAlarmRuleRequest?: AddOrUpdateMetricOrEventAlarmRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_id}/alarm-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let actionId;
+            
+            let enterpriseProjectId;
+
+            if (addOrUpdateMetricOrEventAlarmRuleRequest !== null && addOrUpdateMetricOrEventAlarmRuleRequest !== undefined) {
+                if (addOrUpdateMetricOrEventAlarmRuleRequest instanceof AddOrUpdateMetricOrEventAlarmRuleRequest) {
+                    actionId = addOrUpdateMetricOrEventAlarmRuleRequest.actionId;
+                    body = addOrUpdateMetricOrEventAlarmRuleRequest.body
+                    enterpriseProjectId = addOrUpdateMetricOrEventAlarmRuleRequest.enterpriseProjectId;
+                } else {
+                    actionId = addOrUpdateMetricOrEventAlarmRuleRequest['action_id'];
+                    body = addOrUpdateMetricOrEventAlarmRuleRequest['body'];
+                    enterpriseProjectId = addOrUpdateMetricOrEventAlarmRuleRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (actionId === null || actionId === undefined) {
+                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling addOrUpdateMetricOrEventAlarmRule.');
+            }
+            if (actionId !== null && actionId !== undefined) {
+                localVarQueryParameter['action_id'] = actionId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于添加或修改一条或多条服务发现规则。同一projectid下可添加的规则上限为100条。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1404,7 +1551,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于删除阈值规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1441,7 +1588,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除阈值规则[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于批量删除阈值规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1517,6 +1664,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMetricOrEventAlarmRule(deleteMetricOrEventAlarmRuleRequest?: DeleteMetricOrEventAlarmRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/{project_id}/alarm-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteMetricOrEventAlarmRuleRequest !== null && deleteMetricOrEventAlarmRuleRequest !== undefined) {
+                if (deleteMetricOrEventAlarmRuleRequest instanceof DeleteMetricOrEventAlarmRuleRequest) {
+                    body = deleteMetricOrEventAlarmRuleRequest.body
+                } else {
+                    body = deleteMetricOrEventAlarmRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除静默规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1555,7 +1740,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于删除服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于删除服务发现规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1660,7 +1845,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询阈值规则列表。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询阈值规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1827,7 +2012,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询系统当前可监控的指标列表，可以指定指标命名空间、指标名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1881,6 +2066,120 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AOM2.0指标类或者事件类告警规则列表。(注：接口目前开放的region为：华东-上海一)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMetricOrEventAlarmRule(listMetricOrEventAlarmRuleRequest?: ListMetricOrEventAlarmRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/{project_id}/alarm-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let limit;
+            
+            let offset;
+            
+            let sortBy;
+            
+            let eventSource;
+            
+            let eventSeverity;
+            
+            let alarmRuleStatus;
+            
+            let alarmRuleType;
+            
+            let promInstanceId;
+            
+            let bindNotificationRuleId;
+            
+            let relatedCceClusters;
+            
+            let enterpriseProjectId;
+
+            if (listMetricOrEventAlarmRuleRequest !== null && listMetricOrEventAlarmRuleRequest !== undefined) {
+                if (listMetricOrEventAlarmRuleRequest instanceof ListMetricOrEventAlarmRuleRequest) {
+                    name = listMetricOrEventAlarmRuleRequest.name;
+                    limit = listMetricOrEventAlarmRuleRequest.limit;
+                    offset = listMetricOrEventAlarmRuleRequest.offset;
+                    sortBy = listMetricOrEventAlarmRuleRequest.sortBy;
+                    eventSource = listMetricOrEventAlarmRuleRequest.eventSource;
+                    eventSeverity = listMetricOrEventAlarmRuleRequest.eventSeverity;
+                    alarmRuleStatus = listMetricOrEventAlarmRuleRequest.alarmRuleStatus;
+                    alarmRuleType = listMetricOrEventAlarmRuleRequest.alarmRuleType;
+                    promInstanceId = listMetricOrEventAlarmRuleRequest.promInstanceId;
+                    bindNotificationRuleId = listMetricOrEventAlarmRuleRequest.bindNotificationRuleId;
+                    relatedCceClusters = listMetricOrEventAlarmRuleRequest.relatedCceClusters;
+                    enterpriseProjectId = listMetricOrEventAlarmRuleRequest.enterpriseProjectId;
+                } else {
+                    name = listMetricOrEventAlarmRuleRequest['name'];
+                    limit = listMetricOrEventAlarmRuleRequest['limit'];
+                    offset = listMetricOrEventAlarmRuleRequest['offset'];
+                    sortBy = listMetricOrEventAlarmRuleRequest['sort_by'];
+                    eventSource = listMetricOrEventAlarmRuleRequest['event_source'];
+                    eventSeverity = listMetricOrEventAlarmRuleRequest['event_severity'];
+                    alarmRuleStatus = listMetricOrEventAlarmRuleRequest['alarm_rule_status'];
+                    alarmRuleType = listMetricOrEventAlarmRuleRequest['alarm_rule_type'];
+                    promInstanceId = listMetricOrEventAlarmRuleRequest['prom_instance_id'];
+                    bindNotificationRuleId = listMetricOrEventAlarmRuleRequest['bind_notification_rule_id'];
+                    relatedCceClusters = listMetricOrEventAlarmRuleRequest['related_cce_clusters'];
+                    enterpriseProjectId = listMetricOrEventAlarmRuleRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sortBy !== null && sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (eventSource !== null && eventSource !== undefined) {
+                localVarQueryParameter['event_source'] = eventSource;
+            }
+            if (eventSeverity !== null && eventSeverity !== undefined) {
+                localVarQueryParameter['event_severity'] = eventSeverity;
+            }
+            if (alarmRuleStatus !== null && alarmRuleStatus !== undefined) {
+                localVarQueryParameter['alarm_rule_status'] = alarmRuleStatus;
+            }
+            if (alarmRuleType !== null && alarmRuleType !== undefined) {
+                localVarQueryParameter['alarm_rule_type'] = alarmRuleType;
+            }
+            if (promInstanceId !== null && promInstanceId !== undefined) {
+                localVarQueryParameter['prom_instance_id'] = promInstanceId;
+            }
+            if (bindNotificationRuleId !== null && bindNotificationRuleId !== undefined) {
+                localVarQueryParameter['bind_notification_rule_id'] = bindNotificationRuleId;
+            }
+            if (relatedCceClusters !== null && relatedCceClusters !== undefined) {
+                localVarQueryParameter['related_cce_clusters'] = relatedCceClusters;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1966,7 +2265,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询指定时间范围内的监控时序数据，可以通过参数指定需要查询的数据维度，数据周期等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2012,7 +2311,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询系统当前可监控的时间序列列表，可以指定时间序列命名空间、名称、维度、所属资源的编号（格式为：resType_resId），分页查询的起始位置和返回的最大记录条数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2065,7 +2364,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询系统当前已存在的服务发现规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询系统当前已存在的服务发现规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2192,7 +2491,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询单条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询单条阈值规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2229,7 +2528,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于查询指定时间范围内指标的监控数据，可以通过参数指定需要查询的数据维度，数据周期等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2313,7 +2612,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于修改一条阈值规则。[（当前接口未上线墨西哥城二、圣地亚哥、圣保罗一）](tag:hws,hws_hk)
+         * 该接口用于修改一条阈值规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2583,7 +2882,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在特定时间点下的计算结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2630,7 +2929,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）
+         * 该接口使用POST方法查询PromQL(Prometheus Query Language) 在特定时间点下的计算结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2677,7 +2976,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询带有指定标签的时间序列列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口用于查询带有指定标签的时间序列列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2714,7 +3013,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用GET方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法获取标签名列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2735,7 +3034,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用POST方法获取标签名列表。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用POST方法获取标签名列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2756,7 +3055,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询序列及序列标签的元数据。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口用于查询序列及序列标签的元数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2842,7 +3141,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用GET方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2912,7 +3211,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。（注：接口目前开放的region为：北京四、上海一和广州）。
+         * 该接口使用POST方法查询PromQL(Prometheus Query Language)在一段时间返回内的计算结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

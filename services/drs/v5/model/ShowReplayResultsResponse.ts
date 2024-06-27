@@ -1,3 +1,4 @@
+import { ReplayErrorClassification } from './ReplayErrorClassification';
 import { ReplayErrorSqlResp } from './ReplayErrorSqlResp';
 import { ReplayErrorSqlTemplateResp } from './ReplayErrorSqlTemplateResp';
 import { ReplayShardStaticsResp } from './ReplayShardStaticsResp';
@@ -15,6 +16,7 @@ export class ShowReplayResultsResponse extends SdkResponse {
     private 'error_sqls'?: Array<ReplayErrorSqlResp>;
     private 'error_sql_templates'?: Array<ReplayErrorSqlTemplateResp>;
     private 'replaying_sqls'?: Array<ReplayingSqlResp>;
+    private 'error_classifications'?: Array<ReplayErrorClassification>;
     public constructor() { 
         super();
     }
@@ -87,5 +89,15 @@ export class ShowReplayResultsResponse extends SdkResponse {
     }
     public get replayingSqls(): Array<ReplayingSqlResp> | undefined {
         return this['replaying_sqls'];
+    }
+    public withErrorClassifications(errorClassifications: Array<ReplayErrorClassification>): ShowReplayResultsResponse {
+        this['error_classifications'] = errorClassifications;
+        return this;
+    }
+    public set errorClassifications(errorClassifications: Array<ReplayErrorClassification>  | undefined) {
+        this['error_classifications'] = errorClassifications;
+    }
+    public get errorClassifications(): Array<ReplayErrorClassification> | undefined {
+        return this['error_classifications'];
     }
 }

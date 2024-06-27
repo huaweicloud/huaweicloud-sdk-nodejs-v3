@@ -27,6 +27,8 @@ export class KpsRegion {
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://kms.cn-south-2.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://kms.me-east-1.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://kms.tr-west-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://kms.my-kualalumpur-1.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://kms.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -50,7 +52,9 @@ export class KpsRegion {
         "cn-south-4":KpsRegion.CN_SOUTH_4,
         "cn-south-2":KpsRegion.CN_SOUTH_2,
         "me-east-1":KpsRegion.ME_EAST_1,
-        "tr-west-1":KpsRegion.TR_WEST_1
+        "tr-west-1":KpsRegion.TR_WEST_1,
+        "my-kualalumpur-1":KpsRegion.MY_KUALALUMPUR_1,
+        "ru-moscow-1":KpsRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

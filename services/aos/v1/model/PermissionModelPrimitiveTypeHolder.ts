@@ -21,5 +21,6 @@ export class PermissionModelPrimitiveTypeHolder {
     * @enum {string}
     */
 export enum PermissionModelPrimitiveTypeHolderPermissionModelEnum {
-    SELF_MANAGED = 'SELF_MANAGED'
+    SELF_MANAGED = 'SELF_MANAGED',
+    SERVICE_MANAGED = 'SERVICE_MANAGED'
 }

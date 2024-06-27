@@ -35,5 +35,7 @@ export enum ResourcesTypeEnum {
     FGS_FUNC_PAT_IDLE_TIME = 'fgs_func_pat_idle_time',
     FGS_FUNC_NUM = 'fgs_func_num',
     FGS_FUNC_CODE_SIZE = 'fgs_func_code_size',
-    FGS_WORKFLOW_NUM = 'fgs_workflow_num'
+    FGS_WORKFLOW_NUM = 'fgs_workflow_num',
+    FGS_ON_DEMAND_INSTANCE_LIMIT = 'fgs_on_demand_instance_limit',
+    FGS_FUNC_QOS_LIMIT = 'fgs_func_qos_limit'
 }

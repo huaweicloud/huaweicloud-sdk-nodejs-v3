@@ -50,6 +50,15 @@ import { BatchUpdateAclRuleActionsRequest } from './model/BatchUpdateAclRuleActi
 import { BatchUpdateAclRuleActionsResponse } from './model/BatchUpdateAclRuleActionsResponse';
 import { BlackWhiteListResponseData } from './model/BlackWhiteListResponseData';
 import { BlackWhiteListResponseDataRecords } from './model/BlackWhiteListResponseDataRecords';
+import { CancelCaptureTaskDto } from './model/CancelCaptureTaskDto';
+import { CancelCaptureTaskRequest } from './model/CancelCaptureTaskRequest';
+import { CancelCaptureTaskResponse } from './model/CancelCaptureTaskResponse';
+import { CaptureFile } from './model/CaptureFile';
+import { CaptureResultUrlVO } from './model/CaptureResultUrlVO';
+import { CaptureRuleAddressDto } from './model/CaptureRuleAddressDto';
+import { CaptureServiceDto } from './model/CaptureServiceDto';
+import { CaptureTaskDto } from './model/CaptureTaskDto';
+import { CaptureTaskVO } from './model/CaptureTaskVO';
 import { ChangeEastWestFirewallStatusRequest } from './model/ChangeEastWestFirewallStatusRequest';
 import { ChangeEastWestFirewallStatusResponse } from './model/ChangeEastWestFirewallStatusResponse';
 import { ChangeEipStatusRequest } from './model/ChangeEipStatusRequest';
@@ -62,6 +71,10 @@ import { ChangeProtectStatusRequestBody } from './model/ChangeProtectStatusReque
 import { ClearAccessLogRuleHitCountsDto } from './model/ClearAccessLogRuleHitCountsDto';
 import { CommonResponseDTOData } from './model/CommonResponseDTOData';
 import { CoveredIPVO } from './model/CoveredIPVO';
+import { CreateCaptureTaskRequest } from './model/CreateCaptureTaskRequest';
+import { CreateCaptureTaskResponse } from './model/CreateCaptureTaskResponse';
+import { CreateEWFirewallInspectVpcResp } from './model/CreateEWFirewallInspectVpcResp';
+import { CreateEWFirewallResp } from './model/CreateEWFirewallResp';
 import { CreateEastWestFirewallRequest } from './model/CreateEastWestFirewallRequest';
 import { CreateEastWestFirewallRequestBody } from './model/CreateEastWestFirewallRequestBody';
 import { CreateEastWestFirewallResponse } from './model/CreateEastWestFirewallResponse';
@@ -71,6 +84,10 @@ import { CreateFirewallReqFlavor } from './model/CreateFirewallReqFlavor';
 import { CreateFirewallReqTags } from './model/CreateFirewallReqTags';
 import { CreateFirewallRequest } from './model/CreateFirewallRequest';
 import { CreateFirewallResponse } from './model/CreateFirewallResponse';
+import { CreateTag } from './model/CreateTag';
+import { CreateTagRequest } from './model/CreateTagRequest';
+import { CreateTagResponse } from './model/CreateTagResponse';
+import { CreateTagsDto } from './model/CreateTagsDto';
 import { DeleteAclRuleHitCountRequest } from './model/DeleteAclRuleHitCountRequest';
 import { DeleteAclRuleHitCountResponse } from './model/DeleteAclRuleHitCountResponse';
 import { DeleteAclRuleRequest } from './model/DeleteAclRuleRequest';
@@ -82,6 +99,9 @@ import { DeleteAddressSetRequest } from './model/DeleteAddressSetRequest';
 import { DeleteAddressSetResponse } from './model/DeleteAddressSetResponse';
 import { DeleteBlackWhiteListRequest } from './model/DeleteBlackWhiteListRequest';
 import { DeleteBlackWhiteListResponse } from './model/DeleteBlackWhiteListResponse';
+import { DeleteCaptureTaskDto } from './model/DeleteCaptureTaskDto';
+import { DeleteCaptureTaskRequest } from './model/DeleteCaptureTaskRequest';
+import { DeleteCaptureTaskResponse } from './model/DeleteCaptureTaskResponse';
 import { DeleteDomainDto } from './model/DeleteDomainDto';
 import { DeleteDomainSetRequest } from './model/DeleteDomainSetRequest';
 import { DeleteDomainSetResponse } from './model/DeleteDomainSetResponse';
@@ -95,6 +115,9 @@ import { DeleteServiceItemRequest } from './model/DeleteServiceItemRequest';
 import { DeleteServiceItemResponse } from './model/DeleteServiceItemResponse';
 import { DeleteServiceSetRequest } from './model/DeleteServiceSetRequest';
 import { DeleteServiceSetResponse } from './model/DeleteServiceSetResponse';
+import { DeleteTagRequest } from './model/DeleteTagRequest';
+import { DeleteTagResponse } from './model/DeleteTagResponse';
+import { DeleteTagsDto } from './model/DeleteTagsDto';
 import { DnsServersResponseDTO } from './model/DnsServersResponseDTO';
 import { DomainInfo } from './model/DomainInfo';
 import { DomainSetInfoDto } from './model/DomainSetInfoDto';
@@ -106,6 +129,7 @@ import { EipOperateProtectReq } from './model/EipOperateProtectReq';
 import { EipOperateProtectReqIpInfos } from './model/EipOperateProtectReqIpInfos';
 import { EipResource } from './model/EipResource';
 import { EipResponseData } from './model/EipResponseData';
+import { Er } from './model/Er';
 import { ErInstance } from './model/ErInstance';
 import { ErrorRsp } from './model/ErrorRsp';
 import { EwProtectResourceInfo } from './model/EwProtectResourceInfo';
@@ -115,8 +139,10 @@ import { Flavor } from './model/Flavor';
 import { GetEastWestFirewallResponseBody } from './model/GetEastWestFirewallResponseBody';
 import { GetFirewallInstanceData } from './model/GetFirewallInstanceData';
 import { GetFirewallInstanceResponseRecord } from './model/GetFirewallInstanceResponseRecord';
+import { HostHeaderInfo } from './model/HostHeaderInfo';
 import { HttpFirewallInstanceListResponseData } from './model/HttpFirewallInstanceListResponseData';
 import { HttpGetAclTagResponseData } from './model/HttpGetAclTagResponseData';
+import { HttpQueryCaptureTaskResponseData } from './model/HttpQueryCaptureTaskResponseData';
 import { HttpQueryCfwAccessControllerLogsResponseDTOData } from './model/HttpQueryCfwAccessControllerLogsResponseDTOData';
 import { HttpQueryCfwAccessControllerLogsResponseDTODataRecords } from './model/HttpQueryCfwAccessControllerLogsResponseDTODataRecords';
 import { HttpQueryCfwAttackLogsResponseDTOData } from './model/HttpQueryCfwAttackLogsResponseDTOData';
@@ -145,6 +171,10 @@ import { ListAttackLogsRequest } from './model/ListAttackLogsRequest';
 import { ListAttackLogsResponse } from './model/ListAttackLogsResponse';
 import { ListBlackWhiteListsRequest } from './model/ListBlackWhiteListsRequest';
 import { ListBlackWhiteListsResponse } from './model/ListBlackWhiteListsResponse';
+import { ListCaptureResultRequest } from './model/ListCaptureResultRequest';
+import { ListCaptureResultResponse } from './model/ListCaptureResultResponse';
+import { ListCaptureTaskRequest } from './model/ListCaptureTaskRequest';
+import { ListCaptureTaskResponse } from './model/ListCaptureTaskResponse';
 import { ListDnsServersRequest } from './model/ListDnsServersRequest';
 import { ListDnsServersResponse } from './model/ListDnsServersResponse';
 import { ListDomainParseDetailRequest } from './model/ListDomainParseDetailRequest';
@@ -191,18 +221,22 @@ import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { PacketMessage } from './model/PacketMessage';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { QueryFireWallInstanceDto } from './model/QueryFireWallInstanceDto';
+import { ResourceTag } from './model/ResourceTag';
 import { RuleAclListResponseDTOData } from './model/RuleAclListResponseDTOData';
 import { RuleAclListResponseDTODataRecords } from './model/RuleAclListResponseDTODataRecords';
 import { RuleAddressDto } from './model/RuleAddressDto';
 import { RuleAddressDtoForRequest } from './model/RuleAddressDtoForRequest';
+import { RuleAddressDtoForResponse } from './model/RuleAddressDtoForResponse';
 import { RuleHitCountObject } from './model/RuleHitCountObject';
 import { RuleHitCountRecords } from './model/RuleHitCountRecords';
 import { RuleId } from './model/RuleId';
 import { RuleIdList } from './model/RuleIdList';
-import { RuleProfileDto } from './model/RuleProfileDto';
 import { RuleServiceDto } from './model/RuleServiceDto';
+import { RuleServiceDtoForResponse } from './model/RuleServiceDtoForResponse';
+import { ServiceGroupVO } from './model/ServiceGroupVO';
 import { ServiceItem } from './model/ServiceItem';
 import { ServiceItemIds } from './model/ServiceItemIds';
+import { ServiceItemIdsItems } from './model/ServiceItemIdsItems';
 import { ServiceItemListResponseDtoData } from './model/ServiceItemListResponseDtoData';
 import { ServiceItemListResponseDtoDataRecords } from './model/ServiceItemListResponseDtoDataRecords';
 import { ServiceSet } from './model/ServiceSet';
@@ -210,7 +244,6 @@ import { ServiceSetDetailResponseDto } from './model/ServiceSetDetailResponseDto
 import { ServiceSetRecords } from './model/ServiceSetRecords';
 import { SubnetInfo } from './model/SubnetInfo';
 import { SuccessRspData } from './model/SuccessRspData';
-import { Tag } from './model/Tag';
 import { TagInfo } from './model/TagInfo';
 import { TagsVO } from './model/TagsVO';
 import { UpdateAclRuleOrderRequest } from './model/UpdateAclRuleOrderRequest';
@@ -267,7 +300,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddAddressItemsInfoDto} addAddressItemsUsingPOSTRequestBody 添加地址组成员请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -289,7 +322,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddAddressSetDto} addAddressSetInfoUsingPOSTRequestBody 添加地址组请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -311,7 +344,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddBlackWhiteListDto} addBlackWhiteListUsingPOSTRequestBody 添加黑白名单请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)接口获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -333,7 +366,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddDomainSetInfoDto} addDomainSetInfoDto 添加域名组Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -356,7 +389,7 @@ export class CfwClient {
      * @param {string} setId 域名组id
      * @param {AddDomainListDto} addDomainListDto 添加域名列表Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -376,7 +409,7 @@ export class CfwClient {
      *
      * @summary 创建日志配置
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
      * @param {LogConfigDto} logConfigDto 日志配置Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
@@ -400,7 +433,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddServiceItemsUsingPOSTRequestBody} addServiceItemsUsingPOSTRequestBody 创建服务组成员请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -422,7 +455,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddServiceSetUsingPOSTRequestBody} addServiceSetUsingPOSTRequestBody 创建服务组请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -444,7 +477,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {DeleteAddressItemsInfoDto} deleteAddressItemsInfoDto 批量删除地址组成员DTO
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -466,12 +499,34 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {DeleteServiceItemDto} deleteServiceItemDto 批量删除服务组成员Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public batchDeleteServiceItems(batchDeleteServiceItemsRequest?: BatchDeleteServiceItemsRequest): Promise<BatchDeleteServiceItemsResponse> {
         const options = ParamCreater().batchDeleteServiceItems(batchDeleteServiceItemsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消抓包任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消抓包任务
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {CancelCaptureTaskDto} cancelCaptureTaskDto 停止抓包任务请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelCaptureTask(cancelCaptureTaskRequest?: CancelCaptureTaskRequest): Promise<CancelCaptureTaskResponse> {
+        const options = ParamCreater().cancelCaptureTask(cancelCaptureTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -488,12 +543,34 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {ChangeProtectStatusRequestBody} changeEwProtectStatusRequestBody 修改东西向防护状态请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public changeEastWestFirewallStatus(changeEastWestFirewallStatusRequest?: ChangeEastWestFirewallStatusRequest): Promise<ChangeEastWestFirewallStatusResponse> {
         const options = ParamCreater().changeEastWestFirewallStatus(changeEastWestFirewallStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建抓包任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建抓包任务
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {CaptureTaskDto} captureTaskDto 抓包任务请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCaptureTask(createCaptureTaskRequest?: CreateCaptureTaskRequest): Promise<CreateCaptureTaskResponse> {
+        const options = ParamCreater().createCaptureTask(createCaptureTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -508,7 +585,7 @@ export class CfwClient {
      *
      * @summary 创建东西向防火墙
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {CreateEastWestFirewallRequestBody} createEastWestFirewallRequestBody CreateEastWestFirewallRequestBody
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
@@ -532,12 +609,32 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {CreateFirewallReq} createFirewallRequest 创建防火墙请求参数
      * @param {string} [xClientToken] 保证客户端请求幂等性的标识。  该标识为32位UUID格式，由客户端生成，且需确保不同请求之间该标识具有唯一性。
-     * @param {string} [xTraceId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createFirewall(createFirewallRequest?: CreateFirewallRequest): Promise<CreateFirewallResponse> {
         const options = ParamCreater().createFirewall(createFirewallRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 标签创建接口
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {CreateTagsDto} [createTagsDto] 创建标签DTO
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTag(createTagRequest?: CreateTagRequest): Promise<CreateTagResponse> {
+        const options = ParamCreater().createTag(createTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -554,7 +651,7 @@ export class CfwClient {
      * @param {string} itemId 地址组成员id
      * @param {string} projectId 租户项目id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -576,7 +673,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 地址组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -598,12 +695,34 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} listId 黑白名单id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteBlackWhiteList(deleteBlackWhiteListRequest?: DeleteBlackWhiteListRequest): Promise<DeleteBlackWhiteListResponse> {
         const options = ParamCreater().deleteBlackWhiteList(deleteBlackWhiteListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除抓包任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除抓包任务
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {DeleteCaptureTaskDto} deleteCaptureTaskDto 删除抓包任务请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCaptureTask(deleteCaptureTaskRequest?: DeleteCaptureTaskRequest): Promise<DeleteCaptureTaskResponse> {
+        const options = ParamCreater().deleteCaptureTask(deleteCaptureTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -619,7 +738,7 @@ export class CfwClient {
      * @summary 删除域名组
      * @param {string} projectId 租户项目id
      * @param {string} setId 域名组id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -684,7 +803,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} itemId 服务组成员id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -706,12 +825,33 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 服务集合id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteServiceSet(deleteServiceSetRequest?: DeleteServiceSetRequest): Promise<DeleteServiceSetResponse> {
         const options = ParamCreater().deleteServiceSet(deleteServiceSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除标签
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {DeleteTagsDto} [deleteTagsDto] 删除标签dto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
+        const options = ParamCreater().deleteTag(deleteTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -726,27 +866,31 @@ export class CfwClient {
      *
      * @summary 查询访问控制日志
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
-     * @param {number} startTime 开始时间
-     * @param {number} endTime 结束时间
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
+     * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
+     * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {string} [ruleId] 规则ID
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口
-     * @param {string} [protocol] 协议
+     * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
      * @param {string} [app] 应用协议
-     * @param {string} [logId] 文档ID,第一页为空，其他页不为空
-     * @param {number} [nextDate] 日期,第一页为空，其他页不为空
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型
+     * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
+     * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的start_time
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
+     * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型包括：internet，vpc，nat
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [dstHost] 目标主机
      * @param {string} [ruleName] 规则名称
-     * @param {string} [action] 动作0：permit,1：deny
+     * @param {string} [action] 动作包含permit，deny
      * @param {string} [srcRegionName] 源region名称
      * @param {string} [dstRegionName] 目的region名称
+     * @param {string} [srcProvinceName] 源省份名称
+     * @param {string} [dstProvinceName] 目的省份名称
+     * @param {string} [srcCityName] 源城市名称
+     * @param {string} [dstCityName] 目的城市名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -772,7 +916,7 @@ export class CfwClient {
      * @param {string} [keyWord] 关键字
      * @param {string} [address] ip地址
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -795,7 +939,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 地址组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -816,14 +960,14 @@ export class CfwClient {
      *
      * @summary 查询地址组列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
      * @param {string} [address] ip地址
      * @param {0 | 1} [addressType] 地址类型0 ipv4,1 ipv6
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryAddressSetType] 查询地址组类型，0表示自定义地址组，1表示预定义地址组
      * @param {number} [addressSetType] 地址组类型，0表示自定义地址组，1表示WAF回源IP地址组，2表示DDoS回源IP地址组，3表示NAT64转换地址组
      * @param {*} [options] Override http request option.
@@ -845,31 +989,34 @@ export class CfwClient {
      *
      * @summary 查询攻击日志
      * @param {string} projectId 租户项目id
-     * @param {number} startTime 开始时间
-     * @param {number} endTime 结束时间
+     * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
+     * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口号
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口号
-     * @param {'6' | '17' | '1' | '58'} [protocol] 协议类型:TCP为6, UDP为17,ICMP为1,ICMPV6为58,ANY为-1,手动类型不为空，自动类型为空
+     * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
      * @param {string} [app] 应用协议
-     * @param {string} [logId] 日志ID，当是第一页时为空，不是第一页时不为空
-     * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {'0' | '1'} [action] 动作0：permit,1：deny
-     * @param {'0' | '1'} [direction] 方向0：外到内1：内到外
+     * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
+     * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的event_time
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
+     * @param {string} [action] 动作包含permit，deny
+     * @param {string} [direction] 方向，包含in2out，out2in
      * @param {string} [attackType] 入侵事件类型
      * @param {string} [attackRule] 入侵事件规则
-     * @param {string} [level] 威胁等级
-     * @param {string} [source] 判断来源
+     * @param {string} [level] 威胁等级，包括CRITICAL、HIGH、MEDIUM、LOW
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [dstHost] 目标主机
-     * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型
+     * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型包括：internet，vpc，nat
      * @param {string} [attackRuleId] 入侵事件id
      * @param {string} [srcRegionName] 源region名称
      * @param {string} [dstRegionName] 目的region名称
+     * @param {string} [srcProvinceName] 源省份名称
+     * @param {string} [dstProvinceName] 目的省份名称
+     * @param {string} [srcCityName] 源城市名称
+     * @param {string} [dstCityName] 目的城市名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -889,20 +1036,67 @@ export class CfwClient {
      *
      * @summary 查询黑白名单列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
      * @param {4 | 5} listType 黑白名单类型4：黑名单，5：白名单
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {0 | 1 | 2} [addressType] IP地址类型0：ipv4,1:ipv6,2:domain
+     * @param {number} [addressType] IP地址类型0：ipv4,1:ipv6
      * @param {string} [address] ip地址
      * @param {string} [port] 端口
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listBlackWhiteLists(listBlackWhiteListsRequest?: ListBlackWhiteListsRequest): Promise<ListBlackWhiteListsResponse> {
         const options = ParamCreater().listBlackWhiteLists(listBlackWhiteListsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取抓包任务结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取抓包任务结果
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} taskId 抓包任务id
+     * @param {number} [type] 是否指定公网ip下载，0：无限制，1：指定公网ip下载
+     * @param {Array<string>} [ip] 指定公网ip
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCaptureResult(listCaptureResultRequest?: ListCaptureResultRequest): Promise<ListCaptureResultResponse> {
+        const options = ParamCreater().listCaptureResult(listCaptureResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询抓包任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询抓包任务
+     * @param {string} projectId 租户项目id
+     * @param {number} limit 每页显示个数，范围为1-1024
+     * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCaptureTask(listCaptureTaskRequest?: ListCaptureTaskRequest): Promise<ListCaptureTaskResponse> {
+        const options = ParamCreater().listCaptureTask(listCaptureTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -917,9 +1111,9 @@ export class CfwClient {
      *
      * @summary 查询dns服务器列表
      * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)接口获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
      * @param {number} [limit] 每页显示个数，范围为1-1024
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -942,8 +1136,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} domainName 域名
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {string} [addressType] 地址类型，0 ipv4,1 ipv6,2 domain
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [addressType] 地址类型，0 ipv4,1 ipv6
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -962,14 +1156,14 @@ export class CfwClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名组列表
-     * @param {string} projectId 租户项目id   租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [keyWord] 关键字
-     * @param {number} [domainSetType] 域名组类型，0表示URL过滤，1表示地址解析
+     * @param {number} [domainSetType] 域名组类型，0表示应用域名组，1表示网络域名组
      * @param {number} [configStatus] 配置状态
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -991,14 +1185,12 @@ export class CfwClient {
      * @summary 获取域名组下域名列表
      * @param {string} projectId 租户项目ID
      * @param {string} domainSetId 域名组id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [domainName] 域名名称
-     * @param {string} [description] 描述
-     * @param {string} [setId] 域名组id
-     * @param {string} [objectId] 防护对象id,是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id,可通过调用查询防火墙实例接口获得,注意type为0的为互联网边界防护对象id,type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [objectId] 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1020,8 +1212,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1045,7 +1237,7 @@ export class CfwClient {
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {0 | 1} serviceType 服务类型 0 南北向防火墙 1 东西向防火墙
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [name] 防火墙名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1087,25 +1279,29 @@ export class CfwClient {
      *
      * @summary 查询流日志
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
-     * @param {number} startTime 开始时间
-     * @param {number} endTime 结束时间
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
+     * @param {number} startTime 开始时间，以毫秒为单位的时间戳，如1718936272648
+     * @param {number} endTime 结束时间，以毫秒为单位的时间戳，如1718936272648
      * @param {number} limit 每页显示个数，范围为1-1024
-     * @param {string} [direction] 方向
-     * @param {'internet' | 'vpc' | 'nat'} [logType] 日志类型
+     * @param {string} [direction] 方向，包含in2out，out2in
+     * @param {'internet' | 'vpc' | 'nat'} [logType] 日志类型包括：internet，vpc，nat
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口
      * @param {string} [dstIp] 目的IP
      * @param {number} [dstPort] 目的端口
-     * @param {'6' | '17' | '1' | '58'} [protocol] 协议类型:TCP为6, UDP为17,ICMP为1,ICMPV6为58,ANY为-1,手动类型不为空，自动类型为空
+     * @param {string} [protocol] 协议类型，包含TCP, UDP,ICMP,ICMPV6等。
      * @param {string} [app] 应用协议
-     * @param {string} [logId] 文档ID，首页时为null，非首页时不为null
-     * @param {number} [nextDate] 日期，首页时为null，非首页时不为null
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [logId] 文档ID,第一页为空，其他页不为空，其他页可取上一次查询最后一条数据的log_id
+     * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空，其他页可取上一次查询最后一条数据的start_time
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于0，首页时为空，非首页时不为空
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [dstHost] 目的主机
      * @param {string} [srcRegionName] 源region名称
      * @param {string} [dstRegionName] 目的region名称
+     * @param {string} [srcProvinceName] 源省份名称
+     * @param {string} [dstProvinceName] 目的省份名称
+     * @param {string} [srcCityName] 源城市名称
+     * @param {string} [dstCityName] 目的城市名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1145,7 +1341,7 @@ export class CfwClient {
      *
      * @summary 获取日志配置
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1166,9 +1362,9 @@ export class CfwClient {
      *
      * @summary 查询防护VPC数
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1193,8 +1389,8 @@ export class CfwClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 查询字段
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
-     * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组。仅当set_id为预定义服务组id时生效
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1216,7 +1412,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 服务组id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1237,12 +1433,12 @@ export class CfwClient {
      *
      * @summary 获取服务组列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 互联网边界防护对象id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，type为0的为互联网边界防护对象id。
      * @param {number} limit 每页查询个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} [queryServiceSetType] 查询服务组类型，0表示自定义服务组，1表示预定义服务组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1266,7 +1462,7 @@ export class CfwClient {
      * @param {string} setId 地址组id
      * @param {UpdateAddressSetDto} updateAddressSetInfoUsingPUTRequestBody UpdateAddressSetInfoUsingPUTRequestBody
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1289,7 +1485,7 @@ export class CfwClient {
      * @param {string} listId 黑白名单列表id
      * @param {UpdateBlackWhiteListDto} updateBlackWhiteListUsingPUTRequestBody 更新黑白名单请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1309,8 +1505,8 @@ export class CfwClient {
      *
      * @summary 更新dns服务器列表
      * @param {string} projectId 租户项目id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
      * @param {UpdateDnsServersRequestBody} updateDnsServersRequestBody 更新dns服务器列表请求体
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。若object_Id非空，默认返回object_Id对应墙的信息；填写时object_Id需要属于fw_instance_Id对应的墙。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1331,10 +1527,10 @@ export class CfwClient {
      *
      * @summary 更新域名组
      * @param {string} projectId 租户项目id
-     * @param {string} setId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} setId 域名组id
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
      * @param {UpdateDomainSetInfoDto} updateDomainSetInfoDto 更新域名组Dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1354,7 +1550,7 @@ export class CfwClient {
      *
      * @summary 更新日志配置
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)。
      * @param {LogConfigDto} logConfigDto 日志配置DTO
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
@@ -1379,7 +1575,7 @@ export class CfwClient {
      * @param {string} setId 服务组id
      * @param {UpdateServiceSetUsingPUTRequestBody} updateServiceSetUsingPUTRequestBody 更新服务组的请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1401,7 +1597,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {AddRuleAclDto} addRuleAclUsingPOSTRequestBody 添加aclDto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1423,7 +1619,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目ID
      * @param {DeleteRuleAclDto} deleteRuleAclDto 删除规则DTO
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1466,7 +1662,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目Id
      * @param {string} aclRuleId 规则Id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1488,7 +1684,7 @@ export class CfwClient {
      * @param {string} projectId project id
      * @param {ClearAccessLogRuleHitCountsDto} deleteAclRuleCountRequestBody clear access log rule hit counts dto
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1509,7 +1705,7 @@ export class CfwClient {
      * @summary 获取规则击中次数
      * @param {string} projectId 租户项目id
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {ListRuleHitCountDto} [listRuleHitCountRequestBody] 获取规则击中次数DTO
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1530,19 +1726,18 @@ export class CfwClient {
      *
      * @summary 查询防护规则
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {0 | 1 | 2} [type] 规则Type0：互联网规则,1：vpc规则, 2:nat规则
-     * @param {6 | 17 | 1 | 58} [protocol] 协议类型:TCP为6, UDP为17,ICMP为1,ICMPV6为58,ANY为-1
      * @param {string} [ip] ip地址
      * @param {string} [name] 名称
      * @param {number} [direction] 方向0：外到内1：内到外
      * @param {0 | 1} [status] 规则下发状态 0：禁用,1：启用
      * @param {0 | 1} [actionType] 动作0：permit,1：deny
-     * @param {0 | 1 | 2} [addressType] 地址类型0 ipv4,1 ipv6,2 domain
+     * @param {0 | 1 | 2} [addressType] 地址类型0 ipv4
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [tagsId] 标签id
      * @param {string} [source] 源地址
      * @param {string} [destination] 目的地址
@@ -1567,7 +1762,7 @@ export class CfwClient {
      *
      * @summary 查询规则标签
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
@@ -1593,7 +1788,7 @@ export class CfwClient {
      * @param {string} aclRuleId 规则Id
      * @param {UpdateRuleAclDto} updateRuleAclUsingPUTRequestBody 更新规则请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1616,7 +1811,7 @@ export class CfwClient {
      * @param {string} aclRuleId 规则id
      * @param {OrderRuleAclDto} listRuleAclUsingPUTRequestBody 规则排序请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1638,7 +1833,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目ID
      * @param {EipOperateProtectReq} changeProtectEipRequestBody 开启关闭EIP请求体
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1658,9 +1853,9 @@ export class CfwClient {
      *
      * @summary 查询Eip个数
      * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1680,7 +1875,7 @@ export class CfwClient {
      *
      * @summary 弹性IP列表查询
      * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {number} limit 每页显示个数，范围为1-1024
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 弹性公网ID/弹性公网IP
@@ -1689,7 +1884,7 @@ export class CfwClient {
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [deviceKey] 设备键
      * @param {number} [addressType] 地址类型0 ipv4,1 ipv6
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [fwKeyWord] 所绑定防火墙id防火墙名称
      * @param {string} [epsId] 弹性公网ip的企业项目id
      * @param {string} [tags] 标签列表信息
@@ -1714,7 +1909,7 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {IpsProtectDTO} changeIpsProtectModeUsingPOSTRequestBody ChangeIpsProtectModeUsingPOSTRequestBody
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1736,7 +1931,7 @@ export class CfwClient {
      * @param {string} projectId project_id
      * @param {IpsSwitchDTO} changeIpsSwitchUsingPOSTRequestBody ChangeIpsSwitchUsingPOSTRequestBody
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {string} [xLanguage] 语言头部，默认为zh-cn，如需使用英文，请选择en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1757,9 +1952,9 @@ export class CfwClient {
      *
      * @summary 查询防护模式
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1779,9 +1974,9 @@ export class CfwClient {
      *
      * @summary 查询IPS特性开关状态
      * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。
      * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
-     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。默认情况下，fw_instance_Id为空时，返回帐号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)，默认情况下，fw_instance_Id为空时，返回账号下第一个墙的信息；fw_instance_Id非空时，返回与fw_instance_Id对应墙的信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2419,6 +2614,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 取消抓包任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelCaptureTask(cancelCaptureTaskRequest?: CancelCaptureTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/capture-task/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (cancelCaptureTaskRequest !== null && cancelCaptureTaskRequest !== undefined) {
+                if (cancelCaptureTaskRequest instanceof CancelCaptureTaskRequest) {
+                    projectId = cancelCaptureTaskRequest.projectId;
+                    fwInstanceId = cancelCaptureTaskRequest.fwInstanceId;
+                    body = cancelCaptureTaskRequest.body
+                    enterpriseProjectId = cancelCaptureTaskRequest.enterpriseProjectId;
+                } else {
+                    projectId = cancelCaptureTaskRequest['project_id'];
+                    fwInstanceId = cancelCaptureTaskRequest['fw_instance_id'];
+                    body = cancelCaptureTaskRequest['body'];
+                    enterpriseProjectId = cancelCaptureTaskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling cancelCaptureTask.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling cancelCaptureTask.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 东西向防护资源防护开启/关闭
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2469,6 +2728,70 @@ export const ParamCreater = function () {
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建抓包任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCaptureTask(createCaptureTaskRequest?: CreateCaptureTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/capture-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (createCaptureTaskRequest !== null && createCaptureTaskRequest !== undefined) {
+                if (createCaptureTaskRequest instanceof CreateCaptureTaskRequest) {
+                    projectId = createCaptureTaskRequest.projectId;
+                    fwInstanceId = createCaptureTaskRequest.fwInstanceId;
+                    body = createCaptureTaskRequest.body
+                    enterpriseProjectId = createCaptureTaskRequest.enterpriseProjectId;
+                } else {
+                    projectId = createCaptureTaskRequest['project_id'];
+                    fwInstanceId = createCaptureTaskRequest['fw_instance_id'];
+                    body = createCaptureTaskRequest['body'];
+                    enterpriseProjectId = createCaptureTaskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createCaptureTask.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling createCaptureTask.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2565,20 +2888,16 @@ export const ParamCreater = function () {
             let projectId;
             
             let xClientToken;
-            
-            let xTraceId;
 
             if (createFirewallRequest !== null && createFirewallRequest !== undefined) {
                 if (createFirewallRequest instanceof CreateFirewallRequest) {
                     projectId = createFirewallRequest.projectId;
                     body = createFirewallRequest.body
                     xClientToken = createFirewallRequest.xClientToken;
-                    xTraceId = createFirewallRequest.xTraceId;
                 } else {
                     projectId = createFirewallRequest['project_id'];
                     body = createFirewallRequest['body'];
                     xClientToken = createFirewallRequest['X-Client-Token'];
-                    xTraceId = createFirewallRequest['X-Trace-Id'];
                 }
             }
 
@@ -2592,13 +2911,60 @@ export const ParamCreater = function () {
             if (xClientToken !== undefined && xClientToken !== null) {
                 localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
             }
-            if (xTraceId !== undefined && xTraceId !== null) {
-                localVarHeaderParameter['X-Trace-Id'] = String(xTraceId);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTag(createTagRequest?: CreateTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/cfw-cfw/{fw_instance_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (createTagRequest !== null && createTagRequest !== undefined) {
+                if (createTagRequest instanceof CreateTagRequest) {
+                    projectId = createTagRequest.projectId;
+                    fwInstanceId = createTagRequest.fwInstanceId;
+                    body = createTagRequest.body
+                } else {
+                    projectId = createTagRequest['project_id'];
+                    fwInstanceId = createTagRequest['fw_instance_id'];
+                    body = createTagRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createTag.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+            throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling createTag.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'fw_instance_id': fwInstanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2776,6 +3142,70 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'list_id': listId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除抓包任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCaptureTask(deleteCaptureTaskRequest?: DeleteCaptureTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/capture-task/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
+
+            if (deleteCaptureTaskRequest !== null && deleteCaptureTaskRequest !== undefined) {
+                if (deleteCaptureTaskRequest instanceof DeleteCaptureTaskRequest) {
+                    projectId = deleteCaptureTaskRequest.projectId;
+                    fwInstanceId = deleteCaptureTaskRequest.fwInstanceId;
+                    body = deleteCaptureTaskRequest.body
+                    enterpriseProjectId = deleteCaptureTaskRequest.enterpriseProjectId;
+                } else {
+                    projectId = deleteCaptureTaskRequest['project_id'];
+                    fwInstanceId = deleteCaptureTaskRequest['fw_instance_id'];
+                    body = deleteCaptureTaskRequest['body'];
+                    enterpriseProjectId = deleteCaptureTaskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteCaptureTask.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling deleteCaptureTask.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3063,6 +3493,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTag(deleteTagRequest?: DeleteTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/cfw-cfw/{fw_instance_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+
+            if (deleteTagRequest !== null && deleteTagRequest !== undefined) {
+                if (deleteTagRequest instanceof DeleteTagRequest) {
+                    projectId = deleteTagRequest.projectId;
+                    fwInstanceId = deleteTagRequest.fwInstanceId;
+                    body = deleteTagRequest.body
+                } else {
+                    projectId = deleteTagRequest['project_id'];
+                    fwInstanceId = deleteTagRequest['fw_instance_id'];
+                    body = deleteTagRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteTag.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+            throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling deleteTag.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'fw_instance_id': fwInstanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询访问控制日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3122,6 +3602,14 @@ export const ParamCreater = function () {
             let srcRegionName;
             
             let dstRegionName;
+            
+            let srcProvinceName;
+            
+            let dstProvinceName;
+            
+            let srcCityName;
+            
+            let dstCityName;
 
             if (listAccessControlLogsRequest !== null && listAccessControlLogsRequest !== undefined) {
                 if (listAccessControlLogsRequest instanceof ListAccessControlLogsRequest) {
@@ -3147,6 +3635,10 @@ export const ParamCreater = function () {
                     action = listAccessControlLogsRequest.action;
                     srcRegionName = listAccessControlLogsRequest.srcRegionName;
                     dstRegionName = listAccessControlLogsRequest.dstRegionName;
+                    srcProvinceName = listAccessControlLogsRequest.srcProvinceName;
+                    dstProvinceName = listAccessControlLogsRequest.dstProvinceName;
+                    srcCityName = listAccessControlLogsRequest.srcCityName;
+                    dstCityName = listAccessControlLogsRequest.dstCityName;
                 } else {
                     projectId = listAccessControlLogsRequest['project_id'];
                     fwInstanceId = listAccessControlLogsRequest['fw_instance_id'];
@@ -3170,6 +3662,10 @@ export const ParamCreater = function () {
                     action = listAccessControlLogsRequest['action'];
                     srcRegionName = listAccessControlLogsRequest['src_region_name'];
                     dstRegionName = listAccessControlLogsRequest['dst_region_name'];
+                    srcProvinceName = listAccessControlLogsRequest['src_province_name'];
+                    dstProvinceName = listAccessControlLogsRequest['dst_province_name'];
+                    srcCityName = listAccessControlLogsRequest['src_city_name'];
+                    dstCityName = listAccessControlLogsRequest['dst_city_name'];
                 }
             }
 
@@ -3251,6 +3747,18 @@ export const ParamCreater = function () {
             }
             if (dstRegionName !== null && dstRegionName !== undefined) {
                 localVarQueryParameter['dst_region_name'] = dstRegionName;
+            }
+            if (srcProvinceName !== null && srcProvinceName !== undefined) {
+                localVarQueryParameter['src_province_name'] = srcProvinceName;
+            }
+            if (dstProvinceName !== null && dstProvinceName !== undefined) {
+                localVarQueryParameter['dst_province_name'] = dstProvinceName;
+            }
+            if (srcCityName !== null && srcCityName !== undefined) {
+                localVarQueryParameter['src_city_name'] = srcCityName;
+            }
+            if (dstCityName !== null && dstCityName !== undefined) {
+                localVarQueryParameter['dst_city_name'] = dstCityName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3600,8 +4108,6 @@ export const ParamCreater = function () {
             
             let level;
             
-            let source;
-            
             let enterpriseProjectId;
             
             let dstHost;
@@ -3613,6 +4119,14 @@ export const ParamCreater = function () {
             let srcRegionName;
             
             let dstRegionName;
+            
+            let srcProvinceName;
+            
+            let dstProvinceName;
+            
+            let srcCityName;
+            
+            let dstCityName;
 
             if (listAttackLogsRequest !== null && listAttackLogsRequest !== undefined) {
                 if (listAttackLogsRequest instanceof ListAttackLogsRequest) {
@@ -3635,13 +4149,16 @@ export const ParamCreater = function () {
                     attackType = listAttackLogsRequest.attackType;
                     attackRule = listAttackLogsRequest.attackRule;
                     level = listAttackLogsRequest.level;
-                    source = listAttackLogsRequest.source;
                     enterpriseProjectId = listAttackLogsRequest.enterpriseProjectId;
                     dstHost = listAttackLogsRequest.dstHost;
                     logType = listAttackLogsRequest.logType;
                     attackRuleId = listAttackLogsRequest.attackRuleId;
                     srcRegionName = listAttackLogsRequest.srcRegionName;
                     dstRegionName = listAttackLogsRequest.dstRegionName;
+                    srcProvinceName = listAttackLogsRequest.srcProvinceName;
+                    dstProvinceName = listAttackLogsRequest.dstProvinceName;
+                    srcCityName = listAttackLogsRequest.srcCityName;
+                    dstCityName = listAttackLogsRequest.dstCityName;
                 } else {
                     projectId = listAttackLogsRequest['project_id'];
                     startTime = listAttackLogsRequest['start_time'];
@@ -3662,13 +4179,16 @@ export const ParamCreater = function () {
                     attackType = listAttackLogsRequest['attack_type'];
                     attackRule = listAttackLogsRequest['attack_rule'];
                     level = listAttackLogsRequest['level'];
-                    source = listAttackLogsRequest['source'];
                     enterpriseProjectId = listAttackLogsRequest['enterprise_project_id'];
                     dstHost = listAttackLogsRequest['dst_host'];
                     logType = listAttackLogsRequest['log_type'];
                     attackRuleId = listAttackLogsRequest['attack_rule_id'];
                     srcRegionName = listAttackLogsRequest['src_region_name'];
                     dstRegionName = listAttackLogsRequest['dst_region_name'];
+                    srcProvinceName = listAttackLogsRequest['src_province_name'];
+                    dstProvinceName = listAttackLogsRequest['dst_province_name'];
+                    srcCityName = listAttackLogsRequest['src_city_name'];
+                    dstCityName = listAttackLogsRequest['dst_city_name'];
                 }
             }
 
@@ -3742,9 +4262,6 @@ export const ParamCreater = function () {
             if (level !== null && level !== undefined) {
                 localVarQueryParameter['level'] = level;
             }
-            if (source !== null && source !== undefined) {
-                localVarQueryParameter['source'] = source;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -3762,6 +4279,18 @@ export const ParamCreater = function () {
             }
             if (dstRegionName !== null && dstRegionName !== undefined) {
                 localVarQueryParameter['dst_region_name'] = dstRegionName;
+            }
+            if (srcProvinceName !== null && srcProvinceName !== undefined) {
+                localVarQueryParameter['src_province_name'] = srcProvinceName;
+            }
+            if (dstProvinceName !== null && dstProvinceName !== undefined) {
+                localVarQueryParameter['dst_province_name'] = dstProvinceName;
+            }
+            if (srcCityName !== null && srcCityName !== undefined) {
+                localVarQueryParameter['src_city_name'] = srcCityName;
+            }
+            if (dstCityName !== null && dstCityName !== undefined) {
+                localVarQueryParameter['dst_city_name'] = dstCityName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3884,6 +4413,157 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取抓包任务结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCaptureResult(listCaptureResultRequest?: ListCaptureResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/capture-task/capture-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let fwInstanceId;
+            
+            let taskId;
+            
+            let type;
+            
+            let ip;
+            
+            let enterpriseProjectId;
+
+            if (listCaptureResultRequest !== null && listCaptureResultRequest !== undefined) {
+                if (listCaptureResultRequest instanceof ListCaptureResultRequest) {
+                    projectId = listCaptureResultRequest.projectId;
+                    fwInstanceId = listCaptureResultRequest.fwInstanceId;
+                    taskId = listCaptureResultRequest.taskId;
+                    type = listCaptureResultRequest.type;
+                    ip = listCaptureResultRequest.ip;
+                    enterpriseProjectId = listCaptureResultRequest.enterpriseProjectId;
+                } else {
+                    projectId = listCaptureResultRequest['project_id'];
+                    fwInstanceId = listCaptureResultRequest['fw_instance_id'];
+                    taskId = listCaptureResultRequest['task_id'];
+                    type = listCaptureResultRequest['type'];
+                    ip = listCaptureResultRequest['ip'];
+                    enterpriseProjectId = listCaptureResultRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listCaptureResult.');
+            }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listCaptureResult.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listCaptureResult.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询抓包任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCaptureTask(listCaptureTaskRequest?: ListCaptureTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/capture-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
+
+            if (listCaptureTaskRequest !== null && listCaptureTaskRequest !== undefined) {
+                if (listCaptureTaskRequest instanceof ListCaptureTaskRequest) {
+                    projectId = listCaptureTaskRequest.projectId;
+                    limit = listCaptureTaskRequest.limit;
+                    offset = listCaptureTaskRequest.offset;
+                    enterpriseProjectId = listCaptureTaskRequest.enterpriseProjectId;
+                    fwInstanceId = listCaptureTaskRequest.fwInstanceId;
+                } else {
+                    projectId = listCaptureTaskRequest['project_id'];
+                    limit = listCaptureTaskRequest['limit'];
+                    offset = listCaptureTaskRequest['offset'];
+                    enterpriseProjectId = listCaptureTaskRequest['enterprise_project_id'];
+                    fwInstanceId = listCaptureTaskRequest['fw_instance_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listCaptureTask.');
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listCaptureTask.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listCaptureTask.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询dns服务器列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3902,26 +4582,26 @@ export const ParamCreater = function () {
             
             let projectId;
             
+            let fwInstanceId;
+            
             let limit;
             
             let offset;
-            
-            let fwInstanceId;
             
             let enterpriseProjectId;
 
             if (listDnsServersRequest !== null && listDnsServersRequest !== undefined) {
                 if (listDnsServersRequest instanceof ListDnsServersRequest) {
                     projectId = listDnsServersRequest.projectId;
+                    fwInstanceId = listDnsServersRequest.fwInstanceId;
                     limit = listDnsServersRequest.limit;
                     offset = listDnsServersRequest.offset;
-                    fwInstanceId = listDnsServersRequest.fwInstanceId;
                     enterpriseProjectId = listDnsServersRequest.enterpriseProjectId;
                 } else {
                     projectId = listDnsServersRequest['project_id'];
+                    fwInstanceId = listDnsServersRequest['fw_instance_id'];
                     limit = listDnsServersRequest['limit'];
                     offset = listDnsServersRequest['offset'];
-                    fwInstanceId = listDnsServersRequest['fw_instance_id'];
                     enterpriseProjectId = listDnsServersRequest['enterprise_project_id'];
                 }
             }
@@ -3930,14 +4610,17 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listDnsServers.');
             }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listDnsServers.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -4152,10 +4835,6 @@ export const ParamCreater = function () {
             
             let domainName;
             
-            let description;
-            
-            let setId;
-            
             let objectId;
 
             if (listDomainsRequest !== null && listDomainsRequest !== undefined) {
@@ -4167,8 +4846,6 @@ export const ParamCreater = function () {
                     offset = listDomainsRequest.offset;
                     enterpriseProjectId = listDomainsRequest.enterpriseProjectId;
                     domainName = listDomainsRequest.domainName;
-                    description = listDomainsRequest.description;
-                    setId = listDomainsRequest.setId;
                     objectId = listDomainsRequest.objectId;
                 } else {
                     projectId = listDomainsRequest['project_id'];
@@ -4178,8 +4855,6 @@ export const ParamCreater = function () {
                     offset = listDomainsRequest['offset'];
                     enterpriseProjectId = listDomainsRequest['enterprise_project_id'];
                     domainName = listDomainsRequest['domain_name'];
-                    description = listDomainsRequest['description'];
-                    setId = listDomainsRequest['set_id'];
                     objectId = listDomainsRequest['object_Id'];
                 }
             }
@@ -4215,12 +4890,6 @@ export const ParamCreater = function () {
             if (domainName !== null && domainName !== undefined) {
                 localVarQueryParameter['domain_name'] = domainName;
             }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (setId !== null && setId !== undefined) {
-                localVarQueryParameter['set_id'] = setId;
-            }
             if (objectId !== null && objectId !== undefined) {
                 localVarQueryParameter['object_Id'] = objectId;
             }
@@ -4254,23 +4923,23 @@ export const ParamCreater = function () {
             
             let offset;
             
-            let enterpriseProjectId;
-            
             let fwInstanceId;
+            
+            let enterpriseProjectId;
 
             if (listEastWestFirewallRequest !== null && listEastWestFirewallRequest !== undefined) {
                 if (listEastWestFirewallRequest instanceof ListEastWestFirewallRequest) {
                     projectId = listEastWestFirewallRequest.projectId;
                     limit = listEastWestFirewallRequest.limit;
                     offset = listEastWestFirewallRequest.offset;
-                    enterpriseProjectId = listEastWestFirewallRequest.enterpriseProjectId;
                     fwInstanceId = listEastWestFirewallRequest.fwInstanceId;
+                    enterpriseProjectId = listEastWestFirewallRequest.enterpriseProjectId;
                 } else {
                     projectId = listEastWestFirewallRequest['project_id'];
                     limit = listEastWestFirewallRequest['limit'];
                     offset = listEastWestFirewallRequest['offset'];
-                    enterpriseProjectId = listEastWestFirewallRequest['enterprise_project_id'];
                     fwInstanceId = listEastWestFirewallRequest['fw_instance_id'];
+                    enterpriseProjectId = listEastWestFirewallRequest['enterprise_project_id'];
                 }
             }
 
@@ -4290,11 +4959,14 @@ export const ParamCreater = function () {
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listEastWestFirewall.');
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4502,6 +5174,14 @@ export const ParamCreater = function () {
             let srcRegionName;
             
             let dstRegionName;
+            
+            let srcProvinceName;
+            
+            let dstProvinceName;
+            
+            let srcCityName;
+            
+            let dstCityName;
 
             if (listFlowLogsRequest !== null && listFlowLogsRequest !== undefined) {
                 if (listFlowLogsRequest instanceof ListFlowLogsRequest) {
@@ -4525,6 +5205,10 @@ export const ParamCreater = function () {
                     dstHost = listFlowLogsRequest.dstHost;
                     srcRegionName = listFlowLogsRequest.srcRegionName;
                     dstRegionName = listFlowLogsRequest.dstRegionName;
+                    srcProvinceName = listFlowLogsRequest.srcProvinceName;
+                    dstProvinceName = listFlowLogsRequest.dstProvinceName;
+                    srcCityName = listFlowLogsRequest.srcCityName;
+                    dstCityName = listFlowLogsRequest.dstCityName;
                 } else {
                     projectId = listFlowLogsRequest['project_id'];
                     fwInstanceId = listFlowLogsRequest['fw_instance_id'];
@@ -4546,6 +5230,10 @@ export const ParamCreater = function () {
                     dstHost = listFlowLogsRequest['dst_host'];
                     srcRegionName = listFlowLogsRequest['src_region_name'];
                     dstRegionName = listFlowLogsRequest['dst_region_name'];
+                    srcProvinceName = listFlowLogsRequest['src_province_name'];
+                    dstProvinceName = listFlowLogsRequest['dst_province_name'];
+                    srcCityName = listFlowLogsRequest['src_city_name'];
+                    dstCityName = listFlowLogsRequest['dst_city_name'];
                 }
             }
 
@@ -4621,6 +5309,18 @@ export const ParamCreater = function () {
             }
             if (dstRegionName !== null && dstRegionName !== undefined) {
                 localVarQueryParameter['dst_region_name'] = dstRegionName;
+            }
+            if (srcProvinceName !== null && srcProvinceName !== undefined) {
+                localVarQueryParameter['src_province_name'] = srcProvinceName;
+            }
+            if (dstProvinceName !== null && dstProvinceName !== undefined) {
+                localVarQueryParameter['dst_province_name'] = dstProvinceName;
+            }
+            if (srcCityName !== null && srcCityName !== undefined) {
+                localVarQueryParameter['src_city_name'] = srcCityName;
+            }
+            if (dstCityName !== null && dstCityName !== undefined) {
+                localVarQueryParameter['dst_city_name'] = dstCityName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5212,13 +5912,13 @@ export const ParamCreater = function () {
             if (updateDnsServersRequest !== null && updateDnsServersRequest !== undefined) {
                 if (updateDnsServersRequest instanceof UpdateDnsServersRequest) {
                     projectId = updateDnsServersRequest.projectId;
-                    body = updateDnsServersRequest.body
                     fwInstanceId = updateDnsServersRequest.fwInstanceId;
+                    body = updateDnsServersRequest.body
                     enterpriseProjectId = updateDnsServersRequest.enterpriseProjectId;
                 } else {
                     projectId = updateDnsServersRequest['project_id'];
-                    body = updateDnsServersRequest['body'];
                     fwInstanceId = updateDnsServersRequest['fw_instance_id'];
+                    body = updateDnsServersRequest['body'];
                     enterpriseProjectId = updateDnsServersRequest['enterprise_project_id'];
                 }
             }
@@ -5227,11 +5927,14 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateDnsServers.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling updateDnsServers.');
             }
             if (fwInstanceId !== null && fwInstanceId !== undefined) {
                 localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -5268,23 +5971,23 @@ export const ParamCreater = function () {
             
             let setId;
             
-            let enterpriseProjectId;
-            
             let fwInstanceId;
+            
+            let enterpriseProjectId;
 
             if (updateDomainSetRequest !== null && updateDomainSetRequest !== undefined) {
                 if (updateDomainSetRequest instanceof UpdateDomainSetRequest) {
                     projectId = updateDomainSetRequest.projectId;
                     setId = updateDomainSetRequest.setId;
+                    fwInstanceId = updateDomainSetRequest.fwInstanceId;
                     body = updateDomainSetRequest.body
                     enterpriseProjectId = updateDomainSetRequest.enterpriseProjectId;
-                    fwInstanceId = updateDomainSetRequest.fwInstanceId;
                 } else {
                     projectId = updateDomainSetRequest['project_id'];
                     setId = updateDomainSetRequest['set_id'];
+                    fwInstanceId = updateDomainSetRequest['fw_instance_id'];
                     body = updateDomainSetRequest['body'];
                     enterpriseProjectId = updateDomainSetRequest['enterprise_project_id'];
-                    fwInstanceId = updateDomainSetRequest['fw_instance_id'];
                 }
             }
 
@@ -5295,14 +5998,17 @@ export const ParamCreater = function () {
             if (setId === null || setId === undefined) {
             throw new RequiredError('setId','Required parameter setId was null or undefined when calling updateDomainSet.');
             }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling updateDomainSet.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -5826,8 +6532,6 @@ export const ParamCreater = function () {
             
             let type;
             
-            let protocol;
-            
             let ip;
             
             let name;
@@ -5861,7 +6565,6 @@ export const ParamCreater = function () {
                     limit = listAclRulesRequest.limit;
                     offset = listAclRulesRequest.offset;
                     type = listAclRulesRequest.type;
-                    protocol = listAclRulesRequest.protocol;
                     ip = listAclRulesRequest.ip;
                     name = listAclRulesRequest.name;
                     direction = listAclRulesRequest.direction;
@@ -5881,7 +6584,6 @@ export const ParamCreater = function () {
                     limit = listAclRulesRequest['limit'];
                     offset = listAclRulesRequest['offset'];
                     type = listAclRulesRequest['type'];
-                    protocol = listAclRulesRequest['protocol'];
                     ip = listAclRulesRequest['ip'];
                     name = listAclRulesRequest['name'];
                     direction = listAclRulesRequest['direction'];
@@ -5922,9 +6624,6 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
-            }
-            if (protocol !== null && protocol !== undefined) {
-                localVarQueryParameter['protocol'] = protocol;
             }
             if (ip !== null && ip !== undefined) {
                 localVarQueryParameter['ip'] = ip;

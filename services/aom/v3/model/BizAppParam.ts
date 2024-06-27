@@ -55,6 +55,5 @@ export class BizAppParam {
     */
 export enum BizAppParamRegisterTypeEnum {
     API = 'API',
-    CONSOLE = 'CONSOLE',
-    SERVICE_DISCOVERY = 'SERVICE_DISCOVERY'
+    CONSOLESERVICE_DISCOVERY = 'CONSOLESERVICE_DISCOVERY'
 }

@@ -15,6 +15,7 @@ export class JobBaseInfo {
     private 'start_time'?: string;
     private 'expired_days'?: string;
     public tags?: Array<ResourceTag>;
+    private 'is_open_fast_clean'?: boolean;
     public constructor() { 
     }
     public withName(name: string): JobBaseInfo {
@@ -128,6 +129,16 @@ export class JobBaseInfo {
     public withTags(tags: Array<ResourceTag>): JobBaseInfo {
         this['tags'] = tags;
         return this;
+    }
+    public withIsOpenFastClean(isOpenFastClean: boolean): JobBaseInfo {
+        this['is_open_fast_clean'] = isOpenFastClean;
+        return this;
+    }
+    public set isOpenFastClean(isOpenFastClean: boolean  | undefined) {
+        this['is_open_fast_clean'] = isOpenFastClean;
+    }
+    public get isOpenFastClean(): boolean | undefined {
+        return this['is_open_fast_clean'];
     }
 }
 

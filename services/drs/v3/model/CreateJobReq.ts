@@ -29,6 +29,7 @@ export class CreateJobReq {
     private 'charging_mode'?: CreateJobReqChargingModeEnum | string;
     private 'period_order'?: PeriodOrderInfo;
     private 'public_ip_list'?: Array<PublicIpConfig>;
+    private 'is_open_fast_clean'?: boolean;
     public constructor(dbUseType?: string, name?: string, engineType?: string, jobDirection?: string, netType?: string, nodeType?: string, sourceEndpoint?: Endpoint, targetEndpoint?: Endpoint, taskType?: string, customizeSutnetId?: string) { 
         this['db_use_type'] = dbUseType;
         this['name'] = name;
@@ -262,6 +263,16 @@ export class CreateJobReq {
     }
     public get publicIpList(): Array<PublicIpConfig> | undefined {
         return this['public_ip_list'];
+    }
+    public withIsOpenFastClean(isOpenFastClean: boolean): CreateJobReq {
+        this['is_open_fast_clean'] = isOpenFastClean;
+        return this;
+    }
+    public set isOpenFastClean(isOpenFastClean: boolean  | undefined) {
+        this['is_open_fast_clean'] = isOpenFastClean;
+    }
+    public get isOpenFastClean(): boolean | undefined {
+        return this['is_open_fast_clean'];
     }
 }
 

@@ -5,6 +5,7 @@ export class ShowStackInstanceRequest {
     private 'stack_set_name'?: string;
     private 'stack_instance_addr'?: string;
     private 'stack_set_id'?: string;
+    private 'call_identity'?: ShowStackInstanceRequestCallIdentityEnum | string;
     public constructor(clientRequestId?: string, stackSetName?: string, stackInstanceAddr?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['stack_set_name'] = stackSetName;
@@ -50,4 +51,23 @@ export class ShowStackInstanceRequest {
     public get stackSetId(): string | undefined {
         return this['stack_set_id'];
     }
+    public withCallIdentity(callIdentity: ShowStackInstanceRequestCallIdentityEnum | string): ShowStackInstanceRequest {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: ShowStackInstanceRequestCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): ShowStackInstanceRequestCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowStackInstanceRequestCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

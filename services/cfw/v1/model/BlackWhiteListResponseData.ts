@@ -2,22 +2,11 @@ import { BlackWhiteListResponseDataRecords } from './BlackWhiteListResponseDataR
 
 
 export class BlackWhiteListResponseData {
-    private 'object_id'?: string;
     public offset?: number;
     public limit?: number;
     public total?: number;
     public records?: Array<BlackWhiteListResponseDataRecords>;
     public constructor() { 
-    }
-    public withObjectId(objectId: string): BlackWhiteListResponseData {
-        this['object_id'] = objectId;
-        return this;
-    }
-    public set objectId(objectId: string  | undefined) {
-        this['object_id'] = objectId;
-    }
-    public get objectId(): string | undefined {
-        return this['object_id'];
     }
     public withOffset(offset: number): BlackWhiteListResponseData {
         this['offset'] = offset;

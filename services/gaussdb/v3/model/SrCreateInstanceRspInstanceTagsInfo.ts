@@ -1,13 +1,13 @@
+import { CreateChInstanceInfoTagsInfoTags } from './CreateChInstanceInfoTagsInfoTags';
 import { SrCreateInstanceRspInstanceTagsInfoSysTags } from './SrCreateInstanceRspInstanceTagsInfoSysTags';
-import { SrCreateInstanceRspInstanceTagsInfoTags } from './SrCreateInstanceRspInstanceTagsInfoTags';
 
 
 export class SrCreateInstanceRspInstanceTagsInfo {
-    public tags?: Array<SrCreateInstanceRspInstanceTagsInfoTags>;
+    public tags?: Array<CreateChInstanceInfoTagsInfoTags>;
     private 'sys_tags'?: Array<SrCreateInstanceRspInstanceTagsInfoSysTags>;
     public constructor() { 
     }
-    public withTags(tags: Array<SrCreateInstanceRspInstanceTagsInfoTags>): SrCreateInstanceRspInstanceTagsInfo {
+    public withTags(tags: Array<CreateChInstanceInfoTagsInfoTags>): SrCreateInstanceRspInstanceTagsInfo {
         this['tags'] = tags;
         return this;
     }

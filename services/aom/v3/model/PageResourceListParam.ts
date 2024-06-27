@@ -6,7 +6,7 @@ export class PageResourceListParam {
     public limit?: number;
     public keywords?: { [key: string]: string; };
     private 'ci_relationships'?: boolean;
-    private 'ci_type'?: PageResourceListParamCiTypeEnum | string;
+    private 'ci_type'?: string;
     private 'ci_region'?: string;
     private 'ci_ids'?: Array<string>;
     private 'ci_id'?: string;
@@ -35,14 +35,14 @@ export class PageResourceListParam {
     public get ciRelationships(): boolean | undefined {
         return this['ci_relationships'];
     }
-    public withCiType(ciType: PageResourceListParamCiTypeEnum | string): PageResourceListParam {
+    public withCiType(ciType: string): PageResourceListParam {
         this['ci_type'] = ciType;
         return this;
     }
-    public set ciType(ciType: PageResourceListParamCiTypeEnum | string  | undefined) {
+    public set ciType(ciType: string  | undefined) {
         this['ci_type'] = ciType;
     }
-    public get ciType(): PageResourceListParamCiTypeEnum | string | undefined {
+    public get ciType(): string | undefined {
         return this['ci_type'];
     }
     public withCiRegion(ciRegion: string): PageResourceListParam {
@@ -75,15 +75,4 @@ export class PageResourceListParam {
     public get ciId(): string | undefined {
         return this['ci_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PageResourceListParamCiTypeEnum {
-    APPLICATION = 'APPLICATION',
-    SUB_APPLICATION = 'SUB_APPLICATION',
-    COMPONENT = 'COMPONENT',
-    ENVIRONMENT = 'ENVIRONMENT'
 }

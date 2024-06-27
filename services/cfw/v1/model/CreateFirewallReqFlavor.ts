@@ -5,7 +5,8 @@ export class CreateFirewallReqFlavor {
     private 'extend_eip_count'?: number;
     private 'extend_bandwidth'?: number;
     private 'extend_vpc_count'?: number;
-    public constructor() { 
+    public constructor(version?: string) { 
+        this['version'] = version;
     }
     public withVersion(version: CreateFirewallReqFlavorVersionEnum | string): CreateFirewallReqFlavor {
         this['version'] = version;

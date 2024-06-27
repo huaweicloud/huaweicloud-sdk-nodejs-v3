@@ -143,6 +143,8 @@ import { ListBranchesRequest } from './model/ListBranchesRequest';
 import { ListBranchesResponse } from './model/ListBranchesResponse';
 import { ListCommitsRequest } from './model/ListCommitsRequest';
 import { ListCommitsResponse } from './model/ListCommitsResponse';
+import { ListComponentOverviewsRequest } from './model/ListComponentOverviewsRequest';
+import { ListComponentOverviewsResponse } from './model/ListComponentOverviewsResponse';
 import { ListComponentsRequest } from './model/ListComponentsRequest';
 import { ListComponentsResponse } from './model/ListComponentsResponse';
 import { ListEnvironmentsRequest } from './model/ListEnvironmentsRequest';
@@ -640,6 +642,29 @@ export class ServiceStageClient {
      */
     public listApplications(listApplicationsRequest?: ListApplicationsRequest): Promise<ListApplicationsResponse> {
         const options = ParamCreater().listApplications(listApplicationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过此API获取应用下所有应用组件部署信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取应用所有组件部署信息
+     * @param {string} applicationId 应用ID。
+     * @param {number} [limit] 指定个数，明确指定的时候用于分页，取值[0, 100]。不指定的时候表示不分页，最多查询1000条记录。
+     * @param {number} [offset] 指定查询偏移量，默认偏移量为0.
+     * @param {string} [orderBy] 排序字段，默认按创建时间排序。  排序字段支持枚举值：create_time、name、update_time。 
+     * @param {'desc' | 'asc'} [order] desc/asc，默认desc。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listComponentOverviews(listComponentOverviewsRequest?: ListComponentOverviewsRequest): Promise<ListComponentOverviewsResponse> {
+        const options = ParamCreater().listComponentOverviews(listComponentOverviewsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2355,6 +2380,72 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过此API获取应用下所有应用组件部署信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listComponentOverviews(listComponentOverviewsRequest?: ListComponentOverviewsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/cas/applications/{application_id}/components/overviews",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let applicationId;
+            
+            let limit;
+            
+            let offset;
+            
+            let orderBy;
+            
+            let order;
+
+            if (listComponentOverviewsRequest !== null && listComponentOverviewsRequest !== undefined) {
+                if (listComponentOverviewsRequest instanceof ListComponentOverviewsRequest) {
+                    applicationId = listComponentOverviewsRequest.applicationId;
+                    limit = listComponentOverviewsRequest.limit;
+                    offset = listComponentOverviewsRequest.offset;
+                    orderBy = listComponentOverviewsRequest.orderBy;
+                    order = listComponentOverviewsRequest.order;
+                } else {
+                    applicationId = listComponentOverviewsRequest['application_id'];
+                    limit = listComponentOverviewsRequest['limit'];
+                    offset = listComponentOverviewsRequest['offset'];
+                    orderBy = listComponentOverviewsRequest['order_by'];
+                    order = listComponentOverviewsRequest['order'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling listComponentOverviews.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'application_id': applicationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -6,7 +6,6 @@ export class ServiceSet {
     public description?: string;
     private 'service_set_type'?: number;
     private 'ref_count'?: number;
-    public status?: string;
     private 'project_id'?: string;
     public protocols?: Array<number>;
     public constructor() { 
@@ -48,10 +47,6 @@ export class ServiceSet {
     }
     public get refCount(): number | undefined {
         return this['ref_count'];
-    }
-    public withStatus(status: string): ServiceSet {
-        this['status'] = status;
-        return this;
     }
     public withProjectId(projectId: string): ServiceSet {
         this['project_id'] = projectId;

@@ -1,3 +1,4 @@
+import { CallIdentityPrimitiveTypeHolder } from './CallIdentityPrimitiveTypeHolder';
 import { DeploymentTargets } from './DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './DeploymentTargetsPrimitiveTypeHolder';
 import { OperationPreferences } from './OperationPreferences';
@@ -5,8 +6,6 @@ import { OperationPreferencesTypeHolder } from './OperationPreferencesTypeHolder
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
-import { VarOverridesPrimitiveTypeHolder } from './VarOverridesPrimitiveTypeHolder';
-import { VarOverridesPrimitiveTypeHolderVarOverrides } from './VarOverridesPrimitiveTypeHolderVarOverrides';
 import { VarsBodyPrimitiveTypeHolder } from './VarsBodyPrimitiveTypeHolder';
 import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
@@ -18,8 +17,8 @@ export class DeployStackSetRequestBody {
     private 'template_uri'?: string;
     private 'vars_uri'?: string;
     private 'vars_body'?: string;
-    private 'var_overrides'?: VarOverridesPrimitiveTypeHolderVarOverrides;
     private 'operation_preferences'?: OperationPreferences;
+    private 'call_identity'?: DeployStackSetRequestBodyCallIdentityEnum | string;
     public constructor(deploymentTargets?: DeploymentTargets) { 
         this['deployment_targets'] = deploymentTargets;
     }
@@ -83,16 +82,6 @@ export class DeployStackSetRequestBody {
     public get varsBody(): string | undefined {
         return this['vars_body'];
     }
-    public withVarOverrides(varOverrides: VarOverridesPrimitiveTypeHolderVarOverrides): DeployStackSetRequestBody {
-        this['var_overrides'] = varOverrides;
-        return this;
-    }
-    public set varOverrides(varOverrides: VarOverridesPrimitiveTypeHolderVarOverrides  | undefined) {
-        this['var_overrides'] = varOverrides;
-    }
-    public get varOverrides(): VarOverridesPrimitiveTypeHolderVarOverrides | undefined {
-        return this['var_overrides'];
-    }
     public withOperationPreferences(operationPreferences: OperationPreferences): DeployStackSetRequestBody {
         this['operation_preferences'] = operationPreferences;
         return this;
@@ -103,4 +92,23 @@ export class DeployStackSetRequestBody {
     public get operationPreferences(): OperationPreferences | undefined {
         return this['operation_preferences'];
     }
+    public withCallIdentity(callIdentity: DeployStackSetRequestBodyCallIdentityEnum | string): DeployStackSetRequestBody {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: DeployStackSetRequestBodyCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): DeployStackSetRequestBodyCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeployStackSetRequestBodyCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

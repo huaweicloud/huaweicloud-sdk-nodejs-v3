@@ -4,6 +4,7 @@ export class ShowDbObjectTemplateResultRequest {
     private 'job_id'?: string;
     private 'X-Language'?: ShowDbObjectTemplateResultRequestXLanguageEnum | string;
     public type?: ShowDbObjectTemplateResultRequestTypeEnum | string;
+    private 'file_export_object_level'?: string;
     public constructor(jobId?: string, type?: string) { 
         this['job_id'] = jobId;
         this['type'] = type;
@@ -31,6 +32,16 @@ export class ShowDbObjectTemplateResultRequest {
     public withType(type: ShowDbObjectTemplateResultRequestTypeEnum | string): ShowDbObjectTemplateResultRequest {
         this['type'] = type;
         return this;
+    }
+    public withFileExportObjectLevel(fileExportObjectLevel: string): ShowDbObjectTemplateResultRequest {
+        this['file_export_object_level'] = fileExportObjectLevel;
+        return this;
+    }
+    public set fileExportObjectLevel(fileExportObjectLevel: string  | undefined) {
+        this['file_export_object_level'] = fileExportObjectLevel;
+    }
+    public get fileExportObjectLevel(): string | undefined {
+        return this['file_export_object_level'];
     }
 }
 

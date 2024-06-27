@@ -5,6 +5,8 @@ export class GetStackTemplateRequest {
     private 'project_id'?: string;
     private 'stack_name'?: string;
     private 'stack_id'?: string;
+    private 'access_control_source_ips'?: Array<string>;
+    private 'access_control_source_vpc_ids'?: Array<string>;
     public constructor(clientRequestId?: string, projectId?: string, stackName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -49,5 +51,25 @@ export class GetStackTemplateRequest {
     }
     public get stackId(): string | undefined {
         return this['stack_id'];
+    }
+    public withAccessControlSourceIps(accessControlSourceIps: Array<string>): GetStackTemplateRequest {
+        this['access_control_source_ips'] = accessControlSourceIps;
+        return this;
+    }
+    public set accessControlSourceIps(accessControlSourceIps: Array<string>  | undefined) {
+        this['access_control_source_ips'] = accessControlSourceIps;
+    }
+    public get accessControlSourceIps(): Array<string> | undefined {
+        return this['access_control_source_ips'];
+    }
+    public withAccessControlSourceVpcIds(accessControlSourceVpcIds: Array<string>): GetStackTemplateRequest {
+        this['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+        return this;
+    }
+    public set accessControlSourceVpcIds(accessControlSourceVpcIds: Array<string>  | undefined) {
+        this['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+    }
+    public get accessControlSourceVpcIds(): Array<string> | undefined {
+        return this['access_control_source_vpc_ids'];
     }
 }

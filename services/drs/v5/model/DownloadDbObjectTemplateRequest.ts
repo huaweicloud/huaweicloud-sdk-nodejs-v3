@@ -53,5 +53,6 @@ export enum DownloadDbObjectTemplateRequestXLanguageEnum {
     */
 export enum DownloadDbObjectTemplateRequestFileImportDbLevelEnum {
     DATABASE = 'database',
-    TABLE = 'table'
+    TABLE = 'table',
+    COLUMN = 'column'
 }

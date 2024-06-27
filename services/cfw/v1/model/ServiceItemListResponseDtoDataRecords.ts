@@ -5,7 +5,6 @@ export class ServiceItemListResponseDtoDataRecords {
     public protocol?: number;
     private 'source_port'?: string;
     private 'dest_port'?: string;
-    public name?: string;
     public description?: string;
     public constructor() { 
     }
@@ -42,10 +41,6 @@ export class ServiceItemListResponseDtoDataRecords {
     }
     public get destPort(): string | undefined {
         return this['dest_port'];
-    }
-    public withName(name: string): ServiceItemListResponseDtoDataRecords {
-        this['name'] = name;
-        return this;
     }
     public withDescription(description: string): ServiceItemListResponseDtoDataRecords {
         this['description'] = description;

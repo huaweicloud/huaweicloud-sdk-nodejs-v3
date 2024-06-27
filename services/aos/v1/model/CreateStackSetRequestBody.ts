@@ -1,5 +1,6 @@
 import { AdministrationAgencyNamePrimitiveTypeHolder } from './AdministrationAgencyNamePrimitiveTypeHolder';
 import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgencyUrnPrimitiveTypeHolder';
+import { CallIdentityPrimitiveTypeHolder } from './CallIdentityPrimitiveTypeHolder';
 import { InitialStackDescriptionPrimitiveTypeHolder } from './InitialStackDescriptionPrimitiveTypeHolder';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
 import { ManagedOperation } from './ManagedOperation';
@@ -26,6 +27,7 @@ export class CreateStackSetRequestBody {
     private 'initial_stack_description'?: string;
     private 'administration_agency_urn'?: string;
     private 'managed_operation'?: ManagedOperation;
+    private 'call_identity'?: CreateStackSetRequestBodyCallIdentityEnum | string;
     public constructor(stackSetName?: string) { 
         this['stack_set_name'] = stackSetName;
     }
@@ -149,6 +151,16 @@ export class CreateStackSetRequestBody {
     public get managedOperation(): ManagedOperation | undefined {
         return this['managed_operation'];
     }
+    public withCallIdentity(callIdentity: CreateStackSetRequestBodyCallIdentityEnum | string): CreateStackSetRequestBody {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: CreateStackSetRequestBodyCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): CreateStackSetRequestBodyCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
 }
 
 /**
@@ -156,5 +168,14 @@ export class CreateStackSetRequestBody {
     * @enum {string}
     */
 export enum CreateStackSetRequestBodyPermissionModelEnum {
-    SELF_MANAGED = 'SELF_MANAGED'
+    SELF_MANAGED = 'SELF_MANAGED',
+    SERVICE_MANAGED = 'SERVICE_MANAGED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateStackSetRequestBodyCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

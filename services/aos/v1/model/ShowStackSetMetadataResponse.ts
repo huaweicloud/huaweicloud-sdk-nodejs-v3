@@ -4,6 +4,7 @@ import { InitialStackDescriptionPrimitiveTypeHolder } from './InitialStackDescri
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
 import { ManagedOperation } from './ManagedOperation';
 import { ManagedOperationTypeHolder } from './ManagedOperationTypeHolder';
+import { OrganizationalUnitIdsPrimitiveTypeHolder } from './OrganizationalUnitIdsPrimitiveTypeHolder';
 import { PermissionModelPrimitiveTypeHolder } from './PermissionModelPrimitiveTypeHolder';
 import { StackSetCreateTimePrimitiveTypeHolder } from './StackSetCreateTimePrimitiveTypeHolder';
 import { StackSetDescriptionPrimitiveTypeHolder } from './StackSetDescriptionPrimitiveTypeHolder';
@@ -31,6 +32,7 @@ export class ShowStackSetMetadataResponse extends SdkResponse {
     private 'update_time'?: string;
     private 'administration_agency_urn'?: string;
     private 'managed_operation'?: ManagedOperation;
+    private 'organizational_unit_ids'?: Array<string>;
     public constructor(stackSetName?: string) { 
         super();
         this['stack_set_name'] = stackSetName;
@@ -169,6 +171,16 @@ export class ShowStackSetMetadataResponse extends SdkResponse {
     public get managedOperation(): ManagedOperation | undefined {
         return this['managed_operation'];
     }
+    public withOrganizationalUnitIds(organizationalUnitIds: Array<string>): ShowStackSetMetadataResponse {
+        this['organizational_unit_ids'] = organizationalUnitIds;
+        return this;
+    }
+    public set organizationalUnitIds(organizationalUnitIds: Array<string>  | undefined) {
+        this['organizational_unit_ids'] = organizationalUnitIds;
+    }
+    public get organizationalUnitIds(): Array<string> | undefined {
+        return this['organizational_unit_ids'];
+    }
 }
 
 /**
@@ -176,7 +188,8 @@ export class ShowStackSetMetadataResponse extends SdkResponse {
     * @enum {string}
     */
 export enum ShowStackSetMetadataResponsePermissionModelEnum {
-    SELF_MANAGED = 'SELF_MANAGED'
+    SELF_MANAGED = 'SELF_MANAGED',
+    SERVICE_MANAGED = 'SERVICE_MANAGED'
 }
 /**
     * @export

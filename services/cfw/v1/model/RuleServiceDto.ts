@@ -1,4 +1,4 @@
-import { AddressGroupVO } from './AddressGroupVO';
+import { ServiceGroupVO } from './ServiceGroupVO';
 import { ServiceItem } from './ServiceItem';
 
 
@@ -13,7 +13,7 @@ export class RuleServiceDto {
     private 'custom_service'?: Array<ServiceItem>;
     private 'predefined_group'?: Array<string>;
     private 'service_group'?: Array<string>;
-    private 'service_group_names'?: Array<AddressGroupVO>;
+    private 'service_group_names'?: Array<ServiceGroupVO>;
     private 'service_set_type'?: number;
     public constructor(type?: number) { 
         this['type'] = type;
@@ -100,14 +100,14 @@ export class RuleServiceDto {
     public get serviceGroup(): Array<string> | undefined {
         return this['service_group'];
     }
-    public withServiceGroupNames(serviceGroupNames: Array<AddressGroupVO>): RuleServiceDto {
+    public withServiceGroupNames(serviceGroupNames: Array<ServiceGroupVO>): RuleServiceDto {
         this['service_group_names'] = serviceGroupNames;
         return this;
     }
-    public set serviceGroupNames(serviceGroupNames: Array<AddressGroupVO>  | undefined) {
+    public set serviceGroupNames(serviceGroupNames: Array<ServiceGroupVO>  | undefined) {
         this['service_group_names'] = serviceGroupNames;
     }
-    public get serviceGroupNames(): Array<AddressGroupVO> | undefined {
+    public get serviceGroupNames(): Array<ServiceGroupVO> | undefined {
         return this['service_group_names'];
     }
     public withServiceSetType(serviceSetType: number): RuleServiceDto {

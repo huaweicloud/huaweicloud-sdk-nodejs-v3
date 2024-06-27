@@ -21,7 +21,6 @@ export class CreateResponseVpnConnection {
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'enterprise_project_id'?: string;
-    private 'connection_monitor_id'?: string;
     private 'ha_role'?: string;
     public tags?: Array<VpnResourceTag>;
     public constructor() { 
@@ -155,16 +154,6 @@ export class CreateResponseVpnConnection {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
-    }
-    public withConnectionMonitorId(connectionMonitorId: string): CreateResponseVpnConnection {
-        this['connection_monitor_id'] = connectionMonitorId;
-        return this;
-    }
-    public set connectionMonitorId(connectionMonitorId: string  | undefined) {
-        this['connection_monitor_id'] = connectionMonitorId;
-    }
-    public get connectionMonitorId(): string | undefined {
-        return this['connection_monitor_id'];
     }
     public withHaRole(haRole: string): CreateResponseVpnConnection {
         this['ha_role'] = haRole;

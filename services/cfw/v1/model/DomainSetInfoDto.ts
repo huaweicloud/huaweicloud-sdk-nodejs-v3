@@ -3,7 +3,8 @@
 export class DomainSetInfoDto {
     private 'domain_name'?: string;
     public description?: string;
-    public constructor() { 
+    public constructor(domainName?: string) { 
+        this['domain_name'] = domainName;
     }
     public withDomainName(domainName: string): DomainSetInfoDto {
         this['domain_name'] = domainName;

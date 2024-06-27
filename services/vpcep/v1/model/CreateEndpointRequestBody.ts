@@ -1,3 +1,4 @@
+import { PolicyStatement } from './PolicyStatement';
 import { TagList } from './TagList';
 
 
@@ -12,6 +13,9 @@ export class CreateEndpointRequestBody {
     public whitelist?: Array<string>;
     private 'enable_whitelist'?: boolean;
     public description?: string;
+    private 'policy_statement'?: Array<PolicyStatement>;
+    private 'ip_version'?: CreateEndpointRequestBodyIpVersionEnum | string;
+    private 'ipv6_address'?: string;
     public constructor(endpointServiceId?: string, vpcId?: string) { 
         this['endpoint_service_id'] = endpointServiceId;
         this['vpc_id'] = vpcId;
@@ -92,4 +96,43 @@ export class CreateEndpointRequestBody {
         this['description'] = description;
         return this;
     }
+    public withPolicyStatement(policyStatement: Array<PolicyStatement>): CreateEndpointRequestBody {
+        this['policy_statement'] = policyStatement;
+        return this;
+    }
+    public set policyStatement(policyStatement: Array<PolicyStatement>  | undefined) {
+        this['policy_statement'] = policyStatement;
+    }
+    public get policyStatement(): Array<PolicyStatement> | undefined {
+        return this['policy_statement'];
+    }
+    public withIpVersion(ipVersion: CreateEndpointRequestBodyIpVersionEnum | string): CreateEndpointRequestBody {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: CreateEndpointRequestBodyIpVersionEnum | string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): CreateEndpointRequestBodyIpVersionEnum | string | undefined {
+        return this['ip_version'];
+    }
+    public withIpv6Address(ipv6Address: string): CreateEndpointRequestBody {
+        this['ipv6_address'] = ipv6Address;
+        return this;
+    }
+    public set ipv6Address(ipv6Address: string  | undefined) {
+        this['ipv6_address'] = ipv6Address;
+    }
+    public get ipv6Address(): string | undefined {
+        return this['ipv6_address'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateEndpointRequestBodyIpVersionEnum {
+    IPV4 = 'ipv4',
+    DUALSTACK = 'dualstack'
 }

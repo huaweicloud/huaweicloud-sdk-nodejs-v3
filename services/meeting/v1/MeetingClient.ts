@@ -162,6 +162,8 @@ import { InviteWithPwdResponse } from './model/InviteWithPwdResponse';
 import { ListHistoryWebinarsRequest } from './model/ListHistoryWebinarsRequest';
 import { ListHistoryWebinarsResponse } from './model/ListHistoryWebinarsResponse';
 import { ListMeetingFileResponseDTO } from './model/ListMeetingFileResponseDTO';
+import { ListNetworkQualityRequest } from './model/ListNetworkQualityRequest';
+import { ListNetworkQualityResponse } from './model/ListNetworkQualityResponse';
 import { ListOngoingWebinarsRequest } from './model/ListOngoingWebinarsRequest';
 import { ListOngoingWebinarsResponse } from './model/ListOngoingWebinarsResponse';
 import { ListUpComingWebinarsRequest } from './model/ListUpComingWebinarsRequest';
@@ -173,6 +175,7 @@ import { LockMeetingResponse } from './model/LockMeetingResponse';
 import { LockViewRequest } from './model/LockViewRequest';
 import { LockViewResponse } from './model/LockViewResponse';
 import { Material } from './model/Material';
+import { MediaQos } from './model/MediaQos';
 import { MeetingFileBase } from './model/MeetingFileBase';
 import { MeetingStatus } from './model/MeetingStatus';
 import { ModAdminDTO } from './model/ModAdminDTO';
@@ -226,6 +229,7 @@ import { PublicationRequestBase } from './model/PublicationRequestBase';
 import { PublicationResponseBase } from './model/PublicationResponseBase';
 import { PublishDeptResponseDTO } from './model/PublishDeptResponseDTO';
 import { PublishDeviceResponseDTO } from './model/PublishDeviceResponseDTO';
+import { Qos } from './model/Qos';
 import { QosConferenceInfo } from './model/QosConferenceInfo';
 import { QosCpuInfo } from './model/QosCpuInfo';
 import { QosDataElement } from './model/QosDataElement';
@@ -295,6 +299,7 @@ import { RestParticipantViewReqBody } from './model/RestParticipantViewReqBody';
 import { RestPicLayout } from './model/RestPicLayout';
 import { RestPicLayoutBody } from './model/RestPicLayoutBody';
 import { RestProlongDurReqBody } from './model/RestProlongDurReqBody';
+import { RestQosRequestDTO } from './model/RestQosRequestDTO';
 import { RestRenamePartReqBody } from './model/RestRenamePartReqBody';
 import { RestResponse } from './model/RestResponse';
 import { RestScheduleConfDTO } from './model/RestScheduleConfDTO';
@@ -550,6 +555,8 @@ import { UploadFileResponse } from './model/UploadFileResponse';
 import { UserDTO } from './model/UserDTO';
 import { UserFunctionDTO } from './model/UserFunctionDTO';
 import { UserInfo } from './model/UserInfo';
+import { UserQos } from './model/UserQos';
+import { UserQosReqInfo } from './model/UserQosReqInfo';
 import { UserStatusDTO } from './model/UserStatusDTO';
 import { UserVmrDTO } from './model/UserVmrDTO';
 import { ValidateTokenReqDTO } from './model/ValidateTokenReqDTO';
@@ -1882,6 +1889,29 @@ export class MeetingClient {
      */
     public listHistoryWebinars(listHistoryWebinarsRequest?: ListHistoryWebinarsRequest): Promise<ListHistoryWebinarsResponse> {
         const options = ParamCreater().listHistoryWebinars(listHistoryWebinarsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询会场网络质量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询会场网络质量
+     * @param {string} conferenceid 会议id
+     * @param {string} confToken 会控Token，通过[[获取会控token](https://support.huaweicloud.com/api-meeting/meeting_21_0027.html)](tag:hws)[[获取会控token](https://support.huaweicloud.com/intl/zh-cn/api-meeting/meeting_21_0027.html)](tag:hk)接口获得。
+     * @param {string} confuuid 会议UUID，MMR房间ID
+     * @param {string} [appid] 会议的appId
+     * @param {RestQosRequestDTO} [restQosRequestDTO] 会场id和接入类型列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNetworkQuality(listNetworkQualityRequest?: ListNetworkQualityRequest): Promise<ListNetworkQualityResponse> {
+        const options = ParamCreater().listNetworkQuality(listNetworkQualityRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8088,6 +8118,76 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Accept-Language'] = String(acceptLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询会场网络质量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNetworkQuality(listNetworkQualityRequest?: ListNetworkQualityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/mmc/cqs/media/qos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let conferenceid;
+            
+            let confToken;
+            
+            let confuuid;
+            
+            let appid;
+
+            if (listNetworkQualityRequest !== null && listNetworkQualityRequest !== undefined) {
+                if (listNetworkQualityRequest instanceof ListNetworkQualityRequest) {
+                    conferenceid = listNetworkQualityRequest.conferenceid;
+                    confToken = listNetworkQualityRequest.confToken;
+                    confuuid = listNetworkQualityRequest.confuuid;
+                    appid = listNetworkQualityRequest.appid;
+                    body = listNetworkQualityRequest.body
+                } else {
+                    conferenceid = listNetworkQualityRequest['conferenceid'];
+                    confToken = listNetworkQualityRequest['confToken'];
+                    confuuid = listNetworkQualityRequest['confuuid'];
+                    appid = listNetworkQualityRequest['appid'];
+                    body = listNetworkQualityRequest['body'];
+                }
+            }
+
+        
+            if (conferenceid === null || conferenceid === undefined) {
+                throw new RequiredError('conferenceid','Required parameter conferenceid was null or undefined when calling listNetworkQuality.');
+            }
+            if (conferenceid !== null && conferenceid !== undefined) {
+                localVarQueryParameter['conferenceid'] = conferenceid;
+            }
+            if (confuuid === null || confuuid === undefined) {
+                throw new RequiredError('confuuid','Required parameter confuuid was null or undefined when calling listNetworkQuality.');
+            }
+            if (confuuid !== null && confuuid !== undefined) {
+                localVarQueryParameter['confuuid'] = confuuid;
+            }
+            if (appid !== null && appid !== undefined) {
+                localVarQueryParameter['appid'] = appid;
+            }
+            if (confToken !== undefined && confToken !== null) {
+                localVarHeaderParameter['confToken'] = String(confToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;

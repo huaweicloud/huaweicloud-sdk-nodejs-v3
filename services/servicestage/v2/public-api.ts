@@ -141,6 +141,8 @@ export * from './model/ListBranchesRequest';
 export * from './model/ListBranchesResponse';
 export * from './model/ListCommitsRequest';
 export * from './model/ListCommitsResponse';
+export * from './model/ListComponentOverviewsRequest';
+export * from './model/ListComponentOverviewsResponse';
 export * from './model/ListComponentsRequest';
 export * from './model/ListComponentsResponse';
 export * from './model/ListEnvironmentsRequest';

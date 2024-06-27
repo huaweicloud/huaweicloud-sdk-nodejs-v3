@@ -142,7 +142,7 @@ export class VpcepClient {
     /**
      * 批量添加或移除当前用户下终端节点服务的白名单。
      * 说明
-     * 本帐号默认在自身用户的终端节点服务的白名单中。
+     * 本账号默认在自身用户的终端节点服务的白名单中。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -165,7 +165,7 @@ export class VpcepClient {
     /**
      * 批量添加当前用户下终端节点服务的白名单，支持添加描述信息。
      * 说明
-     * 本帐号默认在自身用户的终端节点服务的白名单中。
+     * 本账号默认在自身用户的终端节点服务的白名单中。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -371,7 +371,6 @@ export class VpcepClient {
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点列表的排序字段，取值为：  - create_at：终端节点的创建时间  - update_at：终端节点的更新时间 默认值为create_at。
      * @param {'desc' | 'asc'} [sortDir] 查询结果中终端节点列表的排序方式，取值为：  - desc：降序排序  - asc：升序排序 默认值为desc。
-     * @param {string} [publicBorderGroup] 筛选结果中匹配边缘属性的EPS
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -475,14 +474,14 @@ export class VpcepClient {
     /**
      * 查询当前用户下终端节点服务的白名单列表。
      * 说明
-     * 本帐号默认在当前用户下终端节点服务的白名单中。
+     * 本账号默认在当前用户下终端节点服务的白名单中。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务的白名单列表
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
-     * @param {string} [permission] 权限帐号ID，格式为“iam:domain::domain_id”。 其中“domain_id”为授权用户的帐号ID， 例如“iam:domain::6e9dfd51d1124e8d8498dce894923a0d”，支持模糊搜索。
+     * @param {string} [permission] 权限账号ID，格式为“iam:domain::domain_id”。 其中“domain_id”为授权用户的账号ID， 例如“iam:domain::6e9dfd51d1124e8d8498dce894923a0d”，支持模糊搜索。
      * @param {number} [limit] 查询返回终端节点服务的白名单数量限制，即每页返回的个数。 取值范围：0~500，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {'create_at' | 'update_at'} [sortKey] 查询结果中终端节点服务列表的排序字段，取值为：  - create_at：终端节点服务的创建时间  - update_at：终端节点服务的更新时间 默认值为create_at。
@@ -834,7 +833,7 @@ export const ParamCreater = function () {
         /**
          * 批量添加或移除当前用户下终端节点服务的白名单。
          * 说明
-         * 本帐号默认在自身用户的终端节点服务的白名单中。
+         * 本账号默认在自身用户的终端节点服务的白名单中。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -889,7 +888,7 @@ export const ParamCreater = function () {
         /**
          * 批量添加当前用户下终端节点服务的白名单，支持添加描述信息。
          * 说明
-         * 本帐号默认在自身用户的终端节点服务的白名单中。
+         * 本账号默认在自身用户的终端节点服务的白名单中。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1389,8 +1388,6 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
-            
-            let publicBorderGroup;
 
             if (listEndpointsRequest !== null && listEndpointsRequest !== undefined) {
                 if (listEndpointsRequest instanceof ListEndpointsRequest) {
@@ -1402,7 +1399,6 @@ export const ParamCreater = function () {
                     offset = listEndpointsRequest.offset;
                     sortKey = listEndpointsRequest.sortKey;
                     sortDir = listEndpointsRequest.sortDir;
-                    publicBorderGroup = listEndpointsRequest.publicBorderGroup;
                 } else {
                     contentType = listEndpointsRequest['Content-Type'];
                     endpointServiceName = listEndpointsRequest['endpoint_service_name'];
@@ -1412,7 +1408,6 @@ export const ParamCreater = function () {
                     offset = listEndpointsRequest['offset'];
                     sortKey = listEndpointsRequest['sort_key'];
                     sortDir = listEndpointsRequest['sort_dir'];
-                    publicBorderGroup = listEndpointsRequest['public_border_group'];
                 }
             }
 
@@ -1437,9 +1432,6 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
-                localVarQueryParameter['public_border_group'] = publicBorderGroup;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1686,7 +1678,7 @@ export const ParamCreater = function () {
         /**
          * 查询当前用户下终端节点服务的白名单列表。
          * 说明
-         * 本帐号默认在当前用户下终端节点服务的白名单中。
+         * 本账号默认在当前用户下终端节点服务的白名单中。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -121,5 +121,11 @@ export enum BaseEndpointEndpointNameEnum {
     ECS_REDIS = 'ecs_redis',
     REDISCLUSTER = 'rediscluster',
     ECS_REDISCLUSTER = 'ecs_rediscluster',
-    CLOUD_GAUSSDB_REDIS = 'cloud_gaussdb_redis'
+    CLOUD_GAUSSDB_REDIS = 'cloud_gaussdb_redis',
+    POSTGRESQL = 'postgresql',
+    ECS_POSTGRESQL = 'ecs_postgresql',
+    CLOUD_POSTGRESQL = 'cloud_postgresql',
+    MONGODB = 'mongodb',
+    ECS_MONGODB = 'ecs_mongodb',
+    CLOUD_MONGODB = 'cloud_mongodb'
 }

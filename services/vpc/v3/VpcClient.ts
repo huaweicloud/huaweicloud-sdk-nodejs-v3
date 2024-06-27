@@ -29,6 +29,9 @@ import { BatchCreateClouddcnSubnetsTagsResponse } from './model/BatchCreateCloud
 import { BatchCreateFirewallTagsRequest } from './model/BatchCreateFirewallTagsRequest';
 import { BatchCreateFirewallTagsRequestBody } from './model/BatchCreateFirewallTagsRequestBody';
 import { BatchCreateFirewallTagsResponse } from './model/BatchCreateFirewallTagsResponse';
+import { BatchCreatePortTagsRequest } from './model/BatchCreatePortTagsRequest';
+import { BatchCreatePortTagsRequestBody } from './model/BatchCreatePortTagsRequestBody';
+import { BatchCreatePortTagsResponse } from './model/BatchCreatePortTagsResponse';
 import { BatchCreateRequestBody } from './model/BatchCreateRequestBody';
 import { BatchCreateRequestBodySysTags } from './model/BatchCreateRequestBodySysTags';
 import { BatchCreateRequestBodyTags } from './model/BatchCreateRequestBodyTags';
@@ -45,6 +48,9 @@ import { BatchDeleteClouddcnSubnetsTagsResponse } from './model/BatchDeleteCloud
 import { BatchDeleteFirewallTagsRequest } from './model/BatchDeleteFirewallTagsRequest';
 import { BatchDeleteFirewallTagsRequestBody } from './model/BatchDeleteFirewallTagsRequestBody';
 import { BatchDeleteFirewallTagsResponse } from './model/BatchDeleteFirewallTagsResponse';
+import { BatchDeletePortTagsRequest } from './model/BatchDeletePortTagsRequest';
+import { BatchDeletePortTagsRequestBody } from './model/BatchDeletePortTagsRequestBody';
+import { BatchDeletePortTagsResponse } from './model/BatchDeletePortTagsResponse';
 import { BatchDeleteRequestBody } from './model/BatchDeleteRequestBody';
 import { BatchDeleteRequestBodySysTags } from './model/BatchDeleteRequestBodySysTags';
 import { BatchDeleteRequestBodyTags } from './model/BatchDeleteRequestBodyTags';
@@ -54,6 +60,9 @@ import { ClouddcnSubnet } from './model/ClouddcnSubnet';
 import { CountFirewallsByTagsRequest } from './model/CountFirewallsByTagsRequest';
 import { CountFirewallsByTagsRequestBody } from './model/CountFirewallsByTagsRequestBody';
 import { CountFirewallsByTagsResponse } from './model/CountFirewallsByTagsResponse';
+import { CountPortsByTagsRequest } from './model/CountPortsByTagsRequest';
+import { CountPortsByTagsRequestBody } from './model/CountPortsByTagsRequestBody';
+import { CountPortsByTagsResponse } from './model/CountPortsByTagsResponse';
 import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
 import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
 import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
@@ -69,6 +78,9 @@ import { CreateFirewallResponse } from './model/CreateFirewallResponse';
 import { CreateFirewallTagRequest } from './model/CreateFirewallTagRequest';
 import { CreateFirewallTagRequestBody } from './model/CreateFirewallTagRequestBody';
 import { CreateFirewallTagResponse } from './model/CreateFirewallTagResponse';
+import { CreatePortTagRequest } from './model/CreatePortTagRequest';
+import { CreatePortTagRequestBody } from './model/CreatePortTagRequestBody';
+import { CreatePortTagResponse } from './model/CreatePortTagResponse';
 import { CreateSecurityGroupOption } from './model/CreateSecurityGroupOption';
 import { CreateSecurityGroupRequest } from './model/CreateSecurityGroupRequest';
 import { CreateSecurityGroupRequestBody } from './model/CreateSecurityGroupRequestBody';
@@ -109,6 +121,9 @@ import { DeleteFirewallTagRequest } from './model/DeleteFirewallTagRequest';
 import { DeleteFirewallTagResponse } from './model/DeleteFirewallTagResponse';
 import { DeleteIpAddressGroupForceRequest } from './model/DeleteIpAddressGroupForceRequest';
 import { DeleteIpAddressGroupForceResponse } from './model/DeleteIpAddressGroupForceResponse';
+import { DeletePortTagRequest } from './model/DeletePortTagRequest';
+import { DeletePortTagResponse } from './model/DeletePortTagResponse';
+import { DeleteResourceTagRequestBody } from './model/DeleteResourceTagRequestBody';
 import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
 import { DeleteSecurityGroupResponse } from './model/DeleteSecurityGroupResponse';
 import { DeleteSecurityGroupRuleRequest } from './model/DeleteSecurityGroupRuleRequest';
@@ -156,6 +171,11 @@ import { ListFirewallTagsResponse } from './model/ListFirewallTagsResponse';
 import { ListFirewallsByTagsRequest } from './model/ListFirewallsByTagsRequest';
 import { ListFirewallsByTagsRequestBody } from './model/ListFirewallsByTagsRequestBody';
 import { ListFirewallsByTagsResponse } from './model/ListFirewallsByTagsResponse';
+import { ListPortTagsRequest } from './model/ListPortTagsRequest';
+import { ListPortTagsResponse } from './model/ListPortTagsResponse';
+import { ListPortsByTagsRequest } from './model/ListPortsByTagsRequest';
+import { ListPortsByTagsRequestBody } from './model/ListPortsByTagsRequestBody';
+import { ListPortsByTagsResponse } from './model/ListPortsByTagsResponse';
 import { ListResourceResp } from './model/ListResourceResp';
 import { ListResourcesByTagsRequestBody } from './model/ListResourcesByTagsRequestBody';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
@@ -210,6 +230,8 @@ import { ShowFirewallRequest } from './model/ShowFirewallRequest';
 import { ShowFirewallResponse } from './model/ShowFirewallResponse';
 import { ShowFirewallTagsRequest } from './model/ShowFirewallTagsRequest';
 import { ShowFirewallTagsResponse } from './model/ShowFirewallTagsResponse';
+import { ShowPortTagsRequest } from './model/ShowPortTagsRequest';
+import { ShowPortTagsResponse } from './model/ShowPortTagsResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -331,6 +353,27 @@ export class VpcClient {
     }
 
     /**
+     * 为指定的端口批量添加标签。
+     * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加端口资源标签
+     * @param {string} portId 功能说明：端口唯一标识 取值范围：合法UUID 约束：ID对应的端口必须存在
+     * @param {BatchCreatePortTagsRequestBody} [batchCreatePortTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreatePortTags(batchCreatePortTagsRequest?: BatchCreatePortTagsRequest): Promise<BatchCreatePortTagsResponse> {
+        const options = ParamCreater().batchCreatePortTags(batchCreatePortTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 在特定安全组下批量创建安全组规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -362,6 +405,67 @@ export class VpcClient {
      */
     public batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest?: BatchCreateSubNetworkInterfaceRequest): Promise<BatchCreateSubNetworkInterfaceResponse> {
         const options = ParamCreater().batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定的端口资源实例批量删除标签。
+     * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除端口资源标签
+     * @param {string} portId 功能说明：端口唯一标识 取值范围：合法UUID 约束：ID对应的端口必须存在
+     * @param {BatchDeletePortTagsRequestBody} [batchDeletePortTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeletePortTags(batchDeletePortTagsRequest?: BatchDeletePortTagsRequest): Promise<BatchDeletePortTagsResponse> {
+        const options = ParamCreater().batchDeletePortTags(batchDeletePortTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤查询端口实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口资源实例数量
+     * @param {CountPortsByTagsRequestBody} [countPortsByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countPortsByTags(countPortsByTagsRequest?: CountPortsByTagsRequest): Promise<CountPortsByTagsResponse> {
+        const options = ParamCreater().countPortsByTags(countPortsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 给指定端口资源实例增加标签信息
+     * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加端口资源标签
+     * @param {string} portId 功能说明：端口唯一标识 取值范围：合法UUID 约束：ID对应的端口必须存在
+     * @param {CreatePortTagRequestBody} createPortTagRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPortTag(createPortTagRequest?: CreatePortTagRequest): Promise<CreatePortTagResponse> {
+        const options = ParamCreater().createPortTag(createPortTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -484,6 +588,27 @@ export class VpcClient {
     }
 
     /**
+     * 删除指定端口的标签信息
+     * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除端口资源标签
+     * @param {string} portId 功能说明：端口唯一标识 取值范围：合法UUID 约束：ID对应的端口必须存在
+     * @param {string} tagKey 功能说明：标签键
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePortTag(deletePortTagRequest?: DeletePortTagRequest): Promise<DeletePortTagResponse> {
+        const options = ParamCreater().deletePortTag(deletePortTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除安全组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -590,6 +715,47 @@ export class VpcClient {
      */
     public deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest?: DeleteTrafficMirrorSessionRequest): Promise<DeleteTrafficMirrorSessionResponse> {
         const options = ParamCreater().deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户在指定Project中实例类型的所有资源标签集合
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口项目标签
+     * @param {number} [limit] 功能说明：查询记录数 取值范围：1-1000 约束：默认为1000
+     * @param {number} [offset] 功能说明：索引位置， 从第一条数据偏移offset条数据后开始查询 约束：默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPortTags(listPortTagsRequest?: ListPortTagsRequest): Promise<ListPortTagsResponse> {
+        const options = ParamCreater().listPortTags(listPortTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤查询端口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口资源实例列表
+     * @param {number} [limit] 功能说明：查询记录数 取值范围：1-1000 约束：默认为1000
+     * @param {number} [offset] 功能说明：索引位置， 从第一条数据偏移offset条数据后开始查询 约束：默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数
+     * @param {ListPortsByTagsRequestBody} [listPortsByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPortsByTags(listPortsByTagsRequest?: ListPortsByTagsRequest): Promise<ListPortsByTagsResponse> {
+        const options = ParamCreater().listPortsByTags(listPortsByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -817,6 +983,25 @@ export class VpcClient {
      */
     public removeSourcesFromTrafficMirrorSession(removeSourcesFromTrafficMirrorSessionRequest?: RemoveSourcesFromTrafficMirrorSessionRequest): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
         const options = ParamCreater().removeSourcesFromTrafficMirrorSession(removeSourcesFromTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定端口的标签信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口资源标签
+     * @param {string} portId 功能说明：端口唯一标识 取值范围：合法UUID 约束：ID对应的端口必须存在
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPortTags(showPortTagsRequest?: ShowPortTagsRequest): Promise<ShowPortTagsResponse> {
+        const options = ParamCreater().showPortTags(showPortTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1097,7 +1282,7 @@ export class VpcClient {
     }
 
     /**
-     * 为指定的IP地址组资源实例批量添加标签。
+     * 为指定的网络ACL资源实例批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1118,7 +1303,7 @@ export class VpcClient {
     }
 
     /**
-     * 为指定的IP地址组资源实例批量删除标签。
+     * 为指定的网络ACL资源实例批量删除标签。
      * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1288,11 +1473,13 @@ export class VpcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询ACL项目标签
+     * @param {number} [limit] 功能说明：查询记录数 取值范围：1-1000 约束：默认为1000
+     * @param {number} [offset] 功能说明：索引位置， 从第一条数据偏移offset条数据后开始查询 约束：默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listFirewallTags(listFirewallTagsRequest?: ListFirewallTagsRequest): Promise<ListFirewallTagsResponse> {
-        const options = ParamCreater().listFirewallTags();
+        const options = ParamCreater().listFirewallTags(listFirewallTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2033,6 +2220,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的端口批量添加标签。
+         * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreatePortTags(batchCreatePortTagsRequest?: BatchCreatePortTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ports/{port_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (batchCreatePortTagsRequest !== null && batchCreatePortTagsRequest !== undefined) {
+                if (batchCreatePortTagsRequest instanceof BatchCreatePortTagsRequest) {
+                    portId = batchCreatePortTagsRequest.portId;
+                    body = batchCreatePortTagsRequest.body
+                } else {
+                    portId = batchCreatePortTagsRequest['port_id'];
+                    body = batchCreatePortTagsRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling batchCreatePortTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在特定安全组下批量创建安全组规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2112,6 +2343,132 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为指定的端口资源实例批量删除标签。
+         * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeletePortTags(batchDeletePortTagsRequest?: BatchDeletePortTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ports/{port_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (batchDeletePortTagsRequest !== null && batchDeletePortTagsRequest !== undefined) {
+                if (batchDeletePortTagsRequest instanceof BatchDeletePortTagsRequest) {
+                    portId = batchDeletePortTagsRequest.portId;
+                    body = batchDeletePortTagsRequest.body
+                } else {
+                    portId = batchDeletePortTagsRequest['port_id'];
+                    body = batchDeletePortTagsRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling batchDeletePortTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤查询端口实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countPortsByTags(countPortsByTagsRequest?: CountPortsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ports/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (countPortsByTagsRequest !== null && countPortsByTagsRequest !== undefined) {
+                if (countPortsByTagsRequest instanceof CountPortsByTagsRequest) {
+                    body = countPortsByTagsRequest.body
+                } else {
+                    body = countPortsByTagsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 给指定端口资源实例增加标签信息
+         * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPortTag(createPortTagRequest?: CreatePortTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ports/{port_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (createPortTagRequest !== null && createPortTagRequest !== undefined) {
+                if (createPortTagRequest instanceof CreatePortTagRequest) {
+                    portId = createPortTagRequest.portId;
+                    body = createPortTagRequest.body
+                } else {
+                    portId = createPortTagRequest['port_id'];
+                    body = createPortTagRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling createPortTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2345,6 +2702,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除指定端口的标签信息
+         * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePortTag(deletePortTagRequest?: DeletePortTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/ports/{port_id}/tags/{tag_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+            
+            let tagKey;
+
+            if (deletePortTagRequest !== null && deletePortTagRequest !== undefined) {
+                if (deletePortTagRequest instanceof DeletePortTagRequest) {
+                    portId = deletePortTagRequest.portId;
+                    tagKey = deletePortTagRequest.tagKey;
+                } else {
+                    portId = deletePortTagRequest['port_id'];
+                    tagKey = deletePortTagRequest['tag_key'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling deletePortTag.');
+            }
+            if (tagKey === null || tagKey === undefined) {
+            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deletePortTag.');
+            }
+
+            options.pathParams = { 'port_id': portId,'tag_key': tagKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除安全组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2562,6 +2964,100 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'traffic_mirror_session_id': trafficMirrorSessionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户在指定Project中实例类型的所有资源标签集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPortTags(listPortTagsRequest?: ListPortTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ports/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listPortTagsRequest !== null && listPortTagsRequest !== undefined) {
+                if (listPortTagsRequest instanceof ListPortTagsRequest) {
+                    limit = listPortTagsRequest.limit;
+                    offset = listPortTagsRequest.offset;
+                } else {
+                    limit = listPortTagsRequest['limit'];
+                    offset = listPortTagsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤查询端口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPortsByTags(listPortsByTagsRequest?: ListPortsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ports/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listPortsByTagsRequest !== null && listPortsByTagsRequest !== undefined) {
+                if (listPortsByTagsRequest instanceof ListPortsByTagsRequest) {
+                    limit = listPortsByTagsRequest.limit;
+                    offset = listPortsByTagsRequest.offset;
+                    body = listPortsByTagsRequest.body
+                } else {
+                    limit = listPortsByTagsRequest['limit'];
+                    offset = listPortsByTagsRequest['offset'];
+                    body = listPortsByTagsRequest['body'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3297,6 +3793,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定端口的标签信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPortTags(showPortTagsRequest?: ShowPortTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ports/{port_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+
+            if (showPortTagsRequest !== null && showPortTagsRequest !== undefined) {
+                if (showPortTagsRequest instanceof ShowPortTagsRequest) {
+                    portId = showPortTagsRequest.portId;
+                } else {
+                    portId = showPortTagsRequest['port_id'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling showPortTags.');
+            }
+
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个安全组详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3862,7 +4395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为指定的IP地址组资源实例批量添加标签。
+         * 为指定的网络ACL资源实例批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3906,7 +4439,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 为指定的IP地址组资源实例批量删除标签。
+         * 为指定的网络ACL资源实例批量删除标签。
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4281,7 +4814,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listFirewallTags() {
+        listFirewallTags(listFirewallTagsRequest?: ListFirewallTagsRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/firewalls/tags",
@@ -4291,8 +4824,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (listFirewallTagsRequest !== null && listFirewallTagsRequest !== undefined) {
+                if (listFirewallTagsRequest instanceof ListFirewallTagsRequest) {
+                    limit = listFirewallTagsRequest.limit;
+                    offset = listFirewallTagsRequest.offset;
+                } else {
+                    limit = listFirewallTagsRequest['limit'];
+                    offset = listFirewallTagsRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

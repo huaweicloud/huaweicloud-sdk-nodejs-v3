@@ -8,8 +8,6 @@ export class ListDomainsRequest {
     public limit?: number;
     public offset?: number;
     private 'domain_name'?: string;
-    public description?: string;
-    private 'set_id'?: string;
     private 'object_Id'?: string;
     public constructor(projectId?: string, domainSetId?: string, fwInstanceId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
@@ -75,20 +73,6 @@ export class ListDomainsRequest {
     }
     public get domainName(): string | undefined {
         return this['domain_name'];
-    }
-    public withDescription(description: string): ListDomainsRequest {
-        this['description'] = description;
-        return this;
-    }
-    public withSetId(setId: string): ListDomainsRequest {
-        this['set_id'] = setId;
-        return this;
-    }
-    public set setId(setId: string  | undefined) {
-        this['set_id'] = setId;
-    }
-    public get setId(): string | undefined {
-        return this['set_id'];
     }
     public withObjectId(objectId: string): ListDomainsRequest {
         this['object_Id'] = objectId;

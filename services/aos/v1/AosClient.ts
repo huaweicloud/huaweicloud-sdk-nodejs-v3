@@ -11,6 +11,7 @@ import { ApplyExecutionPlanRequestBody } from './model/ApplyExecutionPlanRequest
 import { ApplyExecutionPlanResponse } from './model/ApplyExecutionPlanResponse';
 import { BaseTemplate } from './model/BaseTemplate';
 import { BaseTemplateVersion } from './model/BaseTemplateVersion';
+import { CallIdentityPrimitiveTypeHolder } from './model/CallIdentityPrimitiveTypeHolder';
 import { ContinueDeployStackRequest } from './model/ContinueDeployStackRequest';
 import { ContinueDeployStackRequestBody } from './model/ContinueDeployStackRequestBody';
 import { ContinueDeployStackResponse } from './model/ContinueDeployStackResponse';
@@ -62,6 +63,9 @@ import { DeployStackSetResponse } from './model/DeployStackSetResponse';
 import { DeploymentIdPrimitiveTypeHolder } from './model/DeploymentIdPrimitiveTypeHolder';
 import { DeploymentTargets } from './model/DeploymentTargets';
 import { DeploymentTargetsPrimitiveTypeHolder } from './model/DeploymentTargetsPrimitiveTypeHolder';
+import { DomainIdFilterTypePrimitiveTypeHolder } from './model/DomainIdFilterTypePrimitiveTypeHolder';
+import { DomainIdsPrimitiveTypeHolder } from './model/DomainIdsPrimitiveTypeHolder';
+import { DomainIdsUriPrimitiveTypeHolder } from './model/DomainIdsUriPrimitiveTypeHolder';
 import { EnableAutoRollbackPrimitiveTypeHolder } from './model/EnableAutoRollbackPrimitiveTypeHolder';
 import { EnableDeletionProtectionPrimitiveTypeHolder } from './model/EnableDeletionProtectionPrimitiveTypeHolder';
 import { EncryptionStructure } from './model/EncryptionStructure';
@@ -116,6 +120,7 @@ import { ManagedOperationTypeHolder } from './model/ManagedOperationTypeHolder';
 import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveTypeHolder';
 import { OperationPreferences } from './model/OperationPreferences';
 import { OperationPreferencesTypeHolder } from './model/OperationPreferencesTypeHolder';
+import { OrganizationalUnitIdsPrimitiveTypeHolder } from './model/OrganizationalUnitIdsPrimitiveTypeHolder';
 import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesRequest';
 import { ParseTemplateVariablesRequestBody } from './model/ParseTemplateVariablesRequestBody';
 import { ParseTemplateVariablesResponse } from './model/ParseTemplateVariablesResponse';
@@ -127,6 +132,7 @@ import { PrivateProviderSourcePrimitiveTypeHolder } from './model/PrivateProvide
 import { PrivateProviderVersionDescriptionPrimitiveTypeHolder } from './model/PrivateProviderVersionDescriptionPrimitiveTypeHolder';
 import { PrivateProviderVersionPrimitiveTypeHolder } from './model/PrivateProviderVersionPrimitiveTypeHolder';
 import { PrivateProviderVersionRequiredPrimitiveTypeHolder } from './model/PrivateProviderVersionRequiredPrimitiveTypeHolder';
+import { RegionsPrimitiveTypeHolder } from './model/RegionsPrimitiveTypeHolder';
 import { ResourceAttribute } from './model/ResourceAttribute';
 import { ResourceNamePrimitiveTypeHolder } from './model/ResourceNamePrimitiveTypeHolder';
 import { ResourcePriceResponse } from './model/ResourcePriceResponse';
@@ -881,6 +887,8 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给予的stack_id和当前资源栈的ID不一致，则返回400
+     * @param {Array<string>} [accessControlSourceIps] 允许访问资源栈模板的source ip列表，source ip应是具有CIDR表示法且带有子网掩码的IPv4地址。
+     * @param {Array<string>} [accessControlSourceVpcIds] 允许访问资源栈模板的source vpc id列表， source vpc id应仅包含小写字母、数字或中划线。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -913,7 +921,7 @@ export class AosClient {
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给予的stack_id和当前资源栈的ID不一致，则返回400
      * @param {string} [deploymentId] 标识部署的唯一Id，此Id由资源编排服务在触发部署、回滚等操作时生成，为UUID。
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
-     * @param {string} [field] 选择的属性名称  * 属性名仅支持包含大小写英文、数字和下划线 * 多个属性名称之间以逗号（，）分隔
+     * @param {string} [field] 选择的属性名称  * 属性名仅支持包含大小写英文、数字和下划线 * 多个属性名称之间以逗号（,）分隔
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1180,6 +1188,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1243,6 +1252,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1273,6 +1283,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1302,6 +1313,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1326,6 +1338,7 @@ export class AosClient {
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} stackInstanceAddr 资源栈实例的唯一地址。该地址由region和stack_domain_id通过\&quot;/\&quot;（转义后为%2f或%2F）拼接而成。该地址在domain_id+region+stack_set_name下唯一。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1349,6 +1362,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1375,6 +1389,7 @@ export class AosClient {
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} stackSetOperationId 资源栈集操作（stack_set_operation）的唯一Id。  此ID由资源编排服务在生成资源栈集操作的时候生成，为UUID。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1401,6 +1416,9 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
+     * @param {Array<string>} [accessControlSourceIps] 允许访问资源栈集模板的source ip列表，source ip应是具有CIDR表示法且带有子网掩码的IPv4地址。
+     * @param {Array<string>} [accessControlSourceVpcIds] 允许访问资源栈集模板的source vpc id列表， source vpc id应仅包含小写字母、数字或中划线。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员帐户中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1668,6 +1686,8 @@ export class AosClient {
      * @param {string} templateName 用户希望创建的模板名称
      * @param {string} versionId 模板版本ID，以大写V开头，每次创建模板版本，模板版本ID数字部分会自增加一
      * @param {string} [templateId] 模板的ID。当template_id存在时，模板服务会检查template_id是否和template_name匹配，不匹配会返回400
+     * @param {Array<string>} [accessControlSourceVpcIds] 允许访问资源栈模板的source vpc id列表， source vpc id应仅包含小写字母、数字或中划线。
+     * @param {Array<string>} [accessControlSourceIps] 允许访问资源栈模板的source ip列表，source ip应是具有CIDR表示法且带有子网掩码的IPv4地址。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3036,6 +3056,10 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
+            
+            let accessControlSourceIps;
+            
+            let accessControlSourceVpcIds;
 
             if (getStackTemplateRequest !== null && getStackTemplateRequest !== undefined) {
                 if (getStackTemplateRequest instanceof GetStackTemplateRequest) {
@@ -3043,11 +3067,15 @@ export const ParamCreater = function () {
                     projectId = getStackTemplateRequest.projectId;
                     stackName = getStackTemplateRequest.stackName;
                     stackId = getStackTemplateRequest.stackId;
+                    accessControlSourceIps = getStackTemplateRequest.accessControlSourceIps;
+                    accessControlSourceVpcIds = getStackTemplateRequest.accessControlSourceVpcIds;
                 } else {
                     clientRequestId = getStackTemplateRequest['Client-Request-Id'];
                     projectId = getStackTemplateRequest['project_id'];
                     stackName = getStackTemplateRequest['stack_name'];
                     stackId = getStackTemplateRequest['stack_id'];
+                    accessControlSourceIps = getStackTemplateRequest['access_control_source_ips'];
+                    accessControlSourceVpcIds = getStackTemplateRequest['access_control_source_vpc_ids'];
                 }
             }
 
@@ -3060,6 +3088,12 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (accessControlSourceIps !== null && accessControlSourceIps !== undefined) {
+                localVarQueryParameter['access_control_source_ips'] = accessControlSourceIps;
+            }
+            if (accessControlSourceVpcIds !== null && accessControlSourceVpcIds !== undefined) {
+                localVarQueryParameter['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -3683,16 +3717,20 @@ export const ParamCreater = function () {
             let stackSetName;
             
             let stackSetId;
+            
+            let callIdentity;
 
             if (deleteStackSetRequest !== null && deleteStackSetRequest !== undefined) {
                 if (deleteStackSetRequest instanceof DeleteStackSetRequest) {
                     clientRequestId = deleteStackSetRequest.clientRequestId;
                     stackSetName = deleteStackSetRequest.stackSetName;
                     stackSetId = deleteStackSetRequest.stackSetId;
+                    callIdentity = deleteStackSetRequest.callIdentity;
                 } else {
                     clientRequestId = deleteStackSetRequest['Client-Request-Id'];
                     stackSetName = deleteStackSetRequest['stack_set_name'];
                     stackSetId = deleteStackSetRequest['stack_set_id'];
+                    callIdentity = deleteStackSetRequest['call_identity'];
                 }
             }
 
@@ -3702,6 +3740,9 @@ export const ParamCreater = function () {
             }
             if (stackSetId !== null && stackSetId !== undefined) {
                 localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -3812,6 +3853,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let callIdentity;
 
             if (listStackInstancesRequest !== null && listStackInstancesRequest !== undefined) {
                 if (listStackInstancesRequest instanceof ListStackInstancesRequest) {
@@ -3821,6 +3864,7 @@ export const ParamCreater = function () {
                     filter = listStackInstancesRequest.filter;
                     sortKey = listStackInstancesRequest.sortKey;
                     sortDir = listStackInstancesRequest.sortDir;
+                    callIdentity = listStackInstancesRequest.callIdentity;
                 } else {
                     clientRequestId = listStackInstancesRequest['Client-Request-Id'];
                     stackSetName = listStackInstancesRequest['stack_set_name'];
@@ -3828,6 +3872,7 @@ export const ParamCreater = function () {
                     filter = listStackInstancesRequest['filter'];
                     sortKey = listStackInstancesRequest['sort_key'];
                     sortDir = listStackInstancesRequest['sort_dir'];
+                    callIdentity = listStackInstancesRequest['call_identity'];
                 }
             }
 
@@ -3846,6 +3891,9 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -3891,6 +3939,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let callIdentity;
 
             if (listStackSetOperationsRequest !== null && listStackSetOperationsRequest !== undefined) {
                 if (listStackSetOperationsRequest instanceof ListStackSetOperationsRequest) {
@@ -3900,6 +3950,7 @@ export const ParamCreater = function () {
                     filter = listStackSetOperationsRequest.filter;
                     sortKey = listStackSetOperationsRequest.sortKey;
                     sortDir = listStackSetOperationsRequest.sortDir;
+                    callIdentity = listStackSetOperationsRequest.callIdentity;
                 } else {
                     clientRequestId = listStackSetOperationsRequest['Client-Request-Id'];
                     stackSetName = listStackSetOperationsRequest['stack_set_name'];
@@ -3907,6 +3958,7 @@ export const ParamCreater = function () {
                     filter = listStackSetOperationsRequest['filter'];
                     sortKey = listStackSetOperationsRequest['sort_key'];
                     sortDir = listStackSetOperationsRequest['sort_dir'];
+                    callIdentity = listStackSetOperationsRequest['call_identity'];
                 }
             }
 
@@ -3925,6 +3977,9 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -3967,6 +4022,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
+            
+            let callIdentity;
 
             if (listStackSetsRequest !== null && listStackSetsRequest !== undefined) {
                 if (listStackSetsRequest instanceof ListStackSetsRequest) {
@@ -3974,11 +4031,13 @@ export const ParamCreater = function () {
                     filter = listStackSetsRequest.filter;
                     sortKey = listStackSetsRequest.sortKey;
                     sortDir = listStackSetsRequest.sortDir;
+                    callIdentity = listStackSetsRequest.callIdentity;
                 } else {
                     clientRequestId = listStackSetsRequest['Client-Request-Id'];
                     filter = listStackSetsRequest['filter'];
                     sortKey = listStackSetsRequest['sort_key'];
                     sortDir = listStackSetsRequest['sort_dir'];
+                    callIdentity = listStackSetsRequest['call_identity'];
                 }
             }
 
@@ -3991,6 +4050,9 @@ export const ParamCreater = function () {
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4027,6 +4089,8 @@ export const ParamCreater = function () {
             let stackInstanceAddr;
             
             let stackSetId;
+            
+            let callIdentity;
 
             if (showStackInstanceRequest !== null && showStackInstanceRequest !== undefined) {
                 if (showStackInstanceRequest instanceof ShowStackInstanceRequest) {
@@ -4034,11 +4098,13 @@ export const ParamCreater = function () {
                     stackSetName = showStackInstanceRequest.stackSetName;
                     stackInstanceAddr = showStackInstanceRequest.stackInstanceAddr;
                     stackSetId = showStackInstanceRequest.stackSetId;
+                    callIdentity = showStackInstanceRequest.callIdentity;
                 } else {
                     clientRequestId = showStackInstanceRequest['Client-Request-Id'];
                     stackSetName = showStackInstanceRequest['stack_set_name'];
                     stackInstanceAddr = showStackInstanceRequest['stack_instance_addr'];
                     stackSetId = showStackInstanceRequest['stack_set_id'];
+                    callIdentity = showStackInstanceRequest['call_identity'];
                 }
             }
 
@@ -4051,6 +4117,9 @@ export const ParamCreater = function () {
             }
             if (stackSetId !== null && stackSetId !== undefined) {
                 localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4086,16 +4155,20 @@ export const ParamCreater = function () {
             let stackSetName;
             
             let stackSetId;
+            
+            let callIdentity;
 
             if (showStackSetMetadataRequest !== null && showStackSetMetadataRequest !== undefined) {
                 if (showStackSetMetadataRequest instanceof ShowStackSetMetadataRequest) {
                     clientRequestId = showStackSetMetadataRequest.clientRequestId;
                     stackSetName = showStackSetMetadataRequest.stackSetName;
                     stackSetId = showStackSetMetadataRequest.stackSetId;
+                    callIdentity = showStackSetMetadataRequest.callIdentity;
                 } else {
                     clientRequestId = showStackSetMetadataRequest['Client-Request-Id'];
                     stackSetName = showStackSetMetadataRequest['stack_set_name'];
                     stackSetId = showStackSetMetadataRequest['stack_set_id'];
+                    callIdentity = showStackSetMetadataRequest['call_identity'];
                 }
             }
 
@@ -4105,6 +4178,9 @@ export const ParamCreater = function () {
             }
             if (stackSetId !== null && stackSetId !== undefined) {
                 localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4144,6 +4220,8 @@ export const ParamCreater = function () {
             let stackSetOperationId;
             
             let stackSetId;
+            
+            let callIdentity;
 
             if (showStackSetOperationMetadataRequest !== null && showStackSetOperationMetadataRequest !== undefined) {
                 if (showStackSetOperationMetadataRequest instanceof ShowStackSetOperationMetadataRequest) {
@@ -4151,11 +4229,13 @@ export const ParamCreater = function () {
                     stackSetName = showStackSetOperationMetadataRequest.stackSetName;
                     stackSetOperationId = showStackSetOperationMetadataRequest.stackSetOperationId;
                     stackSetId = showStackSetOperationMetadataRequest.stackSetId;
+                    callIdentity = showStackSetOperationMetadataRequest.callIdentity;
                 } else {
                     clientRequestId = showStackSetOperationMetadataRequest['Client-Request-Id'];
                     stackSetName = showStackSetOperationMetadataRequest['stack_set_name'];
                     stackSetOperationId = showStackSetOperationMetadataRequest['stack_set_operation_id'];
                     stackSetId = showStackSetOperationMetadataRequest['stack_set_id'];
+                    callIdentity = showStackSetOperationMetadataRequest['call_identity'];
                 }
             }
 
@@ -4168,6 +4248,9 @@ export const ParamCreater = function () {
             }
             if (stackSetId !== null && stackSetId !== undefined) {
                 localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4206,16 +4289,28 @@ export const ParamCreater = function () {
             let stackSetName;
             
             let stackSetId;
+            
+            let accessControlSourceIps;
+            
+            let accessControlSourceVpcIds;
+            
+            let callIdentity;
 
             if (showStackSetTemplateRequest !== null && showStackSetTemplateRequest !== undefined) {
                 if (showStackSetTemplateRequest instanceof ShowStackSetTemplateRequest) {
                     clientRequestId = showStackSetTemplateRequest.clientRequestId;
                     stackSetName = showStackSetTemplateRequest.stackSetName;
                     stackSetId = showStackSetTemplateRequest.stackSetId;
+                    accessControlSourceIps = showStackSetTemplateRequest.accessControlSourceIps;
+                    accessControlSourceVpcIds = showStackSetTemplateRequest.accessControlSourceVpcIds;
+                    callIdentity = showStackSetTemplateRequest.callIdentity;
                 } else {
                     clientRequestId = showStackSetTemplateRequest['Client-Request-Id'];
                     stackSetName = showStackSetTemplateRequest['stack_set_name'];
                     stackSetId = showStackSetTemplateRequest['stack_set_id'];
+                    accessControlSourceIps = showStackSetTemplateRequest['access_control_source_ips'];
+                    accessControlSourceVpcIds = showStackSetTemplateRequest['access_control_source_vpc_ids'];
+                    callIdentity = showStackSetTemplateRequest['call_identity'];
                 }
             }
 
@@ -4225,6 +4320,15 @@ export const ParamCreater = function () {
             }
             if (stackSetId !== null && stackSetId !== undefined) {
                 localVarQueryParameter['stack_set_id'] = stackSetId;
+            }
+            if (accessControlSourceIps !== null && accessControlSourceIps !== undefined) {
+                localVarQueryParameter['access_control_source_ips'] = accessControlSourceIps;
+            }
+            if (accessControlSourceVpcIds !== null && accessControlSourceVpcIds !== undefined) {
+                localVarQueryParameter['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+            }
+            if (callIdentity !== null && callIdentity !== undefined) {
+                localVarQueryParameter['call_identity'] = callIdentity;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -4780,6 +4884,10 @@ export const ParamCreater = function () {
             let versionId;
             
             let templateId;
+            
+            let accessControlSourceVpcIds;
+            
+            let accessControlSourceIps;
 
             if (showTemplateVersionContentRequest !== null && showTemplateVersionContentRequest !== undefined) {
                 if (showTemplateVersionContentRequest instanceof ShowTemplateVersionContentRequest) {
@@ -4788,12 +4896,16 @@ export const ParamCreater = function () {
                     templateName = showTemplateVersionContentRequest.templateName;
                     versionId = showTemplateVersionContentRequest.versionId;
                     templateId = showTemplateVersionContentRequest.templateId;
+                    accessControlSourceVpcIds = showTemplateVersionContentRequest.accessControlSourceVpcIds;
+                    accessControlSourceIps = showTemplateVersionContentRequest.accessControlSourceIps;
                 } else {
                     clientRequestId = showTemplateVersionContentRequest['Client-Request-Id'];
                     projectId = showTemplateVersionContentRequest['project_id'];
                     templateName = showTemplateVersionContentRequest['template_name'];
                     versionId = showTemplateVersionContentRequest['version_id'];
                     templateId = showTemplateVersionContentRequest['template_id'];
+                    accessControlSourceVpcIds = showTemplateVersionContentRequest['access_control_source_vpc_ids'];
+                    accessControlSourceIps = showTemplateVersionContentRequest['access_control_source_ips'];
                 }
             }
 
@@ -4809,6 +4921,12 @@ export const ParamCreater = function () {
             }
             if (templateId !== null && templateId !== undefined) {
                 localVarQueryParameter['template_id'] = templateId;
+            }
+            if (accessControlSourceVpcIds !== null && accessControlSourceVpcIds !== undefined) {
+                localVarQueryParameter['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+            }
+            if (accessControlSourceIps !== null && accessControlSourceIps !== undefined) {
+                localVarQueryParameter['access_control_source_ips'] = accessControlSourceIps;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);

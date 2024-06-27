@@ -183,6 +183,7 @@ export * from './model/QueryPreCheckResult';
 export * from './model/QuerySelectObjectInfoReq';
 export * from './model/QueryUserSelectedObjectInfoReq';
 export * from './model/ReplayConfigInfo';
+export * from './model/ReplayErrorClassification';
 export * from './model/ReplayErrorSqlResp';
 export * from './model/ReplayErrorSqlTemplateResp';
 export * from './model/ReplayShardStaticsResp';

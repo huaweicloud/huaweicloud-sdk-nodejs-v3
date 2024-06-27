@@ -3,9 +3,7 @@
 export class CreateFirewallReqTags {
     public key?: string;
     public value?: string;
-    public constructor(key?: string, value?: string) { 
-        this['key'] = key;
-        this['value'] = value;
+    public constructor() { 
     }
     public withKey(key: string): CreateFirewallReqTags {
         this['key'] = key;

@@ -1,13 +1,13 @@
-import { IdObject } from './IdObject';
+import { CommonResponseDTOData } from './CommonResponseDTOData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateServiceSetResponse extends SdkResponse {
-    public data?: IdObject;
+    public data?: CommonResponseDTOData;
     public constructor() { 
         super();
     }
-    public withData(data: IdObject): UpdateServiceSetResponse {
+    public withData(data: CommonResponseDTOData): UpdateServiceSetResponse {
         this['data'] = data;
         return this;
     }

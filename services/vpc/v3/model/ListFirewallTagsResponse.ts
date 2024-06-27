@@ -3,12 +3,13 @@ import { ListTag } from './ListTag';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFirewallTagsResponse extends SdkResponse {
-    public tags?: ListTag;
+    public tags?: Array<ListTag>;
     private 'request_id'?: string;
+    private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withTags(tags: ListTag): ListFirewallTagsResponse {
+    public withTags(tags: Array<ListTag>): ListFirewallTagsResponse {
         this['tags'] = tags;
         return this;
     }
@@ -21,5 +22,15 @@ export class ListFirewallTagsResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withTotalCount(totalCount: number): ListFirewallTagsResponse {
+        this['total_count'] = totalCount;
+        return this;
+    }
+    public set totalCount(totalCount: number  | undefined) {
+        this['total_count'] = totalCount;
+    }
+    public get totalCount(): number | undefined {
+        return this['total_count'];
     }
 }

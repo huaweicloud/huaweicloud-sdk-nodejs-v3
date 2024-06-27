@@ -31,6 +31,7 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     private 'policy_statement'?: Array<PolicyStatement>;
     private 'endpoint_pool_id'?: string;
     private 'public_border_group'?: string;
+    private 'ipv6_address'?: string;
     public constructor() { 
         super();
     }
@@ -245,5 +246,15 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     }
     public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
+    }
+    public withIpv6Address(ipv6Address: string): ListEndpointInfoDetailsResponse {
+        this['ipv6_address'] = ipv6Address;
+        return this;
+    }
+    public set ipv6Address(ipv6Address: string  | undefined) {
+        this['ipv6_address'] = ipv6Address;
+    }
+    public get ipv6Address(): string | undefined {
+        return this['ipv6_address'];
     }
 }

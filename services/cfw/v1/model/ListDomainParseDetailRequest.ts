@@ -5,7 +5,7 @@ export class ListDomainParseDetailRequest {
     private 'domain_name'?: string;
     private 'enterprise_project_id'?: string;
     private 'fw_instance_id'?: string;
-    private 'address_type'?: string;
+    private 'address_type'?: number;
     public constructor(projectId?: string, domainName?: string) { 
         this['project_id'] = projectId;
         this['domain_name'] = domainName;
@@ -50,14 +50,14 @@ export class ListDomainParseDetailRequest {
     public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withAddressType(addressType: string): ListDomainParseDetailRequest {
+    public withAddressType(addressType: number): ListDomainParseDetailRequest {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: string  | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType(): string | undefined {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
 }

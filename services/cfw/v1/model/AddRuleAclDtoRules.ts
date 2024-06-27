@@ -1,6 +1,5 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDtoForRequest } from './RuleAddressDtoForRequest';
-import { RuleProfileDto } from './RuleProfileDto';
 import { RuleServiceDto } from './RuleServiceDto';
 import { TagsVO } from './TagsVO';
 
@@ -20,7 +19,6 @@ export class AddRuleAclDtoRules {
     private 'long_connect_enable'?: AddRuleAclDtoRulesLongConnectEnableEnum | number;
     public description?: string;
     public direction?: AddRuleAclDtoRulesDirectionEnum | number;
-    public profile?: RuleProfileDto;
     public source?: RuleAddressDtoForRequest;
     public destination?: RuleAddressDtoForRequest;
     public service?: RuleServiceDto;
@@ -132,10 +130,6 @@ export class AddRuleAclDtoRules {
     }
     public withDirection(direction: AddRuleAclDtoRulesDirectionEnum | number): AddRuleAclDtoRules {
         this['direction'] = direction;
-        return this;
-    }
-    public withProfile(profile: RuleProfileDto): AddRuleAclDtoRules {
-        this['profile'] = profile;
         return this;
     }
     public withSource(source: RuleAddressDtoForRequest): AddRuleAclDtoRules {

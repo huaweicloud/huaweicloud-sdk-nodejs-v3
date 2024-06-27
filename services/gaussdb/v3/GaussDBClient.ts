@@ -21,10 +21,37 @@ import { CancelGaussMySqlInstanceEipResponse } from './model/CancelGaussMySqlIns
 import { CancelScheduleTask } from './model/CancelScheduleTask';
 import { CancelScheduleTaskRequest } from './model/CancelScheduleTaskRequest';
 import { CancelScheduleTaskResponse } from './model/CancelScheduleTaskResponse';
+import { ChDatabaseConfigCheckResult } from './model/ChDatabaseConfigCheckResult';
+import { ChDatabaseConfigResponse } from './model/ChDatabaseConfigResponse';
+import { ChDatabaseConfigsInfo } from './model/ChDatabaseConfigsInfo';
+import { ChDatabaseParameterInfo } from './model/ChDatabaseParameterInfo';
+import { ChDatabaseReplicationInfo } from './model/ChDatabaseReplicationInfo';
+import { ChDatabaseTableConfigCheckResult } from './model/ChDatabaseTableConfigCheckResult';
+import { ChDatabaseTableReplConfigInfo } from './model/ChDatabaseTableReplConfigInfo';
+import { ChDatabaseTablesConfigsInfo } from './model/ChDatabaseTablesConfigsInfo';
+import { ChEnlargeVolumeRequestBody } from './model/ChEnlargeVolumeRequestBody';
+import { ChInstanceLtsConfigs } from './model/ChInstanceLtsConfigs';
+import { ChInstanceLtsConfigsInstance } from './model/ChInstanceLtsConfigsInstance';
+import { ChInstancesInfoRsponseInstance } from './model/ChInstancesInfoRsponseInstance';
+import { ChInstancesInfoRsponseInstanceGroups } from './model/ChInstancesInfoRsponseInstanceGroups';
+import { ChInstancesInfoRsponseInstanceOpsWindow } from './model/ChInstancesInfoRsponseInstanceOpsWindow';
+import { ChInstancesInfoRsponseInstanceParamGroup } from './model/ChInstancesInfoRsponseInstanceParamGroup';
+import { ChInstancesInfoRsponseInstancePortInfo } from './model/ChInstancesInfoRsponseInstancePortInfo';
+import { ChLtsConfigs } from './model/ChLtsConfigs';
+import { ChQueryActionInfo } from './model/ChQueryActionInfo';
+import { ChSlowLogDetailResponseSlowLogList } from './model/ChSlowLogDetailResponseSlowLogList';
+import { ChSlowLogQueryRequestBody } from './model/ChSlowLogQueryRequestBody';
+import { ChSlowlogSensitiveResponse } from './model/ChSlowlogSensitiveResponse';
 import { ChangeGaussMySqlInstanceSpecificationRequest } from './model/ChangeGaussMySqlInstanceSpecificationRequest';
 import { ChangeGaussMySqlInstanceSpecificationResponse } from './model/ChangeGaussMySqlInstanceSpecificationResponse';
 import { ChangeGaussMySqlProxySpecificationRequest } from './model/ChangeGaussMySqlProxySpecificationRequest';
 import { ChangeGaussMySqlProxySpecificationResponse } from './model/ChangeGaussMySqlProxySpecificationResponse';
+import { CheckChDatabaseConfigRequestBody } from './model/CheckChDatabaseConfigRequestBody';
+import { CheckChDatabaseTableConfigRequestBody } from './model/CheckChDatabaseTableConfigRequestBody';
+import { CheckClickHouseDataBaseConfigRequest } from './model/CheckClickHouseDataBaseConfigRequest';
+import { CheckClickHouseDataBaseConfigResponse } from './model/CheckClickHouseDataBaseConfigResponse';
+import { CheckClickHouseTableConfigRequest } from './model/CheckClickHouseTableConfigRequest';
+import { CheckClickHouseTableConfigResponse } from './model/CheckClickHouseTableConfigResponse';
 import { CheckDataBaseConfigRequest } from './model/CheckDataBaseConfigRequest';
 import { CheckDataBaseConfigResponse } from './model/CheckDataBaseConfigResponse';
 import { CheckResourceInfo } from './model/CheckResourceInfo';
@@ -35,6 +62,15 @@ import { CheckStarRocksResourceRequest } from './model/CheckStarRocksResourceReq
 import { CheckStarRocksResourceResponse } from './model/CheckStarRocksResourceResponse';
 import { CheckTableConfigRequest } from './model/CheckTableConfigRequest';
 import { CheckTableConfigResponse } from './model/CheckTableConfigResponse';
+import { ClickHouseDatabaseUserInfo } from './model/ClickHouseDatabaseUserInfo';
+import { ClickHouseDatabaseUserPSinfo } from './model/ClickHouseDatabaseUserPSinfo';
+import { ClickHouseDatabaseUserPWinfo } from './model/ClickHouseDatabaseUserPWinfo';
+import { ClickHouseEngineInfo } from './model/ClickHouseEngineInfo';
+import { ClickHouseNodeInfo } from './model/ClickHouseNodeInfo';
+import { ClickHouseNodeInfoDatastore } from './model/ClickHouseNodeInfoDatastore';
+import { ClickHouseNodeInfoResponseBodyNodeList } from './model/ClickHouseNodeInfoResponseBodyNodeList';
+import { ClickHouseNodeInfoVolume } from './model/ClickHouseNodeInfoVolume';
+import { ClickHouseResizeFlavorRequestBody } from './model/ClickHouseResizeFlavorRequestBody';
 import { CloseMysqlProxyRequestBody } from './model/CloseMysqlProxyRequestBody';
 import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationSummary2 } from './model/ConfigurationSummary2';
@@ -47,6 +83,25 @@ import { CopyInstanceConfigurationsResponse } from './model/CopyInstanceConfigur
 import { CreateAccessControlRequest } from './model/CreateAccessControlRequest';
 import { CreateAccessControlRequestBody } from './model/CreateAccessControlRequestBody';
 import { CreateAccessControlResponse } from './model/CreateAccessControlResponse';
+import { CreateChDatabaseReplicationRequestBody } from './model/CreateChDatabaseReplicationRequestBody';
+import { CreateChInstanceInfo } from './model/CreateChInstanceInfo';
+import { CreateChInstanceInfoPayInfo } from './model/CreateChInstanceInfoPayInfo';
+import { CreateChInstanceInfoTagsInfo } from './model/CreateChInstanceInfoTagsInfo';
+import { CreateChInstanceInfoTagsInfoTags } from './model/CreateChInstanceInfoTagsInfoTags';
+import { CreateChInstanceRequestBody } from './model/CreateChInstanceRequestBody';
+import { CreateChInstanceRequestBodyHa } from './model/CreateChInstanceRequestBodyHa';
+import { CreateChInstanceRequestBodyPayInfo } from './model/CreateChInstanceRequestBodyPayInfo';
+import { CreateChInstanceRequestBodyTagsInfo } from './model/CreateChInstanceRequestBodyTagsInfo';
+import { CreateChInstanceRequestBodyTagsInfoSysTags } from './model/CreateChInstanceRequestBodyTagsInfoSysTags';
+import { CreateChInstanceRequestBodyVolume } from './model/CreateChInstanceRequestBodyVolume';
+import { CreateChLtsConfigRequestBody } from './model/CreateChLtsConfigRequestBody';
+import { CreateChLtsConfigRequestBodyLogConfigs } from './model/CreateChLtsConfigRequestBodyLogConfigs';
+import { CreateClickHouseDataBaseReplicationRequest } from './model/CreateClickHouseDataBaseReplicationRequest';
+import { CreateClickHouseDataBaseReplicationResponse } from './model/CreateClickHouseDataBaseReplicationResponse';
+import { CreateClickHouseDatabaseUserRequest } from './model/CreateClickHouseDatabaseUserRequest';
+import { CreateClickHouseDatabaseUserResponse } from './model/CreateClickHouseDatabaseUserResponse';
+import { CreateClickHouseInstanceRequest } from './model/CreateClickHouseInstanceRequest';
+import { CreateClickHouseInstanceResponse } from './model/CreateClickHouseInstanceResponse';
 import { CreateConfigurationRequestBody } from './model/CreateConfigurationRequestBody';
 import { CreateDatabaseList } from './model/CreateDatabaseList';
 import { CreateDatabaseUserList } from './model/CreateDatabaseUserList';
@@ -96,6 +151,18 @@ import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
 import { DedicatedResource } from './model/DedicatedResource';
 import { DedicatedResourceCapacity } from './model/DedicatedResourceCapacity';
 import { DedicatedStorageInfo } from './model/DedicatedStorageInfo';
+import { DeleteChLtsConfigRequestBody } from './model/DeleteChLtsConfigRequestBody';
+import { DeleteChLtsConfigRequestBodyLogConfigs } from './model/DeleteChLtsConfigRequestBodyLogConfigs';
+import { DeleteClickHouseDataBaseConfigRequest } from './model/DeleteClickHouseDataBaseConfigRequest';
+import { DeleteClickHouseDataBaseConfigResponse } from './model/DeleteClickHouseDataBaseConfigResponse';
+import { DeleteClickHouseDataBaseReplicationRequest } from './model/DeleteClickHouseDataBaseReplicationRequest';
+import { DeleteClickHouseDataBaseReplicationResponse } from './model/DeleteClickHouseDataBaseReplicationResponse';
+import { DeleteClickHouseDatabaseUserRequest } from './model/DeleteClickHouseDatabaseUserRequest';
+import { DeleteClickHouseDatabaseUserResponse } from './model/DeleteClickHouseDatabaseUserResponse';
+import { DeleteClickHouseInstanceRequest } from './model/DeleteClickHouseInstanceRequest';
+import { DeleteClickHouseInstanceResponse } from './model/DeleteClickHouseInstanceResponse';
+import { DeleteClickHouseLtsConfigRequest } from './model/DeleteClickHouseLtsConfigRequest';
+import { DeleteClickHouseLtsConfigResponse } from './model/DeleteClickHouseLtsConfigResponse';
 import { DeleteDatabasePermission } from './model/DeleteDatabasePermission';
 import { DeleteDatabasePermissionRequest } from './model/DeleteDatabasePermissionRequest';
 import { DeleteDatabasePermissionRequestBody } from './model/DeleteDatabasePermissionRequestBody';
@@ -171,6 +238,18 @@ import { InvokeGaussMySqlInstanceSwitchOverResponse } from './model/InvokeGaussM
 import { IpGroupItem } from './model/IpGroupItem';
 import { ListAuditLogDownloadLinkRequest } from './model/ListAuditLogDownloadLinkRequest';
 import { ListAuditLogDownloadLinkResponse } from './model/ListAuditLogDownloadLinkResponse';
+import { ListClickHouseDataBaseParameterRequest } from './model/ListClickHouseDataBaseParameterRequest';
+import { ListClickHouseDataBaseParameterResponse } from './model/ListClickHouseDataBaseParameterResponse';
+import { ListClickHouseDataBaseReplicationConfigRequest } from './model/ListClickHouseDataBaseReplicationConfigRequest';
+import { ListClickHouseDataBaseReplicationConfigResponse } from './model/ListClickHouseDataBaseReplicationConfigResponse';
+import { ListClickHouseDataBaseReplicationRequest } from './model/ListClickHouseDataBaseReplicationRequest';
+import { ListClickHouseDataBaseReplicationResponse } from './model/ListClickHouseDataBaseReplicationResponse';
+import { ListClickHouseDataBaseRequest } from './model/ListClickHouseDataBaseRequest';
+import { ListClickHouseDataBaseResponse } from './model/ListClickHouseDataBaseResponse';
+import { ListClickHouseInstanceNodeRequest } from './model/ListClickHouseInstanceNodeRequest';
+import { ListClickHouseInstanceNodeResponse } from './model/ListClickHouseInstanceNodeResponse';
+import { ListClickHouseInstanceRequest } from './model/ListClickHouseInstanceRequest';
+import { ListClickHouseInstanceResponse } from './model/ListClickHouseInstanceResponse';
 import { ListConfigurationsDifferencesRequest } from './model/ListConfigurationsDifferencesRequest';
 import { ListConfigurationsDifferencesRequestBody } from './model/ListConfigurationsDifferencesRequestBody';
 import { ListConfigurationsDifferencesResponse } from './model/ListConfigurationsDifferencesResponse';
@@ -318,6 +397,9 @@ import { ParamGroupHistoryResponse } from './model/ParamGroupHistoryResponse';
 import { ParamGroupParameterDifferences } from './model/ParamGroupParameterDifferences';
 import { ParameterConfigurationInfo } from './model/ParameterConfigurationInfo';
 import { ParameterValuesInfo } from './model/ParameterValuesInfo';
+import { PauseStarRocksDataReplication } from './model/PauseStarRocksDataReplication';
+import { PauseStarRocksDataReplicationRequest } from './model/PauseStarRocksDataReplicationRequest';
+import { PauseStarRocksDataReplicationResponse } from './model/PauseStarRocksDataReplicationResponse';
 import { ProjectQuotas } from './model/ProjectQuotas';
 import { ProjectTagItem } from './model/ProjectTagItem';
 import { ProxyConfiguration } from './model/ProxyConfiguration';
@@ -330,6 +412,8 @@ import { ProxyUpgradeVersionDetail } from './model/ProxyUpgradeVersionDetail';
 import { QueryAction } from './model/QueryAction';
 import { Quota } from './model/Quota';
 import { ReadableNodeInfos } from './model/ReadableNodeInfos';
+import { RebootClickHouseInstanceRequest } from './model/RebootClickHouseInstanceRequest';
+import { RebootClickHouseInstanceResponse } from './model/RebootClickHouseInstanceResponse';
 import { RecycleInstanceV3 } from './model/RecycleInstanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RenameInstanceNodeRequest } from './model/RenameInstanceNodeRequest';
@@ -341,6 +425,10 @@ import { ResetGaussMySqlDatabasePasswordRequest } from './model/ResetGaussMySqlD
 import { ResetGaussMySqlDatabasePasswordResponse } from './model/ResetGaussMySqlDatabasePasswordResponse';
 import { ResetGaussMySqlPasswordRequest } from './model/ResetGaussMySqlPasswordRequest';
 import { ResetGaussMySqlPasswordResponse } from './model/ResetGaussMySqlPasswordResponse';
+import { ResizeClickHouseFlavorRequest } from './model/ResizeClickHouseFlavorRequest';
+import { ResizeClickHouseFlavorResponse } from './model/ResizeClickHouseFlavorResponse';
+import { ResizeClickHouseInstanceRequest } from './model/ResizeClickHouseInstanceRequest';
+import { ResizeClickHouseInstanceResponse } from './model/ResizeClickHouseInstanceResponse';
 import { Resource } from './model/Resource';
 import { ResourceCheck } from './model/ResourceCheck';
 import { ResourceCheckResource } from './model/ResourceCheckResource';
@@ -362,6 +450,9 @@ import { RestoreOldInstanceRequest } from './model/RestoreOldInstanceRequest';
 import { RestoreOldInstanceResponse } from './model/RestoreOldInstanceResponse';
 import { RestoreRequest } from './model/RestoreRequest';
 import { RestoreTimeInfo } from './model/RestoreTimeInfo';
+import { ResumeStarRocksDataReplication } from './model/ResumeStarRocksDataReplication';
+import { ResumeStarRocksDataReplicationRequest } from './model/ResumeStarRocksDataReplicationRequest';
+import { ResumeStarRocksDataReplicationResponse } from './model/ResumeStarRocksDataReplicationResponse';
 import { ScalingStrategyInfo } from './model/ScalingStrategyInfo';
 import { ScalingStrategyReqInfo } from './model/ScalingStrategyReqInfo';
 import { ScheduleTask } from './model/ScheduleTask';
@@ -384,6 +475,15 @@ import { ShowAutoScalingPolicyRequest } from './model/ShowAutoScalingPolicyReque
 import { ShowAutoScalingPolicyResponse } from './model/ShowAutoScalingPolicyResponse';
 import { ShowBackupRestoreTimeRequest } from './model/ShowBackupRestoreTimeRequest';
 import { ShowBackupRestoreTimeResponse } from './model/ShowBackupRestoreTimeResponse';
+import { ShowClickHouseDatabaseUserRequest } from './model/ShowClickHouseDatabaseUserRequest';
+import { ShowClickHouseDatabaseUserResponse } from './model/ShowClickHouseDatabaseUserResponse';
+import { ShowClickHouseDatabaseUsersUserDetails } from './model/ShowClickHouseDatabaseUsersUserDetails';
+import { ShowClickHouseLtsConfigRequest } from './model/ShowClickHouseLtsConfigRequest';
+import { ShowClickHouseLtsConfigResponse } from './model/ShowClickHouseLtsConfigResponse';
+import { ShowClickHouseSlowLogDetailRequest } from './model/ShowClickHouseSlowLogDetailRequest';
+import { ShowClickHouseSlowLogDetailResponse } from './model/ShowClickHouseSlowLogDetailResponse';
+import { ShowClickHouseSlowLogSensitiveStatusRequest } from './model/ShowClickHouseSlowLogSensitiveStatusRequest';
+import { ShowClickHouseSlowLogSensitiveStatusResponse } from './model/ShowClickHouseSlowLogSensitiveStatusResponse';
 import { ShowDedicatedResourceInfoRequest } from './model/ShowDedicatedResourceInfoRequest';
 import { ShowDedicatedResourceInfoResponse } from './model/ShowDedicatedResourceInfoResponse';
 import { ShowGaussMySqlBackupListRequest } from './model/ShowGaussMySqlBackupListRequest';
@@ -454,7 +554,6 @@ import { SrCreateInstanceRspInstanceEngine } from './model/SrCreateInstanceRspIn
 import { SrCreateInstanceRspInstancePayInfo } from './model/SrCreateInstanceRspInstancePayInfo';
 import { SrCreateInstanceRspInstanceTagsInfo } from './model/SrCreateInstanceRspInstanceTagsInfo';
 import { SrCreateInstanceRspInstanceTagsInfoSysTags } from './model/SrCreateInstanceRspInstanceTagsInfoSysTags';
-import { SrCreateInstanceRspInstanceTagsInfoTags } from './model/SrCreateInstanceRspInstanceTagsInfoTags';
 import { SrDataStoresDatastores } from './model/SrDataStoresDatastores';
 import { StarRocksCreateRequest } from './model/StarRocksCreateRequest';
 import { StarRocksCreateRequestBeVolume } from './model/StarRocksCreateRequestBeVolume';
@@ -509,6 +608,17 @@ import { UpdateBackupOffsitePolicyInfo } from './model/UpdateBackupOffsitePolicy
 import { UpdateBackupOffsitePolicyRequest } from './model/UpdateBackupOffsitePolicyRequest';
 import { UpdateBackupOffsitePolicyRequestBody } from './model/UpdateBackupOffsitePolicyRequestBody';
 import { UpdateBackupOffsitePolicyResponse } from './model/UpdateBackupOffsitePolicyResponse';
+import { UpdateChDatabaseConfigRequestBody } from './model/UpdateChDatabaseConfigRequestBody';
+import { UpdateClickHouseDataBaseConfigRequest } from './model/UpdateClickHouseDataBaseConfigRequest';
+import { UpdateClickHouseDataBaseConfigResponse } from './model/UpdateClickHouseDataBaseConfigResponse';
+import { UpdateClickHouseDatabaseUserPasswordRequest } from './model/UpdateClickHouseDatabaseUserPasswordRequest';
+import { UpdateClickHouseDatabaseUserPasswordResponse } from './model/UpdateClickHouseDatabaseUserPasswordResponse';
+import { UpdateClickHouseDatabaseUserPermissionRequest } from './model/UpdateClickHouseDatabaseUserPermissionRequest';
+import { UpdateClickHouseDatabaseUserPermissionResponse } from './model/UpdateClickHouseDatabaseUserPermissionResponse';
+import { UpdateClickHouseLtsConfigRequest } from './model/UpdateClickHouseLtsConfigRequest';
+import { UpdateClickHouseLtsConfigResponse } from './model/UpdateClickHouseLtsConfigResponse';
+import { UpdateClickHouseSlowLogSensitiveStatusRequest } from './model/UpdateClickHouseSlowLogSensitiveStatusRequest';
+import { UpdateClickHouseSlowLogSensitiveStatusResponse } from './model/UpdateClickHouseSlowLogSensitiveStatusResponse';
 import { UpdateConfigurationParameterRequestBody } from './model/UpdateConfigurationParameterRequestBody';
 import { UpdateDatabaseComment } from './model/UpdateDatabaseComment';
 import { UpdateDatabaseCommentRequest } from './model/UpdateDatabaseCommentRequest';
@@ -3477,6 +3587,48 @@ export class GaussDBClient {
     }
 
     /**
+     * 数据同步库配置校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据同步库配置校验
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {CheckChDatabaseConfigRequestBody} checkClickHouseDataBaseConfigRequestBody 库配置校验请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkClickHouseDataBaseConfig(checkClickHouseDataBaseConfigRequest?: CheckClickHouseDataBaseConfigRequest): Promise<CheckClickHouseDataBaseConfigResponse> {
+        const options = ParamCreater().checkClickHouseDataBaseConfig(checkClickHouseDataBaseConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据同步表配置校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据同步表配置校验
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {CheckChDatabaseTableConfigRequestBody} checkClickHouseTableConfigRequestBody 表配置校验请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkClickHouseTableConfig(checkClickHouseTableConfigRequest?: CheckClickHouseTableConfigRequest): Promise<CheckClickHouseTableConfigResponse> {
+        const options = ParamCreater().checkClickHouseTableConfig(checkClickHouseTableConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * HTAP数据同步库配置校验。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3531,6 +3683,69 @@ export class GaussDBClient {
      */
     public checkTableConfig(checkTableConfigRequest?: CheckTableConfigRequest): Promise<CheckTableConfigResponse> {
         const options = ParamCreater().checkTableConfig(checkTableConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据同步
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {CreateChDatabaseReplicationRequestBody} createClickHouseDataBaseReplicationRequestBody 创建ClickHouse数据同步请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClickHouseDataBaseReplication(createClickHouseDataBaseReplicationRequest?: CreateClickHouseDataBaseReplicationRequest): Promise<CreateClickHouseDataBaseReplicationResponse> {
+        const options = ParamCreater().createClickHouseDataBaseReplication(createClickHouseDataBaseReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据库账号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据库账号
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ClickHouseDatabaseUserInfo} createClickHouseDatabaseUserRequestBody 创建数据库账号请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClickHouseDatabaseUser(createClickHouseDatabaseUserRequest?: CreateClickHouseDatabaseUserRequest): Promise<CreateClickHouseDatabaseUserResponse> {
+        const options = ParamCreater().createClickHouseDatabaseUser(createClickHouseDatabaseUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建实例
+     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {CreateChInstanceRequestBody} createClickHouseInstanceRequestBody 创建实例请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClickHouseInstance(createClickHouseInstanceRequest?: CreateClickHouseInstanceRequest): Promise<CreateClickHouseInstanceResponse> {
+        const options = ParamCreater().createClickHouseInstance(createClickHouseInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3602,6 +3817,110 @@ export class GaussDBClient {
     }
 
     /**
+     * 停止修改数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止修改数据同步
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} database 数据库名。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClickHouseDataBaseConfig(deleteClickHouseDataBaseConfigRequest?: DeleteClickHouseDataBaseConfigRequest): Promise<DeleteClickHouseDataBaseConfigResponse> {
+        const options = ParamCreater().deleteClickHouseDataBaseConfig(deleteClickHouseDataBaseConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据同步
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} databaseName 数据库名。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClickHouseDataBaseReplication(deleteClickHouseDataBaseReplicationRequest?: DeleteClickHouseDataBaseReplicationRequest): Promise<DeleteClickHouseDataBaseReplicationResponse> {
+        const options = ParamCreater().deleteClickHouseDataBaseReplication(deleteClickHouseDataBaseReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据库账户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据库账户
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} userName 数据库名称。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClickHouseDatabaseUser(deleteClickHouseDatabaseUserRequest?: DeleteClickHouseDatabaseUserRequest): Promise<DeleteClickHouseDatabaseUserResponse> {
+        const options = ParamCreater().deleteClickHouseDatabaseUser(deleteClickHouseDatabaseUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例
+     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {string} clickhouseInstanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClickHouseInstance(deleteClickHouseInstanceRequest?: DeleteClickHouseInstanceRequest): Promise<DeleteClickHouseInstanceResponse> {
+        const options = ParamCreater().deleteClickHouseInstance(deleteClickHouseInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量解除LTS日志配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量解除LTS日志配置
+     * @param {DeleteChLtsConfigRequestBody} deleteClickHouseLtsConfigRequestBody 批量解除LTS日志配置请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClickHouseLtsConfig(deleteClickHouseLtsConfigRequest?: DeleteClickHouseLtsConfigRequest): Promise<DeleteClickHouseLtsConfigResponse> {
+        const options = ParamCreater().deleteClickHouseLtsConfig(deleteClickHouseLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除StarRocks数据同步。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3657,6 +3976,133 @@ export class GaussDBClient {
      */
     public deleteStarrocksInstance(deleteStarrocksInstanceRequest?: DeleteStarrocksInstanceRequest): Promise<DeleteStarrocksInstanceResponse> {
         const options = ParamCreater().deleteStarrocksInstance(deleteStarrocksInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库列表
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {number} [limit] 查询记录数，默认10。不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量，默认0。从第一条数据偏移offset条数据后开始查询（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [databaseName] 数据库名。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseDataBase(listClickHouseDataBaseRequest?: ListClickHouseDataBaseRequest): Promise<ListClickHouseDataBaseResponse> {
+        const options = ParamCreater().listClickHouseDataBase(listClickHouseDataBaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据同步的库参数配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据同步的库参数配置
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseDataBaseParameter(listClickHouseDataBaseParameterRequest?: ListClickHouseDataBaseParameterRequest): Promise<ListClickHouseDataBaseParameterResponse> {
+        const options = ParamCreater().listClickHouseDataBaseParameter(listClickHouseDataBaseParameterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据同步信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据同步信息
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {number} [limit] 查询记录数，默认10。不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量，默认0。从第一条数据偏移offset条数据后开始查询（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseDataBaseReplication(listClickHouseDataBaseReplicationRequest?: ListClickHouseDataBaseReplicationRequest): Promise<ListClickHouseDataBaseReplicationResponse> {
+        const options = ParamCreater().listClickHouseDataBaseReplication(listClickHouseDataBaseReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看数据同步配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看数据同步配置
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} databaseName 数据库名。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseDataBaseReplicationConfig(listClickHouseDataBaseReplicationConfigRequest?: ListClickHouseDataBaseReplicationConfigRequest): Promise<ListClickHouseDataBaseReplicationConfigResponse> {
+        const options = ParamCreater().listClickHouseDataBaseReplicationConfig(listClickHouseDataBaseReplicationConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例详情
+     * @param {string} instanceId GaussDB(for MySQL)实例ID，严格匹配UUID规则。
+     * @param {string} clickhouseInstanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseInstance(listClickHouseInstanceRequest?: ListClickHouseInstanceRequest): Promise<ListClickHouseInstanceResponse> {
+        const options = ParamCreater().listClickHouseInstance(listClickHouseInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询错误日志、慢日志节点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询错误日志、慢日志节点信息
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClickHouseInstanceNode(listClickHouseInstanceNodeRequest?: ListClickHouseInstanceNodeRequest): Promise<ListClickHouseInstanceNodeResponse> {
+        const options = ParamCreater().listClickHouseInstanceNode(listClickHouseInstanceNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3856,6 +4302,89 @@ export class GaussDBClient {
     }
 
     /**
+     * 暂停StarRocks数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 暂停StarRocks数据同步
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {PauseStarRocksDataReplication} pauseStarRocksDataReplicationRequestBody 暂停数据同步任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseStarRocksDataReplication(pauseStarRocksDataReplicationRequest?: PauseStarRocksDataReplicationRequest): Promise<PauseStarRocksDataReplicationResponse> {
+        const options = ParamCreater().pauseStarRocksDataReplication(pauseStarRocksDataReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启实例
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rebootClickHouseInstance(rebootClickHouseInstanceRequest?: RebootClickHouseInstanceRequest): Promise<RebootClickHouseInstanceResponse> {
+        const options = ParamCreater().rebootClickHouseInstance(rebootClickHouseInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 实例规格变更。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例规格变更
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ClickHouseResizeFlavorRequestBody} resizeClickHouseFlavorRequestBody 规格变更请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeClickHouseFlavor(resizeClickHouseFlavorRequest?: ResizeClickHouseFlavorRequest): Promise<ResizeClickHouseFlavorResponse> {
+        const options = ParamCreater().resizeClickHouseFlavor(resizeClickHouseFlavorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 实例磁盘扩容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例磁盘扩容
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ChEnlargeVolumeRequestBody} resizeClickHouseInstanceRequestBody 磁盘扩容请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeClickHouseInstance(resizeClickHouseInstanceRequest?: ResizeClickHouseInstanceRequest): Promise<ResizeClickHouseInstanceResponse> {
+        const options = ParamCreater().resizeClickHouseInstance(resizeClickHouseInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重启StarRocks实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3897,6 +4426,115 @@ export class GaussDBClient {
     }
 
     /**
+     * 恢复StarRocks数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复StarRocks数据同步
+     * @param {string} instanceId StarRocks实例ID，严格匹配UUID规则。
+     * @param {string} xLanguage 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {ResumeStarRocksDataReplication} resumeStarRocksDataReplicationRequestBody 恢复数据同步任务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumeStarRocksDataReplication(resumeStarRocksDataReplicationRequest?: ResumeStarRocksDataReplicationRequest): Promise<ResumeStarRocksDataReplicationResponse> {
+        const options = ParamCreater().resumeStarRocksDataReplication(resumeStarRocksDataReplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库账户。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库账户
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {number} [limit] 查询记录数，默认10。不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量。默认0。从第一条数据偏移offset条数据后开始查询（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {string} [userName] 数据库账户。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClickHouseDatabaseUser(showClickHouseDatabaseUserRequest?: ShowClickHouseDatabaseUserRequest): Promise<ShowClickHouseDatabaseUserResponse> {
+        const options = ParamCreater().showClickHouseDatabaseUser(showClickHouseDatabaseUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例LTS日志配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例LTS日志配置列表
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {string} [instanceId] ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [enterpriseProjectId] 企业项目id。
+     * @param {string} [instanceName] 实例名称。
+     * @param {number} [limit] 查询记录数，默认10。不能为负数，最小值为1，最大值为100。
+     * @param {number} [offset] 索引位置，偏移量，默认0。从第一条数据偏移offset条数据后开始查询（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClickHouseLtsConfig(showClickHouseLtsConfigRequest?: ShowClickHouseLtsConfigRequest): Promise<ShowClickHouseLtsConfigResponse> {
+        const options = ParamCreater().showClickHouseLtsConfig(showClickHouseLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取内核慢日志信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询慢日志
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ChSlowLogQueryRequestBody} showClickHouseSlowLogDetailRequestBody 获取慢日志请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClickHouseSlowLogDetail(showClickHouseSlowLogDetailRequest?: ShowClickHouseSlowLogDetailRequest): Promise<ShowClickHouseSlowLogDetailResponse> {
+        const options = ParamCreater().showClickHouseSlowLogDetail(showClickHouseSlowLogDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询慢日志脱敏状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询慢日志脱敏状态
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClickHouseSlowLogSensitiveStatus(showClickHouseSlowLogSensitiveStatusRequest?: ShowClickHouseSlowLogSensitiveStatusRequest): Promise<ShowClickHouseSlowLogSensitiveStatusResponse> {
+        const options = ParamCreater().showClickHouseSlowLogSensitiveStatus(showClickHouseSlowLogSensitiveStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询StarRocks数据库账户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3912,6 +4550,110 @@ export class GaussDBClient {
      */
     public showStarRocksDatabaseUser(showStarRocksDatabaseUserRequest?: ShowStarRocksDatabaseUserRequest): Promise<ShowStarRocksDatabaseUserResponse> {
         const options = ParamCreater().showStarRocksDatabaseUser(showStarRocksDatabaseUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据同步。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据同步
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {UpdateChDatabaseConfigRequestBody} updateClickHouseDataBaseConfigRequestBody 修改数据同步请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClickHouseDataBaseConfig(updateClickHouseDataBaseConfigRequest?: UpdateClickHouseDataBaseConfigRequest): Promise<UpdateClickHouseDataBaseConfigResponse> {
+        const options = ParamCreater().updateClickHouseDataBaseConfig(updateClickHouseDataBaseConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据库账号密码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据库账号密码
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ClickHouseDatabaseUserPWinfo} updateClickHouseDatabaseUserPasswordRequestBody 修改数据库账号密码请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClickHouseDatabaseUserPassword(updateClickHouseDatabaseUserPasswordRequest?: UpdateClickHouseDatabaseUserPasswordRequest): Promise<UpdateClickHouseDatabaseUserPasswordResponse> {
+        const options = ParamCreater().updateClickHouseDatabaseUserPassword(updateClickHouseDatabaseUserPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据库账号权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据库账号权限
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ClickHouseDatabaseUserPSinfo} updateClickHouseDatabaseUserPermissionRequestBody 修改数据库账号权限请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClickHouseDatabaseUserPermission(updateClickHouseDatabaseUserPermissionRequest?: UpdateClickHouseDatabaseUserPermissionRequest): Promise<UpdateClickHouseDatabaseUserPermissionResponse> {
+        const options = ParamCreater().updateClickHouseDatabaseUserPermission(updateClickHouseDatabaseUserPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建LTS日志配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建LTS日志配置
+     * @param {CreateChLtsConfigRequestBody} updateClickHouseLtsConfigRequestBody 批量创建LTS日志配置请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClickHouseLtsConfig(updateClickHouseLtsConfigRequest?: UpdateClickHouseLtsConfigRequest): Promise<UpdateClickHouseLtsConfigResponse> {
+        const options = ParamCreater().updateClickHouseLtsConfig(updateClickHouseLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改慢日志脱敏状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改慢日志脱敏状态
+     * @param {string} instanceId ClickHouse实例ID，严格匹配UUID规则。
+     * @param {ChSlowlogSensitiveResponse} updateClickHouseSlowLogSensitiveStatusRequestBody 修改慢日志脱敏状态请求体。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClickHouseSlowLogSensitiveStatus(updateClickHouseSlowLogSensitiveStatusRequest?: UpdateClickHouseSlowLogSensitiveStatusRequest): Promise<UpdateClickHouseSlowLogSensitiveStatusResponse> {
+        const options = ParamCreater().updateClickHouseSlowLogSensitiveStatus(updateClickHouseSlowLogSensitiveStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11443,6 +12185,112 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 数据同步库配置校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkClickHouseDataBaseConfig(checkClickHouseDataBaseConfigRequest?: CheckClickHouseDataBaseConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication/database-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (checkClickHouseDataBaseConfigRequest !== null && checkClickHouseDataBaseConfigRequest !== undefined) {
+                if (checkClickHouseDataBaseConfigRequest instanceof CheckClickHouseDataBaseConfigRequest) {
+                    instanceId = checkClickHouseDataBaseConfigRequest.instanceId;
+                    body = checkClickHouseDataBaseConfigRequest.body
+                    xLanguage = checkClickHouseDataBaseConfigRequest.xLanguage;
+                } else {
+                    instanceId = checkClickHouseDataBaseConfigRequest['instance_id'];
+                    body = checkClickHouseDataBaseConfigRequest['body'];
+                    xLanguage = checkClickHouseDataBaseConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkClickHouseDataBaseConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据同步表配置校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkClickHouseTableConfig(checkClickHouseTableConfigRequest?: CheckClickHouseTableConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication/table-check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (checkClickHouseTableConfigRequest !== null && checkClickHouseTableConfigRequest !== undefined) {
+                if (checkClickHouseTableConfigRequest instanceof CheckClickHouseTableConfigRequest) {
+                    instanceId = checkClickHouseTableConfigRequest.instanceId;
+                    body = checkClickHouseTableConfigRequest.body
+                    xLanguage = checkClickHouseTableConfigRequest.xLanguage;
+                } else {
+                    instanceId = checkClickHouseTableConfigRequest['instance_id'];
+                    body = checkClickHouseTableConfigRequest['body'];
+                    xLanguage = checkClickHouseTableConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkClickHouseTableConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * HTAP数据同步库配置校验。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11578,6 +12426,165 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkTableConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClickHouseDataBaseReplication(createClickHouseDataBaseReplicationRequest?: CreateClickHouseDataBaseReplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createClickHouseDataBaseReplicationRequest !== null && createClickHouseDataBaseReplicationRequest !== undefined) {
+                if (createClickHouseDataBaseReplicationRequest instanceof CreateClickHouseDataBaseReplicationRequest) {
+                    instanceId = createClickHouseDataBaseReplicationRequest.instanceId;
+                    body = createClickHouseDataBaseReplicationRequest.body
+                    xLanguage = createClickHouseDataBaseReplicationRequest.xLanguage;
+                } else {
+                    instanceId = createClickHouseDataBaseReplicationRequest['instance_id'];
+                    body = createClickHouseDataBaseReplicationRequest['body'];
+                    xLanguage = createClickHouseDataBaseReplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createClickHouseDataBaseReplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据库账号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClickHouseDatabaseUser(createClickHouseDatabaseUserRequest?: CreateClickHouseDatabaseUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/users",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createClickHouseDatabaseUserRequest !== null && createClickHouseDatabaseUserRequest !== undefined) {
+                if (createClickHouseDatabaseUserRequest instanceof CreateClickHouseDatabaseUserRequest) {
+                    instanceId = createClickHouseDatabaseUserRequest.instanceId;
+                    body = createClickHouseDatabaseUserRequest.body
+                    xLanguage = createClickHouseDatabaseUserRequest.xLanguage;
+                } else {
+                    instanceId = createClickHouseDatabaseUserRequest['instance_id'];
+                    body = createClickHouseDatabaseUserRequest['body'];
+                    xLanguage = createClickHouseDatabaseUserRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createClickHouseDatabaseUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClickHouseInstance(createClickHouseInstanceRequest?: CreateClickHouseInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createClickHouseInstanceRequest !== null && createClickHouseInstanceRequest !== undefined) {
+                if (createClickHouseInstanceRequest instanceof CreateClickHouseInstanceRequest) {
+                    instanceId = createClickHouseInstanceRequest.instanceId;
+                    body = createClickHouseInstanceRequest.body
+                    xLanguage = createClickHouseInstanceRequest.xLanguage;
+                } else {
+                    instanceId = createClickHouseInstanceRequest['instance_id'];
+                    body = createClickHouseInstanceRequest['body'];
+                    xLanguage = createClickHouseInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createClickHouseInstance.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -11753,6 +12760,259 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 停止修改数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClickHouseDataBaseConfig(deleteClickHouseDataBaseConfigRequest?: DeleteClickHouseDataBaseConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/databases/replication/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let database;
+            
+            let xLanguage;
+
+            if (deleteClickHouseDataBaseConfigRequest !== null && deleteClickHouseDataBaseConfigRequest !== undefined) {
+                if (deleteClickHouseDataBaseConfigRequest instanceof DeleteClickHouseDataBaseConfigRequest) {
+                    instanceId = deleteClickHouseDataBaseConfigRequest.instanceId;
+                    database = deleteClickHouseDataBaseConfigRequest.database;
+                    xLanguage = deleteClickHouseDataBaseConfigRequest.xLanguage;
+                } else {
+                    instanceId = deleteClickHouseDataBaseConfigRequest['instance_id'];
+                    database = deleteClickHouseDataBaseConfigRequest['database'];
+                    xLanguage = deleteClickHouseDataBaseConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteClickHouseDataBaseConfig.');
+            }
+            if (database === null || database === undefined) {
+                throw new RequiredError('database','Required parameter database was null or undefined when calling deleteClickHouseDataBaseConfig.');
+            }
+            if (database !== null && database !== undefined) {
+                localVarQueryParameter['database'] = database;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClickHouseDataBaseReplication(deleteClickHouseDataBaseReplicationRequest?: DeleteClickHouseDataBaseReplicationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication/{database_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let databaseName;
+            
+            let xLanguage;
+
+            if (deleteClickHouseDataBaseReplicationRequest !== null && deleteClickHouseDataBaseReplicationRequest !== undefined) {
+                if (deleteClickHouseDataBaseReplicationRequest instanceof DeleteClickHouseDataBaseReplicationRequest) {
+                    instanceId = deleteClickHouseDataBaseReplicationRequest.instanceId;
+                    databaseName = deleteClickHouseDataBaseReplicationRequest.databaseName;
+                    xLanguage = deleteClickHouseDataBaseReplicationRequest.xLanguage;
+                } else {
+                    instanceId = deleteClickHouseDataBaseReplicationRequest['instance_id'];
+                    databaseName = deleteClickHouseDataBaseReplicationRequest['database_name'];
+                    xLanguage = deleteClickHouseDataBaseReplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteClickHouseDataBaseReplication.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling deleteClickHouseDataBaseReplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据库账户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClickHouseDatabaseUser(deleteClickHouseDatabaseUserRequest?: DeleteClickHouseDatabaseUserRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/users/{user_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let userName;
+            
+            let xLanguage;
+
+            if (deleteClickHouseDatabaseUserRequest !== null && deleteClickHouseDatabaseUserRequest !== undefined) {
+                if (deleteClickHouseDatabaseUserRequest instanceof DeleteClickHouseDatabaseUserRequest) {
+                    instanceId = deleteClickHouseDatabaseUserRequest.instanceId;
+                    userName = deleteClickHouseDatabaseUserRequest.userName;
+                    xLanguage = deleteClickHouseDatabaseUserRequest.xLanguage;
+                } else {
+                    instanceId = deleteClickHouseDatabaseUserRequest['instance_id'];
+                    userName = deleteClickHouseDatabaseUserRequest['user_name'];
+                    xLanguage = deleteClickHouseDatabaseUserRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteClickHouseDatabaseUser.');
+            }
+            if (userName === null || userName === undefined) {
+            throw new RequiredError('userName','Required parameter userName was null or undefined when calling deleteClickHouseDatabaseUser.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClickHouseInstance(deleteClickHouseInstanceRequest?: DeleteClickHouseInstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/{clickhouse_instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let clickhouseInstanceId;
+            
+            let xLanguage;
+
+            if (deleteClickHouseInstanceRequest !== null && deleteClickHouseInstanceRequest !== undefined) {
+                if (deleteClickHouseInstanceRequest instanceof DeleteClickHouseInstanceRequest) {
+                    instanceId = deleteClickHouseInstanceRequest.instanceId;
+                    clickhouseInstanceId = deleteClickHouseInstanceRequest.clickhouseInstanceId;
+                    xLanguage = deleteClickHouseInstanceRequest.xLanguage;
+                } else {
+                    instanceId = deleteClickHouseInstanceRequest['instance_id'];
+                    clickhouseInstanceId = deleteClickHouseInstanceRequest['clickhouse_instance_id'];
+                    xLanguage = deleteClickHouseInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteClickHouseInstance.');
+            }
+            if (clickhouseInstanceId === null || clickhouseInstanceId === undefined) {
+            throw new RequiredError('clickhouseInstanceId','Required parameter clickhouseInstanceId was null or undefined when calling deleteClickHouseInstance.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'clickhouse_instance_id': clickhouseInstanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量解除LTS日志配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClickHouseLtsConfig(deleteClickHouseLtsConfigRequest?: DeleteClickHouseLtsConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/clickhouse/instances/logs/lts-configs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteClickHouseLtsConfigRequest !== null && deleteClickHouseLtsConfigRequest !== undefined) {
+                if (deleteClickHouseLtsConfigRequest instanceof DeleteClickHouseLtsConfigRequest) {
+                    body = deleteClickHouseLtsConfigRequest.body
+                    xLanguage = deleteClickHouseLtsConfigRequest.xLanguage;
+                } else {
+                    body = deleteClickHouseLtsConfigRequest['body'];
+                    xLanguage = deleteClickHouseLtsConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除StarRocks数据同步。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11907,6 +13167,325 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'starrocks_instance_id': starrocksInstanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseDataBase(listClickHouseDataBaseRequest?: ListClickHouseDataBaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/databases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let databaseName;
+            
+            let xLanguage;
+
+            if (listClickHouseDataBaseRequest !== null && listClickHouseDataBaseRequest !== undefined) {
+                if (listClickHouseDataBaseRequest instanceof ListClickHouseDataBaseRequest) {
+                    instanceId = listClickHouseDataBaseRequest.instanceId;
+                    limit = listClickHouseDataBaseRequest.limit;
+                    offset = listClickHouseDataBaseRequest.offset;
+                    databaseName = listClickHouseDataBaseRequest.databaseName;
+                    xLanguage = listClickHouseDataBaseRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseDataBaseRequest['instance_id'];
+                    limit = listClickHouseDataBaseRequest['limit'];
+                    offset = listClickHouseDataBaseRequest['offset'];
+                    databaseName = listClickHouseDataBaseRequest['database_name'];
+                    xLanguage = listClickHouseDataBaseRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseDataBase.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据同步的库参数配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseDataBaseParameter(listClickHouseDataBaseParameterRequest?: ListClickHouseDataBaseParameterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication/database-parameter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listClickHouseDataBaseParameterRequest !== null && listClickHouseDataBaseParameterRequest !== undefined) {
+                if (listClickHouseDataBaseParameterRequest instanceof ListClickHouseDataBaseParameterRequest) {
+                    instanceId = listClickHouseDataBaseParameterRequest.instanceId;
+                    xLanguage = listClickHouseDataBaseParameterRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseDataBaseParameterRequest['instance_id'];
+                    xLanguage = listClickHouseDataBaseParameterRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseDataBaseParameter.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据同步信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseDataBaseReplication(listClickHouseDataBaseReplicationRequest?: ListClickHouseDataBaseReplicationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let xLanguage;
+
+            if (listClickHouseDataBaseReplicationRequest !== null && listClickHouseDataBaseReplicationRequest !== undefined) {
+                if (listClickHouseDataBaseReplicationRequest instanceof ListClickHouseDataBaseReplicationRequest) {
+                    instanceId = listClickHouseDataBaseReplicationRequest.instanceId;
+                    limit = listClickHouseDataBaseReplicationRequest.limit;
+                    offset = listClickHouseDataBaseReplicationRequest.offset;
+                    xLanguage = listClickHouseDataBaseReplicationRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseDataBaseReplicationRequest['instance_id'];
+                    limit = listClickHouseDataBaseReplicationRequest['limit'];
+                    offset = listClickHouseDataBaseReplicationRequest['offset'];
+                    xLanguage = listClickHouseDataBaseReplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseDataBaseReplication.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看数据同步配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseDataBaseReplicationConfig(listClickHouseDataBaseReplicationConfigRequest?: ListClickHouseDataBaseReplicationConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/replication/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let databaseName;
+            
+            let xLanguage;
+
+            if (listClickHouseDataBaseReplicationConfigRequest !== null && listClickHouseDataBaseReplicationConfigRequest !== undefined) {
+                if (listClickHouseDataBaseReplicationConfigRequest instanceof ListClickHouseDataBaseReplicationConfigRequest) {
+                    instanceId = listClickHouseDataBaseReplicationConfigRequest.instanceId;
+                    databaseName = listClickHouseDataBaseReplicationConfigRequest.databaseName;
+                    xLanguage = listClickHouseDataBaseReplicationConfigRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseDataBaseReplicationConfigRequest['instance_id'];
+                    databaseName = listClickHouseDataBaseReplicationConfigRequest['database_name'];
+                    xLanguage = listClickHouseDataBaseReplicationConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseDataBaseReplicationConfig.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+                throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling listClickHouseDataBaseReplicationConfig.');
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseInstance(listClickHouseInstanceRequest?: ListClickHouseInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/{clickhouse_instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let clickhouseInstanceId;
+            
+            let xLanguage;
+
+            if (listClickHouseInstanceRequest !== null && listClickHouseInstanceRequest !== undefined) {
+                if (listClickHouseInstanceRequest instanceof ListClickHouseInstanceRequest) {
+                    instanceId = listClickHouseInstanceRequest.instanceId;
+                    clickhouseInstanceId = listClickHouseInstanceRequest.clickhouseInstanceId;
+                    xLanguage = listClickHouseInstanceRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseInstanceRequest['instance_id'];
+                    clickhouseInstanceId = listClickHouseInstanceRequest['clickhouse_instance_id'];
+                    xLanguage = listClickHouseInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseInstance.');
+            }
+            if (clickhouseInstanceId === null || clickhouseInstanceId === undefined) {
+            throw new RequiredError('clickhouseInstanceId','Required parameter clickhouseInstanceId was null or undefined when calling listClickHouseInstance.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'clickhouse_instance_id': clickhouseInstanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询错误日志、慢日志节点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClickHouseInstanceNode(listClickHouseInstanceNodeRequest?: ListClickHouseInstanceNodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listClickHouseInstanceNodeRequest !== null && listClickHouseInstanceNodeRequest !== undefined) {
+                if (listClickHouseInstanceNodeRequest instanceof ListClickHouseInstanceNodeRequest) {
+                    instanceId = listClickHouseInstanceNodeRequest.instanceId;
+                    xLanguage = listClickHouseInstanceNodeRequest.xLanguage;
+                } else {
+                    instanceId = listClickHouseInstanceNodeRequest['instance_id'];
+                    xLanguage = listClickHouseInstanceNodeRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClickHouseInstanceNode.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12396,6 +13975,209 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 暂停StarRocks数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseStarRocksDataReplication(pauseStarRocksDataReplicationRequest?: PauseStarRocksDataReplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/pause",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (pauseStarRocksDataReplicationRequest !== null && pauseStarRocksDataReplicationRequest !== undefined) {
+                if (pauseStarRocksDataReplicationRequest instanceof PauseStarRocksDataReplicationRequest) {
+                    instanceId = pauseStarRocksDataReplicationRequest.instanceId;
+                    xLanguage = pauseStarRocksDataReplicationRequest.xLanguage;
+                    body = pauseStarRocksDataReplicationRequest.body
+                } else {
+                    instanceId = pauseStarRocksDataReplicationRequest['instance_id'];
+                    xLanguage = pauseStarRocksDataReplicationRequest['X-Language'];
+                    body = pauseStarRocksDataReplicationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling pauseStarRocksDataReplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rebootClickHouseInstance(rebootClickHouseInstanceRequest?: RebootClickHouseInstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (rebootClickHouseInstanceRequest !== null && rebootClickHouseInstanceRequest !== undefined) {
+                if (rebootClickHouseInstanceRequest instanceof RebootClickHouseInstanceRequest) {
+                    instanceId = rebootClickHouseInstanceRequest.instanceId;
+                    xLanguage = rebootClickHouseInstanceRequest.xLanguage;
+                } else {
+                    instanceId = rebootClickHouseInstanceRequest['instance_id'];
+                    xLanguage = rebootClickHouseInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling rebootClickHouseInstance.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 实例规格变更。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeClickHouseFlavor(resizeClickHouseFlavorRequest?: ResizeClickHouseFlavorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/resize-flavor",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resizeClickHouseFlavorRequest !== null && resizeClickHouseFlavorRequest !== undefined) {
+                if (resizeClickHouseFlavorRequest instanceof ResizeClickHouseFlavorRequest) {
+                    instanceId = resizeClickHouseFlavorRequest.instanceId;
+                    body = resizeClickHouseFlavorRequest.body
+                    xLanguage = resizeClickHouseFlavorRequest.xLanguage;
+                } else {
+                    instanceId = resizeClickHouseFlavorRequest['instance_id'];
+                    body = resizeClickHouseFlavorRequest['body'];
+                    xLanguage = resizeClickHouseFlavorRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeClickHouseFlavor.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 实例磁盘扩容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeClickHouseInstance(resizeClickHouseInstanceRequest?: ResizeClickHouseInstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/resize",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resizeClickHouseInstanceRequest !== null && resizeClickHouseInstanceRequest !== undefined) {
+                if (resizeClickHouseInstanceRequest instanceof ResizeClickHouseInstanceRequest) {
+                    instanceId = resizeClickHouseInstanceRequest.instanceId;
+                    body = resizeClickHouseInstanceRequest.body
+                    xLanguage = resizeClickHouseInstanceRequest.xLanguage;
+                } else {
+                    instanceId = resizeClickHouseInstanceRequest['instance_id'];
+                    body = resizeClickHouseInstanceRequest['body'];
+                    xLanguage = resizeClickHouseInstanceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeClickHouseInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重启StarRocks实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12491,6 +14273,294 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 恢复StarRocks数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumeStarRocksDataReplication(resumeStarRocksDataReplicationRequest?: ResumeStarRocksDataReplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/databases/replication/resume",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resumeStarRocksDataReplicationRequest !== null && resumeStarRocksDataReplicationRequest !== undefined) {
+                if (resumeStarRocksDataReplicationRequest instanceof ResumeStarRocksDataReplicationRequest) {
+                    instanceId = resumeStarRocksDataReplicationRequest.instanceId;
+                    xLanguage = resumeStarRocksDataReplicationRequest.xLanguage;
+                    body = resumeStarRocksDataReplicationRequest.body
+                } else {
+                    instanceId = resumeStarRocksDataReplicationRequest['instance_id'];
+                    xLanguage = resumeStarRocksDataReplicationRequest['X-Language'];
+                    body = resumeStarRocksDataReplicationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resumeStarRocksDataReplication.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库账户。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClickHouseDatabaseUser(showClickHouseDatabaseUserRequest?: ShowClickHouseDatabaseUserRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let limit;
+            
+            let offset;
+            
+            let userName;
+
+            if (showClickHouseDatabaseUserRequest !== null && showClickHouseDatabaseUserRequest !== undefined) {
+                if (showClickHouseDatabaseUserRequest instanceof ShowClickHouseDatabaseUserRequest) {
+                    instanceId = showClickHouseDatabaseUserRequest.instanceId;
+                    xLanguage = showClickHouseDatabaseUserRequest.xLanguage;
+                    limit = showClickHouseDatabaseUserRequest.limit;
+                    offset = showClickHouseDatabaseUserRequest.offset;
+                    userName = showClickHouseDatabaseUserRequest.userName;
+                } else {
+                    instanceId = showClickHouseDatabaseUserRequest['instance_id'];
+                    xLanguage = showClickHouseDatabaseUserRequest['X-Language'];
+                    limit = showClickHouseDatabaseUserRequest['limit'];
+                    offset = showClickHouseDatabaseUserRequest['offset'];
+                    userName = showClickHouseDatabaseUserRequest['user_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showClickHouseDatabaseUser.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例LTS日志配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClickHouseLtsConfig(showClickHouseLtsConfigRequest?: ShowClickHouseLtsConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clickhouse/instances/logs/lts-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let instanceId;
+            
+            let enterpriseProjectId;
+            
+            let instanceName;
+            
+            let limit;
+            
+            let offset;
+
+            if (showClickHouseLtsConfigRequest !== null && showClickHouseLtsConfigRequest !== undefined) {
+                if (showClickHouseLtsConfigRequest instanceof ShowClickHouseLtsConfigRequest) {
+                    xLanguage = showClickHouseLtsConfigRequest.xLanguage;
+                    instanceId = showClickHouseLtsConfigRequest.instanceId;
+                    enterpriseProjectId = showClickHouseLtsConfigRequest.enterpriseProjectId;
+                    instanceName = showClickHouseLtsConfigRequest.instanceName;
+                    limit = showClickHouseLtsConfigRequest.limit;
+                    offset = showClickHouseLtsConfigRequest.offset;
+                } else {
+                    xLanguage = showClickHouseLtsConfigRequest['X-Language'];
+                    instanceId = showClickHouseLtsConfigRequest['instance_id'];
+                    enterpriseProjectId = showClickHouseLtsConfigRequest['enterprise_project_id'];
+                    instanceName = showClickHouseLtsConfigRequest['instance_name'];
+                    limit = showClickHouseLtsConfigRequest['limit'];
+                    offset = showClickHouseLtsConfigRequest['offset'];
+                }
+            }
+
+        
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取内核慢日志信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClickHouseSlowLogDetail(showClickHouseSlowLogDetailRequest?: ShowClickHouseSlowLogDetailRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/slow-logs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showClickHouseSlowLogDetailRequest !== null && showClickHouseSlowLogDetailRequest !== undefined) {
+                if (showClickHouseSlowLogDetailRequest instanceof ShowClickHouseSlowLogDetailRequest) {
+                    instanceId = showClickHouseSlowLogDetailRequest.instanceId;
+                    body = showClickHouseSlowLogDetailRequest.body
+                    xLanguage = showClickHouseSlowLogDetailRequest.xLanguage;
+                } else {
+                    instanceId = showClickHouseSlowLogDetailRequest['instance_id'];
+                    body = showClickHouseSlowLogDetailRequest['body'];
+                    xLanguage = showClickHouseSlowLogDetailRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showClickHouseSlowLogDetail.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询慢日志脱敏状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClickHouseSlowLogSensitiveStatus(showClickHouseSlowLogSensitiveStatusRequest?: ShowClickHouseSlowLogSensitiveStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/slowlog-sensitive",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showClickHouseSlowLogSensitiveStatusRequest !== null && showClickHouseSlowLogSensitiveStatusRequest !== undefined) {
+                if (showClickHouseSlowLogSensitiveStatusRequest instanceof ShowClickHouseSlowLogSensitiveStatusRequest) {
+                    instanceId = showClickHouseSlowLogSensitiveStatusRequest.instanceId;
+                    xLanguage = showClickHouseSlowLogSensitiveStatusRequest.xLanguage;
+                } else {
+                    instanceId = showClickHouseSlowLogSensitiveStatusRequest['instance_id'];
+                    xLanguage = showClickHouseSlowLogSensitiveStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showClickHouseSlowLogSensitiveStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询StarRocks数据库账户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12557,6 +14627,263 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据同步。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClickHouseDataBaseConfig(updateClickHouseDataBaseConfigRequest?: UpdateClickHouseDataBaseConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/databases/replication/config",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateClickHouseDataBaseConfigRequest !== null && updateClickHouseDataBaseConfigRequest !== undefined) {
+                if (updateClickHouseDataBaseConfigRequest instanceof UpdateClickHouseDataBaseConfigRequest) {
+                    instanceId = updateClickHouseDataBaseConfigRequest.instanceId;
+                    body = updateClickHouseDataBaseConfigRequest.body
+                    xLanguage = updateClickHouseDataBaseConfigRequest.xLanguage;
+                } else {
+                    instanceId = updateClickHouseDataBaseConfigRequest['instance_id'];
+                    body = updateClickHouseDataBaseConfigRequest['body'];
+                    xLanguage = updateClickHouseDataBaseConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateClickHouseDataBaseConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据库账号密码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClickHouseDatabaseUserPassword(updateClickHouseDatabaseUserPasswordRequest?: UpdateClickHouseDatabaseUserPasswordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/users/password",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateClickHouseDatabaseUserPasswordRequest !== null && updateClickHouseDatabaseUserPasswordRequest !== undefined) {
+                if (updateClickHouseDatabaseUserPasswordRequest instanceof UpdateClickHouseDatabaseUserPasswordRequest) {
+                    instanceId = updateClickHouseDatabaseUserPasswordRequest.instanceId;
+                    body = updateClickHouseDatabaseUserPasswordRequest.body
+                    xLanguage = updateClickHouseDatabaseUserPasswordRequest.xLanguage;
+                } else {
+                    instanceId = updateClickHouseDatabaseUserPasswordRequest['instance_id'];
+                    body = updateClickHouseDatabaseUserPasswordRequest['body'];
+                    xLanguage = updateClickHouseDatabaseUserPasswordRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateClickHouseDatabaseUserPassword.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据库账号权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClickHouseDatabaseUserPermission(updateClickHouseDatabaseUserPermissionRequest?: UpdateClickHouseDatabaseUserPermissionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/users/permission",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateClickHouseDatabaseUserPermissionRequest !== null && updateClickHouseDatabaseUserPermissionRequest !== undefined) {
+                if (updateClickHouseDatabaseUserPermissionRequest instanceof UpdateClickHouseDatabaseUserPermissionRequest) {
+                    instanceId = updateClickHouseDatabaseUserPermissionRequest.instanceId;
+                    body = updateClickHouseDatabaseUserPermissionRequest.body
+                    xLanguage = updateClickHouseDatabaseUserPermissionRequest.xLanguage;
+                } else {
+                    instanceId = updateClickHouseDatabaseUserPermissionRequest['instance_id'];
+                    body = updateClickHouseDatabaseUserPermissionRequest['body'];
+                    xLanguage = updateClickHouseDatabaseUserPermissionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateClickHouseDatabaseUserPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量创建LTS日志配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClickHouseLtsConfig(updateClickHouseLtsConfigRequest?: UpdateClickHouseLtsConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clickhouse/instances/logs/lts-configs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (updateClickHouseLtsConfigRequest !== null && updateClickHouseLtsConfigRequest !== undefined) {
+                if (updateClickHouseLtsConfigRequest instanceof UpdateClickHouseLtsConfigRequest) {
+                    body = updateClickHouseLtsConfigRequest.body
+                    xLanguage = updateClickHouseLtsConfigRequest.xLanguage;
+                } else {
+                    body = updateClickHouseLtsConfigRequest['body'];
+                    xLanguage = updateClickHouseLtsConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改慢日志脱敏状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClickHouseSlowLogSensitiveStatus(updateClickHouseSlowLogSensitiveStatusRequest?: UpdateClickHouseSlowLogSensitiveStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/clickhouse/slowlog-sensitive",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateClickHouseSlowLogSensitiveStatusRequest !== null && updateClickHouseSlowLogSensitiveStatusRequest !== undefined) {
+                if (updateClickHouseSlowLogSensitiveStatusRequest instanceof UpdateClickHouseSlowLogSensitiveStatusRequest) {
+                    instanceId = updateClickHouseSlowLogSensitiveStatusRequest.instanceId;
+                    body = updateClickHouseSlowLogSensitiveStatusRequest.body
+                    xLanguage = updateClickHouseSlowLogSensitiveStatusRequest.xLanguage;
+                } else {
+                    instanceId = updateClickHouseSlowLogSensitiveStatusRequest['instance_id'];
+                    body = updateClickHouseSlowLogSensitiveStatusRequest['body'];
+                    xLanguage = updateClickHouseSlowLogSensitiveStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateClickHouseSlowLogSensitiveStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

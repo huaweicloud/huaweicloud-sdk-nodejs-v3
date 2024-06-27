@@ -1,10 +1,10 @@
 import { AdministrationAgencyNamePrimitiveTypeHolder } from './AdministrationAgencyNamePrimitiveTypeHolder';
 import { AdministrationAgencyUrnPrimitiveTypeHolder } from './AdministrationAgencyUrnPrimitiveTypeHolder';
+import { CallIdentityPrimitiveTypeHolder } from './CallIdentityPrimitiveTypeHolder';
 import { InitialStackDescriptionPrimitiveTypeHolder } from './InitialStackDescriptionPrimitiveTypeHolder';
 import { ManagedAgencyNamePrimitiveTypeHolder } from './ManagedAgencyNamePrimitiveTypeHolder';
 import { ManagedOperation } from './ManagedOperation';
 import { ManagedOperationTypeHolder } from './ManagedOperationTypeHolder';
-import { PermissionModelPrimitiveTypeHolder } from './PermissionModelPrimitiveTypeHolder';
 import { StackSetDescriptionPrimitiveTypeHolder } from './StackSetDescriptionPrimitiveTypeHolder';
 import { StackSetIdPrimitiveTypeHolder } from './StackSetIdPrimitiveTypeHolder';
 
@@ -13,11 +13,11 @@ export class UpdateStackSetRequestBody {
     private 'stack_set_id'?: string;
     private 'stack_set_description'?: string;
     private 'initial_stack_description'?: string;
-    private 'permission_model'?: UpdateStackSetRequestBodyPermissionModelEnum | string;
     private 'administration_agency_name'?: string;
     private 'managed_agency_name'?: string;
     private 'administration_agency_urn'?: string;
     private 'managed_operation'?: ManagedOperation;
+    private 'call_identity'?: UpdateStackSetRequestBodyCallIdentityEnum | string;
     public constructor() { 
     }
     public withStackSetId(stackSetId: string): UpdateStackSetRequestBody {
@@ -49,16 +49,6 @@ export class UpdateStackSetRequestBody {
     }
     public get initialStackDescription(): string | undefined {
         return this['initial_stack_description'];
-    }
-    public withPermissionModel(permissionModel: UpdateStackSetRequestBodyPermissionModelEnum | string): UpdateStackSetRequestBody {
-        this['permission_model'] = permissionModel;
-        return this;
-    }
-    public set permissionModel(permissionModel: UpdateStackSetRequestBodyPermissionModelEnum | string  | undefined) {
-        this['permission_model'] = permissionModel;
-    }
-    public get permissionModel(): UpdateStackSetRequestBodyPermissionModelEnum | string | undefined {
-        return this['permission_model'];
     }
     public withAdministrationAgencyName(administrationAgencyName: string): UpdateStackSetRequestBody {
         this['administration_agency_name'] = administrationAgencyName;
@@ -100,12 +90,23 @@ export class UpdateStackSetRequestBody {
     public get managedOperation(): ManagedOperation | undefined {
         return this['managed_operation'];
     }
+    public withCallIdentity(callIdentity: UpdateStackSetRequestBodyCallIdentityEnum | string): UpdateStackSetRequestBody {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: UpdateStackSetRequestBodyCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): UpdateStackSetRequestBodyCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
 }
 
 /**
     * @export
     * @enum {string}
     */
-export enum UpdateStackSetRequestBodyPermissionModelEnum {
-    SELF_MANAGED = 'SELF_MANAGED'
+export enum UpdateStackSetRequestBodyCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

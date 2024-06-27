@@ -9,7 +9,6 @@ export class ListEndpointsRequest {
     public offset?: number;
     private 'sort_key'?: ListEndpointsRequestSortKeyEnum | string;
     private 'sort_dir'?: ListEndpointsRequestSortDirEnum | string;
-    private 'public_border_group'?: string;
     public constructor() { 
     }
     public withContentType(contentType: string): ListEndpointsRequest {
@@ -73,16 +72,6 @@ export class ListEndpointsRequest {
     }
     public get sortDir(): ListEndpointsRequestSortDirEnum | string | undefined {
         return this['sort_dir'];
-    }
-    public withPublicBorderGroup(publicBorderGroup: string): ListEndpointsRequest {
-        this['public_border_group'] = publicBorderGroup;
-        return this;
-    }
-    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
-        this['public_border_group'] = publicBorderGroup;
-    }
-    public get publicBorderGroup(): string | undefined {
-        return this['public_border_group'];
     }
 }
 

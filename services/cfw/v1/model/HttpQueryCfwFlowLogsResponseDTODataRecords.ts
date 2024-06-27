@@ -18,6 +18,14 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     private 'dst_region_name'?: string;
     private 'src_region_id'?: string;
     private 'src_region_name'?: string;
+    private 'dst_province_id'?: string;
+    private 'dst_province_name'?: string;
+    private 'dst_city_id'?: string;
+    private 'dst_city_name'?: string;
+    private 'src_province_id'?: string;
+    private 'src_province_name'?: string;
+    private 'src_city_id'?: string;
+    private 'src_city_name'?: string;
     public constructor() { 
     }
     public withBytes(bytes: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
@@ -159,6 +167,86 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     }
     public get srcRegionName(): string | undefined {
         return this['src_region_name'];
+    }
+    public withDstProvinceId(dstProvinceId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_province_id'] = dstProvinceId;
+        return this;
+    }
+    public set dstProvinceId(dstProvinceId: string  | undefined) {
+        this['dst_province_id'] = dstProvinceId;
+    }
+    public get dstProvinceId(): string | undefined {
+        return this['dst_province_id'];
+    }
+    public withDstProvinceName(dstProvinceName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_province_name'] = dstProvinceName;
+        return this;
+    }
+    public set dstProvinceName(dstProvinceName: string  | undefined) {
+        this['dst_province_name'] = dstProvinceName;
+    }
+    public get dstProvinceName(): string | undefined {
+        return this['dst_province_name'];
+    }
+    public withDstCityId(dstCityId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_city_id'] = dstCityId;
+        return this;
+    }
+    public set dstCityId(dstCityId: string  | undefined) {
+        this['dst_city_id'] = dstCityId;
+    }
+    public get dstCityId(): string | undefined {
+        return this['dst_city_id'];
+    }
+    public withDstCityName(dstCityName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['dst_city_name'] = dstCityName;
+        return this;
+    }
+    public set dstCityName(dstCityName: string  | undefined) {
+        this['dst_city_name'] = dstCityName;
+    }
+    public get dstCityName(): string | undefined {
+        return this['dst_city_name'];
+    }
+    public withSrcProvinceId(srcProvinceId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_province_id'] = srcProvinceId;
+        return this;
+    }
+    public set srcProvinceId(srcProvinceId: string  | undefined) {
+        this['src_province_id'] = srcProvinceId;
+    }
+    public get srcProvinceId(): string | undefined {
+        return this['src_province_id'];
+    }
+    public withSrcProvinceName(srcProvinceName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_province_name'] = srcProvinceName;
+        return this;
+    }
+    public set srcProvinceName(srcProvinceName: string  | undefined) {
+        this['src_province_name'] = srcProvinceName;
+    }
+    public get srcProvinceName(): string | undefined {
+        return this['src_province_name'];
+    }
+    public withSrcCityId(srcCityId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_city_id'] = srcCityId;
+        return this;
+    }
+    public set srcCityId(srcCityId: string  | undefined) {
+        this['src_city_id'] = srcCityId;
+    }
+    public get srcCityId(): string | undefined {
+        return this['src_city_id'];
+    }
+    public withSrcCityName(srcCityName: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
+        this['src_city_name'] = srcCityName;
+        return this;
+    }
+    public set srcCityName(srcCityName: string  | undefined) {
+        this['src_city_name'] = srcCityName;
+    }
+    public get srcCityName(): string | undefined {
+        return this['src_city_name'];
     }
 }
 

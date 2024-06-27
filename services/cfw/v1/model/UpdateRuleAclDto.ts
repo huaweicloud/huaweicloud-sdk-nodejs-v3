@@ -1,6 +1,5 @@
 import { OrderRuleAclDto } from './OrderRuleAclDto';
 import { RuleAddressDto } from './RuleAddressDto';
-import { RuleProfileDto } from './RuleProfileDto';
 import { RuleServiceDto } from './RuleServiceDto';
 import { TagsVO } from './TagsVO';
 
@@ -20,7 +19,6 @@ export class UpdateRuleAclDto {
     private 'long_connect_time_second'?: number;
     private 'long_connect_time'?: number;
     private 'long_connect_enable'?: UpdateRuleAclDtoLongConnectEnableEnum | number;
-    public profile?: RuleProfileDto;
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
@@ -125,10 +123,6 @@ export class UpdateRuleAclDto {
     }
     public get longConnectEnable(): UpdateRuleAclDtoLongConnectEnableEnum | number | undefined {
         return this['long_connect_enable'];
-    }
-    public withProfile(profile: RuleProfileDto): UpdateRuleAclDto {
-        this['profile'] = profile;
-        return this;
     }
     public withSource(source: RuleAddressDto): UpdateRuleAclDto {
         this['source'] = source;

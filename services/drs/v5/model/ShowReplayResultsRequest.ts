@@ -11,6 +11,9 @@ export class ShowReplayResultsRequest {
     private 'sort_key'?: string;
     private 'sort_dir'?: ShowReplayResultsRequestSortDirEnum | string;
     private 'target_name'?: ShowReplayResultsRequestTargetNameEnum | string;
+    private 'is_sample'?: boolean;
+    private 'error_type'?: string;
+    private 'sql_template_md5'?: string;
     public constructor(jobId?: string, type?: string) { 
         this['job_id'] = jobId;
         this['type'] = type;
@@ -97,6 +100,36 @@ export class ShowReplayResultsRequest {
     public get targetName(): ShowReplayResultsRequestTargetNameEnum | string | undefined {
         return this['target_name'];
     }
+    public withIsSample(isSample: boolean): ShowReplayResultsRequest {
+        this['is_sample'] = isSample;
+        return this;
+    }
+    public set isSample(isSample: boolean  | undefined) {
+        this['is_sample'] = isSample;
+    }
+    public get isSample(): boolean | undefined {
+        return this['is_sample'];
+    }
+    public withErrorType(errorType: string): ShowReplayResultsRequest {
+        this['error_type'] = errorType;
+        return this;
+    }
+    public set errorType(errorType: string  | undefined) {
+        this['error_type'] = errorType;
+    }
+    public get errorType(): string | undefined {
+        return this['error_type'];
+    }
+    public withSqlTemplateMd5(sqlTemplateMd5: string): ShowReplayResultsRequest {
+        this['sql_template_md5'] = sqlTemplateMd5;
+        return this;
+    }
+    public set sqlTemplateMd5(sqlTemplateMd5: string  | undefined) {
+        this['sql_template_md5'] = sqlTemplateMd5;
+    }
+    public get sqlTemplateMd5(): string | undefined {
+        return this['sql_template_md5'];
+    }
 }
 
 /**
@@ -117,7 +150,8 @@ export enum ShowReplayResultsRequestTypeEnum {
     ERROR_SQL = 'error_sql',
     SLOW_SQL_TEMPLATE = 'slow_sql_template',
     ERROR_SQL_TEMPLATE = 'error_sql_template',
-    REPLAYING_SQL = 'replaying_sql'
+    REPLAYING_SQL = 'replaying_sql',
+    ERROR_CLASSIFICATION = 'error_classification'
 }
 /**
     * @export

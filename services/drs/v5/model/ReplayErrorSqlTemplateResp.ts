@@ -2,6 +2,7 @@
 
 export class ReplayErrorSqlTemplateResp {
     private 'sql_template'?: string;
+    private 'sql_template_md5'?: string;
     private 'target_name'?: string;
     private 'schema_name'?: string;
     private 'query_type'?: string;
@@ -18,6 +19,16 @@ export class ReplayErrorSqlTemplateResp {
     }
     public get sqlTemplate(): string | undefined {
         return this['sql_template'];
+    }
+    public withSqlTemplateMd5(sqlTemplateMd5: string): ReplayErrorSqlTemplateResp {
+        this['sql_template_md5'] = sqlTemplateMd5;
+        return this;
+    }
+    public set sqlTemplateMd5(sqlTemplateMd5: string  | undefined) {
+        this['sql_template_md5'] = sqlTemplateMd5;
+    }
+    public get sqlTemplateMd5(): string | undefined {
+        return this['sql_template_md5'];
     }
     public withTargetName(targetName: string): ReplayErrorSqlTemplateResp {
         this['target_name'] = targetName;

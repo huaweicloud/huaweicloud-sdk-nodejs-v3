@@ -6,6 +6,8 @@ export class ShowTemplateVersionContentRequest {
     private 'template_name'?: string;
     private 'version_id'?: string;
     private 'template_id'?: string;
+    private 'access_control_source_vpc_ids'?: Array<string>;
+    private 'access_control_source_ips'?: Array<string>;
     public constructor(clientRequestId?: string, projectId?: string, templateName?: string, versionId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -61,5 +63,25 @@ export class ShowTemplateVersionContentRequest {
     }
     public get templateId(): string | undefined {
         return this['template_id'];
+    }
+    public withAccessControlSourceVpcIds(accessControlSourceVpcIds: Array<string>): ShowTemplateVersionContentRequest {
+        this['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+        return this;
+    }
+    public set accessControlSourceVpcIds(accessControlSourceVpcIds: Array<string>  | undefined) {
+        this['access_control_source_vpc_ids'] = accessControlSourceVpcIds;
+    }
+    public get accessControlSourceVpcIds(): Array<string> | undefined {
+        return this['access_control_source_vpc_ids'];
+    }
+    public withAccessControlSourceIps(accessControlSourceIps: Array<string>): ShowTemplateVersionContentRequest {
+        this['access_control_source_ips'] = accessControlSourceIps;
+        return this;
+    }
+    public set accessControlSourceIps(accessControlSourceIps: Array<string>  | undefined) {
+        this['access_control_source_ips'] = accessControlSourceIps;
+    }
+    public get accessControlSourceIps(): Array<string> | undefined {
+        return this['access_control_source_ips'];
     }
 }

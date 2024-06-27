@@ -4,7 +4,7 @@ export class ListBlackWhiteListsRequest {
     private 'project_id'?: string;
     private 'object_id'?: string;
     private 'list_type'?: ListBlackWhiteListsRequestListTypeEnum | number;
-    private 'address_type'?: ListBlackWhiteListsRequestAddressTypeEnum | number;
+    private 'address_type'?: number;
     public address?: string;
     public port?: string;
     public limit?: number;
@@ -48,14 +48,14 @@ export class ListBlackWhiteListsRequest {
     public get listType(): ListBlackWhiteListsRequestListTypeEnum | number | undefined {
         return this['list_type'];
     }
-    public withAddressType(addressType: ListBlackWhiteListsRequestAddressTypeEnum | number): ListBlackWhiteListsRequest {
+    public withAddressType(addressType: number): ListBlackWhiteListsRequest {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: ListBlackWhiteListsRequestAddressTypeEnum | number  | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType(): ListBlackWhiteListsRequestAddressTypeEnum | number | undefined {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withAddress(address: string): ListBlackWhiteListsRequest {
@@ -103,13 +103,4 @@ export class ListBlackWhiteListsRequest {
 export enum ListBlackWhiteListsRequestListTypeEnum {
     NUMBER_4 = 4,
     NUMBER_5 = 5
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListBlackWhiteListsRequestAddressTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1,
-    NUMBER_2 = 2
 }

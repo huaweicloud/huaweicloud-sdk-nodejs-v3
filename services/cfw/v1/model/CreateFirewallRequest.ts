@@ -4,7 +4,6 @@ import { CreateFirewallReq } from './CreateFirewallReq';
 export class CreateFirewallRequest {
     private 'project_id'?: string;
     private 'X-Client-Token'?: string;
-    private 'X-Trace-Id'?: string;
     public body?: CreateFirewallReq;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
@@ -28,16 +27,6 @@ export class CreateFirewallRequest {
     }
     public get xClientToken(): string | undefined {
         return this['X-Client-Token'];
-    }
-    public withXTraceId(xTraceId: string): CreateFirewallRequest {
-        this['X-Trace-Id'] = xTraceId;
-        return this;
-    }
-    public set xTraceId(xTraceId: string  | undefined) {
-        this['X-Trace-Id'] = xTraceId;
-    }
-    public get xTraceId(): string | undefined {
-        return this['X-Trace-Id'];
     }
     public withBody(body: CreateFirewallReq): CreateFirewallRequest {
         this['body'] = body;

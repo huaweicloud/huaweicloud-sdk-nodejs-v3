@@ -5,6 +5,7 @@ export class ShowStackSetOperationMetadataRequest {
     private 'stack_set_name'?: string;
     private 'stack_set_id'?: string;
     private 'stack_set_operation_id'?: string;
+    private 'call_identity'?: ShowStackSetOperationMetadataRequestCallIdentityEnum | string;
     public constructor(clientRequestId?: string, stackSetName?: string, stackSetOperationId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['stack_set_name'] = stackSetName;
@@ -50,4 +51,23 @@ export class ShowStackSetOperationMetadataRequest {
     public get stackSetOperationId(): string | undefined {
         return this['stack_set_operation_id'];
     }
+    public withCallIdentity(callIdentity: ShowStackSetOperationMetadataRequestCallIdentityEnum | string): ShowStackSetOperationMetadataRequest {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: ShowStackSetOperationMetadataRequestCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): ShowStackSetOperationMetadataRequestCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowStackSetOperationMetadataRequestCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }

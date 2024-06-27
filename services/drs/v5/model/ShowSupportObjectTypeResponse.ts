@@ -13,6 +13,7 @@ export class ShowSupportObjectTypeResponse extends SdkResponse {
     private 'file_size'?: string;
     private 'previous_select'?: string;
     private 'import_level'?: string;
+    private 'is_import_cloumn'?: boolean;
     public constructor() { 
         super();
     }
@@ -125,5 +126,15 @@ export class ShowSupportObjectTypeResponse extends SdkResponse {
     }
     public get importLevel(): string | undefined {
         return this['import_level'];
+    }
+    public withIsImportCloumn(isImportCloumn: boolean): ShowSupportObjectTypeResponse {
+        this['is_import_cloumn'] = isImportCloumn;
+        return this;
+    }
+    public set isImportCloumn(isImportCloumn: boolean  | undefined) {
+        this['is_import_cloumn'] = isImportCloumn;
+    }
+    public get isImportCloumn(): boolean | undefined {
+        return this['is_import_cloumn'];
     }
 }

@@ -4,6 +4,7 @@ export class DeleteStackSetRequest {
     private 'Client-Request-Id'?: string;
     private 'stack_set_name'?: string;
     private 'stack_set_id'?: string;
+    private 'call_identity'?: DeleteStackSetRequestCallIdentityEnum | string;
     public constructor(clientRequestId?: string, stackSetName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['stack_set_name'] = stackSetName;
@@ -38,4 +39,23 @@ export class DeleteStackSetRequest {
     public get stackSetId(): string | undefined {
         return this['stack_set_id'];
     }
+    public withCallIdentity(callIdentity: DeleteStackSetRequestCallIdentityEnum | string): DeleteStackSetRequest {
+        this['call_identity'] = callIdentity;
+        return this;
+    }
+    public set callIdentity(callIdentity: DeleteStackSetRequestCallIdentityEnum | string  | undefined) {
+        this['call_identity'] = callIdentity;
+    }
+    public get callIdentity(): DeleteStackSetRequestCallIdentityEnum | string | undefined {
+        return this['call_identity'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteStackSetRequestCallIdentityEnum {
+    SELF = 'SELF',
+    DELEGATED_ADMIN = 'DELEGATED_ADMIN'
 }
