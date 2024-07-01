@@ -1,3 +1,23 @@
+# 3.1.104 2024-07-01
+
+### HuaweiCloud SDK RAM
+
+- _Features_
+  - None
+- _Bug Fix_
+  - fix the issue of credentials configuration.
+- _Change_
+  - None
+
+### HuaweiCloud SDK Organizations
+
+- _Features_
+  - None
+- _Bug Fix_
+  - fix the issue of credentials configuration.
+- _Change_
+  - None
+
 # 3.1.103 2024-06-27
 
 ### HuaweiCloud SDK AOM

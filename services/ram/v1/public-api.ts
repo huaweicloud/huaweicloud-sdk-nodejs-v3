@@ -1,5 +1,4 @@
 export * from './RamClient';
-export * from './GlobalCredentials';
 
 export * from './model/AcceptResourceShareInvitationRequest';
 export * from './model/AcceptResourceShareInvitationResponse';

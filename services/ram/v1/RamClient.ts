@@ -93,7 +93,7 @@ import { UpdateResourceShareResponse } from './model/UpdateResourceShareResponse
 
 export class RamClient {
     public static newBuilder(): ClientBuilder<RamClient> {
-            return new ClientBuilder<RamClient>(newClient, 'GlobalCredentials');
+            return new ClientBuilder<RamClient>(newClient);
     }
 
     private hcClient: HcClient;

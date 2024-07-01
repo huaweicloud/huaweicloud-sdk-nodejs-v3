@@ -1,5 +1,4 @@
 export * from './OrganizationsClient';
-export * from './GlobalCredentials';
 
 export * from './model/AcceptHandshakeRequest';
 export * from './model/AcceptHandshakeResponse';
