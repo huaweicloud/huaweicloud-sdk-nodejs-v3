@@ -1,4 +1,3 @@
-import { TemplateResponseBody } from './TemplateResponseBody';
 
 
 export class MigProject {
@@ -6,7 +5,6 @@ export class MigProject {
     public name?: string;
     public description?: string;
     public isdefault?: boolean;
-    public template?: TemplateResponseBody;
     public region?: string;
     private 'start_target_server'?: boolean;
     private 'speed_limit'?: number;
@@ -38,10 +36,6 @@ export class MigProject {
     }
     public withIsdefault(isdefault: boolean): MigProject {
         this['isdefault'] = isdefault;
-        return this;
-    }
-    public withTemplate(template: TemplateResponseBody): MigProject {
-        this['template'] = template;
         return this;
     }
     public withRegion(region: string): MigProject {

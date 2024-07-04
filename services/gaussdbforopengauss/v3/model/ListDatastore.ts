@@ -5,6 +5,8 @@ export class ListDatastore {
     public version?: string;
     private 'complete_version'?: string;
     private 'hotfix_versions'?: string;
+    private 'target_version'?: string;
+    private 'hotfix_finished_times'?: Array<string>;
     public constructor(type?: string, version?: string) { 
         this['type'] = type;
         this['version'] = version;
@@ -36,5 +38,25 @@ export class ListDatastore {
     }
     public get hotfixVersions(): string | undefined {
         return this['hotfix_versions'];
+    }
+    public withTargetVersion(targetVersion: string): ListDatastore {
+        this['target_version'] = targetVersion;
+        return this;
+    }
+    public set targetVersion(targetVersion: string  | undefined) {
+        this['target_version'] = targetVersion;
+    }
+    public get targetVersion(): string | undefined {
+        return this['target_version'];
+    }
+    public withHotfixFinishedTimes(hotfixFinishedTimes: Array<string>): ListDatastore {
+        this['hotfix_finished_times'] = hotfixFinishedTimes;
+        return this;
+    }
+    public set hotfixFinishedTimes(hotfixFinishedTimes: Array<string>  | undefined) {
+        this['hotfix_finished_times'] = hotfixFinishedTimes;
+    }
+    public get hotfixFinishedTimes(): Array<string> | undefined {
+        return this['hotfix_finished_times'];
     }
 }

@@ -19,7 +19,6 @@ export class KeyDetails {
     private 'sys_enterprise_project_id'?: string;
     private 'keystore_id'?: string;
     private 'key_label'?: string;
-    private 'partition_type'?: string;
     public constructor() { 
     }
     public withKeyId(keyId: string): KeyDetails {
@@ -189,16 +188,6 @@ export class KeyDetails {
     }
     public get keyLabel(): string | undefined {
         return this['key_label'];
-    }
-    public withPartitionType(partitionType: string): KeyDetails {
-        this['partition_type'] = partitionType;
-        return this;
-    }
-    public set partitionType(partitionType: string  | undefined) {
-        this['partition_type'] = partitionType;
-    }
-    public get partitionType(): string | undefined {
-        return this['partition_type'];
     }
 }
 

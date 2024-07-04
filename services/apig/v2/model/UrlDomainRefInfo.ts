@@ -8,6 +8,8 @@ export class UrlDomainRefInfo {
     private 'min_ssl_version'?: string;
     private 'is_http_redirect_to_https'?: boolean;
     private 'verified_client_certificate_enabled'?: boolean;
+    private 'ingress_http_port'?: number;
+    private 'ingress_https_port'?: number;
     private 'ssl_id'?: string;
     private 'ssl_name'?: string;
     private 'api_group_id'?: string;
@@ -69,6 +71,26 @@ export class UrlDomainRefInfo {
     }
     public get verifiedClientCertificateEnabled(): boolean | undefined {
         return this['verified_client_certificate_enabled'];
+    }
+    public withIngressHttpPort(ingressHttpPort: number): UrlDomainRefInfo {
+        this['ingress_http_port'] = ingressHttpPort;
+        return this;
+    }
+    public set ingressHttpPort(ingressHttpPort: number  | undefined) {
+        this['ingress_http_port'] = ingressHttpPort;
+    }
+    public get ingressHttpPort(): number | undefined {
+        return this['ingress_http_port'];
+    }
+    public withIngressHttpsPort(ingressHttpsPort: number): UrlDomainRefInfo {
+        this['ingress_https_port'] = ingressHttpsPort;
+        return this;
+    }
+    public set ingressHttpsPort(ingressHttpsPort: number  | undefined) {
+        this['ingress_https_port'] = ingressHttpsPort;
+    }
+    public get ingressHttpsPort(): number | undefined {
+        return this['ingress_https_port'];
     }
     public withSslId(sslId: string): UrlDomainRefInfo {
         this['ssl_id'] = sslId;

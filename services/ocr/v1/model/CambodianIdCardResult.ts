@@ -1,3 +1,4 @@
+import { CambodianIdCardScoreInformationResult } from './CambodianIdCardScoreInformationResult';
 
 
 export class CambodianIdCardResult {
@@ -18,6 +19,13 @@ export class CambodianIdCardResult {
     private 'portrait_image'?: string;
     private 'portrait_location'?: Array<Array<number>>;
     private 'idcard_type'?: string;
+    private 'adjusted_image'?: string;
+    private 'detect_border_integrity_result'?: boolean;
+    private 'detect_blocking_within_border_result'?: boolean;
+    private 'detect_blur_result'?: boolean;
+    private 'detect_glare_result'?: boolean;
+    private 'detect_tampering_result'?: boolean;
+    private 'score_info'?: CambodianIdCardScoreInformationResult;
     public confidence?: object;
     public constructor() { 
     }
@@ -166,6 +174,76 @@ export class CambodianIdCardResult {
     }
     public get idcardType(): string | undefined {
         return this['idcard_type'];
+    }
+    public withAdjustedImage(adjustedImage: string): CambodianIdCardResult {
+        this['adjusted_image'] = adjustedImage;
+        return this;
+    }
+    public set adjustedImage(adjustedImage: string  | undefined) {
+        this['adjusted_image'] = adjustedImage;
+    }
+    public get adjustedImage(): string | undefined {
+        return this['adjusted_image'];
+    }
+    public withDetectBorderIntegrityResult(detectBorderIntegrityResult: boolean): CambodianIdCardResult {
+        this['detect_border_integrity_result'] = detectBorderIntegrityResult;
+        return this;
+    }
+    public set detectBorderIntegrityResult(detectBorderIntegrityResult: boolean  | undefined) {
+        this['detect_border_integrity_result'] = detectBorderIntegrityResult;
+    }
+    public get detectBorderIntegrityResult(): boolean | undefined {
+        return this['detect_border_integrity_result'];
+    }
+    public withDetectBlockingWithinBorderResult(detectBlockingWithinBorderResult: boolean): CambodianIdCardResult {
+        this['detect_blocking_within_border_result'] = detectBlockingWithinBorderResult;
+        return this;
+    }
+    public set detectBlockingWithinBorderResult(detectBlockingWithinBorderResult: boolean  | undefined) {
+        this['detect_blocking_within_border_result'] = detectBlockingWithinBorderResult;
+    }
+    public get detectBlockingWithinBorderResult(): boolean | undefined {
+        return this['detect_blocking_within_border_result'];
+    }
+    public withDetectBlurResult(detectBlurResult: boolean): CambodianIdCardResult {
+        this['detect_blur_result'] = detectBlurResult;
+        return this;
+    }
+    public set detectBlurResult(detectBlurResult: boolean  | undefined) {
+        this['detect_blur_result'] = detectBlurResult;
+    }
+    public get detectBlurResult(): boolean | undefined {
+        return this['detect_blur_result'];
+    }
+    public withDetectGlareResult(detectGlareResult: boolean): CambodianIdCardResult {
+        this['detect_glare_result'] = detectGlareResult;
+        return this;
+    }
+    public set detectGlareResult(detectGlareResult: boolean  | undefined) {
+        this['detect_glare_result'] = detectGlareResult;
+    }
+    public get detectGlareResult(): boolean | undefined {
+        return this['detect_glare_result'];
+    }
+    public withDetectTamperingResult(detectTamperingResult: boolean): CambodianIdCardResult {
+        this['detect_tampering_result'] = detectTamperingResult;
+        return this;
+    }
+    public set detectTamperingResult(detectTamperingResult: boolean  | undefined) {
+        this['detect_tampering_result'] = detectTamperingResult;
+    }
+    public get detectTamperingResult(): boolean | undefined {
+        return this['detect_tampering_result'];
+    }
+    public withScoreInfo(scoreInfo: CambodianIdCardScoreInformationResult): CambodianIdCardResult {
+        this['score_info'] = scoreInfo;
+        return this;
+    }
+    public set scoreInfo(scoreInfo: CambodianIdCardScoreInformationResult  | undefined) {
+        this['score_info'] = scoreInfo;
+    }
+    public get scoreInfo(): CambodianIdCardScoreInformationResult | undefined {
+        return this['score_info'];
     }
     public withConfidence(confidence: object): CambodianIdCardResult {
         this['confidence'] = confidence;

@@ -102,8 +102,13 @@ import { ListKmsTagsResponse } from './model/ListKmsTagsResponse';
 import { ListRetirableGrantsRequest } from './model/ListRetirableGrantsRequest';
 import { ListRetirableGrantsRequestBody } from './model/ListRetirableGrantsRequestBody';
 import { ListRetirableGrantsResponse } from './model/ListRetirableGrantsResponse';
+import { ListSupportRegionsRequest } from './model/ListSupportRegionsRequest';
+import { ListSupportRegionsResponse } from './model/ListSupportRegionsResponse';
 import { OperateKeyRequestBody } from './model/OperateKeyRequestBody';
 import { Quotas } from './model/Quotas';
+import { ReplicateKeyRequest } from './model/ReplicateKeyRequest';
+import { ReplicateKeyRequestBody } from './model/ReplicateKeyRequestBody';
+import { ReplicateKeyResponse } from './model/ReplicateKeyResponse';
 import { Resources } from './model/Resources';
 import { RevokeGrantRequestBody } from './model/RevokeGrantRequestBody';
 import { ScheduleKeyDeletionRequestBody } from './model/ScheduleKeyDeletionRequestBody';
@@ -137,6 +142,9 @@ import { UpdateKeyDescriptionResponse } from './model/UpdateKeyDescriptionRespon
 import { UpdateKeyRotationIntervalRequest } from './model/UpdateKeyRotationIntervalRequest';
 import { UpdateKeyRotationIntervalRequestBody } from './model/UpdateKeyRotationIntervalRequestBody';
 import { UpdateKeyRotationIntervalResponse } from './model/UpdateKeyRotationIntervalResponse';
+import { UpdatePrimaryRegionRequest } from './model/UpdatePrimaryRegionRequest';
+import { UpdatePrimaryRegionRequestBody } from './model/UpdatePrimaryRegionRequestBody';
+import { UpdatePrimaryRegionResponse } from './model/UpdatePrimaryRegionResponse';
 import { ValidateSignatureRequest } from './model/ValidateSignatureRequest';
 import { ValidateSignatureResponse } from './model/ValidateSignatureResponse';
 import { VerifyMacRequest } from './model/VerifyMacRequest';
@@ -850,6 +858,44 @@ export class KmsClient {
     }
 
     /**
+     * - 功能介绍：查询跨区域密钥所支持的区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询跨区域密钥所支持的区域
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupportRegions(listSupportRegionsRequest?: ListSupportRegionsRequest): Promise<ListSupportRegionsResponse> {
+        const options = ParamCreater().listSupportRegions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将本区域的密钥复制到指定区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制密钥到指定区域
+     * @param {string} keyId 待复制的密钥ID，36字节，满足正则匹配“^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$”。 例如：0d0466b0-e727-4d9c-b35d-f84bb474a37f。
+     * @param {ReplicateKeyRequestBody} replicateKeyRequestBody 复制密钥请求消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public replicateKey(replicateKeyRequest?: ReplicateKeyRequest): Promise<ReplicateKeyResponse> {
+        const options = ParamCreater().replicateKey(replicateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：查询用户主密钥轮换状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1036,6 +1082,26 @@ export class KmsClient {
      */
     public updateKeyRotationInterval(updateKeyRotationIntervalRequest?: UpdateKeyRotationIntervalRequest): Promise<UpdateKeyRotationIntervalResponse> {
         const options = ParamCreater().updateKeyRotationInterval(updateKeyRotationIntervalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改密钥所属的主区域。修改后当前区域会变为副本区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改密钥所属的主区域
+     * @param {string} keyId 待更新的密钥ID，36字节，满足正则匹配“^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$”。 例如：0d0466b0-e727-4d9c-b35d-f84bb474a37f。
+     * @param {UpdatePrimaryRegionRequestBody} updatePrimaryRegionRequestBody 更新密钥主区域请求消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrimaryRegion(updatePrimaryRegionRequest?: UpdatePrimaryRegionRequest): Promise<UpdatePrimaryRegionResponse> {
+        const options = ParamCreater().updatePrimaryRegion(updatePrimaryRegionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2490,6 +2556,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * - 功能介绍：查询跨区域密钥所支持的区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupportRegions() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/kms/regions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将本区域的密钥复制到指定区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        replicateKey(replicateKeyRequest?: ReplicateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/kms/keys/{key_id}/replicate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let keyId;
+
+            if (replicateKeyRequest !== null && replicateKeyRequest !== undefined) {
+                if (replicateKeyRequest instanceof ReplicateKeyRequest) {
+                    keyId = replicateKeyRequest.keyId;
+                    body = replicateKeyRequest.body
+                } else {
+                    keyId = replicateKeyRequest['key_id'];
+                    body = replicateKeyRequest['body'];
+                }
+            }
+
+        
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling replicateKey.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：查询用户主密钥轮换状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2835,6 +2968,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改密钥所属的主区域。修改后当前区域会变为副本区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrimaryRegion(updatePrimaryRegionRequest?: UpdatePrimaryRegionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/kms/keys/{key_id}/update-primary-region",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let keyId;
+
+            if (updatePrimaryRegionRequest !== null && updatePrimaryRegionRequest !== undefined) {
+                if (updatePrimaryRegionRequest instanceof UpdatePrimaryRegionRequest) {
+                    keyId = updatePrimaryRegionRequest.keyId;
+                    body = updatePrimaryRegionRequest.body
+                } else {
+                    keyId = updatePrimaryRegionRequest['key_id'];
+                    body = updatePrimaryRegionRequest['body'];
+                }
+            }
+
+        
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling updatePrimaryRegion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'key_id': keyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

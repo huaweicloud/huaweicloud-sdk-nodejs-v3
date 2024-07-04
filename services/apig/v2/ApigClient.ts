@@ -12,6 +12,8 @@ import { AclBatchResultFailureResp } from './model/AclBatchResultFailureResp';
 import { AclBindApiInfo } from './model/AclBindApiInfo';
 import { AclBindingBatchDelete } from './model/AclBindingBatchDelete';
 import { AclBindingBatchFailure } from './model/AclBindingBatchFailure';
+import { AddCustomIngressPortRequest } from './model/AddCustomIngressPortRequest';
+import { AddCustomIngressPortResponse } from './model/AddCustomIngressPortResponse';
 import { AddEipV2Request } from './model/AddEipV2Request';
 import { AddEipV2Response } from './model/AddEipV2Response';
 import { AddEndpointPermissionsRequest } from './model/AddEndpointPermissionsRequest';
@@ -233,6 +235,8 @@ import { DeleteCertificateV2Request } from './model/DeleteCertificateV2Request';
 import { DeleteCertificateV2Response } from './model/DeleteCertificateV2Response';
 import { DeleteCustomAuthorizerV2Request } from './model/DeleteCustomAuthorizerV2Request';
 import { DeleteCustomAuthorizerV2Response } from './model/DeleteCustomAuthorizerV2Response';
+import { DeleteCustomIngressPortRequest } from './model/DeleteCustomIngressPortRequest';
+import { DeleteCustomIngressPortResponse } from './model/DeleteCustomIngressPortResponse';
 import { DeleteEndpointPermissionsRequest } from './model/DeleteEndpointPermissionsRequest';
 import { DeleteEndpointPermissionsResponse } from './model/DeleteEndpointPermissionsResponse';
 import { DeleteEnvironmentV2Request } from './model/DeleteEnvironmentV2Request';
@@ -300,6 +304,8 @@ import { ImportApiDefinitionsV2Response } from './model/ImportApiDefinitionsV2Re
 import { ImportBaseResult } from './model/ImportBaseResult';
 import { ImportMicroserviceRequest } from './model/ImportMicroserviceRequest';
 import { ImportMicroserviceResponse } from './model/ImportMicroserviceResponse';
+import { IngressPortCreate } from './model/IngressPortCreate';
+import { IngressPortInfo } from './model/IngressPortInfo';
 import { InnerLatencyStats } from './model/InnerLatencyStats';
 import { InstanceAbstractReq } from './model/InstanceAbstractReq';
 import { InstanceChangeOrderReq } from './model/InstanceChangeOrderReq';
@@ -372,6 +378,10 @@ import { ListCertificatesV2Request } from './model/ListCertificatesV2Request';
 import { ListCertificatesV2Response } from './model/ListCertificatesV2Response';
 import { ListCustomAuthorizersV2Request } from './model/ListCustomAuthorizersV2Request';
 import { ListCustomAuthorizersV2Response } from './model/ListCustomAuthorizersV2Response';
+import { ListCustomIngressPortDomainsRequest } from './model/ListCustomIngressPortDomainsRequest';
+import { ListCustomIngressPortDomainsResponse } from './model/ListCustomIngressPortDomainsResponse';
+import { ListCustomIngressPortsRequest } from './model/ListCustomIngressPortsRequest';
+import { ListCustomIngressPortsResponse } from './model/ListCustomIngressPortsResponse';
 import { ListEndpointConnectionsRequest } from './model/ListEndpointConnectionsRequest';
 import { ListEndpointConnectionsResponse } from './model/ListEndpointConnectionsResponse';
 import { ListEndpointPermissionsRequest } from './model/ListEndpointPermissionsRequest';
@@ -457,6 +467,7 @@ import { PluginApiInfo } from './model/PluginApiInfo';
 import { PluginCreate } from './model/PluginCreate';
 import { PluginInfo } from './model/PluginInfo';
 import { PluginOperApiInfo } from './model/PluginOperApiInfo';
+import { PortBindingDomainInfo } from './model/PortBindingDomainInfo';
 import { PublishResp } from './model/PublishResp';
 import { RemoveEipV2Request } from './model/RemoveEipV2Request';
 import { RemoveEipV2Response } from './model/RemoveEipV2Response';
@@ -650,6 +661,26 @@ export class ApigClient {
     }
 
     /**
+     * 新增实例的自定义入方向端口，在同个实例中，一个端口仅能支持一种协议。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增实例的自定义入方向端口
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {IngressPortCreate} addCustomIngressPortRequestBody 新增实例的自定义入方向端口的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addCustomIngressPort(addCustomIngressPortRequest?: AddCustomIngressPortRequest): Promise<AddCustomIngressPortResponse> {
+        const options = ParamCreater().addCustomIngressPort(addCustomIngressPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 实例更新或绑定EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -752,6 +783,7 @@ export class ApigClient {
 
     /**
      * 如果创建API时，“定义API请求”使用HTTPS请求协议，那么在独立域名中需要添加SSL证书。
+     * 使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
      * 本章节主要介绍为特定域名绑定证书。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1390,6 +1422,26 @@ export class ApigClient {
     }
 
     /**
+     * 删除实例指定的自定义入方向端口，不包含默认端口80和443。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例指定的自定义入方向端口
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} ingressPortId 实例自定义入方向端口ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomIngressPort(deleteCustomIngressPortRequest?: DeleteCustomIngressPortRequest): Promise<DeleteCustomIngressPortResponse> {
+        const options = ParamCreater().deleteCustomIngressPort(deleteCustomIngressPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除实例终端节点连接白名单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1663,7 +1715,7 @@ export class ApigClient {
     }
 
     /**
-     * 如果域名证书不再需要或者已过期，则可以删除证书内容。
+     * 如果域名证书不再需要或者已过期，则可以删除证书内容。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2111,6 +2163,52 @@ export class ApigClient {
      */
     public listCustomAuthorizersV2(listCustomAuthorizersV2Request?: ListCustomAuthorizersV2Request): Promise<ListCustomAuthorizersV2Response> {
         const options = ParamCreater().listCustomAuthorizersV2(listCustomAuthorizersV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例指定的自定义入方向端口绑定的域名信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例指定的自定义入方向端口绑定的域名信息
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} ingressPortId 实例自定义入方向端口ID。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [domainName] 使用入方向端口的域名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomIngressPortDomains(listCustomIngressPortDomainsRequest?: ListCustomIngressPortDomainsRequest): Promise<ListCustomIngressPortDomainsResponse> {
+        const options = ParamCreater().listCustomIngressPortDomains(listCustomIngressPortDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的自定义入方向端口列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的自定义入方向端口列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {'HTTP' | 'HTTPS'} [protocol] 入方向端口的请求协议。 - HTTP: 入方向端口为HTTP协议。 - HTTPS: 入方向端口为HTTPS协议。 
+     * @param {number} [ingressPort] 入方向端口的端口号，支持的端口范围为1024~49151。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomIngressPorts(listCustomIngressPortsRequest?: ListCustomIngressPortsRequest): Promise<ListCustomIngressPortsResponse> {
+        const options = ParamCreater().listCustomIngressPorts(listCustomIngressPortsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3145,7 +3243,7 @@ export class ApigClient {
     }
 
     /**
-     * 修改绑定的域名所对应的配置信息。
+     * 修改绑定的域名所对应的配置信息。使用实例自定义入方向端口的特性时，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4452,7 +4550,7 @@ export class ApigClient {
     }
 
     /**
-     * 域名绑定SSL证书。目前暂时仅支持单个绑定，请求体当中的certificate_ids里面有且只能有一个证书ID。
+     * 域名绑定SSL证书。目前暂时仅支持单个绑定，请求体当中的certificate_ids里面有且只能有一个证书ID。使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4474,7 +4572,7 @@ export class ApigClient {
     }
 
     /**
-     * SSL证书绑定域名。
+     * SSL证书绑定域名。使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4494,7 +4592,7 @@ export class ApigClient {
     }
 
     /**
-     * 域名解绑SSL证书。目前暂时仅支持单个解绑，请求体当中的certificate_ids里面有且只能有一个证书ID。
+     * 域名解绑SSL证书。目前暂时仅支持单个解绑，请求体当中的certificate_ids里面有且只能有一个证书ID。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4516,7 +4614,7 @@ export class ApigClient {
     }
 
     /**
-     * SSL证书解绑域名。
+     * SSL证书解绑域名。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5091,6 +5189,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 新增实例的自定义入方向端口，在同个实例中，一个端口仅能支持一种协议。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addCustomIngressPort(addCustomIngressPortRequest?: AddCustomIngressPortRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/custom-ingress-ports",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addCustomIngressPortRequest !== null && addCustomIngressPortRequest !== undefined) {
+                if (addCustomIngressPortRequest instanceof AddCustomIngressPortRequest) {
+                    instanceId = addCustomIngressPortRequest.instanceId;
+                    body = addCustomIngressPortRequest.body
+                } else {
+                    instanceId = addCustomIngressPortRequest['instance_id'];
+                    body = addCustomIngressPortRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addCustomIngressPort.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实例更新或绑定EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5329,6 +5473,7 @@ export const ParamCreater = function () {
     
         /**
          * 如果创建API时，“定义API请求”使用HTTPS请求协议，那么在独立域名中需要添加SSL证书。
+         * 使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
          * 本章节主要介绍为特定域名绑定证书。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6747,6 +6892,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除实例指定的自定义入方向端口，不包含默认端口80和443。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCustomIngressPort(deleteCustomIngressPortRequest?: DeleteCustomIngressPortRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/custom-ingress-ports/{ingress_port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let ingressPortId;
+
+            if (deleteCustomIngressPortRequest !== null && deleteCustomIngressPortRequest !== undefined) {
+                if (deleteCustomIngressPortRequest instanceof DeleteCustomIngressPortRequest) {
+                    instanceId = deleteCustomIngressPortRequest.instanceId;
+                    ingressPortId = deleteCustomIngressPortRequest.ingressPortId;
+                } else {
+                    instanceId = deleteCustomIngressPortRequest['instance_id'];
+                    ingressPortId = deleteCustomIngressPortRequest['ingress_port_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteCustomIngressPort.');
+            }
+            if (ingressPortId === null || ingressPortId === undefined) {
+            throw new RequiredError('ingressPortId','Required parameter ingressPortId was null or undefined when calling deleteCustomIngressPort.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'ingress_port_id': ingressPortId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除实例终端节点连接白名单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7374,7 +7563,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 如果域名证书不再需要或者已过期，则可以删除证书内容。
+         * 如果域名证书不再需要或者已过期，则可以删除证书内容。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8626,6 +8815,138 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例指定的自定义入方向端口绑定的域名信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomIngressPortDomains(listCustomIngressPortDomainsRequest?: ListCustomIngressPortDomainsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/custom-ingress-ports/{ingress_port_id}/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let ingressPortId;
+            
+            let offset;
+            
+            let limit;
+            
+            let domainName;
+
+            if (listCustomIngressPortDomainsRequest !== null && listCustomIngressPortDomainsRequest !== undefined) {
+                if (listCustomIngressPortDomainsRequest instanceof ListCustomIngressPortDomainsRequest) {
+                    instanceId = listCustomIngressPortDomainsRequest.instanceId;
+                    ingressPortId = listCustomIngressPortDomainsRequest.ingressPortId;
+                    offset = listCustomIngressPortDomainsRequest.offset;
+                    limit = listCustomIngressPortDomainsRequest.limit;
+                    domainName = listCustomIngressPortDomainsRequest.domainName;
+                } else {
+                    instanceId = listCustomIngressPortDomainsRequest['instance_id'];
+                    ingressPortId = listCustomIngressPortDomainsRequest['ingress_port_id'];
+                    offset = listCustomIngressPortDomainsRequest['offset'];
+                    limit = listCustomIngressPortDomainsRequest['limit'];
+                    domainName = listCustomIngressPortDomainsRequest['domain_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listCustomIngressPortDomains.');
+            }
+            if (ingressPortId === null || ingressPortId === undefined) {
+            throw new RequiredError('ingressPortId','Required parameter ingressPortId was null or undefined when calling listCustomIngressPortDomains.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'ingress_port_id': ingressPortId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的自定义入方向端口列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomIngressPorts(listCustomIngressPortsRequest?: ListCustomIngressPortsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/custom-ingress-ports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let protocol;
+            
+            let ingressPort;
+
+            if (listCustomIngressPortsRequest !== null && listCustomIngressPortsRequest !== undefined) {
+                if (listCustomIngressPortsRequest instanceof ListCustomIngressPortsRequest) {
+                    instanceId = listCustomIngressPortsRequest.instanceId;
+                    offset = listCustomIngressPortsRequest.offset;
+                    limit = listCustomIngressPortsRequest.limit;
+                    protocol = listCustomIngressPortsRequest.protocol;
+                    ingressPort = listCustomIngressPortsRequest.ingressPort;
+                } else {
+                    instanceId = listCustomIngressPortsRequest['instance_id'];
+                    offset = listCustomIngressPortsRequest['offset'];
+                    limit = listCustomIngressPortsRequest['limit'];
+                    protocol = listCustomIngressPortsRequest['protocol'];
+                    ingressPort = listCustomIngressPortsRequest['ingress_port'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listCustomIngressPorts.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (protocol !== null && protocol !== undefined) {
+                localVarQueryParameter['protocol'] = protocol;
+            }
+            if (ingressPort !== null && ingressPort !== undefined) {
+                localVarQueryParameter['ingress_port'] = ingressPort;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11265,7 +11586,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改绑定的域名所对应的配置信息。
+         * 修改绑定的域名所对应的配置信息。使用实例自定义入方向端口的特性时，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14765,7 +15086,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 域名绑定SSL证书。目前暂时仅支持单个绑定，请求体当中的certificate_ids里面有且只能有一个证书ID。
+         * 域名绑定SSL证书。目前暂时仅支持单个绑定，请求体当中的certificate_ids里面有且只能有一个证书ID。使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14825,7 +15146,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * SSL证书绑定域名。
+         * SSL证书绑定域名。使用实例自定义入方向端口的特性时，相同的域名会同时绑定证书，注意开启/关闭客户端校验会对相同域名的不同端口同时生效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14871,7 +15192,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 域名解绑SSL证书。目前暂时仅支持单个解绑，请求体当中的certificate_ids里面有且只能有一个证书ID。
+         * 域名解绑SSL证书。目前暂时仅支持单个解绑，请求体当中的certificate_ids里面有且只能有一个证书ID。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14931,7 +15252,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * SSL证书解绑域名。
+         * SSL证书解绑域名。在使用自定义入方向端口的特性时，相同的域名会同时解绑证书。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -6,6 +6,7 @@ export class PostTask {
     public name?: string;
     public type?: PostTaskTypeEnum | string;
     private 'start_target_server'?: boolean;
+    private 'auto_start'?: boolean;
     private 'os_type'?: string;
     private 'source_server'?: SourceServerByTask;
     private 'target_server'?: TargetServerByTask;
@@ -14,8 +15,10 @@ export class PostTask {
     private 'region_id'?: string;
     private 'project_name'?: string;
     private 'project_id'?: string;
+    public priority?: number;
     private 'vm_template_id'?: string;
     private 'use_public_ip'?: boolean;
+    private 'use_ipv6'?: boolean;
     public syncing?: boolean;
     private 'exist_server'?: boolean;
     private 'start_network_check'?: boolean;
@@ -47,6 +50,16 @@ export class PostTask {
     }
     public get startTargetServer(): boolean | undefined {
         return this['start_target_server'];
+    }
+    public withAutoStart(autoStart: boolean): PostTask {
+        this['auto_start'] = autoStart;
+        return this;
+    }
+    public set autoStart(autoStart: boolean  | undefined) {
+        this['auto_start'] = autoStart;
+    }
+    public get autoStart(): boolean | undefined {
+        return this['auto_start'];
     }
     public withOsType(osType: string): PostTask {
         this['os_type'] = osType;
@@ -128,6 +141,10 @@ export class PostTask {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
+    public withPriority(priority: number): PostTask {
+        this['priority'] = priority;
+        return this;
+    }
     public withVmTemplateId(vmTemplateId: string): PostTask {
         this['vm_template_id'] = vmTemplateId;
         return this;
@@ -147,6 +164,16 @@ export class PostTask {
     }
     public get usePublicIp(): boolean | undefined {
         return this['use_public_ip'];
+    }
+    public withUseIpv6(useIpv6: boolean): PostTask {
+        this['use_ipv6'] = useIpv6;
+        return this;
+    }
+    public set useIpv6(useIpv6: boolean  | undefined) {
+        this['use_ipv6'] = useIpv6;
+    }
+    public get useIpv6(): boolean | undefined {
+        return this['use_ipv6'];
     }
     public withSyncing(syncing: boolean): PostTask {
         this['syncing'] = syncing;

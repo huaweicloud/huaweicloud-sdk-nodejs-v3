@@ -15,8 +15,7 @@ export class ListImageVulnerabilitiesRequest {
     private 'vul_id'?: string;
     private 'app_name'?: string;
     public type?: string;
-    public constructor(region?: string, imageType?: string, imageId?: string, namespace?: string, imageName?: string, tagName?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string, imageId?: string, namespace?: string, imageName?: string, tagName?: string) { 
         this['image_type'] = imageType;
         this['image_id'] = imageId;
         this['namespace'] = namespace;

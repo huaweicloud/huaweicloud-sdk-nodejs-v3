@@ -19,6 +19,7 @@ export * from './model/BusinessLicenseRequestBody';
 export * from './model/BusinessLicenseResult';
 export * from './model/CambodianIdCardRequestBody';
 export * from './model/CambodianIdCardResult';
+export * from './model/CambodianIdCardScoreInformationResult';
 export * from './model/CharListIem';
 export * from './model/ChileIdCardConfidence';
 export * from './model/ChileIdCardRequestBody';

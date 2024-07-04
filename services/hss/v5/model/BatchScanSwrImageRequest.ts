@@ -5,8 +5,7 @@ export class BatchScanSwrImageRequest {
     public region?: string;
     private 'enterprise_project_id'?: string;
     public body?: BatchScanPrivateImageRequestInfo;
-    public constructor(region?: string) { 
-        this['region'] = region;
+    public constructor() { 
     }
     public withRegion(region: string): BatchScanSwrImageRequest {
         this['region'] = region;

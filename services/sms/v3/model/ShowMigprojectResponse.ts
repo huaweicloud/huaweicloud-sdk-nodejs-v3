@@ -1,4 +1,3 @@
-import { TemplateResponseBody } from './TemplateResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -7,7 +6,6 @@ export class ShowMigprojectResponse extends SdkResponse {
     public name?: string;
     public description?: string;
     public isdefault?: boolean;
-    public template?: TemplateResponseBody;
     public region?: string;
     private 'start_target_server'?: boolean;
     private 'speed_limit'?: number;
@@ -34,10 +32,6 @@ export class ShowMigprojectResponse extends SdkResponse {
     }
     public withIsdefault(isdefault: boolean): ShowMigprojectResponse {
         this['isdefault'] = isdefault;
-        return this;
-    }
-    public withTemplate(template: TemplateResponseBody): ShowMigprojectResponse {
-        this['template'] = template;
         return this;
     }
     public withRegion(region: string): ShowMigprojectResponse {

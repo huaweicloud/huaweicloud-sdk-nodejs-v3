@@ -9,6 +9,8 @@ export class UrlDomain {
     private 'min_ssl_version'?: UrlDomainMinSslVersionEnum | string;
     private 'verified_client_certificate_enabled'?: boolean;
     private 'is_has_trusted_root_ca'?: boolean;
+    private 'ingress_http_port'?: number;
+    private 'ingress_https_port'?: number;
     public constructor() { 
     }
     public withId(id: string): UrlDomain {
@@ -78,6 +80,26 @@ export class UrlDomain {
     }
     public get isHasTrustedRootCa(): boolean | undefined {
         return this['is_has_trusted_root_ca'];
+    }
+    public withIngressHttpPort(ingressHttpPort: number): UrlDomain {
+        this['ingress_http_port'] = ingressHttpPort;
+        return this;
+    }
+    public set ingressHttpPort(ingressHttpPort: number  | undefined) {
+        this['ingress_http_port'] = ingressHttpPort;
+    }
+    public get ingressHttpPort(): number | undefined {
+        return this['ingress_http_port'];
+    }
+    public withIngressHttpsPort(ingressHttpsPort: number): UrlDomain {
+        this['ingress_https_port'] = ingressHttpsPort;
+        return this;
+    }
+    public set ingressHttpsPort(ingressHttpsPort: number  | undefined) {
+        this['ingress_https_port'] = ingressHttpsPort;
+    }
+    public get ingressHttpsPort(): number | undefined {
+        return this['ingress_https_port'];
     }
 }
 

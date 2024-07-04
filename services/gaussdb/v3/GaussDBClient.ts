@@ -60,6 +60,9 @@ import { CheckResourceRequestBody } from './model/CheckResourceRequestBody';
 import { CheckResourceResponse } from './model/CheckResourceResponse';
 import { CheckStarRocksResourceRequest } from './model/CheckStarRocksResourceRequest';
 import { CheckStarRocksResourceResponse } from './model/CheckStarRocksResourceResponse';
+import { CheckStarrocksParamsRequest } from './model/CheckStarrocksParamsRequest';
+import { CheckStarrocksParamsRequestBody } from './model/CheckStarrocksParamsRequestBody';
+import { CheckStarrocksParamsResponse } from './model/CheckStarrocksParamsResponse';
 import { CheckTableConfigRequest } from './model/CheckTableConfigRequest';
 import { CheckTableConfigResponse } from './model/CheckTableConfigResponse';
 import { ClickHouseDatabaseUserInfo } from './model/ClickHouseDatabaseUserInfo';
@@ -429,6 +432,8 @@ import { ResizeClickHouseFlavorRequest } from './model/ResizeClickHouseFlavorReq
 import { ResizeClickHouseFlavorResponse } from './model/ResizeClickHouseFlavorResponse';
 import { ResizeClickHouseInstanceRequest } from './model/ResizeClickHouseInstanceRequest';
 import { ResizeClickHouseInstanceResponse } from './model/ResizeClickHouseInstanceResponse';
+import { ResizeStarRocksFlavorRequest } from './model/ResizeStarRocksFlavorRequest';
+import { ResizeStarRocksFlavorResponse } from './model/ResizeStarRocksFlavorResponse';
 import { Resource } from './model/Resource';
 import { ResourceCheck } from './model/ResourceCheck';
 import { ResourceCheckResource } from './model/ResourceCheckResource';
@@ -543,6 +548,8 @@ import { ShowSqlFilterRuleResponse } from './model/ShowSqlFilterRuleResponse';
 import { ShowStarRocksDatabaseUserRequest } from './model/ShowStarRocksDatabaseUserRequest';
 import { ShowStarRocksDatabaseUserResponse } from './model/ShowStarRocksDatabaseUserResponse';
 import { ShowStarRocksDatabaseUsersUserDetails } from './model/ShowStarRocksDatabaseUsersUserDetails';
+import { ShowStarrocksParamsRequest } from './model/ShowStarrocksParamsRequest';
+import { ShowStarrocksParamsResponse } from './model/ShowStarrocksParamsResponse';
 import { ShrinkGaussMySqlProxyRequest } from './model/ShrinkGaussMySqlProxyRequest';
 import { ShrinkGaussMySqlProxyRequestBody } from './model/ShrinkGaussMySqlProxyRequestBody';
 import { ShrinkGaussMySqlProxyResponse } from './model/ShrinkGaussMySqlProxyResponse';
@@ -555,6 +562,7 @@ import { SrCreateInstanceRspInstancePayInfo } from './model/SrCreateInstanceRspI
 import { SrCreateInstanceRspInstanceTagsInfo } from './model/SrCreateInstanceRspInstanceTagsInfo';
 import { SrCreateInstanceRspInstanceTagsInfoSysTags } from './model/SrCreateInstanceRspInstanceTagsInfoSysTags';
 import { SrDataStoresDatastores } from './model/SrDataStoresDatastores';
+import { SrFlavorResizeReq } from './model/SrFlavorResizeReq';
 import { StarRocksCreateRequest } from './model/StarRocksCreateRequest';
 import { StarRocksCreateRequestBeVolume } from './model/StarRocksCreateRequestBeVolume';
 import { StarRocksCreateRequestEngine } from './model/StarRocksCreateRequestEngine';
@@ -587,6 +595,8 @@ import { SwitchGaussMySqlProxySslRequest } from './model/SwitchGaussMySqlProxySs
 import { SwitchGaussMySqlProxySslResponse } from './model/SwitchGaussMySqlProxySslResponse';
 import { SwitchProxySSLRequest } from './model/SwitchProxySSLRequest';
 import { SwitchSSLRequest } from './model/SwitchSSLRequest';
+import { SyncStarRocksUsersRequest } from './model/SyncStarRocksUsersRequest';
+import { SyncStarRocksUsersResponse } from './model/SyncStarRocksUsersResponse';
 import { TableConfigCheckRequestV3 } from './model/TableConfigCheckRequestV3';
 import { TableConfigCheckResult } from './model/TableConfigCheckResult';
 import { TableReplConfig } from './model/TableReplConfig';
@@ -656,6 +666,7 @@ import { UpdateInstanceMonitorResponse } from './model/UpdateInstanceMonitorResp
 import { UpdateNewNodeAutoAddSwitchRequest } from './model/UpdateNewNodeAutoAddSwitchRequest';
 import { UpdateNewNodeAutoAddSwitchRequestBody } from './model/UpdateNewNodeAutoAddSwitchRequestBody';
 import { UpdateNewNodeAutoAddSwitchResponse } from './model/UpdateNewNodeAutoAddSwitchResponse';
+import { UpdateParamInfo } from './model/UpdateParamInfo';
 import { UpdateProxyConfigurationItem } from './model/UpdateProxyConfigurationItem';
 import { UpdateProxyConnectionPoolTypeRequest } from './model/UpdateProxyConnectionPoolTypeRequest';
 import { UpdateProxyConnectionPoolTypeResponse } from './model/UpdateProxyConnectionPoolTypeResponse';
@@ -681,6 +692,8 @@ import { UpdateStarRocksDatabaseUserPasswordRequest } from './model/UpdateStarRo
 import { UpdateStarRocksDatabaseUserPasswordResponse } from './model/UpdateStarRocksDatabaseUserPasswordResponse';
 import { UpdateStarRocksDatabaseUserPermissionRequest } from './model/UpdateStarRocksDatabaseUserPermissionRequest';
 import { UpdateStarRocksDatabaseUserPermissionResponse } from './model/UpdateStarRocksDatabaseUserPermissionResponse';
+import { UpdateStarrocksParamsRequest } from './model/UpdateStarrocksParamsRequest';
+import { UpdateStarrocksParamsResponse } from './model/UpdateStarrocksParamsResponse';
 import { UpdateTransactionSplitStatusRequest } from './model/UpdateTransactionSplitStatusRequest';
 import { UpdateTransactionSplitStatusResponse } from './model/UpdateTransactionSplitStatusResponse';
 import { UpgradeDatabaseRequest } from './model/UpgradeDatabaseRequest';
@@ -688,6 +701,7 @@ import { UpgradeGaussMySqlInstanceDatabaseRequest } from './model/UpgradeGaussMy
 import { UpgradeGaussMySqlInstanceDatabaseResponse } from './model/UpgradeGaussMySqlInstanceDatabaseResponse';
 import { UpgradeProxyVersionRequest } from './model/UpgradeProxyVersionRequest';
 import { UpgradeProxyVersionResponse } from './model/UpgradeProxyVersionResponse';
+import { UserSyncReq } from './model/UserSyncReq';
 
 export class GaussDBClient {
     public static newBuilder(): ClientBuilder<GaussDBClient> {
@@ -3670,6 +3684,26 @@ export class GaussDBClient {
     }
 
     /**
+     * 对比实例参数和默认模板的差异
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 参数对比
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {CheckStarrocksParamsRequestBody} [checkStarrocksParamsRequestBody] 需要进行比较的源参数模板ID。通过ListStarrocksInstanceInfo接口获得。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkStarrocksParams(checkStarrocksParamsRequest?: CheckStarrocksParamsRequest): Promise<CheckStarrocksParamsResponse> {
+        const options = ParamCreater().checkStarrocksParams(checkStarrocksParamsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * HTAP数据同步表配置校验。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4385,6 +4419,27 @@ export class GaussDBClient {
     }
 
     /**
+     * StarRocks实例规格变更。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary StarRocks实例规格变更
+     * @param {string} instanceId GaussDBForMySQL实例ID，严格匹配UUID规则。
+     * @param {SrFlavorResizeReq} resizeStarRocksFlavorRequestBody 规格变更请求
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeStarRocksFlavor(resizeStarRocksFlavorRequest?: ResizeStarRocksFlavorRequest): Promise<ResizeStarRocksFlavorResponse> {
+        const options = ParamCreater().resizeStarRocksFlavor(resizeStarRocksFlavorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重启StarRocks实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4558,6 +4613,50 @@ export class GaussDBClient {
     }
 
     /**
+     * 按节点类型查询参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {string} nodeType 节点类型。取值范围: - be - fe
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStarrocksParams(showStarrocksParamsRequest?: ShowStarrocksParamsRequest): Promise<ShowStarrocksParamsResponse> {
+        const options = ParamCreater().showStarrocksParams(showStarrocksParamsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * StarRocks实例开启行列分流。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary StarRocks实例开启行列分流
+     * @param {string} instanceId StarRocks实例ID。
+     * @param {UserSyncReq} syncStarRocksUsersRequestBody 规格变更请求。
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncStarRocksUsers(syncStarRocksUsersRequest?: SyncStarRocksUsersRequest): Promise<SyncStarRocksUsersResponse> {
+        const options = ParamCreater().syncStarRocksUsers(syncStarRocksUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改数据同步。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4696,6 +4795,27 @@ export class GaussDBClient {
      */
     public updateStarRocksDatabaseUserPermission(updateStarRocksDatabaseUserPermissionRequest?: UpdateStarRocksDatabaseUserPermissionRequest): Promise<UpdateStarRocksDatabaseUserPermissionResponse> {
         const options = ParamCreater().updateStarRocksDatabaseUserPermission(updateStarRocksDatabaseUserPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按节点类型修改节点参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改参数
+     * @param {string} instanceId 实例ID，严格匹配UUID规则。
+     * @param {UpdateParamInfo} updateStarrocksParamsRequestBody 参数修改信息
+     * @param {string} [xLanguage] 请求语言类型。默认en-us。 取值范围： - en-us - zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStarrocksParams(updateStarrocksParamsRequest?: UpdateStarrocksParamsRequest): Promise<UpdateStarrocksParamsResponse> {
+        const options = ParamCreater().updateStarrocksParams(updateStarrocksParamsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12389,6 +12509,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 对比实例参数和默认模板的差异
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkStarrocksParams(checkStarrocksParamsRequest?: CheckStarrocksParamsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations/starrocks/comparison",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (checkStarrocksParamsRequest !== null && checkStarrocksParamsRequest !== undefined) {
+                if (checkStarrocksParamsRequest instanceof CheckStarrocksParamsRequest) {
+                    xLanguage = checkStarrocksParamsRequest.xLanguage;
+                    body = checkStarrocksParamsRequest.body
+                } else {
+                    xLanguage = checkStarrocksParamsRequest['X-Language'];
+                    body = checkStarrocksParamsRequest['body'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * HTAP数据同步表配置校验。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14178,6 +14340,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * StarRocks实例规格变更。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeStarRocksFlavor(resizeStarRocksFlavorRequest?: ResizeStarRocksFlavorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/resize-flavor",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resizeStarRocksFlavorRequest !== null && resizeStarRocksFlavorRequest !== undefined) {
+                if (resizeStarRocksFlavorRequest instanceof ResizeStarRocksFlavorRequest) {
+                    instanceId = resizeStarRocksFlavorRequest.instanceId;
+                    body = resizeStarRocksFlavorRequest.body
+                    xLanguage = resizeStarRocksFlavorRequest.xLanguage;
+                } else {
+                    instanceId = resizeStarRocksFlavorRequest['instance_id'];
+                    body = resizeStarRocksFlavorRequest['body'];
+                    xLanguage = resizeStarRocksFlavorRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeStarRocksFlavor.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重启StarRocks实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14633,6 +14848,128 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 按节点类型查询参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStarrocksParams(showStarrocksParamsRequest?: ShowStarrocksParamsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeType;
+            
+            let offset;
+            
+            let limit;
+            
+            let xLanguage;
+
+            if (showStarrocksParamsRequest !== null && showStarrocksParamsRequest !== undefined) {
+                if (showStarrocksParamsRequest instanceof ShowStarrocksParamsRequest) {
+                    instanceId = showStarrocksParamsRequest.instanceId;
+                    nodeType = showStarrocksParamsRequest.nodeType;
+                    offset = showStarrocksParamsRequest.offset;
+                    limit = showStarrocksParamsRequest.limit;
+                    xLanguage = showStarrocksParamsRequest.xLanguage;
+                } else {
+                    instanceId = showStarrocksParamsRequest['instance_id'];
+                    nodeType = showStarrocksParamsRequest['node_type'];
+                    offset = showStarrocksParamsRequest['offset'];
+                    limit = showStarrocksParamsRequest['limit'];
+                    xLanguage = showStarrocksParamsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showStarrocksParams.');
+            }
+            if (nodeType === null || nodeType === undefined) {
+                throw new RequiredError('nodeType','Required parameter nodeType was null or undefined when calling showStarrocksParams.');
+            }
+            if (nodeType !== null && nodeType !== undefined) {
+                localVarQueryParameter['node_type'] = nodeType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * StarRocks实例开启行列分流。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncStarRocksUsers(syncStarRocksUsersRequest?: SyncStarRocksUsersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/users/sync",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (syncStarRocksUsersRequest !== null && syncStarRocksUsersRequest !== undefined) {
+                if (syncStarRocksUsersRequest instanceof SyncStarRocksUsersRequest) {
+                    instanceId = syncStarRocksUsersRequest.instanceId;
+                    body = syncStarRocksUsersRequest.body
+                    xLanguage = syncStarRocksUsersRequest.xLanguage;
+                } else {
+                    instanceId = syncStarRocksUsersRequest['instance_id'];
+                    body = syncStarRocksUsersRequest['body'];
+                    xLanguage = syncStarRocksUsersRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling syncStarRocksUsers.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改数据同步。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14980,6 +15317,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateStarRocksDatabaseUserPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按节点类型修改节点参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStarrocksParams(updateStarrocksParamsRequest?: UpdateStarrocksParamsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/starrocks/configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateStarrocksParamsRequest !== null && updateStarrocksParamsRequest !== undefined) {
+                if (updateStarrocksParamsRequest instanceof UpdateStarrocksParamsRequest) {
+                    instanceId = updateStarrocksParamsRequest.instanceId;
+                    body = updateStarrocksParamsRequest.body
+                    xLanguage = updateStarrocksParamsRequest.xLanguage;
+                } else {
+                    instanceId = updateStarrocksParamsRequest['instance_id'];
+                    body = updateStarrocksParamsRequest['body'];
+                    xLanguage = updateStarrocksParamsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateStarrocksParams.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -67,6 +67,7 @@ import { CheckRuleIdListRequestInfo } from './model/CheckRuleIdListRequestInfo';
 import { CheckRuleKeyInfoRequestInfo } from './model/CheckRuleKeyInfoRequestInfo';
 import { CheckRuleRiskInfoResponseInfo } from './model/CheckRuleRiskInfoResponseInfo';
 import { CloseProtectionInfoRequestInfo } from './model/CloseProtectionInfoRequestInfo';
+import { ContainerBaseInfo } from './model/ContainerBaseInfo';
 import { ContainerName } from './model/ContainerName';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
 import { CreateQuotasOrderRequest } from './model/CreateQuotasOrderRequest';
@@ -120,6 +121,7 @@ import { HostVulInfoAppList } from './model/HostVulInfoAppList';
 import { HostVulInfoCveList } from './model/HostVulInfoCveList';
 import { HostVulOperateInfo } from './model/HostVulOperateInfo';
 import { ImageCheckRuleCheckCaseResponseInfo } from './model/ImageCheckRuleCheckCaseResponseInfo';
+import { ImageLocalInfo } from './model/ImageLocalInfo';
 import { ImageName } from './model/ImageName';
 import { ImageRiskConfigsCheckRulesResponseInfo } from './model/ImageRiskConfigsCheckRulesResponseInfo';
 import { ImageRiskConfigsInfoResponseInfo } from './model/ImageRiskConfigsInfoResponseInfo';
@@ -151,6 +153,8 @@ import { ListBlockedIpRequest } from './model/ListBlockedIpRequest';
 import { ListBlockedIpResponse } from './model/ListBlockedIpResponse';
 import { ListContainerNodesRequest } from './model/ListContainerNodesRequest';
 import { ListContainerNodesResponse } from './model/ListContainerNodesResponse';
+import { ListContainersRequest } from './model/ListContainersRequest';
+import { ListContainersResponse } from './model/ListContainersResponse';
 import { ListHostGroupsRequest } from './model/ListHostGroupsRequest';
 import { ListHostGroupsResponse } from './model/ListHostGroupsResponse';
 import { ListHostProtectHistoryInfoRequest } from './model/ListHostProtectHistoryInfoRequest';
@@ -161,6 +165,8 @@ import { ListHostStatusRequest } from './model/ListHostStatusRequest';
 import { ListHostStatusResponse } from './model/ListHostStatusResponse';
 import { ListHostVulsRequest } from './model/ListHostVulsRequest';
 import { ListHostVulsResponse } from './model/ListHostVulsResponse';
+import { ListImageLocalRequest } from './model/ListImageLocalRequest';
+import { ListImageLocalResponse } from './model/ListImageLocalResponse';
 import { ListImageRiskConfigRulesRequest } from './model/ListImageRiskConfigRulesRequest';
 import { ListImageRiskConfigRulesResponse } from './model/ListImageRiskConfigRulesResponse';
 import { ListImageRiskConfigsRequest } from './model/ListImageRiskConfigsRequest';
@@ -417,9 +423,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 镜像仓库镜像批量扫描
-     * @param {string} region Region ID
      * @param {BatchScanPrivateImageRequestInfo} batchScanSwrImageRequestBody request
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -676,7 +682,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hash] 事件白名单SHA256
      * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -702,10 +708,10 @@ export class HssClient {
      * @param {string} [appName] 软件名称
      * @param {string} [variationType] 变更类型:   - add ：新建   - delete ：删除   - modify ：修改
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序
-     * @param {string} [sortDir] 排序方式，默认为降序:   - asc ：升序   - desc ：降序
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序
+     * @param {string} [sortDir] 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序   - asc ：升序   - desc ：降序
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
      * @param {*} [options] Override http request option.
@@ -728,8 +734,8 @@ export class HssClient {
      * @summary 查询软件列表
      * @param {string} [appName] 软件名称
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -756,8 +762,8 @@ export class HssClient {
      * @param {string} [version] 软件版本号
      * @param {string} [installDir] 安装目录
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
@@ -785,10 +791,10 @@ export class HssClient {
      * @param {number} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
      * @param {string} [variationType] 变更类型:   - add ：新建   - delete ：删除   - modify ：修改
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序
-     * @param {string} [sortDir] 排序方式，默认为降序:   - asc ：升序   - desc ：降序
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [sortKey] 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序
+     * @param {string} [sortDir] 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序   - asc ：升序   - desc ：降序
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
      * @param {*} [options] Override http request option.
@@ -812,8 +818,8 @@ export class HssClient {
      * @param {string} [name] 自启动项名称
      * @param {string} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -838,8 +844,8 @@ export class HssClient {
      * @param {string} [hostIp] 主机ip
      * @param {string} [type] 自启动项类型   - 0 ：自启动服务   - 1 ：定时任务   - 2 ：预加载动态库   - 3 ：Run注册表键   - 4 ：开机启动文件夹
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -865,7 +871,7 @@ export class HssClient {
      * @param {string} [hostName] 服务器名称
      * @param {string} [srcIp] 攻击源IP
      * @param {string} [interceptStatus] 拦截状态，包含如下:   - intercepted : 已拦截   - canceled : 已解除拦截   - cancelling : 待解除拦截
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -887,7 +893,7 @@ export class HssClient {
      * @summary 查询容器节点列表
      * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {string} [hostName] 节点名称
      * @param {string} [agentStatus] Agent状态，包含如下3种。   - not_installed ：未安装   - online ：在线   - offline ：离线
@@ -906,6 +912,31 @@ export class HssClient {
     }
 
     /**
+     * 查询容器基本信息列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询容器基本信息列表
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [containerName] 容器名称
+     * @param {string} [podName] 所属Pod名称
+     * @param {string} [imageName] 镜像名称
+     * @param {boolean} [clusterContainer] 是否是集群纳管的容器
+     * @param {number} [limit] 每页显示个数
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listContainers(listContainersRequest?: ListContainersRequest): Promise<ListContainersResponse> {
+        const options = ParamCreater().listContainers(listContainersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询服务器组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -913,7 +944,7 @@ export class HssClient {
      * @summary 查询服务器组列表
      * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {string} [groupName] 服务器组名称
      * @param {*} [options] Override http request option.
@@ -938,7 +969,7 @@ export class HssClient {
      * @param {number} startTime 起始时间(ms)
      * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
-     * @param {number} offset offset
+     * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {string} [hostId] Host Id，为空时查所有主机
      * @param {string} [hostName] 服务器名称
@@ -967,7 +998,7 @@ export class HssClient {
      * @param {number} startTime 起始时间(ms)
      * @param {number} endTime 终止时间(ms)
      * @param {number} limit limit
-     * @param {number} offset offset
+     * @param {number} offset 偏移量：指定返回记录的开始位置
      * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {string} [hostId] Host Id，为空时查所有主机
      * @param {number} [alarmLevel] 告警级别 - 1 : 低危 - 2 : 中危 - 3 : 高危 - 4 : 严重
@@ -1017,8 +1048,8 @@ export class HssClient {
      * @param {string} [label] 资产标签
      * @param {string} [serverGroup] 资产服务器组
      * @param {boolean} [agentUpgradable] agent是否可升级
-     * @param {number} [limit] 每页显示个数，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1042,7 +1073,7 @@ export class HssClient {
      * @param {string} [type] 漏洞类型，默认为linux_vul，包括如下：   - linux_vul : 漏洞类型-linux漏洞   - windows_vul : 漏洞类型-windows漏洞   - web_cms : Web-CMS漏洞   - app_vul : 应用漏洞   - urgent_vul : 应急漏洞
      * @param {string} [vulName] 漏洞名称
      * @param {number} [limit] 每页显示个数
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [status] 漏洞状态，包含如下：   - vul_status_unfix : 未处理   - vul_status_ignored : 已忽略   - vul_status_verified : 验证中   - vul_status_fixing : 修复中   - vul_status_fixed : 修复成功   - vul_status_reboot : 修复成功待重启   - vul_status_failed : 修复失败   - vul_status_fix_after_reboot : 请重启主机再次修复
      * @param {string} [repairPriority] 修复优先级,包含如下 - Critical 紧急  - High 高  - Medium 中  - Low 低
@@ -1059,18 +1090,57 @@ export class HssClient {
     }
 
     /**
+     * 本地镜像列表查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 本地镜像列表查询
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [imageName] 镜像名称
+     * @param {string} [imageVersion] 镜像版本
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
+     * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - waiting_for_scan : 等待扫描
+     * @param {string} [localImageType] 镜像类型，包含如下:  - other_image : 非SWR镜像  - swr_image : SWR镜像
+     * @param {number} [imageSize] 镜像大小，单位字节
+     * @param {number} [startLatestUpdateTime] 最近更新时间搜索开始日期，时间单位 毫秒（ms）
+     * @param {number} [endLatestUpdateTime] 最近更新时间搜索结束日期，时间单位 毫秒（ms）
+     * @param {number} [startLatestScanTime] 最近一次扫描完成时间搜索开始日期，时间单位 毫秒（ms）
+     * @param {number} [endLatestScanTime] 最近一次扫描完成时间搜索结束日期，时间单位 毫秒（ms）
+     * @param {boolean} [hasVul] 是否存在软件漏洞
+     * @param {string} [hostName] 本地镜像所关联服务器的名称
+     * @param {string} [hostId] 本地镜像所关联服务器的ID
+     * @param {string} [hostIp] 本地镜像所关联服务器的IP（公网或私网）
+     * @param {string} [containerId] 本地镜像所关联容器的ID
+     * @param {string} [containerName] 本地镜像所关联容器的名称
+     * @param {string} [podId] 本地镜像所关联Pod的ID
+     * @param {string} [podName] 本地镜像所关联Pod的名称
+     * @param {string} [appName] 本地镜像所关联软件的名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImageLocal(listImageLocalRequest?: ListImageLocalRequest): Promise<ListImageLocalResponse> {
+        const options = ParamCreater().listImageLocal(listImageLocalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询镜像指定安全配置项的检查项列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像指定安全配置项的检查项列表
-     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} standard 标准类型，包含如下: - cn_standard : 等保合规标准 - hw_standard : 华为标准 - qt_standard : 青腾标准
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [limit] 每页显示个数
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
      * @param {string} [namespace] 组织名称（没有镜像相关信息时，表示查询所有镜像）
      * @param {string} [imageName] 镜像名称
      * @param {string} [imageVersion] 镜像版本名称
@@ -1096,11 +1166,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像安全配置检测结果列表
-     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [limit] 每页显示个数
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
      * @param {string} [namespace] 组织名称
      * @param {string} [imageName] 镜像名称
      * @param {string} [imageVersion] 镜像版本名称
@@ -1126,15 +1196,15 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像的漏洞信息
-     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} imageId 镜像id
      * @param {string} namespace 组织名称
      * @param {string} imageName 镜像名称
      * @param {string} tagName 镜像版本
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [limit] 每页显示个数
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
      * @param {string} [instanceId] 企业仓库实例ID，swr共享版无需使用该参数
      * @param {string} [repairNecessity] 危险程度，包含如下3种。   - immediate_repair ：高危。   - delay_repair ：中危。   - not_needed_repair ：低危。
      * @param {string} [vulId] 漏洞ID（支持模糊查询）
@@ -1166,7 +1236,7 @@ export class HssClient {
      * @param {string} [publicIp] 服务器公网IP
      * @param {string} [fileHash] 文件hash,当前为sha256
      * @param {string} [assetValue] 资产重要性，包含如下3种   - important ：重要资产   - common ：一般资产   - test ：测试资产
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1191,8 +1261,8 @@ export class HssClient {
      * @param {string} [category] 类别，包含如下:   - host : 主机   - container : 容器
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1215,8 +1285,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [fileName] jar包名称
      * @param {string} [category] 类别，包含如下:   - host : 主机   - container : 容器
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1239,8 +1309,8 @@ export class HssClient {
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP地址
      * @param {string} [hostId] 主机id，不赋值时，查租户所有主机
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1262,7 +1332,7 @@ export class HssClient {
      * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [groupName] 策略组名
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {boolean} [containerMode] 是否查询容器版策略
      * @param {*} [options] Override http request option.
@@ -1289,8 +1359,8 @@ export class HssClient {
      * @param {string} [hostIp] 主机ip
      * @param {string} [type] 端口类型：目前包括TCP，UDP两种
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1315,8 +1385,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [sortKey] 排序的key值，目前支持按照端口号port排序
      * @param {string} [sortDir] 升序还是降序，默认升序，asc
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1342,8 +1412,8 @@ export class HssClient {
      * @param {number} [port] 端口号
      * @param {string} [type] 端口类型：目前包括TCP，UDP两种
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1365,8 +1435,8 @@ export class HssClient {
      * @summary 查询进程列表
      * @param {string} [path] 可执行进程路径
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1391,8 +1461,8 @@ export class HssClient {
      * @param {string} [hostIp] 主机ip
      * @param {string} [path] 进程可执行文件路径
      * @param {string} [category] 类型，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1413,7 +1483,7 @@ export class HssClient {
      * @summary 查询勒索病毒的防护策略列表
      * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {string} [policyName] 防护策略名称
      * @param {string} [protectPolicyId] 防护策略id
@@ -1438,7 +1508,7 @@ export class HssClient {
      * @summary 查询勒索防护服务器列表
      * @param {string} region Region ID
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {string} [hostName] 服务器名称
      * @param {string} [osType] 操作系统类型，包含如下2种。   - Linux ：Linux。   - Windows ：Windows。
@@ -1473,7 +1543,7 @@ export class HssClient {
      * @param {string} [resourceId] HSS配额的资源ID
      * @param {string} [chargingMode] 收费模式，包含如下2种。   - packet_cycle ：包年/包月。   - on_demand ：按需。
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1500,7 +1570,7 @@ export class HssClient {
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1525,7 +1595,7 @@ export class HssClient {
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostIp] 服务器IP地址
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1550,8 +1620,8 @@ export class HssClient {
      * @param {string} [severity] 风险等级，包含如下:   - Security : 安全   - Low : 低危   - Medium : 中危   - High : 高危
      * @param {string} [standard] 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 云安全实践标准
      * @param {string} [hostId] 主机id
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1579,7 +1649,7 @@ export class HssClient {
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [publicIp] 服务器公网IP
      * @param {string} [containerName] 容器实例名称
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {Array<number>} [eventTypes] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3026 : crontab提权   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
@@ -1613,13 +1683,13 @@ export class HssClient {
      * @summary 查询swr镜像仓库镜像列表
      * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [namespace] 组织名称
-     * @param {string} [imageName] 镜像名称 id
+     * @param {string} [imageName] 镜像名称
      * @param {string} [imageVersion] 镜像版本
      * @param {boolean} [latestVersion] 仅关注最新版本镜像
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [limit] 每页显示个数
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
      * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - waiting_for_scan : 等待扫描
      * @param {string} [instanceName] 企业镜像实例名称
      * @param {number} [imageSize] 镜像大小
@@ -1655,8 +1725,8 @@ export class HssClient {
      * @param {string} [hostName] 主机名称
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [changeType] 账号变更类型:   - ADD ：添加   - DELETE ：删除   - MODIFY ： 修改
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [startTime] 变更开始时间，13位时间戳
      * @param {number} [endTime] 变更结束时间，13位时间戳
@@ -1680,8 +1750,8 @@ export class HssClient {
      * @summary 查询账号信息列表
      * @param {string} [userName] 账号名称，参考windows文件命名规则，支持字母、数字、下划线、中文，特殊字符!@.-等，不包括中文标点符号
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1709,8 +1779,8 @@ export class HssClient {
      * @param {boolean} [rootPermission] 是否有root权限
      * @param {string} [userGroup] 主机用户组
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [limit] 每页显示数量，默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
      * @param {boolean} [partMatch] 是否模糊匹配，默认false表示精确匹配
      * @param {*} [options] Override http request option.
@@ -1738,7 +1808,7 @@ export class HssClient {
      * @param {string} [hostIp] 受影响主机ip
      * @param {string} [status] 漏洞状态   - vul_status_unfix : 未处理   - vul_status_ignored : 已忽略   - vul_status_verified : 验证中   - vul_status_fixing : 修复中   - vul_status_fixed : 修复成功   - vul_status_reboot : 修复成功待重启   - vul_status_failed : 修复失败   - vul_status_fix_after_reboot : 请重启主机再次修复
      * @param {number} [limit] 每页条数
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [assetValue] 资产重要性 important:重要 common：一般 test：测试
      * @param {string} [groupName] 服务器组名称
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
@@ -1765,7 +1835,7 @@ export class HssClient {
      * @summary 查询漏洞扫描任务列表
      * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [limit] 每页显示个数
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [scanType] 扫描任务的类型，包含如下：   -manual : 手动扫描任务   -schedule : 定时扫描任务
      * @param {string} [taskId] 扫描任务ID
      * @param {number} [minStartTime] 扫描任务开始时间的最小值
@@ -1791,7 +1861,7 @@ export class HssClient {
      * @param {string} taskId 任务ID
      * @param {string} [enterpriseProjectId] 企业租户ID，查询所有企业项目时填写：all_granted_eps
      * @param {number} [limit] 每页显示个数
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [scanStatus] 主机的扫描状态，包含如下：   -scanning : 扫描中   -success : 扫描成功   -failed : 扫描失败
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1816,7 +1886,7 @@ export class HssClient {
      * @param {string} [vulId] 漏洞ID
      * @param {string} [vulName] 漏洞名称
      * @param {number} [limit] 每页显示个数
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {string} [repairPriority] 修复优先级 Critical 紧急 High  高 Medium 中 Low 低
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [cveId] 漏洞编号
@@ -1842,11 +1912,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 漏洞对应cve信息
-     * @param {string} region Region ID
      * @param {string} vulId 漏洞ID
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {number} [limit] 每页显示个数
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {number} [limit] 每页显示数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1871,7 +1941,7 @@ export class HssClient {
      * @param {string} [userName] 弱口令账号名称
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1901,7 +1971,7 @@ export class HssClient {
      * @param {string} [protectStatus] 防护状态   - closed : 未开启   - opened : 防护中
      * @param {string} [agentStatus] 客户端状态   - not_installed : agent未安装   - online : agent在线   - offline : agent不在线
      * @param {number} [limit] 默认10
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1920,9 +1990,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 从SWR服务同步镜像列表
-     * @param {string} region Region ID
      * @param {RunImageSynchronizeRequestInfo} runImageSynchronizeRequestBody request
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2050,13 +2120,13 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像配置检查项检测报告
-     * @param {string} region Region ID
      * @param {string} imageType 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - local_image : 本地镜像   - instance_image : 企业镜像
      * @param {string} checkName 基线名称
      * @param {string} checkType 基线类型
      * @param {string} checkRuleId 检查项id
      * @param {string} standard 标准类型，包含如下:   - cn_standard : 等保合规标准   - hw_standard : 华为标准   - qt_standard : 青腾标准
-     * @param {string} [enterpriseProjectId] 租户企业项目ID，查询所有企业项目时填写：all_granted_eps
+     * @param {string} [region] Region ID
+     * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [namespace] 组织名称（没有镜像相关信息时，表示查询所有镜像）
      * @param {string} [imageName] 镜像名称
      * @param {string} [imageVersion] 镜像版本名称
@@ -2127,7 +2197,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] 企业项目ID，查询所有企业项目时填写：all_granted_eps
      * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
      * @param {number} [limit] 每页数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0。
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2492,12 +2562,12 @@ export const ParamCreater = function () {
 
             if (batchScanSwrImageRequest !== null && batchScanSwrImageRequest !== undefined) {
                 if (batchScanSwrImageRequest instanceof BatchScanSwrImageRequest) {
-                    region = batchScanSwrImageRequest.region;
                     body = batchScanSwrImageRequest.body
+                    region = batchScanSwrImageRequest.region;
                     enterpriseProjectId = batchScanSwrImageRequest.enterpriseProjectId;
                 } else {
-                    region = batchScanSwrImageRequest['region'];
                     body = batchScanSwrImageRequest['body'];
+                    region = batchScanSwrImageRequest['region'];
                     enterpriseProjectId = batchScanSwrImageRequest['enterprise_project_id'];
                 }
             }
@@ -3939,6 +4009,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询容器基本信息列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listContainers(listContainersRequest?: ListContainersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/container/kubernetes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let containerName;
+            
+            let podName;
+            
+            let imageName;
+            
+            let clusterContainer;
+            
+            let limit;
+            
+            let offset;
+
+            if (listContainersRequest !== null && listContainersRequest !== undefined) {
+                if (listContainersRequest instanceof ListContainersRequest) {
+                    enterpriseProjectId = listContainersRequest.enterpriseProjectId;
+                    containerName = listContainersRequest.containerName;
+                    podName = listContainersRequest.podName;
+                    imageName = listContainersRequest.imageName;
+                    clusterContainer = listContainersRequest.clusterContainer;
+                    limit = listContainersRequest.limit;
+                    offset = listContainersRequest.offset;
+                } else {
+                    enterpriseProjectId = listContainersRequest['enterprise_project_id'];
+                    containerName = listContainersRequest['container_name'];
+                    podName = listContainersRequest['pod_name'];
+                    imageName = listContainersRequest['image_name'];
+                    clusterContainer = listContainersRequest['cluster_container'];
+                    limit = listContainersRequest['limit'];
+                    offset = listContainersRequest['offset'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (containerName !== null && containerName !== undefined) {
+                localVarQueryParameter['container_name'] = containerName;
+            }
+            if (podName !== null && podName !== undefined) {
+                localVarQueryParameter['pod_name'] = podName;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (clusterContainer !== null && clusterContainer !== undefined) {
+                localVarQueryParameter['cluster_container'] = clusterContainer;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询服务器组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4555,6 +4704,183 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 本地镜像列表查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImageLocal(listImageLocalRequest?: ListImageLocalRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/image/local-repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let imageName;
+            
+            let imageVersion;
+            
+            let offset;
+            
+            let limit;
+            
+            let scanStatus;
+            
+            let localImageType;
+            
+            let imageSize;
+            
+            let startLatestUpdateTime;
+            
+            let endLatestUpdateTime;
+            
+            let startLatestScanTime;
+            
+            let endLatestScanTime;
+            
+            let hasVul;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let hostIp;
+            
+            let containerId;
+            
+            let containerName;
+            
+            let podId;
+            
+            let podName;
+            
+            let appName;
+
+            if (listImageLocalRequest !== null && listImageLocalRequest !== undefined) {
+                if (listImageLocalRequest instanceof ListImageLocalRequest) {
+                    enterpriseProjectId = listImageLocalRequest.enterpriseProjectId;
+                    imageName = listImageLocalRequest.imageName;
+                    imageVersion = listImageLocalRequest.imageVersion;
+                    offset = listImageLocalRequest.offset;
+                    limit = listImageLocalRequest.limit;
+                    scanStatus = listImageLocalRequest.scanStatus;
+                    localImageType = listImageLocalRequest.localImageType;
+                    imageSize = listImageLocalRequest.imageSize;
+                    startLatestUpdateTime = listImageLocalRequest.startLatestUpdateTime;
+                    endLatestUpdateTime = listImageLocalRequest.endLatestUpdateTime;
+                    startLatestScanTime = listImageLocalRequest.startLatestScanTime;
+                    endLatestScanTime = listImageLocalRequest.endLatestScanTime;
+                    hasVul = listImageLocalRequest.hasVul;
+                    hostName = listImageLocalRequest.hostName;
+                    hostId = listImageLocalRequest.hostId;
+                    hostIp = listImageLocalRequest.hostIp;
+                    containerId = listImageLocalRequest.containerId;
+                    containerName = listImageLocalRequest.containerName;
+                    podId = listImageLocalRequest.podId;
+                    podName = listImageLocalRequest.podName;
+                    appName = listImageLocalRequest.appName;
+                } else {
+                    enterpriseProjectId = listImageLocalRequest['enterprise_project_id'];
+                    imageName = listImageLocalRequest['image_name'];
+                    imageVersion = listImageLocalRequest['image_version'];
+                    offset = listImageLocalRequest['offset'];
+                    limit = listImageLocalRequest['limit'];
+                    scanStatus = listImageLocalRequest['scan_status'];
+                    localImageType = listImageLocalRequest['local_image_type'];
+                    imageSize = listImageLocalRequest['image_size'];
+                    startLatestUpdateTime = listImageLocalRequest['start_latest_update_time'];
+                    endLatestUpdateTime = listImageLocalRequest['end_latest_update_time'];
+                    startLatestScanTime = listImageLocalRequest['start_latest_scan_time'];
+                    endLatestScanTime = listImageLocalRequest['end_latest_scan_time'];
+                    hasVul = listImageLocalRequest['has_vul'];
+                    hostName = listImageLocalRequest['host_name'];
+                    hostId = listImageLocalRequest['host_id'];
+                    hostIp = listImageLocalRequest['host_ip'];
+                    containerId = listImageLocalRequest['container_id'];
+                    containerName = listImageLocalRequest['container_name'];
+                    podId = listImageLocalRequest['pod_id'];
+                    podName = listImageLocalRequest['pod_name'];
+                    appName = listImageLocalRequest['app_name'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (imageVersion !== null && imageVersion !== undefined) {
+                localVarQueryParameter['image_version'] = imageVersion;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (scanStatus !== null && scanStatus !== undefined) {
+                localVarQueryParameter['scan_status'] = scanStatus;
+            }
+            if (localImageType !== null && localImageType !== undefined) {
+                localVarQueryParameter['local_image_type'] = localImageType;
+            }
+            if (imageSize !== null && imageSize !== undefined) {
+                localVarQueryParameter['image_size'] = imageSize;
+            }
+            if (startLatestUpdateTime !== null && startLatestUpdateTime !== undefined) {
+                localVarQueryParameter['start_latest_update_time'] = startLatestUpdateTime;
+            }
+            if (endLatestUpdateTime !== null && endLatestUpdateTime !== undefined) {
+                localVarQueryParameter['end_latest_update_time'] = endLatestUpdateTime;
+            }
+            if (startLatestScanTime !== null && startLatestScanTime !== undefined) {
+                localVarQueryParameter['start_latest_scan_time'] = startLatestScanTime;
+            }
+            if (endLatestScanTime !== null && endLatestScanTime !== undefined) {
+                localVarQueryParameter['end_latest_scan_time'] = endLatestScanTime;
+            }
+            if (hasVul !== null && hasVul !== undefined) {
+                localVarQueryParameter['has_vul'] = hasVul;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (containerId !== null && containerId !== undefined) {
+                localVarQueryParameter['container_id'] = containerId;
+            }
+            if (containerName !== null && containerName !== undefined) {
+                localVarQueryParameter['container_name'] = containerName;
+            }
+            if (podId !== null && podId !== undefined) {
+                localVarQueryParameter['pod_id'] = podId;
+            }
+            if (podName !== null && podName !== undefined) {
+                localVarQueryParameter['pod_name'] = podName;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询镜像指定安全配置项的检查项列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4571,13 +4897,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let imageType;
             
             let checkName;
             
             let standard;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -4601,10 +4927,10 @@ export const ParamCreater = function () {
 
             if (listImageRiskConfigRulesRequest !== null && listImageRiskConfigRulesRequest !== undefined) {
                 if (listImageRiskConfigRulesRequest instanceof ListImageRiskConfigRulesRequest) {
-                    region = listImageRiskConfigRulesRequest.region;
                     imageType = listImageRiskConfigRulesRequest.imageType;
                     checkName = listImageRiskConfigRulesRequest.checkName;
                     standard = listImageRiskConfigRulesRequest.standard;
+                    region = listImageRiskConfigRulesRequest.region;
                     enterpriseProjectId = listImageRiskConfigRulesRequest.enterpriseProjectId;
                     offset = listImageRiskConfigRulesRequest.offset;
                     limit = listImageRiskConfigRulesRequest.limit;
@@ -4616,10 +4942,10 @@ export const ParamCreater = function () {
                     severity = listImageRiskConfigRulesRequest.severity;
                     instanceId = listImageRiskConfigRulesRequest.instanceId;
                 } else {
-                    region = listImageRiskConfigRulesRequest['region'];
                     imageType = listImageRiskConfigRulesRequest['image_type'];
                     checkName = listImageRiskConfigRulesRequest['check_name'];
                     standard = listImageRiskConfigRulesRequest['standard'];
+                    region = listImageRiskConfigRulesRequest['region'];
                     enterpriseProjectId = listImageRiskConfigRulesRequest['enterprise_project_id'];
                     offset = listImageRiskConfigRulesRequest['offset'];
                     limit = listImageRiskConfigRulesRequest['limit'];
@@ -4706,9 +5032,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let imageType;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -4732,8 +5058,8 @@ export const ParamCreater = function () {
 
             if (listImageRiskConfigsRequest !== null && listImageRiskConfigsRequest !== undefined) {
                 if (listImageRiskConfigsRequest instanceof ListImageRiskConfigsRequest) {
-                    region = listImageRiskConfigsRequest.region;
                     imageType = listImageRiskConfigsRequest.imageType;
+                    region = listImageRiskConfigsRequest.region;
                     enterpriseProjectId = listImageRiskConfigsRequest.enterpriseProjectId;
                     offset = listImageRiskConfigsRequest.offset;
                     limit = listImageRiskConfigsRequest.limit;
@@ -4745,8 +5071,8 @@ export const ParamCreater = function () {
                     standard = listImageRiskConfigsRequest.standard;
                     instanceId = listImageRiskConfigsRequest.instanceId;
                 } else {
-                    region = listImageRiskConfigsRequest['region'];
                     imageType = listImageRiskConfigsRequest['image_type'];
+                    region = listImageRiskConfigsRequest['region'];
                     enterpriseProjectId = listImageRiskConfigsRequest['enterprise_project_id'];
                     offset = listImageRiskConfigsRequest['offset'];
                     limit = listImageRiskConfigsRequest['limit'];
@@ -4823,8 +5149,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let imageType;
             
             let imageId;
@@ -4834,6 +5158,8 @@ export const ParamCreater = function () {
             let imageName;
             
             let tagName;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -4853,12 +5179,12 @@ export const ParamCreater = function () {
 
             if (listImageVulnerabilitiesRequest !== null && listImageVulnerabilitiesRequest !== undefined) {
                 if (listImageVulnerabilitiesRequest instanceof ListImageVulnerabilitiesRequest) {
-                    region = listImageVulnerabilitiesRequest.region;
                     imageType = listImageVulnerabilitiesRequest.imageType;
                     imageId = listImageVulnerabilitiesRequest.imageId;
                     namespace = listImageVulnerabilitiesRequest.namespace;
                     imageName = listImageVulnerabilitiesRequest.imageName;
                     tagName = listImageVulnerabilitiesRequest.tagName;
+                    region = listImageVulnerabilitiesRequest.region;
                     enterpriseProjectId = listImageVulnerabilitiesRequest.enterpriseProjectId;
                     offset = listImageVulnerabilitiesRequest.offset;
                     limit = listImageVulnerabilitiesRequest.limit;
@@ -4868,12 +5194,12 @@ export const ParamCreater = function () {
                     appName = listImageVulnerabilitiesRequest.appName;
                     type = listImageVulnerabilitiesRequest.type;
                 } else {
-                    region = listImageVulnerabilitiesRequest['region'];
                     imageType = listImageVulnerabilitiesRequest['image_type'];
                     imageId = listImageVulnerabilitiesRequest['image_id'];
                     namespace = listImageVulnerabilitiesRequest['namespace'];
                     imageName = listImageVulnerabilitiesRequest['image_name'];
                     tagName = listImageVulnerabilitiesRequest['tag_name'];
+                    region = listImageVulnerabilitiesRequest['region'];
                     enterpriseProjectId = listImageVulnerabilitiesRequest['enterprise_project_id'];
                     offset = listImageVulnerabilitiesRequest['offset'];
                     limit = listImageVulnerabilitiesRequest['limit'];
@@ -7382,9 +7708,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let vulId;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -7394,14 +7720,14 @@ export const ParamCreater = function () {
 
             if (listVulnerabilityCveRequest !== null && listVulnerabilityCveRequest !== undefined) {
                 if (listVulnerabilityCveRequest instanceof ListVulnerabilityCveRequest) {
-                    region = listVulnerabilityCveRequest.region;
                     vulId = listVulnerabilityCveRequest.vulId;
+                    region = listVulnerabilityCveRequest.region;
                     enterpriseProjectId = listVulnerabilityCveRequest.enterpriseProjectId;
                     offset = listVulnerabilityCveRequest.offset;
                     limit = listVulnerabilityCveRequest.limit;
                 } else {
-                    region = listVulnerabilityCveRequest['region'];
                     vulId = listVulnerabilityCveRequest['vul_id'];
+                    region = listVulnerabilityCveRequest['region'];
                     enterpriseProjectId = listVulnerabilityCveRequest['enterprise_project_id'];
                     offset = listVulnerabilityCveRequest['offset'];
                     limit = listVulnerabilityCveRequest['limit'];
@@ -7649,12 +7975,12 @@ export const ParamCreater = function () {
 
             if (runImageSynchronizeRequest !== null && runImageSynchronizeRequest !== undefined) {
                 if (runImageSynchronizeRequest instanceof RunImageSynchronizeRequest) {
-                    region = runImageSynchronizeRequest.region;
                     body = runImageSynchronizeRequest.body
+                    region = runImageSynchronizeRequest.region;
                     enterpriseProjectId = runImageSynchronizeRequest.enterpriseProjectId;
                 } else {
-                    region = runImageSynchronizeRequest['region'];
                     body = runImageSynchronizeRequest['body'];
+                    region = runImageSynchronizeRequest['region'];
                     enterpriseProjectId = runImageSynchronizeRequest['enterprise_project_id'];
                 }
             }
@@ -7993,8 +8319,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let imageType;
             
             let checkName;
@@ -8004,6 +8328,8 @@ export const ParamCreater = function () {
             let checkRuleId;
             
             let standard;
+            
+            let region;
             
             let enterpriseProjectId;
             
@@ -8017,24 +8343,24 @@ export const ParamCreater = function () {
 
             if (showImageCheckRuleDetailRequest !== null && showImageCheckRuleDetailRequest !== undefined) {
                 if (showImageCheckRuleDetailRequest instanceof ShowImageCheckRuleDetailRequest) {
-                    region = showImageCheckRuleDetailRequest.region;
                     imageType = showImageCheckRuleDetailRequest.imageType;
                     checkName = showImageCheckRuleDetailRequest.checkName;
                     checkType = showImageCheckRuleDetailRequest.checkType;
                     checkRuleId = showImageCheckRuleDetailRequest.checkRuleId;
                     standard = showImageCheckRuleDetailRequest.standard;
+                    region = showImageCheckRuleDetailRequest.region;
                     enterpriseProjectId = showImageCheckRuleDetailRequest.enterpriseProjectId;
                     namespace = showImageCheckRuleDetailRequest.namespace;
                     imageName = showImageCheckRuleDetailRequest.imageName;
                     imageVersion = showImageCheckRuleDetailRequest.imageVersion;
                     instanceId = showImageCheckRuleDetailRequest.instanceId;
                 } else {
-                    region = showImageCheckRuleDetailRequest['region'];
                     imageType = showImageCheckRuleDetailRequest['image_type'];
                     checkName = showImageCheckRuleDetailRequest['check_name'];
                     checkType = showImageCheckRuleDetailRequest['check_type'];
                     checkRuleId = showImageCheckRuleDetailRequest['check_rule_id'];
                     standard = showImageCheckRuleDetailRequest['standard'];
+                    region = showImageCheckRuleDetailRequest['region'];
                     enterpriseProjectId = showImageCheckRuleDetailRequest['enterprise_project_id'];
                     namespace = showImageCheckRuleDetailRequest['namespace'];
                     imageName = showImageCheckRuleDetailRequest['image_name'];

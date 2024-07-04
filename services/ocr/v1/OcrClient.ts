@@ -21,6 +21,7 @@ import { BusinessLicenseRequestBody } from './model/BusinessLicenseRequestBody';
 import { BusinessLicenseResult } from './model/BusinessLicenseResult';
 import { CambodianIdCardRequestBody } from './model/CambodianIdCardRequestBody';
 import { CambodianIdCardResult } from './model/CambodianIdCardResult';
+import { CambodianIdCardScoreInformationResult } from './model/CambodianIdCardScoreInformationResult';
 import { CharListIem } from './model/CharListIem';
 import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';

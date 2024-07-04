@@ -63,6 +63,8 @@ import { ChangeTheDelayThresholdResponse } from './model/ChangeTheDelayThreshold
 import { ChangingTheDelayThresholdRequestBody } from './model/ChangingTheDelayThresholdRequestBody';
 import { ChargeInfo } from './model/ChargeInfo';
 import { ChargeInfoResponse } from './model/ChargeInfoResponse';
+import { ComputeFlavor } from './model/ComputeFlavor';
+import { ComputeFlavorGroup } from './model/ComputeFlavorGroup';
 import { Computes } from './model/Computes';
 import { ConfigurationCopyRequestBody } from './model/ConfigurationCopyRequestBody';
 import { ConfigurationForCreation } from './model/ConfigurationForCreation';
@@ -81,6 +83,8 @@ import { CreateDbUserResponse } from './model/CreateDbUserResponse';
 import { CreateDnsNameRequest } from './model/CreateDnsNameRequest';
 import { CreateDnsNameRequestBody } from './model/CreateDnsNameRequestBody';
 import { CreateDnsNameResponse } from './model/CreateDnsNameResponse';
+import { CreateInstanceIam5Request } from './model/CreateInstanceIam5Request';
+import { CreateInstanceIam5Response } from './model/CreateInstanceIam5Response';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRespItem } from './model/CreateInstanceRespItem';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
@@ -112,6 +116,7 @@ import { CreateXelLogDownloadRequest } from './model/CreateXelLogDownloadRequest
 import { CreateXelLogDownloadRequestBody } from './model/CreateXelLogDownloadRequestBody';
 import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadResponse';
 import { CreateXelLogDownloadResult } from './model/CreateXelLogDownloadResult';
+import { CustomerCreateInstanceReq } from './model/CustomerCreateInstanceReq';
 import { CustomerModifyAutoEnlargePolicyReq } from './model/CustomerModifyAutoEnlargePolicyReq';
 import { CustomerUpgradeDatabaseVersionReq } from './model/CustomerUpgradeDatabaseVersionReq';
 import { CustomerUpgradeDatabaseVersionReqNew } from './model/CustomerUpgradeDatabaseVersionReqNew';
@@ -131,6 +136,9 @@ import { DeleteDatabaseRequest } from './model/DeleteDatabaseRequest';
 import { DeleteDatabaseResponse } from './model/DeleteDatabaseResponse';
 import { DeleteDbUserRequest } from './model/DeleteDbUserRequest';
 import { DeleteDbUserResponse } from './model/DeleteDbUserResponse';
+import { DeleteDisasterRecoveryRequest } from './model/DeleteDisasterRecoveryRequest';
+import { DeleteDisasterRecoveryRequestBody } from './model/DeleteDisasterRecoveryRequestBody';
+import { DeleteDisasterRecoveryResponse } from './model/DeleteDisasterRecoveryResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
@@ -249,6 +257,8 @@ import { ListErrorLogsResponse } from './model/ListErrorLogsResponse';
 import { ListErrorlogForLtsRequest } from './model/ListErrorlogForLtsRequest';
 import { ListErrorlogForLtsResponse } from './model/ListErrorlogForLtsResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
+import { ListFlavorsResizeRequest } from './model/ListFlavorsResizeRequest';
+import { ListFlavorsResizeResponse } from './model/ListFlavorsResizeResponse';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListHistoryDatabaseRequest } from './model/ListHistoryDatabaseRequest';
 import { ListHistoryDatabaseResponse } from './model/ListHistoryDatabaseResponse';
@@ -608,6 +618,9 @@ import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { TargetInstanceRequest } from './model/TargetInstanceRequest';
 import { UnchangeableParam } from './model/UnchangeableParam';
+import { UnlockNodeReadonlyStatusRequest } from './model/UnlockNodeReadonlyStatusRequest';
+import { UnlockNodeReadonlyStatusRequestBody } from './model/UnlockNodeReadonlyStatusRequestBody';
+import { UnlockNodeReadonlyStatusResponse } from './model/UnlockNodeReadonlyStatusResponse';
 import { UpdateConfigurationRequest } from './model/UpdateConfigurationRequest';
 import { UpdateConfigurationResponse } from './model/UpdateConfigurationResponse';
 import { UpdateConfigurationRspConfiguration } from './model/UpdateConfigurationRspConfiguration';
@@ -1019,6 +1032,27 @@ export class RdsClient {
     }
 
     /**
+     * 创建数据库实例V5接口，仅支持IAM5的新平面认证方式（AK/SK认证方式）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据库实例V5接口，仅支持IAM5的新平面认证方式（AK/SK认证方式）
+     * @param {CustomerCreateInstanceReq} createInstanceV5RequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {string} [xClientToken] 保证客户端请求幂等性的标识。 该标识为32位UUID格式，由客户端生成，且需确保72小时内不同请求之间该标识具有唯一性。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInstanceIam5(createInstanceIam5Request?: CreateInstanceIam5Request): Promise<CreateInstanceIam5Response> {
+        const options = ParamCreater().createInstanceIam5(createInstanceIam5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建手动备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1134,6 +1168,27 @@ export class RdsClient {
      */
     public deleteConfiguration(deleteConfigurationRequest?: DeleteConfigurationRequest): Promise<DeleteConfigurationResponse> {
         const options = ParamCreater().deleteConfiguration(deleteConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除实例容灾关系接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除实例容灾关系接口
+     * @param {string} instanceId 实例id
+     * @param {DeleteDisasterRecoveryRequestBody} deleteDisasterRecoveryRequestBody 解除实例容灾关系请求体
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDisasterRecovery(deleteDisasterRecoveryRequest?: DeleteDisasterRecoveryRequest): Promise<DeleteDisasterRecoveryResponse> {
+        const options = ParamCreater().deleteDisasterRecovery(deleteDisasterRecoveryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1582,6 +1637,26 @@ export class RdsClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库可变更规格接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库可变更规格接口
+     * @param {string} instanceId 实例id
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFlavorsResize(listFlavorsResizeRequest?: ListFlavorsResizeRequest): Promise<ListFlavorsResizeResponse> {
+        const options = ParamCreater().listFlavorsResize(listFlavorsResizeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3402,6 +3477,27 @@ export class RdsClient {
      */
     public switchSsl(switchSslRequest?: SwitchSslRequest): Promise<SwitchSslResponse> {
         const options = ParamCreater().switchSsl(switchSslRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解除节点只读状态接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解除节点只读状态接口
+     * @param {string} instanceId 实例id
+     * @param {UnlockNodeReadonlyStatusRequestBody} unlockNodeReadonlyStatusRequestBody 解除只读请求体
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unlockNodeReadonlyStatus(unlockNodeReadonlyStatusRequest?: UnlockNodeReadonlyStatusRequest): Promise<UnlockNodeReadonlyStatusResponse> {
+        const options = ParamCreater().unlockNodeReadonlyStatus(unlockNodeReadonlyStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5941,6 +6037,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建数据库实例V5接口，仅支持IAM5的新平面认证方式（AK/SK认证方式）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInstanceIam5(createInstanceIam5Request?: CreateInstanceIam5Request) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createInstanceIam5Request !== null && createInstanceIam5Request !== undefined) {
+                if (createInstanceIam5Request instanceof CreateInstanceIam5Request) {
+                    body = createInstanceIam5Request.body
+                    xLanguage = createInstanceIam5Request.xLanguage;
+                    xClientToken = createInstanceIam5Request.xClientToken;
+                } else {
+                    body = createInstanceIam5Request['body'];
+                    xLanguage = createInstanceIam5Request['X-Language'];
+                    xClientToken = createInstanceIam5Request['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建手动备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6229,6 +6377,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除实例容灾关系接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDisasterRecovery(deleteDisasterRecoveryRequest?: DeleteDisasterRecoveryRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/delete-disaster-recovery",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteDisasterRecoveryRequest !== null && deleteDisasterRecoveryRequest !== undefined) {
+                if (deleteDisasterRecoveryRequest instanceof DeleteDisasterRecoveryRequest) {
+                    instanceId = deleteDisasterRecoveryRequest.instanceId;
+                    body = deleteDisasterRecoveryRequest.body
+                    xLanguage = deleteDisasterRecoveryRequest.xLanguage;
+                } else {
+                    instanceId = deleteDisasterRecoveryRequest['instance_id'];
+                    body = deleteDisasterRecoveryRequest['body'];
+                    xLanguage = deleteDisasterRecoveryRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDisasterRecovery.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7423,6 +7624,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'database_name': databaseName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库可变更规格接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFlavorsResize(listFlavorsResizeRequest?: ListFlavorsResizeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/flavors-resize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listFlavorsResizeRequest !== null && listFlavorsResizeRequest !== undefined) {
+                if (listFlavorsResizeRequest instanceof ListFlavorsResizeRequest) {
+                    instanceId = listFlavorsResizeRequest.instanceId;
+                    xLanguage = listFlavorsResizeRequest.xLanguage;
+                } else {
+                    instanceId = listFlavorsResizeRequest['instance_id'];
+                    xLanguage = listFlavorsResizeRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listFlavorsResize.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12045,6 +12290,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchSsl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解除节点只读状态接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unlockNodeReadonlyStatus(unlockNodeReadonlyStatusRequest?: UnlockNodeReadonlyStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/unlock-node-readonly-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (unlockNodeReadonlyStatusRequest !== null && unlockNodeReadonlyStatusRequest !== undefined) {
+                if (unlockNodeReadonlyStatusRequest instanceof UnlockNodeReadonlyStatusRequest) {
+                    instanceId = unlockNodeReadonlyStatusRequest.instanceId;
+                    body = unlockNodeReadonlyStatusRequest.body
+                    xLanguage = unlockNodeReadonlyStatusRequest.xLanguage;
+                } else {
+                    instanceId = unlockNodeReadonlyStatusRequest['instance_id'];
+                    body = unlockNodeReadonlyStatusRequest['body'];
+                    xLanguage = unlockNodeReadonlyStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling unlockNodeReadonlyStatus.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

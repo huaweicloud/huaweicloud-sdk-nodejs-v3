@@ -2,7 +2,7 @@
 
 export class UpdateTaskStatusReq {
     public operation?: UpdateTaskStatusReqOperationEnum | string;
-    public param?: { [key: string]: string; };
+    private 'template_id'?: string;
     private 'switch_hce'?: boolean;
     private 'is_need_consistency_check'?: boolean;
     public constructor(operation?: string) { 
@@ -12,9 +12,15 @@ export class UpdateTaskStatusReq {
         this['operation'] = operation;
         return this;
     }
-    public withParam(param: { [key: string]: string; }): UpdateTaskStatusReq {
-        this['param'] = param;
+    public withTemplateId(templateId: string): UpdateTaskStatusReq {
+        this['template_id'] = templateId;
         return this;
+    }
+    public set templateId(templateId: string  | undefined) {
+        this['template_id'] = templateId;
+    }
+    public get templateId(): string | undefined {
+        return this['template_id'];
     }
     public withSwitchHce(switchHce: boolean): UpdateTaskStatusReq {
         this['switch_hce'] = switchHce;
@@ -45,10 +51,8 @@ export class UpdateTaskStatusReq {
 export enum UpdateTaskStatusReqOperationEnum {
     START = 'start',
     STOP = 'stop',
-    COLLECT_LOG = 'collect_log',
     TEST = 'test',
     CLONE_TEST = 'clone_test',
     RESTART = 'restart',
-    SYNC_FAILED_ROLLBACK = 'sync_failed_rollback',
     NETWORK_CHECK = 'network_check'
 }

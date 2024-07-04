@@ -2,34 +2,71 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AMQPUser } from './model/AMQPUser';
+import { AMQPUserPerm } from './model/AMQPUserPerm';
 import { BatchCreateOrDeleteRabbitMqTagRequest } from './model/BatchCreateOrDeleteRabbitMqTagRequest';
 import { BatchCreateOrDeleteRabbitMqTagResponse } from './model/BatchCreateOrDeleteRabbitMqTagResponse';
 import { BatchCreateOrDeleteTagReq } from './model/BatchCreateOrDeleteTagReq';
+import { BatchDeleteBody } from './model/BatchDeleteBody';
+import { BatchDeleteExchangesRequest } from './model/BatchDeleteExchangesRequest';
+import { BatchDeleteExchangesResponse } from './model/BatchDeleteExchangesResponse';
+import { BatchDeleteQueuesRequest } from './model/BatchDeleteQueuesRequest';
+import { BatchDeleteQueuesResponse } from './model/BatchDeleteQueuesResponse';
+import { BatchDeleteVhostsRequest } from './model/BatchDeleteVhostsRequest';
+import { BatchDeleteVhostsResponse } from './model/BatchDeleteVhostsResponse';
 import { BatchRestartOrDeleteInstanceReq } from './model/BatchRestartOrDeleteInstanceReq';
 import { BatchRestartOrDeleteInstanceRespResults } from './model/BatchRestartOrDeleteInstanceRespResults';
 import { BatchRestartOrDeleteInstancesRequest } from './model/BatchRestartOrDeleteInstancesRequest';
 import { BatchRestartOrDeleteInstancesResponse } from './model/BatchRestartOrDeleteInstancesResponse';
+import { BindingsDetails } from './model/BindingsDetails';
 import { BssParam } from './model/BssParam';
+import { ChannelDetails } from './model/ChannelDetails';
+import { ConsumerDetails } from './model/ConsumerDetails';
+import { CreateBindingBody } from './model/CreateBindingBody';
+import { CreateBindingRequest } from './model/CreateBindingRequest';
+import { CreateBindingResponse } from './model/CreateBindingResponse';
+import { CreateExchangeBody } from './model/CreateExchangeBody';
+import { CreateExchangeRequest } from './model/CreateExchangeRequest';
+import { CreateExchangeResponse } from './model/CreateExchangeResponse';
 import { CreateInstanceReq } from './model/CreateInstanceReq';
 import { CreatePostPaidInstanceByEngineRequest } from './model/CreatePostPaidInstanceByEngineRequest';
 import { CreatePostPaidInstanceByEngineResponse } from './model/CreatePostPaidInstanceByEngineResponse';
 import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
+import { CreateQueueBody } from './model/CreateQueueBody';
+import { CreateQueueRequest } from './model/CreateQueueRequest';
+import { CreateQueueResponse } from './model/CreateQueueResponse';
+import { CreateUserRequest } from './model/CreateUserRequest';
+import { CreateUserResponse } from './model/CreateUserResponse';
+import { CreateVhostBody } from './model/CreateVhostBody';
+import { CreateVhostRequest } from './model/CreateVhostRequest';
+import { CreateVhostResponse } from './model/CreateVhostResponse';
 import { DeleteBackgroundTaskRequest } from './model/DeleteBackgroundTaskRequest';
 import { DeleteBackgroundTaskResponse } from './model/DeleteBackgroundTaskResponse';
+import { DeleteBindingRequest } from './model/DeleteBindingRequest';
+import { DeleteBindingResponse } from './model/DeleteBindingResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteQueueInfoRequest } from './model/DeleteQueueInfoRequest';
+import { DeleteQueueInfoResponse } from './model/DeleteQueueInfoResponse';
+import { DeleteUserRequest } from './model/DeleteUserRequest';
+import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { ExchangeDetails } from './model/ExchangeDetails';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListBackgroundTasksRequest } from './model/ListBackgroundTasksRequest';
 import { ListBackgroundTasksRespTasks } from './model/ListBackgroundTasksRespTasks';
 import { ListBackgroundTasksResponse } from './model/ListBackgroundTasksResponse';
+import { ListBindingsRequest } from './model/ListBindingsRequest';
+import { ListBindingsResponse } from './model/ListBindingsResponse';
 import { ListEngineIosEntity } from './model/ListEngineIosEntity';
 import { ListEngineProductsEntity } from './model/ListEngineProductsEntity';
 import { ListEngineProductsRequest } from './model/ListEngineProductsRequest';
 import { ListEngineProductsResponse } from './model/ListEngineProductsResponse';
 import { ListEnginePropertiesEntity } from './model/ListEnginePropertiesEntity';
+import { ListExchangesRequest } from './model/ListExchangesRequest';
+import { ListExchangesResponse } from './model/ListExchangesResponse';
 import { ListInstancesDetailsRequest } from './model/ListInstancesDetailsRequest';
 import { ListInstancesDetailsResponse } from './model/ListInstancesDetailsResponse';
 import { ListPluginsRequest } from './model/ListPluginsRequest';
@@ -40,8 +77,16 @@ import { ListProductsRespHourly } from './model/ListProductsRespHourly';
 import { ListProductsRespIo } from './model/ListProductsRespIo';
 import { ListProductsRespValues } from './model/ListProductsRespValues';
 import { ListProductsResponse } from './model/ListProductsResponse';
+import { ListQueuesRequest } from './model/ListQueuesRequest';
+import { ListQueuesResponse } from './model/ListQueuesResponse';
+import { ListUserRequest } from './model/ListUserRequest';
+import { ListUserResponse } from './model/ListUserResponse';
+import { ListVhostsRequest } from './model/ListVhostsRequest';
+import { ListVhostsResponse } from './model/ListVhostsResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { PluginEntity } from './model/PluginEntity';
+import { QueueArguments } from './model/QueueArguments';
+import { QueueDetails } from './model/QueueDetails';
 import { RabbitMQExtendProductInfoEntity } from './model/RabbitMQExtendProductInfoEntity';
 import { RabbitMQExtendProductIosEntity } from './model/RabbitMQExtendProductIosEntity';
 import { RabbitMQExtendProductPropertiesEntity } from './model/RabbitMQExtendProductPropertiesEntity';
@@ -78,10 +123,13 @@ import { ShowInstanceResp } from './model/ShowInstanceResp';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowMaintainWindowsRequest } from './model/ShowMaintainWindowsRequest';
 import { ShowMaintainWindowsResponse } from './model/ShowMaintainWindowsResponse';
+import { ShowQueueDetailsRequest } from './model/ShowQueueDetailsRequest';
+import { ShowQueueDetailsResponse } from './model/ShowQueueDetailsResponse';
 import { ShowRabbitMqProjectTagsRequest } from './model/ShowRabbitMqProjectTagsRequest';
 import { ShowRabbitMqProjectTagsResponse } from './model/ShowRabbitMqProjectTagsResponse';
 import { ShowRabbitMqTagsRequest } from './model/ShowRabbitMqTagsRequest';
 import { ShowRabbitMqTagsResponse } from './model/ShowRabbitMqTagsResponse';
+import { ShowVhostDetailResp } from './model/ShowVhostDetailResp';
 import { TagEntity } from './model/TagEntity';
 import { TagMultyValueEntity } from './model/TagMultyValueEntity';
 import { UpdateInstanceReq } from './model/UpdateInstanceReq';
@@ -90,6 +138,8 @@ import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdatePluginsReq } from './model/UpdatePluginsReq';
 import { UpdatePluginsRequest } from './model/UpdatePluginsRequest';
 import { UpdatePluginsResponse } from './model/UpdatePluginsResponse';
+import { UpdateUserRequest } from './model/UpdateUserRequest';
+import { UpdateUserResponse } from './model/UpdateUserResponse';
 
 export class RabbitMQClient {
     public static newBuilder(): ClientBuilder<RabbitMQClient> {
@@ -187,6 +237,26 @@ export class RabbitMQClient {
     }
 
     /**
+     * 创建用户（仅AMQP版本支持）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建用户
+     * @param {string} instanceId 实例ID。
+     * @param {AMQPUser} createUserRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUser(createUserRequest?: CreateUserRequest): Promise<CreateUserResponse> {
+        const options = ParamCreater().createUser(createUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除后台任务管理中的指定记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -218,6 +288,26 @@ export class RabbitMQClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除用户（仅AMQP版本支持）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除用户
+     * @param {string} instanceId 实例ID。
+     * @param {string} userName 用户名。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteUser(deleteUserRequest?: DeleteUserRequest): Promise<DeleteUserResponse> {
+        const options = ParamCreater().deleteUser(deleteUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -344,6 +434,27 @@ export class RabbitMQClient {
      */
     public listProducts(listProductsRequest?: ListProductsRequest): Promise<ListProductsResponse> {
         const options = ParamCreater().listProducts(listProductsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户列表（仅AMQP版本支持）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户列表
+     * @param {string} instanceId 实例ID。
+     * @param {string} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
+     * @param {string} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUser(listUserRequest?: ListUserRequest): Promise<ListUserResponse> {
+        const options = ParamCreater().listUser(listUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -612,6 +723,325 @@ export class RabbitMQClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 修改用户参数（仅AMQP版本支持）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改用户参数
+     * @param {string} instanceId 实例ID。
+     * @param {string} userName 用户名。
+     * @param {AMQPUser} updateUserRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateUser(updateUserRequest?: UpdateUserRequest): Promise<UpdateUserResponse> {
+        const options = ParamCreater().updateUser(updateUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加绑定。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加绑定
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {string} exchange Exchange名称
+     * @param {CreateBindingBody} createBindingRequestBody 创建绑定
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createBinding(createBindingRequest?: CreateBindingRequest): Promise<CreateBindingResponse> {
+        const options = ParamCreater().createBinding(createBindingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除绑定。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除绑定
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {string} exchange Exchange名称
+     * @param {string} destinationType 绑定目标端类型，Exchange或Queue（AMQP版本只支持Queue绑定类型）
+     * @param {string} destination 绑定的目标端名称
+     * @param {string} propertiesKey 绑定路由键，经过URL转译后routing_key，可通过调用[查询Exchange绑定列表](ListBindings.xml)或者[查询指定Queue详情](ShowQueueDetails.xml)接口的响应信息获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBinding(deleteBindingRequest?: DeleteBindingRequest): Promise<DeleteBindingResponse> {
+        const options = ParamCreater().deleteBinding(deleteBindingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Exchange绑定信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Exchange绑定信息列表
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {string} exchange Exchange名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBindings(listBindingsRequest?: ListBindingsRequest): Promise<ListBindingsResponse> {
+        const options = ParamCreater().listBindings(listBindingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除指定Exchange。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定Exchange
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {BatchDeleteBody} batchDeleteExchangesRequestBody 需要删除的Exchange名称列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteExchanges(batchDeleteExchangesRequest?: BatchDeleteExchangesRequest): Promise<BatchDeleteExchangesResponse> {
+        const options = ParamCreater().batchDeleteExchanges(batchDeleteExchangesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Exchange。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Exchange
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {CreateExchangeBody} createExchangeRequestBody 创建Exchange
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createExchange(createExchangeRequest?: CreateExchangeRequest): Promise<CreateExchangeResponse> {
+        const options = ParamCreater().createExchange(createExchangeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Exchange列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Exchange列表
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost 所属Vhost名称
+     * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
+     * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExchanges(listExchangesRequest?: ListExchangesRequest): Promise<ListExchangesResponse> {
+        const options = ParamCreater().listExchanges(listExchangesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除指定Queue。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定Queue
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {BatchDeleteBody} batchDeleteQueuesRequestBody 待删除Queue的名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteQueues(batchDeleteQueuesRequest?: BatchDeleteQueuesRequest): Promise<BatchDeleteQueuesResponse> {
+        const options = ParamCreater().batchDeleteQueues(batchDeleteQueuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Queue。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Queue
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {CreateQueueBody} createQueueRequestBody 创建Queue参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createQueue(createQueueRequest?: CreateQueueRequest): Promise<CreateQueueResponse> {
+        const options = ParamCreater().createQueue(createQueueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 清空Queue消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清空Queue消息
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {string} queue Queue名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteQueueInfo(deleteQueueInfoRequest?: DeleteQueueInfoRequest): Promise<DeleteQueueInfoResponse> {
+        const options = ParamCreater().deleteQueueInfo(deleteQueueInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所属Vhost下Queue的列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所属Vhost下Queue的列表
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost Vhost名称
+     * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
+     * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listQueues(listQueuesRequest?: ListQueuesRequest): Promise<ListQueuesResponse> {
+        const options = ParamCreater().listQueues(listQueuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定Queue详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定Queue详情
+     * @param {string} instanceId 实例ID
+     * @param {string} vhost 所属Vhost名称
+     * @param {string} queue Queue名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQueueDetails(showQueueDetailsRequest?: ShowQueueDetailsRequest): Promise<ShowQueueDetailsResponse> {
+        const options = ParamCreater().showQueueDetails(showQueueDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除指定Vhost。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定Vhost
+     * @param {string} instanceId 实例ID
+     * @param {BatchDeleteBody} batchDeleteVhostsRequestBody 需要删除的Vhost名称列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteVhosts(batchDeleteVhostsRequest?: BatchDeleteVhostsRequest): Promise<BatchDeleteVhostsResponse> {
+        const options = ParamCreater().batchDeleteVhosts(batchDeleteVhostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Vhost。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Vhost
+     * @param {string} instanceId 实例ID
+     * @param {CreateVhostBody} createVhostRequestBody Vhost名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVhost(createVhostRequest?: CreateVhostRequest): Promise<CreateVhostResponse> {
+        const options = ParamCreater().createVhost(createVhostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Vhost列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Vhost列表
+     * @param {string} instanceId 实例ID
+     * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
+     * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVhosts(listVhostsRequest?: ListVhostsRequest): Promise<ListVhostsResponse> {
+        const options = ParamCreater().listVhosts(listVhostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -788,6 +1218,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建用户（仅AMQP版本支持）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUser(createUserRequest?: CreateUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createUserRequest !== null && createUserRequest !== undefined) {
+                if (createUserRequest instanceof CreateUserRequest) {
+                    instanceId = createUserRequest.instanceId;
+                    body = createUserRequest.body
+                } else {
+                    instanceId = createUserRequest['instance_id'];
+                    body = createUserRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除后台任务管理中的指定记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -864,6 +1340,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除用户（仅AMQP版本支持）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteUser(deleteUserRequest?: DeleteUserRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/users/{user_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let userName;
+
+            if (deleteUserRequest !== null && deleteUserRequest !== undefined) {
+                if (deleteUserRequest instanceof DeleteUserRequest) {
+                    instanceId = deleteUserRequest.instanceId;
+                    userName = deleteUserRequest.userName;
+                } else {
+                    instanceId = deleteUserRequest['instance_id'];
+                    userName = deleteUserRequest['user_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteUser.');
+            }
+            if (userName === null || userName === undefined) {
+            throw new RequiredError('userName','Required parameter userName was null or undefined when calling deleteUser.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1166,6 +1686,58 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户列表（仅AMQP版本支持）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUser(listUserRequest?: ListUserRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listUserRequest !== null && listUserRequest !== undefined) {
+                if (listUserRequest instanceof ListUserRequest) {
+                    instanceId = listUserRequest.instanceId;
+                    offset = listUserRequest.offset;
+                    limit = listUserRequest.limit;
+                } else {
+                    instanceId = listUserRequest['instance_id'];
+                    offset = listUserRequest['offset'];
+                    limit = listUserRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listUser.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1715,6 +2287,818 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改用户参数（仅AMQP版本支持）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateUser(updateUserRequest?: UpdateUserRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/users/{user_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let userName;
+
+            if (updateUserRequest !== null && updateUserRequest !== undefined) {
+                if (updateUserRequest instanceof UpdateUserRequest) {
+                    instanceId = updateUserRequest.instanceId;
+                    userName = updateUserRequest.userName;
+                    body = updateUserRequest.body
+                } else {
+                    instanceId = updateUserRequest['instance_id'];
+                    userName = updateUserRequest['user_name'];
+                    body = updateUserRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateUser.');
+            }
+            if (userName === null || userName === undefined) {
+            throw new RequiredError('userName','Required parameter userName was null or undefined when calling updateUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加绑定。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createBinding(createBindingRequest?: CreateBindingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges/{exchange}/binding",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let exchange;
+
+            if (createBindingRequest !== null && createBindingRequest !== undefined) {
+                if (createBindingRequest instanceof CreateBindingRequest) {
+                    instanceId = createBindingRequest.instanceId;
+                    vhost = createBindingRequest.vhost;
+                    exchange = createBindingRequest.exchange;
+                    body = createBindingRequest.body
+                } else {
+                    instanceId = createBindingRequest['instance_id'];
+                    vhost = createBindingRequest['vhost'];
+                    exchange = createBindingRequest['exchange'];
+                    body = createBindingRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createBinding.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling createBinding.');
+            }
+            if (exchange === null || exchange === undefined) {
+            throw new RequiredError('exchange','Required parameter exchange was null or undefined when calling createBinding.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost,'exchange': exchange, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除绑定。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBinding(deleteBindingRequest?: DeleteBindingRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges/{exchange}/destination-type/{destination_type}/destination/{destination}/properties-key/{properties_key}/unbinding",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let exchange;
+            
+            let destinationType;
+            
+            let destination;
+            
+            let propertiesKey;
+
+            if (deleteBindingRequest !== null && deleteBindingRequest !== undefined) {
+                if (deleteBindingRequest instanceof DeleteBindingRequest) {
+                    instanceId = deleteBindingRequest.instanceId;
+                    vhost = deleteBindingRequest.vhost;
+                    exchange = deleteBindingRequest.exchange;
+                    destinationType = deleteBindingRequest.destinationType;
+                    destination = deleteBindingRequest.destination;
+                    propertiesKey = deleteBindingRequest.propertiesKey;
+                } else {
+                    instanceId = deleteBindingRequest['instance_id'];
+                    vhost = deleteBindingRequest['vhost'];
+                    exchange = deleteBindingRequest['exchange'];
+                    destinationType = deleteBindingRequest['destination_type'];
+                    destination = deleteBindingRequest['destination'];
+                    propertiesKey = deleteBindingRequest['properties_key'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteBinding.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling deleteBinding.');
+            }
+            if (exchange === null || exchange === undefined) {
+            throw new RequiredError('exchange','Required parameter exchange was null or undefined when calling deleteBinding.');
+            }
+            if (destinationType === null || destinationType === undefined) {
+            throw new RequiredError('destinationType','Required parameter destinationType was null or undefined when calling deleteBinding.');
+            }
+            if (destination === null || destination === undefined) {
+            throw new RequiredError('destination','Required parameter destination was null or undefined when calling deleteBinding.');
+            }
+            if (propertiesKey === null || propertiesKey === undefined) {
+            throw new RequiredError('propertiesKey','Required parameter propertiesKey was null or undefined when calling deleteBinding.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost,'exchange': exchange,'destination_type': destinationType,'destination': destination,'properties_key': propertiesKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Exchange绑定信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBindings(listBindingsRequest?: ListBindingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges/{exchange}/binding",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let exchange;
+
+            if (listBindingsRequest !== null && listBindingsRequest !== undefined) {
+                if (listBindingsRequest instanceof ListBindingsRequest) {
+                    instanceId = listBindingsRequest.instanceId;
+                    vhost = listBindingsRequest.vhost;
+                    exchange = listBindingsRequest.exchange;
+                } else {
+                    instanceId = listBindingsRequest['instance_id'];
+                    vhost = listBindingsRequest['vhost'];
+                    exchange = listBindingsRequest['exchange'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBindings.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling listBindings.');
+            }
+            if (exchange === null || exchange === undefined) {
+            throw new RequiredError('exchange','Required parameter exchange was null or undefined when calling listBindings.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost,'exchange': exchange, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除指定Exchange。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteExchanges(batchDeleteExchangesRequest?: BatchDeleteExchangesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let vhost;
+
+            if (batchDeleteExchangesRequest !== null && batchDeleteExchangesRequest !== undefined) {
+                if (batchDeleteExchangesRequest instanceof BatchDeleteExchangesRequest) {
+                    instanceId = batchDeleteExchangesRequest.instanceId;
+                    vhost = batchDeleteExchangesRequest.vhost;
+                    body = batchDeleteExchangesRequest.body
+                } else {
+                    instanceId = batchDeleteExchangesRequest['instance_id'];
+                    vhost = batchDeleteExchangesRequest['vhost'];
+                    body = batchDeleteExchangesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteExchanges.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling batchDeleteExchanges.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Exchange。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createExchange(createExchangeRequest?: CreateExchangeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let vhost;
+
+            if (createExchangeRequest !== null && createExchangeRequest !== undefined) {
+                if (createExchangeRequest instanceof CreateExchangeRequest) {
+                    instanceId = createExchangeRequest.instanceId;
+                    vhost = createExchangeRequest.vhost;
+                    body = createExchangeRequest.body
+                } else {
+                    instanceId = createExchangeRequest['instance_id'];
+                    vhost = createExchangeRequest['vhost'];
+                    body = createExchangeRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createExchange.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling createExchange.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Exchange列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExchanges(listExchangesRequest?: ListExchangesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/exchanges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let offset;
+            
+            let limit;
+
+            if (listExchangesRequest !== null && listExchangesRequest !== undefined) {
+                if (listExchangesRequest instanceof ListExchangesRequest) {
+                    instanceId = listExchangesRequest.instanceId;
+                    vhost = listExchangesRequest.vhost;
+                    offset = listExchangesRequest.offset;
+                    limit = listExchangesRequest.limit;
+                } else {
+                    instanceId = listExchangesRequest['instance_id'];
+                    vhost = listExchangesRequest['vhost'];
+                    offset = listExchangesRequest['offset'];
+                    limit = listExchangesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listExchanges.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling listExchanges.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除指定Queue。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteQueues(batchDeleteQueuesRequest?: BatchDeleteQueuesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/queues",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let vhost;
+
+            if (batchDeleteQueuesRequest !== null && batchDeleteQueuesRequest !== undefined) {
+                if (batchDeleteQueuesRequest instanceof BatchDeleteQueuesRequest) {
+                    instanceId = batchDeleteQueuesRequest.instanceId;
+                    vhost = batchDeleteQueuesRequest.vhost;
+                    body = batchDeleteQueuesRequest.body
+                } else {
+                    instanceId = batchDeleteQueuesRequest['instance_id'];
+                    vhost = batchDeleteQueuesRequest['vhost'];
+                    body = batchDeleteQueuesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteQueues.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling batchDeleteQueues.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Queue。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createQueue(createQueueRequest?: CreateQueueRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/queues",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let vhost;
+
+            if (createQueueRequest !== null && createQueueRequest !== undefined) {
+                if (createQueueRequest instanceof CreateQueueRequest) {
+                    instanceId = createQueueRequest.instanceId;
+                    vhost = createQueueRequest.vhost;
+                    body = createQueueRequest.body
+                } else {
+                    instanceId = createQueueRequest['instance_id'];
+                    vhost = createQueueRequest['vhost'];
+                    body = createQueueRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createQueue.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling createQueue.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 清空Queue消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteQueueInfo(deleteQueueInfoRequest?: DeleteQueueInfoRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/queues/{queue}/contents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let queue;
+
+            if (deleteQueueInfoRequest !== null && deleteQueueInfoRequest !== undefined) {
+                if (deleteQueueInfoRequest instanceof DeleteQueueInfoRequest) {
+                    instanceId = deleteQueueInfoRequest.instanceId;
+                    vhost = deleteQueueInfoRequest.vhost;
+                    queue = deleteQueueInfoRequest.queue;
+                } else {
+                    instanceId = deleteQueueInfoRequest['instance_id'];
+                    vhost = deleteQueueInfoRequest['vhost'];
+                    queue = deleteQueueInfoRequest['queue'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteQueueInfo.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling deleteQueueInfo.');
+            }
+            if (queue === null || queue === undefined) {
+            throw new RequiredError('queue','Required parameter queue was null or undefined when calling deleteQueueInfo.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost,'queue': queue, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所属Vhost下Queue的列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listQueues(listQueuesRequest?: ListQueuesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/queues",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let offset;
+            
+            let limit;
+
+            if (listQueuesRequest !== null && listQueuesRequest !== undefined) {
+                if (listQueuesRequest instanceof ListQueuesRequest) {
+                    instanceId = listQueuesRequest.instanceId;
+                    vhost = listQueuesRequest.vhost;
+                    offset = listQueuesRequest.offset;
+                    limit = listQueuesRequest.limit;
+                } else {
+                    instanceId = listQueuesRequest['instance_id'];
+                    vhost = listQueuesRequest['vhost'];
+                    offset = listQueuesRequest['offset'];
+                    limit = listQueuesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listQueues.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling listQueues.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定Queue详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQueueDetails(showQueueDetailsRequest?: ShowQueueDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts/{vhost}/queues/{queue}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let vhost;
+            
+            let queue;
+
+            if (showQueueDetailsRequest !== null && showQueueDetailsRequest !== undefined) {
+                if (showQueueDetailsRequest instanceof ShowQueueDetailsRequest) {
+                    instanceId = showQueueDetailsRequest.instanceId;
+                    vhost = showQueueDetailsRequest.vhost;
+                    queue = showQueueDetailsRequest.queue;
+                } else {
+                    instanceId = showQueueDetailsRequest['instance_id'];
+                    vhost = showQueueDetailsRequest['vhost'];
+                    queue = showQueueDetailsRequest['queue'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showQueueDetails.');
+            }
+            if (vhost === null || vhost === undefined) {
+            throw new RequiredError('vhost','Required parameter vhost was null or undefined when calling showQueueDetails.');
+            }
+            if (queue === null || queue === undefined) {
+            throw new RequiredError('queue','Required parameter queue was null or undefined when calling showQueueDetails.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'vhost': vhost,'queue': queue, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除指定Vhost。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteVhosts(batchDeleteVhostsRequest?: BatchDeleteVhostsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchDeleteVhostsRequest !== null && batchDeleteVhostsRequest !== undefined) {
+                if (batchDeleteVhostsRequest instanceof BatchDeleteVhostsRequest) {
+                    instanceId = batchDeleteVhostsRequest.instanceId;
+                    body = batchDeleteVhostsRequest.body
+                } else {
+                    instanceId = batchDeleteVhostsRequest['instance_id'];
+                    body = batchDeleteVhostsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteVhosts.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Vhost。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVhost(createVhostRequest?: CreateVhostRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createVhostRequest !== null && createVhostRequest !== undefined) {
+                if (createVhostRequest instanceof CreateVhostRequest) {
+                    instanceId = createVhostRequest.instanceId;
+                    body = createVhostRequest.body
+                } else {
+                    instanceId = createVhostRequest['instance_id'];
+                    body = createVhostRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createVhost.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Vhost列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVhosts(listVhostsRequest?: ListVhostsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/rabbitmq/{project_id}/instances/{instance_id}/vhosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listVhostsRequest !== null && listVhostsRequest !== undefined) {
+                if (listVhostsRequest instanceof ListVhostsRequest) {
+                    instanceId = listVhostsRequest.instanceId;
+                    offset = listVhostsRequest.offset;
+                    limit = listVhostsRequest.limit;
+                } else {
+                    instanceId = listVhostsRequest['instance_id'];
+                    offset = listVhostsRequest['offset'];
+                    limit = listVhostsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listVhosts.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

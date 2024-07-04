@@ -6,7 +6,7 @@ export class CreateInstanceReq {
     public name?: string;
     public description?: string;
     public engine?: CreateInstanceReqEngineEnum | string;
-    private 'engine_version'?: CreateInstanceReqEngineVersionEnum | string;
+    private 'engine_version'?: string;
     private 'storage_space'?: number;
     private 'access_user'?: string;
     public password?: string;
@@ -51,14 +51,14 @@ export class CreateInstanceReq {
         this['engine'] = engine;
         return this;
     }
-    public withEngineVersion(engineVersion: CreateInstanceReqEngineVersionEnum | string): CreateInstanceReq {
+    public withEngineVersion(engineVersion: string): CreateInstanceReq {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: CreateInstanceReqEngineVersionEnum | string  | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion(): CreateInstanceReqEngineVersionEnum | string | undefined {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withStorageSpace(storageSpace: number): CreateInstanceReq {
@@ -237,13 +237,6 @@ export class CreateInstanceReq {
     */
 export enum CreateInstanceReqEngineEnum {
     RABBITMQ = 'rabbitmq'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceReqEngineVersionEnum {
-    E_3_8_35 = '3.8.35'
 }
 /**
     * @export

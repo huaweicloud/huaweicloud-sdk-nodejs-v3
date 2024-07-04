@@ -15,8 +15,7 @@ export class ListImageRiskConfigRulesRequest {
     private 'check_rule_name'?: string;
     public severity?: string;
     private 'instance_id'?: string;
-    public constructor(region?: string, imageType?: string, checkName?: string, standard?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string, checkName?: string, standard?: string) { 
         this['image_type'] = imageType;
         this['check_name'] = checkName;
         this['standard'] = standard;

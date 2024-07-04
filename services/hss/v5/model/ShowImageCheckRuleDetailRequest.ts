@@ -12,8 +12,7 @@ export class ShowImageCheckRuleDetailRequest {
     private 'check_rule_id'?: string;
     public standard?: string;
     private 'instance_id'?: string;
-    public constructor(region?: string, imageType?: string, checkName?: string, checkType?: string, checkRuleId?: string, standard?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string, checkName?: string, checkType?: string, checkRuleId?: string, standard?: string) { 
         this['image_type'] = imageType;
         this['check_name'] = checkName;
         this['check_type'] = checkType;

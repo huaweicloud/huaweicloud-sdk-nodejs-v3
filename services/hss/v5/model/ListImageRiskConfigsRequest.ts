@@ -13,8 +13,7 @@ export class ListImageRiskConfigsRequest {
     public severity?: string;
     public standard?: string;
     private 'instance_id'?: string;
-    public constructor(region?: string, imageType?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string) { 
         this['image_type'] = imageType;
     }
     public withRegion(region: string): ListImageRiskConfigsRequest {

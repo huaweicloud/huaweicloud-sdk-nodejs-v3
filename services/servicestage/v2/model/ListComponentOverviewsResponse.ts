@@ -1,10 +1,10 @@
-import { ComponentView } from './ComponentView';
+import { ComponentOverview } from './ComponentOverview';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListComponentOverviewsResponse extends SdkResponse {
     public count?: number;
-    public components?: Array<ComponentView>;
+    public components?: Array<ComponentOverview>;
     public constructor() { 
         super();
     }
@@ -12,7 +12,7 @@ export class ListComponentOverviewsResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withComponents(components: Array<ComponentView>): ListComponentOverviewsResponse {
+    public withComponents(components: Array<ComponentOverview>): ListComponentOverviewsResponse {
         this['components'] = components;
         return this;
     }

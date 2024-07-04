@@ -4,6 +4,8 @@ import { UrlDomainBase } from './UrlDomainBase';
 export class UrlDomainCreate {
     private 'min_ssl_version'?: UrlDomainCreateMinSslVersionEnum | string;
     private 'is_http_redirect_to_https'?: boolean;
+    private 'ingress_http_port'?: number;
+    private 'ingress_https_port'?: number;
     private 'url_domain'?: string;
     public constructor() { 
     }
@@ -26,6 +28,26 @@ export class UrlDomainCreate {
     }
     public get isHttpRedirectToHttps(): boolean | undefined {
         return this['is_http_redirect_to_https'];
+    }
+    public withIngressHttpPort(ingressHttpPort: number): UrlDomainCreate {
+        this['ingress_http_port'] = ingressHttpPort;
+        return this;
+    }
+    public set ingressHttpPort(ingressHttpPort: number  | undefined) {
+        this['ingress_http_port'] = ingressHttpPort;
+    }
+    public get ingressHttpPort(): number | undefined {
+        return this['ingress_http_port'];
+    }
+    public withIngressHttpsPort(ingressHttpsPort: number): UrlDomainCreate {
+        this['ingress_https_port'] = ingressHttpsPort;
+        return this;
+    }
+    public set ingressHttpsPort(ingressHttpsPort: number  | undefined) {
+        this['ingress_https_port'] = ingressHttpsPort;
+    }
+    public get ingressHttpsPort(): number | undefined {
+        return this['ingress_https_port'];
     }
     public withUrlDomain(urlDomain: string): UrlDomainCreate {
         this['url_domain'] = urlDomain;

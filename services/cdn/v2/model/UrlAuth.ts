@@ -12,6 +12,7 @@ export class UrlAuth {
     private 'backup_key'?: string;
     private 'sign_arg'?: string;
     private 'time_format'?: string;
+    private 'time_arg'?: string;
     public constructor(status?: string) { 
         this['status'] = status;
     }
@@ -96,5 +97,15 @@ export class UrlAuth {
     }
     public get timeFormat(): string | undefined {
         return this['time_format'];
+    }
+    public withTimeArg(timeArg: string): UrlAuth {
+        this['time_arg'] = timeArg;
+        return this;
+    }
+    public set timeArg(timeArg: string  | undefined) {
+        this['time_arg'] = timeArg;
+    }
+    public get timeArg(): string | undefined {
+        return this['time_arg'];
     }
 }

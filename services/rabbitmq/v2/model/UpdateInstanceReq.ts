@@ -9,6 +9,7 @@ export class UpdateInstanceReq {
     private 'enable_publicip'?: boolean;
     private 'publicip_id'?: string;
     private 'enterprise_project_id'?: string;
+    private 'enable_acl'?: boolean;
     public constructor() { 
     }
     public withName(name: string): UpdateInstanceReq {
@@ -78,5 +79,15 @@ export class UpdateInstanceReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withEnableAcl(enableAcl: boolean): UpdateInstanceReq {
+        this['enable_acl'] = enableAcl;
+        return this;
+    }
+    public set enableAcl(enableAcl: boolean  | undefined) {
+        this['enable_acl'] = enableAcl;
+    }
+    public get enableAcl(): boolean | undefined {
+        return this['enable_acl'];
     }
 }

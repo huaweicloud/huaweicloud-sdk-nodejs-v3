@@ -36,11 +36,7 @@ export class PostSourceServerBody {
     private 'oem_system'?: boolean;
     private 'start_type'?: PostSourceServerBodyStartTypeEnum | string;
     private 'io_read_wait'?: number;
-    public constructor(ip?: string, name?: string, osType?: string, agentVersion?: string) { 
-        this['ip'] = ip;
-        this['name'] = name;
-        this['os_type'] = osType;
-        this['agent_version'] = agentVersion;
+    public constructor() { 
     }
     public withId(id: string): PostSourceServerBody {
         this['id'] = id;
