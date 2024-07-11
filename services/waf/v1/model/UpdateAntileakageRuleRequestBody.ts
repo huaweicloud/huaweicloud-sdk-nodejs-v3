@@ -1,9 +1,11 @@
+import { CreateAntileakageRuleRequestBodyAction } from './CreateAntileakageRuleRequestBodyAction';
 
 
 export class UpdateAntileakageRuleRequestBody {
     public url?: string;
     public category?: UpdateAntileakageRuleRequestBodyCategoryEnum | string;
     public contents?: Array<string>;
+    public action?: CreateAntileakageRuleRequestBodyAction;
     public description?: string;
     public constructor(url?: string, category?: string, contents?: Array<string>) { 
         this['url'] = url;
@@ -20,6 +22,10 @@ export class UpdateAntileakageRuleRequestBody {
     }
     public withContents(contents: Array<string>): UpdateAntileakageRuleRequestBody {
         this['contents'] = contents;
+        return this;
+    }
+    public withAction(action: CreateAntileakageRuleRequestBodyAction): UpdateAntileakageRuleRequestBody {
+        this['action'] = action;
         return this;
     }
     public withDescription(description: string): UpdateAntileakageRuleRequestBody {

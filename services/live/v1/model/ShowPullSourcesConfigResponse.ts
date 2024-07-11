@@ -6,6 +6,7 @@ export class ShowPullSourcesConfigResponse extends SdkResponse {
     private 'source_type'?: ShowPullSourcesConfigResponseSourceTypeEnum | string;
     public sources?: Array<string>;
     private 'sources_ip'?: Array<string>;
+    private 'source_port'?: number;
     public scheme?: ShowPullSourcesConfigResponseSchemeEnum | string;
     private 'additional_args'?: { [key: string]: string; };
     public constructor() { 
@@ -44,6 +45,16 @@ export class ShowPullSourcesConfigResponse extends SdkResponse {
     }
     public get sourcesIp(): Array<string> | undefined {
         return this['sources_ip'];
+    }
+    public withSourcePort(sourcePort: number): ShowPullSourcesConfigResponse {
+        this['source_port'] = sourcePort;
+        return this;
+    }
+    public set sourcePort(sourcePort: number  | undefined) {
+        this['source_port'] = sourcePort;
+    }
+    public get sourcePort(): number | undefined {
+        return this['source_port'];
     }
     public withScheme(scheme: ShowPullSourcesConfigResponseSchemeEnum | string): ShowPullSourcesConfigResponse {
         this['scheme'] = scheme;

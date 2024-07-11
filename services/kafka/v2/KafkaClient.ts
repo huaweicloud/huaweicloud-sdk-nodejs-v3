@@ -1287,7 +1287,7 @@ export class KafkaClient {
      *
      * @summary 查询消息
      * @param {string} instanceId 实例ID。
-     * @param {string} topic Topic名称。  Topic名称必现以字母开头且只支持大小写字母、中横线、下划线以及数字。
+     * @param {string} topic Topic名称。  Topic名称必须以字母开头且只支持大小写字母、中横线、下划线以及数字。
      * @param {boolean} [asc] 是否按照时间排序。
      * @param {string} [startTime] 开始时间。  Unix毫秒时间戳。  查询消息偏移量时，为必选参数。
      * @param {string} [endTime] 结束时间。  Unix毫秒时间戳。  查询消息偏移量时，为必选参数。
@@ -1542,7 +1542,7 @@ export class KafkaClient {
      *
      * @summary 查询分区指定偏移量的消息
      * @param {string} instanceId 实例ID。
-     * @param {string} topic Topic名称。  Topic名称必现以字母开头且只支持大小写字母、中横线、下划线以及数字。
+     * @param {string} topic Topic名称。  Topic名称必须以字母开头且只支持大小写字母、中横线、下划线以及数字。
      * @param {number} partition 分区编号。
      * @param {string} messageOffset 消息位置。
      * @param {*} [options] Override http request option.

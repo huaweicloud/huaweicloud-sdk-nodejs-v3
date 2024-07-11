@@ -26,6 +26,7 @@ import { BatchCreateClusterTagsResponse } from './model/BatchCreateClusterTagsRe
 import { BatchDeleteClusterTagsRequest } from './model/BatchDeleteClusterTagsRequest';
 import { BatchDeleteClusterTagsRequestBody } from './model/BatchDeleteClusterTagsRequestBody';
 import { BatchDeleteClusterTagsResponse } from './model/BatchDeleteClusterTagsResponse';
+import { CapacityReservationSpecification } from './model/CapacityReservationSpecification';
 import { CertDuration } from './model/CertDuration';
 import { ChartResp } from './model/ChartResp';
 import { ChartValueValues } from './model/ChartValueValues';
@@ -111,6 +112,9 @@ import { EipSpec } from './model/EipSpec';
 import { EipSpecBandwidth } from './model/EipSpecBandwidth';
 import { EniNetwork } from './model/EniNetwork';
 import { EniNetworkUpdate } from './model/EniNetworkUpdate';
+import { ExtensionScaleGroup } from './model/ExtensionScaleGroup';
+import { ExtensionScaleGroupMetadata } from './model/ExtensionScaleGroupMetadata';
+import { ExtensionScaleGroupSpec } from './model/ExtensionScaleGroupSpec';
 import { HibernateClusterRequest } from './model/HibernateClusterRequest';
 import { HibernateClusterResponse } from './model/HibernateClusterResponse';
 import { HostNetwork } from './model/HostNetwork';
@@ -181,6 +185,7 @@ import { NodeLifecycleConfig } from './model/NodeLifecycleConfig';
 import { NodeManagement } from './model/NodeManagement';
 import { NodeMetadata } from './model/NodeMetadata';
 import { NodeNicSpec } from './model/NodeNicSpec';
+import { NodeOwnerReference } from './model/NodeOwnerReference';
 import { NodePool } from './model/NodePool';
 import { NodePoolCondition } from './model/NodePoolCondition';
 import { NodePoolMetadata } from './model/NodePoolMetadata';
@@ -264,6 +269,14 @@ import { RollbackAddonInstanceRequest } from './model/RollbackAddonInstanceReque
 import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResponse';
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
+import { ScaleGroupAutoscaling } from './model/ScaleGroupAutoscaling';
+import { ScaleNodePoolOptions } from './model/ScaleNodePoolOptions';
+import { ScaleNodePoolRequest } from './model/ScaleNodePoolRequest';
+import { ScaleNodePoolRequestBody } from './model/ScaleNodePoolRequestBody';
+import { ScaleNodePoolResponse } from './model/ScaleNodePoolResponse';
+import { ScaleNodePoolSpec } from './model/ScaleNodePoolSpec';
+import { ScaleUpBillingConfigOverride } from './model/ScaleUpBillingConfigOverride';
+import { ScaleUpExtendParam } from './model/ScaleUpExtendParam';
 import { SecurityID } from './model/SecurityID';
 import { ServiceNetwork } from './model/ServiceNetwork';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
@@ -1412,6 +1425,29 @@ export class CceClient {
      */
     public rollbackAddonInstance(rollbackAddonInstanceRequest?: RollbackAddonInstanceRequest): Promise<RollbackAddonInstanceResponse> {
         const options = ParamCreater().rollbackAddonInstance(rollbackAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于伸缩指定的节点池
+     * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 伸缩节点池
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodepoolId 节点池ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {ScaleNodePoolRequestBody} scaleNodePoolRequestBody 伸缩节点池的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public scaleNodePool(scaleNodePoolRequest?: ScaleNodePoolRequest): Promise<ScaleNodePoolResponse> {
+        const options = ParamCreater().scaleNodePool(scaleNodePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4544,6 +4580,67 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于伸缩指定的节点池
+         * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        scaleNodePool(scaleNodePoolRequest?: ScaleNodePoolRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodepools/{nodepool_id}/operation/scale",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let nodepoolId;
+            
+            let contentType;
+
+            if (scaleNodePoolRequest !== null && scaleNodePoolRequest !== undefined) {
+                if (scaleNodePoolRequest instanceof ScaleNodePoolRequest) {
+                    clusterId = scaleNodePoolRequest.clusterId;
+                    nodepoolId = scaleNodePoolRequest.nodepoolId;
+                    contentType = scaleNodePoolRequest.contentType;
+                    body = scaleNodePoolRequest.body
+                } else {
+                    clusterId = scaleNodePoolRequest['cluster_id'];
+                    nodepoolId = scaleNodePoolRequest['nodepool_id'];
+                    contentType = scaleNodePoolRequest['Content-Type'];
+                    body = scaleNodePoolRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling scaleNodePool.');
+            }
+            if (nodepoolId === null || nodepoolId === undefined) {
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling scaleNodePool.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

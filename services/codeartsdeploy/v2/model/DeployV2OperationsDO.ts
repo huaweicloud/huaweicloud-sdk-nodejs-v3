@@ -1,6 +1,7 @@
 
 
 export class DeployV2OperationsDO {
+    public id?: string;
     public name?: string;
     public description?: string;
     public code?: string;
@@ -9,6 +10,10 @@ export class DeployV2OperationsDO {
     public version?: string;
     private 'module_id'?: string;
     public constructor() { 
+    }
+    public withId(id: string): DeployV2OperationsDO {
+        this['id'] = id;
+        return this;
     }
     public withName(name: string): DeployV2OperationsDO {
         this['name'] = name;

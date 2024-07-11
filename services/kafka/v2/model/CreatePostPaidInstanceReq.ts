@@ -17,8 +17,6 @@ export class CreatePostPaidInstanceReq {
     private 'subnet_id'?: string;
     private 'available_zones'?: Array<string>;
     private 'product_id'?: string;
-    private 'kafka_manager_user'?: string;
-    private 'kafka_manager_password'?: string;
     private 'maintain_begin'?: string;
     private 'maintain_end'?: string;
     private 'enable_publicip'?: boolean;
@@ -166,26 +164,6 @@ export class CreatePostPaidInstanceReq {
     }
     public get productId(): string | undefined {
         return this['product_id'];
-    }
-    public withKafkaManagerUser(kafkaManagerUser: string): CreatePostPaidInstanceReq {
-        this['kafka_manager_user'] = kafkaManagerUser;
-        return this;
-    }
-    public set kafkaManagerUser(kafkaManagerUser: string  | undefined) {
-        this['kafka_manager_user'] = kafkaManagerUser;
-    }
-    public get kafkaManagerUser(): string | undefined {
-        return this['kafka_manager_user'];
-    }
-    public withKafkaManagerPassword(kafkaManagerPassword: string): CreatePostPaidInstanceReq {
-        this['kafka_manager_password'] = kafkaManagerPassword;
-        return this;
-    }
-    public set kafkaManagerPassword(kafkaManagerPassword: string  | undefined) {
-        this['kafka_manager_password'] = kafkaManagerPassword;
-    }
-    public get kafkaManagerPassword(): string | undefined {
-        return this['kafka_manager_password'];
     }
     public withMaintainBegin(maintainBegin: string): CreatePostPaidInstanceReq {
         this['maintain_begin'] = maintainBegin;

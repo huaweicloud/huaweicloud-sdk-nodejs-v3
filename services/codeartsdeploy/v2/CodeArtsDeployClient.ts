@@ -2,12 +2,42 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AppBaseInfo } from './model/AppBaseInfo';
 import { AppBaseResponse } from './model/AppBaseResponse';
+import { AppBatchDeleteRequest } from './model/AppBatchDeleteRequest';
 import { AppComponentDao } from './model/AppComponentDao';
+import { AppDeleteResult } from './model/AppDeleteResult';
 import { AppDetailInfo } from './model/AppDetailInfo';
 import { AppExecutionInfo } from './model/AppExecutionInfo';
+import { AppGroupsEntity } from './model/AppGroupsEntity';
+import { AppPermission } from './model/AppPermission';
+import { ApplicationPermissionVO } from './model/ApplicationPermissionVO';
+import { BatchDeleteAppRequest } from './model/BatchDeleteAppRequest';
+import { BatchDeleteAppResponse } from './model/BatchDeleteAppResponse';
+import { BatchDeleteHostsRequest } from './model/BatchDeleteHostsRequest';
+import { BatchDeleteHostsResponse } from './model/BatchDeleteHostsResponse';
+import { BatchUpdateApplicationPermissionsRequest } from './model/BatchUpdateApplicationPermissionsRequest';
+import { BatchUpdateApplicationPermissionsRequestBody } from './model/BatchUpdateApplicationPermissionsRequestBody';
+import { BatchUpdateApplicationPermissionsResponse } from './model/BatchUpdateApplicationPermissionsResponse';
+import { BatchUpdatePermissionLevelRequest } from './model/BatchUpdatePermissionLevelRequest';
+import { BatchUpdatePermissionLevelRequestBody } from './model/BatchUpdatePermissionLevelRequestBody';
+import { BatchUpdatePermissionLevelResponse } from './model/BatchUpdatePermissionLevelResponse';
+import { CheckCanCreateRequest } from './model/CheckCanCreateRequest';
+import { CheckCanCreateResponse } from './model/CheckCanCreateResponse';
+import { CheckCanCreateResponseBodyResult } from './model/CheckCanCreateResponseBodyResult';
+import { CheckIsDuplicateAppNameRequest } from './model/CheckIsDuplicateAppNameRequest';
+import { CheckIsDuplicateAppNameResponse } from './model/CheckIsDuplicateAppNameResponse';
+import { CheckWhetherHostGroupCanBeCreatedRequest } from './model/CheckWhetherHostGroupCanBeCreatedRequest';
+import { CheckWhetherHostGroupCanBeCreatedResponse } from './model/CheckWhetherHostGroupCanBeCreatedResponse';
 import { ConfigInfo } from './model/ConfigInfo';
 import { ConfigInfoDO } from './model/ConfigInfoDO';
+import { CopyApplicationRequest } from './model/CopyApplicationRequest';
+import { CopyApplicationResponse } from './model/CopyApplicationResponse';
+import { CopyHostsToTargetRequest } from './model/CopyHostsToTargetRequest';
+import { CopyHostsToTargetResponse } from './model/CopyHostsToTargetResponse';
+import { CreateAppGroupsRequest } from './model/CreateAppGroupsRequest';
+import { CreateAppGroupsRequestBody } from './model/CreateAppGroupsRequestBody';
+import { CreateAppGroupsResponse } from './model/CreateAppGroupsResponse';
 import { CreateAppRequest } from './model/CreateAppRequest';
 import { CreateAppRequestBody } from './model/CreateAppRequestBody';
 import { CreateAppResponse } from './model/CreateAppResponse';
@@ -25,6 +55,8 @@ import { CreateHostClusterResponse } from './model/CreateHostClusterResponse';
 import { CreateHostRequest } from './model/CreateHostRequest';
 import { CreateHostRequestBody } from './model/CreateHostRequestBody';
 import { CreateHostResponse } from './model/CreateHostResponse';
+import { DeleteAppGroupsRequest } from './model/DeleteAppGroupsRequest';
+import { DeleteAppGroupsResponse } from './model/DeleteAppGroupsResponse';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
 import { DeleteDeployTaskRequest } from './model/DeleteDeployTaskRequest';
@@ -35,8 +67,12 @@ import { DeleteDeploymentHostRequest } from './model/DeleteDeploymentHostRequest
 import { DeleteDeploymentHostResponse } from './model/DeleteDeploymentHostResponse';
 import { DeleteEnvironmentRequest } from './model/DeleteEnvironmentRequest';
 import { DeleteEnvironmentResponse } from './model/DeleteEnvironmentResponse';
+import { DeleteHostClusterRequest } from './model/DeleteHostClusterRequest';
+import { DeleteHostClusterResponse } from './model/DeleteHostClusterResponse';
 import { DeleteHostFromEnvironmentRequest } from './model/DeleteHostFromEnvironmentRequest';
 import { DeleteHostFromEnvironmentResponse } from './model/DeleteHostFromEnvironmentResponse';
+import { DeleteHostRequest } from './model/DeleteHostRequest';
+import { DeleteHostResponse } from './model/DeleteHostResponse';
 import { DeployV2OperationsDO } from './model/DeployV2OperationsDO';
 import { DeploymentGroup } from './model/DeploymentGroup';
 import { DeploymentGroupDetail } from './model/DeploymentGroupDetail';
@@ -45,17 +81,29 @@ import { DeploymentHost } from './model/DeploymentHost';
 import { DeploymentHostAuthorizationBody } from './model/DeploymentHostAuthorizationBody';
 import { DeploymentHostDetail } from './model/DeploymentHostDetail';
 import { DeploymentHostInfo } from './model/DeploymentHostInfo';
+import { DeploymentHostListEntity } from './model/DeploymentHostListEntity';
 import { DeploymentHostRequest } from './model/DeploymentHostRequest';
+import { DeploymentHostRequestExternal } from './model/DeploymentHostRequestExternal';
+import { DeploymentHostsCopyRequest } from './model/DeploymentHostsCopyRequest';
 import { DeploymentUpdateHost } from './model/DeploymentUpdateHost';
+import { DevUcClusterPermission } from './model/DevUcClusterPermission';
+import { DevUcEnvironmentPermission } from './model/DevUcEnvironmentPermission';
 import { DynamicConfigInfo } from './model/DynamicConfigInfo';
 import { EnvExecutionBody } from './model/EnvExecutionBody';
+import { EnvironmentBaseInfo } from './model/EnvironmentBaseInfo';
 import { EnvironmentDetail } from './model/EnvironmentDetail';
+import { EnvironmentHostInfo } from './model/EnvironmentHostInfo';
+import { EnvironmentHostPermission } from './model/EnvironmentHostPermission';
+import { EnvironmentInfo } from './model/EnvironmentInfo';
 import { EnvironmentPermissionDetail } from './model/EnvironmentPermissionDetail';
+import { EnvironmentPermissionV2Body } from './model/EnvironmentPermissionV2Body';
+import { EnvironmentRequest } from './model/EnvironmentRequest';
 import { EnvironmentRequestBody } from './model/EnvironmentRequestBody';
 import { ExecuteRecordV2Body } from './model/ExecuteRecordV2Body';
 import { HostAuthorizationBody } from './model/HostAuthorizationBody';
 import { HostClusterInfo } from './model/HostClusterInfo';
 import { HostClusterInfoDetail } from './model/HostClusterInfoDetail';
+import { HostClusterRequest } from './model/HostClusterRequest';
 import { HostInfo } from './model/HostInfo';
 import { HostInfoDetail } from './model/HostInfoDetail';
 import { ImportHostToEnvironmentRequest } from './model/ImportHostToEnvironmentRequest';
@@ -65,14 +113,28 @@ import { KeyValueDO } from './model/KeyValueDO';
 import { ListAllAppRequest } from './model/ListAllAppRequest';
 import { ListAllAppRequestBody } from './model/ListAllAppRequestBody';
 import { ListAllAppResponse } from './model/ListAllAppResponse';
+import { ListAppGroupsRequest } from './model/ListAppGroupsRequest';
+import { ListAppGroupsResponse } from './model/ListAppGroupsResponse';
+import { ListApplicationPermissionsRequest } from './model/ListApplicationPermissionsRequest';
+import { ListApplicationPermissionsResponse } from './model/ListApplicationPermissionsResponse';
+import { ListAssociateEnvironmentsInfosRequest } from './model/ListAssociateEnvironmentsInfosRequest';
+import { ListAssociateEnvironmentsInfosResponse } from './model/ListAssociateEnvironmentsInfosResponse';
 import { ListDeployTaskHistoryByDateRequest } from './model/ListDeployTaskHistoryByDateRequest';
 import { ListDeployTaskHistoryByDateResponse } from './model/ListDeployTaskHistoryByDateResponse';
 import { ListDeployTasksRequest } from './model/ListDeployTasksRequest';
 import { ListDeployTasksResponse } from './model/ListDeployTasksResponse';
+import { ListEnvironmentHostsRequest } from './model/ListEnvironmentHostsRequest';
+import { ListEnvironmentHostsResponse } from './model/ListEnvironmentHostsResponse';
+import { ListEnvironmentPermissionsRequest } from './model/ListEnvironmentPermissionsRequest';
+import { ListEnvironmentPermissionsResponse } from './model/ListEnvironmentPermissionsResponse';
 import { ListEnvironmentsRequest } from './model/ListEnvironmentsRequest';
 import { ListEnvironmentsResponse } from './model/ListEnvironmentsResponse';
 import { ListHostClustersRequest } from './model/ListHostClustersRequest';
 import { ListHostClustersResponse } from './model/ListHostClustersResponse';
+import { ListHostGroupBaseInfosRequest } from './model/ListHostGroupBaseInfosRequest';
+import { ListHostGroupBaseInfosResponse } from './model/ListHostGroupBaseInfosResponse';
+import { ListHostGroupPermissionsRequest } from './model/ListHostGroupPermissionsRequest';
+import { ListHostGroupPermissionsResponse } from './model/ListHostGroupPermissionsResponse';
 import { ListHostGroupsRequest } from './model/ListHostGroupsRequest';
 import { ListHostGroupsResponse } from './model/ListHostGroupsResponse';
 import { ListHostsRequest } from './model/ListHostsRequest';
@@ -81,11 +143,19 @@ import { ListNewHostsRequest } from './model/ListNewHostsRequest';
 import { ListNewHostsResponse } from './model/ListNewHostsResponse';
 import { ListTaskSuccessRateRequest } from './model/ListTaskSuccessRateRequest';
 import { ListTaskSuccessRateResponse } from './model/ListTaskSuccessRateResponse';
+import { MoveAppGroupsRequest } from './model/MoveAppGroupsRequest';
+import { MoveAppGroupsRequestBody } from './model/MoveAppGroupsRequestBody';
+import { MoveAppGroupsResponse } from './model/MoveAppGroupsResponse';
+import { MoveAppToGroupRequest } from './model/MoveAppToGroupRequest';
+import { MoveAppToGroupRequestBody } from './model/MoveAppToGroupRequestBody';
+import { MoveAppToGroupResponse } from './model/MoveAppToGroupResponse';
+import { MoveAppToGroupResult } from './model/MoveAppToGroupResult';
 import { ParamTypeLimits } from './model/ParamTypeLimits';
 import { PermissionClusterDetail } from './model/PermissionClusterDetail';
 import { PermissionGroupDetail } from './model/PermissionGroupDetail';
 import { PermissionHostDetail } from './model/PermissionHostDetail';
 import { PermissionHostDetailNew } from './model/PermissionHostDetailNew';
+import { PermissionUpdateV2Body } from './model/PermissionUpdateV2Body';
 import { ShowAppDetailByIdRequest } from './model/ShowAppDetailByIdRequest';
 import { ShowAppDetailByIdResponse } from './model/ShowAppDetailByIdResponse';
 import { ShowDeployTaskDetailRequest } from './model/ShowDeployTaskDetailRequest';
@@ -116,10 +186,30 @@ import { TaskV2Info } from './model/TaskV2Info';
 import { TaskV2RequestBody } from './model/TaskV2RequestBody';
 import { TasksSuccessRateQuery } from './model/TasksSuccessRateQuery';
 import { TemplateTaskRequestBody } from './model/TemplateTaskRequestBody';
+import { UpdateAppDisableStatusRequest } from './model/UpdateAppDisableStatusRequest';
+import { UpdateAppDisableStatusRequestBody } from './model/UpdateAppDisableStatusRequestBody';
+import { UpdateAppDisableStatusResponse } from './model/UpdateAppDisableStatusResponse';
+import { UpdateAppGroupsRequest } from './model/UpdateAppGroupsRequest';
+import { UpdateAppGroupsRequestBody } from './model/UpdateAppGroupsRequestBody';
+import { UpdateAppGroupsResponse } from './model/UpdateAppGroupsResponse';
+import { UpdateAppInfoRequest } from './model/UpdateAppInfoRequest';
+import { UpdateAppInfoRequestBody } from './model/UpdateAppInfoRequestBody';
+import { UpdateAppInfoResponse } from './model/UpdateAppInfoResponse';
 import { UpdateDeploymentGroupRequest } from './model/UpdateDeploymentGroupRequest';
 import { UpdateDeploymentGroupResponse } from './model/UpdateDeploymentGroupResponse';
 import { UpdateDeploymentHostRequest } from './model/UpdateDeploymentHostRequest';
 import { UpdateDeploymentHostResponse } from './model/UpdateDeploymentHostResponse';
+import { UpdateEnvironmentPermissionRequest } from './model/UpdateEnvironmentPermissionRequest';
+import { UpdateEnvironmentPermissionResponse } from './model/UpdateEnvironmentPermissionResponse';
+import { UpdateEnvironmentRequest } from './model/UpdateEnvironmentRequest';
+import { UpdateEnvironmentResponse } from './model/UpdateEnvironmentResponse';
+import { UpdateHostClusterRequest } from './model/UpdateHostClusterRequest';
+import { UpdateHostClusterResponse } from './model/UpdateHostClusterResponse';
+import { UpdateHostGroupPermissionsRequest } from './model/UpdateHostGroupPermissionsRequest';
+import { UpdateHostGroupPermissionsResponse } from './model/UpdateHostGroupPermissionsResponse';
+import { UpdateHostInfoRequest } from './model/UpdateHostInfoRequest';
+import { UpdateHostInfoResponse } from './model/UpdateHostInfoResponse';
+import { UpdateTaskV2RequestBody } from './model/UpdateTaskV2RequestBody';
 import { UserInfo } from './model/UserInfo';
 
 export class CodeArtsDeployClient {
@@ -136,6 +226,261 @@ export class CodeArtsDeployClient {
         return __dirname;
     }
 
+
+    /**
+     * 创建分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分组
+     * @param {string} projectId 项目Id
+     * @param {CreateAppGroupsRequestBody} createAppGroupsRequestBody 创建分组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAppGroups(createAppGroupsRequest?: CreateAppGroupsRequest): Promise<CreateAppGroupsResponse> {
+        const options = ParamCreater().createAppGroups(createAppGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分组
+     * @param {string} projectId 项目Id
+     * @param {string} groupId 分组Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAppGroups(deleteAppGroupsRequest?: DeleteAppGroupsRequest): Promise<DeleteAppGroupsResponse> {
+        const options = ParamCreater().deleteAppGroups(deleteAppGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分组列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组列表
+     * @param {string} projectId 项目Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppGroups(listAppGroupsRequest?: ListAppGroupsRequest): Promise<ListAppGroupsResponse> {
+        const options = ParamCreater().listAppGroups(listAppGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 往上或者往下移动单个分组,用来在页面上调整分组位置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移动分组
+     * @param {string} projectId 项目Id
+     * @param {MoveAppGroupsRequestBody} moveAppGroupsRequestBody 移动分组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public moveAppGroups(moveAppGroupsRequest?: MoveAppGroupsRequest): Promise<MoveAppGroupsResponse> {
+        const options = ParamCreater().moveAppGroups(moveAppGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将应用移动至指定分组（支持批量）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移动应用至指定分组
+     * @param {string} projectId 项目Id
+     * @param {MoveAppToGroupRequestBody} moveAppToGroupRequestBody 移动应用至指定分组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public moveAppToGroup(moveAppToGroupRequest?: MoveAppToGroupRequest): Promise<MoveAppToGroupResponse> {
+        const options = ParamCreater().moveAppToGroup(moveAppToGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改分组
+     * @param {string} projectId 项目Id
+     * @param {string} groupId 分组Id
+     * @param {UpdateAppGroupsRequestBody} updateAppGroupsRequestBody 修改分组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppGroups(updateAppGroupsRequest?: UpdateAppGroupsRequest): Promise<UpdateAppGroupsResponse> {
+        const options = ParamCreater().updateAppGroups(updateAppGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量修改应用权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改应用权限
+     * @param {BatchUpdateApplicationPermissionsRequestBody} batchUpdateApplicationPermissionsRequestBody 批量修改应用权限请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateApplicationPermissions(batchUpdateApplicationPermissionsRequest?: BatchUpdateApplicationPermissionsRequest): Promise<BatchUpdateApplicationPermissionsResponse> {
+        const options = ParamCreater().batchUpdateApplicationPermissions(batchUpdateApplicationPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量配置应用下鉴权级别为项目级或实例级。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量配置应用下鉴权级别
+     * @param {BatchUpdatePermissionLevelRequestBody} batchUpdatePermissionLevelRequestBody 批量配置应用下鉴权级别请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdatePermissionLevel(batchUpdatePermissionLevelRequest?: BatchUpdatePermissionLevelRequest): Promise<BatchUpdatePermissionLevelResponse> {
+        const options = ParamCreater().batchUpdatePermissionLevel(batchUpdatePermissionLevelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前用户是否有项目下创建应用权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前用户是否有项目下创建应用权限
+     * @param {string} projectId 项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkCanCreate(checkCanCreateRequest?: CheckCanCreateRequest): Promise<CheckCanCreateResponse> {
+        const options = ParamCreater().checkCanCreate(checkCanCreateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用实例级/项目级权限矩阵，传递app_id时，查询应用实例级权限矩阵；未传app_id，传递project_id时，查询应用项目级权限矩阵。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用实例级/项目级权限矩阵
+     * @param {string} [appId] 应用id
+     * @param {string} [projectId] 项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplicationPermissions(listApplicationPermissionsRequest?: ListApplicationPermissionsRequest): Promise<ListApplicationPermissionsResponse> {
+        const options = ParamCreater().listApplicationPermissions(listApplicationPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除项目下应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除项目下应用
+     * @param {AppBatchDeleteRequest} batchDeleteAppRequestBody 批量删除应用请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteApp(batchDeleteAppRequest?: BatchDeleteAppRequest): Promise<BatchDeleteAppResponse> {
+        const options = ParamCreater().batchDeleteApp(batchDeleteAppRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目下是否存在同名应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下是否存在同名应用
+     * @param {string} name 应用名称
+     * @param {string} projectId 项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkIsDuplicateAppName(checkIsDuplicateAppNameRequest?: CheckIsDuplicateAppNameRequest): Promise<CheckIsDuplicateAppNameResponse> {
+        const options = ParamCreater().checkIsDuplicateAppName(checkIsDuplicateAppNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制应用
+     * @param {string} appId 应用id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyApplication(copyApplicationRequest?: CopyApplicationRequest): Promise<CopyApplicationResponse> {
+        const options = ParamCreater().copyApplication(copyApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 新建应用。
@@ -243,8 +588,8 @@ export class CodeArtsDeployClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据开始时间和结束时间查询项目下指定应用的历史部署记录列表
-     * @param {string} projectId 项目ID
-     * @param {string} id 任务ID
+     * @param {string} projectId 项目id
+     * @param {string} id 任务id
      * @param {number} page 分页页码， 表示从此页开始查询， page大于等于1
      * @param {number} size 每页显示的条目数量，size小于等于100
      * @param {string} startDate 区间开始时间，格式yyyy-MM-dd。 开始时间和结束时间间隔不能超过30天
@@ -268,7 +613,7 @@ export class CodeArtsDeployClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取应用列表
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
      * @param {number} page 分页页码， 表示从此页开始查询， page大于等于1
      * @param {number} size 每页显示的条目数量，size小于等于100
@@ -323,7 +668,7 @@ export class CodeArtsDeployClient {
     }
 
     /**
-     * 查询部署记录的执行参数
+     * 查询部署记录的执行参数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -356,6 +701,46 @@ export class CodeArtsDeployClient {
      */
     public startDeployTask(startDeployTaskRequest?: StartDeployTaskRequest): Promise<StartDeployTaskResponse> {
         const options = ParamCreater().startDeployTask(startDeployTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用/取消禁用应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用/取消禁用应用
+     * @param {string} appId 应用id
+     * @param {UpdateAppDisableStatusRequestBody} updateAppDisableStatusRequestBody 禁用参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppDisableStatus(updateAppDisableStatusRequest?: UpdateAppDisableStatusRequest): Promise<UpdateAppDisableStatusResponse> {
+        const options = ParamCreater().updateAppDisableStatus(updateAppDisableStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新应用
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {UpdateAppInfoRequestBody} updateAppInfoRequestBody 更新应用请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAppInfo(updateAppInfoRequest?: UpdateAppInfoRequest): Promise<UpdateAppInfoResponse> {
+        const options = ParamCreater().updateAppInfo(updateAppInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -450,13 +835,37 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 查询环境内的主机列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询环境内的主机列表
+     * @param {string} applicationId 应用id
+     * @param {string} environmentId 环境id
+     * @param {string} [keyField] 主机名、ip关键字模糊搜索
+     * @param {boolean} [asProxy] 是否为代理机,true为代理机
+     * @param {number} [pageIndex] 分页页码
+     * @param {number} [pageSize] 分页查询每页条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEnvironmentHosts(listEnvironmentHostsRequest?: ListEnvironmentHostsRequest): Promise<ListEnvironmentHostsResponse> {
+        const options = ParamCreater().listEnvironmentHosts(listEnvironmentHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询应用下环境列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用下环境列表
      * @param {string} applicationId 应用id
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {number} [pageIndex] 分页页码， 表示从此页开始查询， page大于等于1
      * @param {number} [pageSize] 每页显示的条目数量，size小于等于100
      * @param {string} [name] 要查询的环境名称
@@ -487,6 +896,112 @@ export class CodeArtsDeployClient {
      */
     public showEnvironmentDetail(showEnvironmentDetailRequest?: ShowEnvironmentDetailRequest): Promise<ShowEnvironmentDetailResponse> {
         const options = ParamCreater().showEnvironmentDetail(showEnvironmentDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用下编辑环境。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 应用下编辑环境
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} applicationId 应用id
+     * @param {string} environmentId 环境id
+     * @param {EnvironmentRequest} updateEnvironmentRequestBody 更新环境请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEnvironment(updateEnvironmentRequest?: UpdateEnvironmentRequest): Promise<UpdateEnvironmentResponse> {
+        const options = ParamCreater().updateEnvironment(updateEnvironmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询环境权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询环境权限
+     * @param {string} applicationId 应用id
+     * @param {string} environmentId 环境id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEnvironmentPermissions(listEnvironmentPermissionsRequest?: ListEnvironmentPermissionsRequest): Promise<ListEnvironmentPermissionsResponse> {
+        const options = ParamCreater().listEnvironmentPermissions(listEnvironmentPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 编辑环境权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑环境权限
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} applicationId 应用id
+     * @param {string} environmentId 环境id
+     * @param {EnvironmentPermissionV2Body} updateEnvironmentPermissionRequestBody 环境权限对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEnvironmentPermission(updateEnvironmentPermissionRequest?: UpdateEnvironmentPermissionRequest): Promise<UpdateEnvironmentPermissionResponse> {
+        const options = ParamCreater().updateEnvironmentPermission(updateEnvironmentPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除主机集群下的主机。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除主机集群下的主机
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {DeploymentHostListEntity} batchDeleteHostsRequestBody 批量删除主机请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteHosts(batchDeleteHostsRequest?: BatchDeleteHostsRequest): Promise<BatchDeleteHostsResponse> {
+        const options = ParamCreater().batchDeleteHosts(batchDeleteHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量复制主机至目标主机集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量复制主机至目标主机集群
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 源主机集群id
+     * @param {DeploymentHostsCopyRequest} copyHostsToTargetRequestBody 复制主机请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyHostsToTarget(copyHostsToTargetRequest?: CopyHostsToTargetRequest): Promise<CopyHostsToTargetResponse> {
+        const options = ParamCreater().copyHostsToTarget(copyHostsToTargetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -558,6 +1073,27 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 根据主机id删除主机集群下主机。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除主机集群下主机
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {string} hostId 主机id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHost(deleteHostRequest?: DeleteHostRequest): Promise<DeleteHostResponse> {
+        const options = ParamCreater().deleteHost(deleteHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据主机集群id查询指定主机集群下的主机列表。该接口于2024年09月30日后不再维护，推荐使用新版ListNewHosts接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -589,7 +1125,7 @@ export class CodeArtsDeployClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机列表
-     * @param {string} groupId 项目ID
+     * @param {string} groupId 项目id
      * @param {string} [keyField] 主机名模糊查询信息
      * @param {string} [environmentId] 环境id
      * @param {number} [pageIndex] 页码数
@@ -672,6 +1208,28 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 根据主机id编辑主机集群下主机信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑主机集群下主机信息
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {string} hostId 主机id
+     * @param {DeploymentHostRequestExternal} updateHostInfoRequestBody 编辑主机请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHostInfo(updateHostInfoRequest?: UpdateHostInfoRequest): Promise<UpdateHostInfoResponse> {
+        const options = ParamCreater().updateHostInfo(updateHostInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 在项目下新建主机集群。该接口于2024年09月30日后不再维护，推荐使用新版CreateHostCluster接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -732,12 +1290,53 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 根据主机集群id删除主机集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除主机集群
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHostCluster(deleteHostClusterRequest?: DeleteHostClusterRequest): Promise<DeleteHostClusterResponse> {
+        const options = ParamCreater().deleteHostCluster(deleteHostClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询主机集群关联环境信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主机集群关联环境信息
+     * @param {string} groupId 主机集群id
+     * @param {number} [pageIndex] 页码
+     * @param {number} [pageSize] 每页查询条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssociateEnvironmentsInfos(listAssociateEnvironmentsInfosRequest?: ListAssociateEnvironmentsInfosRequest): Promise<ListAssociateEnvironmentsInfosResponse> {
+        const options = ParamCreater().listAssociateEnvironmentsInfos(listAssociateEnvironmentsInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 按条件查询主机集群列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机集群列表
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {string} [name] 主机集群模糊查询信息
      * @param {'windows' | 'linux'} [os] 操作系统：windows|linux
      * @param {number} [pageIndex] 页码数
@@ -759,12 +1358,36 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 查询应用下环境基本信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用下环境基本信息列表
+     * @param {string} applicationId 应用id
+     * @param {string} projectUuid 项目id
+     * @param {'linux' | 'windows'} [os] 操作系统：windows|linux
+     * @param {number} [pageIndex] 分页页码
+     * @param {number} [pageSize] 分页查询每页条数
+     * @param {string} [name] 按主机集群名称搜索关键字
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHostGroupBaseInfos(listHostGroupBaseInfosRequest?: ListHostGroupBaseInfosRequest): Promise<ListHostGroupBaseInfosResponse> {
+        const options = ParamCreater().listHostGroupBaseInfos(listHostGroupBaseInfosRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 按条件查询主机集群列表。该接口于2024年09月30日后不再维护，推荐使用新版ListHostClusters接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机集群列表
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {string} regionName 局点信息
      * @param {'windows' | 'linux'} [os] 操作系统：windows|linux
      * @param {number} [offset] 偏移量,表示从此偏移量开始查询,offset大于等于0
@@ -828,7 +1451,7 @@ export class CodeArtsDeployClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改主机集群
-     * @param {string} groupId 主机集群ID
+     * @param {string} groupId 主机集群id
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
      * @param {DeploymentGroupUpdateRequest} updateDeploymentGroupRequestBody 主机集群请求体
      * @param {*} [options] Override http request option.
@@ -844,12 +1467,92 @@ export class CodeArtsDeployClient {
     }
 
     /**
+     * 编辑主机集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑主机集群
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {HostClusterRequest} updateHostClusterRequestBody 编辑主机集群请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHostCluster(updateHostClusterRequest?: UpdateHostClusterRequest): Promise<UpdateHostClusterResponse> {
+        const options = ParamCreater().updateHostCluster(updateHostClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 判断当前用户在项目下是否有权限创建主机集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 判断当前用户在项目下是否有权限创建主机集群
+     * @param {string} projectId 项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkWhetherHostGroupCanBeCreated(checkWhetherHostGroupCanBeCreatedRequest?: CheckWhetherHostGroupCanBeCreatedRequest): Promise<CheckWhetherHostGroupCanBeCreatedResponse> {
+        const options = ParamCreater().checkWhetherHostGroupCanBeCreated(checkWhetherHostGroupCanBeCreatedRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据主机集群id查询主机集群权限矩阵。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主机集群权限矩阵
+     * @param {string} groupId 主机集群id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHostGroupPermissions(listHostGroupPermissionsRequest?: ListHostGroupPermissionsRequest): Promise<ListHostGroupPermissionsResponse> {
+        const options = ParamCreater().listHostGroupPermissions(listHostGroupPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据主机集群id修改主机集群权限矩阵。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改主机集群权限矩阵
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} groupId 主机集群id
+     * @param {PermissionUpdateV2Body} updateHostGroupPermissionsRequestBody 更新主机集群权限请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHostGroupPermissions(updateHostGroupPermissionsRequest?: UpdateHostGroupPermissionsRequest): Promise<UpdateHostGroupPermissionsResponse> {
+        const options = ParamCreater().updateHostGroupPermissions(updateHostGroupPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定应用的应用部署成功率。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定应用的应用部署成功率
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {TasksSuccessRateQuery} listTaskSuccessRateRequestBody 应用部署成功率接口请求参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -869,7 +1572,7 @@ export class CodeArtsDeployClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目的应用部署成功率
-     * @param {string} projectId 项目ID
+     * @param {string} projectId 项目id
      * @param {string} startDate 部署应用开始时间范围的左边界（包含），格式yyyy-MM-dd
      * @param {string} endDate 部署应用开始时间范围的右边界（包含），格式yyyy-MM-dd 。最大时间范围为1年。
      * @param {*} [options] Override http request option.
@@ -887,6 +1590,563 @@ export class CodeArtsDeployClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 创建分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAppGroups(createAppGroupsRequest?: CreateAppGroupsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/projects/{project_id}/applications/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createAppGroupsRequest !== null && createAppGroupsRequest !== undefined) {
+                if (createAppGroupsRequest instanceof CreateAppGroupsRequest) {
+                    projectId = createAppGroupsRequest.projectId;
+                    body = createAppGroupsRequest.body
+                } else {
+                    projectId = createAppGroupsRequest['project_id'];
+                    body = createAppGroupsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createAppGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAppGroups(deleteAppGroupsRequest?: DeleteAppGroupsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/projects/{project_id}/applications/groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let groupId;
+
+            if (deleteAppGroupsRequest !== null && deleteAppGroupsRequest !== undefined) {
+                if (deleteAppGroupsRequest instanceof DeleteAppGroupsRequest) {
+                    projectId = deleteAppGroupsRequest.projectId;
+                    groupId = deleteAppGroupsRequest.groupId;
+                } else {
+                    projectId = deleteAppGroupsRequest['project_id'];
+                    groupId = deleteAppGroupsRequest['group_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteAppGroups.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteAppGroups.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分组列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppGroups(listAppGroupsRequest?: ListAppGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/projects/{project_id}/applications/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (listAppGroupsRequest !== null && listAppGroupsRequest !== undefined) {
+                if (listAppGroupsRequest instanceof ListAppGroupsRequest) {
+                    projectId = listAppGroupsRequest.projectId;
+                } else {
+                    projectId = listAppGroupsRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listAppGroups.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 往上或者往下移动单个分组,用来在页面上调整分组位置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        moveAppGroups(moveAppGroupsRequest?: MoveAppGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/projects/{project_id}/applications/groups/swap",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (moveAppGroupsRequest !== null && moveAppGroupsRequest !== undefined) {
+                if (moveAppGroupsRequest instanceof MoveAppGroupsRequest) {
+                    projectId = moveAppGroupsRequest.projectId;
+                    body = moveAppGroupsRequest.body
+                } else {
+                    projectId = moveAppGroupsRequest['project_id'];
+                    body = moveAppGroupsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling moveAppGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将应用移动至指定分组（支持批量）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        moveAppToGroup(moveAppToGroupRequest?: MoveAppToGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/projects/{project_id}/applications/groups/move",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (moveAppToGroupRequest !== null && moveAppToGroupRequest !== undefined) {
+                if (moveAppToGroupRequest instanceof MoveAppToGroupRequest) {
+                    projectId = moveAppToGroupRequest.projectId;
+                    body = moveAppToGroupRequest.body
+                } else {
+                    projectId = moveAppToGroupRequest['project_id'];
+                    body = moveAppToGroupRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling moveAppToGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppGroups(updateAppGroupsRequest?: UpdateAppGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/projects/{project_id}/applications/groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let groupId;
+
+            if (updateAppGroupsRequest !== null && updateAppGroupsRequest !== undefined) {
+                if (updateAppGroupsRequest instanceof UpdateAppGroupsRequest) {
+                    projectId = updateAppGroupsRequest.projectId;
+                    groupId = updateAppGroupsRequest.groupId;
+                    body = updateAppGroupsRequest.body
+                } else {
+                    projectId = updateAppGroupsRequest['project_id'];
+                    groupId = updateAppGroupsRequest['group_id'];
+                    body = updateAppGroupsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateAppGroups.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateAppGroups.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量修改应用权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateApplicationPermissions(batchUpdateApplicationPermissionsRequest?: BatchUpdateApplicationPermissionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/applications/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateApplicationPermissionsRequest !== null && batchUpdateApplicationPermissionsRequest !== undefined) {
+                if (batchUpdateApplicationPermissionsRequest instanceof BatchUpdateApplicationPermissionsRequest) {
+                    body = batchUpdateApplicationPermissionsRequest.body
+                } else {
+                    body = batchUpdateApplicationPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量配置应用下鉴权级别为项目级或实例级。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdatePermissionLevel(batchUpdatePermissionLevelRequest?: BatchUpdatePermissionLevelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/applications/permission-level",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdatePermissionLevelRequest !== null && batchUpdatePermissionLevelRequest !== undefined) {
+                if (batchUpdatePermissionLevelRequest instanceof BatchUpdatePermissionLevelRequest) {
+                    body = batchUpdatePermissionLevelRequest.body
+                } else {
+                    body = batchUpdatePermissionLevelRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前用户是否有项目下创建应用权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkCanCreate(checkCanCreateRequest?: CheckCanCreateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/applications/creatable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+
+            if (checkCanCreateRequest !== null && checkCanCreateRequest !== undefined) {
+                if (checkCanCreateRequest instanceof CheckCanCreateRequest) {
+                    projectId = checkCanCreateRequest.projectId;
+                } else {
+                    projectId = checkCanCreateRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkCanCreate.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用实例级/项目级权限矩阵，传递app_id时，查询应用实例级权限矩阵；未传app_id，传递project_id时，查询应用项目级权限矩阵。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplicationPermissions(listApplicationPermissionsRequest?: ListApplicationPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/applications/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let appId;
+            
+            let projectId;
+
+            if (listApplicationPermissionsRequest !== null && listApplicationPermissionsRequest !== undefined) {
+                if (listApplicationPermissionsRequest instanceof ListApplicationPermissionsRequest) {
+                    appId = listApplicationPermissionsRequest.appId;
+                    projectId = listApplicationPermissionsRequest.projectId;
+                } else {
+                    appId = listApplicationPermissionsRequest['app_id'];
+                    projectId = listApplicationPermissionsRequest['project_id'];
+                }
+            }
+
+        
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除项目下应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteApp(batchDeleteAppRequest?: BatchDeleteAppRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/applications/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteAppRequest !== null && batchDeleteAppRequest !== undefined) {
+                if (batchDeleteAppRequest instanceof BatchDeleteAppRequest) {
+                    body = batchDeleteAppRequest.body
+                } else {
+                    body = batchDeleteAppRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目下是否存在同名应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkIsDuplicateAppName(checkIsDuplicateAppNameRequest?: CheckIsDuplicateAppNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/applications/exist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let projectId;
+
+            if (checkIsDuplicateAppNameRequest !== null && checkIsDuplicateAppNameRequest !== undefined) {
+                if (checkIsDuplicateAppNameRequest instanceof CheckIsDuplicateAppNameRequest) {
+                    name = checkIsDuplicateAppNameRequest.name;
+                    projectId = checkIsDuplicateAppNameRequest.projectId;
+                } else {
+                    name = checkIsDuplicateAppNameRequest['name'];
+                    projectId = checkIsDuplicateAppNameRequest['project_id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling checkIsDuplicateAppName.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkIsDuplicateAppName.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 复制应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyApplication(copyApplicationRequest?: CopyApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/applications/{app_id}/duplicate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let appId;
+
+            if (copyApplicationRequest !== null && copyApplicationRequest !== undefined) {
+                if (copyApplicationRequest instanceof CopyApplicationRequest) {
+                    appId = copyApplicationRequest.appId;
+                } else {
+                    appId = copyApplicationRequest['app_id'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling copyApplication.');
+            }
+
+            options.pathParams = { 'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 新建应用。
@@ -1343,7 +2603,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询部署记录的执行参数
+         * 查询部署记录的执行参数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1436,6 +2696,97 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用/取消禁用应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppDisableStatus(updateAppDisableStatusRequest?: UpdateAppDisableStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/applications/{app_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let appId;
+
+            if (updateAppDisableStatusRequest !== null && updateAppDisableStatusRequest !== undefined) {
+                if (updateAppDisableStatusRequest instanceof UpdateAppDisableStatusRequest) {
+                    appId = updateAppDisableStatusRequest.appId;
+                    body = updateAppDisableStatusRequest.body
+                } else {
+                    appId = updateAppDisableStatusRequest['app_id'];
+                    body = updateAppDisableStatusRequest['body'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppDisableStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAppInfo(updateAppInfoRequest?: UpdateAppInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/applications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (updateAppInfoRequest !== null && updateAppInfoRequest !== undefined) {
+                if (updateAppInfoRequest instanceof UpdateAppInfoRequest) {
+                    contentType = updateAppInfoRequest.contentType;
+                    body = updateAppInfoRequest.body
+                } else {
+                    contentType = updateAppInfoRequest['Content-Type'];
+                    body = updateAppInfoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1663,6 +3014,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询环境内的主机列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEnvironmentHosts(listEnvironmentHostsRequest?: ListEnvironmentHostsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/applications/{application_id}/environments/{environment_id}/hosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let applicationId;
+            
+            let environmentId;
+            
+            let keyField;
+            
+            let asProxy;
+            
+            let pageIndex;
+            
+            let pageSize;
+
+            if (listEnvironmentHostsRequest !== null && listEnvironmentHostsRequest !== undefined) {
+                if (listEnvironmentHostsRequest instanceof ListEnvironmentHostsRequest) {
+                    applicationId = listEnvironmentHostsRequest.applicationId;
+                    environmentId = listEnvironmentHostsRequest.environmentId;
+                    keyField = listEnvironmentHostsRequest.keyField;
+                    asProxy = listEnvironmentHostsRequest.asProxy;
+                    pageIndex = listEnvironmentHostsRequest.pageIndex;
+                    pageSize = listEnvironmentHostsRequest.pageSize;
+                } else {
+                    applicationId = listEnvironmentHostsRequest['application_id'];
+                    environmentId = listEnvironmentHostsRequest['environment_id'];
+                    keyField = listEnvironmentHostsRequest['key_field'];
+                    asProxy = listEnvironmentHostsRequest['as_proxy'];
+                    pageIndex = listEnvironmentHostsRequest['page_index'];
+                    pageSize = listEnvironmentHostsRequest['page_size'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling listEnvironmentHosts.');
+            }
+            if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError('environmentId','Required parameter environmentId was null or undefined when calling listEnvironmentHosts.');
+            }
+            if (keyField !== null && keyField !== undefined) {
+                localVarQueryParameter['key_field'] = keyField;
+            }
+            if (asProxy !== null && asProxy !== undefined) {
+                localVarQueryParameter['as_proxy'] = asProxy;
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询应用下环境列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1785,6 +3209,276 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用下编辑环境。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEnvironment(updateEnvironmentRequest?: UpdateEnvironmentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/applications/{application_id}/environments/{environment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let applicationId;
+            
+            let environmentId;
+
+            if (updateEnvironmentRequest !== null && updateEnvironmentRequest !== undefined) {
+                if (updateEnvironmentRequest instanceof UpdateEnvironmentRequest) {
+                    contentType = updateEnvironmentRequest.contentType;
+                    applicationId = updateEnvironmentRequest.applicationId;
+                    environmentId = updateEnvironmentRequest.environmentId;
+                    body = updateEnvironmentRequest.body
+                } else {
+                    contentType = updateEnvironmentRequest['Content-Type'];
+                    applicationId = updateEnvironmentRequest['application_id'];
+                    environmentId = updateEnvironmentRequest['environment_id'];
+                    body = updateEnvironmentRequest['body'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling updateEnvironment.');
+            }
+            if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError('environmentId','Required parameter environmentId was null or undefined when calling updateEnvironment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询环境权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEnvironmentPermissions(listEnvironmentPermissionsRequest?: ListEnvironmentPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/applications/{application_id}/environments/{environment_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let environmentId;
+
+            if (listEnvironmentPermissionsRequest !== null && listEnvironmentPermissionsRequest !== undefined) {
+                if (listEnvironmentPermissionsRequest instanceof ListEnvironmentPermissionsRequest) {
+                    applicationId = listEnvironmentPermissionsRequest.applicationId;
+                    environmentId = listEnvironmentPermissionsRequest.environmentId;
+                } else {
+                    applicationId = listEnvironmentPermissionsRequest['application_id'];
+                    environmentId = listEnvironmentPermissionsRequest['environment_id'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling listEnvironmentPermissions.');
+            }
+            if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError('environmentId','Required parameter environmentId was null or undefined when calling listEnvironmentPermissions.');
+            }
+
+            options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑环境权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEnvironmentPermission(updateEnvironmentPermissionRequest?: UpdateEnvironmentPermissionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/applications/{application_id}/environments/{environment_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let applicationId;
+            
+            let environmentId;
+
+            if (updateEnvironmentPermissionRequest !== null && updateEnvironmentPermissionRequest !== undefined) {
+                if (updateEnvironmentPermissionRequest instanceof UpdateEnvironmentPermissionRequest) {
+                    contentType = updateEnvironmentPermissionRequest.contentType;
+                    applicationId = updateEnvironmentPermissionRequest.applicationId;
+                    environmentId = updateEnvironmentPermissionRequest.environmentId;
+                    body = updateEnvironmentPermissionRequest.body
+                } else {
+                    contentType = updateEnvironmentPermissionRequest['Content-Type'];
+                    applicationId = updateEnvironmentPermissionRequest['application_id'];
+                    environmentId = updateEnvironmentPermissionRequest['environment_id'];
+                    body = updateEnvironmentPermissionRequest['body'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling updateEnvironmentPermission.');
+            }
+            if (environmentId === null || environmentId === undefined) {
+            throw new RequiredError('environmentId','Required parameter environmentId was null or undefined when calling updateEnvironmentPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId,'environment_id': environmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除主机集群下的主机。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteHosts(batchDeleteHostsRequest?: BatchDeleteHostsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resources/host-groups/{group_id}/hosts/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let groupId;
+
+            if (batchDeleteHostsRequest !== null && batchDeleteHostsRequest !== undefined) {
+                if (batchDeleteHostsRequest instanceof BatchDeleteHostsRequest) {
+                    contentType = batchDeleteHostsRequest.contentType;
+                    groupId = batchDeleteHostsRequest.groupId;
+                    body = batchDeleteHostsRequest.body
+                } else {
+                    contentType = batchDeleteHostsRequest['Content-Type'];
+                    groupId = batchDeleteHostsRequest['group_id'];
+                    body = batchDeleteHostsRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling batchDeleteHosts.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量复制主机至目标主机集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyHostsToTarget(copyHostsToTargetRequest?: CopyHostsToTargetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resources/host-groups/{group_id}/hosts/replication",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let groupId;
+
+            if (copyHostsToTargetRequest !== null && copyHostsToTargetRequest !== undefined) {
+                if (copyHostsToTargetRequest instanceof CopyHostsToTargetRequest) {
+                    contentType = copyHostsToTargetRequest.contentType;
+                    groupId = copyHostsToTargetRequest.groupId;
+                    body = copyHostsToTargetRequest.body
+                } else {
+                    contentType = copyHostsToTargetRequest['Content-Type'];
+                    groupId = copyHostsToTargetRequest['group_id'];
+                    body = copyHostsToTargetRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling copyHostsToTarget.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1936,6 +3630,57 @@ export const ParamCreater = function () {
             }
             if (hostId === null || hostId === undefined) {
             throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling deleteDeploymentHost.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据主机id删除主机集群下主机。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHost(deleteHostRequest?: DeleteHostRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resources/host-groups/{group_id}/hosts/{host_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let groupId;
+            
+            let hostId;
+
+            if (deleteHostRequest !== null && deleteHostRequest !== undefined) {
+                if (deleteHostRequest instanceof DeleteHostRequest) {
+                    contentType = deleteHostRequest.contentType;
+                    groupId = deleteHostRequest.groupId;
+                    hostId = deleteHostRequest.hostId;
+                } else {
+                    contentType = deleteHostRequest['Content-Type'];
+                    groupId = deleteHostRequest['group_id'];
+                    hostId = deleteHostRequest['host_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteHost.');
+            }
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling deleteHost.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2269,6 +4014,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据主机id编辑主机集群下主机信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHostInfo(updateHostInfoRequest?: UpdateHostInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resources/host-groups/{group_id}/hosts/{host_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let groupId;
+            
+            let hostId;
+
+            if (updateHostInfoRequest !== null && updateHostInfoRequest !== undefined) {
+                if (updateHostInfoRequest instanceof UpdateHostInfoRequest) {
+                    contentType = updateHostInfoRequest.contentType;
+                    groupId = updateHostInfoRequest.groupId;
+                    hostId = updateHostInfoRequest.hostId;
+                    body = updateHostInfoRequest.body
+                } else {
+                    contentType = updateHostInfoRequest['Content-Type'];
+                    groupId = updateHostInfoRequest['group_id'];
+                    hostId = updateHostInfoRequest['host_id'];
+                    body = updateHostInfoRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateHostInfo.');
+            }
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling updateHostInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId,'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在项目下新建主机集群。该接口于2024年09月30日后不再维护，推荐使用新版CreateHostCluster接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2403,6 +4208,102 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据主机集群id删除主机集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHostCluster(deleteHostClusterRequest?: DeleteHostClusterRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resources/host-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let groupId;
+
+            if (deleteHostClusterRequest !== null && deleteHostClusterRequest !== undefined) {
+                if (deleteHostClusterRequest instanceof DeleteHostClusterRequest) {
+                    contentType = deleteHostClusterRequest.contentType;
+                    groupId = deleteHostClusterRequest.groupId;
+                } else {
+                    contentType = deleteHostClusterRequest['Content-Type'];
+                    groupId = deleteHostClusterRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteHostCluster.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询主机集群关联环境信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssociateEnvironmentsInfos(listAssociateEnvironmentsInfosRequest?: ListAssociateEnvironmentsInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resources/host-groups/{group_id}/environments/infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let pageIndex;
+            
+            let pageSize;
+
+            if (listAssociateEnvironmentsInfosRequest !== null && listAssociateEnvironmentsInfosRequest !== undefined) {
+                if (listAssociateEnvironmentsInfosRequest instanceof ListAssociateEnvironmentsInfosRequest) {
+                    groupId = listAssociateEnvironmentsInfosRequest.groupId;
+                    pageIndex = listAssociateEnvironmentsInfosRequest.pageIndex;
+                    pageSize = listAssociateEnvironmentsInfosRequest.pageSize;
+                } else {
+                    groupId = listAssociateEnvironmentsInfosRequest['group_id'];
+                    pageIndex = listAssociateEnvironmentsInfosRequest['page_index'];
+                    pageSize = listAssociateEnvironmentsInfosRequest['page_size'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listAssociateEnvironmentsInfos.');
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 按条件查询主机集群列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2494,6 +4395,82 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用下环境基本信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHostGroupBaseInfos(listHostGroupBaseInfosRequest?: ListHostGroupBaseInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/applications/{application_id}/host-groups/base/infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let applicationId;
+            
+            let projectUuid;
+            
+            let os;
+            
+            let pageIndex;
+            
+            let pageSize;
+            
+            let name;
+
+            if (listHostGroupBaseInfosRequest !== null && listHostGroupBaseInfosRequest !== undefined) {
+                if (listHostGroupBaseInfosRequest instanceof ListHostGroupBaseInfosRequest) {
+                    applicationId = listHostGroupBaseInfosRequest.applicationId;
+                    projectUuid = listHostGroupBaseInfosRequest.projectUuid;
+                    os = listHostGroupBaseInfosRequest.os;
+                    pageIndex = listHostGroupBaseInfosRequest.pageIndex;
+                    pageSize = listHostGroupBaseInfosRequest.pageSize;
+                    name = listHostGroupBaseInfosRequest.name;
+                } else {
+                    applicationId = listHostGroupBaseInfosRequest['application_id'];
+                    projectUuid = listHostGroupBaseInfosRequest['project_uuid'];
+                    os = listHostGroupBaseInfosRequest['os'];
+                    pageIndex = listHostGroupBaseInfosRequest['page_index'];
+                    pageSize = listHostGroupBaseInfosRequest['page_size'];
+                    name = listHostGroupBaseInfosRequest['name'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling listHostGroupBaseInfos.');
+            }
+            if (projectUuid === null || projectUuid === undefined) {
+                throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling listHostGroupBaseInfos.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (os !== null && os !== undefined) {
+                localVarQueryParameter['os'] = os;
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'application_id': applicationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2702,6 +4679,186 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateDeploymentGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑主机集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHostCluster(updateHostClusterRequest?: UpdateHostClusterRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resources/host-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let groupId;
+
+            if (updateHostClusterRequest !== null && updateHostClusterRequest !== undefined) {
+                if (updateHostClusterRequest instanceof UpdateHostClusterRequest) {
+                    contentType = updateHostClusterRequest.contentType;
+                    groupId = updateHostClusterRequest.groupId;
+                    body = updateHostClusterRequest.body
+                } else {
+                    contentType = updateHostClusterRequest['Content-Type'];
+                    groupId = updateHostClusterRequest['group_id'];
+                    body = updateHostClusterRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateHostCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 判断当前用户在项目下是否有权限创建主机集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkWhetherHostGroupCanBeCreated(checkWhetherHostGroupCanBeCreatedRequest?: CheckWhetherHostGroupCanBeCreatedRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/host-groups/creatable/{project_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (checkWhetherHostGroupCanBeCreatedRequest !== null && checkWhetherHostGroupCanBeCreatedRequest !== undefined) {
+                if (checkWhetherHostGroupCanBeCreatedRequest instanceof CheckWhetherHostGroupCanBeCreatedRequest) {
+                    projectId = checkWhetherHostGroupCanBeCreatedRequest.projectId;
+                } else {
+                    projectId = checkWhetherHostGroupCanBeCreatedRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkWhetherHostGroupCanBeCreated.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据主机集群id查询主机集群权限矩阵。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHostGroupPermissions(listHostGroupPermissionsRequest?: ListHostGroupPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/host-groups/{group_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (listHostGroupPermissionsRequest !== null && listHostGroupPermissionsRequest !== undefined) {
+                if (listHostGroupPermissionsRequest instanceof ListHostGroupPermissionsRequest) {
+                    groupId = listHostGroupPermissionsRequest.groupId;
+                } else {
+                    groupId = listHostGroupPermissionsRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listHostGroupPermissions.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据主机集群id修改主机集群权限矩阵。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHostGroupPermissions(updateHostGroupPermissionsRequest?: UpdateHostGroupPermissionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/host-groups/{group_id}/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let groupId;
+
+            if (updateHostGroupPermissionsRequest !== null && updateHostGroupPermissionsRequest !== undefined) {
+                if (updateHostGroupPermissionsRequest instanceof UpdateHostGroupPermissionsRequest) {
+                    contentType = updateHostGroupPermissionsRequest.contentType;
+                    groupId = updateHostGroupPermissionsRequest.groupId;
+                    body = updateHostGroupPermissionsRequest.body
+                } else {
+                    contentType = updateHostGroupPermissionsRequest['Content-Type'];
+                    groupId = updateHostGroupPermissionsRequest['group_id'];
+                    body = updateHostGroupPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateHostGroupPermissions.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -39,6 +39,8 @@ export class FlavorExtraSpec {
     private 'ecs:instance_architecture'?: string;
     private 'network_interface:traffic_mirroring_supported'?: string;
     private 'security:enclave_supported'?: string;
+    private 'info:gpus'?: string;
+    private 'info:asic_accelerators'?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): FlavorExtraSpec {
@@ -420,5 +422,25 @@ export class FlavorExtraSpec {
     }
     public get securityEnclaveSupported(): string | undefined {
         return this['security:enclave_supported'];
+    }
+    public withInfoGpus(infoGpus: string): FlavorExtraSpec {
+        this['info:gpus'] = infoGpus;
+        return this;
+    }
+    public set infoGpus(infoGpus: string  | undefined) {
+        this['info:gpus'] = infoGpus;
+    }
+    public get infoGpus(): string | undefined {
+        return this['info:gpus'];
+    }
+    public withInfoAsicAccelerators(infoAsicAccelerators: string): FlavorExtraSpec {
+        this['info:asic_accelerators'] = infoAsicAccelerators;
+        return this;
+    }
+    public set infoAsicAccelerators(infoAsicAccelerators: string  | undefined) {
+        this['info:asic_accelerators'] = infoAsicAccelerators;
+    }
+    public get infoAsicAccelerators(): string | undefined {
+        return this['info:asic_accelerators'];
     }
 }

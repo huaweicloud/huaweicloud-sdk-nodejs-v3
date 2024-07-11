@@ -16,6 +16,7 @@ export class PoliciesInListResp {
     public type?: string;
     private 'suppress_duration'?: SuppressDuration;
     private 'alarm_level'?: number;
+    private 'selected_unit'?: string;
     public constructor(alarmPolicyId?: string, metricName?: string, period?: Period, filter?: string, comparisonOperator?: string, value?: number, count?: number) { 
         this['alarm_policy_id'] = alarmPolicyId;
         this['metric_name'] = metricName;
@@ -108,5 +109,15 @@ export class PoliciesInListResp {
     }
     public get alarmLevel(): number | undefined {
         return this['alarm_level'];
+    }
+    public withSelectedUnit(selectedUnit: string): PoliciesInListResp {
+        this['selected_unit'] = selectedUnit;
+        return this;
+    }
+    public set selectedUnit(selectedUnit: string  | undefined) {
+        this['selected_unit'] = selectedUnit;
+    }
+    public get selectedUnit(): string | undefined {
+        return this['selected_unit'];
     }
 }

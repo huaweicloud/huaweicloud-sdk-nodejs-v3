@@ -1,6 +1,7 @@
 import { BlockPage } from './BlockPage';
 import { CircuitBreaker } from './CircuitBreaker';
 import { HostFlag } from './HostFlag';
+import { PremiumWafServer } from './PremiumWafServer';
 import { TimeoutConfig } from './TimeoutConfig';
 import { TrafficMark } from './TrafficMark';
 
@@ -9,6 +10,7 @@ export class UpdatePremiumHostRequestBody {
     public proxy?: boolean;
     public certificateid?: string;
     public certificatename?: string;
+    public server?: Array<PremiumWafServer>;
     public tls?: UpdatePremiumHostRequestBodyTlsEnum | string;
     public cipher?: UpdatePremiumHostRequestBodyCipherEnum | string;
     public mode?: string;
@@ -35,6 +37,10 @@ export class UpdatePremiumHostRequestBody {
     }
     public withCertificatename(certificatename: string): UpdatePremiumHostRequestBody {
         this['certificatename'] = certificatename;
+        return this;
+    }
+    public withServer(server: Array<PremiumWafServer>): UpdatePremiumHostRequestBody {
+        this['server'] = server;
         return this;
     }
     public withTls(tls: UpdatePremiumHostRequestBodyTlsEnum | string): UpdatePremiumHostRequestBody {

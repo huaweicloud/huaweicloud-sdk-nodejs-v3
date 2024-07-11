@@ -11,12 +11,11 @@ export class UpdatePolicy {
     public count?: number;
     private 'suppress_duration'?: number;
     public level?: number;
-    public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, value?: number, count?: number) { 
+    public constructor(metricName?: string, period?: number, filter?: string, comparisonOperator?: string, count?: number) { 
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
         this['comparison_operator'] = comparisonOperator;
-        this['value'] = value;
         this['count'] = count;
     }
     public withMetricName(metricName: string): UpdatePolicy {

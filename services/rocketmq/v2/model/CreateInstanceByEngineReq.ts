@@ -228,15 +228,15 @@ export enum CreateInstanceByEngineReqEngineVersionEnum {
     */
 export enum CreateInstanceByEngineReqProductIdEnum {
     C6_4U8G_CLUSTER_SMALL_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_2U8G_SINGLE_X86_TAGHCS = '[c6.4u8g.cluster.small](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.2u8g.single.x86](tag:hcs)',
-    C6_4U8G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_4U16G_CLUSTER_X86_TAGHCS = '[c6.4u8g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.4u16g.cluster.x86](tag:hcs)',
-    C6_8U16G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_8U32G_CLUSTER_X86_TAGHCS = '[c6.8u16g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.8u32g.cluster.x86](tag:hcs)',
-    C6_12U24G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_16U64G_CLUSTER_X86_TAGHCS = '[c6.12u24g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.16u64g.cluster.x86](tag:hcs)',
-    C6_16U32G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_32U128G_CLUSTER_X86_TAGHCS = '[c6.16u32g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.32u128g.cluster.x86](tag:hcs)',
+    C6_4U8G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_4U16G_CLUSTER_X86_TAGHCSFCS = '[c6.4u8g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.4u16g.cluster.x86](tag:hcs,fcs)',
+    C6_8U16G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_8U32G_CLUSTER_X86_TAGHCSFCS = '[c6.8u16g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.8u32g.cluster.x86](tag:hcs,fcs)',
+    C6_12U24G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_16U64G_CLUSTER_X86_TAGHCSFCS = '[c6.12u24g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.16u64g.cluster.x86](tag:hcs,fcs)',
+    C6_16U32G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TM_C6_32U128G_CLUSTER_X86_TAGHCSFCS = '[c6.16u32g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm)[c6.32u128g.cluster.x86](tag:hcs,fcs)',
     C6_2U8G_SINGLE_ARM_TAGHCS = '[c6.2u8g.single.arm](tag:hcs)',
-    C6_4U16G_CLUSTER_ARM_TAGHCS = '[c6.4u16g.cluster.arm](tag:hcs)',
-    C6_8U32G_CLUSTER_ARM_TAGHCS = '[c6.8u32g.cluster.arm](tag:hcs)',
-    C6_16U64G_CLUSTER_ARM_TAGHCS = '[c6.16u64g.cluster.arm](tag:hcs)',
-    C6_32U128G_CLUSTER_ARM_TAGHCS = '[c6.32u128g.cluster.arm](tag:hcs)'
+    C6_4U16G_CLUSTER_ARM_TAGHCSFCS = '[c6.4u16g.cluster.arm](tag:hcs,fcs)',
+    C6_8U32G_CLUSTER_ARM_TAGHCSFCS = '[c6.8u32g.cluster.arm](tag:hcs,fcs)',
+    C6_16U64G_CLUSTER_ARM_TAGHCSFCS = '[c6.16u64g.cluster.arm](tag:hcs,fcs)',
+    C6_32U128G_CLUSTER_ARM_TAGHCSFCS = '[c6.32u128g.cluster.arm](tag:hcs,fcs)'
 }
 /**
     * @export

@@ -1,3 +1,4 @@
+import { MetricsDimension } from './MetricsDimension';
 
 
 export class EventItemDetail {
@@ -9,6 +10,7 @@ export class EventItemDetail {
     private 'event_level'?: EventItemDetailEventLevelEnum | string;
     private 'event_user'?: string;
     private 'event_type'?: string;
+    public dimensions?: Array<MetricsDimension>;
     public constructor() { 
     }
     public withContent(content: string): EventItemDetail {
@@ -84,6 +86,10 @@ export class EventItemDetail {
     }
     public get eventType(): string | undefined {
         return this['event_type'];
+    }
+    public withDimensions(dimensions: Array<MetricsDimension>): EventItemDetail {
+        this['dimensions'] = dimensions;
+        return this;
     }
 }
 

@@ -179,6 +179,7 @@ import { ResourcesInListResp } from './model/ResourcesInListResp';
 import { ResourcesReq } from './model/ResourcesReq';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';
 import { SMNUrn } from './model/SMNUrn';
+import { SelectedUnit } from './model/SelectedUnit';
 import { ShowAlarmTemplateRequest } from './model/ShowAlarmTemplateRequest';
 import { ShowAlarmTemplateResponse } from './model/ShowAlarmTemplateResponse';
 import { ShowResourceGroupRequest } from './model/ShowResourceGroupRequest';

@@ -177,6 +177,7 @@ export * from './model/ResourcesInListResp';
 export * from './model/ResourcesReq';
 export * from './model/ResourcesReqV2';
 export * from './model/SMNUrn';
+export * from './model/SelectedUnit';
 export * from './model/ShowAlarmTemplateRequest';
 export * from './model/ShowAlarmTemplateResponse';
 export * from './model/ShowResourceGroupRequest';

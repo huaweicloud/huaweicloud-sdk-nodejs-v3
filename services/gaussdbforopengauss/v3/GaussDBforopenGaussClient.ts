@@ -91,6 +91,9 @@ import { HotfixInfo } from './model/HotfixInfo';
 import { HotfixRollbackInfos } from './model/HotfixRollbackInfos';
 import { HotfixUpgradeInfos } from './model/HotfixUpgradeInfos';
 import { HotfixVersionInfo } from './model/HotfixVersionInfo';
+import { InstallKernelPluginRequest } from './model/InstallKernelPluginRequest';
+import { InstallKernelPluginRequestBody } from './model/InstallKernelPluginRequestBody';
+import { InstallKernelPluginResponse } from './model/InstallKernelPluginResponse';
 import { InstanceInfoResult } from './model/InstanceInfoResult';
 import { InstanceLogFile } from './model/InstanceLogFile';
 import { InstancesListResult } from './model/InstancesListResult';
@@ -155,8 +158,13 @@ import { ListInstancesDetailsResponse } from './model/ListInstancesDetailsRespon
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesResult } from './model/ListInstancesResult';
+import { ListKernelPluginsRequest } from './model/ListKernelPluginsRequest';
+import { ListKernelPluginsResponse } from './model/ListKernelPluginsResponse';
 import { ListParamGroupTemplatesRequest } from './model/ListParamGroupTemplatesRequest';
 import { ListParamGroupTemplatesResponse } from './model/ListParamGroupTemplatesResponse';
+import { ListPluginExtensionsRequest } from './model/ListPluginExtensionsRequest';
+import { ListPluginExtensionsRequestBody } from './model/ListPluginExtensionsRequestBody';
+import { ListPluginExtensionsResponse } from './model/ListPluginExtensionsResponse';
 import { ListPredefinedTagsRequest } from './model/ListPredefinedTagsRequest';
 import { ListPredefinedTagsResponse } from './model/ListPredefinedTagsResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
@@ -170,6 +178,8 @@ import { ListRestoreTimesRequest } from './model/ListRestoreTimesRequest';
 import { ListRestoreTimesResponse } from './model/ListRestoreTimesResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
 import { ListStorageTypesResponse } from './model/ListStorageTypesResponse';
+import { ListSupportKernelPluginsRequest } from './model/ListSupportKernelPluginsRequest';
+import { ListSupportKernelPluginsResponse } from './model/ListSupportKernelPluginsResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListTopIoTrafficsRequest } from './model/ListTopIoTrafficsRequest';
@@ -217,6 +227,7 @@ import { ParaErrorResponseBody } from './model/ParaErrorResponseBody';
 import { ParaGroupParameterResult } from './model/ParaGroupParameterResult';
 import { ParamGroupCopyRequestBody } from './model/ParamGroupCopyRequestBody';
 import { ParamGroupDiffRequestBody } from './model/ParamGroupDiffRequestBody';
+import { PluginExtensions } from './model/PluginExtensions';
 import { ProjectQuotasResult } from './model/ProjectQuotasResult';
 import { PwdResetRequest } from './model/PwdResetRequest';
 import { RecoveryBackupSource } from './model/RecoveryBackupSource';
@@ -238,7 +249,9 @@ import { RestoreInstanceRequest } from './model/RestoreInstanceRequest';
 import { RestoreInstanceRequestBody } from './model/RestoreInstanceRequestBody';
 import { RestoreInstanceResponse } from './model/RestoreInstanceResponse';
 import { RestorePoint } from './model/RestorePoint';
-import { RestoreTableListDetail } from './model/RestoreTableListDetail';
+import { ResumePluginExtensionsRequest } from './model/ResumePluginExtensionsRequest';
+import { ResumePluginExtensionsRequestBody } from './model/ResumePluginExtensionsRequestBody';
+import { ResumePluginExtensionsResponse } from './model/ResumePluginExtensionsResponse';
 import { RollUpgradeProgress } from './model/RollUpgradeProgress';
 import { RunInstanceActionRequest } from './model/RunInstanceActionRequest';
 import { RunInstanceActionResponse } from './model/RunInstanceActionResponse';
@@ -249,6 +262,9 @@ import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
 import { SetDbUserPwdRequest } from './model/SetDbUserPwdRequest';
 import { SetDbUserPwdResponse } from './model/SetDbUserPwdResponse';
+import { SetKernelPluginLicenseRequest } from './model/SetKernelPluginLicenseRequest';
+import { SetKernelPluginLicenseRequestBody } from './model/SetKernelPluginLicenseRequestBody';
+import { SetKernelPluginLicenseResponse } from './model/SetKernelPluginLicenseResponse';
 import { SetNewBackupPolicyRequest } from './model/SetNewBackupPolicyRequest';
 import { SetNewBackupPolicyRequestBody } from './model/SetNewBackupPolicyRequestBody';
 import { SetNewBackupPolicyResponse } from './model/SetNewBackupPolicyResponse';
@@ -762,6 +778,27 @@ export class GaussDBforopenGaussClient {
      */
     public downloadBackup(downloadBackupRequest?: DownloadBackupRequest): Promise<DownloadBackupResponse> {
         const options = ParamCreater().downloadBackup(downloadBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 安装插件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 安装插件
+     * @param {string} instanceId 需要安装插件的实例id
+     * @param {InstallKernelPluginRequestBody} installKernelPluginRequestBody 安装插件的请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public installKernelPlugin(installKernelPluginRequest?: InstallKernelPluginRequest): Promise<InstallKernelPluginResponse> {
+        const options = ParamCreater().installKernelPlugin(installKernelPluginRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1323,6 +1360,26 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查询实例已安装的插件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例已安装的插件列表
+     * @param {string} instanceId 查询实例已安装的插件列表的实例ID
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKernelPlugins(listKernelPluginsRequest?: ListKernelPluginsRequest): Promise<ListKernelPluginsResponse> {
+        const options = ParamCreater().listKernelPlugins(listKernelPluginsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1336,6 +1393,27 @@ export class GaussDBforopenGaussClient {
      */
     public listParamGroupTemplates(listParamGroupTemplatesRequest?: ListParamGroupTemplatesRequest): Promise<ListParamGroupTemplatesResponse> {
         const options = ParamCreater().listParamGroupTemplates(listParamGroupTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例插件拓展信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例插件拓展信息
+     * @param {string} instanceId 查询实例插件拓展信息的实例ID
+     * @param {ListPluginExtensionsRequestBody} listPluginExtensionsRequestBody 查询实例插件拓展信息请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPluginExtensions(listPluginExtensionsRequest?: ListPluginExtensionsRequest): Promise<ListPluginExtensionsResponse> {
+        const options = ParamCreater().listPluginExtensions(listPluginExtensionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1463,6 +1541,25 @@ export class GaussDBforopenGaussClient {
      */
     public listStorageTypes(listStorageTypesRequest?: ListStorageTypesRequest): Promise<ListStorageTypesResponse> {
         const options = ParamCreater().listStorageTypes(listStorageTypesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询支持的插件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询支持的插件列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupportKernelPlugins(listSupportKernelPluginsRequest?: ListSupportKernelPluginsRequest): Promise<ListSupportKernelPluginsResponse> {
+        const options = ParamCreater().listSupportKernelPlugins(listSupportKernelPluginsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1642,6 +1739,27 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 配置插件拓展能力
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 配置插件拓展能力
+     * @param {string} instanceId 配置插件拓展能力的实例ID
+     * @param {ResumePluginExtensionsRequestBody} resumePluginExtensionsRequestBody 配置实例插件拓展能力请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumePluginExtensions(resumePluginExtensionsRequest?: ResumePluginExtensionsRequest): Promise<ResumePluginExtensionsResponse> {
+        const options = ParamCreater().resumePluginExtensions(resumePluginExtensionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * CN横向扩容/DN分片扩容/磁盘扩容
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1717,6 +1835,27 @@ export class GaussDBforopenGaussClient {
      */
     public setDbUserPwd(setDbUserPwdRequest?: SetDbUserPwdRequest): Promise<SetDbUserPwdResponse> {
         const options = ParamCreater().setDbUserPwd(setDbUserPwdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 配置插件license
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 配置插件license
+     * @param {string} instanceId 需要配置license的实例
+     * @param {SetKernelPluginLicenseRequestBody} setKernelPluginLicenseRequestBody 安装插件的请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setKernelPluginLicense(setKernelPluginLicenseRequest?: SetKernelPluginLicenseRequest): Promise<SetKernelPluginLicenseResponse> {
+        const options = ParamCreater().setKernelPluginLicense(setKernelPluginLicenseRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3340,6 +3479,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 安装插件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        installKernelPlugin(installKernelPluginRequest?: InstallKernelPluginRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/kernel-plugin",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (installKernelPluginRequest !== null && installKernelPluginRequest !== undefined) {
+                if (installKernelPluginRequest instanceof InstallKernelPluginRequest) {
+                    instanceId = installKernelPluginRequest.instanceId;
+                    body = installKernelPluginRequest.body
+                    xLanguage = installKernelPluginRequest.xLanguage;
+                } else {
+                    instanceId = installKernelPluginRequest['instance_id'];
+                    body = installKernelPluginRequest['body'];
+                    xLanguage = installKernelPluginRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling installKernelPlugin.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询可应用当前参数组模板的实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4925,6 +5117,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例已安装的插件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKernelPlugins(listKernelPluginsRequest?: ListKernelPluginsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/kernel-plugins",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listKernelPluginsRequest !== null && listKernelPluginsRequest !== undefined) {
+                if (listKernelPluginsRequest instanceof ListKernelPluginsRequest) {
+                    instanceId = listKernelPluginsRequest.instanceId;
+                    xLanguage = listKernelPluginsRequest.xLanguage;
+                } else {
+                    instanceId = listKernelPluginsRequest['instance_id'];
+                    xLanguage = listKernelPluginsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listKernelPlugins.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取参数模板列表，包括所有数据库的默认参数模板和用户创建的参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4971,6 +5207,59 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例插件拓展信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPluginExtensions(listPluginExtensionsRequest?: ListPluginExtensionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/plugin-extensions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listPluginExtensionsRequest !== null && listPluginExtensionsRequest !== undefined) {
+                if (listPluginExtensionsRequest instanceof ListPluginExtensionsRequest) {
+                    instanceId = listPluginExtensionsRequest.instanceId;
+                    body = listPluginExtensionsRequest.body
+                    xLanguage = listPluginExtensionsRequest.xLanguage;
+                } else {
+                    instanceId = listPluginExtensionsRequest['instance_id'];
+                    body = listPluginExtensionsRequest['body'];
+                    xLanguage = listPluginExtensionsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listPluginExtensions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5286,6 +5575,42 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询支持的插件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupportKernelPlugins(listSupportKernelPluginsRequest?: ListSupportKernelPluginsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/kernel-plugins",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (listSupportKernelPluginsRequest !== null && listSupportKernelPluginsRequest !== undefined) {
+                if (listSupportKernelPluginsRequest instanceof ListSupportKernelPluginsRequest) {
+                    xLanguage = listSupportKernelPluginsRequest.xLanguage;
+                } else {
+                    xLanguage = listSupportKernelPluginsRequest['X-Language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5733,6 +6058,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 配置插件拓展能力
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumePluginExtensions(resumePluginExtensionsRequest?: ResumePluginExtensionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/config-plugin-extensions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (resumePluginExtensionsRequest !== null && resumePluginExtensionsRequest !== undefined) {
+                if (resumePluginExtensionsRequest instanceof ResumePluginExtensionsRequest) {
+                    instanceId = resumePluginExtensionsRequest.instanceId;
+                    body = resumePluginExtensionsRequest.body
+                    xLanguage = resumePluginExtensionsRequest.xLanguage;
+                } else {
+                    instanceId = resumePluginExtensionsRequest['instance_id'];
+                    body = resumePluginExtensionsRequest['body'];
+                    xLanguage = resumePluginExtensionsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resumePluginExtensions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * CN横向扩容/DN分片扩容/磁盘扩容
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5920,6 +6298,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setDbUserPwd.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置插件license
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setKernelPluginLicense(setKernelPluginLicenseRequest?: SetKernelPluginLicenseRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/kernel-plugin-license",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setKernelPluginLicenseRequest !== null && setKernelPluginLicenseRequest !== undefined) {
+                if (setKernelPluginLicenseRequest instanceof SetKernelPluginLicenseRequest) {
+                    instanceId = setKernelPluginLicenseRequest.instanceId;
+                    body = setKernelPluginLicenseRequest.body
+                    xLanguage = setKernelPluginLicenseRequest.xLanguage;
+                } else {
+                    instanceId = setKernelPluginLicenseRequest['instance_id'];
+                    body = setKernelPluginLicenseRequest['body'];
+                    xLanguage = setKernelPluginLicenseRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setKernelPluginLicense.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

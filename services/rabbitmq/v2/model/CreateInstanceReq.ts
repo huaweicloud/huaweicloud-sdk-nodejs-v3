@@ -25,13 +25,11 @@ export class CreateInstanceReq {
     private 'enterprise_project_id'?: string;
     public tags?: Array<TagEntity>;
     private 'bss_param'?: BssParam;
-    public constructor(name?: string, engine?: string, engineVersion?: string, storageSpace?: number, accessUser?: string, password?: string, vpcId?: string, securityGroupId?: string, subnetId?: string, availableZones?: Array<string>, productId?: string, storageSpecCode?: string) { 
+    public constructor(name?: string, engine?: string, engineVersion?: string, storageSpace?: number, vpcId?: string, securityGroupId?: string, subnetId?: string, availableZones?: Array<string>, productId?: string, storageSpecCode?: string) { 
         this['name'] = name;
         this['engine'] = engine;
         this['engine_version'] = engineVersion;
         this['storage_space'] = storageSpace;
-        this['access_user'] = accessUser;
-        this['password'] = password;
         this['vpc_id'] = vpcId;
         this['security_group_id'] = securityGroupId;
         this['subnet_id'] = subnetId;

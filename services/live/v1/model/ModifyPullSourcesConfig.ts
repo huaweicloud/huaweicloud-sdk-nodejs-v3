@@ -5,6 +5,7 @@ export class ModifyPullSourcesConfig {
     private 'source_type'?: ModifyPullSourcesConfigSourceTypeEnum | string;
     public sources?: Array<string>;
     private 'sources_ip'?: Array<string>;
+    private 'source_port'?: number;
     public scheme?: ModifyPullSourcesConfigSchemeEnum | string;
     private 'additional_args'?: { [key: string]: string; };
     public constructor(playDomain?: string, sourceType?: string) { 
@@ -44,6 +45,16 @@ export class ModifyPullSourcesConfig {
     }
     public get sourcesIp(): Array<string> | undefined {
         return this['sources_ip'];
+    }
+    public withSourcePort(sourcePort: number): ModifyPullSourcesConfig {
+        this['source_port'] = sourcePort;
+        return this;
+    }
+    public set sourcePort(sourcePort: number  | undefined) {
+        this['source_port'] = sourcePort;
+    }
+    public get sourcePort(): number | undefined {
+        return this['source_port'];
     }
     public withScheme(scheme: ModifyPullSourcesConfigSchemeEnum | string): ModifyPullSourcesConfig {
         this['scheme'] = scheme;

@@ -41,6 +41,7 @@ export * from './model/CreateAnticrawlerRuleRequestbody';
 export * from './model/CreateAnticrawlerRuleResponse';
 export * from './model/CreateAntileakageRuleRequest';
 export * from './model/CreateAntileakageRuleRequestBody';
+export * from './model/CreateAntileakageRuleRequestBodyAction';
 export * from './model/CreateAntileakageRuleResponse';
 export * from './model/CreateCcRuleRequest';
 export * from './model/CreateCcRuleRequestBody';

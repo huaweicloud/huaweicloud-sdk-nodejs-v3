@@ -43,6 +43,7 @@ import { CreateAnticrawlerRuleRequestbody } from './model/CreateAnticrawlerRuleR
 import { CreateAnticrawlerRuleResponse } from './model/CreateAnticrawlerRuleResponse';
 import { CreateAntileakageRuleRequest } from './model/CreateAntileakageRuleRequest';
 import { CreateAntileakageRuleRequestBody } from './model/CreateAntileakageRuleRequestBody';
+import { CreateAntileakageRuleRequestBodyAction } from './model/CreateAntileakageRuleRequestBodyAction';
 import { CreateAntileakageRuleResponse } from './model/CreateAntileakageRuleResponse';
 import { CreateCcRuleRequest } from './model/CreateCcRuleRequest';
 import { CreateCcRuleRequestBody } from './model/CreateCcRuleRequestBody';

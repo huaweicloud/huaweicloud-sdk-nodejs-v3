@@ -17,6 +17,7 @@ export class HostModel {
     private 'data_volume_type'?: string;
     private 'data_volume_size'?: number;
     private 'data_volume_count'?: number;
+    private 'node_group_name'?: string;
     public constructor() { 
     }
     public withId(id: string): HostModel {
@@ -114,5 +115,15 @@ export class HostModel {
     }
     public get dataVolumeCount(): number | undefined {
         return this['data_volume_count'];
+    }
+    public withNodeGroupName(nodeGroupName: string): HostModel {
+        this['node_group_name'] = nodeGroupName;
+        return this;
+    }
+    public set nodeGroupName(nodeGroupName: string  | undefined) {
+        this['node_group_name'] = nodeGroupName;
+    }
+    public get nodeGroupName(): string | undefined {
+        return this['node_group_name'];
     }
 }

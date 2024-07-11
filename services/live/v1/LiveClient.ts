@@ -50,6 +50,8 @@ import { DeleteRecordCallbackConfigRequest } from './model/DeleteRecordCallbackC
 import { DeleteRecordCallbackConfigResponse } from './model/DeleteRecordCallbackConfigResponse';
 import { DeleteRecordRuleRequest } from './model/DeleteRecordRuleRequest';
 import { DeleteRecordRuleResponse } from './model/DeleteRecordRuleResponse';
+import { DeleteRefererChainRequest } from './model/DeleteRefererChainRequest';
+import { DeleteRefererChainResponse } from './model/DeleteRefererChainResponse';
 import { DeleteSnapshotConfigRequest } from './model/DeleteSnapshotConfigRequest';
 import { DeleteSnapshotConfigResponse } from './model/DeleteSnapshotConfigResponse';
 import { DeleteStreamForbiddenRequest } from './model/DeleteStreamForbiddenRequest';
@@ -73,6 +75,8 @@ import { ListDelayConfigRequest } from './model/ListDelayConfigRequest';
 import { ListDelayConfigResponse } from './model/ListDelayConfigResponse';
 import { ListGeoBlockingConfigRequest } from './model/ListGeoBlockingConfigRequest';
 import { ListGeoBlockingConfigResponse } from './model/ListGeoBlockingConfigResponse';
+import { ListHlsConfigRequest } from './model/ListHlsConfigRequest';
+import { ListHlsConfigResponse } from './model/ListHlsConfigResponse';
 import { ListIpAuthListRequest } from './model/ListIpAuthListRequest';
 import { ListIpAuthListResponse } from './model/ListIpAuthListResponse';
 import { ListLiveSampleLogsRequest } from './model/ListLiveSampleLogsRequest';
@@ -100,6 +104,7 @@ import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyHlsConfig } from './model/ModifyHlsConfig';
 import { ModifyOttChannelEncoderSettings } from './model/ModifyOttChannelEncoderSettings';
 import { ModifyOttChannelEncoderSettingsEncoderSettings } from './model/ModifyOttChannelEncoderSettingsEncoderSettings';
 import { ModifyOttChannelEndPointsReq } from './model/ModifyOttChannelEndPointsReq';
@@ -126,6 +131,7 @@ import { ObsAuthorityConfigV2 } from './model/ObsAuthorityConfigV2';
 import { ObsFileAddr } from './model/ObsFileAddr';
 import { OnlineInfo } from './model/OnlineInfo';
 import { PackageRequestArgs } from './model/PackageRequestArgs';
+import { PushDomainApplication } from './model/PushDomainApplication';
 import { QualityInfo } from './model/QualityInfo';
 import { RecordCallbackConfig } from './model/RecordCallbackConfig';
 import { RecordCallbackConfigRequest } from './model/RecordCallbackConfigRequest';
@@ -139,6 +145,9 @@ import { RecordRuleRequest } from './model/RecordRuleRequest';
 import { RunRecordRequest } from './model/RunRecordRequest';
 import { RunRecordResponse } from './model/RunRecordResponse';
 import { SecondarySourcesInfo } from './model/SecondarySourcesInfo';
+import { SetRefererChainInfo } from './model/SetRefererChainInfo';
+import { SetRefererChainRequest } from './model/SetRefererChainRequest';
+import { SetRefererChainResponse } from './model/SetRefererChainResponse';
 import { ShowDomainHttpsCertRequest } from './model/ShowDomainHttpsCertRequest';
 import { ShowDomainHttpsCertResponse } from './model/ShowDomainHttpsCertResponse';
 import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
@@ -151,6 +160,8 @@ import { ShowRecordCallbackConfigRequest } from './model/ShowRecordCallbackConfi
 import { ShowRecordCallbackConfigResponse } from './model/ShowRecordCallbackConfigResponse';
 import { ShowRecordRuleRequest } from './model/ShowRecordRuleRequest';
 import { ShowRecordRuleResponse } from './model/ShowRecordRuleResponse';
+import { ShowRefererChainRequest } from './model/ShowRefererChainRequest';
+import { ShowRefererChainResponse } from './model/ShowRefererChainResponse';
 import { ShowTranscodingsTemplateRequest } from './model/ShowTranscodingsTemplateRequest';
 import { ShowTranscodingsTemplateResponse } from './model/ShowTranscodingsTemplateResponse';
 import { SourceRsp } from './model/SourceRsp';
@@ -172,6 +183,8 @@ import { UpdateDomainRequest } from './model/UpdateDomainRequest';
 import { UpdateDomainResponse } from './model/UpdateDomainResponse';
 import { UpdateGeoBlockingConfigRequest } from './model/UpdateGeoBlockingConfigRequest';
 import { UpdateGeoBlockingConfigResponse } from './model/UpdateGeoBlockingConfigResponse';
+import { UpdateHlsConfigRequest } from './model/UpdateHlsConfigRequest';
+import { UpdateHlsConfigResponse } from './model/UpdateHlsConfigResponse';
 import { UpdateIpAuthListRequest } from './model/UpdateIpAuthListRequest';
 import { UpdateIpAuthListResponse } from './model/UpdateIpAuthListResponse';
 import { UpdateObsBucketAuthorityPublicRequest } from './model/UpdateObsBucketAuthorityPublicRequest';
@@ -514,6 +527,25 @@ export class LiveClient {
     }
 
     /**
+     * 删除Referer防盗链黑白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Referer防盗链黑白名单
+     * @param {string} domain 直播域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRefererChain(deleteRefererChainRequest?: DeleteRefererChainRequest): Promise<DeleteRefererChainResponse> {
+        const options = ParamCreater().deleteRefererChain(deleteRefererChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除直播截图配置接口
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -608,6 +640,25 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询域名HLS配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名HLS配置
+     * @param {string} pushDomain 推流域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHlsConfig(listHlsConfigRequest?: ListHlsConfigRequest): Promise<ListHlsConfigResponse> {
+        const options = ParamCreater().listHlsConfig(listHlsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -835,6 +886,25 @@ export class LiveClient {
     }
 
     /**
+     * 设置Referer黑白名单，直播服务会根据配置的referer黑白名单，对访问者的身份进行识别和过滤，符合规则的可以顺利访问到该内容。如果不符合规则，该访问请求将会被禁止。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置Referer防盗链黑白名单
+     * @param {SetRefererChainInfo} setRefererChainRequestBody Referer防盗链配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRefererChain(setRefererChainRequest?: SetRefererChainRequest): Promise<SetRefererChainResponse> {
+        const options = ParamCreater().setRefererChain(setRefererChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询直播域名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -923,6 +993,25 @@ export class LiveClient {
      */
     public showRecordRule(showRecordRuleRequest?: ShowRecordRuleRequest): Promise<ShowRecordRuleResponse> {
         const options = ParamCreater().showRecordRule(showRecordRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Referer防盗链黑白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Referer防盗链黑白名单
+     * @param {string} domain 直播播放域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRefererChain(showRefererChainRequest?: ShowRefererChainRequest): Promise<ShowRefererChainResponse> {
+        const options = ParamCreater().showRefererChain(showRefererChainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1045,6 +1134,25 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改域名HLS配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改域名HLS配置
+     * @param {ModifyHlsConfig} updateHlsConfigRequestBody HLS配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHlsConfig(updateHlsConfigRequest?: UpdateHlsConfigRequest): Promise<UpdateHlsConfigResponse> {
+        const options = ParamCreater().updateHlsConfig(updateHlsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2110,6 +2218,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除Referer防盗链黑白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRefererChain(deleteRefererChainRequest?: DeleteRefererChainRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/guard/referer-chain",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (deleteRefererChainRequest !== null && deleteRefererChainRequest !== undefined) {
+                if (deleteRefererChainRequest instanceof DeleteRefererChainRequest) {
+                    domain = deleteRefererChainRequest.domain;
+                } else {
+                    domain = deleteRefererChainRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling deleteRefererChain.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除直播截图配置接口
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2342,6 +2490,46 @@ export const ParamCreater = function () {
             }
             if (playDomain !== null && playDomain !== undefined) {
                 localVarQueryParameter['play_domain'] = playDomain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询域名HLS配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHlsConfig(listHlsConfigRequest?: ListHlsConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/hls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pushDomain;
+
+            if (listHlsConfigRequest !== null && listHlsConfigRequest !== undefined) {
+                if (listHlsConfigRequest instanceof ListHlsConfigRequest) {
+                    pushDomain = listHlsConfigRequest.pushDomain;
+                } else {
+                    pushDomain = listHlsConfigRequest['push_domain'];
+                }
+            }
+
+        
+            if (pushDomain === null || pushDomain === undefined) {
+                throw new RequiredError('pushDomain','Required parameter pushDomain was null or undefined when calling listHlsConfig.');
+            }
+            if (pushDomain !== null && pushDomain !== undefined) {
+                localVarQueryParameter['push_domain'] = pushDomain;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2958,6 +3146,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置Referer黑白名单，直播服务会根据配置的referer黑白名单，对访问者的身份进行识别和过滤，符合规则的可以顺利访问到该内容。如果不符合规则，该访问请求将会被禁止。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRefererChain(setRefererChainRequest?: SetRefererChainRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/guard/referer-chain",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (setRefererChainRequest !== null && setRefererChainRequest !== undefined) {
+                if (setRefererChainRequest instanceof SetRefererChainRequest) {
+                    body = setRefererChainRequest.body
+                } else {
+                    body = setRefererChainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询直播域名
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3151,6 +3377,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Referer防盗链黑白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRefererChain(showRefererChainRequest?: ShowRefererChainRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/guard/referer-chain",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (showRefererChainRequest !== null && showRefererChainRequest !== undefined) {
+                if (showRefererChainRequest instanceof ShowRefererChainRequest) {
+                    domain = showRefererChainRequest.domain;
+                } else {
+                    domain = showRefererChainRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling showRefererChain.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3421,6 +3687,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改域名HLS配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHlsConfig(updateHlsConfigRequest?: UpdateHlsConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/domain/hls",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateHlsConfigRequest !== null && updateHlsConfigRequest !== undefined) {
+                if (updateHlsConfigRequest instanceof UpdateHlsConfigRequest) {
+                    body = updateHlsConfigRequest.body
+                } else {
+                    body = updateHlsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -776,7 +776,7 @@ export class RabbitMQClient {
      * @param {string} instanceId 实例ID
      * @param {string} vhost Vhost名称
      * @param {string} exchange Exchange名称
-     * @param {string} destinationType 绑定目标端类型，Exchange或Queue（AMQP版本只支持Queue绑定类型）
+     * @param {string} destinationType 绑定目标端类型，Exchange或Queue。[（AMQP版本只支持Queue绑定类型）](tag:hws,hws_hk)
      * @param {string} destination 绑定的目标端名称
      * @param {string} propertiesKey 绑定路由键，经过URL转译后routing_key，可通过调用[查询Exchange绑定列表](ListBindings.xml)或者[查询指定Queue详情](ShowQueueDetails.xml)接口的响应信息获取。
      * @param {*} [options] Override http request option.

@@ -1,4 +1,3 @@
-import { RestoreTableListDetail } from './RestoreTableListDetail';
 
 
 export class RecoveryBackupSource {
@@ -6,12 +5,9 @@ export class RecoveryBackupSource {
     public type?: string;
     private 'backup_id'?: string;
     private 'restore_time'?: string;
-    private 'table_list'?: Array<RestoreTableListDetail>;
-    private 'schema_type'?: RecoveryBackupSourceSchemaTypeEnum | string;
-    public constructor(instanceId?: string, backupId?: string, restoreTime?: string) { 
+    public constructor(instanceId?: string, type?: string) { 
         this['instance_id'] = instanceId;
-        this['backup_id'] = backupId;
-        this['restore_time'] = restoreTime;
+        this['type'] = type;
     }
     public withInstanceId(instanceId: string): RecoveryBackupSource {
         this['instance_id'] = instanceId;
@@ -47,34 +43,4 @@ export class RecoveryBackupSource {
     public get restoreTime(): string | undefined {
         return this['restore_time'];
     }
-    public withTableList(tableList: Array<RestoreTableListDetail>): RecoveryBackupSource {
-        this['table_list'] = tableList;
-        return this;
-    }
-    public set tableList(tableList: Array<RestoreTableListDetail>  | undefined) {
-        this['table_list'] = tableList;
-    }
-    public get tableList(): Array<RestoreTableListDetail> | undefined {
-        return this['table_list'];
-    }
-    public withSchemaType(schemaType: RecoveryBackupSourceSchemaTypeEnum | string): RecoveryBackupSource {
-        this['schema_type'] = schemaType;
-        return this;
-    }
-    public set schemaType(schemaType: RecoveryBackupSourceSchemaTypeEnum | string  | undefined) {
-        this['schema_type'] = schemaType;
-    }
-    public get schemaType(): RecoveryBackupSourceSchemaTypeEnum | string | undefined {
-        return this['schema_type'];
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum RecoveryBackupSourceSchemaTypeEnum {
-    INSTANCE = 'INSTANCE 实例级备份',
-    DATABASE = 'DATABASE 库级备份',
-    DATABASE_TABLE = 'DATABASE_TABLE 表级备份'
 }

@@ -305,8 +305,8 @@ export class RocketMQClient {
      *
      * @summary 新建元数据迁移任务
      * @param {string} instanceId 实例ID。
-     * @param {'true' | 'false'} overwrite true开启同名覆盖，会对已有的同名元数据的配置进行修改，false时当topic或group已存在则会报错。
-     * @param {string} name 迁移任务名称，名称规则参考创建实例
+     * @param {'true' | 'false'} overwrite true开启同名覆盖，会对已有的同名元数据的配置进行修改，false时当Topic或group已存在则会报错。
+     * @param {string} name 迁移任务名称，名称规则参考创建实例。
      * @param {'rocketmq' | 'rabbitToRocket'} type 迁移任务类型，分为自建RocketMQ上云(rocketmq)、自建RabbitMQ上云(rabbitToRocket)
      * @param {CreateRocketMqMigrationTaskReq} createRocketMqMigrationTaskRequestBody 元数据json文件。
      * @param {*} [options] Override http request option.
@@ -387,7 +387,7 @@ export class RocketMQClient {
      *
      * @summary 删除元数据迁移任务
      * @param {string} instanceId 实例ID。
-     * @param {MetadataDeleteReq} deleteRocketMqMigrationTaskRequestBody 任务ID列表
+     * @param {MetadataDeleteReq} deleteRocketMqMigrationTaskRequestBody 任务ID列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -531,12 +531,12 @@ export class RocketMQClient {
      * @param {'rocketmq'} engine 消息引擎：rocketmq。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,sbc,hk_sbc,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs)
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] 实例状态，[详细状态说明请参考[实例状态说明](hrm-api-0010.xml)。](tag:hws,hws_hk,ctc,hws_eu,ocb,g42,hk_g42,tm,sbc,hk_sbc,cmcc,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。](tag:hcs,fcs)
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {number} [limit] 当次查询返回的最大个数，默认值为10，取值范围为1~50。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -581,7 +581,7 @@ export class RocketMQClient {
      * @param {string} topic 主题名称。
      * @param {string} [limit] 查询数量。
      * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
-     * @param {string} [key] 消息的key
+     * @param {string} [key] 消息的key。
      * @param {string} [startTime] 开始时间（不通过msg_id精确查询消息时，此参数必填）。
      * @param {string} [endTime] 结束时间（不通过msg_id精确查询消息时，此参数必填）。
      * @param {string} [msgId] 消息ID。
@@ -605,10 +605,10 @@ export class RocketMQClient {
      *
      * @summary 查询实例下所有迁移任务或查询指定迁移任务信息
      * @param {string} instanceId 实例ID。
-     * @param {string} [id] 任务ID
-     * @param {'vhost' | 'exchange' | 'queue' | 'all'} [type] 查询类型
-     * @param {string} [offset] 当前页，从1开始
-     * @param {string} [limit] 当前页大小
+     * @param {string} [id] 任务ID。
+     * @param {'vhost' | 'exchange' | 'queue' | 'all'} [type] 查询类型。
+     * @param {string} [offset] 当前页，从1开始。
+     * @param {string} [limit] 当前页大小。
      * @param {string} [name] - 查询vhost列表时，该字段可为空。 - 查询exchange列表时，该字段为exchange所属vhost名称。 - 查询queue列表时，该字段为queue所属vhost-所属exchange，例vhost1-exchange1。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -737,8 +737,8 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询消费者列表
-     * @param {string} instanceId 实例ID
-     * @param {string} group 消费组名称
+     * @param {string} instanceId 实例ID。
+     * @param {string} group 消费组名称。
      * @param {number} [limit] 查询数量，取值范围为1~50。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
      * @param {boolean} [isDetail] 是否查询消费者详细列表，参数为“true”则表示查询详细列表，否则表示查询简易列表。
@@ -762,7 +762,7 @@ export class RocketMQClient {
      * @summary 查询消费列表或详情
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费组名称。
-     * @param {string} [topic] 待查询的topic，不指定时查询topic列表，指定时查询详情。
+     * @param {string} [topic] 待查询的Topic，不指定时查询Topic列表，指定时查询详情。
      * @param {number} [limit] 当次查询返回的最大个数，默认值为10，取值范围为1~50。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
      * @param {*} [options] Override http request option.
@@ -785,7 +785,7 @@ export class RocketMQClient {
      * @summary 查询实例的扩容规格列表
      * @param {string} engine 消息引擎的类型。支持的类型为rocketmq。
      * @param {string} instanceId 实例ID。
-     * @param {'advanced'} [type] 产品的类型。 advanced：专享版
+     * @param {'advanced'} [type] 产品的类型。 advanced：专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1024,7 +1024,7 @@ export class RocketMQClient {
      * @summary 创建主题或批量删除主题
      * @param {string} instanceId 实例ID。
      * @param {CreateTopicOrBatchDeleteTopicReq} createTopicOrBatchDeleteTopicRequestBody 请求消息。
-     * @param {string} [action] 批量删除topic时使用，不配置则为创建接口。删除操作：delete。
+     * @param {string} [action] 批量删除Topic时使用，不配置则为创建接口。删除操作：delete。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

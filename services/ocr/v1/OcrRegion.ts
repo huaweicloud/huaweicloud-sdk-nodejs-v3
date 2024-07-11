@@ -11,6 +11,7 @@ export class OcrRegion {
     public static CN_EAST_3 = new Region("cn-east-3", ["https://ocr.cn-east-3.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://ocr.cn-north-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://ocr.ap-southeast-2.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", ["https://ocr.cn-southwest-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://ocr.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://ocr.ap-southeast-3.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://ocr.la-south-2.myhuaweicloud.com"]);
@@ -24,6 +25,7 @@ export class OcrRegion {
         "cn-east-3":OcrRegion.CN_EAST_3,
         "cn-north-1":OcrRegion.CN_NORTH_1,
         "ap-southeast-2":OcrRegion.AP_SOUTHEAST_2,
+        "cn-southwest-2":OcrRegion.CN_SOUTHWEST_2,
         "ap-southeast-1":OcrRegion.AP_SOUTHEAST_1,
         "ap-southeast-3":OcrRegion.AP_SOUTHEAST_3,
         "la-south-2":OcrRegion.LA_SOUTH_2,

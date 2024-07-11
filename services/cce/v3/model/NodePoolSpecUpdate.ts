@@ -1,3 +1,4 @@
+import { ExtensionScaleGroup } from './ExtensionScaleGroup';
 import { NodePoolNodeAutoscaling } from './NodePoolNodeAutoscaling';
 import { NodeSpecUpdate } from './NodeSpecUpdate';
 
@@ -6,6 +7,7 @@ export class NodePoolSpecUpdate {
     public nodeTemplate?: NodeSpecUpdate;
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
+    public extensionScaleGroups?: ExtensionScaleGroup;
     public constructor(nodeTemplate?: NodeSpecUpdate, initialNodeCount?: number, autoscaling?: NodePoolNodeAutoscaling) { 
         this['nodeTemplate'] = nodeTemplate;
         this['initialNodeCount'] = initialNodeCount;
@@ -21,6 +23,10 @@ export class NodePoolSpecUpdate {
     }
     public withAutoscaling(autoscaling: NodePoolNodeAutoscaling): NodePoolSpecUpdate {
         this['autoscaling'] = autoscaling;
+        return this;
+    }
+    public withExtensionScaleGroups(extensionScaleGroups: ExtensionScaleGroup): NodePoolSpecUpdate {
+        this['extensionScaleGroups'] = extensionScaleGroups;
         return this;
     }
 }
