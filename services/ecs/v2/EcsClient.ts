@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ASICAcceleratorInfo } from './model/ASICAcceleratorInfo';
 import { AddServerGroupMemberRequest } from './model/AddServerGroupMemberRequest';
 import { AddServerGroupMemberRequestBody } from './model/AddServerGroupMemberRequestBody';
 import { AddServerGroupMemberResponse } from './model/AddServerGroupMemberResponse';
@@ -109,6 +110,7 @@ import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
 import { FlavorSpotOptions } from './model/FlavorSpotOptions';
 import { GetServerRemoteConsoleOption } from './model/GetServerRemoteConsoleOption';
+import { GpuInfo } from './model/GpuInfo';
 import { Hypervisor } from './model/Hypervisor';
 import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity';
 import { InterfaceAttachment } from './model/InterfaceAttachment';

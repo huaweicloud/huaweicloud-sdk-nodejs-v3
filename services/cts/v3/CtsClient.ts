@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { Attributes } from './model/Attributes';
 import { BaseUser } from './model/BaseUser';
 import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
 import { BatchCreateResourceTagsRequestBody } from './model/BatchCreateResourceTagsRequestBody';
@@ -51,6 +52,7 @@ import { NotificationUsers } from './model/NotificationUsers';
 import { NotificationsResponseBody } from './model/NotificationsResponseBody';
 import { ObsInfo } from './model/ObsInfo';
 import { Operations } from './model/Operations';
+import { SessionContext } from './model/SessionContext';
 import { Tags } from './model/Tags';
 import { TraceResource } from './model/TraceResource';
 import { Traces } from './model/Traces';
@@ -317,6 +319,8 @@ export class CtsClient {
      * @param {string} [traceId] 标示某一条事件的事件ID。当传入这个查询条件时，其他查询条件自动不生效。 当\&quot;trace_type\&quot;字段值为\&quot;system\&quot;时，该字段筛选有效\&quot;。
      * @param {string} [traceName] 标示查询事件列表对应的事件名称。 当\&quot;trace_type\&quot;字段值为\&quot;system\&quot;时，该字段筛选有效\&quot;。 说明：该字段可能包含大写字母。
      * @param {'normal' | 'warning' | 'incident'} [traceRating] 标示查询事件列表对应的事件等级目前有三种：正常(normal), 警告(warning),事故(incident)。 当\&quot;trace_type\&quot;字段值为\&quot;system\&quot;时，该字段筛选有效\&quot;。
+     * @param {string} [accessKeyId] 标示查询事件列表对应的访问密钥ID。包含临时访问凭证和永久访问密钥。
+     * @param {string} [enterpriseProjectId] 标示查询事件列表对应的企业项目ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -913,6 +917,10 @@ export const ParamCreater = function () {
             let traceName;
             
             let traceRating;
+            
+            let accessKeyId;
+            
+            let enterpriseProjectId;
 
             if (listTracesRequest !== null && listTracesRequest !== undefined) {
                 if (listTracesRequest instanceof ListTracesRequest) {
@@ -930,6 +938,8 @@ export const ParamCreater = function () {
                     traceId = listTracesRequest.traceId;
                     traceName = listTracesRequest.traceName;
                     traceRating = listTracesRequest.traceRating;
+                    accessKeyId = listTracesRequest.accessKeyId;
+                    enterpriseProjectId = listTracesRequest.enterpriseProjectId;
                 } else {
                     traceType = listTracesRequest['trace_type'];
                     limit = listTracesRequest['limit'];
@@ -945,6 +955,8 @@ export const ParamCreater = function () {
                     traceId = listTracesRequest['trace_id'];
                     traceName = listTracesRequest['trace_name'];
                     traceRating = listTracesRequest['trace_rating'];
+                    accessKeyId = listTracesRequest['access_key_id'];
+                    enterpriseProjectId = listTracesRequest['enterprise_project_id'];
                 }
             }
 
@@ -993,6 +1005,12 @@ export const ParamCreater = function () {
             }
             if (traceRating !== null && traceRating !== undefined) {
                 localVarQueryParameter['trace_rating'] = traceRating;
+            }
+            if (accessKeyId !== null && accessKeyId !== undefined) {
+                localVarQueryParameter['access_key_id'] = accessKeyId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;

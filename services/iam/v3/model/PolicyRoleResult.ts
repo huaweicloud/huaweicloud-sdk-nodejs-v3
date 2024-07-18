@@ -1,5 +1,5 @@
+import { CustomPolicy } from './CustomPolicy';
 import { LinksSelf } from './LinksSelf';
-import { ServicePolicy } from './ServicePolicy';
 
 
 export class PolicyRoleResult {
@@ -15,8 +15,8 @@ export class PolicyRoleResult {
     public id?: string;
     private 'display_name'?: string;
     public type?: string;
-    public policy?: ServicePolicy;
-    public constructor(domainId?: string, catalog?: string, name?: string, description?: string, links?: LinksSelf, id?: string, displayName?: string, type?: string, policy?: ServicePolicy) { 
+    public policy?: CustomPolicy;
+    public constructor(domainId?: string, catalog?: string, name?: string, description?: string, links?: LinksSelf, id?: string, displayName?: string, type?: string, policy?: CustomPolicy) { 
         this['domain_id'] = domainId;
         this['catalog'] = catalog;
         this['name'] = name;
@@ -105,7 +105,7 @@ export class PolicyRoleResult {
         this['type'] = type;
         return this;
     }
-    public withPolicy(policy: ServicePolicy): PolicyRoleResult {
+    public withPolicy(policy: CustomPolicy): PolicyRoleResult {
         this['policy'] = policy;
         return this;
     }

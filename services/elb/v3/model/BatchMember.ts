@@ -16,6 +16,8 @@ export class BatchMember {
     private 'instance_id'?: string;
     private 'port_id'?: string;
     private 'ret_status'?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public constructor(id?: string, name?: string, projectId?: string, adminStateUp?: boolean, protocolPort?: number, weight?: number, address?: string, operatingStatus?: string, portId?: string, retStatus?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -137,5 +139,25 @@ export class BatchMember {
     }
     public get retStatus(): string | undefined {
         return this['ret_status'];
+    }
+    public withCreatedAt(createdAt: string): BatchMember {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): string | undefined {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): BatchMember {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string  | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt(): string | undefined {
+        return this['updated_at'];
     }
 }

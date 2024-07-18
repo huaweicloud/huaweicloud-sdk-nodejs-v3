@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ASICAcceleratorInfo } from './model/ASICAcceleratorInfo';
 import { Absolute } from './model/Absolute';
 import { AddServerNicsReq } from './model/AddServerNicsReq';
 import { AddServerNicsRequest } from './model/AddServerNicsRequest';
@@ -60,6 +61,7 @@ import { FixedIps } from './model/FixedIps';
 import { FlavorInfo } from './model/FlavorInfo';
 import { FlavorInfos } from './model/FlavorInfos';
 import { FlavorsResp } from './model/FlavorsResp';
+import { GpuInfo } from './model/GpuInfo';
 import { Image } from './model/Image';
 import { ImageInfo } from './model/ImageInfo';
 import { InterfaceAttachments } from './model/InterfaceAttachments';

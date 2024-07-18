@@ -2,6 +2,7 @@ import { ConnectionDrain } from './ConnectionDrain';
 import { ListenerRef } from './ListenerRef';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { MemberRef } from './MemberRef';
+import { PoolHealth } from './PoolHealth';
 import { SessionPersistence } from './SessionPersistence';
 import { SlowStart } from './SlowStart';
 
@@ -30,6 +31,9 @@ export class Pool {
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
     private 'connection_drain'?: ConnectionDrain;
+    private 'enterprise_project_id'?: string;
+    private 'pool_health'?: PoolHealth;
+    private 'public_border_group'?: string;
     public constructor(adminStateUp?: boolean, description?: string, healthmonitorId?: string, id?: string, lbAlgorithm?: string, listeners?: Array<ListenerRef>, loadbalancers?: Array<LoadBalancerRef>, members?: Array<MemberRef>, name?: string, projectId?: string, protocol?: string, sessionPersistence?: SessionPersistence, ipVersion?: string, slowStart?: SlowStart, memberDeletionProtectionEnable?: boolean, vpcId?: string, type?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
@@ -230,6 +234,36 @@ export class Pool {
     }
     public get connectionDrain(): ConnectionDrain | undefined {
         return this['connection_drain'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): Pool {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withPoolHealth(poolHealth: PoolHealth): Pool {
+        this['pool_health'] = poolHealth;
+        return this;
+    }
+    public set poolHealth(poolHealth: PoolHealth  | undefined) {
+        this['pool_health'] = poolHealth;
+    }
+    public get poolHealth(): PoolHealth | undefined {
+        return this['pool_health'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): Pool {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
     }
 }
 

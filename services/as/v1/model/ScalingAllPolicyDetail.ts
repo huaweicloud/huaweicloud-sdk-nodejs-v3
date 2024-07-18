@@ -181,5 +181,6 @@ export enum ScalingAllPolicyDetailPolicyStatusEnum {
 export enum ScalingAllPolicyDetailScalingPolicyTypeEnum {
     ALARM = 'ALARM',
     SCHEDULED = 'SCHEDULED',
-    RECURRENCE = 'RECURRENCE'
+    RECURRENCE = 'RECURRENCE',
+    INTERVAL_ALARM = 'INTERVAL_ALARM'
 }

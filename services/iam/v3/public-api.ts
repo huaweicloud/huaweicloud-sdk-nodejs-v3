@@ -111,6 +111,8 @@ export * from './model/CreateUserResponse';
 export * from './model/CreateUserResult';
 export * from './model/Credential';
 export * from './model/Credentials';
+export * from './model/CustomPolicy';
+export * from './model/CustomStatement';
 export * from './model/DeleteAgencyRequest';
 export * from './model/DeleteAgencyResponse';
 export * from './model/DeleteBindingDeviceRequest';

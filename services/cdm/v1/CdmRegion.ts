@@ -19,10 +19,10 @@ export class CdmRegion {
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://cdm.cn-south-2.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://cdm.la-south-2.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://cdm.cn-north-9.myhuaweicloud.com"]);
-    public static CN_NORTH_2 = new Region("cn-north-2", ["https://cdm.cn-north-2.myhuaweicloud.cn"]);
-    public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://cdm.na-mexico-1.myhuaweicloud.cn"]);
-    public static LA_NORTH_2 = new Region("la-north-2", ["https://cdm.la-north-2.myhuaweicloud.cn"]);
-    public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://cdm.ap-southeast-3.myhuaweicloud.cn"]);
+    public static CN_NORTH_2 = new Region("cn-north-2", ["https://cdm.cn-north-2.myhuaweicloud.com"]);
+    public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://cdm.na-mexico-1.myhuaweicloud.com"]);
+    public static LA_NORTH_2 = new Region("la-north-2", ["https://cdm.la-north-2.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://cdm.ap-southeast-3.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cdm.ap-southeast-4.myhuaweicloud.com"]);
     public static TR_WEST_1 = new Region("tr-west-1", ["https://cdm.tr-west-1.myhuaweicloud.com"]);
     

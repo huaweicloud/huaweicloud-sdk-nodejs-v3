@@ -1435,6 +1435,7 @@ export class FunctionGraphClient {
      * @summary 获取指定函数流执行实例列表
      * @param {string} workflowId 函数工作流ID
      * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
+     * @param {number} [offset] 分页查询，分页的偏移量，默认值为0 offset小于0时，按照0处理
      * @param {'success' | 'fail' | 'running' | 'timeout' | 'cancel'} [status] 需要过滤的流程实例状态
      * @param {string} [startTime] 查询开始时间，UTC时间。若起始时间未填写，以终止时间前推3天为起始时间
      * @param {string} [endTime] 查询开始时间，UTC时间。若终止时间未填写，以起始时间后退3天未终止时间。若均未填写，默认查询最近3天数据。
@@ -5141,6 +5142,8 @@ export const ParamCreater = function () {
             
             let limit;
             
+            let offset;
+            
             let status;
             
             let startTime;
@@ -5151,12 +5154,14 @@ export const ParamCreater = function () {
                 if (listWorkflowExecutionsRequest instanceof ListWorkflowExecutionsRequest) {
                     workflowId = listWorkflowExecutionsRequest.workflowId;
                     limit = listWorkflowExecutionsRequest.limit;
+                    offset = listWorkflowExecutionsRequest.offset;
                     status = listWorkflowExecutionsRequest.status;
                     startTime = listWorkflowExecutionsRequest.startTime;
                     endTime = listWorkflowExecutionsRequest.endTime;
                 } else {
                     workflowId = listWorkflowExecutionsRequest['workflow_id'];
                     limit = listWorkflowExecutionsRequest['limit'];
+                    offset = listWorkflowExecutionsRequest['offset'];
                     status = listWorkflowExecutionsRequest['status'];
                     startTime = listWorkflowExecutionsRequest['start_time'];
                     endTime = listWorkflowExecutionsRequest['end_time'];
@@ -5169,6 +5174,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;

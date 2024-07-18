@@ -1,9 +1,15 @@
+import { InsertHeadersConfig } from './InsertHeadersConfig';
+import { RemoveHeadersConfig } from './RemoveHeadersConfig';
+import { TrafficLimitConfig } from './TrafficLimitConfig';
 
 
 export class FixtedResponseConfig {
     private 'status_code'?: string;
     private 'content_type'?: FixtedResponseConfigContentTypeEnum | string;
     private 'message_body'?: string;
+    private 'insert_headers_config'?: InsertHeadersConfig;
+    private 'remove_headers_config'?: RemoveHeadersConfig;
+    private 'traffic_limit_config'?: TrafficLimitConfig;
     public constructor(statusCode?: string, contentType?: string, messageBody?: string) { 
         this['status_code'] = statusCode;
         this['content_type'] = contentType;
@@ -38,6 +44,36 @@ export class FixtedResponseConfig {
     }
     public get messageBody(): string | undefined {
         return this['message_body'];
+    }
+    public withInsertHeadersConfig(insertHeadersConfig: InsertHeadersConfig): FixtedResponseConfig {
+        this['insert_headers_config'] = insertHeadersConfig;
+        return this;
+    }
+    public set insertHeadersConfig(insertHeadersConfig: InsertHeadersConfig  | undefined) {
+        this['insert_headers_config'] = insertHeadersConfig;
+    }
+    public get insertHeadersConfig(): InsertHeadersConfig | undefined {
+        return this['insert_headers_config'];
+    }
+    public withRemoveHeadersConfig(removeHeadersConfig: RemoveHeadersConfig): FixtedResponseConfig {
+        this['remove_headers_config'] = removeHeadersConfig;
+        return this;
+    }
+    public set removeHeadersConfig(removeHeadersConfig: RemoveHeadersConfig  | undefined) {
+        this['remove_headers_config'] = removeHeadersConfig;
+    }
+    public get removeHeadersConfig(): RemoveHeadersConfig | undefined {
+        return this['remove_headers_config'];
+    }
+    public withTrafficLimitConfig(trafficLimitConfig: TrafficLimitConfig): FixtedResponseConfig {
+        this['traffic_limit_config'] = trafficLimitConfig;
+        return this;
+    }
+    public set trafficLimitConfig(trafficLimitConfig: TrafficLimitConfig  | undefined) {
+        this['traffic_limit_config'] = trafficLimitConfig;
+    }
+    public get trafficLimitConfig(): TrafficLimitConfig | undefined {
+        return this['traffic_limit_config'];
     }
 }
 

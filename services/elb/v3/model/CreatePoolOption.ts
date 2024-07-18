@@ -1,6 +1,7 @@
 import { ConnectionDrain } from './ConnectionDrain';
 import { CreatePoolSessionPersistenceOption } from './CreatePoolSessionPersistenceOption';
 import { CreatePoolSlowStartOption } from './CreatePoolSlowStartOption';
+import { PoolHealth } from './PoolHealth';
 
 
 export class CreatePoolOption {
@@ -22,6 +23,8 @@ export class CreatePoolOption {
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
     private 'connection_drain'?: ConnectionDrain;
+    private 'pool_health'?: PoolHealth;
+    private 'public_border_group'?: string;
     public constructor(lbAlgorithm?: string, protocol?: string) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -181,6 +184,26 @@ export class CreatePoolOption {
     }
     public get connectionDrain(): ConnectionDrain | undefined {
         return this['connection_drain'];
+    }
+    public withPoolHealth(poolHealth: PoolHealth): CreatePoolOption {
+        this['pool_health'] = poolHealth;
+        return this;
+    }
+    public set poolHealth(poolHealth: PoolHealth  | undefined) {
+        this['pool_health'] = poolHealth;
+    }
+    public get poolHealth(): PoolHealth | undefined {
+        return this['pool_health'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): CreatePoolOption {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
     }
 }
 

@@ -203,7 +203,12 @@ export enum ModifyJobReqTaskTypeEnum {
     * @enum {string}
     */
 export enum ModifyJobReqNodeTypeEnum {
-    HIGH = 'high'
+    MICRO = 'micro',
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    HIGH = 'high',
+    XLARGE = 'xlarge',
+    E_2XLARGE = '2xlarge'
 }
 /**
     * @export

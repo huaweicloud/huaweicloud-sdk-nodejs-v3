@@ -6,7 +6,6 @@ import { Tag } from './Tag';
 
 
 export class CreateLoadBalancerOption {
-    public id?: string;
     private 'project_id'?: string;
     public name?: string;
     public description?: string;
@@ -38,10 +37,6 @@ export class CreateLoadBalancerOption {
     private 'ipv6_vip_address'?: string;
     public constructor(availabilityZoneList?: Array<string>) { 
         this['availability_zone_list'] = availabilityZoneList;
-    }
-    public withId(id: string): CreateLoadBalancerOption {
-        this['id'] = id;
-        return this;
     }
     public withProjectId(projectId: string): CreateLoadBalancerOption {
         this['project_id'] = projectId;

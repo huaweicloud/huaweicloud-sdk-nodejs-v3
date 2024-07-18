@@ -1,24 +1,18 @@
 import { MemberStatus } from './MemberStatus';
-import { ResourceID } from './ResourceID';
 
 
 export class Member {
     public id?: string;
     public name?: string;
     private 'project_id'?: string;
-    private 'pool_id'?: string;
     private 'admin_state_up'?: boolean;
     private 'subnet_cidr_id'?: string;
     private 'protocol_port'?: number;
     public weight?: number;
     public address?: string;
     private 'ip_version'?: string;
-    private 'device_owner'?: string;
-    private 'device_id'?: string;
     private 'operating_status'?: string;
     public status?: Array<MemberStatus>;
-    private 'loadbalancer_id'?: string;
-    public loadbalancers?: Array<ResourceID>;
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'member_type'?: string;
@@ -52,16 +46,6 @@ export class Member {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
-    }
-    public withPoolId(poolId: string): Member {
-        this['pool_id'] = poolId;
-        return this;
-    }
-    public set poolId(poolId: string  | undefined) {
-        this['pool_id'] = poolId;
-    }
-    public get poolId(): string | undefined {
-        return this['pool_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): Member {
         this['admin_state_up'] = adminStateUp;
@@ -111,26 +95,6 @@ export class Member {
     public get ipVersion(): string | undefined {
         return this['ip_version'];
     }
-    public withDeviceOwner(deviceOwner: string): Member {
-        this['device_owner'] = deviceOwner;
-        return this;
-    }
-    public set deviceOwner(deviceOwner: string  | undefined) {
-        this['device_owner'] = deviceOwner;
-    }
-    public get deviceOwner(): string | undefined {
-        return this['device_owner'];
-    }
-    public withDeviceId(deviceId: string): Member {
-        this['device_id'] = deviceId;
-        return this;
-    }
-    public set deviceId(deviceId: string  | undefined) {
-        this['device_id'] = deviceId;
-    }
-    public get deviceId(): string | undefined {
-        return this['device_id'];
-    }
     public withOperatingStatus(operatingStatus: string): Member {
         this['operating_status'] = operatingStatus;
         return this;
@@ -143,20 +107,6 @@ export class Member {
     }
     public withStatus(status: Array<MemberStatus>): Member {
         this['status'] = status;
-        return this;
-    }
-    public withLoadbalancerId(loadbalancerId: string): Member {
-        this['loadbalancer_id'] = loadbalancerId;
-        return this;
-    }
-    public set loadbalancerId(loadbalancerId: string  | undefined) {
-        this['loadbalancer_id'] = loadbalancerId;
-    }
-    public get loadbalancerId(): string | undefined {
-        return this['loadbalancer_id'];
-    }
-    public withLoadbalancers(loadbalancers: Array<ResourceID>): Member {
-        this['loadbalancers'] = loadbalancers;
         return this;
     }
     public withCreatedAt(createdAt: string): Member {

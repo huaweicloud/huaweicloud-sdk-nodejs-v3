@@ -1,5 +1,7 @@
 import { FixtedResponseConfig } from './FixtedResponseConfig';
+import { RedirectPoolsConfig } from './RedirectPoolsConfig';
 import { RedirectPoolsExtendConfig } from './RedirectPoolsExtendConfig';
+import { RedirectPoolsStickySessionConfig } from './RedirectPoolsStickySessionConfig';
 import { RedirectUrlConfig } from './RedirectUrlConfig';
 import { RuleRef } from './RuleRef';
 
@@ -20,6 +22,8 @@ export class L7Policy {
     private 'redirect_url'?: string;
     public rules?: Array<RuleRef>;
     private 'redirect_url_config'?: RedirectUrlConfig;
+    private 'redirect_pools_config'?: Array<RedirectPoolsConfig>;
+    private 'redirect_pools_sticky_session_config'?: RedirectPoolsStickySessionConfig;
     private 'redirect_pools_extend_config'?: RedirectPoolsExtendConfig;
     private 'fixed_response_config'?: FixtedResponseConfig;
     private 'created_at'?: string;
@@ -148,6 +152,26 @@ export class L7Policy {
     }
     public get redirectUrlConfig(): RedirectUrlConfig | undefined {
         return this['redirect_url_config'];
+    }
+    public withRedirectPoolsConfig(redirectPoolsConfig: Array<RedirectPoolsConfig>): L7Policy {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+        return this;
+    }
+    public set redirectPoolsConfig(redirectPoolsConfig: Array<RedirectPoolsConfig>  | undefined) {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+    }
+    public get redirectPoolsConfig(): Array<RedirectPoolsConfig> | undefined {
+        return this['redirect_pools_config'];
+    }
+    public withRedirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: RedirectPoolsStickySessionConfig): L7Policy {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+        return this;
+    }
+    public set redirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: RedirectPoolsStickySessionConfig  | undefined) {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+    }
+    public get redirectPoolsStickySessionConfig(): RedirectPoolsStickySessionConfig | undefined {
+        return this['redirect_pools_sticky_session_config'];
     }
     public withRedirectPoolsExtendConfig(redirectPoolsExtendConfig: RedirectPoolsExtendConfig): L7Policy {
         this['redirect_pools_extend_config'] = redirectPoolsExtendConfig;

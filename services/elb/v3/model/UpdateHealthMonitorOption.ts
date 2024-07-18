@@ -120,11 +120,5 @@ export class UpdateHealthMonitorOption {
 export enum UpdateHealthMonitorOptionHttpMethodEnum {
     GET = 'GET',
     HEAD = 'HEAD',
-    POST = 'POST',
-    PUT = 'PUT',
-    DELETE = 'DELETE',
-    TRACE = 'TRACE',
-    OPTIONS = 'OPTIONS',
-    CONNECT = 'CONNECT',
-    PATCH = 'PATCH'
+    POST = 'POST'
 }

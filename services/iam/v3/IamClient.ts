@@ -113,6 +113,8 @@ import { CreateUserResponse } from './model/CreateUserResponse';
 import { CreateUserResult } from './model/CreateUserResult';
 import { Credential } from './model/Credential';
 import { Credentials } from './model/Credentials';
+import { CustomPolicy } from './model/CustomPolicy';
+import { CustomStatement } from './model/CustomStatement';
 import { DeleteAgencyRequest } from './model/DeleteAgencyRequest';
 import { DeleteAgencyResponse } from './model/DeleteAgencyResponse';
 import { DeleteBindingDeviceRequest } from './model/DeleteBindingDeviceRequest';

@@ -66,6 +66,9 @@ import { DeleteTemplateGroupCollectionRequest } from './model/DeleteTemplateGrou
 import { DeleteTemplateGroupCollectionResponse } from './model/DeleteTemplateGroupCollectionResponse';
 import { DeleteTemplateGroupRequest } from './model/DeleteTemplateGroupRequest';
 import { DeleteTemplateGroupResponse } from './model/DeleteTemplateGroupResponse';
+import { DeleteTranscodeProductReq } from './model/DeleteTranscodeProductReq';
+import { DeleteTranscodeProductRequest } from './model/DeleteTranscodeProductRequest';
+import { DeleteTranscodeProductResponse } from './model/DeleteTranscodeProductResponse';
 import { DeleteTranscodeTemplateRequest } from './model/DeleteTranscodeTemplateRequest';
 import { DeleteTranscodeTemplateResponse } from './model/DeleteTranscodeTemplateResponse';
 import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
@@ -104,6 +107,10 @@ import { Parameter } from './model/Parameter';
 import { PictureReviewRet } from './model/PictureReviewRet';
 import { PlayInfo } from './model/PlayInfo';
 import { PreheatingResult } from './model/PreheatingResult';
+import { ProductDelFailInfo } from './model/ProductDelFailInfo';
+import { ProductGroupDelFailInfo } from './model/ProductGroupDelFailInfo';
+import { ProductGroupInfo } from './model/ProductGroupInfo';
+import { ProductUrlInfo } from './model/ProductUrlInfo';
 import { PublishAssetFromObsReq } from './model/PublishAssetFromObsReq';
 import { PublishAssetFromObsRequest } from './model/PublishAssetFromObsRequest';
 import { PublishAssetFromObsResponse } from './model/PublishAssetFromObsResponse';
@@ -617,6 +624,25 @@ export class VodClient {
     }
 
     /**
+     * 删除转码产物。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除转码产物
+     * @param {DeleteTranscodeProductReq} deleteTranscodeProductRequestBody 删除转码产物请求体 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTranscodeProduct(deleteTranscodeProductRequest?: DeleteTranscodeProductRequest): Promise<DeleteTranscodeProductResponse> {
+        const options = ParamCreater().deleteTranscodeProduct(deleteTranscodeProductRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除自定义模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -869,6 +895,25 @@ export class VodClient {
     }
 
     /**
+     * 多字幕封装，仅支持 HLS VTT格式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 多字幕封装
+     * @param {SubtitleModifyReq} subtitleModifyReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest): Promise<ModifySubtitleResponse> {
+        const options = ParamCreater().modifySubtitle(modifySubtitleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 若您在使用点播服务前，已经在OBS桶中存储了音视频文件，您可以使用该接口将存储在OBS桶中的音视频文件转存到点播服务中，使用点播服务的音视频管理功能。调用该接口前，您需要调用[桶授权](https://support.huaweicloud.com/api-vod/vod_04_0199.html)接口，将存储音视频文件的OBS桶授权给点播服务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1056,6 +1101,31 @@ export class VodClient {
     }
 
     /**
+     * ## 典型场景 ##
+     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+     * 
+     * ## 接口功能 ##
+     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询取回数据信息
+     * @param {string} [startTime] 开始时间 
+     * @param {string} [endTime] 结束时间 
+     * @param {number} [interval] 采样间隔，单位：秒，取值说明： 时间跨度1天：1小时、4小时、8小时，分别对应3600秒、14400秒和28800秒。 时间跨度2~7天：1小时、4小时、8小时、1天，分别对应3600秒、14400秒、28800秒和86400秒。 时间跨度8~31天：4小时、8小时、1天，分别对应14400秒、28800秒和86400秒。 如果不传，默认取对应时间跨度的最小间隔。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest): Promise<ShowVodRetrievalResponse> {
+        const options = ParamCreater().showVodRetrieval(showVodRetrievalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询点播源站的统计数据，包括流量、存储空间、转码时长。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1196,6 +1266,26 @@ export class VodClient {
      */
     public updateCoverByThumbnail(updateCoverByThumbnailRequest?: UpdateCoverByThumbnailRequest): Promise<UpdateCoverByThumbnailResponse> {
         const options = ParamCreater().updateCoverByThumbnail(updateCoverByThumbnailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * ## 接口功能 ##
+     *   修改媒资文件在obs的存储模式&lt;br/&gt;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改媒资文件在obs的存储模式
+     * @param {UpdateStorageModeReq} updateStorageModeRequestBody 修改存储模式请求体 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest): Promise<UpdateStorageModeResponse> {
+        const options = ParamCreater().updateStorageMode(updateStorageModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1362,70 +1452,6 @@ export class VodClient {
      */
     public showTakeOverTaskDetails(showTakeOverTaskDetailsRequest?: ShowTakeOverTaskDetailsRequest): Promise<ShowTakeOverTaskDetailsResponse> {
         const options = ParamCreater().showTakeOverTaskDetails(showTakeOverTaskDetailsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * ## 典型场景 ##
-     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
-     * 
-     * ## 接口功能 ##
-     *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询取回数据信息
-     * @param {string} [startTime] 开始时间 
-     * @param {string} [endTime] 结束时间 
-     * @param {number} [interval] 采样间隔，单位：秒，取值说明： 时间跨度1天：1小时、4小时、8小时，分别对应3600秒、14400秒和28800秒。 时间跨度2~7天：1小时、4小时、8小时、1天，分别对应3600秒、14400秒、28800秒和86400秒。 时间跨度8~31天：4小时、8小时、1天，分别对应14400秒、28800秒和86400秒。 如果不传，默认取对应时间跨度的最小间隔。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest): Promise<ShowVodRetrievalResponse> {
-        const options = ParamCreater().showVodRetrieval(showVodRetrievalRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 多字幕封装，仅支持 HLS VTT格式
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 多字幕封装
-     * @param {SubtitleModifyReq} subtitleModifyReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest): Promise<ModifySubtitleResponse> {
-        const options = ParamCreater().modifySubtitle(modifySubtitleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * ## 接口功能 ##
-     *   修改媒资文件在obs的存储模式&lt;br/&gt;
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改媒资文件在obs的存储模式
-     * @param {UpdateStorageModeReq} updateStorageModeRequestBody 修改存储模式请求体 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest): Promise<UpdateStorageModeResponse> {
-        const options = ParamCreater().updateStorageMode(updateStorageModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2372,6 +2398,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除转码产物。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTranscodeProduct(deleteTranscodeProductRequest?: DeleteTranscodeProductRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/asset/transcode-product",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteTranscodeProductRequest !== null && deleteTranscodeProductRequest !== undefined) {
+                if (deleteTranscodeProductRequest instanceof DeleteTranscodeProductRequest) {
+                    body = deleteTranscodeProductRequest.body
+                } else {
+                    body = deleteTranscodeProductRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除自定义模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3083,6 +3147,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 多字幕封装，仅支持 HLS VTT格式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/asset/subtitles",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifySubtitleRequest !== null && modifySubtitleRequest !== undefined) {
+                if (modifySubtitleRequest instanceof ModifySubtitleRequest) {
+                    body = modifySubtitleRequest.body
+                } else {
+                    body = modifySubtitleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 若您在使用点播服务前，已经在OBS桶中存储了音视频文件，您可以使用该接口将存储在OBS桶中的音视频文件转存到点播服务中，使用点播服务的音视频管理功能。调用该接口前，您需要调用[桶授权](https://support.huaweicloud.com/api-vod/vod_04_0199.html)接口，将存储音视频文件的OBS桶授权给点播服务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3614,6 +3716,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * ## 典型场景 ##
+         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+         * 
+         * ## 接口功能 ##
+         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/vod-retrieval",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let interval;
+
+            if (showVodRetrievalRequest !== null && showVodRetrievalRequest !== undefined) {
+                if (showVodRetrievalRequest instanceof ShowVodRetrievalRequest) {
+                    startTime = showVodRetrievalRequest.startTime;
+                    endTime = showVodRetrievalRequest.endTime;
+                    interval = showVodRetrievalRequest.interval;
+                } else {
+                    startTime = showVodRetrievalRequest['start_time'];
+                    endTime = showVodRetrievalRequest['end_time'];
+                    interval = showVodRetrievalRequest['interval'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询点播源站的统计数据，包括流量、存储空间、转码时长。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3936,6 +4093,45 @@ export const ParamCreater = function () {
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * ## 接口功能 ##
+         *   修改媒资文件在obs的存储模式&lt;br/&gt;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/asset/storage-mode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateStorageModeRequest !== null && updateStorageModeRequest !== undefined) {
+                if (updateStorageModeRequest instanceof UpdateStorageModeRequest) {
+                    body = updateStorageModeRequest.body
+                } else {
+                    body = updateStorageModeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -4345,138 +4541,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * ## 典型场景 ##
-         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
-         * 
-         * ## 接口功能 ##
-         *  用于查询点播低频和归档取回量统计数据。&lt;br/&gt;
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVodRetrieval(showVodRetrievalRequest?: ShowVodRetrievalRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/asset/vod-retrieval",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let startTime;
-            
-            let endTime;
-            
-            let interval;
-
-            if (showVodRetrievalRequest !== null && showVodRetrievalRequest !== undefined) {
-                if (showVodRetrievalRequest instanceof ShowVodRetrievalRequest) {
-                    startTime = showVodRetrievalRequest.startTime;
-                    endTime = showVodRetrievalRequest.endTime;
-                    interval = showVodRetrievalRequest.interval;
-                } else {
-                    startTime = showVodRetrievalRequest['start_time'];
-                    endTime = showVodRetrievalRequest['end_time'];
-                    interval = showVodRetrievalRequest['interval'];
-                }
-            }
-
-        
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (interval !== null && interval !== undefined) {
-                localVarQueryParameter['interval'] = interval;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 多字幕封装，仅支持 HLS VTT格式
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/asset/subtitles",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (modifySubtitleRequest !== null && modifySubtitleRequest !== undefined) {
-                if (modifySubtitleRequest instanceof ModifySubtitleRequest) {
-                    body = modifySubtitleRequest.body
-                } else {
-                    body = modifySubtitleRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * ## 接口功能 ##
-         *   修改媒资文件在obs的存储模式&lt;br/&gt;
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateStorageMode(updateStorageModeRequest?: UpdateStorageModeRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/asset/storage-mode",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (updateStorageModeRequest !== null && updateStorageModeRequest !== undefined) {
-                if (updateStorageModeRequest instanceof UpdateStorageModeRequest) {
-                    body = updateStorageModeRequest.body
-                } else {
-                    body = updateStorageModeRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

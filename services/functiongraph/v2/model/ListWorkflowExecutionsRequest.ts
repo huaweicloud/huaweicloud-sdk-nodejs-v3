@@ -3,6 +3,7 @@
 export class ListWorkflowExecutionsRequest {
     private 'workflow_id'?: string;
     public limit?: number;
+    public offset?: number;
     public status?: ListWorkflowExecutionsRequestStatusEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
@@ -21,6 +22,10 @@ export class ListWorkflowExecutionsRequest {
     }
     public withLimit(limit: number): ListWorkflowExecutionsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListWorkflowExecutionsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withStatus(status: ListWorkflowExecutionsRequestStatusEnum | string): ListWorkflowExecutionsRequest {

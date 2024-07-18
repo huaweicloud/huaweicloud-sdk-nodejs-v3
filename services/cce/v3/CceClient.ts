@@ -18,11 +18,34 @@ import { AddonRisks } from './model/AddonRisks';
 import { AddonTemplate } from './model/AddonTemplate';
 import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
+import { AutopilotAuthentication } from './model/AutopilotAuthentication';
+import { AutopilotCluster } from './model/AutopilotCluster';
+import { AutopilotClusterEndpoints } from './model/AutopilotClusterEndpoints';
+import { AutopilotClusterExtendParam } from './model/AutopilotClusterExtendParam';
+import { AutopilotClusterInformation } from './model/AutopilotClusterInformation';
+import { AutopilotClusterInformationSpec } from './model/AutopilotClusterInformationSpec';
+import { AutopilotClusterMetadata } from './model/AutopilotClusterMetadata';
+import { AutopilotClusterMetadataForUpdate } from './model/AutopilotClusterMetadataForUpdate';
+import { AutopilotClusterSpec } from './model/AutopilotClusterSpec';
+import { AutopilotClusterStatus } from './model/AutopilotClusterStatus';
+import { AutopilotConfigurationItem } from './model/AutopilotConfigurationItem';
+import { AutopilotContainerNetwork } from './model/AutopilotContainerNetwork';
+import { AutopilotEniNetwork } from './model/AutopilotEniNetwork';
+import { AutopilotEniNetworkUpdate } from './model/AutopilotEniNetworkUpdate';
+import { AutopilotHostNetwork } from './model/AutopilotHostNetwork';
+import { AutopilotNetworkSubnet } from './model/AutopilotNetworkSubnet';
+import { AutopilotPackageConfiguration } from './model/AutopilotPackageConfiguration';
+import { AutopilotResourceTag } from './model/AutopilotResourceTag';
+import { AutopilotServiceNetwork } from './model/AutopilotServiceNetwork';
 import { AwakeClusterRequest } from './model/AwakeClusterRequest';
 import { AwakeClusterResponse } from './model/AwakeClusterResponse';
+import { BatchCreateAutopilotClusterTagsRequest } from './model/BatchCreateAutopilotClusterTagsRequest';
+import { BatchCreateAutopilotClusterTagsResponse } from './model/BatchCreateAutopilotClusterTagsResponse';
 import { BatchCreateClusterTagsRequest } from './model/BatchCreateClusterTagsRequest';
 import { BatchCreateClusterTagsRequestBody } from './model/BatchCreateClusterTagsRequestBody';
 import { BatchCreateClusterTagsResponse } from './model/BatchCreateClusterTagsResponse';
+import { BatchDeleteAutopilotClusterTagsRequest } from './model/BatchDeleteAutopilotClusterTagsRequest';
+import { BatchDeleteAutopilotClusterTagsResponse } from './model/BatchDeleteAutopilotClusterTagsResponse';
 import { BatchDeleteClusterTagsRequest } from './model/BatchDeleteClusterTagsRequest';
 import { BatchDeleteClusterTagsRequestBody } from './model/BatchDeleteClusterTagsRequestBody';
 import { BatchDeleteClusterTagsResponse } from './model/BatchDeleteClusterTagsResponse';
@@ -63,6 +86,22 @@ import { ContinueUpgradeClusterTaskRequest } from './model/ContinueUpgradeCluste
 import { ContinueUpgradeClusterTaskResponse } from './model/ContinueUpgradeClusterTaskResponse';
 import { CreateAddonInstanceRequest } from './model/CreateAddonInstanceRequest';
 import { CreateAddonInstanceResponse } from './model/CreateAddonInstanceResponse';
+import { CreateAutopilotAddonInstanceRequest } from './model/CreateAutopilotAddonInstanceRequest';
+import { CreateAutopilotAddonInstanceResponse } from './model/CreateAutopilotAddonInstanceResponse';
+import { CreateAutopilotClusterMasterSnapshotRequest } from './model/CreateAutopilotClusterMasterSnapshotRequest';
+import { CreateAutopilotClusterMasterSnapshotResponse } from './model/CreateAutopilotClusterMasterSnapshotResponse';
+import { CreateAutopilotClusterRequest } from './model/CreateAutopilotClusterRequest';
+import { CreateAutopilotClusterResponse } from './model/CreateAutopilotClusterResponse';
+import { CreateAutopilotKubernetesClusterCertRequest } from './model/CreateAutopilotKubernetesClusterCertRequest';
+import { CreateAutopilotKubernetesClusterCertResponse } from './model/CreateAutopilotKubernetesClusterCertResponse';
+import { CreateAutopilotPostCheckRequest } from './model/CreateAutopilotPostCheckRequest';
+import { CreateAutopilotPostCheckResponse } from './model/CreateAutopilotPostCheckResponse';
+import { CreateAutopilotPreCheckRequest } from './model/CreateAutopilotPreCheckRequest';
+import { CreateAutopilotPreCheckResponse } from './model/CreateAutopilotPreCheckResponse';
+import { CreateAutopilotReleaseRequest } from './model/CreateAutopilotReleaseRequest';
+import { CreateAutopilotReleaseResponse } from './model/CreateAutopilotReleaseResponse';
+import { CreateAutopilotUpgradeWorkFlowRequest } from './model/CreateAutopilotUpgradeWorkFlowRequest';
+import { CreateAutopilotUpgradeWorkFlowResponse } from './model/CreateAutopilotUpgradeWorkFlowResponse';
 import { CreateCloudPersistentVolumeClaimsRequest } from './model/CreateCloudPersistentVolumeClaimsRequest';
 import { CreateCloudPersistentVolumeClaimsResponse } from './model/CreateCloudPersistentVolumeClaimsResponse';
 import { CreateClusterMasterSnapshotRequest } from './model/CreateClusterMasterSnapshotRequest';
@@ -91,6 +130,14 @@ import { CreateUpgradeWorkFlowRequestBody } from './model/CreateUpgradeWorkFlowR
 import { CreateUpgradeWorkFlowResponse } from './model/CreateUpgradeWorkFlowResponse';
 import { DeleteAddonInstanceRequest } from './model/DeleteAddonInstanceRequest';
 import { DeleteAddonInstanceResponse } from './model/DeleteAddonInstanceResponse';
+import { DeleteAutopilotAddonInstanceRequest } from './model/DeleteAutopilotAddonInstanceRequest';
+import { DeleteAutopilotAddonInstanceResponse } from './model/DeleteAutopilotAddonInstanceResponse';
+import { DeleteAutopilotChartRequest } from './model/DeleteAutopilotChartRequest';
+import { DeleteAutopilotChartResponse } from './model/DeleteAutopilotChartResponse';
+import { DeleteAutopilotClusterRequest } from './model/DeleteAutopilotClusterRequest';
+import { DeleteAutopilotClusterResponse } from './model/DeleteAutopilotClusterResponse';
+import { DeleteAutopilotReleaseRequest } from './model/DeleteAutopilotReleaseRequest';
+import { DeleteAutopilotReleaseResponse } from './model/DeleteAutopilotReleaseResponse';
 import { DeleteChartRequest } from './model/DeleteChartRequest';
 import { DeleteChartResponse } from './model/DeleteChartResponse';
 import { DeleteCloudPersistentVolumeClaimsRequest } from './model/DeleteCloudPersistentVolumeClaimsRequest';
@@ -106,6 +153,8 @@ import { DeleteReleaseRequest } from './model/DeleteReleaseRequest';
 import { DeleteReleaseResponse } from './model/DeleteReleaseResponse';
 import { DeleteStatus } from './model/DeleteStatus';
 import { DeprecatedAPIRisks } from './model/DeprecatedAPIRisks';
+import { DownloadAutopilotChartRequest } from './model/DownloadAutopilotChartRequest';
+import { DownloadAutopilotChartResponse } from './model/DownloadAutopilotChartResponse';
 import { DownloadChartRequest } from './model/DownloadChartRequest';
 import { DownloadChartResponse } from './model/DownloadChartResponse';
 import { EipSpec } from './model/EipSpec';
@@ -133,6 +182,28 @@ import { ListAddonInstancesRequest } from './model/ListAddonInstancesRequest';
 import { ListAddonInstancesResponse } from './model/ListAddonInstancesResponse';
 import { ListAddonTemplatesRequest } from './model/ListAddonTemplatesRequest';
 import { ListAddonTemplatesResponse } from './model/ListAddonTemplatesResponse';
+import { ListAutopilotAddonInstancesRequest } from './model/ListAutopilotAddonInstancesRequest';
+import { ListAutopilotAddonInstancesResponse } from './model/ListAutopilotAddonInstancesResponse';
+import { ListAutopilotAddonTemplatesRequest } from './model/ListAutopilotAddonTemplatesRequest';
+import { ListAutopilotAddonTemplatesResponse } from './model/ListAutopilotAddonTemplatesResponse';
+import { ListAutopilotChartsRequest } from './model/ListAutopilotChartsRequest';
+import { ListAutopilotChartsResponse } from './model/ListAutopilotChartsResponse';
+import { ListAutopilotClusterMasterSnapshotTasksRequest } from './model/ListAutopilotClusterMasterSnapshotTasksRequest';
+import { ListAutopilotClusterMasterSnapshotTasksResponse } from './model/ListAutopilotClusterMasterSnapshotTasksResponse';
+import { ListAutopilotClusterUpgradeFeatureGatesRequest } from './model/ListAutopilotClusterUpgradeFeatureGatesRequest';
+import { ListAutopilotClusterUpgradeFeatureGatesResponse } from './model/ListAutopilotClusterUpgradeFeatureGatesResponse';
+import { ListAutopilotClusterUpgradePathsRequest } from './model/ListAutopilotClusterUpgradePathsRequest';
+import { ListAutopilotClusterUpgradePathsResponse } from './model/ListAutopilotClusterUpgradePathsResponse';
+import { ListAutopilotClustersRequest } from './model/ListAutopilotClustersRequest';
+import { ListAutopilotClustersResponse } from './model/ListAutopilotClustersResponse';
+import { ListAutopilotPreCheckTasksRequest } from './model/ListAutopilotPreCheckTasksRequest';
+import { ListAutopilotPreCheckTasksResponse } from './model/ListAutopilotPreCheckTasksResponse';
+import { ListAutopilotReleasesRequest } from './model/ListAutopilotReleasesRequest';
+import { ListAutopilotReleasesResponse } from './model/ListAutopilotReleasesResponse';
+import { ListAutopilotUpgradeClusterTasksRequest } from './model/ListAutopilotUpgradeClusterTasksRequest';
+import { ListAutopilotUpgradeClusterTasksResponse } from './model/ListAutopilotUpgradeClusterTasksResponse';
+import { ListAutopilotUpgradeWorkFlowsRequest } from './model/ListAutopilotUpgradeWorkFlowsRequest';
+import { ListAutopilotUpgradeWorkFlowsResponse } from './model/ListAutopilotUpgradeWorkFlowsResponse';
 import { ListChartsRequest } from './model/ListChartsRequest';
 import { ListChartsResponse } from './model/ListChartsResponse';
 import { ListClusterMasterSnapshotTasksRequest } from './model/ListClusterMasterSnapshotTasksRequest';
@@ -262,11 +333,15 @@ import { ResourceDeleteTag } from './model/ResourceDeleteTag';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceSelector } from './model/ResourceSelector';
 import { ResourceTag } from './model/ResourceTag';
+import { RetryAutopilotUpgradeClusterTaskRequest } from './model/RetryAutopilotUpgradeClusterTaskRequest';
+import { RetryAutopilotUpgradeClusterTaskResponse } from './model/RetryAutopilotUpgradeClusterTaskResponse';
 import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
 import { RetryUpgradeClusterTaskResponse } from './model/RetryUpgradeClusterTaskResponse';
 import { RiskSource } from './model/RiskSource';
 import { RollbackAddonInstanceRequest } from './model/RollbackAddonInstanceRequest';
 import { RollbackAddonInstanceResponse } from './model/RollbackAddonInstanceResponse';
+import { RollbackAutopilotAddonInstanceRequest } from './model/RollbackAutopilotAddonInstanceRequest';
+import { RollbackAutopilotAddonInstanceResponse } from './model/RollbackAutopilotAddonInstanceResponse';
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
 import { ScaleGroupAutoscaling } from './model/ScaleGroupAutoscaling';
@@ -281,6 +356,34 @@ import { SecurityID } from './model/SecurityID';
 import { ServiceNetwork } from './model/ServiceNetwork';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
 import { ShowAddonInstanceResponse } from './model/ShowAddonInstanceResponse';
+import { ShowAutopilotAddonInstanceRequest } from './model/ShowAutopilotAddonInstanceRequest';
+import { ShowAutopilotAddonInstanceResponse } from './model/ShowAutopilotAddonInstanceResponse';
+import { ShowAutopilotChartRequest } from './model/ShowAutopilotChartRequest';
+import { ShowAutopilotChartResponse } from './model/ShowAutopilotChartResponse';
+import { ShowAutopilotChartValuesRequest } from './model/ShowAutopilotChartValuesRequest';
+import { ShowAutopilotChartValuesResponse } from './model/ShowAutopilotChartValuesResponse';
+import { ShowAutopilotClusterEndpointsRequest } from './model/ShowAutopilotClusterEndpointsRequest';
+import { ShowAutopilotClusterEndpointsResponse } from './model/ShowAutopilotClusterEndpointsResponse';
+import { ShowAutopilotClusterRequest } from './model/ShowAutopilotClusterRequest';
+import { ShowAutopilotClusterResponse } from './model/ShowAutopilotClusterResponse';
+import { ShowAutopilotClusterUpgradeInfoRequest } from './model/ShowAutopilotClusterUpgradeInfoRequest';
+import { ShowAutopilotClusterUpgradeInfoResponse } from './model/ShowAutopilotClusterUpgradeInfoResponse';
+import { ShowAutopilotJobRequest } from './model/ShowAutopilotJobRequest';
+import { ShowAutopilotJobResponse } from './model/ShowAutopilotJobResponse';
+import { ShowAutopilotPreCheckRequest } from './model/ShowAutopilotPreCheckRequest';
+import { ShowAutopilotPreCheckResponse } from './model/ShowAutopilotPreCheckResponse';
+import { ShowAutopilotQuotasRequest } from './model/ShowAutopilotQuotasRequest';
+import { ShowAutopilotQuotasResponse } from './model/ShowAutopilotQuotasResponse';
+import { ShowAutopilotReleaseHistoryRequest } from './model/ShowAutopilotReleaseHistoryRequest';
+import { ShowAutopilotReleaseHistoryResponse } from './model/ShowAutopilotReleaseHistoryResponse';
+import { ShowAutopilotReleaseRequest } from './model/ShowAutopilotReleaseRequest';
+import { ShowAutopilotReleaseResponse } from './model/ShowAutopilotReleaseResponse';
+import { ShowAutopilotUpgradeClusterTaskRequest } from './model/ShowAutopilotUpgradeClusterTaskRequest';
+import { ShowAutopilotUpgradeClusterTaskResponse } from './model/ShowAutopilotUpgradeClusterTaskResponse';
+import { ShowAutopilotUpgradeWorkFlowRequest } from './model/ShowAutopilotUpgradeWorkFlowRequest';
+import { ShowAutopilotUpgradeWorkFlowResponse } from './model/ShowAutopilotUpgradeWorkFlowResponse';
+import { ShowAutopilotUserChartsQuotasRequest } from './model/ShowAutopilotUserChartsQuotasRequest';
+import { ShowAutopilotUserChartsQuotasResponse } from './model/ShowAutopilotUserChartsQuotasResponse';
 import { ShowChartRequest } from './model/ShowChartRequest';
 import { ShowChartResponse } from './model/ShowChartResponse';
 import { ShowChartValuesRequest } from './model/ShowChartValuesRequest';
@@ -342,6 +445,15 @@ import { TaskType } from './model/TaskType';
 import { Templatespec } from './model/Templatespec';
 import { UpdateAddonInstanceRequest } from './model/UpdateAddonInstanceRequest';
 import { UpdateAddonInstanceResponse } from './model/UpdateAddonInstanceResponse';
+import { UpdateAutopilotAddonInstanceRequest } from './model/UpdateAutopilotAddonInstanceRequest';
+import { UpdateAutopilotAddonInstanceResponse } from './model/UpdateAutopilotAddonInstanceResponse';
+import { UpdateAutopilotChartRequest } from './model/UpdateAutopilotChartRequest';
+import { UpdateAutopilotChartRequestBody } from './model/UpdateAutopilotChartRequestBody';
+import { UpdateAutopilotChartResponse } from './model/UpdateAutopilotChartResponse';
+import { UpdateAutopilotClusterRequest } from './model/UpdateAutopilotClusterRequest';
+import { UpdateAutopilotClusterResponse } from './model/UpdateAutopilotClusterResponse';
+import { UpdateAutopilotReleaseRequest } from './model/UpdateAutopilotReleaseRequest';
+import { UpdateAutopilotReleaseResponse } from './model/UpdateAutopilotReleaseResponse';
 import { UpdateChartRequest } from './model/UpdateChartRequest';
 import { UpdateChartRequestBody } from './model/UpdateChartRequestBody';
 import { UpdateChartResponse } from './model/UpdateChartResponse';
@@ -365,6 +477,10 @@ import { UpdateReleaseReqBody } from './model/UpdateReleaseReqBody';
 import { UpdateReleaseRequest } from './model/UpdateReleaseRequest';
 import { UpdateReleaseResponse } from './model/UpdateReleaseResponse';
 import { UpgradeAddonConfig } from './model/UpgradeAddonConfig';
+import { UpgradeAutopilotClusterRequest } from './model/UpgradeAutopilotClusterRequest';
+import { UpgradeAutopilotClusterResponse } from './model/UpgradeAutopilotClusterResponse';
+import { UpgradeAutopilotWorkFlowUpdateRequest } from './model/UpgradeAutopilotWorkFlowUpdateRequest';
+import { UpgradeAutopilotWorkFlowUpdateResponse } from './model/UpgradeAutopilotWorkFlowUpdateResponse';
 import { UpgradeCluserResponseMetadata } from './model/UpgradeCluserResponseMetadata';
 import { UpgradeClusterRequest } from './model/UpgradeClusterRequest';
 import { UpgradeClusterRequestBody } from './model/UpgradeClusterRequestBody';
@@ -388,6 +504,9 @@ import { UpgradeWorkFlowUpdateRequestBody } from './model/UpgradeWorkFlowUpdateR
 import { UpgradeWorkFlowUpdateRequestBodyStatus } from './model/UpgradeWorkFlowUpdateRequestBodyStatus';
 import { UpgradeWorkFlowUpdateResponse } from './model/UpgradeWorkFlowUpdateResponse';
 import { UpgradeWorkflowTaskStatus } from './model/UpgradeWorkflowTaskStatus';
+import { UploadAutopilotChartRequest } from './model/UploadAutopilotChartRequest';
+import { UploadAutopilotChartRequestBody } from './model/UploadAutopilotChartRequestBody';
+import { UploadAutopilotChartResponse } from './model/UploadAutopilotChartResponse';
 import { UploadChartRequest } from './model/UploadChartRequest';
 import { UploadChartRequestBody } from './model/UploadChartRequestBody';
 import { UploadChartResponse } from './model/UploadChartResponse';
@@ -2196,6 +2315,1034 @@ export class CceClient {
      */
     public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量添加指定集群的资源标签。
+     * &gt; - 每个集群支持最多20个资源标签。
+     * &gt; - 此接口为幂等接口：创建时，如果创建的标签已经存在（key/value均相同视为重复），默认处理成功；key相同，value不同时会覆盖原有标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加指定集群的资源标签
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {BatchCreateClusterTagsRequestBody} batchCreateClusterTagsRequestBody 批量添加指定集群资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateAutopilotClusterTags(batchCreateAutopilotClusterTagsRequest?: BatchCreateAutopilotClusterTagsRequest): Promise<BatchCreateAutopilotClusterTagsResponse> {
+        const options = ParamCreater().batchCreateAutopilotClusterTags(batchCreateAutopilotClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于批量删除指定集群的资源标签。
+     * &gt; - 此接口为幂等接口：删除时，如果删除的标签key不存在，默认处理成功。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除指定集群的资源标签
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {BatchDeleteClusterTagsRequestBody} batchDeleteClusterTagsRequestBody 批量删除指定集群资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteAutopilotClusterTags(batchDeleteAutopilotClusterTagsRequest?: BatchDeleteAutopilotClusterTagsRequest): Promise<BatchDeleteAutopilotClusterTagsResponse> {
+        const options = ParamCreater().batchDeleteAutopilotClusterTags(batchDeleteAutopilotClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据提供的插件模板，安装插件实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建AddonInstance
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {InstanceRequest} createAddonInstanceRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotAddonInstance(createAutopilotAddonInstanceRequest?: CreateAutopilotAddonInstanceRequest): Promise<CreateAutopilotAddonInstanceResponse> {
+        const options = ParamCreater().createAutopilotAddonInstance(createAutopilotAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[创建节点](cce_02_0242.xml)添加节点。
+     * 
+     * 
+     * &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * &gt;   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\&quot;cluster.install.addons.external/install\&quot;:\&quot;[{\&quot;addonTemplateName\&quot;:\&quot;icagent\&quot;}]\&quot;的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建集群
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {AutopilotCluster} createClusterRequestBody 集群规格信息请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotCluster(createAutopilotClusterRequest?: CreateAutopilotClusterRequest): Promise<CreateAutopilotClusterResponse> {
+        const options = ParamCreater().createAutopilotCluster(createAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群备份
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotClusterMasterSnapshot(createAutopilotClusterMasterSnapshotRequest?: CreateAutopilotClusterMasterSnapshotRequest): Promise<CreateAutopilotClusterMasterSnapshotResponse> {
+        const options = ParamCreater().createAutopilotClusterMasterSnapshot(createAutopilotClusterMasterSnapshotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定集群的证书信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群证书
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {CertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotKubernetesClusterCert(createAutopilotKubernetesClusterCertRequest?: CreateAutopilotKubernetesClusterCertRequest): Promise<CreateAutopilotKubernetesClusterCertResponse> {
+        const options = ParamCreater().createAutopilotKubernetesClusterCert(createAutopilotKubernetesClusterCertRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['Port-ID'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级后确认
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {PostcheckClusterRequestBody} postcheckClusterRequestBody 集群升级后确认请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotPostCheck(createAutopilotPostCheckRequest?: CreateAutopilotPostCheckRequest): Promise<CreateAutopilotPostCheckResponse> {
+        const options = ParamCreater().createAutopilotPostCheck(createAutopilotPostCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群升级前检查
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级前检查
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {PrecheckClusterRequestBody} precheckClusterRequestBody 集群升级前检查请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotPreCheck(createAutopilotPreCheckRequest?: CreateAutopilotPreCheckRequest): Promise<CreateAutopilotPreCheckResponse> {
+        const options = ParamCreater().createAutopilotPreCheck(createAutopilotPreCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建模板实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建模板实例
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {CreateReleaseReqBody} createReleaseRequestBody 创建release请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotRelease(createAutopilotReleaseRequest?: CreateAutopilotReleaseRequest): Promise<CreateAutopilotReleaseResponse> {
+        const options = ParamCreater().createAutopilotRelease(createAutopilotReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于创建一个集群升级流程引导任务。请在调用本接口完成引导任务创建之后，通过集群升级前检查开始检查任务。
+     * 升级流程任务用于控制集群升级任务的执行流程，执行流程为 升级前检查 &#x3D;&gt; 集群升级 &#x3D;&gt; 升级后检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启集群升级流程引导任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {CreateUpgradeWorkFlowRequestBody} createUpgradeWorkFlowRequestBody 集群升级流程引导任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutopilotUpgradeWorkFlow(createAutopilotUpgradeWorkFlowRequest?: CreateAutopilotUpgradeWorkFlowRequest): Promise<CreateAutopilotUpgradeWorkFlowResponse> {
+        const options = ParamCreater().createAutopilotUpgradeWorkFlow(createAutopilotUpgradeWorkFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除插件实例的功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除AddonInstance
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} id 插件实例id
+     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotAddonInstance(deleteAutopilotAddonInstanceRequest?: DeleteAutopilotAddonInstanceRequest): Promise<DeleteAutopilotAddonInstanceResponse> {
+        const options = ParamCreater().deleteAutopilotAddonInstance(deleteAutopilotAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除模板
+     * @param {string} chartId 模板的ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotChart(deleteAutopilotChartRequest?: DeleteAutopilotChartRequest): Promise<DeleteAutopilotChartResponse> {
+        const options = ParamCreater().deleteAutopilotChart(deleteAutopilotChartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除一个指定的集群。
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除集群
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteNet] 是否删除elb（弹性负载均衡）等集群Service/Ingress相关资源。 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteObs] 是否删除obs（对象存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs30] 是否删除sfs3.0（文件存储卷3.0）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [ltsReclaimPolicy] 是否删除LTS LogStream（日志流）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotCluster(deleteAutopilotClusterRequest?: DeleteAutopilotClusterRequest): Promise<DeleteAutopilotClusterResponse> {
+        const options = ParamCreater().deleteAutopilotCluster(deleteAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定模板实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定模板实例
+     * @param {string} name 模板实例名称
+     * @param {string} namespace 模板实例所在的命名空间
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotRelease(deleteAutopilotReleaseRequest?: DeleteAutopilotReleaseRequest): Promise<DeleteAutopilotReleaseResponse> {
+        const options = ParamCreater().deleteAutopilotRelease(deleteAutopilotReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载模板
+     * @param {string} chartId 模板的ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadAutopilotChart(downloadAutopilotChartRequest?: DownloadAutopilotChartRequest): Promise<DownloadAutopilotChartResponse> {
+        const options = ParamCreater().downloadAutopilotChart(downloadAutopilotChartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群所有已安装插件实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取AddonInstance列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotAddonInstances(listAutopilotAddonInstancesRequest?: ListAutopilotAddonInstancesRequest): Promise<ListAutopilotAddonInstancesResponse> {
+        const options = ParamCreater().listAutopilotAddonInstances(listAutopilotAddonInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 插件模板查询接口，查询插件信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AddonTemplates列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} [addonTemplateName] 指定的插件名称或插件别名，不填写则查询列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotAddonTemplates(listAutopilotAddonTemplatesRequest?: ListAutopilotAddonTemplatesRequest): Promise<ListAutopilotAddonTemplatesResponse> {
+        const options = ParamCreater().listAutopilotAddonTemplates(listAutopilotAddonTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取模板列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotCharts(listAutopilotChartsRequest?: ListAutopilotChartsRequest): Promise<ListAutopilotChartsResponse> {
+        const options = ParamCreater().listAutopilotCharts(listAutopilotChartsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群备份任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群备份任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotClusterMasterSnapshotTasks(listAutopilotClusterMasterSnapshotTasksRequest?: ListAutopilotClusterMasterSnapshotTasksRequest): Promise<ListAutopilotClusterMasterSnapshotTasksResponse> {
+        const options = ParamCreater().listAutopilotClusterMasterSnapshotTasks(listAutopilotClusterMasterSnapshotTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级特性开关配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级特性开关配置
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotClusterUpgradeFeatureGates(listAutopilotClusterUpgradeFeatureGatesRequest?: ListAutopilotClusterUpgradeFeatureGatesRequest): Promise<ListAutopilotClusterUpgradeFeatureGatesResponse> {
+        const options = ParamCreater().listAutopilotClusterUpgradeFeatureGates(listAutopilotClusterUpgradeFeatureGatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级路径
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级路径
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotClusterUpgradePaths(listAutopilotClusterUpgradePathsRequest?: ListAutopilotClusterUpgradePathsRequest): Promise<ListAutopilotClusterUpgradePathsResponse> {
+        const options = ParamCreater().listAutopilotClusterUpgradePaths(listAutopilotClusterUpgradePathsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定项目下所有集群的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定项目下的集群
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)、已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
+     * @param {'Available' | 'Unavailable' | 'Creating' | 'Deleting' | 'Upgrading' | 'RollingBack' | 'RollbackFailed' | 'Error'} [status] 集群状态，取值如下 - Available：可用，表示集群处于正常状态。 - Unavailable：不可用，表示集群异常，需手动删除。 - Creating：创建中，表示集群正处于创建过程中。 - Deleting：删除中，表示集群正处于删除过程中。 - Upgrading：升级中，表示集群正处于升级过程中。 - RollingBack：回滚中，表示集群正处于回滚过程中。 - RollbackFailed：回滚异常，表示集群回滚异常。 - Error：错误，表示集群资源异常，可尝试手动删除。
+     * @param {'VirtualMachine'} [type] 集群类型： - VirtualMachine：CCE集群
+     * @param {string} [version] 集群版本过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotClusters(listAutopilotClustersRequest?: ListAutopilotClustersRequest): Promise<ListAutopilotClustersResponse> {
+        const options = ParamCreater().listAutopilotClusters(listAutopilotClustersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级前检查任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级前检查任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotPreCheckTasks(listAutopilotPreCheckTasksRequest?: ListAutopilotPreCheckTasksRequest): Promise<ListAutopilotPreCheckTasksResponse> {
+        const options = ParamCreater().listAutopilotPreCheckTasks(listAutopilotPreCheckTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取模板实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取模板实例列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} [chartId] 模板ID
+     * @param {string} [namespace] 模板对应的命名空间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotReleases(listAutopilotReleasesRequest?: ListAutopilotReleasesRequest): Promise<ListAutopilotReleasesResponse> {
+        const options = ParamCreater().listAutopilotReleases(listAutopilotReleasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级任务详情列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotUpgradeClusterTasks(listAutopilotUpgradeClusterTasksRequest?: ListAutopilotUpgradeClusterTasksRequest): Promise<ListAutopilotUpgradeClusterTasksResponse> {
+        const options = ParamCreater().listAutopilotUpgradeClusterTasks(listAutopilotUpgradeClusterTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取历史集群升级引导任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取UpgradeWorkFlows列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotUpgradeWorkFlows(listAutopilotUpgradeWorkFlowsRequest?: ListAutopilotUpgradeWorkFlowsRequest): Promise<ListAutopilotUpgradeWorkFlowsResponse> {
+        const options = ParamCreater().listAutopilotUpgradeWorkFlows(listAutopilotUpgradeWorkFlowsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重新执行失败的集群升级任务。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试集群升级任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryAutopilotUpgradeClusterTask(retryAutopilotUpgradeClusterTaskRequest?: RetryAutopilotUpgradeClusterTaskRequest): Promise<RetryAutopilotUpgradeClusterTaskResponse> {
+        const options = ParamCreater().retryAutopilotUpgradeClusterTask(retryAutopilotUpgradeClusterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将插件实例回滚到升级前的版本。只有在当前插件实例版本支持回滚到升级前的版本（status.isRollbackable为true），且插件实例状态为running（运行中）、available（可用）、abnormal（不可用）、upgradeFailed（升级失败）、rollbackFailed（回滚失败）时支持回滚。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 回滚AddonInstance
+     * @param {string} id 插件实例ID
+     * @param {AddonInstanceRollbackRequest} addonInstanceRollbackRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rollbackAutopilotAddonInstance(rollbackAutopilotAddonInstanceRequest?: RollbackAutopilotAddonInstanceRequest): Promise<RollbackAutopilotAddonInstanceResponse> {
+        const options = ParamCreater().rollbackAutopilotAddonInstance(rollbackAutopilotAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取插件实例详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取AddonInstance详情
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} id 插件实例id
+     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotAddonInstance(showAutopilotAddonInstanceRequest?: ShowAutopilotAddonInstanceRequest): Promise<ShowAutopilotAddonInstanceResponse> {
+        const options = ParamCreater().showAutopilotAddonInstance(showAutopilotAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取模板
+     * @param {string} chartId 模板的ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotChart(showAutopilotChartRequest?: ShowAutopilotChartRequest): Promise<ShowAutopilotChartResponse> {
+        const options = ParamCreater().showAutopilotChart(showAutopilotChartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取模板Values
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取模板Values
+     * @param {string} chartId 模板的ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotChartValues(showAutopilotChartValuesRequest?: ShowAutopilotChartValuesRequest): Promise<ShowAutopilotChartValuesResponse> {
+        const options = ParamCreater().showAutopilotChartValues(showAutopilotChartValuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定集群的详细信息。
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定的集群
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)和已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotCluster(showAutopilotClusterRequest?: ShowAutopilotClusterRequest): Promise<ShowAutopilotClusterResponse> {
+        const options = ParamCreater().showAutopilotCluster(showAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群访问的地址
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotClusterEndpoints(showAutopilotClusterEndpointsRequest?: ShowAutopilotClusterEndpointsRequest): Promise<ShowAutopilotClusterEndpointsResponse> {
+        const options = ParamCreater().showAutopilotClusterEndpoints(showAutopilotClusterEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级相关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级相关信息
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotClusterUpgradeInfo(showAutopilotClusterUpgradeInfoRequest?: ShowAutopilotClusterUpgradeInfoRequest): Promise<ShowAutopilotClusterUpgradeInfoResponse> {
+        const options = ParamCreater().showAutopilotClusterUpgradeInfo(showAutopilotClusterUpgradeInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
+     * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
+     * &gt; - 该接口通常使用场景为：
+     * &gt;   - 创建、删除集群时，查询相应任务的进度。
+     * &gt;   - 创建、删除节点时，查询相应任务的进度。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取任务信息
+     * @param {string} jobId 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotJob(showAutopilotJobRequest?: ShowAutopilotJobRequest): Promise<ShowAutopilotJobResponse> {
+        const options = ParamCreater().showAutopilotJob(showAutopilotJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级前检查任务详情，任务ID由调用集群检查API后从响应体中uid字段获取。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级前检查任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} taskId 升级任务ID，调用集群升级API后从响应体中uid字段获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotPreCheck(showAutopilotPreCheckRequest?: ShowAutopilotPreCheckRequest): Promise<ShowAutopilotPreCheckResponse> {
+        const options = ParamCreater().showAutopilotPreCheck(showAutopilotPreCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询CCE服务下的资源配额。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CCE服务下的资源配额
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotQuotas(showAutopilotQuotasRequest?: ShowAutopilotQuotasRequest): Promise<ShowAutopilotQuotasResponse> {
+        const options = ParamCreater().showAutopilotQuotas(showAutopilotQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定模板实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定模板实例
+     * @param {string} name 模板实例名称
+     * @param {string} namespace 模板实例所在的命名空间
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotRelease(showAutopilotReleaseRequest?: ShowAutopilotReleaseRequest): Promise<ShowAutopilotReleaseResponse> {
+        const options = ParamCreater().showAutopilotRelease(showAutopilotReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定模板实例历史记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定模板实例历史记录
+     * @param {string} name 模板实例名称
+     * @param {string} namespace 模板实例所在的命名空间
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotReleaseHistory(showAutopilotReleaseHistoryRequest?: ShowAutopilotReleaseHistoryRequest): Promise<ShowAutopilotReleaseHistoryResponse> {
+        const options = ParamCreater().showAutopilotReleaseHistory(showAutopilotReleaseHistoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} taskId 升级任务ID，调用集群升级API后从响应体中uid字段获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotUpgradeClusterTask(showAutopilotUpgradeClusterTaskRequest?: ShowAutopilotUpgradeClusterTaskRequest): Promise<ShowAutopilotUpgradeClusterTaskResponse> {
+        const options = ParamCreater().showAutopilotUpgradeClusterTask(showAutopilotUpgradeClusterTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于通过升级引导任务ID获取任务的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定集群升级引导任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotUpgradeWorkFlow(showAutopilotUpgradeWorkFlowRequest?: ShowAutopilotUpgradeWorkFlowRequest): Promise<ShowAutopilotUpgradeWorkFlowResponse> {
+        const options = ParamCreater().showAutopilotUpgradeWorkFlow(showAutopilotUpgradeWorkFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取用户模板配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取用户模板配额
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotUserChartsQuotas(showAutopilotUserChartsQuotasRequest?: ShowAutopilotUserChartsQuotasRequest): Promise<ShowAutopilotUserChartsQuotasResponse> {
+        const options = ParamCreater().showAutopilotUserChartsQuotas(showAutopilotUserChartsQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新插件实例的功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新AddonInstance
+     * @param {string} id 插件实例id
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {InstanceRequest} updateAddonInstanceRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotAddonInstance(updateAutopilotAddonInstanceRequest?: UpdateAutopilotAddonInstanceRequest): Promise<UpdateAutopilotAddonInstanceResponse> {
+        const options = ParamCreater().updateAutopilotAddonInstance(updateAutopilotAddonInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新模板
+     * @param {string} chartId 模板的ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {any} content 模板包文件
+     * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot; - skip_lint: whether lint uploaded chart - override: whether override existed chart - visible: update chart visible
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotChart(updateAutopilotChartRequest?: UpdateAutopilotChartRequest): Promise<UpdateAutopilotChartResponse> {
+        const options = ParamCreater().updateAutopilotChart(updateAutopilotChartRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新指定的集群。
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定的集群
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {AutopilotClusterInformation} updateClusterRequestBody spec是集合类的元素类型，用户对需要管理的集群对象进行详细描述的主体部分都在spec中给出。系统通过spec的描述来创建或更新对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotCluster(updateAutopilotClusterRequest?: UpdateAutopilotClusterRequest): Promise<UpdateAutopilotClusterResponse> {
+        const options = ParamCreater().updateAutopilotCluster(updateAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新指定模板实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定模板实例
+     * @param {string} name 模板实例名称
+     * @param {string} namespace 模板实例所在的命名空间
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {UpdateReleaseReqBody} updateReleaseRequestBody 更新release的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotRelease(updateAutopilotReleaseRequest?: UpdateAutopilotReleaseRequest): Promise<UpdateAutopilotReleaseResponse> {
+        const options = ParamCreater().updateAutopilotRelease(updateAutopilotReleaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群升级。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {UpgradeClusterRequestBody} upgradeClusterRequestBody 集群升级请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeAutopilotCluster(upgradeAutopilotClusterRequest?: UpgradeAutopilotClusterRequest): Promise<UpgradeAutopilotClusterResponse> {
+        const options = ParamCreater().upgradeAutopilotCluster(upgradeAutopilotClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新指定集群升级引导任务状态，当前仅适用于取消升级流程
+     * 调用该API时升级流程引导任务状态不能为进行中(running) 已完成(success) 已取消(cancel),升级子任务状态不能为running(进行中) init(已初始化) pause(任务被暂停) queue(队列中)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定集群升级引导任务状态
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UpgradeWorkFlowUpdateRequestBody} upgradeWorkFlowUpdateRequestBody 更新集群升级流程引导任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeAutopilotWorkFlowUpdate(upgradeAutopilotWorkFlowUpdateRequest?: UpgradeAutopilotWorkFlowUpdateRequest): Promise<UpgradeAutopilotWorkFlowUpdateResponse> {
+        const options = ParamCreater().upgradeAutopilotWorkFlowUpdate(upgradeAutopilotWorkFlowUpdateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传模板
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {any} content 模板包文件
+     * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;  - skip_lint: 是否验证上传的模板 - override: 是否覆盖已存在的模板 - visible: 模板是否可见 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadAutopilotChart(uploadAutopilotChartRequest?: UploadAutopilotChartRequest): Promise<UploadAutopilotChartResponse> {
+        const options = ParamCreater().uploadAutopilotChart(uploadAutopilotChartRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6412,6 +7559,2404 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量添加指定集群的资源标签。
+         * &gt; - 每个集群支持最多20个资源标签。
+         * &gt; - 此接口为幂等接口：创建时，如果创建的标签已经存在（key/value均相同视为重复），默认处理成功；key相同，value不同时会覆盖原有标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateAutopilotClusterTags(batchCreateAutopilotClusterTagsRequest?: BatchCreateAutopilotClusterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchCreateAutopilotClusterTagsRequest !== null && batchCreateAutopilotClusterTagsRequest !== undefined) {
+                if (batchCreateAutopilotClusterTagsRequest instanceof BatchCreateAutopilotClusterTagsRequest) {
+                    clusterId = batchCreateAutopilotClusterTagsRequest.clusterId;
+                    contentType = batchCreateAutopilotClusterTagsRequest.contentType;
+                    body = batchCreateAutopilotClusterTagsRequest.body
+                } else {
+                    clusterId = batchCreateAutopilotClusterTagsRequest['cluster_id'];
+                    contentType = batchCreateAutopilotClusterTagsRequest['Content-Type'];
+                    body = batchCreateAutopilotClusterTagsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchCreateAutopilotClusterTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于批量删除指定集群的资源标签。
+         * &gt; - 此接口为幂等接口：删除时，如果删除的标签key不存在，默认处理成功。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteAutopilotClusterTags(batchDeleteAutopilotClusterTagsRequest?: BatchDeleteAutopilotClusterTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchDeleteAutopilotClusterTagsRequest !== null && batchDeleteAutopilotClusterTagsRequest !== undefined) {
+                if (batchDeleteAutopilotClusterTagsRequest instanceof BatchDeleteAutopilotClusterTagsRequest) {
+                    clusterId = batchDeleteAutopilotClusterTagsRequest.clusterId;
+                    contentType = batchDeleteAutopilotClusterTagsRequest.contentType;
+                    body = batchDeleteAutopilotClusterTagsRequest.body
+                } else {
+                    clusterId = batchDeleteAutopilotClusterTagsRequest['cluster_id'];
+                    contentType = batchDeleteAutopilotClusterTagsRequest['Content-Type'];
+                    body = batchDeleteAutopilotClusterTagsRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchDeleteAutopilotClusterTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据提供的插件模板，安装插件实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotAddonInstance(createAutopilotAddonInstanceRequest?: CreateAutopilotAddonInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/addons",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createAutopilotAddonInstanceRequest !== null && createAutopilotAddonInstanceRequest !== undefined) {
+                if (createAutopilotAddonInstanceRequest instanceof CreateAutopilotAddonInstanceRequest) {
+                    contentType = createAutopilotAddonInstanceRequest.contentType;
+                    body = createAutopilotAddonInstanceRequest.body
+                } else {
+                    contentType = createAutopilotAddonInstanceRequest['Content-Type'];
+                    body = createAutopilotAddonInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[创建节点](cce_02_0242.xml)添加节点。
+         * 
+         * 
+         * &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * &gt;   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\&quot;cluster.install.addons.external/install\&quot;:\&quot;[{\&quot;addonTemplateName\&quot;:\&quot;icagent\&quot;}]\&quot;的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotCluster(createAutopilotClusterRequest?: CreateAutopilotClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createAutopilotClusterRequest !== null && createAutopilotClusterRequest !== undefined) {
+                if (createAutopilotClusterRequest instanceof CreateAutopilotClusterRequest) {
+                    contentType = createAutopilotClusterRequest.contentType;
+                    body = createAutopilotClusterRequest.body
+                } else {
+                    contentType = createAutopilotClusterRequest['Content-Type'];
+                    body = createAutopilotClusterRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotClusterMasterSnapshot(createAutopilotClusterMasterSnapshotRequest?: CreateAutopilotClusterMasterSnapshotRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3.1/projects/{project_id}/clusters/{cluster_id}/operation/snapshot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (createAutopilotClusterMasterSnapshotRequest !== null && createAutopilotClusterMasterSnapshotRequest !== undefined) {
+                if (createAutopilotClusterMasterSnapshotRequest instanceof CreateAutopilotClusterMasterSnapshotRequest) {
+                    clusterId = createAutopilotClusterMasterSnapshotRequest.clusterId;
+                } else {
+                    clusterId = createAutopilotClusterMasterSnapshotRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotClusterMasterSnapshot.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定集群的证书信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotKubernetesClusterCert(createAutopilotKubernetesClusterCertRequest?: CreateAutopilotKubernetesClusterCertRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/clustercert",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (createAutopilotKubernetesClusterCertRequest !== null && createAutopilotKubernetesClusterCertRequest !== undefined) {
+                if (createAutopilotKubernetesClusterCertRequest instanceof CreateAutopilotKubernetesClusterCertRequest) {
+                    clusterId = createAutopilotKubernetesClusterCertRequest.clusterId;
+                    contentType = createAutopilotKubernetesClusterCertRequest.contentType;
+                    body = createAutopilotKubernetesClusterCertRequest.body
+                } else {
+                    clusterId = createAutopilotKubernetesClusterCertRequest['cluster_id'];
+                    contentType = createAutopilotKubernetesClusterCertRequest['Content-Type'];
+                    body = createAutopilotKubernetesClusterCertRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotKubernetesClusterCert.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群升级后确认，该接口建议配合Console使用，主要用于升级步骤完成后，客户确认集群状态和业务正常后做反馈。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotPostCheck(createAutopilotPostCheckRequest?: CreateAutopilotPostCheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/postcheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createAutopilotPostCheckRequest !== null && createAutopilotPostCheckRequest !== undefined) {
+                if (createAutopilotPostCheckRequest instanceof CreateAutopilotPostCheckRequest) {
+                    clusterId = createAutopilotPostCheckRequest.clusterId;
+                    body = createAutopilotPostCheckRequest.body
+                } else {
+                    clusterId = createAutopilotPostCheckRequest['cluster_id'];
+                    body = createAutopilotPostCheckRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotPostCheck.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群升级前检查
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotPreCheck(createAutopilotPreCheckRequest?: CreateAutopilotPreCheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createAutopilotPreCheckRequest !== null && createAutopilotPreCheckRequest !== undefined) {
+                if (createAutopilotPreCheckRequest instanceof CreateAutopilotPreCheckRequest) {
+                    clusterId = createAutopilotPreCheckRequest.clusterId;
+                    body = createAutopilotPreCheckRequest.body
+                } else {
+                    clusterId = createAutopilotPreCheckRequest['cluster_id'];
+                    body = createAutopilotPreCheckRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotPreCheck.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建模板实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotRelease(createAutopilotReleaseRequest?: CreateAutopilotReleaseRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/releases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (createAutopilotReleaseRequest !== null && createAutopilotReleaseRequest !== undefined) {
+                if (createAutopilotReleaseRequest instanceof CreateAutopilotReleaseRequest) {
+                    contentType = createAutopilotReleaseRequest.contentType;
+                    clusterId = createAutopilotReleaseRequest.clusterId;
+                    body = createAutopilotReleaseRequest.body
+                } else {
+                    contentType = createAutopilotReleaseRequest['Content-Type'];
+                    clusterId = createAutopilotReleaseRequest['cluster_id'];
+                    body = createAutopilotReleaseRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotRelease.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于创建一个集群升级流程引导任务。请在调用本接口完成引导任务创建之后，通过集群升级前检查开始检查任务。
+         * 升级流程任务用于控制集群升级任务的执行流程，执行流程为 升级前检查 &#x3D;&gt; 集群升级 &#x3D;&gt; 升级后检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutopilotUpgradeWorkFlow(createAutopilotUpgradeWorkFlowRequest?: CreateAutopilotUpgradeWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (createAutopilotUpgradeWorkFlowRequest !== null && createAutopilotUpgradeWorkFlowRequest !== undefined) {
+                if (createAutopilotUpgradeWorkFlowRequest instanceof CreateAutopilotUpgradeWorkFlowRequest) {
+                    clusterId = createAutopilotUpgradeWorkFlowRequest.clusterId;
+                    contentType = createAutopilotUpgradeWorkFlowRequest.contentType;
+                    body = createAutopilotUpgradeWorkFlowRequest.body
+                } else {
+                    clusterId = createAutopilotUpgradeWorkFlowRequest['cluster_id'];
+                    contentType = createAutopilotUpgradeWorkFlowRequest['Content-Type'];
+                    body = createAutopilotUpgradeWorkFlowRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createAutopilotUpgradeWorkFlow.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除插件实例的功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotAddonInstance(deleteAutopilotAddonInstanceRequest?: DeleteAutopilotAddonInstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/v3/addons/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let id;
+            
+            let clusterId;
+
+            if (deleteAutopilotAddonInstanceRequest !== null && deleteAutopilotAddonInstanceRequest !== undefined) {
+                if (deleteAutopilotAddonInstanceRequest instanceof DeleteAutopilotAddonInstanceRequest) {
+                    contentType = deleteAutopilotAddonInstanceRequest.contentType;
+                    id = deleteAutopilotAddonInstanceRequest.id;
+                    clusterId = deleteAutopilotAddonInstanceRequest.clusterId;
+                } else {
+                    contentType = deleteAutopilotAddonInstanceRequest['Content-Type'];
+                    id = deleteAutopilotAddonInstanceRequest['id'];
+                    clusterId = deleteAutopilotAddonInstanceRequest['cluster_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteAutopilotAddonInstance.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotChart(deleteAutopilotChartRequest?: DeleteAutopilotChartRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/v2/charts/{chart_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let chartId;
+            
+            let contentType;
+
+            if (deleteAutopilotChartRequest !== null && deleteAutopilotChartRequest !== undefined) {
+                if (deleteAutopilotChartRequest instanceof DeleteAutopilotChartRequest) {
+                    chartId = deleteAutopilotChartRequest.chartId;
+                    contentType = deleteAutopilotChartRequest.contentType;
+                } else {
+                    chartId = deleteAutopilotChartRequest['chart_id'];
+                    contentType = deleteAutopilotChartRequest['Content-Type'];
+                }
+            }
+
+        
+            if (chartId === null || chartId === undefined) {
+            throw new RequiredError('chartId','Required parameter chartId was null or undefined when calling deleteAutopilotChart.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'chart_id': chartId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除一个指定的集群。
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotCluster(deleteAutopilotClusterRequest?: DeleteAutopilotClusterRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let contentType;
+            
+            let deleteEfs;
+            
+            let deleteEni;
+            
+            let deleteNet;
+            
+            let deleteObs;
+            
+            let deleteSfs30;
+            
+            let ltsReclaimPolicy;
+
+            if (deleteAutopilotClusterRequest !== null && deleteAutopilotClusterRequest !== undefined) {
+                if (deleteAutopilotClusterRequest instanceof DeleteAutopilotClusterRequest) {
+                    clusterId = deleteAutopilotClusterRequest.clusterId;
+                    contentType = deleteAutopilotClusterRequest.contentType;
+                    deleteEfs = deleteAutopilotClusterRequest.deleteEfs;
+                    deleteEni = deleteAutopilotClusterRequest.deleteEni;
+                    deleteNet = deleteAutopilotClusterRequest.deleteNet;
+                    deleteObs = deleteAutopilotClusterRequest.deleteObs;
+                    deleteSfs30 = deleteAutopilotClusterRequest.deleteSfs30;
+                    ltsReclaimPolicy = deleteAutopilotClusterRequest.ltsReclaimPolicy;
+                } else {
+                    clusterId = deleteAutopilotClusterRequest['cluster_id'];
+                    contentType = deleteAutopilotClusterRequest['Content-Type'];
+                    deleteEfs = deleteAutopilotClusterRequest['delete_efs'];
+                    deleteEni = deleteAutopilotClusterRequest['delete_eni'];
+                    deleteNet = deleteAutopilotClusterRequest['delete_net'];
+                    deleteObs = deleteAutopilotClusterRequest['delete_obs'];
+                    deleteSfs30 = deleteAutopilotClusterRequest['delete_sfs30'];
+                    ltsReclaimPolicy = deleteAutopilotClusterRequest['lts_reclaim_policy'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteAutopilotCluster.');
+            }
+            if (deleteEfs !== null && deleteEfs !== undefined) {
+                localVarQueryParameter['delete_efs'] = deleteEfs;
+            }
+            if (deleteEni !== null && deleteEni !== undefined) {
+                localVarQueryParameter['delete_eni'] = deleteEni;
+            }
+            if (deleteNet !== null && deleteNet !== undefined) {
+                localVarQueryParameter['delete_net'] = deleteNet;
+            }
+            if (deleteObs !== null && deleteObs !== undefined) {
+                localVarQueryParameter['delete_obs'] = deleteObs;
+            }
+            if (deleteSfs30 !== null && deleteSfs30 !== undefined) {
+                localVarQueryParameter['delete_sfs30'] = deleteSfs30;
+            }
+            if (ltsReclaimPolicy !== null && ltsReclaimPolicy !== undefined) {
+                localVarQueryParameter['lts_reclaim_policy'] = ltsReclaimPolicy;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定模板实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotRelease(deleteAutopilotReleaseRequest?: DeleteAutopilotReleaseRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/namespace/{namespace}/releases/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let name;
+            
+            let namespace;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (deleteAutopilotReleaseRequest !== null && deleteAutopilotReleaseRequest !== undefined) {
+                if (deleteAutopilotReleaseRequest instanceof DeleteAutopilotReleaseRequest) {
+                    name = deleteAutopilotReleaseRequest.name;
+                    namespace = deleteAutopilotReleaseRequest.namespace;
+                    contentType = deleteAutopilotReleaseRequest.contentType;
+                    clusterId = deleteAutopilotReleaseRequest.clusterId;
+                } else {
+                    name = deleteAutopilotReleaseRequest['name'];
+                    namespace = deleteAutopilotReleaseRequest['namespace'];
+                    contentType = deleteAutopilotReleaseRequest['Content-Type'];
+                    clusterId = deleteAutopilotReleaseRequest['cluster_id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling deleteAutopilotRelease.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling deleteAutopilotRelease.');
+            }
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteAutopilotRelease.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'name': name,'namespace': namespace,'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadAutopilotChart(downloadAutopilotChartRequest?: DownloadAutopilotChartRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/charts/{chart_id}/archive",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let chartId;
+            
+            let contentType;
+
+            if (downloadAutopilotChartRequest !== null && downloadAutopilotChartRequest !== undefined) {
+                if (downloadAutopilotChartRequest instanceof DownloadAutopilotChartRequest) {
+                    chartId = downloadAutopilotChartRequest.chartId;
+                    contentType = downloadAutopilotChartRequest.contentType;
+                } else {
+                    chartId = downloadAutopilotChartRequest['chart_id'];
+                    contentType = downloadAutopilotChartRequest['Content-Type'];
+                }
+            }
+
+        
+            if (chartId === null || chartId === undefined) {
+            throw new RequiredError('chartId','Required parameter chartId was null or undefined when calling downloadAutopilotChart.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'chart_id': chartId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群所有已安装插件实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotAddonInstances(listAutopilotAddonInstancesRequest?: ListAutopilotAddonInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/addons",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (listAutopilotAddonInstancesRequest !== null && listAutopilotAddonInstancesRequest !== undefined) {
+                if (listAutopilotAddonInstancesRequest instanceof ListAutopilotAddonInstancesRequest) {
+                    contentType = listAutopilotAddonInstancesRequest.contentType;
+                    clusterId = listAutopilotAddonInstancesRequest.clusterId;
+                } else {
+                    contentType = listAutopilotAddonInstancesRequest['Content-Type'];
+                    clusterId = listAutopilotAddonInstancesRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotAddonInstances.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 插件模板查询接口，查询插件信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotAddonTemplates(listAutopilotAddonTemplatesRequest?: ListAutopilotAddonTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/addontemplates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let addonTemplateName;
+
+            if (listAutopilotAddonTemplatesRequest !== null && listAutopilotAddonTemplatesRequest !== undefined) {
+                if (listAutopilotAddonTemplatesRequest instanceof ListAutopilotAddonTemplatesRequest) {
+                    contentType = listAutopilotAddonTemplatesRequest.contentType;
+                    addonTemplateName = listAutopilotAddonTemplatesRequest.addonTemplateName;
+                } else {
+                    contentType = listAutopilotAddonTemplatesRequest['Content-Type'];
+                    addonTemplateName = listAutopilotAddonTemplatesRequest['addon_template_name'];
+                }
+            }
+
+        
+            if (addonTemplateName !== null && addonTemplateName !== undefined) {
+                localVarQueryParameter['addon_template_name'] = addonTemplateName;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotCharts(listAutopilotChartsRequest?: ListAutopilotChartsRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/charts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listAutopilotChartsRequest !== null && listAutopilotChartsRequest !== undefined) {
+                if (listAutopilotChartsRequest instanceof ListAutopilotChartsRequest) {
+                    contentType = listAutopilotChartsRequest.contentType;
+                } else {
+                    contentType = listAutopilotChartsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群备份任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotClusterMasterSnapshotTasks(listAutopilotClusterMasterSnapshotTasksRequest?: ListAutopilotClusterMasterSnapshotTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3.1/projects/{project_id}/clusters/{cluster_id}/operation/snapshot/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listAutopilotClusterMasterSnapshotTasksRequest !== null && listAutopilotClusterMasterSnapshotTasksRequest !== undefined) {
+                if (listAutopilotClusterMasterSnapshotTasksRequest instanceof ListAutopilotClusterMasterSnapshotTasksRequest) {
+                    clusterId = listAutopilotClusterMasterSnapshotTasksRequest.clusterId;
+                } else {
+                    clusterId = listAutopilotClusterMasterSnapshotTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotClusterMasterSnapshotTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级特性开关配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotClusterUpgradeFeatureGates(listAutopilotClusterUpgradeFeatureGatesRequest?: ListAutopilotClusterUpgradeFeatureGatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/clusterupgradefeaturegates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listAutopilotClusterUpgradeFeatureGatesRequest !== null && listAutopilotClusterUpgradeFeatureGatesRequest !== undefined) {
+                if (listAutopilotClusterUpgradeFeatureGatesRequest instanceof ListAutopilotClusterUpgradeFeatureGatesRequest) {
+                    contentType = listAutopilotClusterUpgradeFeatureGatesRequest.contentType;
+                } else {
+                    contentType = listAutopilotClusterUpgradeFeatureGatesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级路径
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotClusterUpgradePaths(listAutopilotClusterUpgradePathsRequest?: ListAutopilotClusterUpgradePathsRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/clusterupgradepaths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listAutopilotClusterUpgradePathsRequest !== null && listAutopilotClusterUpgradePathsRequest !== undefined) {
+                if (listAutopilotClusterUpgradePathsRequest instanceof ListAutopilotClusterUpgradePathsRequest) {
+                    contentType = listAutopilotClusterUpgradePathsRequest.contentType;
+                } else {
+                    contentType = listAutopilotClusterUpgradePathsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定项目下所有集群的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotClusters(listAutopilotClustersRequest?: ListAutopilotClustersRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let detail;
+            
+            let status;
+            
+            let type;
+            
+            let version;
+
+            if (listAutopilotClustersRequest !== null && listAutopilotClustersRequest !== undefined) {
+                if (listAutopilotClustersRequest instanceof ListAutopilotClustersRequest) {
+                    contentType = listAutopilotClustersRequest.contentType;
+                    detail = listAutopilotClustersRequest.detail;
+                    status = listAutopilotClustersRequest.status;
+                    type = listAutopilotClustersRequest.type;
+                    version = listAutopilotClustersRequest.version;
+                } else {
+                    contentType = listAutopilotClustersRequest['Content-Type'];
+                    detail = listAutopilotClustersRequest['detail'];
+                    status = listAutopilotClustersRequest['status'];
+                    type = listAutopilotClustersRequest['type'];
+                    version = listAutopilotClustersRequest['version'];
+                }
+            }
+
+        
+            if (detail !== null && detail !== undefined) {
+                localVarQueryParameter['detail'] = detail;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级前检查任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotPreCheckTasks(listAutopilotPreCheckTasksRequest?: ListAutopilotPreCheckTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listAutopilotPreCheckTasksRequest !== null && listAutopilotPreCheckTasksRequest !== undefined) {
+                if (listAutopilotPreCheckTasksRequest instanceof ListAutopilotPreCheckTasksRequest) {
+                    clusterId = listAutopilotPreCheckTasksRequest.clusterId;
+                } else {
+                    clusterId = listAutopilotPreCheckTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotPreCheckTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取模板实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotReleases(listAutopilotReleasesRequest?: ListAutopilotReleasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/releases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let clusterId;
+            
+            let chartId;
+            
+            let namespace;
+
+            if (listAutopilotReleasesRequest !== null && listAutopilotReleasesRequest !== undefined) {
+                if (listAutopilotReleasesRequest instanceof ListAutopilotReleasesRequest) {
+                    contentType = listAutopilotReleasesRequest.contentType;
+                    clusterId = listAutopilotReleasesRequest.clusterId;
+                    chartId = listAutopilotReleasesRequest.chartId;
+                    namespace = listAutopilotReleasesRequest.namespace;
+                } else {
+                    contentType = listAutopilotReleasesRequest['Content-Type'];
+                    clusterId = listAutopilotReleasesRequest['cluster_id'];
+                    chartId = listAutopilotReleasesRequest['chart_id'];
+                    namespace = listAutopilotReleasesRequest['namespace'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotReleases.');
+            }
+            if (chartId !== null && chartId !== undefined) {
+                localVarQueryParameter['chart_id'] = chartId;
+            }
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotUpgradeClusterTasks(listAutopilotUpgradeClusterTasksRequest?: ListAutopilotUpgradeClusterTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listAutopilotUpgradeClusterTasksRequest !== null && listAutopilotUpgradeClusterTasksRequest !== undefined) {
+                if (listAutopilotUpgradeClusterTasksRequest instanceof ListAutopilotUpgradeClusterTasksRequest) {
+                    clusterId = listAutopilotUpgradeClusterTasksRequest.clusterId;
+                } else {
+                    clusterId = listAutopilotUpgradeClusterTasksRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotUpgradeClusterTasks.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取历史集群升级引导任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotUpgradeWorkFlows(listAutopilotUpgradeWorkFlowsRequest?: ListAutopilotUpgradeWorkFlowsRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (listAutopilotUpgradeWorkFlowsRequest !== null && listAutopilotUpgradeWorkFlowsRequest !== undefined) {
+                if (listAutopilotUpgradeWorkFlowsRequest instanceof ListAutopilotUpgradeWorkFlowsRequest) {
+                    clusterId = listAutopilotUpgradeWorkFlowsRequest.clusterId;
+                    contentType = listAutopilotUpgradeWorkFlowsRequest.contentType;
+                } else {
+                    clusterId = listAutopilotUpgradeWorkFlowsRequest['cluster_id'];
+                    contentType = listAutopilotUpgradeWorkFlowsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAutopilotUpgradeWorkFlows.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重新执行失败的集群升级任务。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryAutopilotUpgradeClusterTask(retryAutopilotUpgradeClusterTaskRequest?: RetryAutopilotUpgradeClusterTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (retryAutopilotUpgradeClusterTaskRequest !== null && retryAutopilotUpgradeClusterTaskRequest !== undefined) {
+                if (retryAutopilotUpgradeClusterTaskRequest instanceof RetryAutopilotUpgradeClusterTaskRequest) {
+                    clusterId = retryAutopilotUpgradeClusterTaskRequest.clusterId;
+                } else {
+                    clusterId = retryAutopilotUpgradeClusterTaskRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling retryAutopilotUpgradeClusterTask.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将插件实例回滚到升级前的版本。只有在当前插件实例版本支持回滚到升级前的版本（status.isRollbackable为true），且插件实例状态为running（运行中）、available（可用）、abnormal（不可用）、upgradeFailed（升级失败）、rollbackFailed（回滚失败）时支持回滚。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rollbackAutopilotAddonInstance(rollbackAutopilotAddonInstanceRequest?: RollbackAutopilotAddonInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/addons/{id}/operation/rollback",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (rollbackAutopilotAddonInstanceRequest !== null && rollbackAutopilotAddonInstanceRequest !== undefined) {
+                if (rollbackAutopilotAddonInstanceRequest instanceof RollbackAutopilotAddonInstanceRequest) {
+                    id = rollbackAutopilotAddonInstanceRequest.id;
+                    body = rollbackAutopilotAddonInstanceRequest.body
+                } else {
+                    id = rollbackAutopilotAddonInstanceRequest['id'];
+                    body = rollbackAutopilotAddonInstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling rollbackAutopilotAddonInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取插件实例详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotAddonInstance(showAutopilotAddonInstanceRequest?: ShowAutopilotAddonInstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/addons/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let id;
+            
+            let clusterId;
+
+            if (showAutopilotAddonInstanceRequest !== null && showAutopilotAddonInstanceRequest !== undefined) {
+                if (showAutopilotAddonInstanceRequest instanceof ShowAutopilotAddonInstanceRequest) {
+                    contentType = showAutopilotAddonInstanceRequest.contentType;
+                    id = showAutopilotAddonInstanceRequest.id;
+                    clusterId = showAutopilotAddonInstanceRequest.clusterId;
+                } else {
+                    contentType = showAutopilotAddonInstanceRequest['Content-Type'];
+                    id = showAutopilotAddonInstanceRequest['id'];
+                    clusterId = showAutopilotAddonInstanceRequest['cluster_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showAutopilotAddonInstance.');
+            }
+            if (clusterId !== null && clusterId !== undefined) {
+                localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotChart(showAutopilotChartRequest?: ShowAutopilotChartRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/charts/{chart_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let chartId;
+            
+            let contentType;
+
+            if (showAutopilotChartRequest !== null && showAutopilotChartRequest !== undefined) {
+                if (showAutopilotChartRequest instanceof ShowAutopilotChartRequest) {
+                    chartId = showAutopilotChartRequest.chartId;
+                    contentType = showAutopilotChartRequest.contentType;
+                } else {
+                    chartId = showAutopilotChartRequest['chart_id'];
+                    contentType = showAutopilotChartRequest['Content-Type'];
+                }
+            }
+
+        
+            if (chartId === null || chartId === undefined) {
+            throw new RequiredError('chartId','Required parameter chartId was null or undefined when calling showAutopilotChart.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'chart_id': chartId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取模板Values
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotChartValues(showAutopilotChartValuesRequest?: ShowAutopilotChartValuesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/charts/{chart_id}/values",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let chartId;
+            
+            let contentType;
+
+            if (showAutopilotChartValuesRequest !== null && showAutopilotChartValuesRequest !== undefined) {
+                if (showAutopilotChartValuesRequest instanceof ShowAutopilotChartValuesRequest) {
+                    chartId = showAutopilotChartValuesRequest.chartId;
+                    contentType = showAutopilotChartValuesRequest.contentType;
+                } else {
+                    chartId = showAutopilotChartValuesRequest['chart_id'];
+                    contentType = showAutopilotChartValuesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (chartId === null || chartId === undefined) {
+            throw new RequiredError('chartId','Required parameter chartId was null or undefined when calling showAutopilotChartValues.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'chart_id': chartId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定集群的详细信息。
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotCluster(showAutopilotClusterRequest?: ShowAutopilotClusterRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let contentType;
+            
+            let detail;
+
+            if (showAutopilotClusterRequest !== null && showAutopilotClusterRequest !== undefined) {
+                if (showAutopilotClusterRequest instanceof ShowAutopilotClusterRequest) {
+                    clusterId = showAutopilotClusterRequest.clusterId;
+                    contentType = showAutopilotClusterRequest.contentType;
+                    detail = showAutopilotClusterRequest.detail;
+                } else {
+                    clusterId = showAutopilotClusterRequest['cluster_id'];
+                    contentType = showAutopilotClusterRequest['Content-Type'];
+                    detail = showAutopilotClusterRequest['detail'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotCluster.');
+            }
+            if (detail !== null && detail !== undefined) {
+                localVarQueryParameter['detail'] = detail;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotClusterEndpoints(showAutopilotClusterEndpointsRequest?: ShowAutopilotClusterEndpointsRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/openapi",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (showAutopilotClusterEndpointsRequest !== null && showAutopilotClusterEndpointsRequest !== undefined) {
+                if (showAutopilotClusterEndpointsRequest instanceof ShowAutopilotClusterEndpointsRequest) {
+                    clusterId = showAutopilotClusterEndpointsRequest.clusterId;
+                    contentType = showAutopilotClusterEndpointsRequest.contentType;
+                } else {
+                    clusterId = showAutopilotClusterEndpointsRequest['cluster_id'];
+                    contentType = showAutopilotClusterEndpointsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotClusterEndpoints.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级相关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotClusterUpgradeInfo(showAutopilotClusterUpgradeInfoRequest?: ShowAutopilotClusterUpgradeInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/upgradeinfo",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showAutopilotClusterUpgradeInfoRequest !== null && showAutopilotClusterUpgradeInfoRequest !== undefined) {
+                if (showAutopilotClusterUpgradeInfoRequest instanceof ShowAutopilotClusterUpgradeInfoRequest) {
+                    clusterId = showAutopilotClusterUpgradeInfoRequest.clusterId;
+                } else {
+                    clusterId = showAutopilotClusterUpgradeInfoRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotClusterUpgradeInfo.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
+         * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
+         * &gt; - 该接口通常使用场景为：
+         * &gt;   - 创建、删除集群时，查询相应任务的进度。
+         * &gt;   - 创建、删除节点时，查询相应任务的进度。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotJob(showAutopilotJobRequest?: ShowAutopilotJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let contentType;
+
+            if (showAutopilotJobRequest !== null && showAutopilotJobRequest !== undefined) {
+                if (showAutopilotJobRequest instanceof ShowAutopilotJobRequest) {
+                    jobId = showAutopilotJobRequest.jobId;
+                    contentType = showAutopilotJobRequest.contentType;
+                } else {
+                    jobId = showAutopilotJobRequest['job_id'];
+                    contentType = showAutopilotJobRequest['Content-Type'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAutopilotJob.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级前检查任务详情，任务ID由调用集群检查API后从响应体中uid字段获取。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotPreCheck(showAutopilotPreCheckRequest?: ShowAutopilotPreCheckRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/precheck/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let taskId;
+
+            if (showAutopilotPreCheckRequest !== null && showAutopilotPreCheckRequest !== undefined) {
+                if (showAutopilotPreCheckRequest instanceof ShowAutopilotPreCheckRequest) {
+                    clusterId = showAutopilotPreCheckRequest.clusterId;
+                    taskId = showAutopilotPreCheckRequest.taskId;
+                } else {
+                    clusterId = showAutopilotPreCheckRequest['cluster_id'];
+                    taskId = showAutopilotPreCheckRequest['task_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotPreCheck.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showAutopilotPreCheck.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询CCE服务下的资源配额。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotQuotas(showAutopilotQuotasRequest?: ShowAutopilotQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (showAutopilotQuotasRequest !== null && showAutopilotQuotasRequest !== undefined) {
+                if (showAutopilotQuotasRequest instanceof ShowAutopilotQuotasRequest) {
+                    contentType = showAutopilotQuotasRequest.contentType;
+                } else {
+                    contentType = showAutopilotQuotasRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定模板实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotRelease(showAutopilotReleaseRequest?: ShowAutopilotReleaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/namespace/{namespace}/releases/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let name;
+            
+            let namespace;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (showAutopilotReleaseRequest !== null && showAutopilotReleaseRequest !== undefined) {
+                if (showAutopilotReleaseRequest instanceof ShowAutopilotReleaseRequest) {
+                    name = showAutopilotReleaseRequest.name;
+                    namespace = showAutopilotReleaseRequest.namespace;
+                    contentType = showAutopilotReleaseRequest.contentType;
+                    clusterId = showAutopilotReleaseRequest.clusterId;
+                } else {
+                    name = showAutopilotReleaseRequest['name'];
+                    namespace = showAutopilotReleaseRequest['namespace'];
+                    contentType = showAutopilotReleaseRequest['Content-Type'];
+                    clusterId = showAutopilotReleaseRequest['cluster_id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling showAutopilotRelease.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling showAutopilotRelease.');
+            }
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotRelease.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'name': name,'namespace': namespace,'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定模板实例历史记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotReleaseHistory(showAutopilotReleaseHistoryRequest?: ShowAutopilotReleaseHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/namespace/{namespace}/releases/{name}/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let name;
+            
+            let namespace;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (showAutopilotReleaseHistoryRequest !== null && showAutopilotReleaseHistoryRequest !== undefined) {
+                if (showAutopilotReleaseHistoryRequest instanceof ShowAutopilotReleaseHistoryRequest) {
+                    name = showAutopilotReleaseHistoryRequest.name;
+                    namespace = showAutopilotReleaseHistoryRequest.namespace;
+                    contentType = showAutopilotReleaseHistoryRequest.contentType;
+                    clusterId = showAutopilotReleaseHistoryRequest.clusterId;
+                } else {
+                    name = showAutopilotReleaseHistoryRequest['name'];
+                    namespace = showAutopilotReleaseHistoryRequest['namespace'];
+                    contentType = showAutopilotReleaseHistoryRequest['Content-Type'];
+                    clusterId = showAutopilotReleaseHistoryRequest['cluster_id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling showAutopilotReleaseHistory.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling showAutopilotReleaseHistory.');
+            }
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotReleaseHistory.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'name': name,'namespace': namespace,'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotUpgradeClusterTask(showAutopilotUpgradeClusterTaskRequest?: ShowAutopilotUpgradeClusterTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let taskId;
+
+            if (showAutopilotUpgradeClusterTaskRequest !== null && showAutopilotUpgradeClusterTaskRequest !== undefined) {
+                if (showAutopilotUpgradeClusterTaskRequest instanceof ShowAutopilotUpgradeClusterTaskRequest) {
+                    clusterId = showAutopilotUpgradeClusterTaskRequest.clusterId;
+                    taskId = showAutopilotUpgradeClusterTaskRequest.taskId;
+                } else {
+                    clusterId = showAutopilotUpgradeClusterTaskRequest['cluster_id'];
+                    taskId = showAutopilotUpgradeClusterTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotUpgradeClusterTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showAutopilotUpgradeClusterTask.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于通过升级引导任务ID获取任务的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotUpgradeWorkFlow(showAutopilotUpgradeWorkFlowRequest?: ShowAutopilotUpgradeWorkFlowRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows/{upgrade_workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let upgradeWorkflowId;
+            
+            let contentType;
+
+            if (showAutopilotUpgradeWorkFlowRequest !== null && showAutopilotUpgradeWorkFlowRequest !== undefined) {
+                if (showAutopilotUpgradeWorkFlowRequest instanceof ShowAutopilotUpgradeWorkFlowRequest) {
+                    clusterId = showAutopilotUpgradeWorkFlowRequest.clusterId;
+                    upgradeWorkflowId = showAutopilotUpgradeWorkFlowRequest.upgradeWorkflowId;
+                    contentType = showAutopilotUpgradeWorkFlowRequest.contentType;
+                } else {
+                    clusterId = showAutopilotUpgradeWorkFlowRequest['cluster_id'];
+                    upgradeWorkflowId = showAutopilotUpgradeWorkFlowRequest['upgrade_workflow_id'];
+                    contentType = showAutopilotUpgradeWorkFlowRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotUpgradeWorkFlow.');
+            }
+            if (upgradeWorkflowId === null || upgradeWorkflowId === undefined) {
+            throw new RequiredError('upgradeWorkflowId','Required parameter upgradeWorkflowId was null or undefined when calling showAutopilotUpgradeWorkFlow.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_workflow_id': upgradeWorkflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取用户模板配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotUserChartsQuotas(showAutopilotUserChartsQuotasRequest?: ShowAutopilotUserChartsQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/charts/{project_id}/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (showAutopilotUserChartsQuotasRequest !== null && showAutopilotUserChartsQuotasRequest !== undefined) {
+                if (showAutopilotUserChartsQuotasRequest instanceof ShowAutopilotUserChartsQuotasRequest) {
+                    contentType = showAutopilotUserChartsQuotasRequest.contentType;
+                } else {
+                    contentType = showAutopilotUserChartsQuotasRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新插件实例的功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotAddonInstance(updateAutopilotAddonInstanceRequest?: UpdateAutopilotAddonInstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v3/addons/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+            
+            let contentType;
+
+            if (updateAutopilotAddonInstanceRequest !== null && updateAutopilotAddonInstanceRequest !== undefined) {
+                if (updateAutopilotAddonInstanceRequest instanceof UpdateAutopilotAddonInstanceRequest) {
+                    id = updateAutopilotAddonInstanceRequest.id;
+                    contentType = updateAutopilotAddonInstanceRequest.contentType;
+                    body = updateAutopilotAddonInstanceRequest.body
+                } else {
+                    id = updateAutopilotAddonInstanceRequest['id'];
+                    contentType = updateAutopilotAddonInstanceRequest['Content-Type'];
+                    body = updateAutopilotAddonInstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateAutopilotAddonInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotChart(updateAutopilotChartRequest?: UpdateAutopilotChartRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v2/charts/{chart_id}",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let chartId;
+            
+            let contentType;
+            let content;
+            
+            let parameters;
+            
+
+            if (updateAutopilotChartRequest !== null && updateAutopilotChartRequest !== undefined) {
+                if (updateAutopilotChartRequest instanceof UpdateAutopilotChartRequest) {
+                    chartId = updateAutopilotChartRequest.chartId;
+                    contentType = updateAutopilotChartRequest.contentType;
+                    content = updateAutopilotChartRequest.body?.content;
+                    parameters = updateAutopilotChartRequest.body?.parameters;
+                } else {
+                    chartId = updateAutopilotChartRequest['chart_id'];
+                    contentType = updateAutopilotChartRequest['Content-Type'];
+                    content = updateAutopilotChartRequest['body']['content'];
+                    parameters = updateAutopilotChartRequest['body']['parameters'];
+                }
+            }
+
+        
+            if (chartId === null || chartId === undefined) {
+            throw new RequiredError('chartId','Required parameter chartId was null or undefined when calling updateAutopilotChart.');
+            }
+            if (content === null || content === undefined) {
+            throw new RequiredError('content','Required parameter content was null or undefined when calling updateAutopilotChart.');
+            }
+            if (parameters !== undefined) { 
+                localVarFormParams.append('parameters', parameters as any);
+            }
+            if (content !== undefined) { 
+                localVarFormParams.append('content', content as any);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'chart_id': chartId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新指定的集群。
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotCluster(updateAutopilotClusterRequest?: UpdateAutopilotClusterRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (updateAutopilotClusterRequest !== null && updateAutopilotClusterRequest !== undefined) {
+                if (updateAutopilotClusterRequest instanceof UpdateAutopilotClusterRequest) {
+                    clusterId = updateAutopilotClusterRequest.clusterId;
+                    contentType = updateAutopilotClusterRequest.contentType;
+                    body = updateAutopilotClusterRequest.body
+                } else {
+                    clusterId = updateAutopilotClusterRequest['cluster_id'];
+                    contentType = updateAutopilotClusterRequest['Content-Type'];
+                    body = updateAutopilotClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新指定模板实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotRelease(updateAutopilotReleaseRequest?: UpdateAutopilotReleaseRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/cam/v3/clusters/{cluster_id}/namespace/{namespace}/releases/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let name;
+            
+            let namespace;
+            
+            let contentType;
+            
+            let clusterId;
+
+            if (updateAutopilotReleaseRequest !== null && updateAutopilotReleaseRequest !== undefined) {
+                if (updateAutopilotReleaseRequest instanceof UpdateAutopilotReleaseRequest) {
+                    name = updateAutopilotReleaseRequest.name;
+                    namespace = updateAutopilotReleaseRequest.namespace;
+                    contentType = updateAutopilotReleaseRequest.contentType;
+                    clusterId = updateAutopilotReleaseRequest.clusterId;
+                    body = updateAutopilotReleaseRequest.body
+                } else {
+                    name = updateAutopilotReleaseRequest['name'];
+                    namespace = updateAutopilotReleaseRequest['namespace'];
+                    contentType = updateAutopilotReleaseRequest['Content-Type'];
+                    clusterId = updateAutopilotReleaseRequest['cluster_id'];
+                    body = updateAutopilotReleaseRequest['body'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling updateAutopilotRelease.');
+            }
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling updateAutopilotRelease.');
+            }
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotRelease.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'name': name,'namespace': namespace,'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群升级。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeAutopilotCluster(upgradeAutopilotClusterRequest?: UpgradeAutopilotClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (upgradeAutopilotClusterRequest !== null && upgradeAutopilotClusterRequest !== undefined) {
+                if (upgradeAutopilotClusterRequest instanceof UpgradeAutopilotClusterRequest) {
+                    clusterId = upgradeAutopilotClusterRequest.clusterId;
+                    body = upgradeAutopilotClusterRequest.body
+                } else {
+                    clusterId = upgradeAutopilotClusterRequest['cluster_id'];
+                    body = upgradeAutopilotClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeAutopilotCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新指定集群升级引导任务状态，当前仅适用于取消升级流程
+         * 调用该API时升级流程引导任务状态不能为进行中(running) 已完成(success) 已取消(cancel),升级子任务状态不能为running(进行中) init(已初始化) pause(任务被暂停) queue(队列中)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeAutopilotWorkFlowUpdate(upgradeAutopilotWorkFlowUpdateRequest?: UpgradeAutopilotWorkFlowUpdateRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgradeworkflows/{upgrade_workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let upgradeWorkflowId;
+            
+            let contentType;
+
+            if (upgradeAutopilotWorkFlowUpdateRequest !== null && upgradeAutopilotWorkFlowUpdateRequest !== undefined) {
+                if (upgradeAutopilotWorkFlowUpdateRequest instanceof UpgradeAutopilotWorkFlowUpdateRequest) {
+                    clusterId = upgradeAutopilotWorkFlowUpdateRequest.clusterId;
+                    upgradeWorkflowId = upgradeAutopilotWorkFlowUpdateRequest.upgradeWorkflowId;
+                    contentType = upgradeAutopilotWorkFlowUpdateRequest.contentType;
+                    body = upgradeAutopilotWorkFlowUpdateRequest.body
+                } else {
+                    clusterId = upgradeAutopilotWorkFlowUpdateRequest['cluster_id'];
+                    upgradeWorkflowId = upgradeAutopilotWorkFlowUpdateRequest['upgrade_workflow_id'];
+                    contentType = upgradeAutopilotWorkFlowUpdateRequest['Content-Type'];
+                    body = upgradeAutopilotWorkFlowUpdateRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeAutopilotWorkFlowUpdate.');
+            }
+            if (upgradeWorkflowId === null || upgradeWorkflowId === undefined) {
+            throw new RequiredError('upgradeWorkflowId','Required parameter upgradeWorkflowId was null or undefined when calling upgradeAutopilotWorkFlowUpdate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'upgrade_workflow_id': upgradeWorkflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadAutopilotChart(uploadAutopilotChartRequest?: UploadAutopilotChartRequest) {
+            const options = {
+                method: "POST",
+                url: "/autopilot/v2/charts",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let contentType;
+            let content;
+            
+            let parameters;
+            
+
+            if (uploadAutopilotChartRequest !== null && uploadAutopilotChartRequest !== undefined) {
+                if (uploadAutopilotChartRequest instanceof UploadAutopilotChartRequest) {
+                    contentType = uploadAutopilotChartRequest.contentType;
+                    content = uploadAutopilotChartRequest.body?.content;
+                    parameters = uploadAutopilotChartRequest.body?.parameters;
+                } else {
+                    contentType = uploadAutopilotChartRequest['Content-Type'];
+                    content = uploadAutopilotChartRequest['body']['content'];
+                    parameters = uploadAutopilotChartRequest['body']['parameters'];
+                }
+            }
+
+        
+            if (content === null || content === undefined) {
+            throw new RequiredError('content','Required parameter content was null or undefined when calling uploadAutopilotChart.');
+            }
+            if (parameters !== undefined) { 
+                localVarFormParams.append('parameters', parameters as any);
+            }
+            if (content !== undefined) { 
+                localVarFormParams.append('content', content as any);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
         },

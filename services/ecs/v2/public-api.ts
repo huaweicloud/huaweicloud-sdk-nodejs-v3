@@ -1,5 +1,6 @@
 export * from './EcsClient';
 
+export * from './model/ASICAcceleratorInfo';
 export * from './model/AddServerGroupMemberRequest';
 export * from './model/AddServerGroupMemberRequestBody';
 export * from './model/AddServerGroupMemberResponse';
@@ -107,6 +108,7 @@ export * from './model/FlavorExtraSpec';
 export * from './model/FlavorLink';
 export * from './model/FlavorSpotOptions';
 export * from './model/GetServerRemoteConsoleOption';
+export * from './model/GpuInfo';
 export * from './model/Hypervisor';
 export * from './model/InterfaceAttachableQuantity';
 export * from './model/InterfaceAttachment';

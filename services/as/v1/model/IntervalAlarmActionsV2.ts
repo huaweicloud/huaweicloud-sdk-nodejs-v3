@@ -6,6 +6,7 @@ export class IntervalAlarmActionsV2 {
     public size?: number;
     private 'lower_bound'?: number;
     private 'upper_bound'?: number;
+    public percentage?: number;
     public constructor() { 
     }
     public withOperation(operation: string): IntervalAlarmActionsV2 {
@@ -39,5 +40,9 @@ export class IntervalAlarmActionsV2 {
     }
     public get upperBound(): number | undefined {
         return this['upper_bound'];
+    }
+    public withPercentage(percentage: number): IntervalAlarmActionsV2 {
+        this['percentage'] = percentage;
+        return this;
     }
 }

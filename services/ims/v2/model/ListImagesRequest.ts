@@ -409,7 +409,8 @@ export enum ListImagesRequestPlatformEnum {
     FEDORA = 'Fedora',
     OTHER = 'Other',
     COREOS = 'CoreOS',
-    EULEROS = 'EulerOS'
+    EULEROS = 'EulerOS',
+    HUAWEI_CLOUD_EULEROS = 'Huawei Cloud EulerOS'
 }
 /**
     * @export

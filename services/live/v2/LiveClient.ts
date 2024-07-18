@@ -19,6 +19,8 @@ import { ListDomainTrafficSummaryRequest } from './model/ListDomainTrafficSummar
 import { ListDomainTrafficSummaryResponse } from './model/ListDomainTrafficSummaryResponse';
 import { ListHistoryStreamsRequest } from './model/ListHistoryStreamsRequest';
 import { ListHistoryStreamsResponse } from './model/ListHistoryStreamsResponse';
+import { ListPlayDomainStreamInfoRequest } from './model/ListPlayDomainStreamInfoRequest';
+import { ListPlayDomainStreamInfoResponse } from './model/ListPlayDomainStreamInfoResponse';
 import { ListQueryHttpCodeRequest } from './model/ListQueryHttpCodeRequest';
 import { ListQueryHttpCodeResponse } from './model/ListQueryHttpCodeResponse';
 import { ListRecordDataRequest } from './model/ListRecordDataRequest';
@@ -38,6 +40,7 @@ import { ListUpStreamDetailResponse } from './model/ListUpStreamDetailResponse';
 import { ListUsersOfStreamRequest } from './model/ListUsersOfStreamRequest';
 import { ListUsersOfStreamResponse } from './model/ListUsersOfStreamResponse';
 import { PeakBandwidthData } from './model/PeakBandwidthData';
+import { PlayDomainStreamInfo } from './model/PlayDomainStreamInfo';
 import { RecordData } from './model/RecordData';
 import { ShowStreamCountRequest } from './model/ShowStreamCountRequest';
 import { ShowStreamCountResponse } from './model/ShowStreamCountResponse';
@@ -456,6 +459,30 @@ export class LiveClient {
      */
     public showUpBandwidth(showUpBandwidthRequest?: ShowUpBandwidthRequest): Promise<ShowUpBandwidthResponse> {
         const options = ParamCreater().showUpBandwidth(showUpBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询播放域名下的监控数据，根据输入时间点，返回查询该时间点所有流的带宽、在线人数、协议。
+     * 
+     * 返回的数据粒度为1分钟。
+     * 
+     * 最大查询周期7天，数据延迟5分钟。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询播放域名下的流数据
+     * @param {string} time 查询数据的时间点，精确到分钟。  日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ，最大查询周期七天。  时间必须为时间粒度整时刻点，如：2024-02-02T08:01:00Z。 
+     * @param {Array<string>} [playDomains] 播放域名列表，最多支持查询10个域名，多个域名以逗号分隔。  如果不传入域名，则查询租户下所有播放域名的流数据。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPlayDomainStreamInfo(listPlayDomainStreamInfoRequest?: ListPlayDomainStreamInfoRequest): Promise<ListPlayDomainStreamInfoResponse> {
+        const options = ParamCreater().listPlayDomainStreamInfo(listPlayDomainStreamInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1744,6 +1771,57 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询播放域名下的监控数据，根据输入时间点，返回查询该时间点所有流的带宽、在线人数、协议。
+         * 
+         * 返回的数据粒度为1分钟。
+         * 
+         * 最大查询周期7天，数据延迟5分钟。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPlayDomainStreamInfo(listPlayDomainStreamInfoRequest?: ListPlayDomainStreamInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/stats/stream/play-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let time;
+            
+            let playDomains;
+
+            if (listPlayDomainStreamInfoRequest !== null && listPlayDomainStreamInfoRequest !== undefined) {
+                if (listPlayDomainStreamInfoRequest instanceof ListPlayDomainStreamInfoRequest) {
+                    time = listPlayDomainStreamInfoRequest.time;
+                    playDomains = listPlayDomainStreamInfoRequest.playDomains;
+                } else {
+                    time = listPlayDomainStreamInfoRequest['time'];
+                    playDomains = listPlayDomainStreamInfoRequest['play_domains'];
+                }
+            }
+
+        
+            if (time === null || time === undefined) {
+                throw new RequiredError('time','Required parameter time was null or undefined when calling listPlayDomainStreamInfo.');
+            }
+            if (time !== null && time !== undefined) {
+                localVarQueryParameter['time'] = time;
+            }
+            if (playDomains !== null && playDomains !== undefined) {
+                localVarQueryParameter['play_domains'] = playDomains;
             }
 
             options.queryParams = localVarQueryParameter;

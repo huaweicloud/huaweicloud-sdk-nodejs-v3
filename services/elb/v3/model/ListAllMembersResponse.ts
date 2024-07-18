@@ -1,4 +1,4 @@
-import { Member } from './Member';
+import { MemberInfo } from './MemberInfo';
 import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListAllMembersResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'page_info'?: PageInfo;
-    public members?: Array<Member>;
+    public members?: Array<MemberInfo>;
     public constructor() { 
         super();
     }
@@ -30,7 +30,7 @@ export class ListAllMembersResponse extends SdkResponse {
     public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
-    public withMembers(members: Array<Member>): ListAllMembersResponse {
+    public withMembers(members: Array<MemberInfo>): ListAllMembersResponse {
         this['members'] = members;
         return this;
     }

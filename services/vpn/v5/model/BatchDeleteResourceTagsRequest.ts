@@ -42,5 +42,6 @@ export class BatchDeleteResourceTagsRequest {
 export enum BatchDeleteResourceTagsRequestResourceTypeEnum {
     VPN_GATEWAY = 'vpn-gateway',
     VPN_CONNECTION = 'vpn-connection',
-    CUSTOMER_GATEWAY = 'customer-gateway'
+    CUSTOMER_GATEWAY = 'customer-gateway',
+    P2C_VPN_GATEWAYS = 'p2c-vpn-gateways'
 }

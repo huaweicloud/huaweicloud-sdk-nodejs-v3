@@ -9,7 +9,7 @@ export class UpdateStartedConfigReqBody {
     public clientRecMode?: number;
     public allowOpenCamera?: number;
     public allowRename?: number;
-    public labelPermission?: number;
+    public isLock?: number;
     public freeShare?: number;
     public constructor() { 
     }
@@ -45,8 +45,8 @@ export class UpdateStartedConfigReqBody {
         this['allowRename'] = allowRename;
         return this;
     }
-    public withLabelPermission(labelPermission: number): UpdateStartedConfigReqBody {
-        this['labelPermission'] = labelPermission;
+    public withIsLock(isLock: number): UpdateStartedConfigReqBody {
+        this['isLock'] = isLock;
         return this;
     }
     public withFreeShare(freeShare: number): UpdateStartedConfigReqBody {

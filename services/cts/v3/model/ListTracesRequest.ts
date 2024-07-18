@@ -15,6 +15,8 @@ export class ListTracesRequest {
     private 'trace_id'?: string;
     private 'trace_name'?: string;
     private 'trace_rating'?: ListTracesRequestTraceRatingEnum | string;
+    private 'access_key_id'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor(traceType?: string) { 
         this['trace_type'] = traceType;
     }
@@ -127,6 +129,26 @@ export class ListTracesRequest {
     }
     public get traceRating(): ListTracesRequestTraceRatingEnum | string | undefined {
         return this['trace_rating'];
+    }
+    public withAccessKeyId(accessKeyId: string): ListTracesRequest {
+        this['access_key_id'] = accessKeyId;
+        return this;
+    }
+    public set accessKeyId(accessKeyId: string  | undefined) {
+        this['access_key_id'] = accessKeyId;
+    }
+    public get accessKeyId(): string | undefined {
+        return this['access_key_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListTracesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

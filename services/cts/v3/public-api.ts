@@ -1,5 +1,6 @@
 export * from './CtsClient';
 
+export * from './model/Attributes';
 export * from './model/BaseUser';
 export * from './model/BatchCreateResourceTagsRequest';
 export * from './model/BatchCreateResourceTagsRequestBody';
@@ -49,6 +50,7 @@ export * from './model/NotificationUsers';
 export * from './model/NotificationsResponseBody';
 export * from './model/ObsInfo';
 export * from './model/Operations';
+export * from './model/SessionContext';
 export * from './model/Tags';
 export * from './model/TraceResource';
 export * from './model/Traces';

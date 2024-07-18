@@ -322,7 +322,12 @@ export enum CreateJobReqNetTypeEnum {
     * @enum {string}
     */
 export enum CreateJobReqNodeTypeEnum {
-    HIGH = 'high'
+    MICRO = 'micro',
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    HIGH = 'high',
+    XLARGE = 'xlarge',
+    E_2XLARGE = '2xlarge'
 }
 /**
     * @export

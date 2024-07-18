@@ -10,8 +10,12 @@ import { BatchCreateVolumeTagsResponse } from './model/BatchCreateVolumeTagsResp
 import { BatchDeleteVolumeTagsRequest } from './model/BatchDeleteVolumeTagsRequest';
 import { BatchDeleteVolumeTagsRequestBody } from './model/BatchDeleteVolumeTagsRequestBody';
 import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResponse';
+import { BssParam2 } from './model/BssParam2';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
+import { ChangeVolumeChargeModeRequest } from './model/ChangeVolumeChargeModeRequest';
+import { ChangeVolumeChargeModeRequestBody } from './model/ChangeVolumeChargeModeRequestBody';
+import { ChangeVolumeChargeModeResponse } from './model/ChangeVolumeChargeModeResponse';
 import { CinderAcceptVolumeTransferOption } from './model/CinderAcceptVolumeTransferOption';
 import { CinderAcceptVolumeTransferRequest } from './model/CinderAcceptVolumeTransferRequest';
 import { CinderAcceptVolumeTransferRequestBody } from './model/CinderAcceptVolumeTransferRequestBody';
@@ -114,6 +118,11 @@ import { SubJobEntities } from './model/SubJobEntities';
 import { Tag } from './model/Tag';
 import { TagsForListVolumes } from './model/TagsForListVolumes';
 import { Throughput } from './model/Throughput';
+import { UnsubscribePostpaidVolumeRequest } from './model/UnsubscribePostpaidVolumeRequest';
+import { UnsubscribePostpaidVolumeResponse } from './model/UnsubscribePostpaidVolumeResponse';
+import { UnsubscribeVolume } from './model/UnsubscribeVolume';
+import { UnsubscribeVolumeRequestBody } from './model/UnsubscribeVolumeRequestBody';
+import { UnsubscribeVolumeResponseBody } from './model/UnsubscribeVolumeResponseBody';
 import { UpdateSnapshotOption } from './model/UpdateSnapshotOption';
 import { UpdateSnapshotRequest } from './model/UpdateSnapshotRequest';
 import { UpdateSnapshotRequestBody } from './model/UpdateSnapshotRequestBody';
@@ -183,6 +192,25 @@ export class EvsClient {
      */
     public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<BatchDeleteVolumeTagsResponse> {
         const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将挂载状态下的云硬盘的计费模式有按需转成包周期，且到期时间和挂载的虚拟机保持一致。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改云硬盘计费模式
+     * @param {ChangeVolumeChargeModeRequestBody} changeVolumeChargeModeRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeVolumeChargeMode(changeVolumeChargeModeRequest?: ChangeVolumeChargeModeRequest): Promise<ChangeVolumeChargeModeResponse> {
+        const options = ParamCreater().changeVolumeChargeMode(changeVolumeChargeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -670,6 +698,27 @@ export class EvsClient {
     }
 
     /**
+     * 退订包周期计费模式的云硬盘，有如下约束：
+     * -  系统盘、启动盘不可使用当前接口退订，必须和弹性云服务器一起退订
+     * -  接口的请求body体最多可以传60个云硬盘id
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 退订包周期计费模式的云硬盘
+     * @param {UnsubscribeVolumeRequestBody} unsubscribePostpaidVolumeRequestBody 要退订的包周期云硬盘列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest?: UnsubscribePostpaidVolumeRequest): Promise<UnsubscribePostpaidVolumeResponse> {
+        const options = ParamCreater().unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新云硬盘快照。支持企业项目授权功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -841,6 +890,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将挂载状态下的云硬盘的计费模式有按需转成包周期，且到期时间和挂载的虚拟机保持一致。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeVolumeChargeMode(changeVolumeChargeModeRequest?: ChangeVolumeChargeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/cloudvolumes/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeVolumeChargeModeRequest !== null && changeVolumeChargeModeRequest !== undefined) {
+                if (changeVolumeChargeModeRequest instanceof ChangeVolumeChargeModeRequest) {
+                    body = changeVolumeChargeModeRequest.body
+                } else {
+                    body = changeVolumeChargeModeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1903,6 +1990,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 退订包周期计费模式的云硬盘，有如下约束：
+         * -  系统盘、启动盘不可使用当前接口退订，必须和弹性云服务器一起退订
+         * -  接口的请求body体最多可以传60个云硬盘id
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest?: UnsubscribePostpaidVolumeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/cloudvolumes/unsubscribe",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (unsubscribePostpaidVolumeRequest !== null && unsubscribePostpaidVolumeRequest !== undefined) {
+                if (unsubscribePostpaidVolumeRequest instanceof UnsubscribePostpaidVolumeRequest) {
+                    body = unsubscribePostpaidVolumeRequest.body
+                } else {
+                    body = unsubscribePostpaidVolumeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

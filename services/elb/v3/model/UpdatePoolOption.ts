@@ -1,4 +1,5 @@
 import { ConnectionDrain } from './ConnectionDrain';
+import { PoolHealth } from './PoolHealth';
 import { UpdatePoolSessionPersistenceOption } from './UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './UpdatePoolSlowStartOption';
 
@@ -17,6 +18,7 @@ export class UpdatePoolOption {
     private 'protection_reason'?: string;
     private 'any_port_enable'?: boolean;
     private 'connection_drain'?: ConnectionDrain;
+    private 'pool_health'?: PoolHealth;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -130,6 +132,16 @@ export class UpdatePoolOption {
     }
     public get connectionDrain(): ConnectionDrain | undefined {
         return this['connection_drain'];
+    }
+    public withPoolHealth(poolHealth: PoolHealth): UpdatePoolOption {
+        this['pool_health'] = poolHealth;
+        return this;
+    }
+    public set poolHealth(poolHealth: PoolHealth  | undefined) {
+        this['pool_health'] = poolHealth;
+    }
+    public get poolHealth(): PoolHealth | undefined {
+        return this['pool_health'];
     }
 }
 

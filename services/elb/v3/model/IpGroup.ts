@@ -3,40 +3,35 @@ import { ListenerRef } from './ListenerRef';
 
 
 export class IpGroup {
-    private 'created_at'?: string;
-    public description?: string;
     public id?: string;
+    public name?: string;
+    public description?: string;
     private 'ip_list'?: Array<IpInfo>;
     public listeners?: Array<ListenerRef>;
-    public name?: string;
     private 'project_id'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'created_at'?: string;
     private 'updated_at'?: string;
-    public constructor(createdAt?: string, description?: string, id?: string, ipList?: Array<IpInfo>, listeners?: Array<ListenerRef>, name?: string, projectId?: string, updatedAt?: string) { 
-        this['created_at'] = createdAt;
-        this['description'] = description;
+    public constructor(id?: string, name?: string, description?: string, ipList?: Array<IpInfo>, listeners?: Array<ListenerRef>, projectId?: string, createdAt?: string, updatedAt?: string) { 
         this['id'] = id;
+        this['name'] = name;
+        this['description'] = description;
         this['ip_list'] = ipList;
         this['listeners'] = listeners;
-        this['name'] = name;
         this['project_id'] = projectId;
+        this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
-    }
-    public withCreatedAt(createdAt: string): IpGroup {
-        this['created_at'] = createdAt;
-        return this;
-    }
-    public set createdAt(createdAt: string  | undefined) {
-        this['created_at'] = createdAt;
-    }
-    public get createdAt(): string | undefined {
-        return this['created_at'];
-    }
-    public withDescription(description: string): IpGroup {
-        this['description'] = description;
-        return this;
     }
     public withId(id: string): IpGroup {
         this['id'] = id;
+        return this;
+    }
+    public withName(name: string): IpGroup {
+        this['name'] = name;
+        return this;
+    }
+    public withDescription(description: string): IpGroup {
+        this['description'] = description;
         return this;
     }
     public withIpList(ipList: Array<IpInfo>): IpGroup {
@@ -53,10 +48,6 @@ export class IpGroup {
         this['listeners'] = listeners;
         return this;
     }
-    public withName(name: string): IpGroup {
-        this['name'] = name;
-        return this;
-    }
     public withProjectId(projectId: string): IpGroup {
         this['project_id'] = projectId;
         return this;
@@ -66,6 +57,26 @@ export class IpGroup {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): IpGroup {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withCreatedAt(createdAt: string): IpGroup {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): string | undefined {
+        return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): IpGroup {
         this['updated_at'] = updatedAt;

@@ -43,6 +43,9 @@ import { ConnectionDrain } from './model/ConnectionDrain';
 import { CountPreoccupyIpNumRequest } from './model/CountPreoccupyIpNumRequest';
 import { CountPreoccupyIpNumResponse } from './model/CountPreoccupyIpNumResponse';
 import { CreateCertificateOption } from './model/CreateCertificateOption';
+import { CreateCertificatePrivateKeyEchoRequest } from './model/CreateCertificatePrivateKeyEchoRequest';
+import { CreateCertificatePrivateKeyEchoRequestBody } from './model/CreateCertificatePrivateKeyEchoRequestBody';
+import { CreateCertificatePrivateKeyEchoResponse } from './model/CreateCertificatePrivateKeyEchoResponse';
 import { CreateCertificateRequest } from './model/CreateCertificateRequest';
 import { CreateCertificateRequestBody } from './model/CreateCertificateRequestBody';
 import { CreateCertificateResponse } from './model/CreateCertificateResponse';
@@ -51,6 +54,8 @@ import { CreateHealthMonitorOption } from './model/CreateHealthMonitorOption';
 import { CreateHealthMonitorRequest } from './model/CreateHealthMonitorRequest';
 import { CreateHealthMonitorRequestBody } from './model/CreateHealthMonitorRequestBody';
 import { CreateHealthMonitorResponse } from './model/CreateHealthMonitorResponse';
+import { CreateInsertHeaderConfig } from './model/CreateInsertHeaderConfig';
+import { CreateInsertHeadersConfig } from './model/CreateInsertHeadersConfig';
 import { CreateIpGroupIpOption } from './model/CreateIpGroupIpOption';
 import { CreateIpGroupOption } from './model/CreateIpGroupOption';
 import { CreateIpGroupRequest } from './model/CreateIpGroupRequest';
@@ -97,8 +102,12 @@ import { CreatePoolRequestBody } from './model/CreatePoolRequestBody';
 import { CreatePoolResponse } from './model/CreatePoolResponse';
 import { CreatePoolSessionPersistenceOption } from './model/CreatePoolSessionPersistenceOption';
 import { CreatePoolSlowStartOption } from './model/CreatePoolSlowStartOption';
+import { CreateRedirectPoolsConfig } from './model/CreateRedirectPoolsConfig';
 import { CreateRedirectPoolsExtendConfig } from './model/CreateRedirectPoolsExtendConfig';
+import { CreateRedirectPoolsStickySessionConfig } from './model/CreateRedirectPoolsStickySessionConfig';
 import { CreateRedirectUrlConfig } from './model/CreateRedirectUrlConfig';
+import { CreateRemoveHeaderConfig } from './model/CreateRemoveHeaderConfig';
+import { CreateRemoveHeadersConfig } from './model/CreateRemoveHeadersConfig';
 import { CreateRewriteUrlConfig } from './model/CreateRewriteUrlConfig';
 import { CreateRuleCondition } from './model/CreateRuleCondition';
 import { CreateRuleOption } from './model/CreateRuleOption';
@@ -106,6 +115,7 @@ import { CreateSecurityPolicyOption } from './model/CreateSecurityPolicyOption';
 import { CreateSecurityPolicyRequest } from './model/CreateSecurityPolicyRequest';
 import { CreateSecurityPolicyRequestBody } from './model/CreateSecurityPolicyRequestBody';
 import { CreateSecurityPolicyResponse } from './model/CreateSecurityPolicyResponse';
+import { CreateTrafficLimitConfig } from './model/CreateTrafficLimitConfig';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteHealthMonitorRequest } from './model/DeleteHealthMonitorRequest';
@@ -140,6 +150,8 @@ import { Flavor } from './model/Flavor';
 import { FlavorInfo } from './model/FlavorInfo';
 import { GlobalEipInfo } from './model/GlobalEipInfo';
 import { HealthMonitor } from './model/HealthMonitor';
+import { InsertHeaderConfig } from './model/InsertHeaderConfig';
+import { InsertHeadersConfig } from './model/InsertHeadersConfig';
 import { IpGroup } from './model/IpGroup';
 import { IpGroupIp } from './model/IpGroupIp';
 import { IpInfo } from './model/IpInfo';
@@ -202,10 +214,12 @@ import { MasterSlaveHealthMonitor } from './model/MasterSlaveHealthMonitor';
 import { MasterSlaveMember } from './model/MasterSlaveMember';
 import { MasterSlavePool } from './model/MasterSlavePool';
 import { Member } from './model/Member';
+import { MemberInfo } from './model/MemberInfo';
 import { MemberRef } from './model/MemberRef';
 import { MemberStatus } from './model/MemberStatus';
 import { PageInfo } from './model/PageInfo';
 import { Pool } from './model/Pool';
+import { PoolHealth } from './model/PoolHealth';
 import { PoolRef } from './model/PoolRef';
 import { PortRange } from './model/PortRange';
 import { PreoccupyIp } from './model/PreoccupyIp';
@@ -215,14 +229,20 @@ import { PrepaidUpdateOption } from './model/PrepaidUpdateOption';
 import { PublicIpInfo } from './model/PublicIpInfo';
 import { Quota } from './model/Quota';
 import { QuotaInfo } from './model/QuotaInfo';
+import { RedirectPoolsConfig } from './model/RedirectPoolsConfig';
 import { RedirectPoolsExtendConfig } from './model/RedirectPoolsExtendConfig';
+import { RedirectPoolsStickySessionConfig } from './model/RedirectPoolsStickySessionConfig';
 import { RedirectUrlConfig } from './model/RedirectUrlConfig';
+import { RemoveHeaderConfig } from './model/RemoveHeaderConfig';
+import { RemoveHeadersConfig } from './model/RemoveHeadersConfig';
 import { ResourceID } from './model/ResourceID';
 import { RewriteUrlConfig } from './model/RewriteUrlConfig';
 import { RuleCondition } from './model/RuleCondition';
 import { RuleRef } from './model/RuleRef';
 import { SecurityPolicy } from './model/SecurityPolicy';
 import { SessionPersistence } from './model/SessionPersistence';
+import { ShowCertificatePrivateKeyEchoRequest } from './model/ShowCertificatePrivateKeyEchoRequest';
+import { ShowCertificatePrivateKeyEchoResponse } from './model/ShowCertificatePrivateKeyEchoResponse';
 import { ShowCertificateRequest } from './model/ShowCertificateRequest';
 import { ShowCertificateResponse } from './model/ShowCertificateResponse';
 import { ShowFlavorRequest } from './model/ShowFlavorRequest';
@@ -256,6 +276,7 @@ import { ShowSecurityPolicyResponse } from './model/ShowSecurityPolicyResponse';
 import { SlowStart } from './model/SlowStart';
 import { SystemSecurityPolicy } from './model/SystemSecurityPolicy';
 import { Tag } from './model/Tag';
+import { TrafficLimitConfig } from './model/TrafficLimitConfig';
 import { UpadateIpGroupIpOption } from './model/UpadateIpGroupIpOption';
 import { UpdateCertificateOption } from './model/UpdateCertificateOption';
 import { UpdateCertificateRequest } from './model/UpdateCertificateRequest';
@@ -266,6 +287,8 @@ import { UpdateHealthMonitorOption } from './model/UpdateHealthMonitorOption';
 import { UpdateHealthMonitorRequest } from './model/UpdateHealthMonitorRequest';
 import { UpdateHealthMonitorRequestBody } from './model/UpdateHealthMonitorRequestBody';
 import { UpdateHealthMonitorResponse } from './model/UpdateHealthMonitorResponse';
+import { UpdateInsertHeaderConfig } from './model/UpdateInsertHeaderConfig';
+import { UpdateInsertHeadersConfig } from './model/UpdateInsertHeadersConfig';
 import { UpdateIpGroupOption } from './model/UpdateIpGroupOption';
 import { UpdateIpGroupRequest } from './model/UpdateIpGroupRequest';
 import { UpdateIpGroupRequestBody } from './model/UpdateIpGroupRequestBody';
@@ -307,13 +330,19 @@ import { UpdatePoolRequestBody } from './model/UpdatePoolRequestBody';
 import { UpdatePoolResponse } from './model/UpdatePoolResponse';
 import { UpdatePoolSessionPersistenceOption } from './model/UpdatePoolSessionPersistenceOption';
 import { UpdatePoolSlowStartOption } from './model/UpdatePoolSlowStartOption';
+import { UpdateRedirectPoolsConfig } from './model/UpdateRedirectPoolsConfig';
 import { UpdateRedirectPoolsExtendConfig } from './model/UpdateRedirectPoolsExtendConfig';
+import { UpdateRedirectPoolsStickySessionConfig } from './model/UpdateRedirectPoolsStickySessionConfig';
 import { UpdateRedirectUrlConfig } from './model/UpdateRedirectUrlConfig';
+import { UpdateRemoveHeaderConfig } from './model/UpdateRemoveHeaderConfig';
+import { UpdateRemoveHeadersConfig } from './model/UpdateRemoveHeadersConfig';
+import { UpdateRewriteUrlConfig } from './model/UpdateRewriteUrlConfig';
 import { UpdateRuleCondition } from './model/UpdateRuleCondition';
 import { UpdateSecurityPolicyOption } from './model/UpdateSecurityPolicyOption';
 import { UpdateSecurityPolicyRequest } from './model/UpdateSecurityPolicyRequest';
 import { UpdateSecurityPolicyRequestBody } from './model/UpdateSecurityPolicyRequestBody';
 import { UpdateSecurityPolicyResponse } from './model/UpdateSecurityPolicyResponse';
+import { UpdateTrafficLimitConfig } from './model/UpdateTrafficLimitConfig';
 
 export class ElbClient {
     public static newBuilder(): ClientBuilder<ElbClient> {
@@ -492,6 +521,25 @@ export class ElbClient {
     }
 
     /**
+     * 开启或关闭证书私钥字段回显开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改证书私钥字段回显开关
+     * @param {CreateCertificatePrivateKeyEchoRequestBody} createCertificatePrivateKeyEchoRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCertificatePrivateKeyEcho(createCertificatePrivateKeyEchoRequest?: CreateCertificatePrivateKeyEchoRequest): Promise<CreateCertificatePrivateKeyEchoResponse> {
+        const options = ParamCreater().createCertificatePrivateKeyEcho(createCertificatePrivateKeyEchoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建健康检查。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -569,22 +617,16 @@ export class ElbClient {
     }
 
     /**
-     * 创建负载均衡器。
-     * 1. 若要创建内网IPv4负载均衡器，则需要设置vip_subnet_cidr_id。
-     * 2. 若要创建公网IPv4负载均衡器，则需要设置publicip，以及设置vpc_id和vip_subnet_cidr_id这两个参数中的一个。
-     * 3. 若要绑定有已有公网IPv4地址，
-     * 则需要设置publicip_ids，以及设置vpc_id和vip_subnet_cidr_id这两个参数中的一个。
-     * 4. 若要创建内网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id。
-     * 5. 若要创建公网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id和ipv6_bandwidth。
-     * 6. 不支持绑定已有未使用的内网IPv4、内网IPv6或公网IPv6地址。
-     * 7. l4_flavor_id需要传入网络型规格id，l7_flavor_id需要传入应用型规格id。
-     * 
-     * [&gt; 关于计费：
-     * - 若billing_info非空时，包周期。
-     * - 若billing_info为空，autoscaling.enable&#x3D;true时，弹性计费。
-     * - 若billing_info为空，autoscaling.enable&#x3D;false或未设置，charge_mode&#x3D;lcu，按量计费。
-     * - 若billing_info为空，autoscaling.enable&#x3D;false或未设置，charge_mode&#x3D;flavor，固定规格按需计费。](tag:hws)
-     * [&gt; 不支持创建IPv6地址负载均衡器](tag:dt,dt_test)
+     * 创建独享型负载均衡器，包括按需及包周期计费负载均衡器。
+     * 1. 若要创建内网IPv4负载均衡器，则需要传入vip_subnet_cidr_id。
+     * 2. 若要创建公网IPv4负载均衡器，则需要传入publicip，以及传入vpc_id和vip_subnet_cidr_id这两个参数中的一个。
+     * 3. 若要绑定有已有公网IPv4地址，则需要传入publicip_ids，以及传入vpc_id和vip_subnet_cidr_id这两个参数中的一个。
+     * 4. 若要创建内网双栈负载均衡器，则需要传入ipv6_vip_virsubnet_id。
+     * 5. 若要创建公网双栈负载均衡器，则需要传入ipv6_vip_virsubnet_id和ipv6_bandwidth。
+     * 6. 若要创建网络型负载均衡器，则需要传入l4_flavor_id（网络型规格ID）；若要创建应用型负载均衡器，则需要传入l7_flavor_id（应用型规格ID）；若要创建网络型+应用型负载均衡器，则需要传入l4_flavor_id和l7_flavor_id。
+     * 7. 若要创建包周期负载均衡器，则需要传入prepaid_options，否则创建按需计费负载均衡器。
+     * 8. 按需计费分为固定规格计费和弹性规格计费，根据创建时所选规格的类型决定计费方式。具体规格说明见创建LB请求参数l4_flavor_id和l7_flavor_id。
+     * [9.若要创建gateway类型的负载均衡器，指定loadbalancer_type&#x3D;“gateway”，不支持指定vip_address，ipv6_vip_address, 不支持公网类型。如果要指定规格，则从请求参数gw_flavor_id传入。](tag:hws_eu)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -603,7 +645,7 @@ export class ElbClient {
     }
 
     /**
-     * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -682,7 +724,7 @@ export class ElbClient {
     /**
      * 创建自定义安全策略。用于在创建HTTPS监听器时，请求参数中指定security_policy_id来设置监听器的自定义安全策略。
      * 
-     * [荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+     * [荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -854,7 +896,7 @@ export class ElbClient {
     }
 
     /**
-     * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -931,7 +973,7 @@ export class ElbClient {
     }
 
     /**
-     * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+     * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -950,13 +992,13 @@ export class ElbClient {
     }
 
     /**
-     * 查询当前租户下的后端服务器列表。
+     * 查询当前项目下的后端服务器列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 后端服务器全局列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [name] 后端云服务器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<number>} [weight] 后端云服务器的权重，请求按权重在同一后端云服务器组下的后端云服务器间分发。 权重为0的后端不再接受新的请求。 当后端云服务器所在的后端云服务器组的lb_algorithm的取值为SOURCE_IP时，该字段无效。  支持多值查询，查询条件格式：*weight&#x3D;xxx&amp;weight&#x3D;xxx*。
@@ -1016,7 +1058,7 @@ export class ElbClient {
      *
      * @summary 查询证书列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 证书ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 证书的名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
@@ -1024,6 +1066,8 @@ export class ElbClient {
      * @param {boolean} [adminStateUp] 证书的管理状态。  不支持该字段，请勿使用。
      * @param {Array<string>} [domain] 服务器证书所签域名。该字段仅type为server时有效。  支持多值查询，查询条件格式：domain&#x3D;xxx&amp;domain&#x3D;xxx。
      * @param {Array<string>} [type] 证书的类型。分为服务器证书(server)和CA证书(client)。  支持多值查询，查询条件格式：type&#x3D;xxx&amp;type&#x3D;xxx。
+     * @param {Array<string>} [commonName] 证书的主域名。  支持多值查询，查询条件格式：common_name&#x3D;xxx&amp;common_name&#x3D;xxx。
+     * @param {Array<string>} [fingerprint] 证书的指纹。  支持多值查询，查询条件格式：fingerprint&#x3D;xxx&amp;fingerprint&#x3D;xxx。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1037,18 +1081,18 @@ export class ElbClient {
     }
 
     /**
-     * 查询租户在当前region下可用的负载均衡规格列表。
+     * 查询当前region下可用的负载均衡规格列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规格列表
-     * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
-     * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
-     * @param {Array<string>} [id] 规格ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
-     * @param {Array<string>} [name] 规格名称。   支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
-     * @param {Array<string>} [type] 规格类别。  取值： - L4和L7 表示四层网络型和七层应用型flavor。 - L4_elastic和L7_elastic 表示弹性扩缩容实例的下限规格。 - L4_elastic_max和L7_elastic_max 表示弹性扩缩容实例的上限规格。  支持多值查询，查询条件格式：*type&#x3D;xxx&amp;type&#x3D;xxx*。
-     * @param {boolean} [shared] 是否查询公共规格。true表示公共规格，所有租户可见。false表示私有规格，为当前租户所有。
+     * @param {string} [marker] 参数解释：上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
+     * @param {boolean} [pageReverse] 参数解释：是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
+     * @param {Array<string>} [id] 参数解释：规格ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
+     * @param {Array<string>} [name] 参数解释：规格名称。   支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
+     * @param {Array<string>} [type] 参数解释：规格类别。  取值： - L4和L7 表示四层网络型和七层应用型flavor。 [- gateway 表示网关型LB的flavor，目前只支持弹性计费类型。当前仅支持欧洲局点。](tag:hws_eu) - L4_elastic和L7_elastic 表示弹性扩缩容实例的下限规格。 - L4_elastic_max、L7_elastic_max[和gateway_elastic_max](tag:hws_eu) 表示弹性扩缩容实例的上限规格。  支持多值查询，查询条件格式：*type&#x3D;xxx&amp;type&#x3D;xxx*。
+     * @param {boolean} [shared] 参数解释：是否查询公共规格。  取值范围：true表示公共规格，所有租户可见。false表示私有规格，为当前租户所有。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1068,7 +1112,7 @@ export class ElbClient {
      *
      * @summary 查询健康检查列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 健康检查ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx****。
      * @param {Array<number>} [monitorPort] 健康检查端口号。  支持多值查询，查询条件格式：***monitor_port&#x3D;xxx&amp;monitor_port&#x3D;xxx***。
@@ -1079,10 +1123,10 @@ export class ElbClient {
      * @param {boolean} [adminStateUp] 健康检查的管理状态。  取值： - true：表示开启健康检查，默认为true。 - false表示关闭健康检查。
      * @param {Array<number>} [maxRetriesDown] 健康检查连续失败多少次后，将后端服务器的健康检查状态由ONLINE判定为OFFLINE。取值范围：1-10。  支持多值查询，查询条件格式：******max_retries_down&#x3D;xxx&amp;max_retries_down&#x3D;xxx******。
      * @param {number} [timeout] 一次健康检查请求的超时时间。
-     * @param {Array<string>} [type] 健康检查请求协议。  取值：TCP、UDP_CONNECT、HTTP、HTTPS。  支持多值查询，查询条件格式：*****type&#x3D;xxx&amp;type&#x3D;xxx*****。
-     * @param {Array<string>} [expectedCodes] 期望响应状态码。  取值： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。   默认值：200。  仅支持HTTP/HTTPS设置该字段，其他协议设置不会生效。  支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。
+     * @param {Array<string>} [type] 健康检查请求协议。  取值：TCP、UDP_CONNECT、HTTP、HTTPS、TLS和GRPC。  支持多值查询，查询条件格式：*****type&#x3D;xxx&amp;type&#x3D;xxx*****。
+     * @param {Array<string>} [expectedCodes] 期望响应状态码。  取值： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。   默认值：200。  仅支持HTTP/HTTPS/GRPC设置该字段，其他协议设置不会生效。  支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。
      * @param {Array<string>} [urlPath] 健康检查测试member健康时发送的http请求路径。默认为“/”。  使用说明：以“/”开头。当type为HTTP/HTTPS时生效。  支持多值查询，查询条件格式：***url_path&#x3D;xxx&amp;url_path&#x3D;xxx***。
-     * @param {Array<string>} [httpMethod] HTTP请求方法。  取值：GET、HEAD、POST、PUT、DELETE、TRACE、OPTIONS、CONNECT、PATCH。  支持多值查询，查询条件格式：**http_method&#x3D;xxx&amp;http_method&#x3D;xxx**。  不支持该字段，请勿使用。
+     * @param {Array<string>} [httpMethod] HTTP请求方法。  取值：GET、HEAD、POST。  支持多值查询，查询条件格式：**http_method&#x3D;xxx&amp;http_method&#x3D;xxx**。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权； 如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1103,7 +1147,7 @@ export class ElbClient {
      *
      * @summary 查询转发策略列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权； 如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<string>} [id] 转发策略ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
@@ -1138,7 +1182,7 @@ export class ElbClient {
      *
      * @summary 查询转发规则列表
      * @param {string} l7policyId 策略ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 转发规则ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
@@ -1168,15 +1212,15 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监听器列表
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
-     * @param {Array<string>} [protocolPort] 监听器的前端监听端口。  支持多值查询，查询条件格式：*protocol_port&#x3D;xxx&amp;protocol_port&#x3D;xxx*。
-     * @param {Array<string>} [protocol] 监听器的监听协议。  [取值：TCP、UDP、HTTP、HTTPS、TERMINATED_HTTPS、QUIC。  说明：TERMINATED_HTTPS为共享型LB上的监听器独有的协议。 ](tag:hws,hws_hk,ocb,ctc,hcs,g42,tm,cmcc,hk_g42,hws_ocb,fcs,dt)  [取值：TCP、UDP、HTTP、HTTPS。](tag:hws_eu,hcso_dt)  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC。](tag:tm,hws_eu,g42,hk_g42,hcso_dt,dt,dt_test)
+     * @param {Array<string>} [protocolPort] 监听器的前端监听端口。  [当监听器的protocol为IP时，前端端口固定为0。](tag:hws_eu) 支持多值查询，查询条件格式：*protocol_port&#x3D;xxx&amp;protocol_port&#x3D;xxx*。
+     * @param {Array<string>} [protocol] 监听器的监听协议。  [取值：TCP、UDP、HTTP、HTTPS、TERMINATED_HTTPS、QUIC、TLS。 说明：TERMINATED_HTTPS为共享型LB上的监听器独有的协议。](tag:hws,hws_hk,ocb,ctc,hcs,g42,tm,cmcc,hk_g42,hws_ocb,fcs,dt)  [取值：TCP、UDP、IP、HTTP、HTTPS。IP为网关型LB上的监听器独有的协议。](tag:hws_eu,hcso_dt)  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC。](tag:tm,hws_eu,g42,hk_g42,hcso_dt,dt,dt_test)
      * @param {Array<string>} [description] 监听器的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
      * @param {Array<string>} [defaultTlsContainerRef] 监听器的服务器证书ID。  支持多值查询，查询条件格式： *default_tls_container_ref&#x3D;xxx&amp;default_tls_container_ref&#x3D;xxx*。
      * @param {Array<string>} [clientCaTlsContainerRef] 监听器的CA证书ID。  支持多值查询，查询条件格式： *client_ca_tls_container_ref&#x3D;xxx&amp;client_ca_tls_container_ref&#x3D;xxx*。
-     * @param {boolean} [adminStateUp] 监听器的管理状态，只能设置为true。  不支持该字段，请勿使用。
+     * @param {boolean} [adminStateUp] 监听器的管理状态。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<number>} [connectionLimit] ​监听器的最大连接数。  取值：-1表示不限制连接数。  支持多值查询，查询条件格式：*connection_limit&#x3D;xxx&amp;connection_limit&#x3D;xxx*。  不支持该字段，请勿使用。
      * @param {Array<string>} [defaultPoolId] 监听器的默认后端云服务器组ID。当请求没有匹配的转发策略时，转发到默认后端云服务器上处理。  支持多值查询，查询条件格式：*default_pool_id&#x3D;xxx&amp;default_pool_id&#x3D;xxx*。
      * @param {Array<string>} [id] 监听器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
@@ -1190,10 +1234,10 @@ export class ElbClient {
      * @param {boolean} [enableMemberRetry] 是否开启后端服务器的重试。  取值：true 开启重试，false 不开启重试。
      * @param {Array<number>} [memberTimeout] 等待后端服务器响应超时时间。请求转发后端服务器后，在等待超时member_timeout时长没有响应，负载均衡将终止等待，并返回 HTTP504错误码。  取值：1-300s。  支持多值查询，查询条件格式：*member_timeout&#x3D;xxx&amp;member_timeout&#x3D;xxx*。
      * @param {Array<number>} [clientTimeout] 等待客户端请求超时时间，包括两种情况： - 读取整个客户端请求头的超时时长：如果客户端未在超时时长内发送完整个请求头，则请求将被中断 - 两个连续body体的数据包到达LB的时间间隔，超出client_timeout将会断开连接。  取值：1-300s。  支持多值查询，查询条件格式：*client_timeout&#x3D;xxx&amp;client_timeout&#x3D;xxx*。
-     * @param {Array<number>} [keepaliveTimeout] 客户端连接空闲超时时间。在超过keepalive_timeout时长一直没有请求， 负载均衡会暂时中断当前连接，直到下一次请求时重新建立新的连接。  取值： - TCP监听器：10-4000s。 - HTTP/HTTPS/TERMINATED_HTTPS监听器：0-4000s。 - 共享型实例的UDP监听器不支持此字段。  支持多值查询，查询条件格式：*keepalive_timeout&#x3D;xxx&amp;keepalive_timeout&#x3D;xxx*。
-     * @param {boolean} [transparentClientIpEnable] 是否透传客户端IP地址。开启后客户端IP地址将透传到后端服务器。  [仅作用于共享型LB的TCP/UDP监听器。取值：true开启，false不开启。 ](tag:hws,hws_hk,ocb,ctc,g42,tm,cmcc,hk_g42,hws_ocb,fcs,dt,hk_tm)
-     * @param {boolean} [proxyProtocolEnable] 是否开启proxy_protocol。仅tcpssl监听器可指定，其他协议的监听器该字段不生效，proxy_protocol不开启。
-     * @param {boolean} [enhanceL7policyEnable] 是否开启高级转发策略功能。开启高级转发策略后，支持更灵活的转发策略和转发规则设置。  取值：true开启，false不开启。  [荷兰region不支持该字段，请勿使用。](tag:dt)
+     * @param {Array<number>} [keepaliveTimeout] 客户端连接空闲超时时间。在超过keepalive_timeout时长一直没有请求， 负载均衡会暂时中断当前连接，直到下一次请求时重新建立新的连接。  取值： - TCP监听器[和IP监听器](tag:hws_eu)：10-4000s。 - HTTP/HTTPS/TERMINATED_HTTPS监听器：0-4000s。 [- 共享型实例的UDP监听器不支持此字段。](tag:hws,hws_hk,ocb,ctc,g42,tm,cmcc,hk_g42,hws_ocb,fcs,dt,dt_test,hk_tm)  支持多值查询，查询条件格式：*keepalive_timeout&#x3D;xxx&amp;keepalive_timeout&#x3D;xxx*。
+     * @param {boolean} [transparentClientIpEnable] 是否透传客户端IP地址。开启后客户端IP地址将透传到后端服务器。  [仅作用于共享型LB的TCP/UDP监听器。取值：true开启，false不开启。 ](tag:hws,hws_hk,ocb,ctc,g42,tm,cmcc,hk_g42,hws_ocb,hk_vdf,fcs,dt,hk_tm)
+     * @param {boolean} [proxyProtocolEnable] 是否开启proxy_protocol。仅TLS监听器可指定，其他协议的监听器该字段不生效，proxy_protocol不开启。
+     * @param {boolean} [enhanceL7policyEnable] 是否开启高级转发策略功能。开启高级转发策略后，支持更灵活的转发策略和转发规则设置。  取值：true开启，false不开启。  [荷兰region不支持该字段，请勿使用。](tag:dt,dt_test)
      * @param {Array<string>} [memberInstanceId] 后端云服务器ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_instance_id&#x3D;xxx&amp;member_instance_id&#x3D;xxx*。
      * @param {Array<string>} [protectionStatus] 修改保护状态, 取值： - nonProtection: 不保护，默认值为nonProtection - consoleProtection: 控制台修改保护
      * @param {*} [options] Override http request option.
@@ -1215,35 +1259,35 @@ export class ElbClient {
      *
      * @summary 查询负载均衡器列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 负载均衡器ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 负载均衡器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<string>} [description] 负载均衡器的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
-     * @param {boolean} [adminStateUp] 负载均衡器的管理状态。  不支持该字段，请勿使用。
+     * @param {boolean} [adminStateUp] 参数解释：负载均衡器的启用状态。  取值范围：布尔类型。 - true ：启用。 - false：停用。  [不支持该字段，请勿使用。](tag:dt,dt_test)
      * @param {Array<string>} [provisioningStatus] 负载均衡器的配置状态。  取值： - ACTIVE：使用中。 - PENDING_DELETE：删除中。  支持多值查询，查询条件格式：*provisioning_status&#x3D;xxx&amp;provisioning_status&#x3D;xxx*。
      * @param {Array<string>} [operatingStatus] 负载均衡器的操作状态。  取值： - ONLINE：正常运行。 - FROZEN：已冻结。  支持多值查询，查询条件格式：*operating_status&#x3D;xxx&amp;operating_status&#x3D;xxx*。
      * @param {boolean} [guaranteed] 是否独享型LB。  取值： - false：共享型 - true：独享型  [仅支持独享型，固定为true。](tag:hws_eu,hcso_dt)
      * @param {Array<string>} [vpcId] 负载均衡器所在的VPC ID。  支持多值查询，查询条件格式：*vpc_id&#x3D;xxx&amp;vpc_id&#x3D;xxx*。
      * @param {Array<string>} [vipPortId] 负载均衡器的IPv4对应的port ID。  支持多值查询，查询条件格式：*vip_port_id&#x3D;xxx&amp;vip_port_id&#x3D;xxx*。
      * @param {Array<string>} [vipAddress] 负载均衡器的IPv4虚拟IP地址。  支持多值查询，查询条件格式：*vip_address&#x3D;xxx&amp;vip_address&#x3D;xxx*。
-     * @param {Array<string>} [vipSubnetCidrId] 负载均衡器所在子网的IPv4子网ID。  支持多值查询，查询条件格式：*vip_subnet_cidr_id&#x3D;xxx&amp;vip_subnet_cidr_id&#x3D;xxx*。
+     * @param {Array<string>} [vipSubnetCidrId] 负载均衡器所在子网的IPv4子网ID，也称为该负载均衡器实例的前端子网。  支持多值查询，查询条件格式：*vip_subnet_cidr_id&#x3D;xxx&amp;vip_subnet_cidr_id&#x3D;xxx*。
      * @param {Array<string>} [ipv6VipPortId] 双栈类型负载均衡器的IPv6对应的port ID。  支持多值查询，查询条件格式：*ipv6_vip_port_id&#x3D;xxx&amp;ipv6_vip_port_id&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt,dt_test)
      * @param {Array<string>} [ipv6VipAddress] 双栈类型负载均衡器的IPv6地址。  支持多值查询，查询条件格式：*ipv6_vip_address&#x3D;xxx&amp;ipv6_vip_address&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt,dt_test)
-     * @param {Array<string>} [ipv6VipVirsubnetId] 双栈类型负载均衡器所在的子网IPv6网络ID。  支持多值查询，查询条件格式：*ipv6_vip_virsubnet_id&#x3D;xxx&amp;ipv6_vip_virsubnet_id&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt,dt_test)
-     * @param {Array<string>} [eips] 负载均衡器绑定的EIP。示例如下： \&quot;eips\&quot;: [             {                 \&quot;eip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,                 \&quot;eip_address\&quot;: \&quot;88.88.14.122\&quot;,                 \&quot;ip_version\&quot;: 4             }         ]  支持多值查询，查询条件格式： - eip_id作为查询条件：*eips&#x3D;eip_id&#x3D;xxx&amp;eips&#x3D;eip_id&#x3D;xxx*。 - eip_address作为查询条件：*eips&#x3D;eip_address&#x3D;xxx&amp;eips&#x3D;eip_address&#x3D;xxx*。 - ip_version作为查询条件：*eips&#x3D;ip_version&#x3D;xxx&amp;eips&#x3D;ip_version&#x3D;xxx*。  注：该字段与publicips字段一致。
-     * @param {Array<string>} [publicips] 负载均衡器绑定的公网IP。示例如下：  \&quot;publicips\&quot;: [                 {                     \&quot;publicip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,                     \&quot;publicip_address\&quot;: \&quot;88.88.14.122\&quot;,                     \&quot;ip_version\&quot;: 4                 }             ]  支持多值查询，查询条件格式： - publicip_id作为查询条件： *publicips&#x3D;publicip_id&#x3D;xxx&amp;publicips&#x3D;publicip_id&#x3D;xxx* - publicip_address作为查询条件： *publicips&#x3D;publicip_address&#x3D;xxx&amp;publicips&#x3D;publicip_address&#x3D;xxx* - ip_version作为查询条件： *publicips&#x3D;ip_version&#x3D;xxx&amp;publicips&#x3D;ip_version&#x3D;xxx*  注：该字段与eips字段一致。
+     * @param {Array<string>} [ipv6VipVirsubnetId] 双栈类型负载均衡器所在的子网IPv6网络ID，也称为该负载均衡器实例的前端子网。  支持多值查询，查询条件格式：*ipv6_vip_virsubnet_id&#x3D;xxx&amp;ipv6_vip_virsubnet_id&#x3D;xxx*。  [不支持IPv6，请勿使用。](tag:dt,dt_test)
+     * @param {Array<string>} [eips] 负载均衡器绑定的EIP。例如要查询绑定以下EIP的LB： \&quot;eips\&quot;: [     {         \&quot;eip_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,         \&quot;eip_address\&quot;: \&quot;88.88.14.122\&quot;,         \&quot;ip_version\&quot;: 4     } ] 可以通如下查询： eips&#x3D;ip_version%3D4&amp;eips&#x3D;eip_address%3D88.88.14.122&amp;eips&#x3D;eip_id%3De9b72a9d-4275-455e-a724-853504e4d9c6  支持多值查询，查询条件格式： - eip_id作为查询条件：*eips&#x3D;eip_id&#x3D;xxx&amp;eips&#x3D;eip_id&#x3D;xxx*。 - eip_address作为查询条件：*eips&#x3D;eip_address&#x3D;xxx&amp;eips&#x3D;eip_address&#x3D;xxx*。 - ip_version作为查询条件：*eips&#x3D;ip_version&#x3D;xxx&amp;eips&#x3D;ip_version&#x3D;xxx*。  注：该字段与publicips字段一致。
+     * @param {Array<string>} [publicips] 负载均衡器绑定的公网IP。例如要查询绑定以下公网IP的LB： \&quot;publicips&#x3D;\&quot;: [     {         \&quot;public_id\&quot;: \&quot;e9b72a9d-4275-455e-a724-853504e4d9c6\&quot;,         \&quot;public_address\&quot;: \&quot;88.88.14.122\&quot;,         \&quot;ip_version\&quot;: 4     } ] 可以通如下查询： publicips&#x3D;ip_version%3D4&amp;publicips&#x3D;public_address%3D88.88.14.122&amp;publicips&#x3D;public_id%3De9b72a9d-4275-455e-a724-853504e4d9c6   支持多值查询，查询条件格式： - publicip_id作为查询条件： *publicips&#x3D;publicip_id&#x3D;xxx&amp;publicips&#x3D;publicip_id&#x3D;xxx* - publicip_address作为查询条件： *publicips&#x3D;publicip_address&#x3D;xxx&amp;publicips&#x3D;publicip_address&#x3D;xxx* - ip_version作为查询条件： *publicips&#x3D;ip_version&#x3D;xxx&amp;publicips&#x3D;ip_version&#x3D;xxx*  注：该字段与eips字段一致。
      * @param {Array<string>} [availabilityZoneList] 负载均衡器所在可用区列表。  支持多值查询，查询条件格式： *availability_zone_list&#x3D;xxx&amp;availability_zone_list&#x3D;xxx*。
-     * @param {Array<string>} [l4FlavorId] 网络型规格ID。  支持多值查询，查询条件格式：*l4_flavor_id&#x3D;xxx&amp;l4_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [l4FlavorId] 网络型规格ID。  支持多值查询，查询条件格式：*l4_flavor_id&#x3D;xxx&amp;l4_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * @param {Array<string>} [l4ScaleFlavorId] 四层弹性Flavor ID。  支持多值查询，查询条件格式：*l4_scale_flavor_id&#x3D;xxx&amp;l4_scale_flavor_id&#x3D;xxx*。  不支持该字段，请勿使用。
-     * @param {Array<string>} [l7FlavorId] 应用型规格ID。  支持多值查询，查询条件格式：*l7_flavor_id&#x3D;xxx&amp;l7_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {Array<string>} [l7FlavorId] 应用型规格ID。  支持多值查询，查询条件格式：*l7_flavor_id&#x3D;xxx&amp;l7_flavor_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * @param {Array<string>} [l7ScaleFlavorId] 七层弹性Flavor ID。  支持多值查询，查询条件格式：*l7_scale_flavor_id&#x3D;xxx&amp;l7_scale_flavor_id&#x3D;xxx*。  不支持该字段，请勿使用。
-     * @param {Array<string>} [billingInfo] 资源账单信息。  支持多值查询，查询条件格式：*billing_info&#x3D;xxx&amp;billing_info&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hws_hk,hws_eu,hws_test,hcs,hcs_sm,hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b,hcso_dt,dt,dt_test,ocb,ctc,cmcc,tm,sbc,g42,hws_ocb,hk_sbc,hk_tm,hk_g42)
+     * @param {Array<string>} [billingInfo] 资源账单信息。  支持多值查询，查询条件格式：*billing_info&#x3D;xxx&amp;billing_info&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:hws_hk,hws_eu,hws_test,hcs,hcs_sm,hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b,hcso_dt,dt,dt_test,ocb,ctc,cmcc,tm,sbc,g42,hws_ocb,hk_sbc,hk_tm,hk_g42)
      * @param {Array<string>} [memberDeviceId] 负载均衡器中的后端云服务器对应的弹性云服务器的ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_device_id&#x3D;xxx&amp;member_device_id&#x3D;xxx*。
      * @param {Array<string>} [memberAddress] 负载均衡器中的后端云服务器对应的弹性云服务器的IP地址。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_address&#x3D;xxx&amp;member_address&#x3D;xxx*。
      * @param {Array<string>} [enterpriseProjectId] 负载均衡器所属的企业项目ID。 查询时若不传，则查询default企业项目下的资源，鉴权按照default企业项目鉴权。 如果传值，则必须传已存在的企业项目ID（不可为\&quot;0\&quot;）或传all_granted_eps表示查询所有企业项目。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<number>} [ipVersion] IP版本信息。  取值：4代表IPv4，6代表IPv6。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。  [不支持IPv6，请勿设置为6。](tag:dt,dt_test)
-     * @param {boolean} [deletionProtectionEnable] 是否开启删除保护，false不开启，true开启。[不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42)  [荷兰region不支持该字段，请勿使用。](tag:dt)
+     * @param {boolean} [deletionProtectionEnable] 是否开启删除保护，false不开启，true开启。[不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42)  [荷兰region不支持该字段，请勿使用。](tag:dt,dt_test)
      * @param {Array<string>} [elbVirsubnetType] 下联面子网类型。  取值： - ipv4：ipv4。 - dualstack：双栈。  支持多值查询，查询条件格式： *elb_virsubnet_type&#x3D;ipv4&amp;elb_virsubnet_type&#x3D;dualstack*。
      * @param {Array<string>} [autoscaling] 是否开启弹性扩缩容。示例如下： \&quot;autoscaling\&quot;: {             \&quot;enable\&quot;: \&quot;true\&quot;         }  支持多值查询，查询条件格式：  *autoscaling&#x3D;enable&#x3D;true&amp;autoscaling&#x3D;enable&#x3D;false*。  [不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42,hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * @param {Array<string>} [protectionStatus] 修改保护状态, 取值： - nonProtection: 不保护，默认值为nonProtection - consoleProtection: 控制台修改保护
@@ -1263,12 +1307,12 @@ export class ElbClient {
     }
 
     /**
-     * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云日志列表
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。 支持多值查询，查询条件格式：enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
@@ -1295,14 +1339,14 @@ export class ElbClient {
      *
      * @summary 查询主备后端服务器组列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [description] 后端云服务器组的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
      * @param {Array<string>} [healthmonitorId] 后端云服务器组关联的健康检查的ID。  支持多值查询，查询条件格式：*healthmonitor_id&#x3D;xxx&amp;healthmonitor_id&#x3D;xxx*。
      * @param {Array<string>} [id] 后端云服务器组的ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 后端云服务器组的名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<string>} [loadbalancerId] 后端云服务器组绑定的负载均衡器ID。  支持多值查询，查询条件格式：*loadbalancer_id&#x3D;xxx&amp;loadbalancer_id&#x3D;xxx*。
-     * @param {Array<string>} [protocol] 后端云服务器组的后端协议。  取值：TCP、UDP、HTTP、HTTPS和QUIC。  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC。](tag:tm,hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC。](tag:dt,dt_test)
+     * @param {Array<string>} [protocol] 后端云服务器组的后端协议。  取值：TCP、UDP、[IP、](tag:hws_eu)TLS、GRPC、HTTP、HTTPS和QUIC。 IP类型为网关型LB独有的后端服务器组协议。  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC。](tag:tm,hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC。](tag:dt,dt_test)
      * @param {Array<string>} [lbAlgorithm] 后端云服务器组的负载均衡算法。  取值： 1、ROUND_ROBIN：加权轮询算法。 2、LEAST_CONNECTIONS：加权最少连接算法。 3、SOURCE_IP：源IP算法。 4、QUIC_CID：连接ID算法。  支持多值查询，查询条件格式：*lb_algorithm&#x3D;xxx&amp;lb_algorithm&#x3D;xxx*。  [不支持QUIC_CID。](tag:tm,hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC_CID。](tag:dt,dt_test)
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权； 如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。  支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<string>} [ipVersion] 后端云服务器组支持的IP版本。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。
@@ -1333,7 +1377,7 @@ export class ElbClient {
      * @summary 查询后端服务器列表
      * @param {string} poolId 后端服务器组ID。
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [name] 后端云服务器名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<number>} [weight] 后端云服务器的权重，请求将根据pool配置的负载均衡算法和后端云服务器的权重进行负载分发。 权重值越大，分发的请求越多。权重为0的后端不再接受新的请求。  取值：0-100。  支持多值查询，查询条件格式：*weight&#x3D;xxx&amp;weight&#x3D;xxx*。
@@ -1366,27 +1410,30 @@ export class ElbClient {
      *
      * @summary 查询后端服务器组列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [description] 后端云服务器组的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
-     * @param {boolean} [adminStateUp] 后端云服务器组的管理状态。  不支持该字段，请勿使用。
+     * @param {boolean} [adminStateUp] 后端云服务器组的管理状态。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<string>} [healthmonitorId] 后端云服务器组关联的健康检查的ID。  支持多值查询，查询条件格式：*healthmonitor_id&#x3D;xxx&amp;healthmonitor_id&#x3D;xxx*。
      * @param {Array<string>} [id] 后端云服务器组的ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 后端云服务器组的名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
      * @param {Array<string>} [loadbalancerId] 后端云服务器组绑定的负载均衡器ID。  支持多值查询，查询条件格式：*loadbalancer_id&#x3D;xxx&amp;loadbalancer_id&#x3D;xxx*。
-     * @param {Array<string>} [protocol] 后端云服务器组的后端协议。  取值：TCP、UDP、HTTP、HTTPS、QUIC和TCPSSL。  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC协议。](tag:hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC。](tag:dt,dt_test)
-     * @param {Array<string>} [lbAlgorithm] 后端云服务器组的负载均衡算法。  取值： - ROUND_ROBIN：加权轮询算法。 - LEAST_CONNECTIONS：加权最少连接算法。 - SOURCE_IP：源IP算法。 - QUIC_CID：连接ID算法。  支持多值查询，查询条件格式：*lb_algorithm&#x3D;xxx&amp;lb_algorithm&#x3D;xxx*。  [不支持QUIC_CID。](tag:hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC_CID。](tag:dt,dt_test)
+     * @param {Array<string>} [protocol] 后端云服务器组的后端协议。  取值：TCP、UDP、[IP、](tag:hws_eu)TLS、HTTP、HTTPS、QUIC和GRPC。  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。  [不支持QUIC协议。](tag:hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC。](tag:dt,dt_test)
+     * @param {Array<string>} [lbAlgorithm] 后端云服务器组的负载均衡算法。  取值： - ROUND_ROBIN：加权轮询算法。 - LEAST_CONNECTIONS：加权最少连接算法。 - SOURCE_IP：源IP算法。 - QUIC_CID：连接ID算法。 [- 2_TUPLE_HASH：二元组hash算法，仅IP类型的pool支持。 - 3_TUPLE_HASH：三元组hash算法，仅IP类型的pool支持。 - 4_TUPLE_HASH：五元组hash算法，仅IP类型的pool支持。](tag:hws_eu)  支持多值查询，查询条件格式：*lb_algorithm&#x3D;xxx&amp;lb_algorithm&#x3D;xxx*。  [不支持QUIC_CID。](tag:hws_eu,g42,hk_g42,hcso_dt)  [荷兰region不支持QUIC_CID。](tag:dt,dt_test)
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权； 如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。  支持多值查询，查询条件格式：*enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<string>} [ipVersion] 后端云服务器组支持的IP版本。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。
      * @param {Array<string>} [memberAddress] 后端云服务器的IP地址。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_address&#x3D;xxx&amp;member_address&#x3D;xxx*。
      * @param {Array<string>} [memberDeviceId] 后端云服务器对应的弹性云服务器的ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_device_id&#x3D;xxx&amp;member_device_id&#x3D;xxx*。
-     * @param {boolean} [memberDeletionProtectionEnable] 是否开启删除保护，false不开启，true开启，不传查询全部。 [不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42)  [荷兰region不支持该字段，请勿使用。](tag:dt)
+     * @param {boolean} [memberDeletionProtectionEnable] 是否开启删除保护，false不开启，true开启，不传查询全部。 [不支持该字段，请勿使用。](tag:hws_eu,g42,hk_g42)  [荷兰region不支持该字段，请勿使用。](tag:dt,dt_test)
      * @param {Array<string>} [listenerId] 关联的监听器ID，包括通过l7policy关联的。  支持多值查询，查询条件格式：*listener_id&#x3D;xxx&amp;listener_id&#x3D;xxx*。
      * @param {Array<string>} [memberInstanceId] 后端云服务器ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_instance_id&#x3D;xxx&amp;member_instance_id&#x3D;xxx*。
      * @param {Array<string>} [vpcId] 后端云服务器组关联的虚拟私有云的ID。
      * @param {Array<string>} [type] 后端服务器组的类型。  取值： - instance：允许任意类型的后端，type指定为该类型时，vpc_id是必选字段。 - ip：只能添加跨VPC后端，type指定为该类型时，vpc_id不允许指定。 - 空字符串（\&quot;\&quot;）：允许任意类型的后端
      * @param {Array<string>} [protectionStatus] 修改保护状态, 取值： - nonProtection: 不保护，默认值为nonProtection - consoleProtection: 控制台修改保护
      * @param {boolean} [connectionDrain] 查询是否开启延迟注销的功能，查询条件格式：*connection_drain&#x3D;true或者*connection_drain&#x3D;false
+     * @param {string} [poolHealth] 查询是否开启后端全下线转发功能，查询条件格式：*pool_health&#x3D;minimum_healthy_member_count&#x3D;0或者*pool_health&#x3D;minimum_healthy_member_count&#x3D;1
+     * @param {boolean} [anyPortEnable] 后端是否开启端口透传。开启后，后端服务器端口与前端监听器端口保持一致。取值：false不开启，true开启。
+     * @param {string} [publicBorderGroup] 可用区组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1419,13 +1466,13 @@ export class ElbClient {
     }
 
     /**
-     * 查询自定义安全策略列表。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+     * 查询自定义安全策略列表。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义安全策略列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
      * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
      * @param {Array<string>} [id] 自定义安全策略的ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
      * @param {Array<string>} [name] 自定义安全策略的名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
@@ -1484,12 +1531,30 @@ export class ElbClient {
     }
 
     /**
+     * 查询证书私钥回显开关当前的状态，开启或关闭。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询证书私钥字段回显开关
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCertificatePrivateKeyEcho(showCertificatePrivateKeyEchoRequest?: ShowCertificatePrivateKeyEchoRequest): Promise<ShowCertificatePrivateKeyEchoResponse> {
+        const options = ParamCreater().showCertificatePrivateKeyEcho();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询规格的详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规格详情
-     * @param {string} flavorId 规格ID。
+     * @param {string} flavorId 参数解释：规格ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1621,7 +1686,7 @@ export class ElbClient {
     }
 
     /**
-     * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1716,7 +1781,7 @@ export class ElbClient {
     }
 
     /**
-     * 查询自定义安全策略详情。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+     * 查询自定义安全策略详情。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1856,7 +1921,7 @@ export class ElbClient {
     }
 
     /**
-     * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+     * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1917,7 +1982,7 @@ export class ElbClient {
     }
 
     /**
-     * 更新自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+     * 更新自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1960,7 +2025,7 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除IP地址组的IP列表项
-     * @param {string} ipgroupId IP地址组ID。
+     * @param {string} ipgroupId 参数解释：IP地址组ID。
      * @param {BatchDeleteIpListRequestBody} [batchDeleteIpListRequestBody] This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1990,13 +2055,13 @@ export class ElbClient {
      * - 计算出来的预占IP数大于等于最终实际占用的IP数。
      * - 总占用IP数量，即整个LB所占用的IP数量。
      * 
-     * [不支持传入l7_flavor_id](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * [不支持传入l7_flavor_id](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计算预占IP数
-     * @param {string} [l7FlavorId] 负载均衡器七层规格的ID。传入该字段表示计算创建该规格的LB，或变更LB的原七层规格到该规格所需要的预占IP。  适用场景：创建负LB，变更LB规格。  [不支持传入l7_flavor_id](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
-     * @param {boolean} [ipTargetEnable] 是否开启跨VPC转发。  取值true表示计算创建或变更为开启跨VPC转发的LB的预占IP。  取值false表示计算创建或变更为不开启跨VPC转发的LB的预占IP。不传等价false。  适用场景：创建LB，变更LB规格。  [荷兰region不支持该字段，请勿使用。](tag:dt)
+     * @param {string} [l7FlavorId] 负载均衡器七层规格的ID。传入该字段表示计算创建该规格的LB，或变更LB的原七层规格到该规格所需要的预占IP。  适用场景：创建负LB，变更LB规格。  [不支持传入l7_flavor_id](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+     * @param {boolean} [ipTargetEnable] 是否开启跨VPC转发。  取值true表示计算创建或变更为开启跨VPC转发的LB的预占IP。  取值false表示计算创建或变更为不开启跨VPC转发的LB的预占IP。不传等价false。  适用场景：创建LB，变更LB规格。  [荷兰region不支持该字段，请勿使用。](tag:dt,dt_test)
      * @param {number} [ipVersion] 负载均衡器IP地址类型，取值4，6 。  取值4表示计算创建支持IPv4地址的LB的预占IP。  取值6表示计算创建支持IPv6地址的LB的预占IP。  适用场景：创建LB。  [不支持IPv6，请勿设置为6。](tag:dt,dt_test)
      * @param {string} [loadbalancerId] 负载均衡器ID。计算LB规格变更或创建LB中的第一个七层监听器的预占IP。  适用场景：变更LB规格，创建LB中的第一个七层监听器。
      * @param {Array<string>} [availabilityZoneId] 计算创建AZ列表为availability_zone_id的负载局衡器实例的预占IP。  适用场景：创建LB。  使用说明：传入loadbalancer_id时，该参数无效。
@@ -2017,7 +2082,7 @@ export class ElbClient {
      * 
      * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
      * 
-     * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+     * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2036,12 +2101,12 @@ export class ElbClient {
     }
 
     /**
-     * 删除ip地址组。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+     * 删除ip地址组。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除IP地址组
-     * @param {string} ipgroupId IP地址组的ID。
+     * @param {string} ipgroupId 参数解释：IP地址组的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2055,18 +2120,19 @@ export class ElbClient {
     }
 
     /**
-     * 查询IP地址组列表。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+     * 查询IP地址组列表。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IP地址组列表
-     * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
-     * @param {boolean} [pageReverse] 是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
-     * @param {Array<string>} [id] IP地址组的ID。
-     * @param {Array<string>} [name] IP地址组的名称。
-     * @param {Array<string>} [description] IP地址组的描述信息。
-     * @param {Array<string>} [ipList] IP地址，多个用逗号分隔。
+     * @param {string} [marker] 参数解释：上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
+     * @param {number} [limit] 参数解释：每页返回的个数。  取值范围：0-2000  默认取值：2000
+     * @param {boolean} [pageReverse] 参数解释：是否反向查询。  取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
+     * @param {Array<string>} [id] 参数解释：IP地址组的ID。
+     * @param {Array<string>} [name] 参数解释：IP地址组的名称。
+     * @param {Array<string>} [description] 参数解释：IP地址组的描述信息。
+     * @param {Array<string>} [ipList] 参数解释：IP地址，多个用逗号分隔。
+     * @param {Array<string>} [enterpriseProjectId] 参数解释：企业项目ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2080,12 +2146,12 @@ export class ElbClient {
     }
 
     /**
-     * 获取IP地址组详情。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+     * 获取IP地址组详情。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IP地址组详情
-     * @param {string} ipgroupId IP地址组ID。
+     * @param {string} ipgroupId 参数解释：IP地址组ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2104,12 +2170,12 @@ export class ElbClient {
      * 
      * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
      * 
-     * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+     * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新IP地址组
-     * @param {string} ipgroupId 待更新的IP地址组的ID。
+     * @param {string} ipgroupId 参数解释：待更新的IP地址组的ID。
      * @param {UpdateIpGroupRequestBody} updateIpGroupRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2129,7 +2195,7 @@ export class ElbClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新IP地址组的IP列表项
-     * @param {string} ipgroupId IP地址组ID。
+     * @param {string} ipgroupId 参数解释：IP地址组ID。
      * @param {UpdateIpListRequestBody} [updateIpListRequestBody] This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2493,6 +2559,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启或关闭证书私钥字段回显开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCertificatePrivateKeyEcho(createCertificatePrivateKeyEchoRequest?: CreateCertificatePrivateKeyEchoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/elb/certificates/settings/private-key-echo",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createCertificatePrivateKeyEchoRequest !== null && createCertificatePrivateKeyEchoRequest !== undefined) {
+                if (createCertificatePrivateKeyEchoRequest instanceof CreateCertificatePrivateKeyEchoRequest) {
+                    body = createCertificatePrivateKeyEchoRequest.body
+                } else {
+                    body = createCertificatePrivateKeyEchoRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建健康检查。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2653,22 +2757,16 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建负载均衡器。
-         * 1. 若要创建内网IPv4负载均衡器，则需要设置vip_subnet_cidr_id。
-         * 2. 若要创建公网IPv4负载均衡器，则需要设置publicip，以及设置vpc_id和vip_subnet_cidr_id这两个参数中的一个。
-         * 3. 若要绑定有已有公网IPv4地址，
-         * 则需要设置publicip_ids，以及设置vpc_id和vip_subnet_cidr_id这两个参数中的一个。
-         * 4. 若要创建内网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id。
-         * 5. 若要创建公网双栈负载均衡器，则需要设置ipv6_vip_virsubnet_id和ipv6_bandwidth。
-         * 6. 不支持绑定已有未使用的内网IPv4、内网IPv6或公网IPv6地址。
-         * 7. l4_flavor_id需要传入网络型规格id，l7_flavor_id需要传入应用型规格id。
-         * 
-         * [&gt; 关于计费：
-         * - 若billing_info非空时，包周期。
-         * - 若billing_info为空，autoscaling.enable&#x3D;true时，弹性计费。
-         * - 若billing_info为空，autoscaling.enable&#x3D;false或未设置，charge_mode&#x3D;lcu，按量计费。
-         * - 若billing_info为空，autoscaling.enable&#x3D;false或未设置，charge_mode&#x3D;flavor，固定规格按需计费。](tag:hws)
-         * [&gt; 不支持创建IPv6地址负载均衡器](tag:dt,dt_test)
+         * 创建独享型负载均衡器，包括按需及包周期计费负载均衡器。
+         * 1. 若要创建内网IPv4负载均衡器，则需要传入vip_subnet_cidr_id。
+         * 2. 若要创建公网IPv4负载均衡器，则需要传入publicip，以及传入vpc_id和vip_subnet_cidr_id这两个参数中的一个。
+         * 3. 若要绑定有已有公网IPv4地址，则需要传入publicip_ids，以及传入vpc_id和vip_subnet_cidr_id这两个参数中的一个。
+         * 4. 若要创建内网双栈负载均衡器，则需要传入ipv6_vip_virsubnet_id。
+         * 5. 若要创建公网双栈负载均衡器，则需要传入ipv6_vip_virsubnet_id和ipv6_bandwidth。
+         * 6. 若要创建网络型负载均衡器，则需要传入l4_flavor_id（网络型规格ID）；若要创建应用型负载均衡器，则需要传入l7_flavor_id（应用型规格ID）；若要创建网络型+应用型负载均衡器，则需要传入l4_flavor_id和l7_flavor_id。
+         * 7. 若要创建包周期负载均衡器，则需要传入prepaid_options，否则创建按需计费负载均衡器。
+         * 8. 按需计费分为固定规格计费和弹性规格计费，根据创建时所选规格的类型决定计费方式。具体规格说明见创建LB请求参数l4_flavor_id和l7_flavor_id。
+         * [9.若要创建gateway类型的负载均衡器，指定loadbalancer_type&#x3D;“gateway”，不支持指定vip_address，ipv6_vip_address, 不支持公网类型。如果要指定规格，则从请求参数gw_flavor_id传入。](tag:hws_eu)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2706,7 +2804,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 创建云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2868,7 +2966,7 @@ export const ParamCreater = function () {
         /**
          * 创建自定义安全策略。用于在创建HTTPS监听器时，请求参数中指定security_policy_id来设置监听器的自定义安全策略。
          * 
-         * [荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+         * [荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3209,7 +3307,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 删除云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3364,7 +3462,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+         * 删除自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3401,7 +3499,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询当前租户下的后端服务器列表。
+         * 查询当前项目下的后端服务器列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3614,6 +3712,10 @@ export const ParamCreater = function () {
             let domain;
             
             let type;
+            
+            let commonName;
+            
+            let fingerprint;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
                 if (listCertificatesRequest instanceof ListCertificatesRequest) {
@@ -3626,6 +3728,8 @@ export const ParamCreater = function () {
                     adminStateUp = listCertificatesRequest.adminStateUp;
                     domain = listCertificatesRequest.domain;
                     type = listCertificatesRequest.type;
+                    commonName = listCertificatesRequest.commonName;
+                    fingerprint = listCertificatesRequest.fingerprint;
                 } else {
                     marker = listCertificatesRequest['marker'];
                     limit = listCertificatesRequest['limit'];
@@ -3636,6 +3740,8 @@ export const ParamCreater = function () {
                     adminStateUp = listCertificatesRequest['admin_state_up'];
                     domain = listCertificatesRequest['domain'];
                     type = listCertificatesRequest['type'];
+                    commonName = listCertificatesRequest['common_name'];
+                    fingerprint = listCertificatesRequest['fingerprint'];
                 }
             }
 
@@ -3667,6 +3773,12 @@ export const ParamCreater = function () {
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
             }
+            if (commonName !== null && commonName !== undefined) {
+                localVarQueryParameter['common_name'] = commonName;
+            }
+            if (fingerprint !== null && fingerprint !== undefined) {
+                localVarQueryParameter['fingerprint'] = fingerprint;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -3674,7 +3786,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户在当前region下可用的负载均衡规格列表。
+         * 查询当前region下可用的负载均衡规格列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4681,7 +4793,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 查询云日志列表。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5132,6 +5244,12 @@ export const ParamCreater = function () {
             let protectionStatus;
             
             let connectionDrain;
+            
+            let poolHealth;
+            
+            let anyPortEnable;
+            
+            let publicBorderGroup;
 
             if (listPoolsRequest !== null && listPoolsRequest !== undefined) {
                 if (listPoolsRequest instanceof ListPoolsRequest) {
@@ -5157,6 +5275,9 @@ export const ParamCreater = function () {
                     type = listPoolsRequest.type;
                     protectionStatus = listPoolsRequest.protectionStatus;
                     connectionDrain = listPoolsRequest.connectionDrain;
+                    poolHealth = listPoolsRequest.poolHealth;
+                    anyPortEnable = listPoolsRequest.anyPortEnable;
+                    publicBorderGroup = listPoolsRequest.publicBorderGroup;
                 } else {
                     marker = listPoolsRequest['marker'];
                     limit = listPoolsRequest['limit'];
@@ -5180,6 +5301,9 @@ export const ParamCreater = function () {
                     type = listPoolsRequest['type'];
                     protectionStatus = listPoolsRequest['protection_status'];
                     connectionDrain = listPoolsRequest['connection_drain'];
+                    poolHealth = listPoolsRequest['pool_health'];
+                    anyPortEnable = listPoolsRequest['any_port_enable'];
+                    publicBorderGroup = listPoolsRequest['public_border_group'];
                 }
             }
 
@@ -5250,6 +5374,15 @@ export const ParamCreater = function () {
             if (connectionDrain !== null && connectionDrain !== undefined) {
                 localVarQueryParameter['connection_drain'] = connectionDrain;
             }
+            if (poolHealth !== null && poolHealth !== undefined) {
+                localVarQueryParameter['pool_health'] = poolHealth;
+            }
+            if (anyPortEnable !== null && anyPortEnable !== undefined) {
+                localVarQueryParameter['any_port_enable'] = anyPortEnable;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -5294,7 +5427,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义安全策略列表。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+         * 查询自定义安全策略列表。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5435,6 +5568,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询证书私钥回显开关当前的状态，开启或关闭。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCertificatePrivateKeyEcho() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/elb/certificates/settings/private-key-echo",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5709,7 +5863,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 云日志详情。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5885,7 +6039,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义安全策略详情。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+         * 查询自定义安全策略详情。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6205,7 +6359,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt)
+         * 更新云日志。[荷兰region不支持云日志功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6350,7 +6504,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt)
+         * 更新自定义安全策略。[荷兰region不支持自定义安全策略功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6475,7 +6629,7 @@ export const ParamCreater = function () {
          * - 计算出来的预占IP数大于等于最终实际占用的IP数。
          * - 总占用IP数量，即整个LB所占用的IP数量。
          * 
-         * [不支持传入l7_flavor_id](tag:hcso,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
+         * [不支持传入l7_flavor_id](tag:hcso,hk_vdf,fcs,fcs_vm,mix,hcso_g42,hcso_g42_b)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6544,7 +6698,7 @@ export const ParamCreater = function () {
          * 
          * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
          * 
-         * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+         * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6582,7 +6736,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除ip地址组。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+         * 删除ip地址组。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6619,7 +6773,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询IP地址组列表。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+         * 查询IP地址组列表。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6648,6 +6802,8 @@ export const ParamCreater = function () {
             let description;
             
             let ipList;
+            
+            let enterpriseProjectId;
 
             if (listIpGroupsRequest !== null && listIpGroupsRequest !== undefined) {
                 if (listIpGroupsRequest instanceof ListIpGroupsRequest) {
@@ -6658,6 +6814,7 @@ export const ParamCreater = function () {
                     name = listIpGroupsRequest.name;
                     description = listIpGroupsRequest.description;
                     ipList = listIpGroupsRequest.ipList;
+                    enterpriseProjectId = listIpGroupsRequest.enterpriseProjectId;
                 } else {
                     marker = listIpGroupsRequest['marker'];
                     limit = listIpGroupsRequest['limit'];
@@ -6666,6 +6823,7 @@ export const ParamCreater = function () {
                     name = listIpGroupsRequest['name'];
                     description = listIpGroupsRequest['description'];
                     ipList = listIpGroupsRequest['ip_list'];
+                    enterpriseProjectId = listIpGroupsRequest['enterprise_project_id'];
                 }
             }
 
@@ -6691,6 +6849,9 @@ export const ParamCreater = function () {
             if (ipList !== null && ipList !== undefined) {
                 localVarQueryParameter['ip_list'] = ipList;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -6698,7 +6859,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取IP地址组详情。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+         * 获取IP地址组详情。[荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6740,7 +6901,7 @@ export const ParamCreater = function () {
          * 
          * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
          * 
-         * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt)
+         * [荷兰region不支持IP地址组功能，请勿使用。](tag:dt,dt_test)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

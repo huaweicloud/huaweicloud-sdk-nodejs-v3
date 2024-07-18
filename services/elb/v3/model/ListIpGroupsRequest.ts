@@ -8,6 +8,7 @@ export class ListIpGroupsRequest {
     public name?: Array<string>;
     public description?: Array<string>;
     private 'ip_list'?: Array<string>;
+    private 'enterprise_project_id'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListIpGroupsRequest {
@@ -49,5 +50,15 @@ export class ListIpGroupsRequest {
     }
     public get ipList(): Array<string> | undefined {
         return this['ip_list'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListIpGroupsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: Array<string>  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): Array<string> | undefined {
+        return this['enterprise_project_id'];
     }
 }

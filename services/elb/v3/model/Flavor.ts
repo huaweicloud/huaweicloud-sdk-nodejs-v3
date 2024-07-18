@@ -9,6 +9,8 @@ export class Flavor {
     private 'project_id'?: string;
     public type?: string;
     private 'flavor_sold_out'?: boolean;
+    private 'public_border_group'?: string;
+    public category?: number;
     public constructor(id?: string, info?: FlavorInfo, name?: string, shared?: boolean, projectId?: string, type?: string, flavorSoldOut?: boolean) { 
         this['id'] = id;
         this['info'] = info;
@@ -57,5 +59,19 @@ export class Flavor {
     }
     public get flavorSoldOut(): boolean | undefined {
         return this['flavor_sold_out'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): Flavor {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
+    }
+    public withCategory(category: number): Flavor {
+        this['category'] = category;
+        return this;
     }
 }

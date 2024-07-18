@@ -23,6 +23,9 @@ export class ListPoolsRequest {
     public type?: Array<string>;
     private 'protection_status'?: Array<string>;
     private 'connection_drain'?: boolean;
+    private 'pool_health'?: string;
+    private 'any_port_enable'?: boolean;
+    private 'public_border_group'?: string;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -202,5 +205,35 @@ export class ListPoolsRequest {
     }
     public get connectionDrain(): boolean | undefined {
         return this['connection_drain'];
+    }
+    public withPoolHealth(poolHealth: string): ListPoolsRequest {
+        this['pool_health'] = poolHealth;
+        return this;
+    }
+    public set poolHealth(poolHealth: string  | undefined) {
+        this['pool_health'] = poolHealth;
+    }
+    public get poolHealth(): string | undefined {
+        return this['pool_health'];
+    }
+    public withAnyPortEnable(anyPortEnable: boolean): ListPoolsRequest {
+        this['any_port_enable'] = anyPortEnable;
+        return this;
+    }
+    public set anyPortEnable(anyPortEnable: boolean  | undefined) {
+        this['any_port_enable'] = anyPortEnable;
+    }
+    public get anyPortEnable(): boolean | undefined {
+        return this['any_port_enable'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): ListPoolsRequest {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): string | undefined {
+        return this['public_border_group'];
     }
 }

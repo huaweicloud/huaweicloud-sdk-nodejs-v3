@@ -18,7 +18,6 @@ export class KeyDetails {
     private 'key_rotation_enabled'?: string;
     private 'sys_enterprise_project_id'?: string;
     private 'keystore_id'?: string;
-    private 'key_label'?: string;
     public constructor() { 
     }
     public withKeyId(keyId: string): KeyDetails {
@@ -178,16 +177,6 @@ export class KeyDetails {
     }
     public get keystoreId(): string | undefined {
         return this['keystore_id'];
-    }
-    public withKeyLabel(keyLabel: string): KeyDetails {
-        this['key_label'] = keyLabel;
-        return this;
-    }
-    public set keyLabel(keyLabel: string  | undefined) {
-        this['key_label'] = keyLabel;
-    }
-    public get keyLabel(): string | undefined {
-        return this['key_label'];
     }
 }
 

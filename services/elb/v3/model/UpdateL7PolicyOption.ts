@@ -1,6 +1,8 @@
 import { CreateRuleOption } from './CreateRuleOption';
 import { UpdateFixtedResponseConfig } from './UpdateFixtedResponseConfig';
+import { UpdateRedirectPoolsConfig } from './UpdateRedirectPoolsConfig';
 import { UpdateRedirectPoolsExtendConfig } from './UpdateRedirectPoolsExtendConfig';
+import { UpdateRedirectPoolsStickySessionConfig } from './UpdateRedirectPoolsStickySessionConfig';
 import { UpdateRedirectUrlConfig } from './UpdateRedirectUrlConfig';
 
 
@@ -10,6 +12,8 @@ export class UpdateL7PolicyOption {
     public name?: string;
     private 'redirect_listener_id'?: string;
     private 'redirect_pool_id'?: string;
+    private 'redirect_pools_config'?: Array<UpdateRedirectPoolsConfig>;
+    private 'redirect_pools_sticky_session_config'?: UpdateRedirectPoolsStickySessionConfig;
     private 'redirect_url_config'?: UpdateRedirectUrlConfig;
     private 'fixed_response_config'?: UpdateFixtedResponseConfig;
     private 'redirect_pools_extend_config'?: UpdateRedirectPoolsExtendConfig;
@@ -54,6 +58,26 @@ export class UpdateL7PolicyOption {
     }
     public get redirectPoolId(): string | undefined {
         return this['redirect_pool_id'];
+    }
+    public withRedirectPoolsConfig(redirectPoolsConfig: Array<UpdateRedirectPoolsConfig>): UpdateL7PolicyOption {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+        return this;
+    }
+    public set redirectPoolsConfig(redirectPoolsConfig: Array<UpdateRedirectPoolsConfig>  | undefined) {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+    }
+    public get redirectPoolsConfig(): Array<UpdateRedirectPoolsConfig> | undefined {
+        return this['redirect_pools_config'];
+    }
+    public withRedirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: UpdateRedirectPoolsStickySessionConfig): UpdateL7PolicyOption {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+        return this;
+    }
+    public set redirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: UpdateRedirectPoolsStickySessionConfig  | undefined) {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+    }
+    public get redirectPoolsStickySessionConfig(): UpdateRedirectPoolsStickySessionConfig | undefined {
+        return this['redirect_pools_sticky_session_config'];
     }
     public withRedirectUrlConfig(redirectUrlConfig: UpdateRedirectUrlConfig): UpdateL7PolicyOption {
         this['redirect_url_config'] = redirectUrlConfig;

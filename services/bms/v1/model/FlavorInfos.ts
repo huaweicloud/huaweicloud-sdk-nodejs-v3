@@ -1,3 +1,5 @@
+import { ASICAcceleratorInfo } from './ASICAcceleratorInfo';
+import { GpuInfo } from './GpuInfo';
 
 
 export class FlavorInfos {
@@ -6,6 +8,8 @@ export class FlavorInfos {
     public disk?: string;
     public vcpus?: string;
     public ram?: string;
+    public gpus?: Array<GpuInfo>;
+    private 'asic_accelerators'?: Array<ASICAcceleratorInfo>;
     public constructor() { 
     }
     public withId(id: string): FlavorInfos {
@@ -27,5 +31,19 @@ export class FlavorInfos {
     public withRam(ram: string): FlavorInfos {
         this['ram'] = ram;
         return this;
+    }
+    public withGpus(gpus: Array<GpuInfo>): FlavorInfos {
+        this['gpus'] = gpus;
+        return this;
+    }
+    public withAsicAccelerators(asicAccelerators: Array<ASICAcceleratorInfo>): FlavorInfos {
+        this['asic_accelerators'] = asicAccelerators;
+        return this;
+    }
+    public set asicAccelerators(asicAccelerators: Array<ASICAcceleratorInfo>  | undefined) {
+        this['asic_accelerators'] = asicAccelerators;
+    }
+    public get asicAccelerators(): Array<ASICAcceleratorInfo> | undefined {
+        return this['asic_accelerators'];
     }
 }

@@ -15,6 +15,9 @@ export class CertificateInfo {
     private 'project_id'?: string;
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
+    private 'common_name'?: string;
+    public fingerprint?: string;
+    private 'subject_alternative_names'?: Array<string>;
     public constructor(adminStateUp?: boolean, certificate?: string, description?: string, domain?: string, id?: string, name?: string, privateKey?: string, type?: string, createdAt?: string, updatedAt?: string, expireTime?: string, projectId?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['certificate'] = certificate;
@@ -132,5 +135,29 @@ export class CertificateInfo {
     }
     public get encPrivateKey(): string | undefined {
         return this['enc_private_key'];
+    }
+    public withCommonName(commonName: string): CertificateInfo {
+        this['common_name'] = commonName;
+        return this;
+    }
+    public set commonName(commonName: string  | undefined) {
+        this['common_name'] = commonName;
+    }
+    public get commonName(): string | undefined {
+        return this['common_name'];
+    }
+    public withFingerprint(fingerprint: string): CertificateInfo {
+        this['fingerprint'] = fingerprint;
+        return this;
+    }
+    public withSubjectAlternativeNames(subjectAlternativeNames: Array<string>): CertificateInfo {
+        this['subject_alternative_names'] = subjectAlternativeNames;
+        return this;
+    }
+    public set subjectAlternativeNames(subjectAlternativeNames: Array<string>  | undefined) {
+        this['subject_alternative_names'] = subjectAlternativeNames;
+    }
+    public get subjectAlternativeNames(): Array<string> | undefined {
+        return this['subject_alternative_names'];
     }
 }

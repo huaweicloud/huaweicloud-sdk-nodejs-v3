@@ -1,3 +1,5 @@
+import { UpdateInsertHeadersConfig } from './UpdateInsertHeadersConfig';
+import { UpdateRemoveHeadersConfig } from './UpdateRemoveHeadersConfig';
 
 
 export class UpdateRedirectUrlConfig {
@@ -7,6 +9,8 @@ export class UpdateRedirectUrlConfig {
     public path?: string;
     public query?: string;
     private 'status_code'?: UpdateRedirectUrlConfigStatusCodeEnum | string;
+    private 'insert_headers_config'?: UpdateInsertHeadersConfig;
+    private 'remove_headers_config'?: UpdateRemoveHeadersConfig;
     public constructor() { 
     }
     public withProtocol(protocol: UpdateRedirectUrlConfigProtocolEnum | string): UpdateRedirectUrlConfig {
@@ -38,6 +42,26 @@ export class UpdateRedirectUrlConfig {
     }
     public get statusCode(): UpdateRedirectUrlConfigStatusCodeEnum | string | undefined {
         return this['status_code'];
+    }
+    public withInsertHeadersConfig(insertHeadersConfig: UpdateInsertHeadersConfig): UpdateRedirectUrlConfig {
+        this['insert_headers_config'] = insertHeadersConfig;
+        return this;
+    }
+    public set insertHeadersConfig(insertHeadersConfig: UpdateInsertHeadersConfig  | undefined) {
+        this['insert_headers_config'] = insertHeadersConfig;
+    }
+    public get insertHeadersConfig(): UpdateInsertHeadersConfig | undefined {
+        return this['insert_headers_config'];
+    }
+    public withRemoveHeadersConfig(removeHeadersConfig: UpdateRemoveHeadersConfig): UpdateRedirectUrlConfig {
+        this['remove_headers_config'] = removeHeadersConfig;
+        return this;
+    }
+    public set removeHeadersConfig(removeHeadersConfig: UpdateRemoveHeadersConfig  | undefined) {
+        this['remove_headers_config'] = removeHeadersConfig;
+    }
+    public get removeHeadersConfig(): UpdateRemoveHeadersConfig | undefined {
+        return this['remove_headers_config'];
     }
 }
 

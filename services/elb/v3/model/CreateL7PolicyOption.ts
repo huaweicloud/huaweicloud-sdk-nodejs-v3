@@ -1,6 +1,8 @@
 import { CreateFixtedResponseConfig } from './CreateFixtedResponseConfig';
 import { CreateL7PolicyRuleOption } from './CreateL7PolicyRuleOption';
+import { CreateRedirectPoolsConfig } from './CreateRedirectPoolsConfig';
 import { CreateRedirectPoolsExtendConfig } from './CreateRedirectPoolsExtendConfig';
+import { CreateRedirectPoolsStickySessionConfig } from './CreateRedirectPoolsStickySessionConfig';
 import { CreateRedirectUrlConfig } from './CreateRedirectUrlConfig';
 
 
@@ -17,6 +19,8 @@ export class CreateL7PolicyOption {
     private 'redirect_pool_id'?: string;
     private 'redirect_url'?: string;
     private 'redirect_url_config'?: CreateRedirectUrlConfig;
+    private 'redirect_pools_config'?: Array<CreateRedirectPoolsConfig>;
+    private 'redirect_pools_sticky_session_config'?: CreateRedirectPoolsStickySessionConfig;
     private 'fixed_response_config'?: CreateFixtedResponseConfig;
     private 'redirect_pools_extend_config'?: CreateRedirectPoolsExtendConfig;
     public rules?: Array<CreateL7PolicyRuleOption>;
@@ -113,6 +117,26 @@ export class CreateL7PolicyOption {
     }
     public get redirectUrlConfig(): CreateRedirectUrlConfig | undefined {
         return this['redirect_url_config'];
+    }
+    public withRedirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig>): CreateL7PolicyOption {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+        return this;
+    }
+    public set redirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig>  | undefined) {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+    }
+    public get redirectPoolsConfig(): Array<CreateRedirectPoolsConfig> | undefined {
+        return this['redirect_pools_config'];
+    }
+    public withRedirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: CreateRedirectPoolsStickySessionConfig): CreateL7PolicyOption {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+        return this;
+    }
+    public set redirectPoolsStickySessionConfig(redirectPoolsStickySessionConfig: CreateRedirectPoolsStickySessionConfig  | undefined) {
+        this['redirect_pools_sticky_session_config'] = redirectPoolsStickySessionConfig;
+    }
+    public get redirectPoolsStickySessionConfig(): CreateRedirectPoolsStickySessionConfig | undefined {
+        return this['redirect_pools_sticky_session_config'];
     }
     public withFixedResponseConfig(fixedResponseConfig: CreateFixtedResponseConfig): CreateL7PolicyOption {
         this['fixed_response_config'] = fixedResponseConfig;

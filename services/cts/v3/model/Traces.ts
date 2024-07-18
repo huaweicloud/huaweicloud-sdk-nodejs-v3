@@ -23,6 +23,8 @@ export class Traces {
     private 'location_info'?: string;
     public endpoint?: string;
     private 'resource_url'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'resource_account_id'?: string;
     public constructor() { 
     }
     public withResourceId(resourceId: string): Traces {
@@ -192,6 +194,26 @@ export class Traces {
     }
     public get resourceUrl(): string | undefined {
         return this['resource_url'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): Traces {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withResourceAccountId(resourceAccountId: string): Traces {
+        this['resource_account_id'] = resourceAccountId;
+        return this;
+    }
+    public set resourceAccountId(resourceAccountId: string  | undefined) {
+        this['resource_account_id'] = resourceAccountId;
+    }
+    public get resourceAccountId(): string | undefined {
+        return this['resource_account_id'];
     }
 }
 

@@ -12,8 +12,7 @@ export class CreateCertificateOption {
     private 'enterprise_project_id'?: string;
     private 'enc_certificate'?: string;
     private 'enc_private_key'?: string;
-    public constructor(certificate?: string) { 
-        this['certificate'] = certificate;
+    public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): CreateCertificateOption {
         this['admin_state_up'] = adminStateUp;

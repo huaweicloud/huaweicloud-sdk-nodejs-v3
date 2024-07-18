@@ -1,5 +1,6 @@
 export * from './BmsClient';
 
+export * from './model/ASICAcceleratorInfo';
 export * from './model/Absolute';
 export * from './model/AddServerNicsReq';
 export * from './model/AddServerNicsRequest';
@@ -58,6 +59,7 @@ export * from './model/FixedIps';
 export * from './model/FlavorInfo';
 export * from './model/FlavorInfos';
 export * from './model/FlavorsResp';
+export * from './model/GpuInfo';
 export * from './model/Image';
 export * from './model/ImageInfo';
 export * from './model/InterfaceAttachments';
