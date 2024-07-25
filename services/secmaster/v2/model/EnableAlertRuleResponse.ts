@@ -1,26 +1,33 @@
+import { AlertRule } from './AlertRule';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class EnableAlertRuleResponse extends SdkResponse {
-    private 'rule_id'?: string;
-    public status?: EnableAlertRuleResponseStatusEnum | string;
+    private 'fail_list'?: Array<AlertRule>;
+    private 'success_list'?: Array<AlertRule>;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withRuleId(ruleId: string): EnableAlertRuleResponse {
-        this['rule_id'] = ruleId;
+    public withFailList(failList: Array<AlertRule>): EnableAlertRuleResponse {
+        this['fail_list'] = failList;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set failList(failList: Array<AlertRule>  | undefined) {
+        this['fail_list'] = failList;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get failList(): Array<AlertRule> | undefined {
+        return this['fail_list'];
     }
-    public withStatus(status: EnableAlertRuleResponseStatusEnum | string): EnableAlertRuleResponse {
-        this['status'] = status;
+    public withSuccessList(successList: Array<AlertRule>): EnableAlertRuleResponse {
+        this['success_list'] = successList;
         return this;
+    }
+    public set successList(successList: Array<AlertRule>  | undefined) {
+        this['success_list'] = successList;
+    }
+    public get successList(): Array<AlertRule> | undefined {
+        return this['success_list'];
     }
     public withXRequestId(xRequestId: string): EnableAlertRuleResponse {
         this['X-request-id'] = xRequestId;
@@ -32,13 +39,4 @@ export class EnableAlertRuleResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum EnableAlertRuleResponseStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
 }

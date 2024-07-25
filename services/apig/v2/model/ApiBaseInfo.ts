@@ -25,6 +25,7 @@ export class ApiBaseInfo {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ApiBaseInfoContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     public constructor(name?: string, type?: number, reqProtocol?: string, reqMethod?: string, reqUri?: string, authType?: string, backendType?: string, groupId?: string) { 
         this['name'] = name;
         this['type'] = type;
@@ -222,6 +223,16 @@ export class ApiBaseInfo {
     }
     public get contentType(): ApiBaseInfoContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ApiBaseInfo {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
 }
 

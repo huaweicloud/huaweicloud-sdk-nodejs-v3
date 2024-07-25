@@ -1,32 +1,38 @@
+import { AlertRule } from './AlertRule';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteAlertRuleResponse extends SdkResponse {
-    private 'rule_id'?: string;
-    private 'delete_time'?: number;
+    public deleted?: boolean;
+    private 'fail_list'?: Array<AlertRule>;
+    private 'success_list'?: Array<AlertRule>;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withRuleId(ruleId: string): DeleteAlertRuleResponse {
-        this['rule_id'] = ruleId;
+    public withDeleted(deleted: boolean): DeleteAlertRuleResponse {
+        this['deleted'] = deleted;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
-    }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
-    }
-    public withDeleteTime(deleteTime: number): DeleteAlertRuleResponse {
-        this['delete_time'] = deleteTime;
+    public withFailList(failList: Array<AlertRule>): DeleteAlertRuleResponse {
+        this['fail_list'] = failList;
         return this;
     }
-    public set deleteTime(deleteTime: number  | undefined) {
-        this['delete_time'] = deleteTime;
+    public set failList(failList: Array<AlertRule>  | undefined) {
+        this['fail_list'] = failList;
     }
-    public get deleteTime(): number | undefined {
-        return this['delete_time'];
+    public get failList(): Array<AlertRule> | undefined {
+        return this['fail_list'];
+    }
+    public withSuccessList(successList: Array<AlertRule>): DeleteAlertRuleResponse {
+        this['success_list'] = successList;
+        return this;
+    }
+    public set successList(successList: Array<AlertRule>  | undefined) {
+        this['success_list'] = successList;
+    }
+    public get successList(): Array<AlertRule> | undefined {
+        return this['success_list'];
     }
     public withXRequestId(xRequestId: string): DeleteAlertRuleResponse {
         this['X-request-id'] = xRequestId;

@@ -44,6 +44,9 @@ import { BatchCreateAutopilotClusterTagsResponse } from './model/BatchCreateAuto
 import { BatchCreateClusterTagsRequest } from './model/BatchCreateClusterTagsRequest';
 import { BatchCreateClusterTagsRequestBody } from './model/BatchCreateClusterTagsRequestBody';
 import { BatchCreateClusterTagsResponse } from './model/BatchCreateClusterTagsResponse';
+import { BatchCreateDeleteResourceTags } from './model/BatchCreateDeleteResourceTags';
+import { BatchCreateDeleteResourceTagsRequest } from './model/BatchCreateDeleteResourceTagsRequest';
+import { BatchCreateDeleteResourceTagsResponse } from './model/BatchCreateDeleteResourceTagsResponse';
 import { BatchDeleteAutopilotClusterTagsRequest } from './model/BatchDeleteAutopilotClusterTagsRequest';
 import { BatchDeleteAutopilotClusterTagsResponse } from './model/BatchDeleteAutopilotClusterTagsResponse';
 import { BatchDeleteClusterTagsRequest } from './model/BatchDeleteClusterTagsRequest';
@@ -267,6 +270,7 @@ import { NodePoolSpec } from './model/NodePoolSpec';
 import { NodePoolSpecUpdate } from './model/NodePoolSpecUpdate';
 import { NodePoolStatus } from './model/NodePoolStatus';
 import { NodePoolUpdate } from './model/NodePoolUpdate';
+import { NodePoolUpgradeSpec } from './model/NodePoolUpgradeSpec';
 import { NodePriority } from './model/NodePriority';
 import { NodePublicIP } from './model/NodePublicIP';
 import { NodeRisks } from './model/NodeRisks';
@@ -275,6 +279,13 @@ import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
 import { NodeStageStatus } from './model/NodeStageStatus';
 import { NodeStatus } from './model/NodeStatus';
+import { NodeTemplate } from './model/NodeTemplate';
+import { NodeTemplateExtendParam } from './model/NodeTemplateExtendParam';
+import { NodeTemplateLifeCycle } from './model/NodeTemplateLifeCycle';
+import { NodeTemplateLogin } from './model/NodeTemplateLogin';
+import { NodeTemplateLoginUserPassword } from './model/NodeTemplateLoginUserPassword';
+import { NodeTemplateRuntimeConfig } from './model/NodeTemplateRuntimeConfig';
+import { NodeTemplateRuntimeConfigRuntime } from './model/NodeTemplateRuntimeConfigRuntime';
 import { OpenAPISpec } from './model/OpenAPISpec';
 import { OpenAPISpecSpec } from './model/OpenAPISpecSpec';
 import { PackageConfiguration } from './model/PackageConfiguration';
@@ -321,6 +332,7 @@ import { RemoveNodeRequest } from './model/RemoveNodeRequest';
 import { RemoveNodeResponse } from './model/RemoveNodeResponse';
 import { RemoveNodesSpec } from './model/RemoveNodesSpec';
 import { RemoveNodesTask } from './model/RemoveNodesTask';
+import { ResInstanceBody } from './model/ResInstanceBody';
 import { ResetNode } from './model/ResetNode';
 import { ResetNodeList } from './model/ResetNodeList';
 import { ResetNodeRequest } from './model/ResetNodeRequest';
@@ -333,6 +345,7 @@ import { ResourceDeleteTag } from './model/ResourceDeleteTag';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceSelector } from './model/ResourceSelector';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTagBody } from './model/ResourceTagBody';
 import { RetryAutopilotUpgradeClusterTaskRequest } from './model/RetryAutopilotUpgradeClusterTaskRequest';
 import { RetryAutopilotUpgradeClusterTaskResponse } from './model/RetryAutopilotUpgradeClusterTaskResponse';
 import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
@@ -396,8 +409,12 @@ import { ShowClusterEndpointsRequest } from './model/ShowClusterEndpointsRequest
 import { ShowClusterEndpointsResponse } from './model/ShowClusterEndpointsResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
+import { ShowClusterSupportConfigurationRequest } from './model/ShowClusterSupportConfigurationRequest';
+import { ShowClusterSupportConfigurationResponse } from './model/ShowClusterSupportConfigurationResponse';
 import { ShowClusterUpgradeInfoRequest } from './model/ShowClusterUpgradeInfoRequest';
 import { ShowClusterUpgradeInfoResponse } from './model/ShowClusterUpgradeInfoResponse';
+import { ShowCustomizeClusterTagsByProjectIdRequest } from './model/ShowCustomizeClusterTagsByProjectIdRequest';
+import { ShowCustomizeClusterTagsByProjectIdResponse } from './model/ShowCustomizeClusterTagsByProjectIdResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowNodePoolConfigurationDetailsRequest } from './model/ShowNodePoolConfigurationDetailsRequest';
@@ -418,6 +435,11 @@ import { ShowReleaseHistoryRequest } from './model/ShowReleaseHistoryRequest';
 import { ShowReleaseHistoryResponse } from './model/ShowReleaseHistoryResponse';
 import { ShowReleaseRequest } from './model/ShowReleaseRequest';
 import { ShowReleaseResponse } from './model/ShowReleaseResponse';
+import { ShowResourceInstances } from './model/ShowResourceInstances';
+import { ShowResourceInstancesRequest } from './model/ShowResourceInstancesRequest';
+import { ShowResourceInstancesResponse } from './model/ShowResourceInstancesResponse';
+import { ShowResourceTagsRequest } from './model/ShowResourceTagsRequest';
+import { ShowResourceTagsResponse } from './model/ShowResourceTagsResponse';
 import { ShowUpgradeClusterTaskRequest } from './model/ShowUpgradeClusterTaskRequest';
 import { ShowUpgradeClusterTaskResponse } from './model/ShowUpgradeClusterTaskResponse';
 import { ShowUpgradeWorkFlowRequest } from './model/ShowUpgradeWorkFlowRequest';
@@ -439,6 +461,10 @@ import { StorageGroups } from './model/StorageGroups';
 import { StorageSelectors } from './model/StorageSelectors';
 import { StorageSelectorsMatchLabels } from './model/StorageSelectorsMatchLabels';
 import { SupportVersions } from './model/SupportVersions';
+import { SyncNodePoolRequest } from './model/SyncNodePoolRequest';
+import { SyncNodePoolResp } from './model/SyncNodePoolResp';
+import { SyncNodePoolResponse } from './model/SyncNodePoolResponse';
+import { TagFilter } from './model/TagFilter';
 import { Taint } from './model/Taint';
 import { TaskStatus } from './model/TaskStatus';
 import { TaskType } from './model/TaskType';
@@ -450,6 +476,8 @@ import { UpdateAutopilotAddonInstanceResponse } from './model/UpdateAutopilotAdd
 import { UpdateAutopilotChartRequest } from './model/UpdateAutopilotChartRequest';
 import { UpdateAutopilotChartRequestBody } from './model/UpdateAutopilotChartRequestBody';
 import { UpdateAutopilotChartResponse } from './model/UpdateAutopilotChartResponse';
+import { UpdateAutopilotClusterEipRequest } from './model/UpdateAutopilotClusterEipRequest';
+import { UpdateAutopilotClusterEipResponse } from './model/UpdateAutopilotClusterEipResponse';
 import { UpdateAutopilotClusterRequest } from './model/UpdateAutopilotClusterRequest';
 import { UpdateAutopilotClusterResponse } from './model/UpdateAutopilotClusterResponse';
 import { UpdateAutopilotReleaseRequest } from './model/UpdateAutopilotReleaseRequest';
@@ -489,6 +517,9 @@ import { UpgradeClusterResponse } from './model/UpgradeClusterResponse';
 import { UpgradeFeatureGates } from './model/UpgradeFeatureGates';
 import { UpgradeInfoSpec } from './model/UpgradeInfoSpec';
 import { UpgradeInfoStatus } from './model/UpgradeInfoStatus';
+import { UpgradeNodePool } from './model/UpgradeNodePool';
+import { UpgradeNodePoolRequest } from './model/UpgradeNodePoolRequest';
+import { UpgradeNodePoolResponse } from './model/UpgradeNodePoolResponse';
 import { UpgradePath } from './model/UpgradePath';
 import { UpgradeResponseSpec } from './model/UpgradeResponseSpec';
 import { UpgradeSpec } from './model/UpgradeSpec';
@@ -595,6 +626,28 @@ export class CceClient {
      */
     public batchCreateClusterTags(batchCreateClusterTagsRequest?: BatchCreateClusterTagsRequest): Promise<BatchCreateClusterTagsResponse> {
         const options = ParamCreater().batchCreateClusterTags(batchCreateClusterTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于绑定、删除资源标签，创建集群时供EPS调用；EPS页面迁移集群企业项目时调用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定、删除资源标签，创建集群时供EPS调用；EPS页面迁移集群企业项目时调用
+     * @param {string} resourceType 资源类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} resourceId 资源id，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {BatchCreateDeleteResourceTags} batchCreateDeleteResourceTagsRequestBody 绑定、删除资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateDeleteResourceTags(batchCreateDeleteResourceTagsRequest?: BatchCreateDeleteResourceTagsRequest): Promise<BatchCreateDeleteResourceTagsResponse> {
+        const options = ParamCreater().batchCreateDeleteResourceTags(batchCreateDeleteResourceTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1720,6 +1773,29 @@ export class CceClient {
     }
 
     /**
+     * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterType 集群类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterVersion 集群版本，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} networkMode 集群网络类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterSupportConfiguration(showClusterSupportConfigurationRequest?: ShowClusterSupportConfigurationRequest): Promise<ShowClusterSupportConfigurationResponse> {
+        const options = ParamCreater().showClusterSupportConfiguration(showClusterSupportConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取集群升级相关信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1731,6 +1807,26 @@ export class CceClient {
      */
     public showClusterUpgradeInfo(showClusterUpgradeInfoRequest?: ShowClusterUpgradeInfoRequest): Promise<ShowClusterUpgradeInfoResponse> {
         const options = ParamCreater().showClusterUpgradeInfo(showClusterUpgradeInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询集群的标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群的标签
+     * @param {string} resourceType 资源类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCustomizeClusterTagsByProjectId(showCustomizeClusterTagsByProjectIdRequest?: ShowCustomizeClusterTagsByProjectIdRequest): Promise<ShowCustomizeClusterTagsByProjectIdResponse> {
+        const options = ParamCreater().showCustomizeClusterTagsByProjectId(showCustomizeClusterTagsByProjectIdRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1952,6 +2048,48 @@ export class CceClient {
     }
 
     /**
+     * 该API用于查询资源实例，EPS页面查询CCE集群资源时调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例，EPS页面查询CCE集群资源时调用
+     * @param {string} resourceType 资源类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {ShowResourceInstances} showResourceInstancesRequestBody 查询资源实例的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceInstances(showResourceInstancesRequest?: ShowResourceInstancesRequest): Promise<ShowResourceInstancesResponse> {
+        const options = ParamCreater().showResourceInstances(showResourceInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询资源标签（用于企业项目场景，企业项目是一种系统标签）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签（用于企业项目场景，企业项目是一种系统标签）
+     * @param {string} resourceType 资源类型，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} resourceId 资源id，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceTags(showResourceTagsRequest?: ShowResourceTagsRequest): Promise<ShowResourceTagsResponse> {
+        const options = ParamCreater().showResourceTags(showResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
      * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
      * &gt; - 当前集群升级相关接口受限开放。
@@ -2006,6 +2144,27 @@ export class CceClient {
      */
     public showUserChartsQuotas(showUserChartsQuotasRequest?: ShowUserChartsQuotasRequest): Promise<ShowUserChartsQuotasResponse> {
         const options = ParamCreater().showUserChartsQuotas(showUserChartsQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于同步nodePool配置到存量节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步nodePool配置到存量节点
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodepoolId 节点池ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncNodePool(syncNodePoolRequest?: SyncNodePoolRequest): Promise<SyncNodePoolResponse> {
+        const options = ParamCreater().syncNodePool(syncNodePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2253,6 +2412,28 @@ export class CceClient {
      */
     public upgradeCluster(upgradeClusterRequest?: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
         const options = ParamCreater().upgradeCluster(upgradeClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于节点池升级。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点池升级
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodepoolId 节点池ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UpgradeNodePool} upgradeNodePoolRequestBody 升级节点池的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeNodePool(upgradeNodePoolRequest?: UpgradeNodePoolRequest): Promise<UpgradeNodePoolResponse> {
+        const options = ParamCreater().upgradeNodePool(upgradeNodePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3262,6 +3443,28 @@ export class CceClient {
     }
 
     /**
+     * 该API用于通过集群ID绑定、解绑集群公网apiserver地址
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定、解绑集群公网apiserver地址
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MasterEIPRequest} masterEIPBody 绑定或解绑集群公网apiserver地址的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAutopilotClusterEip(updateAutopilotClusterEipRequest?: UpdateAutopilotClusterEipRequest): Promise<UpdateAutopilotClusterEipResponse> {
+        const options = ParamCreater().updateAutopilotClusterEip(updateAutopilotClusterEipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新指定模板实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3503,6 +3706,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于绑定、删除资源标签，创建集群时供EPS调用；EPS页面迁移集群企业项目时调用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateDeleteResourceTags(batchCreateDeleteResourceTagsRequest?: BatchCreateDeleteResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/cce/v1/{project_id}/{resource_type}/{resource_id}/tags/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let contentType;
+
+            if (batchCreateDeleteResourceTagsRequest !== null && batchCreateDeleteResourceTagsRequest !== undefined) {
+                if (batchCreateDeleteResourceTagsRequest instanceof BatchCreateDeleteResourceTagsRequest) {
+                    resourceType = batchCreateDeleteResourceTagsRequest.resourceType;
+                    resourceId = batchCreateDeleteResourceTagsRequest.resourceId;
+                    contentType = batchCreateDeleteResourceTagsRequest.contentType;
+                    body = batchCreateDeleteResourceTagsRequest.body
+                } else {
+                    resourceType = batchCreateDeleteResourceTagsRequest['resource_type'];
+                    resourceId = batchCreateDeleteResourceTagsRequest['resource_id'];
+                    contentType = batchCreateDeleteResourceTagsRequest['Content-Type'];
+                    body = batchCreateDeleteResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling batchCreateDeleteResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateDeleteResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6127,6 +6390,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于根据集群版本类型等查询集群支持的详细配置项，用于集群创建时指定。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterSupportConfiguration(showClusterSupportConfigurationRequest?: ShowClusterSupportConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/clusters/configuration/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let clusterType;
+            
+            let clusterVersion;
+            
+            let networkMode;
+            
+            let contentType;
+
+            if (showClusterSupportConfigurationRequest !== null && showClusterSupportConfigurationRequest !== undefined) {
+                if (showClusterSupportConfigurationRequest instanceof ShowClusterSupportConfigurationRequest) {
+                    clusterId = showClusterSupportConfigurationRequest.clusterId;
+                    clusterType = showClusterSupportConfigurationRequest.clusterType;
+                    clusterVersion = showClusterSupportConfigurationRequest.clusterVersion;
+                    networkMode = showClusterSupportConfigurationRequest.networkMode;
+                    contentType = showClusterSupportConfigurationRequest.contentType;
+                } else {
+                    clusterId = showClusterSupportConfigurationRequest['cluster_id'];
+                    clusterType = showClusterSupportConfigurationRequest['cluster_type'];
+                    clusterVersion = showClusterSupportConfigurationRequest['cluster_version'];
+                    networkMode = showClusterSupportConfigurationRequest['network_mode'];
+                    contentType = showClusterSupportConfigurationRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (clusterType === null || clusterType === undefined) {
+            throw new RequiredError('clusterType','Required parameter clusterType was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (clusterVersion === null || clusterVersion === undefined) {
+            throw new RequiredError('clusterVersion','Required parameter clusterVersion was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (networkMode === null || networkMode === undefined) {
+            throw new RequiredError('networkMode','Required parameter networkMode was null or undefined when calling showClusterSupportConfiguration.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'cluster_type': clusterType,'cluster_version': clusterVersion,'network_mode': networkMode, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取集群升级相关信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6159,6 +6487,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询集群的标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCustomizeClusterTagsByProjectId(showCustomizeClusterTagsByProjectIdRequest?: ShowCustomizeClusterTagsByProjectIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/cce/v1/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let contentType;
+
+            if (showCustomizeClusterTagsByProjectIdRequest !== null && showCustomizeClusterTagsByProjectIdRequest !== undefined) {
+                if (showCustomizeClusterTagsByProjectIdRequest instanceof ShowCustomizeClusterTagsByProjectIdRequest) {
+                    resourceType = showCustomizeClusterTagsByProjectIdRequest.resourceType;
+                    contentType = showCustomizeClusterTagsByProjectIdRequest.contentType;
+                } else {
+                    resourceType = showCustomizeClusterTagsByProjectIdRequest['resource_type'];
+                    contentType = showCustomizeClusterTagsByProjectIdRequest['Content-Type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showCustomizeClusterTagsByProjectId.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6658,6 +7030,110 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于查询资源实例，EPS页面查询CCE集群资源时调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceInstances(showResourceInstancesRequest?: ShowResourceInstancesRequest) {
+            const options = {
+                method: "POST",
+                url: "/cce/v1/{project_id}/{resource_type}/resource_instances/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let contentType;
+
+            if (showResourceInstancesRequest !== null && showResourceInstancesRequest !== undefined) {
+                if (showResourceInstancesRequest instanceof ShowResourceInstancesRequest) {
+                    resourceType = showResourceInstancesRequest.resourceType;
+                    contentType = showResourceInstancesRequest.contentType;
+                    body = showResourceInstancesRequest.body
+                } else {
+                    resourceType = showResourceInstancesRequest['resource_type'];
+                    contentType = showResourceInstancesRequest['Content-Type'];
+                    body = showResourceInstancesRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showResourceInstances.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询资源标签（用于企业项目场景，企业项目是一种系统标签）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceTags(showResourceTagsRequest?: ShowResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/cce/v1/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let contentType;
+
+            if (showResourceTagsRequest !== null && showResourceTagsRequest !== undefined) {
+                if (showResourceTagsRequest instanceof ShowResourceTagsRequest) {
+                    resourceType = showResourceTagsRequest.resourceType;
+                    resourceId = showResourceTagsRequest.resourceId;
+                    contentType = showResourceTagsRequest.contentType;
+                } else {
+                    resourceType = showResourceTagsRequest['resource_type'];
+                    resourceId = showResourceTagsRequest['resource_id'];
+                    contentType = showResourceTagsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourceTags.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
          * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
          * &gt; - 当前集群升级相关接口受限开放。
@@ -6786,6 +7262,57 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于同步nodePool配置到存量节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncNodePool(syncNodePoolRequest?: SyncNodePoolRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3.1/projects/{project_id}/clusters/{cluster_id}/nodepool/{nodepool_id}/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let nodepoolId;
+            
+            let contentType;
+
+            if (syncNodePoolRequest !== null && syncNodePoolRequest !== undefined) {
+                if (syncNodePoolRequest instanceof SyncNodePoolRequest) {
+                    clusterId = syncNodePoolRequest.clusterId;
+                    nodepoolId = syncNodePoolRequest.nodepoolId;
+                    contentType = syncNodePoolRequest.contentType;
+                } else {
+                    clusterId = syncNodePoolRequest['cluster_id'];
+                    nodepoolId = syncNodePoolRequest['nodepool_id'];
+                    contentType = syncNodePoolRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling syncNodePool.');
+            }
+            if (nodepoolId === null || nodepoolId === undefined) {
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling syncNodePool.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7420,6 +7947,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于节点池升级。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeNodePool(upgradeNodePoolRequest?: UpgradeNodePoolRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodepools/{nodepool_id}/operation/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let nodepoolId;
+            
+            let contentType;
+
+            if (upgradeNodePoolRequest !== null && upgradeNodePoolRequest !== undefined) {
+                if (upgradeNodePoolRequest instanceof UpgradeNodePoolRequest) {
+                    clusterId = upgradeNodePoolRequest.clusterId;
+                    nodepoolId = upgradeNodePoolRequest.nodepoolId;
+                    contentType = upgradeNodePoolRequest.contentType;
+                    body = upgradeNodePoolRequest.body
+                } else {
+                    clusterId = upgradeNodePoolRequest['cluster_id'];
+                    nodepoolId = upgradeNodePoolRequest['nodepool_id'];
+                    contentType = upgradeNodePoolRequest['Content-Type'];
+                    body = upgradeNodePoolRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeNodePool.');
+            }
+            if (nodepoolId === null || nodepoolId === undefined) {
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling upgradeNodePool.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9713,6 +10300,60 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于通过集群ID绑定、解绑集群公网apiserver地址
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAutopilotClusterEip(updateAutopilotClusterEipRequest?: UpdateAutopilotClusterEipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/autopilot/v3/projects/{project_id}/clusters/{cluster_id}/mastereip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (updateAutopilotClusterEipRequest !== null && updateAutopilotClusterEipRequest !== undefined) {
+                if (updateAutopilotClusterEipRequest instanceof UpdateAutopilotClusterEipRequest) {
+                    clusterId = updateAutopilotClusterEipRequest.clusterId;
+                    contentType = updateAutopilotClusterEipRequest.contentType;
+                    body = updateAutopilotClusterEipRequest.body
+                } else {
+                    clusterId = updateAutopilotClusterEipRequest['cluster_id'];
+                    contentType = updateAutopilotClusterEipRequest['Content-Type'];
+                    body = updateAutopilotClusterEipRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAutopilotClusterEip.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

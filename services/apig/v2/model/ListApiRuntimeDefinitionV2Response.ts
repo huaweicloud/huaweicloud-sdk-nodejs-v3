@@ -28,6 +28,7 @@ export class ListApiRuntimeDefinitionV2Response extends SdkResponse {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ListApiRuntimeDefinitionV2ResponseContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     public id?: string;
     private 'group_name'?: string;
     private 'run_env_name'?: string;
@@ -234,6 +235,16 @@ export class ListApiRuntimeDefinitionV2Response extends SdkResponse {
     }
     public get contentType(): ListApiRuntimeDefinitionV2ResponseContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ListApiRuntimeDefinitionV2Response {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
     public withId(id: string): ListApiRuntimeDefinitionV2Response {
         this['id'] = id;

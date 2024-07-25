@@ -1,26 +1,33 @@
+import { AlertRule } from './AlertRule';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DisableAlertRuleResponse extends SdkResponse {
-    private 'rule_id'?: string;
-    public status?: DisableAlertRuleResponseStatusEnum | string;
+    private 'fail_list'?: Array<AlertRule>;
+    private 'success_list'?: Array<AlertRule>;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withRuleId(ruleId: string): DisableAlertRuleResponse {
-        this['rule_id'] = ruleId;
+    public withFailList(failList: Array<AlertRule>): DisableAlertRuleResponse {
+        this['fail_list'] = failList;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set failList(failList: Array<AlertRule>  | undefined) {
+        this['fail_list'] = failList;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get failList(): Array<AlertRule> | undefined {
+        return this['fail_list'];
     }
-    public withStatus(status: DisableAlertRuleResponseStatusEnum | string): DisableAlertRuleResponse {
-        this['status'] = status;
+    public withSuccessList(successList: Array<AlertRule>): DisableAlertRuleResponse {
+        this['success_list'] = successList;
         return this;
+    }
+    public set successList(successList: Array<AlertRule>  | undefined) {
+        this['success_list'] = successList;
+    }
+    public get successList(): Array<AlertRule> | undefined {
+        return this['success_list'];
     }
     public withXRequestId(xRequestId: string): DisableAlertRuleResponse {
         this['X-request-id'] = xRequestId;
@@ -32,13 +39,4 @@ export class DisableAlertRuleResponse extends SdkResponse {
     public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum DisableAlertRuleResponseStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
 }

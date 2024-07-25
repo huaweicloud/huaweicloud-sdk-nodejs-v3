@@ -7,6 +7,7 @@ export class CambodianIdCardScoreInformationResult {
     private 'blur_score'?: number;
     private 'glare_score'?: number;
     private 'tampering_score'?: number;
+    private 'reproduce_score'?: number;
     public constructor() { 
     }
     public withIdcardTypeScore(idcardTypeScore: number): CambodianIdCardScoreInformationResult {
@@ -68,5 +69,15 @@ export class CambodianIdCardScoreInformationResult {
     }
     public get tamperingScore(): number | undefined {
         return this['tampering_score'];
+    }
+    public withReproduceScore(reproduceScore: number): CambodianIdCardScoreInformationResult {
+        this['reproduce_score'] = reproduceScore;
+        return this;
+    }
+    public set reproduceScore(reproduceScore: number  | undefined) {
+        this['reproduce_score'] = reproduceScore;
+    }
+    public get reproduceScore(): number | undefined {
+        return this['reproduce_score'];
     }
 }

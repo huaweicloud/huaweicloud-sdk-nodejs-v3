@@ -8,6 +8,8 @@ export class ApiConditionBase {
     private 'condition_type'?: ApiConditionBaseConditionTypeEnum | string;
     private 'condition_origin'?: ApiConditionBaseConditionOriginEnum | string;
     private 'condition_value'?: string;
+    private 'mapped_param_name'?: string;
+    private 'mapped_param_location'?: ApiConditionBaseMappedParamLocationEnum | string;
     public constructor(conditionOrigin?: string, conditionValue?: string) { 
         this['condition_origin'] = conditionOrigin;
         this['condition_value'] = conditionValue;
@@ -82,6 +84,26 @@ export class ApiConditionBase {
     public get conditionValue(): string | undefined {
         return this['condition_value'];
     }
+    public withMappedParamName(mappedParamName: string): ApiConditionBase {
+        this['mapped_param_name'] = mappedParamName;
+        return this;
+    }
+    public set mappedParamName(mappedParamName: string  | undefined) {
+        this['mapped_param_name'] = mappedParamName;
+    }
+    public get mappedParamName(): string | undefined {
+        return this['mapped_param_name'];
+    }
+    public withMappedParamLocation(mappedParamLocation: ApiConditionBaseMappedParamLocationEnum | string): ApiConditionBase {
+        this['mapped_param_location'] = mappedParamLocation;
+        return this;
+    }
+    public set mappedParamLocation(mappedParamLocation: ApiConditionBaseMappedParamLocationEnum | string  | undefined) {
+        this['mapped_param_location'] = mappedParamLocation;
+    }
+    public get mappedParamLocation(): ApiConditionBaseMappedParamLocationEnum | string | undefined {
+        return this['mapped_param_location'];
+    }
 }
 
 /**
@@ -111,4 +133,12 @@ export enum ApiConditionBaseConditionOriginEnum {
     SYSTEM = 'system',
     COOKIE = 'cookie',
     FRONTEND_AUTHORIZER = 'frontend_authorizer'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiConditionBaseMappedParamLocationEnum {
+    HEADER = 'header',
+    QUERY = 'query'
 }

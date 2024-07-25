@@ -8,6 +8,7 @@ export class AlertDetail {
     private 'dataclass_ref'?: AlertDetailDataclassRef;
     private 'format_version'?: number;
     public id?: string;
+    public type?: string;
     private 'project_id'?: string;
     private 'update_time'?: string;
     public version?: number;
@@ -56,6 +57,10 @@ export class AlertDetail {
     }
     public withId(id: string): AlertDetail {
         this['id'] = id;
+        return this;
+    }
+    public withType(type: string): AlertDetail {
+        this['type'] = type;
         return this;
     }
     public withProjectId(projectId: string): AlertDetail {

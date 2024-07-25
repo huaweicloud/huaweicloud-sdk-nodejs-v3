@@ -193,6 +193,8 @@ import { CreateMemberGroupRequest } from './model/CreateMemberGroupRequest';
 import { CreateMemberGroupResponse } from './model/CreateMemberGroupResponse';
 import { CreateOrDeletePublishRecordForApiV2Request } from './model/CreateOrDeletePublishRecordForApiV2Request';
 import { CreateOrDeletePublishRecordForApiV2Response } from './model/CreateOrDeletePublishRecordForApiV2Response';
+import { CreateOrchestrationRequest } from './model/CreateOrchestrationRequest';
+import { CreateOrchestrationResponse } from './model/CreateOrchestrationResponse';
 import { CreateOrderRequest } from './model/CreateOrderRequest';
 import { CreateOrderResponse } from './model/CreateOrderResponse';
 import { CreatePluginRequest } from './model/CreatePluginRequest';
@@ -251,6 +253,8 @@ import { DeleteInstancesV2Request } from './model/DeleteInstancesV2Request';
 import { DeleteInstancesV2Response } from './model/DeleteInstancesV2Response';
 import { DeleteMemberGroupRequest } from './model/DeleteMemberGroupRequest';
 import { DeleteMemberGroupResponse } from './model/DeleteMemberGroupResponse';
+import { DeleteOrchestrationRequest } from './model/DeleteOrchestrationRequest';
+import { DeleteOrchestrationResponse } from './model/DeleteOrchestrationResponse';
 import { DeletePluginRequest } from './model/DeletePluginRequest';
 import { DeletePluginResponse } from './model/DeletePluginResponse';
 import { DeleteRequestThrottlingPolicyV2Request } from './model/DeleteRequestThrottlingPolicyV2Request';
@@ -400,6 +404,8 @@ import { ListInstanceFeaturesRequest } from './model/ListInstanceFeaturesRequest
 import { ListInstanceFeaturesResponse } from './model/ListInstanceFeaturesResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
 import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
+import { ListInstancesByTagsRequest } from './model/ListInstancesByTagsRequest';
+import { ListInstancesByTagsResponse } from './model/ListInstancesByTagsResponse';
 import { ListInstancesV2Request } from './model/ListInstancesV2Request';
 import { ListInstancesV2Response } from './model/ListInstancesV2Response';
 import { ListLatelyApiStatisticsV2Request } from './model/ListLatelyApiStatisticsV2Request';
@@ -410,6 +416,10 @@ import { ListMemberGroupsRequest } from './model/ListMemberGroupsRequest';
 import { ListMemberGroupsResponse } from './model/ListMemberGroupsResponse';
 import { ListMetricDataRequest } from './model/ListMetricDataRequest';
 import { ListMetricDataResponse } from './model/ListMetricDataResponse';
+import { ListOrchestrationAttachedApisRequest } from './model/ListOrchestrationAttachedApisRequest';
+import { ListOrchestrationAttachedApisResponse } from './model/ListOrchestrationAttachedApisResponse';
+import { ListOrchestrationsRequest } from './model/ListOrchestrationsRequest';
+import { ListOrchestrationsResponse } from './model/ListOrchestrationsResponse';
 import { ListPluginAttachableApisRequest } from './model/ListPluginAttachableApisRequest';
 import { ListPluginAttachableApisResponse } from './model/ListPluginAttachableApisResponse';
 import { ListPluginAttachedApisRequest } from './model/ListPluginAttachedApisRequest';
@@ -447,9 +457,6 @@ import { MicroServiceInfo } from './model/MicroServiceInfo';
 import { MicroServiceInfoCCE } from './model/MicroServiceInfoCCE';
 import { MicroServiceInfoCCEBase } from './model/MicroServiceInfoCCEBase';
 import { MicroServiceInfoCCECreate } from './model/MicroServiceInfoCCECreate';
-import { MicroServiceInfoCCEService } from './model/MicroServiceInfoCCEService';
-import { MicroServiceInfoCCEServiceBase } from './model/MicroServiceInfoCCEServiceBase';
-import { MicroServiceInfoCCEServiceCreate } from './model/MicroServiceInfoCCEServiceCreate';
 import { MicroServiceInfoCSE } from './model/MicroServiceInfoCSE';
 import { MicroServiceInfoCSEBase } from './model/MicroServiceInfoCSEBase';
 import { MicroServiceInfoCSECreate } from './model/MicroServiceInfoCSECreate';
@@ -462,6 +469,13 @@ import { NetworkTrafficStats } from './model/NetworkTrafficStats';
 import { NodeIps } from './model/NodeIps';
 import { OpenEngressEipReq } from './model/OpenEngressEipReq';
 import { OpenIngressEipReq } from './model/OpenIngressEipReq';
+import { OrchestrationApiInfo } from './model/OrchestrationApiInfo';
+import { OrchestrationBaseInfo } from './model/OrchestrationBaseInfo';
+import { OrchestrationBaseResp } from './model/OrchestrationBaseResp';
+import { OrchestrationCreate } from './model/OrchestrationCreate';
+import { OrchestrationMap } from './model/OrchestrationMap';
+import { OrchestrationMapParamRange } from './model/OrchestrationMapParamRange';
+import { OrchestrationMappedParam } from './model/OrchestrationMappedParam';
 import { PluginApiAttachInfo } from './model/PluginApiAttachInfo';
 import { PluginApiInfo } from './model/PluginApiInfo';
 import { PluginCreate } from './model/PluginCreate';
@@ -523,10 +537,14 @@ import { ShowDetailsOfInstanceV2Request } from './model/ShowDetailsOfInstanceV2R
 import { ShowDetailsOfInstanceV2Response } from './model/ShowDetailsOfInstanceV2Response';
 import { ShowDetailsOfMemberGroupRequest } from './model/ShowDetailsOfMemberGroupRequest';
 import { ShowDetailsOfMemberGroupResponse } from './model/ShowDetailsOfMemberGroupResponse';
+import { ShowDetailsOfOrchestrationRequest } from './model/ShowDetailsOfOrchestrationRequest';
+import { ShowDetailsOfOrchestrationResponse } from './model/ShowDetailsOfOrchestrationResponse';
 import { ShowDetailsOfRequestThrottlingPolicyV2Request } from './model/ShowDetailsOfRequestThrottlingPolicyV2Request';
 import { ShowDetailsOfRequestThrottlingPolicyV2Response } from './model/ShowDetailsOfRequestThrottlingPolicyV2Response';
 import { ShowDetailsOfVpcChannelV2Request } from './model/ShowDetailsOfVpcChannelV2Request';
 import { ShowDetailsOfVpcChannelV2Response } from './model/ShowDetailsOfVpcChannelV2Response';
+import { ShowInstancesNumByTagsRequest } from './model/ShowInstancesNumByTagsRequest';
+import { ShowInstancesNumByTagsResponse } from './model/ShowInstancesNumByTagsResponse';
 import { ShowPluginRequest } from './model/ShowPluginRequest';
 import { ShowPluginResponse } from './model/ShowPluginResponse';
 import { ShowRestrictionOfInstanceV2Request } from './model/ShowRestrictionOfInstanceV2Request';
@@ -555,6 +573,9 @@ import { ThrottleSpecialUpdate } from './model/ThrottleSpecialUpdate';
 import { ThrottlesInfo } from './model/ThrottlesInfo';
 import { TmsKeyValue } from './model/TmsKeyValue';
 import { TmsKeyValues } from './model/TmsKeyValues';
+import { TmsMatchesKeyValue } from './model/TmsMatchesKeyValue';
+import { TmsQueryReq } from './model/TmsQueryReq';
+import { TmsResourceResp } from './model/TmsResourceResp';
 import { TmsUpdatePublicReq } from './model/TmsUpdatePublicReq';
 import { UnbindApiForAcl } from './model/UnbindApiForAcl';
 import { UpdateAclStrategyV2Request } from './model/UpdateAclStrategyV2Request';
@@ -595,6 +616,8 @@ import { UpdateInstanceV2Request } from './model/UpdateInstanceV2Request';
 import { UpdateInstanceV2Response } from './model/UpdateInstanceV2Response';
 import { UpdateMemberGroupRequest } from './model/UpdateMemberGroupRequest';
 import { UpdateMemberGroupResponse } from './model/UpdateMemberGroupResponse';
+import { UpdateOrchestrationRequest } from './model/UpdateOrchestrationRequest';
+import { UpdateOrchestrationResponse } from './model/UpdateOrchestrationResponse';
 import { UpdatePluginRequest } from './model/UpdatePluginRequest';
 import { UpdatePluginResponse } from './model/UpdatePluginResponse';
 import { UpdateRequestThrottlingPolicyV2Request } from './model/UpdateRequestThrottlingPolicyV2Request';
@@ -681,7 +704,7 @@ export class ApigClient {
     }
 
     /**
-     * 实例更新或绑定EIP
+     * 实例更新或绑定EIP(仅当实例为LVS类型时支持)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1167,6 +1190,26 @@ export class ApigClient {
     }
 
     /**
+     * 创建编排规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建编排规则
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {OrchestrationCreate} createOrchestrationRequestBody 创建编排规则的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOrchestration(createOrchestrationRequest?: CreateOrchestrationRequest): Promise<CreateOrchestrationResponse> {
+        const options = ParamCreater().createOrchestration(createOrchestrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建包周期专享版实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1568,6 +1611,26 @@ export class ApigClient {
     }
 
     /**
+     * 删除编排规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除编排规则
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} orchestrationId 编排规则编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOrchestration(deleteOrchestrationRequest?: DeleteOrchestrationRequest): Promise<DeleteOrchestrationResponse> {
+        const options = ParamCreater().deleteOrchestration(deleteOrchestrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除插件。
      * - 必须先解除API和插件的绑定关系，否则删除报错
      * 
@@ -1778,7 +1841,7 @@ export class ApigClient {
     }
 
     /**
-     * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1799,7 +1862,7 @@ export class ApigClient {
     }
 
     /**
-     * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2274,7 +2337,7 @@ export class ApigClient {
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
      * @param {string} [envId] 环境编号
      * @param {string} [variableName] 变量名
-     * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name
+     * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持variable_name
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2415,6 +2478,27 @@ export class ApigClient {
     }
 
     /**
+     * 通过标签查询实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过标签查询实例列表
+     * @param {TmsQueryReq} listInstancesByTagsRequestBody 通过标签查询实例列表的请求体
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesByTags(listInstancesByTagsRequest?: ListInstancesByTagsRequest): Promise<ListInstancesByTagsResponse> {
+        const options = ParamCreater().listInstancesByTags(listInstancesByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询专享版实例列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2498,6 +2582,57 @@ export class ApigClient {
      */
     public listMetricData(listMetricDataRequest?: ListMetricDataRequest): Promise<ListMetricDataResponse> {
         const options = ParamCreater().listMetricData(listMetricDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定插件下绑定的API信息
+     * - 用于查询指定插件下已经绑定的API列表信息
+     * - 支持分页返回
+     * - 支持API名称模糊查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询编排规则绑定的API
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} orchestrationId 编排规则编号
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [apiName] API名称。
+     * @param {string} [apiId] API编号。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrchestrationAttachedApis(listOrchestrationAttachedApisRequest?: ListOrchestrationAttachedApisRequest): Promise<ListOrchestrationAttachedApisResponse> {
+        const options = ParamCreater().listOrchestrationAttachedApis(listOrchestrationAttachedApisRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看编排规则列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看编排规则列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {string} [orchestrationName] 编排规则名称。
+     * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，多个参数需要支持精确匹配时参数之间使用“,”隔开。当前仅支持orchestration_name。
+     * @param {string} [orchestrationId] 编排规则编号。  支持指定多个编号作为查询条件，多个参数之间使用“,”隔开，支持的查询参数个数与api允许绑定的参数规则上限保持一致，具体请参考产品介绍的“配额说明”章节。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOrchestrations(listOrchestrationsRequest?: ListOrchestrationsRequest): Promise<ListOrchestrationsResponse> {
+        const options = ParamCreater().listOrchestrations(listOrchestrationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3100,6 +3235,26 @@ export class ApigClient {
     }
 
     /**
+     * 查询编排规则详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询编排规则详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} orchestrationId 编排规则编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDetailsOfOrchestration(showDetailsOfOrchestrationRequest?: ShowDetailsOfOrchestrationRequest): Promise<ShowDetailsOfOrchestrationResponse> {
+        const options = ParamCreater().showDetailsOfOrchestration(showDetailsOfOrchestrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看指定流控策略的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3112,6 +3267,25 @@ export class ApigClient {
      */
     public showDetailsOfRequestThrottlingPolicyV2(showDetailsOfRequestThrottlingPolicyV2Request?: ShowDetailsOfRequestThrottlingPolicyV2Request): Promise<ShowDetailsOfRequestThrottlingPolicyV2Response> {
         const options = ParamCreater().showDetailsOfRequestThrottlingPolicyV2(showDetailsOfRequestThrottlingPolicyV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询包含指定标签的实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询包含指定标签的实例数量
+     * @param {TmsQueryReq} showInstancesNumByTagsRequestBody 通过标签查询实例数量的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstancesNumByTags(showInstancesNumByTagsRequest?: ShowInstancesNumByTagsRequest): Promise<ShowInstancesNumByTagsResponse> {
+        const options = ParamCreater().showInstancesNumByTags(showInstancesNumByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3404,6 +3578,27 @@ export class ApigClient {
      */
     public updateInstanceV2(updateInstanceV2Request?: UpdateInstanceV2Request): Promise<UpdateInstanceV2Response> {
         const options = ParamCreater().updateInstanceV2(updateInstanceV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新编排规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新编排规则
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} orchestrationId 编排规则编号
+     * @param {OrchestrationCreate} updateOrchestrationRequestBody 更新编排规则的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOrchestration(updateOrchestrationRequest?: UpdateOrchestrationRequest): Promise<UpdateOrchestrationResponse> {
+        const options = ParamCreater().updateOrchestration(updateOrchestrationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4503,7 +4698,7 @@ export class ApigClient {
     }
 
     /**
-     * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4524,7 +4719,7 @@ export class ApigClient {
     }
 
     /**
-     * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+     * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4760,7 +4955,7 @@ export class ApigClient {
     /**
      * 为指定的VPC通道添加后端实例
      * 
-     * 若指定地址的后端实例已存在，则更新对应后端实例信息。若请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
+     * 如果指定地址的后端实例已存在，则更新对应后端实例信息。如果请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4825,7 +5020,7 @@ export class ApigClient {
     /**
      * 在APIG中创建VPC通道后端服务器组，VPC通道后端实例可以选择是否关联后端实例服务器组，以便管理后端服务器节点。
      * 
-     * 若指定名称的后端服务器组已存在，则更新对应后端服务器组信息。若请求体中包含多个重复名称的后端服务器定义，则使用第一个定义。
+     * 如果指定名称的后端服务器组已存在，则更新对应后端服务器组信息。如果请求体中包含多个重复名称的后端服务器定义，则使用第一个定义。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5050,7 +5245,7 @@ export class ApigClient {
     }
 
     /**
-     * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。若未指定修改的云服务器组，则进行全量覆盖。
+     * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。如果未指定修改的云服务器组，则进行全量覆盖。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5116,9 +5311,9 @@ export class ApigClient {
     /**
      * 更新指定VPC通道的参数
      * 
-     * 使用传入的后端实例列表对VPC通道进行全量覆盖，若后端实例列表为空，则会全量删除已有的后端实例；
+     * 使用传入的后端实例列表对VPC通道进行全量覆盖，如果后端实例列表为空，则会全量删除已有的后端实例；
      * 
-     * 使用传入的后端服务器组列表对VPC通道进行全量覆盖，若后端服务器组列表为空，则会全量删除已有的服务器组；
+     * 使用传入的后端服务器组列表对VPC通道进行全量覆盖，如果后端服务器组列表为空，则会全量删除已有的服务器组；
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5235,7 +5430,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例更新或绑定EIP
+         * 实例更新或绑定EIP(仅当实例为LVS类型时支持)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6330,6 +6525,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建编排规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOrchestration(createOrchestrationRequest?: CreateOrchestrationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createOrchestrationRequest !== null && createOrchestrationRequest !== undefined) {
+                if (createOrchestrationRequest instanceof CreateOrchestrationRequest) {
+                    instanceId = createOrchestrationRequest.instanceId;
+                    body = createOrchestrationRequest.body
+                } else {
+                    instanceId = createOrchestrationRequest['instance_id'];
+                    body = createOrchestrationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createOrchestration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建包周期专享版实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7220,6 +7461,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除编排规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOrchestration(deleteOrchestrationRequest?: DeleteOrchestrationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations/{orchestration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let orchestrationId;
+
+            if (deleteOrchestrationRequest !== null && deleteOrchestrationRequest !== undefined) {
+                if (deleteOrchestrationRequest instanceof DeleteOrchestrationRequest) {
+                    instanceId = deleteOrchestrationRequest.instanceId;
+                    orchestrationId = deleteOrchestrationRequest.orchestrationId;
+                } else {
+                    instanceId = deleteOrchestrationRequest['instance_id'];
+                    orchestrationId = deleteOrchestrationRequest['orchestration_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteOrchestration.');
+            }
+            if (orchestrationId === null || orchestrationId === undefined) {
+            throw new RequiredError('orchestrationId','Required parameter orchestrationId was null or undefined when calling deleteOrchestration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'orchestration_id': orchestrationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除插件。
          * - 必须先解除API和插件的绑定关系，否则删除报错
          * 
@@ -7716,7 +8001,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7770,7 +8055,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9476,6 +9761,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过标签查询实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesByTags(listInstancesByTagsRequest?: ListInstancesByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/resource-instances/filter",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstancesByTagsRequest !== null && listInstancesByTagsRequest !== undefined) {
+                if (listInstancesByTagsRequest instanceof ListInstancesByTagsRequest) {
+                    body = listInstancesByTagsRequest.body
+                    offset = listInstancesByTagsRequest.offset;
+                    limit = listInstancesByTagsRequest.limit;
+                } else {
+                    body = listInstancesByTagsRequest['body'];
+                    offset = listInstancesByTagsRequest['offset'];
+                    limit = listInstancesByTagsRequest['limit'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询专享版实例列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9738,6 +10076,155 @@ export const ParamCreater = function () {
             }
             if (filter !== null && filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定插件下绑定的API信息
+         * - 用于查询指定插件下已经绑定的API列表信息
+         * - 支持分页返回
+         * - 支持API名称模糊查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrchestrationAttachedApis(listOrchestrationAttachedApisRequest?: ListOrchestrationAttachedApisRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations/{orchestration_id}/attached-apis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let orchestrationId;
+            
+            let offset;
+            
+            let limit;
+            
+            let apiName;
+            
+            let apiId;
+
+            if (listOrchestrationAttachedApisRequest !== null && listOrchestrationAttachedApisRequest !== undefined) {
+                if (listOrchestrationAttachedApisRequest instanceof ListOrchestrationAttachedApisRequest) {
+                    instanceId = listOrchestrationAttachedApisRequest.instanceId;
+                    orchestrationId = listOrchestrationAttachedApisRequest.orchestrationId;
+                    offset = listOrchestrationAttachedApisRequest.offset;
+                    limit = listOrchestrationAttachedApisRequest.limit;
+                    apiName = listOrchestrationAttachedApisRequest.apiName;
+                    apiId = listOrchestrationAttachedApisRequest.apiId;
+                } else {
+                    instanceId = listOrchestrationAttachedApisRequest['instance_id'];
+                    orchestrationId = listOrchestrationAttachedApisRequest['orchestration_id'];
+                    offset = listOrchestrationAttachedApisRequest['offset'];
+                    limit = listOrchestrationAttachedApisRequest['limit'];
+                    apiName = listOrchestrationAttachedApisRequest['api_name'];
+                    apiId = listOrchestrationAttachedApisRequest['api_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listOrchestrationAttachedApis.');
+            }
+            if (orchestrationId === null || orchestrationId === undefined) {
+            throw new RequiredError('orchestrationId','Required parameter orchestrationId was null or undefined when calling listOrchestrationAttachedApis.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (apiName !== null && apiName !== undefined) {
+                localVarQueryParameter['api_name'] = apiName;
+            }
+            if (apiId !== null && apiId !== undefined) {
+                localVarQueryParameter['api_id'] = apiId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'orchestration_id': orchestrationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看编排规则列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOrchestrations(listOrchestrationsRequest?: ListOrchestrationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let orchestrationName;
+            
+            let preciseSearch;
+            
+            let orchestrationId;
+
+            if (listOrchestrationsRequest !== null && listOrchestrationsRequest !== undefined) {
+                if (listOrchestrationsRequest instanceof ListOrchestrationsRequest) {
+                    instanceId = listOrchestrationsRequest.instanceId;
+                    offset = listOrchestrationsRequest.offset;
+                    limit = listOrchestrationsRequest.limit;
+                    orchestrationName = listOrchestrationsRequest.orchestrationName;
+                    preciseSearch = listOrchestrationsRequest.preciseSearch;
+                    orchestrationId = listOrchestrationsRequest.orchestrationId;
+                } else {
+                    instanceId = listOrchestrationsRequest['instance_id'];
+                    offset = listOrchestrationsRequest['offset'];
+                    limit = listOrchestrationsRequest['limit'];
+                    orchestrationName = listOrchestrationsRequest['orchestration_name'];
+                    preciseSearch = listOrchestrationsRequest['precise_search'];
+                    orchestrationId = listOrchestrationsRequest['orchestration_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listOrchestrations.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orchestrationName !== null && orchestrationName !== undefined) {
+                localVarQueryParameter['orchestration_name'] = orchestrationName;
+            }
+            if (preciseSearch !== null && preciseSearch !== undefined) {
+                localVarQueryParameter['precise_search'] = preciseSearch;
+            }
+            if (orchestrationId !== null && orchestrationId !== undefined) {
+                localVarQueryParameter['orchestration_id'] = orchestrationId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11249,6 +11736,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询编排规则详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDetailsOfOrchestration(showDetailsOfOrchestrationRequest?: ShowDetailsOfOrchestrationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations/{orchestration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let orchestrationId;
+
+            if (showDetailsOfOrchestrationRequest !== null && showDetailsOfOrchestrationRequest !== undefined) {
+                if (showDetailsOfOrchestrationRequest instanceof ShowDetailsOfOrchestrationRequest) {
+                    instanceId = showDetailsOfOrchestrationRequest.instanceId;
+                    orchestrationId = showDetailsOfOrchestrationRequest.orchestrationId;
+                } else {
+                    instanceId = showDetailsOfOrchestrationRequest['instance_id'];
+                    orchestrationId = showDetailsOfOrchestrationRequest['orchestration_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfOrchestration.');
+            }
+            if (orchestrationId === null || orchestrationId === undefined) {
+            throw new RequiredError('orchestrationId','Required parameter orchestrationId was null or undefined when calling showDetailsOfOrchestration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'orchestration_id': orchestrationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看指定流控策略的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11288,6 +11819,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'throttle_id': throttleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询包含指定标签的实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstancesNumByTags(showInstancesNumByTagsRequest?: ShowInstancesNumByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/resource-instances/count",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (showInstancesNumByTagsRequest !== null && showInstancesNumByTagsRequest !== undefined) {
+                if (showInstancesNumByTagsRequest instanceof ShowInstancesNumByTagsRequest) {
+                    body = showInstancesNumByTagsRequest.body
+                } else {
+                    body = showInstancesNumByTagsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12012,6 +12581,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新编排规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOrchestration(updateOrchestrationRequest?: UpdateOrchestrationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/orchestrations/{orchestration_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let orchestrationId;
+
+            if (updateOrchestrationRequest !== null && updateOrchestrationRequest !== undefined) {
+                if (updateOrchestrationRequest instanceof UpdateOrchestrationRequest) {
+                    instanceId = updateOrchestrationRequest.instanceId;
+                    orchestrationId = updateOrchestrationRequest.orchestrationId;
+                    body = updateOrchestrationRequest.body
+                } else {
+                    instanceId = updateOrchestrationRequest['instance_id'];
+                    orchestrationId = updateOrchestrationRequest['orchestration_id'];
+                    body = updateOrchestrationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateOrchestration.');
+            }
+            if (orchestrationId === null || orchestrationId === undefined) {
+            throw new RequiredError('orchestrationId','Required parameter orchestrationId was null or undefined when calling updateOrchestration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'orchestration_id': orchestrationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14939,7 +15561,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 导出分组下API的定义信息。导出文件内容符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14993,7 +15615,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关开发指南》的“导入导出API：扩展定义”章节。
+         * 导入API。导入文件内容需要符合swagger标准规范，API网关自定义扩展字段请参考《API网关用户指南》的“导入导出API：扩展定义”章节。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15599,7 +16221,7 @@ export const ParamCreater = function () {
         /**
          * 为指定的VPC通道添加后端实例
          * 
-         * 若指定地址的后端实例已存在，则更新对应后端实例信息。若请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
+         * 如果指定地址的后端实例已存在，则更新对应后端实例信息。如果请求体中包含多个重复地址的后端实例定义，则使用第一个定义。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15760,7 +16382,7 @@ export const ParamCreater = function () {
         /**
          * 在APIG中创建VPC通道后端服务器组，VPC通道后端实例可以选择是否关联后端实例服务器组，以便管理后端服务器节点。
          * 
-         * 若指定名称的后端服务器组已存在，则更新对应后端服务器组信息。若请求体中包含多个重复名称的后端服务器定义，则使用第一个定义。
+         * 如果指定名称的后端服务器组已存在，则更新对应后端服务器组信息。如果请求体中包含多个重复名称的后端服务器定义，则使用第一个定义。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16376,7 +16998,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。若未指定修改的云服务器组，则进行全量覆盖。
+         * 更新指定的VPC通道的后端实例。更新时，使用传入的请求参数对对应云服务组的后端实例进行全量覆盖修改。如果未指定修改的云服务器组，则进行全量覆盖。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16544,9 +17166,9 @@ export const ParamCreater = function () {
         /**
          * 更新指定VPC通道的参数
          * 
-         * 使用传入的后端实例列表对VPC通道进行全量覆盖，若后端实例列表为空，则会全量删除已有的后端实例；
+         * 使用传入的后端实例列表对VPC通道进行全量覆盖，如果后端实例列表为空，则会全量删除已有的后端实例；
          * 
-         * 使用传入的后端服务器组列表对VPC通道进行全量覆盖，若后端服务器组列表为空，则会全量删除已有的服务器组；
+         * 使用传入的后端服务器组列表对VPC通道进行全量覆盖，如果后端服务器组列表为空，则会全量删除已有的服务器组；
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

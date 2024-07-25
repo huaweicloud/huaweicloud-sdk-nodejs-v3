@@ -12,6 +12,7 @@ export class CambodianIdCardRequestBody {
     private 'detect_glare'?: boolean;
     private 'return_adjusted_image'?: boolean;
     private 'detect_tampering'?: boolean;
+    private 'detect_reproduce'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): CambodianIdCardRequestBody {
@@ -111,5 +112,15 @@ export class CambodianIdCardRequestBody {
     }
     public get detectTampering(): boolean | undefined {
         return this['detect_tampering'];
+    }
+    public withDetectReproduce(detectReproduce: boolean): CambodianIdCardRequestBody {
+        this['detect_reproduce'] = detectReproduce;
+        return this;
+    }
+    public set detectReproduce(detectReproduce: boolean  | undefined) {
+        this['detect_reproduce'] = detectReproduce;
+    }
+    public get detectReproduce(): boolean | undefined {
+        return this['detect_reproduce'];
     }
 }

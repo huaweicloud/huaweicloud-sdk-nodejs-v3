@@ -16,6 +16,7 @@ import { AggregationLogicTableVODetailData } from './model/AggregationLogicTable
 import { AggregationLogicTableVOSearchResultData } from './model/AggregationLogicTableVOSearchResultData';
 import { AggregationLogicTableVOSearchResultDataValue } from './model/AggregationLogicTableVOSearchResultDataValue';
 import { AlarmInfoResponseAlarmInfo } from './model/AlarmInfoResponseAlarmInfo';
+import { AlgorithmDetailDTO } from './model/AlgorithmDetailDTO';
 import { AllModelStatisticVO } from './model/AllModelStatisticVO';
 import { AllTableVO } from './model/AllTableVO';
 import { Api } from './model/Api';
@@ -90,10 +91,13 @@ import { BatchAssociateClassificationToEntitiesResponse } from './model/BatchAss
 import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssociateSecurityLevelToEntitiesRequest';
 import { BatchAssociateSecurityLevelToEntitiesResponse } from './model/BatchAssociateSecurityLevelToEntitiesResponse';
 import { BatchDeleteBaseDTO } from './model/BatchDeleteBaseDTO';
+import { BatchDeletePolicySetsDTO } from './model/BatchDeletePolicySetsDTO';
 import { BatchDeleteRulesBaseDTO } from './model/BatchDeleteRulesBaseDTO';
 import { BatchDeleteSecrecyLevelDTO } from './model/BatchDeleteSecrecyLevelDTO';
 import { BatchDeleteSecurityDataClassificationRuleRequest } from './model/BatchDeleteSecurityDataClassificationRuleRequest';
 import { BatchDeleteSecurityDataClassificationRuleResponse } from './model/BatchDeleteSecurityDataClassificationRuleResponse';
+import { BatchDeleteSecurityDynamicMaskingPoliciesRequest } from './model/BatchDeleteSecurityDynamicMaskingPoliciesRequest';
+import { BatchDeleteSecurityDynamicMaskingPoliciesResponse } from './model/BatchDeleteSecurityDynamicMaskingPoliciesResponse';
 import { BatchDeleteSecurityPermissionSetMembersRequest } from './model/BatchDeleteSecurityPermissionSetMembersRequest';
 import { BatchDeleteSecurityPermissionSetMembersResponse } from './model/BatchDeleteSecurityPermissionSetMembersResponse';
 import { BatchDeleteSecurityPermissionSetPermissionsRequest } from './model/BatchDeleteSecurityPermissionSetPermissionsRequest';
@@ -232,6 +236,8 @@ import { CreateSecurityAssignedQueueRequest } from './model/CreateSecurityAssign
 import { CreateSecurityAssignedQueueResponse } from './model/CreateSecurityAssignedQueueResponse';
 import { CreateSecurityDataClassificationRuleRequest } from './model/CreateSecurityDataClassificationRuleRequest';
 import { CreateSecurityDataClassificationRuleResponse } from './model/CreateSecurityDataClassificationRuleResponse';
+import { CreateSecurityDynamicMaskingPolicyRequest } from './model/CreateSecurityDynamicMaskingPolicyRequest';
+import { CreateSecurityDynamicMaskingPolicyResponse } from './model/CreateSecurityDynamicMaskingPolicyResponse';
 import { CreateSecurityPermissionSetMemberRequest } from './model/CreateSecurityPermissionSetMemberRequest';
 import { CreateSecurityPermissionSetMemberResponse } from './model/CreateSecurityPermissionSetMemberResponse';
 import { CreateSecurityPermissionSetPermissionRequest } from './model/CreateSecurityPermissionSetPermissionRequest';
@@ -368,6 +374,12 @@ import { DsExportResultVOData } from './model/DsExportResultVOData';
 import { DsProcessImportResultVO } from './model/DsProcessImportResultVO';
 import { DwName } from './model/DwName';
 import { DwType } from './model/DwType';
+import { DynamicMaskingPolicy } from './model/DynamicMaskingPolicy';
+import { DynamicMaskingPolicyCreate } from './model/DynamicMaskingPolicyCreate';
+import { DynamicMaskingPolicyCreateDTO } from './model/DynamicMaskingPolicyCreateDTO';
+import { DynamicMaskingPolicySet } from './model/DynamicMaskingPolicySet';
+import { DynamicMaskingPolicyUpdate } from './model/DynamicMaskingPolicyUpdate';
+import { DynamicMaskingPolicyUpdateDTO } from './model/DynamicMaskingPolicyUpdateDTO';
 import { Entity } from './model/Entity';
 import { EntityPrivilegeInfo } from './model/EntityPrivilegeInfo';
 import { EntityWithExtInfo } from './model/EntityWithExtInfo';
@@ -597,6 +609,8 @@ import { ListSecurityDatasourceUrlsRequest } from './model/ListSecurityDatasourc
 import { ListSecurityDatasourceUrlsResponse } from './model/ListSecurityDatasourceUrlsResponse';
 import { ListSecurityDlfDataWareHousesRequest } from './model/ListSecurityDlfDataWareHousesRequest';
 import { ListSecurityDlfDataWareHousesResponse } from './model/ListSecurityDlfDataWareHousesResponse';
+import { ListSecurityDynamicMaskingPoliciesRequest } from './model/ListSecurityDynamicMaskingPoliciesRequest';
+import { ListSecurityDynamicMaskingPoliciesResponse } from './model/ListSecurityDynamicMaskingPoliciesResponse';
 import { ListSecurityMemberSyncTasksRequest } from './model/ListSecurityMemberSyncTasksRequest';
 import { ListSecurityMemberSyncTasksResponse } from './model/ListSecurityMemberSyncTasksResponse';
 import { ListSecurityPermissionSetMembersRequest } from './model/ListSecurityPermissionSetMembersRequest';
@@ -894,6 +908,8 @@ import { ShowSecurityDataClassificationRuleGroupRequest } from './model/ShowSecu
 import { ShowSecurityDataClassificationRuleGroupResponse } from './model/ShowSecurityDataClassificationRuleGroupResponse';
 import { ShowSecurityDataClassificationRuleRequest } from './model/ShowSecurityDataClassificationRuleRequest';
 import { ShowSecurityDataClassificationRuleResponse } from './model/ShowSecurityDataClassificationRuleResponse';
+import { ShowSecurityDynamicMaskingPolicyRequest } from './model/ShowSecurityDynamicMaskingPolicyRequest';
+import { ShowSecurityDynamicMaskingPolicyResponse } from './model/ShowSecurityDynamicMaskingPolicyResponse';
 import { ShowSecurityMemberSyncTaskRequest } from './model/ShowSecurityMemberSyncTaskRequest';
 import { ShowSecurityMemberSyncTaskResponse } from './model/ShowSecurityMemberSyncTaskResponse';
 import { ShowSecurityPermissionSetRequest } from './model/ShowSecurityPermissionSetRequest';
@@ -1008,6 +1024,8 @@ import { UpdateSecurityAssignedQueueRequest } from './model/UpdateSecurityAssign
 import { UpdateSecurityAssignedQueueResponse } from './model/UpdateSecurityAssignedQueueResponse';
 import { UpdateSecurityDataClassificationRuleRequest } from './model/UpdateSecurityDataClassificationRuleRequest';
 import { UpdateSecurityDataClassificationRuleResponse } from './model/UpdateSecurityDataClassificationRuleResponse';
+import { UpdateSecurityDynamicMaskingPolicyRequest } from './model/UpdateSecurityDynamicMaskingPolicyRequest';
+import { UpdateSecurityDynamicMaskingPolicyResponse } from './model/UpdateSecurityDynamicMaskingPolicyResponse';
 import { UpdateSecurityPermissionSetPermissionRequest } from './model/UpdateSecurityPermissionSetPermissionRequest';
 import { UpdateSecurityPermissionSetPermissionResponse } from './model/UpdateSecurityPermissionSetPermissionResponse';
 import { UpdateSecurityPermissionSetRequest } from './model/UpdateSecurityPermissionSetRequest';
@@ -1236,6 +1254,26 @@ export class DataArtsStudioClient {
      */
     public batchDeleteSecurityDataClassificationRule(batchDeleteSecurityDataClassificationRuleRequest?: BatchDeleteSecurityDataClassificationRuleRequest): Promise<BatchDeleteSecurityDataClassificationRuleResponse> {
         const options = ParamCreater().batchDeleteSecurityDataClassificationRule(batchDeleteSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除动态脱敏策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除动态脱敏策略
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {BatchDeletePolicySetsDTO} batchDeleteSecurityDynamicMaskingPoliciesRequestBody 策略id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSecurityDynamicMaskingPolicies(batchDeleteSecurityDynamicMaskingPoliciesRequest?: BatchDeleteSecurityDynamicMaskingPoliciesRequest): Promise<BatchDeleteSecurityDynamicMaskingPoliciesResponse> {
+        const options = ParamCreater().batchDeleteSecurityDynamicMaskingPolicies(batchDeleteSecurityDynamicMaskingPoliciesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2018,6 +2056,26 @@ export class DataArtsStudioClient {
      */
     public createSecurityDataClassificationRule(createSecurityDataClassificationRuleRequest?: CreateSecurityDataClassificationRuleRequest): Promise<CreateSecurityDataClassificationRuleResponse> {
         const options = ParamCreater().createSecurityDataClassificationRule(createSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建动态数据脱敏策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据脱敏策略
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {DynamicMaskingPolicyCreateDTO} createSecurityDynamicMaskingPolicyRequestBody 创建动态脱敏策略传输对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSecurityDynamicMaskingPolicy(createSecurityDynamicMaskingPolicyRequest?: CreateSecurityDynamicMaskingPolicyRequest): Promise<CreateSecurityDynamicMaskingPolicyResponse> {
+        const options = ParamCreater().createSecurityDynamicMaskingPolicy(createSecurityDynamicMaskingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4628,6 +4686,33 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询动态数据脱敏策略列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询动态数据脱敏策略列表
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {string} [name] 动态脱敏策略名称。
+     * @param {string} [clusterName] 集群名称
+     * @param {string} [databaseName] 数据库名称
+     * @param {string} [tableName] 表名称
+     * @param {'UPDATE_TIME'} [orderBy] 排序参数，UPDATE_TIME。
+     * @param {boolean} [orderByAsc] 是否升序（仅指定排序参数时有效）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityDynamicMaskingPolicies(listSecurityDynamicMaskingPoliciesRequest?: ListSecurityDynamicMaskingPoliciesRequest): Promise<ListSecurityDynamicMaskingPoliciesResponse> {
+        const options = ParamCreater().listSecurityDynamicMaskingPolicies(listSecurityDynamicMaskingPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户同步列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6799,6 +6884,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询某个脱敏策略的详细信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询某个脱敏策略的详细信息
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 动态脱敏策略id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityDynamicMaskingPolicy(showSecurityDynamicMaskingPolicyRequest?: ShowSecurityDynamicMaskingPolicyRequest): Promise<ShowSecurityDynamicMaskingPolicyResponse> {
+        const options = ParamCreater().showSecurityDynamicMaskingPolicy(showSecurityDynamicMaskingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个用户同步任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7393,6 +7498,27 @@ export class DataArtsStudioClient {
      */
     public updateSecurityDataClassificationRule(updateSecurityDataClassificationRuleRequest?: UpdateSecurityDataClassificationRuleRequest): Promise<UpdateSecurityDataClassificationRuleResponse> {
         const options = ParamCreater().updateSecurityDataClassificationRule(updateSecurityDataClassificationRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新动态数据脱敏策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新动态数据脱敏策略
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} id 脱敏策略id
+     * @param {DynamicMaskingPolicyUpdateDTO} updateSecurityDynamicMaskingPolicyRequestBody 更新动态脱敏策略传输对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityDynamicMaskingPolicy(updateSecurityDynamicMaskingPolicyRequest?: UpdateSecurityDynamicMaskingPolicyRequest): Promise<UpdateSecurityDynamicMaskingPolicyResponse> {
+        const options = ParamCreater().updateSecurityDynamicMaskingPolicy(updateSecurityDynamicMaskingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8561,6 +8687,51 @@ export const ParamCreater = function () {
                 } else {
                     workspace = batchDeleteSecurityDataClassificationRuleRequest['workspace'];
                     body = batchDeleteSecurityDataClassificationRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除动态脱敏策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSecurityDynamicMaskingPolicies(batchDeleteSecurityDynamicMaskingPoliciesRequest?: BatchDeleteSecurityDynamicMaskingPoliciesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/masking/dynamic/policies/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (batchDeleteSecurityDynamicMaskingPoliciesRequest !== null && batchDeleteSecurityDynamicMaskingPoliciesRequest !== undefined) {
+                if (batchDeleteSecurityDynamicMaskingPoliciesRequest instanceof BatchDeleteSecurityDynamicMaskingPoliciesRequest) {
+                    workspace = batchDeleteSecurityDynamicMaskingPoliciesRequest.workspace;
+                    body = batchDeleteSecurityDynamicMaskingPoliciesRequest.body
+                } else {
+                    workspace = batchDeleteSecurityDynamicMaskingPoliciesRequest['workspace'];
+                    body = batchDeleteSecurityDynamicMaskingPoliciesRequest['body'];
                 }
             }
 
@@ -10506,6 +10677,51 @@ export const ParamCreater = function () {
                 } else {
                     workspace = createSecurityDataClassificationRuleRequest['workspace'];
                     body = createSecurityDataClassificationRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建动态数据脱敏策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSecurityDynamicMaskingPolicy(createSecurityDynamicMaskingPolicyRequest?: CreateSecurityDynamicMaskingPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/security/masking/dynamic/policies",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+
+            if (createSecurityDynamicMaskingPolicyRequest !== null && createSecurityDynamicMaskingPolicyRequest !== undefined) {
+                if (createSecurityDynamicMaskingPolicyRequest instanceof CreateSecurityDynamicMaskingPolicyRequest) {
+                    workspace = createSecurityDynamicMaskingPolicyRequest.workspace;
+                    body = createSecurityDynamicMaskingPolicyRequest.body
+                } else {
+                    workspace = createSecurityDynamicMaskingPolicyRequest['workspace'];
+                    body = createSecurityDynamicMaskingPolicyRequest['body'];
                 }
             }
 
@@ -18344,6 +18560,99 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询动态数据脱敏策略列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityDynamicMaskingPolicies(listSecurityDynamicMaskingPoliciesRequest?: ListSecurityDynamicMaskingPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/masking/dynamic/policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let limit;
+            
+            let offset;
+            
+            let name;
+            
+            let clusterName;
+            
+            let databaseName;
+            
+            let tableName;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityDynamicMaskingPoliciesRequest !== null && listSecurityDynamicMaskingPoliciesRequest !== undefined) {
+                if (listSecurityDynamicMaskingPoliciesRequest instanceof ListSecurityDynamicMaskingPoliciesRequest) {
+                    workspace = listSecurityDynamicMaskingPoliciesRequest.workspace;
+                    limit = listSecurityDynamicMaskingPoliciesRequest.limit;
+                    offset = listSecurityDynamicMaskingPoliciesRequest.offset;
+                    name = listSecurityDynamicMaskingPoliciesRequest.name;
+                    clusterName = listSecurityDynamicMaskingPoliciesRequest.clusterName;
+                    databaseName = listSecurityDynamicMaskingPoliciesRequest.databaseName;
+                    tableName = listSecurityDynamicMaskingPoliciesRequest.tableName;
+                    orderBy = listSecurityDynamicMaskingPoliciesRequest.orderBy;
+                    orderByAsc = listSecurityDynamicMaskingPoliciesRequest.orderByAsc;
+                } else {
+                    workspace = listSecurityDynamicMaskingPoliciesRequest['workspace'];
+                    limit = listSecurityDynamicMaskingPoliciesRequest['limit'];
+                    offset = listSecurityDynamicMaskingPoliciesRequest['offset'];
+                    name = listSecurityDynamicMaskingPoliciesRequest['name'];
+                    clusterName = listSecurityDynamicMaskingPoliciesRequest['cluster_name'];
+                    databaseName = listSecurityDynamicMaskingPoliciesRequest['database_name'];
+                    tableName = listSecurityDynamicMaskingPoliciesRequest['table_name'];
+                    orderBy = listSecurityDynamicMaskingPoliciesRequest['order_by'];
+                    orderByAsc = listSecurityDynamicMaskingPoliciesRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (clusterName !== null && clusterName !== undefined) {
+                localVarQueryParameter['cluster_name'] = clusterName;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户同步列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -24857,6 +25166,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询某个脱敏策略的详细信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityDynamicMaskingPolicy(showSecurityDynamicMaskingPolicyRequest?: ShowSecurityDynamicMaskingPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/masking/dynamic/policies/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let id;
+
+            if (showSecurityDynamicMaskingPolicyRequest !== null && showSecurityDynamicMaskingPolicyRequest !== undefined) {
+                if (showSecurityDynamicMaskingPolicyRequest instanceof ShowSecurityDynamicMaskingPolicyRequest) {
+                    workspace = showSecurityDynamicMaskingPolicyRequest.workspace;
+                    id = showSecurityDynamicMaskingPolicyRequest.id;
+                } else {
+                    workspace = showSecurityDynamicMaskingPolicyRequest['workspace'];
+                    id = showSecurityDynamicMaskingPolicyRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showSecurityDynamicMaskingPolicy.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个用户同步任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26390,6 +26743,59 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityDataClassificationRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新动态数据脱敏策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityDynamicMaskingPolicy(updateSecurityDynamicMaskingPolicyRequest?: UpdateSecurityDynamicMaskingPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/security/masking/dynamic/policies/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let id;
+
+            if (updateSecurityDynamicMaskingPolicyRequest !== null && updateSecurityDynamicMaskingPolicyRequest !== undefined) {
+                if (updateSecurityDynamicMaskingPolicyRequest instanceof UpdateSecurityDynamicMaskingPolicyRequest) {
+                    workspace = updateSecurityDynamicMaskingPolicyRequest.workspace;
+                    id = updateSecurityDynamicMaskingPolicyRequest.id;
+                    body = updateSecurityDynamicMaskingPolicyRequest.body
+                } else {
+                    workspace = updateSecurityDynamicMaskingPolicyRequest['workspace'];
+                    id = updateSecurityDynamicMaskingPolicyRequest['id'];
+                    body = updateSecurityDynamicMaskingPolicyRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateSecurityDynamicMaskingPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

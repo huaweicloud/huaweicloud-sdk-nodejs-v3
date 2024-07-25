@@ -1,4 +1,4 @@
-import { DataResponse } from './DataResponse';
+import { BatchOperateDataobjectResult } from './BatchOperateDataobjectResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,11 +6,11 @@ export class CreateDataobjectRelationsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     private 'request_id'?: string;
-    public success?: boolean;
     public total?: number;
     public limit?: number;
     public offset?: number;
-    public data?: DataResponse;
+    public success?: boolean;
+    public data?: BatchOperateDataobjectResult;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
@@ -33,10 +33,6 @@ export class CreateDataobjectRelationsResponse extends SdkResponse {
     public get requestId(): string | undefined {
         return this['request_id'];
     }
-    public withSuccess(success: boolean): CreateDataobjectRelationsResponse {
-        this['success'] = success;
-        return this;
-    }
     public withTotal(total: number): CreateDataobjectRelationsResponse {
         this['total'] = total;
         return this;
@@ -49,7 +45,11 @@ export class CreateDataobjectRelationsResponse extends SdkResponse {
         this['offset'] = offset;
         return this;
     }
-    public withData(data: DataResponse): CreateDataobjectRelationsResponse {
+    public withSuccess(success: boolean): CreateDataobjectRelationsResponse {
+        this['success'] = success;
+        return this;
+    }
+    public withData(data: BatchOperateDataobjectResult): CreateDataobjectRelationsResponse {
         this['data'] = data;
         return this;
     }

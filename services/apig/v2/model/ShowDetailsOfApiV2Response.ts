@@ -36,6 +36,7 @@ export class ShowDetailsOfApiV2Response extends SdkResponse {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ShowDetailsOfApiV2ResponseContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     public id?: string;
     public status?: number;
     private 'arrange_necessary'?: number;
@@ -256,6 +257,16 @@ export class ShowDetailsOfApiV2Response extends SdkResponse {
     }
     public get contentType(): ShowDetailsOfApiV2ResponseContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ShowDetailsOfApiV2Response {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
     public withId(id: string): ShowDetailsOfApiV2Response {
         this['id'] = id;

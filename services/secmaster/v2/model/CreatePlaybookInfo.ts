@@ -4,7 +4,6 @@ export class CreatePlaybookInfo {
     public name?: string;
     public description?: string;
     private 'workspace_id'?: string;
-    public enabled?: boolean;
     public constructor(name?: string, workspaceId?: string) { 
         this['name'] = name;
         this['workspace_id'] = workspaceId;
@@ -26,9 +25,5 @@ export class CreatePlaybookInfo {
     }
     public get workspaceId(): string | undefined {
         return this['workspace_id'];
-    }
-    public withEnabled(enabled: boolean): CreatePlaybookInfo {
-        this['enabled'] = enabled;
-        return this;
     }
 }

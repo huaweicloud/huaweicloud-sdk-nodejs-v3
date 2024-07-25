@@ -25,7 +25,6 @@ export class DnsRegion {
     public static CN_SOUTH_2 = new Region("cn-south-2", ["https://dns.cn-south-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://dns.ap-southeast-4.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://dns.ae-ad-1.myhuaweicloud.com"]);
-    public static EU_WEST_0 = new Region("eu-west-0", ["https://dns.eu-west-0.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://dns.ru-moscow-1.myhuaweicloud.com"]);
     
 
@@ -49,7 +48,6 @@ export class DnsRegion {
         "cn-south-2":DnsRegion.CN_SOUTH_2,
         "ap-southeast-4":DnsRegion.AP_SOUTHEAST_4,
         "ae-ad-1":DnsRegion.AE_AD_1,
-        "eu-west-0":DnsRegion.EU_WEST_0,
         "ru-moscow-1":DnsRegion.RU_MOSCOW_1
     };
   

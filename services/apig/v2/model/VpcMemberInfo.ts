@@ -14,6 +14,7 @@ export class VpcMemberInfo {
     private 'vpc_channel_id'?: string;
     private 'create_time'?: Date;
     private 'member_group_id'?: string;
+    private 'health_status'?: VpcMemberInfoHealthStatusEnum | string;
     public constructor() { 
     }
     public withHost(host: string): VpcMemberInfo {
@@ -106,6 +107,16 @@ export class VpcMemberInfo {
     public get memberGroupId(): string | undefined {
         return this['member_group_id'];
     }
+    public withHealthStatus(healthStatus: VpcMemberInfoHealthStatusEnum | string): VpcMemberInfo {
+        this['health_status'] = healthStatus;
+        return this;
+    }
+    public set healthStatus(healthStatus: VpcMemberInfoHealthStatusEnum | string  | undefined) {
+        this['health_status'] = healthStatus;
+    }
+    public get healthStatus(): VpcMemberInfoHealthStatusEnum | string | undefined {
+        return this['health_status'];
+    }
 }
 
 /**
@@ -115,4 +126,13 @@ export class VpcMemberInfo {
 export enum VpcMemberInfoStatusEnum {
     NUMBER_1 = 1,
     NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum VpcMemberInfoHealthStatusEnum {
+    HEALTHY = 'healthy',
+    UNHEALTHY = 'unhealthy',
+    UNKNOWN = 'unknown'
 }

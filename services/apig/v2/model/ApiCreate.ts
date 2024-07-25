@@ -34,6 +34,7 @@ export class ApiCreate {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ApiCreateContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     private 'mock_info'?: ApiMockCreate;
     private 'func_info'?: ApiFuncCreate;
     private 'req_params'?: Array<ReqParamBase>;
@@ -239,6 +240,16 @@ export class ApiCreate {
     }
     public get contentType(): ApiCreateContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ApiCreate {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
     public withMockInfo(mockInfo: ApiMockCreate): ApiCreate {
         this['mock_info'] = mockInfo;

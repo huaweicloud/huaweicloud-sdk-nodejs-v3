@@ -99,7 +99,8 @@ export enum UpdatePluginResponsePluginTypeEnum {
     KAFKA_LOG = 'kafka_log',
     BREAKER = 'breaker',
     RATE_LIMIT = 'rate_limit',
-    THIRD_AUTH = 'third_auth'
+    THIRD_AUTH = 'third_auth',
+    PROXY_CACHE = 'proxy_cache'
 }
 /**
     * @export

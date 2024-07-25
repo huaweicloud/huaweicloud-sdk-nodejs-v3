@@ -29,6 +29,7 @@ export class ApiInfoPerPage {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ApiInfoPerPageContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     public id?: string;
     public status?: number;
     private 'arrange_necessary'?: number;
@@ -242,6 +243,16 @@ export class ApiInfoPerPage {
     }
     public get contentType(): ApiInfoPerPageContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ApiInfoPerPage {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
     public withId(id: string): ApiInfoPerPage {
         this['id'] = id;

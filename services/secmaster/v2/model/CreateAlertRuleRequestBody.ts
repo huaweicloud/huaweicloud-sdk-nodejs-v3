@@ -17,12 +17,19 @@ export class CreateAlertRuleRequestBody {
     public simulation?: boolean;
     public schedule?: Schedule;
     public triggers?: Array<AlertRuleTrigger>;
-    public constructor(pipeId?: string, ruleName?: string, query?: string, schedule?: Schedule, triggers?: Array<AlertRuleTrigger>) { 
+    private 'pipe_name'?: string;
+    private 'alert_name'?: string;
+    private 'alert_description'?: string;
+    private 'alert_remediation'?: string;
+    private 'accumulated_times'?: number;
+    public constructor(pipeId?: string, ruleName?: string, query?: string, schedule?: Schedule, triggers?: Array<AlertRuleTrigger>, pipeName?: string, alertName?: string) { 
         this['pipe_id'] = pipeId;
         this['rule_name'] = ruleName;
         this['query'] = query;
         this['schedule'] = schedule;
         this['triggers'] = triggers;
+        this['pipe_name'] = pipeName;
+        this['alert_name'] = alertName;
     }
     public withPipeId(pipeId: string): CreateAlertRuleRequestBody {
         this['pipe_id'] = pipeId;
@@ -115,6 +122,56 @@ export class CreateAlertRuleRequestBody {
     public withTriggers(triggers: Array<AlertRuleTrigger>): CreateAlertRuleRequestBody {
         this['triggers'] = triggers;
         return this;
+    }
+    public withPipeName(pipeName: string): CreateAlertRuleRequestBody {
+        this['pipe_name'] = pipeName;
+        return this;
+    }
+    public set pipeName(pipeName: string  | undefined) {
+        this['pipe_name'] = pipeName;
+    }
+    public get pipeName(): string | undefined {
+        return this['pipe_name'];
+    }
+    public withAlertName(alertName: string): CreateAlertRuleRequestBody {
+        this['alert_name'] = alertName;
+        return this;
+    }
+    public set alertName(alertName: string  | undefined) {
+        this['alert_name'] = alertName;
+    }
+    public get alertName(): string | undefined {
+        return this['alert_name'];
+    }
+    public withAlertDescription(alertDescription: string): CreateAlertRuleRequestBody {
+        this['alert_description'] = alertDescription;
+        return this;
+    }
+    public set alertDescription(alertDescription: string  | undefined) {
+        this['alert_description'] = alertDescription;
+    }
+    public get alertDescription(): string | undefined {
+        return this['alert_description'];
+    }
+    public withAlertRemediation(alertRemediation: string): CreateAlertRuleRequestBody {
+        this['alert_remediation'] = alertRemediation;
+        return this;
+    }
+    public set alertRemediation(alertRemediation: string  | undefined) {
+        this['alert_remediation'] = alertRemediation;
+    }
+    public get alertRemediation(): string | undefined {
+        return this['alert_remediation'];
+    }
+    public withAccumulatedTimes(accumulatedTimes: number): CreateAlertRuleRequestBody {
+        this['accumulated_times'] = accumulatedTimes;
+        return this;
+    }
+    public set accumulatedTimes(accumulatedTimes: number  | undefined) {
+        this['accumulated_times'] = accumulatedTimes;
+    }
+    public get accumulatedTimes(): number | undefined {
+        return this['accumulated_times'];
     }
 }
 

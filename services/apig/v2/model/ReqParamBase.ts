@@ -17,6 +17,7 @@ export class ReqParamBase {
     public regular?: string;
     private 'json_schema'?: string;
     private 'pass_through'?: ReqParamBasePassThroughEnum | number;
+    public orchestrations?: Array<string>;
     public constructor(name?: string, type?: string, location?: string) { 
         this['name'] = name;
         this['type'] = type;
@@ -140,6 +141,10 @@ export class ReqParamBase {
     public get passThrough(): ReqParamBasePassThroughEnum | number | undefined {
         return this['pass_through'];
     }
+    public withOrchestrations(orchestrations: Array<string>): ReqParamBase {
+        this['orchestrations'] = orchestrations;
+        return this;
+    }
 }
 
 /**
@@ -157,7 +162,8 @@ export enum ReqParamBaseTypeEnum {
 export enum ReqParamBaseLocationEnum {
     PATH = 'PATH',
     QUERY = 'QUERY',
-    HEADER = 'HEADER'
+    HEADER = 'HEADER',
+    COOKIE = 'COOKIE'
 }
 /**
     * @export

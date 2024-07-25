@@ -35,6 +35,7 @@ export class ApiInfo {
     private 'domain_name'?: string;
     public tag?: string;
     private 'content_type'?: ApiInfoContentTypeEnum | string;
+    private 'is_send_fg_body_base64'?: boolean;
     public id?: string;
     public status?: number;
     private 'arrange_necessary'?: number;
@@ -254,6 +255,16 @@ export class ApiInfo {
     }
     public get contentType(): ApiInfoContentTypeEnum | string | undefined {
         return this['content_type'];
+    }
+    public withIsSendFgBodyBase64(isSendFgBodyBase64: boolean): ApiInfo {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+        return this;
+    }
+    public set isSendFgBodyBase64(isSendFgBodyBase64: boolean  | undefined) {
+        this['is_send_fg_body_base64'] = isSendFgBodyBase64;
+    }
+    public get isSendFgBodyBase64(): boolean | undefined {
+        return this['is_send_fg_body_base64'];
     }
     public withId(id: string): ApiInfo {
         this['id'] = id;

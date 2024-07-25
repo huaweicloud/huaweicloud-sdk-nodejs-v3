@@ -25,6 +25,7 @@ export class CambodianIdCardResult {
     private 'detect_blur_result'?: boolean;
     private 'detect_glare_result'?: boolean;
     private 'detect_tampering_result'?: boolean;
+    private 'detect_reproduce_result'?: boolean;
     private 'score_info'?: CambodianIdCardScoreInformationResult;
     public confidence?: object;
     public constructor() { 
@@ -234,6 +235,16 @@ export class CambodianIdCardResult {
     }
     public get detectTamperingResult(): boolean | undefined {
         return this['detect_tampering_result'];
+    }
+    public withDetectReproduceResult(detectReproduceResult: boolean): CambodianIdCardResult {
+        this['detect_reproduce_result'] = detectReproduceResult;
+        return this;
+    }
+    public set detectReproduceResult(detectReproduceResult: boolean  | undefined) {
+        this['detect_reproduce_result'] = detectReproduceResult;
+    }
+    public get detectReproduceResult(): boolean | undefined {
+        return this['detect_reproduce_result'];
     }
     public withScoreInfo(scoreInfo: CambodianIdCardScoreInformationResult): CambodianIdCardResult {
         this['score_info'] = scoreInfo;

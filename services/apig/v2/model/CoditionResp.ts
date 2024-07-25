@@ -9,6 +9,8 @@ export class CoditionResp {
     private 'condition_type'?: CoditionRespConditionTypeEnum | string;
     private 'condition_origin'?: CoditionRespConditionOriginEnum | string;
     private 'condition_value'?: string;
+    private 'mapped_param_name'?: string;
+    private 'mapped_param_location'?: CoditionRespMappedParamLocationEnum | string;
     public id?: string;
     private 'req_param_id'?: string;
     private 'req_param_location'?: string;
@@ -86,6 +88,26 @@ export class CoditionResp {
     public get conditionValue(): string | undefined {
         return this['condition_value'];
     }
+    public withMappedParamName(mappedParamName: string): CoditionResp {
+        this['mapped_param_name'] = mappedParamName;
+        return this;
+    }
+    public set mappedParamName(mappedParamName: string  | undefined) {
+        this['mapped_param_name'] = mappedParamName;
+    }
+    public get mappedParamName(): string | undefined {
+        return this['mapped_param_name'];
+    }
+    public withMappedParamLocation(mappedParamLocation: CoditionRespMappedParamLocationEnum | string): CoditionResp {
+        this['mapped_param_location'] = mappedParamLocation;
+        return this;
+    }
+    public set mappedParamLocation(mappedParamLocation: CoditionRespMappedParamLocationEnum | string  | undefined) {
+        this['mapped_param_location'] = mappedParamLocation;
+    }
+    public get mappedParamLocation(): CoditionRespMappedParamLocationEnum | string | undefined {
+        return this['mapped_param_location'];
+    }
     public withId(id: string): CoditionResp {
         this['id'] = id;
         return this;
@@ -139,4 +161,12 @@ export enum CoditionRespConditionOriginEnum {
     SYSTEM = 'system',
     COOKIE = 'cookie',
     FRONTEND_AUTHORIZER = 'frontend_authorizer'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CoditionRespMappedParamLocationEnum {
+    HEADER = 'header',
+    QUERY = 'query'
 }

@@ -5,6 +5,10 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AttachEip2Request } from './model/AttachEip2Request';
 import { AttachEip2Response } from './model/AttachEip2Response';
 import { AttachEipReq } from './model/AttachEipReq';
+import { BackupDownloadLink } from './model/BackupDownloadLink';
+import { ChangeSecurityGroupReq } from './model/ChangeSecurityGroupReq';
+import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
+import { ChangeSecurityGroupResponse } from './model/ChangeSecurityGroupResponse';
 import { ClearGraph2Request } from './model/ClearGraph2Request';
 import { ClearGraph2Response } from './model/ClearGraph2Response';
 import { CreateBackup2Request } from './model/CreateBackup2Request';
@@ -89,6 +93,8 @@ import { ResizeGraphReq } from './model/ResizeGraphReq';
 import { ResizeGraphReqResize } from './model/ResizeGraphReqResize';
 import { RestartGraph2Request } from './model/RestartGraph2Request';
 import { RestartGraph2Response } from './model/RestartGraph2Response';
+import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkRequest';
+import { ShowBackupDownloadLinkResponse } from './model/ShowBackupDownloadLinkResponse';
 import { ShowGraph2Request } from './model/ShowGraph2Request';
 import { ShowGraph2Response } from './model/ShowGraph2Response';
 import { ShowGraphRespGraph } from './model/ShowGraphRespGraph';
@@ -141,6 +147,26 @@ export class GesClient {
      */
     public attachEip2(attachEip2Request?: AttachEip2Request): Promise<AttachEip2Response> {
         const options = ParamCreater().attachEip2(attachEip2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以在图创建成功后，修改图的安全组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换安全组
+     * @param {string} graphId 图ID。
+     * @param {ChangeSecurityGroupReq} changeSecurityGroupReq 切换安全组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeSecurityGroup(changeSecurityGroupRequest?: ChangeSecurityGroupRequest): Promise<ChangeSecurityGroupResponse> {
+        const options = ParamCreater().changeSecurityGroup(changeSecurityGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -573,6 +599,26 @@ export class GesClient {
     }
 
     /**
+     * 获取备份下载链接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取备份下载链接
+     * @param {string} graphId 图ID。
+     * @param {string} backupId 备份ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackupDownloadLink(showBackupDownloadLinkRequest?: ShowBackupDownloadLinkRequest): Promise<ShowBackupDownloadLinkResponse> {
+        const options = ParamCreater().showBackupDownloadLink(showBackupDownloadLinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据图ID查询某个图详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -809,6 +855,52 @@ export const ParamCreater = function () {
         
             if (graphId === null || graphId === undefined) {
             throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling attachEip2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'graph_id': graphId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以在图创建成功后，修改图的安全组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeSecurityGroup(changeSecurityGroupRequest?: ChangeSecurityGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/graphs/{graph_id}/sg/change",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let graphId;
+
+            if (changeSecurityGroupRequest !== null && changeSecurityGroupRequest !== undefined) {
+                if (changeSecurityGroupRequest instanceof ChangeSecurityGroupRequest) {
+                    graphId = changeSecurityGroupRequest.graphId;
+                    body = changeSecurityGroupRequest.body
+                } else {
+                    graphId = changeSecurityGroupRequest['graph_id'];
+                    body = changeSecurityGroupRequest['body'];
+                }
+            }
+
+        
+            if (graphId === null || graphId === undefined) {
+            throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling changeSecurityGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1745,6 +1837,54 @@ export const ParamCreater = function () {
             throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling restartGraph2.');
             }
 
+            options.pathParams = { 'graph_id': graphId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取备份下载链接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackupDownloadLink(showBackupDownloadLinkRequest?: ShowBackupDownloadLinkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/graphs/{graph_id}/backup-files",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let graphId;
+            
+            let backupId;
+
+            if (showBackupDownloadLinkRequest !== null && showBackupDownloadLinkRequest !== undefined) {
+                if (showBackupDownloadLinkRequest instanceof ShowBackupDownloadLinkRequest) {
+                    graphId = showBackupDownloadLinkRequest.graphId;
+                    backupId = showBackupDownloadLinkRequest.backupId;
+                } else {
+                    graphId = showBackupDownloadLinkRequest['graph_id'];
+                    backupId = showBackupDownloadLinkRequest['backup_id'];
+                }
+            }
+
+        
+            if (graphId === null || graphId === undefined) {
+            throw new RequiredError('graphId','Required parameter graphId was null or undefined when calling showBackupDownloadLink.');
+            }
+            if (backupId === null || backupId === undefined) {
+                throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling showBackupDownloadLink.');
+            }
+            if (backupId !== null && backupId !== undefined) {
+                localVarQueryParameter['backup_id'] = backupId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'graph_id': graphId, };
             options.headers = localVarHeaderParameter;
             return options;

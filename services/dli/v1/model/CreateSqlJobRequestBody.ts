@@ -65,6 +65,6 @@ export class CreateSqlJobRequestBody {
     * @enum {string}
     */
 export enum CreateSqlJobRequestBodyEngineTypeEnum {
-    TRINO = 'trino',
+    HETUENGINE = 'hetuEngine',
     SPARK = 'spark'
 }

@@ -10,7 +10,11 @@ export class ScanJobRequest {
     private 'time_zone'?: string;
     private 'topic_urn'?: string;
     private 'use_nlp'?: boolean;
-    public constructor() { 
+    public constructor(assetIds?: Array<string>, cycle?: string, name?: string, ruleGroupIds?: Array<string>) { 
+        this['asset_ids'] = assetIds;
+        this['cycle'] = cycle;
+        this['name'] = name;
+        this['rule_group_ids'] = ruleGroupIds;
     }
     public withAssetIds(assetIds: Array<string>): ScanJobRequest {
         this['asset_ids'] = assetIds;

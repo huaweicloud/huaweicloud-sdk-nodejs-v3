@@ -2,7 +2,6 @@ import { CreateIndicatorDetailDataSource } from './CreateIndicatorDetailDataSour
 import { CreateIndicatorDetailEnvironment } from './CreateIndicatorDetailEnvironment';
 import { CreateIndicatorDetailIndicatorType } from './CreateIndicatorDetailIndicatorType';
 import { DataClassRefPojo } from './DataClassRefPojo';
-import { IndicatorDataObjectDetail } from './IndicatorDataObjectDetail';
 
 
 export class CreateIndicatorDetail {
@@ -21,10 +20,8 @@ export class CreateIndicatorDetail {
     private 'indicator_type'?: CreateIndicatorDetailIndicatorType;
     public name?: string;
     private 'dataclass_id'?: string;
-    private 'data_object'?: IndicatorDataObjectDetail;
     private 'workspace_id'?: string;
     private 'project_id'?: string;
-    private 'layout_id'?: string;
     public dataclass?: DataClassRefPojo;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -136,16 +133,6 @@ export class CreateIndicatorDetail {
     public get dataclassId(): string | undefined {
         return this['dataclass_id'];
     }
-    public withDataObject(dataObject: IndicatorDataObjectDetail): CreateIndicatorDetail {
-        this['data_object'] = dataObject;
-        return this;
-    }
-    public set dataObject(dataObject: IndicatorDataObjectDetail  | undefined) {
-        this['data_object'] = dataObject;
-    }
-    public get dataObject(): IndicatorDataObjectDetail | undefined {
-        return this['data_object'];
-    }
     public withWorkspaceId(workspaceId: string): CreateIndicatorDetail {
         this['workspace_id'] = workspaceId;
         return this;
@@ -165,16 +152,6 @@ export class CreateIndicatorDetail {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
-    }
-    public withLayoutId(layoutId: string): CreateIndicatorDetail {
-        this['layout_id'] = layoutId;
-        return this;
-    }
-    public set layoutId(layoutId: string  | undefined) {
-        this['layout_id'] = layoutId;
-    }
-    public get layoutId(): string | undefined {
-        return this['layout_id'];
     }
     public withDataclass(dataclass: DataClassRefPojo): CreateIndicatorDetail {
         this['dataclass'] = dataclass;

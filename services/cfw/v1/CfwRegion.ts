@@ -25,6 +25,7 @@ export class CfwRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://cfw.tr-west-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://cfw.me-east-1.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://cfw.cn-north-11.myhuaweicloud.com"]);
+    public static CN_SOUTH_2 = new Region("cn-south-2", ["https://cfw.cn-south-2.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -46,7 +47,8 @@ export class CfwRegion {
         "sa-brazil-1":CfwRegion.SA_BRAZIL_1,
         "tr-west-1":CfwRegion.TR_WEST_1,
         "me-east-1":CfwRegion.ME_EAST_1,
-        "cn-north-11":CfwRegion.CN_NORTH_11
+        "cn-north-11":CfwRegion.CN_NORTH_11,
+        "cn-south-2":CfwRegion.CN_SOUTH_2
     };
   
     public static valueOf(regionId: string) {

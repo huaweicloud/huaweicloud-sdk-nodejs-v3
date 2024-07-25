@@ -1,5 +1,4 @@
 import { MicroServiceInfoCCECreate } from './MicroServiceInfoCCECreate';
-import { MicroServiceInfoCCEServiceCreate } from './MicroServiceInfoCCEServiceCreate';
 import { MicroServiceInfoCSECreate } from './MicroServiceInfoCSECreate';
 import { MicroserviceApiCreate } from './MicroserviceApiCreate';
 import { MicroserviceGroup } from './MicroserviceGroup';
@@ -15,7 +14,6 @@ export class MicroserviceImportReq {
     public cors?: boolean;
     private 'cse_info'?: MicroServiceInfoCSECreate;
     private 'cce_info'?: MicroServiceInfoCCECreate;
-    private 'cce_service_info'?: MicroServiceInfoCCEServiceCreate;
     public constructor(groupInfo?: MicroserviceGroup, serviceType?: string, apis?: Array<MicroserviceApiCreate>) { 
         this['group_info'] = groupInfo;
         this['service_type'] = serviceType;
@@ -92,16 +90,6 @@ export class MicroserviceImportReq {
     }
     public get cceInfo(): MicroServiceInfoCCECreate | undefined {
         return this['cce_info'];
-    }
-    public withCceServiceInfo(cceServiceInfo: MicroServiceInfoCCEServiceCreate): MicroserviceImportReq {
-        this['cce_service_info'] = cceServiceInfo;
-        return this;
-    }
-    public set cceServiceInfo(cceServiceInfo: MicroServiceInfoCCEServiceCreate  | undefined) {
-        this['cce_service_info'] = cceServiceInfo;
-    }
-    public get cceServiceInfo(): MicroServiceInfoCCEServiceCreate | undefined {
-        return this['cce_service_info'];
     }
 }
 

@@ -3,7 +3,6 @@ import { DataobjectSearchCondition } from './DataobjectSearchCondition';
 
 export class IndicatorListSearchRequest {
     public ids?: Array<string>;
-    public name?: string;
     private 'dataclass_id'?: string;
     public condition?: DataobjectSearchCondition;
     public offset?: number;
@@ -18,10 +17,6 @@ export class IndicatorListSearchRequest {
     }
     public withIds(ids: Array<string>): IndicatorListSearchRequest {
         this['ids'] = ids;
-        return this;
-    }
-    public withName(name: string): IndicatorListSearchRequest {
-        this['name'] = name;
         return this;
     }
     public withDataclassId(dataclassId: string): IndicatorListSearchRequest {

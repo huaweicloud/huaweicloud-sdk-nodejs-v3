@@ -1,18 +1,24 @@
-import { ListAlertRspNetworkList } from './ListAlertRspNetworkList';
-import { ListAlertRspProcess } from './ListAlertRspProcess';
-import { ShowAlertRspDatasource } from './ShowAlertRspDatasource';
-import { ShowAlertRspEnvironment } from './ShowAlertRspEnvironment';
-import { ShowAlertRspFileInfo } from './ShowAlertRspFileInfo';
+import { AlertAlertType } from './AlertAlertType';
+import { AlertDataSource } from './AlertDataSource';
+import { AlertEnvironment } from './AlertEnvironment';
+import { AlertFileInfo } from './AlertFileInfo';
+import { AlertNetworkList } from './AlertNetworkList';
+import { AlertProcess } from './AlertProcess';
+import { AlertRemediation } from './AlertRemediation';
+import { AlertResourceList } from './AlertResourceList';
+import { AlertUserInfo } from './AlertUserInfo';
 import { ShowAlertRspMalware } from './ShowAlertRspMalware';
-import { ShowAlertRspRemediation } from './ShowAlertRspRemediation';
-import { ShowAlertRspResourceList } from './ShowAlertRspResourceList';
-import { ShowAlertRspUserInfo } from './ShowAlertRspUserInfo';
 
 
 export class ListAlertRsp {
     public version?: string;
-    public environment?: ShowAlertRspEnvironment;
-    private 'data_source'?: ShowAlertRspDatasource;
+    public id?: string;
+    private 'domain_id'?: string;
+    private 'region_id'?: string;
+    private 'workspace_id'?: string;
+    public labels?: string;
+    public environment?: AlertEnvironment;
+    private 'data_source'?: AlertDataSource;
     private 'first_observed_time'?: string;
     private 'last_observed_time'?: string;
     private 'create_time'?: string;
@@ -22,52 +28,88 @@ export class ListAlertRsp {
     private 'source_url'?: string;
     public count?: number;
     public confidence?: number;
-    public severity?: string;
+    public severity?: ListAlertRspSeverityEnum | string;
     public criticality?: number;
-    private 'alert_type'?: object;
-    private 'network_list'?: Array<ListAlertRspNetworkList>;
-    private 'resource_list'?: Array<ShowAlertRspResourceList>;
-    public remediation?: ShowAlertRspRemediation;
-    private 'verification_state'?: string;
-    private 'handle_status'?: string;
+    private 'alert_type'?: AlertAlertType;
+    private 'network_list'?: Array<AlertNetworkList>;
+    private 'resource_list'?: Array<AlertResourceList>;
+    public remediation?: AlertRemediation;
+    private 'verification_state'?: ListAlertRspVerificationStateEnum | string;
+    private 'handle_status'?: ListAlertRspHandleStatusEnum | string;
     public sla?: string;
     private 'update_time'?: string;
     private 'close_time'?: string;
-    private 'chop_phase'?: string;
-    private 'ipdrr_phase'?: string;
-    private 'ppdr_phase'?: string;
+    private 'ipdrr_phase'?: ListAlertRspIpdrrPhaseEnum | string;
+    private 'chop_phase'?: ListAlertRspChopPhaseEnum | string;
+    private 'ppdr_phase'?: ListAlertRspPpdrPhaseEnum | string;
     public simulation?: string;
     public actor?: string;
     public owner?: string;
     public creator?: string;
-    private 'close_reason'?: string;
+    private 'close_reason'?: ListAlertRspCloseReasonEnum | string;
     private 'close_comment'?: string;
     public malware?: ShowAlertRspMalware;
     private 'system_info'?: object;
-    public process?: Array<ListAlertRspProcess>;
-    private 'user_info'?: Array<ShowAlertRspUserInfo>;
-    private 'file_info'?: Array<ShowAlertRspFileInfo>;
+    public process?: Array<AlertProcess>;
+    private 'user_info'?: Array<AlertUserInfo>;
+    private 'file_info'?: Array<AlertFileInfo>;
     private 'system_alert_table'?: object;
-    public id?: string;
-    private 'workspace_id'?: string;
     public constructor() { 
     }
     public withVersion(version: string): ListAlertRsp {
         this['version'] = version;
         return this;
     }
-    public withEnvironment(environment: ShowAlertRspEnvironment): ListAlertRsp {
+    public withId(id: string): ListAlertRsp {
+        this['id'] = id;
+        return this;
+    }
+    public withDomainId(domainId: string): ListAlertRsp {
+        this['domain_id'] = domainId;
+        return this;
+    }
+    public set domainId(domainId: string  | undefined) {
+        this['domain_id'] = domainId;
+    }
+    public get domainId(): string | undefined {
+        return this['domain_id'];
+    }
+    public withRegionId(regionId: string): ListAlertRsp {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string  | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId(): string | undefined {
+        return this['region_id'];
+    }
+    public withWorkspaceId(workspaceId: string): ListAlertRsp {
+        this['workspace_id'] = workspaceId;
+        return this;
+    }
+    public set workspaceId(workspaceId: string  | undefined) {
+        this['workspace_id'] = workspaceId;
+    }
+    public get workspaceId(): string | undefined {
+        return this['workspace_id'];
+    }
+    public withLabels(labels: string): ListAlertRsp {
+        this['labels'] = labels;
+        return this;
+    }
+    public withEnvironment(environment: AlertEnvironment): ListAlertRsp {
         this['environment'] = environment;
         return this;
     }
-    public withDataSource(dataSource: ShowAlertRspDatasource): ListAlertRsp {
+    public withDataSource(dataSource: AlertDataSource): ListAlertRsp {
         this['data_source'] = dataSource;
         return this;
     }
-    public set dataSource(dataSource: ShowAlertRspDatasource  | undefined) {
+    public set dataSource(dataSource: AlertDataSource  | undefined) {
         this['data_source'] = dataSource;
     }
-    public get dataSource(): ShowAlertRspDatasource | undefined {
+    public get dataSource(): AlertDataSource | undefined {
         return this['data_source'];
     }
     public withFirstObservedTime(firstObservedTime: string): ListAlertRsp {
@@ -136,7 +178,7 @@ export class ListAlertRsp {
         this['confidence'] = confidence;
         return this;
     }
-    public withSeverity(severity: string): ListAlertRsp {
+    public withSeverity(severity: ListAlertRspSeverityEnum | string): ListAlertRsp {
         this['severity'] = severity;
         return this;
     }
@@ -144,58 +186,58 @@ export class ListAlertRsp {
         this['criticality'] = criticality;
         return this;
     }
-    public withAlertType(alertType: object): ListAlertRsp {
+    public withAlertType(alertType: AlertAlertType): ListAlertRsp {
         this['alert_type'] = alertType;
         return this;
     }
-    public set alertType(alertType: object  | undefined) {
+    public set alertType(alertType: AlertAlertType  | undefined) {
         this['alert_type'] = alertType;
     }
-    public get alertType(): object | undefined {
+    public get alertType(): AlertAlertType | undefined {
         return this['alert_type'];
     }
-    public withNetworkList(networkList: Array<ListAlertRspNetworkList>): ListAlertRsp {
+    public withNetworkList(networkList: Array<AlertNetworkList>): ListAlertRsp {
         this['network_list'] = networkList;
         return this;
     }
-    public set networkList(networkList: Array<ListAlertRspNetworkList>  | undefined) {
+    public set networkList(networkList: Array<AlertNetworkList>  | undefined) {
         this['network_list'] = networkList;
     }
-    public get networkList(): Array<ListAlertRspNetworkList> | undefined {
+    public get networkList(): Array<AlertNetworkList> | undefined {
         return this['network_list'];
     }
-    public withResourceList(resourceList: Array<ShowAlertRspResourceList>): ListAlertRsp {
+    public withResourceList(resourceList: Array<AlertResourceList>): ListAlertRsp {
         this['resource_list'] = resourceList;
         return this;
     }
-    public set resourceList(resourceList: Array<ShowAlertRspResourceList>  | undefined) {
+    public set resourceList(resourceList: Array<AlertResourceList>  | undefined) {
         this['resource_list'] = resourceList;
     }
-    public get resourceList(): Array<ShowAlertRspResourceList> | undefined {
+    public get resourceList(): Array<AlertResourceList> | undefined {
         return this['resource_list'];
     }
-    public withRemediation(remediation: ShowAlertRspRemediation): ListAlertRsp {
+    public withRemediation(remediation: AlertRemediation): ListAlertRsp {
         this['remediation'] = remediation;
         return this;
     }
-    public withVerificationState(verificationState: string): ListAlertRsp {
+    public withVerificationState(verificationState: ListAlertRspVerificationStateEnum | string): ListAlertRsp {
         this['verification_state'] = verificationState;
         return this;
     }
-    public set verificationState(verificationState: string  | undefined) {
+    public set verificationState(verificationState: ListAlertRspVerificationStateEnum | string  | undefined) {
         this['verification_state'] = verificationState;
     }
-    public get verificationState(): string | undefined {
+    public get verificationState(): ListAlertRspVerificationStateEnum | string | undefined {
         return this['verification_state'];
     }
-    public withHandleStatus(handleStatus: string): ListAlertRsp {
+    public withHandleStatus(handleStatus: ListAlertRspHandleStatusEnum | string): ListAlertRsp {
         this['handle_status'] = handleStatus;
         return this;
     }
-    public set handleStatus(handleStatus: string  | undefined) {
+    public set handleStatus(handleStatus: ListAlertRspHandleStatusEnum | string  | undefined) {
         this['handle_status'] = handleStatus;
     }
-    public get handleStatus(): string | undefined {
+    public get handleStatus(): ListAlertRspHandleStatusEnum | string | undefined {
         return this['handle_status'];
     }
     public withSla(sla: string): ListAlertRsp {
@@ -222,34 +264,34 @@ export class ListAlertRsp {
     public get closeTime(): string | undefined {
         return this['close_time'];
     }
-    public withChopPhase(chopPhase: string): ListAlertRsp {
-        this['chop_phase'] = chopPhase;
-        return this;
-    }
-    public set chopPhase(chopPhase: string  | undefined) {
-        this['chop_phase'] = chopPhase;
-    }
-    public get chopPhase(): string | undefined {
-        return this['chop_phase'];
-    }
-    public withIpdrrPhase(ipdrrPhase: string): ListAlertRsp {
+    public withIpdrrPhase(ipdrrPhase: ListAlertRspIpdrrPhaseEnum | string): ListAlertRsp {
         this['ipdrr_phase'] = ipdrrPhase;
         return this;
     }
-    public set ipdrrPhase(ipdrrPhase: string  | undefined) {
+    public set ipdrrPhase(ipdrrPhase: ListAlertRspIpdrrPhaseEnum | string  | undefined) {
         this['ipdrr_phase'] = ipdrrPhase;
     }
-    public get ipdrrPhase(): string | undefined {
+    public get ipdrrPhase(): ListAlertRspIpdrrPhaseEnum | string | undefined {
         return this['ipdrr_phase'];
     }
-    public withPpdrPhase(ppdrPhase: string): ListAlertRsp {
+    public withChopPhase(chopPhase: ListAlertRspChopPhaseEnum | string): ListAlertRsp {
+        this['chop_phase'] = chopPhase;
+        return this;
+    }
+    public set chopPhase(chopPhase: ListAlertRspChopPhaseEnum | string  | undefined) {
+        this['chop_phase'] = chopPhase;
+    }
+    public get chopPhase(): ListAlertRspChopPhaseEnum | string | undefined {
+        return this['chop_phase'];
+    }
+    public withPpdrPhase(ppdrPhase: ListAlertRspPpdrPhaseEnum | string): ListAlertRsp {
         this['ppdr_phase'] = ppdrPhase;
         return this;
     }
-    public set ppdrPhase(ppdrPhase: string  | undefined) {
+    public set ppdrPhase(ppdrPhase: ListAlertRspPpdrPhaseEnum | string  | undefined) {
         this['ppdr_phase'] = ppdrPhase;
     }
-    public get ppdrPhase(): string | undefined {
+    public get ppdrPhase(): ListAlertRspPpdrPhaseEnum | string | undefined {
         return this['ppdr_phase'];
     }
     public withSimulation(simulation: string): ListAlertRsp {
@@ -268,14 +310,14 @@ export class ListAlertRsp {
         this['creator'] = creator;
         return this;
     }
-    public withCloseReason(closeReason: string): ListAlertRsp {
+    public withCloseReason(closeReason: ListAlertRspCloseReasonEnum | string): ListAlertRsp {
         this['close_reason'] = closeReason;
         return this;
     }
-    public set closeReason(closeReason: string  | undefined) {
+    public set closeReason(closeReason: ListAlertRspCloseReasonEnum | string  | undefined) {
         this['close_reason'] = closeReason;
     }
-    public get closeReason(): string | undefined {
+    public get closeReason(): ListAlertRspCloseReasonEnum | string | undefined {
         return this['close_reason'];
     }
     public withCloseComment(closeComment: string): ListAlertRsp {
@@ -302,28 +344,28 @@ export class ListAlertRsp {
     public get systemInfo(): object | undefined {
         return this['system_info'];
     }
-    public withProcess(process: Array<ListAlertRspProcess>): ListAlertRsp {
+    public withProcess(process: Array<AlertProcess>): ListAlertRsp {
         this['process'] = process;
         return this;
     }
-    public withUserInfo(userInfo: Array<ShowAlertRspUserInfo>): ListAlertRsp {
+    public withUserInfo(userInfo: Array<AlertUserInfo>): ListAlertRsp {
         this['user_info'] = userInfo;
         return this;
     }
-    public set userInfo(userInfo: Array<ShowAlertRspUserInfo>  | undefined) {
+    public set userInfo(userInfo: Array<AlertUserInfo>  | undefined) {
         this['user_info'] = userInfo;
     }
-    public get userInfo(): Array<ShowAlertRspUserInfo> | undefined {
+    public get userInfo(): Array<AlertUserInfo> | undefined {
         return this['user_info'];
     }
-    public withFileInfo(fileInfo: Array<ShowAlertRspFileInfo>): ListAlertRsp {
+    public withFileInfo(fileInfo: Array<AlertFileInfo>): ListAlertRsp {
         this['file_info'] = fileInfo;
         return this;
     }
-    public set fileInfo(fileInfo: Array<ShowAlertRspFileInfo>  | undefined) {
+    public set fileInfo(fileInfo: Array<AlertFileInfo>  | undefined) {
         this['file_info'] = fileInfo;
     }
-    public get fileInfo(): Array<ShowAlertRspFileInfo> | undefined {
+    public get fileInfo(): Array<AlertFileInfo> | undefined {
         return this['file_info'];
     }
     public withSystemAlertTable(systemAlertTable: object): ListAlertRsp {
@@ -336,18 +378,74 @@ export class ListAlertRsp {
     public get systemAlertTable(): object | undefined {
         return this['system_alert_table'];
     }
-    public withId(id: string): ListAlertRsp {
-        this['id'] = id;
-        return this;
-    }
-    public withWorkspaceId(workspaceId: string): ListAlertRsp {
-        this['workspace_id'] = workspaceId;
-        return this;
-    }
-    public set workspaceId(workspaceId: string  | undefined) {
-        this['workspace_id'] = workspaceId;
-    }
-    public get workspaceId(): string | undefined {
-        return this['workspace_id'];
-    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspSeverityEnum {
+    TIPS = 'Tips',
+    LOW = 'Low',
+    MEDIUM = 'Medium',
+    HIGH = 'High',
+    FATAL = 'Fatal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspVerificationStateEnum {
+    UNKNOWN = 'Unknown',
+    TRUE_POSITIVE = 'True_Positive',
+    FALSE_POSITIVE = 'False_Positive'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspHandleStatusEnum {
+    OPEN = 'Open',
+    BLOCK = 'Block',
+    CLOSED = 'Closed'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspIpdrrPhaseEnum {
+    PREPARTION = 'Prepartion',
+    DETECTION_AND_ANALYSIS = 'Detection and Analysis',
+    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspChopPhaseEnum {
+    PREPARTION = 'Prepartion',
+    DETECTION_AND_ANALYSIS = 'Detection and Analysis',
+    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspPpdrPhaseEnum {
+    PREPARTION = 'Prepartion',
+    DETECTION_AND_ANALYSIS = 'Detection and Analysis',
+    CONTAINMERADICATION_RECOVERY = 'Containm，Eradication& Recovery',
+    POST_INCIDENT_ACTIVITY = 'Post-Incident-Activity'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlertRspCloseReasonEnum {
+    FALSE_DETECTION = 'False detection',
+    RESOLVED = 'Resolved',
+    REPEATED = 'Repeated',
+    OTHER = 'Other'
 }
