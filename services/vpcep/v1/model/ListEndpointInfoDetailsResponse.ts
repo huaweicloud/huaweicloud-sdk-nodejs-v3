@@ -29,6 +29,7 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public routetables?: Array<string>;
     public description?: string;
     private 'policy_statement'?: Array<PolicyStatement>;
+    private 'policy_document'?: object;
     private 'endpoint_pool_id'?: string;
     private 'public_border_group'?: string;
     private 'ipv6_address'?: string;
@@ -226,6 +227,16 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     }
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
+    }
+    public withPolicyDocument(policyDocument: object): ListEndpointInfoDetailsResponse {
+        this['policy_document'] = policyDocument;
+        return this;
+    }
+    public set policyDocument(policyDocument: object  | undefined) {
+        this['policy_document'] = policyDocument;
+    }
+    public get policyDocument(): object | undefined {
+        return this['policy_document'];
     }
     public withEndpointPoolId(endpointPoolId: string): ListEndpointInfoDetailsResponse {
         this['endpoint_pool_id'] = endpointPoolId;

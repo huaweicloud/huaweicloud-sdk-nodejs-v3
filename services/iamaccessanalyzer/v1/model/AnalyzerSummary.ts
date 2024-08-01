@@ -1,9 +1,11 @@
+import { AnalyzerConfiguration } from './AnalyzerConfiguration';
 import { AnalyzerType } from './AnalyzerType';
 import { StatusReason } from './StatusReason';
 import { Tag } from './Tag';
 
 
 export class AnalyzerSummary {
+    public configuration?: AnalyzerConfiguration;
     private 'created_at'?: Date;
     public id?: string;
     private 'last_analyzed_resource'?: string;
@@ -22,6 +24,10 @@ export class AnalyzerSummary {
         this['status'] = status;
         this['type'] = type;
         this['urn'] = urn;
+    }
+    public withConfiguration(configuration: AnalyzerConfiguration): AnalyzerSummary {
+        this['configuration'] = configuration;
+        return this;
     }
     public withCreatedAt(createdAt: Date): AnalyzerSummary {
         this['created_at'] = createdAt;

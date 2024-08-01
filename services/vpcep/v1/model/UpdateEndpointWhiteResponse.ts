@@ -21,6 +21,7 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     public tags?: Array<TagList>;
     public whitelist?: Array<string>;
     private 'enable_whitelist'?: boolean;
+    private 'policy_document'?: object;
     public constructor() { 
         super();
     }
@@ -173,5 +174,15 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     }
     public get enableWhitelist(): boolean | undefined {
         return this['enable_whitelist'];
+    }
+    public withPolicyDocument(policyDocument: object): UpdateEndpointWhiteResponse {
+        this['policy_document'] = policyDocument;
+        return this;
+    }
+    public set policyDocument(policyDocument: object  | undefined) {
+        this['policy_document'] = policyDocument;
+    }
+    public get policyDocument(): object | undefined {
+        return this['policy_document'];
     }
 }

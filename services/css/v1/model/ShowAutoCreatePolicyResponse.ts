@@ -9,6 +9,7 @@ export class ShowAutoCreatePolicyResponse extends SdkResponse {
     public basePath?: string;
     public agency?: string;
     public enable?: string;
+    public frequency?: string;
     public constructor() { 
         super();
     }
@@ -38,6 +39,10 @@ export class ShowAutoCreatePolicyResponse extends SdkResponse {
     }
     public withEnable(enable: string): ShowAutoCreatePolicyResponse {
         this['enable'] = enable;
+        return this;
+    }
+    public withFrequency(frequency: string): ShowAutoCreatePolicyResponse {
+        this['frequency'] = frequency;
         return this;
     }
 }

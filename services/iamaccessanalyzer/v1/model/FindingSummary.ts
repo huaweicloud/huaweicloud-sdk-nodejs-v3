@@ -1,17 +1,15 @@
 import { FindingCondition } from './FindingCondition';
-import { FindingDetails } from './FindingDetails';
 import { FindingPrincipal } from './FindingPrincipal';
 import { FindingSourceType } from './FindingSourceType';
 import { FindingType } from './FindingType';
 import { ResourceType } from './ResourceType';
 
 
-export class Finding {
+export class FindingSummary {
     public action?: Array<string>;
     private 'analyzed_at'?: Date;
     public condition?: Array<FindingCondition>;
     private 'created_at'?: Date;
-    private 'finding_details'?: Array<FindingDetails>;
     private 'finding_type'?: FindingType;
     public id?: string;
     private 'is_public'?: boolean;
@@ -22,12 +20,11 @@ export class Finding {
     private 'resource_project_id'?: string;
     private 'resource_type'?: ResourceType;
     public sources?: Array<FindingSourceType>;
-    public status?: FindingStatusEnum | string;
+    public status?: FindingSummaryStatusEnum | string;
     private 'updated_at'?: Date;
-    public constructor(analyzedAt?: Date, createdAt?: Date, findingDetails?: Array<FindingDetails>, findingType?: FindingType, id?: string, resource?: string, resourceOwnerAccount?: string, resourceType?: ResourceType, status?: string, updatedAt?: Date) { 
+    public constructor(analyzedAt?: Date, createdAt?: Date, findingType?: FindingType, id?: string, resource?: string, resourceOwnerAccount?: string, resourceType?: ResourceType, status?: string, updatedAt?: Date) { 
         this['analyzed_at'] = analyzedAt;
         this['created_at'] = createdAt;
-        this['finding_details'] = findingDetails;
         this['finding_type'] = findingType;
         this['id'] = id;
         this['resource'] = resource;
@@ -36,11 +33,11 @@ export class Finding {
         this['status'] = status;
         this['updated_at'] = updatedAt;
     }
-    public withAction(action: Array<string>): Finding {
+    public withAction(action: Array<string>): FindingSummary {
         this['action'] = action;
         return this;
     }
-    public withAnalyzedAt(analyzedAt: Date): Finding {
+    public withAnalyzedAt(analyzedAt: Date): FindingSummary {
         this['analyzed_at'] = analyzedAt;
         return this;
     }
@@ -50,11 +47,11 @@ export class Finding {
     public get analyzedAt(): Date | undefined {
         return this['analyzed_at'];
     }
-    public withCondition(condition: Array<FindingCondition>): Finding {
+    public withCondition(condition: Array<FindingCondition>): FindingSummary {
         this['condition'] = condition;
         return this;
     }
-    public withCreatedAt(createdAt: Date): Finding {
+    public withCreatedAt(createdAt: Date): FindingSummary {
         this['created_at'] = createdAt;
         return this;
     }
@@ -64,17 +61,7 @@ export class Finding {
     public get createdAt(): Date | undefined {
         return this['created_at'];
     }
-    public withFindingDetails(findingDetails: Array<FindingDetails>): Finding {
-        this['finding_details'] = findingDetails;
-        return this;
-    }
-    public set findingDetails(findingDetails: Array<FindingDetails>  | undefined) {
-        this['finding_details'] = findingDetails;
-    }
-    public get findingDetails(): Array<FindingDetails> | undefined {
-        return this['finding_details'];
-    }
-    public withFindingType(findingType: FindingType): Finding {
+    public withFindingType(findingType: FindingType): FindingSummary {
         this['finding_type'] = findingType;
         return this;
     }
@@ -84,11 +71,11 @@ export class Finding {
     public get findingType(): FindingType | undefined {
         return this['finding_type'];
     }
-    public withId(id: string): Finding {
+    public withId(id: string): FindingSummary {
         this['id'] = id;
         return this;
     }
-    public withIsPublic(isPublic: boolean): Finding {
+    public withIsPublic(isPublic: boolean): FindingSummary {
         this['is_public'] = isPublic;
         return this;
     }
@@ -98,15 +85,15 @@ export class Finding {
     public get isPublic(): boolean | undefined {
         return this['is_public'];
     }
-    public withPrincipal(principal: FindingPrincipal): Finding {
+    public withPrincipal(principal: FindingPrincipal): FindingSummary {
         this['principal'] = principal;
         return this;
     }
-    public withResource(resource: string): Finding {
+    public withResource(resource: string): FindingSummary {
         this['resource'] = resource;
         return this;
     }
-    public withResourceId(resourceId: string): Finding {
+    public withResourceId(resourceId: string): FindingSummary {
         this['resource_id'] = resourceId;
         return this;
     }
@@ -116,7 +103,7 @@ export class Finding {
     public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withResourceOwnerAccount(resourceOwnerAccount: string): Finding {
+    public withResourceOwnerAccount(resourceOwnerAccount: string): FindingSummary {
         this['resource_owner_account'] = resourceOwnerAccount;
         return this;
     }
@@ -126,7 +113,7 @@ export class Finding {
     public get resourceOwnerAccount(): string | undefined {
         return this['resource_owner_account'];
     }
-    public withResourceProjectId(resourceProjectId: string): Finding {
+    public withResourceProjectId(resourceProjectId: string): FindingSummary {
         this['resource_project_id'] = resourceProjectId;
         return this;
     }
@@ -136,7 +123,7 @@ export class Finding {
     public get resourceProjectId(): string | undefined {
         return this['resource_project_id'];
     }
-    public withResourceType(resourceType: ResourceType): Finding {
+    public withResourceType(resourceType: ResourceType): FindingSummary {
         this['resource_type'] = resourceType;
         return this;
     }
@@ -146,15 +133,15 @@ export class Finding {
     public get resourceType(): ResourceType | undefined {
         return this['resource_type'];
     }
-    public withSources(sources: Array<FindingSourceType>): Finding {
+    public withSources(sources: Array<FindingSourceType>): FindingSummary {
         this['sources'] = sources;
         return this;
     }
-    public withStatus(status: FindingStatusEnum | string): Finding {
+    public withStatus(status: FindingSummaryStatusEnum | string): FindingSummary {
         this['status'] = status;
         return this;
     }
-    public withUpdatedAt(updatedAt: Date): Finding {
+    public withUpdatedAt(updatedAt: Date): FindingSummary {
         this['updated_at'] = updatedAt;
         return this;
     }
@@ -170,7 +157,7 @@ export class Finding {
     * @export
     * @enum {string}
     */
-export enum FindingStatusEnum {
+export enum FindingSummaryStatusEnum {
     ACTIVE = 'active',
     ARCHIVED = 'archived',
     RESOLVED = 'resolved'

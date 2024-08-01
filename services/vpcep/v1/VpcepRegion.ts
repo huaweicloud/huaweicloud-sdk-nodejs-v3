@@ -35,6 +35,8 @@ export class VpcepRegion {
     public static ME_EAST_1 = new Region("me-east-1", ["https://vpcep.me-east-1.myhuaweicloud.com"]);
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", ["https://vpcep.ru-northwest-2.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://vpcep.cn-north-11.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://vpcep.cn-east-4.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://vpcep.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -66,7 +68,9 @@ export class VpcepRegion {
         "cn-south-4":VpcepRegion.CN_SOUTH_4,
         "me-east-1":VpcepRegion.ME_EAST_1,
         "ru-northwest-2":VpcepRegion.RU_NORTHWEST_2,
-        "cn-north-11":VpcepRegion.CN_NORTH_11
+        "cn-north-11":VpcepRegion.CN_NORTH_11,
+        "cn-east-4":VpcepRegion.CN_EAST_4,
+        "af-north-1":VpcepRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

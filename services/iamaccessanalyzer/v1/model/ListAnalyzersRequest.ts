@@ -26,5 +26,7 @@ export class ListAnalyzersRequest {
     */
 export enum ListAnalyzersRequestTypeEnum {
     ACCOUNT = 'account',
-    ORGANIZATION = 'organization'
+    ORGANIZATION = 'organization',
+    ACCOUNT_UNUSED_ACCESS = 'account_unused_access',
+    ORGANIZATION_UNUSED_ACCESS = 'organization_unused_access'
 }

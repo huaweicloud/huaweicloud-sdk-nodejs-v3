@@ -30,6 +30,11 @@ import { AomMappingfilesInfo } from './model/AomMappingfilesInfo';
 import { BriefStructTemplateModel } from './model/BriefStructTemplateModel';
 import { ChangeAlarmRuleStatus } from './model/ChangeAlarmRuleStatus';
 import { ChartConfig } from './model/ChartConfig';
+import { ConsumerCheckpointInfo } from './model/ConsumerCheckpointInfo';
+import { ConsumerGroupHeartBeatRequest } from './model/ConsumerGroupHeartBeatRequest';
+import { ConsumerGroupHeartBeatResponse } from './model/ConsumerGroupHeartBeatResponse';
+import { ConsumerGroupInfo } from './model/ConsumerGroupInfo';
+import { ConsumerShardCheckpointInfo } from './model/ConsumerShardCheckpointInfo';
 import { CreateAccessConfigRequest } from './model/CreateAccessConfigRequest';
 import { CreateAccessConfigRequestBody } from './model/CreateAccessConfigRequestBody';
 import { CreateAccessConfigResponse } from './model/CreateAccessConfigResponse';
@@ -37,6 +42,8 @@ import { CreateAgencyAccessRequest } from './model/CreateAgencyAccessRequest';
 import { CreateAgencyAccessResponse } from './model/CreateAgencyAccessResponse';
 import { CreateAomMappingRulesRequest } from './model/CreateAomMappingRulesRequest';
 import { CreateAomMappingRulesResponse } from './model/CreateAomMappingRulesResponse';
+import { CreateConsumerGroupRequest } from './model/CreateConsumerGroupRequest';
+import { CreateConsumerGroupResponse } from './model/CreateConsumerGroupResponse';
 import { CreateDashBoardReqBody } from './model/CreateDashBoardReqBody';
 import { CreateDashBoardRequest } from './model/CreateDashBoardRequest';
 import { CreateDashBoardResponse } from './model/CreateDashBoardResponse';
@@ -98,6 +105,8 @@ import { DeleteActiveAlarmsRequestBody } from './model/DeleteActiveAlarmsRequest
 import { DeleteActiveAlarmsResponse } from './model/DeleteActiveAlarmsResponse';
 import { DeleteAomMappingRulesRequest } from './model/DeleteAomMappingRulesRequest';
 import { DeleteAomMappingRulesResponse } from './model/DeleteAomMappingRulesResponse';
+import { DeleteConsumerGroupRequest } from './model/DeleteConsumerGroupRequest';
+import { DeleteConsumerGroupResponse } from './model/DeleteConsumerGroupResponse';
 import { DeleteDashboardRequest } from './model/DeleteDashboardRequest';
 import { DeleteDashboardResponse } from './model/DeleteDashboardResponse';
 import { DeleteHostGroupRequest } from './model/DeleteHostGroupRequest';
@@ -160,8 +169,12 @@ import { ListBreifStructTemplateRequest } from './model/ListBreifStructTemplateR
 import { ListBreifStructTemplateResponse } from './model/ListBreifStructTemplateResponse';
 import { ListChartsRequest } from './model/ListChartsRequest';
 import { ListChartsResponse } from './model/ListChartsResponse';
+import { ListConsumerGroupRequest } from './model/ListConsumerGroupRequest';
+import { ListConsumerGroupResponse } from './model/ListConsumerGroupResponse';
 import { ListCriteriasRequest } from './model/ListCriteriasRequest';
 import { ListCriteriasResponse } from './model/ListCriteriasResponse';
+import { ListDetailsConsumerGroupRequest } from './model/ListDetailsConsumerGroupRequest';
+import { ListDetailsConsumerGroupResponse } from './model/ListDetailsConsumerGroupResponse';
 import { ListHistorySqlRequest } from './model/ListHistorySqlRequest';
 import { ListHistorySqlResponse } from './model/ListHistorySqlResponse';
 import { ListHostGroupRequest } from './model/ListHostGroupRequest';
@@ -236,8 +249,14 @@ import { ShowAomMappingRuleRequest } from './model/ShowAomMappingRuleRequest';
 import { ShowAomMappingRuleResponse } from './model/ShowAomMappingRuleResponse';
 import { ShowAomMappingRulesRequest } from './model/ShowAomMappingRulesRequest';
 import { ShowAomMappingRulesResponse } from './model/ShowAomMappingRulesResponse';
+import { ShowCursorByTimeRequest } from './model/ShowCursorByTimeRequest';
+import { ShowCursorByTimeResponse } from './model/ShowCursorByTimeResponse';
+import { ShowCursorTimeRequest } from './model/ShowCursorTimeRequest';
+import { ShowCursorTimeResponse } from './model/ShowCursorTimeResponse';
 import { ShowLogConvergeConfigRequest } from './model/ShowLogConvergeConfigRequest';
 import { ShowLogConvergeConfigResponse } from './model/ShowLogConvergeConfigResponse';
+import { ShowLogStreamShardsRequest } from './model/ShowLogStreamShardsRequest';
+import { ShowLogStreamShardsResponse } from './model/ShowLogStreamShardsResponse';
 import { ShowMemberGroupAndStreamRequest } from './model/ShowMemberGroupAndStreamRequest';
 import { ShowMemberGroupAndStreamResponse } from './model/ShowMemberGroupAndStreamResponse';
 import { ShowNotificationTemplateRequest } from './model/ShowNotificationTemplateRequest';
@@ -275,6 +294,8 @@ import { UpdateAlarmRuleStatusResponse } from './model/UpdateAlarmRuleStatusResp
 import { UpdateAomMappingRequest } from './model/UpdateAomMappingRequest';
 import { UpdateAomMappingRulesRequest } from './model/UpdateAomMappingRulesRequest';
 import { UpdateAomMappingRulesResponse } from './model/UpdateAomMappingRulesResponse';
+import { UpdateCheckPointRequest } from './model/UpdateCheckPointRequest';
+import { UpdateCheckPointResponse } from './model/UpdateCheckPointResponse';
 import { UpdateHostGroupRequest } from './model/UpdateHostGroupRequest';
 import { UpdateHostGroupRequestBody } from './model/UpdateHostGroupRequestBody';
 import { UpdateHostGroupResponse } from './model/UpdateHostGroupResponse';
@@ -1884,6 +1905,207 @@ export class LtsClient {
      */
     public updateAomMappingRules(updateAomMappingRulesRequest?: UpdateAomMappingRulesRequest): Promise<UpdateAomMappingRulesResponse> {
         const options = ParamCreater().updateAomMappingRules(updateAomMappingRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 消费者发送心跳到服务端
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 消费者发送心跳到服务端
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} consumerGroupName 消费组名
+     * @param {string} consumerName 消费者名称
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {Array<string>} shardIds Shard列表，可以为空数组
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public consumerGroupHeartBeat(consumerGroupHeartBeatRequest?: ConsumerGroupHeartBeatRequest): Promise<ConsumerGroupHeartBeatResponse> {
+        const options = ParamCreater().consumerGroupHeartBeat(consumerGroupHeartBeatRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建消费组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建消费组
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {ConsumerGroupInfo} consumerGroupInfo 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createConsumerGroup(createConsumerGroupRequest?: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
+        const options = ParamCreater().createConsumerGroup(createConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除消费组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除消费组
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} consumerGroupName 消费组名称
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConsumerGroup(deleteConsumerGroupRequest?: DeleteConsumerGroupRequest): Promise<DeleteConsumerGroupResponse> {
+        const options = ParamCreater().deleteConsumerGroup(deleteConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询消费组列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询消费组列表
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConsumerGroup(listConsumerGroupRequest?: ListConsumerGroupRequest): Promise<ListConsumerGroupResponse> {
+        const options = ParamCreater().listConsumerGroup(listConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询消费组详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询消费组详情
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} consumerGroupName 消费组名称
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDetailsConsumerGroup(listDetailsConsumerGroupRequest?: ListDetailsConsumerGroupRequest): Promise<ListDetailsConsumerGroupResponse> {
+        const options = ParamCreater().listDetailsConsumerGroup(listDetailsConsumerGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过时间查询cursor
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过时间获取消费游标
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} shardId Shrad ID
+     * @param {string} from 起始时间戳，时间单位为纳秒
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCursorByTime(showCursorByTimeRequest?: ShowCursorByTimeRequest): Promise<ShowCursorByTimeResponse> {
+        const options = ParamCreater().showCursorByTime(showCursorByTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过cursor查询服务端时间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过消费游标获取时间
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} shardId Shard ID
+     * @param {string} cursor 游标值
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCursorTime(showCursorTimeRequest?: ShowCursorTimeRequest): Promise<ShowCursorTimeResponse> {
+        const options = ParamCreater().showCursorTime(showCursorTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 流消费获取所有的query shards
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 流消费获取Shards
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLogStreamShards(showLogStreamShardsRequest?: ShowLogStreamShardsRequest): Promise<ShowLogStreamShardsResponse> {
+        const options = ParamCreater().showLogStreamShards(showLogStreamShardsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新消费组位点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新消费组位点
+     * @param {string} groupId 日志组ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID。 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} streamId 日志流ID，获取方式请参见：获取项目ID，获取账号ID，日志组ID、日志流ID 缺省值：None 最小长度：36 最大长度：36
+     * @param {string} consumerGroupName 消费组名
+     * @param {string} consumerName 消费者名
+     * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8
+     * @param {Array<ConsumerShardCheckpointInfo>} consumerShardCheckpointInfo 消费位点更新列表，可以为空数组
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCheckPoint(updateCheckPointRequest?: UpdateCheckPointRequest): Promise<UpdateCheckPointResponse> {
+        const options = ParamCreater().updateCheckPoint(updateCheckPointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5675,6 +5897,571 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 消费者发送心跳到服务端
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        consumerGroupHeartBeat(consumerGroupHeartBeatRequest?: ConsumerGroupHeartBeatRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups/{consumer_group_name}/heartbeat",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let consumerGroupName;
+            
+            let consumerName;
+            
+            let contentType;
+
+            if (consumerGroupHeartBeatRequest !== null && consumerGroupHeartBeatRequest !== undefined) {
+                if (consumerGroupHeartBeatRequest instanceof ConsumerGroupHeartBeatRequest) {
+                    groupId = consumerGroupHeartBeatRequest.groupId;
+                    streamId = consumerGroupHeartBeatRequest.streamId;
+                    consumerGroupName = consumerGroupHeartBeatRequest.consumerGroupName;
+                    consumerName = consumerGroupHeartBeatRequest.consumerName;
+                    contentType = consumerGroupHeartBeatRequest.contentType;
+                    body = consumerGroupHeartBeatRequest.body
+                } else {
+                    groupId = consumerGroupHeartBeatRequest['group_id'];
+                    streamId = consumerGroupHeartBeatRequest['stream_id'];
+                    consumerGroupName = consumerGroupHeartBeatRequest['consumer_group_name'];
+                    consumerName = consumerGroupHeartBeatRequest['consumer_name'];
+                    contentType = consumerGroupHeartBeatRequest['Content-Type'];
+                    body = consumerGroupHeartBeatRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling consumerGroupHeartBeat.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling consumerGroupHeartBeat.');
+            }
+            if (consumerGroupName === null || consumerGroupName === undefined) {
+            throw new RequiredError('consumerGroupName','Required parameter consumerGroupName was null or undefined when calling consumerGroupHeartBeat.');
+            }
+            if (consumerName === null || consumerName === undefined) {
+                throw new RequiredError('consumerName','Required parameter consumerName was null or undefined when calling consumerGroupHeartBeat.');
+            }
+            if (consumerName !== null && consumerName !== undefined) {
+                localVarQueryParameter['consumer_name'] = consumerName;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'consumer_group_name': consumerGroupName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建消费组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createConsumerGroup(createConsumerGroupRequest?: CreateConsumerGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let contentType;
+
+            if (createConsumerGroupRequest !== null && createConsumerGroupRequest !== undefined) {
+                if (createConsumerGroupRequest instanceof CreateConsumerGroupRequest) {
+                    groupId = createConsumerGroupRequest.groupId;
+                    streamId = createConsumerGroupRequest.streamId;
+                    contentType = createConsumerGroupRequest.contentType;
+                    body = createConsumerGroupRequest.body
+                } else {
+                    groupId = createConsumerGroupRequest['group_id'];
+                    streamId = createConsumerGroupRequest['stream_id'];
+                    contentType = createConsumerGroupRequest['Content-Type'];
+                    body = createConsumerGroupRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createConsumerGroup.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling createConsumerGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除消费组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConsumerGroup(deleteConsumerGroupRequest?: DeleteConsumerGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups/{consumer_group_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let streamId;
+            
+            let consumerGroupName;
+            
+            let contentType;
+
+            if (deleteConsumerGroupRequest !== null && deleteConsumerGroupRequest !== undefined) {
+                if (deleteConsumerGroupRequest instanceof DeleteConsumerGroupRequest) {
+                    groupId = deleteConsumerGroupRequest.groupId;
+                    streamId = deleteConsumerGroupRequest.streamId;
+                    consumerGroupName = deleteConsumerGroupRequest.consumerGroupName;
+                    contentType = deleteConsumerGroupRequest.contentType;
+                } else {
+                    groupId = deleteConsumerGroupRequest['group_id'];
+                    streamId = deleteConsumerGroupRequest['stream_id'];
+                    consumerGroupName = deleteConsumerGroupRequest['consumer_group_name'];
+                    contentType = deleteConsumerGroupRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteConsumerGroup.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling deleteConsumerGroup.');
+            }
+            if (consumerGroupName === null || consumerGroupName === undefined) {
+            throw new RequiredError('consumerGroupName','Required parameter consumerGroupName was null or undefined when calling deleteConsumerGroup.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'consumer_group_name': consumerGroupName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询消费组列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConsumerGroup(listConsumerGroupRequest?: ListConsumerGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let streamId;
+            
+            let contentType;
+
+            if (listConsumerGroupRequest !== null && listConsumerGroupRequest !== undefined) {
+                if (listConsumerGroupRequest instanceof ListConsumerGroupRequest) {
+                    groupId = listConsumerGroupRequest.groupId;
+                    streamId = listConsumerGroupRequest.streamId;
+                    contentType = listConsumerGroupRequest.contentType;
+                } else {
+                    groupId = listConsumerGroupRequest['group_id'];
+                    streamId = listConsumerGroupRequest['stream_id'];
+                    contentType = listConsumerGroupRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listConsumerGroup.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling listConsumerGroup.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询消费组详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDetailsConsumerGroup(listDetailsConsumerGroupRequest?: ListDetailsConsumerGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups/{consumer_group_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let streamId;
+            
+            let consumerGroupName;
+            
+            let contentType;
+
+            if (listDetailsConsumerGroupRequest !== null && listDetailsConsumerGroupRequest !== undefined) {
+                if (listDetailsConsumerGroupRequest instanceof ListDetailsConsumerGroupRequest) {
+                    groupId = listDetailsConsumerGroupRequest.groupId;
+                    streamId = listDetailsConsumerGroupRequest.streamId;
+                    consumerGroupName = listDetailsConsumerGroupRequest.consumerGroupName;
+                    contentType = listDetailsConsumerGroupRequest.contentType;
+                } else {
+                    groupId = listDetailsConsumerGroupRequest['group_id'];
+                    streamId = listDetailsConsumerGroupRequest['stream_id'];
+                    consumerGroupName = listDetailsConsumerGroupRequest['consumer_group_name'];
+                    contentType = listDetailsConsumerGroupRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listDetailsConsumerGroup.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling listDetailsConsumerGroup.');
+            }
+            if (consumerGroupName === null || consumerGroupName === undefined) {
+            throw new RequiredError('consumerGroupName','Required parameter consumerGroupName was null or undefined when calling listDetailsConsumerGroup.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'consumer_group_name': consumerGroupName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过时间查询cursor
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCursorByTime(showCursorByTimeRequest?: ShowCursorByTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/shards/{shard_id}/cursor",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let shardId;
+            
+            let from;
+            
+            let contentType;
+
+            if (showCursorByTimeRequest !== null && showCursorByTimeRequest !== undefined) {
+                if (showCursorByTimeRequest instanceof ShowCursorByTimeRequest) {
+                    groupId = showCursorByTimeRequest.groupId;
+                    streamId = showCursorByTimeRequest.streamId;
+                    shardId = showCursorByTimeRequest.shardId;
+                    from = showCursorByTimeRequest.from;
+                    contentType = showCursorByTimeRequest.contentType;
+                } else {
+                    groupId = showCursorByTimeRequest['group_id'];
+                    streamId = showCursorByTimeRequest['stream_id'];
+                    shardId = showCursorByTimeRequest['shard_id'];
+                    from = showCursorByTimeRequest['from'];
+                    contentType = showCursorByTimeRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showCursorByTime.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling showCursorByTime.');
+            }
+            if (shardId === null || shardId === undefined) {
+            throw new RequiredError('shardId','Required parameter shardId was null or undefined when calling showCursorByTime.');
+            }
+            if (from === null || from === undefined) {
+                throw new RequiredError('from','Required parameter from was null or undefined when calling showCursorByTime.');
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'shard_id': shardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过cursor查询服务端时间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCursorTime(showCursorTimeRequest?: ShowCursorTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/shards/{shard_id}/time",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let shardId;
+            
+            let cursor;
+
+            if (showCursorTimeRequest !== null && showCursorTimeRequest !== undefined) {
+                if (showCursorTimeRequest instanceof ShowCursorTimeRequest) {
+                    groupId = showCursorTimeRequest.groupId;
+                    streamId = showCursorTimeRequest.streamId;
+                    shardId = showCursorTimeRequest.shardId;
+                    cursor = showCursorTimeRequest.cursor;
+                } else {
+                    groupId = showCursorTimeRequest['group_id'];
+                    streamId = showCursorTimeRequest['stream_id'];
+                    shardId = showCursorTimeRequest['shard_id'];
+                    cursor = showCursorTimeRequest['cursor'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showCursorTime.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling showCursorTime.');
+            }
+            if (shardId === null || shardId === undefined) {
+            throw new RequiredError('shardId','Required parameter shardId was null or undefined when calling showCursorTime.');
+            }
+            if (cursor === null || cursor === undefined) {
+                throw new RequiredError('cursor','Required parameter cursor was null or undefined when calling showCursorTime.');
+            }
+            if (cursor !== null && cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'shard_id': shardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 流消费获取所有的query shards
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLogStreamShards(showLogStreamShardsRequest?: ShowLogStreamShardsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/shards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let streamId;
+            
+            let contentType;
+
+            if (showLogStreamShardsRequest !== null && showLogStreamShardsRequest !== undefined) {
+                if (showLogStreamShardsRequest instanceof ShowLogStreamShardsRequest) {
+                    groupId = showLogStreamShardsRequest.groupId;
+                    streamId = showLogStreamShardsRequest.streamId;
+                    contentType = showLogStreamShardsRequest.contentType;
+                } else {
+                    groupId = showLogStreamShardsRequest['group_id'];
+                    streamId = showLogStreamShardsRequest['stream_id'];
+                    contentType = showLogStreamShardsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showLogStreamShards.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling showLogStreamShards.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新消费组位点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCheckPoint(updateCheckPointRequest?: UpdateCheckPointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/groups/{group_id}/streams/{stream_id}/consumer-groups/{consumer_group_name}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let groupId;
+            
+            let streamId;
+            
+            let consumerGroupName;
+            
+            let consumerName;
+            
+            let contentType;
+
+            if (updateCheckPointRequest !== null && updateCheckPointRequest !== undefined) {
+                if (updateCheckPointRequest instanceof UpdateCheckPointRequest) {
+                    groupId = updateCheckPointRequest.groupId;
+                    streamId = updateCheckPointRequest.streamId;
+                    consumerGroupName = updateCheckPointRequest.consumerGroupName;
+                    consumerName = updateCheckPointRequest.consumerName;
+                    contentType = updateCheckPointRequest.contentType;
+                    body = updateCheckPointRequest.body
+                } else {
+                    groupId = updateCheckPointRequest['group_id'];
+                    streamId = updateCheckPointRequest['stream_id'];
+                    consumerGroupName = updateCheckPointRequest['consumer_group_name'];
+                    consumerName = updateCheckPointRequest['consumer_name'];
+                    contentType = updateCheckPointRequest['Content-Type'];
+                    body = updateCheckPointRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateCheckPoint.');
+            }
+            if (streamId === null || streamId === undefined) {
+            throw new RequiredError('streamId','Required parameter streamId was null or undefined when calling updateCheckPoint.');
+            }
+            if (consumerGroupName === null || consumerGroupName === undefined) {
+            throw new RequiredError('consumerGroupName','Required parameter consumerGroupName was null or undefined when calling updateCheckPoint.');
+            }
+            if (consumerName === null || consumerName === undefined) {
+                throw new RequiredError('consumerName','Required parameter consumerName was null or undefined when calling updateCheckPoint.');
+            }
+            if (consumerName !== null && consumerName !== undefined) {
+                localVarQueryParameter['consumer_name'] = consumerName;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId,'stream_id': streamId,'consumer_group_name': consumerGroupName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

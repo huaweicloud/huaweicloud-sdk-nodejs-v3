@@ -2,11 +2,16 @@
 
 export class StatusReason {
     public code?: StatusReasonCodeEnum | string;
+    public details?: string;
     public constructor(code?: string) { 
         this['code'] = code;
     }
     public withCode(code: StatusReasonCodeEnum | string): StatusReason {
         this['code'] = code;
+        return this;
+    }
+    public withDetails(details: string): StatusReason {
+        this['details'] = details;
         return this;
     }
 }

@@ -3,8 +3,8 @@ import { PolicyStatement } from './PolicyStatement';
 
 export class UpdateEndpointPolicyRequestBody {
     private 'policy_statement'?: Array<PolicyStatement>;
-    public constructor(policyStatement?: Array<PolicyStatement>) { 
-        this['policy_statement'] = policyStatement;
+    private 'policy_document'?: object;
+    public constructor() { 
     }
     public withPolicyStatement(policyStatement: Array<PolicyStatement>): UpdateEndpointPolicyRequestBody {
         this['policy_statement'] = policyStatement;
@@ -15,5 +15,15 @@ export class UpdateEndpointPolicyRequestBody {
     }
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
+    }
+    public withPolicyDocument(policyDocument: object): UpdateEndpointPolicyRequestBody {
+        this['policy_document'] = policyDocument;
+        return this;
+    }
+    public set policyDocument(policyDocument: object  | undefined) {
+        this['policy_document'] = policyDocument;
+    }
+    public get policyDocument(): object | undefined {
+        return this['policy_document'];
     }
 }

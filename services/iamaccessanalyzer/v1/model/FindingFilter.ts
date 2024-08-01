@@ -41,5 +41,7 @@ export enum FindingFilterKeyEnum {
     CONDITION_GPRINCIPALORGPATH = 'condition.g:PrincipalOrgPath',
     CONDITION_GPRINCIPALORGMANAGEMENTACCOUNTID = 'condition.g:PrincipalOrgManagementAccountId',
     CONDITION_GSOURCEIP = 'condition.g:SourceIp',
-    CONDITION_GSOURCEVPC = 'condition.g:SourceVpc'
+    CONDITION_GSOURCEVPC = 'condition.g:SourceVpc',
+    CONDITION_GSOURCEVPCE = 'condition.g:SourceVpce',
+    FINDING_TYPE = 'finding_type'
 }

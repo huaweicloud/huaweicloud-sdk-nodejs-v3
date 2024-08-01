@@ -6,6 +6,8 @@ import { AccessPreview } from './model/AccessPreview';
 import { AccessPreviewId } from './model/AccessPreviewId';
 import { AccessPreviewStatus } from './model/AccessPreviewStatus';
 import { AccessPreviewSummary } from './model/AccessPreviewSummary';
+import { AnalyzerConfiguration } from './model/AnalyzerConfiguration';
+import { AnalyzerConfigurationUnusedAccess } from './model/AnalyzerConfigurationUnusedAccess';
 import { AnalyzerId } from './model/AnalyzerId';
 import { AnalyzerName } from './model/AnalyzerName';
 import { AnalyzerSummary } from './model/AnalyzerSummary';
@@ -17,6 +19,10 @@ import { ArchiveRuleId } from './model/ArchiveRuleId';
 import { ArchiveRuleName } from './model/ArchiveRuleName';
 import { ArchiveRuleSummary } from './model/ArchiveRuleSummary';
 import { ArchiveRuleUrn } from './model/ArchiveRuleUrn';
+import { CheckNoNewAccessReason } from './model/CheckNoNewAccessReason';
+import { CheckNoNewAccessReqBody } from './model/CheckNoNewAccessReqBody';
+import { CheckNoNewAccessRequest } from './model/CheckNoNewAccessRequest';
+import { CheckNoNewAccessResponse } from './model/CheckNoNewAccessResponse';
 import { Configuration } from './model/Configuration';
 import { CreateAccessPreviewReqBody } from './model/CreateAccessPreviewReqBody';
 import { CreateAccessPreviewRequest } from './model/CreateAccessPreviewRequest';
@@ -33,12 +39,16 @@ import { DeleteAnalyzerRequest } from './model/DeleteAnalyzerRequest';
 import { DeleteAnalyzerResponse } from './model/DeleteAnalyzerResponse';
 import { DeleteArchiveRuleRequest } from './model/DeleteArchiveRuleRequest';
 import { DeleteArchiveRuleResponse } from './model/DeleteArchiveRuleResponse';
+import { ExternalAccessDetails } from './model/ExternalAccessDetails';
 import { Finding } from './model/Finding';
 import { FindingCondition } from './model/FindingCondition';
+import { FindingDetails } from './model/FindingDetails';
 import { FindingFilter } from './model/FindingFilter';
 import { FindingId } from './model/FindingId';
 import { FindingPrincipal } from './model/FindingPrincipal';
 import { FindingSourceType } from './model/FindingSourceType';
+import { FindingSummary } from './model/FindingSummary';
+import { FindingType } from './model/FindingType';
 import { IAMAgency } from './model/IAMAgency';
 import { KMSCmk } from './model/KMSCmk';
 import { LastAnalyzedResourceUrn } from './model/LastAnalyzedResourceUrn';
@@ -63,6 +73,7 @@ import { OrganizationId } from './model/OrganizationId';
 import { PageInfo } from './model/PageInfo';
 import { PathElement } from './model/PathElement';
 import { PolicyDocument } from './model/PolicyDocument';
+import { PolicyDocumentType } from './model/PolicyDocumentType';
 import { PolicyType } from './model/PolicyType';
 import { Position } from './model/Position';
 import { PreviewFinding } from './model/PreviewFinding';
@@ -93,6 +104,8 @@ import { TagValue } from './model/TagValue';
 import { UntagResourceReqBody } from './model/UntagResourceReqBody';
 import { UntagResourceRequest } from './model/UntagResourceRequest';
 import { UntagResourceResponse } from './model/UntagResourceResponse';
+import { UnusedIamUserAccessKeyDetails } from './model/UnusedIamUserAccessKeyDetails';
+import { UnusedIamUserPasswordDetails } from './model/UnusedIamUserPasswordDetails';
 import { UpdateArchiveRuleReqBody } from './model/UpdateArchiveRuleReqBody';
 import { UpdateArchiveRuleRequest } from './model/UpdateArchiveRuleRequest';
 import { UpdateArchiveRuleResponse } from './model/UpdateArchiveRuleResponse';
@@ -166,7 +179,7 @@ export class IAMAccessAnalyzerClient {
      * @summary 检索分析器的列表
      * @param {number} [limit] 单页最大结果数。
      * @param {string} [marker] 页面标记。
-     * @param {'account' | 'organization'} [type] 分析器的类型。
+     * @param {'account' | 'organization' | 'account_unused_access' | 'organization_unused_access'} [type] 分析器的类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -517,6 +530,25 @@ export class IAMAccessAnalyzerClient {
      */
     public untagResource(untagResourceRequest?: UntagResourceRequest): Promise<UntagResourceResponse> {
         const options = ParamCreater().untagResource(untagResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验策略是否有新访问权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验策略是否有新访问权限
+     * @param {CheckNoNewAccessReqBody} checkNoNewAccessReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkNoNewAccess(checkNoNewAccessRequest?: CheckNoNewAccessRequest): Promise<CheckNoNewAccessResponse> {
+        const options = ParamCreater().checkNoNewAccess(checkNoNewAccessRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1475,6 +1507,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验策略是否有新访问权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkNoNewAccess(checkNoNewAccessRequest?: CheckNoNewAccessRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/policies/check-no-new-access",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkNoNewAccessRequest !== null && checkNoNewAccessRequest !== undefined) {
+                if (checkNoNewAccessRequest instanceof CheckNoNewAccessRequest) {
+                    body = checkNoNewAccessRequest.body
+                } else {
+                    body = checkNoNewAccessRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

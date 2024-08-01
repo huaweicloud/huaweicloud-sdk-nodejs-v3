@@ -1,15 +1,15 @@
-import { Finding } from './Finding';
+import { FindingSummary } from './FindingSummary';
 import { PageInfo } from './PageInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFindingsResponse extends SdkResponse {
-    public findings?: Array<Finding>;
+    public findings?: Array<FindingSummary>;
     private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
-    public withFindings(findings: Array<Finding>): ListFindingsResponse {
+    public withFindings(findings: Array<FindingSummary>): ListFindingsResponse {
         this['findings'] = findings;
         return this;
     }
