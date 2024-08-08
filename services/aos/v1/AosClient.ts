@@ -12,6 +12,8 @@ import { ApplyExecutionPlanResponse } from './model/ApplyExecutionPlanResponse';
 import { BaseTemplate } from './model/BaseTemplate';
 import { BaseTemplateVersion } from './model/BaseTemplateVersion';
 import { CallIdentityPrimitiveTypeHolder } from './model/CallIdentityPrimitiveTypeHolder';
+import { ConfigurationPrimitiveTypeHolder } from './model/ConfigurationPrimitiveTypeHolder';
+import { ConfigurationPrimitiveTypeHolderConfiguration } from './model/ConfigurationPrimitiveTypeHolderConfiguration';
 import { ContinueDeployStackRequest } from './model/ContinueDeployStackRequest';
 import { ContinueDeployStackRequestBody } from './model/ContinueDeployStackRequestBody';
 import { ContinueDeployStackResponse } from './model/ContinueDeployStackResponse';
@@ -21,6 +23,12 @@ import { ContinueRollbackStackResponse } from './model/ContinueRollbackStackResp
 import { CreateExecutionPlanRequest } from './model/CreateExecutionPlanRequest';
 import { CreateExecutionPlanRequestBody } from './model/CreateExecutionPlanRequestBody';
 import { CreateExecutionPlanResponse } from './model/CreateExecutionPlanResponse';
+import { CreatePrivateHookRequest } from './model/CreatePrivateHookRequest';
+import { CreatePrivateHookRequestBody } from './model/CreatePrivateHookRequestBody';
+import { CreatePrivateHookResponse } from './model/CreatePrivateHookResponse';
+import { CreatePrivateHookVersionRequest } from './model/CreatePrivateHookVersionRequest';
+import { CreatePrivateHookVersionRequestBody } from './model/CreatePrivateHookVersionRequestBody';
+import { CreatePrivateHookVersionResponse } from './model/CreatePrivateHookVersionResponse';
 import { CreatePrivateProviderRequest } from './model/CreatePrivateProviderRequest';
 import { CreatePrivateProviderRequestBody } from './model/CreatePrivateProviderRequestBody';
 import { CreatePrivateProviderResponse } from './model/CreatePrivateProviderResponse';
@@ -38,6 +46,10 @@ import { CreateStackSetRequestBody } from './model/CreateStackSetRequestBody';
 import { CreateStackSetResponse } from './model/CreateStackSetResponse';
 import { DeleteExecutionPlanRequest } from './model/DeleteExecutionPlanRequest';
 import { DeleteExecutionPlanResponse } from './model/DeleteExecutionPlanResponse';
+import { DeletePrivateHookRequest } from './model/DeletePrivateHookRequest';
+import { DeletePrivateHookResponse } from './model/DeletePrivateHookResponse';
+import { DeletePrivateHookVersionRequest } from './model/DeletePrivateHookVersionRequest';
+import { DeletePrivateHookVersionResponse } from './model/DeletePrivateHookVersionResponse';
 import { DeleteStackEnhancedRequest } from './model/DeleteStackEnhancedRequest';
 import { DeleteStackEnhancedRequestBody } from './model/DeleteStackEnhancedRequestBody';
 import { DeleteStackEnhancedResponse } from './model/DeleteStackEnhancedResponse';
@@ -125,6 +137,19 @@ import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesReq
 import { ParseTemplateVariablesRequestBody } from './model/ParseTemplateVariablesRequestBody';
 import { ParseTemplateVariablesResponse } from './model/ParseTemplateVariablesResponse';
 import { PermissionModelPrimitiveTypeHolder } from './model/PermissionModelPrimitiveTypeHolder';
+import { PrivateHookCreateTimePrimitiveTypeHolder } from './model/PrivateHookCreateTimePrimitiveTypeHolder';
+import { PrivateHookDefaultVersionPrimitiveTypeHolder } from './model/PrivateHookDefaultVersionPrimitiveTypeHolder';
+import { PrivateHookDescriptionPrimitiveTypeHolder } from './model/PrivateHookDescriptionPrimitiveTypeHolder';
+import { PrivateHookIdPrimitiveTypeHolder } from './model/PrivateHookIdPrimitiveTypeHolder';
+import { PrivateHookNamePrimitiveTypeHolder } from './model/PrivateHookNamePrimitiveTypeHolder';
+import { PrivateHookSummary } from './model/PrivateHookSummary';
+import { PrivateHookUpdateTimePrimitiveTypeHolder } from './model/PrivateHookUpdateTimePrimitiveTypeHolder';
+import { PrivateHookVersionCreateTimePrimitiveTypeHolder } from './model/PrivateHookVersionCreateTimePrimitiveTypeHolder';
+import { PrivateHookVersionDescriptionPrimitiveTypeHolder } from './model/PrivateHookVersionDescriptionPrimitiveTypeHolder';
+import { PrivateHookVersionPrimitiveTypeHolder } from './model/PrivateHookVersionPrimitiveTypeHolder';
+import { PrivateHookVersionSummary } from './model/PrivateHookVersionSummary';
+import { PrivatePolicyBodyPrimitiveTypeHolder } from './model/PrivatePolicyBodyPrimitiveTypeHolder';
+import { PrivatePolicyURIPrimitiveTypeHolder } from './model/PrivatePolicyURIPrimitiveTypeHolder';
 import { PrivateProviderDescriptionPrimitiveTypeHolder } from './model/PrivateProviderDescriptionPrimitiveTypeHolder';
 import { PrivateProviderIdPrimitiveTypeHolder } from './model/PrivateProviderIdPrimitiveTypeHolder';
 import { PrivateProviderNamePrimitiveTypeHolder } from './model/PrivateProviderNamePrimitiveTypeHolder';
@@ -138,6 +163,10 @@ import { ResourceNamePrimitiveTypeHolder } from './model/ResourceNamePrimitiveTy
 import { ResourcePriceResponse } from './model/ResourcePriceResponse';
 import { ResourceTypePrimitiveTypeHolder } from './model/ResourceTypePrimitiveTypeHolder';
 import { RetainAllResourcesTypeHolder } from './model/RetainAllResourcesTypeHolder';
+import { ShowPrivateHookMetadataRequest } from './model/ShowPrivateHookMetadataRequest';
+import { ShowPrivateHookMetadataResponse } from './model/ShowPrivateHookMetadataResponse';
+import { ShowPrivateHookVersionMetadataRequest } from './model/ShowPrivateHookVersionMetadataRequest';
+import { ShowPrivateHookVersionMetadataResponse } from './model/ShowPrivateHookVersionMetadataResponse';
 import { ShowStackInstanceRequest } from './model/ShowStackInstanceRequest';
 import { ShowStackInstanceResponse } from './model/ShowStackInstanceResponse';
 import { ShowStackSetMetadataRequest } from './model/ShowStackSetMetadataRequest';
@@ -184,6 +213,9 @@ import { Template } from './model/Template';
 import { TemplateBodyPrimitiveTypeHolder } from './model/TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './model/TemplateURIPrimitiveTypeHolder';
 import { TemplateVersion } from './model/TemplateVersion';
+import { UpdatePrivateHookMetadataRequest } from './model/UpdatePrivateHookMetadataRequest';
+import { UpdatePrivateHookMetadataRequestBody } from './model/UpdatePrivateHookMetadataRequestBody';
+import { UpdatePrivateHookMetadataResponse } from './model/UpdatePrivateHookMetadataResponse';
 import { UpdateStackInstancesRequest } from './model/UpdateStackInstancesRequest';
 import { UpdateStackInstancesRequestBody } from './model/UpdateStackInstancesRequestBody';
 import { UpdateStackInstancesResponse } from './model/UpdateStackInstancesResponse';
@@ -620,6 +652,226 @@ export class AosClient {
      */
     public listExecutionPlans(listExecutionPlansRequest?: ListExecutionPlansRequest): Promise<ListExecutionPlansResponse> {
         const options = ParamCreater().listExecutionPlans(listExecutionPlansRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建私有hook（CreatePrivateHook）
+     * 
+     * 创建一个带有初始默认版本的私有hook，创建私有hook的时候需要同时创建一个初始化默认版本，不允许空私有hook的创建。
+     * 设置配置(Configuration)后的私有hook才会在触发资源栈部署时生效，资源栈使用私有hook的默认版本。若创建私有hook时未指定配置项，则该私有hook在资源栈部署时不生效，后续可通过UpdatePrivateHook API更新配置。
+     *   * 支持hook策略模板检验的资源栈服务API：
+     *       DeployStack 
+     *       DeleteStack
+     *   * 创建私有hook时指定的版本为初始默认版本。
+     *   * 如果同名的私有hook在当前domain_id+region下已经存在，则会返回409。
+     *   * 私有hook版本号遵循语义化版本号（Semantic Version），为用户自定义。
+     *   * 资源编排服务只会对私有hook进行浅校验，如文件大小。不进行策略文件语法类校验。若语法类存在错误，则会在hook策略校验生效时报错。
+     *   * 当前仅支持部署资源前的检测，不支持部署资源过程中的检测。如果通过了部署资源前的检测，资源栈则会继续部署资源。反之会停止部署资源，并记录资源栈事件（stack events）。
+     *   * 仅支持OPA开源引擎识别的，以rego（https://www.openpolicyagent.org/docs/latest/policy-language/）语言编写的策略模板(用户可以通过policy_uri或policy_body给与策略文件内容)。
+     *   * 策略模板中的决策结果使用object类型的hook_result，hook_result所在包的包名必须使用policy。hook_result格式如下：
+     *       &#x60;&#x60;&#x60;
+     *       hook_result :&#x3D; {
+     *         \&quot;is_passed\&quot;: Bool,
+     *         \&quot;err_msg\&quot;: String,
+     *       }
+     *       &#x60;&#x60;&#x60;
+     *     其中is_passed必选，err_msg可选。RFS通过查询policy.hook_result[is_passed]判断是否通过策略校验。
+     *     * 如果policy.hook_result[is_passed]的结果是true，则表示通过策略校验，资源编排服务会继续部署资源。
+     *     * 如果policy.hook_result[is_passed]的结果是false，则表示没有通过策略校验，资源编排服务会停止部署资源。并记录资源栈事件信息，信息的内容为policy.hook_result[err_msg]。如果没有设置err_msg，则资源栈事件信息内容为默认错误信息（校验私有hook失败）。
+     *     * 如果没有使用policy.hook_result，则该策略不会生效，资源编排服务会继续部署资源。
+     *   * 策略模板中不支持调用其他服务API等方式获取数据、不支持任何形式的网络访问、不支持以任何形式的自定义函数或者方法等、不支持读取本地文件以及系统操作。
+     * 
+     * 私有hook的策略模板语法如下：
+     * &#x60;&#x60;&#x60;
+     * package policy
+     * 
+     * import rego.v1
+     * 
+     * hook_result :&#x3D; {
+     *   \&quot;is_passed\&quot;: input.message &#x3D;&#x3D; \&quot;world\&quot;,
+     *   \&quot;err_msg\&quot;: \&quot;The error msg when private hook is not passed the validation\&quot;,
+     * }
+     * &#x60;&#x60;&#x60;
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建私有hook
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {CreatePrivateHookRequestBody} createPrivateHookRequestBody CreatePrivateHook API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivateHook(createPrivateHookRequest?: CreatePrivateHookRequest): Promise<CreatePrivateHookResponse> {
+        const options = ParamCreater().createPrivateHook(createPrivateHookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建私有hook版本（CreatePrivateHookVersion）
+     * 
+     * 创建私有hook版本，创建私有hook版本后需要调用UpdatePrivateHook API设置为默认版本才能生效。
+     *   * 版本号遵循语义化版本号（Semantic Version），为用户自定义。
+     *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     *   * 资源编排服务只会对私有hook进行浅校验，如文件大小。不进行策略文件语法类校验。若语法类存在错误，则会在hook策略校验生效时报错。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建私有hook版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {CreatePrivateHookVersionRequestBody} createPrivateHookVersionRequestBody CreatePrivateHookVersion API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrivateHookVersion(createPrivateHookVersionRequest?: CreatePrivateHookVersionRequest): Promise<CreatePrivateHookVersionResponse> {
+        const options = ParamCreater().createPrivateHookVersion(createPrivateHookVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有hook（DeletePrivateHook）
+     * 
+     * 删除某个私有hook以及私有hook下的全部hook版本
+     *   * 默认版本只能调用本API删除，除默认版本外的其它版本可以调用DeletePrivateHookVersion API删除。
+     *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * **请谨慎操作，删除私有hook将会删除该私有hook和该私有hook下的所有私有hook版本。**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有hook
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给与的hook_id和当前hook的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateHook(deletePrivateHookRequest?: DeletePrivateHookRequest): Promise<DeletePrivateHookResponse> {
+        const options = ParamCreater().deletePrivateHook(deletePrivateHookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除私有hook版本（DeletePrivateHookVersion）
+     * 
+     * 删除某个私有hook版本
+     *   * 默认版本只能调用DeletePrivateHook API删除，除默认版本外的其它版本都可以调用本API删除。
+     *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * **请谨慎操作**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除私有hook版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookVersion 私有hook的版本号。版本号必须遵循语义化版本号（Semantic Version），为用户自定义。
+     * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给与的hook_id和当前hook的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePrivateHookVersion(deletePrivateHookVersionRequest?: DeletePrivateHookVersionRequest): Promise<DeletePrivateHookVersionResponse> {
+        const options = ParamCreater().deletePrivateHookVersion(deletePrivateHookVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有hook元数据（ShowPrivateHookMetadata）
+     * 
+     * 获取某个私有hook的元数据信息
+     * 
+     *   * 具体返回的信息见ShowPrivateHookMetadataResponseBody，若想查看私有hook下全部版本，请调用ListPrivateHookVersions。
+     *   * 若hook_name和hook_id同时存在，则资源编排服务会检查两个是否匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有hook元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给与的hook_id和当前hook的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateHookMetadata(showPrivateHookMetadataRequest?: ShowPrivateHookMetadataRequest): Promise<ShowPrivateHookMetadataResponse> {
+        const options = ParamCreater().showPrivateHookMetadata(showPrivateHookMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取私有hook版本元数据（ShowPrivateHookVersionMetadata）
+     * 
+     * 获取当前私有hook对应的版本的元数据信息
+     * 
+     *   * 具体返回的信息见ShowPrivateHookVersionMetadataResponseBody。
+     *   * 如果hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取私有hook版本元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookVersion 私有hook的版本号。版本号必须遵循语义化版本号（Semantic Version），为用户自定义。
+     * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给与的hook_id和当前hook的Id不一致，则返回400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivateHookVersionMetadata(showPrivateHookVersionMetadataRequest?: ShowPrivateHookVersionMetadataRequest): Promise<ShowPrivateHookVersionMetadataResponse> {
+        const options = ParamCreater().showPrivateHookVersionMetadata(showPrivateHookVersionMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新私有hook元数据（UpdatePrivateHookMetadata）
+     * 
+     * 更新当前私有hook的元数据信息
+     * 
+     *   * 目前支持更新私有hook的描述、默认版本、配置。
+     *   * 如果需要创建新的版本，请调用CreatePrivateHookVersion。
+     *   * 更新为增量更新，即如果某个参数不提供，则保持原始值。
+     *   * 如果请求中没有需要被更新的参数（如请求中没有任何内容，或仅有hook_id），则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+     *   * 更新后私有hook的更新时间（update_time）也会被更新
+     *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新私有hook元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {UpdatePrivateHookMetadataRequestBody} updatePrivateHookMetadataRequestBody UpdatePrivateHookMetadata API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivateHookMetadata(updatePrivateHookMetadataRequest?: UpdatePrivateHookMetadataRequest): Promise<UpdatePrivateHookMetadataResponse> {
+        const options = ParamCreater().updatePrivateHookMetadata(updatePrivateHookMetadataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2530,6 +2782,451 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建私有hook（CreatePrivateHook）
+         * 
+         * 创建一个带有初始默认版本的私有hook，创建私有hook的时候需要同时创建一个初始化默认版本，不允许空私有hook的创建。
+         * 设置配置(Configuration)后的私有hook才会在触发资源栈部署时生效，资源栈使用私有hook的默认版本。若创建私有hook时未指定配置项，则该私有hook在资源栈部署时不生效，后续可通过UpdatePrivateHook API更新配置。
+         *   * 支持hook策略模板检验的资源栈服务API：
+         *       DeployStack 
+         *       DeleteStack
+         *   * 创建私有hook时指定的版本为初始默认版本。
+         *   * 如果同名的私有hook在当前domain_id+region下已经存在，则会返回409。
+         *   * 私有hook版本号遵循语义化版本号（Semantic Version），为用户自定义。
+         *   * 资源编排服务只会对私有hook进行浅校验，如文件大小。不进行策略文件语法类校验。若语法类存在错误，则会在hook策略校验生效时报错。
+         *   * 当前仅支持部署资源前的检测，不支持部署资源过程中的检测。如果通过了部署资源前的检测，资源栈则会继续部署资源。反之会停止部署资源，并记录资源栈事件（stack events）。
+         *   * 仅支持OPA开源引擎识别的，以rego（https://www.openpolicyagent.org/docs/latest/policy-language/）语言编写的策略模板(用户可以通过policy_uri或policy_body给与策略文件内容)。
+         *   * 策略模板中的决策结果使用object类型的hook_result，hook_result所在包的包名必须使用policy。hook_result格式如下：
+         *       &#x60;&#x60;&#x60;
+         *       hook_result :&#x3D; {
+         *         \&quot;is_passed\&quot;: Bool,
+         *         \&quot;err_msg\&quot;: String,
+         *       }
+         *       &#x60;&#x60;&#x60;
+         *     其中is_passed必选，err_msg可选。RFS通过查询policy.hook_result[is_passed]判断是否通过策略校验。
+         *     * 如果policy.hook_result[is_passed]的结果是true，则表示通过策略校验，资源编排服务会继续部署资源。
+         *     * 如果policy.hook_result[is_passed]的结果是false，则表示没有通过策略校验，资源编排服务会停止部署资源。并记录资源栈事件信息，信息的内容为policy.hook_result[err_msg]。如果没有设置err_msg，则资源栈事件信息内容为默认错误信息（校验私有hook失败）。
+         *     * 如果没有使用policy.hook_result，则该策略不会生效，资源编排服务会继续部署资源。
+         *   * 策略模板中不支持调用其他服务API等方式获取数据、不支持任何形式的网络访问、不支持以任何形式的自定义函数或者方法等、不支持读取本地文件以及系统操作。
+         * 
+         * 私有hook的策略模板语法如下：
+         * &#x60;&#x60;&#x60;
+         * package policy
+         * 
+         * import rego.v1
+         * 
+         * hook_result :&#x3D; {
+         *   \&quot;is_passed\&quot;: input.message &#x3D;&#x3D; \&quot;world\&quot;,
+         *   \&quot;err_msg\&quot;: \&quot;The error msg when private hook is not passed the validation\&quot;,
+         * }
+         * &#x60;&#x60;&#x60;
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivateHook(createPrivateHookRequest?: CreatePrivateHookRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/private-hooks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+
+            if (createPrivateHookRequest !== null && createPrivateHookRequest !== undefined) {
+                if (createPrivateHookRequest instanceof CreatePrivateHookRequest) {
+                    clientRequestId = createPrivateHookRequest.clientRequestId;
+                    body = createPrivateHookRequest.body
+                } else {
+                    clientRequestId = createPrivateHookRequest['Client-Request-Id'];
+                    body = createPrivateHookRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建私有hook版本（CreatePrivateHookVersion）
+         * 
+         * 创建私有hook版本，创建私有hook版本后需要调用UpdatePrivateHook API设置为默认版本才能生效。
+         *   * 版本号遵循语义化版本号（Semantic Version），为用户自定义。
+         *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         *   * 资源编排服务只会对私有hook进行浅校验，如文件大小。不进行策略文件语法类校验。若语法类存在错误，则会在hook策略校验生效时报错。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPrivateHookVersion(createPrivateHookVersionRequest?: CreatePrivateHookVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/private-hooks/{hook_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let hookName;
+
+            if (createPrivateHookVersionRequest !== null && createPrivateHookVersionRequest !== undefined) {
+                if (createPrivateHookVersionRequest instanceof CreatePrivateHookVersionRequest) {
+                    clientRequestId = createPrivateHookVersionRequest.clientRequestId;
+                    hookName = createPrivateHookVersionRequest.hookName;
+                    body = createPrivateHookVersionRequest.body
+                } else {
+                    clientRequestId = createPrivateHookVersionRequest['Client-Request-Id'];
+                    hookName = createPrivateHookVersionRequest['hook_name'];
+                    body = createPrivateHookVersionRequest['body'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling createPrivateHookVersion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'hook_name': hookName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有hook（DeletePrivateHook）
+         * 
+         * 删除某个私有hook以及私有hook下的全部hook版本
+         *   * 默认版本只能调用本API删除，除默认版本外的其它版本可以调用DeletePrivateHookVersion API删除。
+         *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * **请谨慎操作，删除私有hook将会删除该私有hook和该私有hook下的所有私有hook版本。**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateHook(deletePrivateHookRequest?: DeletePrivateHookRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-hooks/{hook_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let hookName;
+            
+            let hookId;
+
+            if (deletePrivateHookRequest !== null && deletePrivateHookRequest !== undefined) {
+                if (deletePrivateHookRequest instanceof DeletePrivateHookRequest) {
+                    clientRequestId = deletePrivateHookRequest.clientRequestId;
+                    hookName = deletePrivateHookRequest.hookName;
+                    hookId = deletePrivateHookRequest.hookId;
+                } else {
+                    clientRequestId = deletePrivateHookRequest['Client-Request-Id'];
+                    hookName = deletePrivateHookRequest['hook_name'];
+                    hookId = deletePrivateHookRequest['hook_id'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling deletePrivateHook.');
+            }
+            if (hookId !== null && hookId !== undefined) {
+                localVarQueryParameter['hook_id'] = hookId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'hook_name': hookName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除私有hook版本（DeletePrivateHookVersion）
+         * 
+         * 删除某个私有hook版本
+         *   * 默认版本只能调用DeletePrivateHook API删除，除默认版本外的其它版本都可以调用本API删除。
+         *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * **请谨慎操作**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePrivateHookVersion(deletePrivateHookVersionRequest?: DeletePrivateHookVersionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/private-hooks/{hook_name}/versions/{hook_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let hookName;
+            
+            let hookVersion;
+            
+            let hookId;
+
+            if (deletePrivateHookVersionRequest !== null && deletePrivateHookVersionRequest !== undefined) {
+                if (deletePrivateHookVersionRequest instanceof DeletePrivateHookVersionRequest) {
+                    clientRequestId = deletePrivateHookVersionRequest.clientRequestId;
+                    hookName = deletePrivateHookVersionRequest.hookName;
+                    hookVersion = deletePrivateHookVersionRequest.hookVersion;
+                    hookId = deletePrivateHookVersionRequest.hookId;
+                } else {
+                    clientRequestId = deletePrivateHookVersionRequest['Client-Request-Id'];
+                    hookName = deletePrivateHookVersionRequest['hook_name'];
+                    hookVersion = deletePrivateHookVersionRequest['hook_version'];
+                    hookId = deletePrivateHookVersionRequest['hook_id'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling deletePrivateHookVersion.');
+            }
+            if (hookVersion === null || hookVersion === undefined) {
+            throw new RequiredError('hookVersion','Required parameter hookVersion was null or undefined when calling deletePrivateHookVersion.');
+            }
+            if (hookId !== null && hookId !== undefined) {
+                localVarQueryParameter['hook_id'] = hookId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'hook_name': hookName,'hook_version': hookVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有hook元数据（ShowPrivateHookMetadata）
+         * 
+         * 获取某个私有hook的元数据信息
+         * 
+         *   * 具体返回的信息见ShowPrivateHookMetadataResponseBody，若想查看私有hook下全部版本，请调用ListPrivateHookVersions。
+         *   * 若hook_name和hook_id同时存在，则资源编排服务会检查两个是否匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateHookMetadata(showPrivateHookMetadataRequest?: ShowPrivateHookMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-hooks/{hook_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let hookName;
+            
+            let hookId;
+
+            if (showPrivateHookMetadataRequest !== null && showPrivateHookMetadataRequest !== undefined) {
+                if (showPrivateHookMetadataRequest instanceof ShowPrivateHookMetadataRequest) {
+                    clientRequestId = showPrivateHookMetadataRequest.clientRequestId;
+                    hookName = showPrivateHookMetadataRequest.hookName;
+                    hookId = showPrivateHookMetadataRequest.hookId;
+                } else {
+                    clientRequestId = showPrivateHookMetadataRequest['Client-Request-Id'];
+                    hookName = showPrivateHookMetadataRequest['hook_name'];
+                    hookId = showPrivateHookMetadataRequest['hook_id'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling showPrivateHookMetadata.');
+            }
+            if (hookId !== null && hookId !== undefined) {
+                localVarQueryParameter['hook_id'] = hookId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'hook_name': hookName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取私有hook版本元数据（ShowPrivateHookVersionMetadata）
+         * 
+         * 获取当前私有hook对应的版本的元数据信息
+         * 
+         *   * 具体返回的信息见ShowPrivateHookVersionMetadataResponseBody。
+         *   * 如果hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivateHookVersionMetadata(showPrivateHookVersionMetadataRequest?: ShowPrivateHookVersionMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-hooks/{hook_name}/versions/{hook_version}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let hookName;
+            
+            let hookVersion;
+            
+            let hookId;
+
+            if (showPrivateHookVersionMetadataRequest !== null && showPrivateHookVersionMetadataRequest !== undefined) {
+                if (showPrivateHookVersionMetadataRequest instanceof ShowPrivateHookVersionMetadataRequest) {
+                    clientRequestId = showPrivateHookVersionMetadataRequest.clientRequestId;
+                    hookName = showPrivateHookVersionMetadataRequest.hookName;
+                    hookVersion = showPrivateHookVersionMetadataRequest.hookVersion;
+                    hookId = showPrivateHookVersionMetadataRequest.hookId;
+                } else {
+                    clientRequestId = showPrivateHookVersionMetadataRequest['Client-Request-Id'];
+                    hookName = showPrivateHookVersionMetadataRequest['hook_name'];
+                    hookVersion = showPrivateHookVersionMetadataRequest['hook_version'];
+                    hookId = showPrivateHookVersionMetadataRequest['hook_id'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling showPrivateHookVersionMetadata.');
+            }
+            if (hookVersion === null || hookVersion === undefined) {
+            throw new RequiredError('hookVersion','Required parameter hookVersion was null or undefined when calling showPrivateHookVersionMetadata.');
+            }
+            if (hookId !== null && hookId !== undefined) {
+                localVarQueryParameter['hook_id'] = hookId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'hook_name': hookName,'hook_version': hookVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新私有hook元数据（UpdatePrivateHookMetadata）
+         * 
+         * 更新当前私有hook的元数据信息
+         * 
+         *   * 目前支持更新私有hook的描述、默认版本、配置。
+         *   * 如果需要创建新的版本，请调用CreatePrivateHookVersion。
+         *   * 更新为增量更新，即如果某个参数不提供，则保持原始值。
+         *   * 如果请求中没有需要被更新的参数（如请求中没有任何内容，或仅有hook_id），则返回400。注意：即使更新原始值和目标值一致也被认为是有效更新
+         *   * 更新后私有hook的更新时间（update_time）也会被更新
+         *   * 若hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivateHookMetadata(updatePrivateHookMetadataRequest?: UpdatePrivateHookMetadataRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/private-hooks/{hook_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let hookName;
+
+            if (updatePrivateHookMetadataRequest !== null && updatePrivateHookMetadataRequest !== undefined) {
+                if (updatePrivateHookMetadataRequest instanceof UpdatePrivateHookMetadataRequest) {
+                    clientRequestId = updatePrivateHookMetadataRequest.clientRequestId;
+                    hookName = updatePrivateHookMetadataRequest.hookName;
+                    body = updatePrivateHookMetadataRequest.body
+                } else {
+                    clientRequestId = updatePrivateHookMetadataRequest['Client-Request-Id'];
+                    hookName = updatePrivateHookMetadataRequest['hook_name'];
+                    body = updatePrivateHookMetadataRequest['body'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling updatePrivateHookMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'hook_name': hookName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -632,7 +632,7 @@ export class IamClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary application/json
+     * @summary 基于委托为企业项目授权
      * @param {string} contentType application/json
      * @param {CreateAgencyEpPolicyAssignmentReqBody} createAgencyEpPolicyAssignmentReqBody 
      * @param {*} [options] Override http request option.
@@ -1717,27 +1717,6 @@ export class IamClient {
     }
 
     /**
-     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组中所包含的IAM用户。
-     * 
-     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 管理员查询用户组所包含的IAM用户
-     * @param {string} groupId 待查询的用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest): Promise<KeystoneListUsersForGroupByAdminResponse> {
-        const options = ParamCreater().keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口用于查询Keystone API的版本信息。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2515,6 +2494,7 @@ export class IamClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 删除企业项目关联委托的权限
      * @param {string} contentType application/json
      * @param {CreateOrDelAgencyEpPolicyAssignmentReqBody} delAgencyEpPolicyAssignmentReqBody 
      * @param {*} [options] Override http request option.
@@ -3437,6 +3417,27 @@ export class IamClient {
      */
     public keystoneListUsers(keystoneListUsersRequest?: KeystoneListUsersRequest): Promise<KeystoneListUsersResponse> {
         const options = ParamCreater().keystoneListUsers(keystoneListUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组中所包含的IAM用户。
+     * 
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 管理员查询用户组所包含的IAM用户
+     * @param {string} groupId 待查询的用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest): Promise<KeystoneListUsersForGroupByAdminResponse> {
+        const options = ParamCreater().keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6158,45 +6159,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组中所包含的IAM用户。
-         * 
-         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/groups/{group_id}/users",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let groupId;
-
-            if (keystoneListUsersForGroupByAdminRequest !== null && keystoneListUsersForGroupByAdminRequest !== undefined) {
-                if (keystoneListUsersForGroupByAdminRequest instanceof KeystoneListUsersForGroupByAdminRequest) {
-                    groupId = keystoneListUsersForGroupByAdminRequest.groupId;
-                } else {
-                    groupId = keystoneListUsersForGroupByAdminRequest['group_id'];
-                }
-            }
-
-        
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListUsersForGroupByAdmin.');
-            }
-
-            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9640,6 +9602,45 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组中所包含的IAM用户。
+         * 
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/groups/{group_id}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (keystoneListUsersForGroupByAdminRequest !== null && keystoneListUsersForGroupByAdminRequest !== undefined) {
+                if (keystoneListUsersForGroupByAdminRequest instanceof KeystoneListUsersForGroupByAdminRequest) {
+                    groupId = keystoneListUsersForGroupByAdminRequest.groupId;
+                } else {
+                    groupId = keystoneListUsersForGroupByAdminRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListUsersForGroupByAdmin.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

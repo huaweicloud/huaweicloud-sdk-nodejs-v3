@@ -11,6 +11,10 @@ export class CreatePremiumHostRequestBody {
     public server?: Array<PremiumWafServer>;
     private 'block_page'?: BlockPage;
     private 'forward_header_map'?: { [key: string]: string; };
+    public mode?: string;
+    private 'loadbalancer_id'?: string;
+    private 'listener_id'?: string;
+    private 'protocol_port'?: number;
     public description?: string;
     public constructor(hostname?: string, proxy?: boolean, server?: Array<PremiumWafServer>) { 
         this['hostname'] = hostname;
@@ -60,6 +64,40 @@ export class CreatePremiumHostRequestBody {
     }
     public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
+    }
+    public withMode(mode: string): CreatePremiumHostRequestBody {
+        this['mode'] = mode;
+        return this;
+    }
+    public withLoadbalancerId(loadbalancerId: string): CreatePremiumHostRequestBody {
+        this['loadbalancer_id'] = loadbalancerId;
+        return this;
+    }
+    public set loadbalancerId(loadbalancerId: string  | undefined) {
+        this['loadbalancer_id'] = loadbalancerId;
+    }
+    public get loadbalancerId(): string | undefined {
+        return this['loadbalancer_id'];
+    }
+    public withListenerId(listenerId: string): CreatePremiumHostRequestBody {
+        this['listener_id'] = listenerId;
+        return this;
+    }
+    public set listenerId(listenerId: string  | undefined) {
+        this['listener_id'] = listenerId;
+    }
+    public get listenerId(): string | undefined {
+        return this['listener_id'];
+    }
+    public withProtocolPort(protocolPort: number): CreatePremiumHostRequestBody {
+        this['protocol_port'] = protocolPort;
+        return this;
+    }
+    public set protocolPort(protocolPort: number  | undefined) {
+        this['protocol_port'] = protocolPort;
+    }
+    public get protocolPort(): number | undefined {
+        return this['protocol_port'];
     }
     public withDescription(description: string): CreatePremiumHostRequestBody {
         this['description'] = description;

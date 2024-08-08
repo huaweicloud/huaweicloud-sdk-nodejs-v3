@@ -1,3 +1,5 @@
+import { AllowedAddressPair } from './AllowedAddressPair';
+import { ResourceTag } from './ResourceTag';
 
 
 export class SubNetworkInterface {
@@ -12,11 +14,16 @@ export class SubNetworkInterface {
     private 'vpc_id'?: string;
     private 'vlan_id'?: number;
     private 'security_groups'?: Array<string>;
-    public tags?: Array<string>;
+    public tags?: Array<ResourceTag>;
     private 'project_id'?: string;
     private 'created_at'?: Date;
+    private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
+    public state?: string;
+    private 'instance_id'?: string;
+    private 'instance_type'?: string;
+    public scope?: string;
     private 'security_enabled'?: boolean;
-    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<string>, projectId?: string, createdAt?: Date, securityEnabled?: boolean) { 
+    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<ResourceTag>, projectId?: string, createdAt?: Date, allowedAddressPairs?: Array<AllowedAddressPair>, state?: string, instanceId?: string, instanceType?: string, scope?: string, securityEnabled?: boolean) { 
         this['id'] = id;
         this['virsubnet_id'] = virsubnetId;
         this['private_ip_address'] = privateIpAddress;
@@ -31,6 +38,11 @@ export class SubNetworkInterface {
         this['tags'] = tags;
         this['project_id'] = projectId;
         this['created_at'] = createdAt;
+        this['allowed_address_pairs'] = allowedAddressPairs;
+        this['state'] = state;
+        this['instance_id'] = instanceId;
+        this['instance_type'] = instanceType;
+        this['scope'] = scope;
         this['security_enabled'] = securityEnabled;
     }
     public withId(id: string): SubNetworkInterface {
@@ -131,7 +143,7 @@ export class SubNetworkInterface {
     public get securityGroups(): Array<string> | undefined {
         return this['security_groups'];
     }
-    public withTags(tags: Array<string>): SubNetworkInterface {
+    public withTags(tags: Array<ResourceTag>): SubNetworkInterface {
         this['tags'] = tags;
         return this;
     }
@@ -154,6 +166,44 @@ export class SubNetworkInterface {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withAllowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair>): SubNetworkInterface {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+        return this;
+    }
+    public set allowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair>  | undefined) {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+    }
+    public get allowedAddressPairs(): Array<AllowedAddressPair> | undefined {
+        return this['allowed_address_pairs'];
+    }
+    public withState(state: string): SubNetworkInterface {
+        this['state'] = state;
+        return this;
+    }
+    public withInstanceId(instanceId: string): SubNetworkInterface {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withInstanceType(instanceType: string): SubNetworkInterface {
+        this['instance_type'] = instanceType;
+        return this;
+    }
+    public set instanceType(instanceType: string  | undefined) {
+        this['instance_type'] = instanceType;
+    }
+    public get instanceType(): string | undefined {
+        return this['instance_type'];
+    }
+    public withScope(scope: string): SubNetworkInterface {
+        this['scope'] = scope;
+        return this;
     }
     public withSecurityEnabled(securityEnabled: boolean): SubNetworkInterface {
         this['security_enabled'] = securityEnabled;

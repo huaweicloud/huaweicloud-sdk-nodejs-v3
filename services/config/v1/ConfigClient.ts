@@ -1428,7 +1428,6 @@ export class ConfigClient {
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
      * @param {string} [resourceId] 资源ID
-     * @param {string} [resourceName] 资源名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4991,8 +4990,6 @@ export const ParamCreater = function () {
             let marker;
             
             let resourceId;
-            
-            let resourceName;
 
             if (listRemediationExceptionsRequest !== null && listRemediationExceptionsRequest !== undefined) {
                 if (listRemediationExceptionsRequest instanceof ListRemediationExceptionsRequest) {
@@ -5000,13 +4997,11 @@ export const ParamCreater = function () {
                     limit = listRemediationExceptionsRequest.limit;
                     marker = listRemediationExceptionsRequest.marker;
                     resourceId = listRemediationExceptionsRequest.resourceId;
-                    resourceName = listRemediationExceptionsRequest.resourceName;
                 } else {
                     policyAssignmentId = listRemediationExceptionsRequest['policy_assignment_id'];
                     limit = listRemediationExceptionsRequest['limit'];
                     marker = listRemediationExceptionsRequest['marker'];
                     resourceId = listRemediationExceptionsRequest['resource_id'];
-                    resourceName = listRemediationExceptionsRequest['resource_name'];
                 }
             }
 
@@ -5022,9 +5017,6 @@ export const ParamCreater = function () {
             }
             if (resourceId !== null && resourceId !== undefined) {
                 localVarQueryParameter['resource_id'] = resourceId;
-            }
-            if (resourceName !== null && resourceName !== undefined) {
-                localVarQueryParameter['resource_name'] = resourceName;
             }
 
             options.queryParams = localVarQueryParameter;

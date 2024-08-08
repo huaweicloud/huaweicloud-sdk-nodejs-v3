@@ -25,7 +25,7 @@ export class CreateEndpointResponse extends SdkResponse {
     private 'specification_name'?: string;
     public description?: string;
     private 'policy_statement'?: Array<PolicyStatement>;
-    private 'policy_document'?: object;
+    private 'policy_document'?: string;
     private 'enable_status'?: string;
     private 'endpoint_pool_id'?: string;
     private 'public_border_group'?: string;
@@ -201,14 +201,14 @@ export class CreateEndpointResponse extends SdkResponse {
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
-    public withPolicyDocument(policyDocument: object): CreateEndpointResponse {
+    public withPolicyDocument(policyDocument: string): CreateEndpointResponse {
         this['policy_document'] = policyDocument;
         return this;
     }
-    public set policyDocument(policyDocument: object  | undefined) {
+    public set policyDocument(policyDocument: string  | undefined) {
         this['policy_document'] = policyDocument;
     }
-    public get policyDocument(): object | undefined {
+    public get policyDocument(): string | undefined {
         return this['policy_document'];
     }
     public withEnableStatus(enableStatus: string): CreateEndpointResponse {

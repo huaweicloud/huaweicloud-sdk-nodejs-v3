@@ -10,7 +10,6 @@ export class UpdateTrafficMirrorSessionOption {
     private 'packet_length'?: number;
     public priority?: number;
     public enabled?: string;
-    public type?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateTrafficMirrorSessionOption {
@@ -77,10 +76,6 @@ export class UpdateTrafficMirrorSessionOption {
     }
     public withEnabled(enabled: string): UpdateTrafficMirrorSessionOption {
         this['enabled'] = enabled;
-        return this;
-    }
-    public withType(type: string): UpdateTrafficMirrorSessionOption {
-        this['type'] = type;
         return this;
     }
 }

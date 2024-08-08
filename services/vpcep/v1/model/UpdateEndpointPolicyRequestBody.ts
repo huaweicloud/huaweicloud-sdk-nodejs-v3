@@ -3,7 +3,7 @@ import { PolicyStatement } from './PolicyStatement';
 
 export class UpdateEndpointPolicyRequestBody {
     private 'policy_statement'?: Array<PolicyStatement>;
-    private 'policy_document'?: object;
+    private 'policy_document'?: string;
     public constructor() { 
     }
     public withPolicyStatement(policyStatement: Array<PolicyStatement>): UpdateEndpointPolicyRequestBody {
@@ -16,14 +16,14 @@ export class UpdateEndpointPolicyRequestBody {
     public get policyStatement(): Array<PolicyStatement> | undefined {
         return this['policy_statement'];
     }
-    public withPolicyDocument(policyDocument: object): UpdateEndpointPolicyRequestBody {
+    public withPolicyDocument(policyDocument: string): UpdateEndpointPolicyRequestBody {
         this['policy_document'] = policyDocument;
         return this;
     }
-    public set policyDocument(policyDocument: object  | undefined) {
+    public set policyDocument(policyDocument: string  | undefined) {
         this['policy_document'] = policyDocument;
     }
-    public get policyDocument(): object | undefined {
+    public get policyDocument(): string | undefined {
         return this['policy_document'];
     }
 }

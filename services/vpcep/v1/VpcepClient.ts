@@ -271,11 +271,11 @@ export class VpcepClient {
     }
 
     /**
-     * 删除网关型终端节点policy。
+     * 删除网关型终端节点策略，该接口待下线，不建议使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除网关型终端节点policy
+     * @summary 删除网关型终端节点策略（待下线）
      * @param {string} vpcEndpointId 终端节点的ID。
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
@@ -584,13 +584,13 @@ export class VpcepClient {
     }
 
     /**
-     * 修改网关型终端节点policy。
+     * 修改终端节点策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改网关型终端节点policy
+     * @summary 修改终端节点策略
      * @param {string} vpcEndpointId 终端节点的ID。
-     * @param {UpdateEndpointPolicyRequestBody} updateEndpointPolicyRequestBody 更新网关型终端节点policy请求结构体
+     * @param {UpdateEndpointPolicyRequestBody} updateEndpointPolicyRequestBody 更新终端节点策略请求结构体
      * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1132,7 +1132,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除网关型终端节点policy。
+         * 删除网关型终端节点策略，该接口待下线，不建议使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1964,7 +1964,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改网关型终端节点policy。
+         * 修改终端节点策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

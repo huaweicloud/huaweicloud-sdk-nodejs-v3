@@ -17,6 +17,10 @@ export class ImageLocalInfo {
     private 'container_num'?: number;
     private 'component_num'?: number;
     private 'scan_failed_desc'?: string;
+    private 'severity_level'?: string;
+    private 'host_name'?: string;
+    private 'host_id'?: string;
+    private 'agent_id'?: string;
     public constructor() { 
     }
     public withImageName(imageName: string): ImageLocalInfo {
@@ -178,5 +182,45 @@ export class ImageLocalInfo {
     }
     public get scanFailedDesc(): string | undefined {
         return this['scan_failed_desc'];
+    }
+    public withSeverityLevel(severityLevel: string): ImageLocalInfo {
+        this['severity_level'] = severityLevel;
+        return this;
+    }
+    public set severityLevel(severityLevel: string  | undefined) {
+        this['severity_level'] = severityLevel;
+    }
+    public get severityLevel(): string | undefined {
+        return this['severity_level'];
+    }
+    public withHostName(hostName: string): ImageLocalInfo {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
+    }
+    public withHostId(hostId: string): ImageLocalInfo {
+        this['host_id'] = hostId;
+        return this;
+    }
+    public set hostId(hostId: string  | undefined) {
+        this['host_id'] = hostId;
+    }
+    public get hostId(): string | undefined {
+        return this['host_id'];
+    }
+    public withAgentId(agentId: string): ImageLocalInfo {
+        this['agent_id'] = agentId;
+        return this;
+    }
+    public set agentId(agentId: string  | undefined) {
+        this['agent_id'] = agentId;
+    }
+    public get agentId(): string | undefined {
+        return this['agent_id'];
     }
 }

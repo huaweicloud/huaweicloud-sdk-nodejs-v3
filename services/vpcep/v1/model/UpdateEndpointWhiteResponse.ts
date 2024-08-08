@@ -1,3 +1,4 @@
+import { PolicyStatement } from './PolicyStatement';
 import { TagList } from './TagList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -21,7 +22,8 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     public tags?: Array<TagList>;
     public whitelist?: Array<string>;
     private 'enable_whitelist'?: boolean;
-    private 'policy_document'?: object;
+    private 'policy_statement'?: Array<PolicyStatement>;
+    private 'policy_document'?: string;
     public constructor() { 
         super();
     }
@@ -175,14 +177,24 @@ export class UpdateEndpointWhiteResponse extends SdkResponse {
     public get enableWhitelist(): boolean | undefined {
         return this['enable_whitelist'];
     }
-    public withPolicyDocument(policyDocument: object): UpdateEndpointWhiteResponse {
+    public withPolicyStatement(policyStatement: Array<PolicyStatement>): UpdateEndpointWhiteResponse {
+        this['policy_statement'] = policyStatement;
+        return this;
+    }
+    public set policyStatement(policyStatement: Array<PolicyStatement>  | undefined) {
+        this['policy_statement'] = policyStatement;
+    }
+    public get policyStatement(): Array<PolicyStatement> | undefined {
+        return this['policy_statement'];
+    }
+    public withPolicyDocument(policyDocument: string): UpdateEndpointWhiteResponse {
         this['policy_document'] = policyDocument;
         return this;
     }
-    public set policyDocument(policyDocument: object  | undefined) {
+    public set policyDocument(policyDocument: string  | undefined) {
         this['policy_document'] = policyDocument;
     }
-    public get policyDocument(): object | undefined {
+    public get policyDocument(): string | undefined {
         return this['policy_document'];
     }
 }

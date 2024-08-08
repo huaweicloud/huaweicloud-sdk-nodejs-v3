@@ -3,6 +3,7 @@
 export class SmartDocumentRecognizerRequestBody {
     public data?: string;
     public url?: string;
+    private 'single_orientation_mode'?: boolean;
     public kv?: boolean;
     public table?: boolean;
     public layout?: boolean;
@@ -20,6 +21,16 @@ export class SmartDocumentRecognizerRequestBody {
     public withUrl(url: string): SmartDocumentRecognizerRequestBody {
         this['url'] = url;
         return this;
+    }
+    public withSingleOrientationMode(singleOrientationMode: boolean): SmartDocumentRecognizerRequestBody {
+        this['single_orientation_mode'] = singleOrientationMode;
+        return this;
+    }
+    public set singleOrientationMode(singleOrientationMode: boolean  | undefined) {
+        this['single_orientation_mode'] = singleOrientationMode;
+    }
+    public get singleOrientationMode(): boolean | undefined {
+        return this['single_orientation_mode'];
     }
     public withKv(kv: boolean): SmartDocumentRecognizerRequestBody {
         this['kv'] = kv;

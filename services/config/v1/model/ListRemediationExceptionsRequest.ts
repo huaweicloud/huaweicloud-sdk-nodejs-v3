@@ -5,7 +5,6 @@ export class ListRemediationExceptionsRequest {
     public limit?: number;
     public marker?: string;
     private 'resource_id'?: string;
-    private 'resource_name'?: string;
     public constructor(policyAssignmentId?: string) { 
         this['policy_assignment_id'] = policyAssignmentId;
     }
@@ -36,15 +35,5 @@ export class ListRemediationExceptionsRequest {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
-    }
-    public withResourceName(resourceName: string): ListRemediationExceptionsRequest {
-        this['resource_name'] = resourceName;
-        return this;
-    }
-    public set resourceName(resourceName: string  | undefined) {
-        this['resource_name'] = resourceName;
-    }
-    public get resourceName(): string | undefined {
-        return this['resource_name'];
     }
 }
